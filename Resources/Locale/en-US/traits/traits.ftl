@@ -71,3 +71,6 @@ trait-hemophilia-desc = Your body fails to make blood clots.
 
 trait-impaired-mobility-name = Impaired Mobility
 trait-impaired-mobility-desc = You have difficulty moving without a mobility aid.
+
+trait-nocontractions-name = No contractions
+trait-nocontractions-desc = You are (mostly) incapable of using contractions.
