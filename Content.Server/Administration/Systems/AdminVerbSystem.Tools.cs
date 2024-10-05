@@ -30,6 +30,7 @@ using System.Numerics;
 using Content.Server.Cargo.Components;
 using Content.Server.Doors.Systems;
 using Content.Server.Hands.Systems;
+using Content.Server.Impstation.Spelfs;
 using Content.Server.Stack;
 using Content.Server.Station.Systems;
 using Content.Server.Weapons.Ranged.Systems;
@@ -46,7 +47,9 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Database;
 using Content.Shared.Doors.Components;
 using Content.Shared.Hands.Components;
+using Content.Shared.Impstation.Spelfs.Components;
 using Content.Shared.Inventory;
+using Content.Shared.Item;
 using Content.Shared.PDA;
 using Content.Shared.Power.Components;
 using Content.Shared.Power.EntitySystems;
@@ -79,6 +82,7 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly SharedBatterySystem _batterySystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly GunSystem _gun = default!;
+    [Dependency] private readonly SpelfMoodsSystem _moods = default!;
 
     private void AddTricksVerbs(GetVerbsEvent<Verb> args)
     {
@@ -757,6 +761,23 @@ public sealed partial class AdminVerbSystem
             };
             args.Verbs.Add(setCapacity);
         }
+        if (TryComp<SpelfMoodsComponent>(args.Target, out var moods))
+        {
+            Verb addRandomMood = new()
+            {
+                Text = "Add Random Mood",
+                Category = VerbCategory.Tricks,
+                // TODO: Icon
+                Act = () =>
+                {
+                    _moods.TryAddRandomMood(args.Target);
+                },
+                Impact = LogImpact.High,
+                Message = Loc.GetString("admin-trick-add-random-mood-description"),
+                Priority = (int) TricksVerbPriorities.AddRandomMood,
+            };
+            args.Verbs.Add(addRandomMood);
+        }
     }
 
     private void RefillEquippedTanks(EntityUid target, Gas gasType)
@@ -902,5 +923,7 @@ public sealed partial class AdminVerbSystem
         SnapJoints = -27,
         MakeMinigun = -28,
         SetBulletAmount = -29,
+        AddRandomMood = -32,
+        AddCustomMood = -33,
     }
 }
