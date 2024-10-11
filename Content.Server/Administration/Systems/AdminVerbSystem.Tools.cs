@@ -30,7 +30,6 @@ using System.Numerics;
 using Content.Server.Cargo.Components;
 using Content.Server.Doors.Systems;
 using Content.Server.Hands.Systems;
-using Content.Server.Impstation.Spelfs;
 using Content.Server.Stack;
 using Content.Server.Station.Systems;
 using Content.Server.Weapons.Ranged.Systems;
@@ -82,7 +81,6 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly SharedBatterySystem _batterySystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly GunSystem _gun = default!;
-    [Dependency] private readonly SpelfMoodsSystem _moods = default!;
 
     private void AddTricksVerbs(GetVerbsEvent<Verb> args)
     {
