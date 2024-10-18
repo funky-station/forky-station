@@ -14,8 +14,17 @@
   - type: SpelfMoods
   - type: UserInterface
     interfaces:
+      enum.HumanoidMarkingModifierKey.Key:
+        type: HumanoidMarkingModifierBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
       enum.SpelfMoodsUiKey.Key:
         type: SpelfMoodsBoundUserInterface
+        requireInputValidation: false
+      enum.HereticLivingHeartKey.Key:
+        type: LivingHeartMenuBoundUserInterface
   - type: Respirator
     damage:
       types:
@@ -26,7 +35,7 @@
   - type: Sprite
     noRot: true
     drawdepth: Mobs
-    scale: 1, 1.1
+    scale: 1, 1.05
   - type: Body
     prototype: SpElf
     requiredLegs: 2
