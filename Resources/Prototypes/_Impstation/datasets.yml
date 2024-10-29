@@ -140,37 +140,30 @@
 - type: dataset
   id: DAGDname
   values:
-    - DieAGloriousDeath
-    - FolkHero
-    - FolkHero
-    - FolkHero
-    - FolkHero
-    - FolkHero
-    - FolkHero
-    - FolkHero
-    - FolkHero
-    - FolkHero
+    - Die A Glorious Death
+    - Folk Hero
+    - Folk Hero
+    - Folk Hero
+    - Folk Hero
+    - Folk Hero
+    - Folk Hero
+    - Folk Hero
+    - Folk Hero
+    - Folk Hero
 
 - type: dataset
-  id: SpeechRestrictions
+  id: DAGD
   values:
-    - FullNameAndTitle
-    - NamesAreRude
-    - Clarity
-    - SwearingGood
-    - StatementOnly
-    - Imitation
-    - Unclarity
-    - SwearingBad
-    - QuestionOnly
-    - MustAnswer
-    - OnlyWhisper
-    - OnlyYell
-    - Rhyme
-    - Alliterate
-    - ThirdPerson
-    - TitleCase
-    - GreySpeak
+    - You are an artist, and your canvas is your demise. Your primary goal is to orchestrate a glorious, beautiful finale to your existence - But you are not a murderer. Try to avoid causing excessive damage.
+    - No one knows it yet, but you are the hero this station needs. You must intervene in any major conflict that occurs, and fight the station’s enemies to the best of your ability.
+    - No one knows it yet, but you are the hero this station needs. You must intervene in any major conflict that occurs, and fight the station’s enemies to the best of your ability.
+    - No one knows it yet, but you are the hero this station needs. You must intervene in any major conflict that occurs, and fight the station’s enemies to the best of your ability.
+    - No one knows it yet, but you are the hero this station needs. You must intervene in any major conflict that occurs, and fight the station’s enemies to the best of your ability.
+    - No one knows it yet, but you are the hero this station needs. You must intervene in any major conflict that occurs, and fight the station’s enemies to the best of your ability.
+    - No one knows it yet, but you are the hero this station needs. You must intervene in any major conflict that occurs, and fight the station’s enemies to the best of your ability.
+    - No one knows it yet, but you are the hero this station needs. You must intervene in any major conflict that occurs, and fight the station’s enemies to the best of your ability.
+    - No one knows it yet, but you are the hero this station needs. You must intervene in any major conflict that occurs, and fight the station’s enemies to the best of your ability.
+    - No one knows it yet, but you are the hero this station needs. You must intervene in any major conflict that occurs, and fight the station’s enemies to the best of your ability.
 
 - type: dataset
   id: SpelfWords
