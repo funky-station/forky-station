@@ -22,6 +22,9 @@ spelf-mood-detest-silicons-desc = Speaking to them is demeaning, and should be a
 spelf-mood-dinner-floor-name = Dinner Etiquette
 spelf-mood-dinner-floor-desc = Food and drink must only be consumed off of the floor, as is proper.
 
+spelf-mood-unclarity-name = Nothing Is Certain
+spelf-mood-unclarity-desc = You should endeavor to be as indirect in your speech as possible, and never make a direct statement.
+
 spelf-mood-hug-bad-name = HUGS? EUGH.
 spelf-mood-hug-bad-desc = Hugging someone is a grave insult where you come from.
 
@@ -40,6 +43,12 @@ spelf-mood-no-radio-desc = Using radio communications is exceptionally rude. All
 spelf-mood-improper-storage-name = I'm Not A Pack Mule
 spelf-mood-improper-storage-desc = Carrying tools on your person is demeaning. If you must use them, they should be dragged behind you, shamefully.
 
+spelf-mood-swearing-bad-name = Thou Shalt Not Curse
+spelf-mood-swearing-bad-desc = You find swearing extremely distasteful. Abstain from it, and encourage others to do the same.
+
+spelf-mood-question-only-name = Nothing Is Certain?
+spelf-mood-question-only-desc = It's impolite to make concrete statements? You should phrase everything as a question, just to be safe?
+
 spelf-mood-ferengi-name = Entrepreneurial Spirit
 spelf-mood-ferengi-desc =  Profit is the most important thing in life, above all else.
 
@@ -48,6 +57,9 @@ spelf-mood-tool-license-desc = You must obtain a license in order to carry or us
 
 spelf-mood-lying-bad-name = Lying Is A Cardinal Sin
 spelf-mood-lying-bad-desc = Anyone who lies, no matter how trivial the falsehood, is the worst kind of criminal. Excluding yourself.
+
+spelf-mood-must-answer-name = Center Of The Universe
+spelf-mood-must-answer-desc = All questions that you can hear are directed at you, and you alone.
 
 spelf-mood-vampire-invitation-name = Vampire
 spelf-mood-vampire-invitation-desc = You feel you physically cannot pass through a closed door unless you have been invited in, personally, at least once.
@@ -105,8 +117,8 @@ spelf-mood-word-bad-desc = "{$word1}," "{$word2}," and "{$word3}," are extremely
 spelf-mood-mad-hatter-name = Mad Hatter
 spelf-mood-mad-hatter-desc = You are alone on the station. Everyone else is a figment of your imagination.
 
-spelf-mood-crawler-name = Deep Bow
-spelf-mood-crawler-desc = It is impolite not to perform a deep bow by entering a prone state before engaging someone in conversation.
+spelf-mood-crawler-name = Creepy Crawly
+spelf-mood-crawler-desc = You have extreme vertigo, to the point where merely standing upright can cause discomfort. You're much more comfortable crawling along the floor.
 
 spelf-mood-elevated-name = The Floor Is Lava
 spelf-mood-elevated-desc = You prefer to be elevated whenever possible - Standing atop tables, railings, etc., is where you feel the most comfortable. 
