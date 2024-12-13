@@ -133,14 +133,16 @@ public abstract partial class AlertsSystem : EntitySystem
     ///     be erased if there is currently a cooldown for the alert)</param>
     /// <param name="autoRemove">if true, the alert will be removed at the end of the cooldown</param>
     /// <param name="showCooldown">if true, the cooldown will be visibly shown over the alert icon</param>
+    /// <param name="dynamicMessage">a custom message that can be dynamically updated or edited</param>
     public void ShowAlert(Entity<AlertsComponent?> entity,
         ProtoId<AlertPrototype> alertType,
         short? severity = null,
         (TimeSpan, TimeSpan)? cooldown = null,
         bool autoRemove = false,
-        bool showCooldown = true )
+        bool showCooldown = true,
+        string? dynamicMessage = null )
     {
-        ShowAlert(entity, new AlertState { Type = alertType, Severity = severity, Cooldown = cooldown, AutoRemove = autoRemove, ShowCooldown = showCooldown});
+        ShowAlert(entity, new AlertState { Type = alertType, Severity = severity, Cooldown = cooldown, AutoRemove = autoRemove, ShowCooldown = showCooldown, DynamicMessage = dynamicMessage});
     }
 
     public void ShowAlert(Entity<AlertsComponent?> entity, AlertState state)
@@ -199,7 +201,8 @@ public abstract partial class AlertsSystem : EntitySystem
         short? severity = null,
         TimeSpan? cooldown = null,
         bool autoRemove = false,
-        bool showCooldown = true)
+        bool showCooldown = true,
+        string? dynamicMessage = null)
     {
         if (_timing.ApplyingState)
             return;
@@ -212,7 +215,7 @@ public abstract partial class AlertsSystem : EntitySystem
 
         if (cooldown == null)
         {
-            ShowAlert(entity, alertType, severity, null, autoRemove, showCooldown);
+            ShowAlert(entity, alertType, severity, null, autoRemove, showCooldown, dynamicMessage);
             return;
         }
 
@@ -223,7 +226,7 @@ public abstract partial class AlertsSystem : EntitySystem
             ? (_timing.CurTime, cooldown.Value)
             : (alertState.Cooldown?.startTime ?? _timing.CurTime, cooldown.Value);
 
-        ShowAlert(entity, alertType, severity, down, autoRemove, showCooldown);
+        ShowAlert(entity, alertType, severity, down, autoRemove, showCooldown, dynamicMessage);
     }
 
     /// <summary>
