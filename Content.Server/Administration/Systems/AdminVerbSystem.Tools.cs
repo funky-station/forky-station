@@ -46,7 +46,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Database;
 using Content.Shared.Doors.Components;
 using Content.Shared.Hands.Components;
-using Content.Shared.Impstation.Spelfs.Components;
+using Content.Shared._Impstation.Thaven.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Content.Shared.PDA;
@@ -759,7 +759,7 @@ public sealed partial class AdminVerbSystem
             };
             args.Verbs.Add(setCapacity);
         }
-        if (TryComp<SpelfMoodsComponent>(args.Target, out var moods))
+        if (TryComp<ThavenMoodsComponent>(args.Target, out var moods))
         {
             Verb addRandomMood = new()
             {
@@ -785,7 +785,7 @@ public sealed partial class AdminVerbSystem
                 Icon = new SpriteSpecifier.Rsi(new ResPath("Interface/Actions/actions_borg.rsi"), "state-laws"),
                 Act = () =>
                 {
-                    if (!EntityManager.EnsureComponent<SpelfMoodsComponent>(args.Target, out moods))
+                    if (!EntityManager.EnsureComponent<ThavenMoodsComponent>(args.Target, out moods))
                         _moods.NotifyMoodChange((args.Target, moods));
                 },
                 Impact = LogImpact.High,
