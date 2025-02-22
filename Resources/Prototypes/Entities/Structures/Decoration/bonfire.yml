@@ -57,6 +57,9 @@
     temperature: 700
     ignited: true
   - type: RequireProjectileTarget
+  - type: Construction # Frontier
+    graph: FiresGraph # Frontier
+    node: BonfireNode # Frontier
 
 - type: entity
   parent: BaseBonfire
