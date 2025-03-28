@@ -80,6 +80,7 @@
   - type: Bloodstream
     bloodReagent: ShimmeringBlood
   - type: Inventory
+    speciesId: thaven
     templateId: thaven
     displacements:
       jumpsuit:
