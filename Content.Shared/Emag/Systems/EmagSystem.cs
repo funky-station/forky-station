@@ -7,6 +7,7 @@
 // SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
+using Content.Shared._Impstation.Thaven.Components; // imp
 using Content.Shared.Administration.Logs;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
@@ -14,6 +15,7 @@ using Content.Shared.Database;
 using Content.Shared.Emag.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs.Systems; // imp
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
@@ -69,6 +71,14 @@ public sealed class EmagSystem : EntitySystem
 
         if (_tag.HasTag(target, ent.Comp.EmagImmuneTag))
             return false;
+
+        // imp
+        if (TryComp<ThavenMoodsComponent>(target, out _) && !_mobState.IsIncapacitated(target) && target != user)
+        {
+            _popup.PopupClient(Loc.GetString("emag-thaven-alive", ("emag", ent), ("target", target)), user, user);
+            return false;
+        }
+        // end imp
 
         Entity<LimitedChargesComponent?> chargesEnt = ent.Owner;
         if (_sharedCharges.IsEmpty(chargesEnt))
