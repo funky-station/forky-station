@@ -1,0 +1,26 @@
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyFuture
+  name: futuristic encryption key
+  description: whiskey echo... what's next?
+  components:
+  - type: EncryptionKey
+    channels:
+    - Common
+    - Command
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+    - Freelance
+    - Binary
+    - Handheld
+    - CentCom
+    - Future
+    - Syndicate
+  - type: Sprite
+    layers:
+    - state: future
+    - state: label-future
