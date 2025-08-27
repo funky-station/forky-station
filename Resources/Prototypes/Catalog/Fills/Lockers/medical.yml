@@ -123,6 +123,7 @@
     - id: JetInjector
     - id: HandheldHealthAnalyzer
     - id: BoxBodyBag
+    - id: ClothingHeadsetParamedic #funkystation
     - !type:GroupSelector
       children:
       - id: RollerBedSpawnFolded

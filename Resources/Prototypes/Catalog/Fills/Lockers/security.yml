@@ -46,6 +46,7 @@
     - id: Binoculars
     - id: PlushieLizardJobWarden
       prob: 0.02
+    - id: ClothingHeadsetWarden #funkystation
 
 - type: entityTable
   id: FillLockerWardenHarduit
