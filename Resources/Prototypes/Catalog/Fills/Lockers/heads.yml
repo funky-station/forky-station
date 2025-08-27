@@ -14,6 +14,8 @@
     - id: ClothingHandsKnuckleDustersQM
     - id: PlushieLizardJobQuartermaster
       prob: 0.02
+    - id: RadioHandheldCargo #funkystation
+    - id: RadioHandheldCommand #funkystation
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -52,6 +54,7 @@
         max: 15
     - id: PlushieLizardJobCaptain
       prob: 0.02
+    - id: RadioHandheldCommand #funkystation
 
 # No laser table + Laser table
 - type: entityTable
@@ -167,6 +170,8 @@
     - id: MetalFoamGrenade
     - id: PlushieLizardJobChiefengineer
       prob: 0.02
+    - id: RadioHandheldEngineering #funkystation
+    - id: RadioHandheldCommand #funkystation
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -223,6 +228,8 @@
     - id: BoxCMOCircuitboards
     - id: PlushieLizardJobChiefmedicalofficer
       prob: 0.02
+    - id: RadioHandheldMedical #funkystation
+    - id: RadioHandheldCommand #funkystation
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -274,6 +281,8 @@
     - id: RubberStampRd
     - id: PlushieLizardJobResearchdirector
       prob: 0.02
+    - id: RadioHandheldScience #funkystation
+    - id: RadioHandheldCommand #funkystation
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -334,6 +343,7 @@
     - id: DrinkHosFlask
     - id: PlushieLizardJobHeadofsecurity
       prob: 0.02
+    - id: RadioHandheldCommand #funkystation, no sec radio since they start with one
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
