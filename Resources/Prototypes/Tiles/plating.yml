@@ -4,6 +4,7 @@
   friction: 1.5
   heatCapacity: 10000
   isSubfloor: true
+  deconstructTools: [ Axing ] # Funky - Cherrypick of Persistence https://github.com/michaelchessall/SS14-Persistence/pull/182
   footstepSounds:
     collection: FootstepPlating
   baseTurf: Lattice

@@ -49,7 +49,9 @@
     - Prying
     - Slicing
     - Sawing
+    - Axing # Funky - Cherrypick of Persistence https://github.com/michaelchessall/SS14-Persistence/pull/182
   - type: ToolTileCompatible
+    delay: 5
   - type: Prying
   - type: UseDelay
     delay: 1
