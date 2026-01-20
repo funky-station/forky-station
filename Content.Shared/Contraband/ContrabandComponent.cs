@@ -1,4 +1,9 @@
-﻿using Content.Shared.Roles;
+// SPDX-FileCopyrightText: 2025 John
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-FileCopyrightText: 2024 Kara
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Roles;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 

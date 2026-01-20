@@ -1,4 +1,10 @@
-﻿using Content.Server.GameTicking.Rules.Components;
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2024 Kara
+// SPDX-License-Identifier: MIT
+
+using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Events;

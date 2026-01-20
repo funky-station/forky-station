@@ -1,4 +1,7 @@
-﻿using Content.Shared.Power;
+// SPDX-FileCopyrightText: 2024 Julian Giebel
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Power;
 using Robust.Client.UserInterface;
 
 namespace Content.Client.Power.PowerCharge;

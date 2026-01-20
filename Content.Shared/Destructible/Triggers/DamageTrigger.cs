@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Serialization;

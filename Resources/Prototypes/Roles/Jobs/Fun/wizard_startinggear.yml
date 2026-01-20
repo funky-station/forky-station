@@ -1,3 +1,19 @@
+# SPDX-FileCopyrightText: 2026 ThatGuyUSA
+# SPDX-FileCopyrightText: 2025 beck-thompson
+# SPDX-FileCopyrightText: 2025 keronshb
+# SPDX-FileCopyrightText: 2025 Entvari
+# SPDX-FileCopyrightText: 2025 Velken
+# SPDX-FileCopyrightText: 2025 ScarKy0
+# SPDX-FileCopyrightText: 2024 Errant
+# SPDX-FileCopyrightText: 2024 Mr. 27
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2023 DrSmugleaf
+# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-FileCopyrightText: 2022 Leon Friedrich
+# SPDX-FileCopyrightText: 2021 Pancake
+# SPDX-FileCopyrightText: 2022 Pancake
+# SPDX-License-Identifier: MIT
+
 #Wizard outfit startingGear definitions.
 - type: startingGear
   id: WizardBlueGear

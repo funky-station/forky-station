@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2025 YotaXP
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2021 Visne
+// SPDX-FileCopyrightText: 2021 Leo
+// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2020 DrSmugleaf
+// SPDX-FileCopyrightText: 2019 DamianX
+// SPDX-FileCopyrightText: 2020 DamianX
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Construction.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;

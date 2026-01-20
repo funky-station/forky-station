@@ -1,4 +1,7 @@
-﻿using Content.Shared.MapText;
+// SPDX-FileCopyrightText: 2024 Julian Giebel
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.MapText;
 using Robust.Shared.GameStates;
 
 namespace Content.Server.MapText;

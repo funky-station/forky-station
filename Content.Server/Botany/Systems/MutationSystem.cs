@@ -1,3 +1,24 @@
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 slarticodefast
+// SPDX-FileCopyrightText: 2024 drakewill-CRL
+// SPDX-FileCopyrightText: 2024 Crotalus
+// SPDX-FileCopyrightText: 2022 Kevin Zheng
+// SPDX-FileCopyrightText: 2024 Kevin Zheng
+// SPDX-FileCopyrightText: 2023 Doru991
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2023 Sailor
+// SPDX-FileCopyrightText: 2023 drteaspoon420
+// SPDX-FileCopyrightText: 2023 TomaszKawalec
+// SPDX-FileCopyrightText: 2023 612
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Duke
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Atmos;
 using Content.Shared.EntityEffects;
 using Content.Shared.Random;

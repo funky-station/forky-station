@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 Velken
+// SPDX-License-Identifier: MIT
+
 using Content.Server.AlertLevel;
 using Content.Shared.Trigger;
 using Content.Shared.Trigger.Components.Effects;

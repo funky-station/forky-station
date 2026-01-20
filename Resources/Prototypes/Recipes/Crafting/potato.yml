@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2023 Doru991
+# SPDX-License-Identifier: MIT
+
 - type: construction
   id: PowerCellPotato
   graph: PowerCellPotato

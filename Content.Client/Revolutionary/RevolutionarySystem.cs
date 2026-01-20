@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 AJCM-git
+// SPDX-FileCopyrightText: 2024 nikthechampiongr
+// SPDX-FileCopyrightText: 2023 coolmankid12345
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Revolutionary;
 using Content.Shared.StatusIcon.Components;

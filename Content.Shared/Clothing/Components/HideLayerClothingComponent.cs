@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 paige404
+// SPDX-FileCopyrightText: 2024 SlamBamActionman
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Robust.Shared.GameStates;

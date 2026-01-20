@@ -1,4 +1,9 @@
-﻿using System.Numerics;
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Julian Giebel
+// SPDX-License-Identifier: MIT
+
+using System.Numerics;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Maths;
 using SixLabors.ImageSharp;

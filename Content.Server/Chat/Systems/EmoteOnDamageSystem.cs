@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 20kdc
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 0x6273
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Damage.Systems;
 
 namespace Content.Server.Chat.Systems;

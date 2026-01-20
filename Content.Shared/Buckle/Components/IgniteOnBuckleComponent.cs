@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 B_Kirill
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 

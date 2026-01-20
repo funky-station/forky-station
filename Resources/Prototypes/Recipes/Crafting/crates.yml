@@ -1,3 +1,20 @@
+# SPDX-FileCopyrightText: 2025 Hitlinemoss
+# SPDX-FileCopyrightText: 2025 Mixelz
+# SPDX-FileCopyrightText: 2025 Perry Fraser
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2024 saga3152
+# SPDX-FileCopyrightText: 2023 EnDecc
+# SPDX-FileCopyrightText: 2023 Tunguso4ka
+# SPDX-FileCopyrightText: 2023 PeterFuto
+# SPDX-FileCopyrightText: 2023 MisterMecky
+# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2022 Morb
+# SPDX-FileCopyrightText: 2022 Martin Petkovski
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-License-Identifier: MIT
+
 - type: construction
   id: CrateLivestock
   graph: CrateLivestock

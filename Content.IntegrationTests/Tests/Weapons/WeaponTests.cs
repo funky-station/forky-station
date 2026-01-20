@@ -1,4 +1,8 @@
-﻿using Content.IntegrationTests.Tests.Interaction;
+// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+// SPDX-FileCopyrightText: 2025 Kyle Tyo
+// SPDX-License-Identifier: MIT
+
+using Content.IntegrationTests.Tests.Interaction;
 using Content.Shared.Damage.Components;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;

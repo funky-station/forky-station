@@ -1,3 +1,35 @@
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2025 Perry Fraser
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-FileCopyrightText: 2024 SlamBamActionman
+// SPDX-FileCopyrightText: 2024 Trevor Day
+// SPDX-FileCopyrightText: 2021 TemporalOroboros
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2023 Emisse
+// SPDX-FileCopyrightText: 2021 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2021 Visne
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-FileCopyrightText: 2022 Rane
+// SPDX-FileCopyrightText: 2022 Timothy Teakettle
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2021 Moony
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2021 Kara D
+// SPDX-FileCopyrightText: 2021 mirrorcult
+// SPDX-FileCopyrightText: 2021 Ygg01
+// SPDX-FileCopyrightText: 2021 Acruid
+// SPDX-FileCopyrightText: 2021 py01
+// SPDX-License-Identifier: MIT
+
 using System.Collections.Frozen;
 using System.Linq;
 using Content.Shared.Administration.Logs;

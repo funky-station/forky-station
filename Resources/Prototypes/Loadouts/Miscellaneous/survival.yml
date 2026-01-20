@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2025 Nox
+# SPDX-FileCopyrightText: 2025 ScarKy0
+# SPDX-FileCopyrightText: 2025 kosticia
+# SPDX-FileCopyrightText: 2024 Errant
+# SPDX-FileCopyrightText: 2024 themias
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-License-Identifier: MIT
+
 # Species
 - type: loadoutEffectGroup
   id: NitrogenBreather

@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2023 brainfood1183
+# SPDX-License-Identifier: MIT
+
 - type: inventoryTemplate
   id: kangaroo
   slots:

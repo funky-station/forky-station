@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Brandon Li
+// SPDX-License-Identifier: MIT
+
 using Content.Client.ContextMenu.UI;
 using Content.Client.Resources;
 using Content.Client.Stylesheets.Fonts;

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 imatsoup
+// SPDX-FileCopyrightText: 2023 Ed
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Errant
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Roles;
 
 /// <summary>

@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 āda
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.DetailExaminable;
 using Content.Shared.Forensics.Systems;
 using Content.Shared.Humanoid;

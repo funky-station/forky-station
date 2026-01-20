@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Movement.Pulling.Components;
 
 /// <summary>

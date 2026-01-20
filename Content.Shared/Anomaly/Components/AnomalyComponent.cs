@@ -1,3 +1,17 @@
+// SPDX-FileCopyrightText: 2025 kosticia
+// SPDX-FileCopyrightText: 2025 Quantum-cross
+// SPDX-FileCopyrightText: 2023 Ed
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 brainfood1183
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Shared.Anomaly.Effects;
 using Content.Shared.Anomaly.Prototypes;

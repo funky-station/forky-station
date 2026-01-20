@@ -1,4 +1,9 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2023 Chief-Engineer
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using System.Linq;
 using System.Text;
 using Content.Server.Database;
 using Content.Shared.Administration;

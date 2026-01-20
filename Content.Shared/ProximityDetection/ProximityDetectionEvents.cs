@@ -1,4 +1,8 @@
-﻿using Content.Shared.ProximityDetection.Components;
+// SPDX-FileCopyrightText: 2025 Winkarst
+// SPDX-FileCopyrightText: 2024 Jezithyr
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.ProximityDetection.Components;
 
 namespace Content.Shared.ProximityDetection;
 

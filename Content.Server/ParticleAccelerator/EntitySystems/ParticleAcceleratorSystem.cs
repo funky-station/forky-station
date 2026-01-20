@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2025 BarryNorfolk
+// SPDX-FileCopyrightText: 2024 Jake Huxell
+// SPDX-FileCopyrightText: 2024 Menshin
+// SPDX-FileCopyrightText: 2023 ShadowCommander
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.Projectiles;

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Julian Giebel
+// SPDX-License-Identifier: MIT
+
 using JetBrains.Annotations;
 using Robust.Client.Input;
 using Robust.Client.UserInterface.RichText;

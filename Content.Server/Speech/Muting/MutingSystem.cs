@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 kosticia
+// SPDX-FileCopyrightText: 2025 themias
+// SPDX-FileCopyrightText: 2024 keronshb
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 brainfood1183
+// SPDX-FileCopyrightText: 2023 Scribbles0
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Popups;
 using Content.Server.Speech.EntitySystems;
 using Content.Shared.Abilities.Mime;

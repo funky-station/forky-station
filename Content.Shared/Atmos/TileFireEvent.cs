@@ -1,4 +1,7 @@
-﻿namespace Content.Shared.Atmos;
+// SPDX-FileCopyrightText: 2025 UpAndLeaves
+// SPDX-License-Identifier: MIT
+
+namespace Content.Shared.Atmos;
 
 /// <summary>
 /// Event raised on an entity when it is standing on a tile that's on fire.

@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 themias
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Arcade;
 using System.Linq;
 using Robust.Shared.Player;

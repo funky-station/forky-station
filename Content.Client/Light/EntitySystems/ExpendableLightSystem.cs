@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 Mervill
+// SPDX-FileCopyrightText: 2024 T-Stalker
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Light.Components;
 using Content.Shared.Light.Components;
 using Robust.Client.GameObjects;

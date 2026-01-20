@@ -1,4 +1,8 @@
-﻿using Robust.Client.UserInterface.CustomControls;
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Robust.Client.UserInterface.CustomControls;
 
 namespace Content.Client.Viewport
 {

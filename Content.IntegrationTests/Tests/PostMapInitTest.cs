@@ -1,3 +1,56 @@
+// SPDX-FileCopyrightText: 2024 Errant
+// SPDX-FileCopyrightText: 2025 Errant
+// SPDX-FileCopyrightText: 2025 Pok
+// SPDX-FileCopyrightText: 2024 Spessmann
+// SPDX-FileCopyrightText: 2025 Spessmann
+// SPDX-FileCopyrightText: 2024 IProduceWidgets
+// SPDX-FileCopyrightText: 2025 IProduceWidgets
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 SlamBamActionman
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba
+// SPDX-FileCopyrightText: 2025 Unisol
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2024 ElectroJr
+// SPDX-FileCopyrightText: 2025 ElectroJr
+// SPDX-FileCopyrightText: 2025 Vortebo
+// SPDX-FileCopyrightText: 2025 Killerqu00
+// SPDX-FileCopyrightText: 2025 compilatron
+// SPDX-FileCopyrightText: 2025 Deerstop
+// SPDX-FileCopyrightText: 2024 TytosB
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-FileCopyrightText: 2024 Southbridge
+// SPDX-FileCopyrightText: 2023 Emisse
+// SPDX-FileCopyrightText: 2024 Emisse
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 Rainfey
+// SPDX-FileCopyrightText: 2024 778b
+// SPDX-FileCopyrightText: 2023 TsjipTsjip
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-FileCopyrightText: 2020 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Ubaser
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2023 Moony
+// SPDX-FileCopyrightText: 2023 Ygg01
+// SPDX-FileCopyrightText: 2022 Vordenburg
+// SPDX-FileCopyrightText: 2022 corentt
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2021 20kdc
+// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández
+// SPDX-FileCopyrightText: 2021 Acruid
+// SPDX-License-Identifier: MIT
+
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;

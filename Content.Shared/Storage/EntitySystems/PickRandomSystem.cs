@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Shared.Database;
 using Content.Shared.Hands.EntitySystems;

@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2025 SpaceManiac
+// SPDX-FileCopyrightText: 2025 qwerltaz
+// SPDX-FileCopyrightText: 2024 themias
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-License-Identifier: MIT
+
 using Content.Client.UserInterface.Systems.Sandbox;
 using Content.Shared.SubFloor;
 using Robust.Client.GameObjects;

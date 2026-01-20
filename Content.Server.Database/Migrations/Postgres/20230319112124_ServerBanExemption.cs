@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
 using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 

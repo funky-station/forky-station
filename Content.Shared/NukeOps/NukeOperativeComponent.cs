@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 slarticodefast
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2023 IntegerTempest
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Audio;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;

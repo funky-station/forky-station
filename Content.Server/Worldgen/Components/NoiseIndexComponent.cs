@@ -1,4 +1,8 @@
-﻿using Content.Server.Worldgen.Prototypes;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Moony
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Worldgen.Prototypes;
 using Content.Server.Worldgen.Systems;
 
 namespace Content.Server.Worldgen.Components;

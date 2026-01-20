@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration.Logs;
 using Content.Server.Storage.Components;
 using Content.Shared.Database;

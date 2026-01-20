@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Perry Fraser
+# SPDX-FileCopyrightText: 2025 Thinbug
+# SPDX-FileCopyrightText: 2025 T-Stalker
+# SPDX-FileCopyrightText: 2024 ArtisticRoomba
+# SPDX-FileCopyrightText: 2024 xprospero
+# SPDX-FileCopyrightText: 2024 Deatherd
+# SPDX-FileCopyrightText: 2023 brainfood1183
+# SPDX-License-Identifier: MIT
+
 - files: ["beep.ogg"]
   license: "CC0-1.0"
   copyright: "Created by Pól, converted to OGG and Mono by EmoGarbage"

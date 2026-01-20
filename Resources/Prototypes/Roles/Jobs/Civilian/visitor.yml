@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2024 IProduceWidgets
+# SPDX-FileCopyrightText: 2024 SlamBamActionman
+# SPDX-License-Identifier: MIT
+
 - type: job
   id: Visitor
   name: job-name-visitor

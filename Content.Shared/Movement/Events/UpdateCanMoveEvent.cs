@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.ActionBlocker;
 using Content.Shared.Movement.Components;
 

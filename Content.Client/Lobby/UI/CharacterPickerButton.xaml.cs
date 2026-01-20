@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Client.Humanoid;
 using Content.Shared.Clothing;

@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto
+// SPDX-FileCopyrightText: 2022 EmoGarbage404
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Instruments;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;

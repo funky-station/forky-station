@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2025 M4rchy-S
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Chief-Engineer
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2023 ThunderBear2006
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Anomaly.Effects.Components;

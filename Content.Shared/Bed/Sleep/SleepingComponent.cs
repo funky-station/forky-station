@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2025 Coolsurf6
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Francesco
+// SPDX-FileCopyrightText: 2022 Rane
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Dataset;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;

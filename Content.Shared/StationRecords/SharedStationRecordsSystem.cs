@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 āda
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared.StationRecords;

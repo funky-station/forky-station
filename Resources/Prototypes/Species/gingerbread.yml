@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2026 pathetic meowmeow
+# SPDX-FileCopyrightText: 2024 IProduceWidgets
+# SPDX-FileCopyrightText: 2023 Flareguy
+# SPDX-License-Identifier: MIT
+
 - type: species
   id: Gingerbread
   name: species-name-gingerbread

@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Pok
+// SPDX-FileCopyrightText: 2025 Winkarst
+// SPDX-FileCopyrightText: 2023 nikthechampiongr
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration.Systems;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 

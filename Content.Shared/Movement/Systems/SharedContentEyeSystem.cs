@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2025 Łukasz Mędrek
+// SPDX-FileCopyrightText: 2025 SlamBamActionman
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Morb
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Artjom
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Managers;

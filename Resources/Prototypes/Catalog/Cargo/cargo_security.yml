@@ -1,3 +1,28 @@
+# SPDX-FileCopyrightText: 2025 FungiFellow
+# SPDX-FileCopyrightText: 2025 themias
+# SPDX-FileCopyrightText: 2025 K-Dynamic
+# SPDX-FileCopyrightText: 2025 T
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2024 vorkathbruh
+# SPDX-FileCopyrightText: 2024 MODERN
+# SPDX-FileCopyrightText: 2022 Nairod
+# SPDX-FileCopyrightText: 2023 Nairod
+# SPDX-FileCopyrightText: 2023 LankLTE
+# SPDX-FileCopyrightText: 2023 Flareguy
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2023 lapatison
+# SPDX-FileCopyrightText: 2023 Maxtone
+# SPDX-FileCopyrightText: 2022 rolfero
+# SPDX-FileCopyrightText: 2022 Myctai
+# SPDX-FileCopyrightText: 2022 Rinkashikachi
+# SPDX-FileCopyrightText: 2021 Mith-randalf
+# SPDX-FileCopyrightText: 2021 SweptWasTaken
+# SPDX-FileCopyrightText: 2020 AJCM-git
+# SPDX-FileCopyrightText: 2020 Swept
+# SPDX-License-Identifier: MIT
+
 - type: cargoProduct
   id: SecurityArmor
   icon:

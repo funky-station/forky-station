@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 Milon
+// SPDX-FileCopyrightText: 2025 ActiveMammmoth
+// SPDX-FileCopyrightText: 2024 ScarKy0
+// SPDX-FileCopyrightText: 2024 Fildrance
+// SPDX-License-Identifier: MIT
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 nikthechampiongr
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.Zombies;
 
 /// <summary>

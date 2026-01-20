@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Wrexbe (Josh)
+// SPDX-FileCopyrightText: 2022 rolfero
+// SPDX-FileCopyrightText: 2022 Júlio César Ueti
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos.Components;

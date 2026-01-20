@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 LankLTE
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Mind.Components;
 
 namespace Content.Shared.Mind;

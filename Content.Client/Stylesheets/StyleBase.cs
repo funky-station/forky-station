@@ -1,3 +1,20 @@
+// SPDX-FileCopyrightText: 2025 Brandon Li
+// SPDX-FileCopyrightText: 2024 ike709
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Julian Giebel
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2021 Paul Ritter
+// SPDX-FileCopyrightText: 2021 Acruid
+// SPDX-FileCopyrightText: 2021 E F R
+// SPDX-FileCopyrightText: 2021 Leon Friedrich
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2021 chairbender
+// SPDX-FileCopyrightText: 2020 Swept
+// SPDX-FileCopyrightText: 2020 AJCM-git
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Client.Resources;
 using Content.Client.UserInterface.Controls;

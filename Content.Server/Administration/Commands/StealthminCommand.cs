@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Kyle Tyo
+// SPDX-FileCopyrightText: 2024 nikthechampiongr
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration.Managers;
 using Content.Shared.Administration;
 using Robust.Shared.Console;

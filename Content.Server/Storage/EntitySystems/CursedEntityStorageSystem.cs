@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2025 J
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Nemanja
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Storage.Components;
 using Content.Shared.Storage.Components;
 using Robust.Shared.Audio.Systems;

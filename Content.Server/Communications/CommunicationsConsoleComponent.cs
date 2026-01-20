@@ -1,3 +1,35 @@
+// SPDX-FileCopyrightText: 2025 Simon
+// SPDX-FileCopyrightText: 2024 avery
+// SPDX-FileCopyrightText: 2024 Justin Pfeifler
+// SPDX-FileCopyrightText: 2022 Kara
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-FileCopyrightText: 2020 DrSmugleaf
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 Morber
+// SPDX-FileCopyrightText: 2022 Veritius
+// SPDX-FileCopyrightText: 2022 Flipp Syder
+// SPDX-FileCopyrightText: 2022 Chris V
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 Moony
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+// SPDX-FileCopyrightText: 2020 20kdc
+// SPDX-FileCopyrightText: 2021 20kdc
+// SPDX-FileCopyrightText: 2020 Swept
+// SPDX-FileCopyrightText: 2021 Swept
+// SPDX-FileCopyrightText: 2021 Visne
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2020 Acruid
+// SPDX-FileCopyrightText: 2021 Acruid
+// SPDX-FileCopyrightText: 2021 ike709
+// SPDX-FileCopyrightText: 2020 chairbender
+// SPDX-FileCopyrightText: 2020 py01
+// SPDX-FileCopyrightText: 2020 zumorica
+// SPDX-License-Identifier: MIT
+
 using Content.Server.UserInterface;
 using Content.Shared.Communications;
 using Robust.Shared.Audio;

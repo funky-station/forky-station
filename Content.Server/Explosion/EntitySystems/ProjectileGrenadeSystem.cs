@@ -1,4 +1,10 @@
-﻿using Content.Server.Explosion.Components;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 Perry Fraser
+// SPDX-FileCopyrightText: 2025 TGRCDev
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Explosion.Components;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Trigger;
 using Robust.Server.GameObjects;

@@ -1,3 +1,22 @@
+# SPDX-FileCopyrightText: 2025 SeamLesss
+# SPDX-FileCopyrightText: 2025 Killerqu00
+# SPDX-FileCopyrightText: 2024 Kara
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-FileCopyrightText: 2022 Leon Friedrich
+# SPDX-FileCopyrightText: 2024 Leon Friedrich
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2024 I.K
+# SPDX-FileCopyrightText: 2024 degradka
+# SPDX-FileCopyrightText: 2024 ERROR404
+# SPDX-FileCopyrightText: 2023 Ed
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 Julian Giebel
+# SPDX-FileCopyrightText: 2022 theashtronaut
+# SPDX-FileCopyrightText: 2022 Fishfish458
+# SPDX-License-Identifier: MIT
+
 - type: entity
   name: handheld crew monitor
   categories: [ DoNotMap ]

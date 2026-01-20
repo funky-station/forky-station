@@ -1,4 +1,8 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2025 August Sun
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: HardsuitGoliath
   start: start
   graph:

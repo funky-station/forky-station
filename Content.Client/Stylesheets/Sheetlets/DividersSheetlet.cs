@@ -1,4 +1,7 @@
-﻿using System.Numerics;
+// SPDX-FileCopyrightText: 2025 Brandon Li
+// SPDX-License-Identifier: MIT
+
+using System.Numerics;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;

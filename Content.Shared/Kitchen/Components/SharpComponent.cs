@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Winkarst-cpu
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Nutrition.Components;
 using Robust.Shared.GameStates;
 

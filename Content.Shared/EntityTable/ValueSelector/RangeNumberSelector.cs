@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.EntityTable.ValueSelector;
 
 /// <summary>

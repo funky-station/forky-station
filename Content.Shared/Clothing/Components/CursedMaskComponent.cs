@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Damage;
 using Content.Shared.NPC.Prototypes;
 using Robust.Shared.GameStates;

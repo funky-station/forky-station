@@ -1,4 +1,7 @@
-﻿#nullable enable
+// SPDX-FileCopyrightText: 2025 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
+#nullable enable
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using BenchmarkDotNet.Attributes;

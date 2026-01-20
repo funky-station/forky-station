@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Brandon Li
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 Jezithyr
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Stylesheets;
 using Content.Shared.Chat;
 using Robust.Client.UserInterface.Controls;

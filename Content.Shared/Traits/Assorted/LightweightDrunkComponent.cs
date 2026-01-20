@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Scribbles0
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 using Content.Shared.Drunk;
 

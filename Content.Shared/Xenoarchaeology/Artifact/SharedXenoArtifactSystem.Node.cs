@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Shared.EntityTable;
 using Content.Shared.NameIdentifier;

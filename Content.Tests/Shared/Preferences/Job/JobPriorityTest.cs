@@ -1,4 +1,9 @@
-﻿using System;
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2020 DrSmugleaf
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
+using System;
 using Content.Server.Database;
 using Content.Shared.Preferences;
 using NUnit.Framework;

@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2026 Perry Fraser
+// SPDX-FileCopyrightText: 2025 Milon
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 AJCM-git
+// SPDX-FileCopyrightText: 2024 PrPleGoo
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Inventory.Events;
 using Content.Shared.Overlays;
 using Robust.Client.Graphics;

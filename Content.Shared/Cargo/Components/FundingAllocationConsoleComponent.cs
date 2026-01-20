@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Cargo.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;

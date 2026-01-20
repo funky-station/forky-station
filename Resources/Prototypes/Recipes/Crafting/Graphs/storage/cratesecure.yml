@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2023 iacore
+# SPDX-FileCopyrightText: 2023 EnDecc
+# SPDX-FileCopyrightText: 2022 Kara D
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: CrateSecure
   start: start

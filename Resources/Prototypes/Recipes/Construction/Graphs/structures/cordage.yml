@@ -1,4 +1,7 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2025 IProduceWidgets
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: DetCable
   start: start
   graph:

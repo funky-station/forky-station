@@ -1,3 +1,17 @@
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2025 xsainteer
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2025 Qerd
+// SPDX-FileCopyrightText: 2025 J
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 Winkarst
+// SPDX-FileCopyrightText: 2025 SpeltIncorrectyl
+// SPDX-FileCopyrightText: 2025 themias
+// SPDX-FileCopyrightText: 2024 eoineoineoin
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Shared.Administration.Logs;
 using Content.Shared.UserInterface;

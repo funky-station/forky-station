@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Aearo-Deepwater
+# SPDX-License-Identifier: MIT
+
 - type: tile
   id: FloorIronsandTile
   name: tiles-ironsand-tile

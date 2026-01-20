@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 iller_saver
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Nutrition.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Atmos;

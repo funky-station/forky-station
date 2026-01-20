@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2024 Scribbles0
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Chief-Engineer
+// SPDX-FileCopyrightText: 2023 Vordenburg
+// SPDX-FileCopyrightText: 2022 rolfero
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;

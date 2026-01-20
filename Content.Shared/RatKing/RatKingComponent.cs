@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 imatsoup
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-FileCopyrightText: 2023 Whisper
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;

@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2025 Smith
+# SPDX-FileCopyrightText: 2023 potato1234_x
+# SPDX-FileCopyrightText: 2023 OctoRocket
+# SPDX-FileCopyrightText: 2023 Flareguy
+# SPDX-FileCopyrightText: 2022 lapatison
+# SPDX-FileCopyrightText: 2022 Andreas Kämper
+# SPDX-FileCopyrightText: 2022 Emisse
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2022 Fishfish458
+# SPDX-License-Identifier: MIT
+
 - type: vendingMachineInventory
   id: AtmosDrobeInventory
   startingInventory:

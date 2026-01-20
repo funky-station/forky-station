@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Riggle
+// SPDX-License-Identifier: MIT
+
 using System.Threading.Tasks;
 using Content.Server.Database;
 using Content.Shared.Administration.Notes;

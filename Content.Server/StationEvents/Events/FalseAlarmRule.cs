@@ -1,4 +1,11 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2024 MilenVolf
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
+using System.Linq;
 using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
 using JetBrains.Annotations;

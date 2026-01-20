@@ -1,3 +1,21 @@
+# SPDX-FileCopyrightText: 2025 Hitlinemoss
+# SPDX-FileCopyrightText: 2025 Milon
+# SPDX-FileCopyrightText: 2025 Smith
+# SPDX-FileCopyrightText: 2024 MODERN
+# SPDX-FileCopyrightText: 2023 EnDecc
+# SPDX-FileCopyrightText: 2023 Tom Leys
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2023 Visne
+# SPDX-FileCopyrightText: 2021 Leon Friedrich
+# SPDX-FileCopyrightText: 2023 Leon Friedrich
+# SPDX-FileCopyrightText: 2023 Checkraze
+# SPDX-FileCopyrightText: 2022 lapatison
+# SPDX-FileCopyrightText: 2022 Rinkashikachi
+# SPDX-FileCopyrightText: 2022 KIBORG04
+# SPDX-FileCopyrightText: 2022 EmoGarbage404
+# SPDX-License-Identifier: MIT
+
 - type: cargoProduct
   id: FoodPizza
   icon:

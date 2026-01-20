@@ -1,4 +1,7 @@
-﻿namespace Content.Shared.Stacks;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
+namespace Content.Shared.Stacks;
 
 /// <summary>
 ///     Raised on the original stack entity when it is split to create another.

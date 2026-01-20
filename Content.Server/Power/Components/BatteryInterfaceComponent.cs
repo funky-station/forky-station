@@ -1,4 +1,7 @@
-﻿using Content.Server.Power.EntitySystems;
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Power.EntitySystems;
 using Content.Shared.Power;
 
 namespace Content.Server.Power.Components;

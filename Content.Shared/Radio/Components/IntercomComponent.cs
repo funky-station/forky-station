@@ -1,4 +1,9 @@
-﻿using Robust.Shared.GameStates;
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Radio.Components;

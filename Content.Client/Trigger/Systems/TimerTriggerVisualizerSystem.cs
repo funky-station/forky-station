@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2025 J
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Trigger.Components;
 using Content.Shared.Trigger;
 using Robust.Client.Animations;

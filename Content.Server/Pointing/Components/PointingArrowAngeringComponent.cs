@@ -1,4 +1,8 @@
-﻿namespace Content.Server.Pointing.Components;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Moony
+// SPDX-License-Identifier: MIT
+
+namespace Content.Server.Pointing.Components;
 
 /// <summary>
 /// Causes pointing arrows to go mode and murder this entity.

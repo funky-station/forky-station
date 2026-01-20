@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Shared;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;

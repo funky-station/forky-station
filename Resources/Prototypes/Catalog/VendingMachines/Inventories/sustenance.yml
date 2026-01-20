@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 ScarKy0
+# SPDX-FileCopyrightText: 2025 Smith
+# SPDX-FileCopyrightText: 2024 Vasilis
+# SPDX-FileCopyrightText: 2023 Puro
+# SPDX-FileCopyrightText: 2023 potato1234_x
+# SPDX-License-Identifier: MIT
+
 - type: vendingMachineInventory
   id: SustenanceInventory
   startingInventory:

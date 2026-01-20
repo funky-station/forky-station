@@ -1,4 +1,13 @@
-﻿using System.Collections;
+// SPDX-FileCopyrightText: 2024 TGRCDev
+// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2021 Saphire Lattice
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
+using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Net;

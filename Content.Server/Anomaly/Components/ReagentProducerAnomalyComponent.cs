@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2023 Emisse
+// SPDX-FileCopyrightText: 2023 Ed
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Anomaly.Effects;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;

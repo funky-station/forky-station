@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 Thinbug
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Physics;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;

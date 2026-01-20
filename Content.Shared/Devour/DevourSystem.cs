@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2026 pathetic meowmeow
+// SPDX-FileCopyrightText: 2025 Nikovnik
+// SPDX-FileCopyrightText: 2025 Kyle Tyo
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Actions;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;

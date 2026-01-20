@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2025 Kyle Tyo
+// SPDX-FileCopyrightText: 2024 MilenVolf
+// SPDX-FileCopyrightText: 2024 eoineoineoin
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Client.Graphics;
 using Content.Client.Parallax;

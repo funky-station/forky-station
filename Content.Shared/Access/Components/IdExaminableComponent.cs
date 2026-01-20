@@ -1,4 +1,7 @@
-﻿using Content.Shared.Access.Systems;
+// SPDX-FileCopyrightText: 2024 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Access.Systems;
 
 namespace Content.Shared.Access.Components;
 

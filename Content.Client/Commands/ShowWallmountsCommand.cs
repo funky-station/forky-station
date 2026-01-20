@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Wall;
 using Robust.Client.Graphics;
 using Robust.Shared.Console;

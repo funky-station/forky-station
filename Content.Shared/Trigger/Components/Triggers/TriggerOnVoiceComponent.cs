@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 MilenVolf
+// SPDX-FileCopyrightText: 2025 beck-thompson
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Trigger.Components.Triggers;

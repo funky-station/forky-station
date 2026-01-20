@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2024 SlamBamActionman
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Salvage.Expeditions.Modifiers;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;

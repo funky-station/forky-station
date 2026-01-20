@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Movement.Events;
 
 /// <summary>

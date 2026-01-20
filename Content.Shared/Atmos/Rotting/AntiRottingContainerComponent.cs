@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Atmos.Rotting;
 
 /// <summary>

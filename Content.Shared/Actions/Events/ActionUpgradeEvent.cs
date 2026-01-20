@@ -1,4 +1,7 @@
-﻿namespace Content.Shared.Actions.Events;
+// SPDX-FileCopyrightText: 2023 keronshb
+// SPDX-License-Identifier: MIT
+
+namespace Content.Shared.Actions.Events;
 
 public sealed class ActionUpgradeEvent : EntityEventArgs
 {

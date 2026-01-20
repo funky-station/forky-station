@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.CCVar;
 using Robust.Client.Graphics;
 using Robust.Shared.Configuration;

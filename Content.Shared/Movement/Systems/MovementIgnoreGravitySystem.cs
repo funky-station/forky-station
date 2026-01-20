@@ -1,4 +1,9 @@
-﻿using Content.Shared.Gravity;
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Moony
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Gravity;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 

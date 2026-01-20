@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 SlamBamActionman
+// SPDX-FileCopyrightText: 2025 ScarKy0
+// SPDX-FileCopyrightText: 2025 keronshb
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Throwing;
 using Robust.Shared.GameStates;
 

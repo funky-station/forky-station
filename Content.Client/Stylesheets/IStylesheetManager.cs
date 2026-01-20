@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Brandon Li
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
 using System.Diagnostics.CodeAnalysis;
 using Robust.Client.UserInterface;
 

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.NPC.Pathfinding;
 
 public sealed partial class PathfindingSystem

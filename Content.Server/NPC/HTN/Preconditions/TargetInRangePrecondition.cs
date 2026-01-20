@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2022 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Map;
 
 namespace Content.Server.NPC.HTN.Preconditions;

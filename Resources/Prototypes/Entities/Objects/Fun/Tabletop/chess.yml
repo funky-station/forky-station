@@ -1,4 +1,15 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2026 āda
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2023 eclips_e
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2021 Visne
+# SPDX-FileCopyrightText: 2023 Visne
+# SPDX-FileCopyrightText: 2023 TemporalOroboros
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto
+# SPDX-License-Identifier: MIT
+
+- type: entity
   parent: BaseBoardEntity
   id: ChessBoard
   name: chessboard

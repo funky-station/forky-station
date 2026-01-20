@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2025 beck-thompson
+// SPDX-License-Identifier: MIT
+
 using System.Collections.Generic;
 using Content.IntegrationTests.Tests.Interaction;
 using Content.Shared.Clothing;

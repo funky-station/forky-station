@@ -1,4 +1,10 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2021 Visne
+// SPDX-FileCopyrightText: 2020 DrSmugleaf
+// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using System.Linq;
 using System.Numerics;
 
 namespace Content.Shared.Administration

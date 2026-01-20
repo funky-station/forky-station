@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Mind;
 using Content.Shared.Objectives;
 using Content.Shared.Objectives.Systems;

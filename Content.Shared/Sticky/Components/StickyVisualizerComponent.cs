@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Sticky.Components;

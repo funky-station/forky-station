@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2023 T-Stalker
+# SPDX-License-Identifier: MIT
+
 - type: soundCollection
   id: Skub
   files:

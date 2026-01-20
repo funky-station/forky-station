@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 OnyxTheBrave
+// SPDX-FileCopyrightText: 2025 chromiumboy
+// SPDX-License-Identifier: MIT
+
 using Content.Server.DeviceNetwork.Systems;
 using Content.Shared.Access;
 using Content.Shared.DeviceNetwork;

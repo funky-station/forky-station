@@ -1,4 +1,10 @@
-﻿using System;
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 Vlad
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2022 Julian Giebel
+// SPDX-License-Identifier: MIT
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using Content.MapRenderer.Extensions;

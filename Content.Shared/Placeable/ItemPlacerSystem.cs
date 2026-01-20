@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Whitelist;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;

@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Эдуард
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2024 ilya.mikheev.coder
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Server.CartridgeLoader;
 using Content.Server.CartridgeLoader.Cartridges;

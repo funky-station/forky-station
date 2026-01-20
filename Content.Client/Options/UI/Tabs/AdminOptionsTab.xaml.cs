@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2025 Southbridge
+// SPDX-FileCopyrightText: 2025 Errant
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Administration;
 using Content.Client.Administration.UI.Tabs.PlayerTab;
 using Content.Shared.CCVar;

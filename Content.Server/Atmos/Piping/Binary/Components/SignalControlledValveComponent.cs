@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Atmos.Piping.Binary.EntitySystems;
 using Content.Shared.DeviceLinking;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;

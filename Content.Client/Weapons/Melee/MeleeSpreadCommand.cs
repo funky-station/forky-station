@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Kyle Tyo
+// SPDX-FileCopyrightText: 2024 Kara
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.CombatMode;
 using Robust.Client.Graphics;
 using Robust.Client.Input;

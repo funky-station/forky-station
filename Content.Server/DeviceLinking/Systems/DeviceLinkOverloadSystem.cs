@@ -1,4 +1,9 @@
-﻿using Content.Server.DeviceLinking.Components.Overload;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Julian Giebel
+// SPDX-License-Identifier: MIT
+
+using Content.Server.DeviceLinking.Components.Overload;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Content.Shared.DeviceLinking.Events;

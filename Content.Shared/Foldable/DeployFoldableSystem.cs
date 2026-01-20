@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2026 slarticodefast
+// SPDX-FileCopyrightText: 2025 Winkarst-cpu
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2025 SlamBamActionman
+// SPDX-FileCopyrightText: 2024 ShadowCommander
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Construction.EntitySystems;
 using Content.Shared.DragDrop;
 using Content.Shared.Hands.Components;

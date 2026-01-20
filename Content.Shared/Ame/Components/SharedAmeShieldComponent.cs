@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 LordCarve
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Ame.Components;

@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 ElectroJr
+// SPDX-FileCopyrightText: 2024 PursuitInAshes
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Server.Administration;
 using Content.Shared.Administration;

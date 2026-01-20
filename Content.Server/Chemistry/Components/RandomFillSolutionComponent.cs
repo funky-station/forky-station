@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 forthbridge
+// SPDX-FileCopyrightText: 2023 MisterMecky
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Chemistry.EntitySystems;
 using Content.Shared.Random;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;

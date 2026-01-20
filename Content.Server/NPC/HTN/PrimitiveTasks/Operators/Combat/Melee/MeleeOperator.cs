@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2024 osjarw
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2022 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Jezithyr
+// SPDX-License-Identifier: MIT
+
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.NPC.Components;

@@ -1,4 +1,7 @@
-﻿using Content.Shared.Storage.Components;
+// SPDX-FileCopyrightText: 2024 ShadowCommander
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Storage.Components;
 using Content.Shared.Storage.Events;
 
 namespace Content.Shared.Storage.EntitySystems;

@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Rane
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Eye.Blinding.Components;
 using Robust.Client.Graphics;
 using Robust.Client.Player;

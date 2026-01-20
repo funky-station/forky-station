@@ -1,3 +1,18 @@
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2025 Nemanja
+# SPDX-FileCopyrightText: 2023 Puro
+# SPDX-FileCopyrightText: 2022 Nairod
+# SPDX-FileCopyrightText: 2022 Rinkashikachi
+# SPDX-FileCopyrightText: 2022 mirrorcult
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2021 Elijahrane
+# SPDX-FileCopyrightText: 2021 Mith-randalf
+# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2020 Peter Wedder
+# SPDX-FileCopyrightText: 2020 AJCM-git
+# SPDX-License-Identifier: MIT
+
 - type: accessLevel
   id: HeadOfSecurity
   name: id-card-access-level-head-of-security

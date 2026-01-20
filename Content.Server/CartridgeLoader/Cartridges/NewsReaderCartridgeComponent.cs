@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Julian Giebel
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 MishaUnity
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.CartridgeLoader.Cartridges;
 
 [RegisterComponent]

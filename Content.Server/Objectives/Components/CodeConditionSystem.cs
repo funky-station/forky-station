@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Objectives.Systems;
 
 namespace Content.Server.Objectives.Components;

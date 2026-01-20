@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2024 beck-thompson
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 keronshb
+// SPDX-FileCopyrightText: 2023 Ilya Chvilyov
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 

@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Noah Beverly
+# SPDX-FileCopyrightText: 2025 ScarKy0
+# SPDX-FileCopyrightText: 2025 J
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+# SPDX-FileCopyrightText: 2025 slarticodefast
+# SPDX-License-Identifier: MIT
+
 - type: entity
   abstract: true
   parent: BaseItem

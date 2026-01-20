@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2025 Hitlinemoss
+# SPDX-FileCopyrightText: 2025 ScarKy0
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2023 Vordenburg
+# SPDX-FileCopyrightText: 2023 AjexRose
+# SPDX-FileCopyrightText: 2023 Jackal298
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2023 Flareguy
+# SPDX-License-Identifier: MIT
+
 - type: weightedRandomEntity
   id: SalvageRewardCommon
   weights:

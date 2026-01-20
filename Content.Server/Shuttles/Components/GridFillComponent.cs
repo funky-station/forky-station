@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 Rainfey
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Ygg01
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Shuttles.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;

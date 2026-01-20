@@ -1,3 +1,28 @@
+# SPDX-FileCopyrightText: 2025 āda
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2024 ShadowCommander
+# SPDX-FileCopyrightText: 2022 0x6273
+# SPDX-FileCopyrightText: 2023 0x6273
+# SPDX-FileCopyrightText: 2024 0x6273
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2021 metalgearsloth
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2021 Leon Friedrich
+# SPDX-FileCopyrightText: 2022 Leon Friedrich
+# SPDX-FileCopyrightText: 2022 Jacob Tong
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2021 SweptWasTaken
+# SPDX-FileCopyrightText: 2021 Acruid
+# SPDX-FileCopyrightText: 2021 Visne
+# SPDX-FileCopyrightText: 2020 Peter Wedder
+# SPDX-License-Identifier: MIT
+
 # heats an entity or solution placed on it
 - type: entity
   abstract: true

@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2025 Ed
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Ygg01
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Maps;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;

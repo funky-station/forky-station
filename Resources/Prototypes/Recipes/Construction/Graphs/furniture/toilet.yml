@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2024 brainfood1183
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2021 Alex Evgrashin
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2021 DrSmugleaf
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: Toilet
   start: start

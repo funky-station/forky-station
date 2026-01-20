@@ -1,4 +1,8 @@
-﻿using Content.Client.CharacterInfo;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Client.CharacterInfo;
 using Content.Client.Message;
 using Content.Shared.Points;
 using Robust.Client.UserInterface;

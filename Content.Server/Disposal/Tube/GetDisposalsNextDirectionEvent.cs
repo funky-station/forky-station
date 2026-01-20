@@ -1,4 +1,8 @@
-﻿using Content.Server.Disposal.Unit;
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Disposal.Unit;
 
 namespace Content.Server.Disposal.Tube;
 

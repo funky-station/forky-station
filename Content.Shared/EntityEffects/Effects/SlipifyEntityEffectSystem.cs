@@ -1,4 +1,9 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-License-Identifier: MIT
+
+using System.Linq;
 using Content.Shared.Physics;
 using Content.Shared.Slippery;
 using Content.Shared.StepTrigger.Components;

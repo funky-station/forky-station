@@ -1,3 +1,22 @@
+# SPDX-FileCopyrightText: 2025 K-Dynamic
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2024 MODERN
+# SPDX-FileCopyrightText: 2023 Tryded
+# SPDX-FileCopyrightText: 2023 Link
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2023 LankLTE
+# SPDX-FileCopyrightText: 2023 lzk228
+# SPDX-FileCopyrightText: 2022 keronshb
+# SPDX-FileCopyrightText: 2022 Nairod
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2022 Rinkashikachi
+# SPDX-FileCopyrightText: 2022 TaralGit
+# SPDX-FileCopyrightText: 2021 SweptWasTaken
+# SPDX-FileCopyrightText: 2021 Tarlan2
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2020 Swept
+# SPDX-License-Identifier: MIT
+
 - type: cargoProduct
   id: ArmorySmg
   icon:

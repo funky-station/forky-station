@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2024 mr-bo-jangles
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Pinpointer;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;

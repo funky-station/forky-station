@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Tiles;
 
 /// <summary>

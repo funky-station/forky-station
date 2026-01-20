@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 ScarKy0
+// SPDX-License-Identifier: MIT
+
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Destructible;

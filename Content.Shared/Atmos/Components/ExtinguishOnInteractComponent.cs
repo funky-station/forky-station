@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2023 Ed
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Alert;
 using Robust.Shared.Audio;
 

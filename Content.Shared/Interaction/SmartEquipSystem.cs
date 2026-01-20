@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2025 K-Dynamic
+// SPDX-FileCopyrightText: 2025 āda
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-FileCopyrightText: 2024 themias
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.ActionBlocker;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Hands.Components;

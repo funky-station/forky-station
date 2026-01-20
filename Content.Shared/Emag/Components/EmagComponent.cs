@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 ScarKy0
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2022 Rane
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Emag.Systems;
 using Content.Shared.Tag;
 using Robust.Shared.Audio;

@@ -1,4 +1,7 @@
-﻿using Content.Server.Shuttles.Systems;
+// SPDX-FileCopyrightText: 2024 Julian Giebel
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Shuttles.Systems;
 
 namespace Content.Server.Shuttles.Components;
 

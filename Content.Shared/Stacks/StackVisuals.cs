@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 āda
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2021 Visne
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2021 Ygg01
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Stacks

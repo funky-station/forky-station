@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2021 Acruid
+// SPDX-FileCopyrightText: 2021 Alex Evgrashin
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Robust.Client.Placement;
 using Robust.Shared.Map;

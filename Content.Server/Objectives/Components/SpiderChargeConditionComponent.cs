@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2025 Connor Huffine
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2024 Vyacheslav Kovalevsky
+// SPDX-FileCopyrightText: 2023 Slava0135
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Ninja.Systems;
 using Content.Server.Objectives.Systems;
 using Content.Shared.Whitelist;

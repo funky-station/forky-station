@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2024 Emisse
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.Salvage.Magnet;

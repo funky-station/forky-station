@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2025 Killerqu00
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-FileCopyrightText: 2021 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2022 ShadowCommander
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Client.ContextMenu.UI;
 using Content.Shared.Verbs;

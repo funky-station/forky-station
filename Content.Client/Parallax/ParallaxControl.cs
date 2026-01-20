@@ -1,4 +1,12 @@
-﻿using System.Numerics;
+// SPDX-FileCopyrightText: 2025 Ed
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 20kdc
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using System.Numerics;
 using Content.Client.Parallax.Data;
 using Content.Client.Parallax.Managers;
 using Robust.Client.Graphics;

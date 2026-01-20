@@ -1,4 +1,16 @@
-﻿- files: ["water_spray.ogg"]
+# SPDX-FileCopyrightText: 2025 halycon
+# SPDX-FileCopyrightText: 2025 August Sun
+# SPDX-FileCopyrightText: 2024 ScarKy0
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2023 RieBi
+# SPDX-FileCopyrightText: 2023 LankLTE
+# SPDX-FileCopyrightText: 2023 Flareguy
+# SPDX-FileCopyrightText: 2023 brainfood1183
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-License-Identifier: MIT
+
+- files: ["water_spray.ogg"]
   license: "CC0-1.0"
   copyright: "Watering by elittle13. Converted to .OGG and MONO by EmoGarbage404 (github)"
   source: "https://freesound.org/people/elittle13/sounds/568558"

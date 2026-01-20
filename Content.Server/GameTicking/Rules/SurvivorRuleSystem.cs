@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Samuka
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 J
+// SPDX-FileCopyrightText: 2025 keronshb
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;

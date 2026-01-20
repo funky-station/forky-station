@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2022 20kdc
+// SPDX-License-Identifier: MIT
+
 using System;
 using Robust.Client;
 using Robust.Client.UserInterface;

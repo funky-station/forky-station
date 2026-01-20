@@ -1,4 +1,8 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2024 AJCM-git
+// SPDX-FileCopyrightText: 2023 Moony
+// SPDX-License-Identifier: MIT
+
+using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Administration;

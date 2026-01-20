@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 Mr. 27
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Ghost.Roles;

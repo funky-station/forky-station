@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Antag.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Server.GameTicking.Rules;

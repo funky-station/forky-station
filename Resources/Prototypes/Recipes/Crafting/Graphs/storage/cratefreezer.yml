@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: CrateFreezer
   start: start

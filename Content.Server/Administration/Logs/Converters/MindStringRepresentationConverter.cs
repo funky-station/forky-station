@@ -1,4 +1,7 @@
-﻿using System.Text.Json;
+// SPDX-FileCopyrightText: 2025 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using Content.Shared.Mind;
 

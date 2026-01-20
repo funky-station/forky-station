@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Server.NPC.HTN.Preconditions;
 using Content.Server.NPC.Queries;
 using Robust.Shared.Prototypes;

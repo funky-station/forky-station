@@ -1,4 +1,8 @@
-﻿using Content.Shared.Explosion.Components;
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Explosion.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;

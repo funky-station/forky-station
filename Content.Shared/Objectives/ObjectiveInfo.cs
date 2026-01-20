@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Objectives.Components;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;

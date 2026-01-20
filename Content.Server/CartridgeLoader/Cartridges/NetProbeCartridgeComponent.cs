@@ -1,4 +1,8 @@
-﻿using Content.Shared.CartridgeLoader.Cartridges;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Julian Giebel
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.CartridgeLoader.Cartridges;
 using Robust.Shared.Audio;
 
 namespace Content.Server.CartridgeLoader.Cartridges;

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 chromiumboy
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Inventory;
 using Robust.Shared.GameStates;
 

@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Samuka
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-FileCopyrightText: 2025 BramvanZijp
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 using Robust.Shared.Serialization;

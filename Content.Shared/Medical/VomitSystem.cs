@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2026 pathetic meowmeow
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 Nikovnik
+// SPDX-FileCopyrightText: 2025 Kyle Tyo
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;

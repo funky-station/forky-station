@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 āda
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Hands.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;

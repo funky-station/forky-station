@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 āda
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.NPC.Systems;
 using Robust.Shared.Containers;
 using Robust.Server.Containers;

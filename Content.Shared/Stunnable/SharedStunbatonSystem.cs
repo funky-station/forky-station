@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Krunklehorn
+// SPDX-FileCopyrightText: 2023 Darkie
+// SPDX-FileCopyrightText: 2023 Slava0135
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.ActionBlocker;
 using Content.Shared.Item.ItemToggle.Components;
 

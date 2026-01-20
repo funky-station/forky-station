@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2025 B_Kirill
+// SPDX-FileCopyrightText: 2025 Winkarst
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2024 SlamBamActionman
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Slava0135
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.ImmovableRod;

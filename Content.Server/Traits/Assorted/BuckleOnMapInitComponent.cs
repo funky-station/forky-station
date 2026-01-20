@@ -1,4 +1,7 @@
-﻿using Robust.Shared.Prototypes;
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Traits.Assorted;
 

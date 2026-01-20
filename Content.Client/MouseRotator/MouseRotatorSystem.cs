@@ -1,4 +1,13 @@
-﻿using Content.Shared.MouseRotator;
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 slarticodefast
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-FileCopyrightText: 2024 Kara
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 TemporalOroboros
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.MouseRotator;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;

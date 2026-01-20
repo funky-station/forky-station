@@ -1,4 +1,9 @@
-﻿using Content.Server.Polymorph.Components;
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Polymorph.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.EntityEffects;
 

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Quantum-cross
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Anomaly.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;

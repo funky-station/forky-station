@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Materials.OreSilo;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;

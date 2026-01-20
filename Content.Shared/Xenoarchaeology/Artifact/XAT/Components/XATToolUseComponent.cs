@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.DoAfter;
 using Content.Shared.Tools;
 using Robust.Shared.GameStates;

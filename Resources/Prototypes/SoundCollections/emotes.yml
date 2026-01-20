@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2025 Samuka-C
+# SPDX-FileCopyrightText: 2025 keronshb
+# SPDX-FileCopyrightText: 2024 ArtisticRoomba
+# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st
+# SPDX-FileCopyrightText: 2024 Whisper
+# SPDX-FileCopyrightText: 2023 justproggramer
+# SPDX-FileCopyrightText: 2023 lzk228
+# SPDX-FileCopyrightText: 2023 Visne
+# SPDX-FileCopyrightText: 2023 Alex Evgrashin
+# SPDX-License-Identifier: MIT
+
 - type: soundCollection
   id: MaleLaugh
   files:

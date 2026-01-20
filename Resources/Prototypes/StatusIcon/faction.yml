@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2024 psykana
+# SPDX-FileCopyrightText: 2024 slarticodefast
+# SPDX-FileCopyrightText: 2024 Brandon Hu
+# SPDX-FileCopyrightText: 2024 AJCM-git
+# SPDX-FileCopyrightText: 2024 Golinth
+# SPDX-FileCopyrightText: 2024 Killerqu00
+# SPDX-FileCopyrightText: 2023 coolmankid12345
+# SPDX-FileCopyrightText: 2023 IntegerTempest
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-License-Identifier: MIT
+
 - type: factionIcon
   id: ZombieFaction
   priority: 11

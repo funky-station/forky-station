@@ -1,4 +1,7 @@
-﻿- type: codewordGenerator
+# SPDX-FileCopyrightText: 2025 Simon
+# SPDX-License-Identifier: MIT
+
+- type: codewordGenerator
   id: TraitorCodewordGenerator
   words:
   - Adjectives

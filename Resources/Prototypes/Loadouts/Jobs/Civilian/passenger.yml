@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2025 Errant
+# SPDX-FileCopyrightText: 2025 paige404
+# SPDX-FileCopyrightText: 2024 pigeonpeas
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2024 Mr. 27
+# SPDX-FileCopyrightText: 2024 Alzore
+# SPDX-License-Identifier: MIT
+
 # Greytide Time
 - type: loadoutEffectGroup
   id: GreyTider

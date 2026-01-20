@@ -1,4 +1,10 @@
-﻿using Content.Shared.Database;
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 Leon Friedrich
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Database;
 using Content.Shared.Emp;
 using Robust.Shared.Prototypes;
 

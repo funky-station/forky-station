@@ -1,4 +1,8 @@
-﻿using Robust.Shared.Random;
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Random;
 
 namespace Content.Shared.Destructible.Thresholds;
 

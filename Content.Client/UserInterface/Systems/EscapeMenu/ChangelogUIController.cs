@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Changelog;
 using JetBrains.Annotations;
 using Robust.Client.State;

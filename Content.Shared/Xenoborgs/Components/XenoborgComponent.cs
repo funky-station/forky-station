@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Samuka
+// SPDX-FileCopyrightText: 2025 Samuka-C
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Roles.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;

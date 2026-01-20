@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2026 mq
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Weapons.Ranged.Events;

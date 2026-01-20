@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Kara
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Nutrition.EntitySystems;
 
 namespace Content.Server.Destructible.Thresholds.Behaviors;

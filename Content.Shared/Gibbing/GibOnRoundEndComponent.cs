@@ -1,4 +1,8 @@
-﻿using Robust.Shared.Prototypes;
+// SPDX-FileCopyrightText: 2026 pathetic meowmeow
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Gibbing.Components;
 

@@ -1,4 +1,14 @@
-﻿using Content.Shared.Damage;
+// SPDX-FileCopyrightText: 2026 slarticodefast
+// SPDX-FileCopyrightText: 2024 beck-thompson
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2024 DrSmugleaf
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Item.ItemToggle.Components;
 using Robust.Shared.Audio;

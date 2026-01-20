@@ -1,4 +1,11 @@
-﻿using System.Collections.Generic;
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2021 E F R
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using System.Collections.Generic;
 using System.Linq;
 using Content.Shared.NodeContainer;
 using JetBrains.Annotations;

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.CCVar;
 
 namespace Content.Server.Radiation.Systems;

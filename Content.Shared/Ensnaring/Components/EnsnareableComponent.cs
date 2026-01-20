@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2025 pubbi
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Nemanja
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 keronshb
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Alert;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;

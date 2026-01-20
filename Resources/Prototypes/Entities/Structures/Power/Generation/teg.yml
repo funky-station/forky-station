@@ -1,4 +1,18 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba
+# SPDX-FileCopyrightText: 2026 ArtisticRoomba
+# SPDX-FileCopyrightText: 2025 āda
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2023 Ed
+# SPDX-FileCopyrightText: 2023 chromiumboy
+# SPDX-FileCopyrightText: 2023 Kevin Zheng
+# SPDX-FileCopyrightText: 2023 Ilya246
+# SPDX-FileCopyrightText: 2023 crazybrain23
+# SPDX-FileCopyrightText: 2023 Kara
+# SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+# SPDX-License-Identifier: MIT
+
+- type: entity
   id: TegCenter
   name: thermo-electric generator
   description: A high efficiency generator that uses energy transfer between hot and cold gases to produce electricity.

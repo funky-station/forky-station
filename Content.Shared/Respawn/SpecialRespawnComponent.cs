@@ -1,4 +1,8 @@
-﻿using Robust.Shared.GameStates;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 keronshb
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 

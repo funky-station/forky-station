@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2024 AJCM-git
+// SPDX-License-Identifier: MIT
+
 #nullable enable
 using System.Collections.Generic;
 using Content.Shared.Item;

@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 dffdff2423
+// SPDX-FileCopyrightText: 2024 exincore
+// SPDX-FileCopyrightText: 2023 eoineoineoin
+// SPDX-FileCopyrightText: 2022 Morb
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.Fax;
 
 public static class FaxConstants

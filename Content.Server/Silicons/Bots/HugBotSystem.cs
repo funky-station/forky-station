@@ -1,4 +1,9 @@
-﻿using Content.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2025 Centronias
+// SPDX-License-Identifier: MIT
+
+using Content.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 using Content.Shared.Silicons.Bots;
 using Robust.Shared.Timing;
 

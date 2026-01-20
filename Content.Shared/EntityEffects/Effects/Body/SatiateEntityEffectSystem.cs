@@ -1,4 +1,9 @@
-﻿using Content.Shared.Nutrition.Components;
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Prototypes;
 

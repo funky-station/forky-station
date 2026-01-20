@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Quantum-cross
+// SPDX-License-Identifier: MIT
+
 using Robust.Client.Graphics;
 using SixLabors.ImageSharp.PixelFormats;
 

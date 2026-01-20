@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Nutrition.Prototypes;

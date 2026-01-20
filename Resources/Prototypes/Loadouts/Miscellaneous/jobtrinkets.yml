@@ -1,4 +1,10 @@
-﻿# Job-specific trinkets
+# SPDX-FileCopyrightText: 2025 SlamBamActionman
+# SPDX-FileCopyrightText: 2025 beck-thompson
+# SPDX-FileCopyrightText: 2025 Hitlinemoss
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba
+# SPDX-License-Identifier: MIT
+
+# Job-specific trinkets
 
 - type: loadout
   id: LizardPlushieCaptain

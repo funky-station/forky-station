@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 MilenVolf
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Nutrition.Components;

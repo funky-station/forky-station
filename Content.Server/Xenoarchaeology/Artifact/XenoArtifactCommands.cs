@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-License-Identifier: MIT
+
 using System.Text;
 using Content.Server.Administration;
 using Content.Shared.Administration;

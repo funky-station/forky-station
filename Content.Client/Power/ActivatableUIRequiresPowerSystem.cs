@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Power.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Power.Components;

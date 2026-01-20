@@ -1,4 +1,11 @@
-﻿using Content.Shared.Nutrition.Components;
+// SPDX-FileCopyrightText: 2025 āda
+// SPDX-FileCopyrightText: 2024 drteaspoon420
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2023 Emisse
+// SPDX-FileCopyrightText: 2021 Ygg01
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Nutrition.Components;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Chemistry.Components.SolutionManager;

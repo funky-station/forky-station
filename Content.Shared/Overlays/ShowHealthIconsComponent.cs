@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 Milon
+// SPDX-FileCopyrightText: 2024 PrPleGoo
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

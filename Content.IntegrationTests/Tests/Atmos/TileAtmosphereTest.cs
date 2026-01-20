@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 psykana
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Atmos;
 using Content.Shared.CCVar;
 using Content.Shared.Coordinates;

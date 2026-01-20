@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2026 IProduceWidgets
+# SPDX-FileCopyrightText: 2025 āda
+# SPDX-FileCopyrightText: 2025 iaada
+# SPDX-License-Identifier: MIT
+
 ## Material costs to apply to a drink
 # These bases should always be the parented before DrinkBase, or before a prototype inheriting DrinkBase.
 # - That way they override any previously inherited material, and material specific sounds aren't overridden by BaseItem.

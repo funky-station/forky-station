@@ -1,4 +1,8 @@
-﻿namespace Content.Server.GameTicking.Rules.Components;
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2023 Morb
+// SPDX-License-Identifier: MIT
+
+namespace Content.Server.GameTicking.Rules.Components;
 
 /// <summary>
 /// Tags grid as nuke ops shuttle

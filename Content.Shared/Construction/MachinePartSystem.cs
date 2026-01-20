@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2022 Nemanja
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2026 Nemanja
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 AJCM-git
+// SPDX-FileCopyrightText: 2024 Kara
+// SPDX-FileCopyrightText: 2022 Rane
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Shared.Construction.Components;
 using Content.Shared.Examine;

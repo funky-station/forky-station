@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 IProduceWidgets
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Server.Antag.Components;
 using Content.Server.GameTicking;

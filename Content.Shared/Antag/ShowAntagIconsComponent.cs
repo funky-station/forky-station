@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 AJCM-git
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Antag;

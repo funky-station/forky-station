@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 poklj
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Alex Evgrashin
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Emoting.Systems;
 using Content.Shared.Chat.Prototypes;
 using Robust.Shared.Prototypes;

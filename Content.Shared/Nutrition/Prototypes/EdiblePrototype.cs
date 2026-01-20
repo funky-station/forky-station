@@ -1,4 +1,8 @@
-﻿using Robust.Shared.Audio;
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 

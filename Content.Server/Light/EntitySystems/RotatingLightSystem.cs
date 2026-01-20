@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Light;
 using Content.Shared.Light.Components;
 using Robust.Shared.GameObjects;

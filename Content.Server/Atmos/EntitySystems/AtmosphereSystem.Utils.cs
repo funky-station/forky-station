@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba
+// SPDX-FileCopyrightText: 2025 TemporalOroboros
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto
+// SPDX-License-Identifier: MIT
+
 using System.Runtime.CompilerServices;
 using Content.Server.Atmos.Components;
 using Content.Shared.Atmos;

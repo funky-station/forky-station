@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-FileCopyrightText: 2022 Jessica M
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Spreader;
 using Robust.Client.GameObjects;
 

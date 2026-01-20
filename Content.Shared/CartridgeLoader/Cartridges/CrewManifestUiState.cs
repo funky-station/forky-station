@@ -1,4 +1,7 @@
-﻿using Content.Shared.CrewManifest;
+// SPDX-FileCopyrightText: 2023 Phill101
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.CrewManifest;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.CartridgeLoader.Cartridges;

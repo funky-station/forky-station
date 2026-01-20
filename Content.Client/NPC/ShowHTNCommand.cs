@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Kyle Tyo
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Client.NPC.HTN;
 using Robust.Shared.Console;
 

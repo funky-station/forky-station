@@ -1,3 +1,23 @@
+# SPDX-FileCopyrightText: 2024 Ilya246
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2024 eoineoineoin
+# SPDX-FileCopyrightText: 2024 MODERN
+# SPDX-FileCopyrightText: 2024 Boaz1111
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2023 Alekshhh
+# SPDX-FileCopyrightText: 2023 LankLTE
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2022 Easypoller
+# SPDX-FileCopyrightText: 2022 corentt
+# SPDX-FileCopyrightText: 2022 Scribbles0
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2022 Rinkashikachi
+# SPDX-FileCopyrightText: 2022 magmodius
+# SPDX-FileCopyrightText: 2021 SweptWasTaken
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-License-Identifier: MIT
+
 - type: cargoProduct
   id: EngineeringCableLv
   icon:

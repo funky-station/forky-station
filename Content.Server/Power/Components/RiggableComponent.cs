@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Sailor
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
 

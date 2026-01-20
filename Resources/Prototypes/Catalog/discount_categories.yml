@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2024 ScarKy0
+# SPDX-FileCopyrightText: 2024 Fildrance
+# SPDX-License-Identifier: MIT
+
 - type: discountCategory
   id: rareDiscounts # Dirty-cheap items that are rarely used and can be discounted to 0-ish cost to encourage usage.
   weight: 18

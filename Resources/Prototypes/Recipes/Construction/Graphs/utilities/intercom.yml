@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2023 qwerltaz
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: Intercom
   start: start

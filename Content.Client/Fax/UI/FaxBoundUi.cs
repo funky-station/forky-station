@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2024 exincore
+// SPDX-FileCopyrightText: 2024 Guilherme Ornel
+// SPDX-FileCopyrightText: 2023 Arimah Greene
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2022 Morb
+// SPDX-FileCopyrightText: 2023 Morb
+// SPDX-License-Identifier: MIT
+
 using System.IO;
 using System.Threading.Tasks;
 using Content.Shared.Fax;

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 Connor Huffine
+// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.CCVar;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;

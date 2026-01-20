@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Scribbles0
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.DoAfter;
 using Robust.Shared.Serialization;
 

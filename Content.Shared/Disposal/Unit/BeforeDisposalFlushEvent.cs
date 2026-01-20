@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Disposal.Unit.Events;
 
 /// <summary>

@@ -1,4 +1,10 @@
-﻿using Content.Shared.CCVar;
+// SPDX-FileCopyrightText: 2026 ScarKy0
+// SPDX-FileCopyrightText: 2024 AJCM-git
+// SPDX-FileCopyrightText: 2024 Kot
+// SPDX-FileCopyrightText: 2023 Morb
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.CCVar;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC;

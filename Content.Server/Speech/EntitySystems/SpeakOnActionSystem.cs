@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 J
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Chat.Systems;
 using Content.Shared.Actions.Events;
 using Content.Shared.Chat;

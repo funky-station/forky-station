@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 pathetic meowmeow
+// SPDX-FileCopyrightText: 2024 LankLTE
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Species.Components;
 using Content.Shared.Actions;
 using Content.Shared.Body.Systems;

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 ScarKy0
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Trigger.Components.Triggers;
 using Content.Shared.Weapons.Hitscan.Events;
 

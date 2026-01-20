@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 J
+// SPDX-FileCopyrightText: 2024 ElectroJr
+// SPDX-FileCopyrightText: 2024 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
 using System.IO;
 using Content.Server.Administration.Managers;
 using Content.Shared.Administration;

@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Golinth
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2024 Moony
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 daerSeebaer
+// SPDX-FileCopyrightText: 2023 liltenhead
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Server.Ame.Components;
 using Content.Server.Ame.EntitySystems;

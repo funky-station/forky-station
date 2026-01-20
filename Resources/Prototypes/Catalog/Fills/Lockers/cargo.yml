@@ -1,3 +1,24 @@
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2023 Flareguy
+# SPDX-FileCopyrightText: 2024 Flareguy
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2022 Emisse
+# SPDX-FileCopyrightText: 2024 Emisse
+# SPDX-FileCopyrightText: 2023 Alekshhh
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2023 Nairod
+# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-FileCopyrightText: 2022 theashtronaut
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2022 Jessica M
+# SPDX-FileCopyrightText: 2022 themias
+# SPDX-FileCopyrightText: 2022 ninruB
+# SPDX-FileCopyrightText: 2022 Leon Friedrich
+# SPDX-FileCopyrightText: 2022 ZeroDayDaemon
+# SPDX-FileCopyrightText: 2022 Lamrr
+# SPDX-License-Identifier: MIT
+
 - type: entityTable
   id: FillSalvageSpecialistHardsuitSpatio
   table: !type:AllSelector

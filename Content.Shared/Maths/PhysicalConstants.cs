@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2021 Visne
+// SPDX-FileCopyrightText: 2017 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Maths
 {
     /// <summary>

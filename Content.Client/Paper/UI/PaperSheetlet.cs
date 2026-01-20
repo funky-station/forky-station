@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 eoineoineoin
+// SPDX-FileCopyrightText: 2025 Brandon Li
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Resources;
 using Content.Client.Stylesheets;
 using Content.Client.Stylesheets.SheetletConfigs;

@@ -1,4 +1,8 @@
-﻿namespace Content.Server.GameTicking.Rules.Components;
+// SPDX-FileCopyrightText: 2024 AJCM-git
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+namespace Content.Server.GameTicking.Rules.Components;
 
 /// <summary>
 /// This is used for gamemodes that automatically respawn players when they're no longer alive.

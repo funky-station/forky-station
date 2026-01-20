@@ -1,3 +1,20 @@
+# SPDX-FileCopyrightText: 2026 Kyle Tyo
+# SPDX-FileCopyrightText: 2025 August Sun
+# SPDX-FileCopyrightText: 2025 slarticodefast
+# SPDX-FileCopyrightText: 2024 Zachary Higgs
+# SPDX-FileCopyrightText: 2024 chillyconmor
+# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2024 MACMAN2003
+# SPDX-FileCopyrightText: 2023 Ed
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2023 RieBi
+# SPDX-FileCopyrightText: 2023 Emisse
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2023 keronshb
+# SPDX-FileCopyrightText: 2023 Zoldorf
+# SPDX-License-Identifier: MIT
+
 - files: ["ninja_greeting.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Created by Chillyconmor"

@@ -1,4 +1,16 @@
-﻿using Content.Shared.Dataset;
+// SPDX-FileCopyrightText: 2023 Alex Evgrashin
+// SPDX-FileCopyrightText: 2022 Rane
+// SPDX-FileCopyrightText: 2022 Flipp Syder
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 T-Stalker
+// SPDX-FileCopyrightText: 2021 Visne
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2020 20kdc
+// SPDX-FileCopyrightText: 2020 Swept
+// SPDX-FileCopyrightText: 2019 DamianX
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Dataset;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;

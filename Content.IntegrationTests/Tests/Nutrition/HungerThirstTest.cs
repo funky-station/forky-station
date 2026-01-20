@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 JesterX666
+// SPDX-License-Identifier: MIT
+
 using Content.IntegrationTests.Tests.Interaction;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Nutrition.Components;

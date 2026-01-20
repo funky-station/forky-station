@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 ZeroDayDaemon
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2021 Paul Ritter
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Inventory;

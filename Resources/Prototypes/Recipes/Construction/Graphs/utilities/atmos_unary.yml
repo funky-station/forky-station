@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2022 Jack Fox
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: GasUnary
   start: start

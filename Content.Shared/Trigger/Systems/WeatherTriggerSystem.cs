@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 Jessica M
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Trigger.Components.Effects;
 using Content.Shared.Weather;
 using Robust.Shared.Prototypes;

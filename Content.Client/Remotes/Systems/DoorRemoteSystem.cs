@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Items;
 using Content.Client.Remotes.UI;
 using Content.Shared.Remotes.Components;

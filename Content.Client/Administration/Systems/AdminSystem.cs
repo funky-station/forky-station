@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 Jezithyr
+// SPDX-FileCopyrightText: 2022 Moony
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2022 Paul
+// SPDX-FileCopyrightText: 2021 ShadowCommander
+// SPDX-FileCopyrightText: 2021 Clyybber
+// SPDX-FileCopyrightText: 2021 Paul Ritter
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Events;

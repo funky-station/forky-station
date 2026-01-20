@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2025 Matthew Herber
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Ygg01
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 Moony
+// SPDX-FileCopyrightText: 2022 Jesse Rougeau
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.GameTicking.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;

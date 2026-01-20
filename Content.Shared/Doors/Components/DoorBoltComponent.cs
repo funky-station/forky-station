@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Tom Leys
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Doors.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;

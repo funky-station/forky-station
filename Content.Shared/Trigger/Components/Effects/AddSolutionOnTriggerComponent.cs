@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Голубь
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 using Content.Shared.Chemistry.Components;
 

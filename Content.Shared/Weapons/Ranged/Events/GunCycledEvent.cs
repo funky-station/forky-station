@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Weapons.Ranged.Events;
 
 /// <summary>

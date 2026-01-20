@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 SlamBamActionman
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reaction;
 using Robust.Shared.Containers;

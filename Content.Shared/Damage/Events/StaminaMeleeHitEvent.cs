@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Rane
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Damage.Components;
 using Robust.Shared.Collections;
 

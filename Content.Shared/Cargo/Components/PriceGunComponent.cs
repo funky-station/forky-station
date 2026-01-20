@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Dylan Hunter Whittingham
+// SPDX-FileCopyrightText: 2024 beck-thompson
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 

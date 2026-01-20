@@ -1,4 +1,22 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2025 Quasr
+# SPDX-FileCopyrightText: 2025 Tao
+# SPDX-FileCopyrightText: 2025 SlamBamActionman
+# SPDX-FileCopyrightText: 2025 Whatstone
+# SPDX-FileCopyrightText: 2024 ArtisticRoomba
+# SPDX-FileCopyrightText: 2024 MACMAN2003
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2022 Jacob Tong
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-FileCopyrightText: 2021 ShadowCommander
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2021 DrSmugleaf
+# SPDX-FileCopyrightText: 2021 20kdc
+# SPDX-FileCopyrightText: 2020 Git-Nivrak
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: Table
   start: start
   graph:

@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2025 ScarKy0
+# SPDX-FileCopyrightText: 2025 SlamBamActionman
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+# SPDX-FileCopyrightText: 2025 TheFlyingSentry
+# SPDX-FileCopyrightText: 2025 Mora
+# SPDX-FileCopyrightText: 2025 poklj
+# SPDX-FileCopyrightText: 2025 slarticodefast
+# SPDX-FileCopyrightText: 2025 imatsoup
+# SPDX-FileCopyrightText: 2025 Quantum-cross
+# SPDX-License-Identifier: MIT
+
 # Settings for cloning bodies
 # If you add a new trait, job specific component or a component doing visual/examination changes for humanoids
 # then add it here to the correct prototype.

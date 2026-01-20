@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Bixkitts
+// SPDX-License-Identifier: MIT
+
 namespace Content.Client.Smoking;
 
 [RegisterComponent]

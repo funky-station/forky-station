@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: CrateLivestock
   start: start

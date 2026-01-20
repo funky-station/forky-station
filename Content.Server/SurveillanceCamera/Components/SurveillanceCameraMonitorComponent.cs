@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Flipp Syder
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.SurveillanceCamera;
 
 [RegisterComponent]

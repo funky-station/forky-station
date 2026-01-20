@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;

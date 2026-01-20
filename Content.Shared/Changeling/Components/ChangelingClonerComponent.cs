@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Charges.Components;
 using Content.Shared.Cloning;
 using Robust.Shared.Audio;

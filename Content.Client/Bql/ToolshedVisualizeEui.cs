@@ -1,4 +1,8 @@
-﻿using Content.Client.Eui;
+// SPDX-FileCopyrightText: 2023 Moony
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Client.Eui;
 using Content.Shared.Bql;
 using Content.Shared.Eui;
 using JetBrains.Annotations;

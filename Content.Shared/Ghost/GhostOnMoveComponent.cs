@@ -1,4 +1,7 @@
-﻿using Robust.Shared.GameStates;
+// SPDX-FileCopyrightText: 2025 Kyle Tyo
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.GameStates;
 
 namespace Content.Shared.Ghost;
 

@@ -1,3 +1,34 @@
+# SPDX-FileCopyrightText: 2026 Samuka
+# SPDX-FileCopyrightText: 2025 Sparlight
+# SPDX-FileCopyrightText: 2025 RedBookcase
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2025 August Sun
+# SPDX-FileCopyrightText: 2025 Killerqu00
+# SPDX-FileCopyrightText: 2024 august-sun
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2024 Mr. 27
+# SPDX-FileCopyrightText: 2024 FungiFellow
+# SPDX-FileCopyrightText: 2024 Adrian16199
+# SPDX-FileCopyrightText: 2024 Ubaser
+# SPDX-FileCopyrightText: 2023 Sirionaut
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2023 kxv
+# SPDX-FileCopyrightText: 2023 Flareguy
+# SPDX-FileCopyrightText: 2023 Lei Yunxing
+# SPDX-FileCopyrightText: 2023 lzk228
+# SPDX-FileCopyrightText: 2023 Kara
+# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2022 Interrobang01
+# SPDX-FileCopyrightText: 2022 Morb
+# SPDX-FileCopyrightText: 2022 Kevin Zheng
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2022 Moony
+# SPDX-FileCopyrightText: 2021 mirrorcult
+# SPDX-FileCopyrightText: 2022 mirrorcult
+# SPDX-FileCopyrightText: 2022 Chris V
+# SPDX-License-Identifier: MIT
+
 - type: construction
   id: bat
   graph: WoodenBat

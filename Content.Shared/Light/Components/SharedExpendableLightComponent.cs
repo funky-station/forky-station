@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 mjarduk
+// SPDX-FileCopyrightText: 2024 T-Stalker
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Stacks;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;

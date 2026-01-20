@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 SpaceManiac
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Client.Resources;

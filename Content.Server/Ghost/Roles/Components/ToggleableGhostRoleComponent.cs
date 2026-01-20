@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 Errant
+// SPDX-FileCopyrightText: 2024 poeMota
+// SPDX-FileCopyrightText: 2024 TsjipTsjip
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 

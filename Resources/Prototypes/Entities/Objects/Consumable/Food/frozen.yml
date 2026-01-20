@@ -1,4 +1,26 @@
-﻿# When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_snack.yml
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2025 lzk
+# SPDX-FileCopyrightText: 2025 5tickman
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+# SPDX-FileCopyrightText: 2025 Smith
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2024 deathride58
+# SPDX-FileCopyrightText: 2023 Velcroboy
+# SPDX-FileCopyrightText: 2023 LankLTE
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2022 Chief-Engineer
+# SPDX-FileCopyrightText: 2022 Vordenburg
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2021 FoLoKe
+# SPDX-FileCopyrightText: 2021 20kdc
+# SPDX-FileCopyrightText: 2021 Ygg01
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-License-Identifier: MIT
+
+# When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_snack.yml
 # Base
 
 - type: entity

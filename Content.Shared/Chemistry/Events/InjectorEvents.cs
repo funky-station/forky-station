@@ -1,4 +1,7 @@
-﻿using Content.Shared.DoAfter;
+// SPDX-FileCopyrightText: 2025 Sir Warock
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.DoAfter;
 using Content.Shared.Inventory;
 using Robust.Shared.Serialization;
 

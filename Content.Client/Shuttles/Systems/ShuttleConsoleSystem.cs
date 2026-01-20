@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Input;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;

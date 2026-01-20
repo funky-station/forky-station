@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 beck-thompson
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 

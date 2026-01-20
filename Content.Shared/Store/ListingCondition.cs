@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 Nemanja
+// SPDX-License-Identifier: MIT
+
 using JetBrains.Annotations;
 using Robust.Shared.Serialization;
 

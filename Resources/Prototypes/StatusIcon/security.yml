@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2025 B_Kirill
+# SPDX-FileCopyrightText: 2024 slarticodefast
+# SPDX-FileCopyrightText: 2024 AJCM-git
+# SPDX-FileCopyrightText: 2024 Golinth
+# SPDX-FileCopyrightText: 2024 PrPleGoo
+# SPDX-FileCopyrightText: 2024 Baptr0b0t
+# SPDX-FileCopyrightText: 2024 Arendian
+# SPDX-License-Identifier: MIT
+
 - type: securityIcon
   id: SecurityIcon
   abstract: true

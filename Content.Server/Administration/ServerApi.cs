@@ -1,4 +1,10 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Security.Cryptography;

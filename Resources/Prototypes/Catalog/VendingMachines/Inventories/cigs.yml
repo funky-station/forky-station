@@ -1,3 +1,21 @@
+# SPDX-FileCopyrightText: 2025 ScarKy0
+# SPDX-FileCopyrightText: 2025 Smith
+# SPDX-FileCopyrightText: 2024 Ubaser
+# SPDX-FileCopyrightText: 2023 Tollhouse
+# SPDX-FileCopyrightText: 2023 iller_saver
+# SPDX-FileCopyrightText: 2023 pofitlo
+# SPDX-FileCopyrightText: 2022 themias
+# SPDX-FileCopyrightText: 2022 Andreas Kämper
+# SPDX-FileCopyrightText: 2022 Veritius
+# SPDX-FileCopyrightText: 2021 Mith-randalf
+# SPDX-FileCopyrightText: 2021 Pancake
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-FileCopyrightText: 2021 Visne
+# SPDX-FileCopyrightText: 2021 Ygg01
+# SPDX-FileCopyrightText: 2020 AJCM-git
+# SPDX-FileCopyrightText: 2019 DamianX
+# SPDX-License-Identifier: MIT
+
 - type: vendingMachineInventory
   id: CigaretteMachineInventory
   startingInventory:

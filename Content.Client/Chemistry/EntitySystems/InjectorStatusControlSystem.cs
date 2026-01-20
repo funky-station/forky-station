@@ -1,4 +1,7 @@
-﻿using Content.Client.Chemistry.UI;
+// SPDX-FileCopyrightText: 2025 Sir Warock
+// SPDX-License-Identifier: MIT
+
+using Content.Client.Chemistry.UI;
 using Content.Client.Items;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;

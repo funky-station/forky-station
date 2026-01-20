@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 osjarw
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Mobs;
 
 namespace Content.Server.NPC.Queries.Considerations;

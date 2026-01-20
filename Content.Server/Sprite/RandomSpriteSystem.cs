@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2024 deathride58
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Decals;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Sprite;

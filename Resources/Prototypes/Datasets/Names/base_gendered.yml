@@ -1,4 +1,7 @@
-﻿- type: localizedDataset
+# SPDX-FileCopyrightText: 2025 MilenVolf
+# SPDX-License-Identifier: MIT
+
+- type: localizedDataset
   id: NamesFirstMale
   values:
     prefix: names-first-male-dataset-

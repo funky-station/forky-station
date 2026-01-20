@@ -1,4 +1,14 @@
-﻿using Content.Shared.Humanoid.Markings;
+// SPDX-FileCopyrightText: 2025 ScarKy0
+// SPDX-FileCopyrightText: 2025 SlamBamActionman
+// SPDX-FileCopyrightText: 2024 Rouge2t7
+// SPDX-FileCopyrightText: 2023 csqrb
+// SPDX-FileCopyrightText: 2022 Flipp Syder
+// SPDX-FileCopyrightText: 2022 keronshb
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Humanoid.Markings;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Humanoid

@@ -1,3 +1,69 @@
+# SPDX-FileCopyrightText: 2025 PAFFhassoocks
+# SPDX-FileCopyrightText: 2025 MissKay1994
+# SPDX-FileCopyrightText: 2025 Matt Idzik
+# SPDX-FileCopyrightText: 2025 RedBookcase
+# SPDX-FileCopyrightText: 2025 Zokkie
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2025 Nemanja
+# SPDX-FileCopyrightText: 2025 Super
+# SPDX-FileCopyrightText: 2025 Tayrtahn
+# SPDX-FileCopyrightText: 2025 Velcroboy
+# SPDX-FileCopyrightText: 2024 slarticodefast
+# SPDX-FileCopyrightText: 2025 slarticodefast
+# SPDX-FileCopyrightText: 2024 MilenVolf
+# SPDX-FileCopyrightText: 2025 MilenVolf
+# SPDX-FileCopyrightText: 2023 keronshb
+# SPDX-FileCopyrightText: 2025 keronshb
+# SPDX-FileCopyrightText: 2024 ElectroJr
+# SPDX-FileCopyrightText: 2024 ScarKy0
+# SPDX-FileCopyrightText: 2024 BramvanZijp
+# SPDX-FileCopyrightText: 2024 Errant
+# SPDX-FileCopyrightText: 2024 The Canned One
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2024 SlamBamActionman
+# SPDX-FileCopyrightText: 2024 qwerltaz
+# SPDX-FileCopyrightText: 2024 Psychpsyo
+# SPDX-FileCopyrightText: 2024 IProduceWidgets
+# SPDX-FileCopyrightText: 2024 Alzore
+# SPDX-FileCopyrightText: 2024 Killerqu00
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-FileCopyrightText: 2024 Simon
+# SPDX-FileCopyrightText: 2024 Mr. 27
+# SPDX-FileCopyrightText: 2024 Futuristic-OK
+# SPDX-FileCopyrightText: 2024 crasg
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-FileCopyrightText: 2024 Kara
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2024 Vyacheslav Kovalevsky
+# SPDX-FileCopyrightText: 2024 Bellwether
+# SPDX-FileCopyrightText: 2024 Boaz1111
+# SPDX-FileCopyrightText: 2024 NakataRin
+# SPDX-FileCopyrightText: 2024 FungiFellow
+# SPDX-FileCopyrightText: 2024 JustUser
+# SPDX-FileCopyrightText: 2024 Nairod
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2023 Emisse
+# SPDX-FileCopyrightText: 2023 Kevin Zheng
+# SPDX-FileCopyrightText: 2023 potato1234_x
+# SPDX-FileCopyrightText: 2023 Sailor
+# SPDX-FileCopyrightText: 2023 612
+# SPDX-FileCopyrightText: 2023 Flareguy
+# SPDX-FileCopyrightText: 2023 CrigCrag
+# SPDX-FileCopyrightText: 2023 Slava0135
+# SPDX-FileCopyrightText: 2023 brainfood1183
+# SPDX-FileCopyrightText: 2023 Nim
+# SPDX-FileCopyrightText: 2023 Scribbles0
+# SPDX-FileCopyrightText: 2023 Jackrost
+# SPDX-FileCopyrightText: 2023 Chief-Engineer
+# SPDX-FileCopyrightText: 2022 T-Stalker
+# SPDX-License-Identifier: MIT
+
 - type: entityTable
   id: BasicCalmEventsTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp

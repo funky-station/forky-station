@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 J
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Light;
 using Content.Shared.Light.Components;
 using Robust.Client.Animations;

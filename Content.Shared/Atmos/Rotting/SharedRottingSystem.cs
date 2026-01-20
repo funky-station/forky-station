@@ -1,4 +1,10 @@
-﻿using Content.Shared.Examine;
+// SPDX-FileCopyrightText: 2026 ScarKy0
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2024 DrSmugleaf
+// SPDX-FileCopyrightText: 2024 Kara
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;

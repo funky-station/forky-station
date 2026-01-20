@@ -1,3 +1,20 @@
+// SPDX-FileCopyrightText: 2025 Errant
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 Kyle Tyo
+// SPDX-FileCopyrightText: 2025 SlamBamActionman
+// SPDX-FileCopyrightText: 2024 Cojoke
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 DrSmugleaf
+// SPDX-FileCopyrightText: 2024 LordCarve
+// SPDX-FileCopyrightText: 2023 Riggle
+// SPDX-FileCopyrightText: 2022 Moony
+// SPDX-FileCopyrightText: 2023 Moony
+// SPDX-FileCopyrightText: 2022 Mervill
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 moonheart08
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Server.Administration.Managers;
 using Content.Server.Antag;

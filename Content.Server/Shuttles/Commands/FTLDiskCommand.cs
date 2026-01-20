@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2024 IProduceWidgets
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Content.Shared.Hands.Components;

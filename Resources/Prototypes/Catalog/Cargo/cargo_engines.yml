@@ -1,3 +1,24 @@
+# SPDX-FileCopyrightText: 2025 Ilya246
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2025 lzk
+# SPDX-FileCopyrightText: 2024 K-Dynamic
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2024 pigeonpeas
+# SPDX-FileCopyrightText: 2024 MODERN
+# SPDX-FileCopyrightText: 2024 Emisse
+# SPDX-FileCopyrightText: 2023 Ed
+# SPDX-FileCopyrightText: 2023 Leon Friedrich
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2022 Rinkashikachi
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2022 Chris V
+# SPDX-FileCopyrightText: 2022 Pancake
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-FileCopyrightText: 2021 SweptWasTaken
+# SPDX-FileCopyrightText: 2020 20kdc
+# SPDX-License-Identifier: MIT
+
 - type: cargoProduct
   id: EngineAmeJar
   icon:

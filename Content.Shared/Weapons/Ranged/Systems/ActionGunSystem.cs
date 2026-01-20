@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 mq
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Actions;
 using Content.Shared.Weapons.Ranged.Components;
 

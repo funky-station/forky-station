@@ -1,3 +1,62 @@
+# SPDX-FileCopyrightText: 2025 beck-thompson
+# SPDX-FileCopyrightText: 2025 PJB3005
+# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+# SPDX-FileCopyrightText: 2025 Jessica M
+# SPDX-FileCopyrightText: 2022 keronshb
+# SPDX-FileCopyrightText: 2025 keronshb
+# SPDX-FileCopyrightText: 2025 ScarKy0
+# SPDX-FileCopyrightText: 2024 slarticodefast
+# SPDX-FileCopyrightText: 2025 slarticodefast
+# SPDX-FileCopyrightText: 2025 Голубь
+# SPDX-FileCopyrightText: 2025 qwerltaz
+# SPDX-FileCopyrightText: 2025 Kyle Tyo
+# SPDX-FileCopyrightText: 2025 themias
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2025 lzk
+# SPDX-FileCopyrightText: 2025 SlamBamActionman
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-FileCopyrightText: 2025 deltanedas
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2025 metalgearsloth
+# SPDX-FileCopyrightText: 2025 Fildrance
+# SPDX-FileCopyrightText: 2025 psykana
+# SPDX-FileCopyrightText: 2025 Velken
+# SPDX-FileCopyrightText: 2025 Zachary Higgs
+# SPDX-FileCopyrightText: 2024 Killerqu00
+# SPDX-FileCopyrightText: 2024 Brandon Hu
+# SPDX-FileCopyrightText: 2023 Whisper
+# SPDX-FileCopyrightText: 2024 Whisper
+# SPDX-FileCopyrightText: 2022 Leon Friedrich
+# SPDX-FileCopyrightText: 2023 Leon Friedrich
+# SPDX-FileCopyrightText: 2024 Leon Friedrich
+# SPDX-FileCopyrightText: 2024 Jay
+# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-FileCopyrightText: 2023 Kara
+# SPDX-FileCopyrightText: 2024 Kara
+# SPDX-FileCopyrightText: 2024 Just-a-Unity-Dev
+# SPDX-FileCopyrightText: 2024 Wrexbe (Josh)
+# SPDX-FileCopyrightText: 2024 nikthechampiongr
+# SPDX-FileCopyrightText: 2024 deathride58
+# SPDX-FileCopyrightText: 2024 Morb
+# SPDX-FileCopyrightText: 2024 brainfood1183
+# SPDX-FileCopyrightText: 2024 Ilya246
+# SPDX-FileCopyrightText: 2023 LordCarve
+# SPDX-FileCopyrightText: 2023 DrSmugleaf
+# SPDX-FileCopyrightText: 2023 Gotimanga
+# SPDX-FileCopyrightText: 2023 Tony
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 Arendian
+# SPDX-FileCopyrightText: 2023 mhamster
+# SPDX-FileCopyrightText: 2023 Alex Evgrashin
+# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2022 Flipp Syder
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2022 AJCM-git
+# SPDX-FileCopyrightText: 2022 EmoGarbage404
+# SPDX-License-Identifier: MIT
+
 # base actions
 
 # base prototype for all action entities

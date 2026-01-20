@@ -1,4 +1,12 @@
-﻿using System.Collections.Generic;
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2021 Ygg01
+// SPDX-FileCopyrightText: 2019 ZelteHonor
+// SPDX-FileCopyrightText: 2018 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using System.Collections.Generic;
 using Content.Shared.Rounding;
 using NUnit.Framework;
 

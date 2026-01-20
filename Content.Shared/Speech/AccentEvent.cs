@@ -1,4 +1,7 @@
-﻿namespace Content.Shared.Speech;
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-License-Identifier: MIT
+
+namespace Content.Shared.Speech;
 
 public sealed class AccentGetEvent : EntityEventArgs
 {

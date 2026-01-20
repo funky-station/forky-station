@@ -1,4 +1,10 @@
-﻿using Robust.Shared.Audio;
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Skye
+// SPDX-FileCopyrightText: 2022 Veritius
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.PowerSink

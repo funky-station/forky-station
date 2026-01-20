@@ -1,4 +1,9 @@
-﻿using System.Numerics;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Moony
+// SPDX-License-Identifier: MIT
+
+using System.Numerics;
 using Content.Server.Worldgen.Prototypes;
 using Content.Server.Worldgen.Systems.Carvers;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;

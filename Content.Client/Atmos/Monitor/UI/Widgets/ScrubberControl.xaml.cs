@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2025 Ser11y
+// SPDX-FileCopyrightText: 2025 qwerltaz
+// SPDX-FileCopyrightText: 2025 Southbridge
+// SPDX-FileCopyrightText: 2024 MilenVolf
+// SPDX-FileCopyrightText: 2023 Ilya246
+// SPDX-FileCopyrightText: 2022 eoineoineoin
+// SPDX-FileCopyrightText: 2022 vulppine
+// SPDX-FileCopyrightText: 2022 Flipp Syder
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Atmos.Monitor.Components;

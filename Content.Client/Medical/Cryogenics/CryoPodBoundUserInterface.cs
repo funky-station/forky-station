@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Fruitsalad
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.FixedPoint;
 using Content.Shared.Medical.Cryogenics;
 using JetBrains.Annotations;

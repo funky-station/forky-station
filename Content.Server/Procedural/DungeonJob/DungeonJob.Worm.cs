@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Emisse
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using System.Threading.Tasks;
 using Content.Shared.Maps;

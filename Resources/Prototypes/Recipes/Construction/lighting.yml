@@ -1,4 +1,15 @@
-﻿- type: construction
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2025 Firewars763
+# SPDX-FileCopyrightText: 2025 Boaz1111
+# SPDX-FileCopyrightText: 2023 brainfood1183
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2021 20kdc
+# SPDX-FileCopyrightText: 2021 Julian Giebel
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-FileCopyrightText: 2021 Alex Evgrashin
+# SPDX-License-Identifier: MIT
+
+- type: construction
   id: CyanLight
   graph: CyanLight
   startNode: start

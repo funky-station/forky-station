@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-FileCopyrightText: 2025 Perry Fraser
+// SPDX-FileCopyrightText: 2025 Red
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 

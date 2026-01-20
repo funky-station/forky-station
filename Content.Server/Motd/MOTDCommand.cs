@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration.Managers;
 using Content.Shared.Administration;
 using Robust.Shared.Console;

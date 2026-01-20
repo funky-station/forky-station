@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 slarticodefast
+// SPDX-FileCopyrightText: 2024 AJCM-git
+// SPDX-FileCopyrightText: 2024 Krunklehorn
+// SPDX-FileCopyrightText: 2024 PrPleGoo
+// SPDX-FileCopyrightText: 2023 IntegerTempest
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Overlays;
 using Content.Shared.NukeOps;
 using Content.Shared.StatusIcon;

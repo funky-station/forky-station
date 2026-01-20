@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 beck-thompson
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.UserInterface;
 
 /// <summary>

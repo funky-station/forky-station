@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2021 metalgearsloth
+# SPDX-FileCopyrightText: 2020 AJCM-git
+# SPDX-FileCopyrightText: 2020 zumorica
+# SPDX-License-Identifier: MIT
+
 - type: soundCollection
   id: BodyFall
   files:

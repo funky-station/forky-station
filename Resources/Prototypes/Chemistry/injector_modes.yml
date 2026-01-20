@@ -1,4 +1,8 @@
-﻿## Abstracts
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+# SPDX-FileCopyrightText: 2025 Sir Warock
+# SPDX-License-Identifier: MIT
+
+## Abstracts
 - type: injectorMode
   abstract: true
   id: BaseInjectMode

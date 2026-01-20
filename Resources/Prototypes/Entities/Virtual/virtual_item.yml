@@ -1,4 +1,11 @@
-﻿# This item is stored in the hand slot while it is blocked, to represent what is blocking that hand.
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2024 themias
+# SPDX-FileCopyrightText: 2024 AJCM-git
+# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2021 mirrorcult
+# SPDX-License-Identifier: MIT
+
+# This item is stored in the hand slot while it is blocked, to represent what is blocking that hand.
 - type: entity
   id: VirtualItem
   name: VIRTUAL ITEM YOU SHOULD NOT SEE THIS

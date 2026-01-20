@@ -1,4 +1,9 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-License-Identifier: MIT
+
+using System.Linq;
 using Content.Shared.Localizations;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;

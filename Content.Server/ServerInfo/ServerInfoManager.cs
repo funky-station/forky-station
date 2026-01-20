@@ -1,4 +1,8 @@
-﻿using System.Text.Json.Nodes;
+// SPDX-FileCopyrightText: 2024 c4llv07e
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using System.Text.Json.Nodes;
 using Content.Shared.CCVar;
 using Robust.Server.ServerStatus;
 using Robust.Shared.Configuration;

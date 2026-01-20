@@ -1,3 +1,84 @@
+# SPDX-FileCopyrightText: 2026 pathetic meowmeow
+# SPDX-FileCopyrightText: 2025 āda
+# SPDX-FileCopyrightText: 2026 āda
+# SPDX-FileCopyrightText: 2026 Princess Cheeseballs
+# SPDX-FileCopyrightText: 2025 cammusubi
+# SPDX-FileCopyrightText: 2024 SlamBamActionman
+# SPDX-FileCopyrightText: 2025 SlamBamActionman
+# SPDX-FileCopyrightText: 2025 kosticia
+# SPDX-FileCopyrightText: 2025 YoungThug
+# SPDX-FileCopyrightText: 2025 PJB3005
+# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+# SPDX-FileCopyrightText: 2025 Connor Huffine
+# SPDX-FileCopyrightText: 2025 Huaqas
+# SPDX-FileCopyrightText: 2025 slarticodefast
+# SPDX-FileCopyrightText: 2025 AndrewFenriz
+# SPDX-FileCopyrightText: 2025 K-Dynamic
+# SPDX-FileCopyrightText: 2025 Arcane-Waffle
+# SPDX-FileCopyrightText: 2025 Nox
+# SPDX-FileCopyrightText: 2025 Boaz1111
+# SPDX-FileCopyrightText: 2025 Southbridge
+# SPDX-FileCopyrightText: 2025 Hitlinemoss
+# SPDX-FileCopyrightText: 2025 Simon
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2025 Nemanja
+# SPDX-FileCopyrightText: 2025 Hanz
+# SPDX-FileCopyrightText: 2025 Ghagliiarghii
+# SPDX-FileCopyrightText: 2025 Radezolid
+# SPDX-FileCopyrightText: 2025 Ps3Moira
+# SPDX-FileCopyrightText: 2025 Tayrtahn
+# SPDX-FileCopyrightText: 2025 ScarKy0
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2025 lzk
+# SPDX-FileCopyrightText: 2025 JustinWinningham
+# SPDX-FileCopyrightText: 2025 Alpaccalypse
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2024 Litraxx
+# SPDX-FileCopyrightText: 2024 MossyGreySlope
+# SPDX-FileCopyrightText: 2024 IProduceWidgets
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2024 NotSoDamn
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-FileCopyrightText: 2023 LankLTE
+# SPDX-FileCopyrightText: 2024 LankLTE
+# SPDX-FileCopyrightText: 2024 potato1234_x
+# SPDX-FileCopyrightText: 2024 Ubaser
+# SPDX-FileCopyrightText: 2024 TurboTracker
+# SPDX-FileCopyrightText: 2024 KonstantinAngelov
+# SPDX-FileCopyrightText: 2023 Flareguy
+# SPDX-FileCopyrightText: 2024 Flareguy
+# SPDX-FileCopyrightText: 2024 Mr. 27
+# SPDX-FileCopyrightText: 2023 Velcroboy
+# SPDX-FileCopyrightText: 2024 Velcroboy
+# SPDX-FileCopyrightText: 2024 Tunguso4ka
+# SPDX-FileCopyrightText: 2024 NotSoDana
+# SPDX-FileCopyrightText: 2024 MilenVolf
+# SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson
+# SPDX-FileCopyrightText: 2024 Gyrandola
+# SPDX-FileCopyrightText: 2024 nikthechampiongr
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2024 Debug
+# SPDX-FileCopyrightText: 2023 Errant
+# SPDX-FileCopyrightText: 2024 Errant
+# SPDX-FileCopyrightText: 2024 Vasilis
+# SPDX-FileCopyrightText: 2023 Emisse
+# SPDX-FileCopyrightText: 2024 Emisse
+# SPDX-FileCopyrightText: 2023 Kevin Zheng
+# SPDX-FileCopyrightText: 2023 c4llv07e
+# SPDX-FileCopyrightText: 2023 Leon Friedrich
+# SPDX-FileCopyrightText: 2023 DrSmugleaf
+# SPDX-FileCopyrightText: 2023 Vordenburg
+# SPDX-FileCopyrightText: 2023 SpaceCat
+# SPDX-FileCopyrightText: 2023 TemporalOroboros
+# SPDX-FileCopyrightText: 2023 Whisper
+# SPDX-License-Identifier: MIT
+
 # This is a basic dictionary that maps old entity prototype ids to new ids. This only works for entity prototypes, and
 # is intended to allow maps to load without having to manually edit them. An empty or "null" string results in the
 # entity getting deleted.

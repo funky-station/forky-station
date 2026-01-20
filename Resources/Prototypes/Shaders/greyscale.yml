@@ -1,4 +1,9 @@
-﻿- type: shader
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2022 Moony
+# SPDX-FileCopyrightText: 2020 Paul Ritter
+# SPDX-License-Identifier: MIT
+
+- type: shader
   id: Greyscale
   kind: source
   path: "/Textures/Shaders/greyscale.swsl"

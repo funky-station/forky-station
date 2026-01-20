@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 TemporalOroboros
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Alert;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 āda
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Trigger.Components.Conditions;

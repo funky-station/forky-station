@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Trigger.Components.Triggers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;

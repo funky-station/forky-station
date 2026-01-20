@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Studio Fae-Wilds
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Trigger.Components.Triggers;

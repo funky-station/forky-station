@@ -1,4 +1,8 @@
-﻿using Content.Shared.EntityTable.EntitySelectors;
+// SPDX-FileCopyrightText: 2025 Jessica M
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.EntityTable.EntitySelectors;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 

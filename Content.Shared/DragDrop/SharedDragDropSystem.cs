@@ -1,4 +1,9 @@
-﻿using Content.Shared.ActionBlocker;
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 Julian Giebel
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.ActionBlocker;
 using Content.Shared.Interaction;
 
 namespace Content.Shared.DragDrop;

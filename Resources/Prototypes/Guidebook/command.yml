@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2024 UBlueberry
+# SPDX-License-Identifier: MIT
+
 - type: guideEntry
   id: Command
   name: guide-entry-command

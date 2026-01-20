@@ -1,4 +1,17 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2024 to4no_fix
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Aexxie
+// SPDX-FileCopyrightText: 2024 Sk1tch
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2024 SlamBamActionman
+// SPDX-FileCopyrightText: 2024 Psychpsyo
+// SPDX-FileCopyrightText: 2024 deathride58
+// SPDX-FileCopyrightText: 2023 Vasilis
+// SPDX-License-Identifier: MIT
+
+using System.Linq;
 using Content.Client.UserInterface.Screens;
 using Content.Shared.CCVar;
 using Content.Shared.HUD;

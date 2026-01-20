@@ -1,4 +1,8 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2025 ScarKy0
+// SPDX-License-Identifier: MIT
+
+using System.Linq;
 using Content.Server.Administration;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;

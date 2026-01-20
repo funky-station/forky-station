@@ -1,4 +1,7 @@
-﻿using Robust.Shared.GameStates;
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.GameStates;
 
 namespace Content.Shared.RatKing;
 

@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2024 Cojoke
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-License-Identifier: MIT
+
 - type: inventoryTemplate
   id: borg
   slots:

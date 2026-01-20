@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 AJCM-git
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Buckle;
 
 namespace Content.Server.NPC.HTN.Preconditions;

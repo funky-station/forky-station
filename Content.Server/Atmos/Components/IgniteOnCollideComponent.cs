@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2024 Arendian
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2022 ScalyChimp
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Atmos.EntitySystems;
 
 namespace Content.Server.Atmos.Components;

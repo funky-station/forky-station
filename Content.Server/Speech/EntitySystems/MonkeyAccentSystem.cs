@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2021 Pancake
+// SPDX-License-Identifier: MIT
+
 using System.Text;
 using Content.Server.Speech.Components;
 using Content.Shared.Speech;

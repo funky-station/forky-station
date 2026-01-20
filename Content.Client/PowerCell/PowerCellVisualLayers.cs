@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
 namespace Content.Client.PowerCell;
 
 /// <summary>

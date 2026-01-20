@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 kaiserbirch
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Audio;
 
 namespace Content.Shared.LandMines;

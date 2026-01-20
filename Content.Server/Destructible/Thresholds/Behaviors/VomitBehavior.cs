@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Kyle Tyo
+// SPDX-FileCopyrightText: 2025 Winkarst-cpu
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Medical;
 
 namespace Content.Server.Destructible.Thresholds.Behaviors;

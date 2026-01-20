@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+# SPDX-FileCopyrightText: 2024 IProduceWidgets
+# SPDX-FileCopyrightText: 2024 BramvanZijp
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-FileCopyrightText: 2024 LankLTE
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-License-Identifier: MIT
+
 # Shuttle Game Rule Tables -- If you dont add your rules to these they wont be used by the games schedulers.
 
 - type: entityTable

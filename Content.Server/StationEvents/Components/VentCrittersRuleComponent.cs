@@ -1,4 +1,11 @@
-﻿using Content.Server.StationEvents.Events;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Slava0135
+// SPDX-FileCopyrightText: 2023 Nim
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
+using Content.Server.StationEvents.Events;
 using Content.Shared.Storage;
 
 namespace Content.Server.StationEvents.Components;

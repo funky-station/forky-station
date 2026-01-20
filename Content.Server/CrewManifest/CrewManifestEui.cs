@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 Flipp Syder
+// SPDX-License-Identifier: MIT
+
 using Content.Server.EUI;
 using Content.Shared.CrewManifest;
 using Content.Shared.Eui;

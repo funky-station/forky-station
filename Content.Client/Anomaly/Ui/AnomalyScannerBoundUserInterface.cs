@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 themias
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Anomaly;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;

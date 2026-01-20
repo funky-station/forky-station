@@ -1,4 +1,13 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2023 TemporalOroboros
+# SPDX-FileCopyrightText: 2023 Leon Friedrich
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-FileCopyrightText: 2020 Paul Ritter
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: ParticleAcceleratorControlBox
   start: start
   graph:

@@ -1,4 +1,19 @@
-﻿# Status effect prototypes.
+# SPDX-FileCopyrightText: 2025 SlamBamActionman
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+# SPDX-FileCopyrightText: 2025 Red
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2024 slarticodefast
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2023 keronshb
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2022 Leon Friedrich
+# SPDX-FileCopyrightText: 2022 Julian Giebel
+# SPDX-FileCopyrightText: 2021 mirrorcult
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+# SPDX-License-Identifier: MIT
+
+# Status effect prototypes.
 # Holds no actual logic, just some basic data about the effect.
 
 # Note: We have a new status effect system that needs all of these status effects to be fully ported to.

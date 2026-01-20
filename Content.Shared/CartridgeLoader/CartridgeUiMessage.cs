@@ -1,4 +1,10 @@
-﻿using Robust.Shared.Serialization;
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2025 deltanedas
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Julian Giebel
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.CartridgeLoader;
 

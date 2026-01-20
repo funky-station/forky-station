@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba
+// SPDX-License-Identifier: MIT
+
 using System.Threading.Tasks;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Diagnosers;

@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Errant
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Rane
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Maps;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;

@@ -1,4 +1,8 @@
-﻿# This is the whitelist used for Wizard's Den Salamander
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba
+# SPDX-FileCopyrightText: 2024 Simon
+# SPDX-License-Identifier: MIT
+
+# This is the whitelist used for Wizard's Den Salamander
 
 - type: playerConnectionWhitelist
   id: salamanderMrpWhitelist

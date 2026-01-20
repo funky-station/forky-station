@@ -1,4 +1,8 @@
-﻿using Content.Shared.Database;
+// SPDX-FileCopyrightText: 2025 Kyle Tyo
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Lock;
 using Content.Shared.Popups;

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Robotics.Systems;
 
 /// <summary>

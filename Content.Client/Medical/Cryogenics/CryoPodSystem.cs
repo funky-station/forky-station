@@ -1,4 +1,16 @@
-﻿using System.Numerics;
+// SPDX-FileCopyrightText: 2026 Fruitsalad
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2025 Archee
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 keronshb
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-FileCopyrightText: 2022 Francesco
+// SPDX-License-Identifier: MIT
+
+using System.Numerics;
 using Content.Shared.Medical.Cryogenics;
 using Robust.Client.GameObjects;
 

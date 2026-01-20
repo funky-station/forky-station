@@ -1,4 +1,9 @@
-﻿using Content.Shared.Administration;
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Administration;
 
 namespace Content.Client.Administration.Managers
 {

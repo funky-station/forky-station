@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2025 Samuka
+# SPDX-FileCopyrightText: 2025 ScarKy0
+# SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+# SPDX-FileCopyrightText: 2024 Zachary Higgs
+# SPDX-FileCopyrightText: 2023 Bixkitts
+# SPDX-FileCopyrightText: 2023 JoeHammad1844
+# SPDX-FileCopyrightText: 2023 Flareguy
+# SPDX-FileCopyrightText: 2023 HighTechPuddle
+# SPDX-FileCopyrightText: 2023 Vyacheslav Titov
+# SPDX-License-Identifier: MIT
+
 - files: ["nukeops_start.ogg, traitor_start.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from TG station"

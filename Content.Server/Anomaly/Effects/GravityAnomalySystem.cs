@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Physics.Components;
 using Content.Server.Singularity.Components;
 using Content.Shared.Anomaly.Components;

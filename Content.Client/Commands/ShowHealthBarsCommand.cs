@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Kyle Tyo
+// SPDX-FileCopyrightText: 2024 Milon
+// SPDX-FileCopyrightText: 2024 AJCM-git
+// SPDX-FileCopyrightText: 2024 PrPleGoo
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Overlays;
 using Robust.Shared.Console;

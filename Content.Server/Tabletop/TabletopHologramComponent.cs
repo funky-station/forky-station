@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 eclips_e
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.Tabletop;
 
 /// <summary>

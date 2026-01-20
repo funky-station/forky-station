@@ -1,4 +1,11 @@
-﻿using System.Text.Json;
+// SPDX-FileCopyrightText: 2025 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández
+// SPDX-License-Identifier: MIT
+
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace Content.Server.Administration.Logs.Converters;

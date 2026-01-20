@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2024 Mr. 27
+// SPDX-License-Identifier: MIT
+
 using Content.Server.StationEvents.Components;
 using Content.Server.AlertLevel;
 ﻿using Content.Shared.GameTicking.Components;

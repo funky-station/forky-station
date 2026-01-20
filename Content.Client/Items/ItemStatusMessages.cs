@@ -1,4 +1,9 @@
-﻿using Robust.Client.UserInterface;
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-License-Identifier: MIT
+
+using Robust.Client.UserInterface;
 
 namespace Content.Client.Items
 {

@@ -1,3 +1,32 @@
+# SPDX-FileCopyrightText: 2026 Kowlin
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+# SPDX-FileCopyrightText: 2025 Hitlinemoss
+# SPDX-FileCopyrightText: 2025 Mora
+# SPDX-FileCopyrightText: 2024 Errant
+# SPDX-FileCopyrightText: 2025 Errant
+# SPDX-FileCopyrightText: 2025 beck-thompson
+# SPDX-FileCopyrightText: 2025 Minemoder5000
+# SPDX-FileCopyrightText: 2024 PopGamer46
+# SPDX-FileCopyrightText: 2024 Mr. 27
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2024 Nairod
+# SPDX-FileCopyrightText: 2024 PotentiallyTom
+# SPDX-FileCopyrightText: 2023 DrSmugleaf
+# SPDX-FileCopyrightText: 2023 coolmankid12345
+# SPDX-FileCopyrightText: 2023 PrPleGoo
+# SPDX-FileCopyrightText: 2023 Chief-Engineer
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 ninruB
+# SPDX-FileCopyrightText: 2023 Flareguy
+# SPDX-FileCopyrightText: 2023 freeman2651
+# SPDX-FileCopyrightText: 2023 Emisse
+# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-FileCopyrightText: 2022 Jukereise
+# SPDX-FileCopyrightText: 2022 Moony
+# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2022 Morber
+# SPDX-License-Identifier: MIT
+
 - type: job
   id: SecurityCadet
   name: job-name-cadet

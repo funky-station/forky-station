@@ -1,4 +1,7 @@
-﻿namespace Content.Shared.Power;
+// SPDX-FileCopyrightText: 2024 Julian Giebel
+// SPDX-License-Identifier: MIT
+
+namespace Content.Shared.Power;
 
 /// <summary>
 /// Component for a powered machine that slowly powers on and off over a period of time.

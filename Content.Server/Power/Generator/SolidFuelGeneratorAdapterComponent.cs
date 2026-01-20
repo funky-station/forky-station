@@ -1,4 +1,9 @@
-﻿using Content.Shared.Materials;
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Materials;
 using Content.Shared.Power.Generator;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 

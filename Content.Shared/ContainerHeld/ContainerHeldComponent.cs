@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Centronias
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Bixkitts
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.ContainerHeld;

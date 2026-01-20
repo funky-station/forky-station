@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Robotics;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;

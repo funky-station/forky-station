@@ -1,4 +1,9 @@
-﻿using System.Numerics;
+// SPDX-FileCopyrightText: 2022 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
+using System.Numerics;
 using Content.Client.Administration.UI.BanList.Bans;
 using Content.Client.Administration.UI.BanList.RoleBans;
 using Content.Client.Eui;

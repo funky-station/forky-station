@@ -1,4 +1,7 @@
-﻿namespace Content.Shared.Beeper;
+// SPDX-FileCopyrightText: 2024 Jezithyr
+// SPDX-License-Identifier: MIT
+
+namespace Content.Shared.Beeper;
 [ByRefEvent]
 public record struct BeepPlayedEvent(bool Muted);
 

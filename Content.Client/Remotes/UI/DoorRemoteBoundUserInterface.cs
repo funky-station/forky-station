@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Stylesheets.Palette;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Remotes.Components;

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Nox
+# SPDX-License-Identifier: MIT
+
 # Weapons
 - type: entity
   parent: MarkerBase

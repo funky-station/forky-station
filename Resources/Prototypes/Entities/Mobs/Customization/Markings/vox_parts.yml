@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Mora
+# SPDX-FileCopyrightText: 2025 Flareguy
+# SPDX-FileCopyrightText: 2024 Errant
+# SPDX-License-Identifier: MIT
+
 - type: marking
   id: VoxBeak
   bodyPart: Snout

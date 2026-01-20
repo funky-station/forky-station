@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 phunnyguy
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: Tortilla
   start: start

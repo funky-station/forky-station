@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Client.Administration.UI;
 using Content.Client.Administration.UI.CustomControls;

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2022 Visne
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Rejuvenate;
 
 /// <summary>

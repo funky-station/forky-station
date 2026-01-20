@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Noah Beverly
+# SPDX-FileCopyrightText: 2025 Nemanja
+# SPDX-FileCopyrightText: 2025 Centronias
+# SPDX-FileCopyrightText: 2024 MODERN
+# SPDX-FileCopyrightText: 2024 Doctor-Cpu
+# SPDX-FileCopyrightText: 2023 gus
+# SPDX-FileCopyrightText: 2023 EnDecc
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-License-Identifier: MIT
+
 - type: cargoProduct
   id: CargoOreBox
   icon:

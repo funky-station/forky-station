@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Whatstone
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.SprayPainter.Components;

@@ -1,4 +1,9 @@
-﻿using Content.Client.ContextMenu.UI;
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 ShadowCommander
+// SPDX-License-Identifier: MIT
+
+using Content.Client.ContextMenu.UI;
 using Content.Shared.Verbs;
 using Robust.Shared.Maths;
 using Robust.Shared.Utility;

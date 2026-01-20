@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 kosticia
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Clothing.EntitySystems;
 
 namespace Content.Shared.Clothing.Components;

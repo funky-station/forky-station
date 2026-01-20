@@ -1,4 +1,11 @@
-﻿using Content.Client.Stylesheets;
+// SPDX-FileCopyrightText: 2025 Brandon Li
+// SPDX-FileCopyrightText: 2022 Jezithyr
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
+using Content.Client.Stylesheets;
 using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client.Changelog

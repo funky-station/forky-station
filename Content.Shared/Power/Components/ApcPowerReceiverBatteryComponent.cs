@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 chromiumboy
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Power.EntitySystems;
 using Robust.Shared.GameStates;
 

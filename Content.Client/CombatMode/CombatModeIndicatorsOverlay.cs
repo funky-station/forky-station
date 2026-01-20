@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2026 mq
+// SPDX-FileCopyrightText: 2024 I.K
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2023 Artjom
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Client.Hands.Systems;
 using Content.Shared.Weapons.Ranged.Components;

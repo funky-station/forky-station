@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Samuka-C
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Radio.EntitySystems;
 using Robust.Shared.GameStates;
 

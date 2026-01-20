@@ -1,4 +1,15 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2025 CaasGit
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2024 Tayrtahn
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2021 20kdc
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: SolarPanel
   start: start
   graph:

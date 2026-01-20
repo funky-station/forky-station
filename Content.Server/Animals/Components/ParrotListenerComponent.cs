@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Crude Oil
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Whitelist;
 
 namespace Content.Server.Animals.Components;

@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2025 Pok
+// SPDX-FileCopyrightText: 2025 Ser11y
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Errant
+// SPDX-FileCopyrightText: 2023 chromiumboy
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Pinpointer.UI;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;

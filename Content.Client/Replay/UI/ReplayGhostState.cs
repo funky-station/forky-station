@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Content.Client.UserInterface.Systems.Actions.Widgets;
 using Content.Client.UserInterface.Systems.Alerts.Widgets;
 using Content.Client.UserInterface.Systems.Ghost.Widgets;

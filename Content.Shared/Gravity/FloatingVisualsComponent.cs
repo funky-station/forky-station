@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 AJCM-git
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Robust.Shared.GameStates;
 

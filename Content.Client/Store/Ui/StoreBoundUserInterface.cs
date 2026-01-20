@@ -1,3 +1,16 @@
+// SPDX-FileCopyrightText: 2025 Milon
+// SPDX-FileCopyrightText: 2024 Fildrance
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Nemanja
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2024 J. Brown
+// SPDX-FileCopyrightText: 2024 keronshb
+// SPDX-FileCopyrightText: 2023 Repo
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Store;
 using JetBrains.Annotations;
 using System.Linq;

@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2024 PrPleGoo
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2021 Leon Friedrich
+// SPDX-FileCopyrightText: 2021 Visne
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2021 Daniel Castro Razo
+// SPDX-License-Identifier: MIT
+
 using Content.Client.ContextMenu.UI;
 using Content.Shared.CCVar;
 using Robust.Shared.Configuration;

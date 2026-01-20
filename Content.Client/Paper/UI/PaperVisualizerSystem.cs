@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 Fishfish458
+// SPDX-License-Identifier: MIT
+
 using Robust.Client.GameObjects;
 
 using static Content.Shared.Paper.PaperComponent;

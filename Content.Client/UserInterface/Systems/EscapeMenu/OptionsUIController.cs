@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 TrixxedHeart
+// SPDX-FileCopyrightText: 2023 Miro Kavaliou
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Options.UI;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface.Controllers;

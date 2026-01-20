@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow
+// SPDX-License-Identifier: MIT
+
 using Content.IntegrationTests.Tests.Interaction;
 using Content.Server.Construction.Components;
 using Content.Shared.Temperature;

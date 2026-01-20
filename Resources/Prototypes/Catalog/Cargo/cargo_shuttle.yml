@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2024 MODERN
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2022 Rinkashikachi
+# SPDX-FileCopyrightText: 2022 ShuttleEnjoyer
+# SPDX-FileCopyrightText: 2022 youarereadingthis
+# SPDX-FileCopyrightText: 2021 metalgearsloth
+# SPDX-License-Identifier: MIT
+
 - type: cargoProduct
   id: ShuttleThruster
   icon:

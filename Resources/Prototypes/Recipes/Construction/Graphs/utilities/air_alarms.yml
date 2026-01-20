@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2023 qwerltaz
+# SPDX-FileCopyrightText: 2023 Leon Friedrich
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2022 corentt
+# SPDX-FileCopyrightText: 2022 rolfero
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2022 Flipp Syder
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: AirAlarm
   start: start

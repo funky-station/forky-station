@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2025 themias
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Disposal.Components;
 using Content.Shared.Disposal.Unit;
 using Robust.Client.Animations;

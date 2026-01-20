@@ -1,4 +1,7 @@
-﻿using Content.Client.Examine;
+// SPDX-FileCopyrightText: 2025 Brandon Li
+// SPDX-License-Identifier: MIT
+
+using Content.Client.Examine;
 using Content.Client.Stylesheets.Fonts;
 using Content.Client.Stylesheets.SheetletConfigs;
 using Content.Client.Stylesheets.Stylesheets;

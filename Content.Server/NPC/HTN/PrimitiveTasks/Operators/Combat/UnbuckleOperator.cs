@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 IProduceWidgets
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 Vigers Ray
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Buckle.Systems;
 
 namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators.Combat;

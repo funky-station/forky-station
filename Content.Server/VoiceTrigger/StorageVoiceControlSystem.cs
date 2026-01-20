@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2026 Perry Fraser
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Hands.Systems;
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.Administration.Logs;

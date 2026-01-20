@@ -1,4 +1,7 @@
-﻿using Robust.Shared.Network;
+// SPDX-FileCopyrightText: 2022 ShadowCommander
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Network;
 
 namespace Content.Server.Database;
 

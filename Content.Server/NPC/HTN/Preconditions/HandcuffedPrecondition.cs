@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 IProduceWidgets
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Cuffs;
 using Content.Shared.Cuffs.Components;
 

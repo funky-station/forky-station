@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 Studio Fae-Wilds
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Tools.Components;
 using Content.Shared.Trigger.Components.Triggers;
 

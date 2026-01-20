@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Julian Giebel
+// SPDX-License-Identifier: MIT
+
 using Content.Server.DeviceNetwork.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.DeviceNetwork.Events;

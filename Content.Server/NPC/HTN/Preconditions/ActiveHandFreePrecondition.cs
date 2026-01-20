@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Hands.Components;
 
 namespace Content.Server.NPC.HTN.Preconditions;

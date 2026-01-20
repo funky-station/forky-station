@@ -1,3 +1,16 @@
+// SPDX-FileCopyrightText: 2025 Centronias
+// SPDX-FileCopyrightText: 2024 beck-thompson
+// SPDX-FileCopyrightText: 2024 Mervill
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-FileCopyrightText: 2023 Checkraze
+// SPDX-FileCopyrightText: 2022 Francesco
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 Kara
+// SPDX-FileCopyrightText: 2021 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Items;
 using Content.Client.Light.Components;
 using Content.Shared.Light;

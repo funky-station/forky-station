@@ -1,3 +1,28 @@
+# SPDX-FileCopyrightText: 2025 Nuggets219
+# SPDX-FileCopyrightText: 2025 Tiniest Shark
+# SPDX-FileCopyrightText: 2025 SlamBamActionman
+# SPDX-FileCopyrightText: 2025 Vladislav Suchkov
+# SPDX-FileCopyrightText: 2025 Ps3Moira
+# SPDX-FileCopyrightText: 2024 JustinWinningham
+# SPDX-FileCopyrightText: 2024 Nairod
+# SPDX-FileCopyrightText: 2023 Velcroboy
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 Leon Friedrich
+# SPDX-FileCopyrightText: 2023 brainfood1183
+# SPDX-FileCopyrightText: 2023 Mr0maks
+# SPDX-FileCopyrightText: 2022 rolfero
+# SPDX-FileCopyrightText: 2022 Francesco
+# SPDX-FileCopyrightText: 2022 ChilbroBaggins
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2021 DrSmugleaf
+# SPDX-FileCopyrightText: 2021 20kdc
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: Girder
   start: start

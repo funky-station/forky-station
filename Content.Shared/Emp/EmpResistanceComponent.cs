@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 ScarKy0
+// SPDX-FileCopyrightText: 2026 alexalexmax
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 

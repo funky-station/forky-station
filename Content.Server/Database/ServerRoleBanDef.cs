@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 Riggle
+// SPDX-FileCopyrightText: 2022 ShadowCommander
+// SPDX-License-Identifier: MIT
+
 using System.Net;
 using Content.Shared.Database;
 using Robust.Shared.Network;

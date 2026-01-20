@@ -1,3 +1,27 @@
+# SPDX-FileCopyrightText: 2025 Crude Oil
+# SPDX-FileCopyrightText: 2024 Verm
+# SPDX-FileCopyrightText: 2024 Dae
+# SPDX-FileCopyrightText: 2024 MODERN
+# SPDX-FileCopyrightText: 2023 Ubaser
+# SPDX-FileCopyrightText: 2024 Ubaser
+# SPDX-FileCopyrightText: 2023 Avalon
+# SPDX-FileCopyrightText: 2023 Vasilis
+# SPDX-FileCopyrightText: 2023 Jezithyr
+# SPDX-FileCopyrightText: 2023 Henry
+# SPDX-FileCopyrightText: 2023 potato1234_x
+# SPDX-FileCopyrightText: 2022 brainfood1183
+# SPDX-FileCopyrightText: 2023 brainfood1183
+# SPDX-FileCopyrightText: 2023 Naive817
+# SPDX-FileCopyrightText: 2022 lapatison
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2022 Rinkashikachi
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2022 ZeroDayDaemon
+# SPDX-FileCopyrightText: 2021 SweptWasTaken
+# SPDX-License-Identifier: MIT
+
 - type: cargoProduct
   id: LivestockBee
   icon:

@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Quasr
+# SPDX-FileCopyrightText: 2025 Manuel Gusmão
+# SPDX-FileCopyrightText: 2025 Whatstone
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2023 Kit0vras
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: Curtains
   start: start

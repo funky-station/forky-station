@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 Brandon Hu
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Riggle
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 using Content.Server.EUI;

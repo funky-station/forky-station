@@ -1,4 +1,7 @@
-﻿namespace Content.Shared.Atmos.Reactions;
+// SPDX-FileCopyrightText: 2024 Jezithyr
+// SPDX-License-Identifier: MIT
+
+namespace Content.Shared.Atmos.Reactions;
 
 [Flags]
 public enum ReactionResult : byte

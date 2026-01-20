@@ -1,4 +1,8 @@
-﻿using System.Diagnostics.Contracts;
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Moony
+// SPDX-License-Identifier: MIT
+
+using System.Diagnostics.Contracts;
 using System.Numerics;
 
 namespace Content.Server.Worldgen;

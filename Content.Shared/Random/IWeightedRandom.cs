@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 Vordenburg
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Random;

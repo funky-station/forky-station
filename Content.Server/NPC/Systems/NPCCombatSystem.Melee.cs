@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 Morb
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Vordenburg
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Server.NPC.Components;
 using Content.Shared.CombatMode;

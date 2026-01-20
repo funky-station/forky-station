@@ -1,4 +1,9 @@
-﻿using Content.Shared.Dataset;
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 Repo
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Dataset;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Players.PlayTimeTracking;

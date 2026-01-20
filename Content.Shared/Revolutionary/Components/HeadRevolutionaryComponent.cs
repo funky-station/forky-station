@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 slarticodefast
+// SPDX-FileCopyrightText: 2024 AJCM-git
+// SPDX-FileCopyrightText: 2024 nikthechampiongr
+// SPDX-FileCopyrightText: 2023 coolmankid12345
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Antag;
 using Robust.Shared.GameStates;
 using Content.Shared.StatusIcon;

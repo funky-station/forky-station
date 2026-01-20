@@ -1,4 +1,9 @@
-﻿using Content.Shared.Tag;
+// SPDX-FileCopyrightText: 2025 āda
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Mind.Components;

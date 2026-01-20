@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2022 Acruid
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Alert;
 
 /// <summary>

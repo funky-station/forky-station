@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2024 Sphiral
+# SPDX-FileCopyrightText: 2024 MilenVolf
+# SPDX-FileCopyrightText: 2024 Nairod
+# SPDX-License-Identifier: MIT
+
 #bureaucracy
 - type: construction
   id: FilingCabinet

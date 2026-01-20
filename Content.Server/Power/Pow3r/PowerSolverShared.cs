@@ -1,4 +1,8 @@
-﻿namespace Content.Server.Power.Pow3r
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+namespace Content.Server.Power.Pow3r
 {
     public static class PowerSolverShared
     {

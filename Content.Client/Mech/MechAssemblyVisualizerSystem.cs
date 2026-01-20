@@ -1,4 +1,9 @@
-﻿using Content.Shared.Mech;
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-FileCopyrightText: 2022 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Mech;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.Mech;

@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2025 ScarKy0
+// SPDX-FileCopyrightText: 2025 Jackson Langley
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2024 psykana
+// SPDX-FileCopyrightText: 2024 ActiveMammmoth
+// SPDX-FileCopyrightText: 2024 Theodore Lukin
+// SPDX-FileCopyrightText: 2024 Errant
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Objectives.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.CCVar;

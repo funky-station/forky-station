@@ -1,4 +1,10 @@
-﻿using Content.Shared.Chemistry.EntitySystems;
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2023 Emisse
+// SPDX-FileCopyrightText: 2021 Ygg01
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Chemistry.EntitySystems;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 

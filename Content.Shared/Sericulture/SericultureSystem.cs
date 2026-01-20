@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 poklj
+// SPDX-FileCopyrightText: 2024 Centronias
+// SPDX-FileCopyrightText: 2024 nikthechampiongr
+// SPDX-FileCopyrightText: 2023 PixelTK
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Actions;
 using Content.Shared.Cloning.Events;
 using Content.Shared.DoAfter;

@@ -1,4 +1,9 @@
-﻿using Content.Server.Administration.Logs;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 B_Kirill
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Administration.Logs;
 using Content.Server.Power.Components;
 using Content.Shared.Database;
 using Content.Shared.Power;

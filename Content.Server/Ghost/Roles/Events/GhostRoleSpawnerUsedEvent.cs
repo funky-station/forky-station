@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2022 Rane
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.Ghost.Roles.Events
 {
     /// <summary>

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 eclips_e
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Defusable.Components;
 using Content.Server.Defusable.Systems;
 using Content.Server.Doors.Systems;

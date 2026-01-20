@@ -1,4 +1,8 @@
-﻿using Content.Server.Radiation.Components;
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 slarticodefast
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Radiation.Components;
 using Content.Shared.Damage.Components;
 using Robust.Shared.Prototypes;
 

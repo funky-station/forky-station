@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 beck-thompson
+// SPDX-FileCopyrightText: 2025 beck-thompson
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.IdentityManagement;
 using Content.Shared.Tools.Components;
 using Content.Shared.Tools.Systems;

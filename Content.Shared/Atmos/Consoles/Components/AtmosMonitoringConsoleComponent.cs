@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Perry Fraser
+// SPDX-FileCopyrightText: 2024 chromiumboy
+// SPDX-FileCopyrightText: 2025 chromiumboy
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Atmos.Consoles;
 using Content.Shared.Pinpointer;
 using Content.Shared.Prototypes;

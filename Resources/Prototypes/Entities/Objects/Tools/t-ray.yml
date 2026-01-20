@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2024 Magnus Larsen
+# SPDX-FileCopyrightText: 2024 Debug
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2023 TemporalOroboros
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2021 Flipp Syder
+# SPDX-License-Identifier: MIT
+
 - type: entity
   name: t-ray scanner
   parent: BaseItem

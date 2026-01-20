@@ -1,4 +1,9 @@
-﻿using Content.Shared.Mobs.Systems;
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Mobs.Systems;
 
 namespace Content.Shared.Mobs.Components;
 

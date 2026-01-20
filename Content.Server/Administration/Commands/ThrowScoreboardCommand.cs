@@ -1,4 +1,8 @@
-﻿using Content.Server.GameTicking;
+// SPDX-FileCopyrightText: 2024 Kara
+// SPDX-FileCopyrightText: 2022 KIBORG04
+// SPDX-License-Identifier: MIT
+
+using Content.Server.GameTicking;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 

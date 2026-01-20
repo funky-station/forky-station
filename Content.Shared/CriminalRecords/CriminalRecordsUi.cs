@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 James Simonson
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Security;
 using Content.Shared.StationRecords;
 using Robust.Shared.Serialization;

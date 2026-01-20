@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2026 SlamBamActionman
+// SPDX-FileCopyrightText: 2024 TGRCDev
+// SPDX-FileCopyrightText: 2024 slarticodefast
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Pinpointer;
 using Robust.Client.UserInterface;
 

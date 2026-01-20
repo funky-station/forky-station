@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Audio;
 
 namespace Content.Shared.Weapons.Misc;

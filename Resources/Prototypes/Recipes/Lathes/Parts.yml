@@ -1,3 +1,17 @@
+# SPDX-FileCopyrightText: 2025 Simon
+# SPDX-FileCopyrightText: 2025 āda
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2024 Emisse
+# SPDX-FileCopyrightText: 2023 T-Stalker
+# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2021 SethLafuente
+# SPDX-License-Identifier: MIT
+
 # Non-stackable part that can have a use outside of machines
 - type: latheRecipe
   abstract: true

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Ilya246
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Singularity.EntitySystems;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 

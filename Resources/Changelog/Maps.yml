@@ -1,4 +1,14 @@
-﻿Entries:
+# SPDX-FileCopyrightText: 2025 PJBot
+# SPDX-FileCopyrightText: 2026 PJBot
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba
+# SPDX-FileCopyrightText: 2025 Errant
+# SPDX-FileCopyrightText: 2025 PJB3005
+# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+# SPDX-FileCopyrightText: 2025 ToastEnjoyer
+# SPDX-FileCopyrightText: 2025 Spanky
+# SPDX-License-Identifier: MIT
+
+Entries:
 - author: ArtisticRoomba
   changes:
   - message: The mapping changelog has been added! This primarily serves as a way

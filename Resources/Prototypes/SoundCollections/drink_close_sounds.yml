@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Prole
+# SPDX-FileCopyrightText: 2024 Tayrtahn
+# SPDX-License-Identifier: MIT
+
 - type: soundCollection
   id: bottleCloseSounds
   files:

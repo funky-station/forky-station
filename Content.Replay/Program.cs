@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Robust.Client;
 
 namespace Content.Replay;

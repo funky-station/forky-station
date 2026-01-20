@@ -1,4 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Content.Server.Database.Migrations.Postgres
 {

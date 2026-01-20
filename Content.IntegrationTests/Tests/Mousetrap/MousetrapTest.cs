@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-License-Identifier: MIT
+
 using Content.IntegrationTests.Tests.Movement;
 using Content.Server.NPC.HTN;
 using Content.Shared.Damage.Components;

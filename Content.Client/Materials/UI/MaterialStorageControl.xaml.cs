@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2025 Ben Bryant
+// SPDX-FileCopyrightText: 2024 Deserty0
+// SPDX-FileCopyrightText: 2024 eoineoineoin
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Shared.Materials;
 using Content.Shared.Materials.OreSilo;

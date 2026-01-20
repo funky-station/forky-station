@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 Kyle Tyo
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Max
+// SPDX-FileCopyrightText: 2022 Kara
+// SPDX-FileCopyrightText: 2022 ShadowCommander
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration.Managers;
 using Content.Shared.Administration;
 using Robust.Shared.Console;

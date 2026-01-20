@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Perry Fraser
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2024 IProduceWidgets
+# SPDX-FileCopyrightText: 2023 Kilk
+# SPDX-FileCopyrightText: 2023 PixelTK
+# SPDX-License-Identifier: MIT
+
 - type: construction
   id: TileWeb
   graph: WebObjects

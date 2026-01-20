@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2025 rokudara-sen
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 TemporalOroboros
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2021 20kdc
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.Singularity.Components
 {
     /// <summary>

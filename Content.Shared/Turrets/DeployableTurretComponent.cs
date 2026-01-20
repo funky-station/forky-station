@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 chromiumboy
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;

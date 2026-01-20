@@ -1,4 +1,7 @@
-﻿using Content.Shared.FixedPoint;
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.FixedPoint;
 using Robust.Shared.Network;
 using Robust.Shared.Utility;
 

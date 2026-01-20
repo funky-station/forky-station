@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Content.Server.StationEvents.Events;
 using Content.Shared.Access;
 using Content.Shared.Destructible.Thresholds;

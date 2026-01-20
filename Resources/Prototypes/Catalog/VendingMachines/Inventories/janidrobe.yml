@@ -1,3 +1,16 @@
+# SPDX-FileCopyrightText: 2025 Smith
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2023 Ubaser
+# SPDX-FileCopyrightText: 2023 OctoRocket
+# SPDX-FileCopyrightText: 2023 ssdaniel24
+# SPDX-FileCopyrightText: 2022 Emisse
+# SPDX-FileCopyrightText: 2023 Emisse
+# SPDX-FileCopyrightText: 2022 theashtronaut
+# SPDX-FileCopyrightText: 2022 Andreas Kämper
+# SPDX-FileCopyrightText: 2022 Fishfish458
+# SPDX-License-Identifier: MIT
+
 - type: vendingMachineInventory
   id: JaniDrobeInventory
   startingInventory:

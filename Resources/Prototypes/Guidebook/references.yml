@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 PotentiallyTom
+# SPDX-FileCopyrightText: 2025 pathetic meowmeow
+# SPDX-FileCopyrightText: 2025 GrownSamoyedDog
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2024 UBlueberry
+# SPDX-License-Identifier: MIT
+
 - type: guideEntry
   id: References
   name: guide-entry-references

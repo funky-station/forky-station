@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2023 Ed
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Cargo;
 using Robust.Shared.Timing;

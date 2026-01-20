@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 gus
+// SPDX-FileCopyrightText: 2024 chromiumboy
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 

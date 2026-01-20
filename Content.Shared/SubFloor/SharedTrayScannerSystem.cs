@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2024 c4llv07e
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2021 Flipp Syder
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Eye;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;

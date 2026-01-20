@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Shared.Chemistry;
 using Content.Shared.Damage;

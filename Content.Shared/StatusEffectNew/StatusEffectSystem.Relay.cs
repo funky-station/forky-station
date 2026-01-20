@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2025 SlamBamActionman
+// SPDX-FileCopyrightText: 2025 ScarKy0
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 Perry Fraser
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-FileCopyrightText: 2025 Red
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Body.Events;
 using Content.Shared.Damage.Events;
 using Content.Shared.Mobs.Events;

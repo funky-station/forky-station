@@ -1,3 +1,17 @@
+# SPDX-FileCopyrightText: 2025 Smugman
+# SPDX-FileCopyrightText: 2025 Smith
+# SPDX-FileCopyrightText: 2024 Hanz
+# SPDX-FileCopyrightText: 2023 Jackal298
+# SPDX-FileCopyrightText: 2023 Emisse
+# SPDX-FileCopyrightText: 2022 Andreas Kämper
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-FileCopyrightText: 2021 Visne
+# SPDX-FileCopyrightText: 2020 AJCM-git
+# SPDX-FileCopyrightText: 2020 FL-OZ
+# SPDX-FileCopyrightText: 2020 Soundwavesghost
+# SPDX-FileCopyrightText: 2019 DamianX
+# SPDX-License-Identifier: MIT
+
 - type: vendingMachineInventory
   id: DiscountDansInventory
   startingInventory:

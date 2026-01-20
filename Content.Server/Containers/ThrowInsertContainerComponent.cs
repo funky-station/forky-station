@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 lzk
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Audio;
 
 namespace Content.Server.Containers;

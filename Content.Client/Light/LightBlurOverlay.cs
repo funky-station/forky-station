@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Graphics;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;

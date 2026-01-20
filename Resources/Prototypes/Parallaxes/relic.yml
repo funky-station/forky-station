@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Vortebo
+# SPDX-License-Identifier: MIT
+
 - type: parallax
   id: RelicStation
   layers:

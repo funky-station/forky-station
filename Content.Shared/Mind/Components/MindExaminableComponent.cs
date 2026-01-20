@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 ScarKy0
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Examine;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;

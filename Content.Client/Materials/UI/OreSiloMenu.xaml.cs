@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Materials.OreSilo;

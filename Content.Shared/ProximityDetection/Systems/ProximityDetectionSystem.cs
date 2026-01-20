@@ -1,4 +1,9 @@
-﻿using Content.Shared.Item.ItemToggle;
+// SPDX-FileCopyrightText: 2025 Winkarst
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2024 Jezithyr
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.ProximityDetection.Components;
 using Robust.Shared.Timing;

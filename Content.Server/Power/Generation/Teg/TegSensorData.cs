@@ -1,4 +1,7 @@
-﻿using Content.Server.Power.Components;
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Power.Components;
 
 namespace Content.Server.Power.Generation.Teg;
 

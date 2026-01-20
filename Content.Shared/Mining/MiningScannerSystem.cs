@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Inventory;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Mining.Components;

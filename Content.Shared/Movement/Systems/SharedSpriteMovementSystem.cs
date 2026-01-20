@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 

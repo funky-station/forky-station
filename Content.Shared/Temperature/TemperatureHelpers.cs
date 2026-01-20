@@ -1,4 +1,10 @@
-﻿using Content.Shared.Maths;
+// SPDX-FileCopyrightText: 2021 Visne
+// SPDX-FileCopyrightText: 2020 DrSmugleaf
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2020 Exp
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Maths;
 
 namespace Content.Shared.Temperature
 {

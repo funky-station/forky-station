@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Interaction;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Weapons.Melee;

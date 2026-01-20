@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2025 ScarKy0
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 Acruid
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Shuttles.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Dynamics;

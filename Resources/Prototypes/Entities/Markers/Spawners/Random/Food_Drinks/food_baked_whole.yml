@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+# SPDX-FileCopyrightText: 2025 Disp-Dev
+# SPDX-FileCopyrightText: 2023 Velcroboy
+# SPDX-FileCopyrightText: 2023 potato1234_x
+# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2022 ChilbroBaggins
+# SPDX-License-Identifier: MIT
+
 - type: entity
   id: RandomFoodBakedWhole
   name: random baked food spawner

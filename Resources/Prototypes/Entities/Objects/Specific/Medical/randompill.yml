@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2025 DuckManZach
+# SPDX-FileCopyrightText: 2023 MisterMecky
+# SPDX-FileCopyrightText: 2024 MisterMecky
+# SPDX-FileCopyrightText: 2024 deathride58
+# SPDX-FileCopyrightText: 2023 CrigCrag
+# SPDX-FileCopyrightText: 2023 Ubaser
+# SPDX-FileCopyrightText: 2023 Moomoobeef
+# SPDX-FileCopyrightText: 2023 forthbridge
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-License-Identifier: MIT
+
 - type: weightedRandomFillSolution
   id: RandomFillStrangePill
   fills:

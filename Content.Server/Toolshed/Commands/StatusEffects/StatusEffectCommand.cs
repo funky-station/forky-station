@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration;
 using Content.Server.Toolshed.TypeParsers.StatusEffects;
 using Content.Shared.Administration;

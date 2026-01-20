@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2023 Arendian
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Weapons.Ranged.Events;
 
 /// <summary>

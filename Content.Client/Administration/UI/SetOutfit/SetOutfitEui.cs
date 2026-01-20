@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2021 Acruid
+// SPDX-FileCopyrightText: 2021 Leo
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Eui;
 using Content.Shared.Administration;
 using Content.Shared.Eui;

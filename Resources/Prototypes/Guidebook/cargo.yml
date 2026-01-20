@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024 UBlueberry
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 Nails+Tape
+# SPDX-License-Identifier: MIT
+
 - type: guideEntry
   id: Cargo
   name: guide-entry-cargo

@@ -1,3 +1,28 @@
+# SPDX-FileCopyrightText: 2025 āda
+# SPDX-FileCopyrightText: 2024 Moomoobeef
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-FileCopyrightText: 2024 Errant
+# SPDX-FileCopyrightText: 2024 Mr. 27
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin
+# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-FileCopyrightText: 2020 AJCM-git
+# SPDX-FileCopyrightText: 2020 py01
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
+# SPDX-FileCopyrightText: 2017 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2018 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2019 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2018 clusterfack
+# SPDX-FileCopyrightText: 2017 PJB3005
+# SPDX-License-Identifier: MIT
+
 - type: entity
   abstract: true
   parent: BaseItem

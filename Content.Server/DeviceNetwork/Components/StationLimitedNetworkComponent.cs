@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Julian Giebel
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 

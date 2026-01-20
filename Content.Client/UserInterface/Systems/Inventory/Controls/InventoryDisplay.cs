@@ -1,4 +1,9 @@
-﻿using System.Numerics;
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-FileCopyrightText: 2022 Jezithyr
+// SPDX-License-Identifier: MIT
+
+using System.Numerics;
 using Content.Client.UserInterface.Controls;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;

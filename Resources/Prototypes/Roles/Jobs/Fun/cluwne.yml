@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 beck-thompson
+# SPDX-FileCopyrightText: 2023 brainfood1183
+# SPDX-License-Identifier: MIT
+
 - type: startingGear
   id: CluwneGear
   equipment:

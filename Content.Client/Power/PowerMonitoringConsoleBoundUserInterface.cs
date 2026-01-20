@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Milon
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2023 chromiumboy
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Power;
 using Robust.Client.UserInterface;
 

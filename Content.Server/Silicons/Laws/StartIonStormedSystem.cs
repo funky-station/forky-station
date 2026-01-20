@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 ScarKy0
+// SPDX-FileCopyrightText: 2024 The Canned One
+// SPDX-FileCopyrightText: 2024 Golden Can
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;

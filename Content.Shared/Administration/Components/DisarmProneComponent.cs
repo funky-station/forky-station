@@ -1,4 +1,9 @@
-﻿using Content.Shared.Weapons.Melee;
+// SPDX-FileCopyrightText: 2025 Pok
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Weapons.Melee;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Administration.Components;

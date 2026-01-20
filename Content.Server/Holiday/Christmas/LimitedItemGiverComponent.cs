@@ -1,4 +1,8 @@
-﻿using Content.Shared.Storage;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Moony
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Storage;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 

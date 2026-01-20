@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Jittering;
 using Content.Shared.Trigger.Components.Effects;
 using Robust.Shared.Network;

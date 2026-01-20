@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 Moony
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Atmos;
 using System.Runtime.CompilerServices;
 

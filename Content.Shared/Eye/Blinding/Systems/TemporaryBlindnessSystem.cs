@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2023 Vordenburg
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Prototypes;

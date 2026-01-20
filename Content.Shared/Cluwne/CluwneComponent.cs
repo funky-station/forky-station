@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2025 Jessica M
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 brainfood1183
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Audio;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Damage;

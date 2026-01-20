@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2023 deathride58
+# SPDX-FileCopyrightText: 2023 Leon Friedrich
+# SPDX-FileCopyrightText: 2019 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2020 AJCM-git
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
+# SPDX-FileCopyrightText: 2019 scuffedjays
+# SPDX-License-Identifier: MIT
+
 - type: shader
   id: SelectionOutline
   kind: source

@@ -1,4 +1,7 @@
-﻿using Content.Client.Gameplay;
+// SPDX-FileCopyrightText: 2024 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
+using Content.Client.Gameplay;
 using Content.Client.Mapping;
 using Robust.Client.State;
 

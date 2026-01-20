@@ -1,4 +1,7 @@
-﻿// Global usings for Content.Server
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-License-Identifier: MIT
+
+// Global usings for Content.Server
 
 global using System;
 global using System.Collections.Generic;

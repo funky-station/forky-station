@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Hitlinemoss
+# SPDX-FileCopyrightText: 2025 Errant
+# SPDX-FileCopyrightText: 2024 DieselMohawk
+# SPDX-FileCopyrightText: 2024 PoorMansDreams
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2024 Cojoke
+# SPDX-FileCopyrightText: 2024 Mr. 27
+# SPDX-FileCopyrightText: 2024 SpeltIncorrectyl
+# SPDX-License-Identifier: MIT
+
 # Senior Time
 - type: loadoutEffectGroup
   id: SeniorOfficer

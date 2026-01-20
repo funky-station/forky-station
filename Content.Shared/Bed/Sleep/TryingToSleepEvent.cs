@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2022 Errant
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Bed.Sleep;
 
 /// <summary>

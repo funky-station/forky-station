@@ -1,4 +1,7 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2025 chromiumboy
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: StationAiCore
   start: start
   graph:

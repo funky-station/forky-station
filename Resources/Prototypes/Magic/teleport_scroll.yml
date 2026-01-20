@@ -1,4 +1,7 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2025 keronshb
+# SPDX-License-Identifier: MIT
+
+- type: entity
   id: WizardTeleportScroll
   name: teleport scroll
   suffix: Wizard

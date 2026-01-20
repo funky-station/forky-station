@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2024 TsjipTsjip
+// SPDX-FileCopyrightText: 2023 lzk
+// SPDX-FileCopyrightText: 2022 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 eoineoineoin
+// SPDX-FileCopyrightText: 2023 crazybrain23
+// SPDX-FileCopyrightText: 2023 Alex
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Fishfish458
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Serialization;
 using Robust.Shared.Audio;
 

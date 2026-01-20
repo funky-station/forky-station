@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Power.Components;
 using Content.Shared.UserInterface;
 

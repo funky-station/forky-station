@@ -1,4 +1,14 @@
-﻿# Base
+# SPDX-FileCopyrightText: 2025 Connor Huffine
+# SPDX-FileCopyrightText: 2025 Cojoke
+# SPDX-FileCopyrightText: 2025 Southbridge
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2024 Tayrtahn
+# SPDX-FileCopyrightText: 2024 Whisper
+# SPDX-FileCopyrightText: 2024 Kara
+# SPDX-License-Identifier: MIT
+
+# Base
 
 - type: entity
   id: BaseVariationPass

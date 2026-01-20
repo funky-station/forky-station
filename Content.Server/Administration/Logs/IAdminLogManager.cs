@@ -1,4 +1,9 @@
-﻿using System.Text.Json;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Paul Ritter
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-License-Identifier: MIT
+
+using System.Text.Json;
 using System.Threading.Tasks;
 using Content.Server.Database;
 using Content.Server.GameTicking;

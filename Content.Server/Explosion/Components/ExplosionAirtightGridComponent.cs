@@ -1,4 +1,7 @@
-﻿using Content.Server.Explosion.EntitySystems;
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Map.Components;

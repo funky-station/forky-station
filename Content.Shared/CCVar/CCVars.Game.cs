@@ -1,3 +1,15 @@
+// SPDX-FileCopyrightText: 2026 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2026 Velken
+// SPDX-FileCopyrightText: 2025 Skye
+// SPDX-FileCopyrightText: 2025 Centronias
+// SPDX-FileCopyrightText: 2025 qrwas
+// SPDX-FileCopyrightText: 2025 Killerqu00
+// SPDX-FileCopyrightText: 2025 Winkarst
+// SPDX-FileCopyrightText: 2025 Myra
+// SPDX-FileCopyrightText: 2024 slarticodefast
+// SPDX-FileCopyrightText: 2024 Simon
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Roles;
 using Robust.Shared.Configuration;
 

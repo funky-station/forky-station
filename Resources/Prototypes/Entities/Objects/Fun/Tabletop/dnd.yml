@@ -1,4 +1,9 @@
-﻿# When adding a new battlemap, also add it to id: AllBattlemapsTable
+# SPDX-FileCopyrightText: 2026 āda
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2023 eclips_e
+# SPDX-License-Identifier: MIT
+
+# When adding a new battlemap, also add it to id: AllBattlemapsTable
 
 # Board item (given to players)
 - type: entity

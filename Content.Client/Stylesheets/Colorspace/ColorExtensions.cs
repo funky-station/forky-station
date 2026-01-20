@@ -1,4 +1,8 @@
-﻿using System.Numerics;
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 Brandon Li
+// SPDX-License-Identifier: MIT
+
+using System.Numerics;
 using JetBrains.Annotations;
 using Robust.Shared.Utility;
 

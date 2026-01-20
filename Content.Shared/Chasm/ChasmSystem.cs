@@ -1,4 +1,11 @@
-﻿using Content.Shared.ActionBlocker;
+// SPDX-FileCopyrightText: 2025 Hayden
+// SPDX-FileCopyrightText: 2024 KISS
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.ActionBlocker;
 using Content.Shared.Movement.Events;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Weapons.Misc;

@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Centronias
+// SPDX-FileCopyrightText: 2025 eoineoineoin
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Light.Components;
 using ItemTogglePointLightComponent = Content.Shared.Light.Components.ItemTogglePointLightComponent;

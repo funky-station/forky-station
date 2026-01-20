@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 J
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Moony
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Station.Systems;

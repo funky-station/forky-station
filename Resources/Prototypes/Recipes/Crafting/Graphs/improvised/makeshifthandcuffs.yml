@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2021 SethLafuente
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: makeshifthandcuffs
   start: start

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2025 Milon
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Shared.Station.Components;
 using JetBrains.Annotations;

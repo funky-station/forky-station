@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 deltanedas
+// SPDX-FileCopyrightText: 2023 keronshb
+// SPDX-FileCopyrightText: 2024 keronshb
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Actions;
 ﻿using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 āda
+// SPDX-FileCopyrightText: 2025 poklj
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Forensics;
 using Content.Server.Speech.EntitySystems;
 using Content.Shared.Cloning.Events;

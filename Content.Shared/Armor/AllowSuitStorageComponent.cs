@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Errant
+// SPDX-FileCopyrightText: 2024 Джексон Миссиссиппи
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Whitelist;
 
 namespace Content.Shared.Armor;

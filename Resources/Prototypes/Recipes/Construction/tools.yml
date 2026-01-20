@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2026 ScarKy0
+# SPDX-FileCopyrightText: 2025 Borsh
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2022 Morb
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-License-Identifier: MIT
+
 - type: construction
   id: LightTorch
   graph: LightTorch

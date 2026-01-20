@@ -1,4 +1,14 @@
-﻿using Content.Server.Database;
+// SPDX-FileCopyrightText: 2025 Kyle Tyo
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2021 Visne
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Database;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 

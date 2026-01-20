@@ -1,4 +1,12 @@
-﻿namespace Content.Server.Xenoarchaeology.Artifact.XAE.Components;
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Nemanja
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-License-Identifier: MIT
+
+namespace Content.Server.Xenoarchaeology.Artifact.XAE.Components;
 
 /// <summary>
 ///     Harmless artifact that broadcast "thoughts" to players nearby.

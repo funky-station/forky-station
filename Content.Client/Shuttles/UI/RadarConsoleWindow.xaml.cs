@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Computer;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Shuttles.BUIStates;

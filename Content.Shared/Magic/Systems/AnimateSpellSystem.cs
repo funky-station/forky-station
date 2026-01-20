@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 ActiveMammmoth
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Magic.Components;
 using Content.Shared.Physics;
 using Robust.Shared.Containers;

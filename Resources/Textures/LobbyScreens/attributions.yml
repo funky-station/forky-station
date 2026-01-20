@@ -1,3 +1,19 @@
+# SPDX-FileCopyrightText: 2024 Snicket
+# SPDX-FileCopyrightText: 2024 Psychpsyo
+# SPDX-FileCopyrightText: 2024 T-Stalker
+# SPDX-FileCopyrightText: 2024 Terraspark4941
+# SPDX-FileCopyrightText: 2024 PoorMansDreams
+# SPDX-FileCopyrightText: 2024 Ubaser
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2024 brainfood1183
+# SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson
+# SPDX-FileCopyrightText: 2024 Emisse
+# SPDX-FileCopyrightText: 2022 keronshb
+# SPDX-FileCopyrightText: 2022 Leon Friedrich
+# SPDX-FileCopyrightText: 2022 wrexbe
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-License-Identifier: MIT
+
 - files: ["supermatter.webp", "robotics.webp"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "Veritius#2351 (257233913951289344) on discord / @Veritius on GitHub"

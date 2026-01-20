@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 Nikovnik
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Chemistry.Reagent;
 
 namespace Content.Shared.Body.Events;

@@ -1,2 +1,6 @@
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2022 hubismal
+# SPDX-License-Identifier: MIT
+
 sample:
   filter: false

@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Shared.Camera;
 using Robust.Shared.Player;

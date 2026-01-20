@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2025 metalgearsloth
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2025 Nemanja
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2024 Zadeon
+# SPDX-License-Identifier: MIT
+
 # Large asteroids, typically 1
 - type: dungeonConfig
   id: BlobAsteroid

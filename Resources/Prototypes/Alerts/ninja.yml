@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2023 keronshb
+# SPDX-License-Identifier: MIT
+
 - type: alert
   id: SuitPower
   icons:

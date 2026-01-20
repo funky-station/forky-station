@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.Speech.Components;
 
 /// <summary>

@@ -1,4 +1,18 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2024 iacore
+# SPDX-FileCopyrightText: 2020 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2023 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2021 20kdc
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2021 DrSmugleaf
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: Machine
   start: start
   graph:

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2024 Morb
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Inventory;
 using Robust.Shared.Prototypes;

@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 slarticodefast
+// SPDX-FileCopyrightText: 2024 AJCM-git
+// SPDX-FileCopyrightText: 2024 Krunklehorn
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Overlays;

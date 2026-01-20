@@ -1,3 +1,19 @@
+# SPDX-FileCopyrightText: 2025 SnappingOpossum
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2023 Kara
+# SPDX-FileCopyrightText: 2024 Kara
+# SPDX-FileCopyrightText: 2024 K-Dynamic
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2024 Brandon Hu
+# SPDX-FileCopyrightText: 2024 Agoichi
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2023 Whisper
+# SPDX-FileCopyrightText: 2023 lapatison
+# SPDX-FileCopyrightText: 2023 JoeHammad1844
+# SPDX-FileCopyrightText: 2022 Zymem
+# SPDX-License-Identifier: MIT
+
 - type: entity
   id: BriefcaseBrownFilled
   parent: BriefcaseBrown

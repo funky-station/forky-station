@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 slarticodefast
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 Slava0135
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Damage.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;

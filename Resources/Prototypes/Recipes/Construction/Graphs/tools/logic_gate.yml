@@ -1,4 +1,14 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2025 Borsh
+# SPDX-FileCopyrightText: 2025 hoshizora
+# SPDX-FileCopyrightText: 2025 Simon
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2024 TheWaffleJesus
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: LogicGate
   start: start
   graph:

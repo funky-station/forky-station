@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 Whatstone
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2023 c4llv07e
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Decals;
 using Content.Shared.SprayPainter;
 using Content.Shared.SprayPainter.Components;

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Shared.Interaction;
 using Robust.Shared.Map;

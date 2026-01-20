@@ -1,4 +1,7 @@
-﻿using Content.Shared.Mobs;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Mobs;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Trigger.Components.Triggers;

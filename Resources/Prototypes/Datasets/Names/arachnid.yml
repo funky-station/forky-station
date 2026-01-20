@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 MilenVolf
+# SPDX-License-Identifier: MIT
+
 - type: localizedDataset
   id: NamesArachnidFirst
   values:

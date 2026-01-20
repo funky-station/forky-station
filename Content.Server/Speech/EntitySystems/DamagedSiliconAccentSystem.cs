@@ -1,4 +1,11 @@
-﻿using System.Text;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 Pok
+// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 Quantum-cross
+// SPDX-License-Identifier: MIT
+
+using System.Text;
 using Content.Server.Destructible;
 using Content.Shared.Speech.Components;
 using Content.Shared.Damage.Components;

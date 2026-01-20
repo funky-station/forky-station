@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Dylan Hunter Whittingham
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 MishaUnity
+// SPDX-FileCopyrightText: 2022 Julian Giebel
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration.Logs;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;

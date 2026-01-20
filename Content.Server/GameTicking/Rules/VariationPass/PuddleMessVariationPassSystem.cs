@@ -1,4 +1,9 @@
-﻿using Content.Server.Fluids.EntitySystems;
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2024 Kara
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Fluids.EntitySystems;
 using Content.Server.GameTicking.Rules.VariationPass.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Random.Helpers;

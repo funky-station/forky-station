@@ -1,3 +1,24 @@
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2023 Alzore
+# SPDX-FileCopyrightText: 2024 Alzore
+# SPDX-FileCopyrightText: 2024 CrigCrag
+# SPDX-FileCopyrightText: 2024 Ubaser
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2021 20kdc
+# SPDX-FileCopyrightText: 2022 20kdc
+# SPDX-FileCopyrightText: 2022 EmoGarbage404
+# SPDX-FileCopyrightText: 2022 mirrorcult
+# SPDX-FileCopyrightText: 2022 retequizzle
+# SPDX-FileCopyrightText: 2022 Delete69
+# SPDX-FileCopyrightText: 2021 Neith
+# SPDX-FileCopyrightText: 2022 Neith
+# SPDX-FileCopyrightText: 2021 Moony
+# SPDX-FileCopyrightText: 2021 wrexbe
+# SPDX-FileCopyrightText: 2021 Paul Ritter
+# SPDX-License-Identifier: MIT
+
 # Dear god please stop adding ones with thousands of entities, learn how procgen works.
 
 # "Small"-class maps - Max size square: 7x7, indicated size: 3.5

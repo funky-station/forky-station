@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2025 Sir Warock
+// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 MilenVolf
+// SPDX-FileCopyrightText: 2024 beck
+// SPDX-FileCopyrightText: 2024 beck-thompson
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry.Events;
 using Content.Shared.Climbing.Components;

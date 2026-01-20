@@ -1,4 +1,7 @@
-﻿using System.Net;
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Robust.Server.ServerStatus;

@@ -1,4 +1,7 @@
-﻿using System.IO;
+// SPDX-FileCopyrightText: 2025 Simon
+// SPDX-License-Identifier: MIT
+
+using System.IO;
 using System.Text;
 
 namespace Content.Client.Instruments.MidiParser;

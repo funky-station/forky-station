@@ -1,3 +1,20 @@
+// SPDX-FileCopyrightText: 2025 J
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 20kdc
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2020 DrSmugleaf
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2021 Acruid
+// SPDX-FileCopyrightText: 2020 Exp
+// SPDX-FileCopyrightText: 2018 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2019 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2020 Tyler Young
+// SPDX-FileCopyrightText: 2019 ZelteHonor
+// SPDX-FileCopyrightText: 2019 DamianX
+// SPDX-FileCopyrightText: 2019 Silver
+// SPDX-License-Identifier: MIT
+
 using System;
 using System.Threading;
 using System.Collections.Generic;

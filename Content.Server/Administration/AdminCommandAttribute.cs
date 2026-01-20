@@ -1,4 +1,11 @@
-﻿using Content.Shared.Administration;
+// SPDX-FileCopyrightText: 2023 Moony
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto
+// SPDX-FileCopyrightText: 2021 Acruid
+// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Administration;
 using JetBrains.Annotations;
 using Robust.Shared.Console;
 

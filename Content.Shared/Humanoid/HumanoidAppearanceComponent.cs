@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2025 Ed
+// SPDX-FileCopyrightText: 2025 paige404
+// SPDX-FileCopyrightText: 2024 SlamBamActionman
+// SPDX-FileCopyrightText: 2025 SlamBamActionman
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 csqrb
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.DisplacementMap;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;

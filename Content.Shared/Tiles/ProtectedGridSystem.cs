@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Alkheemist
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Map.Enumerators;

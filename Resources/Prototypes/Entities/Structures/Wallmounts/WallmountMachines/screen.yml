@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2025 Southbridge
+# SPDX-FileCopyrightText: 2025 qwerltaz
+# SPDX-FileCopyrightText: 2025 kosticia
+# SPDX-FileCopyrightText: 2024 ScarKy0
+# SPDX-FileCopyrightText: 2023 avery
+# SPDX-FileCopyrightText: 2024 avery
+# SPDX-License-Identifier: MIT
+
 - type: entity
   parent: BaseWallmountMachine
   id: Screen

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Velken
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: SnapPopExplosiveGraph
   start: start

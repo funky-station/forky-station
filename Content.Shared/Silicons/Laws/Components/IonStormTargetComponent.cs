@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Mephisto72
+// SPDX-FileCopyrightText: 2024 Jajsha
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Random;
 using Robust.Shared.Prototypes;
 

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Client.LateJoin;
 using Robust.Client.UserInterface.CustomControls;

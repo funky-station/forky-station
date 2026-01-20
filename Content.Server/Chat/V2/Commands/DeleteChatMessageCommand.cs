@@ -1,4 +1,8 @@
-﻿using System.Diagnostics;
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson
+// SPDX-License-Identifier: MIT
+
+using System.Diagnostics;
 using Content.Server.Administration;
 using Content.Server.Chat.V2.Repository;
 using Content.Shared.Administration;

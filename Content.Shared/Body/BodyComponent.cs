@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 pathetic meowmeow
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 

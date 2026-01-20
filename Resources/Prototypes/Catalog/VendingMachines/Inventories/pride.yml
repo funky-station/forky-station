@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2025 Boaz1111
+# SPDX-FileCopyrightText: 2025 paige404
+# SPDX-FileCopyrightText: 2025 T
+# SPDX-FileCopyrightText: 2025 Cass
+# SPDX-FileCopyrightText: 2025 Momo
+# SPDX-FileCopyrightText: 2025 lzk
+# SPDX-FileCopyrightText: 2025 centcomofficer24
+# SPDX-FileCopyrightText: 2025 Southbridge
+# SPDX-FileCopyrightText: 2025 Julian Giebel
+# SPDX-License-Identifier: MIT
+
 - type: vendingMachineInventory
   id: PrideDrobeInventory
   startingInventory:

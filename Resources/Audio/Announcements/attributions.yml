@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024 Mr. 27
+# SPDX-FileCopyrightText: 2023 Chronophylos
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-License-Identifier: MIT
+
 - files: ["ion_storm.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from tgstation"

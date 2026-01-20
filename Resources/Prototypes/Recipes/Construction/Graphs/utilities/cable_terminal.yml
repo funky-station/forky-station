@@ -1,4 +1,10 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2022 rolfero
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2021 Julian Giebel
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: CableTerminal
   start: start
   graph:

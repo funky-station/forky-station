@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Simon
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2024 TheWaffleJesus
+# SPDX-FileCopyrightText: 2023 Doru991
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: PowerCellPotato
   start: start

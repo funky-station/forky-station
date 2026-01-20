@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2026 mq
+// SPDX-FileCopyrightText: 2025 Kyle Tyo
+// SPDX-FileCopyrightText: 2025 chromiumboy
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Destructible;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.NPC.HTN;

@@ -1,4 +1,7 @@
-﻿using Robust.Shared.Random;
+// SPDX-FileCopyrightText: 2022 Ygg01
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Random;
 
 namespace Content.Shared;
 

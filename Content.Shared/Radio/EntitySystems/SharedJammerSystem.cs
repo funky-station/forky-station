@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 beck-thompson
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Content.Shared.Examine;

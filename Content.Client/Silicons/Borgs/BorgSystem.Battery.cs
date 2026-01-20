@@ -1,4 +1,7 @@
-﻿using Content.Shared.PowerCell.Components;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.PowerCell.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Robust.Shared.Player;
 

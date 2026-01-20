@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 paige404
+// SPDX-FileCopyrightText: 2025 Winkarst
+// SPDX-FileCopyrightText: 2024 Stalen
+// SPDX-FileCopyrightText: 2024 themias
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Clothing.EntitySystems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

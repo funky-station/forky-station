@@ -1,4 +1,13 @@
-﻿- type: entityTable
+# SPDX-FileCopyrightText: 2026 SnappingOpossum
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2025 Nemanja
+# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin
+# SPDX-License-Identifier: MIT
+
+- type: entityTable
   id: RandomArtifactTable
   table: !type:GroupSelector
     children:

@@ -1,4 +1,8 @@
-﻿using Content.Server.Explosion.EntitySystems;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Explosion.EntitySystems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 

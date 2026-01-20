@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 Hreno
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2023 chromiumboy
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Chat.Managers;
 using Content.Client.Message;
 using Content.Shared.Chat;

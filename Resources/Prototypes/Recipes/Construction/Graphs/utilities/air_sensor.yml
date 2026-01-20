@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 Leon Friedrich
+# SPDX-FileCopyrightText: 2022 vulppine
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: AirSensor
   start: start

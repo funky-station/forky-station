@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.Arcade.SpaceVillain;
 
 public sealed partial class SpaceVillainGame

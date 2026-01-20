@@ -1,4 +1,9 @@
-﻿using Content.Shared.Actions;
+// SPDX-FileCopyrightText: 2024 keronshb
+// SPDX-FileCopyrightText: 2024 AJCM-git
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Actions;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Polymorph;

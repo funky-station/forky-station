@@ -1,3 +1,25 @@
+# SPDX-FileCopyrightText: 2025 Hitlinemoss
+# SPDX-FileCopyrightText: 2025 SnappingOpossum
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2023 Ubaser
+# SPDX-FileCopyrightText: 2023 coolmankid12345
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 Repo
+# SPDX-FileCopyrightText: 2023 Vasilis
+# SPDX-FileCopyrightText: 2022 lapatison
+# SPDX-FileCopyrightText: 2023 lapatison
+# SPDX-FileCopyrightText: 2023 Puro
+# SPDX-FileCopyrightText: 2023 Whisper
+# SPDX-FileCopyrightText: 2022 Easypoller
+# SPDX-FileCopyrightText: 2022 Rinkashikachi
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2021 Elijahrane
+# SPDX-FileCopyrightText: 2020 Swept
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-License-Identifier: MIT
+
 - type: entity
   parent: CrateMedical
   id: CrateMedicalSupplies

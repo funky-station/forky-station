@@ -1,4 +1,7 @@
-﻿using CsvHelper.Configuration.Attributes;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
+using CsvHelper.Configuration.Attributes;
 
 namespace Content.PatreonParser;
 

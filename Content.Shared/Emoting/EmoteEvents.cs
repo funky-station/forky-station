@@ -1,4 +1,8 @@
-﻿namespace Content.Shared.Emoting;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 Centronias
+// SPDX-License-Identifier: MIT
+
+namespace Content.Shared.Emoting;
 
 public sealed class EmoteAttemptEvent(EntityUid uid) : CancellableEntityEventArgs
 {

@@ -1,4 +1,9 @@
-﻿using Content.Shared.Disposal.Mailing;
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Julian Giebel
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Disposal.Mailing;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Disposal.Components;

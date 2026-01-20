@@ -1,3 +1,35 @@
+# SPDX-FileCopyrightText: 2025 ScarKy0
+# SPDX-FileCopyrightText: 2025 SlamBamActionman
+# SPDX-FileCopyrightText: 2025 Winkarst-cpu
+# SPDX-FileCopyrightText: 2025 TheFlyingSentry
+# SPDX-FileCopyrightText: 2025 Mora
+# SPDX-FileCopyrightText: 2025 imatsoup
+# SPDX-FileCopyrightText: 2025 Boaz1111
+# SPDX-FileCopyrightText: 2025 slarticodefast
+# SPDX-FileCopyrightText: 2025 Coolsurf6
+# SPDX-FileCopyrightText: 2024 Killerqu00
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2024 Moomoobeef
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2024 themias
+# SPDX-FileCopyrightText: 2023 Scribbles0
+# SPDX-FileCopyrightText: 2024 Scribbles0
+# SPDX-FileCopyrightText: 2023 Ubaser
+# SPDX-FileCopyrightText: 2024 Ubaser
+# SPDX-FileCopyrightText: 2023 dahnte
+# SPDX-FileCopyrightText: 2023 Emisse
+# SPDX-FileCopyrightText: 2023 Whisper
+# SPDX-FileCopyrightText: 2022 Morb
+# SPDX-FileCopyrightText: 2023 Morb
+# SPDX-FileCopyrightText: 2023 Vordenburg
+# SPDX-FileCopyrightText: 2023 OctoRocket
+# SPDX-FileCopyrightText: 2023 forkeyboards
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2022 rolfero
+# SPDX-FileCopyrightText: 2022 Moony
+# SPDX-License-Identifier: MIT
+
 # If you add a new trait, make sure to add the corresponding component to the whitelist in \Resources\Prototypes\Entities\Mobs\Player\clone.yml so it gets copied to clones correctly!
 
 - type: trait

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Kryyto
+// SPDX-License-Identifier: MIT
+
 using System.Threading.Tasks;
 using BenchmarkDotNet.Attributes;
 using Content.IntegrationTests;

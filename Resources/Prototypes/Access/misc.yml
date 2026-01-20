@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 chromiumboy
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2025 Nemanja
+# SPDX-FileCopyrightText: 2023 Velcroboy
+# SPDX-FileCopyrightText: 2023 Puro
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2022 Emisse
+# SPDX-FileCopyrightText: 2022 mirrorcult
+# SPDX-License-Identifier: MIT
+
 - type: accessGroup
   id: AllAccess
   tags:

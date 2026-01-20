@@ -1,4 +1,18 @@
-﻿# Crewsimov
+# SPDX-FileCopyrightText: 2025 Samuka
+# SPDX-FileCopyrightText: 2025 PJB3005
+# SPDX-FileCopyrightText: 2025 PotentiallyTom
+# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+# SPDX-FileCopyrightText: 2025 Hitlinemoss
+# SPDX-FileCopyrightText: 2025 Minemoder5000
+# SPDX-FileCopyrightText: 2025 Samuka-C
+# SPDX-FileCopyrightText: 2024 Litraxx
+# SPDX-FileCopyrightText: 2024 ScarKy0
+# SPDX-FileCopyrightText: 2024 Jajsha
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-License-Identifier: MIT
+
+# Crewsimov
 - type: siliconLaw
   id: Crewsimov1
   order: 1

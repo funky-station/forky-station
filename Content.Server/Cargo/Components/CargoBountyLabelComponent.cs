@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 blueDev2
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Station.Systems;
 
 namespace Content.Server.Cargo.Components;

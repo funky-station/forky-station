@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Whitelist;
 
 namespace Content.Shared.Mind.Filters;

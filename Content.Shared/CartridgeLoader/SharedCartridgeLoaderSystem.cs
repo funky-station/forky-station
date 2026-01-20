@@ -1,4 +1,13 @@
-﻿using Content.Shared.Containers.ItemSlots;
+// SPDX-FileCopyrightText: 2022 Julian Giebel
+// SPDX-FileCopyrightText: 2024 Julian Giebel
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.Containers;
 
 namespace Content.Shared.CartridgeLoader;

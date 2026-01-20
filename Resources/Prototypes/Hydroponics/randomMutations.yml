@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 PJB3005
+# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+# SPDX-FileCopyrightText: 2024 drakewill-CRL
+# SPDX-FileCopyrightText: 2025 drakewill-CRL
+# SPDX-FileCopyrightText: 2024 Tr1bute
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2024 Toly65
+# SPDX-License-Identifier: MIT
+
 - type: RandomPlantMutationList
   id: RandomPlantMutations
   mutations:

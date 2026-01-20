@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 namespace Content.Client.UserInterface;
 
 /// <summary>

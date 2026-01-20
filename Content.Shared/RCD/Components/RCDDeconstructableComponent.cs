@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 CrazyPhantom779
+// SPDX-FileCopyrightText: 2024 chromiumboy
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.RCD.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

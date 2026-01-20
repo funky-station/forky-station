@@ -1,4 +1,7 @@
-﻿using System.Diagnostics.Metrics;
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using System.Diagnostics.Metrics;
 using System.Runtime.InteropServices;
 using Content.Server.Afk;
 using Robust.Server.DataMetrics;

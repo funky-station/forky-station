@@ -1,4 +1,7 @@
-﻿using Content.Shared.Physics.Controllers;
+// SPDX-FileCopyrightText: 2023 keronshb
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Physics.Controllers;
 
 namespace Content.Client.Physics.Controllers;
 

@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2025 PJB3005
+# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+# SPDX-FileCopyrightText: 2025 Mora
+# SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2023 M3739
+# SPDX-FileCopyrightText: 2023 OttoMaticode
+# SPDX-FileCopyrightText: 2023 Leon Friedrich
+# SPDX-License-Identifier: MIT
+
 - type: guideEntry
   id: Science
   name: guide-entry-science

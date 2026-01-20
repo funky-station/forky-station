@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Samuka-C
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2024 beck-thompson
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Serialization;
 using Robust.Shared.GameStates;
 

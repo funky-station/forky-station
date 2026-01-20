@@ -1,4 +1,8 @@
-﻿using Content.Server.Beam;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Beam;
 using Content.Shared.Revenant.Components;
 using Content.Shared.Revenant.EntitySystems;
 

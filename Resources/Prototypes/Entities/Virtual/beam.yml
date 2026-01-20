@@ -1,4 +1,8 @@
-﻿# Special entity used to keep track of beams from the BeamComponent and what targets they collided with
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2022 keronshb
+# SPDX-License-Identifier: MIT
+
+# Special entity used to keep track of beams from the BeamComponent and what targets they collided with
 - type: entity
   id: VirtualBeamEntityController
   name: BEAM ENTITY YOU SHOULD NOT SEE THIS

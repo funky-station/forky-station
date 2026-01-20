@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using JetBrains.Annotations;
 
 namespace Content.Shared.Interaction.Events;

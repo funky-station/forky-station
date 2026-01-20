@@ -1,3 +1,27 @@
+# SPDX-FileCopyrightText: 2025 Samuka-C
+# SPDX-FileCopyrightText: 2025 AsnDen
+# SPDX-FileCopyrightText: 2025 themias
+# SPDX-FileCopyrightText: 2025 Pancake
+# SPDX-FileCopyrightText: 2024 chromiumboy
+# SPDX-FileCopyrightText: 2024 AftrLite
+# SPDX-FileCopyrightText: 2024 LittleNyanCat
+# SPDX-FileCopyrightText: 2024 Fildrance
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2024 Ko4ergaPunk
+# SPDX-FileCopyrightText: 2024 Keer-Sar
+# SPDX-FileCopyrightText: 2023 Flareguy
+# SPDX-FileCopyrightText: 2024 Flareguy
+# SPDX-FileCopyrightText: 2023 Dakamakat
+# SPDX-FileCopyrightText: 2023 Chronophylos
+# SPDX-FileCopyrightText: 2023 Ed
+# SPDX-FileCopyrightText: 2023 Doru991
+# SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2023 Julian Giebel
+# SPDX-FileCopyrightText: 2022 Vordenburg
+# SPDX-FileCopyrightText: 2023 Vordenburg
+# SPDX-License-Identifier: MIT
+
 - files: ["anomaly_generate.ogg"]
   license: "CC0-1.0"
   copyright: "Created by szegvari, converted to mono and .ogg by EmoGarbage404 (github)."

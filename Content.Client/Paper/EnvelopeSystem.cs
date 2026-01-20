@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 themias
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Paper;
 using Robust.Client.GameObjects;
 

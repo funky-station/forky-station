@@ -1,4 +1,7 @@
-﻿using System.Threading.Tasks;
+// SPDX-FileCopyrightText: 2024 Simon
+// SPDX-License-Identifier: MIT
+
+using System.Threading.Tasks;
 using Robust.Shared.Network;
 
 namespace Content.Server.Connection.Whitelist.Conditions;

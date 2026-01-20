@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2021 Julian Giebel
+// SPDX-FileCopyrightText: 2022 Julian Giebel
+// SPDX-FileCopyrightText: 2023 Julian Giebel
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2021 Alex Evgrashin
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Utility;
 using Content.Shared.DeviceNetwork.Components;
 

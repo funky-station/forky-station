@@ -1,3 +1,61 @@
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+# SPDX-FileCopyrightText: 2025 Sir Warock
+# SPDX-FileCopyrightText: 2025 Hitlinemoss
+# SPDX-FileCopyrightText: 2025 SlamBamActionman
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2025 lzk
+# SPDX-FileCopyrightText: 2025 āda
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba
+# SPDX-FileCopyrightText: 2025 archee1
+# SPDX-FileCopyrightText: 2025 SeamLesss
+# SPDX-FileCopyrightText: 2025 War Pigeon
+# SPDX-FileCopyrightText: 2024 ThatGuyUSA
+# SPDX-FileCopyrightText: 2024 Alzore
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-FileCopyrightText: 2024 Kara
+# SPDX-FileCopyrightText: 2024 themias
+# SPDX-FileCopyrightText: 2024 dffdff2423
+# SPDX-FileCopyrightText: 2024 drteaspoon420
+# SPDX-FileCopyrightText: 2023 Ed
+# SPDX-FileCopyrightText: 2023 Guilherme Ornel
+# SPDX-FileCopyrightText: 2023 IProduceWidgets
+# SPDX-FileCopyrightText: 2023 Brandon Hu
+# SPDX-FileCopyrightText: 2023 Vasilis
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 Psychpsyo
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2023 Nim
+# SPDX-FileCopyrightText: 2023 Alekshhh
+# SPDX-FileCopyrightText: 2023 Sailor
+# SPDX-FileCopyrightText: 2023 JoeHammad1844
+# SPDX-FileCopyrightText: 2023 liltenhead
+# SPDX-FileCopyrightText: 2023 vanx
+# SPDX-FileCopyrightText: 2023 MisterMecky
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2023 Puro
+# SPDX-FileCopyrightText: 2023 crazybrain23
+# SPDX-FileCopyrightText: 2023 GoodWheatley
+# SPDX-FileCopyrightText: 2023 Interrobang01
+# SPDX-FileCopyrightText: 2023 dontbetank
+# SPDX-FileCopyrightText: 2022 rolfero
+# SPDX-FileCopyrightText: 2022 Jessica M
+# SPDX-FileCopyrightText: 2022 Myctai
+# SPDX-FileCopyrightText: 2022 Moony
+# SPDX-FileCopyrightText: 2022 Emisse
+# SPDX-FileCopyrightText: 2022 Julian Giebel
+# SPDX-FileCopyrightText: 2022 Kai Shiba
+# SPDX-FileCopyrightText: 2022 CrudeWax
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2021 mirrorcult
+# SPDX-FileCopyrightText: 2021 Ygg01
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+# SPDX-License-Identifier: MIT
+
 - type: entity
   abstract: true
   parent: BaseItem

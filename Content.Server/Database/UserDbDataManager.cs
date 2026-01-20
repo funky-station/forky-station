@@ -1,4 +1,11 @@
-﻿using System.Threading;
+// SPDX-FileCopyrightText: 2024 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
+using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Preferences.Managers;
 using Robust.Shared.Network;

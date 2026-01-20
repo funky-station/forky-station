@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 osjarw
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Labels.EntitySystems;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;

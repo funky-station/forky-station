@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 J
+// SPDX-FileCopyrightText: 2024 keronshb
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Actions;
 
 namespace Content.Shared.Magic.Events;

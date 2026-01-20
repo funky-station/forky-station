@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 osjarw
+// SPDX-FileCopyrightText: 2025 osjarw
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;

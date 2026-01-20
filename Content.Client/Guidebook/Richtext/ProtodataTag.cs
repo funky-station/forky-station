@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-License-Identifier: MIT
+
 using System.Globalization;
 using Robust.Client.UserInterface.RichText;
 using Robust.Shared.Utility;

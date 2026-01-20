@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 DrSmugleaf
+// SPDX-FileCopyrightText: 2024 Moomoobeef
+// SPDX-FileCopyrightText: 2024 deathride58
+// SPDX-FileCopyrightText: 2023 Nairod
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Eye.Blinding.Systems;
 using Robust.Shared.GameStates;
 

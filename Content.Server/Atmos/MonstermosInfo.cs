@@ -1,4 +1,11 @@
-﻿using Content.Shared.Atmos;
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+// SPDX-FileCopyrightText: 2020 DrSmugleaf
+// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Atmos;
 
 namespace Content.Server.Atmos;
 

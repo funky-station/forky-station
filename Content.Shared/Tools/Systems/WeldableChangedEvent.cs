@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Tools.Components;
 
 namespace Content.Shared.Tools.Systems;

@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 slarticodefast
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 SpeltIncorrectyl
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Power.Generator;
 
 public sealed class ActiveGeneratorRevvingSystem : EntitySystem

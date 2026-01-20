@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 20kdc
+// SPDX-License-Identifier: MIT
+
 using System;
 using Robust.Client.Graphics;
 using Content.Client.Parallax.Data;

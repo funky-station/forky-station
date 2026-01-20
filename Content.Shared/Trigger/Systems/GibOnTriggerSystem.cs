@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2026 pathetic meowmeow
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Gibbing;
 using Content.Shared.Inventory;
 using Content.Shared.Trigger.Components.Effects;

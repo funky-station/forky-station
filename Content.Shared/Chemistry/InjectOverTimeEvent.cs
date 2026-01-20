@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 ScarKy0
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Chemistry.Events;
 
 /// <summary>

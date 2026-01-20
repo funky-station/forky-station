@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Brandon Li
+// SPDX-License-Identifier: MIT
+
 using System;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;

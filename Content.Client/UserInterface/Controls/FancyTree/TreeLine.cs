@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Shared.Utility;

@@ -1,4 +1,7 @@
-﻿- type: soundCollection
+# SPDX-FileCopyrightText: 2025 poklj
+# SPDX-License-Identifier: MIT
+
+- type: soundCollection
   id: ChangelingDevourConsume
   files:
   - /Audio/Effects/Changeling/devour_consume.ogg

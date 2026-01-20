@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Polymorph.Systems;
 using Content.Server.Xenoarchaeology.Artifact.XAE.Components;
 using Content.Shared.Humanoid;

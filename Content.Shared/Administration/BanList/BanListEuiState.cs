@@ -1,4 +1,8 @@
-﻿using Content.Shared.Eui;
+// SPDX-FileCopyrightText: 2022 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Eui;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Administration.BanList;

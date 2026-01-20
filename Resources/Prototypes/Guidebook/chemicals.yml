@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Alpaccalypse
+# SPDX-FileCopyrightText: 2024 Ian
+# SPDX-FileCopyrightText: 2024 f0x-n3rd
+# SPDX-License-Identifier: MIT
+
 - type: guideEntry
   id: Chemicals
   name: guide-entry-chemicals

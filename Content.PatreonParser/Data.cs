@@ -1,4 +1,7 @@
-﻿using System.Text.Json.Serialization;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
+using System.Text.Json.Serialization;
 
 namespace Content.PatreonParser;
 

@@ -1,3 +1,45 @@
+# SPDX-FileCopyrightText: 2025 PJB3005
+# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+# SPDX-FileCopyrightText: 2025 SlamBamActionman
+# SPDX-FileCopyrightText: 2025 EnrichedCaramel
+# SPDX-FileCopyrightText: 2025 kosticia
+# SPDX-FileCopyrightText: 2025 ScarKy0
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2025 Nemanja
+# SPDX-FileCopyrightText: 2025 Fildrance
+# SPDX-FileCopyrightText: 2023 Boaz1111
+# SPDX-FileCopyrightText: 2023 Flareguy
+# SPDX-FileCopyrightText: 2023 Moomoobeef
+# SPDX-FileCopyrightText: 2023 CrigCrag
+# SPDX-FileCopyrightText: 2023 Maxtone
+# SPDX-FileCopyrightText: 2023 lapatison
+# SPDX-FileCopyrightText: 2022 Vordenburg
+# SPDX-FileCopyrightText: 2022 Will Robson
+# SPDX-FileCopyrightText: 2022 Flipp Syder
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin
+# SPDX-FileCopyrightText: 2021 mirrorcult
+# SPDX-FileCopyrightText: 2021 FoLoKe
+# SPDX-FileCopyrightText: 2021 ScalyChimp
+# SPDX-FileCopyrightText: 2021 SethLafuente
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2021 Paul Ritter
+# SPDX-FileCopyrightText: 2021 Radrark
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
+# SPDX-FileCopyrightText: 2020 Exp
+# SPDX-FileCopyrightText: 2020 nuke
+# SPDX-FileCopyrightText: 2020 ike709
+# SPDX-FileCopyrightText: 2020 AJCM-git
+# SPDX-FileCopyrightText: 2020 zumorica
+# SPDX-FileCopyrightText: 2019 metalgearsloth
+# SPDX-FileCopyrightText: 2020 metalgearsloth
+# SPDX-FileCopyrightText: 2020 Injazz
+# SPDX-FileCopyrightText: 2019 moneyl
+# SPDX-FileCopyrightText: 2019 Acruid
+# SPDX-License-Identifier: MIT
+
 - type: reagent
   id: Acetone
   name: reagent-name-acetone

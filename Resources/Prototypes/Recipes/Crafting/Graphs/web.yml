@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2024 Preston Smith
+# SPDX-FileCopyrightText: 2023 Kilk
+# SPDX-FileCopyrightText: 2023 PixelTK
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-FileCopyrightText: 2021 DrSmugleaf
+# SPDX-FileCopyrightText: 2020 Git-Nivrak
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: WebObjects
   start: start

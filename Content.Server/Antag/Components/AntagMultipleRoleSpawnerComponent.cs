@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Samuka
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 

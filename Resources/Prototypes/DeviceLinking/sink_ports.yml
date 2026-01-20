@@ -1,3 +1,19 @@
+# SPDX-FileCopyrightText: 2025 Borsh
+# SPDX-FileCopyrightText: 2025 slarticodefast
+# SPDX-FileCopyrightText: 2024 Saphire Lattice
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2023 0x6273
+# SPDX-FileCopyrightText: 2023 Julian Giebel
+# SPDX-FileCopyrightText: 2023 Kevin Zheng
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2022 Leon Friedrich
+# SPDX-FileCopyrightText: 2022 Chris V
+# SPDX-License-Identifier: MIT
+
 - type: sinkPort
   id: AutoClose
   name: signal-port-name-hold-open

@@ -1,4 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Krunklehorn
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2022 Flipp Syder
+// SPDX-FileCopyrightText: 2022 Moony
+// SPDX-FileCopyrightText: 2021 Swept
+// SPDX-FileCopyrightText: 2020 20kdc
+// SPDX-License-Identifier: MIT
+
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 

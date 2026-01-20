@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2022 Paul Ritter
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
 using System.Runtime.Intrinsics.X86;
 using BenchmarkDotNet.Attributes;
 using Robust.Shared.Analyzers;

@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 HerCoyote23
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration.Logs;
 using Content.Shared.Actions;
 using Content.Shared.Database;

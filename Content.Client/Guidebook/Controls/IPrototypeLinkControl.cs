@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Ciarán Walsh
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Prototypes;
 
 namespace Content.Client.Guidebook.Controls;

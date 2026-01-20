@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 chromiumboy
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Holopad;

@@ -1,4 +1,7 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2025 Simon
+// SPDX-License-Identifier: MIT
+
+using System.Linq;
 using Content.Shared.Instruments;
 using Robust.Shared.Audio.Midi;
 

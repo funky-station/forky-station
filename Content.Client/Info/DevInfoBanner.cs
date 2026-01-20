@@ -1,4 +1,8 @@
-﻿using Content.Client.Changelog;
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2022 Jesse Rougeau
+// SPDX-License-Identifier: MIT
+
+using Content.Client.Changelog;
 using Content.Client.Credits;
 using Content.Shared.CCVar;
 using Robust.Client.UserInterface;

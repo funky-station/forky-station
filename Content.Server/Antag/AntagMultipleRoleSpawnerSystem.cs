@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Samuka
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Antag.Components;
 using Robust.Shared.Random;
 

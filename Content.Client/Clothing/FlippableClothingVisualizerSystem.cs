@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 Nikolai Korolev
+// SPDX-FileCopyrightText: 2024 Cojoke
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;

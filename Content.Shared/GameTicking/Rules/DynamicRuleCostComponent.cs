@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.GameTicking.Rules;
 
 /// <summary>

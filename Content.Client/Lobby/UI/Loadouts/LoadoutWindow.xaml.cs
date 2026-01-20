@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 āda
+// SPDX-FileCopyrightText: 2025 lzk
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Errant
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.CCVar;

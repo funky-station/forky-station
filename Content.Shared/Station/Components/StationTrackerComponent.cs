@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Milon
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Station.Components;

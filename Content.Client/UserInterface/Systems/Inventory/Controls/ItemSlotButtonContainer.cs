@@ -1,4 +1,8 @@
-﻿using Content.Client.UserInterface.Controls;
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2022 Jezithyr
+// SPDX-License-Identifier: MIT
+
+using Content.Client.UserInterface.Controls;
 
 namespace Content.Client.UserInterface.Systems.Inventory.Controls;
 

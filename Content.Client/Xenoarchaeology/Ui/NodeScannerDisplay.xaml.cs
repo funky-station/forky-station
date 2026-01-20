@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-License-Identifier: MIT
+
 using Content.Client.UserInterface.Controls;
 using Content.Shared.NameIdentifier;
 using Content.Shared.Xenoarchaeology.Artifact;

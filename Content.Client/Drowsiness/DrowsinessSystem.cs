@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-FileCopyrightText: 2025 Perry Fraser
+// SPDX-FileCopyrightText: 2025 Red
+// SPDX-FileCopyrightText: 2024 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Drowsiness;
 using Content.Shared.StatusEffectNew;
 using Robust.Client.Graphics;

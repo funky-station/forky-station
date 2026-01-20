@@ -1,4 +1,9 @@
-﻿using Content.Server.Chat.Managers;
+// SPDX-FileCopyrightText: 2025 sleepyyapril
+// SPDX-FileCopyrightText: 2025 Simon
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Chat.Managers;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using NetCord;

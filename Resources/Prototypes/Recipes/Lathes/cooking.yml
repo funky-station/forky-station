@@ -1,3 +1,19 @@
+# SPDX-FileCopyrightText: 2025 āda
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-FileCopyrightText: 2024 RumiTiger
+# SPDX-FileCopyrightText: 2024 ArZarLordOfMango
+# SPDX-FileCopyrightText: 2024 GreyMario
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2021 SethLafuente
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-FileCopyrightText: 2020 Tarlan2
+# SPDX-FileCopyrightText: 2021 Tarlan2
+# SPDX-License-Identifier: MIT
+
 - type: latheRecipe
   parent: BaseToolRecipe
   id: ButchCleaver

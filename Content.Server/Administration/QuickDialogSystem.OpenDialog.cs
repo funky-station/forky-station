@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 LordCarve
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Moony
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Administration;
 using JetBrains.Annotations;
 using Robust.Shared.Player;

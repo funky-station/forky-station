@@ -1,4 +1,7 @@
-﻿using Content.Client.UserInterface.RichText;
+// SPDX-FileCopyrightText: 2025 beck-thompson
+// SPDX-License-Identifier: MIT
+
+using Content.Client.UserInterface.RichText;
 using Robust.Client.UserInterface.RichText;
 
 namespace Content.Client.RichText;

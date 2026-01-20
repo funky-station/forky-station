@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;

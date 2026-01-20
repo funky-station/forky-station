@@ -1,4 +1,7 @@
-﻿- type: reaction
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-License-Identifier: MIT
+
+- type: reaction
   id: CarbonDioxideBreakdown
   source: true
   requiredMixerCategories:

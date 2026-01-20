@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Serylis of Five
+# SPDX-FileCopyrightText: 2024 Ko4ergaPunk
+# SPDX-FileCopyrightText: 2023 Chronophylos
+# SPDX-License-Identifier: MIT
+
 - files: ["lightningshock.ogg", "lightningbolt.ogg"]
   license: CC-BY-SA-3.0
   copyright: "/tg/station"

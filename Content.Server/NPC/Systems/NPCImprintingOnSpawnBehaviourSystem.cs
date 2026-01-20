@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;

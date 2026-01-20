@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2025 Sir Warock
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2024 Preston Smith
+// SPDX-FileCopyrightText: 2024 blueDev2
+// SPDX-FileCopyrightText: 2024 osjarw
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-FileCopyrightText: 2024 veprolet
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Prototypes;
 using Content.Shared.Chemistry.Reagent;

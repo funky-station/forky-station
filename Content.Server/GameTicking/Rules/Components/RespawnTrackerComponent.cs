@@ -1,4 +1,8 @@
-﻿using Robust.Shared.Network;
+// SPDX-FileCopyrightText: 2024 AJCM-git
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Network;
 
 namespace Content.Server.GameTicking.Rules.Components;
 

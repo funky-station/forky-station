@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 ScarKy0
+// SPDX-FileCopyrightText: 2024 Saphire
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Emag.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Singularity.Components;

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2024 T-Stalker
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-License-Identifier: MIT
+
 - type: soundCollection
   id: ExpeditionEnd
   files:

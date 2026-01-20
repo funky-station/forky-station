@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 YoungThug
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2022 Andreas Kämper
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-FileCopyrightText: 2021 Visne
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2020 AJCM-git
+# SPDX-FileCopyrightText: 2019 DamianX
+# SPDX-License-Identifier: MIT
+
 - type: vendingMachineInventory
   id: MagiVendInventory
   startingInventory:

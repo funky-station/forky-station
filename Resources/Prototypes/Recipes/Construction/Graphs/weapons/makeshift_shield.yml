@@ -1,4 +1,8 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2023 liltenhead
+# SPDX-FileCopyrightText: 2022 keronshb
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: MakeshiftShield
   start: start
   graph:

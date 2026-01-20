@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 AJCM-git
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Hands;
 using Content.Shared.Inventory.VirtualItem;
 

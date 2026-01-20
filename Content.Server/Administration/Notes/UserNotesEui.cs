@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2023 Riggle
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using System.Threading.Tasks;
 using Content.Server.EUI;

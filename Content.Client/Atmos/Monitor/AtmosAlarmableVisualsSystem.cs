@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 MilenVolf
+// SPDX-FileCopyrightText: 2022 vulppine
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Atmos.Monitor;
 using Content.Shared.Power;
 using Robust.Client.GameObjects;

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Token
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Clothing.Components;

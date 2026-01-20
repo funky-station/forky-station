@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Jezithyr
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.IntegrationTests.Tests.Interaction;
 using Content.Shared.Radio.Components;

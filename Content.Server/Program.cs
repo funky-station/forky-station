@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
 using Robust.Server;
 
 namespace Content.Server

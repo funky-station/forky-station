@@ -1,4 +1,9 @@
-﻿using Content.Server.Power.Components;
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Power.Components;
 using Content.Server.Power.Pow3r;
 
 namespace Content.Server.Power.NodeGroups

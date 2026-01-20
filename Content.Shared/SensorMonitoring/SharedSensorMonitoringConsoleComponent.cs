@@ -1,4 +1,7 @@
-﻿using Robust.Shared.Serialization;
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Serialization;
 using ConsoleUIState = Content.Shared.SensorMonitoring.SensorMonitoringConsoleBoundInterfaceState;
 
 namespace Content.Shared.SensorMonitoring;

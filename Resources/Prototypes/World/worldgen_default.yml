@@ -1,4 +1,7 @@
-﻿- type: worldgenConfig
+# SPDX-FileCopyrightText: 2023 Moony
+# SPDX-License-Identifier: MIT
+
+- type: worldgenConfig
   id: Default
   components:
     - type: WorldController

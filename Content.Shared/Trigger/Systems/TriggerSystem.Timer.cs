@@ -1,4 +1,9 @@
-﻿using Content.Shared.Trigger.Components;
+// SPDX-FileCopyrightText: 2025 beck-thompson
+// SPDX-FileCopyrightText: 2025 Perry Fraser
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Trigger.Components;
 using Content.Shared.Trigger.Components.Triggers;
 using Content.Shared.Examine;
 using Content.Shared.Verbs;

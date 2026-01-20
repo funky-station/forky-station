@@ -1,4 +1,8 @@
-﻿using Content.Server.Construction.Components;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Construction.Components;
 using Content.Shared.Construction;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;

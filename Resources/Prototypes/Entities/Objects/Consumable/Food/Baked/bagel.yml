@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+# SPDX-FileCopyrightText: 2025 5tickman
+# SPDX-FileCopyrightText: 2025 Qerd
+# SPDX-FileCopyrightText: 2025 MissKay1994
+# SPDX-FileCopyrightText: 2024 ArtisticRoomba
+# SPDX-FileCopyrightText: 2024 DrEnzyme
+# SPDX-License-Identifier: MIT
+
 # When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_baked_whole.yml & food_baked_single.yml
 # Base
 

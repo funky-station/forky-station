@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 brainfood1183
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-License-Identifier: MIT
+
 - type: soundCollection
   id: BikeHorn
   files:

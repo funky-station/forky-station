@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2025 ScarKy0
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Administration;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;

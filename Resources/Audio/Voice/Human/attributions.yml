@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st
+# SPDX-FileCopyrightText: 2023 Chronophylos
+# SPDX-FileCopyrightText: 2023 justproggramer
+# SPDX-FileCopyrightText: 2023 lzk228
+# SPDX-License-Identifier: MIT
+
 - files: ["female_sigh.ogg", "male_sigh.ogg"]
   license: "CC-BY-3.0"
   copyright: "https://github.com/ss220-space/Paradise/"

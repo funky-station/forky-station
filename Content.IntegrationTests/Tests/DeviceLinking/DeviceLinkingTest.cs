@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-License-Identifier: MIT
+
 using System.Collections.Generic;
 using System.Linq;
 using Content.Server.DeviceLinking.Systems;

@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Hitlinemoss
+# SPDX-FileCopyrightText: 2025 Mixelz
+# SPDX-FileCopyrightText: 2023 MisterMecky
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: BoxCardboard
   start: start

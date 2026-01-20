@@ -1,3 +1,20 @@
+# SPDX-FileCopyrightText: 2025 Manuel Gusmão
+# SPDX-FileCopyrightText: 2024 cohanna
+# SPDX-FileCopyrightText: 2024 Alzore
+# SPDX-FileCopyrightText: 2024 MACMAN2003
+# SPDX-FileCopyrightText: 2023 brainfood1183
+# SPDX-FileCopyrightText: 2023 AsikKEsel
+# SPDX-FileCopyrightText: 2022 Júlio César Ueti
+# SPDX-FileCopyrightText: 2022 Lamrr
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2021 SethLafuente
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2021 DrSmugleaf
+# SPDX-FileCopyrightText: 2020 Git-Nivrak
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: WindowDiagonal
   start: start

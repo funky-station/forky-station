@@ -1,4 +1,7 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using System.Linq;
 using Robust.Client.Timing;
 using Robust.Shared.Timing;
 

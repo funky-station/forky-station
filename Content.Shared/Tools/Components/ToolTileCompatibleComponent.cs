@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.DoAfter;
 using Content.Shared.Tools.Systems;
 using Robust.Shared.GameStates;

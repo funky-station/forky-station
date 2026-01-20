@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 alexalexmax
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2022 Flipp Syder
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.VoiceMask;

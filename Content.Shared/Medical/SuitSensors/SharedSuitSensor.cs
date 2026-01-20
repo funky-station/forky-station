@@ -1,3 +1,18 @@
+// SPDX-FileCopyrightText: 2025 kosticia
+// SPDX-FileCopyrightText: 2025 Ciarán Walsh
+// SPDX-FileCopyrightText: 2024 BombasterDS
+// SPDX-FileCopyrightText: 2024 Skye
+// SPDX-FileCopyrightText: 2024 Pspritechologist
+// SPDX-FileCopyrightText: 2023 chromiumboy
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Ahion
+// SPDX-FileCopyrightText: 2023 Julian Giebel
+// SPDX-FileCopyrightText: 2023 keronshb
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2021 Alex Evgrashin
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.DoAfter;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;

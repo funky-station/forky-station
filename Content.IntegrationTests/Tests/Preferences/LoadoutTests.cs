@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Errant
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-License-Identifier: MIT
+
 using System.Collections.Generic;
 using Content.Server.Station.Systems;
 using Content.Shared.Inventory;

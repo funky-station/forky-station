@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-License-Identifier: MIT
+
 - type: antag
   id: Dragon
   name: roles-antag-dragon-name

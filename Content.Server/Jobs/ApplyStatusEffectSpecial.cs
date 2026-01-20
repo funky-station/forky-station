@@ -1,4 +1,7 @@
-﻿using Content.Shared.Roles;
+// SPDX-FileCopyrightText: 2025 SlamBamActionman
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Roles;
 using Content.Shared.StatusEffectNew;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;

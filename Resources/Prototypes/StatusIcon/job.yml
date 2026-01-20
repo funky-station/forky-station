@@ -1,3 +1,19 @@
+# SPDX-FileCopyrightText: 2026 ThatGuyUSA
+# SPDX-FileCopyrightText: 2025 āda
+# SPDX-FileCopyrightText: 2025 Professor Renderer Grizzleton
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2024 slarticodefast
+# SPDX-FileCopyrightText: 2024 AJCM-git
+# SPDX-FileCopyrightText: 2024 TsjipTsjip
+# SPDX-FileCopyrightText: 2023 PrPleGoo
+# SPDX-FileCopyrightText: 2024 PrPleGoo
+# SPDX-FileCopyrightText: 2024 Golinth
+# SPDX-FileCopyrightText: 2024 SlamBamActionman
+# SPDX-FileCopyrightText: 2023 Nairod
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 Visne
+# SPDX-License-Identifier: MIT
+
 - type: jobIcon
   abstract: true
   id: JobIcon

@@ -1,4 +1,8 @@
-﻿using System.IO;
+// SPDX-FileCopyrightText: 2025 B_Kirill
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Client.Parallax.Data;

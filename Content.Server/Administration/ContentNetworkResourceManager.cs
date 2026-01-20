@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Database;
 using Content.Shared.CCVar;
 using Robust.Server.Upload;

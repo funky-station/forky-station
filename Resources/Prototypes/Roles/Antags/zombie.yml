@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Errant
+# SPDX-FileCopyrightText: 2025 ScarKy0
+# SPDX-FileCopyrightText: 2024 Leon Friedrich
+# SPDX-FileCopyrightText: 2022 Morb
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-License-Identifier: MIT
+
 - type: antag
   id: InitialInfected
   name: roles-antag-initial-infected-name

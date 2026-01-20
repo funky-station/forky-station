@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 ScarKy0
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.EntityTable;
 using Robust.Shared.Prototypes;
 

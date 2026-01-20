@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2023 Bixkitts
+// SPDX-License-Identifier: MIT
+
 using Robust.Client.GameObjects;
 using Content.Shared.Smoking;
 

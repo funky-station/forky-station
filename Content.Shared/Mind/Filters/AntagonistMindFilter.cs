@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Roles;
 
 namespace Content.Shared.Mind.Filters;

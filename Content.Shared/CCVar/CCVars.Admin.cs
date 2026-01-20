@@ -1,4 +1,13 @@
-﻿using Robust.Shared.Configuration;
+// SPDX-FileCopyrightText: 2026 Errant
+// SPDX-FileCopyrightText: 2025 nikthechampiongr
+// SPDX-FileCopyrightText: 2025 beck-thompson
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 Myra
+// SPDX-FileCopyrightText: 2024 deathride58
+// SPDX-FileCopyrightText: 2024 Simon
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;
 

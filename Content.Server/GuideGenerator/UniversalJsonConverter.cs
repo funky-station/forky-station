@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2022 Sam Weaver
+// SPDX-License-Identifier: MIT
+
 using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;

@@ -1,4 +1,10 @@
-﻿using Content.Shared.CrewManifest;
+// SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft
+// SPDX-FileCopyrightText: 2024 slarticodefast
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 Phill101
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.CrewManifest;
 using Content.Shared.StatusIcon;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface.Controls;

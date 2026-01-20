@@ -1,4 +1,11 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2023 brainfood1183
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-FileCopyrightText: 2021 20kdc
+# SPDX-FileCopyrightText: 2020 Git-Nivrak
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: FloorBananium
   start: start
   graph:

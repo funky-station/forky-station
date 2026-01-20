@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 Centronias
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Chat;
 using Content.Shared.Inventory;
 using Content.Shared.Speech.Components;

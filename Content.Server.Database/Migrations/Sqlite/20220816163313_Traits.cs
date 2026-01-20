@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2022 Visne
+// SPDX-License-Identifier: MIT
+
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable

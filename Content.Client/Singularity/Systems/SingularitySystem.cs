@@ -1,4 +1,12 @@
-﻿using Content.Shared.Singularity;
+// SPDX-FileCopyrightText: 2024 Saphire
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-FileCopyrightText: 2023 Zoldorf
+// SPDX-FileCopyrightText: 2022 TemporalOroboros
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2022 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Singularity;
 using Content.Shared.Singularity.Components;
 using Content.Shared.Singularity.EntitySystems;
 using Robust.Client.GameObjects;

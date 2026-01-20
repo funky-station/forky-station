@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Tao
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: Cardwall
   start: start

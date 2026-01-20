@@ -1,4 +1,7 @@
-﻿- type: decal
+# SPDX-FileCopyrightText: 2024 Ko4ergaPunk
+# SPDX-License-Identifier: MIT
+
+- type: decal
   id: MarkupSquare
   tags: ["overlay"]
   defaultCustomColor: true

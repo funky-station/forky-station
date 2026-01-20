@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 avery
+// SPDX-FileCopyrightText: 2024 avery
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.TextScreen;

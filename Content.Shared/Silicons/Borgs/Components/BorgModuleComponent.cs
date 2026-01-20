@@ -1,4 +1,11 @@
-﻿using Robust.Shared.GameStates;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 Samuka
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.GameStates;
 
 namespace Content.Shared.Silicons.Borgs.Components;
 

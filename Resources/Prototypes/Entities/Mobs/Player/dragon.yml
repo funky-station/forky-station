@@ -1,3 +1,45 @@
+# SPDX-FileCopyrightText: 2025 TemporalOroboros
+# SPDX-FileCopyrightText: 2025 Nikovnik
+# SPDX-FileCopyrightText: 2025 PicklOH
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+# SPDX-FileCopyrightText: 2025 Sparlight
+# SPDX-FileCopyrightText: 2025 Red
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-FileCopyrightText: 2025 deltanedas
+# SPDX-FileCopyrightText: 2025 mubururu_
+# SPDX-FileCopyrightText: 2025 Errant
+# SPDX-FileCopyrightText: 2024 SoulFN
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2024 godisdeadLOL
+# SPDX-FileCopyrightText: 2024 Lye
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2024 TsjipTsjip
+# SPDX-FileCopyrightText: 2023 Leon Friedrich
+# SPDX-FileCopyrightText: 2024 Leon Friedrich
+# SPDX-FileCopyrightText: 2024 no
+# SPDX-FileCopyrightText: 2024 MilenVolf
+# SPDX-FileCopyrightText: 2024 Tayrtahn
+# SPDX-FileCopyrightText: 2024 Simon
+# SPDX-FileCopyrightText: 2024 Whisper
+# SPDX-FileCopyrightText: 2023 I.K
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2023 DrSmugleaf
+# SPDX-FileCopyrightText: 2023 Kara
+# SPDX-FileCopyrightText: 2023 DerbyX
+# SPDX-FileCopyrightText: 2023 PilgrimViis
+# SPDX-FileCopyrightText: 2023 lzk228
+# SPDX-FileCopyrightText: 2023 Jezithyr
+# SPDX-FileCopyrightText: 2023 Jackrost
+# SPDX-FileCopyrightText: 2022 Paul Ritter
+# SPDX-FileCopyrightText: 2022 rolfero
+# SPDX-FileCopyrightText: 2022 Flipp Syder
+# SPDX-FileCopyrightText: 2022 Aerocrux
+# SPDX-FileCopyrightText: 2022 CrudeWax
+# SPDX-License-Identifier: MIT
+
 - type: entity
   parent: [ SimpleSpaceMobBase, FlyingMobBase ]
   id: BaseMobDragon

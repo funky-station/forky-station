@@ -1,4 +1,9 @@
-﻿using Robust.Shared.GameStates;
+// SPDX-FileCopyrightText: 2025 Pok
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Moony
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.GameStates;
 
 namespace Content.Shared.Administration.Components;
 

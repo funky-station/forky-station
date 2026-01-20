@@ -1,3 +1,19 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2025 Ciarán Walsh
+// SPDX-FileCopyrightText: 2025 GrownSamoyedDog
+// SPDX-FileCopyrightText: 2024 12rabbits
+// SPDX-FileCopyrightText: 2024 Thomas
+// SPDX-FileCopyrightText: 2024 AJCM-git
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 Sk1tch
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-FileCopyrightText: 2023 Vasilis
+// SPDX-FileCopyrightText: 2023 Hebi
+// SPDX-License-Identifier: MIT
+
 using System.Diagnostics;
 using System.Linq;
 using Content.Client.Guidebook.RichText;

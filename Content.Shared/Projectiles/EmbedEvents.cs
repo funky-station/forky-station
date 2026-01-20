@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 sleepyyapril
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Projectiles;
 
 /// <summary>

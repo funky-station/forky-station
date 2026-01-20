@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 LankLTE
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
 using System.Text.Json.Serialization;
 
 namespace Content.Server.Discord;

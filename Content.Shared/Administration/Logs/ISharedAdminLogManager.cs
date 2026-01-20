@@ -1,4 +1,8 @@
-﻿using System.Runtime.CompilerServices;
+// SPDX-FileCopyrightText: 2025 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-License-Identifier: MIT
+
+using System.Runtime.CompilerServices;
 using Content.Shared.Database;
 
 namespace Content.Shared.Administration.Logs;

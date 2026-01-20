@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Chemistry.EntitySystems;
 
 namespace Content.Client.Chemistry.EntitySystems;

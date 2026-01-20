@@ -1,2 +1,5 @@
+# SPDX-FileCopyrightText: 2022 Zoldorf
+# SPDX-License-Identifier: MIT
+
 - name: Example-article
   href: example-article.md

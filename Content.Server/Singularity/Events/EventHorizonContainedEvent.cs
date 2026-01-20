@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2022 TemporalOroboros
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Containers;
 using Content.Shared.Singularity.Components;
 

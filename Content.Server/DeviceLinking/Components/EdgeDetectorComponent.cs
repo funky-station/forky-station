@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Content.Server.DeviceLinking.Systems;
 using Content.Shared.DeviceLinking;
 using Robust.Shared.Prototypes;

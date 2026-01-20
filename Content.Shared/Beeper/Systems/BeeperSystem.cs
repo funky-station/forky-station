@@ -1,4 +1,8 @@
-﻿using Content.Shared.Beeper.Components;
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2024 Jezithyr
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Beeper.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;

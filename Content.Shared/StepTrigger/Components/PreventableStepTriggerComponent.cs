@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Verm
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Inventory;
 using Robust.Shared.GameStates;
 

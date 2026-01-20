@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Alkheemist
+# SPDX-License-Identifier: MIT
+
 - type: decal
   id: StencilNumber0
   tags: ["station", "markings"]

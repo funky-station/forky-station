@@ -1,4 +1,10 @@
-﻿using Content.Shared.Interaction;
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 slarticodefast
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Interaction;
 
 namespace Content.Shared.MouseRotator;
 

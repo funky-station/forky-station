@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 SlamBamActionman
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Inventory;
 
 namespace Content.Shared.Slippery;

@@ -1,4 +1,10 @@
-﻿using Content.Shared.FixedPoint;
+// SPDX-FileCopyrightText: 2026 slarticodefast
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2021 mirrorcult
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.FixedPoint;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Chemistry

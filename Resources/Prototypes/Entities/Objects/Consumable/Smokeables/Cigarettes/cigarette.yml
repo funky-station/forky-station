@@ -1,3 +1,25 @@
+# SPDX-FileCopyrightText: 2025 Chartman
+# SPDX-FileCopyrightText: 2025 Hanz
+# SPDX-FileCopyrightText: 2025 DR-DOCTOR-EVIL-EVIL
+# SPDX-FileCopyrightText: 2024 Ps3Moira
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2023 Velcroboy
+# SPDX-FileCopyrightText: 2023 Guilherme Ornel
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2023 Brayden H
+# SPDX-FileCopyrightText: 2023 Tollhouse
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2023 ninruB
+# SPDX-FileCopyrightText: 2022 Vordenburg
+# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-License-Identifier: MIT
+
 - type: entity
   id: Cigarette
   parent: BaseCigar

@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2026 Nemanja
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 SpeltIncorrectyl
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Audio;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Construction;

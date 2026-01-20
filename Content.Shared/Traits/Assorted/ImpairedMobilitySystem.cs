@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Mora
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Movement.Systems;
 using Content.Shared.Stunnable;
 using Content.Shared.Hands.EntitySystems;

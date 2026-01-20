@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Quantum-cross
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using System.Numerics;
 using Robust.Shared.GameStates;

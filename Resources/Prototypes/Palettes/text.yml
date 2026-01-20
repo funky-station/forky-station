@@ -1,4 +1,8 @@
-﻿- type: palette
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2024 ike709
+# SPDX-License-Identifier: MIT
+
+- type: palette
   id: Material
   name: Material
   colors:

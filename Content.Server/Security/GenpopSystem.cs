@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 K-Dynamic
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Security.Components;
 using Content.Shared.Security.Systems;
 using Content.Shared.Wall;

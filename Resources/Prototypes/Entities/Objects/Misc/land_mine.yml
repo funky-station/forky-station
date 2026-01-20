@@ -1,4 +1,15 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2025 slarticodefast
+# SPDX-FileCopyrightText: 2025 Spanky
+# SPDX-FileCopyrightText: 2025 Centronias
+# SPDX-FileCopyrightText: 2025 kaiserbirch
+# SPDX-FileCopyrightText: 2024 KISS
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+# SPDX-License-Identifier: MIT
+
+- type: entity
   id: BaseLandMine
   abstract: true
   components:

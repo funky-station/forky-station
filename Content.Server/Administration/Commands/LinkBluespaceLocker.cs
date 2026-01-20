@@ -1,4 +1,11 @@
-﻿using Content.Server.Storage.Components;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Chief-Engineer
+// SPDX-FileCopyrightText: 2023 Chief-Engineer
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Storage.Components;
 using Content.Shared.Administration;
 using Content.Shared.Storage.Components;
 using Robust.Shared.Console;

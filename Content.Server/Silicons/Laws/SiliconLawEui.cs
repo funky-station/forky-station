@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Zachary Higgs
+// SPDX-FileCopyrightText: 2024 Simon
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration.Managers;
 using Content.Server.EUI;
 using Content.Shared.Administration;

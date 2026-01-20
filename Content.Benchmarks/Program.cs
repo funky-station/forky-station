@@ -1,4 +1,15 @@
-﻿using System;
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2025 Leon Friedrich
+// SPDX-FileCopyrightText: 2019 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-FileCopyrightText: 2022 Paul Ritter
+// SPDX-FileCopyrightText: 2020 Tyler Young
+// SPDX-License-Identifier: MIT
+
+using System;
 using BenchmarkDotNet.Running;
 using BenchmarkDotNet.Configs;
 using Robust.Benchmarks.Configs;

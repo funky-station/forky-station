@@ -1,4 +1,7 @@
-﻿using Content.Client.UserInterface.Systems.Info;
+// SPDX-FileCopyrightText: 2023 ShadowCommander
+// SPDX-License-Identifier: MIT
+
+using Content.Client.UserInterface.Systems.Info;
 using Content.Shared.Input;
 using JetBrains.Annotations;
 using Robust.Client.Input;

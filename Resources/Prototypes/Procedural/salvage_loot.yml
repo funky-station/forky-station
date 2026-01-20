@@ -1,3 +1,17 @@
+# SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2025 metalgearsloth
+# SPDX-FileCopyrightText: 2025 ScarKy0
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-FileCopyrightText: 2024 Zadeon
+# SPDX-FileCopyrightText: 2024 mac6na6na
+# SPDX-FileCopyrightText: 2023 Velcroboy
+# SPDX-License-Identifier: MIT
+
 # Loot table
 # Main loot table for random spawns
 - type: salvageLoot

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 slarticodefast
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Security.Components;
 using JetBrains.Annotations;
 

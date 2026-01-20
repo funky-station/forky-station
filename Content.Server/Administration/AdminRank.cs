@@ -1,4 +1,8 @@
-﻿using Content.Shared.Administration;
+// SPDX-FileCopyrightText: 2021 Visne
+// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Administration;
 
 
 namespace Content.Server.Administration

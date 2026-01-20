@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 778b
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Spawners.EntitySystems;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;

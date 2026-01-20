@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Shared.Actions;
 using Content.Shared.Eye;

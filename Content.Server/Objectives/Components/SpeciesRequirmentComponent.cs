@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 Ed
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Objectives.Systems;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;

@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Winkarst
+// SPDX-FileCopyrightText: 2024 beck-thompson
+// SPDX-FileCopyrightText: 2023 nikthechampiongr
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration.Components;
 using Content.Shared.Climbing.Components;
 using Content.Shared.Clumsy;

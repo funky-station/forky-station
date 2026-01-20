@@ -1,3 +1,69 @@
+# SPDX-FileCopyrightText: 2026 Vasilis The Pikachu
+# SPDX-FileCopyrightText: 2026 Velken
+# SPDX-FileCopyrightText: 2025 Aearo-Deepwater
+# SPDX-FileCopyrightText: 2026 Aearo-Deepwater
+# SPDX-FileCopyrightText: 2025 Minerva
+# SPDX-FileCopyrightText: 2025 SharkSnake98
+# SPDX-FileCopyrightText: 2025 Samuka-C
+# SPDX-FileCopyrightText: 2025 SlamBamActionman
+# SPDX-FileCopyrightText: 2025 Moomoobeef
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+# SPDX-FileCopyrightText: 2025 kosticia
+# SPDX-FileCopyrightText: 2025 Southbridge
+# SPDX-FileCopyrightText: 2023 Flareguy
+# SPDX-FileCopyrightText: 2024 Flareguy
+# SPDX-FileCopyrightText: 2024 TakoDragon
+# SPDX-FileCopyrightText: 2024 NotSoDamn
+# SPDX-FileCopyrightText: 2024 Ko4ergaPunk
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2024 IProduceWidgets
+# SPDX-FileCopyrightText: 2024 MACMAN2003
+# SPDX-FileCopyrightText: 2024 Ps3Moira
+# SPDX-FileCopyrightText: 2023 Ed
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2024 themias
+# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-FileCopyrightText: 2023 Kara
+# SPDX-FileCopyrightText: 2023 NULL882
+# SPDX-FileCopyrightText: 2023 Emisse
+# SPDX-FileCopyrightText: 2023 potato1234_x
+# SPDX-FileCopyrightText: 2023 PixelTK
+# SPDX-FileCopyrightText: 2023 Vordenburg
+# SPDX-FileCopyrightText: 2023 I.K
+# SPDX-FileCopyrightText: 2023 Kit0vras
+# SPDX-FileCopyrightText: 2023 20kdc
+# SPDX-FileCopyrightText: 2019 metalgearsloth
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2022 brainfood1183
+# SPDX-FileCopyrightText: 2022 Moony
+# SPDX-FileCopyrightText: 2022 Morb
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2022 Pancake
+# SPDX-FileCopyrightText: 2022 wrexbe
+# SPDX-FileCopyrightText: 2020 AJCM-git
+# SPDX-FileCopyrightText: 2021 AJCM-git
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2020 Swept
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-FileCopyrightText: 2021 Galactic Chimp
+# SPDX-FileCopyrightText: 2021 AndrewUnderscore
+# SPDX-FileCopyrightText: 2020 Git-Nivrak
+# SPDX-FileCopyrightText: 2018 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2019 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2020 FL-OZ
+# SPDX-FileCopyrightText: 2020 Rohesie
+# SPDX-FileCopyrightText: 2019 Ephememory
+# SPDX-FileCopyrightText: 2019 DamianX
+# SPDX-FileCopyrightText: 2019 Injazz
+# SPDX-FileCopyrightText: 2019 PrPleGoo
+# SPDX-License-Identifier: MIT
+
 - type: tile
   id: FloorSteel
   name: tiles-steel-floor

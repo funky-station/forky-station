@@ -1,4 +1,11 @@
-﻿- type: localizedDataset
+# SPDX-FileCopyrightText: 2025 MilenVolf
+# SPDX-FileCopyrightText: 2023 Whisper
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2021 Kara D
+# SPDX-FileCopyrightText: 2021 Paul Ritter
+# SPDX-License-Identifier: MIT
+
+- type: localizedDataset
   id: NamesDeathCommando
   values:
     prefix: names-death-commando-dataset-

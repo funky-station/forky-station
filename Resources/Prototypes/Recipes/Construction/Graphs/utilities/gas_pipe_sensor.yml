@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Boaz1111
+# SPDX-FileCopyrightText: 2024 chromiumboy
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: GasPipeSensor
   start: start

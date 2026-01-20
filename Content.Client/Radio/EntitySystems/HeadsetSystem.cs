@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Radio.EntitySystems;
 
 namespace Content.Client.Radio.EntitySystems;

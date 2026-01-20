@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 ThunderBear2006
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Anomaly.Components;
 using Content.Shared.Anomaly.Components;

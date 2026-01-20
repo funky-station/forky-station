@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow
+// SPDX-FileCopyrightText: 2023 ShadowCommander
+// SPDX-FileCopyrightText: 2023 Skye
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Gameplay;
 using Content.Client.Info;
 using Robust.Client.Input;

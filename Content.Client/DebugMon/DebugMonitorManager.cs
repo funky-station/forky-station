@@ -1,4 +1,9 @@
-﻿using Content.Client.Administration.Managers;
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 Kot
+// SPDX-FileCopyrightText: 2023 Errant
+// SPDX-License-Identifier: MIT
+
+using Content.Client.Administration.Managers;
 using Content.Shared.CCVar;
 using Robust.Client;
 using Robust.Client.UserInterface;

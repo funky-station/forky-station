@@ -1,4 +1,9 @@
-﻿using Content.Server.Ghost.Roles.Components;
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Ghost.Roles.Components;
 using Content.Server.Speech.Components;
 using Content.Shared.EntityEffects;
 using Content.Shared.EntityEffects.Effects;

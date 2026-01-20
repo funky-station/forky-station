@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Trigger.Systems;
 using Robust.Shared.GameStates;
 

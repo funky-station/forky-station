@@ -1,4 +1,13 @@
-﻿using Content.Server.Damage.Components;
+// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 Moomoobeef
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Damage.Components;
 using Content.Server.Destructible;
 using Content.Shared.Damage.Components;
 using Content.Shared.Examine;

@@ -1,4 +1,10 @@
-﻿namespace Content.Server.Storage.Components;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 keronshb
+// SPDX-FileCopyrightText: 2022 Chief-Engineer
+// SPDX-FileCopyrightText: 2023 Chief-Engineer
+// SPDX-License-Identifier: MIT
+
+namespace Content.Server.Storage.Components;
 
 [RegisterComponent]
 public sealed partial class BluespaceLockerComponent : Component

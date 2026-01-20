@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-FileCopyrightText: 2025 deltanedas
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Objectives.Systems;
 using Content.Shared.Mind.Filters;
 

@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Flipp Syder
+// SPDX-License-Identifier: MIT
+
 using Content.Server.DeviceNetwork.Components;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;

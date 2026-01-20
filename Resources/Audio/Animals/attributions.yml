@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+# SPDX-FileCopyrightText: 2024 nao fujiwara
+# SPDX-FileCopyrightText: 2024 LankLTE
+# SPDX-FileCopyrightText: 2023 Ed
+# SPDX-FileCopyrightText: 2023 RieBi
+# SPDX-License-Identifier: MIT
+
 - files: ["monkey_scream.ogg"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "Taken from goonstation"

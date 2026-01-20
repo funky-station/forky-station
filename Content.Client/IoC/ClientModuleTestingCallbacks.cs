@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2019 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
 using System;
 using Content.Shared;
 using Content.Shared.Module;

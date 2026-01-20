@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2025 Hitlinemoss
+# SPDX-FileCopyrightText: 2025 SnappingOpossum
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2024 AlexUm & XGabriel08X
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2023 Hyenh
+# SPDX-FileCopyrightText: 2022 Rinkashikachi
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin
+# SPDX-License-Identifier: MIT
+
 - type: entity
   parent: [ CrateSyndicate, StorePresetUplink, BaseSyndicateContraband ]
   id: CrateSyndicateSurplusBundle

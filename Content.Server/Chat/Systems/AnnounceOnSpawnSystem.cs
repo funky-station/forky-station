@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 chavonadelal
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Chat;
 
 namespace Content.Server.Chat.Systems;

@@ -1,4 +1,12 @@
-﻿using System.Numerics;
+// SPDX-FileCopyrightText: 2025 Quantum-cross
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-License-Identifier: MIT
+
+using System.Numerics;
 using Content.Client.Gravity;
 using Content.Shared.Anomaly;
 using Content.Shared.Anomaly.Components;

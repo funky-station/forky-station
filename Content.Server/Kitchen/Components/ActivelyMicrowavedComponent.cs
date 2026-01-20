@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2024 deathride58
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.Kitchen.Components;
 
 /// <summary>

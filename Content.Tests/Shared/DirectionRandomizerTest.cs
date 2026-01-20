@@ -1,4 +1,8 @@
-﻿using System;
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2022 Ygg01
+// SPDX-License-Identifier: MIT
+
+using System;
 using System.Collections.Generic;
 using Content.Shared;
 using NUnit.Framework;

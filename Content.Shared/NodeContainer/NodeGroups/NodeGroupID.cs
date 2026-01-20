@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 IProduceWidgets
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.NodeContainer.NodeGroups;
 
 public enum NodeGroupID : byte

@@ -1,4 +1,18 @@
-﻿using System;
+// SPDX-FileCopyrightText: 2025 Partmedia
+// SPDX-FileCopyrightText: 2025 Myra
+// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2022 Julian Giebel
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 ShadowCommander
+// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández
+// SPDX-FileCopyrightText: 2021 Saphire Lattice
+// SPDX-License-Identifier: MIT
+
+using System;
 using System.Globalization;
 using System.IO;
 using System.Linq;

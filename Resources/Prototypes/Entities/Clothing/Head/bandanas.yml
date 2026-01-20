@@ -1,3 +1,19 @@
+# SPDX-FileCopyrightText: 2025 beck-thompson
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2025 lzk
+# SPDX-FileCopyrightText: 2024 DevilishMilk
+# SPDX-FileCopyrightText: 2024 Stalen
+# SPDX-FileCopyrightText: 2024 Luiz Costa
+# SPDX-FileCopyrightText: 2024 wafehling
+# SPDX-FileCopyrightText: 2024 themias
+# SPDX-FileCopyrightText: 2023 cOrigin
+# SPDX-FileCopyrightText: 2023 brainfood1183
+# SPDX-FileCopyrightText: 2023 lzk228
+# SPDX-FileCopyrightText: 2023 Jackal298
+# SPDX-FileCopyrightText: 2023 potato1234_x
+# SPDX-FileCopyrightText: 2020 Swept
+# SPDX-License-Identifier: MIT
+
 - type: entity
   parent: [ClothingHeadBaseButcherable, BaseFoldable]
   id: ClothingHeadBandBase

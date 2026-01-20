@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 chromiumboy
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 AJCM-git
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;

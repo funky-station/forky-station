@@ -1,3 +1,31 @@
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 Tao
+// SPDX-FileCopyrightText: 2025 keronshb
+// SPDX-FileCopyrightText: 2021 metalgearsloth
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 lzk
+// SPDX-FileCopyrightText: 2024 MilenVolf
+// SPDX-FileCopyrightText: 2023 Repo
+// SPDX-FileCopyrightText: 2022 Ian Pike
+// SPDX-FileCopyrightText: 2022 Jacob Tong
+// SPDX-FileCopyrightText: 2021 Visne
+// SPDX-FileCopyrightText: 2021 Swept
+// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2021 Daniel Castro Razo
+// SPDX-FileCopyrightText: 2020 Paul Ritter
+// SPDX-FileCopyrightText: 2020 ancientpower
+// SPDX-FileCopyrightText: 2020 DrSmugleaf
+// SPDX-FileCopyrightText: 2020 ComicIronic
+// SPDX-FileCopyrightText: 2018 Acruid
+// SPDX-FileCopyrightText: 2019 Acruid
+// SPDX-FileCopyrightText: 2020 Acruid
+// SPDX-FileCopyrightText: 2019 L.E.D
+// SPDX-FileCopyrightText: 2019 PrPleGoo
+// SPDX-License-Identifier: MIT
+
 using JetBrains.Annotations;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Dynamics;

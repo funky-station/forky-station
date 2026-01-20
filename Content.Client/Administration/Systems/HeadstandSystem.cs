@@ -1,4 +1,8 @@
-﻿using Content.Shared.Administration.Components;
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2022 Moony
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Administration.Components;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.Administration.Systems;

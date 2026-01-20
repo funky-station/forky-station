@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+// SPDX-FileCopyrightText: 2024 brainfood1183
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Damage.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Fax.Components;

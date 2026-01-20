@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 SpeltIncorrectyl
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Paper;
 
 /// <summary>

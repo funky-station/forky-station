@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 ScarKy0
+// SPDX-FileCopyrightText: 2024 The Canned One
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 

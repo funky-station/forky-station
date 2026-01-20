@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 UpAndLeaves
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 

@@ -1,4 +1,8 @@
-﻿using Content.Shared.CCVar;
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.CCVar;
 using Robust.Client.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Reflection;

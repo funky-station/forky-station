@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Audio;
 using Content.Shared.Salvage;
 using Content.Shared.Salvage.Expeditions;

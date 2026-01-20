@@ -1,3 +1,16 @@
+# SPDX-FileCopyrightText: 2024 SlamBamActionman
+# SPDX-FileCopyrightText: 2026 SlamBamActionman
+# SPDX-FileCopyrightText: 2025 alexalexmax
+# SPDX-FileCopyrightText: 2025 ArchRBX
+# SPDX-FileCopyrightText: 2024 Fildrance
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-FileCopyrightText: 2024 keronshb
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin
+# SPDX-FileCopyrightText: 2022 Morb
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-License-Identifier: MIT
+
 #debug
 - type: storeCategory
   id: Debug

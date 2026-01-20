@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 ScarKy0
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Doors.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;

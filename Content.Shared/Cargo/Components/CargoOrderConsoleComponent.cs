@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2025 themias
+// SPDX-FileCopyrightText: 2024 icekot8
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Access;
 using Content.Shared.Cargo.Prototypes;
 using Robust.Shared.Audio;

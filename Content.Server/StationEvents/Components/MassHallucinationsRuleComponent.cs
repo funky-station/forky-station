@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Aiden
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Slava0135
+// SPDX-License-Identifier: MIT
+
 using Content.Server.StationEvents.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Collections;

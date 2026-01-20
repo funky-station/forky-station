@@ -1,4 +1,11 @@
-﻿- type: polymorph
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+# SPDX-FileCopyrightText: 2025 Perry Fraser
+# SPDX-FileCopyrightText: 2024 AJCM-git
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2022 Moony
+# SPDX-License-Identifier: MIT
+
+- type: polymorph
   id: AdminLizardSmite
   configuration:
     entity: MobReptilian

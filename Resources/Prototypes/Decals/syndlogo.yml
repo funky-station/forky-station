@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2023 NULL882
+# SPDX-License-Identifier: MIT
+
 - type: decal
   id: syndlogo1
   tags: ["syndicate"]

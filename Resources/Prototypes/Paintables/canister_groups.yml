@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Whatstone
+# SPDX-License-Identifier: MIT
+
 - type: paintableGroup
   cost: 2
   id: Canisters

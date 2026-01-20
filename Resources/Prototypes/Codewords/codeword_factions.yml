@@ -1,3 +1,6 @@
-﻿- type: codewordFaction
+# SPDX-FileCopyrightText: 2025 Simon
+# SPDX-License-Identifier: MIT
+
+- type: codewordFaction
   id: Traitor
   generator: TraitorCodewordGenerator

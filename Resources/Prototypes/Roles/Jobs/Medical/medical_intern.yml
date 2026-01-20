@@ -1,4 +1,23 @@
-﻿- type: job
+# SPDX-FileCopyrightText: 2026 Kowlin
+# SPDX-FileCopyrightText: 2024 Errant
+# SPDX-FileCopyrightText: 2025 Errant
+# SPDX-FileCopyrightText: 2025 beck-thompson
+# SPDX-FileCopyrightText: 2025 Minemoder5000
+# SPDX-FileCopyrightText: 2024 Mr. 27
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2024 PotentiallyTom
+# SPDX-FileCopyrightText: 2023 DrSmugleaf
+# SPDX-FileCopyrightText: 2023 PrPleGoo
+# SPDX-FileCopyrightText: 2023 Chief-Engineer
+# SPDX-FileCopyrightText: 2023 Emisse
+# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-FileCopyrightText: 2022 Jukereise
+# SPDX-FileCopyrightText: 2022 Moony
+# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2022 Morber
+# SPDX-License-Identifier: MIT
+
+- type: job
   id: MedicalIntern
   name: job-name-intern
   description: job-description-intern

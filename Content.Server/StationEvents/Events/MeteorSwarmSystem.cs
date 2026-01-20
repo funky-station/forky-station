@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2024 Mervill
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking.Rules;

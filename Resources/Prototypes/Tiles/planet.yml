@@ -1,3 +1,17 @@
+# SPDX-FileCopyrightText: 2026 Vasilis The Pikachu
+# SPDX-FileCopyrightText: 2026 Velken
+# SPDX-FileCopyrightText: 2025 Moomoobeef
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+# SPDX-FileCopyrightText: 2023 Flareguy
+# SPDX-FileCopyrightText: 2024 Flareguy
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2023 Kara
+# SPDX-FileCopyrightText: 2023 Vordenburg
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2023 20kdc
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-License-Identifier: MIT
+
 - type: tile
   id: FloorPlanetDirt
   name: tiles-dirt-planet-floor

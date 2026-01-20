@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-License-Identifier: MIT
+
 using System.Diagnostics;
 using Content.Server.Administration.Logs;
 using Content.Server.RoundEnd;

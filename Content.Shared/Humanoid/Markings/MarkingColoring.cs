@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 SlamBamActionman
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 csqrb
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Humanoid.Markings;

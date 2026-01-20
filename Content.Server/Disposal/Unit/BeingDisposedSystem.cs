@@ -1,4 +1,10 @@
-﻿using Content.Server.Atmos.EntitySystems;
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Errant
+// SPDX-FileCopyrightText: 2023 Scribbles0
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
 
 namespace Content.Server.Disposal.Unit;

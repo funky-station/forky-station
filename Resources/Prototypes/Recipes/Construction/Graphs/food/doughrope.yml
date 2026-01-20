@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 ArtisticRoomba
+# SPDX-FileCopyrightText: 2024 DrEnzyme
+# SPDX-FileCopyrightText: 2023 phunnyguy
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: DoughRope
   start: start

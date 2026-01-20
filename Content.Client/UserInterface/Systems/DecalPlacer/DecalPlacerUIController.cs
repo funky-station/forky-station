@@ -1,4 +1,8 @@
-﻿using Content.Client.Decals.UI;
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-License-Identifier: MIT
+
+using Content.Client.Decals.UI;
 using Content.Client.Gameplay;
 using Content.Client.Sandbox;
 using Content.Shared.Decals;

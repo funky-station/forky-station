@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2024 Errant
+// SPDX-FileCopyrightText: 2025 Errant
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Mind;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

@@ -1,4 +1,7 @@
-﻿using Content.Shared.StatusEffectNew;
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Console;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed;

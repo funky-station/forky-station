@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 āda
+// SPDX-FileCopyrightText: 2025 ScarKy0
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Delivery;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.EntityTable;

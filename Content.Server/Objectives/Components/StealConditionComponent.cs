@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2023 Ed
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Objectives.Systems;
 using Content.Shared.Objectives;
 using Robust.Shared.Prototypes;

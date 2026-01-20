@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Unkn0wn_Gh0st
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: ClothingHandsKnuckleDustersBrass
   start: start

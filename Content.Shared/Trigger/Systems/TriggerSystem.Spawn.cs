@@ -1,4 +1,8 @@
-﻿using Content.Shared.GameTicking;
+// SPDX-FileCopyrightText: 2025 āda
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.GameTicking;
 using Content.Shared.Trigger.Components.Effects;
 using Content.Shared.Trigger.Components.Triggers;
 using Robust.Shared.Prototypes;

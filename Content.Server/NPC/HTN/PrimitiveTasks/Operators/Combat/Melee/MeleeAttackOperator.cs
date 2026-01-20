@@ -1,4 +1,9 @@
-﻿using Content.Server.NPC.HTN.PrimitiveTasks.Operators.Interactions;
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2025 Centronias
+// SPDX-License-Identifier: MIT
+
+using Content.Server.NPC.HTN.PrimitiveTasks.Operators.Interactions;
 using Content.Shared.CombatMode;
 using Content.Shared.Weapons.Melee;
 

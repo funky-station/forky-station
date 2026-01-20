@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2024 Flesh
+# SPDX-FileCopyrightText: 2024 KrasnoshchekovPavel
+# SPDX-FileCopyrightText: 2022 Leon Friedrich
+# SPDX-FileCopyrightText: 2021 mirrorcult
+# SPDX-FileCopyrightText: 2022 mirrorcult
+# SPDX-License-Identifier: MIT
+
 # Default human metabolism groups.
 - type: metabolismGroup
   id: Poison

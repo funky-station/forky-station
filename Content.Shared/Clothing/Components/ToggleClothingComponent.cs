@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2025 deltanedas
+// SPDX-FileCopyrightText: 2024 ArZarLordOfMango
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Actions.Components;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Item.ItemToggle.Components;

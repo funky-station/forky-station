@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Krunklehorn
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Serialization;
 using System.Numerics;
 

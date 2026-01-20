@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2022 OctoRocket
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: CleanBot
   start: start

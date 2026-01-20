@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2025 Manuel Gusmão
+# SPDX-FileCopyrightText: 2024 Token
+# SPDX-FileCopyrightText: 2024 Nairod
+# SPDX-FileCopyrightText: 2023 Kit0vras
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: NoticeBoard
   start: start

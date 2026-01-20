@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2025 Nemanja
+# SPDX-FileCopyrightText: 2025 chromiumboy
+# SPDX-FileCopyrightText: 2024 Golinth
+# SPDX-FileCopyrightText: 2024 osjarw
+# SPDX-FileCopyrightText: 2024 Tayrtahn
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-License-Identifier: MIT
+
 - type: utilityQuery
   id: InventoryGuns
   query:

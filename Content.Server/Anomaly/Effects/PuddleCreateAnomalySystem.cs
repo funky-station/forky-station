@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 Cojoke
+// SPDX-FileCopyrightText: 2023 Ed
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2023 Emisse
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Anomaly.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Server.Fluids.EntitySystems;

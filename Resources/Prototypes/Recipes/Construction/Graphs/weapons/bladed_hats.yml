@@ -1,4 +1,8 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2024 Whisper
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: BladedFlatcapGrey
   start: start
   graph:

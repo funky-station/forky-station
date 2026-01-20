@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 SnappingOpossum
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2024 Moomoobeef
+# SPDX-License-Identifier: MIT
+
 - type: entity
   abstract: true
   parent: BaseItem

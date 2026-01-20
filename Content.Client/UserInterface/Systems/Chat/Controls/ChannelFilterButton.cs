@@ -1,4 +1,10 @@
-﻿using System.Numerics;
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-FileCopyrightText: 2022 Jezithyr
+// SPDX-License-Identifier: MIT
+
+using System.Numerics;
 using Content.Client.Resources;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface.Controls;

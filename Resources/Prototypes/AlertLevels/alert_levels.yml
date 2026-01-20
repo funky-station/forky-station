@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st
+# SPDX-FileCopyrightText: 2024 superjj18
+# SPDX-FileCopyrightText: 2024 NakataRin
+# SPDX-FileCopyrightText: 2023 Flareguy
+# SPDX-FileCopyrightText: 2022 Flipp Syder
+# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-FileCopyrightText: 2022 T-Stalker
+# SPDX-FileCopyrightText: 2022 Júlio César Ueti
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2022 Morbo
+# SPDX-License-Identifier: MIT
+
 - type: alertLevels
   id: stationAlerts
   defaultLevel: green

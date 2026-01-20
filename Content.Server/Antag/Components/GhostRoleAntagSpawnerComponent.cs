@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.Antag.Components;
 
 /// <summary>

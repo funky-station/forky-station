@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Kot
+// SPDX-License-Identifier: MIT
+
 using System.Globalization;
 
 namespace Content.Shared.Localizations;

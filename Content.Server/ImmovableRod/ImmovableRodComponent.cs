@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2024 keronshb
+// SPDX-FileCopyrightText: 2022 Kara
+// SPDX-FileCopyrightText: 2024 Kara
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 Andreas Kämper
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 

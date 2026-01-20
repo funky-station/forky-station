@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 BarryNorfolk
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Machines.Events;
 
 /// <summary>

@@ -1,4 +1,7 @@
-﻿using Content.Shared.Buckle;
+// SPDX-FileCopyrightText: 2024 ShadowCommander
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Interaction;
 using Robust.Server.GameObjects;

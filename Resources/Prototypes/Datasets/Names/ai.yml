@@ -1,4 +1,12 @@
-﻿- type: localizedDataset
+# SPDX-FileCopyrightText: 2024 MilenVolf
+# SPDX-FileCopyrightText: 2024 Moomoobeef
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2021 Paul Ritter
+# SPDX-License-Identifier: MIT
+
+- type: localizedDataset
   id: NamesAI
   values:
     prefix: names-ai-dataset-

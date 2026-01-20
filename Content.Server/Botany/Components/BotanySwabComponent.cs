@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2022 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 keronshb
+// SPDX-FileCopyrightText: 2022 Kevin Zheng
+// SPDX-License-Identifier: MIT
+
 using System.Threading;
 
 namespace Content.Server.Botany

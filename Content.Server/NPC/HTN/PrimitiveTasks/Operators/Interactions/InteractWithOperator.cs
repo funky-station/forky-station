@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 osjarw
+// SPDX-FileCopyrightText: 2024 deathride58
+// SPDX-FileCopyrightText: 2024 AJCM-git
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Interaction;
 using Content.Shared.CombatMode;
 using Content.Shared.DoAfter;

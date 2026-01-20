@@ -1,4 +1,7 @@
-﻿using Content.Shared.Speech.EntitySystems;
+// SPDX-FileCopyrightText: 2023 keronshb
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Speech.EntitySystems;
 
 namespace Content.Client.Speech.EntitySystems;
 

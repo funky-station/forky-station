@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 āda
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration.Logs;
 using Content.Server.GameTicking;
 using Content.Shared.Database;

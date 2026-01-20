@@ -1,4 +1,12 @@
-﻿using Content.Server.Administration;
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 Kyle Tyo
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Administration;
 using Content.Shared.Administration;
 using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Console;

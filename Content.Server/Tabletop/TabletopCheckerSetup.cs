@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2023 /ʊniɹɑː/
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 eclips_e
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2022 Demetre Beroshvili
+// SPDX-License-Identifier: MIT
+
 using JetBrains.Annotations;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;

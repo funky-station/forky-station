@@ -1,4 +1,7 @@
-﻿using Content.Server.Administration;
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Administration;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Administration;
 using Robust.Shared.Console;

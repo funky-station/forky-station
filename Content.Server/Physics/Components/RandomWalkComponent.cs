@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Ilya246
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 TemporalOroboros
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Server.Physics.Controllers;
 

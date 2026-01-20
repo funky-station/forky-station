@@ -1,3 +1,16 @@
+# SPDX-FileCopyrightText: 2025 YoungThug
+# SPDX-FileCopyrightText: 2025 Samuka-C
+# SPDX-FileCopyrightText: 2025 lzk
+# SPDX-FileCopyrightText: 2024 Errant
+# SPDX-FileCopyrightText: 2024 lunarcomets
+# SPDX-FileCopyrightText: 2024 CaasGit
+# SPDX-FileCopyrightText: 2023 PixelTK
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 Puro
+# SPDX-FileCopyrightText: 2023 Morb
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin
+# SPDX-License-Identifier: MIT
+
 - type: typingIndicator
   id: default
   typingState: default0

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 

@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 Ilya246
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Kevin Zheng
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.Atmos.Components;
 
 [RegisterComponent]

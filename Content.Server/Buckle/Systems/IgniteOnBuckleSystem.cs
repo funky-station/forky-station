@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 B_Kirill
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Buckle.Components;

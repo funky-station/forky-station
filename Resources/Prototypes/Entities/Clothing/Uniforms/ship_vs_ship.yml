@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 K-Dynamic
+# SPDX-FileCopyrightText: 2025 Coolsurf6
+# SPDX-FileCopyrightText: 2024 saintmuntzer
+# SPDX-FileCopyrightText: 2023 avery
+# SPDX-FileCopyrightText: 2023 Flareguy
+# SPDX-License-Identifier: MIT
+
 #Where all of the uniforms for the yet-to-be-implimented ship vs. ship gamemode go (or Nanotrasen VS. Syndicate, if you'd like.)
 #In its own file to further avoid bloating jumpsuits.yml.
 

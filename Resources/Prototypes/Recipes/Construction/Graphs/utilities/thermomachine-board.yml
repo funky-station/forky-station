@@ -1,4 +1,8 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2022 mirrorcult
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: ThermomachineBoard
   start: freezer
   graph:

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2023 Arendian
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: WeaponTurretSyndicateDisposable
   start: disposableTurret

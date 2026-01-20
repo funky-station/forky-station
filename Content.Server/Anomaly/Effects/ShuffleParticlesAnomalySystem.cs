@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 kosticia
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Anomaly.Components;
 using Content.Shared.Anomaly.Components;
 using Robust.Shared.Random;

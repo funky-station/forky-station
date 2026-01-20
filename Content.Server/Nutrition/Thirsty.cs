@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Mervill
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Content.Shared.Nutrition.Components;

@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2026 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2026 Velken
+// SPDX-FileCopyrightText: 2025 FungiFellow
+// SPDX-FileCopyrightText: 2025 Simon
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 Emisse
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Stacks;
 using Robust.Shared.Prototypes;
 

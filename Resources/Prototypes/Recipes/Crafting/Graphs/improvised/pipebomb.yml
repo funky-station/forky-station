@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2024 Mr. 27
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: PipeBomb
   start: start

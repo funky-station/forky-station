@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Ghost;
 using Content.Server.Xenoarchaeology.Artifact.XAE.Components;
 using Content.Shared.Light.Components;

@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Unisol
+# SPDX-FileCopyrightText: 2024 Leon Friedrich
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-License-Identifier: MIT
+
 - type: gameMap
   id: MeteorArena
   mapName: Meteor Arena

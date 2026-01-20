@@ -1,4 +1,9 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2023 liltenhead
+# SPDX-FileCopyrightText: 2022 keronshb
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: WoodenBuckler
   start: start
   graph:

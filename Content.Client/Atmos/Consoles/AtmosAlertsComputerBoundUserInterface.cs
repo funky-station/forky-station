@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Milon
+// SPDX-FileCopyrightText: 2024 MilenVolf
+// SPDX-FileCopyrightText: 2024 chromiumboy
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Atmos.Components;
 
 namespace Content.Client.Atmos.Consoles;

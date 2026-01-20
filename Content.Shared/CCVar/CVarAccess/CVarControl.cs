@@ -1,4 +1,7 @@
-﻿using Content.Shared.Administration;
+// SPDX-FileCopyrightText: 2025 Simon
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Administration;
 using Robust.Shared.Reflection;
 
 namespace Content.Shared.CCVar.CVarAccess;

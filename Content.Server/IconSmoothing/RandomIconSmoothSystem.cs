@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.IconSmoothing;
 using Robust.Shared.Random;
 

@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Antag.Mimic;
 using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;

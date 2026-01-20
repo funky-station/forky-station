@@ -1,4 +1,7 @@
-﻿using Content.Client.UserInterface.Systems.Chat;
+// SPDX-FileCopyrightText: 2023 ShadowCommander
+// SPDX-License-Identifier: MIT
+
+using Content.Client.UserInterface.Systems.Chat;
 using Content.Shared.Chat;
 using Robust.Client.Replays.Commands;
 using Robust.Client.Replays.UI;

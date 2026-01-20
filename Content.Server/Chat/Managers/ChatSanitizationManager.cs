@@ -1,3 +1,24 @@
+// SPDX-FileCopyrightText: 2026 LevitatingTree
+// SPDX-FileCopyrightText: 2025 SweetAplle
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 Thomas
+// SPDX-FileCopyrightText: 2024 tosatur
+// SPDX-FileCopyrightText: 2024 lzk
+// SPDX-FileCopyrightText: 2024 James Simonson
+// SPDX-FileCopyrightText: 2023 Mr. 27
+// SPDX-FileCopyrightText: 2023 Whisper
+// SPDX-FileCopyrightText: 2022 router
+// SPDX-FileCopyrightText: 2022 ninruB
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 Rane
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2022 Michael Phillips
+// SPDX-FileCopyrightText: 2022 ZeroDayDaemon
+// SPDX-FileCopyrightText: 2021 Venomii
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2021 Moony
+// SPDX-License-Identifier: MIT
+
 using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 using Content.Shared.CCVar;

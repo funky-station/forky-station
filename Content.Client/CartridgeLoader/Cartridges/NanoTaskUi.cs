@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Client.UserInterface.Fragments;
 using Content.Shared.CartridgeLoader;

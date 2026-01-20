@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Lathe;

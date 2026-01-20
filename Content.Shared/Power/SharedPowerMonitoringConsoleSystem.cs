@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 chromiumboy
+// SPDX-License-Identifier: MIT
+
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 

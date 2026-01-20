@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Errant
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Player;
 
 namespace Content.Shared.Chat;

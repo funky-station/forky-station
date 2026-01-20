@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 Ben
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 LordCarve
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.DoAfter;
 using System.Numerics;
 using Robust.Shared.GameStates;

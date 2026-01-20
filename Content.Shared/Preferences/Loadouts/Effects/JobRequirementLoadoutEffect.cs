@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Centronias
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.CCVar;
 using Content.Shared.Players.PlayTimeTracking;

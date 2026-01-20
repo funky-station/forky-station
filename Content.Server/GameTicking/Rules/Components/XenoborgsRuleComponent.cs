@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Samuka
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.GameTicking.Rules.Components;

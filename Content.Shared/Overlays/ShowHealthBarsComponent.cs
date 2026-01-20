@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 Milon
+// SPDX-FileCopyrightText: 2024 slarticodefast
+// SPDX-FileCopyrightText: 2024 AJCM-git
+// SPDX-FileCopyrightText: 2024 PrPleGoo
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;

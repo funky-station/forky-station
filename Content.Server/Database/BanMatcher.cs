@@ -1,4 +1,8 @@
-﻿using System.Collections.Immutable;
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 Julian Giebel
+// SPDX-License-Identifier: MIT
+
+using System.Collections.Immutable;
 using System.Net;
 using Content.Server.IP;
 using Content.Shared.Database;

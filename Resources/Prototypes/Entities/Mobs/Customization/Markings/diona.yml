@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 csqrb
+# SPDX-FileCopyrightText: 2023 Morb
+# SPDX-License-Identifier: MIT
+
 - type: marking
   id: DionaThornsHead
   bodyPart: Head

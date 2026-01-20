@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2025 SlamBamActionman
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2025 Ciarán Walsh
+// SPDX-FileCopyrightText: 2024 Winkarst
+// SPDX-FileCopyrightText: 2024 Flesh
+// SPDX-FileCopyrightText: 2024 KrasnoshchekovPavel
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2023 TomaszKawalec
+// SPDX-FileCopyrightText: 2023 Hebi
+// SPDX-License-Identifier: MIT
+
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Client.Chemistry.EntitySystems;

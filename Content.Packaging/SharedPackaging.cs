@@ -1,4 +1,7 @@
-﻿namespace Content.Packaging;
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+namespace Content.Packaging;
 
 public sealed class SharedPackaging
 {

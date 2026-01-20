@@ -1,4 +1,8 @@
-﻿using Content.Server.Anomaly.Effects;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Anomaly.Effects;
 using Robust.Shared.Audio;
 
 namespace Content.Server.Anomaly.Components;

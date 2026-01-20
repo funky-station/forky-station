@@ -1,4 +1,18 @@
-﻿using System;
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2025 Vlad
+// SPDX-FileCopyrightText: 2025 Tobias Berger
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2022 Kara
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 Moony
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2022 Javier Guardia Fernández
+// SPDX-License-Identifier: MIT
+
+using System;
 using System.Collections.Generic;
 using System.Numerics;
 using Robust.Client.GameObjects;

@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 chromiumboy
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 c4llv07e
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Server.Doors.Electronics;
 using Content.Shared.Access;

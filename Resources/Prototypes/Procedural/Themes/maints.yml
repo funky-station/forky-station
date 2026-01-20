@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Spessmann
+# SPDX-License-Identifier: MIT
+
 - type: dungeonRoom
   id: Maints5x5a
   size: 5,5

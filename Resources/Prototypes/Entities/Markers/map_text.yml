@@ -1,4 +1,7 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2024 Julian Giebel
+# SPDX-License-Identifier: MIT
+
+- type: entity
   id: MapText
   parent: MarkerBase
   name: map text

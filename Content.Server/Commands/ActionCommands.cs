@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 deltanedas
+// SPDX-FileCopyrightText: 2023 keronshb
+// SPDX-FileCopyrightText: 2024 keronshb
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;

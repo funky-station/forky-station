@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 chromiumboy
+// SPDX-FileCopyrightText: 2025 Ertanic
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Vera Aguilera Puerto
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Construction.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;

@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2025 vitopigno
+// SPDX-FileCopyrightText: 2025 eoineoineoin
+// SPDX-FileCopyrightText: 2024 Julian Giebel
+// SPDX-FileCopyrightText: 2022 Chief-Engineer
+// SPDX-FileCopyrightText: 2023 Chief-Engineer
+// SPDX-FileCopyrightText: 2022 Jezithyr
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Chat;
 using Content.Shared.CCVar;
 using Robust.Shared.Utility;

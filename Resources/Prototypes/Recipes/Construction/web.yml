@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2023 PixelTK
+# SPDX-License-Identifier: MIT
+
 - type: construction
   id: WallWeb
   graph: WebStructures

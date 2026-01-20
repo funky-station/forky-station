@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Research.Systems;
 using Robust.Shared.GameStates;
 

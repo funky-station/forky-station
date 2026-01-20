@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 SlamBamActionman
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Events;
 using Content.Shared.StatusEffectNew;

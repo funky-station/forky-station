@@ -1,4 +1,7 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2024 ShadowCommander
+// SPDX-License-Identifier: MIT
+
+using System.Linq;
 using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client.UserInterface.Controls;

@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Server.Store.Components;
 using Content.Shared.FixedPoint;

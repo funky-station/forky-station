@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2024 chromiumboy
+# SPDX-FileCopyrightText: 2025 chromiumboy
+# SPDX-License-Identifier: MIT
+
 - files: ["beveled_arrow_east.png"]
   license: "CC-BY-SA-3.0"
   copyright: "Created by chromiumboy"

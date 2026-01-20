@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Chief-Engineer
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 Artxmisery
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Trigger.Components.Triggers;
 using Robust.Shared.Timing;
 using Content.Shared.Inventory.Events;

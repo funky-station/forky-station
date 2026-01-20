@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Serylis of Five
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Trigger.Systems;
 using Robust.Shared.Serialization;

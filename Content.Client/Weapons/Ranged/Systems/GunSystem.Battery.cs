@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Weapons.Ranged.Components;
 
 namespace Content.Client.Weapons.Ranged.Systems;

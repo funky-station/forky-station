@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Kyle Tyo
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Content.Shared.Xenoarchaeology.Artifact.Components;

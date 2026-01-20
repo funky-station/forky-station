@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Magic;
 using Content.Shared.Xenoarchaeology.Artifact.XAE.Components;
 

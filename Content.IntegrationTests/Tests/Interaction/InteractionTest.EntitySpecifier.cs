@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2025 Ciarán Walsh
+// SPDX-FileCopyrightText: 2025 āda
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-License-Identifier: MIT
+
 #nullable enable
 using Content.Shared.Stacks;
 using Robust.Shared.GameObjects;

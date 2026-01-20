@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 PJB3005
+# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+# SPDX-FileCopyrightText: 2025 Jessica M
+# SPDX-FileCopyrightText: 2025 āda
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-License-Identifier: MIT
+
 - type: latheRecipe
   id: BioGenMonkeyCube
   result: MonkeyCube

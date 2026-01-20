@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 slarticodefast
+# SPDX-FileCopyrightText: 2024 TakoDragon
+# SPDX-FileCopyrightText: 2024 Psychpsyo
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-License-Identifier: MIT
+
 # If you add a new trait, make sure to add the corresponding component to the whitelist in \Resources\Prototypes\Entities\Mobs\Player\clone.yml so it gets copied to clones correctly!
 
 # Free

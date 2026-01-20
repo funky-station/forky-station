@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 EchoOfNothing
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Shuttles.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Shuttles.BUIStates;

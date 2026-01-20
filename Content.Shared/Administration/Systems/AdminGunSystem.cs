@@ -1,4 +1,8 @@
-﻿using Content.Shared.Administration.Components;
+// SPDX-FileCopyrightText: 2025 Pok
+// SPDX-FileCopyrightText: 2024 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Administration.Components;
 using Content.Shared.Weapons.Ranged.Events;
 
 namespace Content.Shared.Administration.Systems;

@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Simon
+# SPDX-FileCopyrightText: 2025 Killerqu00
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2024 Flareguy
+# SPDX-License-Identifier: MIT
+
 # Most of these have DO NOT MAP, since stations are completely unequipped to deal with ship combat + these are basically placeholder.
 
 - type: entity

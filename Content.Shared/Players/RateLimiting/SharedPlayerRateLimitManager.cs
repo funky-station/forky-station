@@ -1,4 +1,7 @@
-﻿using Robust.Shared.Player;
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Player;
 
 namespace Content.Shared.Players.RateLimiting;
 

@@ -1,4 +1,16 @@
-﻿namespace Content.Shared.Rounding
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2021 Visne
+// SPDX-FileCopyrightText: 2021 Ygg01
+// SPDX-FileCopyrightText: 2020 Peter Wedder
+// SPDX-FileCopyrightText: 2019 metalgearsloth
+// SPDX-FileCopyrightText: 2020 metalgearsloth
+// SPDX-FileCopyrightText: 2018 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+namespace Content.Shared.Rounding
 {
     public static class ContentHelpers
     {

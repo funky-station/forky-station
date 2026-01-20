@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-FileCopyrightText: 2025 Ed
+// SPDX-FileCopyrightText: 2024 Stalen
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Localizations;
 using Content.Shared.Players.PlayTimeTracking;

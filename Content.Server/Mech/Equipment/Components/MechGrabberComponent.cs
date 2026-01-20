@@ -1,4 +1,11 @@
-﻿using System.Numerics;
+// SPDX-FileCopyrightText: 2024 themias
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 keronshb
+// SPDX-FileCopyrightText: 2022 Nemanja
+// SPDX-License-Identifier: MIT
+
+using System.Numerics;
 using System.Threading;
 using Content.Shared.DoAfter;
 using Robust.Shared.Audio;

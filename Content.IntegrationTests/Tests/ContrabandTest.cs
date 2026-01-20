@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 deltanedas
+// SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Contraband;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;

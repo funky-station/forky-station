@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 chromiumboy
+// SPDX-License-Identifier: MIT
+
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Lock;
 using Content.Shared.Silicons.StationAi;

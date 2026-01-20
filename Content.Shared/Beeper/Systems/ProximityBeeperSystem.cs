@@ -1,4 +1,11 @@
-﻿using Content.Shared.Beeper.Components;
+// SPDX-FileCopyrightText: 2025 Winkarst
+// SPDX-FileCopyrightText: 2024 Ilya246
+// SPDX-FileCopyrightText: 2024 Cojoke
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2024 Jezithyr
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Beeper.Components;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Pinpointer;
 using Content.Shared.ProximityDetection;

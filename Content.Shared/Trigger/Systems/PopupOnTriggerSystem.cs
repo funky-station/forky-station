@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 korczoczek
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 āda
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Content.Shared.Trigger.Components.Effects;

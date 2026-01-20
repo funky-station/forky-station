@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Temperature.Systems;
 
 namespace Content.Server.Temperature.Components;

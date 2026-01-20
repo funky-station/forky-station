@@ -1,4 +1,7 @@
-﻿using Content.Shared.Mobs.Components;
+// SPDX-FileCopyrightText: 2023 Jezithyr
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Mobs.Components;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Mobs;

@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 deltanedas
+# SPDX-FileCopyrightText: 2024 Leon Friedrich
+# SPDX-FileCopyrightText: 2023 DrSmugleaf
+# SPDX-FileCopyrightText: 2023 PixelTK
+# SPDX-FileCopyrightText: 2023 Jackrost
+# SPDX-License-Identifier: MIT
+
 - type: entity
   parent: BaseAction
   id: ActionSpiderWeb

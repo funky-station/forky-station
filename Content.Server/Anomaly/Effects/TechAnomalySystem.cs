@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 J
+// SPDX-FileCopyrightText: 2025 ScarKy0
+// SPDX-FileCopyrightText: 2024 Errant
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Anomaly.Components;
 using Content.Server.Beam;
 using Content.Server.DeviceLinking.Systems;

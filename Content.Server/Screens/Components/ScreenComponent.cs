@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 avery
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.Screens.Components;
 
 [RegisterComponent]

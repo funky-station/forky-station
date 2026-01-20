@@ -1,4 +1,9 @@
-﻿using Content.Shared.Body.Components;
+// SPDX-FileCopyrightText: 2026 SomegnihT
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 Whisper
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Body.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;

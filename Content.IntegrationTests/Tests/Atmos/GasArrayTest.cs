@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;

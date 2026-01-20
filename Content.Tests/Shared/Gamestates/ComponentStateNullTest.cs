@@ -1,4 +1,11 @@
-﻿using System;
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2020 Acruid
+// SPDX-FileCopyrightText: 2021 Acruid
+// SPDX-FileCopyrightText: 2020 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using NUnit.Framework;

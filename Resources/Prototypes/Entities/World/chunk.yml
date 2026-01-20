@@ -1,4 +1,10 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2023 Moony
+# SPDX-License-Identifier: MIT
+
+- type: entity
   id: WorldChunk
   parent: MarkerBase
   name: world chunk

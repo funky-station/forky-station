@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2026 Fruitsalad
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 Łukasz Lindert
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 keronshb
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Francesco
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Atmos.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;

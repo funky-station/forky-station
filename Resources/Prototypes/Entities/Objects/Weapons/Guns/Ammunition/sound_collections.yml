@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2023 HighTechPuddle
+# SPDX-FileCopyrightText: 2020 AJCM-git
+# SPDX-FileCopyrightText: 2020 metalgearsloth
+# SPDX-License-Identifier: MIT
+
 - type: soundCollection
   id: CasingEject
   files:

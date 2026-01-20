@@ -1,4 +1,8 @@
-﻿using Content.Server.Explosion.EntitySystems;
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Explosion.EntitySystems;
 using Content.Shared.EntityEffects;
 using Content.Shared.EntityEffects.Effects;
 using Content.Shared.Explosion.Components;

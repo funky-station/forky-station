@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow
+// SPDX-FileCopyrightText: 2024 nikthechampiongr
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Fildrance
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Client.GameTicking.Managers;
 using Content.Client.Lobby;

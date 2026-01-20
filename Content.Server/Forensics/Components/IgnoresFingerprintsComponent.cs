@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 themias
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.Forensics.Components;
 
 /// <summary>

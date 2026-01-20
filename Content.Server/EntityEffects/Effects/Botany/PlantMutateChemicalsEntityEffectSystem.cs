@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2026 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 ahandleman
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Botany;
 using Content.Server.Botany.Components;
 using Content.Shared.EntityEffects;

@@ -1,4 +1,11 @@
-﻿using Content.Shared.Administration.Systems;
+// SPDX-FileCopyrightText: 2025 Pok
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto
+// SPDX-FileCopyrightText: 2022 Moony
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Administration.Systems;
 
 namespace Content.Shared.Administration.Components;
 

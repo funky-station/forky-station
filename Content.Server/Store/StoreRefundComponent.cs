@@ -1,4 +1,8 @@
-﻿using Content.Server.Store.Systems;
+// SPDX-FileCopyrightText: 2024 keronshb
+// SPDX-FileCopyrightText: 2025 keronshb
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Store.Systems;
 
 namespace Content.Server.Store.Components;
 

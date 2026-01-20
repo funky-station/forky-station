@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Booblesnoot42
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Climbing.Systems;

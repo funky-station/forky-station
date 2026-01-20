@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2024 ~DreamlyJack~
+# SPDX-License-Identifier: MIT
+
 # Black elegant dress
 - type: entity
   parent: ClothingUniformSkirtBase

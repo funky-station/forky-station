@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2021 metalgearsloth
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Shuttles.Components
 {
     public abstract partial class SharedDockingComponent : Component

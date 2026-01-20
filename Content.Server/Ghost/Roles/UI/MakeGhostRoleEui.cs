@@ -1,4 +1,11 @@
-﻿using Content.Server.EUI;
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
+using Content.Server.EUI;
 using Content.Shared.Eui;
 using Content.Shared.Ghost.Roles;
 

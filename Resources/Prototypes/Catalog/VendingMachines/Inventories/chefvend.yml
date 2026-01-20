@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Smith
+# SPDX-FileCopyrightText: 2024 themias
+# SPDX-FileCopyrightText: 2024 21Melkuu
+# SPDX-FileCopyrightText: 2024 Ubaser
+# SPDX-FileCopyrightText: 2023 Velcroboy
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2023 potato1234_x
+# SPDX-FileCopyrightText: 2022 ChilbroBaggins
+# SPDX-License-Identifier: MIT
+
 - type: vendingMachineInventory
   id: ChefvendInventory
   startingInventory:

@@ -1,4 +1,8 @@
-﻿using Content.Shared.Silicons.Borgs.Components;
+// SPDX-FileCopyrightText: 2025 lunarcomets
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Silicons.Borgs.Components;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 

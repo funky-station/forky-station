@@ -1,4 +1,7 @@
-﻿namespace Content.Shared.StatusIcon;
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+namespace Content.Shared.StatusIcon;
 
 public abstract class SharedStatusIconSystem : EntitySystem
 {

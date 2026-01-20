@@ -1,3 +1,19 @@
+# SPDX-FileCopyrightText: 2026 B_Kirill
+# SPDX-FileCopyrightText: 2026 āda
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+# SPDX-FileCopyrightText: 2025 RedBookcase
+# SPDX-FileCopyrightText: 2024 keronshb
+# SPDX-FileCopyrightText: 2025 keronshb
+# SPDX-FileCopyrightText: 2024 august-sun
+# SPDX-FileCopyrightText: 2024 ArkiveDev
+# SPDX-FileCopyrightText: 2024 SlamBamActionman
+# SPDX-FileCopyrightText: 2023 Slava0135
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2022 Andreas Kämper
+# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-License-Identifier: MIT
+
 - type: entity
   id: ImmovableRod
   name: immovable rod

@@ -1,4 +1,7 @@
-﻿using Robust.Server.Audio;
+// SPDX-FileCopyrightText: 2024 Tornado Tech
+// SPDX-License-Identifier: MIT
+
+using Robust.Server.Audio;
 using Robust.Shared.Audio;
 
 namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators;

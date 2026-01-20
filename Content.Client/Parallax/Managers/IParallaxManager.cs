@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 20kdc
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2019 Silver
+// SPDX-FileCopyrightText: 2018 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using System.Threading.Tasks;
 using Robust.Shared.Maths;

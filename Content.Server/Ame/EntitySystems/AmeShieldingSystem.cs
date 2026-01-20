@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 LordCarve
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Ame.Components;
 using Content.Shared.Ame.Components;
 using Robust.Server.GameObjects;

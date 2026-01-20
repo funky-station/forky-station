@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2025 Nemanja
+# SPDX-FileCopyrightText: 2025 August Sun
+# SPDX-FileCopyrightText: 2025 ApolloVector
+# SPDX-FileCopyrightText: 2024 pigeonpeas
+# SPDX-FileCopyrightText: 2024 Kara
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2023 Ubaser
+# SPDX-FileCopyrightText: 2022 Vordenburg
+# SPDX-FileCopyrightText: 2022 Emisse
+# SPDX-License-Identifier: MIT
+
 - type: entity
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckMantleCap

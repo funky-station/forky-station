@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Jezithyr
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Hands.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Prototypes;

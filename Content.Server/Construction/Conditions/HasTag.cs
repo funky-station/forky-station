@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 chromiumboy
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Construction;
 using JetBrains.Annotations;
 using Content.Shared.Doors.Components;

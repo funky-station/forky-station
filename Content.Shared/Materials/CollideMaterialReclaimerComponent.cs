@@ -1,4 +1,8 @@
-﻿namespace Content.Shared.Materials;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+namespace Content.Shared.Materials;
 
 /// <summary>
 /// Valid items that collide with an entity with this component

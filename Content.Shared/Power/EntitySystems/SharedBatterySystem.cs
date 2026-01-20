@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Cargo;
 using Content.Shared.Emp;
 using Content.Shared.Examine;

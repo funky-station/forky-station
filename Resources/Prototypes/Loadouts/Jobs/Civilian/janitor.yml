@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2025 Hitlinemoss
+# SPDX-FileCopyrightText: 2025 Errant
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2024 Ghagliiarghii
+# SPDX-FileCopyrightText: 2024 Mr. 27
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-License-Identifier: MIT
+
 - type: loadoutEffectGroup
   id: SeniorJanitorial
   effects:

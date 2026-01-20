@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 J
+// SPDX-FileCopyrightText: 2025 deltanedas
+// SPDX-FileCopyrightText: 2023 Chief-Engineer
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.CartridgeLoader.Cartridges;
 ﻿using Content.Shared.Paper;
 using Robust.Shared.Audio;

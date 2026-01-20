@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 #nullable enable
 using Content.Shared.Alert;
 using Content.Shared.Input;

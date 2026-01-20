@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 Checkraze
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Cargo.BUI;

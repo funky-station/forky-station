@@ -1,4 +1,9 @@
-﻿using Content.Shared.Body.Prototypes;
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Body.Prototypes;
 using Content.Shared.Localizations;
 using Robust.Shared.Prototypes;
 

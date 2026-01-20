@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 SpeltIncorrectyl
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.DeviceLinking;
 using Content.Shared.Power.Generator;
 using Robust.Shared.Prototypes;

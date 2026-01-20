@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2026 pathetic meowmeow
+# SPDX-FileCopyrightText: 2025 Zalycon
+# SPDX-FileCopyrightText: 2023 MilenVolf
+# SPDX-FileCopyrightText: 2025 MilenVolf
+# SPDX-FileCopyrightText: 2025 SlamBamActionman
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2023 LankLTE
+# SPDX-License-Identifier: MIT
+
 - type: species
   id: Moth
   name: species-name-moth

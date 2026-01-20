@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Arcade;
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;

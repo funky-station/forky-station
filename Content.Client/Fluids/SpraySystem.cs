@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 beck-thompson
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Fluids.Components;
 using Content.Shared.Fluids.EntitySystems;
 using Robust.Shared.Map;

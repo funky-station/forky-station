@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+# SPDX-FileCopyrightText: 2024 Errant
+# SPDX-FileCopyrightText: 2025 Errant
+# SPDX-FileCopyrightText: 2024 Piras314
+# SPDX-FileCopyrightText: 2024 marbow
+# SPDX-FileCopyrightText: 2024 he1acdvv
+# SPDX-FileCopyrightText: 2023 pofitlo
+# SPDX-License-Identifier: MIT
+
 - files: ["running_out.ogg"]
   license: "CC-BY-3.0"
   copyright: "Created by Bolgarich"

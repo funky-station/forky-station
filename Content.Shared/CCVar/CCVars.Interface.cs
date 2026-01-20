@@ -1,4 +1,11 @@
-﻿using Robust.Shared.Configuration;
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2025 Southbridge
+// SPDX-FileCopyrightText: 2025 Errant
+// SPDX-FileCopyrightText: 2025 Schrödinger
+// SPDX-FileCopyrightText: 2024 Simon
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;
 

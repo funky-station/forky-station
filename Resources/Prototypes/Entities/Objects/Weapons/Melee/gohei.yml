@@ -1,4 +1,14 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2024 SlamBamActionman
+# SPDX-FileCopyrightText: 2023 Emisse
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2023 I.K
+# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-FileCopyrightText: 2021 Leon Friedrich
+# SPDX-FileCopyrightText: 2021 Elijahrane
+# SPDX-License-Identifier: MIT
+
+- type: entity
   name: gohei
   parent: BaseItem
   id: Gohei

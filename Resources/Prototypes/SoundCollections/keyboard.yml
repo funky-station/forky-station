@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2020 AJCM-git
+# SPDX-FileCopyrightText: 2020 zumorica
+# SPDX-FileCopyrightText: 2019 Ephememory
+# SPDX-License-Identifier: MIT
+
 - type: soundCollection
   id: Keyboard
   files:

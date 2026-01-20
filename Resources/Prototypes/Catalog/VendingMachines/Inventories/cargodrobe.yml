@@ -1,3 +1,17 @@
+# SPDX-FileCopyrightText: 2025 Velken
+# SPDX-FileCopyrightText: 2025 Smith
+# SPDX-FileCopyrightText: 2023 Kilk
+# SPDX-FileCopyrightText: 2023 potato1234_x
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2023 lzk228
+# SPDX-FileCopyrightText: 2023 OctoRocket
+# SPDX-FileCopyrightText: 2023 AJCM-git
+# SPDX-FileCopyrightText: 2022 theashtronaut
+# SPDX-FileCopyrightText: 2022 Andreas Kämper
+# SPDX-FileCopyrightText: 2022 Emisse
+# SPDX-FileCopyrightText: 2022 Fishfish458
+# SPDX-License-Identifier: MIT
+
 - type: vendingMachineInventory
   id: CargoDrobeInventory
   startingInventory:

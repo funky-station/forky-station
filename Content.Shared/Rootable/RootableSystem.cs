@@ -1,4 +1,8 @@
-﻿using Content.Shared.Actions;
+// SPDX-FileCopyrightText: 2025 Nikovnik
+// SPDX-FileCopyrightText: 2025 Pok
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;

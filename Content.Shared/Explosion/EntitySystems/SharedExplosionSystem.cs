@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Leon Friedrich
+// SPDX-FileCopyrightText: 2025 āda
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2024 beck-thompson
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Armor;
 using Content.Shared.Explosion.Components;
 using Robust.Shared.Prototypes;

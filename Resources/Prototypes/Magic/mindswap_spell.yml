@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2025 SolidSyn
+# SPDX-FileCopyrightText: 2025 Nemanja
+# SPDX-FileCopyrightText: 2025 deltanedas
+# SPDX-FileCopyrightText: 2025 J
+# SPDX-FileCopyrightText: 2024 ActiveMammmoth
+# SPDX-FileCopyrightText: 2025 ActiveMammmoth
+# SPDX-License-Identifier: MIT
+
 - type: entity
   parent: BaseEntitySpellAction
   id: ActionMindSwap

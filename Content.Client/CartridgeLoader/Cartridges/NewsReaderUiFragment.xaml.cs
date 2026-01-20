@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 beck-thompson
+// SPDX-FileCopyrightText: 2024 DakotaGay
+// SPDX-FileCopyrightText: 2024 Julian Giebel
+// SPDX-FileCopyrightText: 2023 MishaUnity
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Message;
 using Content.Client.RichText;
 using Content.Client.UserInterface.RichText;

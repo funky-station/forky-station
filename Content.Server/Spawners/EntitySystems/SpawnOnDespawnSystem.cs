@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Spawners.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;

@@ -1,4 +1,7 @@
-﻿using System.Threading;
+// SPDX-FileCopyrightText: 2024 Tornado Tech
+// SPDX-License-Identifier: MIT
+
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators.Math;

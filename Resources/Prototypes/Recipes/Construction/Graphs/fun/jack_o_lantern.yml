@@ -1,4 +1,8 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2023 Doru991
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: PumpkinAddLight
   start: start
   graph:

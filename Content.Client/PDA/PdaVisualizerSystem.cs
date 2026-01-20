@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2025 SlamBamActionman
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Light;
 using Content.Shared.PDA;
 using Robust.Client.GameObjects;

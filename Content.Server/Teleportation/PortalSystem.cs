@@ -1,4 +1,12 @@
-﻿using Content.Shared.Administration.Logs;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-FileCopyrightText: 2023 ShadowCommander
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Chief-Engineer
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Ghost;
 using Content.Shared.Mind.Components;

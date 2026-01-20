@@ -1,4 +1,7 @@
-﻿using Content.Shared.Actions;
+// SPDX-FileCopyrightText: 2025 keronshb
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Actions;
 
 namespace Content.Shared.RepulseAttract.Events;
 

@@ -1,4 +1,7 @@
-﻿using Content.Shared.Engineering.Components;
+// SPDX-FileCopyrightText: 2025 FungiFellow
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Engineering.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Balloon;

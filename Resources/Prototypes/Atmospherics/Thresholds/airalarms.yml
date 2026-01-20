@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba
+# SPDX-FileCopyrightText: 2025 Errant
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-FileCopyrightText: 2024 Partmedia
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2023 Kara
+# SPDX-FileCopyrightText: 2022 eoineoineoin
+# SPDX-FileCopyrightText: 2022 Flipp Syder
+# SPDX-FileCopyrightText: 2022 corentt
+# SPDX-License-Identifier: MIT
+
 # Threshold prototypes for AtmosMonitors
 
 # NOTE: Warning thresholds are given as multipliers of the danger bound. For

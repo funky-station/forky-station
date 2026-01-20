@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.NPC.HTN;
 
 [Flags]

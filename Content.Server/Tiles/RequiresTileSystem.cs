@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Tiles;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Map.Enumerators;

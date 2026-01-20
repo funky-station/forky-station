@@ -1,4 +1,7 @@
-﻿- type: decal
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-License-Identifier: MIT
+
+- type: decal
   id: ConcreteTrimBox
   tags: ["planet", "markings"]
   sprite:

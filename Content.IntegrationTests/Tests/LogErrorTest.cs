@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Configuration;
 using Robust.Shared.Log;
 using Robust.UnitTesting;

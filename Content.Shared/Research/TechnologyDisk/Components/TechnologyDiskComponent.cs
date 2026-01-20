@@ -1,4 +1,7 @@
-﻿using Content.Shared.Random;
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Random;
 using Content.Shared.Research.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

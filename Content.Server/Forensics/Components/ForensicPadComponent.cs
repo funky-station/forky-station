@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 keronshb
+// SPDX-FileCopyrightText: 2022 ike709
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.Forensics
 {
     /// <summary>

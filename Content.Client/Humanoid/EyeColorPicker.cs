@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Mora
+// SPDX-FileCopyrightText: 2022 Flipp Syder
+// SPDX-License-Identifier: MIT
+
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 

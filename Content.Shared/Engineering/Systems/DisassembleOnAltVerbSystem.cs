@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 FungiFellow
+// SPDX-FileCopyrightText: 2025 beck-thompson
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.DoAfter;
 using Content.Shared.Engineering.Components;
 using Content.Shared.Hands.EntitySystems;

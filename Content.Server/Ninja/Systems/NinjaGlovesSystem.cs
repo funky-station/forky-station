@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2024 godisdeadLOL
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2024 Kara
+// SPDX-FileCopyrightText: 2023 Slava0135
+// SPDX-FileCopyrightText: 2023 keronshb
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Ninja.Events;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Systems;

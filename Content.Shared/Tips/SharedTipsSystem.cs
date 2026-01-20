@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.CCVar;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;

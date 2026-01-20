@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.Salvage.Magnet;
 
 [RegisterComponent]

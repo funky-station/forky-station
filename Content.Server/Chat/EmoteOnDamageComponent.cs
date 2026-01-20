@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 0x6273
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.Chat;
 
 using Content.Server.Chat.Systems;

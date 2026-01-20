@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 SlamBamActionman
+// SPDX-FileCopyrightText: 2025 J
+// SPDX-FileCopyrightText: 2025 Winkarst
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Client.Movement.Components;
 using Content.Client.Viewport;

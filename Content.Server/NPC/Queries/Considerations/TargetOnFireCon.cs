@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Golinth
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.NPC.Queries.Considerations;
 
 /// <summary>

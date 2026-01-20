@@ -1,4 +1,8 @@
-﻿- type: entityList
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-FileCopyrightText: 2021 DrSmugleaf
+# SPDX-License-Identifier: MIT
+
+- type: entityList
   id: cowtools
   entities:
   - Haycutters

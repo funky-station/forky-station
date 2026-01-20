@@ -1,4 +1,7 @@
-﻿namespace Content.Shared.Magic.Events;
+// SPDX-FileCopyrightText: 2024 keronshb
+// SPDX-License-Identifier: MIT
+
+namespace Content.Shared.Magic.Events;
 
 [ByRefEvent]
 public struct BeforeCastSpellEvent(EntityUid performer)

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 pathetic meowmeow
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Hands.Components;
 using Robust.Shared.GameStates;
 

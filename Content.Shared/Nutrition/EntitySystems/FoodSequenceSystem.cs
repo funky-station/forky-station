@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 DrSmugleaf
+// SPDX-FileCopyrightText: 2025 Wolfkey-SomeoneElseTookMyUsername
+// SPDX-FileCopyrightText: 2025 MossyGreySlope
+// SPDX-FileCopyrightText: 2024 slarticodefast
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-FileCopyrightText: 2024 themias
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using System.Text;
 using Content.Shared.Chemistry.EntitySystems;

@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2025 J
+// SPDX-FileCopyrightText: 2024 FluffMe
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Scribbles0
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;

@@ -1,4 +1,10 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2025 Simon
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2024 TheWaffleJesus
+# SPDX-FileCopyrightText: 2024 icekot8
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: HudMedSec
   start: start
   graph:

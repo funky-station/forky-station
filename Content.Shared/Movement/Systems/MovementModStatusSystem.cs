@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.StatusEffectNew;

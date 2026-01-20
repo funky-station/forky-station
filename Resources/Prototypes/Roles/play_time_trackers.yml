@@ -1,3 +1,16 @@
+# SPDX-FileCopyrightText: 2024 SlamBamActionman
+# SPDX-FileCopyrightText: 2025 SlamBamActionman
+# SPDX-FileCopyrightText: 2024 Winkarst
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2024 IProduceWidgets
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 Nairod
+# SPDX-FileCopyrightText: 2023 Maxtone
+# SPDX-FileCopyrightText: 2023 Puro
+# SPDX-FileCopyrightText: 2022 Cheackraze
+# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+# SPDX-License-Identifier: MIT
+
 # Overall play time, across all roles.
 # This tracker must exist, it is used directly by PlayTimeTrackingManager
 - type: playTimeTracker

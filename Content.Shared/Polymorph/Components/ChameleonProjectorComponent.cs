@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Polymorph.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;

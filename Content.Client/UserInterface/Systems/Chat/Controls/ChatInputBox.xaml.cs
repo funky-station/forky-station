@@ -1,4 +1,11 @@
-﻿using Content.Shared.Chat;
+// SPDX-FileCopyrightText: 2025 Brandon Li
+// SPDX-FileCopyrightText: 2024 Sk1tch
+// SPDX-FileCopyrightText: 2023 LordCarve
+// SPDX-FileCopyrightText: 2022 exincore
+// SPDX-FileCopyrightText: 2022 Jezithyr
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Chat;
 using Content.Shared.Input;
 using Robust.Client.UserInterface.Controls;
 

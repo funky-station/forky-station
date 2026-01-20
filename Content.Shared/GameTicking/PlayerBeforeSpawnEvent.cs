@@ -1,4 +1,7 @@
-﻿using Content.Shared.Preferences;
+// SPDX-FileCopyrightText: 2024 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Preferences;
 using JetBrains.Annotations;
 using Robust.Shared.Player;
 

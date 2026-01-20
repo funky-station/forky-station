@@ -1,4 +1,9 @@
-﻿using Content.Server.Administration.Logs;
+// SPDX-FileCopyrightText: 2025 SlamBamActionman
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Chief-Engineer
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Administration.Logs;
 using Content.Shared.Database;
 using Robust.Shared.Map;
 using Robust.Shared.Placement;

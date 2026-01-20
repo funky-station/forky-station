@@ -1,4 +1,8 @@
-﻿using Content.Client.Chemistry.Components;
+// SPDX-FileCopyrightText: 2025 Brandon Li
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Client.Chemistry.Components;
 using Content.Client.Chemistry.EntitySystems;
 using Content.Client.Items.UI;
 using Content.Client.Message;

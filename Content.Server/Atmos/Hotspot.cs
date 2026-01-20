@@ -1,4 +1,11 @@
-﻿namespace Content.Server.Atmos;
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+// SPDX-FileCopyrightText: 2020 metalgearsloth
+// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
+// SPDX-License-Identifier: MIT
+
+namespace Content.Server.Atmos;
 
 /// <summary>
 /// Internal Atmospherics struct that stores data about a hotspot in a tile.

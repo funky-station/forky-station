@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Julian Giebel
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Atmos.Piping.Binary.Components;
 using Content.Server.DeviceLinking.Systems;
 using Content.Shared.Atmos.Piping.Binary.Components;

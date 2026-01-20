@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 korczoczek
+// SPDX-FileCopyrightText: 2025 āda
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Popups;
 using Robust.Shared.GameStates;
 

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 deltanedas
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Actions.Events;
 
 /// <summary>

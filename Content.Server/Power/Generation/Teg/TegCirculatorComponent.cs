@@ -1,4 +1,9 @@
-﻿using Content.Shared.Atmos;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Atmos;
 
 namespace Content.Server.Power.Generation.Teg;
 

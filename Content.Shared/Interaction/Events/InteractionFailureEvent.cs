@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Interaction.Events;
 
 /// <summary>

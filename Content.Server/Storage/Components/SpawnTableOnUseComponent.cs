@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.EntityTable.EntitySelectors;
 

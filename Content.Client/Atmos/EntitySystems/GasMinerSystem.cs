@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Mervill
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Atmos.EntitySystems;
 using JetBrains.Annotations;
 

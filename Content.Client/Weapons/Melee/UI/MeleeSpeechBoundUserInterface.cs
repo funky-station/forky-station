@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2023 HerCoyote23
+// SPDX-License-Identifier: MIT
+
 using Robust.Client.GameObjects;
 using Content.Shared.Speech.Components;
 using Robust.Client.UserInterface;

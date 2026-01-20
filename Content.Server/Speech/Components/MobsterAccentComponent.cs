@@ -1,4 +1,8 @@
-﻿namespace Content.Server.Speech.Components;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Kara
+// SPDX-License-Identifier: MIT
+
+namespace Content.Server.Speech.Components;
 
 /// <summary>
 ///     Nyehh, my gabagool, see?

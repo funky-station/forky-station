@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 B_Kirill
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 Southbridge
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface.RichText;

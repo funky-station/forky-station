@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2025 Samuka-C
+# SPDX-FileCopyrightText: 2024 Nim
+# SPDX-FileCopyrightText: 2024 Winkarst
+# SPDX-FileCopyrightText: 2024 Moomoobeef
+# SPDX-FileCopyrightText: 2023 LordEclipse
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2023 Slava0135
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2022 Morber
+# SPDX-License-Identifier: MIT
+
 - type: radioChannel
   id: Common
   name: chat-radio-common

@@ -1,4 +1,8 @@
-﻿using Content.IntegrationTests.Tests.Interaction;
+// SPDX-FileCopyrightText: 2026 slarticodefast
+// SPDX-FileCopyrightText: 2024 ShadowCommander
+// SPDX-License-Identifier: MIT
+
+using Content.IntegrationTests.Tests.Interaction;
 using Content.Shared.Strip.Components;
 using Robust.Shared.GameObjects;
 

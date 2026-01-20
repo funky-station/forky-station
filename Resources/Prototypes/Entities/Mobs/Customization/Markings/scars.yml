@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Boaz1111
+# SPDX-FileCopyrightText: 2023 Ubaser
+# SPDX-FileCopyrightText: 2024 Ubaser
+# SPDX-FileCopyrightText: 2023 RiceMar1244
+# SPDX-License-Identifier: MIT
+
 - type: marking
   id: ScarEyeRight
   bodyPart: Head

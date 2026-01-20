@@ -1,4 +1,9 @@
-﻿using System.Numerics;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Francesco
+// SPDX-License-Identifier: MIT
+
+using System.Numerics;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Medical.Cryogenics;

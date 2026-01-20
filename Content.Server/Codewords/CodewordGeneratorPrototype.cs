@@ -1,4 +1,8 @@
-﻿using Content.Shared.Dataset;
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 Simon
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Dataset;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Codewords;

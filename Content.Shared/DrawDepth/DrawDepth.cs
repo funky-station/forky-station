@@ -1,3 +1,24 @@
+// SPDX-FileCopyrightText: 2025 chromiumboy
+// SPDX-FileCopyrightText: 2025 3nderall
+// SPDX-FileCopyrightText: 2025 qwerltaz
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Winkarst
+// SPDX-FileCopyrightText: 2023 Flareguy
+// SPDX-FileCopyrightText: 2023 Vordenburg
+// SPDX-FileCopyrightText: 2023 ArthurMousatov
+// SPDX-FileCopyrightText: 2022 themias
+// SPDX-FileCopyrightText: 2021 Moony
+// SPDX-FileCopyrightText: 2021 Flipp Syder
+// SPDX-FileCopyrightText: 2021 Leon Friedrich
+// SPDX-FileCopyrightText: 2021 Visne
+// SPDX-FileCopyrightText: 2020 DrSmugleaf
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2021 Daniel Castro Razo
+// SPDX-FileCopyrightText: 2021 Radrark
+// SPDX-FileCopyrightText: 2020 Hugal31
+// SPDX-FileCopyrightText: 2020 ComicIronic
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Serialization;
 using DrawDepthTag = Robust.Shared.GameObjects.DrawDepth;
 

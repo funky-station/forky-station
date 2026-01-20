@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 Velken
+// SPDX-FileCopyrightText: 2025 Quantum-cross
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Anomaly.Components;
 using Content.Server.Anomaly.Effects;
 using Content.Shared.Anomaly;

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 RedBookcase
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: scraparmor
   start: start

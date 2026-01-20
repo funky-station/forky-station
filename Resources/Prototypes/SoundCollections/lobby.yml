@@ -1,3 +1,17 @@
+# SPDX-FileCopyrightText: 2025 keronshb
+# SPDX-FileCopyrightText: 2024 Kara
+# SPDX-FileCopyrightText: 2024 Emisse
+# SPDX-FileCopyrightText: 2023 Whisper
+# SPDX-FileCopyrightText: 2021 T-Stalker
+# SPDX-FileCopyrightText: 2022 T-Stalker
+# SPDX-FileCopyrightText: 2022 Todd
+# SPDX-FileCopyrightText: 2022 20kdc
+# SPDX-FileCopyrightText: 2022 WTCWR68
+# SPDX-FileCopyrightText: 2022 Fishfish458
+# SPDX-FileCopyrightText: 2021 SweptWasTaken
+# SPDX-FileCopyrightText: 2021 ike709
+# SPDX-License-Identifier: MIT
+
 - type: soundCollection
   id: LobbyMusic
   files:

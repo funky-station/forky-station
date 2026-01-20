@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 Hebi
+// SPDX-License-Identifier: MIT
+
 namespace Content.Client.Guidebook.Controls;
 public interface ISearchableControl
 {

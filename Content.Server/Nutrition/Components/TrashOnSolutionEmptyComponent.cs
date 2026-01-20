@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2023 Psychpsyo
+// SPDX-FileCopyrightText: 2022 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Jessica M
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.Nutrition.Components
 {
     /// <summary>

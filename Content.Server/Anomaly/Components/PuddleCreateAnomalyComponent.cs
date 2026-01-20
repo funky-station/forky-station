@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 Ed
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Anomaly.Effects;
 
 namespace Content.Server.Anomaly.Components;

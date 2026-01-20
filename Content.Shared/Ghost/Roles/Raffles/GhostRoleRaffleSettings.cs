@@ -1,4 +1,8 @@
-﻿namespace Content.Shared.Ghost.Roles.Raffles;
+// SPDX-FileCopyrightText: 2025 DrSmugleaf
+// SPDX-FileCopyrightText: 2024 no
+// SPDX-License-Identifier: MIT
+
+namespace Content.Shared.Ghost.Roles.Raffles;
 
 /// <summary>
 /// Defines settings for a ghost role raffle.

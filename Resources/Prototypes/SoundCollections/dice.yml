@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2020 AJCM-git
+# SPDX-FileCopyrightText: 2020 zumorica
+# SPDX-FileCopyrightText: 2019 Víctor Aguilera Puerto
+# SPDX-License-Identifier: MIT
+
 - type: soundCollection
   id: Dice
   files:

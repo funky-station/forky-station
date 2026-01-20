@@ -1,4 +1,12 @@
-﻿using Content.Client.Implants.UI;
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 SlamBamActionman
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 keronshb
+// SPDX-License-Identifier: MIT
+
+using Content.Client.Implants.UI;
 using Content.Client.Items;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;

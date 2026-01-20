@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Fruitsalad
+// SPDX-License-Identifier: MIT
+
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Robust.Client.Graphics;

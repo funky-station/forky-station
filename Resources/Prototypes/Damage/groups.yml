@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2024 SlamBamActionman
+# SPDX-FileCopyrightText: 2024 KrasnoshchekovPavel
+# SPDX-FileCopyrightText: 2023 Maxtone
+# SPDX-FileCopyrightText: 2021 mirrorcult
+# SPDX-FileCopyrightText: 2021 Leon Friedrich
+# SPDX-License-Identifier: MIT
+
 - type: damageGroup
   id: Brute
   name: damage-group-brute

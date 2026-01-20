@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Construction;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;

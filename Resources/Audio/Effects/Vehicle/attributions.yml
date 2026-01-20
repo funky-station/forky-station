@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Velken
+# SPDX-FileCopyrightText: 2023 Chronophylos
+# SPDX-License-Identifier: MIT
+
 - files:
   - vehiclestartup.ogg
   - vehicleengineindle.ogg

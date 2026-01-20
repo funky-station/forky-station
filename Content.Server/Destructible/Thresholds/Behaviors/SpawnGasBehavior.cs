@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Jezithyr
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Vordenburg
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Atmos;
 using Content.Shared.Atmos;
 using JetBrains.Annotations;

@@ -1,3 +1,16 @@
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2023 Tom Leys
+# SPDX-FileCopyrightText: 2022 Rinkashikachi
+# SPDX-FileCopyrightText: 2022 Emisse
+# SPDX-FileCopyrightText: 2022 mirrorcult
+# SPDX-FileCopyrightText: 2021 Elijahrane
+# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2020 Peter Wedder
+# SPDX-FileCopyrightText: 2020 AJCM-git
+# SPDX-License-Identifier: MIT
+
 - type: accessLevel
   id: ChiefEngineer
   name: id-card-access-level-chief-engineer

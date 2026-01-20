@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2023 Nairod
+# SPDX-License-Identifier: MIT
+
 - type: accessLevel
   id: CentralCommand
   name: id-card-access-level-central-command

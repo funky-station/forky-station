@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 lzk
+// SPDX-FileCopyrightText: 2024 chromiumboy
+// SPDX-FileCopyrightText: 2025 chromiumboy
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Chat.TypingIndicator;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;

@@ -1,4 +1,9 @@
-﻿using Robust.Shared.Prototypes;
+// SPDX-FileCopyrightText: 2025 DrSmugleaf
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 no
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Ghost.Roles.Raffles;
 

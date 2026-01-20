@@ -1,4 +1,8 @@
-﻿using Content.Shared.Station.Components;
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Station.Components;
 using Robust.Shared.Console;
 
 namespace Content.Server.Commands;

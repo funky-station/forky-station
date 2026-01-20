@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Guidebook;

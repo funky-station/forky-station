@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;

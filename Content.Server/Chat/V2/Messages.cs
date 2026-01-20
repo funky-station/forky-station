@@ -1,4 +1,7 @@
-﻿using Content.Shared.Chat.Prototypes;
+// SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Chat.Prototypes;
 using Content.Shared.Chat.V2;
 using Content.Shared.Radio;
 

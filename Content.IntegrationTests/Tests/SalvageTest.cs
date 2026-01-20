@@ -1,4 +1,11 @@
-﻿using Content.Shared.CCVar;
+// SPDX-FileCopyrightText: 2024 ElectroJr
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.CCVar;
 using Content.Shared.Salvage;
 using Robust.Shared.Configuration;
 using Robust.Shared.EntitySerialization.Systems;

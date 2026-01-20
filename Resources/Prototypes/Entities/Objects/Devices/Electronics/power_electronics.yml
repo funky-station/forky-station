@@ -1,4 +1,19 @@
-﻿# APC
+# SPDX-FileCopyrightText: 2025 CaasGit
+# SPDX-FileCopyrightText: 2024 Hreno
+# SPDX-FileCopyrightText: 2024 Debug
+# SPDX-FileCopyrightText: 2023 Nairod
+# SPDX-FileCopyrightText: 2024 Nairod
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2022 corentt
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2022 rolfero
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-License-Identifier: MIT
+
+# APC
 - type: entity
   id: APCElectronics
   parent: BaseElectronics

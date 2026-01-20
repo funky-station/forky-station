@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Super
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Objectives.Systems;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;

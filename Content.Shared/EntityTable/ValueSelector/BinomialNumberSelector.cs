@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 IProduceWidgets
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Random;
 
 namespace Content.Shared.EntityTable.ValueSelector;

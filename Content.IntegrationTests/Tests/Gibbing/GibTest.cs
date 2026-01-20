@@ -1,4 +1,7 @@
-﻿#nullable enable
+// SPDX-FileCopyrightText: 2026 pathetic meowmeow
+// SPDX-License-Identifier: MIT
+
+#nullable enable
 using Content.Shared.Gibbing;
 using Robust.Shared.GameObjects;
 

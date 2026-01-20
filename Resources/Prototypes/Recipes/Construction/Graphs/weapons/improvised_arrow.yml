@@ -1,4 +1,12 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2025 Tao
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2024 Boaz1111
+# SPDX-FileCopyrightText: 2025 Boaz1111
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2023 Kara
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: ImprovisedArrow
   start: start
   graph:

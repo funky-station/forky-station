@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Samuka-C
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2024 nikthechampiongr
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.DeviceNetwork.Systems;
 using Robust.Shared.GameStates;
 

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Spanky
+# SPDX-License-Identifier: MIT
+
 - type: parallax
   id: Wizard
   layers:

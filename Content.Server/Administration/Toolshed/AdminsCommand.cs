@@ -1,4 +1,9 @@
-﻿using Content.Server.Administration.Managers;
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Moony
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Administration.Managers;
 using Content.Shared.Administration;
 using Robust.Shared.Player;
 using Robust.Shared.Toolshed;

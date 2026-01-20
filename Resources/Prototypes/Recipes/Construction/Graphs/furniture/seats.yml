@@ -1,3 +1,17 @@
+# SPDX-FileCopyrightText: 2025 Tao
+# SPDX-FileCopyrightText: 2024 Ko4ergaPunk
+# SPDX-FileCopyrightText: 2024 MACMAN2003
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2024 Nim
+# SPDX-FileCopyrightText: 2024 Nairod
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 Alekshhh
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2021 ShadowCommander
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: Seat
   start: start

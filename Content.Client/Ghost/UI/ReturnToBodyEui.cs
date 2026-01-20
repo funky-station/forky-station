@@ -1,4 +1,7 @@
-﻿using Content.Client.Eui;
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Client.Eui;
 using Content.Shared.Ghost;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;

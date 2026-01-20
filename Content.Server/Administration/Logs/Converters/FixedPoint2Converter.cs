@@ -1,4 +1,9 @@
-﻿using System.Text.Json;
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández
+// SPDX-License-Identifier: MIT
+
+using System.Text.Json;
 using Content.Shared.FixedPoint;
 
 namespace Content.Server.Administration.Logs.Converters;

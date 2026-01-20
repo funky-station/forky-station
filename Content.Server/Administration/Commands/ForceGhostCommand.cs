@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 J
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Content.Server.GameTicking;
 using Content.Server.Ghost;
 using Content.Shared.Administration;

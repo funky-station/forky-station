@@ -1,4 +1,7 @@
-﻿using Content.Shared.Mobs.Components;
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.GameStates;
 

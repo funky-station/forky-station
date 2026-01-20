@@ -1,4 +1,7 @@
-﻿using Robust.Shared.Utility;
+// SPDX-FileCopyrightText: 2025 Simon
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Utility;
 
 namespace Content.Client.Instruments.MidiParser;
 

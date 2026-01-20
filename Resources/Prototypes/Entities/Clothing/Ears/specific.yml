@@ -1,4 +1,10 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2025 beck-thompson
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin
+# SPDX-License-Identifier: MIT
+
+- type: entity
   parent: [ClothingHeadsetGrey, BaseChameleon]
   id: ClothingHeadsetChameleon
   name: passenger headset

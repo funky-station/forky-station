@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 MilenVolf
+# SPDX-FileCopyrightText: 2025 DieselMohawk
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-License-Identifier: MIT
+
 - type: localizedDataset
   id: NamesRollie
   values:

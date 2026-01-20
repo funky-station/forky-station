@@ -1,3 +1,30 @@
+# SPDX-FileCopyrightText: 2025 āda
+# SPDX-FileCopyrightText: 2026 āda
+# SPDX-FileCopyrightText: 2025 PJB3005
+# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+# SPDX-FileCopyrightText: 2025 cloudyskies
+# SPDX-FileCopyrightText: 2025 Alice4267
+# SPDX-FileCopyrightText: 2025 Nyxilath
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2023 Boaz1111
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 MisterMecky
+# SPDX-FileCopyrightText: 2023 iller_saver
+# SPDX-FileCopyrightText: 2023 Whisper
+# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2022 Morb
+# SPDX-FileCopyrightText: 2022 themias
+# SPDX-FileCopyrightText: 2021 Rane
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2021 SethLafuente
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-FileCopyrightText: 2021 Alex Evgrashin
+# SPDX-FileCopyrightText: 2020 Tarlan2
+# SPDX-License-Identifier: MIT
+
 - type: latheRecipe
   id: Beaker
   result: Beaker

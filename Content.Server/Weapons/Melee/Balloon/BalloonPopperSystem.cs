@@ -1,4 +1,10 @@
-﻿using Content.Server.Hands.Systems;
+// SPDX-FileCopyrightText: 2025 FungiFellow
+// SPDX-FileCopyrightText: 2024 LankLTE
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Hands.Systems;
 using Content.Server.Popups;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;

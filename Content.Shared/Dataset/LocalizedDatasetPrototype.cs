@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-License-Identifier: MIT
+
 using System.Collections;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;

@@ -1,4 +1,11 @@
-﻿#Due to limitations with placement conditions in the construction system, the other kinds of non-fulltile barricades are currently not constructible.
+# SPDX-FileCopyrightText: 2024 JustinWinningham
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2023 Flareguy
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-License-Identifier: MIT
+
+#Due to limitations with placement conditions in the construction system, the other kinds of non-fulltile barricades are currently not constructible.
 #This may make it sound like it needs some big refactor to be possible, but make no mistake, it is 100% due to my own technical incompetence.
 - type: constructionGraph
   id: Barricade

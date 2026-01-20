@@ -1,4 +1,9 @@
-﻿using Content.Server.Worldgen.Components;
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2023 Moony
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Worldgen.Components;
 using Robust.Server.GameObjects;
 
 namespace Content.Server.Worldgen.Systems;

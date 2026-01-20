@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2024 nao fujiwara
+# SPDX-License-Identifier: MIT
+
 - type: soundCollection
   id: Fox
   files:

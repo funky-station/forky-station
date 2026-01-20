@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 BarryNorfolk
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Examine;
 using Content.Client.Machines.Components;
 using Content.Shared.Machines.Components;

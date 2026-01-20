@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2024 Ubaser
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2023 ar4ill
+# SPDX-FileCopyrightText: 2023 mhamster
+# SPDX-FileCopyrightText: 2022 Andreas Kämper
+# SPDX-FileCopyrightText: 2022 Emisse
+# SPDX-FileCopyrightText: 2022 Fishfish458
+# SPDX-License-Identifier: MIT
+
 - type: vendingMachineInventory
   id: RoboDrobeInventory
   startingInventory:

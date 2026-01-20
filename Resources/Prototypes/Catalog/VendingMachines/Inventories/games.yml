@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2026 Thinbug
+# SPDX-FileCopyrightText: 2025 Smith
+# SPDX-FileCopyrightText: 2023 eclips_e
+# SPDX-FileCopyrightText: 2023 Flareguy
+# SPDX-FileCopyrightText: 2022 dontbetank
+# SPDX-FileCopyrightText: 2022 Andreas Kämper
+# SPDX-FileCopyrightText: 2022 Fishfish458
+# SPDX-License-Identifier: MIT
+
 - type: vendingMachineInventory
   id: GoodCleanFunInventory
   startingInventory:

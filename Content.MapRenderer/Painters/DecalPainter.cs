@@ -1,4 +1,12 @@
-﻿using System;
+// SPDX-FileCopyrightText: 2025 Vlad
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-License-Identifier: MIT
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Numerics;

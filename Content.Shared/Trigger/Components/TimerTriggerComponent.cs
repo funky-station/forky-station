@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 beck-thompson
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Guidebook;
 using Content.Shared.Trigger.Systems;
 using Robust.Shared.Audio;

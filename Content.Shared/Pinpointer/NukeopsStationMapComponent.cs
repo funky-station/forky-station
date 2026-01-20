@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 SlamBamActionman
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Pinpointer;
 
 /// <summary>

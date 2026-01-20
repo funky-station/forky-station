@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 J
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 AJCM-git
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Rotation;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;

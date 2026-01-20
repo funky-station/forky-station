@@ -1,4 +1,8 @@
-﻿using Content.Server.Chat.Systems;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 keronshb
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Chat.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Teleportation;
 using Content.Shared.Teleportation.Components;

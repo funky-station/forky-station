@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 AJCM-git
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Shared.Mech.Equipment.Components;
 using Content.Shared.Timing;

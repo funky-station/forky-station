@@ -1,4 +1,7 @@
-﻿using Content.Shared.Roles;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Roles;
 
 namespace Content.Client.Roles;
 

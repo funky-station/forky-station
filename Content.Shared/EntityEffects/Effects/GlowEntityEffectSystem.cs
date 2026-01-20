@@ -1,4 +1,9 @@
-﻿using Robust.Shared.Network;
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Network;
 using Robust.Shared.Random;
 
 namespace Content.Shared.EntityEffects.Effects;

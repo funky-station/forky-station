@@ -1,4 +1,7 @@
-﻿namespace Content.Server.Objectives.Components;
+// SPDX-FileCopyrightText: 2025 keronshb
+// SPDX-License-Identifier: MIT
+
+namespace Content.Server.Objectives.Components;
 
 /// <summary>
 ///     A free greentext, that's it.

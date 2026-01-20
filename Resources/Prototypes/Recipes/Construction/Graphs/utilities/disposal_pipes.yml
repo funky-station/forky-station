@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2025 deltanedas
+# SPDX-FileCopyrightText: 2025 Wolfkey-SomeoneElseTookMyUsername
+# SPDX-FileCopyrightText: 2025 K-Dynamic
+# SPDX-FileCopyrightText: 2023 08A
+# SPDX-FileCopyrightText: 2022 Jack Fox
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: DisposalPipe
   start: start

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Matthew Herber
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2024 saga3152
+# SPDX-FileCopyrightText: 2023 MisterMecky
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: FoodBoxPizza
   start: start

@@ -1,4 +1,7 @@
-﻿using System.IO;
+// SPDX-FileCopyrightText: 2024 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Content.Shared.Mapping;

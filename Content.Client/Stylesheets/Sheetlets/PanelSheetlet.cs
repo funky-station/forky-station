@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Brandon Li
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Stylesheets.SheetletConfigs;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;

@@ -1,3 +1,25 @@
+# SPDX-FileCopyrightText: 2025 SlamBamActionman
+# SPDX-FileCopyrightText: 2025 Damn Feds
+# SPDX-FileCopyrightText: 2024 IProduceWidgets
+# SPDX-FileCopyrightText: 2024 Pissachu
+# SPDX-FileCopyrightText: 2024 Brandon Hu
+# SPDX-FileCopyrightText: 2024 Leon Friedrich
+# SPDX-FileCopyrightText: 2024 Boaz1111
+# SPDX-FileCopyrightText: 2024 Mangohydra
+# SPDX-FileCopyrightText: 2023 JoeHammad1844
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2022 Emisse
+# SPDX-FileCopyrightText: 2023 Emisse
+# SPDX-FileCopyrightText: 2023 Chief-Engineer
+# SPDX-FileCopyrightText: 2021 Moony
+# SPDX-FileCopyrightText: 2022 Moony
+# SPDX-FileCopyrightText: 2023 Moony
+# SPDX-FileCopyrightText: 2022 Cheackraze
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-License-Identifier: MIT
+
 - type: gameMap
   id: Oasis
   mapName: 'Oasis'

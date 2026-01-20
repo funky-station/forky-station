@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 chromiumboy
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 
 namespace Content.Shared.Telephone;

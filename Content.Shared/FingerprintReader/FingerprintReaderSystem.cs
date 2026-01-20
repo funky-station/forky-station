@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 ScarKy0
+// SPDX-License-Identifier: MIT
+
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Inventory;

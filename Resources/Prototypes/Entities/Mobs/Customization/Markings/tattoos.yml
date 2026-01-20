@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Huaqas
+# SPDX-FileCopyrightText: 2025 ScarKy0
+# SPDX-FileCopyrightText: 2025 Flareguy
+# SPDX-FileCopyrightText: 2025 Pgriha
+# SPDX-FileCopyrightText: 2023 Nairod
+# SPDX-FileCopyrightText: 2023 csqrb
+# SPDX-FileCopyrightText: 2022 Scribbles0
+# SPDX-FileCopyrightText: 2022 T-Stalker
+# SPDX-License-Identifier: MIT
+
 - type: marking
   id: TattooHiveChest
   bodyPart: Chest

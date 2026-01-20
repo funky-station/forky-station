@@ -1,3 +1,6 @@
-﻿- type: accessLevel
+# SPDX-FileCopyrightText: 2024 keronshb
+# SPDX-License-Identifier: MIT
+
+- type: accessLevel
   id: Wizard
   name: id-card-access-level-wizard

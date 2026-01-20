@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 Kot
+// SPDX-FileCopyrightText: 2023 Dawid Bla
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2021 ike709
+// SPDX-License-Identifier: MIT
+
 using System;
 using System.Collections.Generic;
 using System.Globalization;

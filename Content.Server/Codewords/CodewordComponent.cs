@@ -1,4 +1,7 @@
-﻿namespace Content.Server.Codewords;
+// SPDX-FileCopyrightText: 2025 Simon
+// SPDX-License-Identifier: MIT
+
+namespace Content.Server.Codewords;
 
 /// <summary>
 /// Container for generated codewords.

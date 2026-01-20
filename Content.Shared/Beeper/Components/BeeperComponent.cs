@@ -1,4 +1,8 @@
-﻿using Content.Shared.Beeper.Systems;
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2024 Jezithyr
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Beeper.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.ProximityDetection.Systems;
 using Robust.Shared.Audio;

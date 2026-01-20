@@ -1,4 +1,9 @@
-﻿using System.Diagnostics.CodeAnalysis;
+// SPDX-FileCopyrightText: 2026 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 LordCarve
+// SPDX-FileCopyrightText: 2022 Jezithyr
+// SPDX-License-Identifier: MIT
+
+using System.Diagnostics.CodeAnalysis;
 using Robust.Client.Input;
 using Robust.Shared.Input;
 using Robust.Shared.Utility;

@@ -1,4 +1,60 @@
-﻿Entries:
+# SPDX-FileCopyrightText: 2021 PJBot
+# SPDX-FileCopyrightText: 2022 PJBot
+# SPDX-FileCopyrightText: 2023 PJBot
+# SPDX-FileCopyrightText: 2024 PJBot
+# SPDX-FileCopyrightText: 2025 PJBot
+# SPDX-FileCopyrightText: 2026 PJBot
+# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+# SPDX-FileCopyrightText: 2026 Vasilis The Pikachu
+# SPDX-FileCopyrightText: 2026 Princess Cheeseballs
+# SPDX-FileCopyrightText: 2023 Errant
+# SPDX-FileCopyrightText: 2025 Errant
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba
+# SPDX-FileCopyrightText: 2025 slarticodefast
+# SPDX-FileCopyrightText: 2025 PJB3005
+# SPDX-FileCopyrightText: 2025 ToastEnjoyer
+# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2025 Spanky
+# SPDX-FileCopyrightText: 2025 ScarKy0
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2025 lzk
+# SPDX-FileCopyrightText: 2025 Nemanja
+# SPDX-FileCopyrightText: 2021 metalgearsloth
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2025 metalgearsloth
+# SPDX-FileCopyrightText: 2024 Brandon Hu
+# SPDX-FileCopyrightText: 2024 Mr. 27
+# SPDX-FileCopyrightText: 2023 Kara
+# SPDX-FileCopyrightText: 2024 Kara
+# SPDX-FileCopyrightText: 2023 Kevin Zheng
+# SPDX-FileCopyrightText: 2023 crazybrain23
+# SPDX-FileCopyrightText: 2023 keronshb
+# SPDX-FileCopyrightText: 2023 Whisper
+# SPDX-FileCopyrightText: 2021 AJCM-git
+# SPDX-FileCopyrightText: 2023 AJCM-git
+# SPDX-FileCopyrightText: 2022 wrexbe
+# SPDX-FileCopyrightText: 2021 Visne
+# SPDX-FileCopyrightText: 2022 Visne
+# SPDX-FileCopyrightText: 2022 Paul Ritter
+# SPDX-FileCopyrightText: 2022 Júlio César Ueti
+# SPDX-FileCopyrightText: 2022 Moony
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2021 20kdc
+# SPDX-FileCopyrightText: 2021 moonheart08
+# SPDX-FileCopyrightText: 2021 Silver
+# SPDX-FileCopyrightText: 2021 Kara Dinyes
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-FileCopyrightText: 2021 DrSmugleaf
+# SPDX-FileCopyrightText: 2021 Metal Gear Sloth
+# SPDX-FileCopyrightText: 2019 DamianX
+# SPDX-FileCopyrightText: 2020 DamianX
+# SPDX-License-Identifier: MIT
+
+Entries:
 - author: MissKay1994
   changes:
   - message: Interns will no longer be hired infinitely

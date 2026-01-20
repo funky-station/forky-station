@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Tag;
 using Robust.Client.Upload.Commands;
 using Robust.Shared.GameObjects;

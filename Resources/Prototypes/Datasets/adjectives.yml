@@ -1,4 +1,9 @@
-﻿- type: localizedDataset
+# SPDX-FileCopyrightText: 2025 MilenVolf
+# SPDX-FileCopyrightText: 2024 SlamBamActionman
+# SPDX-FileCopyrightText: 2020 Paul Ritter
+# SPDX-License-Identifier: MIT
+
+- type: localizedDataset
   id: Adjectives
   values:
     prefix: adjectives-dataset-

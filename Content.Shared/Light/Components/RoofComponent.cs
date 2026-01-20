@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 mtrs163
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Light.Components;

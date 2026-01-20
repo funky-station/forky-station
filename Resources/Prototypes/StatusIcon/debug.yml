@@ -1,4 +1,9 @@
-﻿- type: debugIcon
+# SPDX-FileCopyrightText: 2024 slarticodefast
+# SPDX-FileCopyrightText: 2024 Golinth
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-License-Identifier: MIT
+
+- type: debugIcon
   id: DebugStatus
   icon:
     sprite: /Textures/Interface/Misc/research_disciplines.rsi

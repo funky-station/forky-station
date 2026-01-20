@@ -1,4 +1,12 @@
-﻿using Content.Shared.Ghost;
+// SPDX-FileCopyrightText: 2025 Perry Fraser
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Kara
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Ghost;
 using Content.Shared.IdentityManagement.Components;
 
 namespace Content.Shared.IdentityManagement;

@@ -1,4 +1,7 @@
-﻿using Content.Shared.Teleportation;
+// SPDX-FileCopyrightText: 2025 keronshb
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Teleportation;
 using Content.Shared.Teleportation.Components;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;

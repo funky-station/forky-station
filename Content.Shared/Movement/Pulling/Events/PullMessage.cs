@@ -1,4 +1,8 @@
-﻿namespace Content.Shared.Movement.Pulling.Events;
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Jezithyr
+// SPDX-License-Identifier: MIT
+
+namespace Content.Shared.Movement.Pulling.Events;
 
 public abstract class PullMessage : EntityEventArgs
 {

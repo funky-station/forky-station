@@ -1,4 +1,7 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: StationBeaconPart
   start: start
   graph:

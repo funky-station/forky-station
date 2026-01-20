@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 pathetic meowmeow
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;

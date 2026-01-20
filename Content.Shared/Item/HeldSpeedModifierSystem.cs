@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Cojoke
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Clothing;
 using Content.Shared.Hands;
 using Content.Shared.Movement.Systems;

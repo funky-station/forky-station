@@ -1,4 +1,10 @@
-﻿- type: construction
+# SPDX-FileCopyrightText: 2025 Velken
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2023 Chief-Engineer
+# SPDX-License-Identifier: MIT
+
+- type: construction
   id: PlushieGhostRevenant
   graph: PlushieGhostRevenant
   startNode: start

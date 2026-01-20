@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 chromiumboy
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Power;
 using Content.Shared.Turrets;
 using Robust.Client.Animations;

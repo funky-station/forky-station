@@ -1,4 +1,9 @@
-﻿using Robust.Client.GameObjects;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Nemanja
+// SPDX-FileCopyrightText: 2022 Julian Giebel
+// SPDX-License-Identifier: MIT
+
+using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 
 namespace Content.Client.UserInterface.Fragments;

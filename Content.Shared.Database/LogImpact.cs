@@ -1,4 +1,11 @@
-﻿namespace Content.Shared.Database;
+// SPDX-FileCopyrightText: 2025 SlamBamActionman
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2021 mirrorcult
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández
+// SPDX-License-Identifier: MIT
+
+namespace Content.Shared.Database;
 
 // DO NOT CHANGE THE NUMERIC VALUES OF THESE
 [Serializable]

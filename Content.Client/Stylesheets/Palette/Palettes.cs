@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Brandon Li
+// SPDX-License-Identifier: MIT
+
 namespace Content.Client.Stylesheets.Palette;
 
 /// <summary>

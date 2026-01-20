@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-License-Identifier: MIT
+
 using System.Globalization;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager;

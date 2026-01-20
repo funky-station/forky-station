@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2024 keronshb
+// SPDX-FileCopyrightText: 2025 keronshb
+// SPDX-FileCopyrightText: 2024 Fildrance
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Store.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.Interaction.Events;

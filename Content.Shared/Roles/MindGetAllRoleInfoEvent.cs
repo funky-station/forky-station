@@ -1,4 +1,9 @@
-﻿using Content.Shared.Players.PlayTimeTracking;
+// SPDX-FileCopyrightText: 2024 Errant
+// SPDX-FileCopyrightText: 2024 Vasilis
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Players.PlayTimeTracking;
 
 namespace Content.Shared.Roles;
 

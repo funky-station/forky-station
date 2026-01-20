@@ -1,3 +1,20 @@
+# SPDX-FileCopyrightText: 2025 Sparlight
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba
+# SPDX-FileCopyrightText: 2025 Centronias
+# SPDX-FileCopyrightText: 2025 Velken
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2024 strO0pwafel
+# SPDX-FileCopyrightText: 2024 Cojoke
+# SPDX-FileCopyrightText: 2024 Ubaser
+# SPDX-FileCopyrightText: 2024 degradka
+# SPDX-FileCopyrightText: 2023 SapphicOverload
+# SPDX-FileCopyrightText: 2023 crazybrain23
+# SPDX-FileCopyrightText: 2023 Sailor
+# SPDX-FileCopyrightText: 2023 brainfood1183
+# SPDX-FileCopyrightText: 2023 Flareguy
+# SPDX-License-Identifier: MIT
+
 #EVA Helmet
 - type: entity
   parent: ClothingHeadEVAHelmetBase

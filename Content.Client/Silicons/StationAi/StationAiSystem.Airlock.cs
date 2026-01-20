@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Fildrance
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Doors.Components;
 using Content.Shared.Electrocution;
 using Content.Shared.Silicons.StationAi;

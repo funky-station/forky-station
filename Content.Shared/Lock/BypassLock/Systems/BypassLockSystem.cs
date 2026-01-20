@@ -1,4 +1,7 @@
-﻿using Content.Shared.Administration.Logs;
+// SPDX-FileCopyrightText: 2026 Sir Warock
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;

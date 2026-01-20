@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+// SPDX-FileCopyrightText: 2024 Cojoke
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Damage.Systems;
 using Robust.Shared.GameStates;
 

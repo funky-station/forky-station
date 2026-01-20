@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Unisol
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-License-Identifier: MIT
+
 - type: gameMapPool
   id: DeathMatchMapPool
   maps:

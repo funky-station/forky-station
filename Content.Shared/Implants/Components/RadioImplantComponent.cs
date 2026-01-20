@@ -1,4 +1,7 @@
-﻿using Content.Shared.Radio;
+// SPDX-FileCopyrightText: 2025 Preston Smith
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Radio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Implants.Components;

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 brainfood1183
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Plunger.Components

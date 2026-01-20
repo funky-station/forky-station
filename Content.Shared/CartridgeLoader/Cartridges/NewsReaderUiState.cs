@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Julian Giebel
+// SPDX-FileCopyrightText: 2023 MishaUnity
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Serialization;
 using Content.Shared.MassMedia.Systems;
 

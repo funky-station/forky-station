@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Resources;
 using Content.Client.Shuttles.UI;
 using Content.Shared.Shuttles.Components;

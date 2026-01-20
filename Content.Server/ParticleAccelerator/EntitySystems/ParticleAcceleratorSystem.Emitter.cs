@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2025 BarryNorfolk
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2024 LordCarve
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 crazybrain23
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-License-Identifier: MIT
+
 using Content.Server.ParticleAccelerator.Components;
 using Content.Server.Singularity.Components;
 using Content.Shared.ParticleAccelerator.Components;

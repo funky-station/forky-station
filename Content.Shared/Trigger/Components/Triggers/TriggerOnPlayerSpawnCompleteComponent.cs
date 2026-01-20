@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 āda
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.GameTicking;
 using Robust.Shared.GameStates;
 

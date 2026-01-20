@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 deltanedas
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Actions;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;

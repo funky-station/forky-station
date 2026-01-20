@@ -1,3 +1,23 @@
+# SPDX-FileCopyrightText: 2025 ScarKy0
+# SPDX-FileCopyrightText: 2026 ScarKy0
+# SPDX-FileCopyrightText: 2025 TheBlueYowie
+# SPDX-FileCopyrightText: 2025 Smith
+# SPDX-FileCopyrightText: 2024 drakewill-CRL
+# SPDX-FileCopyrightText: 2024 Джексон Миссиссиппи
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2023 Doru991
+# SPDX-FileCopyrightText: 2022 Stealthbomber16
+# SPDX-FileCopyrightText: 2022 Andreas Kämper
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-FileCopyrightText: 2021 Visne
+# SPDX-FileCopyrightText: 2021 metalgearsloth
+# SPDX-FileCopyrightText: 2020 AJCM-git
+# SPDX-FileCopyrightText: 2019 DamianX
+# SPDX-License-Identifier: MIT
+
 - type: vendingMachineInventory
   id: NutriMaxInventory
   startingInventory:

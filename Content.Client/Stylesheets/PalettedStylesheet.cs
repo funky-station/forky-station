@@ -1,4 +1,7 @@
-﻿using JetBrains.Annotations;
+// SPDX-FileCopyrightText: 2025 Brandon Li
+// SPDX-License-Identifier: MIT
+
+using JetBrains.Annotations;
 
 namespace Content.Client.Stylesheets;
 

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 deltanedas
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Actions;
 using Content.Shared.Actions;
 using Content.Shared.Charges.Components;

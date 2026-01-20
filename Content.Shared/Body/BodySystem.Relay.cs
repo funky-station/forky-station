@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 pathetic meowmeow
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Body.Events;
 using Content.Shared.Gibbing;
 using Content.Shared.Medical;

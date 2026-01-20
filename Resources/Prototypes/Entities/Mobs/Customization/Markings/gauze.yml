@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024 Арт
+# SPDX-FileCopyrightText: 2023 KittenColony
+# SPDX-FileCopyrightText: 2024 KittenColony
+# SPDX-License-Identifier: MIT
+
 - type: marking
   id: GauzeLefteyePatch
   bodyPart: Eyes

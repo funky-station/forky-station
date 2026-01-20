@@ -1,4 +1,13 @@
-﻿using Robust.Shared.Prototypes;
+// SPDX-FileCopyrightText: 2025 Perry Fraser
+// SPDX-FileCopyrightText: 2022 keronshb
+// SPDX-FileCopyrightText: 2023 keronshb
+// SPDX-FileCopyrightText: 2024 keronshb
+// SPDX-FileCopyrightText: 2022 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 AJCM-git
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Magic.Components;
 

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Эдуард
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.CriminalRecords.Systems;

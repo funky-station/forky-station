@@ -1,4 +1,8 @@
-﻿using System;
+// SPDX-FileCopyrightText: 2025 Myra
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable

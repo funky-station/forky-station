@@ -1,3 +1,56 @@
+# SPDX-FileCopyrightText: 2025 Nox
+# SPDX-FileCopyrightText: 2025 SlamBamActionman
+# SPDX-FileCopyrightText: 2025 beck-thompson
+# SPDX-FileCopyrightText: 2025 Hitlinemoss
+# SPDX-FileCopyrightText: 2024 ArtisticRoomba
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba
+# SPDX-FileCopyrightText: 2025 Huaqas
+# SPDX-FileCopyrightText: 2025 Mora
+# SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+# SPDX-FileCopyrightText: 2025 Trosling
+# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+# SPDX-FileCopyrightText: 2025 96flo
+# SPDX-FileCopyrightText: 2025 paige404
+# SPDX-FileCopyrightText: 2025 kosticia
+# SPDX-FileCopyrightText: 2025 T
+# SPDX-FileCopyrightText: 2025 Phooooooooooooooooooooooooooooooosphate
+# SPDX-FileCopyrightText: 2025 Cass
+# SPDX-FileCopyrightText: 2025 KingFroozy
+# SPDX-FileCopyrightText: 2025 slarticodefast
+# SPDX-FileCopyrightText: 2025 Momo
+# SPDX-FileCopyrightText: 2025 Brassica Prime
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2025 lzk
+# SPDX-FileCopyrightText: 2025 centcomofficer24
+# SPDX-FileCopyrightText: 2025 Julian Giebel
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2024 Michael Krebs
+# SPDX-FileCopyrightText: 2024 joshepvodka
+# SPDX-FileCopyrightText: 2024 IProduceWidgets
+# SPDX-FileCopyrightText: 2024 Арт
+# SPDX-FileCopyrightText: 2024 TakoDragon
+# SPDX-FileCopyrightText: 2024 LittleNorthStar
+# SPDX-FileCopyrightText: 2024 Errant
+# SPDX-FileCopyrightText: 2024 DieselMohawk
+# SPDX-FileCopyrightText: 2024 Mr. 27
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2024 themias
+# SPDX-FileCopyrightText: 2024 PoorMansDreams
+# SPDX-FileCopyrightText: 2024 pigeonpeas
+# SPDX-FileCopyrightText: 2024 Tayrtahn
+# SPDX-FileCopyrightText: 2024 Ghagliiarghii
+# SPDX-FileCopyrightText: 2024 Cojoke
+# SPDX-FileCopyrightText: 2024 Hanz
+# SPDX-FileCopyrightText: 2024 cool dolphin
+# SPDX-FileCopyrightText: 2024 Verm
+# SPDX-FileCopyrightText: 2024 Alzore
+# SPDX-FileCopyrightText: 2024 SpeltIncorrectyl
+# SPDX-FileCopyrightText: 2024 Pancake
+# SPDX-FileCopyrightText: 2024 Bellwether
+# SPDX-FileCopyrightText: 2024 Doctor-Cpu
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-License-Identifier: MIT
+
 # Miscellaneous
 - type: loadoutGroup
   id: Trinkets

@@ -1,4 +1,8 @@
-﻿using Content.Shared.Examine;
+// SPDX-FileCopyrightText: 2024 Verm
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.StepTrigger.Components;
 

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Milon
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Verbs;

@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2025 Ser11y
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2025 Southbridge
+// SPDX-FileCopyrightText: 2024 MilenVolf
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-FileCopyrightText: 2022 eoineoineoin
+// SPDX-FileCopyrightText: 2022 corentt
+// SPDX-FileCopyrightText: 2022 vulppine
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Message;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.EntitySystems;

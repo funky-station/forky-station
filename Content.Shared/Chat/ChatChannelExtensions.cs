@@ -1,4 +1,9 @@
-﻿namespace Content.Shared.Chat;
+// SPDX-FileCopyrightText: 2022 Chief-Engineer
+// SPDX-FileCopyrightText: 2023 Chief-Engineer
+// SPDX-FileCopyrightText: 2022 Jezithyr
+// SPDX-License-Identifier: MIT
+
+namespace Content.Shared.Chat;
 
 public static class ChatChannelExtensions
 {

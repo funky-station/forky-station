@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2022 Nemanja
+// SPDX-FileCopyrightText: 2022 TemporalOroboros
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Singularity.Components;
 
 namespace Content.Shared.Singularity.Events;

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Random;

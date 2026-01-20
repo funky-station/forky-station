@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 SnappingOpossum
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow
+// SPDX-License-Identifier: MIT
+
 using Content.IntegrationTests.Tests.Interaction;
 using Content.Shared.SmartFridge;
 

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Errant
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Traitor.Systems;
 using Robust.Shared.Prototypes;
 

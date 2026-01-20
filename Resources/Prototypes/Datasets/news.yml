@@ -1,4 +1,9 @@
-﻿- type: localizedDataset
+# SPDX-FileCopyrightText: 2025 MilenVolf
+# SPDX-FileCopyrightText: 2022 Myctai
+# SPDX-FileCopyrightText: 2021 Paul Ritter
+# SPDX-License-Identifier: MIT
+
+- type: localizedDataset
   id: News
   values:
     prefix: news-dataset-

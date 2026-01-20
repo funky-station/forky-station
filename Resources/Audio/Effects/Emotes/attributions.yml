@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 keronshb
+# SPDX-FileCopyrightText: 2023 justproggramer
+# SPDX-FileCopyrightText: 2023 brainfood1183
+# SPDX-FileCopyrightText: 2023 Visne
+# SPDX-FileCopyrightText: 2023 Alex Evgrashin
+# SPDX-License-Identifier: MIT
+
 - files:
     - clap1.ogg
     - clap2.ogg

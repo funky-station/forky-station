@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.CriminalRecords.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;

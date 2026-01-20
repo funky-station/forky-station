@@ -1,3 +1,22 @@
+# SPDX-FileCopyrightText: 2025 Smith
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2024 Moomoobeef
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2024 GNF54
+# SPDX-FileCopyrightText: 2024 Hanz
+# SPDX-FileCopyrightText: 2024 icekot8
+# SPDX-FileCopyrightText: 2024 Alekshhh
+# SPDX-FileCopyrightText: 2023 Kilk
+# SPDX-FileCopyrightText: 2023 JoeHammad1844
+# SPDX-FileCopyrightText: 2023 evilexecutive
+# SPDX-FileCopyrightText: 2023 Floofi
+# SPDX-FileCopyrightText: 2023 Maxtone
+# SPDX-FileCopyrightText: 2022 Andreas Kämper
+# SPDX-FileCopyrightText: 2022 Kai Shiba
+# SPDX-FileCopyrightText: 2022 Emisse
+# SPDX-FileCopyrightText: 2022 Fishfish458
+# SPDX-License-Identifier: MIT
+
 - type: vendingMachineInventory
   id: MediDrobeInventory
   startingInventory:

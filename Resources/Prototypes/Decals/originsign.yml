@@ -1,4 +1,7 @@
-﻿- type: decal
+# SPDX-FileCopyrightText: 2022 brainfood1183
+# SPDX-License-Identifier: MIT
+
+- type: decal
   id: OriginStationSign1
   tags: ["station"]
   sprite:

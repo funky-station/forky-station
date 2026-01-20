@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Shared.Weapons.Melee.Components;
 using Robust.Shared.GameStates;

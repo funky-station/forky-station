@@ -1,4 +1,11 @@
-﻿using Content.Shared.Dataset;
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Dataset;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Damage.Components;

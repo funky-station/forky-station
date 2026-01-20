@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Security.Systems;
 using Robust.Shared.GameStates;
 

@@ -1,4 +1,8 @@
-﻿using Content.Shared.Hands.Components;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Hands.Components;
 using Content.Shared.Stunnable;
 
 namespace Content.Shared.Hands.EntitySystems;

@@ -1,4 +1,12 @@
-﻿using Content.Server.Chat.Systems;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2024 Tornado Tech
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-FileCopyrightText: 2022 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Chat.Systems;
 using Content.Shared.Chat;
 
 namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators;

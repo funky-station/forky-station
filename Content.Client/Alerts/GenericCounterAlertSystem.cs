@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 ScarKy0
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Shared.Alert.Components;
 using Robust.Client.GameObjects;

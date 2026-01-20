@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 SlamBamActionman
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2024 Rainfey
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Antag;
 
 /// <summary>

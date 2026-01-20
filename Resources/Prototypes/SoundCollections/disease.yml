@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Winkarst
+# SPDX-FileCopyrightText: 2023 brainfood1183
+# SPDX-FileCopyrightText: 2023 Morb
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-License-Identifier: MIT
+
 - type: soundCollection
   id: MaleSneezes
   files:

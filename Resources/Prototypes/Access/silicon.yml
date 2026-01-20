@@ -1,4 +1,7 @@
-﻿- type: accessLevel
+# SPDX-FileCopyrightText: 2025 chromiumboy
+# SPDX-License-Identifier: MIT
+
+- type: accessLevel
   id: Borg
   name: id-card-access-level-borg
   canAddToIdCard: false

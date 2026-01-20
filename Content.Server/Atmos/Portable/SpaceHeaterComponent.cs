@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba
+// SPDX-FileCopyrightText: 2024 Menshin
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Piping.Portable.Components;
 using Content.Shared.Atmos.Visuals;

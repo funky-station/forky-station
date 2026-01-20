@@ -1,3 +1,31 @@
+# SPDX-FileCopyrightText: 2024 Spessmann
+# SPDX-FileCopyrightText: 2025 Spessmann
+# SPDX-FileCopyrightText: 2025 SlamBamActionman
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba
+# SPDX-FileCopyrightText: 2022 Emisse
+# SPDX-FileCopyrightText: 2023 Emisse
+# SPDX-FileCopyrightText: 2024 Emisse
+# SPDX-FileCopyrightText: 2025 Emisse
+# SPDX-FileCopyrightText: 2025 compilatron
+# SPDX-FileCopyrightText: 2025 Deerstop
+# SPDX-FileCopyrightText: 2024 TytosB
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2024 Southbridge
+# SPDX-FileCopyrightText: 2024 IProduceWidgets
+# SPDX-FileCopyrightText: 2023 TsjipTsjip
+# SPDX-FileCopyrightText: 2023 Ubaser
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2022 Moony
+# SPDX-FileCopyrightText: 2023 Moony
+# SPDX-FileCopyrightText: 2023 Checkraze
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2023 Scribbles0
+# SPDX-FileCopyrightText: 2022 brainfood1183
+# SPDX-FileCopyrightText: 2022 Cheackraze
+# SPDX-FileCopyrightText: 2022 OldDanceJacket
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-License-Identifier: MIT
+
 - type: gameMapPool
   id: DefaultMapPool
   maps:

@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2026 pathetic meowmeow
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2025 J
+// SPDX-FileCopyrightText: 2024 Debug
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Rane
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Shared.Destructible;
 using Content.Shared.Hands;

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Leon Friedrich
+# SPDX-FileCopyrightText: 2022 Checkraze
+# SPDX-License-Identifier: MIT
+
 - type: parallax
   id: KettleStation
   layers:

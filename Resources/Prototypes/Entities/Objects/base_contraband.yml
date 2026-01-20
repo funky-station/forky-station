@@ -1,4 +1,17 @@
-﻿# generic "highly illegal" contraband; Syndicate/magical contraband are already considered highly illegal under Space Law,
+# SPDX-FileCopyrightText: 2025 SlamBamActionman
+# SPDX-FileCopyrightText: 2025 Hitlinemoss
+# SPDX-FileCopyrightText: 2025 Samuka-C
+# SPDX-FileCopyrightText: 2025 Crazydave91920
+# SPDX-FileCopyrightText: 2025 BramvanZijp
+# SPDX-FileCopyrightText: 2025 ScarKy0
+# SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft
+# SPDX-FileCopyrightText: 2025 John
+# SPDX-FileCopyrightText: 2024 Winkarst
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2024 Kara
+# SPDX-License-Identifier: MIT
+
+# generic "highly illegal" contraband; Syndicate/magical contraband are already considered highly illegal under Space Law,
 # so this is mostly for stuff that should be equally illegal but doesn't need its own unique contraband tier added
 - type: entity
   id: BaseHighlyIllegalContraband

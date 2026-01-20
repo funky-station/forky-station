@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Errant
+// SPDX-License-Identifier: MIT
+
 namespace Content.Client.Administration.UI.Tabs.PlayerTab;
 
 public enum AdminPlayerTabColorOption

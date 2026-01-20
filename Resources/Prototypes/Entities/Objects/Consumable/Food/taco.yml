@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2025 BadaBoomie
+# SPDX-FileCopyrightText: 2025 5tickman
+# SPDX-FileCopyrightText: 2025 Stop-Signs
+# SPDX-FileCopyrightText: 2025 MisterImp
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2023 Vasilis
+# SPDX-FileCopyrightText: 2023 Velcroboy
+# SPDX-FileCopyrightText: 2023 phunnyguy
+# SPDX-License-Identifier: MIT
+
 # When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_single.yml
 
 - type: entity

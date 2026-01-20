@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 ActiveMammmoth
+// SPDX-License-Identifier: MIT
+
 
 using Robust.Shared.GameStates;
 

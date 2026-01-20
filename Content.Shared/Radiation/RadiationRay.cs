@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Shared.Radiation.Components;
 using Robust.Shared.Map;

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2024 Psychpsyo
+// SPDX-License-Identifier: MIT
+
 using System.Text;
 using System.Text.RegularExpressions;
 using Content.Server.Speech.Components;

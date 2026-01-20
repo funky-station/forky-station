@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2024 slarticodefast
+# SPDX-FileCopyrightText: 2024 to4no_fix
+# SPDX-FileCopyrightText: 2024 Cojoke
+# SPDX-FileCopyrightText: 2023 Naive817
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2022 Moony
+# SPDX-FileCopyrightText: 2020 Swept
+# SPDX-License-Identifier: MIT
+
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesBlindfold

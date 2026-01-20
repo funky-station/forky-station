@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2025 Mora
+# SPDX-FileCopyrightText: 2025 ScarKy0
+# SPDX-FileCopyrightText: 2024 Errant
+# SPDX-FileCopyrightText: 2023 Whisper
+# SPDX-FileCopyrightText: 2023 Chronophylos
+# SPDX-FileCopyrightText: 2023 PixelTK
+# SPDX-License-Identifier: MIT
+
 - files: ["arachnid.ogg", "arachnid_ask.ogg", "arachnid_exclaim.ogg"]
   license: "CC-BY-4.0"
   copyright: "Recorded by https://github.com/PixelTheKermit"

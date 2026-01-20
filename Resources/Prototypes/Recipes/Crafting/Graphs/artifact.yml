@@ -1,4 +1,9 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2025 Nemanja
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: Artifact
   start: start
   graph:

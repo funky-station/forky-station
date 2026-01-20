@@ -1,4 +1,16 @@
-﻿AdminOnly: true
+# SPDX-FileCopyrightText: 2024 PJBot
+# SPDX-FileCopyrightText: 2025 PJBot
+# SPDX-FileCopyrightText: 2026 PJBot
+# SPDX-FileCopyrightText: 2025 Errant
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba
+# SPDX-FileCopyrightText: 2025 Killerqu00
+# SPDX-FileCopyrightText: 2024 Geekyhobo
+# SPDX-FileCopyrightText: 2023 DrSmugleaf
+# SPDX-FileCopyrightText: 2023 nikthechampiongr
+# SPDX-FileCopyrightText: 2023 Vasilis
+# SPDX-License-Identifier: MIT
+
+AdminOnly: true
 Entries:
 - author: DrSmugleaf
   changes:

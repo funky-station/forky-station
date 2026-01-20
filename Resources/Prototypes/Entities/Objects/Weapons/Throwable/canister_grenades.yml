@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Nox
+# SPDX-License-Identifier: MIT
+
 - type: entity
   parent: [VolatileGrenadeBase, GrenadeBase, BaseSecurityContraband ]
   id: SmokeGrenade

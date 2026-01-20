@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Robust.Shared.Timing;
 

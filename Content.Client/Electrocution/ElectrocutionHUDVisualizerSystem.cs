@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Electrocution;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;

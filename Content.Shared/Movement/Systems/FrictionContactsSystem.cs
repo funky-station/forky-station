@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-FileCopyrightText: 2023 KISS
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Gravity;
 using Content.Shared.Movement.Components;
 using Robust.Shared.Physics.Components;

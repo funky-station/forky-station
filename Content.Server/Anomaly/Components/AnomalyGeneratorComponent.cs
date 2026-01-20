@@ -1,4 +1,9 @@
-﻿using Content.Shared.Anomaly;
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Anomaly;
 using Content.Shared.Materials;
 using Content.Shared.Radio;
 using Robust.Shared.Audio;

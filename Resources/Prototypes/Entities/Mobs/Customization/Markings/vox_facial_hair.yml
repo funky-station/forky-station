@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Ed
+# SPDX-FileCopyrightText: 2024 Flareguy
+# SPDX-FileCopyrightText: 2022 Flipp Syder
+# SPDX-License-Identifier: MIT
+
 - type: marking
   id: VoxFacialHairBeard
   bodyPart: FacialHair

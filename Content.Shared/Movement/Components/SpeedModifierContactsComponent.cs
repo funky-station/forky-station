@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2025 Victor Shen
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-FileCopyrightText: 2023 Slava0135
+// SPDX-FileCopyrightText: 2022 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Nemanja
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2021 Moony
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Movement.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;

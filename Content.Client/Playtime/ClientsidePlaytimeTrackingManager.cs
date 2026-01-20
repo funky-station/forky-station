@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Perry Fraser
+// SPDX-FileCopyrightText: 2025 deathride58
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.CCVar;
 using Robust.Client.Player;
 using Robust.Shared.Network;

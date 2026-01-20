@@ -1,4 +1,7 @@
-﻿using Content.Shared.Hands;
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Hands;
 
 namespace Content.Shared.Inventory;
 

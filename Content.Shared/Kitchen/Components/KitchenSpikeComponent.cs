@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Winkarst-cpu
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Nutrition.Components;

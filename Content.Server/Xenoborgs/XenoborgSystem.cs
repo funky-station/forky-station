@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Samuka
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;

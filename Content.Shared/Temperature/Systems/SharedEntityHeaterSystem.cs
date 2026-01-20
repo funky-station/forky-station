@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Examine;
 using Content.Shared.Popups;
 using Content.Shared.Power;

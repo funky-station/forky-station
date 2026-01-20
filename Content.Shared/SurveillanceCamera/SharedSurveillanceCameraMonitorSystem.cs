@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2026 B_Kirill
+// SPDX-FileCopyrightText: 2025 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Flipp Syder
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.DeviceNetwork;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;

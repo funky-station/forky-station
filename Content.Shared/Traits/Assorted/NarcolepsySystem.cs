@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-FileCopyrightText: 2025 Winkarst-cpu
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Random.Helpers;
 using Content.Shared.StatusEffectNew;

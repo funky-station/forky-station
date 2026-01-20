@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Robust.Client.Graphics;
 
 namespace Content.Client.Physics;

@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 LankLTE
+// SPDX-FileCopyrightText: 2023 ThunderBear2006
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Atmos;
 
 namespace Content.Server.Anomaly.Components;

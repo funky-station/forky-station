@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Mobs;
 using Content.Shared.Radio;
 using Robust.Shared.GameStates;

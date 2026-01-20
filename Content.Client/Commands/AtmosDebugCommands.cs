@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 PrPleGoo
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+// SPDX-FileCopyrightText: 2021 Acruid
+// SPDX-FileCopyrightText: 2020 20kdc
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Atmos.EntitySystems;
 using Content.Shared.Atmos;
 using JetBrains.Annotations;

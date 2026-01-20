@@ -1,4 +1,7 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba
+# SPDX-License-Identifier: MIT
+
+- type: entity
   abstract: true
   parent: AirSensorBase
   id: AirSensorFreezerBase

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2024 Firewatch
+# SPDX-FileCopyrightText: 2024 Fahasor
+# SPDX-License-Identifier: MIT
+
 - type: soundCollection
   id: BaseWhistle
   files:

@@ -1,4 +1,10 @@
-﻿using Content.Shared.Eui;
+// SPDX-FileCopyrightText: 2024 Ben
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2021 Acruid
+// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Eui;
 using Robust.Shared.IoC;
 using Robust.Shared.Network;
 

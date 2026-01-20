@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 0x6273
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.DeviceLinking;
 using Robust.Shared.Prototypes;
 

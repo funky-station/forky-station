@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Samuka-C
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 
 namespace Content.Shared.DeviceNetwork.Events;

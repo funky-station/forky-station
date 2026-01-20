@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 deltanedas
+// SPDX-FileCopyrightText: 2024 Ilya246
+// SPDX-FileCopyrightText: 2023 ubis1
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Lathe.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

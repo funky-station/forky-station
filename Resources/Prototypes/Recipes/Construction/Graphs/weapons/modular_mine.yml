@@ -1,4 +1,13 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2025 kaiserbirch
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2022 deltanedas
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: ModularMineGraph
   start: start
   graph:

@@ -1,4 +1,7 @@
-﻿using Content.Server.Administration.UI;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Administration.UI;
 using Content.Server.EUI;
 using Content.Shared.Administration;
 using Robust.Server.Player;

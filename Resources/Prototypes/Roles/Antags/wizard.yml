@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+# SPDX-FileCopyrightText: 2025 Errant
+# SPDX-FileCopyrightText: 2025 keronshb
+# SPDX-License-Identifier: MIT
+
 - type: antag
   id: Survivor
   name: roles-antag-survivor-name

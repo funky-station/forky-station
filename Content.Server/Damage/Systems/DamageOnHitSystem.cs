@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+// SPDX-FileCopyrightText: 2023 LankLTE
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Damage.Components;
 using Content.Shared.Weapons.Melee.Events;
 using System.Linq;

@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Jessey van Hoeijen
+// SPDX-FileCopyrightText: 2023 Darkie
+// SPDX-FileCopyrightText: 2023 Slava0135
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;

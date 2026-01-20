@@ -1,3 +1,6 @@
-﻿- type: ghostRoleRaffleDecider
+# SPDX-FileCopyrightText: 2024 no
+# SPDX-License-Identifier: MIT
+
+- type: ghostRoleRaffleDecider
   id: default
   decider: !type:RngGhostRoleRaffleDecider {}

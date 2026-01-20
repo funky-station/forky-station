@@ -1,4 +1,7 @@
-﻿using Content.Client.Stylesheets.SheetletConfigs;
+// SPDX-FileCopyrightText: 2025 Brandon Li
+// SPDX-License-Identifier: MIT
+
+using Content.Client.Stylesheets.SheetletConfigs;
 using Content.Client.Stylesheets.Stylesheets;
 using Content.Client.UserInterface.Systems.Chat.Controls;
 using Robust.Client.Graphics;

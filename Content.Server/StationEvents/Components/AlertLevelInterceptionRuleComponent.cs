@@ -1,4 +1,7 @@
-﻿using Content.Server.StationEvents.Events;
+// SPDX-FileCopyrightText: 2024 Mr. 27
+// SPDX-License-Identifier: MIT
+
+using Content.Server.StationEvents.Events;
 using Content.Server.AlertLevel;
 using Robust.Shared.Prototypes;
 

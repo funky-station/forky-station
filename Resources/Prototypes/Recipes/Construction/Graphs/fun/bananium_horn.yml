@@ -1,4 +1,9 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2023 brainfood1183
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: BananiumHorn
   start: start
   graph:

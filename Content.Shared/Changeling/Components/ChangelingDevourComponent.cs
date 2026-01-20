@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 poklj
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Changeling.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;

@@ -1,4 +1,10 @@
-﻿using Content.Shared.Damage.Components;
+// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 

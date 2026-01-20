@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using System.Collections.Generic;
 using System.IO;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Utility;

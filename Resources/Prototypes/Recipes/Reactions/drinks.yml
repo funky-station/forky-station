@@ -1,3 +1,53 @@
+# SPDX-FileCopyrightText: 2025 Nikovnik
+# SPDX-FileCopyrightText: 2025 kosticia
+# SPDX-FileCopyrightText: 2025 Kiri1674
+# SPDX-FileCopyrightText: 2025 uhbg
+# SPDX-FileCopyrightText: 2025 SharkSnake98
+# SPDX-FileCopyrightText: 2025 Alpaccalypse
+# SPDX-FileCopyrightText: 2025 Coolsurf6
+# SPDX-FileCopyrightText: 2024 RedBookcase
+# SPDX-FileCopyrightText: 2025 RedBookcase
+# SPDX-FileCopyrightText: 2025 Boaz1111
+# SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson
+# SPDX-FileCopyrightText: 2024 dragonryan06
+# SPDX-FileCopyrightText: 2024 joshepvodka
+# SPDX-FileCopyrightText: 2024 Southbridge
+# SPDX-FileCopyrightText: 2024 saga3152
+# SPDX-FileCopyrightText: 2024 potato1234_x
+# SPDX-FileCopyrightText: 2024 Verm
+# SPDX-FileCopyrightText: 2024 Hanz
+# SPDX-FileCopyrightText: 2024 Firewatch
+# SPDX-FileCopyrightText: 2024 BlitzTheSquishy
+# SPDX-FileCopyrightText: 2024 Ubaser
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 Alzore
+# SPDX-FileCopyrightText: 2023 Velcroboy
+# SPDX-FileCopyrightText: 2023 Waylon Cude
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2022 Vordenburg
+# SPDX-FileCopyrightText: 2023 Vordenburg
+# SPDX-FileCopyrightText: 2022 Veritius
+# SPDX-FileCopyrightText: 2023 Veritius
+# SPDX-FileCopyrightText: 2023 Kit0vras
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2023 Floofi
+# SPDX-FileCopyrightText: 2023 keronshb
+# SPDX-FileCopyrightText: 2023 lapatison
+# SPDX-FileCopyrightText: 2022 Mervill
+# SPDX-FileCopyrightText: 2022 Moony
+# SPDX-FileCopyrightText: 2021 ZeroDayDaemon
+# SPDX-FileCopyrightText: 2022 ZeroDayDaemon
+# SPDX-FileCopyrightText: 2022 mirrorcult
+# SPDX-FileCopyrightText: 2022 Fishfish458
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2022 Plasmaguy
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2020 nuke
+# SPDX-FileCopyrightText: 2020 AJCM-git
+# SPDX-FileCopyrightText: 2020 Injazz
+# SPDX-License-Identifier: MIT
+
 - type: reaction
   id: AcidSpit
   reactants:

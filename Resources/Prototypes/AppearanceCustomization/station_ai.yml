@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+# SPDX-FileCopyrightText: 2025 Hitlinemoss
+# SPDX-FileCopyrightText: 2025 chromiumboy
+# SPDX-License-Identifier: MIT
+
 # Groups
 - type: stationAiCustomizationGroup
   id: StationAiCoreIconography

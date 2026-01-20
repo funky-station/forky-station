@@ -1,4 +1,9 @@
-﻿using YamlDotNet.Core;
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2021 20kdc
+// SPDX-License-Identifier: MIT
+
+using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 
 namespace Content.Tools

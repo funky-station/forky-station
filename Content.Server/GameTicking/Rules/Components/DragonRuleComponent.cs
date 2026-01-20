@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 qwerltaz
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.GameTicking.Rules.Components;
 
 [RegisterComponent]

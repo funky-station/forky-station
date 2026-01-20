@@ -1,4 +1,7 @@
-﻿namespace Content.Shared.Magic;
+// SPDX-FileCopyrightText: 2024 keronshb
+// SPDX-License-Identifier: MIT
+
+namespace Content.Shared.Magic;
 
 // TODO: If still needed, move to magic component
 [ImplicitDataDefinitionForInheritors]

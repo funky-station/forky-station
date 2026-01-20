@@ -1,4 +1,7 @@
-﻿using Content.Shared.Materials;
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Materials;
 
 namespace Content.Client.Materials;
 

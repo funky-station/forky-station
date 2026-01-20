@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Saphire
+// SPDX-FileCopyrightText: 2022 TemporalOroboros
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Singularity.EntitySystems;
 using Content.Shared.Singularity.Components;
 

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 SlamBamActionman
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 

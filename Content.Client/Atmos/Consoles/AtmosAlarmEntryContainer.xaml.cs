@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 chromiumboy
+// SPDX-FileCopyrightText: 2024 MilenVolf
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Stylesheets;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;

@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2025 beck-thompson
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2024 MilenVolf
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 Acruid
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Eye;
 using Content.Shared.SubFloor;
 using Robust.Server.Player;

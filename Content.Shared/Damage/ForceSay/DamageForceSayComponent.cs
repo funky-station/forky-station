@@ -1,4 +1,8 @@
-﻿using Content.Shared.Damage.Prototypes;
+// SPDX-FileCopyrightText: 2025 Coolsurf6
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Dataset;
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;

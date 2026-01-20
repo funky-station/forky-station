@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024 PopGamer46
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-License-Identifier: MIT
+
 # Picks a random location for the NPC to move to and idle.
 - type: htnCompound
   id: IdleCompound

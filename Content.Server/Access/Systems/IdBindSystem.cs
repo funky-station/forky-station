@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Winkarst
+// SPDX-FileCopyrightText: 2025 Verm
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Access.Components;
 using Content.Server.Humanoid.Systems;
 using Content.Server.PDA;

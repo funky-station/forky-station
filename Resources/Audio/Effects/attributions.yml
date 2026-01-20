@@ -1,3 +1,29 @@
+# SPDX-FileCopyrightText: 2025 Hohenzolaren
+# SPDX-FileCopyrightText: 2025 Perry Fraser
+# SPDX-FileCopyrightText: 2025 Tao
+# SPDX-FileCopyrightText: 2025 Голубь
+# SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2025 deltanedas
+# SPDX-FileCopyrightText: 2025 Chaboricks
+# SPDX-FileCopyrightText: 2023 Ed
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2024 Sphiral
+# SPDX-FileCopyrightText: 2024 KISS
+# SPDX-FileCopyrightText: 2024 DEATHB4DEFEAT
+# SPDX-FileCopyrightText: 2023 Kara
+# SPDX-FileCopyrightText: 2024 Kara
+# SPDX-FileCopyrightText: 2024 deathride58
+# SPDX-FileCopyrightText: 2023 Hmeister-fake
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 Chronophylos
+# SPDX-FileCopyrightText: 2023 DrSmugleaf
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2023 Slava0135
+# SPDX-FileCopyrightText: 2023 AJCM-git
+# SPDX-FileCopyrightText: 2022 Bright0
+# SPDX-License-Identifier: MIT
+
 - files: ["balloon-pop"]
   license: "CC-BY-4.0"
   copyright: '"Balloon Pop" by Aesterial-Arts on Freesound.org. Cconverted to mono by EmoGarbage404 on GitHub.com'

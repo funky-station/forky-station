@@ -1,4 +1,7 @@
-﻿using Content.Shared.MouseRotator;
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.MouseRotator;
 
 namespace Content.Server.MouseRotator;
 

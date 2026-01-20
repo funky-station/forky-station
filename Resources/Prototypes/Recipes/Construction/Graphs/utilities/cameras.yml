@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Manuel Gusmão
+# SPDX-FileCopyrightText: 2022 Flipp Syder
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: SurveillanceCamera
   start: start

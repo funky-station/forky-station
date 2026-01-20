@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.ActionBlocker;
 using Content.Shared.Input;
 using Content.Shared.Interaction;

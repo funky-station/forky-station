@@ -1,4 +1,8 @@
-﻿using System.Collections.Immutable;
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Julian Giebel
+// SPDX-License-Identifier: MIT
+
+using System.Collections.Immutable;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.CartridgeLoader;

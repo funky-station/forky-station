@@ -1,4 +1,7 @@
-﻿using Content.Shared.Stealth;
+// SPDX-FileCopyrightText: 2022 keronshb
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Stealth;
 
 namespace Content.Server.Stealth;
 

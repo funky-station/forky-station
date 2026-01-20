@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 ScarKy0
+// SPDX-FileCopyrightText: 2025 Centronias
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Charges.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Item;

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-License-Identifier: MIT
+
 - type: antag
   id: SubvertedSilicon
   name: roles-antag-subverted-silicon-name

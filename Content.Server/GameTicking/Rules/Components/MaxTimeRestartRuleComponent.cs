@@ -1,4 +1,9 @@
-﻿using System.Threading;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
+using System.Threading;
 
 namespace Content.Server.GameTicking.Rules.Components;
 

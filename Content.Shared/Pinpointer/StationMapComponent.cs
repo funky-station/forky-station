@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 SlamBamActionman
+// SPDX-FileCopyrightText: 2024 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Pinpointer;

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 beck-thompson
+# SPDX-License-Identifier: MIT
+
 # for clothing that can be toggled, like magboots
 - type: entity
   parent: SelectableLock

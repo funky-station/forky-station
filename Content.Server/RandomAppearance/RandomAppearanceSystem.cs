@@ -1,4 +1,9 @@
-﻿using Robust.Server.GameObjects;
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-License-Identifier: MIT
+
+using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 
 namespace Content.Server.RandomAppearance;

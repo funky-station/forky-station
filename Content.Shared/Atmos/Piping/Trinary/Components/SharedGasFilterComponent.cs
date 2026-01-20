@@ -1,4 +1,11 @@
-﻿using Content.Shared.Atmos.Prototypes;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2022 Vordenburg
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2021 ike709
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Atmos.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 

@@ -1,4 +1,7 @@
-﻿#nullable enable
+// SPDX-FileCopyrightText: 2022 Javier Guardia Fernández
+// SPDX-License-Identifier: MIT
+
+#nullable enable
 using System;
 using System.Diagnostics.CodeAnalysis;
 

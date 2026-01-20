@@ -1,4 +1,10 @@
-﻿using Robust.Shared.Physics;
+// SPDX-FileCopyrightText: 2022 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Slava0135
+// SPDX-FileCopyrightText: 2022 keronshb
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Physics;
 
 namespace Content.Shared.Blocking;
 

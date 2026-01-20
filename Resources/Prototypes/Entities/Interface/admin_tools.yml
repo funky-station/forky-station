@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 slarticodefast
+# SPDX-License-Identifier: MIT
+
 # dummy entity for the admin camera EUI
 # this gets parented to the person being observed
 

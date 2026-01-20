@@ -1,4 +1,7 @@
-﻿using Robust.Shared.Serialization;
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Atmos.Piping.Binary.Components;
 

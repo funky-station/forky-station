@@ -1,4 +1,8 @@
-﻿using Content.Shared.Actions;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 poklj
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Robust.Shared.Serialization;
 

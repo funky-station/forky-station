@@ -1,4 +1,8 @@
-﻿using Content.Shared.CCVar;
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow
+// SPDX-FileCopyrightText: 2022 ike709
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.CCVar;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization;
 namespace Content.Shared.Audio;

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 Centronias
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.ParcelWrap.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;

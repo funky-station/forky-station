@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 nikthechampiongr
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Server.EUI;
 using Content.Shared.Administration;

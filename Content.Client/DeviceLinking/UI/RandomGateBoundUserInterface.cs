@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Borsh
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.DeviceLinking;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;

@@ -1,4 +1,7 @@
-﻿namespace Content.Server.Shuttles.Events;
+// SPDX-FileCopyrightText: 2023 Morb
+// SPDX-License-Identifier: MIT
+
+namespace Content.Server.Shuttles.Events;
 
 /// <summary>
 /// Raised when shuttle console approved FTL

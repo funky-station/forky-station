@@ -1,4 +1,14 @@
-﻿using Content.Client.NetworkConfigurator.Systems;
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2022 Julian Giebel
+// SPDX-FileCopyrightText: 2023 Julian Giebel
+// SPDX-FileCopyrightText: 2022 Flipp Syder
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
+using Content.Client.NetworkConfigurator.Systems;
 using Content.Shared.DeviceNetwork;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;

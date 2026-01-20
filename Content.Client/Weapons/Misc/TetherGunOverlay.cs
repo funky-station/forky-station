@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Weapons.Misc;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;

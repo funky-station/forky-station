@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2026 pathetic meowmeow
+# SPDX-FileCopyrightText: 2025 MilenVolf
+# SPDX-FileCopyrightText: 2025 SlamBamActionman
+# SPDX-FileCopyrightText: 2024 coolsurf6
+# SPDX-FileCopyrightText: 2024 Adrian16199
+# SPDX-FileCopyrightText: 2024 Ubaser
+# SPDX-FileCopyrightText: 2022 Flipp Syder
+# SPDX-License-Identifier: MIT
+
 - type: species
   id: Reptilian
   name: species-name-reptilian

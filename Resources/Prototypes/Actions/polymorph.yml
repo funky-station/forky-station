@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 rumaks
+# SPDX-FileCopyrightText: 2025 deltanedas
+# SPDX-FileCopyrightText: 2024 keronshb
+# SPDX-FileCopyrightText: 2024 Leon Friedrich
+# SPDX-FileCopyrightText: 2023 DrSmugleaf
+# SPDX-License-Identifier: MIT
+
 - type: entity
   parent: BaseAction
   id: ActionRevertPolymorph

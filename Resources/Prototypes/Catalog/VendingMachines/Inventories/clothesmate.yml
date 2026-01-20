@@ -1,3 +1,39 @@
+# SPDX-FileCopyrightText: 2025 SlamBamActionman
+# SPDX-FileCopyrightText: 2025 PotRoastPiggy
+# SPDX-FileCopyrightText: 2025 Jacktastic09
+# SPDX-FileCopyrightText: 2025 Velcroboy
+# SPDX-FileCopyrightText: 2025 Smith
+# SPDX-FileCopyrightText: 2024 Boaz1111
+# SPDX-FileCopyrightText: 2024 Thinbug0
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2024 shamp
+# SPDX-FileCopyrightText: 2024 Holinka4ever
+# SPDX-FileCopyrightText: 2024 Hanz
+# SPDX-FileCopyrightText: 2023 Jackal298
+# SPDX-FileCopyrightText: 2024 Jackal298
+# SPDX-FileCopyrightText: 2023 GNF54
+# SPDX-FileCopyrightText: 2024 GNF54
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 Whisper
+# SPDX-FileCopyrightText: 2023 nmajask
+# SPDX-FileCopyrightText: 2023 Ubaser
+# SPDX-FileCopyrightText: 2023 LEVELcat
+# SPDX-FileCopyrightText: 2023 Sailor
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2023 OctoRocket
+# SPDX-FileCopyrightText: 2023 lzk228
+# SPDX-FileCopyrightText: 2023 Sir Winters
+# SPDX-FileCopyrightText: 2023 Flareguy
+# SPDX-FileCopyrightText: 2023 deathride58
+# SPDX-FileCopyrightText: 2022 Nairod
+# SPDX-FileCopyrightText: 2022 ChilbroBaggins
+# SPDX-FileCopyrightText: 2022 Andreas Kämper
+# SPDX-FileCopyrightText: 2022 Level10Cybermancer
+# SPDX-FileCopyrightText: 2022 Emisse
+# SPDX-FileCopyrightText: 2022 Fishfish458
+# SPDX-License-Identifier: MIT
+
 # DO NOT ADD MORE, USE UNIFORM DYING
 - type: vendingMachineInventory
   id: ClothesMateInventory

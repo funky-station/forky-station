@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Perry Fraser
+# SPDX-FileCopyrightText: 2024 Leon Friedrich
+# SPDX-FileCopyrightText: 2024 f0x-n3rd
+# SPDX-FileCopyrightText: 2023 CrigCrag
+# SPDX-FileCopyrightText: 2023 Hebi
+# SPDX-FileCopyrightText: 2023 end
+# SPDX-FileCopyrightText: 2023 Sir Winters
+# SPDX-License-Identifier: MIT
+
 - type: guideEntry
   id: Medical
   name: guide-entry-medical

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 csqrb
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 
 namespace Content.Shared.Humanoid.Markings;

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Mora
+# SPDX-License-Identifier: MIT
+
 - type: marking
   id: VoxScarEyeRight
   bodyPart: Head

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Examine;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Nutrition.Components;

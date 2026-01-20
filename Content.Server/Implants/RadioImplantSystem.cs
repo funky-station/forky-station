@@ -1,4 +1,8 @@
-﻿using Content.Shared.Implants;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 Preston Smith
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
 using Content.Shared.Radio.Components;
 

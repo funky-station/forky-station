@@ -1,4 +1,8 @@
-﻿using Content.Shared.Chemistry.Components;
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 Sir Warock
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Chemistry.Components;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;

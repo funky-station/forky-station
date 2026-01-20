@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Samuka
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: RepairMothershipPinpointer
   start: start

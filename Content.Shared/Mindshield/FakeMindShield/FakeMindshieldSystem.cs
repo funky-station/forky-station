@@ -1,4 +1,9 @@
-﻿using Content.Shared.Actions;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 beck-thompson
+// SPDX-FileCopyrightText: 2025 Zachary Higgs
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Implants;
 using Content.Shared.Mindshield.Components;

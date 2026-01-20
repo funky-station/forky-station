@@ -1,4 +1,9 @@
-﻿using Robust.Client.GameObjects;
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2022 Javier Guardia Fernández
+// SPDX-License-Identifier: MIT
+
+using Robust.Client.GameObjects;
 using Robust.Shared.GameObjects;
 
 namespace Content.MapRenderer.Painters;

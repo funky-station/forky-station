@@ -1,4 +1,13 @@
-﻿using Content.Server.Administration.Managers;
+// SPDX-FileCopyrightText: 2024 Repo
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Administration.Managers;
 using Content.Shared.CCVar;
 using JetBrains.Annotations;
 using Robust.Server.Player;

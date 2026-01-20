@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Objectives.Components;

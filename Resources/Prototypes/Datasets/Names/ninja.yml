@@ -1,4 +1,10 @@
-﻿- type: localizedDataset
+# SPDX-FileCopyrightText: 2025 MilenVolf
+# SPDX-FileCopyrightText: 2021 Paul Ritter
+# SPDX-FileCopyrightText: 2022 Paul Ritter
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-License-Identifier: MIT
+
+- type: localizedDataset
   id: NamesNinja
   values:
     prefix: names-ninja-dataset-

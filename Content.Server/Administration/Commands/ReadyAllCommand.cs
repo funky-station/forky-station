@@ -1,4 +1,7 @@
-﻿using Content.Server.GameTicking;
+// SPDX-FileCopyrightText: 2025 Kyle Tyo
+// SPDX-License-Identifier: MIT
+
+using Content.Server.GameTicking;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 

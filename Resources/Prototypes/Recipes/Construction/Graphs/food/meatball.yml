@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 SG6732
+# SPDX-FileCopyrightText: 2025 Centronias
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: MeatMeatballCooked
   start: start

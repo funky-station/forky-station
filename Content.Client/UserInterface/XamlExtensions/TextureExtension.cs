@@ -1,4 +1,8 @@
-﻿using Content.Client.Resources;
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Jezithyr
+// SPDX-License-Identifier: MIT
+
+using Content.Client.Resources;
 using JetBrains.Annotations;
 using Robust.Client.ResourceManagement;
 

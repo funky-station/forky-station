@@ -1,4 +1,7 @@
-﻿using Content.Shared.Sound.Components;
+// SPDX-FileCopyrightText: 2024 GreaseMonk
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Sound.Components;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Audio;

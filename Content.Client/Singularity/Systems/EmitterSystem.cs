@@ -1,4 +1,11 @@
-﻿using Content.Shared.Singularity.Components;
+// SPDX-FileCopyrightText: 2025 Kyle Tyo
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 MilenVolf
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Singularity.Components;
 using Content.Shared.Singularity.EntitySystems;
 using Robust.Client.GameObjects;
 

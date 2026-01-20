@@ -1,4 +1,7 @@
-﻿using Content.Server.Ghost.Roles.Raffles;
+// SPDX-FileCopyrightText: 2024 no
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Ghost.Roles.Raffles;
 using Robust.Shared.Player;
 
 namespace Content.Server.Ghost.Roles.Components;

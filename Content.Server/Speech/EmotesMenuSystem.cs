@@ -1,4 +1,9 @@
-﻿using Content.Shared.Chat;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 Morb
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Chat;
 using Content.Server.Chat.Systems;
 using Robust.Shared.Prototypes;
 

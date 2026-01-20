@@ -1,4 +1,7 @@
-﻿using System.Threading.Tasks;
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using System.Threading.Tasks;
 using Content.Shared.CCVar;
 using Robust.Shared.Configuration;
 

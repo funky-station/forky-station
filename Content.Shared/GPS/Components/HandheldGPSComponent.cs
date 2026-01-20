@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 ArchRBX
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.GPS.Components;

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 Psychpsyo
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.Chemistry.Components.DeleteOnSolutionEmptyComponent
 {
     /// <summary>

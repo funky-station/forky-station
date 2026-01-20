@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2025 J
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2023 ThunderBear2006
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Server.Anomaly.Components;
 using Content.Server.Weapons.Ranged.Systems;

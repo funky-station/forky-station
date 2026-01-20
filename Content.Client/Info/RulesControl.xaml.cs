@@ -1,4 +1,14 @@
-﻿using Content.Client.Guidebook;
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Kevin Zheng
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2022 ike709
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2021 ShadowCommander
+// SPDX-License-Identifier: MIT
+
+using Content.Client.Guidebook;
 using Content.Client.Guidebook.RichText;
 using Content.Client.UserInterface.Systems.Info;
 using Content.Shared.Guidebook;

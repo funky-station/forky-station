@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2024 Baa
+// SPDX-FileCopyrightText: 2023 Sirionaut
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Kara
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Animals.Systems;
 using Content.Shared.Storage;
 using Robust.Shared.Audio;

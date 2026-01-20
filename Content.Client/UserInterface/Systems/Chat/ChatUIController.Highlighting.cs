@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 vitopigno
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using System.Text.RegularExpressions;
 using Robust.Client.UserInterface;

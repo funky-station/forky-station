@@ -1,4 +1,7 @@
-﻿using Content.Shared.Teleportation.Systems;
+// SPDX-FileCopyrightText: 2025 keronshb
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Teleportation.Systems;
 
 namespace Content.Client.Teleportation;
 

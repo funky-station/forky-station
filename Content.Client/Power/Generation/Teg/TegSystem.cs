@@ -1,4 +1,9 @@
-﻿using Content.Client.Examine;
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Client.Examine;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 

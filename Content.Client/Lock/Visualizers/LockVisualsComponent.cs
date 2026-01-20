@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 MilenVolf
+// SPDX-License-Identifier: MIT
+
 namespace Content.Client.Lock.Visualizers;
 
 [RegisterComponent]

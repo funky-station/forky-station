@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2024 WarMechanic
+# SPDX-FileCopyrightText: 2024 RiceMar1244
+# SPDX-License-Identifier: MIT
+
 # A basic inheritable template for a gun that is wieldable and has the standard inaccuracy.
 - type: entity
   id: BaseGunWieldable

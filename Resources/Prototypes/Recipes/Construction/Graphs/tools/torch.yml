@@ -1,4 +1,10 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: LightTorch
   start: start
   graph:

@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2024 Minemoder5000
+# SPDX-FileCopyrightText: 2023 Chronophylos
+# SPDX-License-Identifier: MIT
+
 - files: [reptilian_scream.ogg]
   copyright: '"scream_lizard.ogg" by Skyrat-SS13'
   license:

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2024 SpeltIncorrectyl
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Power.Generator;
 

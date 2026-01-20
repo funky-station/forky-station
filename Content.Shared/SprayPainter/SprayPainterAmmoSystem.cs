@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Whatstone
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Examine;

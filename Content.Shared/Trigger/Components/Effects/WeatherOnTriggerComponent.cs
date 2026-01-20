@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Jessica M
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Weather;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

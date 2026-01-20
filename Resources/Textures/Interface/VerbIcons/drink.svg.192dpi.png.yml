@@ -1,2 +1,8 @@
+# SPDX-FileCopyrightText: 2022 Saakra
+# SPDX-FileCopyrightText: 2019 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2020 AJCM-git
+# SPDX-License-Identifier: MIT
+
 sample:
   filter: true

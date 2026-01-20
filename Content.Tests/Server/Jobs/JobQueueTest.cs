@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2020 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using System;
 using System.Threading;
 using System.Threading.Tasks;

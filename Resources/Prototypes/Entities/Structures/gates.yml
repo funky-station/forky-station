@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Borsh
+# SPDX-FileCopyrightText: 2025 Nemanja
+# SPDX-FileCopyrightText: 2024 0tito
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2023 Julian Giebel
+# SPDX-FileCopyrightText: 2023 Kevin Zheng
+# SPDX-License-Identifier: MIT
+
 - type: entity
   parent: BaseItem
   id: LogicEmptyCircuit

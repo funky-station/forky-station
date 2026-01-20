@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 pathetic meowmeow
+# SPDX-FileCopyrightText: 2024 blueDev2
+# SPDX-FileCopyrightText: 2024 Alzore
+# SPDX-License-Identifier: MIT
+
 - type: microwaveMealRecipe
   id: RecipeAloeCream
   name: aloe cream recipe

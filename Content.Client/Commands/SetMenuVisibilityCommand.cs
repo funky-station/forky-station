@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 PrPleGoo
+// SPDX-FileCopyrightText: 2021 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Verbs;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;

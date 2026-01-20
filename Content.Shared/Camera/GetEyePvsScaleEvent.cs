@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Łukasz Mędrek
+// SPDX-FileCopyrightText: 2025 SlamBamActionman
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Systems;

@@ -1,4 +1,9 @@
-﻿using Content.Client.Beam.Components;
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 keronshb
+// SPDX-License-Identifier: MIT
+
+using Content.Client.Beam.Components;
 using Content.Shared.Beam;
 using Content.Shared.Beam.Components;
 using Robust.Client.GameObjects;

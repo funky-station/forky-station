@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2025 BarryNorfolk
+// SPDX-FileCopyrightText: 2024 Killerqu00
+// SPDX-FileCopyrightText: 2024 wafehling
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Prototypes;
 using Robust.Shared.Prototypes;

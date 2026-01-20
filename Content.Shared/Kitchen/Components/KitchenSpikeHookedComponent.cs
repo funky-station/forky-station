@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Winkarst-cpu
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Kitchen.Components;

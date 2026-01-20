@@ -1,4 +1,12 @@
-﻿using Content.Server.Power.Pow3r;
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Power.Pow3r;
 using Content.Shared.Guidebook;
 
 namespace Content.Server.Power.Components

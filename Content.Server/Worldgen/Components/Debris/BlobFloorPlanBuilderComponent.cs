@@ -1,4 +1,9 @@
-﻿using Content.Server.Worldgen.Systems.Debris;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2025 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Moony
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Worldgen.Systems.Debris;
 using Content.Shared.Maps;
 using Robust.Shared.Prototypes;
 

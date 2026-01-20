@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Clothing.Components;
 using Robust.Client.Physics;
 

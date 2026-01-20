@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 BramvanZijp
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Armor;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Events;

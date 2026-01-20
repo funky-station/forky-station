@@ -1,4 +1,7 @@
-﻿using Content.Server.Anomaly.Effects;
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Anomaly.Effects;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.DeviceLinking;
 using Robust.Shared.Prototypes;

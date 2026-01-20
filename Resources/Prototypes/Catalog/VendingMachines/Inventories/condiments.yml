@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Smith
+# SPDX-FileCopyrightText: 2025 Boaz1111
+# SPDX-FileCopyrightText: 2023 Interrobang01
+# SPDX-FileCopyrightText: 2023 ChilbroBaggins
+# SPDX-License-Identifier: MIT
+
 - type: vendingMachineInventory
   id: CondimentInventory
   startingInventory:

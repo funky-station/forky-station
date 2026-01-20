@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 to4no_fix
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Clothing.EntitySystems;
 using Robust.Shared.GameStates;
 

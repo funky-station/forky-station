@@ -1,4 +1,10 @@
-﻿namespace Content.Server.Power.Generation.Teg;
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+namespace Content.Server.Power.Generation.Teg;
 
 /// <summary>
 /// The centerpiece for the thermo-electric generator (TEG).

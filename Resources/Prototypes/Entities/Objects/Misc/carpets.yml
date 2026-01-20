@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Whatstone
+# SPDX-FileCopyrightText: 2024 Gyrandola
+# SPDX-FileCopyrightText: 2024 lapatison
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-FileCopyrightText: 2022 Paul Ritter
+# SPDX-FileCopyrightText: 2021 AJCM-git
+# SPDX-License-Identifier: MIT
+
 # TODO once tiles can be smoothed and carpets ported over to that, add them to the FloorTile outputs
 - type: entity
   name: carpet

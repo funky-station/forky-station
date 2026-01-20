@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 qrwas
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Preferences.Loadouts.Effects;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;

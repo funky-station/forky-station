@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 qrwas
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Inventory;
 
 namespace Content.Shared.Contraband;

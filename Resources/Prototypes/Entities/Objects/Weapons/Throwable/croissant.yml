@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024 themias
+# SPDX-FileCopyrightText: 2025 themias
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-License-Identifier: MIT
+
 - type: entity
   parent: FoodBakedCroissant
   id: WeaponCroissant

@@ -1,4 +1,7 @@
-﻿using Content.Shared.CCVar;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Silicons.Borgs.Components;

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 ScarKy0
+# SPDX-License-Identifier: MIT
+
 - files: ["dog_bark1.ogg"]
   license: "CC0-1.0"
   copyright: "Original sound by https://freesound.org/people/abhisheky948/sounds/625497/"

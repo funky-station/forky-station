@@ -1,3 +1,34 @@
+# SPDX-FileCopyrightText: 2025 Quasr
+# SPDX-FileCopyrightText: 2025 Tao
+# SPDX-FileCopyrightText: 2025 Perry Fraser
+# SPDX-FileCopyrightText: 2025 Tayrtahn
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2024 themias
+# SPDX-FileCopyrightText: 2024 BombasterDS
+# SPDX-FileCopyrightText: 2024 Token
+# SPDX-FileCopyrightText: 2024 brainfood1183
+# SPDX-FileCopyrightText: 2024 Futuristic-OK
+# SPDX-FileCopyrightText: 2024 Ko4ergaPunk
+# SPDX-FileCopyrightText: 2024 MACMAN2003
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2024 Nim
+# SPDX-FileCopyrightText: 2024 Nairod
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 Kit0vras
+# SPDX-FileCopyrightText: 2022 Martin Petkovski
+# SPDX-FileCopyrightText: 2022 Morb
+# SPDX-FileCopyrightText: 2022 Kevin Zheng
+# SPDX-FileCopyrightText: 2021 Peptide90
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2022 Lamrr
+# SPDX-FileCopyrightText: 2022 Zymem
+# SPDX-FileCopyrightText: 2021 wrexbe
+# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-FileCopyrightText: 2021 ShadowCommander
+# SPDX-License-Identifier: MIT
+
 #chairs
 - type: construction
   id: Chair

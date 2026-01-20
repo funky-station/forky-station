@@ -1,4 +1,9 @@
-﻿using Content.Server.Administration;
+// SPDX-FileCopyrightText: 2025 Quantum-cross
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Administration;
 using Content.Shared.Administration;
 using Content.Shared.Anomaly.Components;
 using Robust.Shared.Console;

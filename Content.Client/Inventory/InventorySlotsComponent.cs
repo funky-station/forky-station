@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
 namespace Content.Client.Inventory;
 
 /// <summary>

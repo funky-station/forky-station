@@ -1,4 +1,10 @@
-﻿#nullable enable
+// SPDX-FileCopyrightText: 2025 Kyle Tyo
+// SPDX-FileCopyrightText: 2025 keronshb
+// SPDX-FileCopyrightText: 2024 ElectroJr
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
+#nullable enable
 using System;
 using System.Linq;
 using System.Threading.Tasks;

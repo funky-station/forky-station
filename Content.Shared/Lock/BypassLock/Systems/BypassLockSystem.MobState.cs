@@ -1,4 +1,7 @@
-﻿using Content.Shared.Lock.BypassLock.Components;
+// SPDX-FileCopyrightText: 2026 Sir Warock
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Lock.BypassLock.Components;
 using Content.Shared.Mobs.Components;
 
 namespace Content.Shared.Lock.BypassLock.Systems;

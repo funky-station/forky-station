@@ -1,4 +1,13 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2025 Kyle Tyo
+// SPDX-FileCopyrightText: 2025 Errant
+// SPDX-FileCopyrightText: 2024 Brandon Hu
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
+using System.Linq;
 using Content.Server.Administration.Notes;
 using Content.Shared.Administration;
 using Robust.Server.Player;

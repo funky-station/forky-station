@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Advertise.Systems;
 using Content.Shared.Dataset;
 using Robust.Shared.GameStates;

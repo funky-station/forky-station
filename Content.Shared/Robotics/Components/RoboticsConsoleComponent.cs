@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Samuka-C
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Radio;
 using Content.Shared.Robotics;
 using Content.Shared.Robotics.Systems;

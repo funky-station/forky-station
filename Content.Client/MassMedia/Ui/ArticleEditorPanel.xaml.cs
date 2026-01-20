@@ -1,4 +1,11 @@
-﻿using Content.Client.Message;
+// SPDX-FileCopyrightText: 2025 beck-thompson
+// SPDX-FileCopyrightText: 2025 Brandon Li
+// SPDX-FileCopyrightText: 2024 themias
+// SPDX-FileCopyrightText: 2024 Julian Giebel
+// SPDX-FileCopyrightText: 2024 Brandon Hu
+// SPDX-License-Identifier: MIT
+
+using Content.Client.Message;
 using Content.Client.RichText;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.RichText;

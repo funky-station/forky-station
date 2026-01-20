@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Quantum-cross
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Shared.Anomaly;
 using Robust.Client.GameObjects;

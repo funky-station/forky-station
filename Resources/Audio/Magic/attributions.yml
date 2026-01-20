@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 keronshb
+# SPDX-FileCopyrightText: 2025 keronshb
+# SPDX-FileCopyrightText: 2024 brainfood1183
+# SPDX-FileCopyrightText: 2023 Chronophylos
+# SPDX-License-Identifier: MIT
+
 - files: [rumble.ogg]
   copyright: "Made by Uzbazur freesound.org, modified by brainfood1183 (github)"
   license: "CC-BY-4.0"

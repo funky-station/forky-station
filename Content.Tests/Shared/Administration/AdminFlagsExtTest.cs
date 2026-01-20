@@ -1,4 +1,8 @@
-﻿using System;
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using System;
 using Content.Shared.Administration;
 using NUnit.Framework;
 

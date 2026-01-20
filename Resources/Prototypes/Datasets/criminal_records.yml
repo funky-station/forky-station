@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 MilenVolf
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-License-Identifier: MIT
+
 # "funny" placeholders of extremely minor/non-crimes for wanted reason dialog
 - type: localizedDataset
   id: CriminalRecordsWantedReasonPlaceholders

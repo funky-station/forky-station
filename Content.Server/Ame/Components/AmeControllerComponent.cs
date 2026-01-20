@@ -1,3 +1,12 @@
+// SPDX-FileCopyrightText: 2024 AftrLite
+// SPDX-FileCopyrightText: 2024 LordCarve
+// SPDX-FileCopyrightText: 2024 Kara
+// SPDX-FileCopyrightText: 2023 Vasilis
+// SPDX-FileCopyrightText: 2023 daerSeebaer
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Ame.EntitySystems;
 using Content.Shared.Ame.Components;
 using Content.Shared.Containers.ItemSlots;

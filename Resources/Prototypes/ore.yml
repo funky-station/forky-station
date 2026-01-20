@@ -1,3 +1,21 @@
+# SPDX-FileCopyrightText: 2023 brainfood1183
+# SPDX-FileCopyrightText: 2024 brainfood1183
+# SPDX-FileCopyrightText: 2025 brainfood1183
+# SPDX-FileCopyrightText: 2025 Firewars763
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2024 Zadeon
+# SPDX-FileCopyrightText: 2024 Emisse
+# SPDX-FileCopyrightText: 2023 Velcroboy
+# SPDX-FileCopyrightText: 2023 cOrigin
+# SPDX-FileCopyrightText: 2023 Vordenburg
+# SPDX-FileCopyrightText: 2023 forthbridge
+# SPDX-FileCopyrightText: 2023 Alekshhh
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-License-Identifier: MIT
+
 # TODO: Kill ore veins
 # Split it into 2 components, 1 for "spawn XYZ on destruction" and 1 for "randomly select one of these for spawn on destruction"
 

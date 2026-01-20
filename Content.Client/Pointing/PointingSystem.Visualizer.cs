@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Krunklehorn
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Pointing.Components;
 using Content.Shared.Pointing;
 using Robust.Client.Animations;

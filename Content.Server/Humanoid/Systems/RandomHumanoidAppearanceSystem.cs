@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 Verm
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 Nemanja
+// SPDX-FileCopyrightText: 2022 Flipp Syder
+// SPDX-License-Identifier: MIT
+
 using Content.Server.CharacterAppearance.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Preferences;

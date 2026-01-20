@@ -1,4 +1,10 @@
-﻿using Content.Server.Maps.NameGenerators;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Moony
+// SPDX-FileCopyrightText: 2023 Moony
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Maps.NameGenerators;
 
 namespace Content.Server.Station.Components;
 

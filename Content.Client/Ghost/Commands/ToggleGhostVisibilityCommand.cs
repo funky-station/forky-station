@@ -1,4 +1,8 @@
-﻿using Robust.Shared.Console;
+// SPDX-FileCopyrightText: 2025 Kyle Tyo
+// SPDX-FileCopyrightText: 2024 ShadowCommander
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Console;
 
 namespace Content.Client.Ghost.Commands;
 

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Weapons.Melee.Events;
 
 /// <summary>

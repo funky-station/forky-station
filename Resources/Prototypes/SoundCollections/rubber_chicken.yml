@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2024 xprospero
+# SPDX-License-Identifier: MIT
+
 - type: soundCollection
   id: RubberChicken
   files:

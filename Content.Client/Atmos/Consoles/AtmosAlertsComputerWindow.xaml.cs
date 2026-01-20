@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow
+// SPDX-FileCopyrightText: 2024 chromiumboy
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Message;
 using Content.Client.Pinpointer.UI;
 using Content.Client.Stylesheets;

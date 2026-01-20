@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 MilenVolf
+# SPDX-FileCopyrightText: 2023 Scribbles0
+# SPDX-FileCopyrightText: 2022 Pancake
+# SPDX-License-Identifier: MIT
+
 - type: localizedDataset
   id: NamesSyndicateNormal
   values:

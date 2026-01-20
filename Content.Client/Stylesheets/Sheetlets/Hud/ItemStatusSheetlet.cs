@@ -1,4 +1,7 @@
-﻿using Content.Client.Stylesheets.Fonts;
+// SPDX-FileCopyrightText: 2025 Brandon Li
+// SPDX-License-Identifier: MIT
+
+using Content.Client.Stylesheets.Fonts;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using static Content.Client.Stylesheets.StylesheetHelpers;

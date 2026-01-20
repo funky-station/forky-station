@@ -1,4 +1,7 @@
-﻿using Content.Shared.Storage;
+// SPDX-FileCopyrightText: 2024 Kara
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Storage;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 

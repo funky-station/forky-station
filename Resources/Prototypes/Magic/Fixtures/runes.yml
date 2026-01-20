@@ -1,4 +1,12 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2025 Charlie Morley
+# SPDX-FileCopyrightText: 2025 Pixel8-dev
+# SPDX-FileCopyrightText: 2024 Arendian
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2022 keronshb
+# SPDX-License-Identifier: MIT
+
+- type: entity
   id: BaseRune
   name: "rune"
   abstract: true

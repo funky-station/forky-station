@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 TheGrimbeeper
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Popups;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Xenoarchaeology.Artifact.XAE.Components;

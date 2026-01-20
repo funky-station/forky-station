@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 beck-thompson
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Smoking;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;

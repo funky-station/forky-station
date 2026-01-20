@@ -1,4 +1,7 @@
-﻿using Content.Server.Administration;
+// SPDX-FileCopyrightText: 2025 ScarKy0
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Administration;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Administration;

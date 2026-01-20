@@ -1,4 +1,10 @@
-﻿using Content.Shared.Weapons.Ranged.Systems;
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 AJCM-git
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Weapons.Ranged.Components;

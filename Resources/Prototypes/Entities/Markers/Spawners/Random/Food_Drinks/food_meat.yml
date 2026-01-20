@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2024 Velcroboy
+# SPDX-License-Identifier: MIT
+
 #Spawners
 - type: entity
   id: RandomMeat

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Token
+// SPDX-FileCopyrightText: 2024 no
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Ghost.Roles.Components;

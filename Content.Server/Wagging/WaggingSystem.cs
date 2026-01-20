@@ -1,4 +1,10 @@
-﻿using Content.Server.Actions;
+// SPDX-FileCopyrightText: 2025 poklj
+// SPDX-FileCopyrightText: 2024 ArchPigeon
+// SPDX-FileCopyrightText: 2024 Krunklehorn
+// SPDX-FileCopyrightText: 2024 Morb
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Actions;
 using Content.Server.Humanoid;
 using Content.Shared.Cloning.Events;
 using Content.Shared.Humanoid;

@@ -1,4 +1,10 @@
-﻿- type: constructionGraph
+# SPDX-FileCopyrightText: 2025 AndrewFenriz
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2023 brainfood1183
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-License-Identifier: MIT
+
+- type: constructionGraph
   id: Hamtr
   start: start
   graph:

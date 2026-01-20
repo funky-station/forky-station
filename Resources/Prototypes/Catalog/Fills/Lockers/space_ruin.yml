@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Velcroboy
+# SPDX-FileCopyrightText: 2024 Flareguy
+# SPDX-License-Identifier: MIT
+
 #Old AI sat voidsuits
 - type: entity
   id: LockerOldAISat

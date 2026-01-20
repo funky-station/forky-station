@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Голубь
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 

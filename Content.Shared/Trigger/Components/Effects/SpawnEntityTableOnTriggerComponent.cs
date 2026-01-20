@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 āda
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.EntityTable.EntitySelectors;
 using Robust.Shared.GameStates;
 

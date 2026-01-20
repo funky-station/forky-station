@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2024 Mr. 27
+# SPDX-FileCopyrightText: 2023 PixelTK
+# SPDX-License-Identifier: MIT
+
 - files: ["arachnid_scream.ogg", "arachnid_laugh.ogg"]
   license: "CC-BY-4.0"
   copyright: "Recorded by https://github.com/PixelTheKermit"

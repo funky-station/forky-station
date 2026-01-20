@@ -1,4 +1,8 @@
-﻿using Robust.Shared.Network;
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Network;
 
 namespace Content.Server.Database
 {

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Chat;
 using Content.Shared.Damage.Components;

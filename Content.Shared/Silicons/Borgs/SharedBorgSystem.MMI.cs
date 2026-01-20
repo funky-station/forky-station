@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 ScarKy0
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Mind.Components;
 using Content.Shared.Roles.Components;
 using Content.Shared.Silicons.Borgs.Components;

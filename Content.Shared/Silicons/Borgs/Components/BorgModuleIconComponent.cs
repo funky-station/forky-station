@@ -1,4 +1,7 @@
-﻿//using Robust.Shared.GameObjects;
+// SPDX-FileCopyrightText: 2024 ScarKy0
+// SPDX-License-Identifier: MIT
+
+//using Robust.Shared.GameObjects;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 

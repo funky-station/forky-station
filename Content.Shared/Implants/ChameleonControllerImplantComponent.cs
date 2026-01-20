@@ -1,4 +1,7 @@
-﻿using Content.Shared.Actions;
+// SPDX-FileCopyrightText: 2025 beck-thompson
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Actions;
 using Content.Shared.Inventory;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;

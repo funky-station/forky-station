@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 chromiumboy
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Holopad;
 using Content.Shared.Mobs;
 using Robust.Shared.Player;

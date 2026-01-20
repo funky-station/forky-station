@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 ShadowCommander
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Gameplay;
 using Content.Client.UserInterface.Systems.Chat;
 using Content.Client.UserInterface.Systems.MenuBar.Widgets;

@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2025 SolidSyn
+# SPDX-FileCopyrightText: 2025 Nemanja
+# SPDX-FileCopyrightText: 2025 deltanedas
+# SPDX-FileCopyrightText: 2025 J
+# SPDX-FileCopyrightText: 2025 lzk
+# SPDX-FileCopyrightText: 2025 keronshb
+# SPDX-License-Identifier: MIT
+
 # Smite-like spell that you click on someone else to use
 - type: entity
   abstract: true

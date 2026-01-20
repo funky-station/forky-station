@@ -1,4 +1,11 @@
-﻿- type: decal
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2022 Moony
+# SPDX-FileCopyrightText: 2022 Delete69
+# SPDX-FileCopyrightText: 2022 mirrorcult
+# SPDX-License-Identifier: MIT
+
+- type: decal
   id: Arrows
   tags: ["station", "markings"]
   sprite:

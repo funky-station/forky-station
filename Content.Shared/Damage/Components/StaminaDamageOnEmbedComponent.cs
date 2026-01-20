@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2024 Dakamakat
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Damage.Systems;
 using Robust.Shared.GameStates;
 

@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 deltanedas
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Actions.Components;
 using static Robust.Shared.Input.Binding.PointerInputCmdHandler;
 

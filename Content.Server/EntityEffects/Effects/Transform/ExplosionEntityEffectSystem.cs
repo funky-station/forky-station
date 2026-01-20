@@ -1,4 +1,9 @@
-﻿using Content.Server.Explosion.EntitySystems;
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Explosion.EntitySystems;
 using Content.Shared.EntityEffects;
 using ExplosionEffect = Content.Shared.EntityEffects.Effects.Transform.Explosion;
 

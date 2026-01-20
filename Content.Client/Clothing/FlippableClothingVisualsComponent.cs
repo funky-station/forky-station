@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Cojoke
+// SPDX-License-Identifier: MIT
+
 namespace Content.Client.Clothing;
 
 /// <summary>

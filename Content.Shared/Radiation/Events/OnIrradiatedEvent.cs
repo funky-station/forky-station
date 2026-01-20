@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 TheGrimbeeper
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-FileCopyrightText: 2025 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Radiation.Events;
 
 /// <summary>

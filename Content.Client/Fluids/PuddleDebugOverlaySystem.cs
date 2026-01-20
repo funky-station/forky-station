@@ -1,4 +1,8 @@
-﻿using System.Collections;
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Ygg01
+// SPDX-License-Identifier: MIT
+
+using System.Collections;
 using Content.Shared.Fluids;
 using Robust.Client.Graphics;
 

@@ -1,4 +1,7 @@
-﻿using Content.Shared.Lock.BypassLock.Systems;
+// SPDX-FileCopyrightText: 2026 Sir Warock
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Lock.BypassLock.Systems;
 using Content.Shared.Tools;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

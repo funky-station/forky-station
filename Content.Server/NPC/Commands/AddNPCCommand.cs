@@ -1,4 +1,9 @@
-﻿using Content.Server.Administration;
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Administration;
 using Content.Server.NPC.HTN;
 using Content.Shared.Administration;
 using Robust.Shared.Console;

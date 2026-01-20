@@ -1,4 +1,9 @@
-﻿using Content.Shared.Chemistry.Components;
+// SPDX-FileCopyrightText: 2026 mq
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Map;

@@ -1,4 +1,7 @@
-﻿using Content.Server.GameTicking.Rules;
+// SPDX-FileCopyrightText: 2024 Kara
+// SPDX-License-Identifier: MIT
+
+using Content.Server.GameTicking.Rules;
 
 namespace Content.Server.Station.Components;
 

@@ -1,4 +1,9 @@
-﻿using Content.Shared.Anomaly.Effects;
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2024 Patrik Caes-Sayrs
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Anomaly.Effects;
 using Content.Shared.Body.Prototypes;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Audio;

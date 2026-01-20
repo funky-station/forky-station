@@ -1,4 +1,7 @@
-﻿using Robust.Shared.Prototypes;
+// SPDX-FileCopyrightText: 2024 slarticodefast
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Prototypes;
 using Content.Shared.Damage.Prototypes;
 
 namespace Content.Server.Radiation.Components;

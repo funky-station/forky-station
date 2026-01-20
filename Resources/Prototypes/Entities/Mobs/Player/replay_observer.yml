@@ -1,4 +1,9 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2024 Ilya246
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+# SPDX-License-Identifier: MIT
+
+- type: entity
   parent: MobObserverBase
   id: ReplayObserver
   categories: [ HideSpawnMenu ]

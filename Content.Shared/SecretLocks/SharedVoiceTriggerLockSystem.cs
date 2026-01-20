@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 beck-thompson
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Lock;
 using Content.Shared.Trigger.Components.Triggers;

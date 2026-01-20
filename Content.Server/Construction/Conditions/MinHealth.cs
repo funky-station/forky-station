@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+// SPDX-FileCopyrightText: 2024 blueDev2
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Destructible;
 using Content.Shared.Construction;
 using Content.Shared.Damage.Components;

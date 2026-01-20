@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Pinpointer;
 using Content.Shared.Mobs.Components;

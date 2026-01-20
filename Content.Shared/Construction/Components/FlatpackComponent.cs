@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Tools;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;

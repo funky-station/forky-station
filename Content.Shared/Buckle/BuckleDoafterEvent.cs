@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Cuffs.Components;
 using Content.Shared.DoAfter;
 using Robust.Shared.Serialization;

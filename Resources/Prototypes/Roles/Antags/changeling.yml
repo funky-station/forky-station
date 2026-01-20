@@ -1,4 +1,7 @@
-﻿- type: antag
+# SPDX-FileCopyrightText: 2025 poklj
+# SPDX-License-Identifier: MIT
+
+- type: antag
   id: Changeling
   name: roles-antag-changeling-name
   antagonist: true

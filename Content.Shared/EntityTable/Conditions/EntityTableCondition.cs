@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.EntityTable.EntitySelectors;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;

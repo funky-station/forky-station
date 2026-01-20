@@ -1,3 +1,18 @@
+# SPDX-FileCopyrightText: 2025 Sparlight
+# SPDX-FileCopyrightText: 2024 Джексон Миссиссиппи
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2022 Leon Friedrich
+# SPDX-FileCopyrightText: 2022 Jezithyr
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-FileCopyrightText: 2022 Justin Trotter
+# SPDX-FileCopyrightText: 2022 keronshb
+# SPDX-FileCopyrightText: 2022 ZeroDayDaemon
+# SPDX-FileCopyrightText: 2021 Paul Ritter
+# SPDX-License-Identifier: MIT
+
 #human but no shoes
 - type: inventoryTemplate
   id: diona

@@ -1,4 +1,15 @@
-﻿- files: ["thunderdome.ogg"]
+# SPDX-FileCopyrightText: 2025 Stefano Pigozzi
+# SPDX-FileCopyrightText: 2025 Lusatia
+# SPDX-FileCopyrightText: 2025 keronshb
+# SPDX-FileCopyrightText: 2024 Doctor-Cpu
+# SPDX-FileCopyrightText: 2024 Kara
+# SPDX-FileCopyrightText: 2024 Emisse
+# SPDX-FileCopyrightText: 2022 Leon Friedrich
+# SPDX-FileCopyrightText: 2022 wrexbe
+# SPDX-FileCopyrightText: 2022 ike709
+# SPDX-License-Identifier: MIT
+
+- files: ["thunderdome.ogg"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "-Sector11 by MashedByMachines. Converted from MP3 to OGG."
   source: "https://www.newgrounds.com/audio/listen/312622"

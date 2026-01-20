@@ -1,4 +1,9 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
+using System.Linq;
 using Content.Shared.Roles.Components;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Reflection;

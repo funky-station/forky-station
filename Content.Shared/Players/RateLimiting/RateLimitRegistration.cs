@@ -1,4 +1,7 @@
-﻿using Content.Shared.Database;
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Database;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 

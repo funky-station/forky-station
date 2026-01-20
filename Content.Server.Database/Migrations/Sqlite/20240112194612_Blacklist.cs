@@ -1,4 +1,9 @@
-﻿using System;
+// SPDX-FileCopyrightText: 2024 Simon
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-License-Identifier: MIT
+
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable

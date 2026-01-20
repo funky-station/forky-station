@@ -1,4 +1,9 @@
-﻿- type: localizedDataset
+# SPDX-FileCopyrightText: 2025 MilenVolf
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-License-Identifier: MIT
+
+- type: localizedDataset
   id: NamesMilitaryFirstLeader
   values:
     prefix: names-military-leader-first-dataset-

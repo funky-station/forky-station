@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2025 Whatstone
+// SPDX-FileCopyrightText: 2024 lzk
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2024 Magnus Larsen
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 c4llv07e
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Decals;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;

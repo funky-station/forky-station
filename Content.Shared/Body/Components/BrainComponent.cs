@@ -1,4 +1,7 @@
-﻿using Content.Shared.Body.Systems;
+// SPDX-FileCopyrightText: 2025 Kyle Tyo
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Body.Systems;
 
 namespace Content.Shared.Body.Components;
 

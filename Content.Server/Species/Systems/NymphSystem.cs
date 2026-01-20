@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2026 pathetic meowmeow
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 0x6273
+// SPDX-FileCopyrightText: 2024 LankLTE
+// SPDX-FileCopyrightText: 2024 Arendian
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Mind;
 using Content.Server.Zombies;
 using Content.Shared.Body;

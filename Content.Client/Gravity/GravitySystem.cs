@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2025 Justin Pfeifler
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 Julian Giebel
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2021 Galactic Chimp
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Gravity;
 using Content.Shared.Power;
 using Robust.Client.GameObjects;

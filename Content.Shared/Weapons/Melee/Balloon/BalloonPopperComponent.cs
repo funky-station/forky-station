@@ -1,4 +1,9 @@
-﻿using Content.Shared.Tag;
+// SPDX-FileCopyrightText: 2025 FungiFellow
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 

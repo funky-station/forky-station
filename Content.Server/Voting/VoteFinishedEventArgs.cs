@@ -1,4 +1,10 @@
-﻿using System.Collections.Immutable;
+// SPDX-FileCopyrightText: 2023 LankLTE
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2021 Visne
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using System.Collections.Immutable;
 
 
 namespace Content.Server.Voting

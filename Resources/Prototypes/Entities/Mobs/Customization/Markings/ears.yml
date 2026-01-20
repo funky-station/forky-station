@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Farrellka
+# SPDX-FileCopyrightText: 2024 Rouge2t7
+# SPDX-License-Identifier: MIT
+
 - type: marking
   id: HumanLongEars
   bodyPart: HeadTop

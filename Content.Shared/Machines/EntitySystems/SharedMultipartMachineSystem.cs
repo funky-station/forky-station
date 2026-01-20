@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 BarryNorfolk
+// SPDX-License-Identifier: MIT
+
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Machines.Components;
 

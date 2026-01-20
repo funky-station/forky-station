@@ -1,4 +1,8 @@
-﻿using System.IO;
+// SPDX-FileCopyrightText: 2023 Kirillcas
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using System.IO;
 using System.Linq;
 using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;

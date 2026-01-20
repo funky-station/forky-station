@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Actions.Events;
 
 /// <summary>

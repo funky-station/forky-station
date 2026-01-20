@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2026 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2026 Velken
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.IntegrationTests.Tests.Interaction;
 using Content.Shared.Charges.Systems;

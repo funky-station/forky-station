@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 TheFlyingSentry
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Body.Events;
 
 /// <summary>

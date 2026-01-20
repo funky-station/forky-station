@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 JIPDawg
+# SPDX-FileCopyrightText: 2024 IProduceWidgets
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2024 Mr. 27
+# SPDX-License-Identifier: MIT
+
 - type: ghostRole
   id: SyndicateKobold
   name: ghost-role-information-syndicate-kobold-reinforcement-name

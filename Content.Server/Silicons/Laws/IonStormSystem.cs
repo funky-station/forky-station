@@ -1,3 +1,19 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2025 valquaint
+// SPDX-FileCopyrightText: 2025 lzk
+// SPDX-FileCopyrightText: 2024 ScarKy0
+// SPDX-FileCopyrightText: 2024 The Canned One
+// SPDX-FileCopyrightText: 2024 BIGZi0348
+// SPDX-FileCopyrightText: 2024 Mervill
+// SPDX-FileCopyrightText: 2024 Errant
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2024 Mephisto72
+// SPDX-FileCopyrightText: 2023 LankLTE
+// SPDX-License-Identifier: MIT
+
 using Content.Server.StationEvents.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;

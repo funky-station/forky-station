@@ -1,4 +1,10 @@
-﻿using System.Collections.Generic;
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Julian Giebel
+// SPDX-License-Identifier: MIT
+
+using System.Collections.Generic;
 using System.Numerics;
 using System.Text.Json.Serialization;
 using Robust.Shared.ContentPack;

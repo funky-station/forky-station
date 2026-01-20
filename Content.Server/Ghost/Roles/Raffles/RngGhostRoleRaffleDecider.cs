@@ -1,4 +1,7 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2024 no
+// SPDX-License-Identifier: MIT
+
+using System.Linq;
 using JetBrains.Annotations;
 using Robust.Shared.Player;
 using Robust.Shared.Random;

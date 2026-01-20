@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Red
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Kitchen;
 
 namespace Content.IntegrationTests.Tests.WizdenContentFreeze;

@@ -1,4 +1,8 @@
-﻿- type: localizedDataset
+# SPDX-FileCopyrightText: 2025 MilenVolf
+# SPDX-FileCopyrightText: 2021 Paul Ritter
+# SPDX-License-Identifier: MIT
+
+- type: localizedDataset
   id: NamesMushmanFirst
   values:
     prefix: names-mushman-first-dataset-

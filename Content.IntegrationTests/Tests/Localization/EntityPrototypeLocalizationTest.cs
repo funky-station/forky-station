@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Localization;
 using Robust.Shared.Prototypes;
 

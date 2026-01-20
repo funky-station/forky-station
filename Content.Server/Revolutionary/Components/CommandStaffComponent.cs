@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Theodore Lukin
+// SPDX-FileCopyrightText: 2024 Errant
+// SPDX-FileCopyrightText: 2023 coolmankid12345
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.Revolutionary.Components;
 
 /// <summary>

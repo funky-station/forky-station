@@ -1,4 +1,7 @@
-﻿using Robust.Shared.GameStates;
+// SPDX-FileCopyrightText: 2024 keronshb
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Jaunt;

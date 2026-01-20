@@ -1,4 +1,9 @@
-﻿Entries:
+# SPDX-FileCopyrightText: 2025 PJBot
+# SPDX-FileCopyrightText: 2026 PJBot
+# SPDX-FileCopyrightText: 2025 Errant
+# SPDX-License-Identifier: MIT
+
+Entries:
 - author: Errant
   changes:
   - message: Tab created.

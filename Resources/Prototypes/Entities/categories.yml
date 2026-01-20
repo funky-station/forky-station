@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2025 Red
+# SPDX-FileCopyrightText: 2025 Killerqu00
+# SPDX-FileCopyrightText: 2024 Leon Friedrich
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-License-Identifier: MIT
+
 - type: entityCategory
   id: Actions
   name: entity-category-name-actions

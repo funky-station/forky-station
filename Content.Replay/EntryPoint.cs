@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 B_Kirill
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Replay;
 using Content.Replay.Menu;
 using JetBrains.Annotations;

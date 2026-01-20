@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2025 lzk
+# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st
+# SPDX-FileCopyrightText: 2024 Ty Ashley
+# SPDX-FileCopyrightText: 2024 Mr. 27
+# SPDX-FileCopyrightText: 2023 Morb
+# SPDX-FileCopyrightText: 2024 Morb
+# SPDX-FileCopyrightText: 2023 brainfood1183
+# SPDX-License-Identifier: MIT
+
 - type: emote
   id: Sneeze
   name: chat-emote-name-sneeze

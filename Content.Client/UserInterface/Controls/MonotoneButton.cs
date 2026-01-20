@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 chromiumboy
+// SPDX-License-Identifier: MIT
+
 using JetBrains.Annotations;
 using Robust.Client.UserInterface.Controls;
 using static Robust.Client.UserInterface.Controls.Label;

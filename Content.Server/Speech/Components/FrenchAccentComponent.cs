@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 TakoDragon
+// SPDX-FileCopyrightText: 2024 brainfood1183
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Speech.EntitySystems;
 
 namespace Content.Server.Speech.Components;

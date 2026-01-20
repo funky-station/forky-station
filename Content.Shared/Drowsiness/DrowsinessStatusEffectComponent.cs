@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Red
+// SPDX-FileCopyrightText: 2024 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Shared.StatusEffectNew.Components;
 using Robust.Shared.GameStates;

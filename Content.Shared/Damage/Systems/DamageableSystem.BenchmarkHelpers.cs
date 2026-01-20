@@ -1,4 +1,8 @@
-﻿using Content.Shared.Damage.Components;
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Damage.Components;
 
 namespace Content.Shared.Damage.Systems;
 

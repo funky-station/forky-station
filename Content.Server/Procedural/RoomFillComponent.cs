@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Ed
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Whitelist;
 
 namespace Content.Server.Procedural;

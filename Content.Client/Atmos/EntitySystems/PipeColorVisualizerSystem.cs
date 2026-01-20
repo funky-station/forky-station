@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba
+// SPDX-FileCopyrightText: 2025 IgorAnt028
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-FileCopyrightText: 2022 TekuNut
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Atmos.Components;
 using Robust.Client.GameObjects;
 using Content.Shared.Atmos.Piping;

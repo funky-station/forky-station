@@ -1,4 +1,9 @@
-﻿namespace Content.IntegrationTests;
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2025 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
+namespace Content.IntegrationTests;
 
 /// <inheritdoc/>
 public sealed class PoolSettings : PairSettings

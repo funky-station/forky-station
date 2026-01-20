@@ -1,4 +1,7 @@
-﻿using Robust.Shared.Timing;
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Timing;
 

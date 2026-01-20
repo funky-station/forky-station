@@ -1,4 +1,11 @@
-﻿using Content.Server.StationEvents.Events;
+// SPDX-FileCopyrightText: 2024 Ilya246
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
+using Content.Server.StationEvents.Events;
 using Content.Shared.Atmos;
 using Robust.Shared.Map;
 

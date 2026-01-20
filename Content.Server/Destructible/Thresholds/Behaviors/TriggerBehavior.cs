@@ -1,4 +1,10 @@
-﻿using Content.Shared.Trigger.Systems;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Chief-Engineer
+// SPDX-FileCopyrightText: 2022 Kara
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Trigger.Systems;
 
 namespace Content.Server.Destructible.Thresholds.Behaviors;
 

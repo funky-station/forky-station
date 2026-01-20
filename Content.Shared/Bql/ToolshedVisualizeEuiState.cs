@@ -1,4 +1,9 @@
-﻿using Content.Shared.Eui;
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Moony
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Eui;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Bql;

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Radiation.Systems;
 
 namespace Content.Server.Radiation.Events;

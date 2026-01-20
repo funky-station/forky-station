@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Southbridge
+# SPDX-FileCopyrightText: 2024 Flareguy
+# SPDX-License-Identifier: MIT
+
 # Security 
 - type: entity
   name: security loot spawner

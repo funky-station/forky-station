@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 SlamBamActionman
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.Forensics;
 
 /// <summary>

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 778b
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.Spawners.Components;
 
 public interface ISpawnPoint

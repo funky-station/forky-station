@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 Fildrance
+// SPDX-FileCopyrightText: 2025 Perry Fraser
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Alert;
 using Content.Shared.StatusEffectNew.Components;
 

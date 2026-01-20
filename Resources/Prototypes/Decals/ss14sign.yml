@@ -1,4 +1,7 @@
-﻿- type: decal
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-License-Identifier: MIT
+
+- type: decal
   id: SpaceStationSign1
   tags: ["station"]
   sprite:

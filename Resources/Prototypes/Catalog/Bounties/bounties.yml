@@ -1,3 +1,28 @@
+# SPDX-FileCopyrightText: 2024 slarticodefast
+# SPDX-FileCopyrightText: 2025 slarticodefast
+# SPDX-FileCopyrightText: 2025 āda
+# SPDX-FileCopyrightText: 2025 Exetron
+# SPDX-FileCopyrightText: 2025 Schuyler Duryee
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2025 Nemanja
+# SPDX-FileCopyrightText: 2025 Gamewar360
+# SPDX-FileCopyrightText: 2025 Smith
+# SPDX-FileCopyrightText: 2025 Fildrance
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba
+# SPDX-FileCopyrightText: 2024 TheWaffleJesus
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-FileCopyrightText: 2024 Brandon Hu
+# SPDX-FileCopyrightText: 2024 Ivan
+# SPDX-FileCopyrightText: 2024 Tayrtahn
+# SPDX-FileCopyrightText: 2024 Ghagliiarghii
+# SPDX-FileCopyrightText: 2024 wafehling
+# SPDX-FileCopyrightText: 2024 icekot8
+# SPDX-FileCopyrightText: 2023 Ed
+# SPDX-FileCopyrightText: 2023 DanSAussieITS
+# SPDX-FileCopyrightText: 2023 Emisse
+# SPDX-License-Identifier: MIT
+
 - type: cargoBounty
   id: BountyArtifact
   reward: 2500

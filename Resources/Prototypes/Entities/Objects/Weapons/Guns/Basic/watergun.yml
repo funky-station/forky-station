@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2025 beck-thompson
+# SPDX-FileCopyrightText: 2025 Perry Fraser
+# SPDX-FileCopyrightText: 2025 Nox
+# SPDX-FileCopyrightText: 2024 SpaceLizard
+# SPDX-FileCopyrightText: 2024 Justice League
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 IProduceWidgets
+# SPDX-FileCopyrightText: 2023 Arendian
+# SPDX-License-Identifier: MIT
+
 - type: entity
   id: WeaponWaterGunBase
   abstract: true

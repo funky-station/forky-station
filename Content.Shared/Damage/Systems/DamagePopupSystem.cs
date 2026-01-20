@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Prole
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Damage.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;

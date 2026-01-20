@@ -1,4 +1,7 @@
-﻿using Content.Server.GameTicking.Rules.VariationPass.Components;
+// SPDX-FileCopyrightText: 2024 Kara
+// SPDX-License-Identifier: MIT
+
+using Content.Server.GameTicking.Rules.VariationPass.Components;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Shared.Light.Components;

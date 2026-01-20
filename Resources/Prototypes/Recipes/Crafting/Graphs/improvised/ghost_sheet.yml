@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2023 lzk228
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: GhostSheet
   start: start

@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2025 āda
+# SPDX-FileCopyrightText: 2026 āda
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2024 Ghagliiarghii
+# SPDX-FileCopyrightText: 2023 Vordenburg
+# SPDX-FileCopyrightText: 2023 eclips_e
+# SPDX-License-Identifier: MIT
+
 # When adding a new board game, also add it to id: AllBoardGamesTable
 
 # The actual item that players can pick up, or throw when they lose

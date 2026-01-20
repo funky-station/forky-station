@@ -1,4 +1,8 @@
-﻿using Content.Shared.Sticky.Systems;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Sticky.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;

@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2026 Princess Cheeseballs
+# SPDX-FileCopyrightText: 2025 Simon
+# SPDX-FileCopyrightText: 2025 Nox
+# SPDX-FileCopyrightText: 2025 Southbridge
+# SPDX-License-Identifier: MIT
+
 # Minor science loot spawner
 # Use case: Common areas that aren't science
 - type: entity

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Fruitsalad
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using System.Numerics;
 using Content.Shared.Atmos;

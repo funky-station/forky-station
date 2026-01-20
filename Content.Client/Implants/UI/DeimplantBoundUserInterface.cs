@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 J
+// SPDX-FileCopyrightText: 2025 SlamBamActionman
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Implants;
 using Robust.Client.UserInterface;
 

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Server.DeviceLinking.Systems;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Power.Generator;

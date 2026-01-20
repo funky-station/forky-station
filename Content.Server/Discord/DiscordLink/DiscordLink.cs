@@ -1,4 +1,9 @@
-﻿using System.Collections.ObjectModel;
+// SPDX-FileCopyrightText: 2025 sleepyyapril
+// SPDX-FileCopyrightText: 2025 Simon
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Content.Shared.CCVar;
 using NetCord;

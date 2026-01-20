@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 pathetic meowmeow
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Gibbing;
 
 namespace Content.Shared.Body;

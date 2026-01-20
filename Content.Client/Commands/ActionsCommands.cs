@@ -1,4 +1,11 @@
-﻿using Content.Client.Actions;
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 DrSmugleaf
+// SPDX-FileCopyrightText: 2024 PrPleGoo
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
+using Content.Client.Actions;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 

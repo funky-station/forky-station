@@ -1,4 +1,9 @@
-﻿using Content.Packaging;
+// SPDX-FileCopyrightText: 2024 Vasilis
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Packaging;
 using Robust.Packaging;
 
 IPackageLogger logger = new PackageLoggerConsole();

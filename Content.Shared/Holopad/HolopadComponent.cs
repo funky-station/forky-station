@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 chromiumboy
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Telephone;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

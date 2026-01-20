@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 UBlueberry
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Speech.EntitySystems;
 
 namespace Content.Server.Speech.Components;

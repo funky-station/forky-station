@@ -1,4 +1,7 @@
-﻿using System.Buffers.Binary;
+// SPDX-FileCopyrightText: 2025 Myra
+// SPDX-License-Identifier: MIT
+
+using System.Buffers.Binary;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;

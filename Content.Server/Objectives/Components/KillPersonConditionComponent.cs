@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Jackson Langley
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Objectives.Systems;
 
 namespace Content.Server.Objectives.Components;

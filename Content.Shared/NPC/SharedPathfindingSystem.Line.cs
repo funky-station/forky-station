@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.NPC;
 
 public abstract partial class SharedPathfindingSystem

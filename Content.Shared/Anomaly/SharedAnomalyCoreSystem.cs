@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 keronshb
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Construction.Components;
 using Content.Shared.Containers.ItemSlots;

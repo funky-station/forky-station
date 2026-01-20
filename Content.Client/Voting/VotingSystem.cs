@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 SpaceManiac
+// SPDX-FileCopyrightText: 2024 SlamBamActionman
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Voting;
 
 namespace Content.Client.Voting;

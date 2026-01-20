@@ -1,4 +1,7 @@
-﻿using Content.Shared.FixedPoint;
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
 
 namespace Content.Server.Chemistry.Components;

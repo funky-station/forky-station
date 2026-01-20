@@ -1,4 +1,16 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2024 themias
+// SPDX-FileCopyrightText: 2021 Visne
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-FileCopyrightText: 2022 Kevin Zheng
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2020 DrSmugleaf
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2020 FL-OZ
+// SPDX-FileCopyrightText: 2020 FLOZ
+// SPDX-License-Identifier: MIT
+
+using System.Linq;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Kitchen

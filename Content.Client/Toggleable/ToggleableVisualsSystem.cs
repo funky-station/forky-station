@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Centronias
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Client.Clothing;
 using Content.Client.Items.Systems;

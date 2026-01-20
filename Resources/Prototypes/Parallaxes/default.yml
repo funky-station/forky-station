@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2025 Leon Friedrich
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2022 Moony
+# SPDX-FileCopyrightText: 2022 T-Stalker
+# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2022 20kdc
+# SPDX-License-Identifier: MIT
+
 - type: parallax
   id: Blank
 

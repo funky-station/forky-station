@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2021 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Access.Systems;
 using JetBrains.Annotations;
 

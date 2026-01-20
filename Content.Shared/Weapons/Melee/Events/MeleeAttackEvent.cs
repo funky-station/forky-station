@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Weapons.Melee.Events;
 
 /// <summary>

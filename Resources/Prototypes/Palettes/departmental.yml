@@ -1,4 +1,9 @@
-﻿- type: palette
+# SPDX-FileCopyrightText: 2024 Hanz
+# SPDX-FileCopyrightText: 2022 Delete69
+# SPDX-FileCopyrightText: 2022 mirrorcult
+# SPDX-License-Identifier: MIT
+
+- type: palette
   id: Departmental
   name: Departmental
   colors:

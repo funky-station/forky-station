@@ -1,3 +1,19 @@
+# SPDX-FileCopyrightText: 2025 chromiumboy
+# SPDX-FileCopyrightText: 2025 SpaceRox1244
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2024 MODERN
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2023 lapatison
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2022 Rinkashikachi
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin
+# SPDX-FileCopyrightText: 2020 Swept
+# SPDX-FileCopyrightText: 2019 DamianX
+# SPDX-FileCopyrightText: 2020 DamianX
+# SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
+# SPDX-License-Identifier: MIT
+
 - type: cargoProduct
   id: ArtifactContainer
   icon:

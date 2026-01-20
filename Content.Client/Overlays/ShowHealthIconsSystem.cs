@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2026 Perry Fraser
+// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 Milon
+// SPDX-FileCopyrightText: 2024 slarticodefast
+// SPDX-FileCopyrightText: 2024 AJCM-git
+// SPDX-FileCopyrightText: 2024 DoutorWhite
+// SPDX-FileCopyrightText: 2024 PrPleGoo
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs.Components;

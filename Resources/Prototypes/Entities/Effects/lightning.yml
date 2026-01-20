@@ -1,4 +1,14 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2024 TinManTim
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2023 Leon Friedrich
+# SPDX-FileCopyrightText: 2023 AJCM-git
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2022 keronshb
+# SPDX-License-Identifier: MIT
+
+- type: entity
   name: lightning
   id: BaseLightning
   abstract: true

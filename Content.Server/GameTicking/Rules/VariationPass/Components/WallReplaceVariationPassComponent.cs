@@ -1,4 +1,7 @@
-﻿namespace Content.Server.GameTicking.Rules.VariationPass.Components;
+// SPDX-FileCopyrightText: 2024 Kara
+// SPDX-License-Identifier: MIT
+
+namespace Content.Server.GameTicking.Rules.VariationPass.Components;
 
 
 [RegisterComponent]

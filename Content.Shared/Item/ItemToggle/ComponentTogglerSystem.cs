@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Samuka-C
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Item.ItemToggle.Components;
 
 namespace Content.Shared.Item.ItemToggle;

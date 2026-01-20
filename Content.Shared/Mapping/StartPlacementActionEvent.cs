@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 deltanedas
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Actions;
 ﻿using Content.Shared.Maps;
 using Robust.Shared.Prototypes;

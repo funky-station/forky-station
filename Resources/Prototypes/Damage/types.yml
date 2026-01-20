@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2024 SlamBamActionman
+# SPDX-FileCopyrightText: 2024 KrasnoshchekovPavel
+# SPDX-FileCopyrightText: 2023 Maxtone
+# SPDX-FileCopyrightText: 2022 rolfero
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin
+# SPDX-FileCopyrightText: 2021 Leon Friedrich
+# SPDX-License-Identifier: MIT
+
 # Damage due to being unable to breathe.
 # Represents not enough oxygen (or equivalent) getting to the blood.
 # Usually healed automatically if entity can breathe

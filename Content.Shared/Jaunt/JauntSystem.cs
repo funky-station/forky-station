@@ -1,4 +1,7 @@
-﻿using Content.Shared.Actions;
+// SPDX-FileCopyrightText: 2024 keronshb
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Actions;
 
 namespace Content.Shared.Jaunt;
 public sealed class JauntSystem : EntitySystem

@@ -1,4 +1,9 @@
-﻿- type: decal
+# SPDX-FileCopyrightText: 2024 Emisse
+# SPDX-FileCopyrightText: 2024 Aexxie
+# SPDX-FileCopyrightText: 2022 Moony
+# SPDX-License-Identifier: MIT
+
+- type: decal
   id: WoodTrimThinBox
   tags: ["station", "markings"]
   sprite:

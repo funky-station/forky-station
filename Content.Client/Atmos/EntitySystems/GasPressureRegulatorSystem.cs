@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Atmos.Piping.Binary.Components;
 

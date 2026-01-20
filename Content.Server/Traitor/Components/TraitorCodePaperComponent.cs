@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Simon
+// SPDX-FileCopyrightText: 2024 SlamBamActionman
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Codewords;
 using Robust.Shared.Prototypes;
 

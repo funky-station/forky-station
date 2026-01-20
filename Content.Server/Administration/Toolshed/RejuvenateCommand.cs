@@ -1,4 +1,9 @@
-﻿using Content.Shared.Administration;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2024 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Moony
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Administration;
 using Content.Shared.Administration.Systems;
 using Robust.Shared.Toolshed;
 using Robust.Shared.Toolshed.Errors;

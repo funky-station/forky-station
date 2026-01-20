@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-License-Identifier: MIT
+
 # Items that can be held completely in one's hand.
 - type: itemSize
   id: Tiny

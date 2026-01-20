@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Ed
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Projectiles;

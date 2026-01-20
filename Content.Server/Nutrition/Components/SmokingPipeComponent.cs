@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 themias
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Nutrition.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
 

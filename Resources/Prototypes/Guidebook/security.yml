@@ -1,4 +1,13 @@
-﻿- type: guideEntry
+# SPDX-FileCopyrightText: 2025 GrownSamoyedDog
+# SPDX-FileCopyrightText: 2024 AJCM-git
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-FileCopyrightText: 2023 Chief-Engineer
+# SPDX-FileCopyrightText: 2023 eclips_e
+# SPDX-FileCopyrightText: 2023 Leon Friedrich
+# SPDX-FileCopyrightText: 2023 faint
+# SPDX-License-Identifier: MIT
+
+- type: guideEntry
   id: Security
   name: guide-entry-security
   text: "/ServerInfo/Guidebook/Security/Security.xml"

@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Server.DeviceLinking.Systems;
 using Content.Shared.DeviceLinking.Events;
 

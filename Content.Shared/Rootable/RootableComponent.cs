@@ -1,4 +1,7 @@
-﻿using Content.Shared.Alert;
+// SPDX-FileCopyrightText: 2025 SlamBamActionman
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Alert;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;

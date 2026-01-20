@@ -1,4 +1,7 @@
-﻿using Content.Shared.Chemistry.Components;
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Chemistry.Components;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Kitchen.Components;

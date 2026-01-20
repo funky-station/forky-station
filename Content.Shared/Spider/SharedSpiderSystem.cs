@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2025 Red
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Jackrost
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Actions;
 
 namespace Content.Shared.Spider;

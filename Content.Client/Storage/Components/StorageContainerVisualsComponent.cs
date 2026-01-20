@@ -1,4 +1,8 @@
-﻿using Content.Client.Chemistry.Visualizers;
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-License-Identifier: MIT
+
+using Content.Client.Chemistry.Visualizers;
 using Content.Shared.Chemistry.Components;
 
 namespace Content.Client.Storage.Components;

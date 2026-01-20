@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Theodore Lukin
+// SPDX-FileCopyrightText: 2024 Errant
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Objectives.Components;
 using Content.Server.Revolutionary.Components;
 using Content.Shared.Objectives.Components;

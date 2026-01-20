@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Server.Atmos;
 using Content.Server.Atmos.Components;

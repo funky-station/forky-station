@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Client.Eye;
 using Content.Shared.Administration;

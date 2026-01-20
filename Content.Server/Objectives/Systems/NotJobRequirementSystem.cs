@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Super
+// SPDX-FileCopyrightText: 2024 Errant
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Objectives.Components;
 using Content.Shared.Roles.Jobs;
 

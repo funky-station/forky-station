@@ -1,4 +1,8 @@
-﻿using Content.Shared.Database;
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Database;
 using Content.Shared.EntityEffects.Effects.Transform;
 using Robust.Shared.Prototypes;
 

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Boaz1111
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Temperature.Systems;
 using Content.Server.Temperature.Components; 
 using Content.Shared.Temperature;

@@ -1,4 +1,10 @@
-﻿- type: localizedDataset
+# SPDX-FileCopyrightText: 2025 tkirkby
+# SPDX-FileCopyrightText: 2025 PJB3005
+# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+# SPDX-FileCopyrightText: 2025 Centronias
+# SPDX-License-Identifier: MIT
+
+- type: localizedDataset
   id: HugBotStarts
   values:
     prefix: hugbot-start-hug-

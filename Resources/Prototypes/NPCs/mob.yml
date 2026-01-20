@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 Velken
+# SPDX-FileCopyrightText: 2024 PopGamer46
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2023 potato1234_x
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2023 Kara
+# SPDX-License-Identifier: MIT
+
 # Really you should write your own
 - type: htnCompound
   id: SimpleHostileCompound

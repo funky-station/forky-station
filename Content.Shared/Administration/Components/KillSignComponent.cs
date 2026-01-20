@@ -1,4 +1,8 @@
-﻿using System.Numerics;
+// SPDX-FileCopyrightText: 2025 ScarKy0
+// SPDX-FileCopyrightText: 2025 Pok
+// SPDX-License-Identifier: MIT
+
+using System.Numerics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 

@@ -1,4 +1,8 @@
-﻿using Robust.Client.Graphics;
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2022 Jesse Rougeau
+// SPDX-License-Identifier: MIT
+
+using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Maths;

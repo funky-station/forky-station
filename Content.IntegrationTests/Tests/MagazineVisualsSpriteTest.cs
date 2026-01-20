@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2025 Leon Friedrich
+// SPDX-FileCopyrightText: 2025 deltanedas
+// SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft
+// SPDX-License-Identifier: MIT
+
 using System.Collections.Generic;
 using Content.Client.Weapons.Ranged.Components;
 using Robust.Client.GameObjects;

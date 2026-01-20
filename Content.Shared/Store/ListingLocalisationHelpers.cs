@@ -1,4 +1,8 @@
-﻿using Robust.Shared.Prototypes;
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2024 J. Brown
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Store;
 

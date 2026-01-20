@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2025 Moomoobeef
+# SPDX-FileCopyrightText: 2025 ScarKy0
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2024 KonstantinAngelov
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2024 lapatison
+# SPDX-FileCopyrightText: 2023 end
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 Kit0vras
+# SPDX-License-Identifier: MIT
+
 - type: entity
   parent: Bookshelf
   id: BookshelfFilled

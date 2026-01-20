@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Winkarst
+# SPDX-License-Identifier: MIT
+
 - type: soundCollection
   id: Summon
   files:

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Maps;
 using Content.Shared.CCVar;
 using Robust.Shared.Configuration;

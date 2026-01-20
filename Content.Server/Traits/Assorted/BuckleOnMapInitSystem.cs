@@ -1,4 +1,7 @@
-﻿using Content.Shared.Buckle;
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Buckle;
 
 namespace Content.Server.Traits.Assorted;
 

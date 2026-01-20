@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2023 Abbey Armbruster
+# SPDX-FileCopyrightText: 2023 HighTechPuddle
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-License-Identifier: MIT
+
 - files: ["anomaly_generator.ogg"]
   license: "CC0-1.0"
   copyright: "Created by steaq, converted Mono and .ogg by EmoGarbage"

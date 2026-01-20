@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 LordCarve
+// SPDX-FileCopyrightText: 2023 Moony
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Server.Worldgen.Components;
 using Content.Server.Worldgen.Prototypes;

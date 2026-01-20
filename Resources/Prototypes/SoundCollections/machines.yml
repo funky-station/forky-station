@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 LukaSlade
+# SPDX-FileCopyrightText: 2025 pathetic meowmeow
+# SPDX-FileCopyrightText: 2025 Nemanja
+# SPDX-License-Identifier: MIT
+
 - type: soundCollection
   id: PrinterPrint
   files:

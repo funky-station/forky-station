@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 imatsoup
+// SPDX-FileCopyrightText: 2025 ScarKy0
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-FileCopyrightText: 2023 Ed
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Thief.Systems;
 using Content.Shared.Thief;
 using Robust.Shared.Audio;

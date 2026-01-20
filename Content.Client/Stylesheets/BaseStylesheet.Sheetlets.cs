@@ -1,4 +1,7 @@
-﻿using Robust.Client.UserInterface;
+// SPDX-FileCopyrightText: 2025 Brandon Li
+// SPDX-License-Identifier: MIT
+
+using Robust.Client.UserInterface;
 
 namespace Content.Client.Stylesheets;
 

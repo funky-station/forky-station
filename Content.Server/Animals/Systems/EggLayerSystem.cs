@@ -1,3 +1,14 @@
+// SPDX-FileCopyrightText: 2024 Centronias
+// SPDX-FileCopyrightText: 2024 Baa
+// SPDX-FileCopyrightText: 2023 Sirionaut
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2022 Kara
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Actions;
 using Content.Server.Animals.Components;
 using Content.Server.Popups;

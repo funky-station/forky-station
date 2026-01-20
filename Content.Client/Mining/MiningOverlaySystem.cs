@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Mining.Components;
 using Robust.Client.Graphics;
 using Robust.Client.Player;

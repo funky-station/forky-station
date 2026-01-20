@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 chromiumboy
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Silicons.StationAi;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;

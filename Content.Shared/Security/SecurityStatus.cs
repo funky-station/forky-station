@@ -1,4 +1,9 @@
-﻿namespace Content.Shared.Security;
+// SPDX-FileCopyrightText: 2025 B_Kirill
+// SPDX-FileCopyrightText: 2024 Arendian
+// SPDX-FileCopyrightText: 2024 deltanedas
+// SPDX-License-Identifier: MIT
+
+namespace Content.Shared.Security;
 
 /// <summary>
 /// Status used in Criminal Records.

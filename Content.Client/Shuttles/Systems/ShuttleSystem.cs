@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Robust.Client.Graphics;
 
 namespace Content.Client.Shuttles.Systems;

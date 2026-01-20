@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Dylan Hunter Whittingham
+// SPDX-FileCopyrightText: 2024 beck-thompson
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Cargo.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;

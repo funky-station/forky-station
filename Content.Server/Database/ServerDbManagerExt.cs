@@ -1,4 +1,7 @@
-﻿using System.Text.Json;
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using System.Text.Json;
 using Robust.Shared.Asynchronous;
 
 namespace Content.Server.Database;

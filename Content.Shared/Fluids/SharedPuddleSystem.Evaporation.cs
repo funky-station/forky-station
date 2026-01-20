@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 kin98
+// SPDX-FileCopyrightText: 2025 Perry Fraser
+// SPDX-FileCopyrightText: 2025 Jajsha
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.FixedPoint;

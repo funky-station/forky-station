@@ -1,4 +1,16 @@
-﻿- type: stack
+# SPDX-FileCopyrightText: 2025 PJB3005
+# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+# SPDX-FileCopyrightText: 2025 āda
+# SPDX-FileCopyrightText: 2025 hoshizora
+# SPDX-FileCopyrightText: 2025 Simon
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2024 TheWaffleJesus
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-FileCopyrightText: 2024 AJCM-git
+# SPDX-FileCopyrightText: 2023 cOrigin
+# SPDX-License-Identifier: MIT
+
+- type: stack
   parent: BaseMediumStack
   id: ArtifactFragment
   name: stack-artifact-fragment

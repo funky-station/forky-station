@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2024 lapatison
+# SPDX-FileCopyrightText: 2023 DrSmugleaf
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2022 Nemanja
+# SPDX-License-Identifier: MIT
+
 - type: listing
   id: RevenantDefile
   name: revenant-defile-name

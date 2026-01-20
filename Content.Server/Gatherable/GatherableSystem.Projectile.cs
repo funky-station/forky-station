@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Gatherable.Components;
 using Content.Shared.Projectiles;
 using Robust.Shared.Physics.Events;

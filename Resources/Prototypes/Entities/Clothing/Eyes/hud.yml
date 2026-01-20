@@ -1,3 +1,36 @@
+# SPDX-FileCopyrightText: 2025 āda
+# SPDX-FileCopyrightText: 2025 chromiumboy
+# SPDX-FileCopyrightText: 2025 Velken
+# SPDX-FileCopyrightText: 2025 Sparlight
+# SPDX-FileCopyrightText: 2025 beck-thompson
+# SPDX-FileCopyrightText: 2025 qrwas
+# SPDX-FileCopyrightText: 2025 Nox
+# SPDX-FileCopyrightText: 2025 BramvanZijp
+# SPDX-FileCopyrightText: 2024 Milon
+# SPDX-FileCopyrightText: 2024 SlamBamActionman
+# SPDX-FileCopyrightText: 2024 Kara
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2024 Cojoke
+# SPDX-FileCopyrightText: 2023 PrPleGoo
+# SPDX-FileCopyrightText: 2024 PrPleGoo
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2024 Krunklehorn
+# SPDX-FileCopyrightText: 2024 Golinth
+# SPDX-FileCopyrightText: 2024 Hanz
+# SPDX-FileCopyrightText: 2024 Interrobang01
+# SPDX-FileCopyrightText: 2024 Alekshhh
+# SPDX-FileCopyrightText: 2024 icekot8
+# SPDX-FileCopyrightText: 2024 Ubaser
+# SPDX-FileCopyrightText: 2024 Strol20
+# SPDX-FileCopyrightText: 2024 ERROR404
+# SPDX-FileCopyrightText: 2023 Ed
+# SPDX-FileCopyrightText: 2023 Whisper
+# SPDX-FileCopyrightText: 2023 IntegerTempest
+# SPDX-FileCopyrightText: 2023 DerbyX
+# SPDX-FileCopyrightText: 2023 Visne
+# SPDX-FileCopyrightText: 2020 Swept
+# SPDX-License-Identifier: MIT
+
 - type: entity
   id: ShowSecurityIcons
   abstract: true

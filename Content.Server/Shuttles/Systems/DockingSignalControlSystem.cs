@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 0x6273
+// SPDX-License-Identifier: MIT
+
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;

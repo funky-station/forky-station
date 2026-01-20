@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 Flipp Syder
+// SPDX-FileCopyrightText: 2022 Jezithyr
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Construction.UI;
 using Content.Client.Gameplay;
 using Content.Client.UserInterface.Controls;

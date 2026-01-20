@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2023 chromiumboy
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Radiation.Systems;
 
 namespace Content.Server.Radiation.Components;

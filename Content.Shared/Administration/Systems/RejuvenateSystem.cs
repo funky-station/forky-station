@@ -1,4 +1,8 @@
-﻿using Content.Shared.Rejuvenate;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2023 Moony
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Rejuvenate;
 
 namespace Content.Shared.Administration.Systems;
 

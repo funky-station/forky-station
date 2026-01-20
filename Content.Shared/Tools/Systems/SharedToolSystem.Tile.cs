@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 MilenVolf
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Database;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Interaction;

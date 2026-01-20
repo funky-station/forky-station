@@ -1,4 +1,7 @@
-﻿using Content.Server.Administration;
+// SPDX-FileCopyrightText: 2024 Simon
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Administration;
 using Content.Server.Database;
 using Content.Shared.Administration;
 using Robust.Shared.Console;

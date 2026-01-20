@@ -1,4 +1,8 @@
-﻿using Content.Shared.Power;
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Power;
 using Content.Shared.SMES;
 using Robust.Client.GameObjects;
 

@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2025 Jessica M
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Actions;
 
 namespace Content.Shared.Store.Events;

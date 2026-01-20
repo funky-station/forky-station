@@ -1,4 +1,8 @@
-﻿using Content.Client.Eui;
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Simon
+// SPDX-License-Identifier: MIT
+
+using Content.Client.Eui;
 using Content.Shared.Eui;
 using Content.Shared.Silicons.Laws;
 

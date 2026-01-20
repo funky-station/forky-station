@@ -1,4 +1,10 @@
-﻿using System.Text.RegularExpressions;
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2024 lzk
+// SPDX-FileCopyrightText: 2024 Kara
+// SPDX-FileCopyrightText: 2022 Willhelm53
+// SPDX-License-Identifier: MIT
+
+using System.Text.RegularExpressions;
 using Content.Server.Speech.Components;
 using Content.Shared.Speech;
 using Robust.Shared.Random;

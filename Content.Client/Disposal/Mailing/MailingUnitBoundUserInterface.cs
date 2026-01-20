@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 eoineoineoin
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Disposal.Unit;
 using Content.Client.Power.EntitySystems;
 using Content.Shared.Disposal;

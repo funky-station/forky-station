@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 B_Kirill
+// SPDX-License-Identifier: MIT
+
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Map;

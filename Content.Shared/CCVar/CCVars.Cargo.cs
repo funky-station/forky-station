@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;

@@ -1,4 +1,11 @@
-﻿using Content.Shared.Anomaly;
+// SPDX-FileCopyrightText: 2026 Velken
+// SPDX-FileCopyrightText: 2025 Quantum-cross
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-FileCopyrightText: 2023 keronshb
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Anomaly;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 

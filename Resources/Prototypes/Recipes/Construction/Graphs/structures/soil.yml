@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba
+# SPDX-FileCopyrightText: 2025 Minty642
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: Soil
   start: start

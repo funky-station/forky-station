@@ -1,4 +1,10 @@
-﻿using Content.Server.Atmos;
+// SPDX-FileCopyrightText: 2024 slarticodefast
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 Francesco
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Atmos;
 using Content.Shared.Atmos;
 
 namespace Content.Server.Medical.Components;

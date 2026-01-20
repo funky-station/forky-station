@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Pok
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Buckle.Components;
 using Robust.Shared.GameStates;
 

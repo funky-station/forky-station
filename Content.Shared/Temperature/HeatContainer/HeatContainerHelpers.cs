@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 ArtisticRoomba
+// SPDX-FileCopyrightText: 2026 ArtisticRoomba
+// SPDX-License-Identifier: MIT
+
 using JetBrains.Annotations;
 
 namespace Content.Shared.Temperature.HeatContainer;

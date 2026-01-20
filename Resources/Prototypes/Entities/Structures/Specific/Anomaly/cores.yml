@@ -1,3 +1,13 @@
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba
+# SPDX-FileCopyrightText: 2023 Ed
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2024 August Sun
+# SPDX-FileCopyrightText: 2024 Scribbles0
+# SPDX-FileCopyrightText: 2024 AJCM-git
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 PursuitInAshes
+# SPDX-License-Identifier: MIT
+
 - type: entity
   parent: BaseItem
   id: BaseAnomalyCore

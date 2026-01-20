@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba
+# SPDX-License-Identifier: MIT
+
 ## Base prototypes for DeltaPressureComponent settings, to make it easy to just
 ## parent to them and just them globally here.
 

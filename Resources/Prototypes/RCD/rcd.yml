@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2026 Vasilis The Pikachu
+# SPDX-FileCopyrightText: 2026 Velken
+# SPDX-FileCopyrightText: 2025 Fildrance
+# SPDX-FileCopyrightText: 2024 qwerltaz
+# SPDX-FileCopyrightText: 2024 chromiumboy
+# SPDX-License-Identifier: MIT
+
 # Operations
 - type: rcd
   id: Invalid   # Hidden prototype - do not add to RCDs

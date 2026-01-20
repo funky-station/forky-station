@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 T-Stalker
+# SPDX-FileCopyrightText: 2025 mubururu_
+# SPDX-License-Identifier: MIT
+
 - type: localizedDataset
   id: NamesDragon
   values:

@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 āda
+# SPDX-FileCopyrightText: 2025 Velken
+# SPDX-FileCopyrightText: 2024 Verm
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2022 Justin Trotter
+# SPDX-License-Identifier: MIT
+
 - type: inventoryTemplate
   id: pet
   slots:

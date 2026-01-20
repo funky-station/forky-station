@@ -1,4 +1,9 @@
-﻿- type: localizedDataset
+# SPDX-FileCopyrightText: 2025 Sir Warock
+# SPDX-FileCopyrightText: 2025 Tayrtahn
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin
+# SPDX-License-Identifier: MIT
+
+- type: localizedDataset
   id: WindowMessages
   values:
     prefix: comp-window-damaged-

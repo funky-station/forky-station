@@ -1,3 +1,24 @@
+# SPDX-FileCopyrightText: 2025 Hitlinemoss
+# SPDX-FileCopyrightText: 2025 Errant
+# SPDX-FileCopyrightText: 2025 Mora
+# SPDX-FileCopyrightText: 2025 Boaz1111
+# SPDX-FileCopyrightText: 2025 qrwas
+# SPDX-FileCopyrightText: 2025 T
+# SPDX-FileCopyrightText: 2025 Cass
+# SPDX-FileCopyrightText: 2025 Momo
+# SPDX-FileCopyrightText: 2025 lzk
+# SPDX-FileCopyrightText: 2025 centcomofficer24
+# SPDX-FileCopyrightText: 2025 Julian Giebel
+# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2024 joshepvodka
+# SPDX-FileCopyrightText: 2024 IProduceWidgets
+# SPDX-FileCopyrightText: 2024 Арт
+# SPDX-FileCopyrightText: 2024 TakoDragon
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2024 cool dolphin
+# SPDX-FileCopyrightText: 2024 Doctor-Cpu
+# SPDX-License-Identifier: MIT
+
 # Timers
 - type: loadoutEffectGroup
   id: Command

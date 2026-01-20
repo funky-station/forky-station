@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Cloning;
 
 namespace Content.IntegrationTests.Tests.Cloning;

@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2025 RedBookcase
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2025 Momo
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: ClothingShoeSlippersLizard
   start: start

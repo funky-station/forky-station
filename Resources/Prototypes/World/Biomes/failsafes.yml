@@ -1,4 +1,7 @@
-﻿- type: spaceBiome
+# SPDX-FileCopyrightText: 2023 Moony
+# SPDX-License-Identifier: MIT
+
+- type: spaceBiome
   id: Failsafe
   priority: -999999 # This DEFINITELY shouldn't get selected!
   noiseRanges: {}

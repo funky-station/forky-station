@@ -1,3 +1,16 @@
+# SPDX-FileCopyrightText: 2025 beck-thompson
+# SPDX-FileCopyrightText: 2025 Andrew Malcolm O'Neill
+# SPDX-FileCopyrightText: 2025 ScarKy0
+# SPDX-FileCopyrightText: 2025 Zachary Higgs
+# SPDX-FileCopyrightText: 2024 SlamBamActionman
+# SPDX-FileCopyrightText: 2025 SlamBamActionman
+# SPDX-FileCopyrightText: 2024 K-Dynamic
+# SPDX-FileCopyrightText: 2024 ERROR404
+# SPDX-FileCopyrightText: 2024 metalgearsloth
+# SPDX-FileCopyrightText: 2024 Agoichi
+# SPDX-FileCopyrightText: 2023 Ed
+# SPDX-License-Identifier: MIT
+
 - type: thiefBackpackSet
   id: ChameleonSet
   name: thief-backpack-category-chameleon-name

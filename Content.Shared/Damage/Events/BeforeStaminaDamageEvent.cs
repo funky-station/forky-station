@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 BramvanZijp
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Inventory;
 
 namespace Content.Shared.Damage.Events;

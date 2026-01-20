@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Checkraze
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Cargo.Systems;
 using Content.Shared.Stacks;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;

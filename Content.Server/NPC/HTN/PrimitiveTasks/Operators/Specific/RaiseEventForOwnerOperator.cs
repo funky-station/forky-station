@@ -1,4 +1,9 @@
-﻿namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2025 Centronias
+// SPDX-License-Identifier: MIT
+
+namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 
 /// <summary>
 /// Raises an <see cref="HTNRaisedEvent"/> on the <see cref="NPCBlackboard.Owner">owner</see>. The event will contain

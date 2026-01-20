@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Red Mushie
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2024 AJCM-git
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
 using Content.Server.DeviceLinking.Components;
 using Content.Server.NodeContainer;
 using Content.Server.Power.EntitySystems;

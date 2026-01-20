@@ -1,4 +1,18 @@
-﻿# ScatteringGrenade is intended for grenades that spawn entities, especially those with timers
+# SPDX-FileCopyrightText: 2026 Ignaz "Ian" Kraft
+# SPDX-FileCopyrightText: 2025 cammusubi
+# SPDX-FileCopyrightText: 2025 Nox
+# SPDX-FileCopyrightText: 2025 Dinner
+# SPDX-FileCopyrightText: 2025 slarticodefast
+# SPDX-FileCopyrightText: 2025 SlamBamActionman
+# SPDX-FileCopyrightText: 2025 RedBookcase
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba
+# SPDX-FileCopyrightText: 2025 K-Dynamic
+# SPDX-FileCopyrightText: 2025 OneZerooo0
+# SPDX-FileCopyrightText: 2025 BramvanZijp
+# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-License-Identifier: MIT
+
+# ScatteringGrenade is intended for grenades that spawn entities, especially those with timers
 - type: entity
   abstract: true
   parent: BaseItem

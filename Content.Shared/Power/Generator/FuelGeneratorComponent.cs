@@ -1,4 +1,10 @@
-﻿using Content.Shared.Guidebook;
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Guidebook;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Power.Generator;

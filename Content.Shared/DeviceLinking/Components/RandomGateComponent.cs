@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Borsh
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;
 

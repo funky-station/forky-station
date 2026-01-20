@@ -1,4 +1,7 @@
-﻿using Content.Shared.GhostKick;
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.GhostKick;
 using Robust.Client;
 using Robust.Shared;
 using Robust.Shared.Configuration;

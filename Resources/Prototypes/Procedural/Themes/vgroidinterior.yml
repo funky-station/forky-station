@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 Ed
+# SPDX-FileCopyrightText: 2024 Nemanja
+# SPDX-License-Identifier: MIT
+
 - type: dungeonRoom
   id: VGRoidInterior5x5a
   size: 5,5

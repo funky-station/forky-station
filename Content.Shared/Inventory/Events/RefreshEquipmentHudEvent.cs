@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 Milon
+// SPDX-FileCopyrightText: 2023 PrPleGoo
+// SPDX-FileCopyrightText: 2024 PrPleGoo
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Inventory.Events;
 
 [ByRefEvent]

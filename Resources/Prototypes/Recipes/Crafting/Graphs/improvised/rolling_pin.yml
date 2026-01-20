@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2024 august-sun
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: WoodenRollingPin
   start: start

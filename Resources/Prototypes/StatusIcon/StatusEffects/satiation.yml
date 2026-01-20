@@ -1,3 +1,11 @@
+# SPDX-FileCopyrightText: 2024 slarticodefast
+# SPDX-FileCopyrightText: 2024 AJCM-git
+# SPDX-FileCopyrightText: 2023 PrPleGoo
+# SPDX-FileCopyrightText: 2024 PrPleGoo
+# SPDX-FileCopyrightText: 2024 Golinth
+# SPDX-FileCopyrightText: 2023 Visne
+# SPDX-License-Identifier: MIT
+
 #Hunger
 - type: satiationIcon
   id: HungerIcon

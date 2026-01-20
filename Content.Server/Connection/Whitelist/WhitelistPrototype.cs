@@ -1,4 +1,8 @@
-﻿using System.Threading.Tasks;
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2024 Simon
+// SPDX-License-Identifier: MIT
+
+using System.Threading.Tasks;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 

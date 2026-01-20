@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Errant
+// SPDX-FileCopyrightText: 2024 nikthechampiongr
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Eui;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;

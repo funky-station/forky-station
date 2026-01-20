@@ -1,4 +1,10 @@
-﻿using Content.Shared.Random.Helpers;
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 āda
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Random.Helpers;
 using Content.Shared.Trigger.Components.Conditions;
 using Content.Shared.Verbs;
 using Robust.Shared.Random;

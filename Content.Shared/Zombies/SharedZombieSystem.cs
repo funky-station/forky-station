@@ -1,4 +1,9 @@
-﻿using Content.Shared.Armor;
+// SPDX-FileCopyrightText: 2025 UpAndLeaves
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2022 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Armor;
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Systems;
 using Content.Shared.NameModifier.EntitySystems;

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 osjarw
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.NPC.Queries.Queries;

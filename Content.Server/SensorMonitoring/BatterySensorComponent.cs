@@ -1,4 +1,9 @@
-﻿using Content.Server.Power.Components;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Power.Components;
 using Content.Shared.Power.Components;
 
 namespace Content.Server.SensorMonitoring;

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 Visne
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 #nullable enable
 using System.Collections.Generic;
 using Robust.Shared.Prototypes;

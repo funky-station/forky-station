@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 Deserty0
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Prototypes;
 

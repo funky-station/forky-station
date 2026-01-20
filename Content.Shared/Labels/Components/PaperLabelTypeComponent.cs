@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2024 Verm
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Labels.EntitySystems;
 using Robust.Shared.GameStates;
 

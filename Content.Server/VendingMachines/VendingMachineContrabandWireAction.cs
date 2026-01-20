@@ -1,3 +1,10 @@
+// SPDX-FileCopyrightText: 2024 goet
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 Flipp Syder
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Wires;
 using Content.Shared.VendingMachines;
 using Content.Shared.Wires;

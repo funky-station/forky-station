@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Miro Kavaliou
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Input;
 using Robust.Client.Graphics;
 using Robust.Client.Input;

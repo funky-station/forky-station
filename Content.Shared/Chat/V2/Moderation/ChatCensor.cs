@@ -1,4 +1,7 @@
-﻿using System.Linq;
+// SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson
+// SPDX-License-Identifier: MIT
+
+using System.Linq;
 
 namespace Content.Shared.Chat.V2.Moderation;
 

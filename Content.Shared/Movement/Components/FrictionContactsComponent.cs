@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2023 KISS
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Movement.Systems;
 using Robust.Shared.GameStates;
 

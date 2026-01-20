@@ -1,3 +1,15 @@
+# SPDX-FileCopyrightText: 2024 Ian
+# SPDX-FileCopyrightText: 2024 deltanedas
+# SPDX-FileCopyrightText: 2024 degradka
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2023 crazybrain23
+# SPDX-FileCopyrightText: 2023 lzk
+# SPDX-FileCopyrightText: 2023 lzk228
+# SPDX-FileCopyrightText: 2022 Kevin Zheng
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-License-Identifier: MIT
+
 - type: entity
   parent: BaseItem
   id: DiseaseSwab

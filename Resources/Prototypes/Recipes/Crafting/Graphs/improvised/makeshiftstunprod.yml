@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Kowlin
+# SPDX-FileCopyrightText: 2025 Ertanic
+# SPDX-FileCopyrightText: 2024 lzk
+# SPDX-FileCopyrightText: 2024 shamp
+# SPDX-FileCopyrightText: 2023 kxv
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: makeshiftstunprod
   start: start

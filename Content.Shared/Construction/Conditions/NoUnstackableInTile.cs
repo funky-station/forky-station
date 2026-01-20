@@ -1,4 +1,10 @@
-﻿using Content.Shared.Construction.EntitySystems;
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Ben
+// SPDX-FileCopyrightText: 2023 Tom Leys
+// SPDX-FileCopyrightText: 2023 deltanedas
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Construction.EntitySystems;
 using JetBrains.Annotations;
 using Robust.Shared.Map;
 

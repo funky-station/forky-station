@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2024 osjarw
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.NPC.HTN;
 
 [ImplicitDataDefinitionForInheritors]

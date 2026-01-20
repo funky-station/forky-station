@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 qwerltaz
+// SPDX-FileCopyrightText: 2025 B_Kirill
+// SPDX-FileCopyrightText: 2025 TemporalOroboros
+// SPDX-FileCopyrightText: 2023 Jackrost
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Server.Popups;
 using Content.Shared.Spider;

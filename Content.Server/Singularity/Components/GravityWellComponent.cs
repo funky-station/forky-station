@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 TemporalOroboros
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Singularity.Components;
 using Content.Server.Singularity.EntitySystems;
 

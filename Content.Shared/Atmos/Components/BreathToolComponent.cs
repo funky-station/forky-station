@@ -1,4 +1,7 @@
-﻿using Content.Shared.Body.Components;
+// SPDX-FileCopyrightText: 2025 metalgearsloth
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Body.Components;
 using Content.Shared.Inventory;
 using Robust.Shared.GameStates;
 

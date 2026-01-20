@@ -1,4 +1,11 @@
-﻿using Content.Shared.Eui;
+// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-FileCopyrightText: 2022 wrexbe
+// SPDX-FileCopyrightText: 2021 Visne
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Eui;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 

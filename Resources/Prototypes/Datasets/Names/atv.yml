@@ -1,4 +1,8 @@
-﻿- type: localizedDataset
+# SPDX-FileCopyrightText: 2025 MilenVolf
+# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-License-Identifier: MIT
+
+- type: localizedDataset
   id: DescriptionsATV
   values:
     prefix: descriptions-atv-dataset-

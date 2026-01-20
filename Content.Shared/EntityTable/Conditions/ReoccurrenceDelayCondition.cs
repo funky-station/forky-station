@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-License-Identifier: MIT
+
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Content.Shared.EntityTable.EntitySelectors;
 using Content.Shared.GameTicking;

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-License-Identifier: MIT
+
 using Content.Client.Radio.Ui;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;

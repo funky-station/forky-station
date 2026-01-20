@@ -1,3 +1,9 @@
+# SPDX-FileCopyrightText: 2026 ThatGuyUSA
+# SPDX-FileCopyrightText: 2025 beck-thompson
+# SPDX-FileCopyrightText: 2025 UpAndLeaves
+# SPDX-FileCopyrightText: 2024 Winkarst
+# SPDX-License-Identifier: MIT
+
 - type: job
   id: CBURN
   name: job-name-cburn

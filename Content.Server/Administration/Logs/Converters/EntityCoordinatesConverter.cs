@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Leon Friedrich
+// SPDX-FileCopyrightText: 2025 J
+// SPDX-FileCopyrightText: 2024 Errant
+// SPDX-FileCopyrightText: 2023 Chief-Engineer
+// SPDX-License-Identifier: MIT
+
 using System.Text.Json;
 using Content.Shared.Station.Components;
 using Robust.Shared.Map;

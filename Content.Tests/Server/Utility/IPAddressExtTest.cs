@@ -1,4 +1,10 @@
-﻿using System.Net;
+// SPDX-FileCopyrightText: 2024 TGRCDev
+// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2021 DrSmugleaf
+// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers
+// SPDX-License-Identifier: MIT
+
+using System.Net;
 using Content.Server.IP;
 using NUnit.Framework;
 

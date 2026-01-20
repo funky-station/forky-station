@@ -1,4 +1,9 @@
-﻿using Content.Shared.Medical.SuitSensor;
+// SPDX-FileCopyrightText: 2023 Julian Giebel
+// SPDX-FileCopyrightText: 2024 Julian Giebel
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Medical.SuitSensor;
 using Robust.Shared.Map;
 
 namespace Content.Server.Medical.CrewMonitoring;

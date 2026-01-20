@@ -1,4 +1,7 @@
-﻿using System.IO;
+// SPDX-FileCopyrightText: 2022 Javier Guardia Fernández
+// SPDX-License-Identifier: MIT
+
+using System.IO;
 using System.Reflection;
 
 namespace Content.MapRenderer.Extensions

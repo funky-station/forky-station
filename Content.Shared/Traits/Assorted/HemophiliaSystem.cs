@@ -1,4 +1,8 @@
-﻿using Content.Shared.Body.Events;
+// SPDX-FileCopyrightText: 2025 ScarKy0
+// SPDX-FileCopyrightText: 2025 TheFlyingSentry
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Body.Events;
 using Content.Shared.StatusEffectNew;
 
 namespace Content.Shared.Traits.Assorted;

@@ -1,4 +1,7 @@
-﻿using Robust.Shared.Player;
+// SPDX-FileCopyrightText: 2025 SlamBamActionman
+// SPDX-License-Identifier: MIT
+
+using Robust.Shared.Player;
 
 namespace Content.Server.GameTicking.Events;
 

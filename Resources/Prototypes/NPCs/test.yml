@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2024 degradka
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-License-Identifier: MIT
+
 # Selects a random pathfind point and tries to move there.
 - type: htnCompound
   id: MoveToPathfindPointCompound

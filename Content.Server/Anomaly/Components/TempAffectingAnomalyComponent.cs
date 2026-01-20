@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 ThunderBear2006
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.Anomaly.Components;
 
 /// <summary>

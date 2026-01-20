@@ -1,4 +1,8 @@
-﻿using Content.Client.Storage.Components;
+// SPDX-FileCopyrightText: 2025 Tayrtahn
+// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-License-Identifier: MIT
+
+using Content.Client.Storage.Components;
 using Content.Shared.Rounding;
 using Content.Shared.Storage;
 using Robust.Client.GameObjects;

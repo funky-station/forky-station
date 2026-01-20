@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2023 RadioMull
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-FileCopyrightText: 2022 Jacob Tong
+// SPDX-License-Identifier: MIT
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

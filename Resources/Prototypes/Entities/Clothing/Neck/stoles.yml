@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025 lzk
+# SPDX-FileCopyrightText: 2023 Ubaser
+# SPDX-License-Identifier: MIT
+
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckStoleChaplain

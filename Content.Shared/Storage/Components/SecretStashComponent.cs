@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 beck-thompson
+// SPDX-FileCopyrightText: 2025 beck-thompson
+// SPDX-FileCopyrightText: 2024 brainfood1183
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Item;

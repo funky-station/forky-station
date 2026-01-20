@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 brainfood1183
+// SPDX-FileCopyrightText: 2023 metalgearsloth
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Random;
 using Robust.Shared.Audio.Systems;

@@ -1,3 +1,23 @@
+# SPDX-FileCopyrightText: 2025 Damn Feds
+# SPDX-FileCopyrightText: 2025 Deerstop
+# SPDX-FileCopyrightText: 2024 spanky-spanky
+# SPDX-FileCopyrightText: 2022 Emisse
+# SPDX-FileCopyrightText: 2023 Emisse
+# SPDX-FileCopyrightText: 2024 Emisse
+# SPDX-FileCopyrightText: 2024 Leon Friedrich
+# SPDX-FileCopyrightText: 2024 Ubaser
+# SPDX-FileCopyrightText: 2023 Flareguy
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 LankLTE
+# SPDX-FileCopyrightText: 2023 Chief-Engineer
+# SPDX-FileCopyrightText: 2022 Moony
+# SPDX-FileCopyrightText: 2023 Moony
+# SPDX-FileCopyrightText: 2023 778b
+# SPDX-FileCopyrightText: 2022 Rane
+# SPDX-FileCopyrightText: 2022 metalgearsloth
+# SPDX-FileCopyrightText: 2022 Peptide90
+# SPDX-License-Identifier: MIT
+
 - type: gameMap
   id: Elkridge
   mapName: 'Elkridge Depot'

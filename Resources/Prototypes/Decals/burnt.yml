@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2024 Winkarst
+# SPDX-License-Identifier: MIT
+
 - type: decal
   id: burnt1
   tags: ["burnt"]

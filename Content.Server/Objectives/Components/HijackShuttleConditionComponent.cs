@@ -1,4 +1,7 @@
-﻿using Content.Server.Objectives.Systems;
+// SPDX-FileCopyrightText: 2023 Morb
+// SPDX-License-Identifier: MIT
+
+using Content.Server.Objectives.Systems;
 
 namespace Content.Server.Objectives.Components;
 

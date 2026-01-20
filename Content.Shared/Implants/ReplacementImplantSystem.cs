@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Implants.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;

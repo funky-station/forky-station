@@ -1,4 +1,7 @@
-﻿using Content.Shared.Armor;
+// SPDX-FileCopyrightText: 2023 Nemanja
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Armor;
 
 namespace Content.Client.Armor;
 

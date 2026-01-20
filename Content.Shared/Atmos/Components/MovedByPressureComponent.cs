@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 lzk
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Atmos.Components;
 
 // Unfortunately can't be friends yet due to magboots.

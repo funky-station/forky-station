@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 Errant
+# SPDX-License-Identifier: MIT
+
 - type: antag
   id: GenericAntagonist
   name: roles-antag-generic-solo-antagonist-name

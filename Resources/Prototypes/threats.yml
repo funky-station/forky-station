@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2023 Leon Friedrich
+# SPDX-License-Identifier: MIT
+
 # threats called in by ninja hacking comms console
 - type: weightedRandom
   id: NinjaThreats

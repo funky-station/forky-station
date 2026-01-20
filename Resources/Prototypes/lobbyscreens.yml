@@ -1,3 +1,19 @@
+# SPDX-FileCopyrightText: 2025 Matthew Herber
+# SPDX-FileCopyrightText: 2024 Snicket
+# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2024 Psychpsyo
+# SPDX-FileCopyrightText: 2024 T-Stalker
+# SPDX-FileCopyrightText: 2024 Terraspark4941
+# SPDX-FileCopyrightText: 2024 PoorMansDreams
+# SPDX-FileCopyrightText: 2024 Ubaser
+# SPDX-FileCopyrightText: 2024 brainfood1183
+# SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson
+# SPDX-FileCopyrightText: 2024 Alekshhh
+# SPDX-FileCopyrightText: 2022 keronshb
+# SPDX-FileCopyrightText: 2022 hubismal
+# SPDX-FileCopyrightText: 2022 Moony
+# SPDX-License-Identifier: MIT
+
 - type: lobbyBackground
   id: Warden
   background: /Textures/LobbyScreens/warden.webp

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2025 āda
+# SPDX-License-Identifier: MIT
+
 # For cosmetic belts parenting off ClothingBeltBase
 
 - type: entity

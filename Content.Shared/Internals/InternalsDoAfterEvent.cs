@@ -1,4 +1,10 @@
-﻿using Content.Shared.Alert;
+// SPDX-FileCopyrightText: 2025 Ciarán Walsh
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Alert;
 using Content.Shared.DoAfter;
 using Robust.Shared.Serialization;
 

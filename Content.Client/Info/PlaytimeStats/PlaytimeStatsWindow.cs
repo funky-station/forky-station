@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 Stalen
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2023 Repo
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Client.Players.PlayTimeTracking;

@@ -1,4 +1,9 @@
-﻿using Content.Shared.Mobs.Components;
+// SPDX-FileCopyrightText: 2025 PJB3005
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Mobs.Components;
 using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
 

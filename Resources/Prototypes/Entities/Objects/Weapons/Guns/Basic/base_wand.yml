@@ -1,4 +1,10 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2025 ScarKy0
+# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-License-Identifier: MIT
+
+- type: entity
   id: WeaponWandBase
   abstract: true
   parent: [ BaseItem, BaseMagicalContraband ]

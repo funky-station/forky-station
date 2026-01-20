@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.DeviceNetwork.Systems;
 
 namespace Content.Client.DeviceNetwork.Systems;

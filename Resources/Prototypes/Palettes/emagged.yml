@@ -1,4 +1,7 @@
-﻿- type: palette
+# SPDX-FileCopyrightText: 2023 AJCM-git
+# SPDX-License-Identifier: MIT
+
+- type: palette
   id: Emagged
   name: Emagged
   colors:

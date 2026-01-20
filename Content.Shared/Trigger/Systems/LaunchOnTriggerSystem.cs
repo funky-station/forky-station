@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+// SPDX-License-Identifier: MIT
+
 using System.Numerics;
 using Content.Shared.Trigger.Components.Effects;
 using Robust.Shared.Physics.Components;

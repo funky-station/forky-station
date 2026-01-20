@@ -1,3 +1,10 @@
+# SPDX-FileCopyrightText: 2025 Archee
+# SPDX-FileCopyrightText: 2025 Tao
+# SPDX-FileCopyrightText: 2023 brainfood1183
+# SPDX-FileCopyrightText: 2022 Chris V
+# SPDX-FileCopyrightText: 2022 Fishfish458
+# SPDX-License-Identifier: MIT
+
 - type: constructionGraph
   id: DoorGraph
   start: start

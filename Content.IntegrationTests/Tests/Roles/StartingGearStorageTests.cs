@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2025 Winkarst
+// SPDX-FileCopyrightText: 2024 Jajsha
+// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 Mr. 27
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Content.Shared.Roles;
 using Content.Server.Storage.EntitySystems;

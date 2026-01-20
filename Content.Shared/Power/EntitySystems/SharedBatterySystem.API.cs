@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 Pok
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Power.Components;
 using JetBrains.Annotations;
 

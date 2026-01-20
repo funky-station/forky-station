@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024 themias
+// SPDX-License-Identifier: MIT
+
 namespace Content.Shared.Kitchen;
 
 /// <summary>

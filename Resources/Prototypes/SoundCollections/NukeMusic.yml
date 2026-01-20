@@ -1,4 +1,12 @@
-﻿- type: soundCollection
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
+# SPDX-FileCopyrightText: 2025 Errant
+# SPDX-FileCopyrightText: 2024 Piras314
+# SPDX-FileCopyrightText: 2024 marbow
+# SPDX-FileCopyrightText: 2024 he1acdvv
+# SPDX-FileCopyrightText: 2023 pofitlo
+# SPDX-License-Identifier: MIT
+
+- type: soundCollection
   id: NukeMusic
   files:
     - /Audio/StationEvents/running_out.ogg

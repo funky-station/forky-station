@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2024 goet
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Leon Friedrich
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Wires;
 
 namespace Content.Server.Wires;

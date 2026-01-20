@@ -1,4 +1,7 @@
-﻿- type: playerConnectionWhitelist
+# SPDX-FileCopyrightText: 2024 Simon
+# SPDX-License-Identifier: MIT
+
+- type: playerConnectionWhitelist
   id: basicWhitelist # Basic whitelist using only the ManualWhitelist condition
   conditions:
     - !type:ConditionManualWhitelistMembership

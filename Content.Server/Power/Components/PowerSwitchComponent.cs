@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2023 Rane
+// SPDX-License-Identifier: MIT
+
 namespace Content.Server.Power.Components
 {
     /// <summary>

@@ -1,3 +1,14 @@
+# SPDX-FileCopyrightText: 2025 Schuyler Duryee
+# SPDX-FileCopyrightText: 2024 zzylex
+# SPDX-FileCopyrightText: 2023 Darkie
+# SPDX-FileCopyrightText: 2023 RieBi
+# SPDX-FileCopyrightText: 2023 Nim
+# SPDX-FileCopyrightText: 2023 deltanedas
+# SPDX-FileCopyrightText: 2023 Jessetriesagain
+# SPDX-FileCopyrightText: 2023 LankLTE
+# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-License-Identifier: MIT
+
 - files: ["plasma_cutter.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from Citadel station."

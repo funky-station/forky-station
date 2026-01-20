@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-License-Identifier: MIT
+
 using System.Linq;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map.Components;

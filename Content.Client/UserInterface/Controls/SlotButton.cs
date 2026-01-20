@@ -1,4 +1,9 @@
-﻿using static Content.Client.Inventory.ClientInventorySystem;
+// SPDX-FileCopyrightText: 2024 Nemanja
+// SPDX-FileCopyrightText: 2022 DrSmugleaf
+// SPDX-FileCopyrightText: 2022 Jezithyr
+// SPDX-License-Identifier: MIT
+
+using static Content.Client.Inventory.ClientInventorySystem;
 
 namespace Content.Client.UserInterface.Controls
 {

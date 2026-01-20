@@ -1,4 +1,8 @@
-﻿using Content.Shared.Explosion.Components;
+// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2024 Plykiya
+// SPDX-License-Identifier: MIT
+
+using Content.Shared.Explosion.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Trigger;
 using Content.Shared.Trigger.Systems;
