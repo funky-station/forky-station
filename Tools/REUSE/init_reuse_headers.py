@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# REUSE HEADER NONSENSE
 import os
 import subprocess
 import sys
@@ -90,7 +91,7 @@ def build_header(ext, authors):
     header.append(f"{comment} SPDX-License-Identifier: {DEFAULT_LICENSE}")
     header.append("")
 
-    return "\n".join(header) 
+    return "\n".join(header)
 
 
 def process_single_file(args):
@@ -140,7 +141,7 @@ def process_single_file(args):
         try:
             with open(filepath, "w", encoding="utf-8") as f:
                 f.write(header)
-                f.write("\n") 
+                f.write("\n")
                 f.write(content)
             processed_counter += 1
             return True
