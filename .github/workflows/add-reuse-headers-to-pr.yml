@@ -6,7 +6,7 @@ on:
 
 permissions:
   pull-requests: write
-  contents: read
+  contents: write
 
 jobs:
   reuse:
@@ -18,6 +18,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -147,7 +148,7 @@ jobs:
       run: |
         git diff --name-only origin/${{ github.base_ref }}...HEAD > changed_files.txt
 
-    - name: Run REUSE header check
+    - name: Process REUSE headers
       if: steps.license_gate.outputs.continue == 'true'
       run: |
         FILES=""
@@ -167,4 +168,50 @@ jobs:
           echo "No relevant files changed — skipping REUSE check."
           exit 0
         fi
+        
+        echo "Processing files: $FILES"
+        
         python3 Tools/REUSE/process_reuse_headers_for_pr.py $FILES
+
+    - name: Commit and push fixes
+      if: steps.license_gate.outputs.continue == 'true'
+      run: |
+        # Check if there are any changes to commit
+        if ! git diff --quiet; then
+          echo "Changes detected. Preparing to commit..."
+        
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+        
+          PR_REF="${{ github.event.pull_request.head.ref }}"
+          echo "PR branch: $PR_REF"
+          git add -A
+          echo "Modified files:"
+          git diff --name-only --cached
+          LICENSE="${{ steps.license_gate.outputs.REUSE_LICENSE }}"
+          COMMIT_MSG="chore: Auto-fix REUSE headers"
+          if [ -n "$LICENSE" ]; then
+            COMMIT_MSG="$COMMIT_MSG\n\nLicense: $LICENSE"
+          fi
+          echo -e "$COMMIT_MSG" | git commit -F -
+        
+          # Push changes back to the PR branch
+          echo "Pushing to $PR_REF..."
+          git push origin HEAD:$PR_REF
+        
+          echo "Header changes committed and pushed to PR"
+        
+          COMMENT_BODY="**REUSE Bot**: Your PR has been updated to include REUSE headers."
+          if [ -n "$LICENSE" ]; then
+            COMMENT_BODY="$COMMENT_BODY\n\n*License applied: \`$LICENSE\`*"
+          fi
+        
+          echo -e "$COMMIT_BODY" | \
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments \
+            -d "{\"body\": \"$(echo -e "$COMMIT_BODY" | sed -z 's/\n/\\n/g')\"}"
+        else
+          echo "✅ No header fixes needed - everything is already correct"
+        fi
