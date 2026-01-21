@@ -9,7 +9,6 @@
   - type: MachineBoard
     prototype: MusicTechFab
     stackRequirements:
-      MatterBin: 2
       Manipulator: 2
     tagRequirements:
       GlassBeaker:
