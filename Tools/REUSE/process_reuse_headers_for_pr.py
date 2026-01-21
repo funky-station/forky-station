@@ -20,22 +20,31 @@ def log(msg):
     with lock:
         print(msg)
 
-def is_bot_author(author_name: str) -> bool:
-    """Check if an author name belongs to a bot."""
+def is_bot_author(author_name: str, author_email: str = "") -> bool:
+    """Check if an author name or email belongs to a bot."""
     lower_name = author_name.lower()
-    return any(keyword.lower() in lower_name for keyword in BOT_KEYWORDS)
+    lower_email = author_email.lower() if author_email else ""
+
+    # Check name for bot patterns
+    name_is_bot = any(keyword.lower() in lower_name for keyword in BOT_KEYWORDS)
+
+    # Check email for bot patterns
+    email_is_bot = any(keyword.lower() in lower_email for keyword in BOT_KEYWORDS) if author_email else False
+
+    return name_is_bot or email_is_bot
 
 def has_reuse_header(content: str) -> bool:
     return "SPDX-License-Identifier:" in content[:MAX_HEADER_SCAN]
 
 def get_git_authors(filepath: str):
     try:
+        # Get name, email, and year
         result = subprocess.run(
             [
                 "git",
                 "log",
                 "--follow",
-                "--format=%an|%ad",
+                "--format=%an|%ae|%ad",  # name|email|date
                 "--date=format:%Y",
                 filepath,
             ],
@@ -51,25 +60,41 @@ def get_git_authors(filepath: str):
     for line in result.stdout.splitlines():
         if "|" not in line:
             continue
-        name, year = line.split("|", 1)
-        name = name.strip()
 
-        # Skip bot authors
-        if is_bot_author(name):
+        parts = line.split("|", 2)
+        if len(parts) != 3:
             continue
 
-        authors.setdefault(name, set()).add(year.strip())
+        name, email, year = parts
+        name = name.strip()
+        email = email.strip()
+        year = year.strip()
 
-    return [(a, sorted(y)) for a, y in authors.items()]
+        # Skip bot authors
+        if is_bot_author(name, email):
+            continue
+
+        # Use tuple (name, email) as key
+        author_key = (name, email)
+        authors.setdefault(author_key, set()).add(year)
+
+    return [(author_info, sorted(years)) for author_info, years in authors.items()]
+
+def format_author_display(author_info):
+    """Format author info for display in logs"""
+    name, email = author_info
+    return f"{name} <{email}>"
 
 def build_header(ext: str, authors):
     comment = "//" if ext == ".cs" else "#"
     lines = []
 
-    for author, years in authors:
+    for author_info, years in authors:
+        name, email = author_info
         for year in years:
+            # Format: // SPDX-FileCopyrightText: 2025 Yellow <yellow@funkystation.org>
             lines.append(
-                f"{comment} SPDX-FileCopyrightText: {year} {author}"
+                f"{comment} SPDX-FileCopyrightText: {year} {name} <{email}>"
             )
 
     lines.append(f"{comment} SPDX-License-Identifier: {DEFAULT_LICENSE}")
@@ -115,7 +140,8 @@ def process_file(filepath: str, dry_run: bool):
     if dry_run:
         processed += 1
         log(f"[MISSING HEADER] {filepath}")
-        log(f"  Authors: {[a[0] for a in authors]}")
+        author_list = [format_author_display(a[0]) for a in authors]
+        log(f"  Authors: {', '.join(author_list)}")
         return True
 
     try:
@@ -125,7 +151,8 @@ def process_file(filepath: str, dry_run: bool):
             f.write(content)
         processed += 1
         log(f"[UPDATED] {filepath}")
-        log(f"  Authors: {[a[0] for a in authors]}")
+        author_list = [format_author_display(a[0]) for a in authors]
+        log(f"  Authors: {', '.join(author_list)}")
         return True
     except Exception as e:
         errors += 1
@@ -157,6 +184,9 @@ def main():
     print(f"Files needing headers: {processed}")
     print(f"Files skipped: {skipped}")
     print(f"Errors: {errors}")
+
+    if dry_run:
+        print(f"\nBot patterns ignored: {', '.join(BOT_KEYWORDS)}")
 
     if dry_run and processed > 0:
         print("\nREUSE headers missing on modified files.")
