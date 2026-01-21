@@ -1,7 +1,6 @@
-# SPDX-FileCopyrightText: 2025 slarticodefast
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
 
-# Mob
 - type: entity
   parent: BaseMob
   id: MobParadox

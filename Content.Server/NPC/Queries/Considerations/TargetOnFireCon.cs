@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Golinth
+// SPDX-FileCopyrightText: 2024 Golinth <amh2023@gmail.com>
 // SPDX-License-Identifier: MIT
 
 namespace Content.Server.NPC.Queries.Considerations;

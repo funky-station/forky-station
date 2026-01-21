@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Tornado Tech
+// SPDX-FileCopyrightText: 2024 Tornado Tech <54727692+Tornado-Technology@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 namespace Content.Server.NPC.HTN.Preconditions;

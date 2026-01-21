@@ -1,7 +1,7 @@
-# SPDX-FileCopyrightText: 2025 Smith
-# SPDX-FileCopyrightText: 2025 Boaz1111
-# SPDX-FileCopyrightText: 2023 Interrobang01
-# SPDX-FileCopyrightText: 2023 ChilbroBaggins
+# SPDX-FileCopyrightText: 2023 Interrobang01 <113810873+Interrobang01@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 ChilbroBaggins <107660393+ChilbroBaggins@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Smith <182301147+AgentSmithRadio@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
 
 - type: vendingMachineInventory

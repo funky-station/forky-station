@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 qwerltaz
+// SPDX-FileCopyrightText: 2025 qwerltaz <msmarcinpl@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.GameStates;

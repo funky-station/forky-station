@@ -1,43 +1,20 @@
-# SPDX-FileCopyrightText: 2025 Nemanja
-# SPDX-FileCopyrightText: 2024 lzk
-# SPDX-FileCopyrightText: 2024 themias
-# SPDX-FileCopyrightText: 2023 sneb
-# SPDX-FileCopyrightText: 2023 Kara
-# SPDX-FileCopyrightText: 2023 Danger Revolution!
-# SPDX-FileCopyrightText: 2023 Errant
-# SPDX-FileCopyrightText: 2023 Vordenburg
-# SPDX-FileCopyrightText: 2022 Myctai
-# SPDX-FileCopyrightText: 2022 Fooberticus Bazly
-# SPDX-FileCopyrightText: 2022 Rane
-# SPDX-FileCopyrightText: 2021 Peptide90
-# SPDX-FileCopyrightText: 2022 Peptide90
-# SPDX-FileCopyrightText: 2021 Kara D
-# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2021 Swept
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2021-2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Kara D <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Fooberticus Bazly <34943053+fooberticus@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 sneb <96957003+snebl@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 Danger Revolution! <142105406+DangerRevolution@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Errant <35878406+dmnct@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
-
-# Moles calculation
-#
-#   moles = 1000 / (8.31446261 * 293.15 / volume)
-#
-#   More practically:
-#
-#   moles = volume * 0.41027581
-#
-#   Yes, you do need all those digits or your pressure wont end up exactly 1000
-#
-#
-# The number 1000 comes from the default MaxReleasePressure for a GasCanister,
-# which is 10 * Atmospherics.OneAtmosphere, rounded down.
-#
-# 8.31446261 is the universal gas constant
-#
-# 293.15 is our default atmospheric temperature
-#
-
-# If you change the mole amounts, you can calculate the new gas supply times with:
-# minutes = (moles / outputPressure) * 325
 
 - type: entity
   id: OxygenTankFilled

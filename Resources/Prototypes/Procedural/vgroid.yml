@@ -1,19 +1,8 @@
-# SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2024 metalgearsloth
-# SPDX-FileCopyrightText: 2025 metalgearsloth
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2025 Nemanja
-# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 # SPDX-License-Identifier: MIT
-
-# Okay so my general thought is this:
-# 1. Generate the large mass
-# 2. Generate smaller masses offset
-# 3. Generate N normal dungeons around the larger mass, preferably near the border
-# 4. Generate large paths / small paths around the place
-# 5. Spawn ores + fill the rest and the normal stuff
-
-# If you want mobs they needed to be added at specific steps due to how dungeons work at the moment.
 
 - type: dungeonConfig
   id: VGRoid

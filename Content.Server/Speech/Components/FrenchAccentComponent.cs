@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: 2024 TakoDragon
-// SPDX-FileCopyrightText: 2024 brainfood1183
+// SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Speech.EntitySystems;

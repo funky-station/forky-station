@@ -1,13 +1,10 @@
-# SPDX-FileCopyrightText: 2025 RedBookcase
-# SPDX-FileCopyrightText: 2024 ArtisticRoomba
-# SPDX-FileCopyrightText: 2024 Minemoder5000
-# SPDX-FileCopyrightText: 2024 lzk
-# SPDX-FileCopyrightText: 2024 Rouge2t7
-# SPDX-FileCopyrightText: 2024 Ty Ashley
+# SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Minemoder5000 <minemoder50000@gmail.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ty Ashley <42426760+TyAshley@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
 # SPDX-License-Identifier: MIT
-
-# Attempted to keep the files in alphabetical order so its easier to audit.
-# Finding individual authors is an unfeasible task. If you can reference the author please do so.
 
 - files: ["beep.png"]
   license: "CC-BY-SA-3.0"

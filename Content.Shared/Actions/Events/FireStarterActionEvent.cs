@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 brainfood1183
+// SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 namespace Content.Shared.Actions.Events;

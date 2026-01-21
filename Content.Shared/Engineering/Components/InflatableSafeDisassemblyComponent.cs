@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 FungiFellow
+// SPDX-FileCopyrightText: 2025 FungiFellow <151778459+FungiFellow@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Engineering.Systems;

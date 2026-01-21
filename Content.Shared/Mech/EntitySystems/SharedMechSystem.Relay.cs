@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 nikitosych
+// SPDX-FileCopyrightText: 2025 nikitosych <boriszyn@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Interaction.Events;

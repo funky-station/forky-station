@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: 2024 Zachary Higgs
-// SPDX-FileCopyrightText: 2024 Simon
+// SPDX-FileCopyrightText: 2024 Zachary Higgs <compgeek223@gmail.com>
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Administration.Managers;

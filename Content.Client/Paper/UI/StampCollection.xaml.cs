@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2023 eoineoineoin
+// SPDX-FileCopyrightText: 2023 eoineoineoin <github@eoinrul.es>
 // SPDX-License-Identifier: MIT
 
 using System.Numerics;

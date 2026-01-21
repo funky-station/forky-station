@@ -1,12 +1,9 @@
-# SPDX-FileCopyrightText: 2025 PJB3005
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
-# SPDX-FileCopyrightText: 2025 PicklOH
-# SPDX-FileCopyrightText: 2025 Connor Huffine
+# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2025 PicklOH <62030853+PicklOH@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Connor Huffine <chuffine@gmail.com>
 # SPDX-License-Identifier: MIT
 
-## Static recipes
-
-# Added to emagged autolathe
 - type: latheRecipePack
   id: SyndicateAmmoStatic
   recipes:

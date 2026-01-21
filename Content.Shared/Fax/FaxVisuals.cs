@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022 Morb
+// SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.Serialization;

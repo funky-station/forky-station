@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: 2024 Token
-// SPDX-FileCopyrightText: 2024 no
+// SPDX-FileCopyrightText: 2024 Token <56667933+TokenStyle@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using System.Linq;

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Matthew Herber
+// SPDX-FileCopyrightText: 2025 Matthew Herber <32679887+Happyrobot33@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.Prototypes;

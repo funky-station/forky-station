@@ -1,21 +1,14 @@
-# SPDX-FileCopyrightText: 2025 ScarKy0
-# SPDX-FileCopyrightText: 2025 SlamBamActionman
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
-# SPDX-FileCopyrightText: 2025 TheFlyingSentry
-# SPDX-FileCopyrightText: 2025 Mora
-# SPDX-FileCopyrightText: 2025 poklj
-# SPDX-FileCopyrightText: 2025 slarticodefast
-# SPDX-FileCopyrightText: 2025 imatsoup
-# SPDX-FileCopyrightText: 2025 Quantum-cross
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheFlyingSentry <170261226+TheFlyingSentry@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 poklj <compgeek223@gmail.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 imatsoup <93290208+imatsoup@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
 
-# Settings for cloning bodies
-# If you add a new trait, job specific component or a component doing visual/examination changes for humanoids
-# then add it here to the correct prototype.
-# The datafields of the components copied using CopyComp.
-# Subscribe to CloningEvent instead if that is not enough.
-
-# for basic physical traits
 - type: cloningSettings
   id: Body
   components:

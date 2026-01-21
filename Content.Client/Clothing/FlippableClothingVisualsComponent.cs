@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Cojoke
+// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 namespace Content.Client.Clothing;

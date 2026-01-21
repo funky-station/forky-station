@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: 2025 Ciarán Walsh
-// SPDX-FileCopyrightText: 2023 Hebi
+// SPDX-FileCopyrightText: 2023 Hebi <spiritbreakz@gmail.com>
+// SPDX-FileCopyrightText: 2025 Ciarán Walsh <github@ciaranwal.sh>
 // SPDX-License-Identifier: MIT
 
 using System.Diagnostics.CodeAnalysis;

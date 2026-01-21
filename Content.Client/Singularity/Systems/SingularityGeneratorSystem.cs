@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Saphire
+// SPDX-FileCopyrightText: 2024 Saphire <lattice@saphi.re>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Singularity.EntitySystems;

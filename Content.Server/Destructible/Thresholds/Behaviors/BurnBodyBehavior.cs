@@ -1,6 +1,6 @@
-// SPDX-FileCopyrightText: 2026 SomegnihT
-// SPDX-FileCopyrightText: 2025 Tayrtahn
-// SPDX-FileCopyrightText: 2024 Whisper
+// SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2026 SomegnihT <145168694+SomegnihT@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Body.Components;

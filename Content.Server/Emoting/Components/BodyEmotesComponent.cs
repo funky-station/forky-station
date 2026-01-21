@@ -1,6 +1,6 @@
-// SPDX-FileCopyrightText: 2025 poklj
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 Alex Evgrashin
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Alex Evgrashin <aevgrashin@yandex.ru>
+// SPDX-FileCopyrightText: 2025 poklj <compgeek223@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Emoting.Systems;

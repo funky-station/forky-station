@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 SpeltIncorrectyl
+// SPDX-FileCopyrightText: 2025 SpeltIncorrectyl <66873282+SpeltIncorrectyl@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.GameStates;

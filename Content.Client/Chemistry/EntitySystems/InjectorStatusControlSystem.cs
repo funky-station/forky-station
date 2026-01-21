@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Sir Warock
+// SPDX-FileCopyrightText: 2025 Sir Warock <67167466+SirWarock@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Client.Chemistry.UI;

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# REUSE HEADER NONSENSE
 import os
 import subprocess
 import sys
@@ -9,6 +10,7 @@ import time
 REPO_ROOT = os.getcwd()
 TARGET_EXTENSIONS = {".cs", ".yml", ".yaml"}
 DEFAULT_LICENSE = "MIT"
+BOT_KEYWORDS = ["[bot]", "-bot-", "github-actions"]  # Common bot name patterns
 
 # Thread-safe counters
 processed_counter = 0
@@ -22,6 +24,11 @@ def print_thread_safe(message):
     if dry_run_mode:
         with print_lock:
             print(message)
+
+def is_bot_author(author_info: str) -> bool:
+    """Check if an author name or email belongs to a bot."""
+    lower_info = author_info.lower()
+    return any(keyword.lower() in lower_info for keyword in BOT_KEYWORDS)
 
 def is_target_folder(folder_path):
     """
@@ -51,11 +58,12 @@ def has_reuse_header(content):
     return "SPDX-License-Identifier:" in check_content
 
 def get_git_authors(filepath):
-    """Get git authors for a file"""
+    """Get git authors and emails for a file"""
     try:
         abs_path = os.path.abspath(filepath)
+        # Get both name and email
         result = subprocess.run(
-            ["git", "log", "--follow", "--format=%an|%ad", "--date=format:%Y", abs_path],
+            ["git", "log", "--follow", "--format=%an|%ae|%ad", "--date=format:%Y", abs_path],
             stdout=subprocess.PIPE,
             stderr=subprocess.DEVNULL,
             text=True,
@@ -72,26 +80,75 @@ def get_git_authors(filepath):
     authors = {}
     for line in result.stdout.splitlines():
         if "|" in line:
-            name, year = line.split("|", 1)
-            authors.setdefault(name.strip(), set()).add(year.strip())
+            parts = line.split("|", 2)
+            if len(parts) == 3:
+                name, email, year = parts
+                name = name.strip()
+                email = email.strip()
+                year = year.strip()
 
-    return [(author, sorted(years)) for author, years in authors.items()]
+                # Skip bot authors
+                if is_bot_author(name) or is_bot_author(email):
+                    if dry_run_mode:
+                        print_thread_safe(f"  Skipping bot author: {name} <{email}>")
+                    continue
+
+                # Use author info as tuple (name, email)
+                author_key = (name, email)
+                authors.setdefault(author_key, set()).add(year)
+
+    return [(author_info, sorted(years)) for author_info, years in authors.items()]
+
+def format_years(years):
+    """Format years into ranges like 2023-2025 or 2023, 2025"""
+    if not years:
+        return ""
+
+    # Convert to integers and sort
+    years_int = sorted(set(int(y) for y in years))
+    ranges = []
+    start = years_int[0]
+    end = years_int[0]
+
+    for year in years_int[1:]:
+        if year == end + 1:
+            end = year
+        else:
+            if start == end:
+                ranges.append(str(start))
+            else:
+                ranges.append(f"{start}-{end}")
+            start = year
+            end = year
+
+    if start == end:
+        ranges.append(str(start))
+    else:
+        ranges.append(f"{start}-{end}")
+
+    return ", ".join(ranges)
 
 def build_header(ext, authors):
     comment = "//" if ext == ".cs" else "#"
     header = []
 
-    for author, years in authors:
-        for year in years:
-            clean_author = author.strip()
-            clean_year = str(year).strip()
-            header.append(f"{comment} SPDX-FileCopyrightText: {clean_year} {clean_author}")
+    for author_info, years in authors:
+        name, email = author_info
+        # Format years nicely
+        year_str = format_years(years)
+
+        # Format: // SPDX-FileCopyrightText: 2023-2025 Yellow <yellow@funkystation.org>
+        header.append(f"{comment} SPDX-FileCopyrightText: {year_str} {name} <{email}>")
 
     header.append(f"{comment} SPDX-License-Identifier: {DEFAULT_LICENSE}")
     header.append("")
 
-    return "\n".join(header) 
+    return "\n".join(header)
 
+def format_author_for_display(author_info):
+    """Format author info for display in logs"""
+    name, email = author_info
+    return f"{name} <{email}>"
 
 def process_single_file(args):
     filepath, dry_run = args
@@ -126,6 +183,8 @@ def process_single_file(args):
         authors = get_git_authors(filepath)
         if not authors:
             skipped_counter += 1
+            if dry_run_mode:
+                print_thread_safe(f"[SKIP] No non-bot authors found for: {filepath}")
             return True
 
         # Build header
@@ -134,15 +193,32 @@ def process_single_file(args):
         if dry_run:
             processed_counter += 1
             print_thread_safe(f"[DRY-RUN] Would update: {filepath}")
+            author_list = [format_author_for_display(a[0]) for a in authors]
+            print_thread_safe(f"  Authors: {', '.join(author_list)}")
+
+            # Show year ranges for each author
+            for author_info, years in authors:
+                name, email = author_info
+                year_str = format_years(years)
+                print_thread_safe(f"    {name}: {year_str}")
+
             return True
 
         # Write file with header prepended - USE utf-8 (not utf-8-sig)
         try:
             with open(filepath, "w", encoding="utf-8") as f:
                 f.write(header)
-                f.write("\n") 
+                f.write("\n")
                 f.write(content)
             processed_counter += 1
+            if dry_run_mode:
+                author_list = [format_author_for_display(a[0]) for a in authors]
+                print_thread_safe(f"  Authors added: {', '.join(author_list)}")
+                # Show year ranges for each author
+                for author_info, years in authors:
+                    name, email = author_info
+                    year_str = format_years(years)
+                    print_thread_safe(f"    {name}: {year_str}")
             return True
         except Exception as e:
             error_counter += 1
@@ -196,6 +272,7 @@ def main():
         print(f"Running in DRY-RUN mode — no files will be modified.")
         print(f"Using {workers} worker threads")
         print(f"Repo root: {REPO_ROOT}")
+        print(f"Ignoring bot authors containing: {', '.join(BOT_KEYWORDS)}")
 
     # Collect all files first
     files_to_process = collect_files_to_process()
@@ -237,9 +314,10 @@ def main():
     print("="*50)
     print(f"Target folders: Content.* and Resources (including all subfolders)")
     print(f"Target extensions: {', '.join(sorted(TARGET_EXTENSIONS))}")
+    print(f"Bot author patterns ignored: {', '.join(BOT_KEYWORDS)}")
     print(f"Total files found: {len(files_to_process)}")
     print(f"Files processed: {processed_counter}")
-    print(f"Files skipped (already had headers/no authors): {skipped_counter}")
+    print(f"Files skipped (already had headers/no non-bot authors): {skipped_counter}")
     print(f"Errors: {error_counter}")
     print(f"Time elapsed: {elapsed_time:.2f} seconds")
 

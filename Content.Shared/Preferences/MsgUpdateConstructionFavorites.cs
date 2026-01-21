@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 YotaXP
+// SPDX-FileCopyrightText: 2025 YotaXP <yotaxp@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Construction.Prototypes;

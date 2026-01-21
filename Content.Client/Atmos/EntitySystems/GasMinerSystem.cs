@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Mervill
+// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Atmos.EntitySystems;

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Zachary Higgs
+// SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.StatusIcon;

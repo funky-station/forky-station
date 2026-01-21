@@ -1,7 +1,6 @@
-// SPDX-FileCopyrightText: 2022 Javier Guardia Fernández
+// SPDX-FileCopyrightText: 2022 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
-#nullable enable
 using System;
 using System.Diagnostics.CodeAnalysis;
 

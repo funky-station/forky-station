@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2023 ShadowCommander
+// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Client.UserInterface.Systems.Info;

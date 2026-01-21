@@ -1,8 +1,5 @@
-// SPDX-FileCopyrightText: 2022 mirrorcult
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
 // SPDX-License-Identifier: MIT
-
-// There isn't really a 'default place' to put these,
-// so a file in the project top level directory it is
 
 global using System;
 global using System.Collections.Generic;

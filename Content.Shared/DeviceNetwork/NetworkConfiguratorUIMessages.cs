@@ -1,5 +1,4 @@
-// SPDX-FileCopyrightText: 2022 Julian Giebel
-// SPDX-FileCopyrightText: 2023 Julian Giebel
+// SPDX-FileCopyrightText: 2022-2023 Julian Giebel <juliangiebel@live.de>
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.Serialization;

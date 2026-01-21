@@ -1,9 +1,8 @@
-// SPDX-FileCopyrightText: 2024 Saphire
-// SPDX-FileCopyrightText: 2023 Visne
-// SPDX-FileCopyrightText: 2023 Zoldorf
-// SPDX-FileCopyrightText: 2022 TemporalOroboros
-// SPDX-FileCopyrightText: 2023 TemporalOroboros
-// SPDX-FileCopyrightText: 2022 Nemanja
+// SPDX-FileCopyrightText: 2022-2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Zoldorf <silvertorch5@gmail.com>
+// SPDX-FileCopyrightText: 2024 Saphire <lattice@saphi.re>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Singularity;

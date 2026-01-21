@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: 2026 Connor Huffine
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
+// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
+// SPDX-FileCopyrightText: 2026 Connor Huffine <chuffine@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.CCVar;

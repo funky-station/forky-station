@@ -1,17 +1,5 @@
-# SPDX-FileCopyrightText: 2023 metalgearsloth
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
-
-# 1341158413 seed cooked top 2 rooms are fucked
-# 17x5 Y
-# 11x5 Y
-# 7x5 YY
-# 5x5 YY
-# 3x5 YY
-
-# 13x3 YY
-# 11x3 Y
-# 7x3 Y
-# 7x7 Y
 
 - type: dungeonRoomPack
   id: LargeArea0

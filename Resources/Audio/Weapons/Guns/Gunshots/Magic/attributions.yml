@@ -1,9 +1,6 @@
-# SPDX-FileCopyrightText: 2022 Paul Ritter
-# SPDX-FileCopyrightText: 2022 Kara
+# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
 # SPDX-License-Identifier: MIT
-
-# BEHOLD:
-# FIRST EVER USAGE OF ROBUST GENERIC ATTRIBUTION STANDARD IN SPACE STATION 14
 
 - files: [ "staff_animation.ogg", "staff_change.ogg", "staff_chaos.ogg", "staff_door.ogg", "staff_healing.ogg" ]
   license: "CC-BY-SA-3.0"

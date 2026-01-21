@@ -1,9 +1,8 @@
-# SPDX-FileCopyrightText: 2025 BruhIsaac
-# SPDX-FileCopyrightText: 2024 HS
-# SPDX-FileCopyrightText: 2024 no
+# SPDX-FileCopyrightText: 2024 HS <81934438+HolySSSS@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BruhIsaac <dodgerike@yahoo.com>
 # SPDX-License-Identifier: MIT
 
-# for important antag roles (nukie reinforcements, ninja, etc.)
 - type: ghostRoleRaffleSettings
   id: default
   settings:

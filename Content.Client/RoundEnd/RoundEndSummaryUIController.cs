@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 wafehling
+// SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Client.GameTicking.Managers;

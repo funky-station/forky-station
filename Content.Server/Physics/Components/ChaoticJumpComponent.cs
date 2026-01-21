@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2023 Ed
+// SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Physics.Controllers;

@@ -1,6 +1,6 @@
-// SPDX-FileCopyrightText: 2024 Эдуард
-// SPDX-FileCopyrightText: 2024 deltanedas
-// SPDX-FileCopyrightText: 2024 ilya.mikheev.coder
+// SPDX-FileCopyrightText: 2024 Эдуард <36124833+Ertanic@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 ilya.mikheev.coder <imc-ext+github@ilyamikcoder.com>
 // SPDX-License-Identifier: MIT
 
 using System.Linq;

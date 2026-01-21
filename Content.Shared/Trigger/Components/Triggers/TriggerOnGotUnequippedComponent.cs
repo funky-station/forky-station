@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Artxmisery
+// SPDX-FileCopyrightText: 2025 Artxmisery <78118840+Artxmisery@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Inventory;

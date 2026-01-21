@@ -1,7 +1,6 @@
-// SPDX-FileCopyrightText: 2026 slarticodefast
+// SPDX-FileCopyrightText: 2026 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
-#nullable enable
 using Content.IntegrationTests.Tests.Interaction;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;

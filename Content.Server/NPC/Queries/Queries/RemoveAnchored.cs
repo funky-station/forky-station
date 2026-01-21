@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 osjarw
+// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.Prototypes;
