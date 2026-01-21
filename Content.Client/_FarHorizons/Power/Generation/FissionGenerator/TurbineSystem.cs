@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2025-2026 jhrushbe <capnmerry@gmail.com>
+// SPDX-FileCopyrightText: 2026 rotty <juaelwe@outlook.com>
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Map;
 using Robust.Client.GameObjects;
 using Content.Shared.Repairable;

@@ -3,6 +3,8 @@
 // SPDX-FileCopyrightText: 2022 Jesse Rougeau <jmaster9999@gmail.com>
 // SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 c4llv07e <igor@c4llv07e.xyz>
+// SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
+// SPDX-FileCopyrightText: 2026 taydeo <td12233a@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Client.Changelog;

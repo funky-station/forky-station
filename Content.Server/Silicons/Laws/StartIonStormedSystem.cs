@@ -1,6 +1,9 @@
+// SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 ScarKy0 <scarky0@onet.eu>
 // SPDX-FileCopyrightText: 2024 The Canned One <greentopcan@gmail.com>
 // SPDX-FileCopyrightText: 2024 Golden Can <greentopcan@gmail.com>
+// SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
+// SPDX-FileCopyrightText: 2026 taydeo <td12233a@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Silicons.Laws.Components;

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
+// SPDX-License-Identifier: MIT
+
 using Robust.Shared.Map;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Client.Examine;

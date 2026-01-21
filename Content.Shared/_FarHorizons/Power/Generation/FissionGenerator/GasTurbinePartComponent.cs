@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 jhrushbe <capnmerry@gmail.com>
+// SPDX-License-Identifier: MIT
+
 using Content.Shared._FarHorizons.Materials;
 using Content.Shared.Materials;
 using Robust.Shared.GameStates;

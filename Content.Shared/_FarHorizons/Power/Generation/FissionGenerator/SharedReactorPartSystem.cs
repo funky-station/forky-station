@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025-2026 jhrushbe <capnmerry@gmail.com>
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Atmos;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;

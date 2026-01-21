@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
 // SPDX-FileCopyrightText: 2023 username <113782077+whateverusername0@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
+// SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
+// SPDX-FileCopyrightText: 2026 taydeo <td12233a@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Atmos.EntitySystems;

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2025-2026 jhrushbe <capnmerry@gmail.com>
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Atmos;

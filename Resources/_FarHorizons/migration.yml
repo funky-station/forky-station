@@ -1,2 +1,5 @@
-﻿# 2025-12-22 - Restructuring of nuclear reactor prototypes to allow for better expedition experiences
+# SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
+# SPDX-License-Identifier: MIT
+
+# 2025-12-22 - Restructuring of nuclear reactor prototypes to allow for better expedition experiences
 BaseNuclearReactor: NuclearReactorNormal

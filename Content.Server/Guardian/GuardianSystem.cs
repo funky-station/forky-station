@@ -24,6 +24,8 @@
 // SPDX-FileCopyrightText: 2025 bolantej <114430388+bolantej@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 YoungThug <ramialanbagy@gmail.com>
 // SPDX-FileCopyrightText: 2025 No Elka <125199100+NoElkaTheGod@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
+// SPDX-FileCopyrightText: 2026 taydeo <td12233a@gmail.com>
 // SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
 // SPDX-License-Identifier: MIT
 

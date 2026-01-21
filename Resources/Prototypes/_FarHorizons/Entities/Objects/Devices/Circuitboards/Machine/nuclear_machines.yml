@@ -1,4 +1,7 @@
-﻿- type: entity
+# SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
+# SPDX-License-Identifier: MIT
+
+- type: entity
   id: NuclearFabricatorMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: nuclear fabricator machine board

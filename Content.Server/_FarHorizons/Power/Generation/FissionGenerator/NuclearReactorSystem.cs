@@ -1,3 +1,8 @@
+// SPDX-FileCopyrightText: 2025-2026 jhrushbe <capnmerry@gmail.com>
+// SPDX-FileCopyrightText: 2026 rotty <juaelwe@outlook.com>
+// SPDX-FileCopyrightText: 2026 princess-gurchi <kharitonovich.m+pg@gmail.com>
+// SPDX-License-Identifier: MIT
+
 using Content.Server.Administration.Logs;
 using Content.Server.AlertLevel;
 using Content.Server.Atmos.EntitySystems;
