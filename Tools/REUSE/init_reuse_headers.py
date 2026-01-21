@@ -99,19 +99,46 @@ def get_git_authors(filepath):
 
     return [(author_info, sorted(years)) for author_info, years in authors.items()]
 
+def format_years(years):
+    """Format years into ranges like 2023-2025 or 2023, 2025"""
+    if not years:
+        return ""
+
+    # Convert to integers and sort
+    years_int = sorted(set(int(y) for y in years))
+    ranges = []
+    start = years_int[0]
+    end = years_int[0]
+
+    for year in years_int[1:]:
+        if year == end + 1:
+            end = year
+        else:
+            if start == end:
+                ranges.append(str(start))
+            else:
+                ranges.append(f"{start}-{end}")
+            start = year
+            end = year
+
+    if start == end:
+        ranges.append(str(start))
+    else:
+        ranges.append(f"{start}-{end}")
+
+    return ", ".join(ranges)
+
 def build_header(ext, authors):
     comment = "//" if ext == ".cs" else "#"
     header = []
 
     for author_info, years in authors:
         name, email = author_info
-        for year in years:
-            clean_name = name.strip()
-            clean_email = email.strip()
-            clean_year = str(year).strip()
+        # Format years nicely
+        year_str = format_years(years)
 
-            # Format: // SPDX-FileCopyrightText: 2025 taydeo <tay@funkystation.org>
-            header.append(f"{comment} SPDX-FileCopyrightText: {clean_year} {clean_name} <{clean_email}>")
+        # Format: // SPDX-FileCopyrightText: 2023-2025 Yellow <yellow@funkystation.org>
+        header.append(f"{comment} SPDX-FileCopyrightText: {year_str} {name} <{email}>")
 
     header.append(f"{comment} SPDX-License-Identifier: {DEFAULT_LICENSE}")
     header.append("")
@@ -168,6 +195,13 @@ def process_single_file(args):
             print_thread_safe(f"[DRY-RUN] Would update: {filepath}")
             author_list = [format_author_for_display(a[0]) for a in authors]
             print_thread_safe(f"  Authors: {', '.join(author_list)}")
+
+            # Show year ranges for each author
+            for author_info, years in authors:
+                name, email = author_info
+                year_str = format_years(years)
+                print_thread_safe(f"    {name}: {year_str}")
+
             return True
 
         # Write file with header prepended - USE utf-8 (not utf-8-sig)
@@ -180,6 +214,11 @@ def process_single_file(args):
             if dry_run_mode:
                 author_list = [format_author_for_display(a[0]) for a in authors]
                 print_thread_safe(f"  Authors added: {', '.join(author_list)}")
+                # Show year ranges for each author
+                for author_info, years in authors:
+                    name, email = author_info
+                    year_str = format_years(years)
+                    print_thread_safe(f"    {name}: {year_str}")
             return True
         except Exception as e:
             error_counter += 1

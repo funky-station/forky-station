@@ -85,17 +85,46 @@ def format_author_display(author_info):
     name, email = author_info
     return f"{name} <{email}>"
 
+def format_years(years):
+    """Format years into ranges like 2023-2025 or 2023, 2025"""
+    if not years:
+        return ""
+
+    years = sorted(set(int(y) for y in years))
+    ranges = []
+    start = years[0]
+    end = years[0]
+
+    for year in years[1:]:
+        if year == end + 1:
+            end = year
+        else:
+            if start == end:
+                ranges.append(str(start))
+            else:
+                ranges.append(f"{start}-{end}")
+            start = year
+            end = year
+
+    if start == end:
+        ranges.append(str(start))
+    else:
+        ranges.append(f"{start}-{end}")
+
+    return ", ".join(ranges)
+
 def build_header(ext: str, authors):
     comment = "//" if ext == ".cs" else "#"
     lines = []
 
     for author_info, years in authors:
         name, email = author_info
-        for year in years:
-            # Format: // SPDX-FileCopyrightText: 2025 Yellow <yellow@funkystation.org>
-            lines.append(
-                f"{comment} SPDX-FileCopyrightText: {year} {name} <{email}>"
-            )
+        # Format years nicely
+        year_str = format_years(years)
+        # Format: // SPDX-FileCopyrightText: 2023-2025 Yellow <yellow@funkystation.org>
+        lines.append(
+            f"{comment} SPDX-FileCopyrightText: {year_str} {name} <{email}>"
+        )
 
     lines.append(f"{comment} SPDX-License-Identifier: {DEFAULT_LICENSE}")
     lines.append("")
