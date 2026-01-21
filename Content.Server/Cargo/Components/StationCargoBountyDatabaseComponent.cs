@@ -3,6 +3,9 @@
 // SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 BarryNorfolk <barrynorfolkman@protonmail.com>
+// SPDX-FileCopyrightText: 2026 Gansu <peat.allan13@gmail.com>
+// SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
+// SPDX-FileCopyrightText: 2026 taydeo <td12233a@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Cargo;

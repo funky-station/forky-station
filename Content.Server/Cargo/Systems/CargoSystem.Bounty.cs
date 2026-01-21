@@ -11,6 +11,9 @@
 // SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 BarryNorfolk <barrynorfolkman@protonmail.com>
+// SPDX-FileCopyrightText: 2026 Gansu <peat.allan13@gmail.com>
+// SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
+// SPDX-FileCopyrightText: 2026 taydeo <td12233a@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using System.Diagnostics.CodeAnalysis;
