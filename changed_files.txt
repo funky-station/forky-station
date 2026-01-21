@@ -21,6 +21,7 @@ Resources/Prototypes/_Funkystation/Catalog/Bounties/bountyCategories.yml
 Resources/Prototypes/_Funkystation/Entities/Objects/Devices/Circuitboards/production.yml
 Resources/Prototypes/_Funkystation/Entities/Structures/Machines/lathe.yml
 Resources/Prototypes/_Funkystation/Recipes/Instruments/instruments.yml
+Resources/Prototypes/_Funkystation/Recipes/Lathes/Packs/service.yml
 Resources/Prototypes/_Funkystation/Recipes/Lathes/electronics.yml
 Resources/Prototypes/_Funkystation/Research/civilianservices.yml
 Resources/Textures/Structures/Machines/techfab.rsi/meta.json
