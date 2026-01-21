@@ -293,7 +293,7 @@ public sealed class GasAnalyzerSystem : EntitySystem
 
             if (mixture != null)
             {
-                var gasName = Loc.GetString(gas.Name);
+                var gasName = gas.Name;
                 gases.Add(new GasEntry(gasName, mixture[i], gas.Color));
             }
         }
