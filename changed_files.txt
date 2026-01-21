@@ -25,3 +25,4 @@ Resources/Prototypes/_Funkystation/Recipes/Lathes/electronics.yml
 Resources/Prototypes/_Funkystation/Research/civilianservices.yml
 Resources/Textures/Structures/Machines/techfab.rsi/meta.json
 Resources/Textures/Structures/Machines/techfab.rsi/music.png
+changed_files.txt
