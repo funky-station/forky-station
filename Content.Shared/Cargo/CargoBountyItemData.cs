@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Gansu <peat.allan13@gmail.com>
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.Cargo.Prototypes;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Whitelist;
