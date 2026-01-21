@@ -9,6 +9,7 @@ from threading import Lock
 TARGET_EXTENSIONS = { ".cs", ".yml", ".yaml" }
 DEFAULT_LICENSE = "MIT"
 MAX_HEADER_SCAN = 4096
+BOT_KEYWORDS = ["[bot]", "-bot-", "github-actions"]  # Common bot name patterns
 
 processed = 0
 skipped = 0
@@ -18,6 +19,11 @@ lock = Lock()
 def log(msg):
     with lock:
         print(msg)
+
+def is_bot_author(author_name: str) -> bool:
+    """Check if an author name belongs to a bot."""
+    lower_name = author_name.lower()
+    return any(keyword.lower() in lower_name for keyword in BOT_KEYWORDS)
 
 def has_reuse_header(content: str) -> bool:
     return "SPDX-License-Identifier:" in content[:MAX_HEADER_SCAN]
@@ -46,7 +52,13 @@ def get_git_authors(filepath: str):
         if "|" not in line:
             continue
         name, year = line.split("|", 1)
-        authors.setdefault(name.strip(), set()).add(year.strip())
+        name = name.strip()
+
+        # Skip bot authors
+        if is_bot_author(name):
+            continue
+
+        authors.setdefault(name, set()).add(year.strip())
 
     return [(a, sorted(y)) for a, y in authors.items()]
 
@@ -95,6 +107,7 @@ def process_file(filepath: str, dry_run: bool):
     authors = get_git_authors(filepath)
     if not authors:
         skipped += 1
+        log(f"[SKIP] No non-bot authors found for {filepath}")
         return True
 
     header = build_header(ext, authors)
@@ -102,6 +115,7 @@ def process_file(filepath: str, dry_run: bool):
     if dry_run:
         processed += 1
         log(f"[MISSING HEADER] {filepath}")
+        log(f"  Authors: {[a[0] for a in authors]}")
         return True
 
     try:
@@ -111,6 +125,7 @@ def process_file(filepath: str, dry_run: bool):
             f.write(content)
         processed += 1
         log(f"[UPDATED] {filepath}")
+        log(f"  Authors: {[a[0] for a in authors]}")
         return True
     except Exception as e:
         errors += 1
