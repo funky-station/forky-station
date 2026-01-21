@@ -1,9 +1,8 @@
-// SPDX-FileCopyrightText: 2025 themias
-// SPDX-FileCopyrightText: 2023 dahnte
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2022 wrexbe
-// SPDX-FileCopyrightText: 2021 Pancake
-// SPDX-FileCopyrightText: 2022 Pancake
+// SPDX-FileCopyrightText: 2021-2022 Pancake <Pangogie@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 dahnte <70238020+dahnte@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.Audio;

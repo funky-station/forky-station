@@ -1,33 +1,27 @@
-// SPDX-FileCopyrightText: 2025 Simon
-// SPDX-FileCopyrightText: 2024 avery
-// SPDX-FileCopyrightText: 2024 Justin Pfeifler
-// SPDX-FileCopyrightText: 2022 Kara
-// SPDX-FileCopyrightText: 2023 Kara
-// SPDX-FileCopyrightText: 2020 DrSmugleaf
-// SPDX-FileCopyrightText: 2021 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2022 Leon Friedrich
-// SPDX-FileCopyrightText: 2022 Morber
-// SPDX-FileCopyrightText: 2022 Veritius
-// SPDX-FileCopyrightText: 2022 Flipp Syder
-// SPDX-FileCopyrightText: 2022 Chris V
-// SPDX-FileCopyrightText: 2022 mirrorcult
-// SPDX-FileCopyrightText: 2022 wrexbe
-// SPDX-FileCopyrightText: 2022 Moony
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-// SPDX-FileCopyrightText: 2020 20kdc
-// SPDX-FileCopyrightText: 2021 20kdc
-// SPDX-FileCopyrightText: 2020 Swept
-// SPDX-FileCopyrightText: 2021 Swept
-// SPDX-FileCopyrightText: 2021 Visne
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2020 Acruid
-// SPDX-FileCopyrightText: 2021 Acruid
-// SPDX-FileCopyrightText: 2021 ike709
-// SPDX-FileCopyrightText: 2020 chairbender
-// SPDX-FileCopyrightText: 2020 py01
-// SPDX-FileCopyrightText: 2020 zumorica
+// SPDX-FileCopyrightText: 2020-2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020-2021 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2020-2021 Swept <sweptwastaken@protonmail.com>
+// SPDX-FileCopyrightText: 2020-2021 Acruid <shatter66@gmail.com>
+// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
+// SPDX-FileCopyrightText: 2020 py01 <60152240+collinlunn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2020 zumorica <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
+// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2021 ike709 <ike709@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022-2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Morber <14136326+Morb0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
+// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Chris V <HoofedEar@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 avery <51971268+graevy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Justin Pfeifler <jrpl101998@gmail.com>
+// SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Server.UserInterface;

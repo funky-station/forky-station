@@ -1,7 +1,7 @@
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
-// SPDX-FileCopyrightText: 2024 sativaleanne
-// SPDX-FileCopyrightText: 2022 Kara
-// SPDX-FileCopyrightText: 2022 ShadowCommander
+// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2024 sativaleanne <49132913+sativaleanne@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using System.Linq;

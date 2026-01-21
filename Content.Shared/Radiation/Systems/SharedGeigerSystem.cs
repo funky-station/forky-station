@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin
+// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Examine;

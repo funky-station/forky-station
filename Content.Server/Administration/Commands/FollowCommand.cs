@@ -1,7 +1,7 @@
-// SPDX-FileCopyrightText: 2025 Kyle Tyo
-// SPDX-FileCopyrightText: 2024 Brandon Hu
-// SPDX-FileCopyrightText: 2024 crazybrain23
-// SPDX-FileCopyrightText: 2024 LankLTE
+// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 LankLTE <135308300+LankLTE@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Administration;

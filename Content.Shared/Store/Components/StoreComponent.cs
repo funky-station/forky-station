@@ -1,11 +1,8 @@
-// SPDX-FileCopyrightText: 2025 ActiveMammmoth
-// SPDX-FileCopyrightText: 2024 Fildrance
-// SPDX-FileCopyrightText: 2022 Nemanja
-// SPDX-FileCopyrightText: 2023 Nemanja
-// SPDX-FileCopyrightText: 2024 Nemanja
-// SPDX-FileCopyrightText: 2024 keronshb
-// SPDX-FileCopyrightText: 2022 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
+// SPDX-FileCopyrightText: 2022-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
+// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.FixedPoint;

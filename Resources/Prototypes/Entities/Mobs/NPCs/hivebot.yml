@@ -1,7 +1,6 @@
-# SPDX-FileCopyrightText: 2025 Flareguy
+# SPDX-FileCopyrightText: 2025 Flareguy <78941145+Flareguy@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
 
-# Base hivebot
 - type: entity
   parent: [ BaseSimpleMob, MobCombat, MobRobotic ]
   id: MobHivebot

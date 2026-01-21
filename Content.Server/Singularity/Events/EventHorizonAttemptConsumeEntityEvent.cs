@@ -1,5 +1,4 @@
-// SPDX-FileCopyrightText: 2022 TemporalOroboros
-// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2022-2023 TemporalOroboros <TemporalOroboros@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Singularity.Components;

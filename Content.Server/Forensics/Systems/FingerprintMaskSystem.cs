@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 godisdeadLOL
+// SPDX-FileCopyrightText: 2025 godisdeadLOL <169250097+godisdeadLOL@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Forensics;

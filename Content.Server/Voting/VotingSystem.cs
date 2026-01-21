@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: 2024 Vasilis
-// SPDX-FileCopyrightText: 2024 SlamBamActionman
+// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Administration.Managers;

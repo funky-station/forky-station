@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2023 Riggle
+// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Database;

@@ -1,6 +1,6 @@
-// SPDX-FileCopyrightText: 2025 āda
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow
-// SPDX-FileCopyrightText: 2025 Nemanja
+// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
+// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using System.Linq;

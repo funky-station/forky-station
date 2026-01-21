@@ -1,7 +1,5 @@
-# SPDX-FileCopyrightText: 2025 āda
+# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
 # SPDX-License-Identifier: MIT
-
-# Costs for computer boards, machine boards, and circuitry
 
 - type: latheRecipe
   abstract: true

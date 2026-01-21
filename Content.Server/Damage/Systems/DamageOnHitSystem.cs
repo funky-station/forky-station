@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
-// SPDX-FileCopyrightText: 2023 LankLTE
+// SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Damage.Components;

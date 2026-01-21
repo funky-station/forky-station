@@ -1,7 +1,7 @@
-// SPDX-FileCopyrightText: 2025 Samuka
-// SPDX-FileCopyrightText: 2025 slarticodefast
-// SPDX-FileCopyrightText: 2025 J
-// SPDX-FileCopyrightText: 2025 keronshb
+// SPDX-FileCopyrightText: 2025 Samuka <47865393+Samuka-C@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
+// SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Antag;

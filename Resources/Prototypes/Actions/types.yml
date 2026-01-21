@@ -1,65 +1,50 @@
-# SPDX-FileCopyrightText: 2025 beck-thompson
-# SPDX-FileCopyrightText: 2025 PJB3005
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
-# SPDX-FileCopyrightText: 2025 Jessica M
-# SPDX-FileCopyrightText: 2022 keronshb
-# SPDX-FileCopyrightText: 2025 keronshb
-# SPDX-FileCopyrightText: 2025 ScarKy0
-# SPDX-FileCopyrightText: 2024 slarticodefast
-# SPDX-FileCopyrightText: 2025 slarticodefast
-# SPDX-FileCopyrightText: 2025 Голубь
-# SPDX-FileCopyrightText: 2025 qwerltaz
-# SPDX-FileCopyrightText: 2025 Kyle Tyo
-# SPDX-FileCopyrightText: 2025 themias
-# SPDX-FileCopyrightText: 2024 lzk
-# SPDX-FileCopyrightText: 2025 lzk
-# SPDX-FileCopyrightText: 2025 SlamBamActionman
-# SPDX-FileCopyrightText: 2023 deltanedas
-# SPDX-FileCopyrightText: 2024 deltanedas
-# SPDX-FileCopyrightText: 2025 deltanedas
-# SPDX-FileCopyrightText: 2022 metalgearsloth
-# SPDX-FileCopyrightText: 2025 metalgearsloth
-# SPDX-FileCopyrightText: 2025 Fildrance
-# SPDX-FileCopyrightText: 2025 psykana
-# SPDX-FileCopyrightText: 2025 Velken
-# SPDX-FileCopyrightText: 2025 Zachary Higgs
-# SPDX-FileCopyrightText: 2024 Killerqu00
-# SPDX-FileCopyrightText: 2024 Brandon Hu
-# SPDX-FileCopyrightText: 2023 Whisper
-# SPDX-FileCopyrightText: 2024 Whisper
-# SPDX-FileCopyrightText: 2022 Leon Friedrich
-# SPDX-FileCopyrightText: 2023 Leon Friedrich
-# SPDX-FileCopyrightText: 2024 Leon Friedrich
-# SPDX-FileCopyrightText: 2024 Jay
-# SPDX-FileCopyrightText: 2022 Kara
-# SPDX-FileCopyrightText: 2023 Kara
-# SPDX-FileCopyrightText: 2024 Kara
-# SPDX-FileCopyrightText: 2024 Just-a-Unity-Dev
-# SPDX-FileCopyrightText: 2024 Wrexbe (Josh)
-# SPDX-FileCopyrightText: 2024 nikthechampiongr
-# SPDX-FileCopyrightText: 2024 deathride58
-# SPDX-FileCopyrightText: 2024 Morb
-# SPDX-FileCopyrightText: 2024 brainfood1183
-# SPDX-FileCopyrightText: 2024 Ilya246
-# SPDX-FileCopyrightText: 2023 LordCarve
-# SPDX-FileCopyrightText: 2023 DrSmugleaf
-# SPDX-FileCopyrightText: 2023 Gotimanga
-# SPDX-FileCopyrightText: 2023 Tony
-# SPDX-FileCopyrightText: 2022 Nemanja
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2023 Arendian
-# SPDX-FileCopyrightText: 2023 mhamster
-# SPDX-FileCopyrightText: 2023 Alex Evgrashin
-# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2022 Flipp Syder
-# SPDX-FileCopyrightText: 2022 Rane
-# SPDX-FileCopyrightText: 2022 AJCM-git
-# SPDX-FileCopyrightText: 2022 EmoGarbage404
+# SPDX-FileCopyrightText: 2022, 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022, 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022-2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022-2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023-2025 deltanedas <user@zenith>
+# SPDX-FileCopyrightText: 2023-2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 LordCarve <27449516+LordCarve@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Gotimanga <127038462+Gotimanga@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Tony <73495699+carteblanche4me@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Arendian <137322659+Arendian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 mhamster <81412348+mhamsterr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2024-2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024-2025 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Jay <67732946+DuskyJay@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Just-a-Unity-Dev <67359748+Just-a-Unity-Dev@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Wrexbe (Josh) <81056464+wrexbe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Morb <14136326+Morb0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2025 Jessica M <jessica@jessicamaybe.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Голубь <124601871+Golubgik@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
+# SPDX-FileCopyrightText: 2025 psykana <36602558+psykana@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Velken <8467292+Velken@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
 # SPDX-License-Identifier: MIT
 
-# base actions
-
-# base prototype for all action entities
 - type: entity
   abstract: true
   id: BaseAction

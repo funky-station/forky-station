@@ -1,15 +1,13 @@
-# SPDX-FileCopyrightText: 2025 BadaBoomie
-# SPDX-FileCopyrightText: 2025 5tickman
-# SPDX-FileCopyrightText: 2025 Stop-Signs
-# SPDX-FileCopyrightText: 2025 MisterImp
-# SPDX-FileCopyrightText: 2024 Ed
-# SPDX-FileCopyrightText: 2024 lzk
-# SPDX-FileCopyrightText: 2023 Vasilis
-# SPDX-FileCopyrightText: 2023 Velcroboy
-# SPDX-FileCopyrightText: 2023 phunnyguy
+# SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 phunnyguy <90366172+phunnyguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BadaBoomie <ywan2347@gmail.com>
+# SPDX-FileCopyrightText: 2025 5tickman <5tick@comcast.net>
+# SPDX-FileCopyrightText: 2025 Stop-Signs <stopsign221@gmail.com>
+# SPDX-FileCopyrightText: 2025 MisterImp <101299120+MisterImp@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
-
-# When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_single.yml
 
 - type: entity
   parent: FoodMealBase

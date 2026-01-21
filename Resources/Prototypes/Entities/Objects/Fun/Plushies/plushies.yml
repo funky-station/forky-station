@@ -1,19 +1,14 @@
-# SPDX-FileCopyrightText: 2025 āda
-# SPDX-FileCopyrightText: 2026 āda
-# SPDX-FileCopyrightText: 2025 PJB3005
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
-# SPDX-FileCopyrightText: 2025 Minerva
-# SPDX-FileCopyrightText: 2025 SolidSyn
-# SPDX-FileCopyrightText: 2025 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2025 Tiniest Shark
-# SPDX-FileCopyrightText: 2025 Perry Fraser
-# SPDX-FileCopyrightText: 2025 RedBookcase
+# SPDX-FileCopyrightText: 2025-2026 āda <ss.adasts@gmail.com>
+# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Minerva <218184747+mnva0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SolidSyn <220547106+SolidSyn@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2025 Tiniest Shark <head.rebel@yahoo.com>
+# SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
 # SPDX-License-Identifier: MIT
-
-# When adding new plushies, also add them to id: AllPlushiesTable
-
-## Plushies
 
 - type: entity
   abstract: true

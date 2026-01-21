@@ -1,14 +1,13 @@
-# SPDX-FileCopyrightText: 2025 Whatstone
-# SPDX-FileCopyrightText: 2024 Gyrandola
-# SPDX-FileCopyrightText: 2024 lapatison
-# SPDX-FileCopyrightText: 2024 Ed
-# SPDX-FileCopyrightText: 2022 metalgearsloth
-# SPDX-FileCopyrightText: 2022 Kara
-# SPDX-FileCopyrightText: 2022 Paul Ritter
-# SPDX-FileCopyrightText: 2021 AJCM-git
+# SPDX-FileCopyrightText: 2021 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2024 Gyrandola <pasta.frollagg@gmail.com>
+# SPDX-FileCopyrightText: 2024 lapatison <100279397+lapatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Whatstone <166147148+whatston3@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
 
-# TODO once tiles can be smoothed and carpets ported over to that, add them to the FloorTile outputs
 - type: entity
   name: carpet
   parent: FloorTileItemBase

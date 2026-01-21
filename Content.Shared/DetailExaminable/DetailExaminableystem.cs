@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Milon
+// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Examine;

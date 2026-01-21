@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: 2023 Kirillcas
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2023 Kirillcas <124053750+Kirillcas@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using System.IO;

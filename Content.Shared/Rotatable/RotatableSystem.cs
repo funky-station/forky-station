@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 DrSmugleaf
+// SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.ActionBlocker;

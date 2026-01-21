@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 vitopigno
+// SPDX-FileCopyrightText: 2025 vitopigno <103512727+VitusVeit@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Client.Options.UI;

@@ -1,14 +1,11 @@
-# SPDX-FileCopyrightText: 2026 Vasilis The Pikachu
-# SPDX-FileCopyrightText: 2025 Red
-# SPDX-FileCopyrightText: 2023 brainfood1183
-# SPDX-FileCopyrightText: 2025 brainfood1183
-# SPDX-FileCopyrightText: 2025 lzk
-# SPDX-FileCopyrightText: 2025 Firewars763
-# SPDX-FileCopyrightText: 2023 Ed
-# SPDX-FileCopyrightText: 2024 Ed
-# SPDX-FileCopyrightText: 2025 Ed
-# SPDX-FileCopyrightText: 2023 ThunderBear2006
-# SPDX-FileCopyrightText: 2023 Nemanja
+# SPDX-FileCopyrightText: 2023, 2025 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023-2025 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 ThunderBear2006 <100388962+ThunderBear2006@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Red <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Firewars763 <35506916+Firewars763@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Vasilis The Pikachu <vasilis@pikachu.systems>
 # SPDX-License-Identifier: MIT
 
 - type: entity

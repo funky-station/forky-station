@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Preston Smith
+// SPDX-FileCopyrightText: 2025 Preston Smith <92108534+thetolbean@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Radio;

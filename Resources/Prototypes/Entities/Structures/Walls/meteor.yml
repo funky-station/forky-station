@@ -1,9 +1,8 @@
-# SPDX-FileCopyrightText: 2025 metalgearsloth
-# SPDX-FileCopyrightText: 2025 War Pigeon
-# SPDX-FileCopyrightText: 2024 AutoOtter
+# SPDX-FileCopyrightText: 2024 AutoOtter <joshuademorris@gmail.com>
+# SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 War Pigeon <54217755+minus1over12@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
 
-# These define Meteor Walls separate from Asteroid walls so they have different properties
 - type: entity
   id: MeteorRock
   parent: AsteroidRock

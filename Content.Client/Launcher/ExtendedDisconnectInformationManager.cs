@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022 20kdc
+// SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using System;

@@ -1,62 +1,53 @@
-# SPDX-FileCopyrightText: 2026 0-Anon
-# SPDX-FileCopyrightText: 2025 āda
-# SPDX-FileCopyrightText: 2025 cammusubi
-# SPDX-FileCopyrightText: 2025 Hitlinemoss
-# SPDX-FileCopyrightText: 2025 SnappingOpossum
-# SPDX-FileCopyrightText: 2025 Huaqas
-# SPDX-FileCopyrightText: 2024 ArtisticRoomba
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
-# SPDX-FileCopyrightText: 2025 Sender
-# SPDX-FileCopyrightText: 2023 IProduceWidgets
-# SPDX-FileCopyrightText: 2025 IProduceWidgets
-# SPDX-FileCopyrightText: 2025 ToastEnjoyer
-# SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
-# SPDX-FileCopyrightText: 2025 Xeri Marai
-# SPDX-FileCopyrightText: 2021 T-Stalker
-# SPDX-FileCopyrightText: 2022 T-Stalker
-# SPDX-FileCopyrightText: 2025 T-Stalker
-# SPDX-FileCopyrightText: 2025 TeenSarlacc
-# SPDX-FileCopyrightText: 2025 SpaceLizard
-# SPDX-FileCopyrightText: 2024 xprospero
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2024 Tyzemol
-# SPDX-FileCopyrightText: 2023 metalgearsloth
-# SPDX-FileCopyrightText: 2024 metalgearsloth
-# SPDX-FileCopyrightText: 2023 brainfood1183
-# SPDX-FileCopyrightText: 2024 brainfood1183
-# SPDX-FileCopyrightText: 2024 Firewatch
-# SPDX-FileCopyrightText: 2024 MACMAN2003
-# SPDX-FileCopyrightText: 2023 lzk
-# SPDX-FileCopyrightText: 2024 lzk
-# SPDX-FileCopyrightText: 2024 Kukutis96513
-# SPDX-FileCopyrightText: 2024 Mr. 27
-# SPDX-FileCopyrightText: 2023 Ubaser
-# SPDX-FileCopyrightText: 2023 CMDR-Piboy314
-# SPDX-FileCopyrightText: 2023 Ed
-# SPDX-FileCopyrightText: 2023 Gotimanga
-# SPDX-FileCopyrightText: 2023 eclips_e
-# SPDX-FileCopyrightText: 2023 Arendian
-# SPDX-FileCopyrightText: 2023 Renlou
-# SPDX-FileCopyrightText: 2023 lzk228
-# SPDX-FileCopyrightText: 2023 lapatison
-# SPDX-FileCopyrightText: 2023 Puro
-# SPDX-FileCopyrightText: 2023 EnDecc
-# SPDX-FileCopyrightText: 2023 mhamster
-# SPDX-FileCopyrightText: 2022 Checkraze
-# SPDX-FileCopyrightText: 2022 keronshb
-# SPDX-FileCopyrightText: 2022 Willhelm53
-# SPDX-FileCopyrightText: 2022 Rinkashikachi
-# SPDX-FileCopyrightText: 2022 Veritius
-# SPDX-FileCopyrightText: 2022 Rane
-# SPDX-FileCopyrightText: 2022 EmoGarbage404
-# SPDX-FileCopyrightText: 2022 Demetre Beroshvili
-# SPDX-FileCopyrightText: 2021 Fishfish458
-# SPDX-FileCopyrightText: 2021 Peptide90
-# SPDX-FileCopyrightText: 2020 Swept
-# SPDX-FileCopyrightText: 2021 Swept
-# SPDX-FileCopyrightText: 2020 Vera Aguilera Puerto
+# SPDX-FileCopyrightText: 2020-2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2020 Vera Aguilera Puerto <zddm@outlook.es>
+# SPDX-FileCopyrightText: 2021-2022, 2025 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Checkraze <71046427+Cheackraze@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Willhelm53 <97707302+Willhelm53@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rinkashikachi <15rinkashikachi15@gmail.com>
+# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Demetre Beroshvili <69920861+Capnsockless@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023, 2025 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023-2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023-2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Gotimanga <127038462+Gotimanga@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 eclips_e <67359748+Just-a-Unity-Dev@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Arendian <137322659+Arendian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Renlou <rubensvidal@hotmail.co.uk>
+# SPDX-FileCopyrightText: 2023 lzk228 <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Puro <103608145+PuroSlavKing@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 EnDecc <33369477+Endecc@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 mhamster <81412348+mhamsterr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024-2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 xprospero <116504990+xprospero@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tyzemol <85772526+Tyzemol@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Firewatch <54725557+musicmanvr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MACMAN2003 <macman2003c@gmail.com>
+# SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
+# SPDX-FileCopyrightText: 2025 cammusubi <122420207+cammusubi@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Hitlinemoss <209321380+Hitlinemoss@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SnappingOpossum <snappingopossum@outlook.com>
+# SPDX-FileCopyrightText: 2025 Huaqas <zacswebb@gmail.com>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Sender <84488598+SignalSender@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ToastEnjoyer <masondoesgamingyes@gmail.com>
+# SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
+# SPDX-FileCopyrightText: 2025 Xeri Marai <8867601+Xeri7@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TeenSarlacc <46608342+TeenSarlacc@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SpaceLizard <the.justice.league.of.canada@gmail.com>
+# SPDX-FileCopyrightText: 2026 0-Anon <cec124@case.edu>
 # SPDX-License-Identifier: MIT
 
 - type: entityTable

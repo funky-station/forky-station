@@ -1,34 +1,31 @@
-# SPDX-FileCopyrightText: 2026 ThatGuyUSA
-# SPDX-FileCopyrightText: 2025 Nox
-# SPDX-FileCopyrightText: 2023 IProduceWidgets
-# SPDX-FileCopyrightText: 2024 IProduceWidgets
-# SPDX-FileCopyrightText: 2025 IProduceWidgets
-# SPDX-FileCopyrightText: 2025 beck-thompson
-# SPDX-FileCopyrightText: 2025 UpAndLeaves
-# SPDX-FileCopyrightText: 2025 ScarKy0
-# SPDX-FileCopyrightText: 2025 Alpha-Two
-# SPDX-FileCopyrightText: 2024 Winkarst
-# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st
-# SPDX-FileCopyrightText: 2024 Errant
-# SPDX-FileCopyrightText: 2024 Mr. 27
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2024 Hanz
-# SPDX-FileCopyrightText: 2023 Nairod
-# SPDX-FileCopyrightText: 2023 Whisper
-# SPDX-FileCopyrightText: 2023 PrPleGoo
-# SPDX-FileCopyrightText: 2023 JoeHammad1844
-# SPDX-FileCopyrightText: 2023 Flareguy
-# SPDX-FileCopyrightText: 2023 Nim
-# SPDX-FileCopyrightText: 2023 Kit0vras
-# SPDX-FileCopyrightText: 2022 Kara
-# SPDX-FileCopyrightText: 2022 Paul Ritter
-# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2022 Morber
-# SPDX-FileCopyrightText: 2022 Peptide90
-# SPDX-FileCopyrightText: 2022 EmoGarbage404
+# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2022 Morber <14136326+Morb0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023-2025 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nairod <110078045+Nairodian@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 PrPleGoo <PrPleGoo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 JoeHammad1844 <130668733+JoeHammad1844@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nim <128169402+Nimfar11@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Kit0vras <123590995+Kit0vras@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
+# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Hanz <41141796+Hanzdegloker@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
+# SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 UpAndLeaves <92269094+Alpha-Two@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Alpha-Two <92269094+Alpha-Two@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 ThatGuyUSA <thatguyusa123@gmail.com>
 # SPDX-License-Identifier: MIT
 
-# Leader
 - type: job
   id: ERTLeader
   name: job-name-ertleader

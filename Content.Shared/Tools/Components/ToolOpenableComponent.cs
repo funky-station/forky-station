@@ -1,5 +1,4 @@
-// SPDX-FileCopyrightText: 2024 beck-thompson
-// SPDX-FileCopyrightText: 2025 beck-thompson
+// SPDX-FileCopyrightText: 2024-2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.Prototypes;

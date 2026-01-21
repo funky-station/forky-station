@@ -1,14 +1,12 @@
-# SPDX-FileCopyrightText: 2025 slarticodefast
-# SPDX-FileCopyrightText: 2025 SlamBamActionman
-# SPDX-FileCopyrightText: 2025 Kirus59
-# SPDX-FileCopyrightText: 2025 Winkarst
-# SPDX-FileCopyrightText: 2025 Killerqu00
-# SPDX-FileCopyrightText: 2024 Ilya246
-# SPDX-FileCopyrightText: 2024 Flareguy
-# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Kirus59 <145689588+Kirus59@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
 # SPDX-License-Identifier: MIT
-
-# Most of these have DO NOT MAP, since stations are completely unequipped to deal with ship combat + these are basically placeholder.
 
 - type: entity
   id: ShuttleGunBase

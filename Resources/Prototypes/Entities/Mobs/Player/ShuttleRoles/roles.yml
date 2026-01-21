@@ -1,12 +1,6 @@
-# SPDX-FileCopyrightText: 2025 M1tht1c
-# SPDX-FileCopyrightText: 2024 IProduceWidgets
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 M1tht1c <mytht1c@proton.me>
 # SPDX-License-Identifier: MIT
-
-## See also ../settings.yml and ../spawners.yml
-
-### Visitors with Visitor ID
-
-# Command
 
 - type: entity
   id: RandomHumanoidVisitorCaptain

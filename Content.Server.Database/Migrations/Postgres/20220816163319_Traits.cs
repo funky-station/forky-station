@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022 Visne
+// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Microsoft.EntityFrameworkCore.Migrations;

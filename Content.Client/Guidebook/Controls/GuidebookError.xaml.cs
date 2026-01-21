@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Thomas
+// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using JetBrains.Annotations;

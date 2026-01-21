@@ -1,6 +1,5 @@
-// SPDX-FileCopyrightText: 2024 Ed
+// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
-
 
 namespace Content.Server.Anomaly.Components;
 

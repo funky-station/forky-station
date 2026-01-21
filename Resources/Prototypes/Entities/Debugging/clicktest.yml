@@ -1,16 +1,10 @@
-# SPDX-FileCopyrightText: 2025 āda
-# SPDX-FileCopyrightText: 2024 Plykiya
-# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto
-# SPDX-FileCopyrightText: 2021 metalgearsloth
-# SPDX-FileCopyrightText: 2021 Swept
-# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers
+# SPDX-FileCopyrightText: 2021 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <gradientvera@outlook.com>
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
 # SPDX-License-Identifier: MIT
-
-# Entities specifically for testing click detection with ClickableComponent.
-#
-# Each entity has a bounding box AND texture equivalent.
-# Note that bounding box versions still have dots on the outside or center to make it possible to... see them.
-# These dots' texture detection should not interfere with the actual bounding box being tested.
 
 - type: entity
   categories: [ Debug, HideSpawnMenu ]

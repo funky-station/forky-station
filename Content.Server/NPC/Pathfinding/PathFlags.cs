@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: 2023 Vordenburg
-// SPDX-FileCopyrightText: 2022 metalgearsloth
+// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 namespace Content.Server.NPC.Pathfinding;

@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: 2025 c4llv07e
-// SPDX-FileCopyrightText: 2024 Simon
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 c4llv07e <igor@c4llv07e.xyz>
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.Configuration;

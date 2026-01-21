@@ -1,43 +1,40 @@
-# SPDX-FileCopyrightText: 2025 PJB3005
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
-# SPDX-FileCopyrightText: 2025 SlamBamActionman
-# SPDX-FileCopyrightText: 2025 EnrichedCaramel
-# SPDX-FileCopyrightText: 2025 kosticia
-# SPDX-FileCopyrightText: 2025 ScarKy0
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2025 Nemanja
-# SPDX-FileCopyrightText: 2025 Fildrance
-# SPDX-FileCopyrightText: 2023 Boaz1111
-# SPDX-FileCopyrightText: 2023 Flareguy
-# SPDX-FileCopyrightText: 2023 Moomoobeef
-# SPDX-FileCopyrightText: 2023 CrigCrag
-# SPDX-FileCopyrightText: 2023 Maxtone
-# SPDX-FileCopyrightText: 2023 lapatison
-# SPDX-FileCopyrightText: 2022 Vordenburg
-# SPDX-FileCopyrightText: 2022 Will Robson
-# SPDX-FileCopyrightText: 2022 Flipp Syder
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin
-# SPDX-FileCopyrightText: 2021 mirrorcult
-# SPDX-FileCopyrightText: 2021 FoLoKe
-# SPDX-FileCopyrightText: 2021 ScalyChimp
-# SPDX-FileCopyrightText: 2021 SethLafuente
-# SPDX-FileCopyrightText: 2021 Swept
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-# SPDX-FileCopyrightText: 2021 Paul Ritter
-# SPDX-FileCopyrightText: 2021 Radrark
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto
-# SPDX-FileCopyrightText: 2020 Exp
-# SPDX-FileCopyrightText: 2020 nuke
-# SPDX-FileCopyrightText: 2020 ike709
-# SPDX-FileCopyrightText: 2020 AJCM-git
-# SPDX-FileCopyrightText: 2020 zumorica
-# SPDX-FileCopyrightText: 2019 metalgearsloth
-# SPDX-FileCopyrightText: 2020 metalgearsloth
-# SPDX-FileCopyrightText: 2020 Injazz
-# SPDX-FileCopyrightText: 2019 moneyl
-# SPDX-FileCopyrightText: 2019 Acruid
+# SPDX-FileCopyrightText: 2019-2020 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2019 moneyl <8206401+Moneyl@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2019 Acruid <shatter66@gmail.com>
+# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
+# SPDX-FileCopyrightText: 2020 nuke <47336974+nuke-makes-games@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 ike709 <ike709@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 zumorica <zddm@outlook.es>
+# SPDX-FileCopyrightText: 2020 Injazz <injazza@gmail.com>
+# SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2021 FoLoKe <36813380+FoLoKe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 ScalyChimp <72841710+scaly-chimp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 SethLafuente <84478872+SethLafuente@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
+# SPDX-FileCopyrightText: 2021 Radrark <76271993+Radrark@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Will Robson <WPRobson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2023-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 CrigCrag <137215465+CrigCrag@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Maxtone <124747282+MagnusCrowe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 EnrichedCaramel <enriched.caramel@gmail.com>
+# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
 # SPDX-License-Identifier: MIT
 
 - type: reagent

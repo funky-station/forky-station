@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 DrSmugleaf
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <drsmugleaf@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Preferences;

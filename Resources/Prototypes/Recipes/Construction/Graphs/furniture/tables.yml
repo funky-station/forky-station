@@ -1,19 +1,18 @@
-# SPDX-FileCopyrightText: 2025 Quasr
-# SPDX-FileCopyrightText: 2025 Tao
-# SPDX-FileCopyrightText: 2025 SlamBamActionman
-# SPDX-FileCopyrightText: 2025 Whatstone
-# SPDX-FileCopyrightText: 2024 ArtisticRoomba
-# SPDX-FileCopyrightText: 2024 MACMAN2003
-# SPDX-FileCopyrightText: 2024 Ed
-# SPDX-FileCopyrightText: 2022 Jacob Tong
-# SPDX-FileCopyrightText: 2021 Peptide90
-# SPDX-FileCopyrightText: 2022 Peptide90
-# SPDX-FileCopyrightText: 2021 Swept
-# SPDX-FileCopyrightText: 2021 ShadowCommander
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-# SPDX-FileCopyrightText: 2021 DrSmugleaf
-# SPDX-FileCopyrightText: 2021 20kdc
-# SPDX-FileCopyrightText: 2020 Git-Nivrak
+# SPDX-FileCopyrightText: 2020 Git-Nivrak <59925169+Git-Nivrak@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021-2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
+# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MACMAN2003 <macman2003c@gmail.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Quasr <182430031+quasr-9@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Tao <56692749+TaoNewt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Whatstone <166147148+whatston3@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
 
 - type: constructionGraph

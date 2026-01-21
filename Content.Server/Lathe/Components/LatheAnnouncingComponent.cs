@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow
+// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Radio;

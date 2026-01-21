@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
 // SPDX-License-Identifier: MIT
 
 using Robust.Client.UserInterface;

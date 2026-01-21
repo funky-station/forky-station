@@ -1,7 +1,7 @@
-// SPDX-FileCopyrightText: 2022 Veritius
-// SPDX-FileCopyrightText: 2022 Moony
-// SPDX-FileCopyrightText: 2021 Swept
-// SPDX-FileCopyrightText: 2020 20kdc
+// SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
+// SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+// SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
+// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Microsoft.EntityFrameworkCore.Migrations;

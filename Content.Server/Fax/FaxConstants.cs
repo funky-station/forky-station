@@ -1,7 +1,7 @@
-// SPDX-FileCopyrightText: 2024 dffdff2423
-// SPDX-FileCopyrightText: 2024 exincore
-// SPDX-FileCopyrightText: 2023 eoineoineoin
-// SPDX-FileCopyrightText: 2022 Morb
+// SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 eoineoineoin <eoin.mcloughlin+gh@gmail.com>
+// SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
+// SPDX-FileCopyrightText: 2024 exincore <me@exin.xyz>
 // SPDX-License-Identifier: MIT
 
 namespace Content.Server.Fax;

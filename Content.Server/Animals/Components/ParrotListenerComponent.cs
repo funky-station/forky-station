@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Crude Oil
+// SPDX-FileCopyrightText: 2025 Crude Oil <124208219+CroilBird@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Whitelist;

@@ -1,13 +1,10 @@
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs
-# SPDX-FileCopyrightText: 2025 5tickman
-# SPDX-FileCopyrightText: 2025 Qerd
-# SPDX-FileCopyrightText: 2025 MissKay1994
-# SPDX-FileCopyrightText: 2024 ArtisticRoomba
-# SPDX-FileCopyrightText: 2024 DrEnzyme
+# SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 DrEnzyme <DrEnzyme@gmail.com>
+# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 5tickman <5tick@comcast.net>
+# SPDX-FileCopyrightText: 2025 Qerd <73325910+BigfootBravo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MissKay1994 <15877268+MissKay1994@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
-
-# When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_baked_whole.yml & food_baked_single.yml
-# Base
 
 - type: entity
   abstract: true

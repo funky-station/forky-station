@@ -1,18 +1,17 @@
-# SPDX-FileCopyrightText: 2026 Ignaz "Ian" Kraft
-# SPDX-FileCopyrightText: 2025 cammusubi
-# SPDX-FileCopyrightText: 2025 Nox
-# SPDX-FileCopyrightText: 2025 Dinner
-# SPDX-FileCopyrightText: 2025 slarticodefast
-# SPDX-FileCopyrightText: 2025 SlamBamActionman
-# SPDX-FileCopyrightText: 2025 RedBookcase
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba
-# SPDX-FileCopyrightText: 2025 K-Dynamic
-# SPDX-FileCopyrightText: 2025 OneZerooo0
-# SPDX-FileCopyrightText: 2025 BramvanZijp
-# SPDX-FileCopyrightText: 2024 Plykiya
+# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 cammusubi <122420207+cammusubi@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
+# SPDX-FileCopyrightText: 2025 Dinner <180707738+DinnerCalzone@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 OneZerooo0 <172208291+OneZerooo0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Ignaz "Ian" Kraft <ignaz.k@live.de>
 # SPDX-License-Identifier: MIT
 
-# ScatteringGrenade is intended for grenades that spawn entities, especially those with timers
 - type: entity
   abstract: true
   parent: BaseItem

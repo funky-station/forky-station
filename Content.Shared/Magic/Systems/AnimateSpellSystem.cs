@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 ActiveMammmoth
+// SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Magic.Components;

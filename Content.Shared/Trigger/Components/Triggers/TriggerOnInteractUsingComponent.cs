@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 ViolentMonk
+// SPDX-FileCopyrightText: 2025 ViolentMonk <jimmy.toor.s@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Interaction;

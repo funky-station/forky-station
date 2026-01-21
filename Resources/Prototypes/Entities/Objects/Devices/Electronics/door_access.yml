@@ -1,14 +1,13 @@
-# SPDX-FileCopyrightText: 2025 Samuka-C
-# SPDX-FileCopyrightText: 2025 Southbridge
-# SPDX-FileCopyrightText: 2024 metalgearsloth
-# SPDX-FileCopyrightText: 2024 lzk
-# SPDX-FileCopyrightText: 2024 MilenVolf
-# SPDX-FileCopyrightText: 2024 Velcroboy
-# SPDX-FileCopyrightText: 2024 deltanedas
-# SPDX-FileCopyrightText: 2024 c4llv07e
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
 
-# Command
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsCaptain

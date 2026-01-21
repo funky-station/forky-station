@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: 2025 ScarKy0
-// SPDX-FileCopyrightText: 2025 Centronias
+// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Charges.Systems;

@@ -1,7 +1,7 @@
-// SPDX-FileCopyrightText: 2024 dffdff2423
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2023 eoineoineoin
-// SPDX-FileCopyrightText: 2023 Morb
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 eoineoineoin <github@eoinrul.es>
+// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Fax;

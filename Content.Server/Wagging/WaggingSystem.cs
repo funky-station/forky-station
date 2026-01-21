@@ -1,7 +1,7 @@
-// SPDX-FileCopyrightText: 2025 poklj
-// SPDX-FileCopyrightText: 2024 ArchPigeon
-// SPDX-FileCopyrightText: 2024 Krunklehorn
-// SPDX-FileCopyrightText: 2024 Morb
+// SPDX-FileCopyrightText: 2024 ArchPigeon <bookmaster3@gmail.com>
+// SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 Morb <14136326+Morb0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 poklj <compgeek223@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Actions;

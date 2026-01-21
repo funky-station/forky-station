@@ -1,8 +1,7 @@
-// SPDX-FileCopyrightText: 2023 Topy
-// SPDX-FileCopyrightText: 2023 Moony
-// SPDX-FileCopyrightText: 2022 Leon Friedrich
-// SPDX-FileCopyrightText: 2023 Leon Friedrich
-// SPDX-FileCopyrightText: 2021 Ygg01
+// SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
+// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 Topy <topy72.mine@gmail.com>
+// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.Serialization;

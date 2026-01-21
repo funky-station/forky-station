@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Velcroboy
+// SPDX-FileCopyrightText: 2025 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Storage.Components;

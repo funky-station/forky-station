@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022 Jesse Rougeau
+// SPDX-FileCopyrightText: 2022 Jesse Rougeau <jmaster9999@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Robust.Client.Graphics;

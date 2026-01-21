@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 0x6273
+// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.DeviceLinking;

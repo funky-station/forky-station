@@ -1,7 +1,7 @@
-// SPDX-FileCopyrightText: 2025 PJB3005
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
-// SPDX-FileCopyrightText: 2025 B_Kirill
-// SPDX-FileCopyrightText: 2025 slarticodefast
+// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
+// SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.GameStates;

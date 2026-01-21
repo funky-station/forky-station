@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2025 Kowlin
-# SPDX-FileCopyrightText: 2025 Ertanic
-# SPDX-FileCopyrightText: 2024 lzk
-# SPDX-FileCopyrightText: 2024 shamp
-# SPDX-FileCopyrightText: 2023 kxv
+# SPDX-FileCopyrightText: 2023 kxv <136233650+kxvvv@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Kowlin <10947836+Kowlin@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ertanic <36124833+Ertanic@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
 
 - type: constructionGraph

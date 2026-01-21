@@ -1,6 +1,6 @@
-# SPDX-FileCopyrightText: 2025 Serylis of Five
-# SPDX-FileCopyrightText: 2024 Ko4ergaPunk
-# SPDX-FileCopyrightText: 2023 Chronophylos
+# SPDX-FileCopyrightText: 2023 Chronophylos <nikolai@chronophylos.com>
+# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Serylis of Five <kasper.west-hansen+github@fivetail.dk>
 # SPDX-License-Identifier: MIT
 
 - files: ["lightningshock.ogg", "lightningbolt.ogg"]

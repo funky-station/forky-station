@@ -1,6 +1,6 @@
-// SPDX-FileCopyrightText: 2025 SlamBamActionman
-// SPDX-FileCopyrightText: 2025 noirogen
-// SPDX-FileCopyrightText: 2024 Simon
+// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 noirogen <raethertechnologies@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.Configuration;

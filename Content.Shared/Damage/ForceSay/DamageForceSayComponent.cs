@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: 2025 Coolsurf6
-// SPDX-FileCopyrightText: 2023 Kara
+// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+// SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Damage.Prototypes;

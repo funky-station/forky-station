@@ -1,28 +1,21 @@
-# SPDX-FileCopyrightText: 2023 Leon Friedrich
-# SPDX-FileCopyrightText: 2025 Leon Friedrich
-# SPDX-FileCopyrightText: 2022 keronshb
-# SPDX-FileCopyrightText: 2025 keronshb
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba
-# SPDX-FileCopyrightText: 2021 metalgearsloth
-# SPDX-FileCopyrightText: 2022 metalgearsloth
-# SPDX-FileCopyrightText: 2023 metalgearsloth
-# SPDX-FileCopyrightText: 2024 metalgearsloth
-# SPDX-FileCopyrightText: 2023 Kara
-# SPDX-FileCopyrightText: 2022 TemporalOroboros
-# SPDX-FileCopyrightText: 2023 TemporalOroboros
-# SPDX-FileCopyrightText: 2023 lzk
-# SPDX-FileCopyrightText: 2023 Zoldorf
-# SPDX-FileCopyrightText: 2023 vanx
-# SPDX-FileCopyrightText: 2023 Naive817
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin
-# SPDX-FileCopyrightText: 2021 Moony
-# SPDX-FileCopyrightText: 2022 Moony
-# SPDX-FileCopyrightText: 2022 Pancake
-# SPDX-FileCopyrightText: 2021 Kara D
-# SPDX-FileCopyrightText: 2021 Swept
-# SPDX-FileCopyrightText: 2021 DrSmugleaf
-# SPDX-FileCopyrightText: 2021 20kdc
-# SPDX-FileCopyrightText: 2021 ShadowCommander
+# SPDX-FileCopyrightText: 2021-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021-2022 Moony <moonheart08@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Kara D <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+# SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022, 2025 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022-2023 TemporalOroboros <TemporalOroboros@gmail.com>
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2022 Pancake <Pangogie@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023, 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Zoldorf <silvertorch5@gmail.com>
+# SPDX-FileCopyrightText: 2023 vanx <61917534+Vaaankas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Naive817 <31364560+Naive817@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
 
 - type: entity

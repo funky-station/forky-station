@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: 2025 ScarKy0
-// SPDX-FileCopyrightText: 2025 Голубь
+// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Голубь <124601871+Golubgik@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Actions;

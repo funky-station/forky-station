@@ -1,25 +1,24 @@
-# SPDX-FileCopyrightText: 2025 Hitlinemoss
-# SPDX-FileCopyrightText: 2025 Errant
-# SPDX-FileCopyrightText: 2025 Mora
-# SPDX-FileCopyrightText: 2025 Boaz1111
-# SPDX-FileCopyrightText: 2025 qrwas
-# SPDX-FileCopyrightText: 2025 T
-# SPDX-FileCopyrightText: 2025 Cass
-# SPDX-FileCopyrightText: 2025 Momo
-# SPDX-FileCopyrightText: 2025 lzk
-# SPDX-FileCopyrightText: 2025 centcomofficer24
-# SPDX-FileCopyrightText: 2025 Julian Giebel
-# SPDX-FileCopyrightText: 2024 Ed
-# SPDX-FileCopyrightText: 2024 joshepvodka
-# SPDX-FileCopyrightText: 2024 IProduceWidgets
-# SPDX-FileCopyrightText: 2024 Арт
-# SPDX-FileCopyrightText: 2024 TakoDragon
-# SPDX-FileCopyrightText: 2024 metalgearsloth
-# SPDX-FileCopyrightText: 2024 cool dolphin
-# SPDX-FileCopyrightText: 2024 Doctor-Cpu
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 joshepvodka <86210200+joshepvodka@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Арт <123451459+JustArt1m@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 cool dolphin <36332236+Afrokada@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Doctor-Cpu <77215380+Doctor-Cpu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Hitlinemoss <209321380+Hitlinemoss@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 qrwas <aleksandr.vernigora93@gmail.com>
+# SPDX-FileCopyrightText: 2025 T <theo75cg@gmail.com>
+# SPDX-FileCopyrightText: 2025 Cass <45694413+CubixThree@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Momo <Rsnesrud@gmail.com>
+# SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 centcomofficer24 <theo75cg@gmail.com>
+# SPDX-FileCopyrightText: 2025 Julian Giebel <juliangiebel@live.de>
 # SPDX-License-Identifier: MIT
 
-# Timers
 - type: loadoutEffectGroup
   id: Command
   effects:

@@ -1,6 +1,6 @@
-// SPDX-FileCopyrightText: 2025 Crude Oil
-// SPDX-FileCopyrightText: 2024 SkaldetSkaeg
-// SPDX-FileCopyrightText: 2023 Slava0135
+// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2024 SkaldetSkaeg <impotekh@gmail.com>
+// SPDX-FileCopyrightText: 2025 Crude Oil <124208219+CroilBird@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Chat;

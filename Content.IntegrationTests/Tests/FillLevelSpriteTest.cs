@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: 2026 Ignaz "Ian" Kraft
-// SPDX-FileCopyrightText: 2024 Tayrtahn
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2026 Ignaz "Ian" Kraft <ignaz.k@live.de>
 // SPDX-License-Identifier: MIT
 
 using System.Linq;

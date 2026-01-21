@@ -1,6 +1,6 @@
-// SPDX-FileCopyrightText: 2025 Stefano Pigozzi
-// SPDX-FileCopyrightText: 2023 metalgearsloth
-// SPDX-FileCopyrightText: 2023 TemporalOroboros
+// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2025 Stefano Pigozzi <me@steffo.eu>
 // SPDX-License-Identifier: MIT
 
 using static Content.Shared.Arcade.SharedSpaceVillainArcadeComponent;

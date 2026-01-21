@@ -1,31 +1,28 @@
-# SPDX-FileCopyrightText: 2025 nabegator
-# SPDX-FileCopyrightText: 2025 beck-thompson
-# SPDX-FileCopyrightText: 2025 Moomoobeef
-# SPDX-FileCopyrightText: 2025 K-Dynamic
-# SPDX-FileCopyrightText: 2025 Centronias
-# SPDX-FileCopyrightText: 2025 Minemoder5000
-# SPDX-FileCopyrightText: 2025 BramvanZijp
-# SPDX-FileCopyrightText: 2025 kosticia
-# SPDX-FileCopyrightText: 2025 John
-# SPDX-FileCopyrightText: 2024 RedBookcase
-# SPDX-FileCopyrightText: 2024 Kara
-# SPDX-FileCopyrightText: 2024 Errant
-# SPDX-FileCopyrightText: 2024 Mr. 27
-# SPDX-FileCopyrightText: 2024 wafehling
-# SPDX-FileCopyrightText: 2023 KingFroozy
-# SPDX-FileCopyrightText: 2023 Flareguy
-# SPDX-FileCopyrightText: 2022 Nemanja
-# SPDX-FileCopyrightText: 2022 Emisse
-# SPDX-FileCopyrightText: 2022 Veritius
-# SPDX-FileCopyrightText: 2021 Mith-randalf
-# SPDX-FileCopyrightText: 2021 Peptide90
-# SPDX-FileCopyrightText: 2021 mirrorcult
-# SPDX-FileCopyrightText: 2020 Swept
+# SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Peptide90 <78795277+Peptide90@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Emisse <99158783+Emisse@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
+# SPDX-FileCopyrightText: 2023 KingFroozy <140668342+KingFroozy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 RedBookcase <crazykid1590@gmail.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 nabegator <stunprod228@outlook.com>
+# SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
+# SPDX-FileCopyrightText: 2025 Minemoder5000 <minemoder50000@gmail.com>
+# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
+# SPDX-FileCopyrightText: 2025 John <35928781+sporkyz@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
 
-#NOTE: vests with armor belong to armor.yml
-
-#Hazard vest
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterVestHazard

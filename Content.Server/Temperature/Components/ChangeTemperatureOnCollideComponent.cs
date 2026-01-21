@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Boaz1111
+// SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Temperature.Systems;

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 DrSmugleaf
+// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using System.IO;

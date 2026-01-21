@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2023 MisterMecky
+// SPDX-FileCopyrightText: 2023 MisterMecky <mrmecky@hotmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Chemistry.Components;

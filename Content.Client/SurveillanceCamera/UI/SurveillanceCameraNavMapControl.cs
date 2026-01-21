@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2026 B_Kirill
+// SPDX-FileCopyrightText: 2026 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Robust.Client.Graphics;

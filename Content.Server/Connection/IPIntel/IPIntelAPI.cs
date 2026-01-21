@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Myra
+// SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
 // SPDX-License-Identifier: MIT
 
 using System.Net;

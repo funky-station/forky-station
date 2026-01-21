@@ -1,6 +1,6 @@
-// SPDX-FileCopyrightText: 2025 Centronias
-// SPDX-FileCopyrightText: 2025 eoineoineoin
-// SPDX-FileCopyrightText: 2024 metalgearsloth
+// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
+// SPDX-FileCopyrightText: 2025 eoineoineoin <github@eoinrul.es>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Item.ItemToggle.Components;

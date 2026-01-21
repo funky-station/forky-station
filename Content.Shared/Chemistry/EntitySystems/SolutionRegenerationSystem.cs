@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Perry Fraser
+// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Chemistry.Components;

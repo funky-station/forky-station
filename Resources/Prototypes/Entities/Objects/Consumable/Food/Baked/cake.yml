@@ -1,46 +1,41 @@
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba
-# SPDX-FileCopyrightText: 2025 āda
-# SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson
-# SPDX-FileCopyrightText: 2025 Disp-Dev
-# SPDX-FileCopyrightText: 2025 mubururu_
-# SPDX-FileCopyrightText: 2025 Stop-Signs
-# SPDX-FileCopyrightText: 2025 Qerd
-# SPDX-FileCopyrightText: 2025 MissKay1994
-# SPDX-FileCopyrightText: 2025 beck-thompson
-# SPDX-FileCopyrightText: 2025 archee1
-# SPDX-FileCopyrightText: 2025 Patrik Caes-Sayrs
-# SPDX-FileCopyrightText: 2024 Catofquestionableethics
-# SPDX-FileCopyrightText: 2023 Ed
-# SPDX-FileCopyrightText: 2024 Ed
-# SPDX-FileCopyrightText: 2023 lzk
-# SPDX-FileCopyrightText: 2024 lzk
-# SPDX-FileCopyrightText: 2024 TsjipTsjip
-# SPDX-FileCopyrightText: 2024 slarticodefast
-# SPDX-FileCopyrightText: 2024 Verm
-# SPDX-FileCopyrightText: 2024 no
-# SPDX-FileCopyrightText: 2024 Tayrtahn
-# SPDX-FileCopyrightText: 2024 Boaz1111
-# SPDX-FileCopyrightText: 2023 DoubleRiceEddiedd
-# SPDX-FileCopyrightText: 2023 Velcroboy
-# SPDX-FileCopyrightText: 2023 Nyranu
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2023 metalgearsloth
-# SPDX-FileCopyrightText: 2023 LankLTE
-# SPDX-FileCopyrightText: 2023 deltanedas
-# SPDX-FileCopyrightText: 2023 Hunter Sagerer
-# SPDX-FileCopyrightText: 2022 Flipp Syder
-# SPDX-FileCopyrightText: 2022 Rane
-# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers
-# SPDX-FileCopyrightText: 2022 ShadowCommander
-# SPDX-FileCopyrightText: 2021 FoLoKe
-# SPDX-FileCopyrightText: 2021 20kdc
-# SPDX-FileCopyrightText: 2021 Ygg01
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto
-# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-FileCopyrightText: 2021 FoLoKe <36813380+FoLoKe@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+# SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023-2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023-2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 DoubleRiceEddiedd <149714181+DoubleRiceEddiedd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nyranu <139381125+Nyranu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Hunter Sagerer <hsagerer@umich.edu>
+# SPDX-FileCopyrightText: 2024 Catofquestionableethics <164375142+Catofquestionableethics@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
+# SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
+# SPDX-FileCopyrightText: 2025 Disp-Dev <91643998+Disp-Dev@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 mubururu_ <139181059+muburu@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Stop-Signs <stopsign221@gmail.com>
+# SPDX-FileCopyrightText: 2025 Qerd <73325910+BigfootBravo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MissKay1994 <15877268+MissKay1994@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 archee1 <archee3@hotmail.co.uk>
+# SPDX-FileCopyrightText: 2025 Patrik Caes-Sayrs <heartofgoldfish@gmail.com>
 # SPDX-License-Identifier: MIT
-
-# When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_baked_whole.yml & food_baked_single.yml
-# Base
 
 - type: entity
   parent: FoodInjectableBase

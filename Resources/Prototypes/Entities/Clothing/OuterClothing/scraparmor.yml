@@ -1,10 +1,7 @@
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
-# SPDX-FileCopyrightText: 2025 ToastEnjoyer
-# SPDX-FileCopyrightText: 2025 RedBookcase
+# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2025 ToastEnjoyer <masondoesgamingyes@gmail.com>
+# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
 # SPDX-License-Identifier: MIT
-
-# Separate yml file for scrap armor since it has so many construction steps.
-# Listed from first step of crafting to the final armor
 
 - type: entity
   name: wired apron

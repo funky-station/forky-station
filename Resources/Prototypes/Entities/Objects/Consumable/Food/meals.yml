@@ -1,39 +1,32 @@
-# SPDX-FileCopyrightText: 2025 5tickman
-# SPDX-FileCopyrightText: 2025 Stop-Signs
-# SPDX-FileCopyrightText: 2025 Qerd
-# SPDX-FileCopyrightText: 2025 MissKay1994
-# SPDX-FileCopyrightText: 2024 SpaceLizard
-# SPDX-FileCopyrightText: 2024 CheddaCheez
-# SPDX-FileCopyrightText: 2024 Ed
-# SPDX-FileCopyrightText: 2023 lzk
-# SPDX-FileCopyrightText: 2024 lzk
-# SPDX-FileCopyrightText: 2024 degradka
-# SPDX-FileCopyrightText: 2023 Vasilis
-# SPDX-FileCopyrightText: 2023 Velcroboy
-# SPDX-FileCopyrightText: 2023 nmajask
-# SPDX-FileCopyrightText: 2023 phunnyguy
-# SPDX-FileCopyrightText: 2023 TemporalOroboros
-# SPDX-FileCopyrightText: 2023 LankLTE
-# SPDX-FileCopyrightText: 2023 Арт
-# SPDX-FileCopyrightText: 2023 Nemanja
-# SPDX-FileCopyrightText: 2023 lapatison
-# SPDX-FileCopyrightText: 2023 Fluffiest Floofers
-# SPDX-FileCopyrightText: 2022 Flipp Syder
-# SPDX-FileCopyrightText: 2022 Rane
-# SPDX-FileCopyrightText: 2022 metalgearsloth
-# SPDX-FileCopyrightText: 2022 CrudeWax
-# SPDX-FileCopyrightText: 2022 mirrorcult
-# SPDX-FileCopyrightText: 2022 Michael Phillips
-# SPDX-FileCopyrightText: 2021 20kdc
-# SPDX-FileCopyrightText: 2021 Ygg01
-# SPDX-FileCopyrightText: 2021 Swept
+# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
+# SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
+# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 CrudeWax <75271456+CrudeWax@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2022 Michael Phillips <1194692+MeltedPixel@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023-2024 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 nmajask <nmajask@gmail.com>
+# SPDX-FileCopyrightText: 2023 phunnyguy <90366172+phunnyguy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Арт <123451459+JustArt1m@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Fluffiest Floofers <thebluewulf@gmail.com>
+# SPDX-FileCopyrightText: 2024 SpaceLizard <the.justice.league.of.canada@gmail.com>
+# SPDX-FileCopyrightText: 2024 CheddaCheez <cheddacheezy@gmail.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 degradka <69397649+degradka@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 5tickman <5tick@comcast.net>
+# SPDX-FileCopyrightText: 2025 Stop-Signs <stopsign221@gmail.com>
+# SPDX-FileCopyrightText: 2025 Qerd <73325910+BigfootBravo@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 MissKay1994 <15877268+MissKay1994@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
-
-# When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_meal.yml
-# A bunch of different meals. This stuff doesn't come off their plates because
-# it's assembled on them. Or they just don't have plates.
-
-# Base
 
 - type: entity
   abstract: true

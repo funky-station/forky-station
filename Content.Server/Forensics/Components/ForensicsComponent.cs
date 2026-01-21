@@ -1,7 +1,7 @@
-// SPDX-FileCopyrightText: 2023 themias
-// SPDX-FileCopyrightText: 2023 DrSmugleaf
-// SPDX-FileCopyrightText: 2023 faint
-// SPDX-FileCopyrightText: 2022 ike709
+// SPDX-FileCopyrightText: 2022 ike709 <ike709@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 namespace Content.Server.Forensics

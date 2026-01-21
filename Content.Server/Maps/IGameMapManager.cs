@@ -1,8 +1,7 @@
-// SPDX-FileCopyrightText: 2025 Errant
-// SPDX-FileCopyrightText: 2022 Mervill
-// SPDX-FileCopyrightText: 2022 wrexbe
-// SPDX-FileCopyrightText: 2021 Moony
-// SPDX-FileCopyrightText: 2022 Moony
+// SPDX-FileCopyrightText: 2021-2022 Moony <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
+// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Maps;

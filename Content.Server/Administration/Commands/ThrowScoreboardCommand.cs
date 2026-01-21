@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: 2024 Kara
-// SPDX-FileCopyrightText: 2022 KIBORG04
+// SPDX-FileCopyrightText: 2022 KIBORG04 <bossmira4@gmail.com>
+// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Server.GameTicking;

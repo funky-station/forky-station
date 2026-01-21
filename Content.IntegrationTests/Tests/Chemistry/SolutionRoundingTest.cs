@@ -1,6 +1,6 @@
-// SPDX-FileCopyrightText: 2025 Connor Huffine
-// SPDX-FileCopyrightText: 2024 Tayrtahn
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers
+// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
+// SPDX-FileCopyrightText: 2025 Connor Huffine <chuffine@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Chemistry.Components;

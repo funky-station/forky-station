@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Голубь
+// SPDX-FileCopyrightText: 2025 Голубь <124601871+Golubgik@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.GameStates;

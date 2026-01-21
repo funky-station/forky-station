@@ -1,25 +1,24 @@
-# SPDX-FileCopyrightText: 2025 ScarKy0
-# SPDX-FileCopyrightText: 2025 Smith
-# SPDX-FileCopyrightText: 2024 Jarmer123
-# SPDX-FileCopyrightText: 2023 Ubaser
-# SPDX-FileCopyrightText: 2023 lzk
-# SPDX-FileCopyrightText: 2023 NkoKirkto
-# SPDX-FileCopyrightText: 2023 Ed
-# SPDX-FileCopyrightText: 2023 peptron1
-# SPDX-FileCopyrightText: 2023 OctoRocket
-# SPDX-FileCopyrightText: 2022 Andreas Kämper
-# SPDX-FileCopyrightText: 2022 Deahaka
-# SPDX-FileCopyrightText: 2022 Kai Shiba
-# SPDX-FileCopyrightText: 2022 Flipp Syder
-# SPDX-FileCopyrightText: 2022 Rane
-# SPDX-FileCopyrightText: 2022 Fishfish458
-# SPDX-FileCopyrightText: 2020 Swept
-# SPDX-FileCopyrightText: 2021 Swept
-# SPDX-FileCopyrightText: 2021 Visne
-# SPDX-FileCopyrightText: 2020 AJCM-git
-# SPDX-FileCopyrightText: 2020 FL-OZ
-# SPDX-FileCopyrightText: 2020 Soundwavesghost
-# SPDX-FileCopyrightText: 2019 DamianX
+# SPDX-FileCopyrightText: 2019 DamianX <DamianX@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020-2021 Swept <sweptwastaken@protonmail.com>
+# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2020 FL-OZ <anotherscuffed@gmail.com>
+# SPDX-FileCopyrightText: 2020 Soundwavesghost <chuckachu@googlemail.com>
+# SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Andreas Kämper <andreas@kaemper.tech>
+# SPDX-FileCopyrightText: 2022 Deahaka <96499407+Deahaka@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Kai Shiba <100050424+KaiShibaa@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 NkoKirkto <153374559+NkoKirkto@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 peptron1 <57651027+peptron1@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Jarmer123 <148848017+Jarmer123@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Smith <182301147+AgentSmithRadio@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
 
 - type: vendingMachineInventory

@@ -1,7 +1,6 @@
-# SPDX-FileCopyrightText: 2024 keronshb
-# SPDX-FileCopyrightText: 2025 keronshb
-# SPDX-FileCopyrightText: 2024 brainfood1183
-# SPDX-FileCopyrightText: 2023 Chronophylos
+# SPDX-FileCopyrightText: 2023 Chronophylos <nikolai@chronophylos.com>
+# SPDX-FileCopyrightText: 2024-2025 keronshb <54602815+keronshb@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
 
 - files: [rumble.ogg]

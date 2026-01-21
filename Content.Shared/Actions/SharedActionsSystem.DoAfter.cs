@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 keronshb
+// SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Actions.Events;

@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs
-// SPDX-FileCopyrightText: 2025 Jessica M
+// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Jessica M <jessica@jessicamaybe.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Trigger.Components.Effects;

@@ -1,30 +1,26 @@
-# SPDX-FileCopyrightText: 2026 Aearo-Deepwater
-# SPDX-FileCopyrightText: 2025 āda
-# SPDX-FileCopyrightText: 2025 Archee
-# SPDX-FileCopyrightText: 2024 chromiumboy
-# SPDX-FileCopyrightText: 2025 chromiumboy
-# SPDX-FileCopyrightText: 2023 lzk
-# SPDX-FileCopyrightText: 2025 lzk
-# SPDX-FileCopyrightText: 2025 Tao
-# SPDX-FileCopyrightText: 2025 Ps3Moira
-# SPDX-FileCopyrightText: 2025 B_Kirill
-# SPDX-FileCopyrightText: 2025 Chaboricks
-# SPDX-FileCopyrightText: 2024 Ilya246
-# SPDX-FileCopyrightText: 2022 Leon Friedrich
-# SPDX-FileCopyrightText: 2024 Leon Friedrich
-# SPDX-FileCopyrightText: 2024 Ed
-# SPDX-FileCopyrightText: 2024 Kara
-# SPDX-FileCopyrightText: 2024 Nemanja
-# SPDX-FileCopyrightText: 2023 PixelTK
-# SPDX-FileCopyrightText: 2022 metalgearsloth
-# SPDX-FileCopyrightText: 2023 metalgearsloth
-# SPDX-FileCopyrightText: 2023 brainfood1183
-# SPDX-FileCopyrightText: 2023 TemporalOroboros
-# SPDX-FileCopyrightText: 2022 Jacob Tong
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin
-# SPDX-FileCopyrightText: 2022 Chris V
-# SPDX-FileCopyrightText: 2022 Fishfish458
-# SPDX-FileCopyrightText: 2022 Leeroy
+# SPDX-FileCopyrightText: 2022, 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
+# SPDX-FileCopyrightText: 2022 Chris V <HoofedEar@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2022 Leeroy <97187620+elthundercloud@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023, 2025 lzk <124214523+lzk228@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
+# SPDX-FileCopyrightText: 2024-2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
+# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
+# SPDX-FileCopyrightText: 2025 Archee <archee3@hotmail.co.uk>
+# SPDX-FileCopyrightText: 2025 Tao <56692749+TaoNewt@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Ps3Moira <113228053+ps3moira@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Chaboricks <95505064+Chaboricks@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Aearo-Deepwater <77557990+Aearo-Deepwater@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
 
 - type: entity

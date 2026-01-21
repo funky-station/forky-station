@@ -1,7 +1,5 @@
-# SPDX-FileCopyrightText: 2025 War Pigeon
+# SPDX-FileCopyrightText: 2025 War Pigeon <54217755+minus1over12@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
-
-#Blast door
 
 - type: entity
   parent: BlastDoor

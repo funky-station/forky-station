@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Verm
+// SPDX-FileCopyrightText: 2025 Verm <32827189+Vermidia@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.GameStates;

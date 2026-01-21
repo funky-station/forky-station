@@ -1,7 +1,6 @@
-# SPDX-FileCopyrightText: 2024 Flareguy
+# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
 
-# Intentionally does not include channels like syndicate comms or binary, since these getting in to the hands of random people can cause a round to derail.
 - type: entity
   name: random encryption key spawner
   id: LootSpawnerEncryptionKey

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 778b
+// SPDX-FileCopyrightText: 2024 778b <33431126+778b@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Hands.Components;

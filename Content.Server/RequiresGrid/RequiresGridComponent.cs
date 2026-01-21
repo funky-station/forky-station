@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 HoofedEar
+// SPDX-FileCopyrightText: 2024 HoofedEar <HoofedEar@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 namespace Content.Server.RequiresGrid;

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2023 Moony
+// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
 // SPDX-License-Identifier: MIT
 
 using System.Linq;

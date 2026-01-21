@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Morb
+// SPDX-FileCopyrightText: 2024 Morb <14136326+Morb0@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Chat.Prototypes;

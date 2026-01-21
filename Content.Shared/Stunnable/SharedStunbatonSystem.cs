@@ -1,6 +1,6 @@
-// SPDX-FileCopyrightText: 2025 Krunklehorn
-// SPDX-FileCopyrightText: 2023 Darkie
-// SPDX-FileCopyrightText: 2023 Slava0135
+// SPDX-FileCopyrightText: 2023 Darkie <darksaiyanis@gmail.com>
+// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.ActionBlocker;

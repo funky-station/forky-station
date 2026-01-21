@@ -1,7 +1,6 @@
-// SPDX-FileCopyrightText: 2024 ScarKy0
+// SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
-//using Robust.Shared.GameObjects;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 

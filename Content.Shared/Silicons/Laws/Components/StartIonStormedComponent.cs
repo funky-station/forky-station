@@ -1,5 +1,5 @@
-// SPDX-FileCopyrightText: 2024 ScarKy0
-// SPDX-FileCopyrightText: 2024 The Canned One
+// SPDX-FileCopyrightText: 2024 ScarKy0 <scarky0@onet.eu>
+// SPDX-FileCopyrightText: 2024 The Canned One <greentopcan@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Roles;

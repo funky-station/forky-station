@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 āda
+// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.GameStates;

@@ -1,9 +1,8 @@
-# SPDX-FileCopyrightText: 2025 PJB3005
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu
-# SPDX-FileCopyrightText: 2025 āda
+# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
+# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
+# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
 # SPDX-License-Identifier: MIT
 
-# they're uninflated by default so they're tiny
 - type: stack
   parent: BaseSmallStack
   id: InflatableWall

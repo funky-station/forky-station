@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Fahasor
+// SPDX-FileCopyrightText: 2024 Fahasor <70820551+Fahasor@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.GameStates;

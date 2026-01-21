@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2023 LankLTE
+// SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using System.Text.Json.Serialization;

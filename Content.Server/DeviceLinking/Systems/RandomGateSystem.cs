@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Borsh
+// SPDX-FileCopyrightText: 2025 Borsh <85323386+NeBorsh@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.DeviceLinking.Components;

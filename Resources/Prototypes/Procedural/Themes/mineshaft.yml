@@ -1,9 +1,6 @@
-# SPDX-FileCopyrightText: 2024 Ed
+# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
 
-# Rooms
-# Large
-# - 17x5
 - type: dungeonRoom
   id: Mineshaft17x5a
   size: 17,5

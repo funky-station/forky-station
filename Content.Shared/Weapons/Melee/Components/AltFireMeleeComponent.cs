@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Sigil
+// SPDX-FileCopyrightText: 2025 Sigil <84070966+Siigiil@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.GameStates;

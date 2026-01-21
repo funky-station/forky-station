@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Mora
+// SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Hands;

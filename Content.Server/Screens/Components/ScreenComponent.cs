@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 avery
+// SPDX-FileCopyrightText: 2024 avery <51971268+graevy@users.noreply.github.com>
 // SPDX-License-Identifier: MIT
 
 namespace Content.Server.Screens.Components;
