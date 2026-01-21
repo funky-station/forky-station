@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+// SPDX-License-Identifier: MIT
+
 // Funky atmos - /tg/ gases
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
