@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
+// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+// SPDX-License-Identifier: MIT
+
 using Content.Shared.EntityEffects;
 using Content.Shared.EntityEffects.Effects.StatusEffects;
 using Content.Shared.Movement.Components;
