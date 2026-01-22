@@ -67,10 +67,16 @@
 # SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
 # SPDX-License-Identifier: MIT
 
+# No hardsuit table # Funky
 - type: entityTable
-  id: LockerFillQuarterMaster
+  id: LockerFillQuarterMasterNoHardsuit 
   table: !type:AllSelector
     children:
+    # Funky start 
+    - id: SurvivalKnife
+    - id: WeaponProtoKineticAccelerator 
+    - id: RadioHandheld 
+    # Funky end 
     - id: BoxEncryptionKeyCargo
     - id: BoxFolderQmClipboard
     - id: BoxQMCircuitboards
@@ -82,6 +88,19 @@
     - id: AstroNavCartridge
     - id: ClothingHandsKnuckleDustersQM
 
+# Hardsuit table, used for suit storage as well # Funky
+- type: entityTable
+  id: FillQuarterMasterHardsuit
+  table: !type:AllSelector
+    children:
+    - id: ClothingMaskGasExplorer
+    - id: ClothingOuterHardsuitLuxury
+    - id: ClothingShoesBootsMag
+    - id: JetpackVoidFilled
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled 
+
+# No hardsuit locker # Funky
 - type: entity
   id: LockerQuarterMasterFilled
   suffix: Filled
@@ -90,7 +109,22 @@
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
-        tableId: LockerFillQuarterMaster
+        tableId: LockerFillQuarterMasterNoHardsuit 
+
+# No hardsuit + hardsuit locker # Funky 
+- type: entity
+  id: LockerQuarterMasterFilledHardsuit
+  suffix: Filled, Hardsuit
+  parent: LockerQuarterMaster
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: LockerFillQuarterMasterNoHardsuit
+        - !type:NestedSelector
+          tableId: FillQuarterMasterHardsuit
 
 # No laser table
 - type: entityTable

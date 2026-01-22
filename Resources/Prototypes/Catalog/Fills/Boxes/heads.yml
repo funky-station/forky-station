@@ -89,6 +89,7 @@
     containers:
       storagebase: !type:AllSelector
         children:
+        - id: CargoTechFabCircuitboard # Funky 
         - id: CargoBountyComputerCircuitboard
         - id: CargoRequestComputerCircuitboard
         - id: CargoSaleComputerCircuitboard

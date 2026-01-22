@@ -11,6 +11,11 @@
   id: MaterialsStatic
   recipes:
   - SheetRGlass
+  - SheetPGlass
+  - SheetRPGlass
+  - SheetPlasteel
+  - SheetUGlass
+  - SheetRUGlass
   - MaterialDurathread
 
 - type: latheRecipePack

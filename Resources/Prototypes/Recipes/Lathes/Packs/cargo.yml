@@ -5,6 +5,9 @@
 - type: latheRecipePack
   id: CargoStatic
   recipes:
+  - OreBag # Funky
+  - MaterialBag # Funky
+  - GrapplingGun # Funky
   - AppraisalTool
   - Pickaxe
   - UtilityKnife
