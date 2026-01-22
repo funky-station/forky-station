@@ -14,3 +14,4 @@ Resources/Textures/_Funkystation/Objects/Specific/Cargo/material_bag.rsi/icon.pn
 Resources/Textures/_Funkystation/Objects/Specific/Cargo/material_bag.rsi/inhand-left.png
 Resources/Textures/_Funkystation/Objects/Specific/Cargo/material_bag.rsi/inhand-right.png
 Resources/Textures/_Funkystation/Objects/Specific/Cargo/material_bag.rsi/meta.json
+changed_files.txt
