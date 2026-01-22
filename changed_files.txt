@@ -1,0 +1,16 @@
+Resources/Prototypes/Catalog/Fills/Boxes/heads.yml
+Resources/Prototypes/Catalog/Fills/Lockers/heads.yml
+Resources/Prototypes/Catalog/Fills/Lockers/suit_storage.yml
+Resources/Prototypes/Entities/Objects/Specific/Salvage/ore_bag.yml
+Resources/Prototypes/Entities/Objects/Specific/Salvage/ore_bag_holding.yml
+Resources/Prototypes/Recipes/Lathes/Packs/cargo.yml
+Resources/Prototypes/Recipes/Lathes/Packs/shared.yml
+Resources/Prototypes/_Funkystation/Entities/Objects/Devices/Circuitboards/production.yml
+Resources/Prototypes/_Funkystation/Entities/Objects/Specific/Cargo/material_bag.yml
+Resources/Prototypes/_Funkystation/Entities/Structures/Machines/lathe.yml
+Resources/Prototypes/_Funkystation/Recipes/Lathes/cargo_techfab.yml
+Resources/Textures/_Funkystation/Objects/Specific/Cargo/material_bag.rsi/equipped-BELT.png
+Resources/Textures/_Funkystation/Objects/Specific/Cargo/material_bag.rsi/icon.png
+Resources/Textures/_Funkystation/Objects/Specific/Cargo/material_bag.rsi/inhand-left.png
+Resources/Textures/_Funkystation/Objects/Specific/Cargo/material_bag.rsi/inhand-right.png
+Resources/Textures/_Funkystation/Objects/Specific/Cargo/material_bag.rsi/meta.json
