@@ -20,20 +20,20 @@
 - type: cargoProduct
   id: ArmorySmg
   icon:
-    sprite: Objects/Weapons/Guns/SMGs/wt550.rsi
+    sprite: Objects/Weapons/Guns/SMGs/drozd.rsi
     state: icon
   product: CrateArmorySMG
-  cost: 9000
+  cost: 8000 # Funky change, from 9000 to 8000
   category: cargoproduct-category-name-armory
   group: market
 
 - type: cargoProduct
   id: ArmoryShotgun
   icon:
-    sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
+    sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
     state: icon
   product: CrateArmoryShotgun
-  cost: 7000
+  cost: 6500 # Funky change, from 7000 to 6500
   category: cargoproduct-category-name-armory
   group: market
 
@@ -43,7 +43,7 @@
     sprite: Clothing/OuterClothing/Armor/riot.rsi
     state: icon
   product: CrateSecurityRiot
-  cost: 7500
+  cost: 4000
   category: cargoproduct-category-name-armory
   group: market
 
@@ -63,7 +63,7 @@
     sprite: Structures/Machines/bomb.rsi
     state: training-bomb
   product: CrateTrainingBombs
-  cost: 3000
+  cost: 1000 # Funky change, from 3000 to 1000
   category: cargoproduct-category-name-armory
   group: market
 
@@ -83,7 +83,7 @@
     sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
     state: icon
   product: CrateArmoryPistols
-  cost: 5200
+  cost: 3000 # Funky change, from 5200 to 3000
   category: cargoproduct-category-name-armory
   group: market
 

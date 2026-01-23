@@ -21,25 +21,25 @@
 # SPDX-FileCopyrightText: 2025 T <theo75cg@gmail.com>
 # SPDX-License-Identifier: MIT
 
-- type: cargoProduct
-  id: SecurityArmor
-  icon:
-    sprite: Clothing/OuterClothing/Armor/bulletproof.rsi
-    state: icon
-  product: CrateSecurityArmor
-  cost: 1250
-  category: cargoproduct-category-name-security
-  group: market
+#- type: cargoProduct #Funky Station, replaced by the standard armor crate 
+#  id: SecurityArmor
+#  icon:
+#    sprite: Clothing/OuterClothing/Armor/bulletproof.rsi
+#    state: icon
+#  product: CrateSecurityArmor
+#  cost: 1250
+#  category: cargoproduct-category-name-security
+#  group: market
 
-- type: cargoProduct
-  id: SecurityHelmet
-  icon:
-    sprite: Clothing/Head/Helmets/security.rsi
-    state: icon
-  product: CrateSecurityHelmet
-  cost: 550
-  category: cargoproduct-category-name-security
-  group: market
+#- type: cargoProduct #Funky Station, replaced by the standard armor crate
+#  id: SecurityHelmet
+#  icon:
+#    sprite: Clothing/Head/Helmets/security.rsi
+#    state: icon
+#  product: CrateSecurityHelmet
+#  cost: 550
+#  category: cargoproduct-category-name-security
+#  group: market
 
 - type: cargoProduct
   id: SecurityNonLethal

@@ -25,26 +25,26 @@
   name: SMG crate
   description: Contains two SMGs with four mags. Requires Armory access to open.
   components:
-  - type: EntityTableContainerFill
+  - type: EntityTableContainerFill # Funky change, replaced the WT550 with a Drozd SMG
     containers:
       entity_storage: !type:AllSelector
         children:
-        - id: WeaponSubMachineGunWt550
+        - id: WeaponSubMachineGunDrozd
           amount: 2
-        - id: MagazinePistolSubMachineGunTopMounted
+        - id: MagazinePistolSubMachineGun
           amount: 4
 
 - type: entity
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
   id: CrateArmoryShotgun
   name: shotgun crate
-  description: For when the enemy absolutely needs to be replaced with lead. Contains two Enforcer Combat Shotguns, and some standard shotgun shells. Requires Armory access to open.
+  description: For when the enemy absolutely needs to be replaced with lead. Contains two Kammerer Shotguns, and some standard shotgun shells. Requires Armory access to open. # Funky change, replaced the Enforcers with Kammerers
   components:
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:AllSelector
         children:
-        - id: WeaponShotgunEnforcer
+        - id: WeaponShotgunKammerer
           amount: 2
         - id: BoxLethalshot
           amount: 4
@@ -101,25 +101,23 @@
           amount: 4
 
 - type: entity
-  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
   id: CrateSecurityRiot
-  name: swat crate
-  description: Contains two sets of riot armor, helmets, shields, and enforcers loaded with beanbags. Extra ammo is included. Requires Armory access to open.
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+  name: riot gear crate
+  description: Contains two sets of riot armor, helmets, gas masks and shields as well as four tear gas grenades, Requires Armory access to open. # Funky change
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: ClothingOuterArmorRiot
-          amount: 2
-        - id: ClothingHeadHelmetRiot
-          amount: 2
-        - id: WeaponShotgunEnforcerRubber
-          amount: 2
-        - id: BoxBeanbag
-          amount: 2
-        - id: RiotShield
-          amount: 2
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterArmorRiot
+      amount: 2
+    - id: ClothingHeadHelmetRiot
+      amount: 2
+    - id: ClothingMaskGasSecurity
+      amount: 2
+    - id: RiotShield
+      amount: 2
+    - id: TearGasGrenade
+      amount: 4
 
 - type: entity
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]

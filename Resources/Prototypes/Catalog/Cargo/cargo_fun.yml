@@ -257,15 +257,15 @@
   category: cargoproduct-category-name-fun
   group: market
 
-- type: cargoProduct
-  id: HydratedScurret
-  icon:
-    sprite: Structures/Wallmounts/posters.rsi
-    state: poster55_legit
-  product: CrateFunScurret
-  cost: 25000 # You will surely not regret buying this
-  category: cargoproduct-category-name-fun
-  group: market
+#- type: cargoProduct # Funky change, removed ability to purchase this, added into the gamba pool instead. 
+#  id: HydratedScurret
+#  icon:
+#    sprite: Structures/Wallmounts/posters.rsi
+#    state: poster55_legit
+#  product: CrateFunScurret
+#  cost: 25000 # You will surely not regret buying this #
+#  category: cargoproduct-category-name-fun
+#  group: market
 
 - type: cargoProduct
   id: FunCrateGambling
@@ -274,7 +274,7 @@
     state: cash_1000000
   product: CrateCargoGambling
   cost: 10000
-  category: cargoproduct-category-name-fun
+  category: cargoproduct-category-name-cargo # Funky change, gamba crates are classified as a cargo department crate. 
   group: market
 
 - type: cargoProduct

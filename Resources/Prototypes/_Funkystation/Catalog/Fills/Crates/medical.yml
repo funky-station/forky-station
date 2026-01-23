@@ -1,0 +1,71 @@
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+
+- type: entity
+  id: CrateEmergencyDefibrillator
+  parent: CrateMedical
+  name: emergency defibrillator crate
+  description: Crate that contains a defibrillator.
+  components:
+  - type: StorageFill
+    contents:
+    - id: Defibrillator         
+
+- type: entity
+  id: CrateEmergencyMedipens
+  parent: CrateMedical
+  name: emergency medipens crate
+  description: Crate that contains six emergency medipens 
+  components:
+  - type: StorageFill
+    contents:
+    - id: EmergencyMedipen         
+      amount: 6
+ 
+- type: entity
+  id: CrateMedicalEquipment
+  parent: CrateMedical
+  name: medical equipment crate
+  description: For treating big and small injuries alike, contains a medical belt and hud, health analyzer, basic topicals, medical mask and pair of gloves as well as the medical guidebooks.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingEyesHudMedical
+      - id: ClothingMaskSterile
+      - id: ClothingHandsGlovesNitrile
+      - id: BookChemicalCompendium
+      - id: BookMedicalReferenceBook
+      - id: ClothingBeltMedicalFilled
+      - id: EmergencyMedipen
+      - id: Syringe   
+      - id: HandheldHealthAnalyzer   
+
+- type: entity
+  id: CrateMedicalParamedEquipment 
+  parent: CrateMedicalSecure
+  name: paramedic equipment crate
+  description: Contains a paramedic void suit, set of air tanks, medical hud, EMT belt and a jet injector, Reqiuires Medical access to to open. 
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterHardsuitVoidParamed
+      - id: ClothingBeltMedicalEMTFilled
+      - id: ClothingEyesHudMedical
+      - id: HandheldGPSBasic 
+      - id: JetInjector 
+      - id: ClothingHandsGlovesLatex
+      - id: ClothingMaskSterile
+      - id: NitrogenTank
+      - id: OxygenTank
+
+- type: entity
+  id: CrateMedicalBiomass
+  parent: CrateMedical
+  name: biomass crate 
+  description: Crate that contains 100 units of biomass.
+  components:
+  - type: StorageFill
+    contents:
+    - id: MaterialBiomass
