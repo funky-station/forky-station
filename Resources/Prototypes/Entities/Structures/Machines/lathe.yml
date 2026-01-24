@@ -266,8 +266,8 @@
     - CablesStatic
     - PaperworkStatic
     - TowelsStatic
-    - CargoStatic
-    - MaterialsStatic
+   # - CargoStatic Funky change, moved over to cargo techfab
+   # - MaterialsStatic Funky change, moved over to cargo techfab
     - BasicChemistryStatic
     - RollerBedsStatic
     - LightsStatic
