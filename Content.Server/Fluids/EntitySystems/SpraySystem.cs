@@ -42,6 +42,9 @@ using Content.Shared.Fluids.EntitySystems;
 using Content.Shared.Fluids.Components;
 using Robust.Server.Containers;
 using Robust.Shared.Map;
+using Content.Shared.Inventory; // Funky atmos - firefighter backpack
+using Content.Shared.Whitelist;
+using Content.Shared.Hands.EntitySystems; // Funky atmos - firefighter backpack
 
 namespace Content.Server.Fluids.EntitySystems;
 
@@ -59,6 +62,10 @@ public sealed class SpraySystem : SharedSpraySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!; // Funky atmos - firefighter backpack
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!; // Funky atmos - firefighter backpack
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!; // Assmos - Extinguisher Nozzle
+
 
     private float _gridImpulseMultiplier;
 
@@ -111,8 +118,22 @@ public sealed class SpraySystem : SharedSpraySystem
 
     public override void Spray(Entity<SprayComponent> entity, MapCoordinates mapcoord, EntityUid? user = null)
     {
-        if (!_solutionContainer.TryGetSolution(entity.Owner, entity.Comp.Solution, out var soln, out var solution))
+        // Funky atmos - firefighter backpack
+        var sprayOwner = entity.Owner;
+        var solutionName = entity.Comp.Solution;
+
+        if (entity.Comp.ExternalContainer)
+        {
+            TryFindExternalProvider(entity, user, ref sprayOwner, ref solutionName);
+        }
+
+        if (!_solutionContainer.TryGetSolution(sprayOwner, solutionName, out var soln, out var solution))
             return;
+        // Funky atmos - end of changes
+
+        // Funky - Uncomment and delete above block to revert
+        // if (!_solutionContainer.TryGetSolution(entity.Owner, entity.Comp.Solution, out var soln, out var solution))
+        //     return;
 
         var ev = new SprayAttemptEvent(user);
         RaiseLocalEvent(entity, ref ev);
@@ -231,5 +252,42 @@ public sealed class SpraySystem : SharedSpraySystem
         _audio.PlayPvs(entity.Comp.SpraySound, entity, entity.Comp.SpraySound.Params.WithVariation(0.125f));
 
         _useDelay.TryResetDelay(entity);
+    }
+
+    private void TryFindExternalProvider(Entity<SprayComponent> entity, EntityUid? user, ref EntityUid sprayOwner, ref string solutionName)
+    {
+        if (!entity.Comp.ExternalContainer)
+            return;
+
+        if (user == null)
+            return;
+
+        foreach (var item in _handsSystem.EnumerateHeld(user.Value))
+        {
+            if (item == entity.Owner)
+                continue;
+
+            if (!_whitelistSystem.IsWhitelistFailOrNull(entity.Comp.ProviderWhitelist, item) &&
+                _solutionContainer.TryGetSolution(item, entity.Comp.TankSolutionName, out _, out _))
+            {
+                sprayOwner = item;
+                solutionName = entity.Comp.TankSolutionName;
+                return;
+            }
+        }
+
+        if (_inventory.TryGetContainerSlotEnumerator(user.Value, out var enumerator, entity.Comp.TargetSlot))
+        {
+            while (enumerator.NextItem(out var item))
+            {
+                if (!_whitelistSystem.IsWhitelistFailOrNull(entity.Comp.ProviderWhitelist, item) &&
+                    _solutionContainer.TryGetSolution(item, entity.Comp.TankSolutionName, out _, out _))
+                {
+                    sprayOwner = item;
+                    solutionName = entity.Comp.TankSolutionName;
+                    return;
+                }
+            }
+        }
     }
 }

@@ -25,4 +25,11 @@ public sealed partial class SlotBasedConnectedContainerComponent : Component
     /// </summary>
     [DataField]
     public EntityWhitelist? ContainerWhitelist;
+
+    /// <summary>
+    ///     If true, also check the user's active hands for a valid provider.
+    ///     Funky atmos - firefighter backpack
+    /// </summary>
+    [DataField]
+    public bool CheckHands = false;
 }
