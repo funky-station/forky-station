@@ -28,6 +28,8 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Fluids.EntitySystems;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Content.Shared.Inventory; // Funky atmos - firefighter backpack
+using Content.Shared.Whitelist; // Funky atmos - firefighter backpack
 
 namespace Content.Shared.Fluids.Components;
 
@@ -37,6 +39,9 @@ public sealed partial class SprayComponent : Component
 {
     [DataField]
     public string Solution = "spray";
+
+    [DataField]
+    public string TankSolutionName = "tank"; // Funky atmos - firefighter backpack
 
     [DataField]
     public FixedPoint2 TransferAmount = 10;
@@ -68,4 +73,13 @@ public sealed partial class SprayComponent : Component
 
     [DataField]
     public LocId SprayEmptyPopupMessage = "spray-component-is-empty-message";
+
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public SlotFlags TargetSlot; // Funky atmos - firefighter backpack
+
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public EntityWhitelist? ProviderWhitelist; // Funky atmos - firefighter backpack
+
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public bool ExternalContainer = false; // Funky atmos - firefighter backpack
 }

@@ -3,6 +3,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
@@ -18,6 +19,7 @@ public sealed class SlotBasedConnectedContainerSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _containers = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!; // Funky atmos - firefighter backpack
 
     /// <inheritdoc />
     public override void Initialize()
@@ -59,6 +61,25 @@ public sealed class SlotBasedConnectedContainerSystem : EntitySystem
             return false;
 
         var user = container.Owner;
+
+        // Funky atmos - firefighter backpack
+        // Check hands for connected container
+        if (TryComp<SlotBasedConnectedContainerComponent>(uid, out var comp) && comp.CheckHands)
+        {
+            foreach (var held in _hands.EnumerateHeld(user))
+            {
+                if (held == uid) // don't pick active hand
+                    continue;
+
+                if (!_whitelistSystem.IsWhitelistFailOrNull(providerWhitelist, held))
+                {
+                    slotEntity = held;
+                    return true;
+                }
+            }
+        }
+        // Funky atmos - end of changes
+
         if (!_inventory.TryGetContainerSlotEnumerator(user, out var enumerator, slotFlag))
             return false;
 

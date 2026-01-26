@@ -12,3 +12,12 @@
 
 - type: Tag # Funky atmos - /tg/ gases
   id: PlasmaSheet
+
+- type: Tag # Funky atmos - firefighter backpack
+  id: AtmosBackTank
+
+- type: Tag # Funky atmos - firefighter backpack
+  id: Nozzle
+
+- type: Tag # Funky atmos - firefighter backpack
+  id: AtmosResinGrenade

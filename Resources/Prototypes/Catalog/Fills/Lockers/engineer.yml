@@ -190,6 +190,7 @@
     - id: RPD
     - id: RCDAmmo
     - id: AirGrenade
+    - id: ClothingBackpackFirefighterTank # Funkystation
 
 - type: entityTable
   id: FillAtmosphericsHardsuit
