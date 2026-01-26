@@ -1134,6 +1134,7 @@
       settings: short
   - type: GhostTakeoverAvailable
   - type: OwOAccent
+  - type: CakAccent # Funky
   - type: Speech
     speechSounds: Cat
     speechVerb: SmallMob
