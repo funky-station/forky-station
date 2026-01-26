@@ -7,8 +7,8 @@ namespace Content.Server._Funkystation.Atmos.EntitySystems;
 
 
 /// <summary>
-/// Assmos - Extinguisher Nozzle
 /// Sets atmospheric temperature to 20C and removes all toxins.
+/// Funky atmos - firefighter backpack
 /// </summary>
 public sealed class AtmosResinDespawnSystem : EntitySystem
 {

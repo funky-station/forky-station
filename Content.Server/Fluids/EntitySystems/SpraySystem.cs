@@ -64,7 +64,7 @@ public sealed class SpraySystem : SharedSpraySystem
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly InventorySystem _inventory = default!; // Funky atmos - firefighter backpack
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!; // Funky atmos - firefighter backpack
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!; // Assmos - Extinguisher Nozzle
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!; // Funky atmos - firefighter backpack
 
 
     private float _gridImpulseMultiplier;
