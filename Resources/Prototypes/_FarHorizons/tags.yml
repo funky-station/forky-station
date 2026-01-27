@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: 2026 jhrushbe <capnmerry@gmail.com>
+# SPDX-License-Identifier: MIT
+
+# ALPHABETIZE
+- type: Tag
+  id: GasTurbineBlade
+
+- type: Tag
+  id: GasTurbineStator
+
+- type: Tag
+  id: SalvageReactor

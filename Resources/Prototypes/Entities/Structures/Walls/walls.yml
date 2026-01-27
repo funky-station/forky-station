@@ -1,5 +1,6 @@
-# SPDX-FileCopyrightText: 2018-2021 Pieter-Jan Briers <pieterjan.briers@gmail.com>
+# SPDX-FileCopyrightText: 2018 Pieter-Jan Briers <pieterjan.briers@gmail.com>
 # SPDX-FileCopyrightText: 2019, 2021-2023, 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2019-2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 # SPDX-FileCopyrightText: 2019 L.E.D <10257081+unusualcrow@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2019 Acruid <shatter66@gmail.com>
 # SPDX-FileCopyrightText: 2019 DamianX <DamianX@users.noreply.github.com>
@@ -19,6 +20,7 @@
 # SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
 # SPDX-FileCopyrightText: 2021 SethLafuente <84478872+SethLafuente@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2021 mirrorcult <notzombiedude@gmail.com>
+# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
 # SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022, 2024-2025 keronshb <54602815+keronshb@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
@@ -64,6 +66,9 @@
 # SPDX-FileCopyrightText: 2025 Tao <56692749+TaoNewt@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
+# SPDX-FileCopyrightText: 2026 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2026 Aearo-Deepwater <77557990+Aearo-Deepwater@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
 
@@ -175,7 +180,7 @@
   - type: Icon
     sprite: Structures/Walls/brick.rsi
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: Destructible
@@ -237,7 +242,7 @@
     graph: Girder
     node: bananiumWall
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: Destructible
@@ -368,7 +373,7 @@
   - type: Icon
     sprite: Structures/Walls/diamond.rsi
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: Destructible
@@ -401,7 +406,7 @@
     graph: Girder
     node: goldWall
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: Destructible
@@ -480,7 +485,7 @@
     graph: Girder
     node: plasmaWall
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: Destructible
@@ -524,7 +529,7 @@
     graph: Girder
     node: plasticWall
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: Destructible
@@ -843,7 +848,7 @@
   - type: Icon
     sprite: Structures/Walls/sandstone.rsi
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: Destructible
@@ -876,7 +881,7 @@
     graph: Girder
     node: silverWall
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: Destructible
@@ -1058,7 +1063,7 @@
   - type: Icon
     sprite: Structures/Walls/solid.rsi
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: Destructible
@@ -1202,7 +1207,7 @@
     graph: Girder
     node: wallChitin
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
 
@@ -1634,7 +1639,7 @@
   - type: Icon
     sprite: Structures/Walls/cobblebrick.rsi
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: Destructible

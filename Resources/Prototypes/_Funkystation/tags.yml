@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+# SPDX-License-Identifier: MIT
+
+- type: Tag # Funky atmos - metal hydrogen
+  id: AtmosFireSuit
+
+- type: Tag # Funky atmos - metal hydrogen
+  id: MetalHydrogenArmor
+
+- type: Tag # Funky atmos - /tg/ gases
+  id: UraniumSheet
+
+- type: Tag # Funky atmos - /tg/ gases
+  id: PlasmaSheet

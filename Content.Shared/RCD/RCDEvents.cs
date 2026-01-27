@@ -1,5 +1,9 @@
+// SPDX-FileCopyrightText: 2024 August Eymann <august.eymann@gmail.com>
 // SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
+// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
+// SPDX-FileCopyrightText: 2026 taydeo <td12233a@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Robust.Shared.Prototypes;
@@ -18,6 +22,31 @@ public sealed class RCDConstructionGhostRotationEvent(NetEntity netEntity, Direc
 {
     public readonly NetEntity NetEntity = netEntity;
     public readonly Direction Direction = direction;
+}
+
+[Serializable, NetSerializable]
+public sealed class RCDConstructionGhostFlipEvent : EntityEventArgs
+{
+    public readonly NetEntity NetEntity;
+    public readonly bool UseMirrorPrototype;
+    public RCDConstructionGhostFlipEvent(NetEntity netEntity, bool useMirrorPrototype)
+    {
+        NetEntity = netEntity;
+        UseMirrorPrototype = useMirrorPrototype;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class RPDEyeRotationEvent : EntityEventArgs
+{
+    public readonly NetEntity NetEntity;
+    public float? EyeRotation;
+
+    public RPDEyeRotationEvent(NetEntity netEntity, float? eyeRotation)
+    {
+        NetEntity = netEntity;
+        EyeRotation = eyeRotation;
+    }
 }
 
 [Serializable, NetSerializable]

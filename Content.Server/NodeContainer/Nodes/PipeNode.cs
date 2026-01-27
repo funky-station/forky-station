@@ -1,10 +1,11 @@
 // SPDX-FileCopyrightText: 2020-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2020-2021 py01 <60152240+collinlunn@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2020 ColdAutumnRain <73938872+ColdAutumnRain@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
 // SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
 // SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
 // SPDX-FileCopyrightText: 2021 moonheart08 <moonheart08@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
 // SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
@@ -16,6 +17,9 @@
 // SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
 // SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
+// SPDX-FileCopyrightText: 2026 taydeo <td12233a@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Server.NodeContainer.EntitySystems;
@@ -34,7 +38,7 @@ namespace Content.Server.NodeContainer.Nodes
     /// </summary>
     [DataDefinition]
     [Virtual]
-    public partial class PipeNode : Node, IGasMixtureHolder, IRotatableNode
+    public partial class PipeNode : Node, IGasMixtureHolder, IRotatableNode, IPipeNode
     {
         /// <summary>
         ///     The directions in which this pipe can connect to other pipes around it.
@@ -256,5 +260,8 @@ namespace Content.Server.NodeContainer.Nodes
                 }
             }
         }
+
+        PipeDirection IPipeNode.Direction => OriginalPipeDirection;
+        AtmosPipeLayer IPipeNode.Layer => CurrentPipeLayer;
     }
 }

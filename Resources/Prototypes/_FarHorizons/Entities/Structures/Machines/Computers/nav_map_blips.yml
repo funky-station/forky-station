@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
+# SPDX-License-Identifier: MIT
+
+- type: navMapBlip
+  id: NuclearReactor
+  scale: 2.75
+  color: LightGray
+  texturePaths:
+  - "/Textures/Interface/NavMap/beveled_hexagon.png"
+
+- type: navMapBlip
+  id: GasTurbine
+  scale: 1.75
+  color: LightGray
+  texturePaths:
+  - "/Textures/Interface/NavMap/beveled_hexagon.png"

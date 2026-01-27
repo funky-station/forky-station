@@ -1,0 +1,59 @@
+# SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
+# SPDX-FileCopyrightText: 2026 rotty <juaelwe@outlook.com>
+# SPDX-License-Identifier: MIT
+
+- type: technology
+  id: NuclearPowerGeneration
+  name: research-technology-nuclear-power
+  icon:
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/reactor_parts.rsi
+    state: default_rod
+  discipline: Industrial
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+    - NuclearFabricatorMachineCircuitboard
+    - UraniumReactorFuelRod
+    - PlasmaReactorFuelRod
+    - UraniumGlassReactorFuelRod
+    - SilverReactorControlRod
+    - PlasteelReactorControlRod
+    - PlasmaGlassReactorControlRod
+    - SilverReactorGasChannel
+    - PlasteelReactorGasChannel
+    - PlasmaGlassReactorGasChannel
+    - SilverReactorHeatExchanger
+    - PlasteelReactorHeatExchanger
+    - PlasmaGlassReactorHeatExchanger
+    - PlasteelGasTurbineBlade
+    - BrassGasTurbineBlade
+    - SilverGasTurbineStator
+    - NuclearReactorMonitorComputerCircuitboard
+    - GasTurbineMonitorComputerCircuitboard
+  technologyPrerequisites:
+  - PowerGeneration
+ 
+- type: technology
+  id: NuclearPowerRecycling
+  name: research-technology-nuclear-recycling
+  icon:
+    sprite: _FarHorizons/Structures/Power/Generation/FissionGenerator/reactor_parts.rsi
+    state: nuclear_waste
+  discipline: Industrial
+  tier: 2
+  cost: 12500
+  recipeUnlocks:
+    - NuclearCentrifugeMachineCircuitboard
+    - PlutoniumReactorFuelRod
+    - BananiumReactorFuelRod
+    - GoldReactorControlRod
+    - DiamondReactorControlRod
+    - GoldReactorGasChannel
+    - DiamondReactorGasChannel
+    - GoldReactorHeatExchanger
+    - DiamondReactorHeatExchanger
+    - GoldGasTurbineBlade
+    - DiamondGasTurbineBlade
+    - GoldGasTurbineStator
+  technologyPrerequisites:
+  - NuclearPowerGeneration

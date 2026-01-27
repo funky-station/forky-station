@@ -803,9 +803,6 @@
   physicalDesc: reagent-physical-desc-starry
   flavor: medicine
   color: "#2b2f77"
-  plantMetabolism:
-  - !type:PlantAdjustToxins
-    amount: -5
   metabolisms:
     Medicine:
       effects:
@@ -1229,6 +1226,10 @@
       effects:
       - !type:SatiateThirst
         factor: 3
+    Medicine:
+      effects:
+      - !type:DeCultify
+        amount: 2.5
       - !type:HealthChange
         conditions:
         - !type:TotalDamageCondition

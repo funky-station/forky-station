@@ -12,6 +12,9 @@
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+# SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
+# SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
 # SPDX-License-Identifier: MIT
 
 - type: entity
@@ -41,6 +44,17 @@
       Ammonia: stationAmmonia
       NitrousOxide: stationNO
       Frezon: danger
+      BZ: stationBZ # Funky atmos - /tg/ gases
+      Healium: stationHealium # Funky atmos - /tg/ gases
+      Nitrium: danger # Funky atmos - /tg/ gases
+      Pluoxium: stationPluoxium # Funky atmos - /tg/ gases
+      Hydrogen: danger # Funky atmos - /tg/ gases
+      HyperNoblium: stationHyperNoblium # Funky atmos - /tg/ gases
+      ProtoNitrate: danger # Funky atmos - /tg/ gases
+      Zauker: danger # Funky atmos - /tg/ gases
+      Halon: danger # Funky atmos - /tg/ gases
+      Helium: stationHelium # Funky atmos - /tg/ gases
+      AntiNoblium: danger # Funky atmos - /tg/ gases
   - type: GuideHelp
     guides:
     - DeviceMonitoringAndControl
@@ -59,6 +73,11 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: RCDDeconstructable
+    cost: 10
+    delay: 2
+    fx: EffectRCDDeconstruct2
+    rpd: true
   - type: Destructible
     thresholds:
     - trigger:
