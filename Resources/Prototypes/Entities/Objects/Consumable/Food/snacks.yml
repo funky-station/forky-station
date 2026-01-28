@@ -412,6 +412,8 @@
   - type: Edible
     trash:
     - FoodPacketChowMeinTrash
+  - type: Tag
+    tags:
     - ChowMein
 
 - type: entity
