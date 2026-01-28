@@ -54,6 +54,9 @@
       projectiles: !type:ContainerSlot
   - type: ContainerAmmoProvider
     container: projectiles
+  - type: Tag
+    tags:
+    - ImprovisedBow
 
 - type: entity
   id: BowImprovised

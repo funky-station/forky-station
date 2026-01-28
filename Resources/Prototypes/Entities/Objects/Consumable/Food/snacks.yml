@@ -412,6 +412,7 @@
   - type: Edible
     trash:
     - FoodPacketChowMeinTrash
+    - ChowMein
 
 - type: entity
   parent: FoodSnackBase

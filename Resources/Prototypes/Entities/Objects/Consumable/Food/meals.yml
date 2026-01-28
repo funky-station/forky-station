@@ -208,6 +208,9 @@
           Quantity: 7
         - ReagentId: Vitamin
           Quantity: 5
+  - type: Tag
+    tags:
+    - CubanNachos
 # Tastes like nachos, hot pepper.
 
 - type: entity
@@ -655,6 +658,7 @@
     - type: Tag
       tags:
       - Meat
+      - Enchiladas
 # What do Europeans eat instead of enchiladas? 25.4 millimeter-iladas.
 
 - type: entity

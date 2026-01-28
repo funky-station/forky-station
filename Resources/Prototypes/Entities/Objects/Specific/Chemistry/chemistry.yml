@@ -714,6 +714,7 @@
     tags:
     - Syringe
     - Trash
+    - Cryosyringe
 
 - type: entity
   name: pill

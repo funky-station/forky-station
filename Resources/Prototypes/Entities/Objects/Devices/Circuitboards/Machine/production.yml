@@ -375,6 +375,9 @@
       Cable: 5
       PlasmaGlass: 15
       MetalRod: 4
+  - type: Tag
+    tags:
+    - ExperimentalVesselMachineBoard
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -390,6 +393,9 @@
         Manipulator: 7
         PlasmaGlass: 5
         Cable: 5
+    - type: Tag
+      tags:
+      - AnomalySyncronizerCircuitBoard
 
 - type: entity
   parent: BaseMachineCircuitboard

@@ -217,6 +217,7 @@
     - Meat
     - Fruit
     - Soup
+    - ValidSalad
 
 - type: entity
   name: coleslaw
@@ -324,6 +325,7 @@
     tags:
     - Fruit
     - Soup
+    - FruitSalad
 
 - type: entity
   name: jungle salad
@@ -1139,6 +1141,7 @@
     - Meat
     - Fruit
     - Soup
+    - Stew
 
 - type: entity
   name: sweet potato soup

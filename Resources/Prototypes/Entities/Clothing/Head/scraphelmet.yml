@@ -83,3 +83,6 @@
   - type: Construction
     graph: scraphelmet
     node: scraphelmet
+  - type: Tag
+    tags:
+    - ScrapHelmet

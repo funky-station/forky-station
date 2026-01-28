@@ -155,6 +155,7 @@
     - type: Tag
       tags:
         - HolofanProjector
+        - ForceFieldProjector
     - type: StaticPrice
       price: 130
 

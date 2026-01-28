@@ -498,6 +498,9 @@
           Quantity: 8
         - ReagentId: Vitamin
           Quantity: 1
+  - type: Tag
+    tags:
+    - Waffle
 
 - type: entity
   name: soy waffles
@@ -518,6 +521,9 @@
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 1
+  - type: Tag
+    tags:
+    - Waffle
 
 - type: entity
   name: soylent waffles
@@ -538,6 +544,9 @@
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 1
+  - type: Tag
+    tags:
+    - Waffle
 
 - type: entity
   name: roffle waffles
@@ -558,6 +567,9 @@
           Quantity: 8
         - ReagentId: Vitamin
           Quantity: 2
+  - type: Tag
+    tags:
+    - Waffle
 
 # Misc
 

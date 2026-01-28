@@ -259,15 +259,16 @@
       - ParticleDecelerator
     requiredResearch:
     - DeterrenceTechnologies
-  - name: bounty-item-night-vision-goggles
-    minAmount: 1
-    maxAmount: 4
-    rewardPer: 2750
-    whitelist:
-      tags:
-      - NightVisionGoggles
-    requiredResearch:
-    - NightVisionTech
+    # Reliant on DV
+#  - name: bounty-item-night-vision-goggles
+#    minAmount: 1
+#    maxAmount: 4
+#    rewardPer: 2750
+#    whitelist:
+#      tags:
+#      - NightVisionGoggles
+#    requiredResearch:
+#    - NightVisionTech
   - name: bounty-item-advanced-mop
     minAmount: 1
     maxAmount: 4
@@ -355,48 +356,53 @@
   id: medicalCategory
   name: bounty-category-medical
   entries:
-  - name: bounty-item-biosynthectic-eyes
-    minAmount: 2
-    maxAmount: 5
-    rewardPer: 1250
-    whitelist:
-      tags:
-      - BiosynthecticEyes
-  - name: bounty-item-biosynthectic-lung
-    minAmount: 2
-    maxAmount: 5
-    rewardPer: 1250
-    whitelist:
-      components:
-      - BiosynthecticLung
-  - name: bounty-item-biosynthectic-liver
-    minAmount: 2
-    maxAmount: 5
-    rewardPer: 1250
-    whitelist:
-      tags:
-      - BiosynthecticLiver
-  - name: bounty-item-biosynthectic-heart
-    minAmount: 2
-    maxAmount: 5
-    rewardPer: 1750
-    whitelist:
-      tags:
-      - BiosynthecticHeart
-  - name: bounty-item-autoinjector-cartrige
-    minAmount: 4
-    maxAmount: 8
-    rewardPer: 550
-    whitelist:
-      tags:
-      - AutoinjectorCartridge
-  - name: bounty-item-medical-autoinjector
-    minAmount: 1
-    maxAmount: 3
-    rewardPer: 1500
-    whitelist:
-      tags:
-      - MedicalAutoinjector
+    # Reliant on Shitmed -----------------------------
+#  - name: bounty-item-biosynthectic-eyes
+#    minAmount: 2
+#    maxAmount: 5
+#    rewardPer: 1250
+#    whitelist:
+#      tags:
+#      - BiosynthecticEyes
+#  - name: bounty-item-biosynthectic-lung
+#    minAmount: 2
+#    maxAmount: 5
+#    rewardPer: 1250
+#    whitelist:
+#      components:
+#      - BiosynthecticLung
+#  - name: bounty-item-biosynthectic-liver
+#    minAmount: 2
+#    maxAmount: 5
+#    rewardPer: 1250
+#    whitelist:
+#      tags:
+#      - BiosynthecticLiver
+#  - name: bounty-item-biosynthectic-heart
+#    minAmount: 2
+#    maxAmount: 5
+#    rewardPer: 1750
+#    whitelist:
+#      tags:
+#      - BiosynthecticHeart
+    #--------------------------------------------
+
+  # Reliant on Goob station autoinjector --------
+#  - name: bounty-item-autoinjector-cartrige
+#    minAmount: 4
+#    maxAmount: 8
+#    rewardPer: 550
+#    whitelist:
+#      tags:
+#      - AutoinjectorCartridge
+#  - name: bounty-item-medical-autoinjector
+#    minAmount: 1
+#    maxAmount: 3
+#    rewardPer: 1500
+#    whitelist:
+#      tags:
+#      - MedicalAutoinjector
+  #----------------------------------------------
   - name: bounty-item-health-analyzer
     minAmount: 3
     maxAmount: 8
@@ -404,15 +410,16 @@
     whitelist:
       tags:
       - DiscreteHealthAnalyzer
-  - name: bounty-item-cybernetic-medical-eyes
-    minAmount: 1
-    maxAmount: 3
-    rewardPer: 6500
-    whitelist:
-      tags:
-      - CyberneticMedicalEyes
-    requiredResearch:
-    - CyberneticEnhancements
+    # Reliant on shitmed
+#  - name: bounty-item-cybernetic-medical-eyes
+#    minAmount: 1
+#    maxAmount: 3
+#    rewardPer: 6500
+#    whitelist:
+#      tags:
+#      - CyberneticMedicalEyes
+#    requiredResearch:
+#    - CyberneticEnhancements
   - name: bounty-item-defibrillator
     minAmount: 2
     maxAmount: 8
@@ -434,15 +441,16 @@
     whitelist:
       tags:
       - MedSecHud
-  - name: bounty-item-surgery-advanced-tool
-    minAmount: 2
-    maxAmount: 5
-    rewardPer: 8000
-    whitelist:
-      tags:
-      - AdvancedSurgeryTool
-    requiredResearch:
-    - AdvancedTreatment
+    # Reliant on shitmed
+#  - name: bounty-item-surgery-advanced-tool
+#    minAmount: 2
+#    maxAmount: 5
+#    rewardPer: 8000
+#    whitelist:
+#      tags:
+#      - AdvancedSurgeryTool
+#    requiredResearch:
+#    - AdvancedTreatment
 
 # Kitchen
 - type: cargoBountyCategory
@@ -456,20 +464,21 @@
     whitelist:
       tags:
       - SuperBiteBurger
-  - name: bounty-item-sloppy-joe
-    minAmount: 2
-    maxAmount: 6
-    rewardPer: 2000
-    whitelist:
-      tags:
-      - SloppyJoe
-  - name: bounty-item-slop-bowl
-    minAmount: 2
-    maxAmount: 6
-    rewardPer: 2000
-    whitelist:
-      tags:
-      - SlopBowl
+      # Reliant on Funky Cooking ---------------------
+#  - name: bounty-item-sloppy-joe
+#    minAmount: 2
+#    maxAmount: 6
+#    rewardPer: 2000
+#    whitelist:
+#      tags:
+#      - SloppyJoe
+#  - name: bounty-item-slop-bowl
+#    minAmount: 2
+#    maxAmount: 6
+#    rewardPer: 2000
+#    whitelist:
+#      tags:
+#      - SlopBowl
   - name: bounty-item-waffles
     minAmount: 2
     maxAmount: 6
@@ -580,13 +589,14 @@
     blacklist:
       tags:
       - Slice
-  - name: bounty-item-gyros
-    minAmount: 1
-    maxAmount: 3
-    rewardPer: 3500
-    whitelist:
-      tags:
-      - Gyro
+      # Reliant on Funky Cooking
+#  - name: bounty-item-gyros
+#    minAmount: 1
+#    maxAmount: 3
+#    rewardPer: 3500
+#    whitelist:
+#      tags:
+#      - Gyro
   - name: bounty-item-stew
     minAmount: 1
     maxAmount: 3
@@ -733,8 +743,9 @@
     whitelist:
       tags:
       - SvalinnPistol
-    requiredResearch:
-    - ExperimentalBatteryAmmo
+    # Requires ExperimentalBatteryAmmo to be reimplemented
+#    requiredResearch:
+#    - ExperimentalBatteryAmmo
   - name: bounty-item-security-hud
     minAmount: 2
     maxAmount: 8
@@ -749,15 +760,16 @@
     whitelist:
       tags:
       - MedSecHud
-  - name: bounty-item-cybernetic-security-eyes
-    minAmount: 1
-    maxAmount: 3
-    rewardPer: 6500
-    whitelist:
-      tags:
-      - CyberneticSecurityEyes
-    requiredResearch:
-    - CyberneticEnhancements
+    # Reliant on Funky Research
+#  - name: bounty-item-cybernetic-security-eyes
+#    minAmount: 1
+#    maxAmount: 3
+#    rewardPer: 6500
+#    whitelist:
+#      tags:
+#      - CyberneticSecurityEyes
+#    requiredResearch:
+#    - CyberneticEnhancements
   - name: bounty-item-combat-knife
     minAmount: 2
     maxAmount: 8
@@ -770,8 +782,8 @@
     maxAmount: 12
     rewardPer: 700
     whitelist:
-      components:
-      - Flashbang
+      tags:
+      - GrenadeFlashBang
   - name: bounty-item-stun-baton
     minAmount: 3
     maxAmount: 5
@@ -901,8 +913,9 @@
     whitelist:
       tags:
       - SvalinnPistol
-    requiredResearch:
-    - ExperimentalBatteryAmmo
+    # Requires ExperimentalBatteryAmmo to be reimplemented
+#    requiredResearch:
+#    - ExperimentalBatteryAmmo
 
 # Clothing (TODO: replace with something else)
 - type: cargoBountyCategory
@@ -1210,16 +1223,18 @@
     maxAmount: 60
     rewardPer: 100
     reagent: DoctorsDelight
-  - name: bounty-item-tayquila
-    minAmount: 60
-    maxAmount: 60
-    rewardPer: 100
-    reagent: Tayquila
-  - name: bounty-item-fever-dream
-    minAmount: 60
-    maxAmount: 60
-    rewardPer: 100
-    reagent: FeverDream
+  # Reliant on Funky Drinks
+#  - name: bounty-item-tayquila
+#    minAmount: 60
+#    maxAmount: 60
+#    rewardPer: 100
+#    reagent: Tayquila
+  # Reliant on Imp Station
+#  - name: bounty-item-fever-dream
+#    minAmount: 60
+#    maxAmount: 60
+#    rewardPer: 100
+#    reagent: FeverDream
   - name: bounty-item-gargle-blaster
     minAmount: 60
     maxAmount: 60
@@ -1294,11 +1309,12 @@
     maxAmount: 50
     rewardPer: 100
     reagent: Arithrazine
-  - name: bounty-item-multiver
-    minAmount: 50
-    maxAmount: 50
-    rewardPer: 90
-    reagent: Multiver
+  # Reliant on Funky Chem
+#  - name: bounty-item-multiver
+#    minAmount: 50
+#    maxAmount: 50
+#    rewardPer: 90
+#    reagent: Multiver
   - name: bounty-item-dexalin
     minAmount: 50
     maxAmount: 50

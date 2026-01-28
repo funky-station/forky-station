@@ -1241,6 +1241,7 @@
   - type: Tag
     tags:
     - Meat
+    - SuperBiteBurger
 # Tastes like bun, diabetes.
 
 - type: entity
