@@ -733,7 +733,7 @@
   reward: 1500
   description: bounty-description-wine
   entries:
-  - name: bounty-item-wine
+  - name: bounty-item-wine-bottle
     amount: 2
     whitelist:
       tags:
