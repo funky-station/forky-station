@@ -12,7 +12,7 @@ public sealed class CakAccentSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<CakAccentComponent, AccentGetEvent>(OnAccent);
+        SubscribeLocalEvent<CakAccentComponent, AccentGetEvent>(OnAccent, before: new[] {typeof(OwOAccentSystem)});
     }
 
     public string Accentuate(string message)

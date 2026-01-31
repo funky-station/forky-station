@@ -6,8 +6,8 @@ namespace Content.Server.Speech.EntitySystems;
 
 public sealed class BostonAccentSystem : EntitySystem
 {
-    private static readonly Regex RegexLowercaseAr = new(@"\Bar(?=(s\b|\b))(?!re)");
-    private static readonly Regex RegexUppercaseAr = new(@"\BAR(?=(s\b|\b))(?!re)");
+    private static readonly Regex RegexLowercaseAr = new(@"\Bar(?!e\b)");
+    private static readonly Regex RegexUppercaseAr = new(@"\BAR(?!E\b)");
     private static readonly Regex RegexLowercaseEr = new(@"er\B");
     private static readonly Regex RegexUppercaseEr = new(@"ER\B");
     private static readonly Regex RegexSentenceCaseEr = new(@"Er\B");
