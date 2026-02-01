@@ -1,0 +1,9 @@
+- files: ["dagd.ogg"]
+  license: "CC-BY-NC-SA-4.0"
+  copyright: "D.A.G.D by vectorassembly, a funky exclusive"
+  source: "https://vectorassembly.org"
+
+- files: ["meltdown.ogg"]
+  license: "CC-BY-NC-SA-4.0"
+  copyright: "M for Meltdown by vectorassembly"
+  source: "https://vectorassembly.org"
