@@ -1,20 +1,22 @@
+# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
+# SPDX-License-Identifier: MIT
+
 - type: guideEntry
   id: Species
   name: guide-entry-species
   text: "/ServerInfo/Guidebook/Mobs/Species.xml"
   children:
-    - Arachnid
-    - Diona
-    - Dwarf
-    - Human
-    - Moth
-    - Reptilian
-    - SlimePerson
-    - Vox
-    - Gray
-    - Snail
-    - Thaven
-    - Decapoid
+  - Arachnid
+  - Diona
+  - Dwarf
+  - Human
+  - Moth
+  - Reptilian
+  - SlimePerson
+  - Vox
+  - Vulpkanin
+  - Thaven
 
 - type: guideEntry
   id: Arachnid
@@ -57,21 +59,11 @@
   text: "/ServerInfo/Guidebook/Mobs/Vox.xml"
 
 - type: guideEntry
-  id: Gray
-  name: Gray
-  text: "/ServerInfo/_Impstation/Guidebook/Mobs/Gray.xml"
-
-- type: guideEntry
-  id: Snail
-  name: Gastropoid
-  text: "/ServerInfo/_Impstation/Guidebook/Mobs/Snail.xml"
+  id: Vulpkanin
+  name: species-name-vulpkanin
+  text: "/ServerInfo/Guidebook/Mobs/Vulpkanin.xml"
 
 - type: guideEntry
   id: Thaven
   name: Thaven
   text: "/ServerInfo/_Impstation/Guidebook/Mobs/Thaven.xml"
-
-- type: guideEntry
-  id: Decapoid
-  name: Decapoid
-  text: "/ServerInfo/_Impstation/Guidebook/Mobs/Decapoid.xml"
