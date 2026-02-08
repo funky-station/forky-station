@@ -37,6 +37,7 @@ public sealed class EmagSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!; // imp
 
     public override void Initialize()
     {
@@ -73,6 +74,7 @@ public sealed class EmagSystem : EntitySystem
         if (_tag.HasTag(target, ent.Comp.EmagImmuneTag))
             return false;
 
+        // FORKY: TODO this can probably be attached to the thaven comp instead of here
         // imp. if the target is a thaven who is not sleeping, dead, or crit, skip.
         if (TryComp<ThavenMoodsComponent>(target, out _) && !HasComp<SleepingComponent>(target) && !_mobState.IsIncapacitated(target) && target != user)
         {
