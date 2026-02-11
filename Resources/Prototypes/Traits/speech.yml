@@ -18,7 +18,7 @@
     - type: MothAccent
     - type: ReplacementAccent
       accent: dwarf
-    - type: NoContractionsAccent
+    - type: NoContractionsAccent # impstation
 
 # 1 Cost
 
@@ -96,17 +96,6 @@
   components:
   - type: ReplacementAccent
     accent: liar
-
-- type: trait
-  id: NoContractions
-  name: trait-nocontractions-name
-  description: trait-nocontractions-desc
-  category: SpeechTraits
-  cost: 1
-  components:
-  - type: ReplacementAccent
-    accent: nocontractions
-  - type: NoContractionsAccent
 
 # 2 Cost
 

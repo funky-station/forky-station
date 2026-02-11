@@ -4,27 +4,26 @@
   roundStart: true
   prototype: MobThaven
   sprites: MobThavenSprites
-  defaultSkinTone: "#ffffff"
   markingLimits: MobThavenMarkingLimits
   dollPrototype: MobThavenDummy
   skinColoration: Hues
   maleFirstNames: names_thaven
   femaleFirstNames: names_thaven
   naming: First
-  sexes:
-  - Male
-  - Female
-  - Unsexed
 
 - type: speciesBaseSprites
   id: MobThavenSprites
   sprites:
-    Hair: MobHumanoidAnyMarking
-    Eyes: MobThavenEyes
     Head: MobThavenHead
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
+    Chest: MobThavenTorso
+    Eyes: MobThavenEyes
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
-    Chest: MobThavenTorso
     LArm: MobThavenLArm
     RArm: MobThavenRArm
     LHand: MobThavenLHand
