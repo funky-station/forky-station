@@ -124,7 +124,7 @@
 #plasma windoor assemblies
 - type: entity
   id: WindoorAssemblyPlasma
-  name: plasma windoor assembly
+  name: phoron windoor assembly
   description: It opens, it closes, and you can see through it! This one looks purp-, no, pink. Wait...
   parent: WindoorAssembly
   components:
@@ -154,7 +154,7 @@
 
 - type: entity
   id: WindoorAssemblySecurePlasma
-  name: secure plasma windoor assembly
+  name: secure phoron windoor assembly
   description: It opens, it closes, and you can see through it! This one looks strong and pin-, no, purple. Hold on...
   parent: WindoorAssembly
   components:

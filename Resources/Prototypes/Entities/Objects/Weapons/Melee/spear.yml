@@ -181,10 +181,10 @@
     graph: SpearReinforced
 
 - type: entity
-  name: plasma spear
+  name: phoron spear
   parent: Spear
   id: SpearPlasma
-  description: A spear with a plasma shard as a tip.
+  description: A spear with a phoron shard as a tip.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/plasma_spear.rsi

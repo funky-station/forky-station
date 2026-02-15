@@ -312,7 +312,7 @@
 - type: entity
   parent: CrateBaseSecure
   id: CratePlasma
-  name: plasma crate
+  name: phoron crate
   components:
   - type: Icon
     sprite: Structures/Storage/Crates/plasma.rsi

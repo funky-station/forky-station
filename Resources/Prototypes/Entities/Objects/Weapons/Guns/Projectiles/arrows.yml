@@ -125,7 +125,7 @@
 - type: entity
   parent: BaseArrow
   id: ArrowImprovisedPlasma
-  name: plasma glass shard arrow
+  name: phoron glass shard arrow
   description: The greyshirt's preferred projectile. Now with extra lethality!
   components:
   - type: Sprite

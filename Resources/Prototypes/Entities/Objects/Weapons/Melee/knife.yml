@@ -334,10 +334,10 @@
     sprite: Objects/Weapons/Melee/reinforced_shiv.rsi
 
 - type: entity
-  name: plasma shiv
+  name: phoron shiv
   parent: Shiv
   id: PlasmaShiv
-  description: A crude weapon fashioned from a piece of cloth and a plasma glass shard.
+  description: A crude weapon fashioned from a piece of cloth and a phoron glass shard.
   components:
   - type: Construction
     graph: PlasmaShiv

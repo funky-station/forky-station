@@ -184,8 +184,8 @@
 - type: entity
   parent: ShardBase
   id: ShardGlassPlasma
-  name: plasma glass shard
-  description: A small piece of plasma glass.
+  name: phoron glass shard
+  description: A small piece of phoron glass.
   components:
   - type: Sprite
     color: "#FF72E7"

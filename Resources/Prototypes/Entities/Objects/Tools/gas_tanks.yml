@@ -288,7 +288,7 @@
   # it's a square so no rolling dough
   parent: GasTankBase
   id: PlasmaTank
-  name: plasma tank
+  name: plasmic phoron tank
   description: Contains dangerous plasma. Do not inhale. Extremely flammable. It can hold 5 L of gas.
   components:
   - type: Sprite

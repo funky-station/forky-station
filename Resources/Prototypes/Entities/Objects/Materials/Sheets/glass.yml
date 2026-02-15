@@ -219,8 +219,8 @@
 - type: entity
   parent: SheetGlassBase
   id: SheetPGlass
-  name: plasma glass
-  description: A sheet of translucent plasma.
+  name: phoron glass
+  description: A sheet of translucent phoron.
   suffix: Full
   components:
   - type: PhysicalComposition
@@ -271,7 +271,7 @@
 - type: entity
   parent: SheetPGlass
   id: SheetPGlass1
-  name: plasma glass
+  name: phoron glass
   suffix: Single
   components:
   - type: Sprite
@@ -294,8 +294,8 @@
 - type: entity
   parent: SheetPGlass
   id: SheetRPGlass
-  name: reinforced plasma glass
-  description: A reinforced sheet of translucent plasma.
+  name: reinforced phoron glass
+  description: A reinforced sheet of translucent phoron.
   suffix: Full
   components:
   - type: PhysicalComposition
@@ -337,7 +337,7 @@
 - type: entity
   parent: SheetRPGlass
   id: SheetRPGlass1
-  name: reinforced plasma glass
+  name: reinforced phoron glass
   suffix: Single
   components:
   - type: Sprite

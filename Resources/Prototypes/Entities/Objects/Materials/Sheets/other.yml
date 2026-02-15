@@ -108,7 +108,7 @@
 - type: entity
   parent: SheetOtherBase
   id: SheetPlasma
-  name: plasma
+  name: phoron
   suffix: Full
   components:
   - type: Material
@@ -158,7 +158,7 @@
 - type: entity
   parent: SheetPlasma
   id: SheetPlasma1
-  name: plasma
+  name: phoron
   suffix: Single
   components:
   - type: Sprite

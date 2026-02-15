@@ -459,7 +459,7 @@
   parent: [BaseBrandedLighter]
   id: NanotrasenFlippo
   name: Nanotrasen Flippo
-  description: "A navy blue luxury flippo, generally handed out to loyal heads of staff instead of a payraise. Fueled with liquid plasma"
+  description: "A navy blue luxury flippo, generally handed out to loyal heads of staff instead of a payraise. Fueled with liquid phoron"
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/nanotrasen.rsi

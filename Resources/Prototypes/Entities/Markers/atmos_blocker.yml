@@ -59,9 +59,9 @@
       mode: 3
 
 - type: entity
-  name: Atmos Fix Plasma Marker
+  name: Atmos Fix Plasmic Phoron Marker
   id: AtmosFixPlasmaMarker
-  description: "Plasma @ gas miner pressure, T20C"
+  description: "Plasmic phoron @ gas miner pressure, T20C"
   parent: MarkerBase
   components:
     - type: Sprite

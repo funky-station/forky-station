@@ -15,7 +15,7 @@ salvage-magnet-resources = {$resource ->
     [OreGold] Gold
     [OreDiamond] Diamond
     [OreSilver] Silver
-    [OrePlasma] Plasma
+    [OrePlasma] Phoron
     [OreUranium] Uranium
     [OreArtifactFragment] Artifact fragments
     [OreBananium] Bananium

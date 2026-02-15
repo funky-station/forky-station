@@ -1236,8 +1236,8 @@
 - type: entity
   parent: BaseSign
   id: WarningPlasma
-  name: plasma waste sign
-  description: WARNING! Plasma flow tube. Ensure the flow is disengaged before working.
+  name: plasmic phoron waste sign
+  description: WARNING! Plasmic phoron flow tube. Ensure the flow is disengaged before working.
   components:
   - type: Sprite
     state: atmos_plasma

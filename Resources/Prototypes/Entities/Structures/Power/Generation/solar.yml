@@ -244,8 +244,8 @@
 - type: entity
   id: SolarPanelPlasmaBroken
   parent: SolarPanelBasePhysSprite
-  name: plasma solar panel
-  description: A broken plasma solar panel.
+  name: phoron solar panel
+  description: A broken phoron solar panel.
   suffix: Broken
   components:
   - type: Sprite
