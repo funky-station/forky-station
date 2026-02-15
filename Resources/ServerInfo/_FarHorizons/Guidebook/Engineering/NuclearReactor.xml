@@ -129,7 +129,7 @@
 	<Box>
 		<GuideEntityEmbed Entity="PlasmaCanister" Caption=""/>
 	</Box>
-	[color=#ff3300][bold]Plasma[/bold][/color] has a reactive effect, creating more neutrons and decaying into [color=#13ff4b][bold]Tritium[/bold][/color].
+	[color=#ff3300][bold]Plasmic phoron[/bold][/color] has a reactive effect, creating more neutrons and decaying into [color=#13ff4b][bold]Tritium[/bold][/color].
 
 	If there is enough plasma within the Reactor, it may end up going into a runaway reaction and [color=red]melting down[/color].
 
@@ -251,7 +251,7 @@
 	Higher integrity means it can take more damage before failing, making it generally safer.
 
 	Higher inertia means it will take more energy to change the RPM, which leads to smoother operation.
-	
+
 	### Stators
 	Stators affect the power efficiency and output of the Turbine.
 
