@@ -30,7 +30,7 @@
 
 - type: entity
   id: ReinforcedPlasmaWindow
-  name: reinforced phoron window
+  name: reinforced phoron window # Funky
   parent: [BaseDeltaPressureReinforcedPlasma, WindowRCDResistant]
   components:
   - type: Sprite
@@ -89,7 +89,7 @@
 - type: entity
   id: PlasmaReinforcedWindowDirectional
   parent: [BaseDeltaPressureReinforcedPlasmaQuarter, WindowDirectionalRCDResistant]
-  name: directional reinforced phoron window
+  name: directional reinforced phoron window # Funky
   description: Don't smudge up the glass down there.
   placement:
     mode: SnapgridCenter

@@ -463,7 +463,7 @@
   parent: BaseScrapLarge
   id: ScrapGeneratorPlasmaLeaking
   name: leaking P.A.C.M.A.N. generator
-  description: An old looking P.A.C.M.A.N. generator whose phoron tanks started leaking.
+  description: An old looking P.A.C.M.A.N. generator whose phoron tanks started leaking. # Funky - Also fixed a typo!
   components:
   - type: Sprite
     sprite: Objects/Materials/Scrap/generator.rsi

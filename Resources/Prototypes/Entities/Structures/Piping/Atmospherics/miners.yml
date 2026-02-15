@@ -120,7 +120,7 @@
       spawnGas: CarbonDioxide
 
 - type: entity
-  name: phoron plasma miner
+  name: phoron plasma miner # Funky
   parent: GasMinerBase
   id: GasMinerPlasma
   components:
@@ -144,7 +144,7 @@
       spawnGas: Frezon
 
 - type: entity
-  name: water vapor miner
+  name: water vapor miner # Funky - For consistency with the phoron plasma miner.
   parent: GasMinerBase
   id: GasMinerWaterVapor
   components:

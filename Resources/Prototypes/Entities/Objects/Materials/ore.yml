@@ -147,7 +147,7 @@
 - type: entity
   parent: OreBase
   id: PlasmaOre
-  name: phoron ore
+  name: phoron ore # Funky
   suffix: Full
   components:
   - type: Stack

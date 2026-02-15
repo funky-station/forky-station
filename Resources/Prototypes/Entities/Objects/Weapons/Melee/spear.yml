@@ -181,10 +181,10 @@
     graph: SpearReinforced
 
 - type: entity
-  name: phoron spear
+  name: phoron spear # Funky
   parent: Spear
   id: SpearPlasma
-  description: A spear with a phoron shard as a tip.
+  description: A spear with a phoron shard as a tip. # Funky
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/plasma_spear.rsi

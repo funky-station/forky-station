@@ -107,8 +107,8 @@
 - type: entity
   parent: CratePlasma
   id: CrateMaterialPlasma
-  name: phoron crate
-  description: 30 sheets of phoron.
+  name: phoron crate # Funky
+  description: 30 sheets of phoron. # Funky
   components:
   - type: EntityTableContainerFill
     containers:

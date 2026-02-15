@@ -108,7 +108,7 @@
 - type: entity
   id: PlasmaReactorFuelRod
   parent: BaseReactorFuelRod
-  name: phoron fuel rod
+  name: phoron fuel rod # Funky
   components:
   - type: ReactorPart
     material: Plasma
@@ -240,7 +240,7 @@
 - type: entity
   id: PlasmaGlassReactorControlRod
   parent: BaseReactorControlRod
-  name: phoron glass control rod
+  name: phoron glass control rod # Funky
   components:
   - type: ReactorPart
     material: PlasmaGlass
@@ -354,7 +354,7 @@
 - type: entity
   id: PlasmaGlassReactorGasChannel
   parent: BaseReactorGasChannel
-  name: phoron glass gas channel rod
+  name: phoron glass gas channel rod # Funky
   components:
   - type: ReactorPart
     material: PlasmaGlass
@@ -466,7 +466,7 @@
 - type: entity
   id: PlasmaGlassReactorHeatExchanger
   parent: BaseReactorHeatExchanger
-  name: phoron glass heat exchanger rod
+  name: phoron glass heat exchanger rod # Funky
   components:
   - type: ReactorPart
     material: PlasmaGlass

@@ -42,13 +42,13 @@
 - type: entity
   id: WindoorPlasma
   parent: BasePlasmaWindoor
-  name: phoron windoor
+  name: phoron windoor # Funky
   description: It's a pink window *and* a sliding door. Amazing!
 
 - type: entity
   id: WindoorSecurePlasma
   parent: BaseSecurePlasmaWindoor
-  name: secure phoron windoor
+  name: secure phoron windoor # Funky
   description: It's a sturdy purple window *and* a sliding door. Spectacular!
 
 - type: entity

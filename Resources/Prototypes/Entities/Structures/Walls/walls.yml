@@ -475,7 +475,7 @@
 - type: entity
   parent: BaseWall
   id: WallPlasma
-  name: phoron wall
+  name: phoron wall # Funky
   components:
   - type: Sprite
     sprite: Structures/Walls/plasma.rsi

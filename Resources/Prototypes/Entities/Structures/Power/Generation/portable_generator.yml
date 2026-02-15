@@ -139,7 +139,7 @@
 
 - type: entity
   name: P.A.C.M.A.N.-type portable generator
-  description: |-
+  description: |- # Funky
     A flexible backup generator for powering a variety of equipment.
     Runs off phoron sheets and is rated for up to 30 kW.
   parent: PortableGeneratorSwitchableBase

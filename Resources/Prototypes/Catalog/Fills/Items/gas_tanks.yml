@@ -187,7 +187,7 @@
 - type: entity
   id: PlasmaTankFilled
   parent: PlasmaTank
-  name: plasmic phoron tank
+  name: plasmic phoron tank # Funky
   suffix: Filled
   components:
   - type: GasTank

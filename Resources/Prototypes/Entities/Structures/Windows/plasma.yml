@@ -28,7 +28,7 @@
 
 - type: entity
   id: PlasmaWindow
-  name: phoron window
+  name: phoron window # Funky
   parent: [BaseDeltaPressurePlasma, WindowRCDResistant]
   components:
   - type: Sprite
@@ -84,7 +84,7 @@
 - type: entity
   id: PlasmaWindowDirectional
   parent: [BaseDeltaPressurePlasmaQuarter, WindowDirectionalRCDResistant]
-  name: directional phoron window
+  name: directional phoron window # Funky
   description: Don't smudge up the glass down there.
   placement:
     mode: SnapgridCenter

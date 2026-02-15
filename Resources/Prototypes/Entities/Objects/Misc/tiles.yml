@@ -1799,8 +1799,8 @@
     stackType: FloorTileDarkMarble
 
 - type: entity
-  name: phoron marble tile
-  description: A chiseled, polished square of the finest Space Marble. Phoron-infused for extra... something.
+  name: phoron marble tile # Funky
+  description: A chiseled, polished square of the finest Space Marble. Phoron-infused for extra... something. # Funky
   parent: FloorTileItemWhiteMarble
   id: FloorTileItemPlasmaMarble
   components:

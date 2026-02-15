@@ -450,8 +450,8 @@
 - type: entity
   id: TablePlasmaGlass
   parent: TableBase
-  name: phoron glass table
-  description: A square piece of phoron glass, standing on four metal legs. Pretty!
+  name: phoron glass table # Funky
+  description: A square piece of phoron glass, standing on four metal legs. Pretty! # Funky
   components:
   - type: Sprite
     sprite: Structures/Furniture/Tables/plasma.rsi
