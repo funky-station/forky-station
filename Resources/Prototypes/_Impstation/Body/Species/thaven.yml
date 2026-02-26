@@ -1,0 +1,220 @@
+﻿- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceThaven
+  name: Thaven appearance
+  components:
+  - type: Inventory
+    speciesId: thaven
+    templateId: thaven
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
+            state: head
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
+            state: outerclothing_hardsuit
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
+            state: hands
+  - type: EntityTableContainerFill
+    containers:
+      body_organs: !type:AllSelector
+        children:
+        - id: OrganThavenTorso
+        - id: OrganThavenHead
+        - id: OrganThavenArmLeft
+        - id: OrganThavenArmRight
+        - id: OrganThavenHandRight
+        - id: OrganThavenHandLeft
+        - id: OrganThavenLegLeft
+        - id: OrganThavenLegRight
+        - id: OrganThavenFootLeft
+        - id: OrganThavenFootRight
+        - id: OrganThavenBrain
+        - id: OrganThavenEyes
+        - id: OrganThavenTongue
+        - id: OrganThavenAppendix
+        - id: OrganThavenEars
+        - id: OrganThavenLungs
+        - id: OrganThavenHeart
+        - id: OrganThavenStomach
+        - id: OrganThavenLiver
+        - id: OrganThavenKidneys
+  - type: HumanoidAppearance
+    species: Thaven
+
+- type: entity
+  parent:
+  - AppearanceThaven
+  - BaseMobSpeciesOrganic
+  id: BaseMobThaven
+  name: Urist McEars
+  components:
+  - type: UserInterface
+    interfaces:
+      enum.HumanoidMarkingModifierKey.Key:
+        type: HumanoidMarkingModifierBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: Speech
+    speechSounds: Alto
+  - type: TypingIndicator
+    proto: thaven # DeltaV unique typing indicator
+  - type: Vocal
+    sounds:
+      Male: MaleThaven
+      Female: FemaleThaven
+      Unsexed: UnisexThaven
+  - type: Damageable
+    damageModifierSet: Thaven
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#ff624a"
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: ShimmeringBlood
+        Quantity: 300
+  - type: MeleeWeapon
+    attackRate: 0.55
+    soundHit:
+      collection: Punch
+    angle: 30
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 0
+  - type: StaminaDamageOnHit
+    damage: 18
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodThavenMeat
+      amount: 5
+  - type: StrangeMoods
+    mood: ThavenMoods
+  - type: IonStormTarget
+  - type: ThavenAccent
+
+- type: entity
+  parent: OrganBase
+  id: OrganThaven
+  abstract: true
+  suffix: thaven
+
+- type: entity
+  id: OrganThavenMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Thaven ]
+
+- type: entity
+  parent: OrganThaven
+  id: OrganThavenInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Thaven/organs.rsi
+
+- type: entity
+  parent: OrganThaven
+  id: OrganThavenExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
+
+
+- type: entity
+  parent: [ OrganBaseTorso, OrganThavenExternal ]
+  id: OrganThavenTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganThavenExternal ]
+  id: OrganThavenHead
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganThavenExternal ]
+  id: OrganThavenArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganThavenExternal ]
+  id: OrganThavenArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganThavenExternal ]
+  id: OrganThavenHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganThavenExternal ]
+  id: OrganThavenHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganThavenExternal ]
+  id: OrganThavenLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganThavenExternal ]
+  id: OrganThavenLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganThavenExternal ]
+  id: OrganThavenFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganThavenExternal ]
+  id: OrganThavenFootRight
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganThavenInternal ]
+  id: OrganThavenBrain
+
+- type: entity
+  parent: [ OrganBaseEyes, OrganThavenInternal ]
+  id: OrganThavenEyes
+
+- type: entity
+  parent: [ OrganBaseTongue, OrganThavenInternal ]
+  id: OrganThavenTongue
+
+- type: entity
+  parent: [ OrganBaseAppendix, OrganThavenInternal ]
+  id: OrganThavenAppendix
+
+- type: entity
+  parent: [ OrganBaseEars, OrganThavenInternal ]
+  id: OrganThavenEars
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganThavenInternal, OrganThavenMetabolizer ]
+  id: OrganThavenLungs
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganThavenInternal, OrganThavenMetabolizer ]
+  id: OrganThavenHeart
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganThavenInternal, OrganThavenMetabolizer ]
+  id: OrganThavenStomach
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganThavenInternal, OrganThavenMetabolizer ]
+  id: OrganThavenLiver
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganThavenInternal, OrganThavenMetabolizer ]
+  id: OrganThavenKidneys
