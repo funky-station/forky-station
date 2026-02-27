@@ -11,10 +11,10 @@
   flavor: sour
   color: "#e1a116"
   metabolisms:
-    Gas:
+    Respiration:
       effects:
       - !type:Jitter
-    Narcotic:
+    Bloodstream:
       effects:
       - !type:Jitter
       - !type:GenericStatusEffect
@@ -38,8 +38,6 @@
         damage:
           types:
             Poison: 0.1
-    Medicine:
-      effects:
       - !type:ResetNarcolepsy
         conditions:
         - !type:ReagentCondition

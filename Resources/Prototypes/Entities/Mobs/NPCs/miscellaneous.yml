@@ -84,8 +84,6 @@
       successChance: 0.3
       interactSuccessString: petting-success-reptile
       interactFailureString: petting-failure-generic
-      interactSuccessSound:
-        path: /Audio/Animals/lizard_happy.ogg
 
 - type: entity
   id: MobTomatoKiller
@@ -162,7 +160,7 @@
   - type: NPCImprintingOnSpawnBehaviour
     whitelist:
       components:
-      - HumanoidAppearance
+      - HumanoidProfile
   - type: Sprite
     sprite: Mobs/Demons/tomatokiller.rsi
     noRot: true

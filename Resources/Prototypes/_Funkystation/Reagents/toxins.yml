@@ -12,7 +12,7 @@
   physicalDesc: reagent-physical-desc-nondescript
   # Effects to be readded with Changelings
   # metabolisms:
-  #   Poison:
+  #   Bloodstream:
   #     effects:
   #     - !type:AdjustLingChemicals
   #       conditions:

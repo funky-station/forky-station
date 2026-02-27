@@ -212,12 +212,15 @@ namespace Content.Server.Forensics
             if (!args.CanInteract || !args.CanAccess)
                 return;
 
+            // begin funkystation
             // Check if target is a cleanable rune or has forensics
             var isRune = HasComp<CleanableRuneComponent>(args.Target);
             var hasForensics = HasComp<ForensicsComponent>(args.Target);
 
             if (!isRune && !hasForensics)
                 return;
+            // end funkystation
+
             // These need to be set outside for the anonymous method!
             var user = args.User;
             var target = args.Target;
@@ -226,8 +229,8 @@ namespace Content.Server.Forensics
             {
                 Act = () => TryStartCleaning(entity, user, target),
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/bubbles.svg.192dpi.png")),
-				Text = isRune ? Loc.GetString("cult-rune-clean-verb-text") : Loc.GetString("forensics-verb-text"),
-                Message = isRune ? Loc.GetString("cult-rune-clean-verb-message") : Loc.GetString("forensics-verb-message"),
+				Text = isRune ? Loc.GetString("cult-rune-clean-verb-text") : Loc.GetString("forensics-verb-text"), // funkystation
+                Message = isRune ? Loc.GetString("cult-rune-clean-verb-message") : Loc.GetString("forensics-verb-message"), // funkystation
                 // This is important because if its true using the cleaning device will count as touching the object.
                 DoContactInteraction = false
             };
@@ -339,7 +342,7 @@ namespace Content.Server.Forensics
 
             return DNA;
         }
-		
+
 		private void OnCleanRuneDoAfter(EntityUid uid, CleanableRuneComponent component, CleanForensicsDoAfterEvent args)
         {
             if (args.Handled || args.Cancelled || args.Args.Target == null)

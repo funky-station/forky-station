@@ -5,8 +5,7 @@
 - type: marking
   id: UndergarmentBottomBoxers
   bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
-  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, SlimePerson]
+  groupWhitelist: [Arachnid, Diona, Human, Moth, Slime]
   coloring:
     default:
       type: null
@@ -18,8 +17,7 @@
 - type: marking
   id: UndergarmentBottomBriefs
   bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
-  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, SlimePerson]
+  groupWhitelist: [Arachnid, Diona, Human, Moth, Slime]
   coloring:
     default:
       type: null
@@ -31,8 +29,7 @@
 - type: marking
   id: UndergarmentBottomSatin
   bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
-  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, SlimePerson]
+  groupWhitelist: [Arachnid, Diona, Human, Moth, Slime]
   coloring:
     default:
       type: null
@@ -44,8 +41,7 @@
 - type: marking
   id: UndergarmentTopBra
   bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, Reptilian, SlimePerson]
+  groupWhitelist: [Arachnid, Diona, Human, Moth, Reptilian, Slime]
   coloring:
     default:
       type: null
@@ -57,8 +53,7 @@
 - type: marking
   id: UndergarmentTopSportsbra
   bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, Reptilian, SlimePerson]
+  groupWhitelist: [Arachnid, Diona, Human, Moth, Reptilian, Slime]
   coloring:
     default:
       type: null
@@ -70,8 +65,7 @@
 - type: marking
   id: UndergarmentTopBinder
   bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, Reptilian, SlimePerson]
+  groupWhitelist: [Arachnid, Diona, Human, Moth, Reptilian, Slime]
   coloring:
     default:
       type: null
@@ -83,8 +77,7 @@
 - type: marking
   id: UndergarmentTopTanktop
   bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, Reptilian, SlimePerson]
+  groupWhitelist: [Arachnid, Diona, Human, Moth, Reptilian, Slime]
   coloring:
     default:
       type: null
@@ -96,8 +89,7 @@
 - type: marking
   id: UndergarmentBottomBoxersVox # Voxers.
   bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
-  speciesRestriction: [Vox]
+  groupWhitelist: [Vox]
   coloring:
     default:
       type: null
@@ -109,8 +101,7 @@
 - type: marking
   id: UndergarmentBottomBriefsVox
   bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
-  speciesRestriction: [Vox]
+  groupWhitelist: [Vox]
   coloring:
     default:
       type: null
@@ -122,8 +113,7 @@
 - type: marking
   id: UndergarmentBottomSatinVox
   bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
-  speciesRestriction: [Vox]
+  groupWhitelist: [Vox]
   coloring:
     default:
       type: null
@@ -135,8 +125,7 @@
 - type: marking
   id: UndergarmentTopBraVox
   bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Vox]
+  groupWhitelist: [Vox]
   coloring:
     default:
       type: null
@@ -148,8 +137,7 @@
 - type: marking
   id: UndergarmentTopSportsbraVox
   bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Vox]
+  groupWhitelist: [Vox]
   coloring:
     default:
       type: null
@@ -161,8 +149,7 @@
 - type: marking
   id: UndergarmentTopBinderVox
   bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Vox]
+  groupWhitelist: [Vox]
   coloring:
     default:
       type: null
@@ -174,8 +161,7 @@
 - type: marking
   id: UndergarmentTopTanktopVox
   bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Vox]
+  groupWhitelist: [Vox]
   coloring:
     default:
       type: null
@@ -187,8 +173,7 @@
 - type: marking
   id: UndergarmentBottomBoxersReptilian
   bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
-  speciesRestriction: [Reptilian]
+  groupWhitelist: [Reptilian]
   coloring:
     default:
       type: null
@@ -200,8 +185,7 @@
 - type: marking
   id: UndergarmentBottomBriefsReptilian
   bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
-  speciesRestriction: [Reptilian]
+  groupWhitelist: [Reptilian]
   coloring:
     default:
       type: null
@@ -213,8 +197,7 @@
 - type: marking
   id: UndergarmentBottomSatinReptilian
   bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
-  speciesRestriction: [Reptilian]
+  groupWhitelist: [Reptilian]
   coloring:
     default:
       type: null
@@ -226,8 +209,7 @@
 - type: marking
   id: UndergarmentBottomBoxersVulpkanin
   bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
-  speciesRestriction: [Vulpkanin]
+  groupWhitelist: [Vulpkanin]
   coloring:
     default:
       type: null
@@ -239,8 +221,7 @@
 - type: marking
   id: UndergarmentBottomBriefsVulpkanin
   bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
-  speciesRestriction: [Vulpkanin]
+  groupWhitelist: [Vulpkanin]
   coloring:
     default:
       type: null
@@ -252,8 +233,7 @@
 - type: marking
   id: UndergarmentBottomSatinVulpkanin
   bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
-  speciesRestriction: [Vulpkanin]
+  groupWhitelist: [Vulpkanin]
   coloring:
     default:
       type: null
@@ -265,8 +245,7 @@
 - type: marking
   id: UndergarmentTopBraVulpkanin
   bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Vulpkanin]
+  groupWhitelist: [Vulpkanin]
   coloring:
     default:
       type: null
@@ -278,8 +257,7 @@
 - type: marking
   id: UndergarmentTopSportsbraVulpkanin
   bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Vulpkanin]
+  groupWhitelist: [Vulpkanin]
   coloring:
     default:
       type: null
@@ -291,8 +269,7 @@
 - type: marking
   id: UndergarmentTopBinderVulpkanin
   bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Vulpkanin]
+  groupWhitelist: [Vulpkanin]
   coloring:
     default:
       type: null
@@ -304,8 +281,7 @@
 - type: marking
   id: UndergarmentTopTanktopVulpkanin
   bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
-  speciesRestriction: [Vulpkanin]
+  groupWhitelist: [Vulpkanin]
   coloring:
     default:
       type: null

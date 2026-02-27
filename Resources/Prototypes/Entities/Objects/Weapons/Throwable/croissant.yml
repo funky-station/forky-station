@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: MIT
 
 - type: entity
-  parent: FoodBakedCroissant
+  parent: [ FoodBakedCroissant, ThrowingKnife ]
   id: WeaponCroissant
   suffix: Weapon
   components:
@@ -17,14 +17,5 @@
         - ItemMask
         restitution: 0.3
         friction: 0.2
-  - type: EmbeddableProjectile
-    sound: /Audio/Weapons/star_hit.ogg
-  - type: LandAtCursor
-  - type: DamageOtherOnHit
-    ignoreResistances: true
-    damage:
-      types:
-        Slash: 5
-        Piercing: 10
   - type: ThrowingAngle
     angularVelocity: true # spins
