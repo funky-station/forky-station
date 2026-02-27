@@ -22,13 +22,13 @@ public sealed partial class CCVars
     ///     Guide Entry Prototype ID to be displayed as the server rules.
     /// </summary>
     public static readonly CVarDef<string> RulesFile =
-        CVarDef.Create("server.rules_file", "DefaultRuleset", CVar.REPLICATED | CVar.SERVER);
+        CVarDef.Create("server.rules_file", "FunkyRuleset", CVar.REPLICATED | CVar.SERVER);
 
     /// <summary>
     ///     Guide entry that is displayed by default when a guide is opened.
     /// </summary>
     public static readonly CVarDef<string> DefaultGuide =
-        CVarDef.Create("server.default_guide", "NewPlayer", CVar.REPLICATED | CVar.SERVER);
+        CVarDef.Create("server.default_guide", "FunkyNewPlayer", CVar.REPLICATED | CVar.SERVER);
 
     /// <summary>
     ///     If greater than 0, automatically restart the server after this many minutes of uptime.

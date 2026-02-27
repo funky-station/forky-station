@@ -512,24 +512,3 @@
           amount: 2
         - id: BoxDarts
           prob: 0.05
-
-- type: entity
-  parent: CrateLivestock
-  id: CrateFunScurret
-  name: hydrated scurret
-  description: Wait, what?
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: MobEmotionalSupportScurret # How? Why?
-        - id: DrinkVodkaBottleFull
-        - id: DrinkWhiskeyBottleFull
-        - id: DrinkTequilaBottleFull # ...that explains it.
-        - id: DrinkShotGlass
-          amount: 2
-        - id: Spear # self defence
-        - id: ClothingHeadHatHardhatYellow
-        - id: ClothingNeckMantleQM
-        - id: ClothingHeadsetCargo

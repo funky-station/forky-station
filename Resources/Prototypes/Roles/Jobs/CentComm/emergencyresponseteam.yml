@@ -68,7 +68,6 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltMilitaryWebbingERT
     pocket2: CombatKnife
-    suitstorage: WeaponDisablerSMG
   storage:
     back:
     - Binoculars
@@ -338,7 +337,6 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltMilitaryWebbingERT
     pocket2: CombatKnife
-    suitstorage: WeaponDisablerSMG
   storage:
     back:
     - BoxZiptie

@@ -3,10 +3,11 @@
 # SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
 # SPDX-License-Identifier: MIT
 
+## REPLACE WITH OWN VERSION OF VULP OR REPLACEMENT
 - type: species
   id: Vulpkanin
   name: species-name-vulpkanin
-  roundStart: true
+  roundStart: false
   prototype: MobVulpkanin
   defaultSkinTone: "#5a3f2d"
   dollPrototype: AppearanceVulpkanin

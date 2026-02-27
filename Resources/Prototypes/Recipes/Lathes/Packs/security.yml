@@ -144,4 +144,3 @@
   id: SecurityDisablers
   recipes:
   - WeaponDisabler
-  - WeaponDisablerSMG
