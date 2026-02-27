@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
+# SPDX-License-Identifier: MIT
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
+  id: NuclearFabricatorMachineCircuitboard
+  result: NuclearFabricatorMachineCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
+  id: NuclearCentrifugeMachineCircuitboard
+  result: NuclearCentrifugeMachineCircuitboard

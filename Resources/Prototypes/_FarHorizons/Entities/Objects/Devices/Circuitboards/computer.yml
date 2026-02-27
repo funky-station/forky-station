@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: NuclearReactorMonitorComputerCircuitboard
+  name: nuclear reactor monitor computer board
+  description: A computer printed circuit board for a nuclear reactor monitor.
+  components:
+    - type: Sprite
+      state: cpu_engineering
+    - type: ComputerBoard
+      prototype: NuclearReactorMonitor
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: GasTurbineMonitorComputerCircuitboard
+  name: gas turbine monitor computer board
+  description: A computer printed circuit board for a gas turbine monitor.
+  components:
+    - type: Sprite
+      state: cpu_engineering
+    - type: ComputerBoard
+      prototype: GasTurbineMonitor
