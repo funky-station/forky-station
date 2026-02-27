@@ -235,7 +235,8 @@ uplink-observation-kit-name = Observation Kit
 uplink-observation-kit-desc = Includes surveillance camera monitor board and security hud disguised as sunglasses.
 
 uplink-emp-kit-name = Electrical Disruptor Kit
-uplink-emp-kit-desc = The ultimate reversal on energy-based weaponry: Disables disablers, stuns stunbatons, discharges laser guns! Contains 3 EMP grenades and an EMP implanter. Note: Does not disrupt actual firearms.
+# Changed the description because we don't have stun batons or disablers anymore
+uplink-emp-kit-desc = The ultimate reversal on energy-based weaponry, to show those laser-losers who's in charge! Contains 3 EMP grenades and an EMP implanter. Note: Does not disrupt ballistic firearms.
 
 uplink-decoy-kit-name = Decoy Kit
 uplink-decoy-kit-desc = State-of-the-art distraction technology straight from RND. Comes with five realistic balloons, four decoy grenades, and some snap poppers!

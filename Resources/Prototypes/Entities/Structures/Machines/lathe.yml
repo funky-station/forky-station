@@ -542,7 +542,6 @@
     - SecurityExplosives
     - SecurityAmmo
     - SecurityWeapons
-    - SecurityDisablers
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SyndicateAmmoStatic

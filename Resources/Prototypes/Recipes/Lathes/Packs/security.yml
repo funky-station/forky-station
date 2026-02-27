@@ -62,7 +62,6 @@
   id: SecurityWeaponsStatic
   recipes:
   - Flash
-  - Stunbaton
   - CombatKnife
   - RiotShield
 
@@ -139,9 +138,3 @@
   - WeaponLaserCarbine
   - WeaponXrayCannon
   - WeaponTemperatureGun
-
-- type: latheRecipePack
-  id: SecurityDisablers
-  recipes:
-  - WeaponDisabler
-  - WeaponDisablerSMG

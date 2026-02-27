@@ -83,7 +83,7 @@
   id: BeltSecurityEntityTable
   table: !type:AllSelector
     children:
-    - id: Stunbaton
+    - id: Nightstick # Funky
     - id: Handcuffs
       amount: 2
     - id: HoloprojectorSecurity
