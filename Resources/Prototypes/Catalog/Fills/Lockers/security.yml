@@ -245,6 +245,7 @@
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
   id: GunSafeDisabler
   name: disabler safe
+  categories: [ DoNotMap ]
   components:
   - type: EntityTableContainerFill
     containers:
