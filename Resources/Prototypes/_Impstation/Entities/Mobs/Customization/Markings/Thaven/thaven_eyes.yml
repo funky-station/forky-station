@@ -1,0 +1,63 @@
+﻿
+- type: marking
+  id: SharkminnowEyeliner
+  bodyPart: Eyes
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/eyes.rsi
+    state: sharkminnoweyeliner
+
+- type: marking
+  id: ThavenEyesSharkminnow
+  bodyPart: Eyes
+  groupWhitelist: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/eyes.rsi
+    state: sharkminnow
+
+- type: marking
+  id: ThavenEyesSharkminnowGlowing
+  bodyPart: Eyes
+  groupWhitelist: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/eyes.rsi
+    state: sharkminnow
+  shader: unshaded
+
+- type: marking
+  id: ThavenLEyeGlow
+  bodyPart: Eyes
+  groupWhitelist: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/eyes.rsi
+    state: glowleft
+  shader: unshaded
+
+- type: marking
+  id: ThavenREyeGlow
+  bodyPart: Eyes
+  groupWhitelist: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/eyes.rsi
+    state: glowright
+  shader: unshaded

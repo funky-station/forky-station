@@ -1,0 +1,151 @@
+﻿# Head
+
+- type: marking
+  id: ThavenHeadCap
+  bodyPart: Head
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/head.rsi
+    state: cap1
+  - sprite: _Impstation/Mobs/Customization/Thaven/head.rsi
+    state: cap2
+
+- type: marking
+  id: ThavenHeadScales
+  bodyPart: Head
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/head.rsi
+    state: scales
+
+- type: marking
+  id: ThavenHeadStripes
+  bodyPart: Head
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/head.rsi
+    state: stripes
+
+
+# HeadSide
+
+- type: marking
+  id: ThavenEars1
+  bodyPart: HeadSide
+  groupWhitelist: [ Thaven ]
+  forcedColoring: true
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/headside.rsi
+    state: ears1
+
+- type: marking
+  id: ThavenEars2
+  bodyPart: HeadSide
+  groupWhitelist: [ Thaven ]
+  forcedColoring: true
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/headside.rsi
+    state: ears2
+
+- type: marking
+  id: ThavenEars3
+  bodyPart: HeadSide
+  groupWhitelist: [ Thaven ]
+  forcedColoring: true
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/headside.rsi
+    state: ears3
+
+- type: marking
+  id: ThavenEars4
+  bodyPart: HeadSide
+  groupWhitelist: [ Thaven ]
+  forcedColoring: true
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/headside.rsi
+    state: ears4
+
+- type: marking
+  id: ThavenEarsBigFins
+  bodyPart: HeadSide
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/headside.rsi
+    state: bigfins
+  - sprite: _Impstation/Mobs/Customization/Thaven/headside.rsi
+    state: bigfins2
+
+- type: marking
+  id: ThavenEarsTwinFins
+  bodyPart: HeadSide
+  groupWhitelist: [ Thaven ]
+  forcedColoring: true
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/headside.rsi
+    state: twinfin
+
+- type: marking
+  id: ThavenFishEars
+  bodyPart: HeadSide
+  groupWhitelist: [ Thaven ]
+  forcedColoring: true
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/headside.rsi
+    state: fishears
+
+- type: marking
+  id: ThavenNoEars
+  bodyPart: HeadSide
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/headside.rsi
+    state: noears
+
+# HeadTop
+
+- type: marking
+  id: ThavenHibiscus
+  bodyPart: HeadTop
+  groupWhitelist: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/headtop.rsi
+    state: hibiscus1
+  - sprite: _Impstation/Mobs/Customization/Thaven/headtop.rsi
+    state: hibiscus2
+
+- type: marking
+  id: ThavenPiercings
+  bodyPart: HeadTop
+  groupWhitelist: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/headtop.rsi
+    state: piercings
+
+- type: marking
+  id: ThavenPiercings2
+  bodyPart: HeadTop
+  groupWhitelist: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/headtop.rsi
+    state: piercings2

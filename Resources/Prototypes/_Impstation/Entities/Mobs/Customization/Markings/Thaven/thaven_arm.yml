@@ -1,0 +1,61 @@
+﻿# RArm
+
+- type: marking
+  id: ThavenRArmScales
+  bodyPart: RArm
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/rarm.rsi
+    state: scales
+
+- type: marking
+  id: ThavenRArmTattoo1
+  bodyPart: RArm
+  groupWhitelist: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/rarm.rsi
+    state: tat1
+
+- type: marking
+  id: ThavenTigerRArm
+  bodyPart: RArm
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/rarm.rsi
+    state: tiger
+
+# LArm
+
+- type: marking
+  id: ThavenLArmScales
+  bodyPart: LArm
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/larm.rsi
+    state: scales
+
+- type: marking
+  id: ThavenLArmTattoo1
+  bodyPart: LArm
+  groupWhitelist: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/larm.rsi
+    state: tat1
+
+- type: marking
+  id: ThavenTigerLArm
+  bodyPart: LArm
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/larm.rsi
+    state: tiger

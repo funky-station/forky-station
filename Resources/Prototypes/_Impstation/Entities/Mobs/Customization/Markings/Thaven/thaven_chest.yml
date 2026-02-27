@@ -1,0 +1,120 @@
+﻿- type: marking
+  id: BodyhairThaven
+  bodyPart: Chest
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/chest.rsi
+    state: hair
+
+- type: marking
+  id: Gills
+  bodyPart: Chest
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/chest.rsi
+    state: gills
+
+- type: marking
+  id: ThavenAbs
+  bodyPart: Chest
+  groupWhitelist: [ Thaven ]
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/chest.rsi
+    state: muscular
+
+- type: marking
+  id: ThavenBiteMark
+  bodyPart: Chest
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/chest.rsi
+    state: bitemark
+
+- type: marking
+  id: ThavenBodyStripes
+  bodyPart: Chest
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/chest.rsi
+    state: stripes
+
+- type: marking
+  id: ThavenChestScales
+  bodyPart: Chest
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/chest.rsi
+    state: scales
+
+- type: marking
+  id: ThavenChestTattoo1
+  bodyPart: Chest
+  groupWhitelist: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/chest.rsi
+    state: tat1
+
+- type: marking
+  id: ThavenSpinechill
+  bodyPart: Chest
+  groupWhitelist: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/chest.rsi
+    state: spinechill
+  shader: unshaded
+
+- type: marking
+  id: ThavenSpines
+  bodyPart: Chest
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/chest.rsi
+    state: spines
+  shader: unshaded
+
+- type: marking
+  id: ThavenTattooWave
+  bodyPart: Chest
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/chest.rsi
+    state: tattoowave
+
+- type: marking
+  id: ThavenTattooVines
+  bodyPart: Chest
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/chest.rsi
+    state: tattoovines
+
+- type: marking
+  id: ThavenTiger
+  bodyPart: Chest
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/chest.rsi
+    state: tiger1
+  - sprite: _Impstation/Mobs/Customization/Thaven/chest.rsi
+    state: tiger2
+
+- type: marking
+  id: ThavenTopSurgery
+  bodyPart: Chest
+  groupWhitelist: [ Thaven ]
+  forcedColoring: true
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/chest.rsi
+    state: nonaturals

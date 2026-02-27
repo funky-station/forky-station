@@ -1,0 +1,86 @@
+﻿- type: marking
+  id: ThavenBasicTail
+  bodyPart: Tail
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/tail.rsi
+    state: basic
+
+- type: marking
+  id: ThavenBigTail
+  bodyPart: Tail
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/tail.rsi
+    state: big1
+  - sprite: _Impstation/Mobs/Customization/Thaven/tail.rsi
+    state: big2
+
+- type: marking
+  id: ThavenTadpoleTail
+  bodyPart: Tail
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/tail.rsi
+    state: tadpole1
+  - sprite: _Impstation/Mobs/Customization/Thaven/tail.rsi
+    state: tadpole2
+
+- type: marking
+  id: ThavenTailEel
+  bodyPart: Tail
+  groupWhitelist: [ Thaven ]
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/tail.rsi
+    state: eel1
+  - sprite: _Impstation/Mobs/Customization/Thaven/tail.rsi
+    state: eel2
+
+- type: marking
+  id: ThavenTailEelOverlay
+  bodyPart: Tail
+  markingCategory: Overlay
+  groupWhitelist: [ Thaven ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/tail.rsi
+    state: eel3
+  shader: unshaded
+
+- type: marking
+  id: ThavenTailNurse
+  bodyPart: Tail
+  groupWhitelist: [ Thaven ]
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/tail.rsi
+    state: nurse1
+  - sprite: _Impstation/Mobs/Customization/Thaven/tail.rsi
+    state: nurse2
+
+- type: marking
+  id: ThavenTailStub
+  bodyPart: Tail
+  groupWhitelist: [ Thaven ]
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/tail.rsi
+    state: stub1
+  - sprite: _Impstation/Mobs/Customization/Thaven/tail.rsi
+    state: stub2
+
+- type: marking
+  id: ThavenTailThresher
+  bodyPart: Tail
+  groupWhitelist: [ Thaven ]
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/tail.rsi
+    state: thresher1
+  - sprite: _Impstation/Mobs/Customization/Thaven/tail.rsi
+    state: thresher2

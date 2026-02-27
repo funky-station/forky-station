@@ -1,0 +1,19 @@
+﻿# RLeg
+
+- type: marking
+  id: ThavenRLegScales
+  bodyPart: RLeg
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/rleg.rsi
+    state: scales
+
+# LLeg
+
+- type: marking
+  id: ThavenLLegScales
+  bodyPart: LLeg
+  groupWhitelist: [ Thaven ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Thaven/lleg.rsi
+    state: scales
