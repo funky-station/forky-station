@@ -30,7 +30,6 @@
   id: ThavenTailEel
   bodyPart: Tail
   groupWhitelist: [ Thaven ]
-  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Thaven/tail.rsi
     state: eel1
@@ -40,7 +39,6 @@
 - type: marking
   id: ThavenTailEelOverlay
   bodyPart: Tail
-  markingCategory: Overlay
   groupWhitelist: [ Thaven ]
   coloring:
     default:
@@ -50,13 +48,10 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Thaven/tail.rsi
     state: eel3
-  shader: unshaded
-
 - type: marking
   id: ThavenTailNurse
   bodyPart: Tail
   groupWhitelist: [ Thaven ]
-  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Thaven/tail.rsi
     state: nurse1
@@ -67,7 +62,6 @@
   id: ThavenTailStub
   bodyPart: Tail
   groupWhitelist: [ Thaven ]
-  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Thaven/tail.rsi
     state: stub1
@@ -78,7 +72,6 @@
   id: ThavenTailThresher
   bodyPart: Tail
   groupWhitelist: [ Thaven ]
-  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Thaven/tail.rsi
     state: thresher1

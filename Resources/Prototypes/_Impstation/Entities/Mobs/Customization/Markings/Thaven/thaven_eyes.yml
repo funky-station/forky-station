@@ -32,7 +32,6 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Thaven/eyes.rsi
     state: sharkminnow
-  shader: unshaded
 
 - type: marking
   id: ThavenLEyeGlow
@@ -46,7 +45,6 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Thaven/eyes.rsi
     state: glowleft
-  shader: unshaded
 
 - type: marking
   id: ThavenREyeGlow
@@ -60,4 +58,3 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Thaven/eyes.rsi
     state: glowright
-  shader: unshaded

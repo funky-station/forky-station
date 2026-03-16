@@ -34,7 +34,6 @@
   bodyPart: HeadSide
   groupWhitelist: [ Thaven ]
   forcedColoring: true
-  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Thaven/headside.rsi
     state: ears1
@@ -44,7 +43,6 @@
   bodyPart: HeadSide
   groupWhitelist: [ Thaven ]
   forcedColoring: true
-  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Thaven/headside.rsi
     state: ears2
@@ -54,7 +52,6 @@
   bodyPart: HeadSide
   groupWhitelist: [ Thaven ]
   forcedColoring: true
-  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Thaven/headside.rsi
     state: ears3
@@ -64,7 +61,6 @@
   bodyPart: HeadSide
   groupWhitelist: [ Thaven ]
   forcedColoring: true
-  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Thaven/headside.rsi
     state: ears4
@@ -80,21 +76,10 @@
     state: bigfins2
 
 - type: marking
-  id: ThavenEarsTwinFins
-  bodyPart: HeadSide
-  groupWhitelist: [ Thaven ]
-  forcedColoring: true
-  followSkinColor: true
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Thaven/headside.rsi
-    state: twinfin
-
-- type: marking
   id: ThavenFishEars
   bodyPart: HeadSide
   groupWhitelist: [ Thaven ]
   forcedColoring: true
-  followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/Thaven/headside.rsi
     state: fishears
@@ -108,21 +93,6 @@
     state: noears
 
 # HeadTop
-
-- type: marking
-  id: ThavenHibiscus
-  bodyPart: HeadTop
-  groupWhitelist: [ Thaven ]
-  coloring:
-    default:
-      type:
-        !type:EyeColoring
-        negative: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Thaven/headtop.rsi
-    state: hibiscus1
-  - sprite: _Impstation/Mobs/Customization/Thaven/headtop.rsi
-    state: hibiscus2
 
 - type: marking
   id: ThavenPiercings

@@ -90,9 +90,6 @@
         - id: OrganThavenFootRight
         - id: OrganThavenBrain
         - id: OrganThavenEyes
-        - id: OrganThavenTongue
-        - id: OrganThavenAppendix
-        - id: OrganThavenEars
         - id: OrganThavenLungs
         - id: OrganThavenHeart
         - id: OrganThavenStomach
@@ -157,7 +154,7 @@
   parent: OrganBase
   id: OrganThaven
   abstract: true
-  suffix: thaven
+  suffix: Thaven
 
 - type: entity
   id: OrganThavenMetabolizer
@@ -165,6 +162,17 @@
   components:
   - type: Metabolizer
     metabolizerTypes: [ Thaven ]
+
+- type: entity
+  id: OrganThavenVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Thaven
 
 - type: entity
   parent: OrganThaven
@@ -175,7 +183,7 @@
     sprite: _Impstation/Mobs/Species/Thaven/organs.rsi
 
 - type: entity
-  parent: OrganThaven
+  parent: [ OrganThaven, OrganThavenVisual ]
   id: OrganThavenExternal
   abstract: true
   components:
@@ -228,20 +236,8 @@
   id: OrganThavenBrain
 
 - type: entity
-  parent: [ OrganBaseEyes, OrganThavenInternal ]
+  parent: [ OrganThavenVisual, OrganBaseEyes, OrganThavenInternal ]
   id: OrganThavenEyes
-
-- type: entity
-  parent: [ OrganBaseTongue, OrganThavenInternal ]
-  id: OrganThavenTongue
-
-- type: entity
-  parent: [ OrganBaseAppendix, OrganThavenInternal ]
-  id: OrganThavenAppendix
-
-- type: entity
-  parent: [ OrganBaseEars, OrganThavenInternal ]
-  id: OrganThavenEars
 
 - type: entity
   parent: [ OrganBaseLungs, OrganThavenInternal, OrganThavenMetabolizer ]
