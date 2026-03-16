@@ -3,10 +3,8 @@
   name: species-name-thaven
   roundStart: true
   prototype: MobThaven
-  sprites: MobThavenSprites
-  markingLimits: MobThavenMarkingLimits
-  dollPrototype: MobThavenDummy
+  dollPrototype: AppearanceThaven
   skinColoration: Hues
-  maleFirstNames: names_thaven
-  femaleFirstNames: names_thaven
+  maleFirstNames: namesThaven
+  femaleFirstNames: namesThaven
   naming: First

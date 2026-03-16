@@ -105,7 +105,7 @@
   parent:
   - AppearanceThaven
   - BaseSpeciesMobOrganic
-  id: BaseMobThaven
+  id: MobThaven
   name: Urist McEars
   components:
   - type: UserInterface
@@ -116,13 +116,11 @@
         type: StrippableBoundUserInterface
   - type: Speech
     speechSounds: Alto
-  - type: TypingIndicator
-    proto: thaven # DeltaV unique typing indicator
-  - type: Vocal
-    sounds:
-      Male: MaleThaven
-      Female: FemaleThaven
-      Unsexed: UnisexThaven
+  #- type: Vocal # TODO FIX this + speech indicator
+    #sounds:
+      #Male: MaleThaven
+      #Female: FemaleThaven
+      #Unsexed: UnisexThaven
   - type: Damageable
     damageModifierSet: Thaven
   - type: DamageVisuals

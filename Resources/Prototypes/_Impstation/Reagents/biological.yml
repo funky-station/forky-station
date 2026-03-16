@@ -8,22 +8,17 @@
   color: "#ff624a" # a slightly warmer color than the ichor extracted from dragon flesh
   recognizable: true
   physicalDesc: reagent-physical-desc-shimmering-blood
-  slippery: false
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:SatiateHunger
         factor: 1
       - !type:SatiateThirst
         factor: 1
-    Narcotic:
-      effects:
       - !type:GenericStatusEffect
         key: SeeingRainbows
         component: SeeingRainbows
-        type: Add
         time: 5
-        refresh: false
   plantMetabolism:
     - !type:PlantAdjustToxins
       amount: 2
