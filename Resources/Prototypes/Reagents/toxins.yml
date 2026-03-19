@@ -84,6 +84,12 @@
     Bloodstream:
       effects:
       - !type:HealthChange
+        # begin imp -- you know. im just going to assume this works.
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Thaven ]
+          inverted: true
+        # end imp
         damage:
           types:
             Poison: 4

@@ -1,20 +1,24 @@
 ﻿- type: markingsGroup
   parent: Undergarments
   id: Thaven
+  onlyGroupWhitelisted: true
   limits:
     enum.HumanoidVisualLayers.Hair:
       limit: 1
       required: false
     enum.HumanoidVisualLayers.FacialHair:
-      limit: 1
+      limit: 0
       required: false
     enum.HumanoidVisualLayers.Tail:
-      limit: 1
+      limit: 2
       required: false
     enum.HumanoidVisualLayers.Chest:
       limit: 2
       required: false
     enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
       limit: 1
       required: false
     enum.HumanoidVisualLayers.LArm:
@@ -41,11 +45,14 @@
     enum.HumanoidVisualLayers.RFoot:
       limit: 1
       required: false
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: false
 
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceThaven
-  name: Thaven appearance
+  name: thaven appearance
   components:
   - type: Inventory
     speciesId: thaven
@@ -71,27 +78,28 @@
           32:
             sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
             state: hands
-  - type: EntityTableContainerFill
-    containers:
-      body_organs: !type:AllSelector
-        children:
-        - id: OrganThavenTorso
-        - id: OrganThavenHead
-        - id: OrganThavenArmLeft
-        - id: OrganThavenArmRight
-        - id: OrganThavenHandRight
-        - id: OrganThavenHandLeft
-        - id: OrganThavenLegLeft
-        - id: OrganThavenLegRight
-        - id: OrganThavenFootLeft
-        - id: OrganThavenFootRight
-        - id: OrganThavenBrain
-        - id: OrganThavenEyes
-        - id: OrganThavenLungs
-        - id: OrganThavenHeart
-        - id: OrganThavenStomach
-        - id: OrganThavenLiver
-        - id: OrganThavenKidneys
+  - type: InitialBody
+    organs:
+      Torso: OrganThavenTorso
+      Head: OrganThavenHead
+      ArmLeft: OrganThavenArmLeft
+      ArmRight: OrganThavenArmRight
+      HandRight: OrganThavenHandRight
+      HandLeft: OrganThavenHandLeft
+      LegLeft: OrganThavenLegLeft
+      LegRight: OrganThavenLegRight
+      FootLeft: OrganThavenFootLeft
+      FootRight: OrganThavenFootRight
+      Brain: OrganThavenBrain
+      Eyes: OrganThavenEyes
+      Tongue: OrganHumanTongue # TODO
+      Appendix: OrganHumanAppendix # TODO
+      Ears: OrganHumanEars # TODO
+      Lungs: OrganThavenLungs
+      Heart: OrganThavenHeart
+      Stomach: OrganThavenStomach
+      Liver: OrganThavenLiver
+      Kidneys: OrganThavenKidneys
   - type: HumanoidProfile
     species: Thaven
 
@@ -241,17 +249,17 @@
   id: OrganThavenLungs
 
 - type: entity
-  parent: [ OrganBaseLungs, OrganThavenInternal, OrganThavenMetabolizer ]
+  parent: [ OrganBaseHeart, OrganThavenInternal, OrganHumanMetabolizer ]
   id: OrganThavenHeart
 
 - type: entity
-  parent: [ OrganBaseLungs, OrganThavenInternal, OrganThavenMetabolizer ]
+  parent: [ OrganBaseStomach, OrganThavenInternal, OrganThavenMetabolizer ]
   id: OrganThavenStomach
 
 - type: entity
-  parent: [ OrganBaseLungs, OrganThavenInternal, OrganThavenMetabolizer ]
+  parent: [ OrganBaseLiver, OrganThavenInternal, OrganHumanMetabolizer ]
   id: OrganThavenLiver
 
 - type: entity
-  parent: [ OrganBaseLungs, OrganThavenInternal, OrganThavenMetabolizer ]
+  parent: [ OrganBaseKidneys, OrganThavenInternal, OrganHumanMetabolizer ]
   id: OrganThavenKidneys
