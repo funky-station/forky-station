@@ -1,7 +1,6 @@
 ﻿- type: markingsGroup
   parent: Undergarments
   id: Thaven
-  onlyGroupWhitelisted: true
   limits:
     enum.HumanoidVisualLayers.Hair:
       limit: 1
@@ -11,15 +10,13 @@
       required: false
     enum.HumanoidVisualLayers.Tail:
       limit: 1
-      required: true
-      default: [ ArachnidAppendagesDefault ]
+      required: false
     enum.HumanoidVisualLayers.Chest:
       limit: 2
       required: false
     enum.HumanoidVisualLayers.HeadSide:
       limit: 1
-      required: true
-      default: [ ArachnidCheliceraeDownwards ]
+      required: false
     enum.HumanoidVisualLayers.LArm:
       limit: 1
       required: false
