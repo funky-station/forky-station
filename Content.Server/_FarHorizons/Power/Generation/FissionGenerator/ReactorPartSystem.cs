@@ -305,7 +305,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
     /// <param name="AdjacentComponents">List of reactor parts next to the reactorPart.</param>
     /// <param name="reactorSystem">The SharedNuclearReactorSystem.</param>
     /// <exception cref="Exception">Calculations resulted in a sub-zero value.</exception>
-    public void ProcessHeat(ReactorPartComponent reactorPart, Entity<NuclearReactorComponent> reactorEnt, List<ReactorPartComponent?> AdjacentComponents, SharedNuclearReactorSystem reactorSystem)
+    public void ProcessHeat(ReactorPartComponent reactorPart, Entity<NuclearReactorComponent> reactorEnt, IReadOnlyList<ReactorPartComponent?> AdjacentComponents, SharedNuclearReactorSystem reactorSystem)
     {
         var reactor = reactorEnt.Comp;
 
@@ -416,9 +416,9 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
     public List<ReactorNeutron> ProcessNeutrons(ReactorPartComponent reactorPart, List<ReactorNeutron> neutrons, out float thermalEnergy)
     {
         var preCalcTemp = reactorPart.Temperature;
-        var flux = new List<ReactorNeutron>(neutrons);
+        var result = new List<ReactorNeutron>(neutrons.Count + 16); // Avoid Remove: build new list
 
-        foreach (var neutron in flux)
+        foreach (var neutron in neutrons)
         {
             if (Prob(reactorPart.Properties.Density * _rate * reactorPart.NeutronCrossSection * _bias))
             {
@@ -426,64 +426,60 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
                 {
                     reactorPart.Properties.NeutronRadioactivity -= _reactant;
                     reactorPart.Properties.Radioactivity += _product;
-                    for (var i = 0; i < _random.Next(3, 5 + 1); i++) // was 1, 5+1
+                    for (var i = 0; i < _random.Next(3, 5 + 1); i++)
                     {
-                        neutrons.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(2, 3 + 1) });
+                        result.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(2, 3 + 1) });
                     }
-                    neutrons.Remove(neutron);
-                    reactorPart.Temperature += 75f; // Was 50, increased to make neutron reactions stronger
+                    reactorPart.Temperature += 75f;
                 }
                 else if (neutron.velocity <= 5 && Prob(_rate * reactorPart.Properties.Radioactivity * _bias)) // stimulated emission
                 {
                     reactorPart.Properties.Radioactivity -= _reactant;
                     reactorPart.Properties.FissileIsotopes += _product;
-                    for (var i = 0; i < _random.Next(3, 5 + 1); i++)// was 1, 5+1
+                    for (var i = 0; i < _random.Next(3, 5 + 1); i++)
                     {
-                        neutrons.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(1, 3 + 1) });
+                        result.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(1, 3 + 1) });
                     }
-                    neutrons.Remove(neutron);
-                    reactorPart.Temperature += 50f; // Was 25, increased to make neutron reactions stronger
+                    reactorPart.Temperature += 50f;
                 }
                 else
                 {
                     if (Prob(_rate * reactorPart.Properties.Hardness)) // reflection, based on hardness
-                        // A really complicated way of saying do a 180 or a 180+/-45
                         neutron.dir = (neutron.dir.GetOpposite().ToAngle() + (_random.NextAngle() / 4) - (MathF.Tau / 8)).GetDir();
                     else if (reactorPart.IsControlRod)
                         neutron.velocity = 0;
                     else
                         neutron.velocity--;
 
-                    if (neutron.velocity <= 0)
-                        neutrons.Remove(neutron);
+                    if (neutron.velocity > 0)
+                        result.Add(neutron);
 
-                    reactorPart.Temperature += 1; // ... not worth the adjustment
+                    reactorPart.Temperature += 1;
                 }
             }
+            else
+            {
+                result.Add(neutron);
+            }
         }
+
         if (Prob(reactorPart.Properties.NeutronRadioactivity * _rate * reactorPart.NeutronCrossSection))
         {
-            var count = _random.Next(1, 5 + 1); // Was 3+1
-            for (var i = 0; i < count; i++)
+            for (var i = 0; i < _random.Next(1, 5 + 1); i++)
             {
-                neutrons.Add(new() { dir = _random.NextAngle().GetDir(), velocity = 3 });
+                result.Add(new() { dir = _random.NextAngle().GetDir(), velocity = 3 });
             }
             reactorPart.Properties.NeutronRadioactivity -= _reactant / 2;
             reactorPart.Properties.Radioactivity += _product / 2;
-            //This code has been deactivated so neutrons would have a bigger impact
-            //reactorPart.Temperature += 13; // 20 * 0.65
         }
         if (Prob(reactorPart.Properties.Radioactivity * _rate * reactorPart.NeutronCrossSection))
         {
-            var count = _random.Next(1, 5 + 1); // Was 3+1
-            for (var i = 0; i < count; i++)
+            for (var i = 0; i < _random.Next(1, 5 + 1); i++)
             {
-                neutrons.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(1, 3 + 1) });
+                result.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(1, 3 + 1) });
             }
             reactorPart.Properties.Radioactivity -= _reactant / 2;
             reactorPart.Properties.FissileIsotopes += _product / 2;
-            //This code has been deactivated so neutrons would have a bigger impact
-            //reactorPart.Temperature += 6.5f; // 10 * 0.65
         }
 
         if (reactorPart.HasRodType(ReactorPartComponent.RodTypes.ControlRod))
@@ -498,11 +494,10 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
         }
 
         if (reactorPart.HasRodType(ReactorPartComponent.RodTypes.GasChannel))
-            neutrons = ProcessNeutronsGas(reactorPart, neutrons);
+            result = ProcessNeutronsGas(reactorPart, result);
 
-        neutrons ??= [];
         thermalEnergy = (reactorPart.Temperature - preCalcTemp) * reactorPart.ThermalMass;
-        return neutrons;
+        return result;
     }
 
     /// <summary>
@@ -515,21 +510,25 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
     {
         if (reactorPart.AirContents == null) return neutrons;
 
-        var flux = new List<ReactorNeutron>(neutrons);
-        foreach (var neutron in flux)
+        var result = new List<ReactorNeutron>(neutrons.Count + 8);
+        foreach (var neutron in neutrons)
         {
             if (neutron.velocity > 0)
             {
                 var neutronCount = GasNeutronInteract(reactorPart);
                 if (neutronCount > 1)
+                {
                     for (var i = 0; i < neutronCount; i++)
-                        neutrons.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(1, 3 + 1) });
-                else if (neutronCount < 1)
-                    neutrons.Remove(neutron);
+                        result.Add(new() { dir = _random.NextAngle().GetDir(), velocity = _random.Next(1, 3 + 1) });
+                }
+                else if (neutronCount >= 1)
+                {
+                    result.Add(neutron);
+                }
             }
         }
 
-        return neutrons;
+        return result;
     }
 
     /// <summary>

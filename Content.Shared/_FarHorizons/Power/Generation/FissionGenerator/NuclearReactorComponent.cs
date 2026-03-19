@@ -56,6 +56,11 @@ public sealed partial class NuclearReactorComponent : Component
     public List<ReactorNeutron>[,] FluxGrid;
 
     /// <summary>
+    /// Scratch buffer for neutron movement. Avoids List.Remove and flux snapshot allocs.
+    /// </summary>
+    public List<ReactorNeutron>[,] FluxGridScratch;
+
+    /// <summary>
     /// Number of neutrons that hit the edge of the reactor grid last tick
     /// </summary>
     [ViewVariables]
