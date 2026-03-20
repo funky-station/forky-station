@@ -1,0 +1,65 @@
+- type: entity
+  parent: BaseItem
+  id: WeirdEggBase
+  description: An strange egg!
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/egg.rsi
+  - type: Item
+    sprite: Objects/Consumable/Food/egg.rsi
+    size: Tiny
+  - type: Tag
+    tags:
+    - Egg
+
+- type: entity
+  parent: WeirdEggBase
+  id: WeirdEggGold
+  name: golden egg
+  description: An golden egg!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/weirdeggs.rsi
+    state: golden
+  - type: Item
+    sprite: _Funkystation/Objects/Fun/weirdeggs.rsi
+    state: golden
+    size: Tiny
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 100
+
+- type: entity
+  parent: WeirdEggBase
+  id: WeirdEggUranium
+  name: uranium egg
+  description: A uranium egg!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/weirdeggs.rsi
+    state: uranium
+  - type: Item
+    sprite: _Funkystation/Objects/Fun/weirdeggs.rsi
+    state: uranium
+    size: Tiny
+  - type: PhysicalComposition
+    materialComposition:
+      Uranium: 100
+
+- type: entity
+  parent: WeirdEggBase
+  id: WeirdEggPlasma
+  name: plasma egg
+  description: A plasma egg!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Fun/weirdeggs.rsi
+    state: plasma
+  - type: Item
+    sprite: _Funkystation/Objects/Fun/weirdeggs.rsi
+    state: plasma
+    size: Tiny
+  - type: PhysicalComposition
+    materialComposition:
+      Plasma: 100
