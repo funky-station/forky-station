@@ -64,21 +64,13 @@
 # SPDX-FileCopyrightText: 2025 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
 # SPDX-FileCopyrightText: 2025 Theodore Lukin <66275205+pheenty@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
-# SPDX-FileCopyrightText: 2026 ThatOneMoon <juozas.dringelis@gmail.com>
-# SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
-# SPDX-FileCopyrightText: 2026 taydeo <td12233a@gmail.com>
 # SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
 # SPDX-License-Identifier: MIT
 
 - type: entityTable
-  id: LockerFillQuarterMasterNoHardsuit 
+  id: LockerFillQuarterMaster
   table: !type:AllSelector
     children:
-    # Funky start 
-    - id: SurvivalKnife
-    - id: WeaponProtoKineticAccelerator 
-    - id: RadioHandheld 
-    # Funky end 
     - id: BoxEncryptionKeyCargo
     - id: BoxFolderQmClipboard
     - id: BoxQMCircuitboards
@@ -90,19 +82,6 @@
     - id: AstroNavCartridge
     - id: ClothingHandsKnuckleDustersQM
 
-# Hardsuit table, used for suit storage as well # Funky
-- type: entityTable
-  id: FillQuarterMasterHardsuit
-  table: !type:AllSelector
-    children:
-    - id: ClothingMaskGasExplorer
-    - id: ClothingOuterHardsuitLuxury
-    - id: ClothingShoesBootsMag
-    - id: JetpackVoidFilled
-    - id: OxygenTankFilled
-    - id: NitrogenTankFilled 
-
-# No hardsuit locker # Funky
 - type: entity
   id: LockerQuarterMasterFilled
   suffix: Filled
@@ -111,22 +90,7 @@
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
-        tableId: LockerFillQuarterMasterNoHardsuit 
-
-# No hardsuit + hardsuit locker # Funky 
-- type: entity
-  id: LockerQuarterMasterFilledHardsuit
-  suffix: Filled, Hardsuit
-  parent: LockerQuarterMaster
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - !type:NestedSelector
-          tableId: LockerFillQuarterMasterNoHardsuit
-        - !type:NestedSelector
-          tableId: FillQuarterMasterHardsuit
+        tableId: LockerFillQuarterMaster
 
 # No laser table
 - type: entityTable

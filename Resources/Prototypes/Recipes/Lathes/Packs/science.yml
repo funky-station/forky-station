@@ -12,7 +12,7 @@
 - type: latheRecipePack
   id: ScienceBoardsStatic
   recipes:
-  - ProtolatheMachineCircuitboard
+ # - ProtolatheMachineCircuitboard # Funky change, Protolathe is kill.
   - AutolatheMachineCircuitboard
   - CircuitImprinterMachineCircuitboard
   - ExosuitFabricatorMachineCircuitboard
@@ -30,7 +30,7 @@
   - AnomalyLocatorWide
   - HoloprojectorField
   - SignallerAdvanced
-  - DeviceQuantumSpinInverter
+  # - DeviceQuantumSpinInverter # Funky change, removing because its only use is to bug out the game
   - DeviceDesynchronizer
   - ClothingBackpackHarmpack
 
@@ -39,7 +39,7 @@
   recipes:
   - ClothingShoesBootsMagSci
   - ClothingShoesBootsMoon
-  - ClothingShoesBootsSpeed
+ # - ClothingShoesBootsSpeed # Funky Change, also killing this godforsaken item, hate, hate, hate.
   - ClothingShoesBootsJump
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
@@ -56,12 +56,12 @@
   id: ScienceWeapons
   recipes:
   - WeaponPistolCHIMP
-  - WeaponForceGun
+ # - WeaponForceGun # Funky change, removing because its only use is to bug out the game
   - WeaponProtoKineticAccelerator
   - PKAUpgradeDamage
   - PKAUpgradeRange
   - PKAUpgradeFireRate
-  - WeaponTetherGun
+ # - WeaponTetherGun # Funky change, removing because its only use is to bug out the game
   - WeaponGauntletGorilla
 
 # Only contains parts for making basic modular grenades, no actual explosives
@@ -79,10 +79,10 @@
   recipes:
   - TurboItemRechargerCircuitboard
   - AutolatheHyperConvectionMachineCircuitboard
-  - ProtolatheHyperConvectionMachineCircuitboard
+  #- ProtolatheHyperConvectionMachineCircuitboard # Funky change, Protolathe is kill.
   - CircuitImprinterHyperConvectionMachineCircuitboard
   - TechDiskComputerCircuitboard
-  - FlatpackerMachineCircuitboard
+  # - FlatpackerMachineCircuitboard # Funky change, Flatpacker is kill.
   - SheetifierMachineCircuitboard
   - PowerCageRechargerCircuitboard
   - AnalysisComputerCircuitboard

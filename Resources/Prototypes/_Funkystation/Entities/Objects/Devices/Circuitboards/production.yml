@@ -8,9 +8,60 @@
   description: A machine printed circuit board for a cargo techfab.
   components:
   - type: Sprite
-    state: supply
+    state: cpu_supply
   - type: MachineBoard
     prototype: CargoTechFab
+    stackRequirements:
+      Manipulator: 4
+    tagRequirements:
+      GlassBeaker:
+        amount: 2
+        defaultPrototype: Beaker
+
+- type: entity
+  id: ScienceTechFabCircuitboard
+  parent: BaseMachineCircuitboard
+  name: science techfab machine board
+  description: A machine printed circuit board for a science techfab.
+  components:
+  - type: Sprite
+    state: cpu_science
+  - type: MachineBoard
+    prototype: ScienceTechFab
+    stackRequirements:
+      Manipulator: 4
+    tagRequirements:
+      GlassBeaker:
+        amount: 2
+        defaultPrototype: Beaker
+
+- type: entity
+  id: EngineeringTechFabCircuitboard
+  parent: BaseMachineCircuitboard
+  name: engineering techfab machine board
+  description: A machine printed circuit board for a engineering techfab.
+  components:
+  - type: Sprite
+    state: cpu_engineering
+  - type: MachineBoard
+    prototype: EngineeringTechFab
+    stackRequirements:
+      Manipulator: 4
+    tagRequirements:
+      GlassBeaker:
+        amount: 2
+        defaultPrototype: Beaker                
+
+- type: entity
+  id: ServiceTechFabCircuitboard
+  parent: BaseMachineCircuitboard
+  name: service techfab machine board
+  description: A machine printed circuit board for a service techfab.
+  components:
+  - type: Sprite
+    state: cpu_service
+  - type: MachineBoard
+    prototype: ServiceTechFab
     stackRequirements:
       Manipulator: 4
     tagRequirements:
