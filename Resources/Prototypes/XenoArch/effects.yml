@@ -194,6 +194,12 @@
       weight: 1.0
     - id: XenoArtifactMilkSoyPuddle
       weight: 1.0
+    - id: XenoArtifactMilkChocolatePuddle
+      weight: 0.3 #Rare milk version
+    - id: XenoArtifactMilkStrawberryPuddle
+      weight: 0.3 #Rare milk version
+    - id: XenoArtifactMilkBananaPuddle
+      weight: 0.3 #Rare milk version
     - id: XenoArtifactEggPuddle
       weight: 1.0
     - id: XenoArtifactEnzymePuddle
@@ -212,7 +218,7 @@
       weight: 1.0
     - id: XenoArtifactEffectSkeletonGhostRoleSpawn
       weight: 0.3
-    - id: XenoArtifactEffectTeslaSpawn
+    - id: XenoArtifactEffectMiniTeslaSpawn
       weight: 0.5
     - id: XenoArtifactEffectFrenchFoodSpawn
       weight: 1.0
@@ -220,6 +226,10 @@
       weight: 1.0
     - id: XenoArtifactEffectRainbowMiceSpawn
       weight: 1.0
+    - id: XenoArtifactSkeletonization
+      weight: 0.2
+    - id: XenoArtifactEffectSpaceTimeParadoxSpawn
+      weight: 0.1
 
 - type: entityTable
   id: XenoArtifactEffectsHandheldOnlyTable

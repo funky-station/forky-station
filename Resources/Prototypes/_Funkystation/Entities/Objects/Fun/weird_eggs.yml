@@ -9,6 +9,20 @@
   - type: Item
     sprite: Objects/Consumable/Food/egg.rsi
     size: Tiny
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Effects/metal_slam4.ogg
+      params:
+        volume: 0
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/metal_slam4.ogg
+      params:
+        volume: -2
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 5
   - type: Tag
     tags:
     - Egg

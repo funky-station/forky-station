@@ -2,8 +2,8 @@
 
 - type: entity
   id: XenoArtifactEffectSpaceTimeParadoxSpawn
-  parent: BaseXenoArtifactEffect
-  description: Creates an unknown lifeform
+  parent: BaseOneTimeXenoArtifactEffect
+  description: Metaphysical disturbance
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -11,12 +11,10 @@
     components:
     - type: EntityTableSpawner
       deleteSpawnerAfterSpawn: false
-      table: !type:GroupSelector
-        rolls: !type:RangeNumberSelector
-          range: 1, 1
+      table: !type:AllSelector
         children:
-        - !type:NestedSelector
-          tableId: MobParadox
+        - id: MobParadoxArtifact
+        - id: EffectEmpPulse
 
 - type: entity
   id: XenoArtifactEffectGooseSpawn
@@ -51,7 +49,7 @@
 
 - type: entity
   id: XenoArtifactEffectSkeletonGhostRoleSpawn
-  parent: BaseXenoArtifactEffect
+  parent: BaseOneTimeXenoArtifactEffect
   description: Spontaneous inorganic creation
   components:
   - type: XenoArtifactNode
@@ -120,8 +118,8 @@
 #Item Spawners
 
 - type: entity
-  id: XenoArtifactEffectTeslaSpawn
-  parent: BaseXenoArtifactEffect
+  id: XenoArtifactEffectMiniTeslaSpawn
+  parent: BaseOneTimeXenoArtifactEffect
   description: Dangerous electromagnetic interference
   components:
   - type: XenoArtifactNode
@@ -267,6 +265,51 @@
     - MilkSoy
 
 - type: entity
+  id: XenoArtifactMilkChocolatePuddle
+  parent: BaseXenoArtifactEffect
+  description: Produces puddle of chemical mixture
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 200
+      canReact: false
+    possibleChemicals:
+    - MilkChocolate
+
+- type: entity
+  id: XenoArtifactMilkStrawberryPuddle
+  parent: BaseXenoArtifactEffect
+  description: Produces puddle of chemical mixture
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 200
+      canReact: false
+    possibleChemicals:
+    - MilkStrawberry
+
+- type: entity
+  id: XenoArtifactMilkBananaPuddle
+  parent: BaseXenoArtifactEffect
+  description: Produces puddle of chemical mixture
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 200
+      canReact: false
+    possibleChemicals:
+    - MilkBanana
+
+- type: entity
   id: XenoArtifactEggPuddle
   parent: BaseXenoArtifactEffect
   description: Produces puddle of chemical mixture
@@ -372,3 +415,15 @@
     - OilOlive
 
 #Rare Reagent Spawners
+
+
+#Polymophs
+
+- type: entity
+  id: XenoArtifactSkeletonization
+  parent: BaseOneTimeXenoArtifactEffect
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
+  components:
+  - type: XAEPolymorph
+    polymorphPrototypeName: WizardForcedSkeleton
+    range: 5

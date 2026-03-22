@@ -198,6 +198,94 @@
     energy: 5
     netsync: false
 
+#Special Cows
+
+- type: entity
+  name: chocolate cow
+  parent: MobCow
+  id: MobCowChocolate
+  description: Moo.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: cow
+      sprite: Mobs/Animals/cow.rsi
+  - type: SolutionContainerManager
+    solutions:
+      udder:
+        maxVol: 250
+        reagents:
+        - ReagentId: MilkChocolate
+          Quantity: 30
+  - type: Udder
+    reagentId: MilkChocolate
+    quantityPerUpdate: 25
+    growthDelay: 30
+  - type: Butcherable
+    spawned:
+    - id: FoodSnackChocolateBar
+      amount: 5
+
+- type: entity
+  name: strawberry cow
+  parent: MobCow
+  id: MobCowStrawberry
+  description: Moo.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: cow
+      sprite: Mobs/Animals/cow.rsi
+  - type: SolutionContainerManager
+    solutions:
+      udder:
+        maxVol: 250
+        reagents:
+        - ReagentId: MilkStrawberry
+          Quantity: 30
+  - type: Udder
+    reagentId: MilkStrawberry
+    quantityPerUpdate: 25
+    growthDelay: 30
+  - type: Butcherable
+    spawned:
+    - id: FoodFrozenSandwichStrawberry #Change to actual strawberries if someone implments them
+      amount: 2
+
+- type: entity
+  name: banana cow
+  parent: MobCow
+  id: MobCowBanana
+  description: Moo.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: cow
+      sprite: Mobs/Animals/cow.rsi
+  - type: SolutionContainerManager
+    solutions:
+      udder:
+        maxVol: 250
+        reagents:
+        - ReagentId: MilkBanana
+          Quantity: 30
+  - type: Udder
+    reagentId: MilkBanana
+    quantityPerUpdate: 25
+    growthDelay: 30
+  - type: Butcherable
+    spawned:
+    - id: FoodBanana
+      amount: 5
+    - id: TrashBananaPeel
+      amount: 5
+
 #Devil Birds
 
 - type: entity
