@@ -1,51 +1,4 @@
-// SPDX-FileCopyrightText: 2022-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2023-2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2023 Sirionaut <148076704+Sirionaut@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vyacheslav Titov <rincew1nd@ya.ru>
-// SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
-// SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2023 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2023 corentt <36075110+corentt@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Łukasz Mędrek <lukasz@lukaszm.xyz>
-// SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 Nikovnik <116634167+nkokic@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft <ignaz.k@live.de>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-FileCopyrightText: 2025 FungiFellow <151778459+FungiFellow@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-FileCopyrightText: 2025 UpAndLeaves <92269094+Alpha-Two@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ethan_k <eknowles27@dtechhs.org>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+using System.Linq;
 using Content.Server.Administration.Managers;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
@@ -61,6 +14,7 @@ using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Server.StationEvents.Components;
 using Content.Server.Speech.Components;
+using Content.Shared.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.CombatMode.Pacification;
@@ -83,6 +37,7 @@ using Content.Shared.Prying.Components;
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Ghost.Roles.Components;
+using Content.Shared.Humanoid.Markings;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Tag;
 using Robust.Shared.Player;
@@ -108,7 +63,7 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
+    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
     [Dependency] private readonly ServerInventorySystem _inventory = default!;
     [Dependency] private readonly MindSystem _mind = default!;
@@ -123,6 +78,7 @@ public sealed partial class ZombieSystem
     private static readonly ProtoId<NpcFactionPrototype> ZombieFaction = "Zombie";
     private static readonly string MindRoleZombie = "MindRoleZombie";
     private static readonly List<ProtoId<AntagPrototype>> BannableZombiePrototypes = ["Zombie"];
+    private static readonly HashSet<HumanoidVisualLayers> AdditionalZombieLayers = [HumanoidVisualLayers.Tail, HumanoidVisualLayers.HeadSide, HumanoidVisualLayers.HeadTop, HumanoidVisualLayers.Snout];
 
     /// <summary>
     /// Handles an entity turning into a zombie when they die or go into crit
@@ -234,27 +190,43 @@ public sealed partial class ZombieSystem
             _autoEmote.AddEmote(target, "ZombieGroan");
         }
 
-        //We have specific stuff for humanoid zombies because they matter more
-        if (TryComp<HumanoidAppearanceComponent>(target, out var huApComp)) //huapcomp
+        if (TryComp<BloodstreamComponent>(target, out var stream) && stream.BloodReferenceSolution is { } reagents)
+            zombiecomp.BeforeZombifiedBloodReagents = reagents.Clone();
+
+        if (_visualBody.TryGatherMarkingsData(target, null, out var profiles, out _, out var markings))
         {
-            //store some values before changing them in case the humanoid get cloned later
-            zombiecomp.BeforeZombifiedSkinColor = huApComp.SkinColor;
-            zombiecomp.BeforeZombifiedEyeColor = huApComp.EyeColor;
-            zombiecomp.BeforeZombifiedCustomBaseLayers = new(huApComp.CustomBaseLayers);
-            if (TryComp<BloodstreamComponent>(target, out var stream) && stream.BloodReferenceSolution is { } reagents)
-                zombiecomp.BeforeZombifiedBloodReagents = reagents.Clone();
+            // TODO: My kingdom for ZombieSystem just using cloning system
+            zombiecomp.BeforeZombifiedProfiles = profiles;
+            zombiecomp.BeforeZombifiedMarkings = markings.ToDictionary(
+                kvp => kvp.Key,
+                kvp => kvp.Value.ToDictionary(
+                    it => it.Key,
+                    it => it.Value.Select(marking => new Marking(marking)).ToList()));
 
-            _humanoidAppearance.SetSkinColor(target, zombiecomp.SkinColor, verify: false, humanoid: huApComp);
+            var zombifiedProfiles = profiles.ToDictionary(pair => pair.Key,
+                pair => pair.Value with { EyeColor = zombiecomp.EyeColor, SkinColor = zombiecomp.SkinColor });
+            _visualBody.ApplyProfiles(target, zombifiedProfiles);
 
-            // Messing with the eye layer made it vanish upon cloning, and also it didn't even appear right
-            huApComp.EyeColor = zombiecomp.EyeColor;
+            foreach (var markingSet in markings.Values)
+            {
+                foreach (var (layer, layerMarkings) in markingSet)
+                {
+                    if (!AdditionalZombieLayers.Contains(layer))
+                        continue;
 
-            // this might not resync on clone?
-            _humanoidAppearance.SetBaseLayerId(target, HumanoidVisualLayers.Tail, zombiecomp.BaseLayerExternal, humanoid: huApComp);
-            _humanoidAppearance.SetBaseLayerId(target, HumanoidVisualLayers.HeadSide, zombiecomp.BaseLayerExternal, humanoid: huApComp);
-            _humanoidAppearance.SetBaseLayerId(target, HumanoidVisualLayers.HeadTop, zombiecomp.BaseLayerExternal, humanoid: huApComp);
-            _humanoidAppearance.SetBaseLayerId(target, HumanoidVisualLayers.Snout, zombiecomp.BaseLayerExternal, humanoid: huApComp);
+                    foreach (var marking in layerMarkings)
+                    {
+                        marking.SetColor(zombiecomp.SkinColor);
+                    }
+                }
+            }
 
+            _visualBody.ApplyMarkings(target, markings);
+        }
+
+        //We have specific stuff for humanoid zombies because they matter more
+        if (HasComp<HumanoidProfileComponent>(target))
+        {
             //This is done here because non-humanoids shouldn't get baller damage
             melee.Damage = zombiecomp.DamageOnBite;
 

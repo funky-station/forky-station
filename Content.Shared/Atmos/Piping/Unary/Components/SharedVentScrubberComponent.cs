@@ -6,6 +6,9 @@
 // SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
 // SPDX-FileCopyrightText: 2025 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
+// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2026 taydeo <td12233a@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Shared.Atmos.Monitor.Components;
@@ -33,7 +36,17 @@ namespace Content.Shared.Atmos.Piping.Unary.Components
             Gas.WaterVapor,
             Gas.Ammonia,
             Gas.NitrousOxide,
-            Gas.Frezon
+            Gas.Frezon,
+            Gas.BZ, // Funky atmos - /tg/ gases
+            Gas.Healium, // Funky atmos - /tg/ gases
+            Gas.Nitrium, // Funky atmos - /tg/ gases
+            Gas.Hydrogen, // Funky atmos - /tg/ gases
+            Gas.HyperNoblium, // Funky atmos - /tg/ gases
+            Gas.ProtoNitrate, // Funky atmos - /tg/ gases
+            Gas.Zauker, // Funky atmos - /tg/ gases
+            Gas.Halon, // Funky atmos - /tg/ gases
+            Gas.Helium, // Funky atmos - /tg/ gases
+            Gas.AntiNoblium, // Funky atmos - /tg/ gases
         };
 
         // Presets for 'dumb' air alarm modes

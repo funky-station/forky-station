@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2021-2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
 // SPDX-FileCopyrightText: 2022-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2022 Kevin Zheng <kevinz5000@gmail.com>
 // SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
@@ -10,6 +11,9 @@
 // SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
+// SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
+// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2026 taydeo <td12233a@gmail.com>
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Atmos.Components;
@@ -102,7 +106,10 @@ public sealed partial class AtmosphereSystem
             tile.Hotspot.Volume <= 1f ||
             tile.Air == null ||
             tile.Air.GetMoles(Gas.Oxygen) < 0.5f ||
-            tile.Air.GetMoles(Gas.Plasma) < 0.5f && tile.Air.GetMoles(Gas.Tritium) < 0.5f)
+            tile.Air.GetMoles(Gas.Plasma) < 0.5f &&
+            tile.Air.GetMoles(Gas.Tritium) < 0.5f &&
+            tile.Air.GetMoles(Gas.Hydrogen) < 0.5f || // Funky atmos - /tg/ gases
+            tile.Air.GetMoles(Gas.HyperNoblium) > 5f) // Funky atmos - /tg/ gases
         {
             tile.Hotspot = new Hotspot();
             InvalidateVisuals(ent, tile);
@@ -222,12 +229,18 @@ public sealed partial class AtmosphereSystem
 
         var plasma = tile.Air.GetMoles(Gas.Plasma);
         var tritium = tile.Air.GetMoles(Gas.Tritium);
+        var hydrogen = tile.Air.GetMoles(Gas.Hydrogen); // Funky atmos - /tg/ gases
+        var hypernob = tile.Air.GetMoles(Gas.HyperNoblium); // Funky atmos - /tg/ gases
+
+        if (hypernob > 5f)
+            return;
 
         if (tile.Hotspot.Valid)
         {
             if (soh)
             {
-                if (plasma > 0.5f || tritium > 0.5f)
+                // if (plasma > 0.5f || tritium > 0.5f) Funky atmos - /tg/ gases - removed
+                if (plasma > 0.5f || tritium > 0.5f || hydrogen > 0.5f) // Funky atmos - /tg/ gases
                 {
                     tile.Hotspot.Temperature = MathF.Max(tile.Hotspot.Temperature, exposedTemperature);
                     tile.Hotspot.Volume = MathF.Max(tile.Hotspot.Volume, exposedVolume);
@@ -237,13 +250,13 @@ public sealed partial class AtmosphereSystem
             return;
         }
 
-        if (exposedTemperature > Atmospherics.PlasmaMinimumBurnTemperature && (plasma > 0.5f || tritium > 0.5f))
+        if (exposedTemperature > Atmospherics.PlasmaMinimumBurnTemperature && (plasma > 0.5f || tritium > 0.5f || hydrogen > 0.5f)) // Funky atmos - /tg/ gases
         {
             if (sparkSourceUid.HasValue)
             {
                 _adminLog.Add(LogType.Flammable,
                     LogImpact.High,
-                    $"Heat/spark of {ToPrettyString(sparkSourceUid.Value)} caused atmos ignition of gas: {tile.Air.Temperature.ToString():temperature}K - {oxygen}mol Oxygen, {plasma}mol Plasma, {tritium}mol Tritium");
+                    $"Heat/spark of {ToPrettyString(sparkSourceUid.Value)} caused atmos ignition of gas: {tile.Air.Temperature.ToString():temperature}K - {oxygen}mol Oxygen, {plasma}mol Plasma, {tritium}mol Tritium, {hydrogen}mol Hydrogen"); // Funky atmos - /tg/ gases
             }
 
             tile.Hotspot = new Hotspot

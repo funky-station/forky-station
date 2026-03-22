@@ -1359,6 +1359,11 @@
   description: flavor-complex-punishment
 
 - type: flavor
+  id: forbidden
+  flavorType: Complex
+  description: flavor-complex-forbidden
+
+- type: flavor
   id: holy
   flavorType: Base
   description: flavor-base-holy

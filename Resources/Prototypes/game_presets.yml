@@ -37,7 +37,6 @@
     - MeteorSwarmScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
-    - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -97,7 +96,6 @@
     - MeteorSwarmScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
-    - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -123,7 +121,6 @@
   showInVote: false #4boring4vote
   description: greenshift-description
   rules:
-  - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
 
 - type: gamePreset
@@ -294,3 +291,35 @@
   - KesslerSyndromeScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+
+- type: gamePreset
+  id: BloodCult
+  alias:
+    - bloodcult
+    - bcult
+  name: bloodcult-title
+  description: bloodcult-description
+  showInVote: false
+  rules:
+    - DummyNonAntagChance
+    - BloodCult
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SecretBloodCult
+  alias:
+    - secretbloodcult
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+    - DummyNonAntagChance
+    - BloodCult
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation

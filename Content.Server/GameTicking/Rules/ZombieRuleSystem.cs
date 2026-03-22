@@ -153,7 +153,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
             {
                 _chat.DispatchStationAnnouncement(station, Loc.GetString("zombie-shuttle-call"), colorOverride: Color.Crimson);
             }
-            _roundEnd.RequestRoundEnd(null, false);
+            _roundEnd.RequestRoundEnd(checkCooldown: false);
         }
 
         // we include dead for this count because we don't want to end the round
@@ -195,7 +195,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
     {
         var players = GetHealthyHumans(includeOffStation);
         var zombieCount = 0;
-        var query = EntityQueryEnumerator<HumanoidAppearanceComponent, ZombieComponent, MobStateComponent>();
+        var query = EntityQueryEnumerator<HumanoidProfileComponent, ZombieComponent, MobStateComponent>();
         while (query.MoveNext(out _, out _, out _, out var mob))
         {
             if (!includeDead && mob.CurrentState == MobState.Dead)
@@ -225,7 +225,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
             }
         }
 
-        var players = AllEntityQuery<HumanoidAppearanceComponent, ActorComponent, MobStateComponent, TransformComponent>();
+        var players = AllEntityQuery<HumanoidProfileComponent, ActorComponent, MobStateComponent, TransformComponent>();
         var zombers = GetEntityQuery<ZombieComponent>();
         while (players.MoveNext(out var uid, out _, out _, out var mob, out var xform))
         {

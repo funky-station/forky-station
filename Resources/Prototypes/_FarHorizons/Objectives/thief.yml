@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
+# SPDX-License-Identifier: MIT
+- type: entity
+  parent: BaseThiefStealCollectionObjective
+  id: ReactorFuelRodStealCollectionObjective
+  components:
+  - type: NotJobRequirement
+    jobs: [ StationEngineer, AtmosphericTechnician ]
+  - type: StealCondition
+    stealGroup: ReactorFuelRodSteal
+    minCollectionSize: 1
+    maxCollectionSize: 3
+  - type: Objective
+    difficulty: 2 # Large and radioactive

@@ -8,14 +8,19 @@
 // SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
 // SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
 // SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
+// SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
+// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
+// SPDX-FileCopyrightText: 2026 taydeo <td12233a@gmail.com>
 // SPDX-License-Identifier: MIT
 
+using System.Linq;
 using System.Numerics;
 using Content.Server.Radiation.Components;
 using Content.Server.Radiation.Events;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Radiation.Systems;
 using Robust.Shared.Collections;
+using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -72,6 +77,69 @@ public partial class RadiationSystem
 
         var debugRays = debug ? new List<DebugRadiationRay>() : null;
         var receiversTotalRads = new ValueList<(Entity<RadiationReceiverComponent>, float)>();
+
+        // Funky atmos - /tg/ gases - sample requested tiles
+        var now = _gameTiming.CurTime;
+        var gridsToClean = new List<EntityUid>();
+
+        foreach (var (gridUid, samples) in _tileRadiationCache.ToList())
+        {
+            if (!_gridQuery.TryGetComponent(gridUid, out var gridComp) ||
+                !_xformQuery.TryGetComponent(gridUid, out var gridXform))
+            {
+                gridsToClean.Add(gridUid);
+                continue;
+            }
+
+            var toRemove = new List<Vector2i>();
+            var gridWorldPos = _transform.GetWorldPosition(gridXform);
+
+            foreach (var (tilePos, (oldRads, expires)) in samples.ToList())
+            {
+                // Remove expired entries
+                if (now > expires)
+                {
+                    toRemove.Add(tilePos);
+                    continue;
+                }
+
+                var worldPos = _maps.GridTileToWorld(gridUid, gridComp, tilePos).Position;
+
+                // Compute world position of this tile's center
+
+                float rads = 0f;
+
+                foreach (var source in _sources)
+                {
+                    var ray = Irradiate(
+                        source,
+                        EntityUid.Invalid,
+                        gridXform,
+                        worldPos,
+                        debug
+                    );
+
+                    if (ray != null && ray.Value.Rads > 0.001f)
+                        rads += ray.Value.Rads;
+                }
+
+                // Store the fresh rads, keep the existing expiration time
+                samples[tilePos] = (rads, expires);
+            }
+
+            // Clean up expired entries
+            foreach (var pos in toRemove)
+                samples.Remove(pos);
+
+            // If no more samples on this grid, remove the grid entry
+            if (samples.Count == 0)
+                gridsToClean.Add(gridUid);
+        }
+
+        // Actually remove dead grids
+        foreach (var grid in gridsToClean)
+            _tileRadiationCache.Remove(grid);
+        // Funky changes end
 
         // TODO RADIATION Parallelize
         // Would need to give receiversTotalRads a fixed size.
