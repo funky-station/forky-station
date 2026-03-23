@@ -221,7 +221,15 @@
     - id: XenoArtifactEffectMiniTeslaSpawn
       weight: 0.5
     - id: XenoArtifactEffectFrenchFoodSpawn
-      weight: 1.0
+      weight: 0.7
+    - id: XenoArtifactEffectItalianFoodSpawn
+      weight: 0.7
+    - id: XenoArtifactEffectFoodIngredientSpawn
+      weight: 0.7
+    - id: XenoArtifactEffectBurgerSpawn
+      weight: 0.7
+    - id: XenoArtifactEffectBreakfastSpawn
+      weight: 0.7
     - id: XenoArtifactInsectSpawn
       weight: 1.0
     - id: XenoArtifactEffectRainbowMiceSpawn
@@ -230,10 +238,6 @@
       weight: 0.2
     - id: XenoArtifactEffectSpaceTimeParadoxSpawn
       weight: 0.1
-    - id: XenoArtifactEffectItalianFoodSpawn
-      weight: 1.0
-    - id: XenoArtifactEffectFoodIngredientSpawn
-      weight: 0.7
     - id: XenoArtifactEffectOrganSpawn
       weight: 1.0
     - id: XenoArtifactEffectCorpseSpawn
@@ -242,6 +246,8 @@
       weight: 0.2
     - id: XenoArtifactPetLikeSpawn
       weight: 0.7
+    - id: XenoArtifactEffectXenoSpawn
+      weight: 0.2
 
 - type: entityTable
   id: XenoArtifactEffectsHandheldOnlyTable
@@ -636,6 +642,8 @@
           rolls: !type:ConstantNumberSelector
             value: 6
           prob: 0.5
+        - id: MobClownSpider
+          prob: 0.1
   - type: XAECreatePuddle
     chemAmount:
       min: 1

@@ -78,7 +78,7 @@
     - type: XenoArtifactNode
       maxDurability: 4
       maxDurabilityCanDecreaseBy:
-        min: 0
+        min: 1
         max: 3
     - type: XAEApplyComponents
       applyIfAlreadyHave: true
@@ -88,15 +88,15 @@
           deleteSpawnerAfterSpawn: false
           table: !type:GroupSelector
             children:
-        - id: MobButterfly
-          amount: !type:RangeNumberSelector
-            range: 1, 2
-        - id: MobMothroach
-          amount: !type:RangeNumberSelector
-            range: 1, 2
-        - id: MobBee
-          amount: !type:RangeNumberSelector
-            range: 2, 5
+            - id: MobButterfly
+              amount: !type:RangeNumberSelector
+                range: 1, 2
+            - id: MobMothroach
+              amount: !type:RangeNumberSelector
+                range: 1, 2
+            - id: MobBee
+              amount: !type:RangeNumberSelector
+                range: 2, 5
 
 - type: entity
   id: XenoArtifactEffectRainbowMiceSpawn
@@ -164,7 +164,7 @@
 
 - type: entity
   id: XenoArtifactEffectAbominationSpawn
-  parent: BaseOneTimeXenoArtifactEffect
+  parent: BaseXenoArtifactEffect
   description: Metaphysical disturbance
   components:
     - type: XAEApplyComponents
@@ -176,6 +176,23 @@
           table: !type:AllSelector
             children:
               - id: MobAbomination
+                amount: !type:RangeNumberSelector
+                  range: 1, 2
+
+- type: entity
+  id: XenoArtifactEffectXenoSpawn
+  parent: BaseXenoArtifactEffect
+  description: Metaphysical disturbance
+  components:
+    - type: XAEApplyComponents
+      applyIfAlreadyHave: true
+      refreshOnReactivate: true
+      components:
+        - type: EntityTableSpawner
+          deleteSpawnerAfterSpawn: false
+          table: !type:AllSelector
+            children:
+              - id: SpawnMobXenoEasy
                 amount: !type:RangeNumberSelector
                   range: 1, 2
 
@@ -214,8 +231,14 @@
         children:
         - id: FoodCheeseSlice
           weight: 20
-        - id: FoodBreadBaguette
+        - id: FoodBreadBaguetteSlice
           weight: 20
+        - id: FoodBreadBaguette
+          weight: 10
+        - id: FoodBakedCroissant
+          weight: 10
+        - id: FoodBakedCroissantCotton
+          weight: 10
         - id: FoodMealOmelette
           weight: 5
         - id: MobSnail
@@ -365,6 +388,82 @@
         canReact: false
       possibleChemicals:
         - Blood
+
+- type: entity
+  id: XenoArtifactEffectBurgerSpawn
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous organic creation
+  components:
+    - type: XAEApplyComponents
+      applyIfAlreadyHave: true
+      refreshOnReactivate: true
+      components:
+        - type: EntityTableSpawner
+          deleteSpawnerAfterSpawn: false
+          table: !type:GroupSelector
+            children:
+              - id: FoodBurgerRobot
+                weight: 5
+              - id: FoodBurgerBaseball
+                weight: 5
+              - id: FoodBurgerMime
+                weight: 5
+              - id: FoodBurgerGhost
+                weight: 5
+              - id: FoodBurgerCorgi
+                weight: 5
+              - id: FoodBurgerEmpowered
+                weight: 5
+              - id: FoodBurgerClown
+                weight: 5
+              - id: FoodBurgerSpell
+                weight: 5
+
+- type: entity
+  id: XenoArtifactEffectBreakfastSpawn
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous organic creation
+  components:
+    - type: XAEApplyComponents
+      applyIfAlreadyHave: true
+      refreshOnReactivate: true
+      components:
+        - type: EntityTableSpawner
+          deleteSpawnerAfterSpawn: false
+          table: !type:GroupSelector
+            children:
+              - id: FoodBakedPancake
+                weight: 5
+              - id: FoodBakedPancakeCc
+                weight: 5
+              - id: FoodBakedPancakeBb
+                weight: 5
+              - id: FoodBakedWaffle
+                weight: 5
+              - id: FoodBakedWaffleSoylent
+                weight: 5
+              - id: FoodBakedWaffleSoy
+                weight: 5
+              - id: FoodMealFriedegg
+                weight: 4
+              - id: FoodMealEggsbenedict
+                weight: 3
+              - id: FoodBakedWaffleRoffle
+                weight: 2
+              - id: FoodBreakfastEnglish
+                weight: 1
+              - id: FoodBreakfastEnglish
+                weight: 1
+        - type: XAECreatePuddle
+          chemAmount:
+            min: 1
+            max: 3
+          chemicalSolution:
+            maxVol: 25
+            canReact: false
+          possibleChemicals:
+            - Syrup
+
 #Gas Spawners
 
 - type: entity
