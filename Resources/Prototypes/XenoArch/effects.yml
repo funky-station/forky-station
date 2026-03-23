@@ -222,7 +222,7 @@
       weight: 0.5
     - id: XenoArtifactEffectFrenchFoodSpawn
       weight: 1.0
-    - id: XenoArtifactButterflySpawn
+    - id: XenoArtifactInsectSpawn
       weight: 1.0
     - id: XenoArtifactEffectRainbowMiceSpawn
       weight: 1.0
@@ -230,6 +230,18 @@
       weight: 0.2
     - id: XenoArtifactEffectSpaceTimeParadoxSpawn
       weight: 0.1
+    - id: XenoArtifactEffectItalianFoodSpawn
+      weight: 1.0
+    - id: XenoArtifactEffectFoodIngredientSpawn
+      weight: 0.7
+    - id: XenoArtifactEffectOrganSpawn
+      weight: 1.0
+    - id: XenoArtifactEffectCorpseSpawn
+      weight: 0.5
+    - id: XenoArtifactEffectAbominationSpawn
+      weight: 0.2
+    - id: XenoArtifactPetLikeSpawn
+      weight: 0.7
 
 - type: entityTable
   id: XenoArtifactEffectsHandheldOnlyTable
@@ -1355,27 +1367,42 @@
         - id: MobParrot
         - id: MobKangaroo
         - id: MobFox
+        - id: MobRaccoon
+        - id: MobGiantSpiderAngry
+          prob: 0.5
+        - id: MobGorilla
+          prob: 0.1
         - id: MobPenguin
           amount: !type:RangeNumberSelector
             range: 1, 2
-        - id: MobMothroach
+        - id: MobLizard
           amount: !type:RangeNumberSelector
             range: 1, 2
-        - id: MobCorgiPuppy
+        - id: MobCrab
           amount: !type:RangeNumberSelector
             range: 1, 2
-        - id: MobCatKitten
-          amount: !type:RangeNumberSelector
-            range: 1, 2
-        - id: MobCat
-          amount: !type:RangeNumberSelector
-            range: 1, 2
-        - id: MobBee
-          amount: !type:RangeNumberSelector
-            range: 2, 5
         - id: MobGoat
           amount: !type:RangeNumberSelector
             range: 1, 3
+        - id: MobReindeerBuck
+          amount: !type:RangeNumberSelector
+            range: 1, 2
+        - id: MobReindeerDoe
+          amount: !type:RangeNumberSelector
+            range: 1, 2
+        - id: MobDuckMallard
+          amount: !type:RangeNumberSelector
+            range: 1, 2
+        - id: MobFrog
+          amount: !type:RangeNumberSelector
+            range: 2, 3
+        - id: MobBat
+          amount: !type:RangeNumberSelector
+            range: 2, 3
+        - id: MobTomatoKiller
+          amount: !type:RangeNumberSelector
+            range: 2, 3
+          prob: 0.1
         - id: MobMonkeySyndicateAgent #so lucky
           prob: 0.03
 
