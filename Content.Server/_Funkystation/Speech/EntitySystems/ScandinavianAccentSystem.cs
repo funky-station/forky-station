@@ -1,10 +1,10 @@
 using System.Text;
-using Content.Server.Speech.Components;
-using Robust.Shared.Random;
 using System.Text.RegularExpressions;
+using Content.Server._Funkystation.Speech.Components;
 using Content.Shared.Speech;
+using Robust.Shared.Random;
 
-namespace Content.Server.Speech.EntitySystems;
+namespace Content.Server._Funkystation.Speech.EntitySystems;
 
 public sealed class ScandinavianAccentSystem : EntitySystem
 {

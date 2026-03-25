@@ -1,8 +1,8 @@
-using Content.Server.Speech.Components;
 using System.Text.RegularExpressions;
+using Content.Server._Funkystation.Speech.Components;
 using Content.Shared.Speech;
 
-namespace Content.Server.Speech.EntitySystems;
+namespace Content.Server._Funkystation.Speech.EntitySystems;
 
 public sealed class BostonAccentSystem : EntitySystem
 {
