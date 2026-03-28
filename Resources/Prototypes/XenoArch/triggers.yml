@@ -31,6 +31,17 @@
     TriggerThrow: 1
     TriggerDeath: 1
     TriggerMagnet: 1
+    TriggerVodka: 1 #Funky changes start
+    TriggerMilk: 1
+    TriggerBleach: 0.5
+    TriggerCleaner: 1
+    TriggerSilicon: 0.5
+    TriggerGeiger: 1
+    TriggerRadio: 1
+    TriggerFlashImmunity: 1
+    TriggerTechnologyDisk: 1
+    TriggerPaper: 1
+    TriggerBattery: 1
 
 - type: xenoArchTrigger
   id: TriggerMusic

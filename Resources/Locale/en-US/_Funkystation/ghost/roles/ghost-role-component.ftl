@@ -4,3 +4,6 @@ ghost-role-information-narsie-goose-rules = You are a servant of Nar'sie. Relent
 
 ghost-role-information-arti-skeleton-name = Artifact Skeleton
 ghost-role-information-arti-skeleton-description = You dont know why or how but in a flash of blue light you find yourself in a strange station. Having been freed from flesh prison there is nothing left in your skull, so you have no idea who or what you were doing before. Make the most of your new take on life.
+
+ghost-role-information-arti-corgi-name = Extradimensional Corgi
+ghost-role-information-arti-corgi-description = A traveler from another plane of reality you have used an artifact as a focal point to teleport in your travels. Explore the station and learn about its inhabitants. Keep yourself safe at all costs, you have a family waiting for you at home.

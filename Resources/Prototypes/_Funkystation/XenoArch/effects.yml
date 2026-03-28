@@ -111,6 +111,8 @@
     - type: EntityTableSpawner
       deleteSpawnerAfterSpawn: false
       table: !type:GroupSelector
+        rolls: !type:RangeNumberSelector
+          range: 1, 2
         children:
         - id: MobMouse0
           weight: 50
@@ -124,6 +126,10 @@
           weight: 10
         - id: MobMouseGreen
           weight: 10
+        - id: MobMouseStealth
+          weight: 5
+        - id: MobMouseRGB
+          weight: 5
         - id: MobMouseBurnt
           weight: 1
 
@@ -165,7 +171,7 @@
 - type: entity
   id: XenoArtifactEffectAbominationSpawn
   parent: BaseXenoArtifactEffect
-  description: Metaphysical disturbance
+  description: Spontaneous organic creation
   components:
     - type: XAEApplyComponents
       applyIfAlreadyHave: true
@@ -182,7 +188,7 @@
 - type: entity
   id: XenoArtifactEffectXenoSpawn
   parent: BaseXenoArtifactEffect
-  description: Metaphysical disturbance
+  description: Spontaneous organic creation
   components:
     - type: XAEApplyComponents
       applyIfAlreadyHave: true
@@ -195,6 +201,22 @@
               - id: SpawnMobXenoEasy
                 amount: !type:RangeNumberSelector
                   range: 1, 2
+
+- type: entity
+  id: XenoArtifactEffectCorgiGhostRoleSpawn
+  parent: BaseOneTimeXenoArtifactEffect
+  description: Spontaneous organic creation
+  components:
+  - type: XAEApplyComponents
+    applyIfAlreadyHave: true
+    refreshOnReactivate: true
+    components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        children:
+        - id: SparlightMobUristMcCorgi
+        - id: SparlightMobUristMcCorgi
 
 #Item Spawners
 
@@ -683,6 +705,98 @@
       canReact: false
     possibleChemicals:
     - OilOlive
+
+
+
+- type: entity
+  id: XenoArtifactVodkaPuddle
+  parent: BaseXenoArtifactEffect
+  description: Produces puddle of chemical mixture
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 100
+      canReact: false
+    possibleChemicals:
+    - Vodka
+
+- type: entity
+  id: XenoArtifactFourteenLokoPuddle
+  parent: BaseXenoArtifactEffect
+  description: Produces puddle of chemical mixture
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 100
+      canReact: false
+    possibleChemicals:
+    - FourteenLoko
+
+- type: entity
+  id: XenoArtifactVitaminPuddle
+  parent: BaseXenoArtifactEffect
+  description: Produces puddle of chemical mixture
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 100
+      canReact: false
+    possibleChemicals:
+    - Vitamin
+
+- type: entity
+  id: XenoArtifactOilPuddle
+  parent: BaseXenoArtifactEffect
+  description: Produces puddle of chemical mixture
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 100
+      canReact: false
+    possibleChemicals:
+    - Oil
+
+- type: entity
+  id: XenoArtifactHistaminePuddle
+  parent: BaseXenoArtifactEffect
+  description: Produces puddle of chemical mixture
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 100
+      canReact: false
+    possibleChemicals:
+    - Histamine
+
+- type: entity
+  id: XenoArtifactMindbreakerToxinPuddle
+  parent: BaseXenoArtifactEffect
+  description: Produces puddle of chemical mixture
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 100
+      canReact: false
+    possibleChemicals:
+    - MindbreakerToxin
 
 #Rare Reagent Spawners
 
