@@ -45,3 +45,12 @@
   - type: Tag
     tags:
     - GeigerCounter
+
+- type: entity
+  parent: GeigerCounter
+  id: GeigerCounterActive
+  suffix: Active
+  components:
+  - type: Geiger
+    isEnabled: true
+  - type: RadiationReceiver
