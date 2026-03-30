@@ -308,6 +308,30 @@
     - id: TrashBananaPeel
       amount: 5
 
+- type: entity
+  parent: MobCow
+  id: MobCowPilk
+  description: Moo.
+  suffix: Pilk
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: cow
+      sprite: Mobs/Animals/cow.rsi
+  - type: SolutionContainerManager
+    solutions:
+      udder:
+        maxVol: 250
+        reagents:
+        - ReagentId: Pilk
+          Quantity: 30
+  - type: Udder
+    reagentId: Pilk
+    quantityPerUpdate: 25
+    growthDelay: 30
+
 #Devil Birds
 
 - type: entity

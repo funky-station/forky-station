@@ -246,7 +246,7 @@
       weight: 0.5
     - id: XenoArtifactEffectCreationGasNitrousOxide
       weight: 1.0
-    - id: XenoArtifactEffectCreationGasCarbonDioxide
+    - id: XenoArtifactEffectCreationGasCarbonDioxide #54 total. Thats the number to beat
       weight: 1.0
     - id: XenoArtifactMilkPuddle #Funky Changes Start
       weight: 1.0
@@ -295,7 +295,7 @@
     - id: XenoArtifactSkeletonization
       weight: 0.2
     - id: XenoArtifactEffectSpaceTimeParadoxSpawn
-      weight: 0.1
+      weight: 0.2
     - id: XenoArtifactEffectOrganSpawn
       weight: 1.0
     - id: XenoArtifactEffectCorpseSpawn
@@ -308,6 +308,10 @@
       weight: 0.3
     - id: XenoArtifactEffectCorgiGhostRoleSpawn
       weight: 0.05
+    - id: XenoArtifactEffectWeirdEggsSpawn
+      weight: 1
+    - id: XenoArtifactEffectCowSpawn #20 so far
+      weight: 0.7
 
 - type: entityTable
   id: XenoArtifactEffectsHandheldOnlyTable
