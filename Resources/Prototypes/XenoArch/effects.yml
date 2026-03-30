@@ -312,6 +312,12 @@
       weight: 1
     - id: XenoArtifactEffectCowSpawn #20 so far
       weight: 0.7
+    - id: XenoArtifactEffectFleshMonsterSpawn
+      weight: 2000
+    - id: XenoArtifactEffectGamesSpawn
+      weight: 2000
+    - id: XenoArtifactEffectVampireSpawn
+      weight: 2000
 
 - type: entityTable
   id: XenoArtifactEffectsHandheldOnlyTable

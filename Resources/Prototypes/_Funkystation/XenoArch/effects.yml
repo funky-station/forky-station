@@ -243,6 +243,32 @@
         - id: MobCowPilk
           weight: 5
 
+- type: entity
+  id: XenoArtifactEffectFleshMonsterSpawn
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous organic creation
+  components:
+  - type: XAEApplyComponents
+    applyIfAlreadyHave: true
+    refreshOnReactivate: true
+    components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        rolls: !type:RangeNumberSelector
+          range: 2, 3
+        children:
+        - id: MobFleshLover
+          weight: 20
+        - id: MobFleshGolem
+          weight: 20
+        - id: MobFleshClamp
+          weight: 20
+        - id: MobFleshJared
+          weight: 20
+        - id: FleshKudzu
+          weight: 1
+
 #Item Spawners
 
 - type: entity
@@ -578,6 +604,94 @@
           weight: 5
         - id: ReagentEggCogni
           weight: 5
+
+- type: entity
+  id: XenoArtifactEffectGamesSpawn
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous organic creation
+  components:
+  - type: XAEApplyComponents
+    applyIfAlreadyHave: true
+    refreshOnReactivate: true
+    components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        children:
+        - id: d4Dice
+          weight: 20
+        - id: d6Dice
+          weight: 20
+        - id: d8Dice
+          weight: 20
+        - id: d10Dice
+          weight: 20
+        - id: d12Dice
+          weight: 20
+        - id: d20Dice
+          weight: 20
+        - id: PercentileDie
+          weight: 20
+        - id: PaperCNCSheet
+          weight: 20
+        - id: PaperCNCSheet
+          weight: 20
+        - id: Pen
+          weight: 20
+        - id: ParchisBoard
+          weight: 10
+        - id: BackgammonBoard
+          weight: 10
+        - id: ChessBoard
+          weight: 10
+        - id: CheckerBoard
+          weight: 10
+        - id: CyberPen
+          weight: 1
+
+- type: entity
+  id: XenoArtifactEffectVampireSpawn
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous organic creation
+  components:
+  - type: XAEApplyComponents
+    applyIfAlreadyHave: true
+    refreshOnReactivate: true
+    components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        children:
+        - id: CandlePurpleInfinite
+          weight: 50
+        - id: CandleBlackInfinite
+          weight: 50
+        - id: CandleRedInfinite
+          weight: 50
+        - id: CandleBlueInfinite
+          weight: 50
+        - id: CandleInfinite
+          weight: 50
+        - id: CandleGreenInfinite
+          weight: 50
+        - id: Bloodpack1
+          weight: 25
+        - id: DrinkDemonsBlood
+          weight: 25
+        - id: DrinkBloodGlass
+          weight: 25
+        - id: FoodBloodTomato
+          weight: 10
+        - id: ParchisBoard
+          weight: 10
+        - id: BackgammonBoard
+          weight: 10
+        - id: OrganBloodsuckerLiver
+          weight: 1
+        - id: OrganBloodsuckerStomach
+          weight: 1
+        - id: OrganBloodsuckerHeart
+          weight: 1
 
 #Gas Spawners
 
