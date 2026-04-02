@@ -209,6 +209,8 @@
   - type: RgbLightController
     layers: [ 0 ]
 
+#Weird Mice
+
 - type: entity
   parent: MobMouse1
   id: MobMouseStealth
@@ -219,6 +221,33 @@
   - type: StealthOnMove
     passiveVisibilityRate: -0.15 # Its a mouse it should still be able to be found decently easy
     movementVisibilityRate: 0.20
+
+- type: entity
+  parent: MobMouse
+  id: MobMouseSnouse
+  name: snouse
+  description: Developed by interdyne as one of their many attempts to stifle the ever present problem of pests on agri-worlds, the Snouse is a transgenic organism intended to interfere and mingle with existing rodent populations. Populations of these were released into farming communities along side Snoths in hopes they pass on the snail genes, making future generations of pests unable to escape from traps and other forms of pest control. Unfortunately, this attempt proved futile as the hardened shells of these organisms made them resistant to commonly available mousetraps. Interdyne then moved onto their next attempt at solving the pest problem, the meowl.
+  components:
+  - type: Sprite
+    sprite: _FunkyStation/Mobs/Animals/snouse.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: snouse
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: snouse
+    noMovementLayers:
+      movement:
+        state: snouse
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: snouse
+      Critical:
+        Base: snouse
+      Dead:
+        Base: dead-snouse
 
 #Special Cows
 

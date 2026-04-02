@@ -130,6 +130,8 @@
           weight: 5
         - id: MobMouseRGB
           weight: 5
+        - id: MobMouseSnouse
+          weight: 5
         - id: MobMouseBurnt
           weight: 1
 
@@ -256,7 +258,7 @@
       deleteSpawnerAfterSpawn: false
       table: !type:GroupSelector
         rolls: !type:RangeNumberSelector
-          range: 2, 3
+          range: 1, 2
         children:
         - id: MobFleshLover
           weight: 20
@@ -268,6 +270,35 @@
           weight: 20
         - id: FleshKudzu
           weight: 1
+
+- type: entity
+  id: XenoArtifactEffectReagentSlimeSpawn
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous organic creation
+  components:
+  - type: XAEApplyComponents
+    applyIfAlreadyHave: true
+    refreshOnReactivate: true
+    components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        rolls: !type:RangeNumberSelector
+          range: 1, 2
+        children:
+        - id: ReagentSlime
+        - id: ReagentSlimeBeer
+        - id: ReagentSlimePax
+        - id: ReagentSlimeNocturine
+        - id: ReagentSlimeTHC
+        - id: ReagentSlimeBicaridine
+        - id: ReagentSlimeToxin
+        - id: ReagentSlimeNapalm
+        - id: ReagentSlimeOmnizine
+        - id: ReagentSlimeMuteToxin
+        - id: ReagentSlimeNorepinephricAcid
+        - id: ReagentSlimeEphedrine
+        - id: ReagentSlimeRobustHarvest
 
 #Item Spawners
 
@@ -606,9 +637,9 @@
           weight: 5
 
 - type: entity
-  id: XenoArtifactEffectGamesSpawn
+  id: XenoArtifactEffectGameItems
   parent: BaseXenoArtifactEffect
-  description: Spontaneous organic creation
+  description: Spontaneous inorganic creation
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -650,9 +681,9 @@
           weight: 1
 
 - type: entity
-  id: XenoArtifactEffectVampireSpawn
+  id: XenoArtifactEffectVampireItems
   parent: BaseXenoArtifactEffect
-  description: Spontaneous organic creation
+  description: Spontaneous inorganic creation
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -661,6 +692,8 @@
     - type: EntityTableSpawner
       deleteSpawnerAfterSpawn: false
       table: !type:GroupSelector
+        rolls: !type:RangeNumberSelector
+          range: 1, 2
         children:
         - id: CandlePurpleInfinite
           weight: 50
@@ -681,10 +714,6 @@
         - id: DrinkBloodGlass
           weight: 25
         - id: FoodBloodTomato
-          weight: 10
-        - id: ParchisBoard
-          weight: 10
-        - id: BackgammonBoard
           weight: 10
         - id: OrganBloodsuckerLiver
           weight: 1
