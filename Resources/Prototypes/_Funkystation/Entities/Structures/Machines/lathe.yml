@@ -1,0 +1,166 @@
+
+
+- type: entity
+  id: CargoTechFab
+  parent: BaseLatheLube
+  name: cargo techfab
+  description: Prints equipment for use by cargo personnel.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/techfab.rsi
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: cargo
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+    staticPacks:
+    - CargoStatic
+    - MaterialsStatic
+    - CargoBoardsStatic
+    dynamicPacks:
+    - Equipment
+    - ScienceClothing
+    - Mining
+    - CargoBoards
+    - SalvageSecurityBoards
+    - SalvageSecurityWeapons
+    - ShuttleBoards
+    - UniversalEquipment
+  - type: Machine
+    board: CargoTechFabCircuitboard
+  - type: StealTarget
+    stealGroup: CargoTechFabCircuitboard
+  - type: OreSiloClient
+  - type: LatheAnnouncing
+    channels: [Supply]
+
+- type: entity
+  id: ScienceTechFab
+  parent: BaseLatheLube
+  name: science techfab
+  description: Prints equipment for use by science personnel.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/techfab.rsi
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: sci
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+    staticPacks:
+    - PowerCellsStatic
+    dynamicPacks:
+    - PowerCells
+    - ScienceEquipment
+    - ScienceExplosives
+    - ScienceClothing
+    - ScienceWeapons
+    - Equipment
+    - UniversalEquipment
+  - type: Machine
+    board: ScienceTechFabCircuitboard
+  - type: StealTarget
+    stealGroup: ScienceTechFabCircuitboard
+  - type: OreSiloClient
+  - type: LatheAnnouncing
+    channels: [Science]
+
+- type: entity
+  id: EngineeringTechFab
+  parent: BaseLatheLube
+  name: engineering techfab
+  description: Prints equipment for use by engineers.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/techfab.rsi
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: engi
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+    staticPacks:
+    - PowerCellsStatic
+    - EngineeringBoardsStatic
+    - MaterialsStatic
+    - PartsStatic
+    - CablesStatic
+    dynamicPacks:
+    - Equipment
+    - PowerCells
+    - AdvancedTools
+    - AtmosTools
+    - EngineeringWeapons
+    - EngineeringBoards
+    - UniversalEquipment
+  - type: Machine
+    board: EngineeringTechFabCircuitboard
+  - type: StealTarget
+    stealGroup: EngineeringTechFabCircuitboard
+  - type: OreSiloClient
+  - type: LatheAnnouncing
+    channels: [Engineering]
+
+- type: entity
+  id: ServiceTechFab
+  parent: BaseLatheLube
+  name: service techfab
+  description: Prints equipment for use by service personnel.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/techfab.rsi
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: service
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+    staticPacks:
+    - ServiceStatic
+    - ServiceBoardsStatic
+    dynamicPacks:
+    - Janitor
+    - Instruments
+    - ServiceBoards
+    - UniversalEquipment
+  - type: Machine
+    board: ServiceTechFabCircuitboard
+  - type: StealTarget
+    stealGroup: ServiceTechFabCircuitboard
+  - type: OreSiloClient
+  - type: LatheAnnouncing
+    channels: [Service]

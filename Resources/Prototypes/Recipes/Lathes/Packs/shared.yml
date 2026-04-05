@@ -12,6 +12,13 @@
   recipes:
   - SheetRGlass
   - MaterialDurathread
+# Funky change start
+  - SheetPGlass
+  - SheetRPGlass
+  - SheetPlasteel
+  - SheetUGlass
+  - SheetRUGlass
+# Funky change end
 
 - type: latheRecipePack
   id: PartsStatic

@@ -136,32 +136,34 @@
   - WeaponParticleDecelerator
   - HoloprojectorField
 
-- type: technology
-  id: GravityManipulation
-  name: research-technology-gravity-manipulation
-  icon:
-    sprite: Objects/Weapons/Guns/Launchers/tether_gun.rsi
-    state: base
-  discipline: Experimental
-  tier: 2
-  cost: 10000
-  recipeUnlocks:
-    - WeaponForceGun
-    - WeaponTetherGun
+# Funky change, removed because its only purpose is to bug out the game
+#- type: technology
+#  id: GravityManipulation
+#  name: research-technology-gravity-manipulation
+#  icon:
+#    sprite: Objects/Weapons/Guns/Launchers/tether_gun.rsi
+#    state: base
+#  discipline: Experimental
+#  tier: 2
+#  cost: 10000
+#  recipeUnlocks:
+#    - WeaponForceGun
+#    - WeaponTetherGun
 
 # Tier 3
 
-- type: technology
-  id: QuantumLeaping
-  name: research-technology-quantum-leaping
-  icon:
-    sprite: Objects/Devices/swapper.rsi
-    state: icon
-  discipline: Experimental
-  tier: 3
-  cost: 10000
-  recipeUnlocks:
-  - DeviceQuantumSpinInverter
+# Funky change, removed because its only purpose is to bug out the game
+#- type: technology
+#  id: QuantumLeaping
+#  name: research-technology-quantum-leaping
+#  icon:
+#    sprite: Objects/Devices/swapper.rsi
+#    state: icon
+#  discipline: Experimental
+#  tier: 3
+#  cost: 10000
+#  recipeUnlocks:
+#  - DeviceQuantumSpinInverter
 
 - type: technology
   id: BluespaceTimeManipulation

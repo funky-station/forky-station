@@ -277,8 +277,8 @@
     - CablesStatic
     - PaperworkStatic
     - TowelsStatic
-    - CargoStatic
-    - MaterialsStatic
+   # - CargoStatic Funky change, moved over to cargo techfab
+   # - MaterialsStatic Funky change, moved over to cargo techfab
     - BasicChemistryStatic
     - RollerBedsStatic
     - LightsStatic
@@ -548,6 +548,7 @@
     - SecurityAmmo
     - SecurityWeapons
     - SecurityDisablers
+    - UniversalEquipment # Funky addition
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SyndicateAmmoStatic
@@ -622,6 +623,7 @@
     - SurgeryStatic
     dynamicPacks:
     - Chemistry
+    - UniversalEquipment # Funky addition 
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget

@@ -59,7 +59,7 @@
   - type: TechnologyDatabase
     supportedDisciplines:
     - Industrial
-    - Arsenal
+    # - Arsenal
     - Experimental
     - CivilianServices
   - type: ApcPowerReceiver

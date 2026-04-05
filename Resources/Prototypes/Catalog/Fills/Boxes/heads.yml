@@ -29,6 +29,9 @@
         - id: AtmosMonitoringComputerCircuitboard
         - id: PowerComputerCircuitboard
         - id: SolarControlComputerCircuitboard
+        # Funky change start
+        - id: EngineeringTechFabCircuitboard
+        # Funky change end
 
 - type: entity
   parent: ToteBase
@@ -52,8 +55,11 @@
       storagebase: !type:AllSelector
         children:
         - id: IDComputerCircuitboard
-        - id: FundingAllocationComputerCircuitboard
         - id: CargoRequestServiceComputerCircuitboard
+        # Funky change start
+       # - id: FundingAllocationComputerCircuitboard # Moved from being a HOP thing into a QM thing
+        - id: ServiceTechFabCircuitboard
+        # Funky change end
 
 - type: entity
   parent: BoxStamps
@@ -67,6 +73,7 @@
         - id: RubberStampApproved
         - id: RubberStampDenied
         - id: RubberStampHop
+
 
 - type: entity
   parent: ToteBase
@@ -96,6 +103,10 @@
         - id: SalvageMagnetMachineCircuitboard
         - id: SalvageJobBoardComputerCircuitboard
         - id: MailTeleporterMachineCircuitboard
+        # Funky change start
+        - id: CargoTechFabCircuitboard
+        - id: FundingAllocationComputerCircuitboard
+        # Funky change end
 
 - type: entity
   parent: BoxStamps
@@ -120,10 +131,13 @@
       storagebase: !type:AllSelector
         children:
         - id: CircuitImprinterMachineCircuitboard
-        - id: ProtolatheMachineCircuitboard
         - id: ResearchComputerCircuitboard
         - id: CargoRequestScienceComputerCircuitboard
         - id: RoboticsConsoleCircuitboard
         - id: AnalysisComputerCircuitboard #Because sometimes round start artis just fucking explode on the pad.
         - id: ArtifactAnalyzerMachineCircuitboard
         - id: StationAiFixerCircuitboard
+        # Funky change start
+       # - id: ProtolatheMachineCircuitboard # Protolathe is gone and replaced by a Science Techfab
+        - id: ScienceTechFabCircuitboard
+        # Funky change end

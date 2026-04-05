@@ -1,0 +1,9 @@
+
+
+## Dynamic
+
+# Things avaliable inside of every departmental techfab 
+- type: latheRecipePack
+  id: UniversalEquipment
+  recipes:
+  - WeaponLaserSvalinn 

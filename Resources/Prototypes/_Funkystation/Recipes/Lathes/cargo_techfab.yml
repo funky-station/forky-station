@@ -1,0 +1,67 @@
+
+
+- type: latheRecipe
+  id: SheetPGlass
+  result: SheetPGlass1
+  completetime: 0
+  materials:
+    Glass: 100
+    Plasma: 100
+
+- type: latheRecipe
+  id: SheetRPGlass
+  result: SheetRPGlass1
+  completetime: 0
+  materials:
+    Glass: 100
+    Plasma: 100
+    Steel: 50
+
+- type: latheRecipe
+  id: SheetPlasteel
+  result: SheetPlasteel1
+  completetime: 0
+  materials:
+    Plasma: 100
+    Steel: 200
+
+- type: latheRecipe
+  id: SheetUGlass
+  result: SheetUGlass1
+  completetime: 0
+  materials:
+    Uranium: 100
+    Glass: 100
+
+- type: latheRecipe
+  id: SheetRUGlass
+  result: SheetRUGlass1
+  completetime: 0
+  materials:
+    Uranium: 100
+    Glass: 100
+    Steel: 50
+
+- type: latheRecipe
+  id: OreBag
+  result: OreBag
+  completetime: 5
+  materials:
+    Cloth: 500
+    Steel: 500
+
+- type: latheRecipe
+  id: MaterialBag
+  result: MaterialBagCargo
+  completetime: 5
+  materials:
+    Cloth: 500
+    Steel: 500
+
+- type: latheRecipe
+  id: GrapplingGun
+  result: WeaponGrapplingGun
+  completetime: 5
+  materials:
+    Cloth: 1000
+    Steel: 500

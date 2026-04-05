@@ -23,13 +23,15 @@
 # SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
 # SPDX-License-Identifier: MIT
 
+## FUNKY STATION CHANGE, Arsenal discipline is removed, all tech redistributed across Industrial,Civilian and Experimental 
+
 - type: technology
   id: SalvageWeapons
   name: research-technology-salvage-weapons
   icon:
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
     state: icon
-  discipline: Arsenal
+  discipline: Industrial
   tier: 1
   cost: 5000
   recipeUnlocks:
@@ -43,7 +45,7 @@
   icon:
     sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
     state: incendiarydisplay
-  discipline: Arsenal
+  discipline: Experimental
   tier: 1
   cost: 10000
   recipeUnlocks:
@@ -65,7 +67,7 @@
   icon:
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
     state: icon
-  discipline: Arsenal
+  discipline: Experimental
   tier: 1
   cost: 7500
   recipeUnlocks:
@@ -77,7 +79,7 @@
   icon:
     sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
     state: beanbag
-  discipline: Arsenal
+  discipline: CivilianServices
   tier: 1
   cost: 5000
   recipeUnlocks:
@@ -87,12 +89,12 @@
   - WeaponDisabler
 
 - type: technology
-  id: UraniumMunitions
+  id: UraniumMunitionsbut 
   name: research-technology-uranium-munitions
   icon:
     sprite: Objects/Materials/Sheets/other.rsi
     state: uranium
-  discipline: Arsenal
+  discipline: Experimental
   tier: 1
   cost: 7500
   recipeUnlocks:
@@ -113,7 +115,7 @@
   icon:
     sprite: Objects/Weapons/Melee/truncheon.rsi
     state: icon
-  discipline: Arsenal
+  discipline: CivilianServices
   tier: 1
   cost: 8000
   recipeUnlocks:
@@ -128,7 +130,7 @@
   icon:
     sprite: Objects/Devices/payload.rsi
     state: payload-explosive-armed
-  discipline: Arsenal
+  discipline: Industrial
   tier: 1
   cost: 10000
   recipeUnlocks:
@@ -148,7 +150,7 @@
   icon:
     sprite: Clothing/Back/Backpacks/electropack.rsi
     state: icon
-  discipline: Arsenal
+  discipline: CivilianServices
   tier: 1
   cost: 5000
   recipeUnlocks:
@@ -162,7 +164,7 @@
   icon:
     sprite: Objects/Weapons/Guns/Battery/laser_cannon.rsi
     state: icon
-  discipline: Arsenal
+  discipline: Experimental
   tier: 2
   cost: 10000
   recipeUnlocks:
@@ -174,7 +176,7 @@
   icon:
     sprite: Objects/Weapons/Guns/Battery/xray.rsi
     state: icon
-  discipline: Arsenal
+  discipline: Experimental
   tier: 2
   cost: 10000
   recipeUnlocks:
@@ -186,7 +188,7 @@
   icon:
     sprite: Objects/Tools/upgrade.rsi
     state: display
-  discipline: Arsenal
+  discipline: Industrial
   tier: 2
   cost: 7500
   recipeUnlocks:
@@ -200,7 +202,7 @@
   icon:
     sprite: Structures/Power/cage_recharger.rsi
     state: full
-  discipline: Arsenal
+  discipline: Industrial
   tier: 2
   cost: 10500
   recipeUnlocks:
@@ -222,7 +224,7 @@
   icon:
     sprite: Clothing/Back/Specific/harmpack.rsi
     state: icon
-  discipline: Arsenal
+  discipline: Experimental
   tier: 2
   cost: 10000
   recipeUnlocks:
@@ -236,7 +238,7 @@
   icon:
     sprite: Objects/Weapons/Guns/Battery/advancedlasergun.rsi
     state: icon
-  discipline: Arsenal
+  discipline: Experimental
   tier: 3
   cost: 15000
   recipeUnlocks:
@@ -249,7 +251,7 @@
   icon:
     sprite: Objects/Weapons/Guns/Battery/temp_gun.rsi
     state: icon
-  discipline: Arsenal
+  discipline: Experimental
   tier: 3
   cost: 15000
   recipeUnlocks:
@@ -261,7 +263,7 @@
   icon:
     sprite: Objects/Weapons/Guns/Ammunition/Magazine/Grenade/grenade_cartridge.rsi
     state: icon
-  discipline: Arsenal
+  discipline: Experimental
   tier: 3
   cost: 15000
   recipeUnlocks:
