@@ -1,4 +1,4 @@
-#Mob Spawners
+# Mob Spawners
 
 - type: entity
   id: XenoArtifactEffectSpaceTimeParadoxSpawn
@@ -225,7 +225,6 @@
   parent: BaseXenoArtifactEffect
   description: Spontaneous organic creation
   components:
-  - type: XenoArtifactNode
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -304,7 +303,7 @@
 
 - type: entity
   id: XenoArtifactEffectMiniTeslaSpawn
-  parent: BaseOneTimeXenoArtifactEffect
+  parent: BaseXenoArtifactEffect
   description: Dangerous electromagnetic interference
   components:
   - type: XenoArtifactNode
@@ -722,7 +721,99 @@
         - id: OrganBloodsuckerHeart
           weight: 1
 
-#Gas Spawners
+- type: entity
+  id: XenoArtifactEffectGlowingOrbSpawn
+  parent: BaseOneTimeXenoArtifactEffect
+  description: Artifact fragmentation
+  components:
+  - type: XenoArtifactNode
+    depth: 2
+  - type: XAEApplyComponents
+    applyIfAlreadyHave: true
+    refreshOnReactivate: true
+    components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        children:
+        - id: GlowingOrb
+          weight: 1
+
+- type: entity
+  id: XenoArtifactEffectAtmosStoneSpawn
+  parent: BaseOneTimeXenoArtifactEffect
+  description: Artifact fragmentation
+  components:
+  - type: XAEApplyComponents
+    applyIfAlreadyHave: true
+    refreshOnReactivate: true
+    components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        children:
+        - id: GassyStoneWaterVapor
+          weight: 20
+        - id: GassyStoneCarbonDioxide
+          weight: 20
+        - id: GassyStoneAmmonia
+          weight: 20
+        - id: GassyStonePlasma
+          weight: 10
+        - id: GassyStoneNitrousOxide
+          weight: 10
+        - id: GassyStoneFrezon
+          weight: 5
+        - id: GassyStoneBZ
+          weight: 5
+        - id: GassyStoneTritium
+          weight: 1
+        - id: GassyStoneHealium
+          weight: 1
+
+- type: entity
+  id: XenoArtifactEffectEndlessPitcherSpawn
+  parent: BaseOneTimeXenoArtifactEffect
+  description: Artifact fragmentation
+  components:
+  - type: XAEApplyComponents
+    applyIfAlreadyHave: true
+    refreshOnReactivate: true
+    components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        children:
+        - id: PitcherEndlessWater
+          weight: 20
+        - id: PitcherEndlessBlood
+          weight: 20
+        - id: PitcherEndlessCopperBlood
+          weight: 20
+        - id: PitcherEndlessSyrup
+          weight: 15
+        - id: PitcherEndlessVodka
+          weight: 15
+        - id: PitcherEndlessRum
+          weight: 15
+        - id: PitcherEndlessJuiceCarrot
+          weight: 10
+        - id: PitcherEndlessIce
+          weight: 10
+        - id: PitcherEndlessRice
+          weight: 10
+        - id: PitcherEndlessAmmonia
+          weight: 10
+        - id: PitcherEndlessHappiness
+          weight: 5
+        - id: PitcherEndlessNothing
+          weight: 5
+        - id: PitcherEndlessOil
+          weight: 5
+        - id: PitcherEndlessSpaceLube
+          weight: 1
+
+# Gas Spawners
 
 - type: entity
   id: XenoArtifactEffectCreationGasHealium

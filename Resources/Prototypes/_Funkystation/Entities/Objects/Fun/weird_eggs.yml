@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseItem
   id: WeirdEggBase
-  description: An strange egg!
+  description: A strange egg!
   abstract: true
   components:
   - type: Sprite

@@ -1,0 +1,183 @@
+- type: entity
+  parent: Pitcher
+  id: PitcherEndlessWater
+  suffix: Water
+  name: odd metal pitcher
+  description: A strangely heavy pitcher. The inner walls seem extra thick and it almost feels as if there are mechanisms working inside it.
+  components:
+  - type: SolutionRegeneration
+    duration: 5
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: Water
+        Quantity: 1
+
+- type: entity
+  parent: PitcherEndlessWater
+  id: PitcherEndlessBlood
+  suffix: Blood
+  components:
+  - type: SolutionRegeneration
+    duration: 5
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 1
+
+- type: entity
+  parent: PitcherEndlessWater
+  id: PitcherEndlessCopperBlood
+  suffix: Copper Blood
+  components:
+  - type: SolutionRegeneration
+    duration: 5
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: CopperBlood
+        Quantity: 1
+
+- type: entity
+  parent: PitcherEndlessWater
+  id: PitcherEndlessSyrup
+  suffix: Syrup
+  components:
+  - type: SolutionRegeneration
+    duration: 5
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: Syrup
+        Quantity: 1
+
+- type: entity
+  parent: PitcherEndlessWater
+  id: PitcherEndlessVodka
+  suffix: Vodka
+  components:
+  - type: SolutionRegeneration
+    duration: 10
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: Vodka
+        Quantity: 1
+
+- type: entity
+  parent: PitcherEndlessWater
+  id: PitcherEndlessRum
+  suffix: Rum
+  components:
+  - type: SolutionRegeneration
+    duration: 10
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: Rum
+        Quantity: 1
+
+- type: entity
+  parent: PitcherEndlessWater
+  id: PitcherEndlessHappiness
+  suffix: Happiness
+  components:
+  - type: SolutionRegeneration
+    duration: 10
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: Happiness
+        Quantity: 1
+
+- type: entity
+  parent: PitcherEndlessWater
+  id: PitcherEndlessNothing
+  suffix: Nothing
+  components:
+  - type: SolutionRegeneration
+    duration: 10
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: Nothing
+        Quantity: 1
+
+- type: entity
+  parent: PitcherEndlessWater
+  id: PitcherEndlessJuiceCarrot
+  suffix: Carrot Juice
+  components:
+  - type: SolutionRegeneration
+    duration: 10
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: JuiceCarrot
+        Quantity: 1
+
+- type: entity
+  parent: PitcherEndlessWater
+  id: PitcherEndlessAmmonia
+  suffix: Ammonia
+  components:
+  - type: SolutionRegeneration
+    duration: 10
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: Ammonia
+        Quantity: 1
+
+- type: entity
+  parent: PitcherEndlessWater
+  id: PitcherEndlessOil
+  suffix: Oil
+  components:
+  - type: SolutionRegeneration
+    duration: 10
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: Oil
+        Quantity: 1
+
+- type: entity
+  parent: PitcherEndlessWater
+  id: PitcherEndlessIce
+  suffix: Ice
+  components:
+  - type: SolutionRegeneration
+    duration: 10
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: Ice
+        Quantity: 1
+
+- type: entity
+  parent: PitcherEndlessWater
+  id: PitcherEndlessSpaceLube
+  suffix: Space Lube
+  components:
+  - type: SolutionRegeneration
+    duration: 10
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: SpaceLube
+        Quantity: 1
+
+- type: entity
+  parent: PitcherEndlessWater
+  id: PitcherEndlessRice
+  suffix: Rice
+  components:
+  - type: SolutionRegeneration
+    duration: 10
+    solution: drink
+    generated:
+      reagents:
+      - ReagentId: Rice
+        Quantity: 1

@@ -23,9 +23,9 @@
     - id: XenoArtifactGhost
       weight: 0.5
     - id: XenoArtifactEffectBadFeeling
-      weight: 2.0
+      weight: 1.0
     - id: XenoArtifactEffectGoodFeeling
-      weight: 2.0
+      weight: 1.0
     - id: XenoArtifactEffectJunkSpawn
       weight: 1.0
     - id: XenoArtifactEffectLightFlicker
@@ -225,7 +225,7 @@
     - id: XenoArtifactArtifactSpawn
       weight: 0.5
     - id: XenoArtifactShuffle
-      weight: 2.0
+      weight: 1.0
     - id: XenoArtifactHealAll
       weight: 1.0
     #- id: XenoArtifactTesla
@@ -320,6 +320,12 @@
       weight: 0.7
     - id: XenoArtifactEffectReagentSlimeSpawn
       weight: 0.5
+    - id: XenoArtifactEffectGlowingOrbSpawn
+      weight: 2000
+    - id: XenoArtifactEffectAtmosStoneSpawn
+      weight: 2000
+    - id: XenoArtifactEffectEndlessPitcherSpawn
+      weight: 2000
 
 - type: entityTable
   id: XenoArtifactEffectsHandheldOnlyTable
@@ -729,7 +735,7 @@
 - type: entity
   id: XenoArtifactFloraSpawn
   parent: BaseXenoArtifactEffect
-  description: Spontaneous flora creation #Funky Edit add more mystery to sci
+  description: Spontaneous organic creation #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1051,7 +1057,7 @@
 - type: entity
   id: XenoArtifactThrowThingsAround
   parent: BaseXenoArtifactEffect
-  description: Minor implosion
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEThrowThingsAround
 
