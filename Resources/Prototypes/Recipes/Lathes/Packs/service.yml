@@ -45,6 +45,7 @@
   - BoozeDispenserMachineCircuitboard
   - SodaDispenserMachineCircuitboard
   - SmartFridgeCircuitboard
+  - CutterMachineCircuitboard # Funky change, service techfab 
 
 ## Dynamic
 
@@ -73,3 +74,4 @@
   - ReagentGrinderIndustrialMachineCircuitboard
   - JukeboxCircuitBoard
   - DawInstrumentMachineCircuitboard
+  

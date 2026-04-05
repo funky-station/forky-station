@@ -1230,7 +1230,7 @@
     key: enum.FundingAllocationConsoleUiKey.Key
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
-    access: [["HeadOfPersonnel"]]
+    access: [["Quartermaster"]] # Funky change, from HOP access into QM access
   - type: UserInterface
     interfaces:
       enum.FundingAllocationConsoleUiKey.Key:

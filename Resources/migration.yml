@@ -860,3 +860,8 @@ TowelColorYellow: null
 TowelColorMaroon: null
 TowelColorSilver: null
 TowelColorMime: null
+
+# 2026-03-27 # Funky change Removing the protolathe and replacing it with a specific science techfab 
+Protolathe: ScienceTechFab 
+ProtolatheMachineCircuitboard: null
+ProtolatheHyperConvectionMachineCircuitboard: null

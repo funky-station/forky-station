@@ -30,6 +30,9 @@
     - ShuttleConsoleCircuitboard
     - ComputerMassMediaCircuitboard
     - AutolatheMachineCircuitboard
-    - ProtolatheMachineCircuitboard
     - SalvageMagnetMachineCircuitboard
+    # Funky change start
+    #- ProtolatheMachineCircuitboard # Protolathe is kill
+    - CircuitImprinterMachineCircuitboard
+    # Funky change end
     rareChance: 0.05

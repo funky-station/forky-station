@@ -29,7 +29,7 @@
           prob: 0.5
         - proto: ChemDispenserMachineCircuitboard
           cost: 2
-        - proto: CircuitImprinter
+       # - proto: CircuitImprinter # Funky change, remove circuit printers from salv loot.
           cost: 2
         - proto: CloningConsoleComputerCircuitboard
           cost: 2
@@ -63,7 +63,7 @@
         - proto: PowerCellAntiqueProto
           cost: 5
           prob: 0.5
-        - proto: ProtolatheMachineCircuitboard
+      # - proto: ProtolatheMachineCircuitboard # Funky change protolathe is kill.
         - proto: RandomArtifactSpawner
           cost: 2
         - proto: RandomCargoCorpseSpawner

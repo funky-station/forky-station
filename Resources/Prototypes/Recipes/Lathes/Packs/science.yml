@@ -12,12 +12,14 @@
 - type: latheRecipePack
   id: ScienceBoardsStatic
   recipes:
-  - ProtolatheMachineCircuitboard
   - AutolatheMachineCircuitboard
   - CircuitImprinterMachineCircuitboard
   - ExosuitFabricatorMachineCircuitboard
-  - CutterMachineCircuitboard
   - BorgChargerCircuitboard
+  # Funky change start
+  # - CutterMachineCircuitboard # Moved from science into service and engi.
+  # - ProtolatheMachineCircuitboard # Protolathe is kill.
+  # Funky change end 
 
 ## Dynamic
 
@@ -30,16 +32,20 @@
   - AnomalyLocatorWide
   - HoloprojectorField
   - SignallerAdvanced
-  - DeviceQuantumSpinInverter
   - DeviceDesynchronizer
   - ClothingBackpackHarmpack
+  # Funky change start
+  - PowerDrill # Sci techfab, they can make advanced tools minus the JWL.
+  - WelderExperimental # ^ 
+  # - DeviceQuantumSpinInverter # removing because its only use is to bug out the game 
+  # Funky change end 
 
 - type: latheRecipePack
   id: ScienceClothing
   recipes:
   - ClothingShoesBootsMagSci
   - ClothingShoesBootsMoon
-  - ClothingShoesBootsSpeed
+  # - ClothingShoesBootsSpeed # Funky Change, also killing this godforsaken item, hate, hate.
   - ClothingShoesBootsJump
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
@@ -56,13 +62,16 @@
   id: ScienceWeapons
   recipes:
   - WeaponPistolCHIMP
-  - WeaponForceGun
   - WeaponProtoKineticAccelerator
-  - PKAUpgradeDamage
-  - PKAUpgradeRange
-  - PKAUpgradeFireRate
-  - WeaponTetherGun
   - WeaponGauntletGorilla
+  # Funky change start
+  # - WeaponForceGun # Removing because its only use is to bug out the game
+  # - WeaponTetherGun # ^ 
+  # - PKAUpgradeDamage # Cargo techfab, sci can make PKAs incase of rock anomalies but PKA upgrades are only from the Cargo and Sec techfabs. 
+  # - PKAUpgradeRange # ^
+  # - PKAUpgradeFireRate # ^ 
+  # Funky change end 
+
 
 # Only contains parts for making basic modular grenades, no actual explosives
 - type: latheRecipePack
@@ -79,7 +88,7 @@
   recipes:
   - TurboItemRechargerCircuitboard
   - AutolatheHyperConvectionMachineCircuitboard
-  - ProtolatheHyperConvectionMachineCircuitboard
+# - ProtolatheHyperConvectionMachineCircuitboard # Funky change, Protolathe is kill.
   - CircuitImprinterHyperConvectionMachineCircuitboard
   - TechDiskComputerCircuitboard
   - FlatpackerMachineCircuitboard

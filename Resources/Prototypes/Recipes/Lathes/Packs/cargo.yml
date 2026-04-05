@@ -8,6 +8,11 @@
   - AppraisalTool
   - Pickaxe
   - UtilityKnife
+  # Funky change start
+  - OreBag
+  - MaterialBag
+  - GrapplingGun
+  # Funky change end
 
 - type: latheRecipePack
   id: CargoBoardsStatic

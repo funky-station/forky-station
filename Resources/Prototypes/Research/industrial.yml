@@ -89,10 +89,10 @@
     state: building
   discipline: Industrial
   tier: 1
-  cost: 10000
+  cost: 7500 # Funky change, reduced from 10000 to 7500 becasuse protolathe is gone.
   recipeUnlocks:
   - AutolatheHyperConvectionMachineCircuitboard
-  - ProtolatheHyperConvectionMachineCircuitboard
+ # - ProtolatheHyperConvectionMachineCircuitboard # Funky change Protolathe is kill.
   - CircuitImprinterHyperConvectionMachineCircuitboard
   - SheetifierMachineCircuitboard
 
