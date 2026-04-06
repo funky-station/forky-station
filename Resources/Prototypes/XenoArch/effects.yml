@@ -310,7 +310,7 @@
       weight: 0.05
     - id: XenoArtifactEffectWeirdEggsSpawn
       weight: 1
-    - id: XenoArtifactEffectCowSpawn #20 so far
+    - id: XenoArtifactEffectCowSpawn
       weight: 0.7
     - id: XenoArtifactEffectFleshMonsterSpawn
       weight: 0.5
@@ -321,11 +321,17 @@
     - id: XenoArtifactEffectReagentSlimeSpawn
       weight: 0.5
     - id: XenoArtifactEffectGlowingOrbSpawn
-      weight: 2000
+      weight: 0.5
     - id: XenoArtifactEffectAtmosStoneSpawn
-      weight: 2000
+      weight: 0.5
     - id: XenoArtifactEffectEndlessPitcherSpawn
-      weight: 2000
+      weight: 0.5
+    - id: XenoArtifactEffectToolboxOfHoldingSpawn
+      weight: 0.5
+    - id: XenoArtifactEffectGravityItemsSpawn
+      weight: 0.5
+    - id: XenoArtifactEffectTransmutationGlassSpawn #30 so far
+      weight: 0.5
 
 - type: entityTable
   id: XenoArtifactEffectsHandheldOnlyTable

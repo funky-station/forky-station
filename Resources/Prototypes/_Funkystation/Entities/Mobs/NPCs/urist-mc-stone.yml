@@ -23,7 +23,9 @@
         mask:
         - MobMask
         layer:
-        - Opaque
+        - MobLayer
+  - type: FloorOcclusion
+  - type: ComplexInteraction
   - type: MobState
   - type: Pullable
   - type: ZombieImmune
@@ -74,9 +76,9 @@
     blackboard:
       NavSmash: !type:Bool
         true
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 0.7
-    baseSprintSpeed: 0.7
-  - type: FootstepModifier
-    footstepSoundCollection:
-      collection: FootstepStoneScrape
+#  - type: MovementSpeedModifier
+#    baseWalkSpeed: 0.7
+#    baseSprintSpeed: 0.7
+#  - type: FootstepModifier
+#    footstepSoundCollection:
+#      collection: FootstepStoneScrape

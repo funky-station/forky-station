@@ -6,7 +6,7 @@
   description: A strangely heavy pitcher. The inner walls seem extra thick and it almost feels as if there are mechanisms working inside it.
   components:
   - type: SolutionRegeneration
-    duration: 5
+    duration: 3
     solution: drink
     generated:
       reagents:
@@ -149,7 +149,7 @@
   suffix: Ice
   components:
   - type: SolutionRegeneration
-    duration: 10
+    duration: 3
     solution: drink
     generated:
       reagents:

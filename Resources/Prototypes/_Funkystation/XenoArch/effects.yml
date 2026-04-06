@@ -792,6 +792,8 @@
           weight: 20
         - id: PitcherEndlessCopperBlood
           weight: 20
+        - id: PitcherEndlessIce
+          weight: 15
         - id: PitcherEndlessSyrup
           weight: 15
         - id: PitcherEndlessVodka
@@ -799,8 +801,6 @@
         - id: PitcherEndlessRum
           weight: 15
         - id: PitcherEndlessJuiceCarrot
-          weight: 10
-        - id: PitcherEndlessIce
           weight: 10
         - id: PitcherEndlessRice
           weight: 10
@@ -831,6 +831,44 @@
       table: !type:GroupSelector
         children:
         - id: ToolboxOfHolding
+          weight: 1
+
+- type: entity
+  id: XenoArtifactEffectGravityItemsSpawn
+  parent: BaseOneTimeXenoArtifactEffect
+  description: Artifact fragmentation
+  components:
+  - type: XenoArtifactNode
+    depth: 2
+  - type: XAEApplyComponents
+    applyIfAlreadyHave: true
+    refreshOnReactivate: true
+    components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        children:
+        - id: TrashBananaPeelGravityWell
+          weight: 1
+        - id: ToyFigurineMimeReverseGravityWell
+          weight: 1
+
+- type: entity
+  id: XenoArtifactEffectTransmutationGlassSpawn
+  parent: BaseOneTimeXenoArtifactEffect
+  description: Artifact fragmentation
+  components:
+  - type: XenoArtifactNode
+    depth: 2
+  - type: XAEApplyComponents
+    applyIfAlreadyHave: true
+    refreshOnReactivate: true
+    components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        children:
+        - id: TransmutationGlass
           weight: 1
 
 # Gas Spawners
