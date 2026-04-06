@@ -6,7 +6,7 @@
   description: Now THIS is a rare sight to see!
   components:
   - type: Sprite
-    sprite: _Funkystation/Mobs/Animals/urist_mc_corgi.rsi
+    sprite: _Funkystation/Mobs/XenoArch/urist_mc_corgi.rsi
     drawdepth: Mobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
