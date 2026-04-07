@@ -299,6 +299,21 @@
         - id: ReagentSlimeEphedrine
         - id: ReagentSlimeRobustHarvest
 
+- type: entity
+  id: XenoArtifactEffectUristMcStoneSpawn
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation
+  components:
+  - type: XAEApplyComponents
+    applyIfAlreadyHave: true
+    refreshOnReactivate: true
+    components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        children:
+        - id: UristMcStone
+
 #Item Spawners
 
 - type: entity

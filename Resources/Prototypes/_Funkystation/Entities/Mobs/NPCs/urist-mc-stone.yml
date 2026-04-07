@@ -1,8 +1,8 @@
 - type: entity
   parent: [ BaseMob, MobCombat ]
   id: UristMcStone
-  name: legg
-  description: With a hardened shell and a scowl on their face, a legg is not one to be messed with
+  name: Firstborn
+  description: Recovered rubble has been radiometrically dated to be older than current estimates of the of the universe. The seams and cracks lining its body are not due to natural erosion but instead show repeated patterns as if it were a language carved into the stone.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -76,9 +76,14 @@
     blackboard:
       NavSmash: !type:Bool
         true
-#  - type: MovementSpeedModifier
-#    baseWalkSpeed: 0.7
-#    baseSprintSpeed: 0.7
-#  - type: FootstepModifier
-#    footstepSoundCollection:
-#      collection: FootstepStoneScrape
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0.7
+    baseSprintSpeed: 0.7
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepStoneScrape
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+    - FootstepSound

@@ -1,4 +1,5 @@
 - type: soundCollection
   id: FootstepStoneScrape
   files:
-  - /Audio/_FunkyStation/Effects/stone_scrape.ogg
+  - /Audio/Effects/stonedoor_openclose.ogg
+  - /Audio/Effects/stonedoor_openclose.ogg
