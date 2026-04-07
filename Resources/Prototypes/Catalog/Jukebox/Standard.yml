@@ -43,3 +43,15 @@
   name: PigeonBeans - Sunset
   path:
     path: /Audio/Jukebox/sunset.ogg
+
+- type: jukebox
+  id: AlienKidsTheGreatMessage
+  name: Alien Kids - The Great message
+  path:
+    path: /Audio/_Funkystation/Lobby/the_great_message_alien_kids.ogg
+
+- type: jukebox
+  id: AlienKidsAnAlienSong
+  name: Alien Kids - An Alien Song
+  path:
+    path: /Audio/_Funkystation/Lobby/an_alien_song_alien_kids.ogg
