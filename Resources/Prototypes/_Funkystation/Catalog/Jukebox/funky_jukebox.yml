@@ -1,0 +1,17 @@
+- type: jukebox
+  id: ChokingToDeathOnCaviar
+  name: DECEMBER 7TH SOUND TEAM - Choking to Death on Caviar
+  path:
+    path: /Audio/_Funkystation/Jukebox/chokingtodeathoncaviar.ogg
+
+- type: jukebox
+  id: RhythmAndBluesPt9
+  name: DECEMBER 7TH SOUND TEAM - Rhythm and Blues Pt. 9
+  path:
+    path: /Audio/_Funkystation/Jukebox/rhythmandbluespt9.ogg
+
+- type: jukebox
+  id: VomitSuite
+  name: DECEMBER 7TH SOUND TEAM - Vomit Suite
+  path:
+    path: /Audio/_Funkystation/Jukebox/vomitsuitemaster.ogg
