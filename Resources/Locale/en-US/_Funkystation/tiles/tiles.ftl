@@ -1,3 +1,11 @@
 tiles-steel-floor-smooth= steel smooth tile
 tiles-dark-floor-tech= dark tech tile
 tiles-dark-floor-mono-textured= dark mono textured tile
+tiles-steel-grid-floor= steel grid tile
+tiles-riged-floor= riged tile
+tiles-recharge-floor= recharge floor
+tiles-plaque-alt-floor= plaque
+tiles-plaque-smooth-floor= plaque smooth
+tiles-plaque-floor= plaque
+tiles-kafel-full= kafel full tile
+tiles-grid-floor= grid tile

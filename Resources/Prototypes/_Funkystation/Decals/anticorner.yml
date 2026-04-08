@@ -1,0 +1,95 @@
+- type: decal
+  id: Corner1
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/anticorners.rsi
+    state: corner_1
+
+- type: decal
+  id: Corner2
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/anticorners.rsi
+    state: corner_2
+
+- type: decal
+  id: Corner3
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/anticorners.rsi
+    state: corner_3
+
+- type: decal
+  id: Corner4
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/anticorners.rsi
+    state: corner_4
+
+- type: decal
+  id: CornerAlt1
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/anticorners.rsi
+    state: corneralt_1
+
+- type: decal
+  id: CornerAlt2
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/anticorners.rsi
+    state: corneralt_2
+
+- type: decal
+  id: CornerAlt3
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/anticorners.rsi
+    state: corneralt_3
+
+- type: decal
+  id: CornerAlt4
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/anticorners.rsi
+    state: corneralt_4
+
+- type: decal
+  id: AntiCorner1
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/anticorners.rsi
+    state: anticorner_1
+
+- type: decal
+  id: AntiCorner2
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/anticorners.rsi
+    state: anticorner_2
+
+- type: decal
+  id: AntiCorner3
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/anticorners.rsi
+    state: anticorner_3
+
+- type: decal
+  id: AntiCorner4
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/anticorners.rsi
+    state: anticorner_4

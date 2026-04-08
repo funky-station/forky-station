@@ -1,0 +1,63 @@
+- type: decal
+  id: TechFloorEdges1
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/techdecals.rsi
+    state: techfloor_edges_1
+
+- type: decal
+  id: TechFloorEdges2
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/techdecals.rsi
+    state: techfloor_edges_2
+
+- type: decal
+  id: TechFloorEdges3
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/techdecals.rsi
+    state: techfloor_edges_3
+
+- type: decal
+  id: TechFloorEdges4
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/techdecals.rsi
+    state: techfloor_edges_4
+
+- type: decal
+  id: TechFloorCorners1
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/techdecals.rsi
+    state: techfloor_corners_1
+
+- type: decal
+  id: TechFloorCorners2
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/techdecals.rsi
+    state: techfloor_corners_2
+
+- type: decal
+  id: TechFloorCorners3
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/techdecals.rsi
+    state: techfloor_corners_3
+
+- type: decal
+  id: TechFloorCorners4
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/Overlays/techdecals.rsi
+    state: techfloor_corners_4
