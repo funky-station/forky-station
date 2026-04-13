@@ -1,0 +1,6 @@
+- type: radioChannel
+  id: Detective
+  name: chat-radio-detective
+  keycode: '^' #Random character since this will never be spoken on. It is for the listening bug
+  frequency: 1984
+  color: "#ff4242"

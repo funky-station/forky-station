@@ -223,6 +223,10 @@
     - id: HandLabeler
     - id: PlushieLizardJobDetective
       prob: 0.02
+    - id: RadioListeningBugDetective #Funky Change
+      amount: 3
+    - id: EncryptionKeyDetective #Funky Change
+      amount: 2
 
 - type: entity
   id: ClosetBombFilled
