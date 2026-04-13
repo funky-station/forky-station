@@ -85,6 +85,10 @@
     - id: FrontierMathematician1 #Funky
     - id: FrontierMathematician2 #Funky
     - id: how2clown #Funky
+    - id: ZeroSumOdysseyVol1 #Funky
+    - id: ZeroSumOdysseyVol2 #Funky
+    - id: ZeroSumOdysseyVol3 #Funky
+    - id: MoonStationHJoNKGame #Funky
 
 - type: entityTable
   id: RandomGuidebookTable
