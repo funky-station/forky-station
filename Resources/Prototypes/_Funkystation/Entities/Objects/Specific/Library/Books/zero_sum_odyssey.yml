@@ -22,6 +22,8 @@
     - state: icon_bucket
     - state: icon_text3
       color: "#d5dc1d"
+    - state: decor_spine
+      color: "#540f09"
   - type: OocAuthorship
     oocAuthor: Stabithar
   - type: Paper
@@ -136,6 +138,8 @@
       color: "#ff0000"
     - state: icon_text3
       color: "#d5dc1d"
+    - state: decor_spine
+      color: "#540f09"
   - type: OocAuthorship
     oocAuthor: Stabithar
   - type: Paper
@@ -270,6 +274,8 @@
       color: "#fed500"
     - state: icon_text3
       color: "#d5dc1d"
+    - state: decor_spine
+      color: "#540f09"
   - type: OocAuthorship
     oocAuthor: Stabithar
   - type: Paper

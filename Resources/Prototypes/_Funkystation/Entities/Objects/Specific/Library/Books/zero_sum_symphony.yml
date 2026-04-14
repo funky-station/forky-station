@@ -25,6 +25,8 @@
       color: "#ff0000"
     - state: icon_text3
       color: "#d5dc1d"
+    - state: decor_spine
+      color: "#38952a"
   - type: OocAuthorship
     oocAuthor: Stabithar
   - type: Paper
@@ -117,6 +119,8 @@
     - state: icon_nuclear
     - state: icon_text3
       color: "#d5dc1d"
+    - state: decor_spine
+      color: "#38952a"
   - type: OocAuthorship
     oocAuthor: Stabithar
   - type: Paper
