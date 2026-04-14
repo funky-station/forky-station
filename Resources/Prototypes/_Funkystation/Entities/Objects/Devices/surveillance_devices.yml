@@ -1,0 +1,174 @@
+# Radio stuff
+
+- type: entity
+  name: listening-bug-name
+  description: listening-bug-description
+  parent: [ BaseItem, BaseSyndicateContraband ]
+  id: RadioListeningBugSyndicate
+  suffix: Syndicate
+  components:
+  - type: TelecomExempt
+  - type: RadioMicrophone
+    broadcastChannel: Syndicate
+    listenRange: 6
+  - type: Speech
+    speechVerb: Robotic
+  - type: Sprite
+    sprite: Objects/Devices/communication.rsi
+    layers:
+    - state: walkietalkie
+    - state: walkietalkie-on
+    state: walkietalkie
+  - type: Item
+    sprite: Objects/Devices/communication.rsi
+    heldPrefix: walkietalkie
+  - type: SubFloorHide
+  - type: Anchorable
+  - type: CollideOnAnchor
+  - type: Transform
+    anchored: false
+  - type: Tag
+    tags:
+    - Radio
+    - SurveillanceDevices
+
+- type: entity
+  parent: [ RadioListeningBugSyndicate, BaseSecurityContraband ]
+  id: RadioListeningBugDetective
+  suffix: Detective
+  components:
+  - type: RadioMicrophone
+    broadcastChannel: Detective
+    listenRange: 6
+  - type: Sprite
+    sprite: Objects/Devices/communication.rsi
+    layers:
+    - state: walkietalkie
+    - state: walkietalkie-on
+    state: walkietalkie
+  - type: Item
+    sprite: Objects/Devices/communication.rsi
+    heldPrefix: walkietalkie
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyDetective
+  name: listening bug encryption key
+  description: An encryption key used to tune into the detectives listening bugs.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Detective
+    defaultChannel: Detective
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: sec_label
+
+# Camera Stuff
+
+- type: entity
+  name: hidden camera
+  description: A covert device for seeing without being seen. Perfect for keeping tabs on pesky command members.
+  parent: [ BaseItem, BaseSyndicateContraband ]
+  id: HiddenCameraSyndicate
+  suffix: Syndicate
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/communication.rsi
+    layers:
+    - state: walkietalkie
+    - state: walkietalkie-on
+    state: walkietalkie
+  - type: Item
+    sprite: Objects/Devices/communication.rsi
+    heldPrefix: walkietalkie
+  - type: SubFloorHide
+  - type: Anchorable
+  - type: CollideOnAnchor
+  - type: Transform
+    anchored: false
+  - type: InteractionOutline
+  - type: Eye
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SurveillanceCameraHidden
+    transmitFrequencyId: SurveillanceCameraHidden
+  - type: SurveillanceCamera
+    setupAvailableNetworks:
+    - SurveillanceCameraHidden
+  - type: Tag
+    tags:
+    - Radio
+    - SurveillanceDevices
+
+- type: entity
+  name: hidden camera router
+  description: A routing system for a hidden camera network.
+  parent: [ SurveillanceCameraBase, BaseSyndicateContraband ]
+  id: HiddenCameraRouterSyndicate
+  suffix: Syndicate
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/communication.rsi
+    layers:
+    - state: walkietalkie
+    - state: walkietalkie-on
+    state: walkietalkie
+  - type: Item
+    sprite: Objects/Devices/communication.rsi
+    heldPrefix: walkietalkie
+  - type: SubFloorHide
+  - type: Anchorable
+  - type: CollideOnAnchor
+  - type: Transform
+    anchored: false
+  - type: InteractionOutline
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraHidden
+    transmitFrequencyId: SurveillanceCameraHidden
+  - type: WiredNetworkConnection
+  - type: DeviceNetworkRequiresPower
+  - type: ApcPowerReceiver
+    powerLoad: 0
+  - type: UserInterface
+    interfaces:
+      enum.SurveillanceCameraSetupUiKey.Router:
+        type: SurveillanceCameraSetupBoundUi
+  - type: SurveillanceCameraRouter
+    setupAvailableNetworks:
+    - SurveillanceCameraHidden
+  - type: WirelessNetworkConnection
+    range: 200
+
+- type: entity
+  id: HiddenCameraViewer
+  parent: [ BaseItem, BaseSyndicateContraband ]
+  name: hidden camera monitor
+  description: An illegal syndicate device that allows you to view a hidden camera network.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/camera_bug.rsi
+    layers:
+    - state: camera_bug
+  - type: Item
+    sprite: Objects/Devices/camera_bug.rsi
+  - type: ActivatableUI
+    requireActiveHand: false
+    inHandsOnly: true
+    key: enum.SurveillanceCameraMonitorUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.SurveillanceCameraMonitorUiKey.Key:
+        type: SurveillanceCameraMonitorBoundUserInterface
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: SurveillanceCameraHidden
+    transmitFrequencyId: SurveillanceCameraHidden
+  - type: WiredNetworkConnection
+  - type: SurveillanceCameraMonitor
+  - type: StaticPrice
+    price: 2000
