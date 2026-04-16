@@ -84,8 +84,6 @@
     sprite: Objects/Devices/communication.rsi
     heldPrefix: walkietalkie
   - type: SubFloorHide
-  - type: Anchorable
-  - type: CollideOnAnchor
   - type: Transform
     anchored: false
   - type: InteractionOutline
@@ -101,13 +99,12 @@
     - SurveillanceCameraHidden
   - type: Tag
     tags:
-    - Radio
     - SurveillanceDevices
 
 - type: entity
   name: hidden camera router
   description: A routing system for a hidden camera network.
-  parent: [ SurveillanceCameraBase, BaseSyndicateContraband ]
+  parent: [ BaseItem, BaseSyndicateContraband ]
   id: HiddenCameraRouterSyndicate
   suffix: Syndicate
   components:
@@ -120,17 +117,18 @@
   - type: Item
     sprite: Objects/Devices/communication.rsi
     heldPrefix: walkietalkie
+  - type: Appearance
   - type: SubFloorHide
   - type: Anchorable
-  - type: CollideOnAnchor
-  - type: Transform
-    anchored: false
   - type: InteractionOutline
   - type: DeviceNetwork
-    deviceNetId: Wired
+    deviceNetId: Wireless
     receiveFrequencyId: SurveillanceCameraHidden
-    transmitFrequencyId: SurveillanceCameraHidden
-  - type: WiredNetworkConnection
+    transmitFrequencyId: SurveillanceCameraHiddenRouted
+  - type: SurveillanceCameraRouter
+    subnetFrequency: SurveillanceCameraHidden
+  - type: WirelessNetworkConnection
+    range: 200
   - type: DeviceNetworkRequiresPower
   - type: ApcPowerReceiver
     powerLoad: 0
@@ -138,11 +136,6 @@
     interfaces:
       enum.SurveillanceCameraSetupUiKey.Router:
         type: SurveillanceCameraSetupBoundUi
-  - type: SurveillanceCameraRouter
-    setupAvailableNetworks:
-    - SurveillanceCameraHidden
-  - type: WirelessNetworkConnection
-    range: 200
 
 - type: entity
   id: HiddenCameraViewer
@@ -165,9 +158,9 @@
       enum.SurveillanceCameraMonitorUiKey.Key:
         type: SurveillanceCameraMonitorBoundUserInterface
   - type: DeviceNetwork
-    deviceNetId: Wired
-    receiveFrequencyId: SurveillanceCameraHidden
-    transmitFrequencyId: SurveillanceCameraHidden
+    deviceNetId: Wireless
+    receiveFrequencyId: SurveillanceCameraHiddenRouted
+    transmitFrequencyId: SurveillanceCameraHiddenRouted
   - type: WiredNetworkConnection
   - type: SurveillanceCameraMonitor
   - type: StaticPrice
