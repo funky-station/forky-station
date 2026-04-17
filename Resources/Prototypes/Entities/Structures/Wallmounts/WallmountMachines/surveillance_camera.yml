@@ -87,6 +87,16 @@
         type: WiresBoundUserInterface
   - type: StaticPrice
     price: 200
+  - type: ContainerContainer
+    containers:
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices
   - type: Destructible
     thresholds:
       - trigger:

@@ -106,6 +106,16 @@
   components:
   - type: Anchorable
   - type: Rotatable
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices
+  - type: ContainerContainer
+    containers:
+      hidden_slot: !type:ContainerSlot
 
 #Start anchored, cannot be rotated while anchored
 - type: entity

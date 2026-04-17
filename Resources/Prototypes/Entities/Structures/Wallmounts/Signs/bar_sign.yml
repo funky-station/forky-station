@@ -66,6 +66,16 @@
   - type: Wires
     boardName: wires-board-name-barsign
     layoutId: BarSign
+  - type: ContainerContainer
+    containers:
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices
 
 - type: entity
   parent: BaseBarSign

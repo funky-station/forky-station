@@ -1,0 +1,47 @@
+# Spy stuff
+
+- type: listing
+  id: UplinkRadioListeningBugSyndicate
+  name: uplink-contraband-listening-bug-name
+  description: uplink-contraband-listening-bug-desc
+  icon: { sprite: Clothing/Hands/Gloves/KnuckleDusters/syndicateknuckleduster.rsi, state: syndicateknuckleduster }
+  productEntity: RadioListeningBugSyndicate
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkDeception
+  saleBlacklist: true
+
+- type: listing
+  id: UplinkCameraBugKit
+  name: uplink-contraband-hidden-camera-kit-name
+  description: uplink-contraband-hidden-camera-kit-desc
+  icon: { sprite: Clothing/Hands/Gloves/KnuckleDusters/syndicateknuckleduster.rsi, state: syndicateknuckleduster }
+  productEntity: BriefcaseBrownCameraBugKit
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 4
+  cost:
+    Telecrystal: 7
+  categories:
+  - UplinkDeception
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: UplinkEspionageKit
+  name: uplink-contraband-espionage-kit-name
+  description: uplink-contraband-espionage-kit-desc
+  icon: { sprite: Clothing/Hands/Gloves/KnuckleDusters/syndicateknuckleduster.rsi, state: syndicateknuckleduster }
+  productEntity: BriefcaseBrownEspionageKit
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 5
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkDeception
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

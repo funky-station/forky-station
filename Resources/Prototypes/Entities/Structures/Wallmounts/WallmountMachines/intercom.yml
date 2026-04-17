@@ -204,6 +204,17 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: WiresPanel
     open: false
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices
 
 - type: entity
   id: BaseIntercomSecure

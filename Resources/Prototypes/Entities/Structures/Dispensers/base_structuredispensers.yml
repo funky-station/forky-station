@@ -101,12 +101,19 @@
         - FitsInDispenser
       priority: 9
   - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices
   - type: ContainerContainer
     containers:
       machine_board: !type:Container
       machine_parts: !type:Container
       beakerSlot: !type:ContainerSlot
       storagebase: !type:Container
+      hidden_slot: !type:ContainerSlot
   - type: WiresPanel
   - type: EmptyOnMachineDeconstruct
     containers:

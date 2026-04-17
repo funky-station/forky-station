@@ -144,6 +144,16 @@
   - type: Construction
     graph: Table
     node: CounterWoodFrame
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices
+  - type: ContainerContainer
+    containers:
+      hidden_slot: !type:ContainerSlot
 
 - type: entity
   id: CounterMetalFrame

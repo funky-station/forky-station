@@ -63,6 +63,16 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 10
+  - type: ContainerContainer
+    containers:
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices
   - type: Tag
     tags:
     - ClothMade

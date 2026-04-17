@@ -32,6 +32,16 @@
                 collection: GlassBreak
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
+    - type: ContainerContainer
+      containers:
+        hidden_slot: !type:ContainerSlot
+    - type: ItemSlots
+      slots:
+        hidden_slot:
+          name: hidden_slot
+          whitelist:
+            tags:
+            - SurveillanceDevices
 
 - type: entity
   parent: BaseWallmountMachine
@@ -59,6 +69,14 @@
     - type: ContainerContainer
       containers:
         board: !type:Container
+        hidden_slot: !type:ContainerSlot
+    - type: ItemSlots
+      slots:
+        hidden_slot:
+          name: hidden_slot
+          whitelist:
+            tags:
+            - SurveillanceDevices
     - type: ApcPowerReceiver
       powerLoad: 50
     - type: PowerState

@@ -96,6 +96,14 @@
     containers:
       board: !type:Container
         ents: []
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - SurveillanceDevices
   - type: LightningTarget
     priority: 1
   - type: RequireProjectileTarget

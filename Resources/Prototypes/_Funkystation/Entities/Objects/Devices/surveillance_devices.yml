@@ -1,8 +1,8 @@
 # Radio stuff
 
 - type: entity
-  name: listening-bug-name
-  description: listening-bug-description
+  name: listening bug
+  description: A covert listening device for gaining intel on your enemies. The back has an adhesive for attachment to objects.
   parent: [ BaseItem, BaseSyndicateContraband ]
   id: RadioListeningBugSyndicate
   suffix: Syndicate
@@ -22,6 +22,7 @@
   - type: Item
     sprite: Objects/Devices/communication.rsi
     heldPrefix: walkietalkie
+    size: Tiny
   - type: SubFloorHide
   - type: Anchorable
   - type: CollideOnAnchor
@@ -49,6 +50,7 @@
   - type: Item
     sprite: Objects/Devices/communication.rsi
     heldPrefix: walkietalkie
+    size: Tiny
 
 - type: entity
   parent: EncryptionKey
@@ -83,13 +85,14 @@
   - type: Item
     sprite: Objects/Devices/communication.rsi
     heldPrefix: walkietalkie
+    size: Tiny
   - type: SubFloorHide
   - type: Transform
     anchored: false
   - type: InteractionOutline
   - type: Eye
   - type: WirelessNetworkConnection
-    range: 200
+    range: 2000
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: SurveillanceCameraHidden
@@ -116,6 +119,9 @@
     state: walkietalkie
   - type: Item
     sprite: Objects/Devices/communication.rsi
+    size: Normal
+    shape:
+    - 0,0,1,1
     heldPrefix: walkietalkie
   - type: Appearance
   - type: SubFloorHide
@@ -128,7 +134,7 @@
   - type: SurveillanceCameraRouter
     subnetFrequency: SurveillanceCameraHidden
   - type: WirelessNetworkConnection
-    range: 200
+    range: 2000
   - type: DeviceNetworkRequiresPower
   - type: ApcPowerReceiver
     powerLoad: 0
@@ -149,6 +155,9 @@
     - state: camera_bug
   - type: Item
     sprite: Objects/Devices/camera_bug.rsi
+    size: Normal
+    shape:
+    - 0,0,1,0
   - type: ActivatableUI
     requireActiveHand: false
     inHandsOnly: true
@@ -165,3 +174,41 @@
   - type: SurveillanceCameraMonitor
   - type: StaticPrice
     price: 2000
+
+# Kits
+
+- type: entity
+  id: BriefcaseBrownCameraBugKit
+  parent: BriefcaseBrown
+  suffix: Camera Bug Kit
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: HiddenCameraSyndicate
+          amount: 3
+        - id: HiddenCameraRouterSyndicate
+          amount: 1
+        - id: HiddenCameraViewer
+          amount: 1
+
+- type: entity
+  id: BriefcaseBrownEspionageKit
+  parent: BriefcaseBrown
+  suffix: Espionage Kit
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: PinpointerUniversal
+        - id: FlippoEngravedLighter
+        - id: CigPackSyndicate
+        - id: DrinkVermouthBottleFull
+        - id: HiddenCameraRouterSyndicate
+        - id: HiddenCameraViewer
+        - id: HiddenCameraSyndicate
+          amount: 3
+        - id: RadioListeningBugSyndicate
+          amount: 3

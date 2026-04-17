@@ -187,6 +187,16 @@
     priority: 1
   - type: StaticPrice
     price: 500
+  - type: ContainerContainer
+    containers:
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - SurveillanceDevices
   - type: GuideHelp
     guides:
     - VoltageNetworks

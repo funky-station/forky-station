@@ -179,6 +179,16 @@
     price: 100
   - type: Appearance
   - type: WiresVisuals
+  - type: ContainerContainer
+    containers:
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices
 
 - type: entity
   id: VendingMachineWallmount
