@@ -29,6 +29,10 @@
       moles:
         Oxygen: 2.051379050 # oxygen
       temperature: 293.15
+  - type: Tag
+    tags:
+    - GasTank
+    - OxygenTank
 
 - type: entity
   id: EmergencyOxygenTankFilled
@@ -86,6 +90,10 @@
       moles:
         Nitrogen: 0.615413715 # nitrogen
       temperature: 293.15
+  - type: Tag
+    tags:
+    - GasTank
+    - ExtendedEmergencyNitrogenTank
 
 
 - type: entity
@@ -131,6 +139,9 @@
         NitrousOxide: 0.014251686 # 5% N2O
         # 0.285033721       total
       temperature: 293.15
+  - type: Tag
+    tags:
+    - ClownEmergencyOxygenTank
 
 - type: entity
   id: AirTankFilled
