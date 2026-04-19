@@ -1,12 +1,11 @@
 - type: construction
-  name: large cardboard box
+  name: construction-recipe-large-cardboard-box-name
   id: CardboardBoxLarge
   graph: CardboardboxLargeGraph
   startNode: start
   targetNode: cardboardboxlargenode
   category: construction-category-storage
-  description: A big box for storing things.
-  icon: { sprite: _Funkystation/Objects/Specific/Cargo/cardboard_box.rsi, state: bigbox }
+  description: construction-recipe-large-cardboard-box-desc
   objectType: Structure
 
 - type: constructionGraph
