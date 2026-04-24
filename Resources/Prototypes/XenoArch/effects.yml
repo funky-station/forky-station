@@ -188,8 +188,8 @@
       weight: 0.7
     - id: XenoArtifactPuddleEpinephrine
       weight: 0.7
-    - id: XenoArtifactPuddleCognizine
-      weight: 0.5
+#    - id: XenoArtifactPuddleCognizine     Nuked by headmins decree
+#      weight: 0.5
     - id: XenoArtifactPuddleUltravasculine
       weight: 0.5
     - id: XenoArtifactPuddleDesoxyephedrine
@@ -305,11 +305,11 @@
     - id: XenoArtifactPetLikeSpawn
       weight: 0.7
     - id: XenoArtifactEffectXenoSpawn
-      weight: 0.3
+      weight: 0.5
     - id: XenoArtifactEffectCorgiGhostRoleSpawn
       weight: 0.05
     - id: XenoArtifactEffectWeirdEggsSpawn
-      weight: 1
+      weight: 1.0
     - id: XenoArtifactEffectCowSpawn
       weight: 0.7
     - id: XenoArtifactEffectFleshMonsterSpawn
@@ -333,7 +333,9 @@
     - id: XenoArtifactEffectTransmutationGlassSpawn #30 so far
       weight: 0.5
     - id: XenoArtifactEffectUristMcStoneSpawn
-      weight: 2000
+      weight: 0.2
+    - id: XenoArtifactEffectTotallyNormalHorseSpawn
+      weight: 2000.2
 
 - type: entityTable
   id: XenoArtifactEffectsHandheldOnlyTable
@@ -1968,21 +1970,22 @@
     possibleChemicals:
     - Epinephrine
 
-- type: entity
-  id: XenoArtifactPuddleCognizine
-  parent: BaseXenoArtifactEffect
-  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
-  components:
-  - type: XAECreatePuddle
-    chemAmount:
-      min: 1
-      max: 3
-    replaceDescription: true
-    chemicalSolution:
-      maxVol: 300
-      canReact: false
-    possibleChemicals:
-    - Cognizine
+# Nuked by headmins decree
+#- type: entity
+#  id: XenoArtifactPuddleCognizine
+#  parent: BaseXenoArtifactEffect
+#  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+#  components:
+#  - type: XAECreatePuddle
+#    chemAmount:
+#      min: 1
+#      max: 3
+#    replaceDescription: true
+#    chemicalSolution:
+#      maxVol: 300
+#      canReact: false
+#    possibleChemicals:
+#    - Cognizine
 
 - type: entity
   id: XenoArtifactPuddleUltravasculine
