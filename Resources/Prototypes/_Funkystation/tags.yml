@@ -12,3 +12,6 @@
 
 - type: Tag # Funky atmos - /tg/ gases
   id: PlasmaSheet
+
+- type: Tag
+  id: StargazerShellTag # ConstructionGraphs for stargazer lollipop

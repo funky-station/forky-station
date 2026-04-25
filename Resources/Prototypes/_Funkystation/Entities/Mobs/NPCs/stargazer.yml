@@ -88,7 +88,7 @@
   parent: BaseItem
   id: StargazerShell1
   name: shard
-  description: A strange shell shard. The remains of the _____
+  description: A strange shell shard. The remains of the stargazer.
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Fun/stargazer_shell.rsi
@@ -108,12 +108,15 @@
     damage:
       types:
         Piercing: 10
+  - type: Tag
+    tags:
+    - StargazerShellTag
 
 - type: entity
   parent: BaseItem
   id: StargazerShell2
   name: shard
-  description: A strange shell shard. The remains of the _____
+  description: A strange shell shard. The remains of the stargazer.
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Fun/stargazer_shell.rsi
@@ -123,12 +126,15 @@
     state: shell2
   - type: Item
     size: Tiny
+  - type: Tag
+    tags:
+    - StargazerShellTag
 
 - type: entity
   parent: BaseItem
   id: StargazerShell3
   name: shard
-  description: A strange shell shard. The remains of the _____
+  description: A strange shell shard. The remains of the stargazer.
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Fun/stargazer_shell.rsi
@@ -138,12 +144,16 @@
     state: shell3
   - type: Item
     size: Tiny
+  - type: Tag
+    tags:
+    - StargazerShellTag
 
 - type: entity
   parent: FoodSnackSwirlLollipop
   id: FoodSnackStargazerLollipop
   name: stargazer lollipop
   description: A sweet fleshy lollipop made from the carcass of a stargazer. It tastes vaguely of watermelon.
+  suffix: DO NOT MAP
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Fun/stargazer_lollipop.rsi
@@ -155,3 +165,6 @@
     heldPrefix: icon
     storedRotation: 0
     storedOffset: 1,0
+  - type: Construction
+    graph: StargazerLollipop
+    node: stargazerLollipop
