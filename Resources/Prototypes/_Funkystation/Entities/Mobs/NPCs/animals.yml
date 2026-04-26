@@ -262,7 +262,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: cow
-      sprite: Mobs/Animals/cow.rsi
+      sprite: _Funkystation/Mobs/Animals/chocolate_cow.rsi
   - type: SolutionContainerManager
     solutions:
       udder:
@@ -290,7 +290,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: cow
-      sprite: Mobs/Animals/cow.rsi
+      sprite: _Funkystation/Mobs/Animals/strawberry_cow.rsi
   - type: SolutionContainerManager
     solutions:
       udder:
@@ -318,7 +318,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: cow
-      sprite: Mobs/Animals/cow.rsi
+      sprite: _Funkystation/Mobs/Animals/banana_cow.rsi
   - type: SolutionContainerManager
     solutions:
       udder:

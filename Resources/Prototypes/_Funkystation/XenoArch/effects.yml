@@ -207,7 +207,7 @@
 - type: entity
   id: XenoArtifactEffectCorgiGhostRoleSpawn
   parent: BaseOneTimeXenoArtifactEffect
-  description: Spontaneous organic creation
+  description: Bluespace disturbance
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -215,10 +215,10 @@
     components:
     - type: EntityTableSpawner
       deleteSpawnerAfterSpawn: false
-      table: !type:GroupSelector
+      table: !type:AllSelector
         children:
-        - id: SparlightMobUristMcCorgi
-        - id: SparlightMobUristMcCorgi
+          - id: SparlightMobUristMcCorgi
+          - id: SparlightMobUristMcCorgi
 
 - type: entity
   id: XenoArtifactEffectCowSpawn
@@ -301,7 +301,7 @@
 
 - type: entity
   id: XenoArtifactEffectUristMcStoneSpawn
-  parent: BaseXenoArtifactEffect
+  parent: BaseOneTimeXenoArtifactEffect
   description: Spontaneous inorganic creation
   components:
   - type: XAEApplyComponents
@@ -316,7 +316,7 @@
 
 - type: entity
   id: XenoArtifactEffectTotallyNormalHorseSpawn
-  parent: BaseXenoArtifactEffect
+  parent: BaseOneTimeXenoArtifactEffect
   description: Spontaneous inorganic creation
   components:
   - type: XAEApplyComponents
@@ -329,7 +329,38 @@
         children:
         - id: MobTotallyNormalHorse
 
-#Item Spawners
+- type: entity
+  id: XenoArtifactEffectStargazerSpawn
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous organic creation
+  components:
+  - type: XAEApplyComponents
+    applyIfAlreadyHave: true
+    refreshOnReactivate: true
+    components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        children:
+        - id: MobStargazer
+
+- type: entity
+  id: XenoArtifactEffectZleebSpawn
+  parent: BaseXenoArtifactEffect
+  description: Bluespace disturbance
+  components:
+  - type: XAEApplyComponents
+    applyIfAlreadyHave: true
+    refreshOnReactivate: true
+    components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:AllSelector
+        children:
+          - id: MobZleeb
+          - id: MechZleeb
+
+# Item Spawners
 
 - type: entity
   id: XenoArtifactEffectMiniTeslaSpawn
@@ -939,7 +970,7 @@
     gases:
       Helium: 300
 
-#Food Reagent Spawners
+# Food Reagent Spawners
 
 - type: entity
   id: XenoArtifactMilkPuddle
@@ -1210,11 +1241,7 @@
       canReact: false
     possibleChemicals:
     - MindbreakerToxin
-
-#Rare Reagent Spawners
-
-
-#Polymophs
+# Polymophs
 
 - type: entity
   id: XenoArtifactSkeletonization

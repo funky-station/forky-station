@@ -9,6 +9,13 @@
   "states": [
     {
       "name": "ship"
+    },
+    {
+      "name": "alive",
+      "directions": 4
+    },
+    {
+      "name": "dead"
     }
   ]
 }

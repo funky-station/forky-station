@@ -7,3 +7,6 @@ ghost-role-information-arti-skeleton-description = You dont know why or how but 
 
 ghost-role-information-arti-corgi-name = Extradimensional Corgi
 ghost-role-information-arti-corgi-description = A traveler from another plane of reality you have used an artifact as a focal point to teleport in your travels. Explore the station and learn about its inhabitants. Keep yourself safe at all costs, you have a family waiting for you at home.
+
+ghost-role-information-zleeb-zlorb-name = Zleeb Zlorb
+ghost-role-information-zleeb-zlorb-description = Glorp zleeb zleeble gnranish! Glorb zlabble zleep sprazzle zlorp. gnar zleep SPACE COP glorbo. (You are Zleep the great! You dislike crime greatly. You are a SPACE COP.

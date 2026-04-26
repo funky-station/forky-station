@@ -335,7 +335,11 @@
     - id: XenoArtifactEffectUristMcStoneSpawn
       weight: 0.2
     - id: XenoArtifactEffectTotallyNormalHorseSpawn
-      weight: 2000.2
+      weight: 0.1
+    - id: XenoArtifactEffectStargazerSpawn
+      weight: 0.2
+    - id: XenoArtifactEffectZleebSpawn
+      weight: 0.05
 
 - type: entityTable
   id: XenoArtifactEffectsHandheldOnlyTable

@@ -1,4 +1,87 @@
 - type: entity
+  parent: SimpleMobBase
+  id: MobZleeb
+  name: zleeb zlorp
+  description: Just a little guy.
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _Funkystation/Mobs/XenoArch/zleeb.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-zleeb-zlorb-name
+    description: ghost-role-information-zleeb-zlorb-description
+    rules: ghost-role-information-freeagent-rules
+  - type: GhostTakeoverAvailable
+  - type: ReplacementAccent
+    accent: glorpish
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 120
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: MobState
+  - type: Deathgasp
+  - type: MobStateActions
+    actions:
+      Critical:
+      - ActionCritSuccumb
+      - ActionCritFakeDeath
+      - ActionCritLastWords
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      40: Critical
+      60: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+      Critical:
+        Base: alive
+      Dead:
+        Base: dead
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: JuiceGrape
+        Quantity: 150
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 3
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Blood
+          Quantity: 55
+        - ReagentId: Fat
+          Quantity: 5
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 1
+  - type: Tag
+    tags:
+    - VimPilot
+
+- type: entity
   parent: MechVim
   id: MechZleeb
   name: zoop zib zob
@@ -24,9 +107,7 @@
         - MobLayer
   - type: FootstepModifier
     footstepSoundCollection:
-      path: /Audio/Mecha/mechmove03.ogg
-      params:
-        volume: -10
+      collection: FootstepHoverXenoborg
   - type: Mech
     baseState: ship
     openState: ship
@@ -47,3 +128,11 @@
   - type: MovementAlwaysTouching
   - type: CanMoveInAir
   - type: NoSlip
+  - type: PointLight
+    mask: /Textures/Effects/LightMasks/double_cone.png
+    color: "#881A4D"
+    energy: 10
+    radius: 5
+    softness: 5
+    offset: "0, 0.35"
+  - type: RotatingLight
