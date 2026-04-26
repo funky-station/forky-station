@@ -3,6 +3,7 @@
   id: ToolboxOfHolding
   name: strange toolbox
   description: A strangely heavy toolbox. The inside appears incredibly spacious.
+  suffix: ARTIFACT
   components:
   - type: Storage
     maxItemSize: Ginormous

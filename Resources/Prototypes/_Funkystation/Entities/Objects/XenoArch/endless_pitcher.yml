@@ -1,7 +1,7 @@
 - type: entity
   parent: Pitcher
   id: PitcherEndlessWater
-  suffix: Water
+  suffix: Water ARTIFACT
   name: odd metal pitcher
   description: A strangely heavy pitcher. The inner walls seem extra thick and it almost feels as if there are mechanisms working inside it.
   components:
@@ -16,7 +16,7 @@
 - type: entity
   parent: PitcherEndlessWater
   id: PitcherEndlessBlood
-  suffix: Blood
+  suffix: Blood ARTIFACT
   components:
   - type: SolutionRegeneration
     duration: 5
@@ -29,7 +29,7 @@
 - type: entity
   parent: PitcherEndlessWater
   id: PitcherEndlessCopperBlood
-  suffix: Copper Blood
+  suffix: Copper Blood ARTIFACT
   components:
   - type: SolutionRegeneration
     duration: 5
@@ -42,7 +42,7 @@
 - type: entity
   parent: PitcherEndlessWater
   id: PitcherEndlessSyrup
-  suffix: Syrup
+  suffix: Syrup ARTIFACT
   components:
   - type: SolutionRegeneration
     duration: 5
@@ -55,7 +55,7 @@
 - type: entity
   parent: PitcherEndlessWater
   id: PitcherEndlessVodka
-  suffix: Vodka
+  suffix: Vodka ARTIFACT
   components:
   - type: SolutionRegeneration
     duration: 10
@@ -68,7 +68,7 @@
 - type: entity
   parent: PitcherEndlessWater
   id: PitcherEndlessRum
-  suffix: Rum
+  suffix: Rum ARTIFACT
   components:
   - type: SolutionRegeneration
     duration: 10
@@ -81,7 +81,7 @@
 - type: entity
   parent: PitcherEndlessWater
   id: PitcherEndlessHappiness
-  suffix: Happiness
+  suffix: Happiness ARTIFACT
   components:
   - type: SolutionRegeneration
     duration: 10
@@ -94,7 +94,7 @@
 - type: entity
   parent: PitcherEndlessWater
   id: PitcherEndlessNothing
-  suffix: Nothing
+  suffix: Nothing ARTIFACT
   components:
   - type: SolutionRegeneration
     duration: 10
@@ -107,7 +107,7 @@
 - type: entity
   parent: PitcherEndlessWater
   id: PitcherEndlessJuiceCarrot
-  suffix: Carrot Juice
+  suffix: Carrot Juice ARTIFACT
   components:
   - type: SolutionRegeneration
     duration: 10
@@ -120,7 +120,7 @@
 - type: entity
   parent: PitcherEndlessWater
   id: PitcherEndlessAmmonia
-  suffix: Ammonia
+  suffix: Ammonia ARTIFACT
   components:
   - type: SolutionRegeneration
     duration: 10
@@ -133,7 +133,7 @@
 - type: entity
   parent: PitcherEndlessWater
   id: PitcherEndlessOil
-  suffix: Oil
+  suffix: Oil ARTIFACT
   components:
   - type: SolutionRegeneration
     duration: 10
@@ -146,7 +146,7 @@
 - type: entity
   parent: PitcherEndlessWater
   id: PitcherEndlessIce
-  suffix: Ice
+  suffix: Ice ARTIFACT
   components:
   - type: SolutionRegeneration
     duration: 3
@@ -159,7 +159,7 @@
 - type: entity
   parent: PitcherEndlessWater
   id: PitcherEndlessSpaceLube
-  suffix: Space Lube
+  suffix: Space Lube ARTIFACT
   components:
   - type: SolutionRegeneration
     duration: 10
@@ -172,7 +172,7 @@
 - type: entity
   parent: PitcherEndlessWater
   id: PitcherEndlessRice
-  suffix: Rice
+  suffix: Rice ARTIFACT
   components:
   - type: SolutionRegeneration
     duration: 10

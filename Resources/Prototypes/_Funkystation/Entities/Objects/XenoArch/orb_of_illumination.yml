@@ -3,6 +3,7 @@
   id: GlowingOrb
   name: glowing orb
   description: A bright orb of light. It seems fragile.
+  suffix: ARTIFACT
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/XenoArch/glowing_orb.rsi

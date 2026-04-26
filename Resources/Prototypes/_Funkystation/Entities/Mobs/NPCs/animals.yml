@@ -245,7 +245,7 @@
       Alive:
         Base: snouse
       Critical:
-        Base: snouse
+        Base: crit-snouse
       Dead:
         Base: dead-snouse
 

@@ -132,7 +132,7 @@
       weight: 1.0
     - id: XenoArtifactShatterWindows
       weight: 1.0
-    - id: XenoArtifactFoamDermaline #Funky changes start
+    - id: XenoArtifactFoamDermaline #Funky changes start, splitting up the table for repeatability
       weight: 0.7
     - id: XenoArtifactFoamArithrazine
       weight: 0.7
@@ -246,7 +246,7 @@
       weight: 0.5
     - id: XenoArtifactEffectCreationGasNitrousOxide
       weight: 1.0
-    - id: XenoArtifactEffectCreationGasCarbonDioxide #54 total. Thats the number to beat
+    - id: XenoArtifactEffectCreationGasCarbonDioxide
       weight: 1.0
     - id: XenoArtifactMilkPuddle #Funky Changes Start
       weight: 1.0

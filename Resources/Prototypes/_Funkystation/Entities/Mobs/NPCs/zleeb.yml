@@ -50,7 +50,7 @@
       Alive:
         Base: alive
       Critical:
-        Base: alive
+        Base: dead
       Dead:
         Base: dead
   - type: Bloodstream
@@ -121,7 +121,7 @@
         Blunt: 5 #Bonk
         bluntStaminaDamageFactor: 2.0
   - type: StaminaDamageOnHit
-    damage: 35
+    damage: 20
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.25
     baseSprintSpeed: 3.6

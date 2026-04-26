@@ -532,7 +532,7 @@
 - type: entity
   id: XenoArtifactEffectCorpseSpawn
   parent: BaseXenoArtifactEffect
-  description: Spontaneous organic creation
+  description: Bluespace disturbance
   components:
     - type: XAEApplyComponents
       applyIfAlreadyHave: true
@@ -1241,12 +1241,13 @@
       canReact: false
     possibleChemicals:
     - MindbreakerToxin
+
 # Polymophs
 
 - type: entity
   id: XenoArtifactSkeletonization
   parent: BaseOneTimeXenoArtifactEffect
-  description: Metaphysical disturbance #Funky Edit add more mystery to sci
+  description: Metaphysical disturbance
   components:
   - type: XAEPolymorph
     polymorphPrototypeName: WizardForcedSkeleton
