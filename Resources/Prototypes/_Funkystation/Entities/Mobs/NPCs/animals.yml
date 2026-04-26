@@ -454,8 +454,6 @@
   - type: NpcFactionMember
     factions:
     - BloodCultist
-    HostileFactions:
-    - SimpleHostile
 
 - type: entity
   parent: BaseStructure

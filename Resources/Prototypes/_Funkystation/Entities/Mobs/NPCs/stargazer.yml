@@ -98,6 +98,7 @@
     state: shell1
   - type: Item
     size: Tiny
+    state: shell1
   - type: EmbeddableProjectile
     offset: 0.0,0.0
     removalTime: 1.5
@@ -126,6 +127,7 @@
     state: shell2
   - type: Item
     size: Tiny
+    state: shell2
   - type: Tag
     tags:
     - StargazerShellTag
@@ -144,6 +146,7 @@
     state: shell3
   - type: Item
     size: Tiny
+    state: shell3
   - type: Tag
     tags:
     - StargazerShellTag
