@@ -758,11 +758,11 @@
     - type: EntityTableSpawner
       deleteSpawnerAfterSpawn: false
       table: !type:GroupSelector
-      children:
-      - id: RandomFloraTree
-        weight: 5
-      - id: PottedPlant2 #Funky changes
-        weight: 1
+        children:
+        - id: RandomFloraTree
+          weight: 5
+        - id: PottedPlant2 #Funky changes
+          weight: 1
 
 #Funky changes start. Splitting chems into their own prototypes for consistency in nodes
 

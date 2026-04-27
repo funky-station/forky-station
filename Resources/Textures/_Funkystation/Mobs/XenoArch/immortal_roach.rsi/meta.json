@@ -1,11 +1,11 @@
 {
   "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by ratsmageddon for https://github.com/funky-station/funky-station",
   "size": {
     "x": 32,
     "y": 32
   },
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Made by ratsmageddon for https://github.com/funky-station/funky-station",
   "states": [
     {
       "name": "immortal_roach",
