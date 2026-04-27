@@ -93,8 +93,6 @@
   - type: Sprite
     sprite: _Funkystation/Objects/XenoArch/stargazer_shell.rsi
     state: shell1
-  - type: Icon
-    state: shell1
   - type: Item
     size: Tiny
   - type: EmbeddableProjectile
@@ -120,8 +118,6 @@
   - type: Sprite
     sprite: _Funkystation/Objects/XenoArch/stargazer_shell.rsi
     state: shell2
-  - type: Icon
-    state: shell2
   - type: Item
     size: Tiny
   - type: Tag
@@ -136,8 +132,6 @@
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/XenoArch/stargazer_shell.rsi
-    state: shell3
-  - type: Icon
     state: shell3
   - type: Item
     size: Tiny
@@ -163,4 +157,4 @@
     storedOffset: 1,0
   - type: Construction
     graph: StargazerLollipop
-    node: stargazerLollipop
+    node: icon

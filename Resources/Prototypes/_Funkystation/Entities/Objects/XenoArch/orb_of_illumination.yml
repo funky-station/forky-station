@@ -51,6 +51,3 @@
     damage:
       types:
         Blunt: 5
-  - type: PhysicalComposition
-    materialComposition:
-      Ectoplasm: 100
