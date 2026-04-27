@@ -10,7 +10,6 @@
     state: icon
   - type: Item
     sprite: _Funkystation/Objects/XenoArch/glowing_orb.rsi
-    state: icon
     size: Tiny
   - type: PointLight
     softness: 0.5

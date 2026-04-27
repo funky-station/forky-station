@@ -91,10 +91,9 @@
   description: A strange shell shard. The remains of the stargazer.
   components:
   - type: Sprite
-    sprite: _Funkystation/Objects/Fun/stargazer_shell.rsi
+    sprite: _Funkystation/Objects/XenoArch/stargazer_shell.rsi
     state: shell1
   - type: Icon
-    sprite: _Funkystation/Objects/Fun/stargazer_shell.rsi
     state: shell1
   - type: Item
     size: Tiny
@@ -120,14 +119,12 @@
   description: A strange shell shard. The remains of the stargazer.
   components:
   - type: Sprite
-    sprite: _Funkystation/Objects/Fun/stargazer_shell.rsi
+    sprite: _Funkystation/Objects/XenoArch/stargazer_shell.rsi
     state: shell2
   - type: Icon
-    sprite: _Funkystation/Objects/Fun/stargazer_shell.rsi
     state: shell2
   - type: Item
     size: Tiny
-    state: shell2
   - type: Tag
     tags:
     - StargazerShellTag
@@ -139,14 +136,12 @@
   description: A strange shell shard. The remains of the stargazer.
   components:
   - type: Sprite
-    sprite: _Funkystation/Objects/Fun/stargazer_shell.rsi
+    sprite: _Funkystation/Objects/XenoArch/stargazer_shell.rsi
     state: shell3
   - type: Icon
-    sprite: _Funkystation/Objects/Fun/stargazer_shell.rsi
     state: shell3
   - type: Item
     size: Tiny
-    state: shell3
   - type: Tag
     tags:
     - StargazerShellTag
@@ -159,12 +154,11 @@
   suffix: DO NOT MAP
   components:
   - type: Sprite
-    sprite: _Funkystation/Objects/Fun/stargazer_lollipop.rsi
+    sprite: _Funkystation/Objects/XenoArch/stargazer_lollipop.rsi
     state: icon
   - type: Item
-    sprite: _Funkystation/Objects/Fun/stargazer_lollipop.rsi
+    sprite: _Funkystation/Objects/XenoArch/stargazer_lollipop.rsi
     size: Small
-    state: icon
     heldPrefix: icon
     storedRotation: 0
     storedOffset: 1,0

@@ -34,11 +34,10 @@
   description: An golden egg!
   components:
   - type: Sprite
-    sprite: _Funkystation/Objects/Fun/weirdeggs.rsi
+    sprite: _Funkystation/Objects/XenoArch/weirdeggs.rsi
     state: golden
   - type: Item
-    sprite: _Funkystation/Objects/Fun/weirdeggs.rsi
-    state: golden
+    sprite: _Funkystation/Objects/XenoArch/weirdeggs.rsi
     size: Tiny
   - type: PhysicalComposition
     materialComposition:
@@ -51,11 +50,10 @@
   description: A uranium egg!
   components:
   - type: Sprite
-    sprite: _Funkystation/Objects/Fun/weirdeggs.rsi
+    sprite: _Funkystation/Objects/XenoArch/weirdeggs.rsi
     state: uranium
   - type: Item
-    sprite: _Funkystation/Objects/Fun/weirdeggs.rsi
-    state: uranium
+    sprite: _Funkystation/Objects/XenoArch/weirdeggs.rsi
     size: Tiny
   - type: PhysicalComposition
     materialComposition:
@@ -68,11 +66,10 @@
   description: A plasma egg!
   components:
   - type: Sprite
-    sprite: _Funkystation/Objects/Fun/weirdeggs.rsi
+    sprite: _Funkystation/Objects/XenoArch/weirdeggs.rsi
     state: plasma
   - type: Item
-    sprite: _Funkystation/Objects/Fun/weirdeggs.rsi
-    state: plasma
+    sprite: _Funkystation/Objects/XenoArch/weirdeggs.rsi
     size: Tiny
   - type: PhysicalComposition
     materialComposition:
@@ -95,7 +92,6 @@
   - type: Item
     sprite: Objects/Consumable/Food/egg.rsi
     size: Tiny
-    state: icon
   - type: Edible
     trash:
     - Eggshells

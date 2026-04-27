@@ -12,7 +12,6 @@
   - type: Item
     sprite: _Funkystation/Objects/XenoArch/atmos_stone.rsi
     size: Tiny
-    state: icon
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Effects/metal_slam4.ogg
