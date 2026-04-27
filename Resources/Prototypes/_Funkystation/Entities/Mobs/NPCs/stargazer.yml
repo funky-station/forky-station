@@ -97,7 +97,6 @@
     state: shell1
   - type: Item
     size: Tiny
-    state: shell1
   - type: EmbeddableProjectile
     offset: 0.0,0.0
     removalTime: 1.5

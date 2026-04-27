@@ -114,7 +114,7 @@
         rolls: !type:RangeNumberSelector
           range: 1, 2
         children:
-        - id: MobMouse0
+        - id: MobMouse
           weight: 50
         - id: MobMouseBlue
           weight: 10
@@ -681,13 +681,13 @@
           weight: 5
         - id: ReagentEggTHC
           weight: 5
-        - id: WeldingFuel
+        - id: ReagentEggWeldingFuel
           weight: 5
         - id: ReagentEggFelinase
           weight: 5
         - id: ReagentEggThermite
           weight: 5
-        - id: DevilsKiss
+        - id: ReagentEggDevilsKiss
           weight: 5
         - id: ReagentEggAntifreeze
           weight: 5

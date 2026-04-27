@@ -7,13 +7,13 @@
     - to: icon
       steps:
       - tag: StargazerShellTag
-        name: stargazer shell
+        name: construction-lollipop-stargazer
         icon:
           sprite: _Funkystation/Objects/XenoArch/stargazer_shell.rsi
           state: shell2
         doAfter: 1
       - tag: StargazerShellTag
-        name: stargazer shell
+        name: construction-lollipop-stargazer
         icon:
           sprite: _Funkystation/Objects/XenoArch/stargazer_shell.rsi
           state: shell3
