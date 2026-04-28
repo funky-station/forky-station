@@ -1,15 +1,15 @@
 - type: entity
   parent: BaseStructure
-  id: BasePlatform
+  id: BasePlatformWarning
   abstract: true
-  name: platform
-  description: Basic platform meant to protect idiots like you from falling.
+  name: platform warning
+  description: Basic platform warning meant to protect idiots like you from falling.
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: _Funkystation/Structures/Walls/platform.rsi
+    sprite: _Funkystation/Structures/Walls/platform_warning.rsi
   - type: Icon
-    sprite: _Funkystation/Structures/Walls/platform.rsi
+    sprite: _Funkystation/Structures/Walls/platform_warning.rsi
   - type: Physics
     bodyType: Static
   - type: InteractionOutline
@@ -24,13 +24,13 @@
     fx: EffectRCDDeconstruct2
 
 - type: entity
-  parent: BasePlatform
-  id: Platform
+  parent: BasePlatformWarning
+  id: PlatformWarning
   components:
   - type: Sprite
-    state: side
+    state: warning_side
   - type: Icon
-    state: side
+    state: warning_side
   - type: Fixtures
     fixtures:
       fix1:
@@ -68,13 +68,13 @@
         acts: [ "Destruction" ]
 
 - type: entity
-  parent: BasePlatform
-  id: PlatformCorner
+  parent: BasePlatformWarning
+  id: PlatformWarningCorner
   components:
   - type: Sprite
-    state: corner
+    state: warning_corner
   - type: Icon
-    state: corner
+    state: warning_corner
   - type: Fixtures
     fixtures:
       fix1:
@@ -121,13 +121,13 @@
         acts: [ "Destruction" ]
 
 - type: entity
-  parent: BasePlatform
-  id: PlatformCornerSmall
+  parent: BasePlatformWarning
+  id: PlatformWarningCornerSmall
   components:
   - type: Sprite
-    state: corner_small
+    state: warning_corner_small
   - type: Icon
-    state: corner_small
+    state: warning_corner_small
   - type: Fixtures
     fixtures:
       fix1:
@@ -165,13 +165,13 @@
         acts: [ "Destruction" ]
 
 - type: entity
-  parent: BasePlatform
-  id: PlatformRound
+  parent: BasePlatformWarning
+  id: PlatformWarningRound
   components:
   - type: Sprite
-    state: end
+    state: warning_round
   - type: Icon
-    state: end
+    state: warning_round
   - type: Fixtures
     fixtures:
       fix1:

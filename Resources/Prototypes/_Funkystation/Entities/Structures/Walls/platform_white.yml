@@ -1,15 +1,15 @@
 - type: entity
   parent: BaseStructure
-  id: BasePlatform
+  id: BasePlatformWhite
   abstract: true
   name: platform
-  description: Basic platform meant to protect idiots like you from falling.
+  description: Basic platform warning meant to protect idiots like you from falling.
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: _Funkystation/Structures/Walls/platform.rsi
+    sprite: _Funkystation/Structures/Walls/platform_white.rsi
   - type: Icon
-    sprite: _Funkystation/Structures/Walls/platform.rsi
+    sprite: _Funkystation/Structures/Walls/platform_white.rsi
   - type: Physics
     bodyType: Static
   - type: InteractionOutline
@@ -24,8 +24,8 @@
     fx: EffectRCDDeconstruct2
 
 - type: entity
-  parent: BasePlatform
-  id: Platform
+  parent: BasePlatformWhite
+  id: PlatformWhite
   components:
   - type: Sprite
     state: side
@@ -68,8 +68,8 @@
         acts: [ "Destruction" ]
 
 - type: entity
-  parent: BasePlatform
-  id: PlatformCorner
+  parent: BasePlatformWhite
+  id: PlatformCornerWhite
   components:
   - type: Sprite
     state: corner
@@ -121,8 +121,8 @@
         acts: [ "Destruction" ]
 
 - type: entity
-  parent: BasePlatform
-  id: PlatformCornerSmall
+  parent: BasePlatformWhite
+  id: PlatformCornerSmallWhite
   components:
   - type: Sprite
     state: corner_small
@@ -165,8 +165,8 @@
         acts: [ "Destruction" ]
 
 - type: entity
-  parent: BasePlatform
-  id: PlatformRound
+  parent: BasePlatformWhite
+  id: PlatformRoundWhite
   components:
   - type: Sprite
     state: end
