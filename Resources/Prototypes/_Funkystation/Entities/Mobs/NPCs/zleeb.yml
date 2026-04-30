@@ -2,7 +2,7 @@
   parent: SimpleMobBase
   id: MobZleeb
   name: zleeb zlorp
-  description: Just a little guy.
+  description: A very small creature with a very important mission.
   components:
   - type: Sprite
     drawdepth: SmallMobs
@@ -16,7 +16,7 @@
     allowMovement: true
     name: ghost-role-information-zleeb-zlorb-name
     description: ghost-role-information-zleeb-zlorb-description
-    rules: ghost-role-information-freeagent-rules
+    rules: ghost-role-information-zleeb-zlorb-rules
   - type: GhostTakeoverAvailable
   - type: ReplacementAccent
     accent: glorpish
