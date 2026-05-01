@@ -35,3 +35,23 @@ public sealed class OpenAdminLogsCommand : LocalizedEntityCommands
         _euiManager.OpenEui(ui, player);
     }
 }
+
+[AdminCommand(AdminFlags.Logs)]
+public sealed class OpenPlayerMonitoringLogsCommand : LocalizedEntityCommands
+{
+    [Dependency] private readonly EuiManager _euiManager = default!;
+
+    public override string Command => Cmd;
+    public const string Cmd = "playermonitoringlogs";
+
+    public override void Execute(IConsoleShell shell, string argStr, string[] args)
+    {
+        if (shell.Player is not { } player)
+        {
+            shell.WriteError(Loc.GetString("shell-cannot-run-command-from-server"));
+            return;
+        }
+
+        _euiManager.OpenEui(new PlayerMonitoringLogsEui(), player);
+    }
+}

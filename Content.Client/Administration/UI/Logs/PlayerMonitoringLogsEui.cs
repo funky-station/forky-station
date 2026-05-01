@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2026 Space Wizards Federation
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Client.Eui;
 using Content.Shared.Administration.Logs;

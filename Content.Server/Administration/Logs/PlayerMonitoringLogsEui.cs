@@ -1,16 +1,15 @@
-// SPDX-FileCopyrightText: 2026 Space Wizards Federation
-// SPDX-License-Identifier: MIT
-
 using System.Text.Json;
 using Content.Server.Administration.Managers;
 using Content.Server.Database;
 using Content.Server.EUI;
-using Content.Server.GameTicking;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
+using Content.Shared.Database;
 using Content.Shared.Eui;
 using Robust.Shared.Configuration;
+using Robust.Shared.Log;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Administration.Logs;
 
@@ -19,14 +18,20 @@ public sealed class PlayerMonitoringLogsEui : BaseEui
     [Dependency] private readonly IAdminManager _adminManager = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly ILogManager _logManager = default!;
+
+    private ISawmill _sawmill = default!;
 
     private int _pageOffset;
     private Guid? _activeUserId;
     private DateTime _rangeStart;
     private int _pageSize = 200;
+
     public override void Opened()
     {
         base.Opened();
+        _sawmill = _logManager.GetSawmill("admin.player-monitoring");
         _adminManager.OnPermsChanged += OnPermsChanged;
         _pageSize = Math.Clamp(_cfg.GetCVar(CCVars.MonitoringLogDetailPageSize), 1, 500);
         StateDirty();
@@ -80,11 +85,13 @@ public sealed class PlayerMonitoringLogsEui : BaseEui
                 var days = Math.Clamp(req.Days, 1, _cfg.GetCVar(CCVars.MonitoringLogMaxQueryDays));
                 _rangeStart = DateTime.UtcNow.AddDays(-days);
 
+                var ghostFilter = BuildGhostRoleTakenFilter();
                 var result = await _db.GetPlayerMonitoringLogsAsync(
                     _activeUserId.Value,
                     _rangeStart,
                     _pageOffset,
-                    _pageSize);
+                    _pageSize,
+                    ghostFilter);
 
                 _pageOffset += result.Page.Count;
 
@@ -96,11 +103,13 @@ public sealed class PlayerMonitoringLogsEui : BaseEui
                 if (_activeUserId == null)
                     return;
 
+                var ghostFilter = BuildGhostRoleTakenFilter();
                 var result = await _db.GetPlayerMonitoringLogsAsync(
                     _activeUserId.Value,
                     _rangeStart,
                     _pageOffset,
-                    _pageSize);
+                    _pageSize,
+                    ghostFilter);
 
                 _pageOffset += result.Page.Count;
 
@@ -114,6 +123,15 @@ public sealed class PlayerMonitoringLogsEui : BaseEui
                 break;
             }
         }
+    }
+
+    private Func<JsonDocument, bool>? BuildGhostRoleTakenFilter()
+    {
+        var watchIds = PlayerMonitoringEuiWatchlist.BuildDirectWatchIds(_cfg, _proto, _sawmill);
+        if (watchIds.Count == 0)
+            return null;
+
+        return json => PlayerMonitoringEuiWatchlist.JsonGhostMatchesWatchlist(json, watchIds, _proto);
     }
 
     private PlayerMonitoringLogsEuiMsg.QueryResult BuildQueryResult(PlayerMonitoringQueryResult result, bool replace)
@@ -148,51 +166,60 @@ public sealed class PlayerMonitoringLogsEui : BaseEui
         };
     }
 
-    private static List<PlayerMonitoringDetailRow> MapRows(IReadOnlyList<AdminPlayerMonitoringLog> page)
+    private static List<PlayerMonitoringDetailRow> MapRows(IReadOnlyList<PlayerMonitoringLogView> page)
     {
         var list = new List<PlayerMonitoringDetailRow>(page.Count);
         foreach (var r in page)
         {
             var row = new PlayerMonitoringDetailRow
             {
-                Id = r.Id,
+                Id = r.SurrogateId,
                 Utc = r.Date,
                 RoundId = r.RoundId,
-                EventType = (PlayerMonitoringEventType)r.EventType,
-                DisplayUserName = r.PlayerLastSeenUserName
+                EventType = r.EventType,
+                DisplayUserName = r.DisplayUserName
             };
 
-            if (r.Details != null)
+            if (r.DetailJson == null)
             {
-                var root = r.Details.RootElement;
-                if (root.TryGetProperty("job", out var j))
-                    row.Job = j.GetString();
-                if (root.TryGetProperty("station", out var s))
-                    row.Station = s.GetString();
-                if (root.TryGetProperty("sub_reason", out var sr))
-                    row.SubReason = sr.GetString();
-                if (root.TryGetProperty("exit_kind", out var ek))
-                    row.ExitKind = ek.GetString();
-                if (root.TryGetProperty("disconnect_reason", out var dr))
-                    row.DisconnectReason = dr.GetString();
-                if (root.TryGetProperty("redial_flag", out var rf) &&
-                    (rf.ValueKind == JsonValueKind.True || rf.ValueKind == JsonValueKind.False))
-                    row.RedialFlag = rf.GetBoolean();
-                if (root.TryGetProperty("minutes_in_round", out var mir) && mir.TryGetDouble(out var md))
-                    row.MinutesInRound = md;
-                if (root.TryGetProperty("minutes_since_round_start", out var mrs) && mrs.TryGetDouble(out var ms))
-                    row.MinutesSinceRoundStart = ms;
-                if (root.TryGetProperty("watched_entity_prototype", out var wep))
-                    row.WatchedGhostEntityPrototype = wep.GetString();
-                else if (root.TryGetProperty("high_value_kind", out var hv))
-                    row.WatchedGhostEntityPrototype = hv.GetString();
-                if (root.TryGetProperty("ghost_role_name", out var grn))
-                    row.GhostRoleName = grn.GetString();
-                if (root.TryGetProperty("max_idle_minutes", out var mim) && mim.TryGetDouble(out var afkMax))
-                    row.AfkMaxIdleMinutes = afkMax;
-                if (root.TryGetProperty("threshold_minutes", out var thr) && thr.TryGetDouble(out var afkThr))
-                    row.AfkThresholdMinutes = afkThr;
+                list.Add(row);
+                continue;
             }
+
+            var root = r.DetailJson.RootElement;
+            if (root.TryGetProperty("job", out var j) && j.ValueKind == JsonValueKind.String)
+                row.Job = j.GetString();
+            if (root.TryGetProperty("station", out var s) && s.ValueKind == JsonValueKind.String)
+                row.Station = s.GetString();
+            if (root.TryGetProperty("sub_reason", out var sr) && sr.ValueKind == JsonValueKind.String)
+                row.SubReason = sr.GetString();
+            else if (root.TryGetProperty("subReason", out var sr2) && sr2.ValueKind == JsonValueKind.String)
+                row.SubReason = sr2.GetString();
+            if (root.TryGetProperty("exit_kind", out var ek) && ek.ValueKind == JsonValueKind.String)
+                row.ExitKind = ek.GetString();
+            if (root.TryGetProperty("disconnect_reason", out var dr) && dr.ValueKind == JsonValueKind.String)
+                row.DisconnectReason = dr.GetString();
+            if (root.TryGetProperty("redial_flag", out var rf) &&
+                (rf.ValueKind == JsonValueKind.True || rf.ValueKind == JsonValueKind.False))
+                row.RedialFlag = rf.GetBoolean();
+            if (root.TryGetProperty("minutes_in_round", out var mir) && mir.TryGetDouble(out var md))
+                row.MinutesInRound = md;
+            if (root.TryGetProperty("minutes_since_round_start", out var mrs) && mrs.TryGetDouble(out var ms))
+                row.MinutesSinceRoundStart = ms;
+            if (root.TryGetProperty("ghostRoleEntityPrototype", out var grp) && grp.ValueKind == JsonValueKind.String)
+                row.WatchedGhostEntityPrototype = grp.GetString();
+            else if (root.TryGetProperty("watched_entity_prototype", out var wep) && wep.ValueKind == JsonValueKind.String)
+                row.WatchedGhostEntityPrototype = wep.GetString();
+            else if (root.TryGetProperty("high_value_kind", out var hv) && hv.ValueKind == JsonValueKind.String)
+                row.WatchedGhostEntityPrototype = hv.GetString();
+            if (root.TryGetProperty("ghost_role_name", out var grn) && grn.ValueKind == JsonValueKind.String)
+                row.GhostRoleName = grn.GetString();
+            else if (root.TryGetProperty("roleName", out var roleName) && roleName.ValueKind == JsonValueKind.String)
+                row.GhostRoleName = roleName.GetString();
+            if (root.TryGetProperty("max_idle_minutes", out var mim) && mim.TryGetDouble(out var afkMax))
+                row.AfkMaxIdleMinutes = afkMax;
+            if (root.TryGetProperty("threshold_minutes", out var thr) && thr.TryGetDouble(out var afkThr))
+                row.AfkThresholdMinutes = afkThr;
 
             list.Add(row);
         }
@@ -210,5 +237,82 @@ public sealed class PlayerMonitoringLogsEui : BaseEui
     {
         base.Closed();
         _adminManager.OnPermsChanged -= OnPermsChanged;
+    }
+}
+
+internal static class PlayerMonitoringEuiWatchlist
+{
+    public static HashSet<string> BuildDirectWatchIds(IConfigurationManager cfg, IPrototypeManager proto, ISawmill sawmill)
+    {
+        var set = new HashSet<string>();
+        var listId = cfg.GetCVar(CCVars.MonitoringGhostWatchlistPrototype);
+        if (string.IsNullOrWhiteSpace(listId))
+            return set;
+
+        if (!proto.TryIndex<PlayerMonitoringGhostWatchlistPrototype>(listId, out var list))
+        {
+            sawmill.Warning($"Player monitoring ghost watchlist prototype '{listId}' not found.");
+            return set;
+        }
+
+        foreach (var id in list.GhostRoles)
+            set.Add(id.Id);
+
+        return set;
+    }
+
+    public static bool JsonGhostMatchesWatchlist(JsonDocument json, HashSet<string> directIds, IPrototypeManager proto)
+    {
+        if (directIds.Count == 0)
+            return false;
+
+        if (!json.RootElement.TryGetProperty("ghostRoleEntityPrototype", out var p) ||
+            p.ValueKind != JsonValueKind.String)
+        {
+            return false;
+        }
+
+        var id = p.GetString();
+        if (string.IsNullOrEmpty(id) || !proto.TryIndex<EntityPrototype>(id, out var ent))
+            return false;
+
+        return IsEntityWatchlisted(ent, directIds, proto);
+    }
+
+    private static bool IsEntityWatchlisted(EntityPrototype entityProto, HashSet<string> directIds, IPrototypeManager proto)
+    {
+        if (directIds.Contains(entityProto.ID))
+            return true;
+
+        foreach (var a in EnumerateAncestorPrototypeIds(entityProto, proto))
+        {
+            if (directIds.Contains(a))
+                return true;
+        }
+
+        return false;
+    }
+
+    private static IEnumerable<string> EnumerateAncestorPrototypeIds(EntityPrototype proto, IPrototypeManager prototypes)
+    {
+        var queue = new Queue<string>();
+        var visited = new HashSet<string>();
+        foreach (var parent in proto.Parents ?? [])
+            queue.Enqueue(parent);
+
+        while (queue.Count > 0)
+        {
+            var pid = queue.Dequeue();
+            if (!visited.Add(pid))
+                continue;
+
+            yield return pid;
+
+            if (!prototypes.TryIndex<EntityPrototype>(pid, out var parent))
+                continue;
+
+            foreach (var gp in parent.Parents ?? [])
+                queue.Enqueue(gp);
+        }
     }
 }

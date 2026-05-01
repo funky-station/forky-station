@@ -607,7 +607,11 @@ public sealed class GhostRoleSystem : EntitySystem
             return false;
 
         if (player.AttachedEntity != null)
-            _adminLogger.Add(LogType.GhostRoleTaken, LogImpact.Low, $"{player:player} took the {role.Comp.RoleName:roleName} ghost role {ToPrettyString(player.AttachedEntity.Value):entity}");
+        {
+            var ghostRoleEntityPrototype = MetaData(role).EntityPrototype?.ID ?? string.Empty;
+            _adminLogger.Add(LogType.GhostRoleTaken, LogImpact.Low,
+                $"{player:player} took the {role.Comp.RoleName:roleName} ghost role {ToPrettyString(player.AttachedEntity.Value):entity} {ghostRoleEntityPrototype:ghostRoleEntityPrototype}");
+        }
 
         CloseEui(player);
         return true;

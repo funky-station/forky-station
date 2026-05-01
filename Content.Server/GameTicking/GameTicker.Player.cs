@@ -196,7 +196,9 @@ namespace Content.Server.GameTicking
                     return;
                 }
 
-                _playerMonitoring.OnReconnectDumpedToObserver(session, subReason);
+                var lobbyEnabled = LobbyEnabled;
+                _adminLogger.Add(LogType.PlayerMonitoringReconnectObserver, LogImpact.Medium,
+                    $"{session} reconnect dumped to observer ({subReason}) {lobbyEnabled}");
                 JoinAsObserver(session);
             }
 

@@ -527,4 +527,9 @@ public enum LogType
     /// Player monitoring: reconnect dumped to observer (mind without body / attach failed).
     /// </summary>
     PlayerMonitoringReconnectObserver = 106,
+
+    /// <summary>
+    /// Player monitoring: structured payload with JSON <c>kind</c> field (numeric <c>PlayerMonitoringEventType</c>).
+    /// </summary>
+    PlayerMonitoring = 107,
 }

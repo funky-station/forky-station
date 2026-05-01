@@ -85,14 +85,6 @@ namespace Content.Server.Database
                 .Property(log => log.Json)
                 .HasConversion(jsonStringConverter);
 
-            var jsonDetailsNullableConverter = new ValueConverter<JsonDocument?, string?>(
-                v => v == null ? null : JsonDocumentToString(v),
-                v => string.IsNullOrEmpty(v) ? null : StringToJsonDocument(v));
-
-            modelBuilder.Entity<AdminPlayerMonitoringLog>()
-                .Property(log => log.Details)
-                .HasConversion(jsonDetailsNullableConverter);
-
             modelBuilder.Entity<Profile>()
                 .Property(log => log.Markings)
                 .HasConversion(jsonByteArrayConverter);

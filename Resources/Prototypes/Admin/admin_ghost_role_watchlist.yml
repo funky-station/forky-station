@@ -1,5 +1,3 @@
-# SPDX-FileCopyrightText: 2026 Space Wizards Federation
-# SPDX-License-Identifier: MIT
 #
 # Entity prototypes whose ghost roles are logged under PlayerMonitoringEventType.HighValueGhostRoleTaken
 # when a ghost claims them. Matching uses this prototype ID or any ancestor in the entity inheritance chain.
@@ -18,7 +16,6 @@
     - ReinforcementRadioSyndicateCyborgAssault
     # Dragons (takeover + event spawner)
     - MobDragon
-    - MobDragonDungeon
     - SpawnPointGhostDragon
     # High-impact ghost antags / lone op (not standard team nukeops spawn)
     - SpawnPointGhostSpaceNinja

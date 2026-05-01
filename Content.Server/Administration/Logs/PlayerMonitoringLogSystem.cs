@@ -1,16 +1,12 @@
-// SPDX-FileCopyrightText: 2026 Space Wizards Federation
-// SPDX-License-Identifier: MIT
-
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text.Json;
 using System.Threading;
-using Content.Server.Antag;
+using System.Threading.Tasks;
 using Content.Server.Database;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
-using Content.Server.Ghost.Roles;
-using Content.Server.Ghost.Roles.Components;
-using System.Threading.Tasks;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -25,16 +21,18 @@ using Robust.Shared.Enums;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Asynchronous;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Administration.Logs;
 
 /// <summary>
-/// Queues player-monitoring DB rows; subscribes to game/session events. Observation-only (never mutates gameplay state).
+/// Emits player-monitoring rows as <see cref="LogType.PlayerMonitoring"/> admin logs; subscribes to game/session events. Observation-only.
 /// </summary>
 public sealed class PlayerMonitoringLogSystem : EntitySystem
 {
+    private const int MonitoringEmitQueueMax = 4096;
+
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -45,39 +43,26 @@ public sealed class PlayerMonitoringLogSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly ITaskManager _taskManager = default!;
 
     private ISawmill _sawmill = default!;
 
     private readonly Queue<PendingRow> _queue = new();
     private readonly object _queueLock = new();
 
-    /// <summary>
-    /// Per-user job snapshot for the current round (cleared on round restart).
-    /// </summary>
     private readonly Dictionary<NetUserId, (string JobId, TimeSpan SpawnTime)> _spawnedJob = new();
 
     private readonly HashSet<(NetUserId User, PlayerMonitoringEventType Type)> _loggedNoJob = new();
 
     private readonly HashSet<NetUserId> _leftThisRound = new();
 
-    /// <summary>
-    /// Mid-round disconnect row: first signal owns the pending merge target until flushed.
-    /// </summary>
     private readonly Dictionary<NetUserId, PendingRow> _midroundDisconnectPending = new();
 
-    /// <summary>
-    /// Game timing mark when the round is live (<see cref="GameRunLevel.InRound"/>); used for observer-only disconnect detail.
-    /// </summary>
     private TimeSpan? _roundInRoundSince;
-
-    private readonly HashSet<string> _ghostWatchPrototypeIds = new();
 
     private int _drops;
     private volatile int _flushGate;
     private TimeSpan _nextFlush;
-    private TimeSpan _nextPruneAttempt;
-    private bool _pruneScheduledThisRound;
 
     public override void Initialize()
     {
@@ -88,48 +73,18 @@ public sealed class PlayerMonitoringLogSystem : EntitySystem
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnSpawnComplete);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundCleanup);
         SubscribeLocalEvent<GameRunLevelChangedEvent>(OnGameRunLevelChanged);
-        SubscribeLocalEvent<GhostRoleComponent, TakeGhostRoleEvent>(OnGhostRoleTakenForMonitoring,
-            after: [typeof(GhostRoleSystem), typeof(AntagSelectionSystem)]);
-
-        _prototype.PrototypesReloaded += OnPrototypesReloaded;
-        _cfg.OnValueChanged(CCVars.MonitoringGhostWatchlistPrototype, _ => RebuildGhostWatchlistCache(), invokeImmediately: true);
 
         _playerManager.PlayerStatusChanged += OnPlayerStatusChanged;
         _net.Disconnect += OnNetDisconnect;
 
         _nextFlush = _timing.CurTime;
-        _nextPruneAttempt = _timing.CurTime;
     }
 
     public override void Shutdown()
     {
         base.Shutdown();
-        _prototype.PrototypesReloaded -= OnPrototypesReloaded;
         _playerManager.PlayerStatusChanged -= OnPlayerStatusChanged;
         _net.Disconnect -= OnNetDisconnect;
-    }
-
-    private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
-    {
-        RebuildGhostWatchlistCache();
-    }
-
-    private void RebuildGhostWatchlistCache()
-    {
-        _ghostWatchPrototypeIds.Clear();
-
-        var listId = _cfg.GetCVar(CCVars.MonitoringGhostWatchlistPrototype);
-        if (string.IsNullOrWhiteSpace(listId))
-            return;
-
-        if (!_prototype.TryIndex<PlayerMonitoringGhostWatchlistPrototype>(listId, out var wl))
-        {
-            _sawmill.Warning($"Player monitoring ghost watchlist prototype '{listId}' not found.");
-            return;
-        }
-
-        foreach (var id in wl.GhostRoles)
-            _ghostWatchPrototypeIds.Add(id.Id);
     }
 
     public override void Update(float frameTime)
@@ -140,74 +95,71 @@ public sealed class PlayerMonitoringLogSystem : EntitySystem
             return;
 
         _nextFlush = _timing.CurTime + TimeSpan.FromMilliseconds(500);
-        _ = Task.Run(FlushQueueAsync);
+        FlushEmitQueueMainThread();
     }
 
-    private async Task FlushQueueAsync()
+    private static JsonDocument BuildMergedMonitoringJson(PlayerMonitoringEventType kind, JsonDocument? details)
+    {
+        using var ms = new MemoryStream();
+        using (var writer = new Utf8JsonWriter(ms))
+        {
+            writer.WriteStartObject();
+            writer.WriteNumber("kind", (int)kind);
+            if (details != null)
+            {
+                foreach (var p in details.RootElement.EnumerateObject())
+                {
+                    writer.WritePropertyName(p.Name);
+                    p.Value.WriteTo(writer);
+                }
+            }
+
+            writer.WriteEndObject();
+        }
+
+        return JsonDocument.Parse(ms.ToArray());
+    }
+
+    private void FlushEmitQueueMainThread()
     {
         if (Interlocked.Exchange(ref _flushGate, 1) != 0)
             return;
 
         try
         {
-            List<PendingRow>? batch = null;
+            List<PendingRow>? batch;
             lock (_queueLock)
             {
                 if (_queue.Count == 0)
-                    return;
-
-                var maxBatch = 64;
-                batch = new List<PendingRow>(Math.Min(maxBatch, _queue.Count));
-                while (_queue.Count > 0 && batch.Count < maxBatch)
+                    batch = null;
+                else
                 {
-                    batch.Add(_queue.Dequeue());
+                    var maxBatch = 64;
+                    batch = new List<PendingRow>(Math.Min(maxBatch, _queue.Count));
+                    while (_queue.Count > 0 && batch.Count < maxBatch)
+                        batch.Add(_queue.Dequeue());
                 }
             }
 
             if (batch == null || batch.Count == 0)
                 return;
 
-            var entities = new List<AdminPlayerMonitoringLog>(batch.Count);
             foreach (var row in batch)
             {
                 try
                 {
-                    entities.Add(new AdminPlayerMonitoringLog
-                    {
-                        RoundId = row.RoundId,
-                        PlayerUserId = row.UserId,
-                        PlayerLastSeenUserName = row.LastSeenUserName,
-                        EventType = (int)row.Type,
-                        Date = row.Utc,
-                        Details = row.Details
-                    });
-                    row.Details = null; // ownership transferred to entity
+                    using var merged = BuildMergedMonitoringJson(row.Type, row.Details);
+                    var payload = merged.RootElement.GetRawText();
+                    _adminLog.Add(LogType.PlayerMonitoring, LogImpact.Low,
+                        $"{new AdminLogAttributedUser(new NetUserId(row.UserId))} player monitoring {payload}");
+                    row.Details?.Dispose();
+                    if (row.Type == PlayerMonitoringEventType.MidroundExitJobNonAntag)
+                        _midroundDisconnectPending.Remove(new NetUserId(row.UserId));
                 }
                 catch (Exception e)
                 {
-                    _sawmill.Error($"Error building monitoring row: {e}");
+                    _sawmill.Error($"Error emitting player monitoring admin log: {e}");
                     row.Details?.Dispose();
-                }
-            }
-
-            if (entities.Count == 0)
-                return;
-
-            try
-            {
-                await _db.AddPlayerMonitoringLogsAsync(entities);
-                foreach (var src in batch)
-                {
-                    if (src.Type == PlayerMonitoringEventType.MidroundExitJobNonAntag)
-                        _midroundDisconnectPending.Remove(new NetUserId(src.UserId));
-                }
-            }
-            catch (Exception e)
-            {
-                _sawmill.Error($"Failed to flush player monitoring logs: {e}");
-                foreach (var e2 in entities)
-                {
-                    e2.Details?.Dispose();
                 }
             }
         }
@@ -219,7 +171,6 @@ public sealed class PlayerMonitoringLogSystem : EntitySystem
 
     private void OnRoundCleanup(RoundRestartCleanupEvent ev)
     {
-        // Still the round that is ending; IncrementRoundNumber runs after this event in RestartRound.
         var endingRoundId = _ticker.RoundId;
 
         _spawnedJob.Clear();
@@ -227,9 +178,7 @@ public sealed class PlayerMonitoringLogSystem : EntitySystem
         _leftThisRound.Clear();
         _midroundDisconnectPending.Clear();
         _roundInRoundSince = null;
-        _pruneScheduledThisRound = false;
 
-        SchedulePrune();
         _ = Task.Run(() => ScanLongAfkFromAdminLogsAtRoundEndAsync(endingRoundId));
     }
 
@@ -252,25 +201,27 @@ public sealed class PlayerMonitoringLogSystem : EntitySystem
             var roundEndUtc = DateTime.UtcNow;
             var flagged = await _db.QueryPlayersLongAfkFromAdminLogsAsync(endingRoundId, roundEndUtc, threshold);
 
+            var payloads = new List<(Guid UserId, string Payload)>();
             foreach (var entry in flagged)
             {
-                var details = JsonSerializer.SerializeToDocument(new
+                using var details = JsonSerializer.SerializeToDocument(new
                 {
                     max_idle_minutes = entry.MaxIdleMinutes,
                     threshold_minutes = (double)threshold,
                     analysis_end_utc = roundEndUtc
                 });
-
-                TryEnqueue(new PendingRow
-                {
-                    UserId = entry.UserId,
-                    LastSeenUserName = entry.LastSeenUserName,
-                    RoundId = endingRoundId,
-                    Type = PlayerMonitoringEventType.LongAfkFromAdminLogsRoundEnd,
-                    Utc = roundEndUtc,
-                    Details = details
-                });
+                using var merged = BuildMergedMonitoringJson(PlayerMonitoringEventType.LongAfkFromAdminLogsRoundEnd, details);
+                payloads.Add((entry.UserId, merged.RootElement.GetRawText()));
             }
+
+            _taskManager.RunOnMainThread(() =>
+            {
+                foreach (var (userId, payload) in payloads)
+                {
+                    _adminLog.Add(LogType.PlayerMonitoring, LogImpact.Low,
+                        $"{new AdminLogAttributedUser(new NetUserId(userId))} player monitoring {payload}");
+                }
+            });
         }
         catch (Exception e)
         {
@@ -284,113 +235,6 @@ public sealed class PlayerMonitoringLogSystem : EntitySystem
             _roundInRoundSince = _timing.CurTime;
         else if (ev.New != GameRunLevel.InRound)
             _roundInRoundSince = null;
-    }
-
-    private void OnGhostRoleTakenForMonitoring(Entity<GhostRoleComponent> ent, ref TakeGhostRoleEvent args)
-    {
-        try
-        {
-            if (!args.TookRole)
-                return;
-
-            if (_ticker.RunLevel != GameRunLevel.InRound)
-                return;
-
-            if (_ghostWatchPrototypeIds.Count == 0)
-                return;
-
-            if (!TryComp(ent.Owner, out MetaDataComponent? meta) || meta.EntityPrototype is not { } entityProto)
-                return;
-
-            if (!IsGhostWatchlisted(entityProto))
-                return;
-
-            var session = args.Player;
-            var details = JsonSerializer.SerializeToDocument(new
-            {
-                watched_entity_prototype = entityProto.ID,
-                ghost_role_name = ent.Comp.RoleName
-            });
-
-            TryEnqueue(new PendingRow
-            {
-                UserId = session.UserId.UserId,
-                LastSeenUserName = session.Name,
-                RoundId = _ticker.RoundId,
-                Type = PlayerMonitoringEventType.HighValueGhostRoleTaken,
-                Utc = DateTime.UtcNow,
-                Details = details
-            });
-        }
-        catch (Exception e)
-        {
-            _sawmill.Error($"OnGhostRoleTakenForMonitoring: {e}");
-        }
-    }
-
-    private bool IsGhostWatchlisted(EntityPrototype proto)
-    {
-        if (_ghostWatchPrototypeIds.Contains(proto.ID))
-            return true;
-
-        foreach (var ancestorId in EnumeratePrototypeAncestors(proto))
-        {
-            if (_ghostWatchPrototypeIds.Contains(ancestorId))
-                return true;
-        }
-
-        return false;
-    }
-
-    private IEnumerable<string> EnumeratePrototypeAncestors(EntityPrototype proto)
-    {
-        var queue = new Queue<string>();
-        var visited = new HashSet<string>();
-
-        foreach (var parent in proto.Parents ?? [])
-        {
-            queue.Enqueue(parent);
-        }
-
-        while (queue.Count > 0)
-        {
-            var id = queue.Dequeue();
-            if (!visited.Add(id))
-                continue;
-
-            yield return id;
-
-            if (!_prototype.TryIndex<EntityPrototype>(id, out var parent))
-                continue;
-
-            foreach (var gp in parent.Parents ?? [])
-            {
-                queue.Enqueue(gp);
-            }
-        }
-    }
-
-    private void SchedulePrune()
-    {
-        if (_pruneScheduledThisRound)
-            return;
-
-        _pruneScheduledThisRound = true;
-        var retentionDays = _cfg.GetCVar(CCVars.MonitoringLogRetentionDays);
-        var cutoff = DateTime.UtcNow.AddDays(-Math.Max(1, retentionDays));
-        _ = Task.Run(async () =>
-        {
-            try
-            {
-                var n = await _db.PrunePlayerMonitoringLogsAsync(cutoff);
-                if (n > 0)
-                    _sawmill.Info($"Pruned {n} player monitoring log rows older than retention.");
-            }
-            catch (Exception e)
-            {
-                _sawmill.Error($"Player monitoring prune failed: {e}");
-            }
-        });
     }
 
     private void OnNoJobs(NoJobsAvailableSpawningEvent ev)
@@ -435,94 +279,6 @@ public sealed class PlayerMonitoringLogSystem : EntitySystem
         catch (Exception e)
         {
             _sawmill.Error($"OnSpawnComplete monitoring: {e}");
-        }
-    }
-
-    /// <summary>
-    /// Called from <see cref="GameTicker"/> when the player is dumped to observer after reconnect (mind without entity / attach failed).
-    /// </summary>
-    public void OnReconnectDumpedToObserver(ICommonSession session, string subReason)
-    {
-        try
-        {
-            var details = JsonSerializer.SerializeToDocument(new
-            {
-                sub_reason = subReason,
-                lobby_enabled = _ticker.LobbyEnabled
-            });
-
-            TryEnqueue(new PendingRow
-            {
-                UserId = session.UserId.UserId,
-                LastSeenUserName = session.Name,
-                RoundId = _ticker.RoundId,
-                Type = PlayerMonitoringEventType.ReconnectDumpedToObserver,
-                Utc = DateTime.UtcNow,
-                Details = details
-            });
-
-            if (_cfg.GetCVar(CCVars.MonitoringAdminLogMirrorEnabled))
-            {
-                _adminLog.Add(LogType.PlayerMonitoringReconnectObserver, LogImpact.Medium,
-                    $"Player monitoring: {session.Name} reconnect observer ({subReason})");
-            }
-        }
-        catch (Exception e)
-        {
-            _sawmill.Error($"OnReconnectDumpedToObserver: {e}");
-        }
-    }
-
-    /// <summary>
-    /// Called from cryostorage when a player enters cryo.
-    /// </summary>
-    public void OnCryoEnter(NetUserId userId, string lastSeenUserName, EntityUid station)
-    {
-        try
-        {
-            if (_ticker.RunLevel != GameRunLevel.InRound)
-                return;
-
-            if (!_spawnedJob.TryGetValue(userId, out var snap))
-                return;
-
-            if (!_mind.TryGetMind(userId, out var mindId, out _))
-                return;
-
-            if (_roles.MindIsAntagonist(mindId))
-                return;
-
-            var minutes = (_timing.CurTime - snap.SpawnTime).TotalMinutes;
-            var stationName = MetaData(station).EntityName;
-            var details = JsonSerializer.SerializeToDocument(new
-            {
-                exit_kind = "cryo",
-                job = snap.JobId,
-                station = stationName,
-                minutes_in_round = minutes
-            });
-
-            TryEnqueue(new PendingRow
-            {
-                UserId = userId.UserId,
-                LastSeenUserName = lastSeenUserName,
-                RoundId = _ticker.RoundId,
-                Type = PlayerMonitoringEventType.MidroundExitJobNonAntag,
-                Utc = DateTime.UtcNow,
-                Details = details
-            });
-
-            _leftThisRound.Add(userId);
-
-            if (_cfg.GetCVar(CCVars.MonitoringAdminLogMirrorEnabled))
-            {
-                _adminLog.Add(LogType.PlayerMonitoringMidroundExit, LogImpact.Medium,
-                    $"Player monitoring: {lastSeenUserName} cryo (non-antag, job {snap.JobId})");
-            }
-        }
-        catch (Exception e)
-        {
-            _sawmill.Error($"OnCryoEnter monitoring: {e}");
         }
     }
 
@@ -631,9 +387,6 @@ public sealed class PlayerMonitoringLogSystem : EntitySystem
         MergeOrEnqueueMidroundDisconnect(userId, session.Name, snap, disconnectReason, redialFlag);
     }
 
-    /// <summary>
-    /// Disconnect while ghosting / observing without ever receiving a crew spawn snapshot this round.
-    /// </summary>
     private void TryObserverOnlyDisconnect(NetUserId userId, string lastSeenName, string? disconnectReason, bool? redialFlag)
     {
         if (!_mind.TryGetMind(userId, out var mindIdNullable, out var mindComp) || mindIdNullable is not { } mindId)
@@ -719,21 +472,20 @@ public sealed class PlayerMonitoringLogSystem : EntitySystem
         if (_cfg.GetCVar(CCVars.MonitoringAdminLogMirrorEnabled))
         {
             _adminLog.Add(LogType.PlayerMonitoringMidroundExit, LogImpact.Medium,
-                $"Player monitoring: {lastSeenName} disconnect (non-antag, job {snap.JobId})");
+                $"{new AdminLogAttributedUser(userId)} Player monitoring: {lastSeenName} disconnect (non-antag, job {snap.JobId})");
         }
     }
 
     private void TryEnqueue(PendingRow row)
     {
-        var cap = _cfg.GetCVar(CCVars.MonitoringLogQueueMax);
         lock (_queueLock)
         {
-            if (_queue.Count >= cap)
+            if (_queue.Count >= MonitoringEmitQueueMax)
             {
                 _drops++;
                 row.Details?.Dispose();
                 if (_drops % 100 == 1)
-                    _sawmill.Warning($"Player monitoring queue full (drops: {_drops})");
+                    _sawmill.Warning($"Player monitoring emit queue full (drops: {_drops})");
                 return;
             }
 

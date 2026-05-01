@@ -31,6 +31,7 @@ using Prometheus;
 using Robust.Server.GameObjects;
 using Robust.Shared;
 using Robust.Shared.Configuration;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -54,6 +55,7 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
     [Dependency] private readonly ISharedPlaytimeManager _playtime = default!;
     [Dependency] private readonly ISharedChatManager _chat = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IAdminLogQueuedSubscriber _adminLogQueuedSubscriber = default!;
 
     public const string SawmillId = "admin.logs";
 
@@ -420,6 +422,7 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
         {
             _logQueue.Enqueue(log);
             CacheLog(log);
+            _adminLogQueuedSubscriber.OnAdminLogQueued(log);
         }
     }
 

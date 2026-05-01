@@ -82,7 +82,6 @@ namespace Content.Server.Database
         public DbSet<RoleWhitelist> RoleWhitelists { get; set; } = null!;
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
-        public DbSet<AdminPlayerMonitoringLog> AdminPlayerMonitoringLog { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -175,21 +174,6 @@ namespace Content.Server.Database
 
             modelBuilder.Entity<AdminLogPlayer>()
                 .HasIndex(p => p.PlayerUserId);
-
-            modelBuilder.Entity<AdminPlayerMonitoringLog>()
-                .HasIndex(l => new { l.PlayerUserId, l.Date });
-
-            modelBuilder.Entity<AdminPlayerMonitoringLog>()
-                .HasIndex(l => l.RoundId);
-
-            modelBuilder.Entity<AdminPlayerMonitoringLog>()
-                .HasIndex(l => new { l.PlayerUserId, l.EventType, l.RoundId });
-
-            modelBuilder.Entity<AdminPlayerMonitoringLog>()
-                .HasOne(l => l.Round)
-                .WithMany()
-                .HasForeignKey(l => l.RoundId)
-                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Round>()
                 .HasIndex(round => round.StartDate);
@@ -694,36 +678,6 @@ namespace Content.Server.Database
         public Player Player { get; set; } = default!;
 
         [ForeignKey("RoundId,LogId")] public AdminLog Log { get; set; } = default!;
-    }
-
-    [Table("admin_player_monitoring_log")]
-    public sealed class AdminPlayerMonitoringLog
-    {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
-        [Required, ForeignKey(nameof(Round))]
-        public int RoundId { get; set; }
-
-        public Round Round { get; set; } = null!;
-
-        [Required]
-        public Guid PlayerUserId { get; set; }
-
-        [Required]
-        public string PlayerLastSeenUserName { get; set; } = string.Empty;
-
-        /// <summary>
-        /// Player monitoring event type (numeric enum in shared code) stored as int.
-        /// </summary>
-        [Required]
-        public int EventType { get; set; }
-
-        [Required]
-        public DateTime Date { get; set; }
-
-        [Column(TypeName = "jsonb")]
-        public JsonDocument? Details { get; set; }
     }
 
     /// <summary>

@@ -316,51 +316,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("admin_notes", (string)null);
                 });
 
-            modelBuilder.Entity("Content.Server.Database.AdminPlayerMonitoringLog", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("admin_player_monitoring_log_id");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("date");
-
-                    b.Property<string>("Details")
-                        .HasColumnType("jsonb")
-                        .HasColumnName("details");
-
-                    b.Property<int>("EventType")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("event_type");
-
-                    b.Property<string>("PlayerLastSeenUserName")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("player_last_seen_user_name");
-
-                    b.Property<Guid>("PlayerUserId")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("player_user_id");
-
-                    b.Property<int>("RoundId")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("round_id");
-
-                    b.HasKey("Id")
-                        .HasName("PK_admin_player_monitoring_log");
-
-                    b.HasIndex("RoundId")
-                        .HasDatabaseName("IX_admin_player_monitoring_log_round_id");
-
-                    b.HasIndex("PlayerUserId", "Date");
-
-                    b.HasIndex("PlayerUserId", "EventType", "RoundId");
-
-                    b.ToTable("admin_player_monitoring_log", (string)null);
-                });
-
             modelBuilder.Entity("Content.Server.Database.AdminRank", b =>
                 {
                     b.Property<int>("Id")
@@ -1564,18 +1519,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("LastEditedBy");
 
                     b.Navigation("Player");
-
-                    b.Navigation("Round");
-                });
-
-            modelBuilder.Entity("Content.Server.Database.AdminPlayerMonitoringLog", b =>
-                {
-                    b.HasOne("Content.Server.Database.Round", "Round")
-                        .WithMany()
-                        .HasForeignKey("RoundId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_admin_player_monitoring_log_round_round_id");
 
                     b.Navigation("Round");
                 });

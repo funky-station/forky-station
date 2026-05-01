@@ -25,6 +25,11 @@ public interface IAdminLogManager : ISharedAdminLogManager
     /// </summary>
     Task FlushInRoundAdminLogsAsync();
 
+    /// <summary>
+    /// Alias for <see cref="FlushInRoundAdminLogsAsync"/> for callers that run immediately before reading persisted admin logs.
+    /// </summary>
+    Task FlushPendingAdminLogsAsync() => FlushInRoundAdminLogsAsync();
+
     Task<List<SharedAdminLog>> All(LogFilter? filter = null, Func<List<SharedAdminLog>>? listProvider = null);
     IAsyncEnumerable<string> AllMessages(LogFilter? filter = null);
     IAsyncEnumerable<JsonDocument> AllJson(LogFilter? filter = null);

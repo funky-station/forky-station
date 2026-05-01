@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2026 Space Wizards Federation
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Administration.Logs;

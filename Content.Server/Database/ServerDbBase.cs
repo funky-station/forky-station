@@ -1592,35 +1592,6 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
         #region Player monitoring logs
 
-        public async Task AddPlayerMonitoringLogAsync(AdminPlayerMonitoringLog row, CancellationToken cancel = default)
-        {
-            await using var db = await GetDb(cancel);
-            db.DbContext.AdminPlayerMonitoringLog.Add(row);
-            await db.DbContext.SaveChangesAsync(cancel);
-        }
-
-        public async Task AddPlayerMonitoringLogsAsync(IReadOnlyList<AdminPlayerMonitoringLog> rows, CancellationToken cancel = default)
-        {
-            if (rows.Count == 0)
-                return;
-
-            await using var db = await GetDb(cancel);
-            db.DbContext.AdminPlayerMonitoringLog.AddRange(rows);
-            await db.DbContext.SaveChangesAsync(cancel);
-        }
-
-        public async Task UpdatePlayerMonitoringLogDetailsAsync(int id, JsonDocument mergedDetails, CancellationToken cancel = default)
-        {
-            await using var db = await GetDb(cancel);
-            var row = await db.DbContext.AdminPlayerMonitoringLog.SingleOrDefaultAsync(l => l.Id == id, cancel);
-            if (row == null)
-                return;
-
-            row.Details?.Dispose();
-            row.Details = mergedDetails;
-            await db.DbContext.SaveChangesAsync(cancel);
-        }
-
         public async Task<Guid?> ResolveUserIdByExactNameAsync(string userName, CancellationToken cancel = default)
         {
             var trimmed = userName.Trim();
@@ -1640,51 +1611,101 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             DateTime sinceUtc,
             int pageOffset,
             int pageSize,
+            Func<JsonDocument, bool>? ghostRoleTakenInclude,
             CancellationToken cancel = default)
         {
             await using var db = await GetDb(cancel);
+            var ctx = db.DbContext;
 
-            var baseQuery = db.DbContext.AdminPlayerMonitoringLog.Where(l => l.PlayerUserId == userId && l.Date >= sinceUtc);
+            var monitoringTypes = new[]
+            {
+                LogType.PlayerMonitoring,
+                LogType.PlayerMonitoringMidroundExit,
+                LogType.PlayerMonitoringReconnectObserver
+            };
 
-            var flaggedDenom = await baseQuery
-                .Select(l => l.RoundId)
-                .Distinct()
-                .CountAsync(cancel);
+            var coreRows = await (
+                    from p in ctx.AdminLogPlayer.AsNoTracking()
+                    join l in ctx.AdminLog.AsNoTracking() on new { p.RoundId, LogId = p.LogId } equals new { l.RoundId, LogId = l.Id }
+                    join pl in ctx.Player.AsNoTracking() on p.PlayerUserId equals pl.UserId into plJoin
+                    from pl in plJoin.DefaultIfEmpty()
+                    where p.PlayerUserId == userId && l.Date >= sinceUtc && (
+                        monitoringTypes.Contains(l.Type)
+                        || (l.Type == LogType.Action && l.Message.Contains("entered into cryostorage")))
+                    select new { Log = l, DisplayName = pl != null ? pl.LastSeenUserName : p.PlayerUserId.ToString() })
+                .ToListAsync(cancel);
 
-            var roundsPlayedDenom = await db.DbContext.Round
+            var combined = new List<(AdminLog Log, string DisplayName)>(coreRows.Count + 32);
+            foreach (var r in coreRows)
+                combined.Add((r.Log, r.DisplayName));
+
+            if (ghostRoleTakenInclude != null)
+            {
+                var ghostCandidates = await (
+                        from p in ctx.AdminLogPlayer.AsNoTracking()
+                        join l in ctx.AdminLog.AsNoTracking() on new { p.RoundId, LogId = p.LogId } equals new { l.RoundId, LogId = l.Id }
+                        join pl in ctx.Player.AsNoTracking() on p.PlayerUserId equals pl.UserId into plJoin
+                        from pl in plJoin.DefaultIfEmpty()
+                        where p.PlayerUserId == userId && l.Date >= sinceUtc && l.Type == LogType.GhostRoleTaken
+                        select new { Log = l, DisplayName = pl != null ? pl.LastSeenUserName : p.PlayerUserId.ToString() })
+                    .ToListAsync(cancel);
+
+                foreach (var g in ghostCandidates)
+                {
+                    if (ghostRoleTakenInclude(g.Log.Json))
+                        combined.Add((g.Log, g.DisplayName));
+                }
+            }
+
+            combined.Sort((a, b) =>
+            {
+                var c = b.Log.Date.CompareTo(a.Log.Date);
+                return c != 0 ? c : b.Log.Id.CompareTo(a.Log.Id);
+            });
+
+            const int maxRows = 10_000;
+            if (combined.Count > maxRows)
+                combined.RemoveRange(maxRows, combined.Count - maxRows);
+
+            var flaggedDenom = combined.Select(x => x.Log.RoundId).Distinct().Count();
+
+            var roundsPlayedDenom = await ctx.Round
                 .AsNoTracking()
                 .Where(r => r.StartDate >= sinceUtc && r.Players.Any(p => p.UserId == userId))
                 .Select(r => r.Id)
                 .Distinct()
                 .CountAsync(cancel);
 
-            var typeAgg = await baseQuery
-                .GroupBy(l => l.EventType)
-                .Select(g => new { Type = g.Key, Count = g.Count(), DistinctRounds = g.Select(x => x.RoundId).Distinct().Count() })
-                .ToListAsync(cancel);
-
             var summary = new Dictionary<PlayerMonitoringEventType, PlayerMonitoringSummaryRow>();
-            foreach (var row in typeAgg)
+            foreach (var g in combined.GroupBy(x => PlayerMonitoringLogMappings.ResolveEventType(x.Log.Type, x.Log.Json, x.Log.Message)))
             {
-                summary[(PlayerMonitoringEventType)row.Type] = new PlayerMonitoringSummaryRow
+                summary[g.Key] = new PlayerMonitoringSummaryRow
                 {
-                    Count = row.Count,
-                    DistinctRounds = row.DistinctRounds
+                    Count = g.Count(),
+                    DistinctRounds = g.Select(x => x.Log.RoundId).Distinct().Count()
                 };
             }
 
             var take = pageSize + 1;
-            var page = await baseQuery
-                .OrderByDescending(l => l.Date)
-                .ThenByDescending(l => l.Id)
-                .Skip(pageOffset)
-                .Take(take)
-                .AsNoTracking()
-                .ToListAsync(cancel);
-
-            var hasNext = page.Count > pageSize;
+            var slice = combined.Skip(pageOffset).Take(take).ToList();
+            var hasNext = slice.Count > pageSize;
             if (hasNext)
-                page.RemoveAt(page.Count - 1);
+                slice.RemoveAt(slice.Count - 1);
+
+            var page = new List<PlayerMonitoringLogView>(slice.Count);
+            foreach (var (log, name) in slice)
+            {
+                var ev = PlayerMonitoringLogMappings.ResolveEventType(log.Type, log.Json, log.Message);
+                page.Add(new PlayerMonitoringLogView
+                {
+                    RoundId = log.RoundId,
+                    LogId = log.Id,
+                    Date = log.Date,
+                    EventType = ev,
+                    DisplayUserName = name,
+                    DetailJson = JsonDocument.Parse(log.Json.RootElement.GetRawText())
+                });
+            }
 
             return new PlayerMonitoringQueryResult
             {
@@ -1809,14 +1830,6 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             }
 
             return result;
-        }
-
-        public async Task<int> PrunePlayerMonitoringLogsAsync(DateTime cutoffUtc, CancellationToken cancel = default)
-        {
-            await using var db = await GetDb(cancel);
-            return await db.DbContext.AdminPlayerMonitoringLog
-                .Where(l => l.Date < cutoffUtc)
-                .ExecuteDeleteAsync(cancel);
         }
 
         /// <summary>

@@ -336,53 +336,6 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("admin_notes", (string)null);
                 });
 
-            modelBuilder.Entity("Content.Server.Database.AdminPlayerMonitoringLog", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("admin_player_monitoring_log_id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("date");
-
-                    b.Property<JsonDocument>("Details")
-                        .HasColumnType("jsonb")
-                        .HasColumnName("details");
-
-                    b.Property<int>("EventType")
-                        .HasColumnType("integer")
-                        .HasColumnName("event_type");
-
-                    b.Property<string>("PlayerLastSeenUserName")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("player_last_seen_user_name");
-
-                    b.Property<Guid>("PlayerUserId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("player_user_id");
-
-                    b.Property<int>("RoundId")
-                        .HasColumnType("integer")
-                        .HasColumnName("round_id");
-
-                    b.HasKey("Id")
-                        .HasName("PK_admin_player_monitoring_log");
-
-                    b.HasIndex("RoundId")
-                        .HasDatabaseName("IX_admin_player_monitoring_log_round_id");
-
-                    b.HasIndex("PlayerUserId", "Date");
-
-                    b.HasIndex("PlayerUserId", "EventType", "RoundId");
-
-                    b.ToTable("admin_player_monitoring_log", (string)null);
-                });
-
             modelBuilder.Entity("Content.Server.Database.AdminRank", b =>
                 {
                     b.Property<int>("Id")
@@ -1647,18 +1600,6 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("LastEditedBy");
 
                     b.Navigation("Player");
-
-                    b.Navigation("Round");
-                });
-
-            modelBuilder.Entity("Content.Server.Database.AdminPlayerMonitoringLog", b =>
-                {
-                    b.HasOne("Content.Server.Database.Round", "Round")
-                        .WithMany()
-                        .HasForeignKey("RoundId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_admin_player_monitoring_log_round_round_id");
 
                     b.Navigation("Round");
                 });
