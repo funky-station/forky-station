@@ -8,6 +8,7 @@ using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Eui;
 using Robust.Shared.Configuration;
+using Robust.Shared.IoC;
 using Robust.Shared.Log;
 using Robust.Shared.Prototypes;
 
@@ -28,10 +29,15 @@ public sealed class PlayerMonitoringLogsEui : BaseEui
     private DateTime _rangeStart;
     private int _pageSize = 200;
 
+    public PlayerMonitoringLogsEui()
+    {
+        IoCManager.InjectDependencies(this);
+        _sawmill = _logManager.GetSawmill("admin.player-monitoring");
+    }
+
     public override void Opened()
     {
         base.Opened();
-        _sawmill = _logManager.GetSawmill("admin.player-monitoring");
         _adminManager.OnPermsChanged += OnPermsChanged;
         _pageSize = Math.Clamp(_cfg.GetCVar(CCVars.MonitoringLogDetailPageSize), 1, 500);
         StateDirty();
