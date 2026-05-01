@@ -10,6 +10,7 @@
 // SPDX-License-Identifier: MIT
 
 using System.Globalization;
+using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.Ghost;
@@ -60,6 +61,7 @@ public sealed class CryostorageSystem : SharedCryostorageSystem
     [Dependency] private readonly StationRecordsSystem _stationRecords = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly PlayerMonitoringLogSystem _playerMonitoring = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -230,6 +232,12 @@ public sealed class CryostorageSystem : SharedCryostorageSystem
         Dirty(ent, comp);
         UpdateCryostorageUIState((cryostorageEnt.Value, cryostorageComponent));
         AdminLog.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(ent):player} was entered into cryostorage inside of {ToPrettyString(cryostorageEnt.Value)}");
+
+        if (userId != null && station != null)
+        {
+            var who = _playerManager.TryGetSessionById(userId.Value, out var cryoSession) ? cryoSession.Name : name;
+            _playerMonitoring.OnCryoEnter(userId.Value, who, station.Value);
+        }
 
         if (!TryComp<StationRecordsComponent>(station, out var stationRecords))
             return;

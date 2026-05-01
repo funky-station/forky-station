@@ -1,0 +1,31 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               Title="{Loc player-monitoring-window-title}"
+               SetSize="900 600">
+    <BoxContainer Orientation="Vertical" Margin="8">
+        <BoxContainer Orientation="Horizontal">
+            <Label Text="{Loc player-monitoring-username-exact}" MinWidth="140"/>
+            <LineEdit Name="UserNameEdit" Access="Public" HorizontalExpand="True" PlaceHolder="{Loc player-monitoring-username-placeholder}"/>
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" Margin="0 4 0 0">
+            <Label Text="{Loc player-monitoring-days}" MinWidth="140"/>
+            <SpinBox Name="DaysSpin" Access="Public" MinWidth="120"/>
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" Margin="0 4 0 0">
+            <Label Text="{Loc player-monitoring-denominator}" MinWidth="140"/>
+            <OptionButton Name="DenominatorOption" Access="Public" MinWidth="220"/>
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" Margin="0 8 0 0">
+            <Button Name="RefreshButton" Access="Public" Text="{Loc player-monitoring-refresh}" StyleClasses="ButtonSquare"/>
+            <Button Name="LoadMoreButton" Access="Public" Text="{Loc player-monitoring-load-more}" StyleClasses="OpenLeft" Disabled="True"/>
+        </BoxContainer>
+        <Label Name="StatusLabel" Access="Public" Margin="0 6 0 0"/>
+        <Label Text="{Loc player-monitoring-summary-header}" Margin="0 8 0 2"/>
+        <ScrollContainer VerticalExpand="True" MaxHeight="180">
+            <BoxContainer Name="SummaryContainer" Access="Public" Orientation="Vertical"/>
+        </ScrollContainer>
+        <Label Text="{Loc player-monitoring-details-header}" Margin="0 8 0 2"/>
+        <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+            <BoxContainer Name="DetailsContainer" Access="Public" Orientation="Vertical" HorizontalExpand="True"/>
+        </ScrollContainer>
+    </BoxContainer>
+</DefaultWindow>

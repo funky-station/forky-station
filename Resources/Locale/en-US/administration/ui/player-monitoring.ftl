@@ -1,0 +1,15 @@
+player-monitoring-window-title = Player monitoring logs
+player-monitoring-username-exact = Username (exact)
+player-monitoring-username-placeholder = Exact match, case-insensitive
+player-monitoring-days = Days back
+player-monitoring-denominator = Highlight percentages
+player-monitoring-denom-flagged = Flagged rounds (any monitoring row)
+player-monitoring-denom-played = Rounds played (round roster)
+player-monitoring-refresh = Refresh
+player-monitoring-load-more = Load more
+player-monitoring-summary-header = Summary (full range)
+player-monitoring-details-header = Details (newest first)
+player-monitoring-user-not-found = No player row matched that exact username.
+player-monitoring-status = Flagged-rounds denominator: { $flagged } | Rounds-played denominator: { $played } | Range from (UTC): { $from }
+player-monitoring-summary-line = { $type } | count { $count } | distinct rounds { $drounds } | % flagged { $pf } | % played { $pp }
+player-monitoring-detail-line = [{ $utc }] round { $round } | { $type } | { $user } | job { $job } | station { $station } | sub { $sub } | exit { $exit } | reason { $reason } | redial { $redial } | min { $min } | watch-proto { $watchedproto } | ghost-role { $grname } | rnd-min { $rndmin } | afk-max { $afkmax } | afk-thr { $afkthr }

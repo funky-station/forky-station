@@ -517,4 +517,14 @@ public enum LogType
     /// Events related to players connecting/disconnecting.
     /// </summary>
     Connection = 104,
+
+    /// <summary>
+    /// Player monitoring: mid-round exit as crew without antagonist role.
+    /// </summary>
+    PlayerMonitoringMidroundExit = 105,
+
+    /// <summary>
+    /// Player monitoring: reconnect dumped to observer (mind without body / attach failed).
+    /// </summary>
+    PlayerMonitoringReconnectObserver = 106,
 }

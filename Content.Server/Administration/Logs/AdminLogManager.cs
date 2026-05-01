@@ -315,6 +315,59 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
         }
     }
 
+    /// <inheritdoc />
+    public async Task FlushInRoundAdminLogsAsync()
+    {
+        if (!Enabled)
+            return;
+
+        const int maxWaitMs = 30_000;
+        var waited = 0;
+        while (Interlocked.CompareExchange(ref _savingLogs, 1, 0) != 0)
+        {
+            await Task.Delay(1);
+            waited++;
+            if (waited >= maxWaitMs)
+            {
+                _sawmill.Warning("FlushInRoundAdminLogsAsync timed out waiting for admin log save lock.");
+                return;
+            }
+        }
+
+        try
+        {
+            var copy = new List<AdminLog>();
+            while (_logQueue.TryDequeue(out var log))
+                copy.Add(log);
+
+            Queue.Set(_logQueue.Count);
+
+            if (copy.Count == 0)
+                return;
+
+            _nextUpdateTime = _timing.RealTime.Add(_queueSendDelay);
+
+            _sawmill.Debug($"FlushInRound: saving {copy.Count} admin logs.");
+
+            if (_metricsEnabled)
+                LogsSent.Inc(copy.Count);
+
+            if (_metricsEnabled)
+            {
+                using (DatabaseUpdateTime.NewTimer())
+                    await _db.AddAdminLogs(copy);
+            }
+            else
+            {
+                await _db.AddAdminLogs(copy);
+            }
+        }
+        finally
+        {
+            Interlocked.Exchange(ref _savingLogs, 0);
+        }
+    }
+
     public override void Add(LogType type, [System.Runtime.CompilerServices.InterpolatedStringHandlerArgument("")] ref LogStringHandler handler)
     {
         Add(type, LogImpact.Medium, ref handler);

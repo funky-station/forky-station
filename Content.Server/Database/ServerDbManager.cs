@@ -245,6 +245,33 @@ namespace Content.Server.Database
 
         #endregion
 
+        #region Player monitoring logs
+
+        Task AddPlayerMonitoringLogAsync(AdminPlayerMonitoringLog row, CancellationToken cancel = default);
+
+        Task AddPlayerMonitoringLogsAsync(IReadOnlyList<AdminPlayerMonitoringLog> rows, CancellationToken cancel = default);
+
+        Task UpdatePlayerMonitoringLogDetailsAsync(int id, JsonDocument mergedDetails, CancellationToken cancel = default);
+
+        Task<Guid?> ResolveUserIdByExactNameAsync(string userName, CancellationToken cancel = default);
+
+        Task<PlayerMonitoringQueryResult> GetPlayerMonitoringLogsAsync(
+            Guid userId,
+            DateTime sinceUtc,
+            int pageOffset,
+            int pageSize,
+            CancellationToken cancel = default);
+
+        Task<List<PlayerMonitoringLongAfkAdminLogsEntry>> QueryPlayersLongAfkFromAdminLogsAsync(
+            int roundId,
+            DateTime roundEndUtc,
+            double minIdleMinutes,
+            CancellationToken cancel = default);
+
+        Task<int> PrunePlayerMonitoringLogsAsync(DateTime cutoffUtc, CancellationToken cancel = default);
+
+        #endregion
+
         #region Whitelist
 
         Task<bool> GetWhitelistStatusAsync(NetUserId player);
@@ -722,6 +749,57 @@ namespace Content.Server.Database
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.AddAdminLogs(logs));
+        }
+
+        public Task AddPlayerMonitoringLogAsync(AdminPlayerMonitoringLog row, CancellationToken cancel = default)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.AddPlayerMonitoringLogAsync(row, cancel));
+        }
+
+        public Task AddPlayerMonitoringLogsAsync(IReadOnlyList<AdminPlayerMonitoringLog> rows, CancellationToken cancel = default)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.AddPlayerMonitoringLogsAsync(rows, cancel));
+        }
+
+        public Task UpdatePlayerMonitoringLogDetailsAsync(int id, JsonDocument mergedDetails, CancellationToken cancel = default)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.UpdatePlayerMonitoringLogDetailsAsync(id, mergedDetails, cancel));
+        }
+
+        public Task<Guid?> ResolveUserIdByExactNameAsync(string userName, CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.ResolveUserIdByExactNameAsync(userName, cancel));
+        }
+
+        public Task<PlayerMonitoringQueryResult> GetPlayerMonitoringLogsAsync(
+            Guid userId,
+            DateTime sinceUtc,
+            int pageOffset,
+            int pageSize,
+            CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPlayerMonitoringLogsAsync(userId, sinceUtc, pageOffset, pageSize, cancel));
+        }
+
+        public Task<List<PlayerMonitoringLongAfkAdminLogsEntry>> QueryPlayersLongAfkFromAdminLogsAsync(
+            int roundId,
+            DateTime roundEndUtc,
+            double minIdleMinutes,
+            CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.QueryPlayersLongAfkFromAdminLogsAsync(roundId, roundEndUtc, minIdleMinutes, cancel));
+        }
+
+        public Task<int> PrunePlayerMonitoringLogsAsync(DateTime cutoffUtc, CancellationToken cancel = default)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.PrunePlayerMonitoringLogsAsync(cutoffUtc, cancel));
         }
 
         public IAsyncEnumerable<string> GetAdminLogMessages(LogFilter? filter = null)

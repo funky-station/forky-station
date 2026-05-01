@@ -20,6 +20,11 @@ public interface IAdminLogManager : ISharedAdminLogManager
     void RoundStarting(int id);
     void RunLevelChanged(GameRunLevel level);
 
+    /// <summary>
+    /// Persists queued in-round logs only; does not flush or drop the pre-round queue (safe during lobby transition).
+    /// </summary>
+    Task FlushInRoundAdminLogsAsync();
+
     Task<List<SharedAdminLog>> All(LogFilter? filter = null, Func<List<SharedAdminLog>>? listProvider = null);
     IAsyncEnumerable<string> AllMessages(LogFilter? filter = null);
     IAsyncEnumerable<JsonDocument> AllJson(LogFilter? filter = null);

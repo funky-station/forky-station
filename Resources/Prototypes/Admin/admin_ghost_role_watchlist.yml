@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2026 Space Wizards Federation
+# SPDX-License-Identifier: MIT
+#
+# Entity prototypes whose ghost roles are logged under PlayerMonitoringEventType.HighValueGhostRoleTaken
+# when a ghost claims them. Matching uses this prototype ID or any ancestor in the entity inheritance chain.
+#
+# Switch lists via cvar monitoring.ghost_watchlist_prototype (default: AdminGhostRoleWatchlist).
+
+- type: playerMonitoringGhostWatchlist
+  id: AdminGhostRoleWatchlist
+  ghostRoles:
+    # Syndicate reinforcement radios
+    - ReinforcementRadioSyndicate
+    - ReinforcementRadioSyndicateNukeops
+    - ReinforcementRadioSyndicateAncestor
+    - ReinforcementRadioSyndicateAncestorNukeops
+    - ReinforcementRadioSyndicateSyndiCat
+    - ReinforcementRadioSyndicateCyborgAssault
+    # Dragons (takeover + event spawner)
+    - MobDragon
+    - MobDragonDungeon
+    - SpawnPointGhostDragon
+    # High-impact ghost antags / lone op (not standard team nukeops spawn)
+    - SpawnPointGhostSpaceNinja
+    - SpawnPointGhostWizard
+    - SpawnPointLoneNukeOperative

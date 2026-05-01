@@ -36,11 +36,13 @@
 
 using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Net;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
@@ -1584,6 +1586,269 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             db.DbContext.RoleWhitelists.Remove(entry);
             await db.DbContext.SaveChangesAsync();
             return true;
+        }
+
+        #endregion
+
+        #region Player monitoring logs
+
+        public async Task AddPlayerMonitoringLogAsync(AdminPlayerMonitoringLog row, CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+            db.DbContext.AdminPlayerMonitoringLog.Add(row);
+            await db.DbContext.SaveChangesAsync(cancel);
+        }
+
+        public async Task AddPlayerMonitoringLogsAsync(IReadOnlyList<AdminPlayerMonitoringLog> rows, CancellationToken cancel = default)
+        {
+            if (rows.Count == 0)
+                return;
+
+            await using var db = await GetDb(cancel);
+            db.DbContext.AdminPlayerMonitoringLog.AddRange(rows);
+            await db.DbContext.SaveChangesAsync(cancel);
+        }
+
+        public async Task UpdatePlayerMonitoringLogDetailsAsync(int id, JsonDocument mergedDetails, CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+            var row = await db.DbContext.AdminPlayerMonitoringLog.SingleOrDefaultAsync(l => l.Id == id, cancel);
+            if (row == null)
+                return;
+
+            row.Details?.Dispose();
+            row.Details = mergedDetails;
+            await db.DbContext.SaveChangesAsync(cancel);
+        }
+
+        public async Task<Guid?> ResolveUserIdByExactNameAsync(string userName, CancellationToken cancel = default)
+        {
+            var trimmed = userName.Trim();
+            if (trimmed.Length == 0)
+                return null;
+
+            await using var db = await GetDb(cancel);
+            var lower = trimmed.ToLowerInvariant();
+            return await db.DbContext.Player
+                .Where(p => p.LastSeenUserName.ToLower() == lower)
+                .Select(p => (Guid?)p.UserId)
+                .FirstOrDefaultAsync(cancel);
+        }
+
+        public async Task<PlayerMonitoringQueryResult> GetPlayerMonitoringLogsAsync(
+            Guid userId,
+            DateTime sinceUtc,
+            int pageOffset,
+            int pageSize,
+            CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+
+            var baseQuery = db.DbContext.AdminPlayerMonitoringLog.Where(l => l.PlayerUserId == userId && l.Date >= sinceUtc);
+
+            var flaggedDenom = await baseQuery
+                .Select(l => l.RoundId)
+                .Distinct()
+                .CountAsync(cancel);
+
+            var roundsPlayedDenom = await db.DbContext.Round
+                .AsNoTracking()
+                .Where(r => r.StartDate >= sinceUtc && r.Players.Any(p => p.UserId == userId))
+                .Select(r => r.Id)
+                .Distinct()
+                .CountAsync(cancel);
+
+            var typeAgg = await baseQuery
+                .GroupBy(l => l.EventType)
+                .Select(g => new { Type = g.Key, Count = g.Count(), DistinctRounds = g.Select(x => x.RoundId).Distinct().Count() })
+                .ToListAsync(cancel);
+
+            var summary = new Dictionary<PlayerMonitoringEventType, PlayerMonitoringSummaryRow>();
+            foreach (var row in typeAgg)
+            {
+                summary[(PlayerMonitoringEventType)row.Type] = new PlayerMonitoringSummaryRow
+                {
+                    Count = row.Count,
+                    DistinctRounds = row.DistinctRounds
+                };
+            }
+
+            var take = pageSize + 1;
+            var page = await baseQuery
+                .OrderByDescending(l => l.Date)
+                .ThenByDescending(l => l.Id)
+                .Skip(pageOffset)
+                .Take(take)
+                .AsNoTracking()
+                .ToListAsync(cancel);
+
+            var hasNext = page.Count > pageSize;
+            if (hasNext)
+                page.RemoveAt(page.Count - 1);
+
+            return new PlayerMonitoringQueryResult
+            {
+                Page = page,
+                HasNext = hasNext,
+                FlaggedRoundsDenominator = flaggedDenom,
+                RoundsPlayedDenominator = roundsPlayedDenom,
+                Summary = summary
+            };
+        }
+
+        /// <summary>
+        /// Longest idle span (minutes) within [<paramref name="roundStartUtc"/>, <paramref name="roundEndUtc"/>],
+        /// using attributed admin log timestamps. Gaps count from round start to first log, between logs, and from last log to max(round end, last log).
+        /// </summary>
+        /// <returns>Zero when <paramref name="playerLogDatesUtc"/> is empty.</returns>
+        public static double ComputeMaxIdleGapMinutes(
+            DateTime roundEndUtc,
+            DateTime? roundStartUtc,
+            IReadOnlyList<DateTime> playerLogDatesUtc)
+        {
+            if (playerLogDatesUtc.Count == 0)
+                return 0;
+
+            var logs = playerLogDatesUtc.Select(AssumeUtcForMonitoring).OrderBy(x => x).ToList();
+            var end = AssumeUtcForMonitoring(roundEndUtc);
+            var lastLog = logs[^1];
+            var timelineEnd = end > lastLog ? end : lastLog;
+
+            DateTime timelineStart;
+            if (roundStartUtc is { } rs)
+            {
+                timelineStart = AssumeUtcForMonitoring(rs);
+                if (timelineStart > timelineEnd)
+                    timelineStart = timelineEnd;
+            }
+            else
+            {
+                timelineStart = logs[0];
+                if (timelineStart > timelineEnd)
+                    timelineStart = timelineEnd;
+            }
+
+            var filtered = logs.Where(t => t >= timelineStart && t <= timelineEnd).ToList();
+            if (filtered.Count == 0)
+                return (timelineEnd - timelineStart).TotalMinutes;
+
+            var maxGap = 0d;
+            var prev = timelineStart;
+            foreach (var t in filtered)
+            {
+                maxGap = Math.Max(maxGap, (t - prev).TotalMinutes);
+                prev = t;
+            }
+
+            maxGap = Math.Max(maxGap, (timelineEnd - prev).TotalMinutes);
+            return maxGap;
+        }
+
+        private static DateTime AssumeUtcForMonitoring(DateTime dt)
+        {
+            return dt.Kind switch
+            {
+                DateTimeKind.Utc => dt,
+                DateTimeKind.Local => dt.ToUniversalTime(),
+                _ => DateTime.SpecifyKind(dt, DateTimeKind.Utc)
+            };
+        }
+
+        /// <summary>
+        /// Players in <paramref name="roundId"/> whose longest admin-log idle gap meets <paramref name="minIdleMinutes"/>.
+        /// </summary>
+        public async Task<List<PlayerMonitoringLongAfkAdminLogsEntry>> QueryPlayersLongAfkFromAdminLogsAsync(
+            int roundId,
+            DateTime roundEndUtc,
+            double minIdleMinutes,
+            CancellationToken cancel = default)
+        {
+            if (roundId == 0 || minIdleMinutes <= 0)
+                return new List<PlayerMonitoringLongAfkAdminLogsEntry>();
+
+            await using var db = await GetDb(cancel);
+            var ctx = db.DbContext;
+
+            var roundExists = await ctx.Round.AsNoTracking()
+                .AnyAsync(r => r.Id == roundId, cancel);
+
+            if (!roundExists)
+                return new List<PlayerMonitoringLongAfkAdminLogsEntry>();
+
+            var roundStartNullable = await ctx.Round.AsNoTracking()
+                .Where(r => r.Id == roundId)
+                .Select(r => r.StartDate)
+                .SingleOrDefaultAsync(cancel);
+
+            var rows = await ctx.AdminLogPlayer.AsNoTracking()
+                .Where(p => p.RoundId == roundId)
+                .Join(
+                    ctx.AdminLog.AsNoTracking().Where(l => l.RoundId == roundId),
+                    p => new { p.RoundId, LogId = p.LogId },
+                    l => new { l.RoundId, LogId = l.Id },
+                    (p, l) => new { p.PlayerUserId, l.Date })
+                .ToListAsync(cancel);
+
+            var grouped = rows.GroupBy(x => x.PlayerUserId);
+            var userIds = grouped.Select(g => g.Key).ToList();
+
+            var nameLookup = await ctx.Player.AsNoTracking()
+                .Where(pl => userIds.Contains(pl.UserId))
+                .ToDictionaryAsync(pl => pl.UserId, pl => pl.LastSeenUserName, cancel);
+
+            var result = new List<PlayerMonitoringLongAfkAdminLogsEntry>();
+            foreach (var g in grouped)
+            {
+                var dates = g.Select(x => x.Date).ToList();
+                var maxIdle = ComputeMaxIdleGapMinutes(roundEndUtc, roundStartNullable, dates);
+                if (maxIdle < minIdleMinutes)
+                    continue;
+
+                var name = nameLookup.GetValueOrDefault(g.Key) ?? g.Key.ToString();
+                result.Add(new PlayerMonitoringLongAfkAdminLogsEntry(g.Key, name, maxIdle));
+            }
+
+            return result;
+        }
+
+        public async Task<int> PrunePlayerMonitoringLogsAsync(DateTime cutoffUtc, CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+            return await db.DbContext.AdminPlayerMonitoringLog
+                .Where(l => l.Date < cutoffUtc)
+                .ExecuteDeleteAsync(cancel);
+        }
+
+        /// <summary>
+        /// Merge JSON object fields from <paramref name="patch"/> into the row's existing details (or replace if null).
+        /// </summary>
+        public static JsonDocument MergeMonitoringDetails(JsonDocument? existing, JsonDocument patch)
+        {
+            JsonObject root;
+            if (existing == null)
+            {
+                root = new JsonObject();
+            }
+            else
+            {
+                var node = JsonNode.Parse(existing.RootElement.GetRawText());
+                root = node as JsonObject ?? new JsonObject();
+            }
+
+            var patchObj = JsonNode.Parse(patch.RootElement.GetRawText()) as JsonObject ?? new JsonObject();
+            foreach (var kv in patchObj)
+            {
+                root[kv.Key] = kv.Value?.DeepClone();
+            }
+
+            var stream = new MemoryStream();
+            using (var writer = new Utf8JsonWriter(stream))
+            {
+                root.WriteTo(writer);
+            }
+
+            stream.Position = 0;
+            return JsonDocument.Parse(stream);
         }
 
         #endregion

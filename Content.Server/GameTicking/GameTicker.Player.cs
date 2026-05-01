@@ -129,7 +129,7 @@ namespace Content.Server.GameTicking
                         // This player is joining the game with an existing mind, but the mind has no entity.
                         // Their entity was probably deleted sometime while they were disconnected, or they were an observer.
                         // Instead of allowing them to spawn in, we will dump and their existing mind in an observer ghost.
-                        SpawnObserverWaitDb();
+                        SpawnObserverWaitDb("mind_no_entity");
                     }
                     else
                     {
@@ -141,7 +141,7 @@ namespace Content.Server.GameTicking
                         {
                             Log.Error(
                                 $"Failed to attach player {session} with mind {ToPrettyString(mindId)} to its current entity {ToPrettyString(mind.CurrentEntity)}");
-                            SpawnObserverWaitDb();
+                            SpawnObserverWaitDb("attach_failed");
                         }
                     }
 
@@ -183,7 +183,7 @@ namespace Content.Server.GameTicking
                 SpawnPlayer(session, EntityUid.Invalid);
             }
 
-            async void SpawnObserverWaitDb()
+            async void SpawnObserverWaitDb(string subReason)
             {
                 try
                 {
@@ -196,6 +196,7 @@ namespace Content.Server.GameTicking
                     return;
                 }
 
+                _playerMonitoring.OnReconnectDumpedToObserver(session, subReason);
                 JoinAsObserver(session);
             }
 
