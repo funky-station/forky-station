@@ -1,6 +1,7 @@
+using Content.Server.Administration.Logs;
 using Content.Server.Database;
 
-namespace Content.Server.Administration.Logs;
+namespace Content.Server._Funkystation.Administration.Logs;
 
 /// <summary>
 /// Extension point for post-queue admin log hooks; player monitoring no longer duplicates rows here.

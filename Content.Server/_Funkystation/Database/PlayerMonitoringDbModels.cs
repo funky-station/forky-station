@@ -1,8 +1,8 @@
 using System.Text.Json;
-using Content.Shared.Administration.Logs;
+using Content.Shared._Funkystation.Administration.Logs;
 using Content.Shared.Database;
 
-namespace Content.Server.Database;
+namespace Content.Server._Funkystation.Database;
 
 /// <summary>
 /// One row for the player monitoring EUI (materialized from <c>admin_log</c> / <c>admin_log_player</c>).

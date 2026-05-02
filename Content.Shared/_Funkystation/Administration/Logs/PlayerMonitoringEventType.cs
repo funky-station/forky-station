@@ -1,4 +1,4 @@
-namespace Content.Shared.Administration.Logs;
+namespace Content.Shared._Funkystation.Administration.Logs;
 
 /// <summary>
 /// Stable numeric values for <c>admin_player_monitoring_log.event_type</c>. Do not reorder.
@@ -26,7 +26,7 @@ public enum PlayerMonitoringEventType : int
     MidroundExitJobNonAntag = 3,
 
     /// <summary>
-    /// Player returned to <see cref="SessionStatus.InGame"/> in the same round after a monitored leave.
+    /// Player returned to <see cref="Robust.Shared.Enums.SessionStatus.InGame"/> in the same round after a monitored leave.
     /// </summary>
     SameRoundReconnect = 4,
 

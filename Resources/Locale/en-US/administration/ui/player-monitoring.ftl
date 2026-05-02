@@ -7,6 +7,7 @@ player-monitoring-load-more = Load more
 player-monitoring-summary-header = Summary (full range)
 player-monitoring-details-header = Details (newest first)
 player-monitoring-user-not-found = No player row matched that exact username.
+player-monitoring-query-failed = Query failed. Check server logs.
 player-monitoring-status = Flagged-rounds denominator: { $flagged } | Rounds-played denominator: { $played } | Range from (UTC): { $from }
 player-monitoring-summary-line = { $type } | count { $count } | distinct rounds { $drounds } | % flagged { $pf } | % played { $pp }
 player-monitoring-daily-play-header = Daily presence (UTC): first to last successful connection that day; includes current last-seen when in range.

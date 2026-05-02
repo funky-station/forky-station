@@ -197,6 +197,7 @@ namespace Content.Server.GameTicking
                 }
 
                 var lobbyEnabled = LobbyEnabled;
+                // Funkystation - Admin Log Enhancement
                 _adminLogger.Add(LogType.PlayerMonitoringReconnectObserver, LogImpact.Medium,
                     $"{session} reconnect dumped to observer ({subReason}) {lobbyEnabled}");
                 JoinAsObserver(session);

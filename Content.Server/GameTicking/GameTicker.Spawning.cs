@@ -42,6 +42,8 @@ using System.Numerics;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
 using Content.Server.GameTicking.Events;
+using Content.Server._Funkystation.GameTicking.Events;
+// Funkystation - Admin Log Enhancement
 using Content.Server.Ghost;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
@@ -141,6 +143,7 @@ namespace Content.Server.GameTicking
                     var playerSession = _playerManager.GetSessionById(netUser);
                     var evNoJobs = new NoJobsAvailableSpawningEvent(playerSession, LateJoin: false); // Used by gamerules to wipe their antag slot, if they got one
                     RaiseLocalEvent(evNoJobs);
+                    // Funkystation - Admin Log Enhancement
 
                     _chatManager.DispatchServerMessage(playerSession, Loc.GetString("job-not-available-wait-in-lobby"));
                 }
@@ -287,6 +290,7 @@ namespace Content.Server.GameTicking
 
                 var evNoJobs = new NoJobsAvailableSpawningEvent(player, LateJoin: lateJoin); // Used by gamerules to wipe their antag slot, if they got one
                 RaiseLocalEvent(evNoJobs);
+                // Funkystation - Admin Log Enhancement
 
                 _chatManager.DispatchServerMessage(player,
                     Loc.GetString("game-ticker-player-no-jobs-available-when-joining"));

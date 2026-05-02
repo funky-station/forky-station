@@ -1,7 +1,7 @@
 using Content.Shared.Eui;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Administration.Logs;
+namespace Content.Shared._Funkystation.Administration.Logs;
 
 [Serializable, NetSerializable]
 public sealed class PlayerMonitoringLogsEuiState : EuiStateBase
@@ -112,6 +112,11 @@ public static class PlayerMonitoringLogsEuiMsg
         public double TotalDailyPlaySpanHours { get; set; }
         public double AverageDailyPlaySpanHours { get; set; }
         public int DailyPlayActiveDayCount { get; set; }
+
+        /// <summary>
+        /// Set when the query failed (database error, malformed data). Details are not shown to clients.
+        /// </summary>
+        public string? QueryError { get; set; }
     }
 
     [Serializable, NetSerializable]

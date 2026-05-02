@@ -33,6 +33,8 @@
 
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
+using Content.Server._Funkystation.Administration.Logs;
+// Funkystation - Admin Log Enhancement
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Notes;
 using Content.Server.Afk;
@@ -96,7 +98,7 @@ internal static class ServerContentIoC
         deps.Register<GhostKickManager>();
         deps.Register<ISharedAdminLogManager, AdminLogManager>();
         deps.Register<IAdminLogManager, AdminLogManager>();
-        deps.Register<IAdminLogQueuedSubscriber, PlayerMonitoringAdminLogSubscriber>();
+        deps.Register<IAdminLogQueuedSubscriber, PlayerMonitoringAdminLogSubscriber>(); // Funkystation - Admin Log Enhancement
         deps.Register<PlayTimeTrackingManager>();
         deps.Register<UserDbDataManager>();
         deps.Register<ServerInfoManager>();

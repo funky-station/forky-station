@@ -1,11 +1,25 @@
 using System.Text.Json;
 using Content.Server.Database;
 
-namespace Content.IntegrationTests.Tests.Administration.Logs;
+namespace Content.IntegrationTests.Tests._Funkystation.Administration.Logs;
 
 [TestFixture]
 public sealed class PlayerMonitoringDbTests
 {
+    [Test]
+    public async Task ResolveUserIdByExactNameEmptyReturnsNull()
+    {
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings
+        {
+            Connected = false,
+            DummyTicker = true,
+        });
+        var db = pair.Server.ResolveDependency<IServerDbManager>();
+        var result = await db.ResolveUserIdByExactNameAsync("   ");
+        Assert.That(result, Is.Null);
+        await pair.CleanReturnAsync();
+    }
+
     [Test]
     public async Task ResolveUserIdByExactNameUnknownReturnsNull()
     {

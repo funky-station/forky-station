@@ -47,7 +47,10 @@ using System.Text.Json.Nodes;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
+using Content.Server._Funkystation.Database;
 using Content.Shared.Administration.Logs;
+using Content.Shared._Funkystation.Administration.Logs;
+// Funkystation - Admin Log Enhancement
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
@@ -1592,6 +1595,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         #endregion
 
         #region Player monitoring logs
+        // Funkystation - Admin Log Enhancement
 
         public async Task<Guid?> ResolveUserIdByExactNameAsync(string userName, CancellationToken cancel = default)
         {
@@ -1600,8 +1604,19 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 return null;
 
             await using var db = await GetDb(cancel);
+            var players = db.DbContext.Player.AsNoTracking();
+
+            // Fast path: exact string match (can use index on LastSeenUserName when it matches storage).
+            var byExact = await players
+                .Where(p => p.LastSeenUserName == trimmed)
+                .Select(p => (Guid?)p.UserId)
+                .FirstOrDefaultAsync(cancel);
+            if (byExact != null)
+                return byExact;
+
+            // Case-insensitive exact match (admin-triggered; rare). Avoids applying ToLower() to the column in the common case.
             var lower = trimmed.ToLowerInvariant();
-            return await db.DbContext.Player
+            return await players
                 .Where(p => p.LastSeenUserName.ToLower() == lower)
                 .Select(p => (Guid?)p.UserId)
                 .FirstOrDefaultAsync(cancel);
@@ -1615,6 +1630,9 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             Func<JsonDocument, bool>? ghostRoleTakenInclude,
             CancellationToken cancel = default)
         {
+            // Cap each stream before merge so large histories do not load unbounded rows into memory.
+            const int mergeCap = 10_000;
+
             await using var db = await GetDb(cancel);
             var ctx = db.DbContext;
 
@@ -1634,6 +1652,9 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                         monitoringTypes.Contains(l.Type)
                         || (l.Type == LogType.Action && l.Message.Contains("entered into cryostorage")))
                     select new { Log = l, DisplayName = pl != null ? pl.LastSeenUserName : p.PlayerUserId.ToString() })
+                .OrderByDescending(x => x.Log.Date)
+                .ThenByDescending(x => x.Log.Id)
+                .Take(mergeCap)
                 .ToListAsync(cancel);
 
             var combined = new List<(AdminLog Log, string DisplayName)>(coreRows.Count + 32);
@@ -1649,6 +1670,9 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                         from pl in plJoin.DefaultIfEmpty()
                         where p.PlayerUserId == userId && l.Date >= sinceUtc && l.Type == LogType.GhostRoleTaken
                         select new { Log = l, DisplayName = pl != null ? pl.LastSeenUserName : p.PlayerUserId.ToString() })
+                    .OrderByDescending(x => x.Log.Date)
+                    .ThenByDescending(x => x.Log.Id)
+                    .Take(mergeCap)
                     .ToListAsync(cancel);
 
                 foreach (var g in ghostCandidates)
@@ -1664,10 +1688,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 return c != 0 ? c : b.Log.Id.CompareTo(a.Log.Id);
             });
 
-            const int maxRows = 10_000;
-            if (combined.Count > maxRows)
-                combined.RemoveRange(maxRows, combined.Count - maxRows);
-
+            // Summary/denominator align with the capped merge set (not full history when > mergeCap rows exist).
             var flaggedDenom = combined.Select(x => x.Log.RoundId).Distinct().Count();
 
             var roundsPlayedDenom = await ctx.Round
@@ -1858,37 +1879,59 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             if (!roundExists)
                 return new List<PlayerMonitoringLongAfkAdminLogsEntry>();
 
+            var attributedRowCount = await ctx.AdminLogPlayer.AsNoTracking()
+                .CountAsync(p => p.RoundId == roundId, cancel);
+
+            const int maxAttributedRowsPerRound = 500_000;
+            if (attributedRowCount > maxAttributedRowsPerRound)
+            {
+                _opsLog.Warning(
+                    $"Long AFK scan skipped: admin_log_player rows ({attributedRowCount}) exceed cap ({maxAttributedRowsPerRound}) for round {roundId}.");
+                return new List<PlayerMonitoringLongAfkAdminLogsEntry>();
+            }
+
             var roundStartNullable = await ctx.Round.AsNoTracking()
                 .Where(r => r.Id == roundId)
                 .Select(r => r.StartDate)
                 .SingleOrDefaultAsync(cancel);
 
-            var rows = await ctx.AdminLogPlayer.AsNoTracking()
+            var distinctPlayers = await ctx.AdminLogPlayer.AsNoTracking()
                 .Where(p => p.RoundId == roundId)
-                .Join(
-                    ctx.AdminLog.AsNoTracking().Where(l => l.RoundId == roundId),
-                    p => new { p.RoundId, LogId = p.LogId },
-                    l => new { l.RoundId, LogId = l.Id },
-                    (p, l) => new { p.PlayerUserId, l.Date })
+                .Select(p => p.PlayerUserId)
+                .Distinct()
                 .ToListAsync(cancel);
 
-            var grouped = rows.GroupBy(x => x.PlayerUserId);
-            var userIds = grouped.Select(g => g.Key).ToList();
-
-            var nameLookup = await ctx.Player.AsNoTracking()
-                .Where(pl => userIds.Contains(pl.UserId))
-                .ToDictionaryAsync(pl => pl.UserId, pl => pl.LastSeenUserName, cancel);
-
             var result = new List<PlayerMonitoringLongAfkAdminLogsEntry>();
-            foreach (var g in grouped)
+            const int playerChunkSize = 128;
+
+            foreach (var playerChunk in distinctPlayers.Chunk(playerChunkSize))
             {
-                var dates = g.Select(x => x.Date).ToList();
-                var maxIdle = ComputeMaxIdleGapMinutes(roundEndUtc, roundStartNullable, dates);
-                if (maxIdle < minIdleMinutes)
+                var chunkIds = playerChunk.ToArray();
+                if (chunkIds.Length == 0)
                     continue;
 
-                var name = nameLookup.GetValueOrDefault(g.Key) ?? g.Key.ToString();
-                result.Add(new PlayerMonitoringLongAfkAdminLogsEntry(g.Key, name, maxIdle));
+                var nameLookup = await ctx.Player.AsNoTracking()
+                    .Where(pl => chunkIds.Contains(pl.UserId))
+                    .ToDictionaryAsync(pl => pl.UserId, pl => pl.LastSeenUserName, cancel);
+
+                var rows = await (
+                    from p in ctx.AdminLogPlayer.AsNoTracking()
+                    where p.RoundId == roundId && chunkIds.Contains(p.PlayerUserId)
+                    join l in ctx.AdminLog.AsNoTracking().Where(l => l.RoundId == roundId)
+                        on new { p.RoundId, LogId = p.LogId } equals new { l.RoundId, LogId = l.Id }
+                    select new { p.PlayerUserId, l.Date })
+                    .ToListAsync(cancel);
+
+                foreach (var g in rows.GroupBy(x => x.PlayerUserId))
+                {
+                    var dates = g.Select(x => x.Date).ToList();
+                    var maxIdle = ComputeMaxIdleGapMinutes(roundEndUtc, roundStartNullable, dates);
+                    if (maxIdle < minIdleMinutes)
+                        continue;
+
+                    var name = nameLookup.GetValueOrDefault(g.Key) ?? g.Key.ToString();
+                    result.Add(new PlayerMonitoringLongAfkAdminLogsEntry(g.Key, name, maxIdle));
+                }
             }
 
             return result;

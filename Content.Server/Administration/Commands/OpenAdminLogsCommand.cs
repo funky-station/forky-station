@@ -9,6 +9,8 @@
 // SPDX-License-Identifier: MIT
 
 using Content.Server.Administration.Logs;
+using Content.Server._Funkystation.Administration.Logs;
+// Funkystation - Admin Log Enhancement
 using Content.Server.EUI;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
@@ -36,6 +38,7 @@ public sealed class OpenAdminLogsCommand : LocalizedEntityCommands
     }
 }
 
+// Funkystation - Admin Log Enhancement
 [AdminCommand(AdminFlags.Logs)]
 public sealed class OpenPlayerMonitoringLogsCommand : LocalizedEntityCommands
 {

@@ -55,7 +55,7 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
     [Dependency] private readonly ISharedPlaytimeManager _playtime = default!;
     [Dependency] private readonly ISharedChatManager _chat = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IAdminLogQueuedSubscriber _adminLogQueuedSubscriber = default!;
+    [Dependency] private readonly IAdminLogQueuedSubscriber _adminLogQueuedSubscriber = default!; // Funkystation - Admin Log Enhancement
 
     public const string SawmillId = "admin.logs";
 
@@ -317,6 +317,7 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
         }
     }
 
+    // Funkystation - Admin Log Enhancement
     /// <inheritdoc />
     public async Task FlushInRoundAdminLogsAsync()
     {
@@ -422,7 +423,7 @@ public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogMa
         {
             _logQueue.Enqueue(log);
             CacheLog(log);
-            _adminLogQueuedSubscriber.OnAdminLogQueued(log);
+            _adminLogQueuedSubscriber.OnAdminLogQueued(log); // Funkystation - Admin Log Enhancement
         }
     }
 

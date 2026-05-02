@@ -26,6 +26,8 @@ using Content.Server.Antag.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
+using Content.Server._Funkystation.GameTicking.Events;
+// Funkystation - Admin Log Enhancement
 using Content.Server.GameTicking.Rules;
 using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
@@ -92,7 +94,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         SubscribeLocalEvent<AntagSelectionComponent, ObjectivesTextGetInfoEvent>(OnObjectivesTextGetInfo);
 
-        SubscribeLocalEvent<NoJobsAvailableSpawningEvent>(OnJobNotAssigned);
+        SubscribeLocalEvent<NoJobsAvailableSpawningEvent>(OnJobNotAssigned); // Funkystation - Admin Log Enhancement
         SubscribeLocalEvent<RulePlayerSpawningEvent>(OnPlayerSpawning);
         SubscribeLocalEvent<RulePlayerJobsAssignedEvent>(OnJobsAssigned);
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnSpawnComplete);
@@ -164,6 +166,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         }
     }
 
+    // Funkystation - Admin Log Enhancement
     private void OnJobNotAssigned(NoJobsAvailableSpawningEvent args)
     {
         // If someone fails to spawn in due to there being no jobs, they should be removed from any preselected antags.

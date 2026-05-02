@@ -1,4 +1,4 @@
-using Content.Shared.Administration.Logs;
+using Content.Shared._Funkystation.Administration.Logs;
 using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;
@@ -33,7 +33,7 @@ public sealed partial class CCVars
     /// When true, at round restart scan admin logs for players with long idle gaps and write monitoring rows.
     /// </summary>
     public static readonly CVarDef<bool> MonitoringAfkFromAdminLogsEnabled =
-        CVarDef.Create("monitoring.afk_from_admin_logs_enabled", true, CVar.SERVERONLY);
+        CVarDef.Create("monitoring.afk_from_admin_logs_enabled", false, CVar.SERVERONLY);
 
     /// <summary>
     /// Minimum longest idle gap (minutes between round timeline boundaries / attributed admin logs) to flag a player.

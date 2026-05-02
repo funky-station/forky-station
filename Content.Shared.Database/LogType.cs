@@ -518,6 +518,7 @@ public enum LogType
     /// </summary>
     Connection = 104,
 
+    // Funkystation - Admin Log Enhancement
     /// <summary>
     /// Player monitoring: mid-round exit as crew without antagonist role.
     /// </summary>
@@ -529,7 +530,7 @@ public enum LogType
     PlayerMonitoringReconnectObserver = 106,
 
     /// <summary>
-    /// Player monitoring: structured payload with JSON <c>kind</c> field (numeric <c>PlayerMonitoringEventType</c>).
+    /// Player monitoring: structured payload with JSON <c>kind</c> field (numeric <see cref="Content.Shared._Funkystation.Administration.Logs.PlayerMonitoringEventType"/>).
     /// </summary>
     PlayerMonitoring = 107,
 }

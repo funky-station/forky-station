@@ -20,6 +20,7 @@ public interface IAdminLogManager : ISharedAdminLogManager
     void RoundStarting(int id);
     void RunLevelChanged(GameRunLevel level);
 
+    // Funkystation - Admin Log Enhancement
     /// <summary>
     /// Persists queued in-round logs only; does not flush or drop the pre-round queue (safe during lobby transition).
     /// </summary>

@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Administration.Logs;
+namespace Content.Shared._Funkystation.Administration.Logs;
 
 /// <summary>
 /// Lists entity prototypes whose <c>GhostRole</c> claims are written to player monitoring when taken from ghost.

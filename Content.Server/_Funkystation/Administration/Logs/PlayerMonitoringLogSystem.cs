@@ -1,13 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Server.Administration.Logs;
 using Content.Server.Database;
 using Content.Server.GameTicking;
-using Content.Server.GameTicking.Events;
+using Content.Server._Funkystation.GameTicking.Events;
 using Content.Shared.Administration.Logs;
+using Content.Shared._Funkystation.Administration.Logs;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
@@ -24,7 +27,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Asynchronous;
 using Robust.Shared.Timing;
 
-namespace Content.Server.Administration.Logs;
+namespace Content.Server._Funkystation.Administration.Logs;
 
 /// <summary>
 /// Emits player-monitoring rows as <see cref="LogType.PlayerMonitoring"/> admin logs; subscribes to game/session events. Observation-only.
@@ -63,6 +66,9 @@ public sealed class PlayerMonitoringLogSystem : EntitySystem
     private int _drops;
     private volatile int _flushGate;
     private TimeSpan _nextFlush;
+
+    /// <summary>Incremented on each round cleanup so a delayed AFK scan can be cancelled if a new round starts.</summary>
+    private int _afkScanGeneration;
 
     public override void Initialize()
     {
@@ -179,10 +185,28 @@ public sealed class PlayerMonitoringLogSystem : EntitySystem
         _midroundDisconnectPending.Clear();
         _roundInRoundSince = null;
 
-        _ = Task.Run(() => ScanLongAfkFromAdminLogsAtRoundEndAsync(endingRoundId));
+        var generation = Interlocked.Increment(ref _afkScanGeneration);
+        _ = Task.Run(() => ScanLongAfkDeferredAsync(endingRoundId, generation));
     }
 
-    private async Task ScanLongAfkFromAdminLogsAtRoundEndAsync(int endingRoundId)
+    private async Task ScanLongAfkDeferredAsync(int endingRoundId, int generation)
+    {
+        try
+        {
+            // Defer so round cleanup and normal admin-log persistence can settle before scanning.
+            await Task.Delay(TimeSpan.FromSeconds(5));
+            if (generation != Volatile.Read(ref _afkScanGeneration))
+                return;
+
+            await ScanLongAfkFromAdminLogsAtRoundEndAsync(endingRoundId, generation);
+        }
+        catch (Exception e)
+        {
+            _sawmill.Error($"Long AFK (admin logs) deferred worker: {e}");
+        }
+    }
+
+    private async Task ScanLongAfkFromAdminLogsAtRoundEndAsync(int endingRoundId, int generation)
     {
         try
         {
@@ -196,32 +220,52 @@ public sealed class PlayerMonitoringLogSystem : EntitySystem
             if (threshold <= 0f)
                 return;
 
+            if (generation != Volatile.Read(ref _afkScanGeneration))
+                return;
+
             await _adminLog.FlushInRoundAdminLogsAsync();
+
+            if (generation != Volatile.Read(ref _afkScanGeneration))
+                return;
 
             var roundEndUtc = DateTime.UtcNow;
             var flagged = await _db.QueryPlayersLongAfkFromAdminLogsAsync(endingRoundId, roundEndUtc, threshold);
 
-            var payloads = new List<(Guid UserId, string Payload)>();
-            foreach (var entry in flagged)
-            {
-                using var details = JsonSerializer.SerializeToDocument(new
-                {
-                    max_idle_minutes = entry.MaxIdleMinutes,
-                    threshold_minutes = (double)threshold,
-                    analysis_end_utc = roundEndUtc
-                });
-                using var merged = BuildMergedMonitoringJson(PlayerMonitoringEventType.LongAfkFromAdminLogsRoundEnd, details);
-                payloads.Add((entry.UserId, merged.RootElement.GetRawText()));
-            }
+            if (generation != Volatile.Read(ref _afkScanGeneration))
+                return;
 
-            _taskManager.RunOnMainThread(() =>
+            const int emitChunkSize = 32;
+            foreach (var chunk in flagged.Chunk(emitChunkSize))
             {
-                foreach (var (userId, payload) in payloads)
+                if (generation != Volatile.Read(ref _afkScanGeneration))
+                    return;
+
+                var entries = chunk.ToArray();
+                var payloads = new List<(Guid UserId, string Payload)>(entries.Length);
+                foreach (var entry in entries)
                 {
-                    _adminLog.Add(LogType.PlayerMonitoring, LogImpact.Low,
-                        $"{new AdminLogAttributedUser(new NetUserId(userId))} player monitoring {payload}");
+                    using var details = JsonSerializer.SerializeToDocument(new
+                    {
+                        max_idle_minutes = entry.MaxIdleMinutes,
+                        threshold_minutes = (double)threshold,
+                        analysis_end_utc = roundEndUtc
+                    });
+                    using var merged = BuildMergedMonitoringJson(PlayerMonitoringEventType.LongAfkFromAdminLogsRoundEnd, details);
+                    payloads.Add((entry.UserId, merged.RootElement.GetRawText()));
                 }
-            });
+
+                _taskManager.RunOnMainThread(() =>
+                {
+                    if (generation != Volatile.Read(ref _afkScanGeneration))
+                        return;
+
+                    foreach (var (userId, payload) in payloads)
+                    {
+                        _adminLog.Add(LogType.PlayerMonitoring, LogImpact.Low,
+                            $"{new AdminLogAttributedUser(new NetUserId(userId))} player monitoring {payload}");
+                    }
+                });
+            }
         }
         catch (Exception e)
         {
@@ -333,20 +377,28 @@ public sealed class PlayerMonitoringLogSystem : EntitySystem
 
     private void OnNetDisconnect(object? sender, NetDisconnectedArgs args)
     {
+        var channel = args.Channel;
+        var reason = args.Reason;
+        var redialFlag = args.RedialFlag;
+        _taskManager.RunOnMainThread(() => OnNetDisconnectMainThread(channel, reason, redialFlag));
+    }
+
+    private void OnNetDisconnectMainThread(INetChannel channel, string reason, bool redialFlag)
+    {
         try
         {
-            if (_playerManager.TryGetSessionByChannel(args.Channel, out var session))
+            if (_playerManager.TryGetSessionByChannel(channel, out var session))
             {
-                TryMidroundDisconnect(session, args.Reason, args.RedialFlag);
+                TryMidroundDisconnect(session, reason, redialFlag);
                 return;
             }
 
-            var userId = args.Channel.UserId;
+            var userId = channel.UserId;
             var lastName = _playerManager.TryGetPlayerData(userId, out var data)
                 ? data.UserName
                 : userId.UserId.ToString();
 
-            TryMidroundDisconnectByUserId(userId, lastName, args.Reason, args.RedialFlag);
+            TryMidroundDisconnectByUserId(userId, lastName, reason, redialFlag);
         }
         catch (Exception e)
         {

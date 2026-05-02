@@ -28,6 +28,8 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
+using Content.Server._Funkystation.Database;
+// Funkystation - Admin Log Enhancement
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
 using Content.Shared.Construction.Prototypes;
@@ -246,6 +248,7 @@ namespace Content.Server.Database
         #endregion
 
         #region Player monitoring logs
+        // Funkystation - Admin Log Enhancement
 
         Task<Guid?> ResolveUserIdByExactNameAsync(string userName, CancellationToken cancel = default);
 
@@ -756,6 +759,7 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.ResolveUserIdByExactNameAsync(userName, cancel));
         }
 
+        // Funkystation - Admin Log Enhancement
         public Task<PlayerMonitoringQueryResult> GetPlayerMonitoringLogsAsync(
             Guid userId,
             DateTime sinceUtc,

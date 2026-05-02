@@ -1,14 +1,14 @@
 using System.Globalization;
 using System.Linq;
 using Content.Client.Eui;
-using Content.Shared.Administration.Logs;
+using Content.Shared._Funkystation.Administration.Logs;
 using Content.Shared.Eui;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.IoC;
 using Robust.Shared.Log;
-using static Content.Shared.Administration.Logs.PlayerMonitoringLogsEuiMsg;
+using static Content.Shared._Funkystation.Administration.Logs.PlayerMonitoringLogsEuiMsg;
 
-namespace Content.Client.Administration.UI.Logs;
+namespace Content.Client._Funkystation.Administration.UI.Logs;
 
 public sealed class PlayerMonitoringLogsEui : BaseEui
 {
@@ -61,6 +61,13 @@ public sealed class PlayerMonitoringLogsEui : BaseEui
                 {
                     _window.SummaryContainer.DisposeAllChildren();
                     _window.DetailsContainer.DisposeAllChildren();
+
+                    if (!string.IsNullOrEmpty(q.QueryError))
+                    {
+                        _window.StatusLabel.Text = Loc.GetString("player-monitoring-query-failed");
+                        _window.LoadMoreButton.Disabled = true;
+                        return;
+                    }
 
                     if (q.UserNotFound)
                     {
@@ -123,6 +130,13 @@ public sealed class PlayerMonitoringLogsEui : BaseEui
                             });
                         }
                     }
+                }
+
+                if (!string.IsNullOrEmpty(q.QueryError) && !q.Replace)
+                {
+                    _window.StatusLabel.Text = Loc.GetString("player-monitoring-query-failed");
+                    _window.LoadMoreButton.Disabled = true;
+                    break;
                 }
 
                 foreach (var row in q.Rows)
