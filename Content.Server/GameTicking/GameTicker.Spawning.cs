@@ -139,7 +139,7 @@ namespace Content.Server.GameTicking
                 if (job == null)
                 {
                     var playerSession = _playerManager.GetSessionById(netUser);
-                    var evNoJobs = new NoJobsAvailableSpawningEvent(playerSession); // Used by gamerules to wipe their antag slot, if they got one
+                    var evNoJobs = new NoJobsAvailableSpawningEvent(playerSession, LateJoin: false); // Used by gamerules to wipe their antag slot, if they got one
                     RaiseLocalEvent(evNoJobs);
 
                     _chatManager.DispatchServerMessage(playerSession, Loc.GetString("job-not-available-wait-in-lobby"));
@@ -285,7 +285,7 @@ namespace Content.Server.GameTicking
                     JoinAsObserver(player);
                 }
 
-                var evNoJobs = new NoJobsAvailableSpawningEvent(player); // Used by gamerules to wipe their antag slot, if they got one
+                var evNoJobs = new NoJobsAvailableSpawningEvent(player, LateJoin: lateJoin); // Used by gamerules to wipe their antag slot, if they got one
                 RaiseLocalEvent(evNoJobs);
 
                 _chatManager.DispatchServerMessage(player,

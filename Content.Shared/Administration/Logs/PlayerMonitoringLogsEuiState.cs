@@ -4,13 +4,6 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Administration.Logs;
 
 [Serializable, NetSerializable]
-public enum PlayerMonitoringDenominatorMode : byte
-{
-    FlaggedRounds = 0,
-    RoundsPlayed = 1,
-}
-
-[Serializable, NetSerializable]
 public sealed class PlayerMonitoringLogsEuiState : EuiStateBase
 {
     public PlayerMonitoringLogsEuiState()
@@ -20,8 +13,16 @@ public sealed class PlayerMonitoringLogsEuiState : EuiStateBase
     public int DefaultDays { get; init; } = 7;
 
     public int MaxDays { get; init; } = 90;
+}
 
-    public PlayerMonitoringDenominatorMode DefaultDenominatorMode { get; init; } = PlayerMonitoringDenominatorMode.FlaggedRounds;
+/// <summary>
+/// UTC calendar day presence span derived from connection logs (see server query).
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class PlayerMonitoringDailyPlayDayEntry
+{
+    public string UtcDate { get; set; } = string.Empty;
+    public double SpanHours { get; set; }
 }
 
 [Serializable, NetSerializable]
@@ -64,6 +65,11 @@ public sealed class PlayerMonitoringDetailRow
     /// Threshold minutes used for the AFK scan when present.
     /// </summary>
     public double? AfkThresholdMinutes { get; set; }
+
+    /// <summary>
+    /// True when the exit occurred within the configured early-leave window (minutes after round start).
+    /// </summary>
+    public bool EarlyLeave { get; set; }
 }
 
 public static class PlayerMonitoringLogsEuiMsg
@@ -74,7 +80,6 @@ public static class PlayerMonitoringLogsEuiMsg
         public Guid? UserId { get; set; }
         public string? UserNameExact { get; set; }
         public int Days { get; set; }
-        public PlayerMonitoringDenominatorMode DenominatorMode { get; set; }
     }
 
     [Serializable, NetSerializable]
@@ -98,6 +103,15 @@ public static class PlayerMonitoringLogsEuiMsg
         public int? FlaggedRoundsDenominator { get; set; }
         public int? RoundsPlayedDenominator { get; set; }
         public DateTime RangeStartUtc { get; set; }
+
+        /// <summary>
+        /// Populated when <see cref="Replace"/> is true and the query succeeded. Sorted by <see cref="PlayerMonitoringDailyPlayDayEntry.UtcDate"/>.
+        /// </summary>
+        public List<PlayerMonitoringDailyPlayDayEntry>? DailyPlayByUtcDay { get; set; }
+
+        public double TotalDailyPlaySpanHours { get; set; }
+        public double AverageDailyPlaySpanHours { get; set; }
+        public int DailyPlayActiveDayCount { get; set; }
     }
 
     [Serializable, NetSerializable]

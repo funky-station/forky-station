@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Linq;
 using Content.Client.Eui;
 using Content.Shared.Administration.Logs;
@@ -44,10 +45,6 @@ public sealed class PlayerMonitoringLogsEui : BaseEui
         _maxDays = Math.Max(1, s.MaxDays);
         _window.DaysSpin.IsValid = v => v >= 1 && v <= _maxDays;
         _window.DaysSpin.OverrideValue(Math.Clamp(s.DefaultDays, 1, _maxDays));
-        _window.DenominatorOption.Clear();
-        _window.DenominatorOption.AddItem(Loc.GetString("player-monitoring-denom-flagged"), id: (int)PlayerMonitoringDenominatorMode.FlaggedRounds);
-        _window.DenominatorOption.AddItem(Loc.GetString("player-monitoring-denom-played"), id: (int)PlayerMonitoringDenominatorMode.RoundsPlayed);
-        _window.DenominatorOption.SelectId((int)s.DefaultDenominatorMode);
     }
 
     public override void HandleMessage(EuiMessageBase msg)
@@ -90,6 +87,42 @@ public sealed class PlayerMonitoringLogsEui : BaseEui
                             _window.SummaryContainer.AddChild(new Label { Text = line });
                         }
                     }
+
+                    _window.SummaryContainer.AddChild(new Label
+                    {
+                        Text = Loc.GetString("player-monitoring-daily-play-header"),
+                        Margin = new Thickness(0, 8, 0, 2)
+                    });
+
+                    if (q.DailyPlayByUtcDay is not { Count: > 0 })
+                    {
+                        _window.SummaryContainer.AddChild(new Label
+                            { Text = Loc.GetString("player-monitoring-daily-play-none") });
+                    }
+                    else
+                    {
+                        var inv = CultureInfo.InvariantCulture;
+                        _window.SummaryContainer.AddChild(new Label
+                        {
+                            Text = Loc.GetString("player-monitoring-daily-play-total",
+                                ("hours", q.TotalDailyPlaySpanHours.ToString("0.##", inv)))
+                        });
+                        _window.SummaryContainer.AddChild(new Label
+                        {
+                            Text = Loc.GetString("player-monitoring-daily-play-avg",
+                                ("hours", q.AverageDailyPlaySpanHours.ToString("0.##", inv)),
+                                ("days", q.DailyPlayActiveDayCount))
+                        });
+                        foreach (var day in q.DailyPlayByUtcDay.OrderBy(d => d.UtcDate))
+                        {
+                            _window.SummaryContainer.AddChild(new Label
+                            {
+                                Text = Loc.GetString("player-monitoring-daily-play-day-line",
+                                    ("date", day.UtcDate),
+                                    ("hours", day.SpanHours.ToString("0.##", inv)))
+                            });
+                        }
+                    }
                 }
 
                 foreach (var row in q.Rows)
@@ -109,6 +142,7 @@ public sealed class PlayerMonitoringLogsEui : BaseEui
                         ("watchedproto", row.WatchedGhostEntityPrototype ?? "-"),
                         ("grname", row.GhostRoleName ?? "-"),
                         ("rndmin", row.MinutesSinceRoundStart?.ToString("0.#") ?? "-"),
+                        ("early", row.EarlyLeave ? Loc.GetString("player-monitoring-early-leave-marker") : "-"),
                         ("afkmax", row.AfkMaxIdleMinutes?.ToString("0.#") ?? "-"),
                         ("afkthr", row.AfkThresholdMinutes?.ToString("0.#") ?? "-"));
                     _window.DetailsContainer.AddChild(new Label { Text = text });
@@ -124,12 +158,10 @@ public sealed class PlayerMonitoringLogsEui : BaseEui
         if (_window == null)
             return;
 
-        var mode = (PlayerMonitoringDenominatorMode)_window.DenominatorOption.SelectedId;
         SendMessage(new RequestQuery
         {
             UserNameExact = _window.UserNameEdit.Text,
-            Days = _window.DaysSpin.Value,
-            DenominatorMode = mode
+            Days = _window.DaysSpin.Value
         });
     }
 

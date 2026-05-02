@@ -257,6 +257,12 @@ namespace Content.Server.Database
             Func<JsonDocument, bool>? ghostRoleTakenInclude,
             CancellationToken cancel = default);
 
+        Task<PlayerMonitoringDailyPlayStats> GetPlayerMonitoringDailyPlayStatsAsync(
+            Guid userId,
+            DateTime sinceUtc,
+            DateTime untilUtc,
+            CancellationToken cancel = default);
+
         Task<List<PlayerMonitoringLongAfkAdminLogsEntry>> QueryPlayersLongAfkFromAdminLogsAsync(
             int roundId,
             DateTime roundEndUtc,
@@ -760,6 +766,16 @@ namespace Content.Server.Database
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetPlayerMonitoringLogsAsync(userId, sinceUtc, pageOffset, pageSize, ghostRoleTakenInclude, cancel));
+        }
+
+        public Task<PlayerMonitoringDailyPlayStats> GetPlayerMonitoringDailyPlayStatsAsync(
+            Guid userId,
+            DateTime sinceUtc,
+            DateTime untilUtc,
+            CancellationToken cancel = default)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPlayerMonitoringDailyPlayStatsAsync(userId, sinceUtc, untilUtc, cancel));
         }
 
         public Task<List<PlayerMonitoringLongAfkAdminLogsEntry>> QueryPlayersLongAfkFromAdminLogsAsync(

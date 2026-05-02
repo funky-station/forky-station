@@ -6,7 +6,7 @@ namespace Content.Shared.Administration.Logs;
 public enum PlayerMonitoringEventType : int
 {
     /// <summary>
-    /// No job at spawn; lobby enabled — player remains in lobby.
+    /// No job at initial round-start spawn batch; lobby enabled — player remains in lobby.
     /// </summary>
     NoJobWaitLobbyRoundStart = 0,
 
@@ -44,4 +44,9 @@ public enum PlayerMonitoringEventType : int
     /// At round end: longest gap between round start, attributed admin logs, and round end exceeded the configured threshold.
     /// </summary>
     LongAfkFromAdminLogsRoundEnd = 7,
+
+    /// <summary>
+    /// No job on a mid-round join attempt (late join / reconnect spawn path); lobby enabled — player remains in lobby.
+    /// </summary>
+    NoJobWaitLobbyLateJoin = 8,
 }

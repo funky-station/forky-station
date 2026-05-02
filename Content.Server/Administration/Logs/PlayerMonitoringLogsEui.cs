@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Threading.Tasks;
 using Content.Server.Administration.Managers;
 using Content.Server.Database;
 using Content.Server.EUI;
@@ -16,6 +17,8 @@ namespace Content.Server.Administration.Logs;
 
 public sealed class PlayerMonitoringLogsEui : BaseEui
 {
+    private const float EarlyLeaveMinutesRound = 2f;
+
     [Dependency] private readonly IAdminManager _adminManager = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
@@ -49,8 +52,7 @@ public sealed class PlayerMonitoringLogsEui : BaseEui
         return new PlayerMonitoringLogsEuiState
         {
             DefaultDays = 7,
-            MaxDays = Math.Max(1, maxDays),
-            DefaultDenominatorMode = PlayerMonitoringDenominatorMode.FlaggedRounds
+            MaxDays = Math.Max(1, maxDays)
         };
     }
 
@@ -83,7 +85,11 @@ public sealed class PlayerMonitoringLogsEui : BaseEui
                         Summary = null,
                         FlaggedRoundsDenominator = null,
                         RoundsPlayedDenominator = null,
-                        RangeStartUtc = DateTime.UtcNow
+                        RangeStartUtc = DateTime.UtcNow,
+                        DailyPlayByUtcDay = null,
+                        TotalDailyPlaySpanHours = 0,
+                        AverageDailyPlaySpanHours = 0,
+                        DailyPlayActiveDayCount = 0
                     });
                     return;
                 }
@@ -92,16 +98,24 @@ public sealed class PlayerMonitoringLogsEui : BaseEui
                 _rangeStart = DateTime.UtcNow.AddDays(-days);
 
                 var ghostFilter = BuildGhostRoleTakenFilter();
-                var result = await _db.GetPlayerMonitoringLogsAsync(
+                var untilUtc = DateTime.UtcNow;
+                var logsTask = _db.GetPlayerMonitoringLogsAsync(
                     _activeUserId.Value,
                     _rangeStart,
                     _pageOffset,
                     _pageSize,
                     ghostFilter);
+                var dailyTask = _db.GetPlayerMonitoringDailyPlayStatsAsync(
+                    _activeUserId.Value,
+                    _rangeStart,
+                    untilUtc);
+                await Task.WhenAll(logsTask, dailyTask);
+                var result = await logsTask;
+                var dailyPlay = await dailyTask;
 
                 _pageOffset += result.Page.Count;
 
-                SendMessage(BuildQueryResult(result, replace: true));
+                SendMessage(BuildQueryResult(result, replace: true, dailyPlay));
                 break;
             }
             case PlayerMonitoringLogsEuiMsg.NextQuery:
@@ -121,7 +135,7 @@ public sealed class PlayerMonitoringLogsEui : BaseEui
 
                 SendMessage(new PlayerMonitoringLogsEuiMsg.QueryResult
                 {
-                    Rows = MapRows(result.Page),
+                    Rows = MapRows(result.Page, ResolveEarlyLeaveThresholdMinutes()),
                     Replace = false,
                     HasNext = result.HasNext,
                     UserNotFound = false
@@ -140,7 +154,10 @@ public sealed class PlayerMonitoringLogsEui : BaseEui
         return json => PlayerMonitoringEuiWatchlist.JsonGhostMatchesWatchlist(json, watchIds, _proto);
     }
 
-    private PlayerMonitoringLogsEuiMsg.QueryResult BuildQueryResult(PlayerMonitoringQueryResult result, bool replace)
+    private PlayerMonitoringLogsEuiMsg.QueryResult BuildQueryResult(
+        PlayerMonitoringQueryResult result,
+        bool replace,
+        PlayerMonitoringDailyPlayStats dailyPlay)
     {
         var flagged = result.FlaggedRoundsDenominator;
         var played = result.RoundsPlayedDenominator;
@@ -159,20 +176,42 @@ public sealed class PlayerMonitoringLogsEui : BaseEui
             };
         }
 
+        var dailyList = new List<PlayerMonitoringDailyPlayDayEntry>(dailyPlay.Days.Count);
+        foreach (var d in dailyPlay.Days)
+        {
+            dailyList.Add(new PlayerMonitoringDailyPlayDayEntry
+            {
+                UtcDate = d.UtcDateIso,
+                SpanHours = d.SpanHours
+            });
+        }
+
         return new PlayerMonitoringLogsEuiMsg.QueryResult
         {
-            Rows = MapRows(result.Page),
+            Rows = MapRows(result.Page, ResolveEarlyLeaveThresholdMinutes()),
             Replace = replace,
             HasNext = result.HasNext,
             UserNotFound = false,
             Summary = summary,
             FlaggedRoundsDenominator = flagged,
             RoundsPlayedDenominator = played,
-            RangeStartUtc = _rangeStart
+            RangeStartUtc = _rangeStart,
+            DailyPlayByUtcDay = dailyList,
+            TotalDailyPlaySpanHours = dailyPlay.TotalSpanHours,
+            AverageDailyPlaySpanHours = dailyPlay.AverageSpanHours,
+            DailyPlayActiveDayCount = dailyPlay.ActiveDayCount
         };
     }
 
-    private static List<PlayerMonitoringDetailRow> MapRows(IReadOnlyList<PlayerMonitoringLogView> page)
+    private float ResolveEarlyLeaveThresholdMinutes()
+    {
+        var v = _cfg.GetCVar(CCVars.MonitoringEarlyLeaveMinutesRound);
+        if (float.IsNaN(v) || float.IsInfinity(v) || v <= 0f)
+            return EarlyLeaveMinutesRound;
+        return v;
+    }
+
+    private static List<PlayerMonitoringDetailRow> MapRows(IReadOnlyList<PlayerMonitoringLogView> page, float earlyLeaveThresholdMinutes)
     {
         var list = new List<PlayerMonitoringDetailRow>(page.Count);
         foreach (var r in page)
@@ -227,10 +266,29 @@ public sealed class PlayerMonitoringLogsEui : BaseEui
             if (root.TryGetProperty("threshold_minutes", out var thr) && thr.TryGetDouble(out var afkThr))
                 row.AfkThresholdMinutes = afkThr;
 
+            row.EarlyLeave = IsEarlyLeave(row, earlyLeaveThresholdMinutes);
+
             list.Add(row);
         }
 
         return list;
+    }
+
+    private static bool IsEarlyLeave(PlayerMonitoringDetailRow row, float thresholdMinutes)
+    {
+        switch (row.EventType)
+        {
+            case PlayerMonitoringEventType.MidroundExitJobNonAntag:
+                if (row.MinutesSinceRoundStart is { } mrs)
+                    return mrs < thresholdMinutes;
+                if (row.MinutesInRound is { } mir)
+                    return mir < thresholdMinutes;
+                return false;
+            case PlayerMonitoringEventType.ObserverOnlyMidroundDisconnect:
+                return row.MinutesSinceRoundStart is { } mo && mo < thresholdMinutes;
+            default:
+                return false;
+        }
     }
 
     private void OnPermsChanged(AdminPermsChangedEventArgs args)

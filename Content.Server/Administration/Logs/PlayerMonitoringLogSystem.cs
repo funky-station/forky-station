@@ -242,9 +242,17 @@ public sealed class PlayerMonitoringLogSystem : EntitySystem
         try
         {
             var user = ev.Player.UserId;
-            var type = _ticker.LobbyEnabled
-                ? PlayerMonitoringEventType.NoJobWaitLobbyRoundStart
-                : PlayerMonitoringEventType.NoJobBecameObserver;
+            PlayerMonitoringEventType type;
+            if (_ticker.LobbyEnabled)
+            {
+                type = ev.LateJoin
+                    ? PlayerMonitoringEventType.NoJobWaitLobbyLateJoin
+                    : PlayerMonitoringEventType.NoJobWaitLobbyRoundStart;
+            }
+            else
+            {
+                type = PlayerMonitoringEventType.NoJobBecameObserver;
+            }
 
             var key = (user, type);
             if (!_loggedNoJob.Add(key))
@@ -432,6 +440,10 @@ public sealed class PlayerMonitoringLogSystem : EntitySystem
     {
         var minutes = (_timing.CurTime - snap.SpawnTime).TotalMinutes;
 
+        double? minsSinceRoundStart = null;
+        if (_roundInRoundSince is { } rs)
+            minsSinceRoundStart = (_timing.CurTime - rs).TotalMinutes;
+
         if (_midroundDisconnectPending.TryGetValue(userId, out var pending))
         {
             var patch = JsonSerializer.SerializeToDocument(new
@@ -451,6 +463,7 @@ public sealed class PlayerMonitoringLogSystem : EntitySystem
             exit_kind = "disconnect",
             job = snap.JobId,
             minutes_in_round = minutes,
+            minutes_since_round_start = minsSinceRoundStart,
             disconnect_reason = disconnectReason,
             redial_flag = redialFlag
         });

@@ -39,5 +39,12 @@ public sealed partial class CCVars
     /// Minimum longest idle gap (minutes between round timeline boundaries / attributed admin logs) to flag a player.
     /// </summary>
     public static readonly CVarDef<float> MonitoringAfkAdminLogsMinMinutes =
-        CVarDef.Create("monitoring.afk_admin_logs_min_minutes", 30f, CVar.SERVERONLY);
+        CVarDef.Create("monitoring.afk_admin_logs_min_minutes", 60f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Minutes after round start after which a monitored exit is no longer flagged as early leave in the EUI.
+    /// Values zero or negative fall back to the built-in default (2 minutes).
+    /// </summary>
+    public static readonly CVarDef<float> MonitoringEarlyLeaveMinutesRound =
+        CVarDef.Create("monitoring.early_leave_minutes_round", 1f, CVar.SERVERONLY);
 }

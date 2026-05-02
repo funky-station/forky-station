@@ -43,6 +43,23 @@ public sealed class PlayerMonitoringSummaryRow
 public sealed record PlayerMonitoringLongAfkAdminLogsEntry(Guid UserId, string LastSeenUserName, double MaxIdleMinutes);
 
 /// <summary>
+/// Per UTC calendar day: elapsed time from earliest to latest successful connection log timestamp (plus last-seen when in range).
+/// </summary>
+public sealed class PlayerMonitoringDailyPlayDay
+{
+    public required string UtcDateIso { get; init; }
+    public double SpanHours { get; init; }
+}
+
+public sealed class PlayerMonitoringDailyPlayStats
+{
+    public required List<PlayerMonitoringDailyPlayDay> Days { get; init; }
+    public double TotalSpanHours { get; init; }
+    public double AverageSpanHours { get; init; }
+    public int ActiveDayCount { get; init; }
+}
+
+/// <summary>
 /// Maps admin log rows to monitoring event types for UI aggregation.
 /// </summary>
 public static class PlayerMonitoringLogMappings

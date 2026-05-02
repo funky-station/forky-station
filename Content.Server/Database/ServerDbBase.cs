@@ -36,6 +36,7 @@
 
 using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
@@ -1714,6 +1715,67 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 FlaggedRoundsDenominator = flaggedDenom,
                 RoundsPlayedDenominator = roundsPlayedDenom,
                 Summary = summary
+            };
+        }
+
+        public async Task<PlayerMonitoringDailyPlayStats> GetPlayerMonitoringDailyPlayStatsAsync(
+            Guid userId,
+            DateTime sinceUtc,
+            DateTime untilUtc,
+            CancellationToken cancel = default)
+        {
+            await using var db = await GetDb(cancel);
+            var ctx = db.DbContext;
+
+            var since = AssumeUtcForMonitoring(sinceUtc);
+            var until = AssumeUtcForMonitoring(untilUtc);
+
+            var connTimes = await ctx.ConnectionLog.AsNoTracking()
+                .Where(c => c.UserId == userId && c.Denied == null && c.Time >= sinceUtc && c.Time <= untilUtc)
+                .Select(c => c.Time)
+                .ToListAsync(cancel);
+
+            var stamps = new List<DateTime>(connTimes.Count + 1);
+            foreach (var t in connTimes)
+                stamps.Add(AssumeUtcForMonitoring(t));
+
+            var lastSeen = await ctx.Player.AsNoTracking()
+                .Where(p => p.UserId == userId)
+                .Select(p => (DateTime?)p.LastSeenTime)
+                .SingleOrDefaultAsync(cancel);
+
+            if (lastSeen is { } ls)
+            {
+                var lsUtc = AssumeUtcForMonitoring(ls);
+                if (lsUtc >= since && lsUtc <= until)
+                    stamps.Add(lsUtc);
+            }
+
+            var dayGroups = stamps.GroupBy(t => DateOnly.FromDateTime(t)).OrderBy(g => g.Key).ToList();
+
+            var days = new List<PlayerMonitoringDailyPlayDay>(dayGroups.Count);
+            double totalHours = 0;
+            foreach (var g in dayGroups)
+            {
+                var span = g.Max() - g.Min();
+                var h = span.TotalHours;
+                totalHours += h;
+                days.Add(new PlayerMonitoringDailyPlayDay
+                {
+                    UtcDateIso = g.Key.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture),
+                    SpanHours = h
+                });
+            }
+
+            var activeDays = days.Count;
+            var avg = activeDays > 0 ? totalHours / activeDays : 0d;
+
+            return new PlayerMonitoringDailyPlayStats
+            {
+                Days = days,
+                TotalSpanHours = totalHours,
+                AverageSpanHours = avg,
+                ActiveDayCount = activeDays
             };
         }
 
