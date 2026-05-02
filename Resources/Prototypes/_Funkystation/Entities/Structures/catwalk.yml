@@ -1,0 +1,529 @@
+- type: entity
+  id: CatwalkDark
+  name: catwalk dark
+  description: A catwalk for easier EVA maneuvering and cable placement.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Clickable
+  - type: Sprite
+    sprite: _Funkystation/Structures/catwalk.rsi
+    state: dark
+    drawdepth: FloorTiles
+  - type: Icon
+    sprite: _Funkystation/Structures/catwalk.rsi
+    state: dark
+  - type: Transform
+    anchored: true
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepCatwalk
+      params:
+        volume: 8
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal: # takes two to construct, so drop less than that
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: TrayScanReveal
+  - type: RCDDeconstructable
+    cost: 20 # Funkystation
+    delay: 2
+    fx: EffectRCDDeconstruct2
+
+- type: entity
+  id: CatwalkDarkOpen
+  name: catwalk dark Open
+  description: A catwalk for easier EVA maneuvering and cable placement.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Clickable
+  - type: Sprite
+    sprite: _Funkystation/Structures/catwalk.rsi
+    state: dark_open
+    drawdepth: FloorTiles
+  - type: Icon
+    sprite: _Funkystation/Structures/catwalk.rsi
+    state: dark_open
+  - type: Transform
+    anchored: true
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepCatwalk
+      params:
+        volume: 8
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal: # takes two to construct, so drop less than that
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: TrayScanReveal
+  - type: RCDDeconstructable
+    cost: 20 # Funkystation
+    delay: 2
+    fx: EffectRCDDeconstruct2
+
+- type: entity
+  id: CatwalkGray
+  name: catwalk gray
+  description: A catwalk for easier EVA maneuvering and cable placement.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Clickable
+  - type: Sprite
+    sprite: _Funkystation/Structures/catwalk.rsi
+    state: gray
+    drawdepth: FloorTiles
+  - type: Icon
+    sprite: _Funkystation/Structures/catwalk.rsi
+    state: gray
+  - type: Transform
+    anchored: true
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepCatwalk
+      params:
+        volume: 8
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal: # takes two to construct, so drop less than that
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: TrayScanReveal
+  - type: RCDDeconstructable
+    cost: 20 # Funkystation
+    delay: 2
+    fx: EffectRCDDeconstruct2
+
+- type: entity
+  id: CatwalkGrayOpen
+  name: catwalk gray open
+  description: A catwalk for easier EVA maneuvering and cable placement.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Clickable
+  - type: Sprite
+    sprite: _Funkystation/Structures/catwalk.rsi
+    state: gray_open
+    drawdepth: FloorTiles
+  - type: Icon
+    sprite: _Funkystation/Structures/catwalk.rsi
+    state: gray_open
+  - type: Transform
+    anchored: true
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepCatwalk
+      params:
+        volume: 8
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal: # takes two to construct, so drop less than that
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: TrayScanReveal
+  - type: RCDDeconstructable
+    cost: 20 # Funkystation
+    delay: 2
+    fx: EffectRCDDeconstruct2
+
+- type: entity
+  id: CatwalkWhite
+  name: catwalk white
+  description: A catwalk for easier EVA maneuvering and cable placement.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Clickable
+  - type: Sprite
+    sprite: _Funkystation/Structures/catwalk.rsi
+    state: white
+    drawdepth: FloorTiles
+  - type: Icon
+    sprite: _Funkystation/Structures/catwalk.rsi
+    state: white
+  - type: Transform
+    anchored: true
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepCatwalk
+      params:
+        volume: 8
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal: # takes two to construct, so drop less than that
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: TrayScanReveal
+  - type: RCDDeconstructable
+    cost: 20 # Funkystation
+    delay: 2
+    fx: EffectRCDDeconstruct2
+
+- type: entity
+  id: CatwalkWhiteOpen
+  name: catwalk white open
+  description: A catwalk for easier EVA maneuvering and cable placement.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Clickable
+  - type: Sprite
+    sprite: _Funkystation/Structures/catwalk.rsi
+    state: white_open
+    drawdepth: FloorTiles
+  - type: Icon
+    sprite: _Funkystation/Structures/catwalk.rsi
+    state: white_open
+  - type: Transform
+    anchored: true
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepCatwalk
+      params:
+        volume: 8
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal: # takes two to construct, so drop less than that
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: TrayScanReveal
+  - type: RCDDeconstructable
+    cost: 20 # Funkystation
+    delay: 2
+    fx: EffectRCDDeconstruct2
+
+- type: entity
+  id: CatwalkSmooth
+  name: catwalk smooth
+  description: A catwalk for easier EVA maneuvering and cable placement.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Clickable
+  - type: Sprite
+    sprite: _Funkystation/Structures/catwalk.rsi
+    state: smooth
+    drawdepth: FloorTiles
+  - type: Icon
+    sprite: _Funkystation/Structures/catwalk.rsi
+    state: smooth
+  - type: Transform
+    anchored: true
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepCatwalk
+      params:
+        volume: 8
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal: # takes two to construct, so drop less than that
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: TrayScanReveal
+  - type: RCDDeconstructable
+    cost: 20 # Funkystation
+    delay: 2
+    fx: EffectRCDDeconstruct2
+
+- type: entity
+  id: CatwalkDarkWarning
+  name: catwalk dark warning
+  description: A catwalk for easier EVA maneuvering and cable placement.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Clickable
+  - type: Sprite
+    sprite: _Funkystation/Structures/catwalk.rsi
+    state: dark_warning
+    drawdepth: FloorTiles
+  - type: Icon
+    sprite: _Funkystation/Structures/catwalk.rsi
+    state: dark_warning
+  - type: Transform
+    anchored: true
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepCatwalk
+      params:
+        volume: 8
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal: # takes two to construct, so drop less than that
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: TrayScanReveal
+  - type: RCDDeconstructable
+    cost: 20 # Funkystation
+    delay: 2
+    fx: EffectRCDDeconstruct2
+
+- type: entity
+  id: CatwalkDarkWarningOpen
+  name: catwalk dark warning open
+  description: A catwalk for easier EVA maneuvering and cable placement.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Clickable
+  - type: Sprite
+    sprite: _Funkystation/Structures/catwalk.rsi
+    state: dark_warning_open
+    drawdepth: FloorTiles
+  - type: Icon
+    sprite: _Funkystation/Structures/catwalk.rsi
+    state: dark_warning_open
+  - type: Transform
+    anchored: true
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepCatwalk
+      params:
+        volume: 8
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal: # takes two to construct, so drop less than that
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: TrayScanReveal
+  - type: RCDDeconstructable
+    cost: 20 # Funkystation
+    delay: 2
+    fx: EffectRCDDeconstruct2
+
+- type: entity
+  id: CatwalkTitanium
+  name: catwalk titanium
+  description: A catwalk for easier EVA maneuvering and cable placement.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Clickable
+  - type: Sprite
+    sprite: _Funkystation/Structures/catwalk.rsi
+    state: titanium
+    drawdepth: FloorTiles
+  - type: Icon
+    sprite: _Funkystation/Structures/catwalk.rsi
+    state: titanium
+  - type: Transform
+    anchored: true
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepCatwalk
+      params:
+        volume: 8
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal: # takes two to construct, so drop less than that
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: TrayScanReveal
+  - type: RCDDeconstructable
+    cost: 20 # Funkystation
+    delay: 2
+    fx: EffectRCDDeconstruct2
