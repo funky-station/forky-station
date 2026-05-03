@@ -242,6 +242,18 @@
   parent: Intercom
   suffix: Common
   components:
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      key_slots: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices
   - type: ContainerFill
     containers:
       board:
@@ -255,6 +267,18 @@
   suffix: Command
   description: An intercom. It's been reinforced with metal.
   components:
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      key_slots: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices
   - type: ContainerFill
     containers:
       board:
@@ -268,6 +292,18 @@
   parent: Intercom
   suffix: Engineering
   components:
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      key_slots: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices
   - type: ContainerFill
     containers:
       board:
@@ -281,6 +317,18 @@
   parent: Intercom
   suffix: Medical
   components:
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      key_slots: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices
   - type: ContainerFill
     containers:
       board:
@@ -294,6 +342,18 @@
   parent: Intercom
   suffix: Science
   components:
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      key_slots: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices
   - type: ContainerFill
     containers:
       board:
@@ -308,6 +368,18 @@
   suffix: Security
   description: An intercom. It's been reinforced with metal from security helmets, making it a bitch-and-a-half to open.
   components:
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      key_slots: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices
   - type: ContainerFill
     containers:
       board:
@@ -321,6 +393,18 @@
   parent: Intercom
   suffix: Service
   components:
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      key_slots: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices
   - type: ContainerFill
     containers:
       board:
@@ -334,6 +418,18 @@
   parent: Intercom
   suffix: Supply
   components:
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      key_slots: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices
   - type: ContainerFill
     containers:
       board:
@@ -347,6 +443,18 @@
   parent: Intercom
   suffix: All
   components:
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      key_slots: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices
   - type: ContainerFill
     containers:
       board:
@@ -360,6 +468,18 @@
   parent: Intercom
   suffix: Freelance
   components:
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      key_slots: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices
   - type: ContainerFill
     containers:
       board:
