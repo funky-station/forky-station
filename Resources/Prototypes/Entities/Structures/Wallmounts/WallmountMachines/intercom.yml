@@ -53,6 +53,14 @@
     containers:
       board: !type:Container
       key_slots: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices
   - type: Sprite
     noRot: false
     drawdepth: SmallObjects
