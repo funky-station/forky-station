@@ -10,7 +10,6 @@
     Telecrystal: 1
   categories:
   - UplinkDeception
-  saleBlacklist: true
 
 - type: listing
   id: UplinkCameraBugKit
