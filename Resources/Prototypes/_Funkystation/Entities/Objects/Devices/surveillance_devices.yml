@@ -14,15 +14,14 @@
   - type: Speech
     speechVerb: Robotic
   - type: Sprite
-    sprite: Objects/Devices/communication.rsi
+    sprite: _Funkystation/Objects/Devices/syndicate_listening_bug.rsi
     layers:
-    - state: walkietalkie
-    - state: walkietalkie-on
-    state: walkietalkie
+    - state: icon
+    - state: icon-ON
+    state: icon
   - type: Item
-    sprite: Objects/Devices/communication.rsi
-    heldPrefix: walkietalkie
     size: Tiny
+  - type: Appearance
   - type: SubFloorHide
   - type: Anchorable
   - type: CollideOnAnchor
@@ -42,14 +41,12 @@
     broadcastChannel: Detective
     listenRange: 6
   - type: Sprite
-    sprite: Objects/Devices/communication.rsi
+    sprite: _Funkystation/Objects/Devices/detective_listening_bug.rsi
     layers:
-    - state: walkietalkie
-    - state: walkietalkie-on
-    state: walkietalkie
+    - state: icon
+    - state: icon-ON
+    state: icon
   - type: Item
-    sprite: Objects/Devices/communication.rsi
-    heldPrefix: walkietalkie
     size: Tiny
 
 - type: entity
@@ -63,9 +60,12 @@
     - Detective
     defaultChannel: Detective
   - type: Sprite
+    sprite: _Funkystation/Objects/Devices/encryption_keys.rsi
     layers:
-    - state: crypt_gray
-    - state: sec_label
+    - state: crypt_det
+    - state: det_label
+  - type: Item
+    sprite: _Funkystation/Objects/Devices/encryption_keys.rsi
 
 # Camera Stuff
 
@@ -77,16 +77,14 @@
   suffix: Syndicate
   components:
   - type: Sprite
-    sprite: Objects/Devices/communication.rsi
+    sprite: _Funkystation/Objects/Devices/syndicate_hidden_camera.rsi
     layers:
-    - state: walkietalkie
-    - state: walkietalkie-on
-    state: walkietalkie
+    - state: icon
+    - state: icon-ON
+    state: icon
   - type: Item
-    sprite: Objects/Devices/communication.rsi
-    heldPrefix: walkietalkie
+    sprite: _Funkystation/Objects/Devices/syndicate_hidden_camera.rsi
     size: Tiny
-  - type: SubFloorHide
   - type: Transform
     anchored: false
   - type: InteractionOutline
@@ -112,17 +110,17 @@
   suffix: Syndicate
   components:
   - type: Sprite
-    sprite: Objects/Devices/communication.rsi
+    sprite: _Funkystation/Objects/Devices/syndicate_hidden_camera_router.rsi
     layers:
-    - state: walkietalkie
-    - state: walkietalkie-on
-    state: walkietalkie
+    - state: icon
+    - state: icon-ON
+    state: icon
   - type: Item
-    sprite: Objects/Devices/communication.rsi
+    sprite: _Funkystation/Objects/Devices/syndicate_hidden_camera_router.rsi
     size: Normal
     shape:
     - 0,0,1,1
-    heldPrefix: walkietalkie
+    heldPrefix: icon
   - type: Appearance
   - type: SubFloorHide
   - type: Anchorable
