@@ -127,6 +127,7 @@
   - type: Visibility
   - type: SubFloorHide
   - type: Anchorable
+  - type: CollideOnAnchor
   - type: InteractionOutline
   - type: DeviceNetwork
     deviceNetId: Wireless
