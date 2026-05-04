@@ -714,7 +714,6 @@
     radius: 1.5
     energy: 4.0
     color: "#3c5eb5"
-  - type: ItemSlots
   - type: ContainerContainer
     containers:
       board: !type:Container
