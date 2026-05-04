@@ -42,16 +42,6 @@
         - TabletopMachineLayer
   - type: ApcPowerReceiver
     powerLoad: 300
-  - type: ContainerContainer
-    containers:
-      hidden_slot: !type:ContainerSlot
-  - type: ItemSlots
-    slots:
-      hidden_slot:
-        name: computer_slot_accessory
-        whitelist:
-          tags:
-          - SurveillanceDevices
 
 - type: entity
   parent: BaseHeaterMachine
