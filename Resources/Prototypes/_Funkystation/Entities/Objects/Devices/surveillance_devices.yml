@@ -22,6 +22,7 @@
   - type: Item
     size: Tiny
   - type: Appearance
+  - type: Visibility
   - type: SubFloorHide
   - type: Anchorable
   - type: CollideOnAnchor
@@ -89,6 +90,7 @@
     anchored: false
   - type: InteractionOutline
   - type: Eye
+  - type: Visibility
   - type: WirelessNetworkConnection
     range: 2000
   - type: DeviceNetwork
@@ -122,6 +124,7 @@
     - 0,0,1,1
     heldPrefix: icon
   - type: Appearance
+  - type: Visibility
   - type: SubFloorHide
   - type: Anchorable
   - type: InteractionOutline
