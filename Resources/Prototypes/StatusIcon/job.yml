@@ -1,18 +1,3 @@
-# SPDX-FileCopyrightText: 2023-2024 PrPleGoo <PrPleGoo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nairod <110078045+Nairodian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Golinth <amh2023@gmail.com>
-# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2025 Professor Renderer Grizzleton <dimjcb@aol.com>
-# SPDX-FileCopyrightText: 2026 ThatGuyUSA <thatguyusa123@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: jobIcon
   abstract: true
   id: JobIcon
@@ -391,6 +376,7 @@
     sprite: *icon-rsi
     state: Borg
   jobName: job-name-borg
+  isCrewJob: false
 
 - type: jobIcon
   parent: JobIcon
@@ -399,6 +385,7 @@
     sprite: *icon-rsi
     state: StationAi
   jobName: job-name-station-ai
+  isCrewJob: false
 
 # Bad guys
 
@@ -409,6 +396,7 @@
     sprite: *icon-rsi
     state: Cluwne
   jobName: job-name-cluwne
+  isCrewJob: false
 
 - type: jobIcon
   parent: JobIcon
@@ -417,6 +405,7 @@
     sprite: *icon-rsi
     state: Ninja
   jobName: job-name-ninja
+  isCrewJob: false
 
 - type: jobIcon
   parent: JobIcon
@@ -425,6 +414,7 @@
     sprite: *icon-rsi
     state: Pirate
   jobName: job-name-pirate
+  isCrewJob: false
 
 - type: jobIcon
   parent: JobIcon
@@ -433,6 +423,7 @@
     sprite: *icon-rsi
     state: Prisoner
   jobName: job-name-prisoner
+  isCrewJob: false
 
 - type: jobIcon
   parent: JobIcon
@@ -441,6 +432,7 @@
     sprite: *icon-rsi
     state: Syndicate
   jobName: job-name-syndicate
+  isCrewJob: false
 
 - type: jobIcon
   parent: JobIcon
@@ -449,6 +441,7 @@
     sprite: *icon-rsi
     state: SyndicateCommander
   jobName: job-name-syndicate-commander
+  isCrewJob: false
 
 - type: jobIcon
   parent: JobIcon
@@ -457,6 +450,7 @@
     sprite: *icon-rsi
     state: SyndicateCorpsman
   jobName: job-name-syndicate-corpsman
+  isCrewJob: false
 
 - type: jobIcon
   parent: JobIcon
@@ -465,6 +459,7 @@
     sprite: *icon-rsi
     state: SyndicateOperative
   jobName: job-name-syndicate-operative
+  isCrewJob: false
 
 - type: jobIcon
   parent: JobIcon
@@ -473,6 +468,7 @@
     sprite: *icon-rsi
     state: Wizard
   jobName: job-name-wizard
+  isCrewJob: false
 
 - type: jobIcon
   parent: JobIcon
@@ -481,6 +477,7 @@
     sprite: *icon-rsi
     state: Zombie
   jobName: job-name-zombie
+  isCrewJob: false
 
 # Admin
 
@@ -605,6 +602,7 @@
     sprite: *icon-rsi
     state: NoId
   jobName: job-name-no-id
+  isCrewJob: false
 
 - type: jobIcon
   parent: JobIcon
@@ -613,3 +611,4 @@
     sprite: *icon-rsi
     state: Unknown
   jobName: job-name-unknown
+  isCrewJob: false

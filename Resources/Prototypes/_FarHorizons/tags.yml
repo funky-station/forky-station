@@ -1,0 +1,9 @@
+# ALPHABETIZE
+- type: Tag
+  id: GasTurbineBlade
+
+- type: Tag
+  id: GasTurbineStator
+
+- type: Tag
+  id: SalvageReactor

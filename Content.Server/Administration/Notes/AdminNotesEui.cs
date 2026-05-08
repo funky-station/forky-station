@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration.Managers;
 using Content.Server.EUI;
 using Content.Shared.Administration.Notes;
@@ -28,7 +22,7 @@ public sealed class AdminNotesEui : BaseEui
         IoCManager.InjectDependencies(this);
     }
 
-    private Guid NotedPlayer { get; set; }
+    private NetUserId NotedPlayer { get; set; }
     private string NotedPlayerName { get; set; } = string.Empty;
     private bool HasConnectedBefore { get; set; }
     private Dictionary<(int, NoteType), SharedAdminNote> Notes { get; set; } = new();
@@ -118,7 +112,7 @@ public sealed class AdminNotesEui : BaseEui
         }
     }
 
-    public async Task ChangeNotedPlayer(Guid notedPlayer)
+    public async Task ChangeNotedPlayer(NetUserId notedPlayer)
     {
         NotedPlayer = notedPlayer;
         await LoadFromDb();
@@ -126,7 +120,7 @@ public sealed class AdminNotesEui : BaseEui
 
     private void NoteModified(SharedAdminNote note)
     {
-        if (note.Player != NotedPlayer)
+        if (!note.Players.Contains(NotedPlayer))
             return;
 
         Notes[(note.Id, note.NoteType)] = note;
@@ -135,7 +129,7 @@ public sealed class AdminNotesEui : BaseEui
 
     private void NoteDeleted(SharedAdminNote note)
     {
-        if (note.Player != NotedPlayer)
+        if (!note.Players.Contains(NotedPlayer))
             return;
 
         Notes.Remove((note.Id, note.NoteType));

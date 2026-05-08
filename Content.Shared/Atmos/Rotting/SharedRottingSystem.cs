@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2026 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
@@ -31,7 +25,6 @@ public abstract class SharedRottingSystem : EntitySystem
         SubscribeLocalEvent<PerishableComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<PerishableComponent, ExaminedEvent>(OnPerishableExamined);
 
-        SubscribeLocalEvent<RottingComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<RottingComponent, MobStateChangedEvent>(OnRottingMobStateChanged);
         SubscribeLocalEvent<RottingComponent, RejuvenateEvent>(OnRejuvenate);
         SubscribeLocalEvent<RottingComponent, ExaminedEvent>(OnExamined);
@@ -67,14 +60,6 @@ public abstract class SharedRottingSystem : EntitySystem
         var isMob = HasComp<MobStateComponent>(perishable);
         var description = "perishable-" + stage + (!isMob ? "-nonmob" : string.Empty);
         args.PushMarkup(Loc.GetString(description, ("target", Identity.Entity(perishable, EntityManager))));
-    }
-
-    private void OnShutdown(Entity<RottingComponent> ent, ref ComponentShutdown args)
-    {
-        if (TryComp<PerishableComponent>(ent, out var perishable))
-        {
-            perishable.RotNextUpdate = TimeSpan.Zero;
-        }
     }
 
     private void OnRottingMobStateChanged(EntityUid uid, RottingComponent component, MobStateChangedEvent args)

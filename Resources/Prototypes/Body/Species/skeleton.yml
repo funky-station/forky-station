@@ -1,29 +1,43 @@
-# SPDX-FileCopyrightText: 2022-2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Willhelm53 <97707302+Willhelm53@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 och-och <80923370+och-och@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TekuNut <13456422+TekuNut@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Myakot <30875116+Myakot@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Hitlinemoss <209321380+Hitlinemoss@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Jessica M <jessica@jessicamaybe.com>
-# SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
-# SPDX-License-Identifier: MIT
+- type: markingsGroup
+  id: Skeleton
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
 
 - type: entity
   parent: BaseSpeciesAppearance
@@ -37,21 +51,19 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: EntityTableContainerFill
-    containers:
-      body_organs: !type:AllSelector
-        children:
-        - id: OrganSkeletonPersonTorso
-        - id: OrganSkeletonPersonHead
-        - id: OrganSkeletonPersonArmLeft
-        - id: OrganSkeletonPersonArmRight
-        - id: OrganSkeletonPersonHandRight
-        - id: OrganSkeletonPersonHandLeft
-        - id: OrganSkeletonPersonLegLeft
-        - id: OrganSkeletonPersonLegRight
-        - id: OrganSkeletonPersonFootLeft
-        - id: OrganSkeletonPersonFootRight
-  - type: HumanoidAppearance
+  - type: InitialBody
+    organs:
+      Torso: OrganSkeletonPersonTorso
+      Head: OrganSkeletonPersonHead
+      ArmLeft: OrganSkeletonPersonArmLeft
+      ArmRight: OrganSkeletonPersonArmRight
+      HandRight: OrganSkeletonPersonHandRight
+      HandLeft: OrganSkeletonPersonHandLeft
+      LegLeft: OrganSkeletonPersonLegLeft
+      LegRight: OrganSkeletonPersonLegRight
+      FootLeft: OrganSkeletonPersonFootLeft
+      FootRight: OrganSkeletonPersonFootRight
+  - type: HumanoidProfile
     species: Skeleton
 
 - type: entity
@@ -184,9 +196,15 @@
   components:
   - type: Sprite
     sprite: Mobs/Species/Skeleton/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: Mobs/Species/Skeleton/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Skeleton
 
 - type: entity
-  parent: [ OrganBaseTorso, OrganSkeletonPersonExternal ]
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganSkeletonPersonExternal ]
   id: OrganSkeletonPersonTorso
 
 - type: entity

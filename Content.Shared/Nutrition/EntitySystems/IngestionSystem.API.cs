@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -225,7 +220,7 @@ public sealed partial class IngestionSystem
             if (reagent.Metabolisms == null)
                 continue;
 
-            foreach (var entry in reagent.Metabolisms.Values)
+            foreach (var entry in reagent.Metabolisms.Metabolisms.Values)
             {
                 foreach (var effect in entry.Effects)
                 {
@@ -276,7 +271,7 @@ public sealed partial class IngestionSystem
             if (reagent.Metabolisms == null)
                 continue;
 
-            foreach (var entry in reagent.Metabolisms.Values)
+            foreach (var entry in reagent.Metabolisms.Metabolisms.Values)
             {
                 foreach (var effect in entry.Effects)
                 {

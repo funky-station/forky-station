@@ -1,0 +1,10 @@
+# Funky atmos - /tg/ gases
+- type: cargoProduct
+  id: AtmosphericsBZ
+  icon:
+    sprite: Structures/Storage/canister.rsi
+    state: purple
+  product: BZCanister
+  cost: 6000
+  category: cargoproduct-category-name-atmospherics
+  group: market

@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 namespace Content.Shared.Weapons.Ranged.Events;
 
 /// <summary>

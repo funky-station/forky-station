@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Tag;
 using Robust.Client.Upload.Commands;
 using Robust.Shared.GameObjects;

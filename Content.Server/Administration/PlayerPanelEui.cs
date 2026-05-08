@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
@@ -192,11 +186,8 @@ public sealed class PlayerPanelEui : BaseEui
         {
             _whitelisted = await _db.GetWhitelistStatusAsync(_targetPlayer.UserId);
             // This won't get associated ip or hwid bans but they were not placed on this account anyways
-            _bans = (await _db.GetServerBansAsync(null, _targetPlayer.UserId, null, null)).Count;
-            // Unfortunately role bans for departments and stuff are issued individually. This means that a single role ban can have many individual role bans internally
-            // The only way to distinguish whether a role ban is the same is to compare the ban time.
-            // This is horrible and I would love to just erase the database and start from scratch instead but that's what I can do for now.
-            _roleBans = (await _db.GetServerRoleBansAsync(null, _targetPlayer.UserId, null, null)).DistinctBy(rb => rb.BanTime).Count();
+            _bans = (await _db.GetBansAsync(null, _targetPlayer.UserId, null, null)).Count;
+            _roleBans = (await _db.GetBansAsync(null, _targetPlayer.UserId, null, null, type: BanType.Role)).Count();
         }
         else
         {

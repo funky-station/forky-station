@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 csqrb <56765288+CaptainSqrBeard@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
@@ -50,7 +42,6 @@ namespace Content.Shared.Humanoid.Markings
         {
             MarkingId = other.MarkingId;
             _markingColors = new(other.MarkingColors);
-            Visible = other.Visible;
             Forced = other.Forced;
         }
 
@@ -65,12 +56,6 @@ namespace Content.Shared.Humanoid.Markings
         /// </summary>
         [ViewVariables]
         public IReadOnlyList<Color> MarkingColors => _markingColors;
-
-        /// <summary>
-        ///     If this marking is currently visible.
-        /// </summary>
-        [DataField("visible")]
-        public bool Visible = true;
 
         /// <summary>
         ///     If this marking should be forcefully applied, regardless of points.
@@ -115,7 +100,6 @@ namespace Content.Shared.Humanoid.Markings
             }
             return MarkingId.Equals(other.MarkingId)
                 && _markingColors.SequenceEqual(other._markingColors)
-                && Visible.Equals(other.Visible)
                 && Forced.Equals(other.Forced);
         }
 

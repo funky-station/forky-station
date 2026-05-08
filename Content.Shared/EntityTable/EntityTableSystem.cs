@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.EntityTable.EntitySelectors;
 using JetBrains.Annotations;
@@ -29,6 +25,17 @@ public sealed class EntityTableSystem : EntitySystem
         rand ??= _random.GetRandom();
         ctx ??= new EntityTableContext();
         return table.GetSpawns(rand, EntityManager, _prototypeManager, ctx);
+    }
+
+    // TODO: Have this method be much better for entity tables
+    public IEnumerable<EntProtoId> ListSpawns(EntityTableSelector? table, System.Random? rand = null, EntityTableContext? ctx = null)
+    {
+        if (table == null)
+            return new List<EntProtoId>();
+
+        rand ??= _random.GetRandom();
+        ctx ??= new EntityTableContext();
+        return table.ListSpawns(rand, EntityManager, _prototypeManager, ctx);
     }
 }
 

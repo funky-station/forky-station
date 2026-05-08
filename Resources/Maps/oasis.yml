@@ -1,65 +1,11 @@
-# SPDX-FileCopyrightText: 2021, 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021-2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021-2022 TaralGit <76408146+TaralGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 TimrodDX <timrod@gmail.com>
-# SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 buletsponge <96000213+buletsponge@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2025 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023, 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022, 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2022-2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Cheackraze <71046427+Cheackraze@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Morbo <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023-2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Aexxie <codyfox.077@gmail.com>
-# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Sailor <109166122+Equivocateur@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 DerbyX <50932435+DerbyX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 MisterMecky <mrmecky@hotmail.com>
-# SPDX-FileCopyrightText: 2023 PeterFuto <futo.petr@gmail.com>
-# SPDX-FileCopyrightText: 2023 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2024-2025 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024-2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024-2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 August Sun <45527070+august-sun@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 joshepvodka <86210200+joshepvodka@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Alex <firestar@firestar4.com>
-# SPDX-FileCopyrightText: 2025 GeneralGaws <122978178+GeneralGaws@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Stefano Pigozzi <me@steffo.eu>
-# SPDX-FileCopyrightText: 2025 Crude Oil <124208219+CroilBird@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Avery Dobbins <avery.dobbins@gmail.com>
-# SPDX-FileCopyrightText: 2025 Orange-Winds <orange.wind@outlook.com>
-# SPDX-FileCopyrightText: 2025 Booblesnoot42 <108703193+Booblesnoot42@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 meta:
   format: 7
   category: Map
-  engineVersion: 268.0.0
+  engineVersion: 271.2.0
   forkId: ""
   forkVersion: ""
-  time: 12/08/2025 00:21:38
-  entityCount: 31169
+  time: 01/27/2026 04:05:45
+  entityCount: 31167
 maps:
 - 1
 grids:
@@ -8865,6 +8811,8 @@ entities:
       id: Oasis
     - type: ImplicitRoof
     - type: ExplosionAirtightGrid
+    - type: TileHistory
+      chunkHistory: {}
   - uid: 21002
     components:
     - type: MetaData
@@ -10125,6 +10073,8 @@ entities:
     - type: NavMap
     - type: ImplicitRoof
     - type: ExplosionAirtightGrid
+    - type: TileHistory
+      chunkHistory: {}
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 1634
@@ -15567,7 +15517,7 @@ entities:
       pos: -22.5,26.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -245515.03
+      secondsUntilStateChange: -245564.78
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -16423,7 +16373,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -344343.7
+      secondsUntilStateChange: -344393.44
       state: Opening
   - uid: 6934
     components:
@@ -16435,7 +16385,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -344346.3
+      secondsUntilStateChange: -344396.06
       state: Opening
   - uid: 6935
     components:
@@ -16447,7 +16397,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -344345.16
+      secondsUntilStateChange: -344394.9
       state: Opening
   - uid: 6936
     components:
@@ -16458,7 +16408,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -344344.38
+      secondsUntilStateChange: -344394.12
       state: Opening
 - proto: AirlockTheatreLocked
   entities:
@@ -94485,11 +94435,6 @@ entities:
     - type: Transform
       pos: -2.5,20.5
       parent: 2
-  - uid: 505
-    components:
-    - type: Transform
-      pos: -2.5,20.5
-      parent: 2
   - uid: 1036
     components:
     - type: Transform
@@ -97356,13 +97301,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -55.5,-36.5
-      parent: 2
-- proto: FigureSpawner
-  entities:
-  - uid: 23863
-    components:
-    - type: Transform
-      pos: -2.5,-62.5
       parent: 2
 - proto: filingCabinetDrawerRandom
   entities:
@@ -100415,7 +100353,7 @@ entities:
       pos: -13.5,-1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -335667.7
+      secondsUntilStateChange: -335717.44
     - type: DeviceNetwork
       deviceLists:
       - 18275
@@ -147370,7 +147308,7 @@ entities:
       pos: 36.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -372499.47
+      secondsUntilStateChange: -372549.22
       state: Opening
   - uid: 5211
     components:
@@ -150534,6 +150472,13 @@ entities:
     components:
     - type: Transform
       pos: -56.05085,0.6887263
+      parent: 2
+- proto: MechFigurineSpawner50
+  entities:
+  - uid: 23863
+    components:
+    - type: Transform
+      pos: -2.5,-62.5
       parent: 2
 - proto: MedicalBed
   entities:
@@ -153940,6 +153885,34 @@ entities:
     - type: Transform
       pos: 31.976513,24.950718
       parent: 1
+- proto: PlushieSpawner50
+  entities:
+  - uid: 20680
+    components:
+    - type: Transform
+      pos: -17.5,36.5
+      parent: 2
+  - uid: 20681
+    components:
+    - type: Transform
+      pos: -18.5,35.5
+      parent: 2
+  - uid: 22268
+    components:
+    - type: Transform
+      pos: 21.5,-5.5
+      parent: 21002
+  - uid: 23048
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 14.5,6.5
+      parent: 21002
+  - uid: 23050
+    components:
+    - type: Transform
+      pos: 14.5,-7.5
+      parent: 21002
 - proto: PonderingOrb
   entities:
   - uid: 23786
@@ -173872,7 +173845,7 @@ entities:
     - type: Transform
       pos: -23.5,33.5
       parent: 2
-- proto: SpacemenFigureSpawner
+- proto: SpacemenFigurineSpawner90
   entities:
   - uid: 20677
     components:
@@ -175159,13 +175132,6 @@ entities:
     components:
     - type: Transform
       pos: 47.5,-15.5
-      parent: 2
-- proto: SpawnPointZookeeper
-  entities:
-  - uid: 20864
-    components:
-    - type: Transform
-      pos: -19.5,-3.5
       parent: 2
 - proto: SpiderWeb
   entities:
@@ -182162,34 +182128,6 @@ entities:
     - type: Transform
       pos: 35.30755,22.53226
       parent: 2
-- proto: ToySpawner
-  entities:
-  - uid: 20680
-    components:
-    - type: Transform
-      pos: -17.5,36.5
-      parent: 2
-  - uid: 20681
-    components:
-    - type: Transform
-      pos: -18.5,35.5
-      parent: 2
-  - uid: 22268
-    components:
-    - type: Transform
-      pos: 21.5,-5.5
-      parent: 21002
-  - uid: 23048
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 14.5,6.5
-      parent: 21002
-  - uid: 23050
-    components:
-    - type: Transform
-      pos: 14.5,-7.5
-      parent: 21002
 - proto: TrashBag
   entities:
   - uid: 3060
@@ -204530,7 +204468,7 @@ entities:
       pos: 24.5,2.5
       parent: 21002
     - type: Door
-      secondsUntilStateChange: -717704
+      secondsUntilStateChange: -717753.75
       state: Opening
   - uid: 28863
     components:

@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-License-Identifier: MIT
-
 using Content.Packaging;
 using Robust.Packaging;
 
@@ -27,11 +22,11 @@ if (!parsed.SkipBuild)
 
 if (parsed.Client)
 {
-    await ClientPackaging.PackageClient(parsed.SkipBuild, parsed.Configuration, logger);
+    await ClientPackaging.PackageClient(parsed.SkipBuild, parsed.LogBuild, parsed.Configuration, logger);
 }
 else
 {
-    await ServerPackaging.PackageServer(parsed.SkipBuild, parsed.HybridAcz, logger, parsed.Configuration, parsed.Platforms);
+    await ServerPackaging.PackageServer(parsed.SkipBuild, parsed.HybridAcz, parsed.LogBuild, logger, parsed.Configuration, parsed.Platforms);
 }
 
 void WipeBin()

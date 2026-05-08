@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Objectives.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
@@ -64,7 +61,7 @@ public sealed class HijackShuttleConditionSystem : EntitySystem
     private bool IsShuttleHijacked(EntityUid shuttleGridId, EntityUid mindId)
     {
         var gridPlayers = Filter.BroadcastGrid(shuttleGridId).Recipients;
-        var humanoids = GetEntityQuery<HumanoidAppearanceComponent>();
+        var humanoids = GetEntityQuery<HumanoidProfileComponent>();
         var cuffable = GetEntityQuery<CuffableComponent>();
         EntityQuery<MobStateComponent>();
 

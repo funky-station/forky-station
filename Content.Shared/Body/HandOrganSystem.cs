@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Hands.EntitySystems;
 
 namespace Content.Shared.Body;

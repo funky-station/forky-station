@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Saphire Lattice <lattice@saphi.re>
-// SPDX-FileCopyrightText: 2026 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2026 Velken <8467292+Velken@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.IntegrationTests.Tests.Interaction;
 using Robust.Shared.Map;
 
@@ -109,6 +98,27 @@ public sealed class TileConstructionTests : InteractionTest
         await AssertTile(Plating);
         AssertGridCount(1);
 
+        await AssertEntityLookup((FloorItem, 1));
+    }
+
+    /// <summary>
+    /// Test brassPlating -> floor -> brassPlating using tilestacking
+    /// </summary>
+    [Test]
+    public async Task BrassPlatingPlace()
+    {
+        await SetTile(PlatingBrass);
+
+        // Brass Plating -> Tile
+        await InteractUsing(FloorItem);
+        Assert.That(HandSys.GetActiveItem((SEntMan.GetEntity(Player), Hands)), Is.Null);
+        await AssertTile(Floor);
+        AssertGridCount(1);
+
+        // Tile -> Brass Plating
+        await InteractUsing(Pry);
+        await AssertTile(PlatingBrass);
+        AssertGridCount(1);
         await AssertEntityLookup((FloorItem, 1));
     }
 }

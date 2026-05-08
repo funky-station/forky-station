@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.DeviceLinking;
@@ -74,15 +67,16 @@ public sealed partial class TriggerSystem : EntitySystem
     /// <param name="trigger">The entity that has the components that should be triggered.</param>
     /// <param name="user">The user of the trigger. Some effects may target the user instead of the trigger entity.</param>
     /// <param name="key">A key string to allow multiple, independent triggers on the same entity. If null then all triggers will activate.</param>
+    /// <param name="predicted">Whether or not this trigger is being predicted</param>
     /// <returns>Whether or not the trigger has sucessfully activated an effect.</returns>
-    public bool Trigger(EntityUid trigger, EntityUid? user = null, string? key = null)
+    public bool Trigger(EntityUid trigger, EntityUid? user = null, string? key = null, bool predicted = true)
     {
         var attemptTriggerEvent = new AttemptTriggerEvent(user, key);
         RaiseLocalEvent(trigger, ref attemptTriggerEvent);
         if (attemptTriggerEvent.Cancelled)
             return false;
 
-        var triggerEvent = new TriggerEvent(user, key);
+        var triggerEvent = new TriggerEvent(user, key, predicted);
         RaiseLocalEvent(trigger, ref triggerEvent, true);
         return triggerEvent.Handled;
     }
