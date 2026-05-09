@@ -36,6 +36,7 @@
   id: MobMouseRed
   components:
   - type: Sprite
+    drawdepth: SmallMobs
     sprite: _FunkyStation/Mobs/Animals/mouse_red.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
