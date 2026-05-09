@@ -4,6 +4,7 @@ using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.FixedPoint;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
+using Content.Shared.Chemistry.Reagent;
 
 namespace Content.Shared.Chemistry.EntitySystems;
 
@@ -181,6 +182,46 @@ public abstract partial class SharedSolutionContainerSystem
             return 0;
 
         return sol.FillFraction * 100;
+    }
+
+    /// <summary>
+    /// Tags all reagents in a solution with a specific administration route by adding
+    /// <see cref="AdministrationRouteData"/> to each reagent's data list.
+    /// Call this on a split solution immediately before it is added to a body, so that
+    /// route-specific metabolisms apply correctly.
+    /// </summary>
+    /// <remarks>
+    /// The same reagent administered via two different routes will appear as two separate
+    /// entries in the destination solution, preserving their individual effects.
+    /// If <paramref name="route"/> is <see cref="ReagentAdministrationRoute.Unspecified"/>,
+    /// this method does nothing.
+    /// </remarks>
+    /// <param name="solution">The solution whose reagents will be tagged.</param>
+    /// <param name="route">The administration route to apply.</param>
+    public static void SetAdministrationRoute(Solution solution, ReagentAdministrationRoute route)
+    {
+        if (route == ReagentAdministrationRoute.Unspecified)
+            return;
+
+        var routeData = new AdministrationRouteData(route);
+
+        for (var i = 0; i < solution.Contents.Count; i++)
+        {
+            var quantity = solution.Contents[i];
+
+            // Copy existing data list, or start a fresh one.
+            var data = quantity.Reagent.Data != null
+                ? new List<ReagentData>(quantity.Reagent.Data)
+                : new List<ReagentData>(1);
+
+            // Replace any pre-existing route entry so we don't accumulate stale entries.
+            data.RemoveAll(d => d is AdministrationRouteData);
+            data.Add(routeData);
+
+            solution.Contents[i] = new ReagentQuantity(
+                new ReagentId(quantity.Reagent.Prototype, data),
+                quantity.Quantity);
+        }
     }
 
     #endregion Static Methods

@@ -3,6 +3,7 @@ using Content.Server.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Events;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
@@ -139,6 +140,8 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
         var removedSolution = _solutionContainer.SplitSolution(injectorSolution.Value, injector.Comp.TransferAmount * targetBloodstreams.Count);
         // Adjust solution amount based on transfer efficiency
         var solutionToInject = removedSolution.SplitSolution(removedSolution.Volume * injector.Comp.TransferEfficiency);
+        // Tag with injection route for route-specific metabolism processing.
+        SharedSolutionContainerSystem.SetAdministrationRoute(solutionToInject, ReagentAdministrationRoute.Injection);
         // Calculate how much of the adjusted solution each target will get
         var volumePerBloodstream = solutionToInject.Volume * (1f / targetBloodstreams.Count);
 

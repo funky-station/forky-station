@@ -5,6 +5,7 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
@@ -376,6 +377,8 @@ public sealed partial class IngestionSystem : EntitySystem
         // Everything is good to go item has been successfuly eaten
         var afterEv = new IngestedEvent(args.User, entity, split, forceFed, beforeEv.Transfer >= beforeEv.Max);
         RaiseLocalEvent(food, ref afterEv);
+
+        SharedSolutionContainerSystem.SetAdministrationRoute(split, ReagentAdministrationRoute.Ingestion);
 
         _stomach.TryTransferSolution(stomachToUse.Value.Owner, split, stomachToUse);
 

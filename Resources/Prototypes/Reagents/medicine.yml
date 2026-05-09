@@ -1,4 +1,38 @@
 - type: reagent
+  id: Hypothium
+  name: reagent-name-hypothium
+  desc: reagent-desc-hypothium
+  physicalDesc: reagent-physical-desc-colorless-liquid
+  color: "#4099FF"
+  # Fallback: used when no specific route is recorded.
+  metabolisms:
+    Bloodstream:
+      rate: 0.5
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.5
+  # Route-specific overrides.
+  routeMetabolisms:
+    Injection:
+      Bloodstream:
+        rate: 1.0
+        effects:
+        - !type:HealthChange
+          damage:
+            groups:
+              Brute: -2   # heals brute damage
+    Ingestion:
+      Bloodstream:
+        rate: 0.5
+        effects:
+        - !type:HealthChange
+          damage:
+            types:
+              Poison: 2.0  # poisons the entity
+
+- type: reagent
   id: Cryptobiolin
   name: reagent-name-cryptobiolin
   group: Medicine

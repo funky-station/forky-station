@@ -4,6 +4,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Events;
 using Content.Shared.Chemistry.Prototypes;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
@@ -509,6 +510,8 @@ public sealed partial class InjectorSystem : EntitySystem
             removedSolution = _solutionContainer.SplitStackSolution(injector.Comp.Solution.Value, realTransferAmount, stack.Count);
         else
             removedSolution = _solutionContainer.SplitSolution(injector.Comp.Solution.Value, realTransferAmount);
+
+        SharedSolutionContainerSystem.SetAdministrationRoute(removedSolution, ReagentAdministrationRoute.Injection);
 
         _reactiveSystem.DoEntityReaction(target, removedSolution, ReactionMethod.Injection);
 

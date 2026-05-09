@@ -172,6 +172,34 @@ namespace Content.Shared.Chemistry.Reagent
         [DataField, AlwaysPushInheritance]
         public ReagentMetabolisms? Metabolisms;
 
+        /// <summary>
+        /// Metabolism effects that apply when a reagent was administered via a specific route.
+        /// If an entry exists for the reagent's administration route, it is used instead of
+        /// the default <see cref="Metabolisms"/>. This allows the same reagent to heal when
+        /// injected but poison when ingested, for example.
+        /// </summary>
+        /// <example>
+        /// routeMetabolisms:
+        ///   Injection:
+        ///     Bloodstream:
+        ///       rate: 1.0
+        ///       effects:
+        ///         - !type:HealthChange
+        ///           damage:
+        ///             groups:
+        ///               Brute: -2
+        ///   Ingestion:
+        ///     Bloodstream:
+        ///       rate: 0.5
+        ///       effects:
+        ///         - !type:HealthChange
+        ///           damage:
+        ///             types:
+        ///               Poison: 2.0
+        /// </example>
+        [DataField]
+        public Dictionary<ReagentAdministrationRoute, ReagentMetabolisms>? RouteMetabolisms;
+
         [DataField]
         public Dictionary<ProtoId<ReactiveGroupPrototype>, ReactiveReagentEffectEntry>? ReactiveEffects;
 
@@ -245,7 +273,12 @@ namespace Content.Shared.Chemistry.Reagent
 
         public Dictionary<ProtoId<MetabolismStagePrototype>, ReagentEffectsGuideEntry>? GuideEntries;
 
-        public List<string>? PlantMetabolisms = null;
+        /// <summary>
+        /// Guide entries for each administration route, keyed by route then by metabolism stage.
+        /// </summary>
+        public Dictionary<ReagentAdministrationRoute, Dictionary<ProtoId<MetabolismStagePrototype>, ReagentEffectsGuideEntry>>? RouteGuideEntries;
+
+        public List<string>? PlantMetabolisms;
 
         public ReagentGuideEntry(ReagentPrototype proto, IPrototypeManager prototype, IEntitySystemManager entSys)
         {
@@ -253,10 +286,28 @@ namespace Content.Shared.Chemistry.Reagent
             GuideEntries = proto.Metabolisms?.Metabolisms
                 .Select(x => (x.Key, x.Value.MakeGuideEntry(prototype, entSys, proto)))
                 .ToDictionary(x => x.Key, x => x.Item2);
+
+            if (proto.RouteMetabolisms != null)
+            {
+                RouteGuideEntries = new Dictionary<ReagentAdministrationRoute,
+                    Dictionary<ProtoId<MetabolismStagePrototype>, ReagentEffectsGuideEntry>>();
+
+                foreach (var (route, routeMetabolisms) in proto.RouteMetabolisms)
+                {
+                    RouteGuideEntries[route] = routeMetabolisms.Metabolisms
+                        .Select(x => (x.Key, x.Value.MakeGuideEntry(prototype, entSys, proto)))
+                        .ToDictionary(x => x.Key, x => x.Item2);
+                }
+            }
+            else
+            {
+                RouteGuideEntries = null;
+            }
+
             if (proto.PlantMetabolisms.Count > 0)
             {
-                PlantMetabolisms =
-                    new List<string>(proto.GuidebookReagentEffectsDescription(prototype, entSys, proto.PlantMetabolisms, FixedPoint2.New(1f)));
+                PlantMetabolisms = new List<string>(
+                    proto.GuidebookReagentEffectsDescription(prototype, entSys, proto.PlantMetabolisms, FixedPoint2.New(1f)));
             }
         }
     }
