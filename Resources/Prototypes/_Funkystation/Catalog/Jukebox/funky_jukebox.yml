@@ -1,8 +1,8 @@
 - type: jukebox
-  id: ChokingToDeathOnCaviar
-  name: DECEMBER 7TH SOUND TEAM - Choking to Death on Caviar
+  id: BalladOfAbeApeman
+  name: DECEMBER 7TH SOUND TEAM - The Ballad of ABE APEMAN (Demo)
   path:
-    path: /Audio/_Funkystation/Jukebox/chokingtodeathoncaviar.ogg
+    path: /Audio/_Funkystation/Jukebox/balladofabeapeman.ogg
 
 - type: jukebox
   id: RhythmAndBluesPt9
