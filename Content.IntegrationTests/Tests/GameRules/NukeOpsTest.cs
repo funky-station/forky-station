@@ -1,8 +1,6 @@
 #nullable enable
-using System.Collections.Generic;
 using System.Linq;
 using Content.IntegrationTests;
-using Content.IntegrationTests.Fixtures;
 using Content.IntegrationTests.Pair;
 using Content.Server.Body.Components;
 using Content.Server.GameTicking;
@@ -14,7 +12,6 @@ using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
@@ -29,12 +26,16 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.UnitTesting;
 
 namespace Content.IntegrationTests.Tests.GameRules;
 
 [TestFixture]
-public sealed class NukeOpsTest : GameTest
+[FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
+public sealed class NukeOpsTest
 {
+    private TestPair _pair = default!;
+
     private static readonly ProtoId<NpcFactionPrototype> SyndicateFaction = "Syndicate";
     private static readonly ProtoId<NpcFactionPrototype> NanotrasenFaction = "NanoTrasen";
 
@@ -45,18 +46,27 @@ public sealed class NukeOpsTest : GameTest
         "NukeopsCommander",
     ];
 
-    public override PoolSettings PoolSettings => new()
+    [SetUp]
+    public async Task SetUp()
     {
-        Dirty = true,
-        DummyTicker = false,
-        Connected = true,
-        InLobby = true
-    };
+        _pair = await PoolManager.GetServerClient(
+            new PoolSettings
+            {
+                Dirty = true,
+                DummyTicker = false,
+                Connected = true,
+                InLobby = true,
+            },
+            new NUnitTestContextWrap(TestContext.CurrentContext, TestContext.Out));
+    }
+
+    [TearDown]
+    public async Task TearDown() => await _pair.CleanReturnAsync();
 
     [Test]
     public async Task NukeOps_StartsRoundAntagsAndOperativeSpawn()
     {
-        var ctx = await StartNukeOpsStandardRoundAsync(Pair);
+        var ctx = await StartNukeOpsStandardRoundAsync(_pair);
         try
         {
             var pair = ctx.Pair;
@@ -68,7 +78,6 @@ public sealed class NukeOpsTest : GameTest
             var roleSys = ctx.RoleSys;
             var invSys = ctx.InvSys;
             var factionSys = ctx.FactionSys;
-            var damageSys = ctx.DamageSys;
             var player = ctx.Player;
             var dummyEnts = ctx.DummyEnts;
 
@@ -123,7 +132,7 @@ public sealed class NukeOpsTest : GameTest
                 {
                     await pair.RunTicksSync(increment);
                     Assert.That(resp.SuffocationCycles, Is.LessThanOrEqualTo(resp.SuffocationCycleThreshold));
-                    Assert.That(damageSys.GetTotalDamage(player), Is.EqualTo(FixedPoint2.Zero));
+                    Assert.That(entMan.GetComponent<DamageableComponent>(player).TotalDamage, Is.EqualTo(FixedPoint2.Zero));
                 }
             }
         }
@@ -136,7 +145,7 @@ public sealed class NukeOpsTest : GameTest
     [Test]
     public async Task NukeOps_TargetStationMapsGridsAndInit()
     {
-        var ctx = await StartNukeOpsStandardRoundAsync(Pair);
+        var ctx = await StartNukeOpsStandardRoundAsync(_pair);
         try
         {
             var entMan = ctx.EntMan;
@@ -198,7 +207,7 @@ public sealed class NukeOpsTest : GameTest
     [Test]
     public async Task NukeOps_RoundEndWhenLastOperativeDeleted()
     {
-        var ctx = await StartNukeOpsStandardRoundAsync(Pair);
+        var ctx = await StartNukeOpsStandardRoundAsync(_pair);
         try
         {
             var server = ctx.Pair.Server;
@@ -265,8 +274,6 @@ public sealed class NukeOpsTest : GameTest
         var invSys = server.System<InventorySystem>();
         var factionSys = server.System<NpcFactionSystem>();
         var roundEndSys = server.System<RoundEndSystem>();
-        var damageSys = server.System<DamageableSystem>();
-
         server.CfgMan.SetCVar(CCVars.GridFill, true);
 
         var dummies = await server.AddDummySessions(3);
@@ -313,7 +320,6 @@ public sealed class NukeOpsTest : GameTest
                 invSys,
                 factionSys,
                 roundEndSys,
-                damageSys,
                 player,
                 dummyEnts,
                 rule.Uid,
@@ -337,7 +343,6 @@ public sealed class NukeOpsTest : GameTest
         InventorySystem InvSys,
         NpcFactionSystem FactionSys,
         RoundEndSystem RoundEndSys,
-        DamageableSystem DamageSys,
         EntityUid Player,
         EntityUid[] DummyEnts,
         EntityUid RuleUid,
