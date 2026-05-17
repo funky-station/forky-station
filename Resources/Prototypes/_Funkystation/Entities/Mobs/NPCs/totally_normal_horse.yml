@@ -6,7 +6,7 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: _FunkyStation/Mobs/XenoArch/arti_horse.rsi
+    sprite: _Funkystation/Mobs/XenoArch/arti_horse.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: horse_passive

@@ -5,7 +5,7 @@
   id: MobMouseBlue
   components:
   - type: Sprite
-    sprite: _FunkyStation/Mobs/Animals/mouse_blue.rsi
+    sprite: _Funkystation/Mobs/Animals/mouse_blue.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: mouse-blue
@@ -17,7 +17,7 @@
       movement:
         state: mouse-blue
   - type: Clothing
-    sprite: _FunkyStation/Mobs/Animals/mouse_blue.rsi
+    sprite: _Funkystation/Mobs/Animals/mouse_blue.rsi
     equippedPrefix: blue
   - type: DamageStateVisuals
     states:
