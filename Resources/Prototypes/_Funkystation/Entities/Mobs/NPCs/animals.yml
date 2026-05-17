@@ -37,7 +37,7 @@
   components:
   - type: Sprite
     drawdepth: SmallMobs
-    sprite: _FunkyStation/Mobs/Animals/mouse_red.rsi
+    sprite: _Funkystation/Mobs/Animals/mouse_red.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: mouse-red
@@ -49,7 +49,7 @@
       movement:
         state: mouse-red
   - type: Clothing
-    sprite: _FunkyStation/Mobs/Animals/mouse_red.rsi
+    sprite: _Funkystation/Mobs/Animals/mouse_red.rsi
     equippedPrefix: red
   - type: DamageStateVisuals
     states:
@@ -68,7 +68,7 @@
   id: MobMousePurple
   components:
   - type: Sprite
-    sprite: _FunkyStation/Mobs/Animals/mouse_purple.rsi
+    sprite: _Funkystation/Mobs/Animals/mouse_purple.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: mouse-purple
@@ -80,7 +80,7 @@
       movement:
         state: mouse-purple
   - type: Clothing
-    sprite: _FunkyStation/Mobs/Animals/mouse_purple.rsi
+    sprite: _Funkystation/Mobs/Animals/mouse_purple.rsi
     equippedPrefix: purple
   - type: DamageStateVisuals
     states:
@@ -99,7 +99,7 @@
   id: MobMouseOrange
   components:
   - type: Sprite
-    sprite: _FunkyStation/Mobs/Animals/mouse_orange.rsi
+    sprite: _Funkystation/Mobs/Animals/mouse_orange.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: mouse-orange
@@ -111,7 +111,7 @@
       movement:
         state: mouse-orange
   - type: Clothing
-    sprite: _FunkyStation/Mobs/Animals/mouse_orange.rsi
+    sprite: _Funkystation/Mobs/Animals/mouse_orange.rsi
     equippedPrefix: orange
   - type: DamageStateVisuals
     states:
@@ -130,7 +130,7 @@
   id: MobMouseGreen
   components:
   - type: Sprite
-    sprite: _FunkyStation/Mobs/Animals/mouse_green.rsi
+    sprite: _Funkystation/Mobs/Animals/mouse_green.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: mouse-green
@@ -142,7 +142,7 @@
       movement:
         state: mouse-green
   - type: Clothing
-    sprite: _FunkyStation/Mobs/Animals/mouse_green.rsi
+    sprite: _Funkystation/Mobs/Animals/mouse_green.rsi
     equippedPrefix: green
   - type: DamageStateVisuals
     states:
@@ -163,7 +163,7 @@
   suffix: FIRE!
   components:
   - type: Sprite
-    sprite: _FunkyStation/Mobs/Animals/mouse_burnt.rsi
+    sprite: _Funkystation/Mobs/Animals/mouse_burnt.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: mouse-burnt
@@ -175,7 +175,7 @@
       movement:
         state: mouse-burnt
   - type: Clothing
-    sprite: _FunkyStation/Mobs/Animals/mouse_burnt.rsi
+    sprite: _Funkystation/Mobs/Animals/mouse_burnt.rsi
     equippedPrefix: burnt
   - type: DamageStateVisuals
     states:
@@ -230,7 +230,7 @@
   description: Developed by interdyne as one of their many attempts to stifle the ever present problem of pests on agri-worlds, the Snouse is a transgenic organism intended to interfere and mingle with existing rodent populations. Populations of these were released into farming communities along side Snoths in hopes they pass on the snail genes, making future generations of pests unable to escape from traps and other forms of pest control. Unfortunately, this attempt proved futile as the hardened shells of these organisms made them resistant to commonly available mousetraps. Interdyne then moved onto their next attempt at solving the pest problem, the meowl.
   components:
   - type: Sprite
-    sprite: _FunkyStation/Mobs/Animals/snouse.rsi
+    sprite: _Funkystation/Mobs/Animals/snouse.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: snouse
