@@ -6,7 +6,7 @@
   components:
   - type: Sprite
     drawdepth: SmallMobs
-    sprite: _FunkyStation/Mobs/XenoArch/immortal_roach.rsi
+    sprite: _Funkystation/Mobs/XenoArch/immortal_roach.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: immortal_roach

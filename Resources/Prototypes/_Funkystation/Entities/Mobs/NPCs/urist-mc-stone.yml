@@ -6,7 +6,7 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: _FunkyStation/Mobs/XenoArch/urist_mc_stone.rsi
+    sprite: _Funkystation/Mobs/XenoArch/urist_mc_stone.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: urist_mc_stone
