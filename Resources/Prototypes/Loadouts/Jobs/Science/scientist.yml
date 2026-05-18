@@ -35,12 +35,6 @@
   equipment:
     head: ClothingHeadBandSkull
 
-# Head - Funky
-- type: loadout
-  id: ScientistHardhatWhite
-  equipment:
-    head: ClothingHeadHatHardhatWhite
-
 # Neck
 
 - type: loadout
