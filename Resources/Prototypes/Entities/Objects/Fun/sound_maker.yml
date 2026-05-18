@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2026 āda <ss.adasts@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: BaseItem
   id: BikeHorn

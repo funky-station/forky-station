@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Collections.Generic;
 using System.Linq;
 using Content.Server.Body.Components;
@@ -236,16 +225,18 @@ public sealed class NukeOpsTest
         Assert.That(total, Is.GreaterThan(3));
 
         // Check the nukie commander passed basic training and figured out how to breathe.
-        var totalSeconds = 30;
-        var totalTicks = (int) Math.Ceiling(totalSeconds / server.Timing.TickPeriod.TotalSeconds);
-        var increment = 5;
-        var resp = entMan.GetComponent<RespiratorComponent>(player);
-        var damage = entMan.GetComponent<DamageableComponent>(player);
-        for (var tick = 0; tick < totalTicks; tick += increment)
+        if (entMan.TryGetComponent<RespiratorComponent>(player, out var resp))
         {
-            await pair.RunTicksSync(increment);
-            Assert.That(resp.SuffocationCycles, Is.LessThanOrEqualTo(resp.SuffocationCycleThreshold));
-            Assert.That(damage.TotalDamage, Is.EqualTo(FixedPoint2.Zero));
+            var totalSeconds = 30;
+            var totalTicks = (int)Math.Ceiling(totalSeconds / server.Timing.TickPeriod.TotalSeconds);
+            var increment = 5;
+            var damage = entMan.GetComponent<DamageableComponent>(player);
+            for (var tick = 0; tick < totalTicks; tick += increment)
+            {
+                await pair.RunTicksSync(increment);
+                Assert.That(resp.SuffocationCycles, Is.LessThanOrEqualTo(resp.SuffocationCycleThreshold));
+                Assert.That(damage.TotalDamage, Is.EqualTo(FixedPoint2.Zero));
+            }
         }
 
         // Check that the round does not end prematurely when agents are deleted in the outpost

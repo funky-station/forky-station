@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 eoineoineoin <helloworld@eoinrul.es>
-// SPDX-FileCopyrightText: 2025 Brandon Li <48413902+aspiringLich@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Client.Stylesheets.Palette;
 using Content.Client.Stylesheets.SheetletConfigs;
@@ -23,6 +19,7 @@ public sealed class ButtonSheetlet<T> : Sheetlet<T> where T : PalettedStylesheet
 
         var crossTex = sheet.GetTextureOr(iconCfg.CrossIconPath, NanotrasenStylesheet.TextureRoot);
         var refreshTex = sheet.GetTextureOr(iconCfg.RefreshIconPath, NanotrasenStylesheet.TextureRoot);
+        var helpTex = sheet.GetTextureOr(iconCfg.HelpIconPath, NanotrasenStylesheet.TextureRoot);
 
         var rules = new List<StyleRule>
         {
@@ -59,6 +56,11 @@ public sealed class ButtonSheetlet<T> : Sheetlet<T> where T : PalettedStylesheet
             E<TextureButton>()
                 .Class(StyleClass.RefreshButton)
                 .Prop(TextureButton.StylePropertyTexture, refreshTex),
+
+            // Help button
+            E<TextureButton>()
+                .Class(StyleClass.HelpButton)
+                .Prop(TextureButton.StylePropertyTexture, helpTex),
 
             // Ensure labels in buttons are aligned.
             E<Label>()

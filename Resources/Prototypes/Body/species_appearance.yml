@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   abstract: true
   id: BaseSpeciesLayers
@@ -31,6 +28,9 @@
     - map: ["enum.HumanoidVisualLayers.RFoot"]
     - map: ["enum.HumanoidVisualLayers.LHand"]
     - map: ["enum.HumanoidVisualLayers.RHand"]
+
+    # Stuff that goes over the body but below equipment
+    - map: ["enum.HumanoidVisualLayers.Overlay"]
 
     # More equipment
     - map: [ "gloves" ]
@@ -78,10 +78,12 @@
   save: false
   components:
   - type: Body
+  - type: VisualBody
   - type: Hands
   - type: ComplexInteraction
   - type: ContainerContainer
   - type: Appearance
+  - type: HideableHumanoidLayers
   - type: UserInterface
     interfaces:
       enum.HumanoidMarkingModifierKey.Key:

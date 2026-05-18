@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Wolfkey-SomeoneElseTookMyUsername <wolfkey75@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.DeviceLinking;
 using Robust.Shared.Prototypes;
 

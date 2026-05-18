@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Threading.Tasks;
 using Content.Server.EUI;

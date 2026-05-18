@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 alexalexmax <149889301+alexalexmax@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Examine;
 using Content.Shared.Rejuvenate;
 using Robust.Shared.Audio;
@@ -76,7 +68,8 @@ public abstract class SharedEmpSystem : EntitySystem
     /// <param name="energyConsumption">The amount of energy consumed by the EMP pulse.</param>
     /// <param name="duration">The duration of the EMP effects.</param>
     /// <param name="user">The player that caused the effect. Used for predicted audio.</param>
-    public void EmpPulse(EntityCoordinates coordinates, float range, float energyConsumption, TimeSpan duration, EntityUid? user = null)
+    /// <param name="predicted">Whether this pulse is being replicated on the client.</param>
+    public void EmpPulse(EntityCoordinates coordinates, float range, float energyConsumption, TimeSpan duration, EntityUid? user = null, bool predicted = true)
     {
         _entSet.Clear();
         _lookup.GetEntitiesInRange(coordinates, range, _entSet);
@@ -88,7 +81,10 @@ public abstract class SharedEmpSystem : EntitySystem
         if (_net.IsServer)
             Spawn(EmpPulseEffectPrototype, coordinates);
 
-        _audio.PlayPredicted(EmpSound, coordinates, user);
+        if (predicted)
+            _audio.PlayPredicted(EmpSound, coordinates, user);
+        else
+            _audio.PlayPvs(EmpSound, coordinates);
     }
 
     /// <summary>

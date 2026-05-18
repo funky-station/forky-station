@@ -1,9 +1,4 @@
-// SPDX-FileCopyrightText: 2025 alexalexmax <149889301+alexalexmax@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+using System.Numerics;
 using Content.Shared.Maps;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -56,7 +51,7 @@ public sealed class ScramOnTriggerSystem : XOnTriggerSystem<ScramOnTriggerCompon
     /// null if no tile is found within a certain number of tries.
     /// </summary>
     /// <remarks> Trends towards the outer radius. Compensates for small grids. </remarks>
-    private EntityCoordinates? SelectRandomTileInRange(EntityUid uid, float radius, int tries = 40, PhysicsComponent? physicsComponent = null)
+    private EntityCoordinates? SelectRandomTileInRange(EntityUid uid, Vector2 radius, int tries = 40, PhysicsComponent? physicsComponent = null)
     {
         var userCoords = Transform(uid).Coordinates;
         EntityCoordinates? targetCoords = null;
@@ -74,7 +69,7 @@ public sealed class ScramOnTriggerSystem : XOnTriggerSystem<ScramOnTriggerCompon
             // i = A percentage based on the current try count, which results in each
             // subsequent try landing closer and closer towards the entity.
             // Beneficial for smaller maps, especially when the radius is large.
-            var distance = radius * MathF.Sqrt(_random.NextFloat()) * (1 - (float)i / tries);
+            var distance = (radius.Y - radius.X) * MathF.Sqrt(_random.NextFloat()) * (1 - (float)i / tries) + radius.X;
 
             // We then offset the user coords from a random angle * distance
             var tempTargetCoords = userCoords.Offset(_random.NextAngle().ToVec() * distance);

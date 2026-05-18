@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
-# SPDX-License-Identifier: MIT
-
 # Funky atmos - /tg/ gases
 - type: reagent
   id: BZ
@@ -10,7 +7,7 @@
   flavor: bitter
   color: "#9370db"
   metabolisms:
-    Gas:
+    Respiration:
       effects:
       - !type:Emote
         conditions:
@@ -124,7 +121,7 @@
   flavor: strange
   color: "#90560b"
   metabolisms:
-    Gas:
+    Respiration:
       effects:
       - !type:HealthChange
         conditions:
@@ -182,7 +179,7 @@
           min: 4
         boozePower: 35
 
-    Medicine:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:
@@ -216,7 +213,7 @@
   flavor: sour
   color: "#90560B"
   metabolisms:
-    Gas:
+    Respiration:
       effects:
       - !type:NitriumMovementSpeedModifier
         conditions:
@@ -279,7 +276,7 @@
   flavor: bitter
   color: "#7b68ee"
   metabolisms:
-    Gas:
+    Respiration:
       effects:
       - !type:Oxygenate
         factor: 8
@@ -334,7 +331,7 @@
   flavor: bitter
   color: "#1c1a1a"
   metabolisms:
-    Gas:
+    Respiration:
       effects:
       - !type:HealthChange
         conditions:

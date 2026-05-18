@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Jessica M <jessica@jessicamaybe.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Hands.Systems;
 using Content.Server.Preferences.Managers;
 using Content.Shared.Access.Components;
@@ -96,8 +90,8 @@ public sealed class OutfitSystem : EntitySystem
                 break;
 
             // Don't require a player, so this works on Urists
-            profile ??= EntityManager.TryGetComponent<HumanoidAppearanceComponent>(target, out var comp)
-                ? HumanoidCharacterProfile.DefaultWithSpecies(comp.Species)
+            profile ??= EntityManager.TryGetComponent<HumanoidProfileComponent>(target, out var comp)
+                ? HumanoidCharacterProfile.DefaultWithSpecies(comp.Species, comp.Sex)
                 : new HumanoidCharacterProfile();
             // Try to get the user's existing loadout for the role
             profile.Loadouts.TryGetValue(jobProtoId, out var roleLoadout);

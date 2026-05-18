@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Gameplay;
 using Robust.Client.UserInterface.Controllers;
 

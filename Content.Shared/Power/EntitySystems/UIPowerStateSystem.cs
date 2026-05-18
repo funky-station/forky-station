@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Power.Components;
 
 namespace Content.Shared.Power.EntitySystems;
@@ -13,7 +10,7 @@ namespace Content.Shared.Power.EntitySystems;
 public sealed class UIPowerStateSystem : EntitySystem
 {
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly PowerStateSystem _powerState = default!;
+    [Dependency] private readonly SharedPowerStateSystem _powerState = default!;
 
     public override void Initialize()
     {

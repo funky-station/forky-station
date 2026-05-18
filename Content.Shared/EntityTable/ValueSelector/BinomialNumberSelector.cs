@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Random;
 
 namespace Content.Shared.EntityTable.ValueSelector;

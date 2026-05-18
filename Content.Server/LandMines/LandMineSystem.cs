@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 KISS <59531932+YuriyKiss@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 kaiserbirch <150971100+kaiserbirch@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Armable;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.LandMines;

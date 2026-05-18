@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Alert;
 using Content.Shared.StatusEffectNew.Components;
 

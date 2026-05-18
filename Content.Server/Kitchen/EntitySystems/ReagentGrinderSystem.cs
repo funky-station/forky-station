@@ -1,35 +1,3 @@
-// SPDX-FileCopyrightText: 2020-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Peter Wedder <burneddi@gmail.com>
-// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
-// SPDX-FileCopyrightText: 2020 FL-OZ <58238103+FL-OZ@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 zumorica <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2021 Michael Phillips <1194692+MeltedPixel@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
-// SPDX-FileCopyrightText: 2021 plinyvic <plinyvicgames@gmail.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Benjamin Velliquette <32338704+bVelliquette@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Crotalus <Crotalus@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Power.EntitySystems;
 using Content.Server.Stack;
 using Content.Shared.Chemistry.EntitySystems;
@@ -54,6 +22,7 @@ using Content.Server.Jittering;
 using Content.Shared.Jittering;
 using Content.Shared.Kitchen.EntitySystems;
 using Content.Shared.Power;
+using Content.Shared.Power.EntitySystems;
 
 namespace Content.Server.Kitchen.EntitySystems
 {
@@ -72,6 +41,7 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private readonly SharedDestructibleSystem _destructible = default!;
         [Dependency] private readonly RandomHelperSystem _randomHelper = default!;
         [Dependency] private readonly JitteringSystem _jitter = default!;
+        [Dependency] private readonly SharedPowerStateSystem _powerState = default!;
 
         public override void Initialize()
         {
@@ -168,11 +138,15 @@ namespace Content.Server.Kitchen.EntitySystems
         private void OnActiveGrinderStart(Entity<ActiveReagentGrinderComponent> ent, ref ComponentStartup args)
         {
             _jitter.AddJitter(ent, -10, 100);
+
+            // Not all grinders need power.
+            _powerState.TrySetWorkingState(ent.Owner, true);
         }
 
         private void OnActiveGrinderRemove(Entity<ActiveReagentGrinderComponent> ent, ref ComponentRemove args)
         {
             RemComp<JitteringComponent>(ent);
+            _powerState.TrySetWorkingState(ent.Owner, false);
         }
 
         private void OnEntRemoveAttempt(Entity<ReagentGrinderComponent> entity, ref ContainerIsRemovingAttemptEvent args)

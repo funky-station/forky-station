@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023 dahnte <70238020+dahnte@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Text.RegularExpressions;
 using Content.Server.Speech.Components;
 using Content.Shared.Speech;

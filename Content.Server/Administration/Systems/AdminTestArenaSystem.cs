@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023, 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;

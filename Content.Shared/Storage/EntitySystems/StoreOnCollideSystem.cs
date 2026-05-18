@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Lock;
 using Content.Shared.Storage.Components;
 using Content.Shared.Whitelist;

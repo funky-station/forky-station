@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 ScarKy0 <scarky0@onet.eu>
-// SPDX-FileCopyrightText: 2024 The Canned One <greentopcan@gmail.com>
-// SPDX-FileCopyrightText: 2024 Golden Can <greentopcan@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;

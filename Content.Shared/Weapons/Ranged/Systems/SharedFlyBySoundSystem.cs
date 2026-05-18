@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2026 mq <113324899+mqole@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Physics;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Audio;

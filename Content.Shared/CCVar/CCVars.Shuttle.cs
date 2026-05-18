@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Winkarst-cpu <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 mikey <23003816+mikeysaurus@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Administration;
 using Content.Shared.CCVar.CVarAccess;
 using Robust.Shared.Configuration;

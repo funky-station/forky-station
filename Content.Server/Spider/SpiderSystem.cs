@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Jackrost <jackrost@mail.ru>
-// SPDX-FileCopyrightText: 2025 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.Popups;
 using Content.Shared.Spider;

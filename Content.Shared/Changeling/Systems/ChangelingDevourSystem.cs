@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 poklj <compgeek223@gmail.com>
-// SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Armor;
@@ -255,7 +249,7 @@ public sealed class ChangelingDevourSystem : EntitySystem
 
         if (_mobState.IsDead(target.Value)
             && TryComp<BodyComponent>(target, out var body)
-            && HasComp<HumanoidAppearanceComponent>(target)
+            && HasComp<HumanoidProfileComponent>(target)
             && TryComp<ChangelingIdentityComponent>(args.User, out var identityStorage))
         {
             _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(ent.Owner):player}  successfully devoured {ToPrettyString(args.Target):player}'s identity");

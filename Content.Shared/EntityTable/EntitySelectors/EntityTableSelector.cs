@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.EntityTable.Conditions;
 using Content.Shared.EntityTable.ValueSelector;
 using JetBrains.Annotations;
@@ -85,6 +81,21 @@ public abstract partial class EntityTableSelector
             return true;
 
         return success;
+    }
+
+    /// <summary>
+    /// Gets the spawns in a given table, ignoring the requirements for the table.
+    /// This should only be used for debugging!
+    /// </summary>
+    public IEnumerable<EntProtoId> ListSpawns(System.Random rand,
+        IEntityManager entMan,
+        IPrototypeManager proto,
+        EntityTableContext ctx)
+    {
+        foreach (var spawn in GetSpawnsImplementation(rand, entMan, proto, ctx))
+        {
+            yield return spawn;
+        }
     }
 
     protected abstract IEnumerable<EntProtoId> GetSpawnsImplementation(System.Random rand,

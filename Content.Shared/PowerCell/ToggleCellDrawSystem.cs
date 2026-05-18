@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.PowerCell.Components;
@@ -41,9 +36,7 @@ public sealed class ToggleCellDrawSystem : EntitySystem
 
     private void OnToggled(Entity<ToggleCellDrawComponent> ent, ref ItemToggledEvent args)
     {
-        var uid = ent.Owner;
-        var draw = Comp<PowerCellDrawComponent>(uid);
-        _cell.SetDrawEnabled((uid, draw), args.Activated);
+        _cell.SetDrawEnabled(ent.Owner, args.Activated);
     }
 
     private void OnEmpty(Entity<ToggleCellDrawComponent> ent, ref PowerCellSlotEmptyEvent args)

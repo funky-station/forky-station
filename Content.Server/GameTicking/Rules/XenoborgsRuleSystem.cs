@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Samuka <47865393+Samuka-C@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Antag;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking.Rules.Components;
@@ -112,7 +109,7 @@ public sealed class XenoborgsRuleSystem : GameRuleSystem<XenoborgsRuleComponent>
         {
             _chatSystem.DispatchStationAnnouncement(station, Loc.GetString("xenoborg-shuttle-call"), colorOverride: Color.BlueViolet);
         }
-        _roundEnd.RequestRoundEnd(null, false, cantRecall: true);
+        _roundEnd.RequestRoundEnd(null, null, false, cantRecall: true);
         xenoborgsRuleComponent.XenoborgShuttleCalled = true;
     }
 

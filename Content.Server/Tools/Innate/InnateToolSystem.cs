@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Debug <49997488+DebugOk@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Destructible;
 using Content.Shared.Hands;

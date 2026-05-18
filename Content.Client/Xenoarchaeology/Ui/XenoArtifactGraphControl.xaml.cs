@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Numerics;
 using Content.Client.Xenoarchaeology.Artifact;

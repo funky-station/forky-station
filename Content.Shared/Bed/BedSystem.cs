@@ -1,18 +1,11 @@
-// SPDX-FileCopyrightText: 2025 Pok <113675512+Pok27@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Luxeator <derkerl1@gmail.com>
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Actions;
 using Content.Shared.Bed.Components;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Body.Events;
-using Content.Shared.Body.Systems;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Emag.Systems;
+using Content.Shared.Metabolism;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
@@ -27,9 +20,9 @@ public sealed class BedSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly MetabolizerSystem _metabolizer = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly SharedMetabolizerSystem _metabolizer = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
     [Dependency] private readonly SleepingSystem _sleepingSystem = default!;
 

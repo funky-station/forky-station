@@ -1,24 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023, 2025 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Tomás Alves <tomasalves35@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 dragonryan06 <71857681+dragonryan06@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MisterMecky <mrmecky@hotmail.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 godisdeadLOL <169250097+godisdeadLOL@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
-// SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.EntitySystems;
@@ -212,12 +191,15 @@ namespace Content.Server.Forensics
             if (!args.CanInteract || !args.CanAccess)
                 return;
 
+            // begin funkystation
             // Check if target is a cleanable rune or has forensics
             var isRune = HasComp<CleanableRuneComponent>(args.Target);
             var hasForensics = HasComp<ForensicsComponent>(args.Target);
 
             if (!isRune && !hasForensics)
                 return;
+            // end funkystation
+
             // These need to be set outside for the anonymous method!
             var user = args.User;
             var target = args.Target;
@@ -226,8 +208,8 @@ namespace Content.Server.Forensics
             {
                 Act = () => TryStartCleaning(entity, user, target),
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/bubbles.svg.192dpi.png")),
-				Text = isRune ? Loc.GetString("cult-rune-clean-verb-text") : Loc.GetString("forensics-verb-text"),
-                Message = isRune ? Loc.GetString("cult-rune-clean-verb-message") : Loc.GetString("forensics-verb-message"),
+				Text = isRune ? Loc.GetString("cult-rune-clean-verb-text") : Loc.GetString("forensics-verb-text"), // funkystation
+                Message = isRune ? Loc.GetString("cult-rune-clean-verb-message") : Loc.GetString("forensics-verb-message"), // funkystation
                 // This is important because if its true using the cleaning device will count as touching the object.
                 DoContactInteraction = false
             };
@@ -339,7 +321,7 @@ namespace Content.Server.Forensics
 
             return DNA;
         }
-		
+
 		private void OnCleanRuneDoAfter(EntityUid uid, CleanableRuneComponent component, CleanForensicsDoAfterEvent args)
         {
             if (args.Handled || args.Cancelled || args.Args.Target == null)

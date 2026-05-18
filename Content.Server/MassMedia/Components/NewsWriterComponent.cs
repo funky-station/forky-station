@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.MassMedia.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;

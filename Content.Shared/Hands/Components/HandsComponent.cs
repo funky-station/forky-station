@@ -1,35 +1,3 @@
-// SPDX-FileCopyrightText: 2017 PJB3005 <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2018, 2021, 2024 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2018-2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2018 clusterfack <clusterfack@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019 ZelteHonor <gabrieldionbouchard@gmail.com>
-// SPDX-FileCopyrightText: 2019 Silver <Silvertorch5@gmail.com>
-// SPDX-FileCopyrightText: 2020-2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
-// SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2020 Tyler Young <tyler.young@impromptu.ninja>
-// SPDX-FileCopyrightText: 2020 zumorica <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2021-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2021-2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Clyybber <darkmine956@gmail.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 collinlunn <60152240+collinlunn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Remie Richards <remierichards@gmail.com>
-// SPDX-FileCopyrightText: 2023, 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.DisplacementMap;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Whitelist;
@@ -201,43 +169,9 @@ public sealed class HandsComponentState : ComponentState
 /// <summary>
 ///     What side of the body this hand is on.
 /// </summary>
-/// <seealso cref="HandUILocation"/>
-/// <seealso cref="HandLocationExt"/>
 public enum HandLocation : byte
 {
-    Left,
+    Right,
     Middle,
-    Right
-}
-
-/// <summary>
-/// What side of the UI a hand is on.
-/// </summary>
-/// <seealso cref="HandLocationExt"/>
-/// <seealso cref="HandLocation"/>
-public enum HandUILocation : byte
-{
-    Left,
-    Right
-}
-
-/// <summary>
-/// Helper functions for working with <see cref="HandLocation"/>.
-/// </summary>
-public static class HandLocationExt
-{
-    /// <summary>
-    /// Convert a <see cref="HandLocation"/> into the appropriate <see cref="HandUILocation"/>.
-    /// This maps "middle" hands to <see cref="HandUILocation.Right"/>.
-    /// </summary>
-    public static HandUILocation GetUILocation(this HandLocation location)
-    {
-        return location switch
-        {
-            HandLocation.Left => HandUILocation.Left,
-            HandLocation.Middle => HandUILocation.Right,
-            HandLocation.Right => HandUILocation.Right,
-            _ => throw new ArgumentOutOfRangeException(nameof(location), location, null)
-        };
-    }
+    Left
 }

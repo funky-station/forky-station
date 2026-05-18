@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 mq <113324899+mqole@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.DeviceLinking.Components;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Weapons.Ranged.Components;

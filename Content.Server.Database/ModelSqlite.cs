@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2020-2022, 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021-2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Saphire Lattice <lattice@saphi.re>
-// SPDX-FileCopyrightText: 2022 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Partmedia <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
-// SPDX-License-Identifier: MIT
-
 using System;
 using System.Globalization;
 using System.IO;
@@ -68,13 +58,7 @@ namespace Content.Server.Database
             );
 
             modelBuilder
-                .Entity<ServerBan>()
-                .Property(e => e.Address)
-                .HasColumnType("TEXT")
-                .HasConversion(ipMaskConverter);
-
-            modelBuilder
-                .Entity<ServerRoleBan>()
+                .Entity<BanAddress>()
                 .Property(e => e.Address)
                 .HasColumnType("TEXT")
                 .HasConversion(ipMaskConverter);
@@ -93,6 +77,10 @@ namespace Content.Server.Database
 
             modelBuilder.Entity<Profile>()
                 .Property(log => log.Markings)
+                .HasConversion(jsonByteArrayConverter);
+
+            modelBuilder.Entity<Profile>()
+                .Property(log => log.OrganMarkings)
                 .HasConversion(jsonByteArrayConverter);
 
             // EF core can make this automatically unique on sqlite but not psql.

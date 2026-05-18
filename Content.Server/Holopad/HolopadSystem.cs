@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Crude Oil <124208219+CroilBird@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Chat.Systems;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
@@ -32,6 +23,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Shared.Power.EntitySystems;
 
 namespace Content.Server.Holopad;
 
@@ -49,6 +41,7 @@ public sealed class HolopadSystem : SharedHolopadSystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly PvsOverrideSystem _pvs = default!;
+    [Dependency] private readonly SharedPowerStateSystem _powerState = default!;
 
     private float _updateTimer = 1.0f;
     private const float UpdateTime = 1.0f;
@@ -557,10 +550,14 @@ public sealed class HolopadSystem : SharedHolopadSystem
         {
             _telephoneSystem.SetSpeakerForTelephone((entity, entityTelephone), (hologramUid, hologramSpeech));
         }
+
+        _powerState.SetWorkingState(entity.Owner, true);
     }
 
     private void DeleteHologram(Entity<HolopadHologramComponent> hologram, Entity<HolopadComponent> attachedHolopad)
     {
+        _powerState.SetWorkingState(attachedHolopad.Owner, false);
+
         attachedHolopad.Comp.Hologram = null;
 
         QueueDel(hologram);

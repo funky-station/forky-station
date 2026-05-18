@@ -1,54 +1,3 @@
-// SPDX-FileCopyrightText: 2019-2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2019-2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019 Peter Wedder <burneddi@gmail.com>
-// SPDX-FileCopyrightText: 2019 moneyl <8206401+Moneyl@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019 CatTheSystem <pogorelov950@gmail.com>
-// SPDX-FileCopyrightText: 2019 Silver <Silvertorch5@gmail.com>
-// SPDX-FileCopyrightText: 2019 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021 Swept <sweptwastaken@protonmail.com>
-// SPDX-FileCopyrightText: 2020-2021 chairbender <kwhipke1@gmail.com>
-// SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Hugo Laloge <hugo.laloge@gmail.com>
-// SPDX-FileCopyrightText: 2020 Hugal31 <hugo.laloge@gmail.com>
-// SPDX-FileCopyrightText: 2021-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2024 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Tomeno <Tomeno@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Daniel Castro Razo <eldanielcr@gmail.com>
-// SPDX-FileCopyrightText: 2022, 2024 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Michael Phillips <1194692+MeltedPixel@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2025 eoineoineoin <eoin.mcloughlin+gh@gmail.com>
-// SPDX-FileCopyrightText: 2023-2024 James Simonson <jamessimo89@gmail.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 iacore <74560659+iacore@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2023 Ahion <58528255+Ahion@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2023 08A <git@08a.re>
-// SPDX-FileCopyrightText: 2024-2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Willhelm53 <97707302+Willhelm53@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Sk1tch <ben.peter.smith@gmail.com>
-// SPDX-FileCopyrightText: 2024 maylokana <88361930+maylokana@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Brandon Li <48413902+aspiringLich@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ciarán Walsh <github@ciaranwal.sh>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Numerics;
 using Content.Client.ContextMenu.UI;
@@ -118,7 +67,6 @@ namespace Content.Client.Stylesheets
         public const string StyleClassChatChannelSelectorButton = "chatSelectorOptionButton";
         public const string StyleClassChatFilterOptionButton = "chatFilterOptionButton";
         public const string StyleClassStorageButton = "storageButton";
-        public const string StyleClassInset = "Inset";
 
         public const string StyleClassConsoleHeading = "ConsoleHeading";
         public const string StyleClassConsoleSubHeading = "ConsoleSubHeading";
@@ -135,8 +83,6 @@ namespace Content.Client.Stylesheets
         public const string StyleClassLabelBig = "LabelBig";
         public const string StyleClassLabelSmall = "LabelSmall";
         public const string StyleClassButtonBig = "ButtonBig";
-
-        public const string StyleClassButtonHelp = "HelpButton";
 
         public const string StyleClassPopupMessageSmall = "PopupMessageSmall";
         public const string StyleClassPopupMessageSmallCaution = "PopupMessageSmallCaution";
@@ -581,13 +527,6 @@ namespace Content.Client.Stylesheets
             var sliderFillWhite = new StyleBoxTexture(sliderFillBox) { Modulate = Color.White };
 
             var boxFont13 = resCache.GetFont("/Fonts/Boxfont-round/Boxfont Round.ttf", 13);
-
-            var insetBack = new StyleBoxTexture
-            {
-                Texture = buttonTex,
-                Modulate = Color.FromHex("#202023"),
-            };
-            insetBack.SetPatchMargin(StyleBox.Margin.All, 10);
 
             // Default paper background:
             var paperBackground = new StyleBoxTexture
@@ -1400,17 +1339,12 @@ namespace Content.Client.Stylesheets
                     new StyleProperty(PanelContainer.StylePropertyPanel, new StyleBoxFlat { BackgroundColor = NanoGold, ContentMarginBottomOverride = 2, ContentMarginLeftOverride = 2}),
                 }),
 
-                Element<TextureButton>()
-                    .Class(StyleClassButtonHelp)
-                    .Prop(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/Interface/VerbIcons/information.svg.192dpi.png")),
-
                 // Labels ---
                 Element<Label>().Class(StyleClassLabelBig)
                     .Prop(Label.StylePropertyFont, notoSans16),
 
                 Element<Label>().Class(StyleClassLabelSmall)
                  .Prop(Label.StylePropertyFont, notoSans10),
-                // ---
 
                 // Different Background shapes ---
                 Element<PanelContainer>().Class(ClassAngleRect)
@@ -1673,13 +1607,32 @@ namespace Content.Client.Stylesheets
                         BackgroundColor = FancyTreeSelectedRowColor,
                     }),
 
+                // Inset background (News manager, notifications)
+                Element<PanelContainer>().Class("InsetBackground")
+                    .Prop(PanelContainer.StylePropertyPanel, new StyleBoxFlat
+                    {
+                        BackgroundColor = Color.FromHex("#202023"),
+                    }),
+
+                // Default fancy window border styles
+                Element<PanelContainer>().Class("DefaultBorderBottom")
+                    .Prop(PanelContainer.StylePropertyPanel, new StyleBoxFlat
+                    {
+                        BorderColor= Color.FromHex("#3B3E56"),
+                        BorderThickness= new Thickness(0, 0, 0, 1),
+                    }),
+
+
+                Element<PanelContainer>().Class("DefaultBorderTop")
+                    .Prop(PanelContainer.StylePropertyPanel, new StyleBoxFlat
+                    {
+                        BorderColor= Color.FromHex("#3B3E56"),
+                        BorderThickness= new Thickness(0, 1, 0, 0),
+                    }),
+
                 // Silicon law edit ui
                 Element<Label>().Class(SiliconLawContainer.StyleClassSiliconLawPositionLabel)
                     .Prop(Label.StylePropertyFontColor, NanoGold),
-
-                Element<PanelContainer>()
-                    .Class(StyleClassInset)
-                    .Prop(PanelContainer.StylePropertyPanel, insetBack),
             }).ToList());
         }
     }

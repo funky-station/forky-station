@@ -1,36 +1,3 @@
-// SPDX-FileCopyrightText: 2019-2020 DamianX <DamianX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019 moneyl <8206401+Moneyl@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2020-2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
-// SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
-// SPDX-FileCopyrightText: 2020 py01 <60152240+collinlunn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 FL-OZ <yetanotherscuffed@gmail.com>
-// SPDX-FileCopyrightText: 2020 PrPleGoo <PrPleGoo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2021 Radrark <76271993+Radrark@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Palladinium <patrick.chieppe@hotmail.com>
-// SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
@@ -43,6 +10,7 @@ using Content.Server.Discord;
 using Content.Server.Discord.DiscordLink;
 using Content.Server.Discord.WebhookMessages;
 using Content.Server.EUI;
+using Content.Server.FeedbackSystem;
 using Content.Server.GhostKick;
 using Content.Server.Info;
 using Content.Server.Mapping;
@@ -59,6 +27,7 @@ using Content.Server.Worldgen.Tools;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Administration.Managers;
 using Content.Shared.Chat;
+using Content.Shared.FeedbackSystem;
 using Content.Shared.IoC;
 using Content.Shared.Kitchen;
 using Content.Shared.Players.PlayTimeTracking;
@@ -113,5 +82,7 @@ internal static class ServerContentIoC
         deps.Register<CVarControlManager>();
         deps.Register<DiscordLink>();
         deps.Register<DiscordChatLink>();
+        deps.Register<ServerFeedbackManager>();
+        deps.Register<ISharedFeedbackManager, ServerFeedbackManager>();
     }
 }

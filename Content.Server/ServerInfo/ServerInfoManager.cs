@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 c4llv07e <igor@c4llv07e.xyz>
-// SPDX-License-Identifier: MIT
-
 using System.Text.Json.Nodes;
 using Content.Shared.CCVar;
 using Robust.Server.ServerStatus;

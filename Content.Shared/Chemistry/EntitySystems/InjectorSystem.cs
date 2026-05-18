@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Sir Warock <67167466+SirWarock@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body.Components;
