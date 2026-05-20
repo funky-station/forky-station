@@ -25,7 +25,7 @@
       color: "#ff0000"
     - state: icon_text3
       color: "#d5dc1d"
-    - state: decor_spine
+    - state: detail_bookmark
       color: "#38952a"
   - type: OocAuthorship
     oocAuthor: Stabithar
@@ -119,7 +119,7 @@
     - state: icon_nuclear
     - state: icon_text3
       color: "#d5dc1d"
-    - state: decor_spine
+    - state: detail_bookmark
       color: "#38952a"
   - type: OocAuthorship
     oocAuthor: Stabithar
