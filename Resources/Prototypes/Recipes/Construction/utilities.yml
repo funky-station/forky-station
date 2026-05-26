@@ -532,44 +532,60 @@
   graph: GasUnary
   startNode: start
   targetNode: ventpump
-  category: construction-category-utilities
-  placementMode: SnapgridCenter
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: AlignAtmosPipeLayers # Funky
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
+  alternativePrototypes: # Funky
+  - GasVentPump
+  - GasVentPumpAlt1
+  - GasVentPumpAlt2
 
 - type: construction
   id: GasPassiveVent
   graph: GasUnary
   startNode: start
   targetNode: passivevent
-  category: construction-category-utilities
-  placementMode: SnapgridCenter
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: AlignAtmosPipeLayers # Funky
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
+  alternativePrototypes: # Funky
+  - GasPassiveVent
+  - GasPassiveVentAlt1
+  - GasPassiveVentAlt2
 
 - type: construction
   id: GasVentScrubber
   graph: GasUnary
   startNode: start
   targetNode: ventscrubber
-  category: construction-category-utilities
-  placementMode: SnapgridCenter
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: AlignAtmosPipeLayers # Funky
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
+  alternativePrototypes: # Funky
+  - GasVentScrubber
+  - GasVentScrubberAlt1
+  - GasVentScrubberAlt2
 
 - type: construction
   id: GasOutletInjector
   graph: GasUnary
   startNode: start
   targetNode: outletinjector
-  category: construction-category-utilities
-  placementMode: SnapgridCenter
+  category: construction-category-atmospherics # DeltaV - Moving Atmos Recipes to Atmospherics Category
+  placementMode: AlignAtmosPipeLayers # Funky
   canBuildInImpassable: false
   conditions:
   - !type:NoUnstackableInTile
+  alternativePrototypes: # Funky
+  - GasOutletInjector
+  - GasOutletInjectorAlt1
+  - GasOutletInjectorAlt2
 
 # ATMOS BINARY
 - type: construction
