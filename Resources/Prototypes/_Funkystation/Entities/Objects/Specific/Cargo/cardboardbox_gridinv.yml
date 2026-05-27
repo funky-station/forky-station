@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseItem
   id: CardboardBoxLarge
-  name: Large Cardboard Box
+  name: large cardboard box
   components:
   - type: Item
     size: Ginormous
@@ -25,6 +25,12 @@
           Bounty: { state: bounty }
           CaptainsPaper: { state: captains_paper }
           Invoice: { state: invoice }
+      enum.PaintableVisuals.Prototype:
+        boxPaintMap:
+          CardboardBoxLarge: { state: bigbox, sprite: _Funkystation/Objects/Specific/Cargo/cardboard_box.rsi }
+          CardboardBoxLargeHazard: { state: bigboxhazard, sprite: _Funkystation/Objects/Specific/Cargo/cardboard_box_hazard.rsi }
+          CardboardBoxLargeRestock: { state: bigboxrestock, sprite: _Funkystation/Objects/Specific/Cargo/cardboard_box_restock.rsi }
+          CardboardBoxLargeWeh: { state: bigboxweh, sprite: _Funkystation/Objects/Specific/Cargo/cardboard_box_weh.rsi }
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:
@@ -65,6 +71,56 @@
     node: cardboardboxlargenode
     containers:
     - entity_storage
+  - type: Paintable
+    group: Cardboard
   - type: Tag
     tags:
     - CardboardboxLarge
+
+- type: entity
+  parent: CardboardBoxLarge
+  id: CardboardBoxLargeRestock
+  name: restock box
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: _Funkystation/Objects/Specific/Cargo/cardboard_box_restock.rsi
+    layers:
+    - state: bigboxrestock
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      map: [ "enum.PaperLabelVisuals.Layer" ]
+      offset: -0.1, 0.2
+
+- type: entity
+  parent: CardboardBoxLarge
+  id: CardboardBoxLargeHazard
+  name: hazard box
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: _Funkystation/Objects/Specific/Cargo/cardboard_box_hazard.rsi
+    layers:
+    - state: bigboxhazard
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      map: [ "enum.PaperLabelVisuals.Layer" ]
+      offset: -0.1, 0.2
+
+- type: entity
+  parent: CardboardBoxLarge
+  id: CardboardBoxLargeWeh
+  name: weh box
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: _Funkystation/Objects/Specific/Cargo/cardboard_box_weh.rsi
+    layers:
+    - state: bigboxweh
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      map: [ "enum.PaperLabelVisuals.Layer" ]
+      offset: -0.1, 0.2

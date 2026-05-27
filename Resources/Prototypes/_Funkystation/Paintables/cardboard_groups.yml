@@ -1,0 +1,9 @@
+- type: paintableGroup
+  cost: 1
+  id: Cardboard
+  defaultStyle: plain
+  styles:
+    plain: CardboardBoxLarge
+    hazard: CardboardBoxLargeHazard
+    restock: CardboardBoxLargeRestock
+    weh: CardboardBoxLargeWeh
