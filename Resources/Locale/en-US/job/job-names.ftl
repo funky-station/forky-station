@@ -34,7 +34,8 @@ job-name-librarian = Librarian
 job-name-mime = Mime
 job-name-musician = Musician
 job-name-paramedic = Paramedic
-job-name-passenger = Passenger
+# Funky
+job-name-passenger = Assistant
 job-name-psychologist = Psychologist
 job-name-qm = Quartermaster
 job-name-rd = Research Director
