@@ -3,27 +3,24 @@
   id: CrateSalvageEquipment
   name: "salvage equipment crate"
   suffix: Filled
-  description: For the daring.
+  description: For the daring. Contains a Spationaugh Hardsuit, air tanks, magboots, tool belt, PKA, GPS and Radio. # Funky Station
   components:
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:AllSelector
         children:
-        - id: ClothingOuterHardsuitSalvage
-        - id: ClothingMaskBreath
+        - id: ClothingOuterHardsuitSpatio
+        - id: ClothingMaskGasExplorer
         - id: OxygenTankFilled
-        - id: FireExtinguisher
+        - id: NitrogenTankFilled
         - id: ClothingShoesBootsMag
-        - id: HandHeldMassScanner
         - id: Pickaxe
-        - id: Welder
-        - id: Wrench
-        - id: Screwdriver
-        - id: Crowbar
-        - id: Wirecutter
-        - id: ClothingBeltUtility
+        - id: ClothingBeltUtilityFilled
         - id: OreBag
-        - id: ClothingBeltSalvageWebbing
+        - id: WeaponProtoKineticAccelerator
+        - id: ClothingEyesGlassesMeson
+        - id: HandheldGPSBasic
+        - id: RadioHandheld
 
 - type: entity
   parent: CrateGenericSteel

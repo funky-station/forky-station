@@ -1,0 +1,48 @@
+# SPDX-FileCopyrightText: 2025 Rainbow <ev0lvkitten@gmail.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneGuy227@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <91613003+ThatOneMoon@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 ThatOneMoon <juozas.dringelis@gmail.com>
+# SPDX-FileCopyrightText: 2025 Zergologist <114537969+Chedd-Error@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 vectorassembly <vectorassembly@icloud.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  name: colored lighttube box
+  parent: BoxLightbulb
+  id: BoxLightTubeColored
+  components:
+  - type: StorageFill
+    contents:
+      - id: LightTubeCrystalBlue
+      - id: LightTubeCrystalBlue
+      - id: LightTubeCrystalCyan
+      - id: LightTubeCrystalCyan
+      - id: LightTubeCrystalGreen
+      - id: LightTubeCrystalGreen
+      - id: LightTubeCrystalOrange
+      - id: LightTubeCrystalOrange
+      - id: LightTubeCrystalPink
+      - id: LightTubeCrystalPink
+      - id: LightTubeCrystalRed
+      - id: LightTubeCrystalRed
+
+- type: entity
+  name: colored lighttube box
+  parent: BoxLightbulb
+  id: BoxLightBulbColored
+  components:
+  - type: StorageFill
+    contents:
+      - id: LightBulbCrystalBlue
+      - id: LightBulbCrystalBlue
+      - id: LightBulbCrystalCyan
+      - id: LightBulbCrystalCyan
+      - id: LightBulbCrystalGreen
+      - id: LightBulbCrystalGreen
+      - id: LightBulbCrystalOrange
+      - id: LightBulbCrystalOrange
+      - id: LightBulbCrystalPink
+      - id: LightBulbCrystalPink
+      - id: LightBulbCrystalRed
+      - id: LightBulbCrystalRed

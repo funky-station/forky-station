@@ -8,15 +8,15 @@
   category: cargoproduct-category-name-cargo
   group: market
 
-- type: cargoProduct
-  id: CargoLuxuryHardsuit
-  icon:
-    sprite: Clothing/Head/Hardsuits/luxury.rsi
-    state: icon
-  product: CrateCargoLuxuryHardsuit
-  cost: 15000
-  category: cargoproduct-category-name-cargo
-  group: market
+#- type: cargoProduct # Funky change, made no lunger purchasable, Luxury is unique to the QM.
+#  id: CargoLuxuryHardsuit
+#  icon:
+#    sprite: Clothing/Head/Hardsuits/luxury.rsi
+#    state: icon
+#  product: CrateCargoLuxuryHardsuit
+#  cost: 15000
+#  category: cargoproduct-category-name-cargo
+#  group: market
 
 - type: cargoProduct
   id: CargoParcelWrap

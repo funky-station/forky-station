@@ -1,0 +1,21 @@
+
+- type: entity
+  id: CrateServiceColoredLightTubes
+  parent: CratePlastic
+  name: colored lightube box
+  description: Contains a set of diffrent colored light tubes.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxLightTubeColored
+
+- type: entity
+  id: CrateServiceColoredLightBulb
+  parent: CratePlastic
+  name: colored lightbulb box 
+  description: Contains a set of diffrent colored light bulbs.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxLightBulbColored
+
