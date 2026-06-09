@@ -98,7 +98,7 @@
     head: ClothingHeadHatTophat
     ears: ClothingHeadsetService
     jumpsuit: ClothingUniformJumpsuitJacketMonkey
-    id: PunPunIDCard
+    id: PunPunPDA
 
 - type: startingGear
   id: MobPollyGear

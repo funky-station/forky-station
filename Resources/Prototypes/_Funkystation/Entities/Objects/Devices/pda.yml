@@ -1,0 +1,17 @@
+- type: entity
+  parent: BartenderPDA
+  id: PunPunPDA
+  name: Pun Pun PDA
+  description: Smells like beer, bananas and mischief.
+  components:
+  - type: Pda
+    id: PunPunIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-bartender
+  - type: PdaBorderColor
+    borderColor: "#333333"
+  - type: Icon
+    state: pda-bartender
