@@ -49,8 +49,8 @@
               prototype: APCElectronics
               amount: 1
           conditions:
-          - !type:AllWiresCut { }
-          - !type:WirePanel { }
+          - !type:AllWiresCut { } # funky edit
+          - !type:WirePanel { } # funky edit
           steps:
             - tool: Prying
               doAfter: 4
