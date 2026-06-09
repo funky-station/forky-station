@@ -108,7 +108,7 @@
   - type: Tag
     tags:
     - GasTank
-    - OxygenTank
+    - OxygenTank # funky change
 
 - type: entity
   parent: GasTankRoundBase
@@ -125,7 +125,7 @@
   - type: Tag
     tags:
     - GasTank
-    - NitrogenTank
+    - NitrogenTank # funky change
 
 - type: entity
   parent: GasTankRoundBase
@@ -210,9 +210,9 @@
       sprite: Objects/Tanks/emergency_extended_red.rsi
   - type: Clothing
     sprite: Objects/Tanks/emergency_extended_red.rsi
-  - type: Tag # Goobstation - For survival boxes
+  - type: Tag
     tags:
-    - ExtendedEmergencyNitrogenTank
+    - ExtendedEmergencyNitrogenTank # funky change
 
 - type: entity
   parent: ExtendedEmergencyOxygenTank
@@ -282,7 +282,7 @@
   - type: Tag
     tags:
     - GasTank
-    - AirTank
+    - AirTank # funky change
 
 - type: entity
   parent: GasTankRoundBase
@@ -301,7 +301,7 @@
   - type: Tag
     tags:
     - GasTank
-    - NitrousOxideTank
+    - NitrousOxideTank # funky change
 
 - type: entity
   # it's a square so no rolling dough
@@ -324,4 +324,4 @@
   - type: Tag
     tags:
     - GasTank
-    - PlasmaTank
+    - PlasmaTank # funky change
