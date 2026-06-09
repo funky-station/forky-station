@@ -31,6 +31,7 @@
           CardboardBoxLargeHazard: { state: bigboxhazard, sprite: _Funkystation/Objects/Specific/Cargo/cardboard_box_hazard.rsi }
           CardboardBoxLargeRestock: { state: bigboxrestock, sprite: _Funkystation/Objects/Specific/Cargo/cardboard_box_restock.rsi }
           CardboardBoxLargeWeh: { state: bigboxweh, sprite: _Funkystation/Objects/Specific/Cargo/cardboard_box_weh.rsi }
+          CardboardBoxLargeInternals: { state: bigboxinternals, sprite: _Funkystation/Objects/Specific/Cargo/cardboard_box_internals.rsi }
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:
@@ -120,6 +121,22 @@
     sprite: _Funkystation/Objects/Specific/Cargo/cardboard_box_weh.rsi
     layers:
     - state: bigboxweh
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      map: [ "enum.PaperLabelVisuals.Layer" ]
+      offset: -0.1, 0.2
+
+- type: entity
+  parent: CardboardBoxLarge
+  id: CardboardBoxLargeInternals
+  name: internals box
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: _Funkystation/Objects/Specific/Cargo/cardboard_box_internals.rsi
+    layers:
+    - state: bigboxinternals
     - state: paper
       sprite: Structures/Storage/Crates/labels.rsi
       map: [ "enum.PaperLabelVisuals.Layer" ]

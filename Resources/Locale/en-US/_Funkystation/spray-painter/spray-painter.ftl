@@ -20,3 +20,4 @@ spray-painter-style-cardboard-plain = Plain
 spray-painter-style-cardboard-hazard = Hazard
 spray-painter-style-cardboard-restock = Restock
 spray-painter-style-cardboard-weh = Weh
+spray-painter-style-cardboard-internals = Internals

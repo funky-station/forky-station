@@ -12,9 +12,12 @@
   - type: InteractionOutline
   - type: PlaceableSurface
   - type: Sprite
-    sprite: Structures/Furniture/furniture.rsi
-    state: rack
+    sprite: _Funkystation/Structures/Furniture/boxshelf.rsi
+    state: boxshelf
     snapCardinals: true
+  - type: Appearance
+  - type: Occluder
+    boundingBox: -0.4, -0.4, 0.4, 0.4
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -57,25 +60,25 @@
         acts: [ "Destruction" ]
   - type: ItemSlots
     slots:
-      big_slot4:
+      fill4:
         whitelist:
           tags:
           - CardboardboxLarge
         insertOnInteract: true
         priority: 9
-      big_slot3:
+      fill3:
         whitelist:
           tags:
           - CardboardboxLarge
         insertOnInteract: true
         priority: 8
-      big_slot2:
+      fill2:
         whitelist:
           tags:
           - CardboardboxLarge
         insertOnInteract: true
         priority: 7
-      big_slot1:
+      fill1:
         whitelist:
           tags:
           - CardboardboxLarge
@@ -85,7 +88,30 @@
     containers:
       storagebase: !type:Container
         ents: [ ]
-      big_slot4: !type:ContainerSlot { }
-      big_slot3: !type:ContainerSlot { }
-      big_slot2: !type:ContainerSlot { }
-      big_slot1: !type:ContainerSlot { }
+      fill4: !type:ContainerSlot { }
+      fill3: !type:ContainerSlot { }
+      fill2: !type:ContainerSlot { }
+      fill1: !type:ContainerSlot { }
+  - type: ItemMapper
+    mapLayers:
+      fill1:
+        minCount: 1
+        whitelist:
+          tags:
+          - CardboardboxLarge
+      fill2:
+        minCount: 2
+        whitelist:
+          tags:
+          - CardboardboxLarge
+      fill3:
+        minCount: 3
+        whitelist:
+          tags:
+          - CardboardboxLarge
+      fill4:
+        minCount: 4
+        whitelist:
+          tags:
+          - CardboardboxLarge
+    sprite: _Funkystation/Structures/Furniture/boxshelf.rsi
