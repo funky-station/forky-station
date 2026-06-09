@@ -620,6 +620,7 @@
   - type: Lock
     locked: true
 
+# funky changes start
 - type: entityTable
   id: RandomCanTable
   table: !type:GroupSelector
@@ -668,6 +669,8 @@
     offset: 0
     table: !type:NestedSelector
       tableId: RandomCanTable
+# funky changes end
+
 
 # Broke Entities
 
