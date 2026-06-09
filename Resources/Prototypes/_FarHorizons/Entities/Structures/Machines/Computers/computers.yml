@@ -47,14 +47,14 @@
       board: !type:Container
       machine_board: !type:Container
       machine_parts: !type:Container
-      hidden_slot: !type:ContainerSlot
+      hidden_slot: !type:ContainerSlot # funky start
   - type: ItemSlots
     slots:
       hidden_slot:
         name: hidden_slot
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -102,11 +102,11 @@
       board: !type:Container
       machine_board: !type:Container
       machine_parts: !type:Container
-      hidden_slot: !type:ContainerSlot
+      hidden_slot: !type:ContainerSlot # funky start
   - type: ItemSlots
     slots:
       hidden_slot:
         name: hidden_slot
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end

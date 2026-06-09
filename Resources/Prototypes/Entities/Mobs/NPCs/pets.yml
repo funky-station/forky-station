@@ -674,7 +674,7 @@
     - VimPilot
   - type: StealTarget
     stealGroup: AnimalRenault
-  - type: ContainerContainer
+  - type: ContainerContainer # funky start
     containers:
       hidden_slot: !type:ContainerSlot
   - type: ItemSlots
@@ -683,7 +683,7 @@
         name: hidden_slot
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end
 
 - type: entity
   name: Hamlet

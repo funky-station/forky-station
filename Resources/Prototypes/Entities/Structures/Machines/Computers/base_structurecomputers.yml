@@ -92,7 +92,7 @@
     blacklist:
       tags:
       - NoConsoleSound
-  - type: ContainerContainer
+  - type: ContainerContainer # funky start
     containers:
       board: !type:Container
         ents: []
@@ -103,7 +103,7 @@
         name: computer_slot_accessory
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end
   - type: LightningTarget
     priority: 1
   - type: RequireProjectileTarget

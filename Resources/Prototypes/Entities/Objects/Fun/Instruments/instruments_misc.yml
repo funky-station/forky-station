@@ -75,7 +75,7 @@
     notificationPrefix: prayer-chat-notify-centcom
     verb: prayer-verbs-call
     verbImage: null
-  - type: ContainerContainer
+  - type: ContainerContainer # funky start
     containers:
       hidden_slot: !type:ContainerSlot
   - type: ItemSlots
@@ -84,7 +84,7 @@
         name: hidden_slot
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end
 
 - type: entity
   parent: PhoneInstrument

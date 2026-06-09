@@ -173,14 +173,14 @@
       machine_parts: !type:Container
       entity_storage: !type:Container
       output_container: !type:Container
-      hidden_slot: !type:ContainerSlot
+      hidden_slot: !type:ContainerSlot # funky start
   - type: ItemSlots
     slots:
       hidden_slot:
         name: computer_slot_accessory
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end
 
 # just a resprite
 - type: entity

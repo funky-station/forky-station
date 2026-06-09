@@ -53,14 +53,14 @@
       machine_board: !type:Container
       machine_parts: !type:Container
       blueprint: !type:Container
-      hidden_slot: !type:ContainerSlot
+      hidden_slot: !type:ContainerSlot # funky edit
   - type: EmptyOnMachineDeconstruct
     containers:
     - blueprint
-  - type: ItemSlots
+  - type: ItemSlots # funky start
     slots:
       hidden_slot:
         name: hidden_slot
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end

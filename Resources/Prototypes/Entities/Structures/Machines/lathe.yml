@@ -298,14 +298,14 @@
       machine_board: !type:Container
       machine_parts: !type:Container
       blueprint: !type:Container
-      hidden_slot: !type:ContainerSlot
+      hidden_slot: !type:ContainerSlot # funky start
   - type: ItemSlots
     slots:
       hidden_slot:
         name: computer_slot_accessory
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end
   - type: EmptyOnMachineDeconstruct
     containers:
     - blueprint

@@ -53,14 +53,14 @@
     containers:
       board: !type:Container
       key_slots: !type:Container
-      hidden_slot: !type:ContainerSlot
+      hidden_slot: !type:ContainerSlot # funky start
   - type: ItemSlots
     slots:
       hidden_slot:
         name: hidden_slot
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end
   - type: Sprite
     noRot: false
     drawdepth: SmallObjects
@@ -216,14 +216,14 @@
     containers:
       board: !type:Container
       key_slots: !type:Container
-      hidden_slot: !type:ContainerSlot
+      hidden_slot: !type:ContainerSlot # funky start
   - type: ItemSlots
     slots:
       hidden_slot:
         name: hidden_slot
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end
 
 - type: entity
   id: BaseIntercomSecure
@@ -247,14 +247,14 @@
     containers:
       board: !type:Container
       key_slots: !type:Container
-      hidden_slot: !type:ContainerSlot
+      hidden_slot: !type:ContainerSlot # funky start
   - type: ItemSlots
     slots:
       hidden_slot:
         name: hidden_slot
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end
   - type: ContainerFill
     containers:
       board:
@@ -272,14 +272,14 @@
     containers:
       board: !type:Container
       key_slots: !type:Container
-      hidden_slot: !type:ContainerSlot
+      hidden_slot: !type:ContainerSlot # funky start
   - type: ItemSlots
     slots:
       hidden_slot:
         name: hidden_slot
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end
   - type: ContainerFill
     containers:
       board:
@@ -297,14 +297,14 @@
     containers:
       board: !type:Container
       key_slots: !type:Container
-      hidden_slot: !type:ContainerSlot
+      hidden_slot: !type:ContainerSlot # funky start
   - type: ItemSlots
     slots:
       hidden_slot:
         name: hidden_slot
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end
   - type: ContainerFill
     containers:
       board:
@@ -322,14 +322,14 @@
     containers:
       board: !type:Container
       key_slots: !type:Container
-      hidden_slot: !type:ContainerSlot
+      hidden_slot: !type:ContainerSlot # funky start
   - type: ItemSlots
     slots:
       hidden_slot:
         name: hidden_slot
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end
   - type: ContainerFill
     containers:
       board:
@@ -347,14 +347,14 @@
     containers:
       board: !type:Container
       key_slots: !type:Container
-      hidden_slot: !type:ContainerSlot
+      hidden_slot: !type:ContainerSlot # funky start
   - type: ItemSlots
     slots:
       hidden_slot:
         name: hidden_slot
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end
   - type: ContainerFill
     containers:
       board:
@@ -373,14 +373,14 @@
     containers:
       board: !type:Container
       key_slots: !type:Container
-      hidden_slot: !type:ContainerSlot
+      hidden_slot: !type:ContainerSlot # funky start
   - type: ItemSlots
     slots:
       hidden_slot:
         name: hidden_slot
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end
   - type: ContainerFill
     containers:
       board:
@@ -398,14 +398,14 @@
     containers:
       board: !type:Container
       key_slots: !type:Container
-      hidden_slot: !type:ContainerSlot
+      hidden_slot: !type:ContainerSlot # funky start
   - type: ItemSlots
     slots:
       hidden_slot:
         name: hidden_slot
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end
   - type: ContainerFill
     containers:
       board:
@@ -423,14 +423,14 @@
     containers:
       board: !type:Container
       key_slots: !type:Container
-      hidden_slot: !type:ContainerSlot
+      hidden_slot: !type:ContainerSlot # funky start
   - type: ItemSlots
     slots:
       hidden_slot:
         name: hidden_slot
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end
   - type: ContainerFill
     containers:
       board:
@@ -448,14 +448,14 @@
     containers:
       board: !type:Container
       key_slots: !type:Container
-      hidden_slot: !type:ContainerSlot
+      hidden_slot: !type:ContainerSlot # funky start
   - type: ItemSlots
     slots:
       hidden_slot:
         name: hidden_slot
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end
   - type: ContainerFill
     containers:
       board:
@@ -473,14 +473,14 @@
     containers:
       board: !type:Container
       key_slots: !type:Container
-      hidden_slot: !type:ContainerSlot
+      hidden_slot: !type:ContainerSlot # funky start
   - type: ItemSlots
     slots:
       hidden_slot:
         name: hidden_slot
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end
   - type: ContainerFill
     containers:
       board:

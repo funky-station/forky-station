@@ -179,7 +179,7 @@
     price: 100
   - type: Appearance
   - type: WiresVisuals
-  - type: ContainerContainer
+  - type: ContainerContainer # funky start
     containers:
       hidden_slot: !type:ContainerSlot
   - type: ItemSlots
@@ -188,7 +188,7 @@
         name: hidden_slot
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end
 
 - type: entity
   id: VendingMachineWallmount

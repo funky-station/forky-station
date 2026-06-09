@@ -100,20 +100,20 @@
         components:
         - FitsInDispenser
       priority: 9
-  - type: ItemSlots
+  - type: ItemSlots # funky start
     slots:
       hidden_slot:
         name: hidden_slot
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end
   - type: ContainerContainer
     containers:
       machine_board: !type:Container
       machine_parts: !type:Container
       beakerSlot: !type:ContainerSlot
       storagebase: !type:Container
-      hidden_slot: !type:ContainerSlot
+      hidden_slot: !type:ContainerSlot # funky change
   - type: WiresPanel
   - type: EmptyOnMachineDeconstruct
     containers:

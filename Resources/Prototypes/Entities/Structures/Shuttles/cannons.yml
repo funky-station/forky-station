@@ -182,14 +182,14 @@
       machine_board: !type:Container
       machine_parts: !type:Container
       ballistic-ammo: !type:Container
-      hidden_slot: !type:ContainerSlot
+      hidden_slot: !type:ContainerSlot # funky start
   - type: ItemSlots
     slots:
       hidden_slot:
         name: computer_slot_accessory
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end
   - type: Destructible
     thresholds:
     - trigger:
@@ -340,14 +340,14 @@
     containers:
       machine_board: !type:Container
       machine_parts: !type:Container
-      hidden_slot: !type:ContainerSlot
+      hidden_slot: !type:ContainerSlot # funky start
   - type: ItemSlots
     slots:
       hidden_slot:
         name: computer_slot_accessory
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end
   - type: Destructible
     thresholds:
     - trigger:

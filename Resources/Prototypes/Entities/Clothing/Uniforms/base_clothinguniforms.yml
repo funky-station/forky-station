@@ -72,7 +72,7 @@
   - type: WirelessNetworkConnection
     range: 1200
   - type: StationLimitedNetwork
-  - type: ContainerContainer
+  - type: ContainerContainer # funky start
     containers:
       hidden_slot: !type:ContainerSlot
   - type: ItemSlots
@@ -81,7 +81,7 @@
         name: hidden_slot
         whitelist:
           tags:
-          - SurveillanceDevices
+          - SurveillanceDevices # funky end
 
 - type: entity
   abstract: true
