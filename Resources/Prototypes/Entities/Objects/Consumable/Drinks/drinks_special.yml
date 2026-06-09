@@ -88,7 +88,7 @@
 - type: entity
   parent: BaseStorageItem
   id: DrinkCanPack
-  name: 6pack of cola
+  name: 6pack of cola # funky change
   components:
   - type: Sprite
     sprite: Objects/Misc/6pack.rsi
@@ -97,7 +97,7 @@
   - type: Item
     size: Normal
   - type: Appearance
-  - type: ItemSlots
+  - type: ItemSlots # funky change start
     slots:
       6pack_slot6:
         ejectOnUse: true
@@ -183,7 +183,7 @@
         whitelist:
           tags:
           - DrinkCan
-    sprite: Objects/Misc/6pack.rsi
+    sprite: Objects/Misc/6pack.rsi # funky change end
 
 # Bartender tools
 
