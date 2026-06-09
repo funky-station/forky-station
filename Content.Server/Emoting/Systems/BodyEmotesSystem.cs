@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 poklj <compgeek223@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Chat.Systems;
 using Content.Server.Emoting.Components;
 using Content.Shared.Chat;

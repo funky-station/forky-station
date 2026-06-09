@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Łukasz Mędrek <lukasz@lukaszm.xyz>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Camera;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Inventory;

@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.GameStates;
 

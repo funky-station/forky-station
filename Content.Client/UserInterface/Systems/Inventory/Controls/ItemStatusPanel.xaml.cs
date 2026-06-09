@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-FileCopyrightText: 2025 Zachary Yona <58833995+Magicalus@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Items;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;

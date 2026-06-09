@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 TheGrimbeeper <thegrimbeeper.11@gmail.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Popups;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Xenoarchaeology.Artifact.XAE.Components;

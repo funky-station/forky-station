@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Destructible;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;

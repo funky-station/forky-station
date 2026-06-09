@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Containers;

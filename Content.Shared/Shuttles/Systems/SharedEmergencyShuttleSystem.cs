@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Winkarst-cpu <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.CCVar;
 using Content.Shared.Popups;
 using Content.Shared.Shuttles.Components;

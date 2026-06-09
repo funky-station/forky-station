@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Labels.EntitySystems;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;

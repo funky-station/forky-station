@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Inventory;
 using Robust.Shared.Prototypes;

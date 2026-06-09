@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Samuka <47865393+Samuka-C@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2026 lunarcomets <140772713+lunarcomets@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Access.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;

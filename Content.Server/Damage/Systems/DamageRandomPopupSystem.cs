@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Damage.Components;
 using Content.Server.Popups;
 using Content.Shared.Damage;

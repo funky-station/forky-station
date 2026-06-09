@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.CCVar;
 using Robust.Client;
 using Robust.Client.Graphics;

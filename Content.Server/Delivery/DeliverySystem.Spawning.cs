@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Delivery;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.EntityTable;

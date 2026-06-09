@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2026 Fruitsalad <949631+Fruitsalad@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Numerics;
 using Content.Client.UserInterface.Controls;

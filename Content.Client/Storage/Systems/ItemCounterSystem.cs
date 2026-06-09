@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Crude Oil <124208219+CroilBird@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Rounding;
 using Content.Shared.Stacks;
 using Content.Shared.Storage.Components;

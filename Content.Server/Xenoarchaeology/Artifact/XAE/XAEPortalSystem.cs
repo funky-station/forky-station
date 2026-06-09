@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Kevin Matuschzik <92296572+Gamer3107@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Connor Huffine <chuffine@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Xenoarchaeology.Artifact.XAE.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;

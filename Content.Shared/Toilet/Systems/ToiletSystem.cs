@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Buckle.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Verbs;

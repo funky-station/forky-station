@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Wolfkey-SomeoneElseTookMyUsername <wolfkey75@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.DeviceLinking.Systems;
 
 namespace Content.Server.Disposal.Tube;

@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Administration;

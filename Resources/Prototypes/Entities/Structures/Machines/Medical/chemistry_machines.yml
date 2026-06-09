@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 Trevor Day <tday93@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Rafael Simões Gaspar da Ponte <rafasponte1000@gmail.com>
-# SPDX-FileCopyrightText: 2026 āda <ss.adasts@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: BaseTabletopChemicalMachine
   parent: [ BaseMachinePowered, SmallConstructibleMachine ]

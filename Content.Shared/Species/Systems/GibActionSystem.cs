@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 LankLTE <135308300+LankLTE@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Species.Components;
 using Content.Shared.Actions;
 using Content.Shared.Body.Systems;

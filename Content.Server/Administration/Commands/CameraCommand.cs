@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration.UI;
 using Content.Server.EUI;
 using Content.Shared.Administration;

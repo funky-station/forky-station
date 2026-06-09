@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Popups;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;

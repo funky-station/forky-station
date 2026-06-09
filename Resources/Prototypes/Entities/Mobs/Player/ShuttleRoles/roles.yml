@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 M1tht1c <mytht1c@proton.me>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: RandomHumanoidVisitorCaptain
   name: visiting Captain ghost role

@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.ActionBlocker;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory.Events;
