@@ -2,7 +2,7 @@
   parent: BartenderPDA
   id: PunPunPDA
   name: Pun Pun PDA
-  description: Smells like beer, bananas and mischief.
+  description: Smells like alcohol and mischief.
   components:
   - type: Pda
     id: PunPunIDCard
