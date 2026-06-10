@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Qerd <73325910+BigfootBravo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   abstract: true
   parent: Paper

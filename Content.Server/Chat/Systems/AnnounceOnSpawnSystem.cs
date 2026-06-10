@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 chavonadelal <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Chat;
 
 namespace Content.Server.Chat.Systems;

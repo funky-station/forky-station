@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.MassMedia.Systems;
 
 namespace Content.Shared.MassMedia.Components;

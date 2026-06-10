@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2026 Ignaz "Ian" Kraft <ignaz.k@live.de>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;

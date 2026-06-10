@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Ghost;
 using Content.Server.Xenoarchaeology.Artifact.XAE.Components;
 using Content.Shared.Light.Components;

@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Physics;
 using Content.Shared.Throwing;
 using Content.Shared.Timing;

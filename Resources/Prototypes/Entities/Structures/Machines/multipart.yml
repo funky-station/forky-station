@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 BarryNorfolk <barrynorfolkman@protonmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: MultipartMachineGhost
   categories: [ HideSpawnMenu ]

@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Atmos.Piping.Components;
 using Content.Shared.Atmos;

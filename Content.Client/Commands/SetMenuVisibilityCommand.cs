@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 PrPleGoo <PrPleGoo@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Verbs;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;

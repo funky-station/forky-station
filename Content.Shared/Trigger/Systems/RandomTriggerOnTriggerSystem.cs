@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Random.Helpers;
 using Content.Shared.Trigger.Components.Effects;
 using Robust.Shared.Prototypes;
