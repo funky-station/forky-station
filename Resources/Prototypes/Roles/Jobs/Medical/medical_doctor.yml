@@ -23,6 +23,7 @@
 - type: startingGear
   id: DoctorGear
   equipment:
+    id: MedicalPDA # Funky - No longer a loadout option so it goes here
     ears: ClothingHeadsetMedical
 
 - type: chameleonOutfit

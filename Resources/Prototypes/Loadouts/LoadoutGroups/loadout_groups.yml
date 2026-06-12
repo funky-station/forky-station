@@ -879,8 +879,8 @@
   - StationEngineerJumpsuit
   - StationEngineerJumpskirt
   - StationEngineerHazardsuit
-  - SeniorEngineerJumpsuit
-  - SeniorEngineerJumpskirt
+  #- SeniorEngineerJumpsuit # Funky - Removed "senior" apparel
+  #- SeniorEngineerJumpskirt # Funky - Removed "senior" apparel
 
 - type: loadoutGroup
   id: StationEngineerBackpack
@@ -1032,8 +1032,8 @@
   - ScientistJumpskirt
   - RoboticistJumpsuit
   - RoboticistJumpskirt
-  - SeniorResearcherJumpsuit
-  - SeniorResearcherJumpskirt
+  #- SeniorResearcherJumpsuit # Funky - Removed "senior" apparel
+  #- SeniorResearcherJumpskirt # Funky - Removed "senior" apparel
 
 - type: loadoutGroup
   id: ScientistBackpack
@@ -1053,7 +1053,7 @@
   - ScienceWintercoat
   - RoboticistLabCoat
   - RoboticistWintercoat
-  - SeniorResearcherLabCoat
+  #- SeniorResearcherLabCoat # Funky - Removed "senior" apparel
 
 - type: loadoutGroup
   id: ScientistShoes
@@ -1187,8 +1187,8 @@
   - SecurityJumpskirt
   - SecurityJumpsuitGrey
   - SecurityJumpskirtGrey
-  - SeniorOfficerJumpsuit
-  - SeniorOfficerJumpskirt
+  #- SeniorOfficerJumpsuit # Funky - Removed "senior" apparel
+  #- SeniorOfficerJumpskirt # Funky - Removed "senior" apparel
   - TrooperUniform
 
 - type: loadoutGroup

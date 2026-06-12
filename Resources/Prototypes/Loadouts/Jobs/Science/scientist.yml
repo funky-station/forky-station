@@ -16,9 +16,9 @@
 - type: loadout
   id: ScientificBeret
   startingGear: ScientificBeret
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorResearcher
+  #effects: # Funky - Taking the time lock off this
+  #- !type:GroupLoadoutEffect
+  #  proto: SeniorResearcher
 
 - type: loadout
   id: RoboticistCap

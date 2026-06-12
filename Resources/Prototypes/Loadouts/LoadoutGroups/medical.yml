@@ -88,7 +88,7 @@
   minLimit: 0
   loadouts:
   - MedicalBeret
-  - SeniorPhysicianBeret
+  #- SeniorPhysicianBeret # Funky - Removed "senior" apparel
   - MedicalHeadMirror
   - BlueSurgeryCap
   - GreenSurgeryCap
@@ -101,8 +101,8 @@
   loadouts:
   - MedicalDoctorJumpsuit
   - MedicalDoctorJumpskirt
-  - SeniorPhysicianJumpsuit
-  - SeniorPhysicianJumpskirt
+  #- SeniorPhysicianJumpsuit # Funky - Removed "senior" apparel
+  #- SeniorPhysicianJumpskirt # Funky - Removed "senior" apparel
   - MedicalBlueScrubs
   - MedicalGreenScrubs
   - MedicalPurpleScrubs
@@ -114,7 +114,7 @@
   loadouts:
   - RegularLabCoat
   - MedicalDoctorWintercoat
-  - SeniorPhysicianLabCoat
+  #- SeniorPhysicianLabCoat # Funky - Removed "senior" apparel
 
 - type: loadoutGroup
   id: MedicalDoctorPDA

@@ -19,6 +19,7 @@
 - type: startingGear
   id: CargoTechGear
   equipment:
+    id: CargoPDA # Funky - No longer a loadout option so it goes here
     ears: ClothingHeadsetCargo
     pocket1: AppraisalTool
   #storage:

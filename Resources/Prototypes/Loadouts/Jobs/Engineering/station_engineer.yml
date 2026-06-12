@@ -41,9 +41,9 @@
 - type: loadout
   id: SeniorEngineerBeret
   startingGear: EngineeringBeret
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorEngineering
+  #effects: # Funky - Taking the time lock off this
+  #- !type:GroupLoadoutEffect
+  #  proto: SeniorEngineering
 
 # Jumpsuit
 - type: loadout

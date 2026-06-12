@@ -49,8 +49,8 @@
   - ClothingUniformJumpskirtChiefEngineerTurtle
   - ClothingUniformJumpsuitEngineering
   - ClothingUniformJumpskirtEngineering
-  - ClothingUniformJumpsuitSeniorEngineer
-  - ClothingUniformJumpskirtSeniorEngineer
+  #- ClothingUniformJumpsuitSeniorEngineer # Funky - Removed "senior" apparel
+  #- ClothingUniformJumpskirtSeniorEngineer # Funky - Removed "senior" apparel
 
 - type: latheRecipePack
   id: ClothingMedical
@@ -62,11 +62,11 @@
   - ClothingUniformJumpskirtCMO
   - ClothingUniformJumpsuitCMOTurtle
   - ClothingUniformJumpskirtCMOTurtle
-  - ClothingHeadHatBeretSeniorPhysician
+  #- ClothingHeadHatBeretSeniorPhysician # Funky - Removed "senior" apparel
   - ClothingUniformJumpsuitMedicalDoctor
   - ClothingUniformJumpskirtMedicalDoctor
-  - ClothingUniformJumpsuitSeniorPhysician
-  - ClothingUniformJumpskirtSeniorPhysician
+  #- ClothingUniformJumpsuitSeniorPhysician # Funky - Removed "senior" apparel
+  #- ClothingUniformJumpskirtSeniorPhysician # Funky - Removed "senior" apparel
   - ClothingUniformJumpsuitParamedic
   - ClothingUniformJumpskirtParamedic
   - ClothingHeadHatParamedicsoft
@@ -79,8 +79,8 @@
   - ClothingUniformJumpskirtResearchDirector
   - ClothingUniformJumpsuitScientist
   - ClothingUniformJumpskirtScientist
-  - ClothingUniformJumpsuitSeniorResearcher
-  - ClothingUniformJumpskirtSeniorResearcher
+  #- ClothingUniformJumpsuitSeniorResearcher # Funky - Removed "senior" apparel
+  #- ClothingUniformJumpskirtSeniorResearcher # Funky - Removed "senior" apparel
 
 - type: latheRecipePack
   id: ClothingSecurity
@@ -99,8 +99,8 @@
   - ClothingUniformJumpsuitHoSGrey
   - ClothingUniformJumpsuitHoSParadeMale
   - ClothingUniformJumpskirtHoSParadeMale
-  - ClothingUniformJumpsuitSeniorOfficer
-  - ClothingUniformJumpskirtSeniorOfficer
+  #- ClothingUniformJumpsuitSeniorOfficer # Funky - Removed "senior" apparel
+  #- ClothingUniformJumpskirtSeniorOfficer # Funky - Removed "senior" apparel
   - ClothingUniformJumpsuitPrisoner
   - ClothingUniformJumpskirtPrisoner
   - ClothingHeadHatBeretSecurity

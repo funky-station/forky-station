@@ -9,9 +9,9 @@
 
 - type: loadout
   id: MedicalHeadMirror
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MedicalJourneymanTimer
+  #effects: # Funky - Taking the time lock off this
+  #- !type:GroupLoadoutEffect
+  #  proto: MedicalJourneymanTimer
   equipment:
     head: ClothingHeadMirror
 

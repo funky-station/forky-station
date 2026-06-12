@@ -48,9 +48,9 @@
   id: ChiefEngineerMantle
   equipment:
     neck: ClothingNeckMantleCE
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MasterCE
+  #effects: # Funky - Taking the time lock off this
+  #- !type:GroupLoadoutEffect
+  #  proto: MasterCE
 
 - type: startingGear
   id: ChiefEngineerMantle

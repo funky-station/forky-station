@@ -40,9 +40,9 @@
   id: ChiefMedicalOfficerMantle
   equipment:
     neck: ClothingNeckMantleCMO
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MasterCMO
+  #effects: # Funky - Taking the time lock off this
+  #- !type:GroupLoadoutEffect
+  #  proto: MasterCMO
 
 # Outer clothing
 - type: loadout

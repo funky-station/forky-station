@@ -44,9 +44,9 @@
   id: HoPMantle
   equipment:
     neck: ClothingNeckMantleHOP
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MasterHoP
+  #effects: # Funky - Taking the time lock off this
+  #- !type:GroupLoadoutEffect
+  #  proto: MasterHoP
 
 - type: startingGear
   id: HoPMantle

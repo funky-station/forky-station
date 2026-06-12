@@ -27,7 +27,7 @@
   - MedicalBackpack
   - MedicalDoctorOuterClothing
   - MedicalShoes
-  - MedicalDoctorPDA
+  #- MedicalDoctorPDA # Funky - No longer a loadout option so it goes in the job YAML instead
   - Glasses
   - SurvivalMedical
   - Trinkets

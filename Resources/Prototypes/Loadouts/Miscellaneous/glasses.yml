@@ -27,17 +27,17 @@
 # Jamjar
 - type: loadout
   id: GlassesJamjar
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: JamjarTimer
+  #effects: # Funky - Taking the time lock off this
+  #- !type:GroupLoadoutEffect
+  #  proto: JamjarTimer
   equipment:
     eyes: ClothingEyesGlassesJamjar
 
 # Jensen
 - type: loadout
   id: GlassesJensen
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: JensenTimer
+  #effects: # Funky - Taking the time lock off this
+  #- !type:GroupLoadoutEffect
+  #  proto: JensenTimer
   equipment:
     eyes: ClothingEyesGlassesJensen

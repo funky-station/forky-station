@@ -54,9 +54,9 @@
   id: CaptainMantle
   equipment:
     neck: ClothingNeckMantleCap
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MasterCap
+  #effects: # Funky - Taking the time lock off this
+  #- !type:GroupLoadoutEffect
+  #  proto: MasterCap
 
 - type: startingGear
   id: CaptainMantle

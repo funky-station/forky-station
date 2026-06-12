@@ -20,6 +20,7 @@
 - type: startingGear
   id: StationEngineerGear
   equipment:
+    id: EngineerPDA # Funky - No longer a loadout option so it goes here
     eyes: ClothingEyesGlassesMeson
     belt: ClothingBeltUtilityEngineering
     ears: ClothingHeadsetEngineering

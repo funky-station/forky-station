@@ -239,7 +239,7 @@
   - CargoTechnicianBackpack
   - CargoTechnicianOuterClothing
   - CargoTechnicianShoes
-  - CargoTechnicianID
+  #- CargoTechnicianID # Funky - No longer a loadout option so it goes in the job YAML instead
   - Glasses
   - Survival
   - Trinkets
@@ -295,7 +295,7 @@
   - StationEngineerBackpack
   - StationEngineerOuterClothing
   - StationEngineerShoes
-  - StationEngineerID
+  #- StationEngineerID # Funky - No longer a loadout option so it goes in the job YAML instead
   - SurvivalExtended
   - Trinkets
   #- StationEngineerJobTrinkets
@@ -343,7 +343,7 @@
   - ScientistOuterClothing
   - ScientistGloves
   - ScientistShoes
-  - ScientistPDA
+  #- ScientistPDA # Funky - No longer a loadout option so it goes in the job YAML instead
   - Glasses
   - Survival
   - Trinkets
@@ -400,7 +400,7 @@
   - SecurityBackpack
   - SecurityOuterClothing
   - SecurityShoes
-  - SecurityPDA
+  #- SecurityPDA # Funky - No longer a loadout option so it goes in the job YAML instead
   - SecurityBelt
   - SurvivalSecurity
   - Trinkets

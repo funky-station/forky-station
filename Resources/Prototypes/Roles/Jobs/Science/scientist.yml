@@ -17,6 +17,7 @@
 - type: startingGear
   id: ScientistGear
   equipment:
+    id: SciencePDA # Funky - No longer a loadout option so it goes here
     ears: ClothingHeadsetScience
   #storage:
     #back:

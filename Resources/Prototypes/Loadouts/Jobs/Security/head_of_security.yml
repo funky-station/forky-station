@@ -65,9 +65,9 @@
   id: HeadofSecurityMantle
   equipment:
     neck: ClothingNeckMantleHOS
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MasterHoS
+  #effects: # Funky - Taking the time lock off this
+  #- !type:GroupLoadoutEffect
+  #  proto: MasterHoS
 
 - type: startingGear
   id: HeadofSecurityMantle

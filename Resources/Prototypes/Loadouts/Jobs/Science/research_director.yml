@@ -17,9 +17,9 @@
   id: ResearchDirectorMantle
   equipment:
     neck: ClothingNeckMantleRD
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MasterRD
+  #effects: # Funky - Taking the time lock off this
+  #- !type:GroupLoadoutEffect
+  #  proto: MasterRD
 
 - type: startingGear
   id: ResearchDirectorMantle

@@ -25,6 +25,7 @@
   id: SecurityOfficerGear
   equipment:
     eyes: ClothingEyesGlassesSecurity
+    id: SecurityPDA # Funky - No longer a loadout option so it goes here
     ears: ClothingHeadsetSecurity
     pocket1: WeaponPistolMk58
   storage:
