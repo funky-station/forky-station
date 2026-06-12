@@ -4,6 +4,8 @@ using Content.Server.Cargo.Components;
 using Content.Server.NameIdentifier;
 using Content.Shared._Funkystation.Cargo.Prototypes;
 using Content.Shared.Access.Components;
+using Content.Shared.Atmos.Components;
+using Content.Shared.Atmos.Piping.Unary.Components;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Prototypes;
@@ -147,6 +149,12 @@ public sealed partial class CargoSystem
                     break;
                 case CargoReagentBountyItemData reagentBounty:
                     msg.AddMarkupOrThrow($"- {Loc.GetString("bounty-console-manifest-entry-reagent",
+                        ("amount", entry.Amount),
+                        ("item", Loc.GetString(entry.Name)))}");
+                    msg.PushNewline();
+                    break;
+                case CargoGasBountyItemData gasBounty:
+                    msg.AddMarkupOrThrow($"- {Loc.GetString("bounty-console-manifest-entry-gas",
                         ("amount", entry.Amount),
                         ("item", Loc.GetString(entry.Name)))}");
                     msg.PushNewline();
@@ -316,6 +324,7 @@ public sealed partial class CargoSystem
             {
                 CargoObjectBountyItemEntry itemEntry => new CargoObjectBountyItemData(itemEntry),
                 CargoReagentBountyItemEntry itemEntry => new CargoReagentBountyItemData(itemEntry),
+                CargoGasBountyItemEntry itemEntry => new CargoGasBountyItemData(itemEntry),
                 _ => throw new NotImplementedException($"Unknown type: {entry.GetType().Name}"),
             };
             items.Add(newItem);
@@ -377,7 +386,7 @@ public sealed partial class CargoSystem
     }
 
     /// <summary>
-    /// Determines whether the <paramref name="entity"/> meets the criteria for the bounty <paramref name="entry"/>.
+    /// Determines whether the <paramref name="entity"/> meets the criteria for the bounty <paramref name="reagentBounty"/>.
     /// </summary>
     /// <param name="entity">Some given entity to be checked against criteria</param>
     /// <param name="reagentBounty">The specific bounty reagent item that is being checked against</param>
@@ -405,6 +414,32 @@ public sealed partial class CargoSystem
     }
 
     /// <summary>
+    /// Determines whether the <paramref name="entity"/> meets the criteria for the bounty <paramref name="gasBounty"/>.
+    /// </summary>
+    /// <param name="entity">Some given entity to be checked against criteria</param>
+    /// <param name="gasBounty">The specific bounty gas that is being checked against</param>
+    /// <returns>true if <paramref name="entity"/> is a valid item for the bounty entry, otherwise false</returns>
+    public bool IsValidBountyEntry(EntityUid entity, CargoGasBountyItemData gasBounty)
+    {
+        // Currently checking components separately since I don't know a method to query for interfaces.
+        // Please replace if a better method is made / found
+        if (TryComp<GasTankComponent>(entity, out var gasTank))
+        {
+            var gases = gasTank.Air;
+
+            return gases.GetMoles(gasBounty.Gas) > 0;
+        }
+
+        if (TryComp<GasCanisterComponent>(entity, out var gasCan))
+        {
+            var gases = gasCan.Air;
+
+            return gases.GetMoles(gasBounty.Gas) > 0;
+        }
+        return false;
+    }
+
+    /// <summary>
     /// Determines whether the <paramref name="entity"/> meets the criteria for the bounty <paramref name="entry"/>.
     /// </summary>
     /// <returns>true if <paramref name="entity"/> is a valid item for the bounty entry, otherwise false</returns>
@@ -416,6 +451,8 @@ public sealed partial class CargoSystem
                 IsValidBountyEntry(entity, new CargoObjectBountyItemData(objectBounty)),
             CargoReagentBountyItemEntry reagentBounty =>
                 IsValidBountyEntry(entity, new CargoReagentBountyItemData(reagentBounty)),
+            CargoGasBountyItemEntry gasBounty =>
+                IsValidBountyEntry(entity, new CargoGasBountyItemData(gasBounty)),
             _ => throw new NotImplementedException($"Unknown type: {entry.GetType().Name}"),
         };
     }
@@ -450,6 +487,10 @@ public sealed partial class CargoSystem
                         break;
                     case CargoReagentBountyItemData reagentBounty:
                         if (!IsValidBountyEntry(entity, reagentBounty))
+                            continue;
+                        break;
+                    case CargoGasBountyItemData gasBounty:
+                        if (!IsValidBountyEntry(entity, gasBounty))
                             continue;
                         break;
                 }
@@ -497,6 +538,34 @@ public sealed partial class CargoSystem
                             }
 
                         }
+                    }
+                    break;
+                case CargoGasBountyItemData bountyItem:
+                    // Currently checking components separately since I don't know a method to query for interfaces.
+                    // Please replace if a better method is made / found
+                    if (TryComp<GasTankComponent>(entity, out var gasTank))
+                    {
+                        var gases = gasTank.Air;
+
+                        foreach (var cargoBountyItemData in possibleEntries)
+                        {
+                            var cargoBountyGasData = (CargoGasBountyItemData) cargoBountyItemData;
+                            remaining[cargoBountyGasData] -= (int) Math.Floor(gases.GetMoles(cargoBountyGasData.Gas));
+                        }
+
+                        break;
+                    }
+                    if (TryComp<GasCanisterComponent>(entity, out var gasCan))
+                    {
+                        var gases = gasCan.Air;
+
+                        foreach (var cargoBountyItemData in possibleEntries)
+                        {
+                            var cargoBountyGasData = (CargoGasBountyItemData) cargoBountyItemData;
+                            remaining[cargoBountyGasData] -= (int) Math.Floor(gases.GetMoles(cargoBountyGasData.Gas));
+                        }
+
+                        break;
                     }
                     break;
             }
@@ -600,7 +669,7 @@ public sealed partial class CargoSystem
             bountyCategory = _random.Pick(allBounties);
         }
 
-        var totalItems = bountyItems.Count;
+        var totalItems = bountyCategory.MaxTargets == 0 ? bountyItems.Count : bountyCategory.MaxTargets;
 
         // Smaller number means that there will be on average less item per bounty
         const double itemNumberWeight = 0.9;
@@ -636,6 +705,7 @@ public sealed partial class CargoSystem
             {
                 CargoObjectBountyItemEntry itemEntry => new CargoObjectBountyItemData(itemEntry),
                 CargoReagentBountyItemEntry itemEntry => new CargoReagentBountyItemData(itemEntry),
+                CargoGasBountyItemEntry itemEntry => new CargoGasBountyItemData(itemEntry),
                 _ => throw new NotImplementedException($"Unknown type: {bountyItem.GetType().Name}"),
             };
 
@@ -652,6 +722,9 @@ public sealed partial class CargoSystem
                     totalBountyItems += bountyAmount;
                     break;
                 case CargoReagentBountyItemData reagentBounty:
+                    totalBountyItems ++;
+                    break;
+                case CargoGasBountyItemData gasBounty:
                     totalBountyItems ++;
                     break;
             }

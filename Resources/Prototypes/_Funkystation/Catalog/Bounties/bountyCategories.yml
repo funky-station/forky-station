@@ -17,10 +17,18 @@
 #    maxAmount: 50
 #    rewardPer: 500
 #    reagent: Omnizine
+# NOTE: Due to the current methods of transportation, make sure categories that can roll gas can only ever target one
+#       item or make the target amount small enough to use tanks
+#  - name: bounty-item-tritium
+#    minAmount: 5000
+#    maxAmount: 10000
+#    amountStep: 1000
+#    rewardPer: 1
+#    gas: Tritium
 
 # Generally, each category should be considered from the perspective of the orderer, what is a medical department likely to order? What will totally not the syndicate order?
 # Items inside a category should be things that can be resonably produced by the station/department, items that you can just get from a vending machine or cargo crates should be avoided as bounty targets.
-# NOTE: Bounties seem to work weird with stackable items currently, if you have a bounty for 6 artifact fragments, you need to split them into 6 diffrent stacks for it to count properly,
+# NOTE: Bounties seem to work weird with stackable items currently, if you have a bounty for 6 artifact fragments, you need to split them into 6 different stacks for it to count properly,
 #       So for the time being stackable items should be avoided as bounty targets.
 
 # Botany
