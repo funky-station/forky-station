@@ -15,6 +15,7 @@
   - HandLabeler
   - ChemistryEmptyVial
   - ChemistryEmptyVialSmall
+  - SmartVial # I don't know if this should be in a separate file in an _Funky directory cause idk if lathe packs work like that.
   - Dropper
 
 - type: latheRecipePack
@@ -84,6 +85,7 @@
   - ChemMasterMachineCircuitboard
   - CondenserMachineCircuitBoard
   - HotplateMachineCircuitboard
+  - MedicinalRefillerMachineCircuitboard
 
 ## Dynamic
 

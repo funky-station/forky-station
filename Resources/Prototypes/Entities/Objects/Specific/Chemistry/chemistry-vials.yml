@@ -41,6 +41,8 @@
         maxVol: 30
   - type: SolutionTransfer
     maxTransferAmount: 30
+  - type: SmartSolutionContainer
+    solutionName: drink
   - type: StaticPrice
     price: 100
   - type: Destructible

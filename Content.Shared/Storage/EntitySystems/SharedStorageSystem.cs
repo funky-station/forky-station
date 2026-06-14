@@ -335,7 +335,15 @@ public abstract class SharedStorageSystem : EntitySystem
                 }
                 else
                 {
+                    // Funky edit
+                    var ev = new StorageOpenUIAttemptEvent(args.User);
+                    RaiseLocalEvent(uid, ev);
+
+                    if (ev.Cancelled)
+                        return;
+                    //end funky edit
                     OpenStorageUI(uid, args.User, component, false);
+
                 }
             }
         };
@@ -497,7 +505,7 @@ public abstract class SharedStorageSystem : EntitySystem
         if (args.Handled || !storageComp.ClickInsert || !CanInteract(args.User, (uid, storageComp), silent: false))
             return;
 
-        var attemptEv = new StorageInteractUsingAttemptEvent();
+        var attemptEv = new StorageInteractUsingAttemptEvent(args.User); // Funky line add
         RaiseLocalEvent(uid, ref attemptEv);
         if (attemptEv.Cancelled)
             return;

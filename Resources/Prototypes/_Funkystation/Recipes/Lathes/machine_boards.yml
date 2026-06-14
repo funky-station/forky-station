@@ -5,3 +5,11 @@
   parent: [ BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
   id: ElectrolyzerMachineCircuitboard
   result: ElectrolyzerMachineCircuitboard
+
+## Medical
+
+# Chem
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
+  id: MedicinalRefillerMachineCircuitboard
+  result: MedicinalRefillerMachineCircuitboard
