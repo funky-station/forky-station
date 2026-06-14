@@ -2,7 +2,7 @@
   parent: BaseItem
   id: GassyStoneBase
   name: strange stone
-  description: A small stone exceptionally dry to the touch. Despite having no pores it seems to be emitting a small amount of gas.
+  description: A small stone that is exceptionally dry to the touch. Despite having no pores, it seems to be emitting a small amount of gas.
   suffix: ARTIFACT
   abstract: true
   components:

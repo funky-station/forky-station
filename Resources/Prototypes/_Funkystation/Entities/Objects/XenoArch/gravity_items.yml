@@ -1,7 +1,7 @@
 - type: entity
   parent: TrashBananaPeel
   id: TrashBananaPeelGravityWell
-  description: It appears to be a normal banana peel but something compels you towards it.
+  description: It appears to be a normal banana peel, but something compels you towards it.
   suffix: Gravity
   components:
   - type: GravityWell

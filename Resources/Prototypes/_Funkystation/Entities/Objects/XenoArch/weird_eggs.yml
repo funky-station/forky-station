@@ -47,7 +47,7 @@
   parent: WeirdEggBase
   id: WeirdEggUranium
   name: uranium egg
-  description: A uranium egg!
+  description: An uranium egg!
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/XenoArch/weirdeggs.rsi
@@ -63,7 +63,7 @@
   parent: WeirdEggBase
   id: WeirdEggPlasma
   name: plasma egg
-  description: A plasma egg!
+  description: An plasma egg!
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/XenoArch/weirdeggs.rsi

@@ -5,4 +5,4 @@ reagent-name-milk-strawberry = strawberry milk
 reagent-desc-milk-strawberry = A light and airy take on a classic drink.
 
 reagent-name-milk-banana = banana milk
-reagent-desc-milk-banana = For sure the clowns favorite flavor of milk.
+reagent-desc-milk-banana = For sure, the clown's favorite flavor of milk.

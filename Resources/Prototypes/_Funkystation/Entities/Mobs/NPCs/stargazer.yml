@@ -2,7 +2,7 @@
   id: MobStargazer
   parent: [ BaseMobAsteroid, MobBloodstream ]
   name: stargazer
-  description: A mysterious creature from another dimension, it's burning gaze melts away those that it finds irritating. It's outer shell is made with caramelan polymers mixed with ethyl butyrate, giving it a sticky but resistant protective layer.It is said that it makes a good watermelon lollipop.
+  description: A mysterious creature from another dimension, its burning gaze melts away those that it finds irritating. It's outer shell is made with caramelan polymers mixed with ethyl butyrate, giving it a sticky but resistant protective layer. It is said that it makes a good watermelon lollipop.
   components:
   - type: Sprite
     sprite: _Funkystation/Mobs/XenoArch/stargazer.rsi

@@ -3,7 +3,7 @@
   id: TransmutationGlass
   suffix: Transmutation
   name: strange glass
-  description: At a glance this glass appears normal besides an abnormal amount of condensation on the bottom, even when empty.
+  description: At a glance this glass appears normal, except for an abnormal amount of condensation on the bottom, even when empty.
   components:
   - type: Reactive
     groups:

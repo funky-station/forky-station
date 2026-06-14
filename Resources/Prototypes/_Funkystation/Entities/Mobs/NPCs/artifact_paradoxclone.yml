@@ -41,5 +41,5 @@
     - !type:HTNPrimitiveTask
       operator: !type:SpeakOperator
         speech: !type:SingleSpeakOperatorSpeech
-          line: "HELP ME HELP ME HELP ME"
+          line: "HELP ME HELP ME HELP ME!!"
         cooldown: 5

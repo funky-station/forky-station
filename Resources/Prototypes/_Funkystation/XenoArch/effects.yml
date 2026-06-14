@@ -975,7 +975,7 @@
 - type: entity
   id: XenoArtifactMilkPuddle
   parent: BaseXenoArtifactEffect
-  description: Produces puddle of chemical mixture
+  description: Spontaneous inorganic creation
   components:
   - type: XAECreatePuddle
     chemAmount:
@@ -990,7 +990,7 @@
 - type: entity
   id: XenoArtifactMilkSoyPuddle
   parent: BaseXenoArtifactEffect
-  description: Produces puddle of chemical mixture
+  description: Spontaneous inorganic creation
   components:
   - type: XAECreatePuddle
     chemAmount:
@@ -1005,7 +1005,7 @@
 - type: entity
   id: XenoArtifactMilkChocolatePuddle
   parent: BaseXenoArtifactEffect
-  description: Produces puddle of chemical mixture
+  description: Spontaneous inorganic creation
   components:
   - type: XAECreatePuddle
     chemAmount:
@@ -1020,7 +1020,7 @@
 - type: entity
   id: XenoArtifactMilkStrawberryPuddle
   parent: BaseXenoArtifactEffect
-  description: Produces puddle of chemical mixture
+  description: Spontaneous inorganic creation
   components:
   - type: XAECreatePuddle
     chemAmount:
@@ -1035,7 +1035,7 @@
 - type: entity
   id: XenoArtifactMilkBananaPuddle
   parent: BaseXenoArtifactEffect
-  description: Produces puddle of chemical mixture
+  description: Spontaneous inorganic creation
   components:
   - type: XAECreatePuddle
     chemAmount:
@@ -1050,7 +1050,7 @@
 - type: entity
   id: XenoArtifactEggPuddle
   parent: BaseXenoArtifactEffect
-  description: Produces puddle of chemical mixture
+  description: Spontaneous inorganic creation
   components:
   - type: XAECreatePuddle
     chemAmount:
@@ -1065,7 +1065,7 @@
 - type: entity
   id: XenoArtifactEnzymePuddle
   parent: BaseXenoArtifactEffect
-  description: Produces puddle of chemical mixture
+  description: Spontaneous inorganic creation
   components:
   - type: XAECreatePuddle
     chemAmount:
@@ -1080,7 +1080,7 @@
 - type: entity
   id: XenoArtifactSoysaucePuddle
   parent: BaseXenoArtifactEffect
-  description: Produces puddle of chemical mixture
+  description: Spontaneous inorganic creation
   components:
   - type: XAECreatePuddle
     chemAmount:
@@ -1095,7 +1095,7 @@
 - type: entity
   id: XenoArtifactMustardPuddle
   parent: BaseXenoArtifactEffect
-  description: Produces puddle of chemical mixture
+  description: Spontaneous inorganic creation
   components:
   - type: XAECreatePuddle
     chemAmount:
@@ -1110,7 +1110,7 @@
 - type: entity
   id: XenoArtifactKetchupPuddle
   parent: BaseXenoArtifactEffect
-  description: Produces puddle of chemical mixture
+  description: Spontaneous inorganic creation
   components:
   - type: XAECreatePuddle
     chemAmount:
@@ -1125,7 +1125,7 @@
 - type: entity
   id: XenoArtifactHotsaucePuddle
   parent: BaseXenoArtifactEffect
-  description: Produces puddle of chemical mixture
+  description: Spontaneous inorganic creation
   components:
   - type: XAECreatePuddle
     chemAmount:
@@ -1140,7 +1140,7 @@
 - type: entity
   id: XenoArtifactOilOlivePuddle
   parent: BaseXenoArtifactEffect
-  description: Produces puddle of chemical mixture
+  description: Spontaneous inorganic creation
   components:
   - type: XAECreatePuddle
     chemAmount:
@@ -1155,7 +1155,7 @@
 - type: entity
   id: XenoArtifactVodkaPuddle
   parent: BaseXenoArtifactEffect
-  description: Produces puddle of chemical mixture
+  description: Spontaneous inorganic creation
   components:
   - type: XAECreatePuddle
     chemAmount:
@@ -1170,7 +1170,7 @@
 - type: entity
   id: XenoArtifactFourteenLokoPuddle
   parent: BaseXenoArtifactEffect
-  description: Produces puddle of chemical mixture
+  description: Spontaneous inorganic creation
   components:
   - type: XAECreatePuddle
     chemAmount:
@@ -1185,7 +1185,7 @@
 - type: entity
   id: XenoArtifactVitaminPuddle
   parent: BaseXenoArtifactEffect
-  description: Produces puddle of chemical mixture
+  description: Spontaneous inorganic creation
   components:
   - type: XAECreatePuddle
     chemAmount:
@@ -1200,7 +1200,7 @@
 - type: entity
   id: XenoArtifactOilPuddle
   parent: BaseXenoArtifactEffect
-  description: Produces puddle of chemical mixture
+  description: Spontaneous inorganic creation
   components:
   - type: XAECreatePuddle
     chemAmount:
@@ -1215,7 +1215,7 @@
 - type: entity
   id: XenoArtifactHistaminePuddle
   parent: BaseXenoArtifactEffect
-  description: Produces puddle of chemical mixture
+  description: Spontaneous inorganic creation
   components:
   - type: XAECreatePuddle
     chemAmount:
@@ -1230,7 +1230,7 @@
 - type: entity
   id: XenoArtifactMindbreakerToxinPuddle
   parent: BaseXenoArtifactEffect
-  description: Produces puddle of chemical mixture
+  description: Spontaneous inorganic creation
   components:
   - type: XAECreatePuddle
     chemAmount:

@@ -4,7 +4,7 @@
   parent: [ BaseMob, MobCombat ]
   id: Legg
   name: legg
-  description: With a hardened shell and a scowl on their face, a legg is not one to be messed with
+  description: With a hardened shell and a scowl on their face, a legg is not one to be messed with.
   components:
   - type: Sprite
     sprite: _Funkystation/Mobs/XenoArch/legg.rsi
