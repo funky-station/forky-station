@@ -268,6 +268,58 @@
   description: Favoured by Nanotrasen Security for being cheap and easy to use.
 
 - type: entity
+  name: RG-2 laser pistol
+  parent: [BaseWeaponBatterySmall, BaseSecurityContraband]
+  id: WeaponSecurityLaserPistol
+  description: The standard issue side-arm for Nanotrasen Security. Needlessly heavy and slow to fire. Extra charge not included.
+  components:
+    - type: Item
+      size: Small
+    - type: Sprite
+      sprite: _Funkystation/Objects/Weapons/Guns/Battery/security_energy_pistol.rsi
+      layers:
+        - state: base
+          map: ["enum.GunVisualLayers.Base"]
+        - state: mag-unshaded-4
+          map: ["enum.GunVisualLayers.MagUnshaded"]
+          shader: unshaded
+    - type: MagazineVisuals
+      magState: mag
+      steps: 5
+      zeroVisible: false
+    - type: Appearance
+    - type: Clothing
+      sprite: _Funkystation/Objects/Weapons/Guns/Battery/security_energy_pistol.rsi
+      slots:
+        - Back
+        - suitStorage
+        - Belt
+    - type: Gun
+      selectedMode: SemiAuto
+      availableModes:
+        - SemiAuto
+    - type: Battery
+      maxCharge: 1600
+      startingCharge: 1500
+    - type: BatteryAmmoProvider
+      proto: BulletLaser
+      fireCost: 100
+    - type: MeleeWeapon
+      wideAnimationRotation: -135
+      damage:
+        types:
+          Blunt: 12
+        soundHit:
+          collection: MetalThud
+    - type: AltFireMelee
+    - type: StaticPrice
+      price: 299
+    - type: Tag
+      tags:
+        - Sidearm
+        - LaserWeapon
+
+- type: entity
   name: practice laser carbine
   parent: [BaseLaserRifle, BaseGunWieldable]
   id: WeaponLaserCarbinePractice
