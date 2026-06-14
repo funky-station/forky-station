@@ -1240,6 +1240,7 @@
     containers:
       storagebase: !type:Container
       hidden_slot: !type:ContainerSlot # funky start
+  - type: ItemSlots
     slots:
       hidden_slot:
         name: hidden_slot
