@@ -293,7 +293,6 @@
       slots:
         - Back
         - suitStorage
-        - Belt
     - type: Gun
       selectedMode: SemiAuto
       availableModes:
