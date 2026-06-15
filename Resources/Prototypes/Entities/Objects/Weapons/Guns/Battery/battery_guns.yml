@@ -309,7 +309,7 @@
         types:
           Blunt: 12
         soundHit:
-          sound: MetalThud
+          collection: MetalThud
     - type: AltFireMelee
     - type: DamageOtherOnHit
       damage:
