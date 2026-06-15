@@ -271,7 +271,7 @@
   name: RG-2 laser pistol
   parent: [BaseWeaponBatterySmall, BaseSecurityContraband]
   id: WeaponSecurityLaserPistol
-  description: The standard issue side-arm for Nanotrasen Security. Needlessly heavy and slow to fire. Extra charge not included.
+  description: The standard issue sidearm for Nanotrasen Security. Weighs, feels, and looks like a brick.
   components:
     - type: Item
       size: Small
@@ -304,13 +304,17 @@
       proto: BulletLaser
       fireCost: 100
     - type: MeleeWeapon
-      wideAnimationRotation: -135
+      wideAnimationRotation: 135
       damage:
         types:
           Blunt: 12
         soundHit:
-          collection: MetalThud
+          sound: MetalThud
     - type: AltFireMelee
+    - type: DamageOtherOnHit
+      damage:
+        types:
+          Blunt: 6
     - type: StaticPrice
       price: 299
     - type: Tag
