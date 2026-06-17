@@ -268,9 +268,9 @@
   description: Favoured by Nanotrasen Security for being cheap and easy to use.
 
 - type: entity
-  name: RG-2 laser pistol
+  name: RG-2 energy pistol
   parent: [BaseWeaponBatterySmall, BaseSecurityContraband]
-  id: WeaponSecurityLaserPistol
+  id: WeaponEnergyPistol
   description: The standard issue sidearm for Nanotrasen Security. Weighs, feels, and looks like a brick.
   components:
     - type: Item
