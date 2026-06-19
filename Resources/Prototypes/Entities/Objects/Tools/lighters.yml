@@ -89,6 +89,9 @@
     color: orange
   - type: ItemTogglePointLight
   - type: PhysicalComposition
+  - type: Tag
+    tags:
+    - PlasticLighter
 
 - type: entity
   name: cheap lighter
