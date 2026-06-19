@@ -137,6 +137,7 @@
       - WireBrush
       - Screwdriver
       - Powerdrill
+      - Rag
       components:
       - LightReplacer
       - SmokeOnTrigger
