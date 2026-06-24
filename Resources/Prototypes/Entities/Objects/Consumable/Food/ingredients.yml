@@ -91,10 +91,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 50
+        maxVol: 60
         reagents:
         - ReagentId: Flour
-          Quantity: 50
+          Quantity: 60
 
 - type: entity
   parent: [ReagentPacketBase, ItemHeftyBase]
@@ -107,10 +107,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 30
         reagents:
         - ReagentId: Flour
-          Quantity: 20
+          Quantity: 30
 
 - type: entity
   parent: ReagentPacketBase
@@ -134,7 +134,7 @@
       food:
         reagents:
         - ReagentId: Cornmeal
-          Quantity: 50
+          Quantity: 60
 
 - type: entity
   parent: ReagentPacketBase
@@ -147,10 +147,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 30
         reagents:
         - ReagentId: Cornmeal
-          Quantity: 20
+          Quantity: 30
 
 - type: entity
   parent: ReagentPacketBase
