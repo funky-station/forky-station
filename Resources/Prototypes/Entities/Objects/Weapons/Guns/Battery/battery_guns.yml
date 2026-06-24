@@ -34,7 +34,7 @@
   - type: Item
     size: Large
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+    sprite: _Funkystation/Objects/Weapons/Guns/Battery/laser_gun.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -47,7 +47,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+    sprite: _Funkystation/Objects/Weapons/Guns/Battery/laser_gun.rsi
   - type: Gun
     selectedMode: SemiAuto
     availableModes:
@@ -494,10 +494,10 @@
   - type: Appearance
 
 - type: entity
-  name: practice disabler
+  name: practice blaster # Funky - Name & description changed to no longer reference the disabler
   parent: BaseWeaponBatterySmall
   id: WeaponDisablerPractice
-  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one has been undertuned for cadets making it mostly harmless.
+  description: A prop blaster, designed specifically to emulate firing a real energy weapon.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/practice_disabler.rsi
@@ -540,6 +540,7 @@
   parent: [WeaponDisablerPractice, BaseSecurityCommandContraband]
   id: WeaponDisabler
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  categories: [ DoNotMap ]
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/disabler.rsi
@@ -569,6 +570,7 @@
   parent: [BaseWeaponBattery, BaseSecurityContraband]
   id: WeaponDisablerSMG
   description: Advanced weapon that exhausts organic targets, weakening them until they collapse.
+  categories: [ DoNotMap ]
   components:
   - type: Item
     size: Large
@@ -610,6 +612,7 @@
   parent: [BaseWeaponBatterySmall, BaseSecurityContraband]
   id: WeaponTaser
   description: A low-capacity, energy-based stun gun used by security teams to subdue targets at close range.
+  categories: [ DoNotMap ]
   components:
   - type: Tag
     tags:
@@ -842,7 +845,7 @@
   name: energy shotgun
   parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponEnergyShotgun
-  description: A one-of-a-kind prototype energy weapon that uses various shotgun configurations. It offers the possibility of both lethal and non-lethal shots, making it a versatile weapon.
+  description: A one-of-a-kind prototype energy weapon that uses two different shotgun configurations. It offers the possibility of both focused and wide shots, making it a versatile weapon. # Funky
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
@@ -866,13 +869,10 @@
   - type: BatteryAmmoProvider
     proto: BulletLaserSpreadNarrow
     fireCost: 80
-  - type: BatteryWeaponFireModes
+  - type: BatteryWeaponFireModes # Funky - Removed disabler mode
     fireModes:
     - proto: BulletLaserSpreadNarrow
       fireCost: 80
-    - proto: BulletDisablerSmgSpread
-      fireCost: 48
-      pacifismAllowedMode: true
   - type: Item
     size: Large
     sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
@@ -886,7 +886,7 @@
   name: energy magnum
   parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
   id: WeaponEnergyMagnum
-  description: A high powered self-charging energy pistol designed for elite security personnel. It has has three firing modes allowing for either high damage, window piercing, or non-lethal disabling.
+  description: A high powered self-charging energy pistol designed for elite security personnel. It has has two firing modes, allowing for either high damage or window piercing. # Funky
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
@@ -916,15 +916,12 @@
   - type: BatteryAmmoProvider
     proto: BulletLaserMagnum
     fireCost: 150
-  - type: BatteryWeaponFireModes
+  - type: BatteryWeaponFireModes # Funky - Removed disabler mode
     fireModes:
     - proto: BulletLaserMagnum
       fireCost: 150
     - proto: BulletLaserWindowPiercingMagnum
       fireCost: 150
-    - proto: BulletDisabler
-      fireCost: 62.5
-      pacifismAllowedMode: true
   - type: BatterySelfRecharger
     autoRechargeRate: 48
     autoRechargePauseTime: 10

@@ -1,7 +1,11 @@
+using Content.Shared._Funkystation.Clothing.Components; // Funky change
 using Content.Shared.Eye;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Actions; // Funky change
+using Content.Shared.Actions.Components; // Funky change
+using Robust.Shared.Audio.Systems; // Funky change
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
@@ -13,7 +17,8 @@ public abstract class SharedTrayScannerSystem : EntitySystem
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
-
+    [Dependency] private readonly SharedActionsSystem _actions = default!; // Funky change
+    [Dependency] private readonly SharedAudioSystem _audio = default!; // Funky change
     public const float SubfloorRevealAlpha = 0.8f;
 
     public override void Initialize()
@@ -23,6 +28,7 @@ public abstract class SharedTrayScannerSystem : EntitySystem
         SubscribeLocalEvent<TrayScannerComponent, ComponentGetState>(OnTrayScannerGetState);
         SubscribeLocalEvent<TrayScannerComponent, ComponentHandleState>(OnTrayScannerHandleState);
         SubscribeLocalEvent<TrayScannerComponent, ActivateInWorldEvent>(OnTrayScannerActivate);
+        SubscribeLocalEvent<TrayScannerComponent, ToggleTrayScannerEvent>(OnToggleAction); // Funky change
 
         SubscribeLocalEvent<TrayScannerComponent, GotEquippedHandEvent>(OnTrayHandEquipped);
         SubscribeLocalEvent<TrayScannerComponent, GotUnequippedHandEvent>(OnTrayHandUnequipped);
@@ -71,21 +77,61 @@ public abstract class SharedTrayScannerSystem : EntitySystem
     private void OnTrayHandUnequipped(Entity<TrayScannerComponent> ent, ref GotUnequippedHandEvent args)
     {
         OnUnequip(args.User);
+
+        // Funky change
+        if (ent.Comp.ToggleActionEntity is { } action)
+        {
+            if (TryComp(action, out TransformComponent? xform) && xform.ParentUid == args.User)
+                _actions.RemoveAction(args.User, action);
+            else
+                QueueDel(action);
+
+            ent.Comp.ToggleActionEntity = null;
+        }
     }
 
     private void OnTrayHandEquipped(Entity<TrayScannerComponent> ent, ref GotEquippedHandEvent args)
     {
         OnEquip(args.User);
+
+        // Funky change
+        if (ent.Comp.ToggleAction != null && HasComp<ActionsComponent>(args.User))
+            _actions.AddAction(args.User, ref ent.Comp.ToggleActionEntity, ent.Comp.ToggleAction.Value, ent);
     }
 
     private void OnTrayUnequipped(Entity<TrayScannerComponent> ent, ref GotUnequippedEvent args)
     {
         OnUnequip(args.Equipee);
+
+        // Funky change
+        if (ent.Comp.ToggleActionEntity is { } action)
+        {
+            if (TryComp(action, out TransformComponent? xform) && xform.ParentUid == args.Equipee)
+                _actions.RemoveAction(args.Equipee, action);
+            else
+                QueueDel(action);
+
+            ent.Comp.ToggleActionEntity = null;
+        }
     }
 
     private void OnTrayEquipped(Entity<TrayScannerComponent> ent, ref GotEquippedEvent args)
     {
         OnEquip(args.Equipee);
+
+        // Funky change
+        if (ent.Comp.ToggleAction != null && HasComp<ActionsComponent>(args.Equipee))
+            _actions.AddAction(args.Equipee, ref ent.Comp.ToggleActionEntity, ent.Comp.ToggleAction.Value, ent);
+    }
+
+    // Funky change
+    private void OnToggleAction(EntityUid uid, TrayScannerComponent scanner, ToggleTrayScannerEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        ToggleScanner(uid, args.Performer, scanner);
+        args.Handled = true;
     }
 
     private void OnTrayScannerActivate(EntityUid uid, TrayScannerComponent scanner, ActivateInWorldEvent args)
@@ -93,8 +139,18 @@ public abstract class SharedTrayScannerSystem : EntitySystem
         if (args.Handled || !args.Complex)
             return;
 
-        SetScannerEnabled(uid, !scanner.Enabled, scanner);
+        ToggleScanner(uid, args.User, scanner); // Funky change
         args.Handled = true;
+    }
+
+    // Funky change
+    private void ToggleScanner(EntityUid uid, EntityUid user, TrayScannerComponent scanner)
+    {
+        var isEnabled = !scanner.Enabled;
+        SetScannerEnabled(uid, isEnabled, scanner);
+
+        var sound = isEnabled ? scanner.SoundOn : scanner.SoundOff;
+        _audio.PlayPredicted(sound, uid, user);
     }
 
     private void SetScannerEnabled(EntityUid uid, bool enabled, TrayScannerComponent? scanner = null)
@@ -105,10 +161,20 @@ public abstract class SharedTrayScannerSystem : EntitySystem
         scanner.Enabled = enabled;
         Dirty(uid, scanner);
 
+        // Funky change
+        if (TryComp(uid, out GoggleShaderComponent? goggleShader))
+        {
+            goggleShader.Enabled = enabled;
+            Dirty(uid, goggleShader);
+
+            var ev = new GoggleShaderToggledEvent(enabled);
+            RaiseLocalEvent(uid, ref ev);
+        }
+
         // We don't remove from _activeScanners on disabled, because the update function will handle that, as well as
         // managing the revealed subfloor entities
 
-        if (TryComp<AppearanceComponent>(uid, out var appearance))
+        if (TryComp(uid, out AppearanceComponent? appearance))
         {
             _appearance.SetData(uid, TrayScannerVisual.Visual, scanner.Enabled ? TrayScannerVisual.On : TrayScannerVisual.Off, appearance);
         }

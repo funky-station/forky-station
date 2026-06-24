@@ -45,7 +45,6 @@
       prob: 0.1
     - id: RubberStampCaptain
     - id: SpaceCash1000
-    - id: WeaponDisabler
     - id: ClothingEyesGlassesCommand
     - id: OrganSkeletonPersonHead # A skull to accompany your skeleton crew
       conditions:
@@ -132,7 +131,7 @@
     - id: ClothingNeckGoldmedal
     - id: DoorRemoteService
     - id: HoPIDCard
-    - id: WeaponDisabler
+    # TODO: Port mecha-cane to replace the disabler
     - id: ClothingEyesHudCommand
     - id: PlushieLizardJobHeadofpersonnel
       prob: 0.02
@@ -331,8 +330,6 @@
     - id: HoloprojectorSecurity
     - id: RubberStampHos
     - id: BoxHoSCircuitboards
-    - id: WeaponDisabler
-    - id: WeaponTaser
     - id: WantedListCartridge
     - id: DrinkHosFlask
     - id: PlushieLizardJobHeadofsecurity

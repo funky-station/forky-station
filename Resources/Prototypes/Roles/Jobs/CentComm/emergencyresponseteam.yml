@@ -40,7 +40,6 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltMilitaryWebbingERT
     pocket2: CombatKnife
-    suitstorage: WeaponDisablerSMG
   storage:
     back:
     - Binoculars
@@ -53,7 +52,7 @@
     - MedkitCombatFilled
     - TelescopicShield
     belt:
-    - Stunbaton
+    - Truncheon # Funky
     - Handcuffs
     - Handcuffs
     - CrowbarRed
@@ -65,7 +64,6 @@
   parent: ERTLeaderGearEVA
   id: ERTLeaderGearArmed
   equipment:
-    pocket2: WeaponDisabler
     suitstorage: WeaponRifleLecterXL8
   storage:
     back:
@@ -80,7 +78,7 @@
     - GrenadeShrapnel
     - EmpGrenade
     belt:
-    - Truncheon
+    - Truncheon # Funky
     - Handcuffs
     - Handcuffs
     - CrowbarRed
@@ -310,7 +308,6 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltMilitaryWebbingERT
     pocket2: CombatKnife
-    suitstorage: WeaponDisablerSMG
   storage:
     back:
     - BoxZiptie
@@ -323,7 +320,7 @@
     - HoloprojectorSecurity
     - PowerCellHigh
     belt:
-    - Stunbaton
+    - Truncheon # Funky
     - Handcuffs
     - Handcuffs
     - CrowbarRed
@@ -363,7 +360,6 @@
   parent: ERTSecurityGearEVA
   id: ERTSecurityGearArmedGrenade
   equipment:
-    pocket2: WeaponDisabler
     suitstorage: WeaponLauncherHydraLethal
   storage:
     back:
@@ -383,7 +379,7 @@
     - GrenadeFlash
     - MagazinePistol
     belt:
-    - Truncheon
+    - Truncheon # Funky
     - Handcuffs
     - Handcuffs
     - CrowbarRed
@@ -395,7 +391,6 @@
   parent: ERTSecurityGearEVA
   id: ERTSecurityGearArmedVanguard
   equipment:
-    pocket2: WeaponDisabler
     suitstorage: WeaponSubMachineGunWt550
   storage:
     back:
@@ -412,7 +407,7 @@
     - MagazinePistolSubMachineGunTopMounted
     - MagazinePistolSubMachineGunTopMounted
     belt:
-    - Truncheon
+    - Truncheon # Funky
     - Handcuffs
     - Handcuffs
     - CrowbarRed
@@ -424,7 +419,6 @@
   parent: ERTSecurityGearEVA
   id: ERTSecurityGearArmedShotgun
   equipment:
-    pocket2: WeaponDisabler
     suitstorage: WeaponShotgunEnforcer
   storage:
     back:
@@ -438,7 +432,7 @@
     - CableDetStack
     - BoxDetonator
     belt:
-    - Truncheon
+    - Truncheon # Funky
     - Handcuffs
     - Handcuffs
     - CrowbarRed
@@ -523,7 +517,6 @@
   id: ERTMedicalGearArmed
   equipment:
     suitstorage: WeaponRifleLecter
-    pocket2: WeaponDisabler
   storage:
     back:
     - Hypospray
@@ -537,7 +530,7 @@
     - ClothingEyesGlassesChemical
     - ChemistryBottleOmnizine
     belt:
-    - Truncheon
+    - Truncheon # Funky
     - Zipties
     - CrowbarRed
     - MagazineRifle

@@ -5,7 +5,7 @@
   description: Regular purple gloves that do not keep you from frying.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    sprite: _Funkystation/Clothing/Hands/color.rsi
     layers:
     - state: icon
       color: "#9C0DE1"
@@ -18,7 +18,7 @@
       - state: inhand-right
         color: "#9C0DE1"
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    sprite: _Funkystation/Clothing/Hands/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
@@ -34,7 +34,7 @@
   description: Regular red gloves that do not keep you from frying.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    sprite: _Funkystation/Clothing/Hands/color.rsi
     layers:
     - state: icon
       color: "#940000"
@@ -47,7 +47,7 @@
       - state: inhand-right
         color: "#940000"
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    sprite: _Funkystation/Clothing/Hands/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
@@ -63,7 +63,7 @@
   description: Regular blue gloves that do not keep you from frying.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    sprite: _Funkystation/Clothing/Hands/color.rsi
     layers:
     - state: icon
       color: "#0089EF"
@@ -76,7 +76,7 @@
       - state: inhand-right
         color: "#0089EF"
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    sprite: _Funkystation/Clothing/Hands/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
@@ -92,7 +92,7 @@
   description: Regular teal gloves that do not keep you from frying.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    sprite: _Funkystation/Clothing/Hands/color.rsi
     layers:
     - state: icon
       color: "#3CB57C"
@@ -105,7 +105,7 @@
       - state: inhand-right
         color: "#3CB57C"
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    sprite: _Funkystation/Clothing/Hands/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
@@ -121,7 +121,7 @@
   description: Regular brown gloves that do not keep you from frying.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    sprite: _Funkystation/Clothing/Hands/color.rsi
     layers:
     - state: icon
       color: "#723A02"
@@ -134,7 +134,7 @@
       - state: inhand-right
         color: "#723A02"
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    sprite: _Funkystation/Clothing/Hands/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
@@ -150,7 +150,7 @@
   description: Regular grey gloves that do not keep you from frying.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    sprite: _Funkystation/Clothing/Hands/color.rsi
     layers:
     - state: icon
       color: "#999999"
@@ -163,7 +163,7 @@
       - state: inhand-right
         color: "#999999"
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    sprite: _Funkystation/Clothing/Hands/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
@@ -179,7 +179,7 @@
   description: Regular green gloves that do not keep you from frying.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    sprite: _Funkystation/Clothing/Hands/color.rsi
     layers:
     - state: icon
       color: "#5ABF2F"
@@ -192,7 +192,7 @@
       - state: inhand-right
         color: "#5ABF2F"
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    sprite: _Funkystation/Clothing/Hands/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
@@ -205,7 +205,7 @@
   parent: ClothingHandsGlovesSyntheticBase
   id: ClothingHandsGlovesColorLightBrown
   name: light brown gloves
-  description: Regular light brown gloves that do not keep you from frying.
+  description: _Funkystation/Clothing/Hands/color.rsi
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -221,7 +221,7 @@
       - state: inhand-right
         color: "#C09F72"
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    sprite: _Funkystation/Clothing/Hands/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
@@ -234,7 +234,7 @@
   parent: ClothingHandsGlovesSyntheticBase
   id: ClothingHandsGlovesColorOrange
   name: orange gloves
-  description: Regular orange gloves that do not keep you from frying.
+  description: _Funkystation/Clothing/Hands/color.rsi
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -250,7 +250,7 @@
       - state: inhand-right
         color: "#EF8100"
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    sprite: _Funkystation/Clothing/Hands/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
@@ -266,29 +266,28 @@
   description: Regular white gloves that do not keep you from frying.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    sprite: _Funkystation/Clothing/Hands/color.rsi
     layers:
     - state: icon
-      color: "#EAE8E8"
+      color: "#e7e8ed"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#EAE8E8"
+        color: "#e7e8ed"
       right:
       - state: inhand-right
-        color: "#EAE8E8"
+        color: "#e7e8ed"
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    sprite: _Funkystation/Clothing/Hands/color.rsi
     clothingVisuals:
       gloves:
       - state: equipped-HAND
-        color: "#EAE8E8"
+        color: "#e7e8ed"
   - type: Fiber
     fiberColor: fibers-white
 
 # Black Gloves
-# TECHNICALLY, if you ported the worn state to the RSI, this could be greyscaled, but I do not really feel like doing that.
 - type: entity
   parent: ClothingHandsGlovesSyntheticBase
   id: ClothingHandsGlovesColorBlack
@@ -296,19 +295,24 @@
   description: Regular black gloves that do not keep you from frying.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/Color/black.rsi
+    sprite: _Funkystation/Clothing/Hands/color.rsi
+    layers:
+    - state: icon
+      color: "#595757"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
+        color: "#595757"
       right:
       - state: inhand-right
+        color: "#595757"
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/Color/black.rsi
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
-    - id: ClothingHandsGlovesFingerless
+    sprite: _Funkystation/Clothing/Hands/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#595757"
   - type: Fiber
     fiberColor: fibers-black
 

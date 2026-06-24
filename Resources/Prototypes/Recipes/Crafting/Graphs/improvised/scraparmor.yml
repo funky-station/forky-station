@@ -8,7 +8,7 @@
         steps:
         - tag: Apron
           icon:
-            sprite: Clothing/OuterClothing/Misc/apronbotanist.rsi
+            sprite: _Funkystation/Clothing/OuterClothing/misc/hydro_apron.rsi
             state: icon
           name: construction-graph-tag-apron
         - material: Cable

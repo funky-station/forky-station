@@ -141,8 +141,8 @@
 - type: alert
   id: Stun
   icons:
-  - sprite: /Textures/Objects/Weapons/Melee/stunbaton.rsi #Should probably draw a proper icon
-    state: stunbaton_off
+  - sprite: /Textures/_Funkystation/Objects/Weapons/Melee/nightstick.rsi # Funky - Stun batons aren't used to stun anymore. Original comment suggested making a separate icon so that's another alternative
+    state: icon
   name: alerts-stunned-name
   description: alerts-stunned-desc
 
