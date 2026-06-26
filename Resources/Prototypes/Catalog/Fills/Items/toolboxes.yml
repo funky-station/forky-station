@@ -257,7 +257,7 @@
       weight: 0.5
     - id: ClothingUniformJumpsuitBartender # Bartender
     - id: ClothingHeadHatChef # Chef
-    - id: ClothingHeadBandBotany # Botany
+    - id: ClothingHeadBandGreen # Botany - [Resprite] Rehydrating botany pt. 2!#58
     - id: ClothingHandsGlovesJanitor # Janitor
     - id: ClothingUniformJumpsuitReporter # Reporter
     - id: ClothingOuterWinterMime # Mime

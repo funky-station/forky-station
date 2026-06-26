@@ -456,6 +456,10 @@
         - !type:ReagentCondition
           reagent: TearGas
           min: 4
+      - !type:HealthChange
+        damage:
+          types:
+            Asphyxiation: 1
 
 - type: reagent
   id: Happiness

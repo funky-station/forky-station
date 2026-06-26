@@ -472,15 +472,29 @@
   minLimit: 0
   loadouts:
   - BotanistHead
-  - BotanistBandana
+  - BotanistBandanaBlack
+  - BotanistBandanaBlue
+  - BotanistBandanaGold
+  - BotanistBandanaGreen
+  - BotanistBandanaRed
+  - BotanistBandanaSkull
+  - BotanistBandanaBrown
+#  - BotanistBandana
 
 - type: loadoutGroup
   id: BotanistJumpsuit
   name: loadout-group-botanist-jumpsuit
   loadouts:
-  - BotanistJumpsuit
-  - BotanistJumpskirt
-  - BotanistOveralls
+  - FuBotanistShirtPants
+  - FuBotanistShirtPantsOveralls
+  - FuBotanistShirtPantsOverallsTurtle
+  - FuBotanistJumpsuit
+  - FuBotanistJumpsuitDirty
+  - FuBotanistJumperSkirt
+  - FuBotanistJumperSkirtTurtle
+#  - BotanistJumpsuit
+#  - BotanistJumpskirt
+#  - BotanistOveralls
 
 - type: loadoutGroup
   id: BotanistBackpack
@@ -1111,12 +1125,18 @@
   id: HeadofSecurityJumpsuit
   name: loadout-group-head-of-security-jumpsuit
   loadouts:
-  - HeadofSecurityJumpsuit
-  - HeadofSecurityJumpskirt
-  - HeadofSecurityTurtleneck
-  - HeadofSecurityTurtleneckSkirt
-  - HeadofSecurityFormalSuit
-  - HeadofSecurityFormalSkirt
+  - FuHosService
+  - FuHosDressPants
+  - FuHosDressSkirt
+  - FuHosDressSkirtStockings
+  - FuHosMessSkirt
+  - FuHosMessSkirtStockings
+#  - HeadofSecurityJumpsuit
+#  - HeadofSecurityJumpskirt
+#  - HeadofSecurityTurtleneck
+#  - HeadofSecurityTurtleneckSkirt
+#  - HeadofSecurityFormalSuit
+#  - HeadofSecurityFormalSkirt
 
 - type: loadoutGroup
   id: HeadofSecurityNeck
@@ -1132,6 +1152,7 @@
   loadouts:
   - HeadofSecurityCoat
   - HeadofSecurityWinterCoat
+  - ArmorVest
 
 - type: loadoutGroup
   id: HeadofSecurityJobTrinkets
@@ -1152,8 +1173,25 @@
   id: WardenJumpsuit
   name: loadout-group-warden-jumpsuit
   loadouts:
-  - WardenJumpsuit
-  - WardenJumpskirt
+  - FuSecurityService
+  - FuSecurityDressPants
+ # - FuSecurityDressPantsSenior No senior gear
+  - FuSecurityDressSkirt
+  - FuSecurityDressSkirtStockings
+ # - FuSecurityDressSkirtSenior No senior gear
+ # - FuSecurityDressSkirtSeniorStockings No senior gear
+  - FuSecurityMessPants
+  - FuSecurityMessSkirt
+  - FuSecurityMessSkirtStockings
+#  - WardenJumpsuit
+#  - WardenJumpskirt
+
+- type: loadoutGroup
+  id: WardenNeck
+  name: loadout-group-warden-neck
+  minLimit: 0
+  loadouts:
+  - MessTie
 
 - type: loadoutGroup
   id: WardenOuterClothing
@@ -1183,13 +1221,23 @@
   id: SecurityJumpsuit
   name: loadout-group-security-jumpsuit
   loadouts:
-  - SecurityJumpsuit
-  - SecurityJumpskirt
-  - SecurityJumpsuitGrey
-  - SecurityJumpskirtGrey
-  - SeniorOfficerJumpsuit
-  - SeniorOfficerJumpskirt
-  - TrooperUniform
+  - FuSecurityService
+  - FuSecurityDressPants
+ # - FuSecurityDressPantsSenior
+  - FuSecurityDressSkirt
+  - FuSecurityDressSkirtStockings
+ # - FuSecurityDressSkirtSenior
+ # - FuSecurityDressSkirtSeniorStockings
+  - FuSecurityMessPants
+  - FuSecurityMessSkirt
+  - FuSecurityMessSkirtStockings
+#  - SecurityJumpsuit
+#  - SecurityJumpskirt
+#  - SecurityJumpsuitGrey
+#  - SecurityJumpskirtGrey
+#  - SeniorOfficerJumpsuit
+#  - SeniorOfficerJumpskirt
+#  - TrooperUniform
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1207,11 +1255,25 @@
   - SecurityWebbing
 
 - type: loadoutGroup
+  id: SecurityGloves
+  name: loadout-group-security-gloves
+  loadouts:
+  - BlackGloves
+  - WhiteGloves
+
+- type: loadoutGroup
+  id: SecurityNeck
+  name: loadout-group-security-neck
+  minLimit: 0
+  loadouts:
+  - MessTie
+
+- type: loadoutGroup
   id: SecurityOuterClothing
   name: loadout-group-security-outerclothing
   loadouts:
   - ArmorVest
-  - ArmorVestSlim
+#  - ArmorVestSlim
   - SecurityOfficerWintercoat
 
 - type: loadoutGroup
@@ -1275,11 +1337,19 @@
   - SecStar
 
 - type: loadoutGroup
+  id: SecurityCadetHat
+  name: loadout-group-security-cadet-hat
+  loadouts:
+  - CadetHat
+
+- type: loadoutGroup
   id: SecurityCadetJumpsuit
   name: loadout-group-security-cadet-jumpsuit
   loadouts:
-  - RedJumpsuit
-  - RedJumpskirt
+  - FuSecurityCadetPants
+  - FuSecurityCadetSkirt
+#  - RedJumpsuit
+#  - RedJumpskirt
 
 #- type: loadoutGroup
 #  id: SecurityCadetJobTrinkets

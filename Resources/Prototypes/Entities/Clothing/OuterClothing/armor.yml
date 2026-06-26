@@ -6,9 +6,9 @@
   description: A standard Type I armored vest that provides decent protection against most types of damage.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Armor/security.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Armor/security.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Armor/security.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Armor/security.rsi
   - type: Armor #Based on /tg/ but slightly compensated to fit the fact that armor stacks in SS14.
     modifiers:
       coefficients:
@@ -18,6 +18,14 @@
         Heat: 0.80
   - type: ExplosionResistance
     damageCoefficient: 0.90
+  - type: Stainable
+    clothingVisuals:
+      outerClothing:
+      - sprite: _Funkystation/Effects/blood.rsi
+        state: armorblood
+    iconVisuals:
+    - sprite: _Funkystation/Effects/blood.rsi
+      state: armorbloodicon
 
 #Standard armor vest, allowed for security and bartenders
 - type: entity

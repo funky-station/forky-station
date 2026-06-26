@@ -1,0 +1,34 @@
+# security non-toggleable
+
+- type: entity
+  parent: [BaseSecurityCommandContraband, ClothingOuterArmorHoS, ClothingOuterStorageBase]
+  id: FuClothingOuterWinterHos
+  name: head of security's armored winter coat
+  description: A sturdy, luxurious winter coat over a standard Type I armored vest to protect from hypothermic threats and otherwise.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Wintercoats/NoHood/hos.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Wintercoats/NoHood/hos.rsi
+
+- type: entity
+  parent: [BaseSecurityCommandContraband, ClothingOuterArmorWarden, ClothingOuterStorageBase]
+  id: FuClothingOuterWinterWard
+  name: warden's armored winter coat
+  description: A sturdy, utilitarian winter coat lined with Type I armor to protect from any brig-bound threats.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Wintercoats/NoHood/ward.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Wintercoats/NoHood/ward.rsi
+
+- type: entity
+  parent: [BaseSecurityCommandContraband, ClothingOuterArmorBase, ClothingOuterStorageBase]
+  id: FuClothingOuterWinterSec
+  name: security armored winter coat
+  description: A sturdy, utalitarian winter coat over a standard Type I armored vest to protect from hypothermic threats and otherwise.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Wintercoats/NoHood/sec.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Wintercoats/NoHood/sec.rsi

@@ -20,10 +20,21 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 10
+      stain:
+        maxVol: 5
   - type: Tag
     tags:
     - ClothMade
     - WhitelistChameleon
+  - type: Appearance
+  - type: Stainable
+    clothingVisuals:
+      head:
+      - sprite: _Funkystation/Effects/blood.rsi
+        state: helmetblood
+    iconVisuals:
+    - sprite: _Funkystation/Effects/blood.rsi
+      state: helmetbloodicon
 
 - type: entity
   abstract: true
@@ -142,6 +153,8 @@
     - HeadTop
     - HeadSide
     - FacialHair
+  - type: StainBlocker
+    slots: [MASK]
 
 - type: entity
   abstract: true
@@ -191,6 +204,17 @@
     - HeadTop
     - HeadSide
     - FacialHair
+  - type: Appearance
+  - type: Stainable
+    clothingVisuals:
+      head:
+      - sprite: _Funkystation/Effects/blood.rsi
+        state: helmetblood
+    iconVisuals:
+    - sprite: _Funkystation/Effects/blood.rsi
+      state: helmetbloodicon
+  - type: StainBlocker
+    slots: [MASK]
 
 - type: entity
   abstract: true
@@ -278,3 +302,12 @@
     - Hair
     - HeadTop
     - HeadSide
+  - type: Appearance
+  - type: Stainable
+    clothingVisuals:
+      head:
+      - sprite: _Funkystation/Effects/blood.rsi
+        state: helmetblood
+    iconVisuals:
+    - sprite: _Funkystation/Effects/blood.rsi
+      state: helmetbloodicon

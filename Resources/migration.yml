@@ -794,6 +794,26 @@ TowelColorMaroon: null
 TowelColorSilver: null
 TowelColorMime: null
 
+# 2026-05-05 - Funky security resprite port
+
+ClothingUniformJumpsuitSec: FuClothingUniformSecService
+ClothingUniformJumpskirtSec: FuClothingUniformSecService
+ClothingUniformJumpsuitSecGrey: FuClothingUniformSecDressPants
+ClothingUniformJumpskirtSecGrey: FuClothingUniformSecDressSkirt
+ClothingUniformJumpsuitSecBlue: FuClothingUniformSecService
+ClothingUniformJumpSuitHosParadeMale: null
+ClothingUniformJumpskirtHoSParadeMale: null
+ClothingOuterWinterHos: FuClothingOuterWinterHos
+ClothingOuterWinterWarden: FuClothingOuterWinterWard
+ClothingOuterWinterSec: FuClothingOuterWinterSec
+
+# 08-04-2026 botany uniform/loadout resprite
+ClothingMaskBandBotany: ClothingMaskBandGreen
+ClothingHeadBandBotany: ClothingHeadBandGreen
+ClothingUniformJumpsuitHydroponics: FuClothingUniformJumpsuitHydroponics
+ClothingUniformJumpskirtHydroponics: FuClothingUniformJumperskirtHydroponics
+ClothingUniformOveralls: FuClothingUniformShirtPantstHydroponicsOveralls
+
 # 2026-02-27
 Stunbaton: Nightstick
 WeaponDisabler: null

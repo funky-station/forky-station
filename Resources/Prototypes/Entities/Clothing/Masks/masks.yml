@@ -743,6 +743,8 @@
     sprite: Clothing/Mask/welding-gas.rsi
   - type: FlashImmunity
   - type: EyeProtection
+  - type: WeldingMaskOverlay
+    texture: /Textures/_Funkystation/Clothing/Head/Welding/weldingOverlayWeak.png
   - type: PhysicalComposition
     materialComposition:
       Steel: 200

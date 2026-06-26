@@ -38,7 +38,7 @@
   id: WeaponizedLaserManipulation
   name: research-technology-weaponized-laser-manipulation
   icon:
-    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+    sprite: _Funkystation/Objects/Weapons/Guns/Battery/laser_gun.rsi
     state: icon
   discipline: Arsenal
   tier: 1

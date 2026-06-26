@@ -37,9 +37,9 @@
   description: A thick blue-apron, perfect for insulating your soft flesh from spills, soil and thorns.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Misc/apronbotanist.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/misc/hydro_apron.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Misc/apronbotanist.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/misc/hydro_apron.rsi
   - type: Tag
     tags:
     - Apron

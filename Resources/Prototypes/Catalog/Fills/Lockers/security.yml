@@ -33,7 +33,7 @@
     - id: ClothingHandsGlovesCombat
     - id: ClothingShoesBootsJack
     - id: ClothingOuterCoatWarden
-    - id: ClothingOuterWinterWarden
+    - id: FuClothingOuterWinterWard
     - id: RubberStampWarden
     - id: DoorRemoteArmory
     - id: HoloprojectorSecurity
@@ -71,7 +71,7 @@
     children:
     - id: FlashlightSeclite
       prob: 0.8
-    - id: ClothingUniformJumpsuitSecGrey
+    - id: FuClothingUniformSecService
       prob: 0.3
     - id: ClothingHeadHelmetBasic
     - id: ClothingOuterArmorBasic
