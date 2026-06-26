@@ -1322,7 +1322,7 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 15
+        Heat: 13
 
 - type: entity
   name: wide laser barrage
