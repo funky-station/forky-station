@@ -40,8 +40,8 @@
       damage:
         types:
           Blunt: 12
-        soundHit:
-          collection: MetalThud
+      soundHit:
+        collection: MetalThud
     - type: AltFireMelee
     - type: DamageOtherOnHit
       damage:
