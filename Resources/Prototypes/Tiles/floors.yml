@@ -571,7 +571,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemSteel
   heatCapacity: 10000
-  tileRipResistance: 50
 
 - type: tile
   id: FloorSteelGrid
@@ -590,7 +589,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemSteel
   heatCapacity: 10000
-  tileRipResistance: 50
 
 - type: tile
   id: FloorRiged
@@ -609,7 +607,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemSteel
   heatCapacity: 10000
-  tileRipResistance: 50
 
 - type: tile
   id: FloorRecharge
@@ -628,7 +625,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemSteel
   heatCapacity: 10000
-  tileRipResistance: 50
 
 - type: tile
   id: FloorPlaqueAlt
@@ -647,7 +643,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemSteel
   heatCapacity: 10000
-  tileRipResistance: 50
 
 - type: tile
   id: FloorPlaqueSmooth
@@ -666,7 +661,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemSteel
   heatCapacity: 10000
-  tileRipResistance: 50
 
 - type: tile
   id: FloorPlaque
@@ -685,7 +679,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemSteel
   heatCapacity: 10000
-  tileRipResistance: 50
 
 - type: tile
   id: FloorKafelFull
@@ -704,7 +697,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemSteel
   heatCapacity: 10000
-  tileRipResistance: 50
 
 - type: tile
   id: FloorGrid
@@ -723,7 +715,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemSteel
   heatCapacity: 10000
-  tileRipResistance: 50
 
 
 - type: tile
@@ -743,7 +734,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemSteel
   heatCapacity: 10000
-  tileRipResistance: 50
 
 - type: tile
   id: FloorDarkTech
@@ -762,8 +752,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemDark
   heatCapacity: 10000
-  tileRipResistance: 50
-
 - type: tile
   id: FloorDarkMonoTextured
   name: tiles-dark-floor-mono-textured
@@ -781,7 +769,6 @@
     collection: FootstepTile
   itemDrop: FloorTileItemDarkMono
   heatCapacity: 10000
-  tileRipResistance: 50
 
 - type: tile
   id: FloorTechMaint
