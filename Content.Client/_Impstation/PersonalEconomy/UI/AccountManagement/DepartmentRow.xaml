@@ -1,0 +1,19 @@
+<controls:DepartmentRow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._Impstation.PersonalEconomy.UI.AccountManagement"
+    HorizontalExpand="True"
+    Margin="0 0 0 6">
+    <PanelContainer StyleClasses="ButtonSquare">
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="10 8">
+            <Label Name="NameLabel" StyleClasses="LabelHeading"/>
+            <Control MinHeight="4"/>
+            <Button Name="StatusButton" HorizontalExpand="True"/>
+            <Control MinHeight="4"/>
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                <LineEdit Name="BonusEdit" PlaceHolder="{Loc nanobank-input-placeholder}" HorizontalExpand="True"/>
+                <Control MinWidth="4"/>
+                <Button Name="BonusButton" Text="{Loc nanobank-grant-bonus-button}"/>
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+</controls:DepartmentRow>

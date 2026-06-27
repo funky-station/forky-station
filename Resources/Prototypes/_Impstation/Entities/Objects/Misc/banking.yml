@@ -1,0 +1,228 @@
+﻿- type: entity
+  parent: Clothing
+  id: BankCard
+  name: bank card
+  description: The little square of plastic that controls your life. No, the other one.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: default
+    - state: Passenger
+      sprite: Interface/Misc/job_icons.rsi
+      offset: -0.09375, 0.0625 #3 pixels left, 2 pixels up - copied from id cards
+  - type: Clothing
+    slots:
+    - idcard
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Item
+    size: Small
+    heldPrefix: default
+    storedRotation: -90
+  - type: BankCard
+
+- type: entity
+  parent: BankCard
+  id: BlankBankCard
+  name: blank bank card
+  description: A fresh bank card, ready to be programmed at an account management console.
+  components:
+  - type: BankCard
+    autoCreateAccount: false
+    startingBalance: 0
+    salary: 0
+
+- type: entity
+  name: bank card box
+  parent: BoxCardboard
+  id: BoxBankCard
+  description: A box of extra blank bank cards.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: BlankBankCard
+        amount: 4
+  - type: Sprite
+    layers:
+      - state: box
+      - state: pda
+
+# todo: look at this more critically i doubt we need this to be an ent
+- type: entity
+  id: BankAccount
+  name: Bank Account
+  description: if you're seeing this, something has gone horribly wrong. admins yell at me and I'll make these properly interactable at some point.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: BankAccount
+
+- type: entity
+  parent: BaseComputerAiAccess #ai accessible because it's really funny if the AI convinces someone to let it steal all of their money
+  id: ATMMachine
+  name: atm machine
+  description: It's called that on purpose now
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi
+    - map: ["computerLayerScreen"]
+      state: solar_screen
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi
+  - type: ActivatableUI
+    key: enum.ATMUIKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.ATMUIKey.Key:
+        type: ATMBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Computer
+    board: RadarConsoleCircuitboard
+  - type: PointLight
+    radius: 2.4
+    energy: 1.6
+    color: "#e6e227"
+  - type: ATM
+  - type: ItemSlots
+    slots:
+      card_slot:
+        name: bank-card-slot-name
+        whitelist:
+          components:
+          - BankCard
+
+- type: entity
+  parent: BaseComputerAiAccess #ai accessible because it's really funny if someone convinces the AI to let them have all the money
+  id: AccountManagementConsole
+  name: account management console
+  description: The other other computer that controls your life.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi
+    - map: ["computerLayerScreen"]
+      state: allocate
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi
+  - type: ActivatableUI
+    key: enum.AccountManagementUIKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.AccountManagementUIKey.Key:
+        type: AccountManagementConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Computer
+    board: RadarConsoleCircuitboard
+  - type: PointLight
+    radius: 2.4
+    energy: 1.6
+    color: "#e6e227"
+  - type: AccountManagementConsole
+  - type: AccessReader
+    access: [[ "Command" ]]
+  - type: ItemSlots
+    slots:
+      card_slot:
+        name: bank-card-slot-name
+        whitelist:
+          components:
+          - BankCard
+
+- type: entity
+  parent: BaseComputerAiAccess
+  id: CurrencyExchangeComputer
+  name: currency exchange
+  description: Converts spesos to scrip and back, for a small fee. Mostly small.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi
+    - map: ["computerLayerScreen"]
+      state: solar_screen
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi
+  - type: ActivatableUI
+    key: enum.CurrencyExchangeUIKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.CurrencyExchangeUIKey.Key:
+        type: CurrencyExchangeBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Computer
+    board: RadarConsoleCircuitboard
+  - type: PointLight
+    radius: 2.4
+    energy: 1.6
+    color: "#5ea66f"
+  - type: CurrencyExchange
+  - type: ItemSlots
+    slots:
+      cash_slot:
+        name: currency-exchange-slot-name
+        whitelist:
+          components:
+          - Cash
+
+- type: entity
+  parent: BaseItem
+  id: POSSystem
+  name: payment square
+  description: Historians believe these were invented largely to assist with scams and bribery. Nanotrasen continues this proud tradition, in the name of historical preservation.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/hand_labeler.rsi
+    state: hand_labeler
+  - type: Item
+    sprite: Objects/Tools/hand_labeler.rsi
+    storedRotation: -90
+  - type: UseDelay
+    delay: 0.5
+  - type: Anchorable
+  - type: ActivatableUI
+    key: enum.POSUIKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.POSUIKey.Key:
+        type: POSBoundUserInterface
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+  - type: DeviceLinkSource
+    ports:
+    - POSTransactionSucceeded
+    - POSTransactionFailed
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: PosSystem
+  - type: PhysicalComposition

@@ -218,7 +218,7 @@
   parent: CrateCommandSecure
   id: CrateServicePersonnel
   name: personnel crate
-  description: Contains a box of blank ID cards and PDAs.
+  description: Contains a box of blank ID cards, bank cards, and PDAs.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -226,6 +226,7 @@
         children:
         - id: BoxPDA
         - id: BoxID
+        - id: BoxBankCard
 
 - type: entity
   parent: CrateGenericSteel

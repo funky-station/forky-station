@@ -1,0 +1,39 @@
+﻿<controls:PoSSetupBox
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._Impstation.PersonalEconomy.UI.POS"
+    VerticalExpand="True"
+    HorizontalExpand="True">
+    <BoxContainer Name="NamingThingsIsHard" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Margin="14 12">
+        <Control VerticalExpand="True"/>
+        <RichTextLabel Name="ValidityLabel" HorizontalAlignment="Center"/>
+        <Control MinHeight="8"/>
+        <Button Name="BeginSetupButton" Text="{Loc pos-begin-setup-button-text}" HorizontalAlignment="Center" StyleClasses="OpenBoth"/>
+        <Control VerticalExpand="True"/>
+    </BoxContainer>
+    <BoxContainer Name="SetupDialogueBox" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Margin="14 12" Visible="False">
+        <Label Text="{Loc pos-setup-title}" StyleClasses="LabelHeading" HorizontalAlignment="Center"/>
+        <Control MinHeight="8"/>
+        <Label Name="MerchantNameLabel" Text="{Loc pos-setup-merchant-name}" StyleClasses="LabelSubText"/>
+        <LineEdit Name="MerchantNameEntryBox" HorizontalExpand="True" PlaceHolder="{Loc pos-setup-merchant-name-placeholder}" Access="Public"/>
+        <Control MinHeight="4"/>
+        <Label Name="TransferNoLabel" Text="{Loc pos-setup-recipient-account-number}" StyleClasses="LabelSubText"/>
+        <LineEdit Name="TransferNoEntryBox" HorizontalExpand="True" PlaceHolder="0000" Access="Public"/>
+        <Control MinHeight="4"/>
+        <Label Name="TransferAmountLabel" Text="{Loc pos-setup-charge-amount}" StyleClasses="LabelSubText"/>
+        <LineEdit Name="TransferAmountEntryBox" HorizontalExpand="True" PlaceHolder="000,000,000" Access="Public"/>
+        <Control MinHeight="4"/>
+        <Label Name="TransferReasonLabel" Text="{Loc pos-setup-reason}" StyleClasses="LabelSubText"/>
+        <LineEdit Name="TransferReasonEntryBox" HorizontalExpand="True" PlaceHolder="yada yada" Access="Public"/>
+        <Label Name="CharsRemainingLabel" StyleClasses="LabelSubText"/>
+        <Control VerticalExpand="True" MinHeight="10"/>
+        <Control HorizontalExpand="True" MinHeight="22">
+            <Label Name="InvalidRecipientLabel" Text="{Loc pos-setup-err-invalid-recipient}" Visible="False" Access="Public" HorizontalAlignment="Center"/>
+            <Label Name="InvalidTransferAmountLabel" Text="{Loc pos-setup-err-invalid-transfer-amount}" Visible="False" Access="Public" HorizontalAlignment="Center"/>
+            <Label Name="SetupConfirmedLabel" Text="{Loc pos-setup-confirmed}" Visible="False" Access="Public" HorizontalAlignment="Center"/>
+        </Control>
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="6">
+            <Button Name="SetupConfirmButton" Text="{Loc pos-confirm-setup-button-label}" HorizontalExpand="True" StyleClasses="positive"/>
+            <Button Name="SetupClearButton" Text="{Loc pos-clear-setup-button-label}" HorizontalExpand="True" StyleClasses="negative"/>
+        </BoxContainer>
+    </BoxContainer>
+</controls:PoSSetupBox>

@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-NC-SA-4.0",
+    "copyright": "Sprites created by Tea(d.d.tea on Discord, @teasq.bsky.social)",
+    "states": [
+        {
+            "name": "scrip"
+        },
+        {
+            "name": "scrip_500"
+        },
+        {
+            "name": "scrip_1000"
+        },
+        {
+            "name": "scrip_2500"
+        },
+        {
+            "name": "scrip_5000"
+        },
+        {
+            "name": "scrip_10000"
+        }
+    ]
+}

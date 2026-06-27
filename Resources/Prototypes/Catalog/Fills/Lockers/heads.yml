@@ -120,6 +120,7 @@
     - id: BoxHoPCircuitboards
     - id: BoxHoPStamps
     - id: BoxID
+    - id: BoxBankCard
     - id: BoxPDA
     - id: CigarGoldCase
       prob: 0.25

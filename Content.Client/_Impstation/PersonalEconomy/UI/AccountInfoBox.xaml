@@ -1,0 +1,53 @@
+﻿<BoxContainer
+    xmlns="https://spacestation14.io"
+    Orientation="Vertical"
+    VerticalExpand="true"
+    HorizontalExpand="true"
+    Margin="16 12">
+
+    <!-- header -->
+    <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+        <Label Name="WelcomeLabel" StyleClasses="LabelHeadingBigger" VerticalAlignment="Center"/>
+        <Control HorizontalExpand="True"/>
+        <BoxContainer Orientation="Vertical" HorizontalAlignment="Right">
+            <Label Text="{Loc nanobank-title}" StyleClasses="LabelHeading" HorizontalAlignment="Right"/>
+            <Label Text="{Loc nanobank-tagline}" StyleClasses="LabelSubText" HorizontalAlignment="Right"/>
+        </BoxContainer>
+    </BoxContainer>
+
+    <Control MinHeight="8"/>
+
+    <!-- balance block -->
+    <Label Text="{Loc nanobank-balance-label}" StyleClasses="LabelHeading"/>
+    <Label Name="BalanceLabel" StyleClasses="LabelHeadingBigger"/>
+
+    <Control MinHeight="8"/>
+
+    <!-- cash deposit / withdraw -->
+    <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+        <Button Name="DepositButton" Text="{Loc atm-deposit-button}"/>
+        <Control MinWidth="8"/>
+        <LineEdit Name="WithdrawAmountBox" PlaceHolder="{Loc atm-withdraw-amount-placeholder}" HorizontalExpand="True"/>
+        <Control MinWidth="4"/>
+        <Button Name="WithdrawButton" Text="{Loc atm-withdraw-button}"/>
+    </BoxContainer>
+
+    <Control MinHeight="8"/>
+
+    <!-- transactions header and actions -->
+    <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+        <Label Text="{Loc nanobank-recent-transactions}" StyleClasses="LabelHeading" VerticalAlignment="Center"/>
+        <Control HorizontalExpand="True"/>
+        <Button Name="TransferFundsButton" Text="{Loc transfer-funds-button-title}" Access="Public"/>
+        <Control MinWidth="4"/>
+        <Button Name="EjectCardButton" Text="{Loc atm-eject-card-button}"/>
+    </BoxContainer>
+
+    <Control MinHeight="4"/>
+
+    <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+        <BoxContainer Name="TransactionInfoContainer" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
+            <Label Name="NoTransactionsLabel" Text="{Loc atm-machine-no-transactions}" HorizontalAlignment="Center"/>
+        </BoxContainer>
+    </ScrollContainer>
+</BoxContainer>
