@@ -201,9 +201,6 @@
       head-vulpkanin:
       - state: equipped-head-light-vulpkanin
         shader: unshaded
-      head-reptilian:
-      - state: equipped-head-light-reptilian
-        shader: unshaded
   - type: Clothing
     clothingVisuals:
       head:
