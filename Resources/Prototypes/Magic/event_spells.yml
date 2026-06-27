@@ -128,12 +128,6 @@
         orGroup: Guns
       - id: WeaponDisablerPractice
         orGroup: Guns
-      - id: WeaponDisabler
-        orGroup: Guns
-      - id: WeaponDisablerSMG
-        orGroup: Guns
-      - id: WeaponTaser
-        orGroup: Guns
       - id: WeaponAntiqueLaser
         orGroup: Guns
       - id: WeaponAdvancedLaser

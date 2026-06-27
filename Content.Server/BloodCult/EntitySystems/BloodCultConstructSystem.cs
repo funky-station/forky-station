@@ -38,18 +38,18 @@ namespace Content.Server.BloodCult.EntitySystems;
 
 public sealed partial class BloodCultConstructSystem : EntitySystem
 {
-	[Dependency] private readonly MindSystem _mind = default!;
-	[Dependency] private readonly MobStateSystem _mobState = default!;
-	[Dependency] private readonly PopupSystem _popup = default!;
-	[Dependency] private readonly SharedAudioSystem _audio = default!;
-	[Dependency] private readonly SharedContainerSystem _container = default!;
-	[Dependency] private readonly SharedPhysicsSystem _physics = default!;
-	[Dependency] private readonly IRobustRandom _random = default!;
-	[Dependency] private readonly SharedTransformSystem _transform = default!;
-	[Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-	[Dependency] private readonly SharedActionsSystem _actions = default!;
-	[Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-	[Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
+	[Dependency] private MindSystem _mind = default!;
+	[Dependency] private MobStateSystem _mobState = default!;
+	[Dependency] private PopupSystem _popup = default!;
+	[Dependency] private SharedAudioSystem _audio = default!;
+	[Dependency] private SharedContainerSystem _container = default!;
+	[Dependency] private SharedPhysicsSystem _physics = default!;
+	[Dependency] private IRobustRandom _random = default!;
+	[Dependency] private SharedTransformSystem _transform = default!;
+	[Dependency] private NpcFactionSystem _npcFaction = default!;
+	[Dependency] private SharedActionsSystem _actions = default!;
+	[Dependency] private ActionContainerSystem _actionContainer = default!;
+	[Dependency] private SharedMeleeWeaponSystem _melee = default!;
 
 	/// <summary>
 	/// Grants the Commune action to a juggernaut
@@ -60,8 +60,8 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		if (_mind.TryGetMind(juggernaut, out var mindId, out _))
 		{
 			// Ensure actions container exists before adding action
-			EnsureComp<ActionsContainerComponent>(mindId);
-			_actionContainer.AddAction(mindId, "ActionCultistCommune");
+			var comp = EnsureComp<ActionsContainerComponent>(mindId);
+			_actionContainer.AddAction(mindId, "ActionCultistCommune", comp);
 		}
 		else
 		{
@@ -81,12 +81,12 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 	public override void Initialize()
 	{
 		base.Initialize();
-		
+
 		// CanDropTargetEvent is handled in SharedBloodCultistSystem for both client and server
 		SubscribeLocalEvent<BloodCultConstructShellComponent, DragDropTargetEvent>(OnDragDropTarget);
 		SubscribeLocalEvent<JuggernautComponent, MobStateChangedEvent>(OnJuggernautStateChanged);
 		SubscribeLocalEvent<JuggernautComponent, DragDropTargetEvent>(OnJuggernautDragDropTarget);
-		
+
 		// Remove StaminaComponent from any existing juggernauts (in case they were spawned before this system was added)
 		// Juggernauts can't be stunned, so stamina damage is meaningless
 		var query = AllEntityQuery<JuggernautComponent, StaminaComponent>();
@@ -94,7 +94,7 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		{
 			RemComp<StaminaComponent>(uid);
 		}
-		
+
 		// Handle alt-fire (right-click) attack to find nearest enemy for juggernauts and shades
 		// With AltDisarm = false, right-clicking sends HeavyAttackEvent instead of DisarmAttackEvent
 		SubscribeNetworkEvent<HeavyAttackEvent>(OnHeavyAttack, before: new[] { typeof(SharedMeleeWeaponSystem) });
@@ -127,63 +127,63 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		// Get the mind from the soulstone
 		EntityUid? mindId = CompOrNull<MindContainerComponent>(soulstone)?.Mind;
 		MindComponent? mindComp = CompOrNull<MindComponent>(mindId);
-		
+
 		if (mindId == null || mindComp == null)
 		{
 			//No mind in the soulstone
 			_popup.PopupEntity(Loc.GetString("cult-soulstone-empty"), user, user, PopupType.Medium);
 			return;
 		}
-		
+
 		// Figure out the shell's location so we can spawn the completed juggernaut there
 		var shellTransform = Transform(shell);
 		var shellMapCoords = _transform.GetMapCoordinates(shellTransform);
 		var shellRotation = shellTransform.LocalRotation;
-		
+
 		// Unanchor the shell first to prevent grid snapping issues
 		if (shellTransform.Anchored)
 		{
 			_transform.Unanchor(shell, shellTransform);
 		}
-		
+
 		// Play sacrifice audio
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), shellTransform.Coordinates);
-		
+
 		// Delete the shell and spawn the juggernaut at the exact map coordinates with rotation
 		// Use DeleteEntity instead of QueueDel to ensure immediate deletion before spawning
-		EntityManager.DeleteEntity(shell);
-		
+		Del(shell);
+
 		// Spawn the juggernaut at the exact map coordinates (not anchored, so it won't snap to grid)
 		var juggernaut = Spawn("MobBloodCultJuggernaut", shellMapCoords, rotation: shellRotation);
-		
+
 		// Remove StaminaComponent - juggernauts can't be stunned so stamina damage is meaningless
 		RemComp<StaminaComponent>(juggernaut);
-		
+
 		// Ensure the juggernaut is not anchored (mobs shouldn't be anchored)
 		var juggernautTransform = Transform(juggernaut);
 		if (juggernautTransform.Anchored)
 		{
 			_transform.Unanchor(juggernaut, juggernautTransform);
 		}
-		
+
 		// Transfer mind from soulstone to juggernaut first (before container insertion to avoid client-side entity warning)
 		_mind.TransferTo((EntityUid)mindId, juggernaut, mind:mindComp);
-		
+
 		// Store the soulstone in the juggernaut's container. It'll be ejected if the juggernaut is crit
 		if (_container.TryGetContainer(juggernaut, "juggernaut_soulstone_container", out var soulstoneContainer))
 		{
 			_container.Insert(soulstone, soulstoneContainer);
 		}
-		
+
 		// Store reference to soulstone in the juggernaut component and set as active
 		if (TryComp<JuggernautComponent>(juggernaut, out var juggComp))
 		{
 			juggComp.SourceSoulstone = soulstone;
 			juggComp.IsInactive = false;
 		}
-		
+
 		// Preserve speech component from soulstone only if it's a Hamlet soulstone (for squeak sounds)
-		if (TryComp<SoulStoneComponent>(soulstone, out var soulstoneComp) && 
+		if (TryComp<SoulStoneComponent>(soulstone, out var soulstoneComp) &&
 		    soulstoneComp.OriginalEntityPrototype == "MobHamsterHamlet" &&
 		    TryComp<SpeechComponent>(soulstone, out var soulstoneSpeech))
 		{
@@ -192,23 +192,23 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 				RemComp<SpeechComponent>(juggernaut);
 			CopyComp(soulstone, juggernaut, soulstoneSpeech);
 		}
-		
+
 		// Ensure juggernaut has the correct accent (juggernaut voice masking for text replacement)
 		// This can coexist with SpeechComponent - SpeechComponent handles sounds, ReplacementAccentComponent handles text
 		EnsureComp<ReplacementAccentComponent>(juggernaut).Accent = "juggernaut";
-		
+
 		// Ensure juggernaut is in the BloodCultist faction (remove any crew alignment)
 		// Use ClearFactions and AddFaction to ensure proper faction alignment after mind transfer
 		var npcFactionComp = EnsureComp<NpcFactionMemberComponent>(juggernaut);
 		_npcFaction.ClearFactions((juggernaut, npcFactionComp), false);
 		_npcFaction.AddFaction((juggernaut, npcFactionComp), BloodCultRuleSystem.BloodCultistFactionId);
-		
+
 		// Grant Commune ability to juggernaut
 		GrantCommuneAction(juggernaut);
-		
+
 		// Play transformation audio
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), shellTransform.Coordinates);
-		
+
 		// Play a message
 		_popup.PopupEntity(Loc.GetString("cult-juggernaut-created"), user, user, PopupType.Large);
 	}
@@ -218,7 +218,7 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		// Get the mind from the soulstone
 		EntityUid? mindId = CompOrNull<MindContainerComponent>(soulstone)?.Mind;
 		MindComponent? mindComp = CompOrNull<MindComponent>(mindId);
-		
+
 		if (mindId == null || mindComp == null)
 		{
 			_popup.PopupEntity(Loc.GetString("cult-soulstone-empty"), user, user, PopupType.Medium);
@@ -227,7 +227,7 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 
 		// Transfer mind from soulstone to juggernaut first (before container insertion to avoid client-side entity warning)
 		_mind.TransferTo((EntityUid)mindId, juggernaut, mind: mindComp);
-		
+
 		// Store the soulstone in the juggernaut's container
 		if (_container.TryGetContainer(juggernaut, "juggernaut_soulstone_container", out var soulstoneContainer))
 		{
@@ -242,9 +242,9 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		GrantCommuneAction(juggernaut);
 
 		// DON'T heal the juggernaut - it stays in critical state until healed with blood
-		
+
 		// Preserve speech component from soulstone only if it's a Hamlet soulstone (for squeak sounds)
-		if (TryComp<SoulStoneComponent>(soulstone, out var soulstoneComp) && 
+		if (TryComp<SoulStoneComponent>(soulstone, out var soulstoneComp) &&
 		    soulstoneComp.OriginalEntityPrototype == "MobHamsterHamlet" &&
 		    TryComp<SpeechComponent>(soulstone, out var soulstoneSpeech))
 		{
@@ -253,11 +253,11 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 				RemComp<SpeechComponent>(juggernaut);
 			CopyComp(soulstone, juggernaut, soulstoneSpeech);
 		}
-		
+
 		// Ensure juggernaut has the correct accent (juggernaut voice masking for text replacement)
 		// This can coexist with SpeechComponent - SpeechComponent handles sounds, ReplacementAccentComponent handles text
 		EnsureComp<ReplacementAccentComponent>(juggernaut).Accent = "juggernaut";
-		
+
 		// Ensure juggernaut is in the BloodCultist faction (remove any crew alignment)
 		// Use ClearFactions and AddFaction to ensure proper faction alignment after mind transfer
 		var npcFactionComp = EnsureComp<NpcFactionMemberComponent>(juggernaut);
@@ -277,7 +277,7 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 	{
 		// Mark as handled immediately to prevent other systems from processing this
 		args.Handled = true;
-		
+
 		// Verify the dragged entity is a dead body with a mind
 		if (!_mobState.IsDead(args.Dragged))
 		{
@@ -287,7 +287,7 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 
 		EntityUid? mindId = CompOrNull<MindContainerComponent>(args.Dragged)?.Mind;
 		MindComponent? mindComp = CompOrNull<MindComponent>(mindId);
-		
+
 		if (mindId == null || mindComp == null)
 		{
 			_popup.PopupEntity(Loc.GetString("cult-invocation-fail-nosoul"), args.User, args.User, PopupType.Medium);
@@ -297,27 +297,27 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		var shellTransform = Transform(uid);
 		var shellMapCoords = _transform.GetMapCoordinates(shellTransform);
 		var shellRotation = shellTransform.LocalRotation;
-		
+
 		// Unanchor the shell first to prevent grid snapping issues
 		if (shellTransform.Anchored)
 		{
 			_transform.Unanchor(uid, shellTransform);
 		}
-		
+
 		// Spawn the juggernaut BEFORE deleting the shell to ensure proper setup
 		// Spawn at the exact map coordinates (not anchored, so it won't snap to grid)
 		var juggernaut = Spawn("MobBloodCultJuggernaut", shellMapCoords, rotation: shellRotation);
-		
+
 		// Remove StaminaComponent - juggernauts can't be stunned so stamina damage is meaningless
 		RemComp<StaminaComponent>(juggernaut);
-		
+
 		// Ensure the juggernaut is not anchored (mobs shouldn't be anchored)
 		var juggernautTransform = Transform(juggernaut);
 		if (juggernautTransform.Anchored)
 		{
 			_transform.Unanchor(juggernaut, juggernautTransform);
 		}
-		
+
 		// Get the juggernaut's body container and insert the body BEFORE deleting the shell
 		// This prevents the body from being detected by offering runes underneath
 		if (_container.TryGetContainer(juggernaut, "juggernaut_body_container", out var container))
@@ -325,39 +325,39 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 			// Insert the victim's body into the juggernaut
 			_container.Insert(args.Dragged, container);
 		}
-		
+
 		// Play sacrifice audio
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/disintegrate.ogg"), shellTransform.Coordinates);
-		
+
 		// Delete the shell AFTER the body is safely in the container
 		// Use DeleteEntity instead of QueueDel to ensure immediate deletion
-		EntityManager.DeleteEntity(uid);
-		
+		Del(uid);
+
 		// Store reference to body in the juggernaut component
 		if (TryComp<JuggernautComponent>(juggernaut, out var juggComp))
 		{
 			juggComp.SourceBody = args.Dragged;
 			juggComp.IsInactive = false;
 		}
-		
+
 		// Transfer mind from victim to juggernaut
 		_mind.TransferTo((EntityUid)mindId, juggernaut, mind:mindComp);
-		
+
 		// Ensure juggernaut is in the BloodCultist faction (remove any crew alignment)
 		// Use ClearFactions and AddFaction to ensure proper faction alignment after mind transfer
 		var npcFactionComp = EnsureComp<NpcFactionMemberComponent>(juggernaut);
 		_npcFaction.ClearFactions((juggernaut, npcFactionComp), false);
 		_npcFaction.AddFaction((juggernaut, npcFactionComp), BloodCultRuleSystem.BloodCultistFactionId);
-		
+
 		// Grant Commune ability to juggernaut
 		GrantCommuneAction(juggernaut);
-		
+
 		// Play transformation audio
 		_audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), shellTransform.Coordinates);
-		
+
 		// Notify the user
 		_popup.PopupEntity(Loc.GetString("cult-juggernaut-created"), args.User, args.User, PopupType.Large);
-		
+
 		args.Handled = true;
 	}
 
@@ -389,7 +389,7 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 			{
 				// Transfer the mind back to the soulstone
 				_mind.TransferTo((EntityUid)mindId, soulstone, mind: mindComp);
-				
+
 				// Ensure the soulstone can speak but not move
 				EnsureComp<SpeechComponent>(soulstone);
 				EnsureComp<EmotingComponent>(soulstone);
@@ -487,7 +487,7 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 
 		EntityUid? mindId = CompOrNull<MindContainerComponent>(args.Dragged)?.Mind;
 		MindComponent? mindComp = CompOrNull<MindComponent>(mindId);
-		
+
 		if (mindId == null || mindComp == null)
 		{
 			_popup.PopupEntity(Loc.GetString("cult-invocation-fail-nosoul"), args.User, args.User, PopupType.Medium);
@@ -504,7 +504,7 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 		// Get the mind from the body
 		EntityUid? mindId = CompOrNull<MindContainerComponent>(body)?.Mind;
 		MindComponent? mindComp = CompOrNull<MindComponent>(mindId);
-		
+
 		if (mindId == null || mindComp == null)
 		{
 			_popup.PopupEntity(Loc.GetString("cult-invocation-fail-nosoul"), user, user, PopupType.Medium);
@@ -528,7 +528,7 @@ public sealed partial class BloodCultConstructSystem : EntitySystem
 
 		// Transfer mind from body to juggernaut
 		_mind.TransferTo((EntityUid)mindId, juggernaut, mind: mindComp);
-		
+
 		// Ensure juggernaut is in the BloodCultist faction (remove any crew alignment)
 		var npcFactionComp = EnsureComp<NpcFactionMemberComponent>(juggernaut);
 		_npcFaction.ClearFactions((juggernaut, npcFactionComp), false);

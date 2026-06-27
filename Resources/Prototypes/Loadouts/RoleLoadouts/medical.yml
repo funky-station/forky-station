@@ -16,6 +16,7 @@
   - Trinkets
 #  - ChiefMedicalOfficerJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: JobMedicalDoctor
@@ -33,6 +34,7 @@
   - Trinkets
 #  - MedicalDoctorJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: JobMedicalIntern
@@ -45,6 +47,7 @@
   - Trinkets
 #  - MedicalInternJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: JobChemist
@@ -60,6 +63,7 @@
   - Trinkets
 #  - ChemistJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: JobParamedic
@@ -76,3 +80,4 @@
   - Trinkets
 #  - ParamedicJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid # MACRO: Decapoid

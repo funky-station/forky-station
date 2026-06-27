@@ -10,11 +10,11 @@ using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
 
 namespace Content.Client.BloodCult.Systems;
 
-public sealed class BloodCultRuneEffectSystem : EntitySystem
+public sealed partial class BloodCultRuneEffectSystem : EntitySystem
 {
     private readonly Dictionary<uint, EntityUid> _activeEffects = new();
 
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -96,7 +96,7 @@ public sealed class BloodCultRuneEffectSystem : EntitySystem
         {
             var currentState = _sprite.LayerGetRsiState(spriteEntity, layerIndex);
             var currentStateName = currentState.Name ?? "";
-            
+
             // If the state ends with "_drawing", change it to the normal state
             if (currentStateName.EndsWith("_drawing"))
             {

@@ -73,12 +73,11 @@
         children:
         - id: ClothingHeadHatBeretHoS
         - id: ClothingHeadHatHoshat
-        - id: ClothingMaskNeckGaiter
-        - id: ClothingUniformJumpskirtHoSAlt
-        - id: ClothingUniformJumpsuitHoSAlt
-        - id: ClothingUniformJumpskirtHosFormal
-        - id: ClothingUniformJumpsuitHosFormal
-        - id: ClothingOuterWinterHoS
+        - id: FuClothingUniformHosDressPants
+        - id: FuClothingUniformHosDressSkirt
+        - id: FuClothingUniformHosMessPants
+        - id: FuClothingUniformHosMessSkirt
+        - id: FuClothingOuterWinterHos
         - id: ClothingNeckCloakHos
 
 - type: entity

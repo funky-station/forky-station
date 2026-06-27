@@ -12,7 +12,7 @@ using Robust.Shared.Utility;
 namespace Content.Client.RCD;
 
 [UsedImplicitly]
-public sealed class RCDMenuBoundUserInterface : BoundUserInterface
+public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
 {
     private const string TopLevelActionCategory = "Main";
 
@@ -24,17 +24,17 @@ public sealed class RCDMenuBoundUserInterface : BoundUserInterface
             ["Airlocks"] = ("rcd-component-airlocks", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/airlocks.png"))),
             ["Electrical"] = ("rcd-component-electrical", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/multicoil.png"))),
             ["Lighting"] = ("rcd-component-lighting", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/lighting.png"))),
-            ["Piping"] = ("rcd-component-piping", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RPD/fourway.png"))),
-            ["AtmosphericUtility"] = ("rcd-component-atmospheric-utility", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RPD/port.png"))),
-            ["PumpsValves"] = ("rcd-component-pumps-valves", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RPD/pump_volume.png"))),
-            ["Vents"] = ("rcd-component-vents", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RPD/vent_passive.png"))),
-            ["SensorsMonitors"] = ("rcd-component-sensors-monitors", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RPD/alarm.png"))),
+            ["Piping"] = ("rcd-component-piping", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RPD/fourway.png"))), // funky - rpd
+            ["AtmosphericUtility"] = ("rcd-component-atmospheric-utility", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RPD/port.png"))), // funky - rpd
+            ["PumpsValves"] = ("rcd-component-pumps-valves", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RPD/pump_volume.png"))), // funky - rpd
+            ["Vents"] = ("rcd-component-vents", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RPD/vent_passive.png"))), // funky - rpd
+            ["SensorsMonitors"] = ("rcd-component-sensors-monitors", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RPD/alarm.png"))), // funky - rpd
         };
 
     private bool IsRpd => EntMan.TryGetComponent<RCDComponent>(Owner, out var rcd) && rcd.IsRpd;
 
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
 
     private SimpleRadialMenu? _menu;
 

@@ -76,6 +76,7 @@ using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
+using Content.Shared.Objectives.Systems;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.UserInterface;
@@ -86,7 +87,7 @@ namespace Content.Server.GameTicking.Rules;
 /// <summary>
 /// Where all the main stuff for Blood Cults happen
 /// </summary>
-public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
+public sealed partial class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 {
 	private const string JuggernautAccentPrototypeId = "juggernaut";
 
@@ -162,37 +163,36 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		}
 	}
 
-	[Dependency] private readonly SharedAudioSystem _audio = default!;
-	[Dependency] private readonly AntagSelectionSystem _antag = default!;
-	[Dependency] private readonly MindSystem _mind = default!;
-	[Dependency] private readonly RoleSystem _role = default!;
-	[Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
-	[Dependency] private readonly PopupSystem _popupSystem = default!;
-	[Dependency] private readonly IRobustRandom _random = default!;
-	[Dependency] private readonly IGameTiming _timing = default!;
-	[Dependency] private readonly GameTicker _gameTicker = default!;
-	[Dependency] private readonly IPlayerManager _playerManager = default!;
-	[Dependency] private readonly ChatSystem _chat = default!;
-	[Dependency] private readonly SharedPhysicsSystem _physics = default!;
-	[Dependency] private readonly SharedJobSystem _jobs = default!;
-	[Dependency] private readonly RoundEndSystem _roundEnd = default!;
-	[Dependency] private readonly MobStateSystem _mobSystem = default!;
-	[Dependency] private readonly IChatManager _chatManager = default!;
-	[Dependency] private readonly AppearanceSystem _appearance = default!;
-	[Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-	[Dependency] private readonly IAdminLogManager _adminLogger = default!;
-	[Dependency] private readonly IConsoleHost _consoleHost = default!;
-	//[Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-	[Dependency] private readonly BloodCultMindShieldSystem _mindShield = default!;
-	[Dependency] private readonly SleepingSystem _sleeping = default!;
-	[Dependency] private readonly IPrototypeManager _proto = default!;
-	[Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-	[Dependency] private readonly SharedPointLightSystem _pointLight = default!;
-	[Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
+	[Dependency] private SharedAudioSystem _audio = default!;
+	[Dependency] private AntagSelectionSystem _antag = default!;
+	[Dependency] private MindSystem _mind = default!;
+	[Dependency] private RoleSystem _role = default!;
+	[Dependency] private RejuvenateSystem _rejuvenate = default!;
+	[Dependency] private PopupSystem _popupSystem = default!;
+	[Dependency] private IRobustRandom _random = default!;
+	[Dependency] private IGameTiming _timing = default!;
+	[Dependency] private GameTicker _gameTicker = default!;
+	[Dependency] private IPlayerManager _playerManager = default!;
+	[Dependency] private ChatSystem _chat = default!;
+	[Dependency] private SharedPhysicsSystem _physics = default!;
+	[Dependency] private SharedJobSystem _jobs = default!;
+	[Dependency] private RoundEndSystem _roundEnd = default!;
+	[Dependency] private MobStateSystem _mobSystem = default!;
+	[Dependency] private IChatManager _chatManager = default!;
+	[Dependency] private AppearanceSystem _appearance = default!;
+	[Dependency] private NpcFactionSystem _npcFaction = default!;
+	[Dependency] private IAdminLogManager _adminLogger = default!;
+	[Dependency] private IConsoleHost _consoleHost = default!;
+	//[Dependency] private SharedTransformSystem _transformSystem = default!;
+	[Dependency] private BloodCultMindShieldSystem _mindShield = default!;
+	[Dependency] private SleepingSystem _sleeping = default!;
+	[Dependency] private IPrototypeManager _proto = default!;
+	[Dependency] private ActionContainerSystem _actionContainer = default!;
+	[Dependency] private SharedPointLightSystem _pointLight = default!;
+	[Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private TargetSystem _target = default!;
 
 	public readonly string CultComponentId = "BloodCultist";
-
-	private static readonly EntProtoId MindRole = "MindRoleCultist";
 
 	public static readonly ProtoId<NpcFactionPrototype> BloodCultistFactionId = "BloodCultist";
     public static readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
@@ -227,7 +227,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		InitializeCommands();
 	}
 
-	private void InitializeCommands()
+    private void InitializeCommands()
 	{
 		_consoleHost.RegisterCommand("cult_queryblood",
 			"Query the current blood collected and remaining for the Blood Cult game rule",
@@ -356,25 +356,24 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 			if (_mind.TryGetMind(traitor, out var mindId, out _))
 			{
 				// Check if actions already exist in the mind's action container
-				if (TryComp<ActionsContainerComponent>(mindId, out var mindContainer))
+				if (TryComp<ActionsContainerComponent>(traitor, out var mindContainer))
 				{
 					if (!HasActionWithPrototype(mindContainer, ActionCommune))
-						_actionContainer.AddAction(mindId, ActionCommune);
+						_actionContainer.AddAction(traitor, ActionCommune);
 					if (!HasActionWithPrototype(mindContainer, ActionStudyVeil))
-						_actionContainer.AddAction(mindId, ActionStudyVeil);
+						_actionContainer.AddAction(traitor, ActionStudyVeil);
 					if (!HasActionWithPrototype(mindContainer, ActionSpellsSelect))
-						_actionContainer.AddAction(mindId, ActionSpellsSelect);
+						_actionContainer.AddAction(traitor, ActionSpellsSelect);
 					if (!HasActionWithPrototype(mindContainer, ActionSummonDagger))
-						_actionContainer.AddAction(mindId, ActionSummonDagger);
+						_actionContainer.AddAction(traitor, ActionSummonDagger);
 				}
 				else
 				{
 					// No container yet, ensure it exists and add actions
-					EnsureComp<ActionsContainerComponent>(mindId);
-					_actionContainer.AddAction(mindId, ActionCommune);
-					_actionContainer.AddAction(mindId, ActionStudyVeil);
-					_actionContainer.AddAction(mindId, ActionSpellsSelect);
-					_actionContainer.AddAction(mindId, ActionSummonDagger);
+					_actionContainer.AddAction(traitor, ActionCommune);
+					_actionContainer.AddAction(traitor, ActionStudyVeil);
+					_actionContainer.AddAction(traitor, ActionSpellsSelect);
+					_actionContainer.AddAction(traitor, ActionSummonDagger);
 				}
 			}
 
@@ -429,12 +428,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	{
 		if (!_mind.TryGetMind(traitor, out var mindId, out var mind))
             return false;
-
-		_role.MindAddRole(mindId, MindRole, mind, true);
-
-		EnsureComp<BloodCultistComponent>(traitor);
-
-        _antag.SendBriefing(traitor, Loc.GetString("cult-role-greeting"), Color.Red, null);
 
         if (TryComp<MindComponent>(mindId, out var mindComp) && _role.MindHasRole<BloodCultRoleComponent>((mindId, mindComp), out var cultRoleComp))
 			AddComp(cultRoleComp.Value, new RoleBriefingComponent { Briefing = Loc.GetString("cult-briefing") }, overwrite: true);
@@ -1224,7 +1217,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
 	private void SetConversionsNeeded(BloodCultRuleComponent component)
 	{
-		var allAliveHumans = _mind.GetAliveHumans();
+		var allAliveHumans = _target.GetAliveHumans();
 		// 10% cult needed for eyes
 		component.ConversionsUntilEyes = (int)Math.Ceiling((float)allAliveHumans.Count * 0.125f);
 		// 30% cult needed for rise
@@ -1237,7 +1230,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 	/// </summary>
 	private void SetMinimumCultistsForVeilRitual(BloodCultRuleComponent component)
 	{
-		var allAliveHumans = _mind.GetAliveHumans();
+		var allAliveHumans = _target.GetAliveHumans();
 		// 5% of players, minimum of 2, maximum of 4
 		// So at 20 players its 2, at 20-60 players its 3, at 60+ players its 4
 		component.MinimumCultistsForVeilRitual = Math.Max(2, Math.Min(4,(int)Math.Ceiling((float)allAliveHumans.Count * 0.05f)));
@@ -1272,7 +1265,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 		);
 		foreach (EntityUid cultist in cultists)
 		{
-			if (EntityManager.TryGetComponent(cultist, out AppearanceComponent? appearance))
+			if (TryComp(cultist, out AppearanceComponent? appearance))
 			{
 				// Only enable eyes if the body has an attached head
 				var hasHead = HasComp<HumanoidProfileComponent>(cultist);

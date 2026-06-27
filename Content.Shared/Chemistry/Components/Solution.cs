@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Linq;
-using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
 using JetBrains.Annotations;
@@ -58,12 +57,6 @@ namespace Content.Shared.Chemistry.Components
         /// </summary>
         [DataField]
         public float Temperature { get; set; } = 293.15f;
-
-        /// <summary>
-        ///     The name of this solution, if it is contained in some <see cref="SolutionContainerManagerComponent"/>
-        /// </summary>
-        [DataField]
-        public string? Name;
 
         /// <summary>
         ///     Checks if a solution can fit into the container.
@@ -188,6 +181,11 @@ namespace Content.Shared.Chemistry.Components
             return new Solution(this);
         }
 
+        public override string ToString()
+        {
+            return string.Join("; ", Contents);
+        }
+
         [AssertionMethod]
         public void ValidateSolution()
         {
@@ -200,7 +198,7 @@ namespace Content.Shared.Chemistry.Components
             DebugTools.Assert(!Contents.Any(x => x.Quantity <= FixedPoint2.Zero));
 
             // No duplicate reagents iDs
-            DebugTools.Assert(Contents.Select(x => x.Reagent).ToHashSet().Count == Contents.Count);
+            DebugTools.Assert(Contents.Select(x => x.Reagent).ToHashSet().Count == Contents.Count, $"Solution: {this}, contained duplcate contents {Contents}");
 
             // If it isn't flagged as dirty, check heat capacity is correct.
             if (!_heatCapacityDirty)
@@ -923,6 +921,62 @@ namespace Content.Shared.Chemistry.Components
             return GetColorWithout(protoMan);
         }
 
+        // Funky start
+        public int GetSolutionFlammability(IPrototypeManager? protoMan)
+        {
+            if (Volume <= 0)
+                return 0;
+
+            IoCManager.Resolve(ref protoMan);
+            var totalFlammability = 0f;
+            foreach (var (reagent, quantity) in Contents)
+            {
+                if (protoMan.TryIndex<ReagentPrototype>(reagent.Prototype, out var proto))
+                {
+                    totalFlammability += proto.Flammability * (quantity.Float() / Volume.Float());
+                }
+            }
+            return (int) MathF.Round(totalFlammability);
+        }
+
+        public bool IsSolutionSelfOxidizing(IPrototypeManager? protoMan)
+        {
+            if (Volume <= 0)
+                return false;
+
+            IoCManager.Resolve(ref protoMan);
+            foreach (var (reagent, _) in Contents)
+            {
+                if (protoMan.TryIndex<ReagentPrototype>(reagent.Prototype, out var proto) && proto.SelfOxidizing)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void BurnFlammableReagents(float fraction, IPrototypeManager? protoMan)
+        {
+            IoCManager.Resolve(ref protoMan);
+            var clone = Clone();
+            foreach (var (reagent, quantity) in Contents)
+            {
+                if (!protoMan.TryIndex<ReagentPrototype>(reagent.Prototype, out var proto) || proto.Flammability <= 0)
+                    continue;
+
+                var rawBurn = quantity.Float() * fraction * proto.Flammability;
+                var roundedBurn = MathF.Ceiling(rawBurn * 100f) / 100f;
+                if (roundedBurn <= 0f)
+                    continue;
+
+                clone.RemoveReagent(reagent, FixedPoint2.New(roundedBurn));
+            }
+            Contents = clone.Contents;
+            Volume = clone.Volume;
+            _heatCapacityDirty = true;
+            ValidateSolution();
+        }
+        // Funky end
         public Color GetColorWithOnly(IPrototypeManager? protoMan, params ProtoId<ReagentPrototype>[] included)
         {
             if (Volume == FixedPoint2.Zero)

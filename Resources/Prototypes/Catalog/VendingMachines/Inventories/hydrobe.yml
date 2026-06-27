@@ -5,11 +5,13 @@
     ClothingBackpackSatchelHydroponics: 2
     ClothingBackpackDuffelHydroponics: 2
     ClothingOuterApronBotanist: 2
-    ClothingUniformOveralls: 3
-    ClothingUniformJumpsuitHydroponics: 3
-    ClothingUniformJumpskirtHydroponics: 3
+#Funky uniforms
+    FuClothingUniformShirtPantstHydroponics: 3
+    FuClothingUniformShirtPantstHydroponicsOveralls: 3
+    FuClothingUniformJumperskirtHydroponics: 3
+####
     ClothingNeckScarfStripedGreen: 3
-    ClothingHeadBandBotany: 3
+#    ClothingHeadBandBotany: 3
     ClothingHeadsetService: 2
     ClothingOuterWinterHydro: 2
   contrabandInventory:

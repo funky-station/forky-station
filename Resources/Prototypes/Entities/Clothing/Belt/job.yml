@@ -133,14 +133,15 @@
       - WetFloorSign
       - HolosignProjector
       - Plunger
+      - TrashBagBlue
       - GoldenPlunger
       - WireBrush
-      - Screwdriver
+      - Screwdriver # Funky Start
       - Powerdrill
-      - Rag
+      - Rag # Funky End
       components:
       - LightReplacer
-      - SmokeOnTrigger
+      - CleanerGrenade
   - type: ItemMapper
     sprite: *BeltOverlay
     mapLayers:
@@ -152,10 +153,46 @@
         whitelist:
           tags:
           - Spray
-      wrench:
+      light_replacer:
         whitelist:
           tags:
-          - Wrench
+          - LightReplacer
+      trashbag:
+        whitelist:
+          tags:
+          - TrashBag
+      trashbag_blue:
+        whitelist:
+          tags:
+          - TrashBagBlue
+      wetfloorsign:
+        whitelist:
+          tags:
+          - WetFloorSign
+      soap:
+        whitelist:
+          tags:
+          - Soap
+      wire_brush:
+        whitelist:
+          tags:
+          - WireBrush
+      holosign:
+        whitelist:
+          tags:
+          - HolosignProjector
+      plunger:
+        whitelist:
+          tags:
+          - Plunger
+      golden_plunger:
+        whitelist:
+          tags:
+          - GoldenPlunger
+      cleaner_grenade:
+        whitelist:
+          tags:
+          - CleanerGrenade
   - type: Appearance
 
 - type: entity
@@ -242,9 +279,9 @@
   description: A belt used to hold most hydroponics supplies. Suprisingly, not green.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/plant.rsi
+    sprite: _Funkystation/Clothing/Belt/hydro.rsi
   - type: Clothing
-    sprite: Clothing/Belt/plant.rsi
+    sprite: _Funkystation/Clothing/Belt/hydro.rsi
   - type: Storage
     whitelist:
       tags:
@@ -262,7 +299,7 @@
       - Smokable
       - HandLabeler
   - type: ItemMapper
-    sprite: *BeltOverlay
+    sprite: _Funkystation/Clothing/Belt/belt_overlay.rsi
     mapLayers:
       hatchet:
         whitelist:
@@ -370,9 +407,9 @@
   description: Can hold security gear like handcuffs and flashes.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/security.rsi
+    sprite: _Funkystation/Clothing/Belt/security_belt.rsi
   - type: Clothing
-    sprite: Clothing/Belt/security.rsi
+    sprite: _Funkystation/Clothing/Belt/security_belt.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: Storage
