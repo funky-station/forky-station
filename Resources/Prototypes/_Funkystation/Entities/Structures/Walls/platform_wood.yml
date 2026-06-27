@@ -31,17 +31,6 @@
     state: side
   - type: Icon
     state: side
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.49,-0.49,0.49,-0.25"
-        density: 1000
-        mask:
-        - TableMask
-        layer:
-        - TableLayer
   - type: Destructible
     thresholds:
     - trigger:
@@ -75,26 +64,6 @@
     state: corner
   - type: Icon
     state: corner
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.49,-0.49,0.49,-0.25"
-        density: 1000
-        mask:
-        - TableMask
-        layer:
-        - TableLayer
-      fix2:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "0.25,-0.49,0.49,0.49"
-        density: 1000
-        mask:
-        - TableMask
-        layer:
-        - TableLayer
   - type: Destructible
     thresholds:
     - trigger:
@@ -128,17 +97,6 @@
     state: corner_small
   - type: Icon
     state: corner_small
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.49,0.25,-0.25,0.49"
-        density: 1000
-        mask:
-        - TableMask
-        layer:
-        - TableLayer
   - type: Destructible
     thresholds:
     - trigger:
@@ -172,35 +130,6 @@
     state: end
   - type: Icon
     state: end
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.49,-0.49,0.49,-0.25"
-        density: 1000
-        mask:
-          - TableMask
-        layer:
-          - TableLayer
-      fix2:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.49,-0.49,-0.25,0.49"
-        density: 1000
-        mask:
-          - TableMask
-        layer:
-          - TableLayer
-      fix3:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "0.25,-0.49,0.49,0.49"
-        density: 1000
-        mask:
-          - TableMask
-        layer:
-          - TableLayer
   - type: Destructible
     thresholds:
     - trigger:

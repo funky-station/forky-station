@@ -29,17 +29,6 @@
     state: warning_side
   - type: Icon
     state: warning_side
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.49,-0.49,0.49,-0.25"
-        density: 1000
-        mask:
-        - TableMask
-        layer:
-        - TableLayer
   - type: Destructible
     thresholds:
     - trigger:
@@ -73,26 +62,6 @@
     state: warning_corner
   - type: Icon
     state: warning_corner
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.49,-0.49,0.49,-0.25"
-        density: 1000
-        mask:
-        - TableMask
-        layer:
-        - TableLayer
-      fix2:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "0.25,-0.49,0.49,0.49"
-        density: 1000
-        mask:
-        - TableMask
-        layer:
-        - TableLayer
   - type: Destructible
     thresholds:
     - trigger:
@@ -126,17 +95,6 @@
     state: warning_corner_small
   - type: Icon
     state: warning_corner_small
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.49,0.25,-0.25,0.49"
-        density: 1000
-        mask:
-        - TableMask
-        layer:
-        - TableLayer
   - type: Destructible
     thresholds:
     - trigger:
@@ -170,35 +128,6 @@
     state: warning_round
   - type: Icon
     state: warning_round
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.49,-0.49,0.49,-0.25"
-        density: 1000
-        mask:
-          - TableMask
-        layer:
-          - TableLayer
-      fix2:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.49,-0.49,-0.25,0.49"
-        density: 1000
-        mask:
-          - TableMask
-        layer:
-          - TableLayer
-      fix3:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "0.25,-0.49,0.49,0.49"
-        density: 1000
-        mask:
-          - TableMask
-        layer:
-          - TableLayer
   - type: Destructible
     thresholds:
     - trigger:
