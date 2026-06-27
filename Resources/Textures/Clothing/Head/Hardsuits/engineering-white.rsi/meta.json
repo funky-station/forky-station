@@ -85,6 +85,10 @@
         {
             "name": "equipped-head-unshaded-vulpkanin",
             "directions": 4
+        },
+        {
+            "name": "equipped-head-up-dog",
+            "directions": 4
         }
     ]
 }

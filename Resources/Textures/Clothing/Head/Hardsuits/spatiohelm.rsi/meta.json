@@ -86,6 +86,10 @@
         {
             "name": "equipped-head-unshaded-reptilian",
             "directions": 4
+        },
+        {
+            "name": "equipped-head-up-dog",
+            "directions": 4
         }
     ]
 }

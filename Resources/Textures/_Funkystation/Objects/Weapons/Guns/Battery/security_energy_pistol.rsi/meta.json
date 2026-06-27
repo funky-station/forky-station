@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "license": "CC BY-NC-SA 4.0",
+    "license": "CC-BY-NC-SA-4.0",
     "copyright": "Sprites created by Alaa 'Woodensponge' Ramzi (@woodensponge.bsky.social). Visual design adapted and inspired from laser_gun.rsi by Tea (d.d.tea on Discord, @teasq.bsky.social)",
     "size": {
         "x": 32,
@@ -12,6 +12,12 @@
         },
         {
             "name": "base"
+        },
+        {
+            "name": "base-overlay"
+        },
+        {
+            "name": "mag-unshaded-0"
         },
         {
             "name": "mag-unshaded-1"
@@ -39,6 +45,10 @@
         },
         {
             "name": "equipped-BACKSTORAGE",
+            "directions": 4
+        },
+        {
+            "name": "equipped-BELT",
             "directions": 4
         }
     ]
