@@ -10,8 +10,6 @@
     sprite: _Funkystation/Structures/Walls/platform_warning.rsi
   - type: Icon
     sprite: _Funkystation/Structures/Walls/platform_warning.rsi
-  - type: Physics
-    bodyType: Static
   - type: InteractionOutline
   - type: Repairable
   - type: Damageable
