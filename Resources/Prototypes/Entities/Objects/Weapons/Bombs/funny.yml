@@ -34,11 +34,12 @@
       keysIn:
       - timer
     - type: Explosive
-      explosionType: Default
+      explosionType: Transparent
       maxIntensity: 50
       intensitySlope: 25
       totalIntensity: 100
       canCreateVacuum: false
+    - type: ExplosionEffect # Funky RMC Explosions
     - type: DeleteOnTrigger
       keysIn:
       - timer
@@ -88,11 +89,12 @@
   - type: TriggerOnSlip
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: Default
+    explosionType: Transparent # Funky RMC Explosions
     maxIntensity: 3.4
     intensitySlope: 3
     totalIntensity: 20
     canCreateVacuum: false
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: DeleteOnTrigger
   - type: AnimationPlayer
   - type: Damageable

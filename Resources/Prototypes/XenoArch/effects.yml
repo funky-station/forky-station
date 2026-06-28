@@ -2279,6 +2279,7 @@
     maxIntensity: 1.5
     canCreateVacuum: false
     repeatable: true
+  - type: ExplosionEffect # Funky RMC Explosions
 
 - type: entity
   id: XenoArtifactBoom
@@ -2288,11 +2289,12 @@
   - type: XAETriggerExplosives
   - type: Explosive
     deleteAfterExplosion: false
-    explosionType: Default
+    explosionType: Transparent # Funky RMC Explosions
     totalIntensity: 500
     intensitySlope: 2.5
     maxIntensity: 50
     repeatable: true
+  - type: ExplosionEffect # Funky RMC Explosions
 
 - type: entity
   id: XenoArtifactEffectCreationGasPlasma

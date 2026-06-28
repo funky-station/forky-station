@@ -49,6 +49,7 @@
     explosionType: Minibomb # Mostly a pressure wave explosive so primarily blunt damage
     maxIntensity: 20
     tileBreakScale: 0.2
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: MeleeWeapon
     wideAnimationRotation: 45
     attackRate: 0.8
