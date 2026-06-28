@@ -205,7 +205,7 @@
   parent: ClothingHandsGlovesSyntheticBase
   id: ClothingHandsGlovesColorLightBrown
   name: light brown gloves
-  description: _Funkystation/Clothing/Hands/color.rsi
+  description: Regular light brown gloves that do not keep you from frying.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
@@ -234,7 +234,7 @@
   parent: ClothingHandsGlovesSyntheticBase
   id: ClothingHandsGlovesColorOrange
   name: orange gloves
-  description: _Funkystation/Clothing/Hands/color.rsi
+  description: Regular orange gloves that do not keep you from frying.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/Color/color.rsi
