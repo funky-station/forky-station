@@ -1,20 +1,5 @@
-// SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 L.E.D <10257081+unusualcrow@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
+using Content.IntegrationTests.Fixtures;
 using Content.Server.Storage.EntitySystems;
 using Robust.Client.GameObjects;
 using Robust.Shared.GameObjects;
@@ -23,7 +8,7 @@ using Robust.Shared.Maths;
 
 namespace Content.IntegrationTests.Tests
 {
-    public sealed class ContainerOcclusionTest
+    public sealed class ContainerOcclusionTest : GameTest
     {
         [TestPrototypes]
         private const string Prototypes = @"
@@ -50,7 +35,7 @@ namespace Content.IntegrationTests.Tests
         [Test]
         public async Task TestA()
         {
-            await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true });
+            var pair = Pair;
             var server = pair.Server;
             var client = pair.Client;
 
@@ -85,14 +70,12 @@ namespace Content.IntegrationTests.Tests
                     Assert.That(light.ContainerOccluded);
                 });
             });
-
-            await pair.CleanReturnAsync();
         }
 
         [Test]
         public async Task TestB()
         {
-            await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true });
+            var pair = Pair;
             var server = pair.Server;
             var client = pair.Client;
 
@@ -128,14 +111,12 @@ namespace Content.IntegrationTests.Tests
                     Assert.That(light.ContainerOccluded, Is.False);
                 });
             });
-
-            await pair.CleanReturnAsync();
         }
 
         [Test]
         public async Task TestAb()
         {
-            await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true });
+            var pair = Pair;
             var server = pair.Server;
             var client = pair.Client;
 
@@ -173,8 +154,6 @@ namespace Content.IntegrationTests.Tests
                     Assert.That(light.ContainerOccluded);
                 });
             });
-
-            await pair.CleanReturnAsync();
         }
     }
 }

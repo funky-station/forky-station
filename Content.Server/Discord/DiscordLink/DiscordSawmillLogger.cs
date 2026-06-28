@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using NetCord.Logging;
 using NLogLevel = NetCord.Logging.LogLevel;
 using LogLevel = Robust.Shared.Log.LogLevel;

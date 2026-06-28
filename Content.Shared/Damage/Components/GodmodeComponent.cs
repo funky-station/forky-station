@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Damage.Systems;
 using Robust.Shared.GameStates;
 
@@ -12,7 +8,4 @@ public sealed partial class GodmodeComponent : Component
 {
     [DataField("wasMovedByPressure")]
     public bool WasMovedByPressure;
-
-    [DataField("oldDamage")]
-    public DamageSpecifier? OldDamage = null;
 }

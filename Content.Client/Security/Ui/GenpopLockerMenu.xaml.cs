@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Message;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Access.Components;
@@ -16,7 +12,7 @@ namespace Content.Client.Security.Ui;
 [GenerateTypedNameReferences]
 public sealed partial class GenpopLockerMenu : FancyWindow
 {
-    [Dependency] private readonly IConfigurationManager _cfgManager = default!;
+    [Dependency] private IConfigurationManager _cfgManager = default!;
 
     public event Action<string, float, string>? OnConfigurationComplete;
 

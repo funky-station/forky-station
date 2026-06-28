@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
@@ -18,7 +13,8 @@ public sealed partial class ReagentEntityConditionSystem : EntityConditionSystem
 {
     protected override void Condition(Entity<SolutionComponent> entity, ref EntityConditionEvent<ReagentCondition> args)
     {
-        var quant = entity.Comp.Solution.GetTotalPrototypeQuantity(args.Condition.Reagent);
+        var soln = entity.Comp.Solution;
+        var quant = soln.GetTotalPrototypeQuantity(args.Condition.Reagent);
 
         args.Result = quant >= args.Condition.Min && quant <= args.Condition.Max;
     }

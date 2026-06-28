@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2026 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration;
 using Content.Server.Chat.Managers;
 using Content.Server.Popups;
@@ -16,7 +13,7 @@ using Robust.Shared.Toolshed;
 namespace Content.Server.Toolshed.Commands.Misc;
 
 [ToolshedCommand, AdminCommand(AdminFlags.Fun)]
-public sealed class MsgCommand : ToolshedCommand
+public sealed partial class MsgCommand : ToolshedCommand
 {
     [Dependency] private IChatManager _chatManager = default!;
 
@@ -53,6 +50,16 @@ public sealed class MsgCommand : ToolshedCommand
         }
     }
 
+    [CommandImplementation("chat")]
+    public IEnumerable<ICommonSession> Chat([PipedArgument] IEnumerable<ICommonSession> targets, string message)
+    {
+        foreach (var session in targets)
+        {
+            _chatManager.ChatMessageToOne(ChatChannel.Local, message, message, EntityUid.Invalid, false, session.Channel);
+            yield return session;
+        }
+    }
+
     [CommandImplementation("popup")]
     public IEnumerable<EntityUid> Popup([PipedArgument] IEnumerable<EntityUid> targets, string popup, PopupType type, bool recipientOnly)
     {
@@ -81,6 +88,19 @@ public sealed class MsgCommand : ToolshedCommand
             _tips.SendTippy(actor.PlayerSession, message, prototype, speakTime, slideTime, waddleInterval);
 
             yield return ent;
+        }
+    }
+
+    [CommandImplementation("tippy")]
+    public IEnumerable<ICommonSession> Tippy([PipedArgument] IEnumerable<ICommonSession> targets, string message, EntProtoId prototype, float speakTime, float slideTime, float waddleInterval)
+    {
+        _tips ??= GetSys<TipsSystem>();
+
+        foreach (var session in targets)
+        {
+            _tips.SendTippy(session, message, prototype, speakTime, slideTime, waddleInterval);
+
+            yield return session;
         }
     }
 }

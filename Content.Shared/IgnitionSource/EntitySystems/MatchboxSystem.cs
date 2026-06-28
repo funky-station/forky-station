@@ -1,15 +1,12 @@
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.IgnitionSource.Components;
 
 namespace Content.Shared.IgnitionSource.EntitySystems;
 
-public sealed class MatchboxSystem : EntitySystem
+public sealed partial class MatchboxSystem : EntitySystem
 {
-    [Dependency] private readonly MatchstickSystem _match = default!;
+    [Dependency] private MatchstickSystem _match = default!;
 
     public override void Initialize()
     {

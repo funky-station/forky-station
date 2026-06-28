@@ -1,16 +1,3 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Magnus Larsen <i.am.larsenml@gmail.com>
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 IgorAnt028 <118114530+IgorAnt028@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Whatstone <166147148+whatston3@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.Atmos.Piping.EntitySystems;
 using Content.Server.Charges;
@@ -37,14 +24,14 @@ namespace Content.Server.SprayPainter;
 /// Handles spraying pipes and decals using a spray painter.
 /// Other paintable objects are handled in shared.
 /// </summary>
-public sealed class SprayPainterSystem : SharedSprayPainterSystem
+public sealed partial class SprayPainterSystem : SharedSprayPainterSystem
 {
-    [Dependency] private readonly AtmosPipeColorSystem _pipeColor = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly DecalSystem _decals = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly ChargesSystem _charges = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private AtmosPipeColorSystem _pipeColor = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private DecalSystem _decals = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private ChargesSystem _charges = default!;
+    [Dependency] private TransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -123,7 +110,7 @@ public sealed class SprayPainterSystem : SharedSprayPainterSystem
 
         _charges.TryUseCharges((ent, charges), ent.Comp.DecalChargeCost);
 
-        AdminLogger.Add(LogType.CrayonDraw, LogImpact.Low, $"{EntityManager.ToPrettyString(args.User):user} painted a {ent.Comp.SelectedDecal}");
+        AdminLogger.Add(LogType.CrayonDraw, LogImpact.Low, $"{ToPrettyString(args.User):user} painted a {ent.Comp.SelectedDecal}");
     }
 
     /// <summary>

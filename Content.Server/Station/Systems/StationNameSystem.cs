@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Station.Components;
 using Content.Shared.Station.Components;
 
@@ -10,9 +6,9 @@ namespace Content.Server.Station.Systems;
 /// <summary>
 /// This handles naming stations.
 /// </summary>
-public sealed class StationNameSystem : EntitySystem
+public sealed partial class StationNameSystem : EntitySystem
 {
-    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private StationSystem _station = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

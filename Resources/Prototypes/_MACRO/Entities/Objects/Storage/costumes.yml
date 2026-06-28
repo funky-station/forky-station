@@ -1,0 +1,399 @@
+# === COSTUME BUNDLES ===
+# Used to group together multi-part outfits into a single storage item. Think, like, Spirit Halloween costumes.
+# Convenient for vending machines, crate orders, loadouts, admeme spawning, et cetera.
+#
+# == TO MAKE A NEW COSTUME BUNDLE: ==
+# Make an entity that inherits from `BaseCostumeBundle`. Ideally, the ID of this entity should
+# be along the lines of "CostumeBundle[CostumeName]". Check CostumeBundleCardborg for a simple example.
+# Make sure to change the `name`` field to "[costume] costume bundle"!
+#
+# The sprite has four layers:
+# - outfit: This is the clothing "inside" the bundle. I recommend color-picking from the most significant
+#     accessory in the bundle itself, such as an inner/outer clothing layer (if there is one).
+# - wrapper-fill: Translucent plastic wrap. Always `#ffffff22`.
+# - wrapper: Outline of the plastic wrap. Don't touch the color of this one.
+# - label: The outer label part of the sprite. This is often `#dd6b17` as a fallback, especially for
+#     "generic" costumes, but this can be anything, like an accent color. It doesn't really matter.
+#
+# Then, modify the EntityTableContainerFill component to contain the parts of your costume.
+#
+# Note that costume bundles have a whitelist: entities with the Clothing component, and entities with the
+# CostumeItem tag. If you're inserting prop items, make sure to add the CostumeItem tag if it's not wearable
+# - for example, the pirate's foam cutlass, or the shrine maiden's gohei.
+# =======================
+
+- type: entity
+  abstract: true
+  parent: [BaseStorageItem, BaseBagOpenClose]
+  id: BaseCostumeBundle
+  name: costume bundle
+  description: A bag containing assorted costume parts.
+  components:
+  - type: Sprite
+    sprite: _MACRO/Objects/Storage/costume_bundle.rsi
+    layers:
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
+      color: "#ffffff"
+    - state: wrapper-fill
+      color: "#ffffff22"
+    - state: wrapper
+    - state: label
+      color: "#dd6b17"
+  - type: Icon
+    sprite: _MACRO/Objects/Storage/costume_bundle.rsi
+    state: icon
+  - type: Item
+    size: Large
+    storedRotation: 90
+    heldPrefix: empty
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,5,3
+    whitelist:
+      tags:
+      - CostumeItem
+      components:
+      - Clothing
+  - type: StorageFillVisualizer
+    maxFillLevels: 3
+    fillBaseName: outfit
+  - type: Appearance
+  - type: StaticPrice
+    price: 10
+
+- type: entity
+  parent: BaseCostumeBundle
+  id: EmptyCostumeBundle
+  suffix: Empty
+  description: A bag for storing assorted costume parts.
+  components:
+  - type: Sprite
+    sprite: _MACRO/Objects/Storage/costume_bundle.rsi
+    layers:
+    - state: outfit-0 # starts with nothing
+      map: [ "enum.StorageFillLayers.Fill" ]
+      color: "#ffffff"
+    - state: wrapper-fill
+      color: "#ffffff22"
+    - state: wrapper
+    - state: label
+      color: "#dd6b17"
+
+- type: entity
+  parent: BaseCostumeBundle
+  id: CostumeBundleCardborg
+  name: cardborg costume bundle
+  components:
+  - type: Sprite
+    layers:
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
+      color: "#70736c"
+    - state: wrapper-fill
+      color: "#ffffff22"
+    - state: wrapper
+    - state: label
+      color: "#dd6b17"
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatCardborg
+        - id: ClothingOuterCardborg
+
+- type: entity
+  parent: BaseCostumeBundle
+  id: CostumeBundleChicken
+  name: chicken costume bundle
+  components:
+  - type: Sprite
+    layers:
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
+      color: "#ffc800"
+    - state: wrapper-fill
+      color: "#ffffff22"
+    - state: wrapper
+    - state: label
+      color: "#dd6b17"
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatChickenhead
+        - id: ClothingOuterSuitChicken
+
+- type: entity
+  parent: BaseCostumeBundle
+  id: CostumeBundleGladiator
+  name: gladiator costume bundle
+  components:
+  - type: Sprite
+    layers:
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
+      color: "#e1b73d"
+    - state: wrapper-fill
+      color: "#ffffff22"
+    - state: wrapper
+    - state: label
+      color: "#dd6b17"
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatGladiator
+        - id: ClothingUniformJumpsuitGladiator
+
+- type: entity
+  parent: BaseCostumeBundle
+  id: CostumeBundleJudge
+  name: judge costume bundle
+  components:
+  - type: Sprite
+    layers:
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
+      color: "#2e2e2e"
+    - state: wrapper-fill
+      color: "#ffffff22"
+    - state: wrapper
+    - state: label
+      color: "#dd6b17"
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatPwig
+        - id: ClothingOuterRobesJudge
+
+- type: entity
+  parent: BaseCostumeBundle
+  id: CostumeBundleMonkey
+  name: monkey costume bundle
+  components:
+  - type: Sprite
+    layers:
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
+      color: "#914800"
+    - state: wrapper-fill
+      color: "#ffffff22"
+    - state: wrapper
+    - state: label
+      color: "#dd6b17"
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatAnimalMonkey
+        - id: ClothingOuterSuitMonkey
+
+- type: entity
+  parent: BaseCostumeBundle
+  id: CostumeBundlePirate
+  name: pirate costume bundle
+  components:
+  - type: Sprite
+    layers:
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
+      color: "#dfe1de"
+    - state: wrapper-fill
+      color: "#ffffff22"
+    - state: wrapper
+    - state: label
+      color: "#dd6b17"
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatPirate
+        - id: ClothingHeadBandRed
+        - id: ClothingEyesEyepatch
+        - id: ClothingUniformJumpsuitPirate
+        - id: ClothingOuterCoatPirate
+        - id: ClothingShoesBootsLaceup
+        - id: FoamCutlass
+
+- type: entity
+  parent: BaseCostumeBundle
+  id: CostumeBundlePerformer
+  name: performer costume bundle
+  components:
+  - type: Sprite
+    layers:
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
+      color: "#474f63"
+    - state: wrapper-fill
+      color: "#ffffff22"
+    - state: wrapper
+    - state: label
+      color: "#70cac4"
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingUniformJumpskirtPerformer
+        - id: ClothingShoesBootsPerformer
+        - id: FoodMealMemoryleek
+
+- type: entity
+  parent: BaseCostumeBundle
+  id: CostumeBundleRedRaccoon
+  name: red raccoon costume bundle
+  components:
+  - type: Sprite
+    layers:
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
+      color: "#e48a1b"
+    - state: wrapper-fill
+      color: "#ffffff22"
+    - state: wrapper
+    - state: label
+      color: "#dd6b17"
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatRedRacoon
+        - id: ClothingOuterRedRacoon
+
+- type: entity
+  parent: BaseCostumeBundle
+  id: CostumeBundleSafari
+  name: safari costume bundle
+  components:
+  - type: Sprite
+    layers:
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
+      color: "#d3bf86"
+    - state: wrapper-fill
+      color: "#ffffff22"
+    - state: wrapper
+    - state: label
+      color: "#dd6b17"
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadSafari
+        - id: ClothingUniformJumpsuitSafari
+
+- type: entity
+  parent: BaseCostumeBundle
+  id: CostumeBundleSanta
+  name: santa costume bundle
+  components:
+  - type: Sprite
+    layers:
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
+      color: "#d73827"
+    - state: wrapper-fill
+      color: "#ffffff22"
+    - state: wrapper
+    - state: label
+      color: "#f2c735"
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatSantahat
+        - id: ClothingOuterSanta
+
+- type: entity
+  parent: BaseCostumeBundle
+  id: CostumeBundleShrineMaiden
+  name: shrine maiden costume bundle
+  components:
+  - type: Sprite
+    layers:
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
+      color: "#ff1f24"
+    - state: wrapper-fill
+      color: "#ffffff22"
+    - state: wrapper
+    - state: label
+      color: "#dd6b17"
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatShrineMaidenWig
+        - id: ClothingOuterSuitShrineMaiden
+        - id: Gohei
+
+- type: entity
+  parent: BaseCostumeBundle
+  id: CostumeBundleSkub
+  name: skub costume bundle
+  components:
+  - type: Sprite
+    layers:
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
+      color: "#fcd4d4"
+    - state: wrapper-fill
+      color: "#ffffff22"
+    - state: wrapper
+    - state: label
+      color: "#dd6b17"
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatSkub
+        - id: ClothingOuterSkub
+
+- type: entity
+  parent: BaseCostumeBundle
+  id: CostumeBundleWitch
+  name: witch costume bundle
+  components:
+  - type: Sprite
+    layers:
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
+      color: "#1b1b1b"
+    - state: wrapper-fill
+      color: "#ffffff22"
+    - state: wrapper
+    - state: label
+      color: "#dd6b17"
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatWitch1
+        - id: ClothingHeadHatWitch
+        - id: ClothingOuterSuitWitchRobes
+
+- type: entity
+  parent: BaseCostumeBundle
+  id: CostumeBundleYakuza
+  name: yakuza costume bundle
+  components:
+  - type: Sprite
+    layers:
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
+      color: "#ae2354"
+    - state: wrapper-fill
+      color: "#ffffff22"
+    - state: wrapper
+    - state: label
+      color: "#dd6b17"
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingUniformJumpsuitDameDane
+        - id: ClothingOuterDameDane
+        - id: ClothingShoesDameDane

@@ -1,35 +1,7 @@
-# SPDX-FileCopyrightText: 2020-2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2021 Silver <silvertorch5@gmail.com>
-# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-# SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
-# SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Alekshhh <44923899+Alekshhh@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-# SPDX-FileCopyrightText: 2024 Magnus Larsen <i.am.larsenml@gmail.com>
-# SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Debug <49997488+DebugOk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 JohnJohn <189290423+JohnJJohn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
-  id: CableStack
   abstract: true
-  parent: BaseItem
+  parent: [SolutionCompositeSmallStackable, BaseItem]
+  id: CableStack
   name: cable stack
   suffix: Full
   components:
@@ -40,6 +12,7 @@
     stackType: Cable
   - type: Sprite
     sprite: Objects/Tools/cable-coils.rsi
+  - type: Appearance
   - type: Item
     sprite: Objects/Tools/cable-coils.rsi
     size: Small
@@ -58,8 +31,11 @@
     - VoltageNetworks
     - Power
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
+  - type: Extractable
+    grindableSolutionName: composite
   - type: Destructible
     thresholds:
     - trigger:
@@ -93,19 +69,15 @@
   - type: CablePlacer
     cablePrototypeID: CableHV
     blockingWireType: HighVoltage
-  - type: Appearance
-  - type: Extractable
-    grindableSolutionName: hvcable
-  - type: SolutionContainerManager
-    solutions:
-      hvcable:
-        reagents:
-        - ReagentId: Iron
-          Quantity: 3
-        - ReagentId: Copper
-          Quantity: 2
-        - ReagentId: Carbon #steel-reinforced
-          Quantity: 1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Iron
+        Quantity: 2.5
+      - ReagentId: Copper
+        Quantity: 2
+      - ReagentId: Carbon #steel-reinforced
+        Quantity: 0.5
 
 - type: entity
   parent: CableHVStack
@@ -128,7 +100,7 @@
     count: 1
 
 - type: entity
-  parent: CableStack
+  parent: [SolutionCompositeCable, CableStack]
   id: CableMVStack
   name: MV cable coil
   suffix: Full
@@ -147,21 +119,23 @@
     - state: coilmv-30
       map: ["base"]
   - type: Item
-    heldPrefix: coilmv
+    heldPrefix: composite
   - type: CablePlacer
     cablePrototypeID: CableMV
     blockingWireType: MediumVoltage
-  - type: Appearance
-  - type: Extractable
-    grindableSolutionName: mvcable
-  - type: SolutionContainerManager
-    solutions:
-      mvcable:
-        reagents:
-        - ReagentId: Iron
-          Quantity: 3
-        - ReagentId: Copper
-          Quantity: 2
+
+- type: entity
+  abstract: true
+  parent: SolutionCompositeSmallStackable
+  id: SolutionCompositeCable
+  components:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Iron
+        Quantity: 3
+      - ReagentId: Copper
+        Quantity: 2
 
 - type: entity
   parent: CableMVStack
@@ -184,7 +158,7 @@
     count: 1
 
 - type: entity
-  parent: CableStack
+  parent: [SolutionCompositeCable, CableStack]
   id: CableApcStack
   name: LV cable coil
   description: Low-Voltage stack of wires for connecting APCs to machines and other purposes.
@@ -206,17 +180,6 @@
   - type: CablePlacer
     cablePrototypeID: CableApcExtension
     blockingWireType: Apc
-  - type: Appearance
-  - type: Extractable
-    grindableSolutionName: lvcable
-  - type: SolutionContainerManager
-    solutions:
-      lvcable:
-        reagents:
-        - ReagentId: Iron
-          Quantity: 3
-        - ReagentId: Copper
-          Quantity: 2
 
 - type: entity
   parent: CableApcStack

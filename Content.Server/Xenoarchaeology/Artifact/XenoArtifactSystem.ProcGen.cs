@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Whitelist;
@@ -12,7 +9,7 @@ namespace Content.Server.Xenoarchaeology.Artifact;
 
 public sealed partial class XenoArtifactSystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
+    [Dependency] private EntityWhitelistSystem _entityWhitelist = default!;
 
     private void GenerateArtifactStructure(Entity<XenoArtifactComponent> ent)
     {

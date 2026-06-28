@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 kin98 <51699101+kin98@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Jajsha <101492056+Zap527@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.FixedPoint;
@@ -77,7 +71,8 @@ public abstract partial class SharedPuddleSystem
             if (puddleSolution.Volume == FixedPoint2.Zero)
             {
                 // Spawn a *sparkle*
-                SpawnAttachedTo(evaporation.EvaporationEffect, Transform(uid).Coordinates);
+                if (_net.IsServer) // TODO: Change this once we have entity spawn prediction V2
+                    SpawnAttachedTo(evaporation.EvaporationEffect, Transform(uid).Coordinates);
                 PredictedQueueDel(uid);
             }
 

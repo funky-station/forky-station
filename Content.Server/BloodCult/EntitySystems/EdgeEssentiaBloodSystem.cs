@@ -21,13 +21,13 @@ namespace Content.Server.BloodCult.EntitySystems;
 /// System that manages restoring original blood types after Edge Essentia wears off
 /// and tracks Unholy Blood being bled out for the ritual pool.
 /// </summary>
-public sealed class EdgeEssentiaBloodSystem : EntitySystem
+public sealed partial class EdgeEssentiaBloodSystem : EntitySystem
 {
-	[Dependency] private readonly IGameTiming _timing = default!;
-	[Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-	[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
-	[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
-	[Dependency] private readonly GameTicker _gameTicker = default!;
+	[Dependency] private IGameTiming _timing = default!;
+	[Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+	[Dependency] private BloodstreamSystem _bloodstream = default!;
+	[Dependency] private BloodCultRuleSystem _bloodCultRule = default!;
+	[Dependency] private GameTicker _gameTicker = default!;
 
 	private TimeSpan _nextUpdate = TimeSpan.Zero;
 	private bool _bloodCultRuleActive = false;
@@ -44,7 +44,7 @@ public sealed class EdgeEssentiaBloodSystem : EntitySystem
 
 		// Check all entities with EdgeEssentiaBloodComponent
 		var query = EntityQueryEnumerator<EdgeEssentiaBloodComponent, BloodstreamComponent>();
-		
+
 		// Early exit if no entities need processing (zero-cost when no cultists are active)
 		if (!query.MoveNext(out var uid, out var edgeEssentia, out var bloodstream))
 			return;
@@ -123,20 +123,20 @@ public sealed class EdgeEssentiaBloodSystem : EntitySystem
 		// BleedAmount represents units of blood lost per second
 		// Only 1/4th of the bleed rate contributes to the ritual pool, since the bleed amount is much higher than the quantity of blood someone has
 		var bloodLostThisTick = (double)(bloodstream.BleedAmount * 0.25f);
-			
+
 		// Enforce the per-entity cap. Mechanically making there no benefit to capturing people for bleeding.
 		var remainingCapacity = Math.Max(0.0, tracker.MaxBloodPerEntity - tracker.TotalBloodCollected);
 		var bloodToAdd = Math.Min(bloodLostThisTick, remainingCapacity);
-		
+
 		// Hard cap: never exceed the maximum
 		if (bloodToAdd > 0 && tracker.TotalBloodCollected < tracker.MaxBloodPerEntity)
 		{
 			// Ensure we don't go over the cap even with floating point errors
 			bloodToAdd = Math.Min(bloodToAdd, tracker.MaxBloodPerEntity - tracker.TotalBloodCollected);
-			
+
 			// Add to the ritual pool
 			_bloodCultRule.AddBloodForConversion(bloodToAdd);
-			
+
 			// Update the tracker and clamp to max
 			tracker.TotalBloodCollected = (float)Math.Min(tracker.TotalBloodCollected + bloodToAdd, tracker.MaxBloodPerEntity);
 			Dirty(uid, tracker);

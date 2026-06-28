@@ -1,12 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Lillian Industries <47704287+luegamer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Tiniest Shark <head.rebel@yahoo.com>
-# SPDX-FileCopyrightText: 2025 Nyxilath <colton.malone@gmail.com>
-# SPDX-FileCopyrightText: 2025 Thinbug <101073555+Thinbug0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Hanz <41141796+Hanzdegloker@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 saga3152 <133799418+saga3152@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: latheRecipePack
   id: ServiceStatic
   recipes:
@@ -55,6 +46,7 @@
   - WeaponSprayNozzle
   - ClothingBackpackWaterTank
   - MegaSprayBottle
+  - WashingMachineCircuitboard
 
 - type: latheRecipePack
   id: Instruments

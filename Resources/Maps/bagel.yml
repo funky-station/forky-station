@@ -1,53 +1,3 @@
-# SPDX-FileCopyrightText: 2021-2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021-2022 TaralGit <76408146+TaralGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 TimrodDX <timrod@gmail.com>
-# SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 buletsponge <96000213+buletsponge@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2025 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022, 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-# SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Morbo <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023-2025 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2023 daerSeebaer <61566539+daerSeebaer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 not-gavnaed <114421346+not-gavnaed@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2023 Jackrost <jackrost@mail.ru>
-# SPDX-FileCopyrightText: 2024-2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024-2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024-2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Dylan Hunter Whittingham <45404433+DylanWhittingham@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 dylanstrategie <188926747+dylanstrategie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 joshepvodka <86210200+joshepvodka@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ToastEnjoyer <masondoesgamingyes@gmail.com>
-# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Crude Oil <124208219+CroilBird@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 War Pigeon <54217755+minus1over12@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Spanky <scott@wearejacob.com>
-# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
-# SPDX-License-Identifier: MIT
-
 meta:
   format: 7
   category: Map
@@ -101964,25 +101914,21 @@ entities:
   - uid: 336
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -14.5,-2.5
       parent: 60
   - uid: 342
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -14.5,-3.5
       parent: 60
   - uid: 352
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -14.5,-1.5
       parent: 60
   - uid: 356
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -14.5,-0.5
       parent: 60
   - uid: 369
@@ -102068,7 +102014,6 @@ entities:
   - uid: 549
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -16.5,-21.5
       parent: 60
   - uid: 571
@@ -102114,7 +102059,6 @@ entities:
   - uid: 766
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -7.5,-12.5
       parent: 60
   - uid: 784
@@ -102160,7 +102104,6 @@ entities:
   - uid: 1145
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -15.5,-21.5
       parent: 60
   - uid: 1184
@@ -102216,7 +102159,6 @@ entities:
   - uid: 1293
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -7.5,-13.5
       parent: 60
   - uid: 1330
@@ -102312,7 +102254,6 @@ entities:
   - uid: 1901
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -7.5,-14.5
       parent: 60
   - uid: 1911
@@ -102323,13 +102264,11 @@ entities:
   - uid: 1919
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -11.5,-10.5
       parent: 60
   - uid: 1925
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -11.5,-9.5
       parent: 60
   - uid: 1984
@@ -102350,7 +102289,6 @@ entities:
   - uid: 2115
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -25.5,-15.5
       parent: 60
   - uid: 2135
@@ -102541,7 +102479,6 @@ entities:
   - uid: 3072
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -25.5,-19.5
       parent: 60
   - uid: 3079
@@ -102897,7 +102834,6 @@ entities:
   - uid: 4017
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -28.5,-21.5
       parent: 60
   - uid: 4038
@@ -102963,7 +102899,6 @@ entities:
   - uid: 4147
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -27.5,-21.5
       parent: 60
   - uid: 4295
@@ -104259,13 +104194,11 @@ entities:
   - uid: 8231
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -25.5,-12.5
       parent: 60
   - uid: 8232
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -29.5,-12.5
       parent: 60
   - uid: 8262
@@ -105201,7 +105134,6 @@ entities:
   - uid: 13478
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -5.5,-16.5
       parent: 60
   - uid: 13484
@@ -105217,7 +105149,6 @@ entities:
   - uid: 13567
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -5.5,-17.5
       parent: 60
   - uid: 13572
@@ -105233,7 +105164,6 @@ entities:
   - uid: 13676
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -21.5,-17.5
       parent: 60
   - uid: 13680
@@ -105524,7 +105454,6 @@ entities:
   - uid: 14863
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -22.5,47.5
       parent: 60
   - uid: 14864
@@ -105700,7 +105629,6 @@ entities:
   - uid: 15023
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -10.5,47.5
       parent: 60
   - uid: 15024
@@ -105756,7 +105684,6 @@ entities:
   - uid: 15173
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -18.5,51.5
       parent: 60
   - uid: 15181
@@ -105792,79 +105719,66 @@ entities:
   - uid: 15353
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -11.5,47.5
       parent: 60
   - uid: 15359
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -13.5,47.5
       parent: 60
   - uid: 15365
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -22.5,52.5
       parent: 60
   - uid: 15369
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -19.5,50.5
       parent: 60
   - uid: 15393
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -19.5,54.5
       parent: 60
   - uid: 15394
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -22.5,53.5
       parent: 60
   - uid: 15407
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -20.5,50.5
       parent: 60
   - uid: 15426
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -18.5,53.5
       parent: 60
   - uid: 15428
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -21.5,54.5
       parent: 60
   - uid: 15434
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -22.5,51.5
       parent: 60
   - uid: 15485
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -20.5,54.5
       parent: 60
   - uid: 15486
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -12.5,47.5
       parent: 60
   - uid: 15488
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -21.5,50.5
       parent: 60
   - uid: 15492
@@ -105980,7 +105894,6 @@ entities:
   - uid: 16002
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -20.5,47.5
       parent: 60
   - uid: 16006
@@ -106061,7 +105974,6 @@ entities:
   - uid: 16145
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -21.5,47.5
       parent: 60
   - uid: 16173
@@ -106227,7 +106139,6 @@ entities:
   - uid: 16958
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -23.5,55.5
       parent: 60
   - uid: 16972
@@ -106258,7 +106169,6 @@ entities:
   - uid: 16981
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -19.5,47.5
       parent: 60
   - uid: 17034

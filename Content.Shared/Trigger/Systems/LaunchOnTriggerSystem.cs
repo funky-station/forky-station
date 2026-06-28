@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Shared.Trigger.Components.Effects;
 using Robust.Shared.Physics.Components;
@@ -9,10 +5,10 @@ using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared.Trigger.Systems;
 
-public sealed class LaunchOnTriggerSystem : XOnTriggerSystem<LaunchOnTriggerComponent>
+public sealed partial class LaunchOnTriggerSystem : XOnTriggerSystem<LaunchOnTriggerComponent>
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
 
     protected override void OnTrigger(Entity<LaunchOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
     {

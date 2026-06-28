@@ -1,15 +1,12 @@
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
 
 namespace Content.Shared.Clock;
 
-public abstract class SharedClockSystem : EntitySystem
+public abstract partial class SharedClockSystem : EntitySystem
 {
-    [Dependency] private readonly SharedGameTicker _ticker = default!;
+    [Dependency] private SharedGameTicker _ticker = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

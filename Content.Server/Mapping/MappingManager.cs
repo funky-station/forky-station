@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.IO;
 using Content.Server.Administration.Managers;
 using Content.Shared.Administration;
@@ -17,17 +12,19 @@ using YamlDotNet.RepresentationModel;
 
 namespace Content.Server.Mapping;
 
-public sealed class MappingManager : IPostInjectInit
+public sealed partial class MappingManager : IPostInjectInit
 {
-    [Dependency] private readonly IAdminManager _admin = default!;
-    [Dependency] private readonly ILogManager _log = default!;
-    [Dependency] private readonly IServerNetManager _net = default!;
-    [Dependency] private readonly IPlayerManager _players = default!;
-    [Dependency] private readonly IEntitySystemManager _systems = default!;
-    [Dependency] private readonly IEntityManager _ent = default!;
+#if !FULL_RELEASE
+    [Dependency] private IAdminManager _admin = default!;
+    [Dependency] private ILogManager _log = default!;
+    [Dependency] private IServerNetManager _net = default!;
+    [Dependency] private IPlayerManager _players = default!;
+    [Dependency] private IEntitySystemManager _systems = default!;
+    [Dependency] private IEntityManager _ent = default!;
 
     private ISawmill _sawmill = default!;
     private ZStdCompressionContext _zstd = default!;
+#endif
 
     public void PostInject()
     {

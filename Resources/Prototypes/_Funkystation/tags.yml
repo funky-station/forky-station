@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: Tag # Funky atmos - metal hydrogen
   id: AtmosFireSuit
 
@@ -12,3 +9,12 @@
 
 - type: Tag # Funky atmos - /tg/ gases
   id: PlasmaSheet
+
+- type: Tag # Funky Wall Stains
+  id: DirectionalWindow
+  
+- type: Tag # Funky - Making plastic lighters whitelisted for cig packs
+  id: PlasticLighter
+
+- type: Tag # Funky - Rag fits in janibelt
+  id: Rag

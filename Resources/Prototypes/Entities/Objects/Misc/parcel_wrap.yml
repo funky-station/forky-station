@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Hitlinemoss <209321380+Hitlinemoss@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Worldwaker <4742854+Worldwaker@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: BaseItem
   id: ParcelWrap
@@ -52,8 +45,6 @@
   abstract: true
   parent: BasePaperLabelable # We use this instead of BasePaperLabelableVisualized because WrappedParcel needs its own GenericVisualizer component for the parcel itself, and WrappedParcelHumanoid currently doesn't have label sprites at all
   id: BaseWrappedParcel
-  name: wrapped parcel
-  description: Something wrapped up in paper. I wonder what's inside...
   components:
   - type: Physics
     bodyType: Dynamic
@@ -73,6 +64,7 @@
         volume: -4
     unwrapTrash: ParcelWrapTrash
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
@@ -106,6 +98,8 @@
 - type: entity
   parent: [ BaseItem, BaseWrappedParcel ]
   id: WrappedParcel
+  name: wrapped parcel
+  description: Something wrapped up in paper. I wonder what's inside...
   components:
   - type: Appearance
   - type: GenericVisualizer
@@ -141,6 +135,7 @@
 - type: entity
   parent: BaseWrappedParcel
   id: WrappedParcelHumanoid
+  name: wrapped parcel
   description: Something wrapped up in paper. It's suspiciously human-shaped.
   components:
   - type: Physics

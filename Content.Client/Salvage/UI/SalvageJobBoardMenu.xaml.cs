@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Message;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Salvage.JobBoard;
@@ -13,8 +10,8 @@ namespace Content.Client.Salvage.UI;
 [GenerateTypedNameReferences]
 public sealed partial class SalvageJobBoardMenu : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     public Action<string>? OnLabelButtonPressed;
 

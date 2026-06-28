@@ -1,51 +1,3 @@
-# SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 CrudeWax <75271456+CrudeWax@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 Nim <128169402+Nimfar11@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 I.K <45953835+notquitehadouken@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nairod <110078045+Nairodian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 liltenhead <104418166+liltenhead@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 JimGamemaster <140008923+JimGamemaster@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk228 <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Alekshhh <44923899+Alekshhh@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-# SPDX-FileCopyrightText: 2023 Jackrost <jackrost@mail.ru>
-# SPDX-FileCopyrightText: 2024 Centronias <me@centronias.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Morb <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
-# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Nikovnik <116634167+nkokic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft <ignaz.k@live.de>
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 Alzore <140123969+Blackern5000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
-# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 osjarw <62134478+osjarw@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Zokkie <6126135+Zokkie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   name: basic
   id: MobSpaceBasic
@@ -122,7 +74,7 @@
 - type: entity
   name: space bear
   id: MobBearSpace
-  parent: MobSpaceBasic
+  parent: [MobSpaceBasic, BaseSlicingRefinable]
   description: It looks friendly. Why don't you give it a hug?
   components:
   - type: Sprite
@@ -143,8 +95,8 @@
         Base: bear_dead
       Dead:
         Base: bear_dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatBear
       amount: 3
     - id: MaterialHideBear
@@ -172,7 +124,7 @@
 - type: entity
   name: space kangaroo
   id: MobKangarooSpace
-  parent: [MobSpaceBasic, StripableInventoryBase]
+  parent: [MobSpaceBasic, StripableInventoryBase, BaseSlicingRefinable]
   description: It looks friendly. Why don't you give it a hug?
   components:
   - type: Sprite
@@ -215,8 +167,8 @@
       Unsexed: Kangaroo
   - type: ReplacementAccent
     accent: kangaroo
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeat
       amount: 1
   - type: MobThresholds
@@ -234,7 +186,7 @@
 - type: entity
   name: space spider
   id: MobSpiderSpace
-  parent: MobSpaceBasic
+  parent: [MobSpaceBasic, BaseSlicingRefinable]
   description: It's so glowing, it looks dangerous.
   components:
   - type: Sprite
@@ -259,8 +211,8 @@
         BaseUnshaded: glow
       Dead:
         Base: spacespider_dead
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatSpider
       amount: 2
     - id: EggSpider
@@ -291,12 +243,9 @@
       types:
         Piercing: 6
         Poison: 4
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      melee:
-        reagents:
-        - ReagentId: ChloralHydrate
-          Quantity: 80
+    - SolutionVenomSpiderSpace
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 4
@@ -325,6 +274,17 @@
     proto: spider
 
 - type: entity
+  parent: [SolutionWeapon, SolutionTiny]
+  id: SolutionVenomSpiderSpace
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: ChloralHydrate
+        Quantity: 30
+
+- type: entity
   id: MobSpiderSpaceSalvage
   parent: MobSpiderSpace
   suffix: "Salvage Ruleset"
@@ -334,7 +294,7 @@
 - type: entity
   name: space cobra
   id: MobCobraSpace
-  parent: MobSpaceBasic
+  parent: [MobSpaceBasic, BaseSlicingRefinable]
   description: Long fangs and a glowing hood, and the alluring look begs to come closer.
   components:
     - type: Sprite
@@ -362,15 +322,15 @@
           BaseUnshaded: glow
         Dead:
           Base: dead_spacecobra
-    - type: Butcherable
-      spawned:
-        - id: FoodMeatSnake
-          amount: 2
-        - id: UraniumOre1
-          amount: 1
-        - id: ClothingShoesSnakeskinBoots
-          amount: 1
-          prob: 0.3
+    - type: ToolRefinable
+      refineResult:
+      - id: FoodMeatSnake
+        amount: 2
+      - id: UraniumOre1
+        amount: 1
+      - id: ClothingShoesSnakeskinBoots
+        amount: 1
+        prob: 0.3
     - type: Bloodstream
       bloodReferenceSolution:
         reagents:
@@ -397,12 +357,9 @@
         types:
           Piercing: 6
           Poison: 4
-    - type: SolutionContainerManager
+    - type: SolutionManager
       solutions:
-        melee:
-          reagents:
-          - ReagentId: NorepinephricAcid
-            Quantity: 90
+      - SolutionVenomCobraSpace
     - type: MeleeChemicalInjector
       solution: melee
       transferAmount: 6
@@ -424,6 +381,17 @@
       movementVisibilityRate: 0.25
 
 - type: entity
+  parent: [SolutionWeapon, SolutionTiny]
+  id: SolutionVenomCobraSpace
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: NorepinephricAcid
+        Quantity: 30
+
+- type: entity
   id: MobCobraSpaceSalvage
   parent: MobCobraSpace
   suffix: "Salvage Ruleset"
@@ -431,9 +399,101 @@
     - type: SalvageMobRestrictions
 
 - type: entity
-  parent:
-  - SimpleSpaceMobBase
-  - BaseMobAnimal
+  parent: [ SimpleSpaceMobBase, FlyingMobBase, MobSheepBase ]
+  id: MobSheepSpace
+  name: space sheep
+  description: A sheep... in space!
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - state: space_sheep_bare
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+      visible: true
+      sprite: Mobs/Animals/sheep.rsi
+    - state: space_sheep_wool_glowmask
+      map: [ "wooly" ]
+      visible: true
+      sprite: Mobs/Animals/sheep.rsi
+  - type: GenericVisualizer
+    visuals:
+      enum.ShearableVisuals.Shearable:
+        wooly:
+          True: {visible: true}
+          False: {visible: false}
+      enum.MobStateVisuals.State:
+        wooly:
+          Alive: {state: space_sheep_wool_glowmask}
+          Dead: {state: space_sheep_wool_dead}
+          Critical: {state: space_sheep_wool_dead}
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.35
+        density: 150
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: Reproductive
+    partnerWhitelist:
+      tags:
+      - Sheep
+    offspring:
+    - id: MobSheep
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: space_sheep_harvested
+      Critical:
+        Base: space_sheep_dead
+      Dead:
+        Base: space_sheep_dead
+  - type: Shearable
+    targetSolutionName: wool
+    shearedProductId: MaterialDurathread1
+    solutionPerProduct: 10
+    toolQuality: Shearing
+    shearableMarkupText: space-sheep-shearable-examine-markup
+    unShearableMarkupText: space-sheep-not-shearable-examine-markup
+    # Caused problems (SAD), to be re-implemented when we get a real particle system.
+  # - type: ActiveJetpack # Pretty particles
+  #   effectCooldown: 4
+  #   maxDistance: 0.3
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0.6
+    baseSprintSpeed: 2.0
+  - type: PointLight # Glows a little bit to see better in deep space.
+    radius: 2.0
+    energy: 1.0
+    color: "#4795ff" # Light blue colour.
+  - type: InteractionPopup
+    successChance: 0.8 #SHEEP so FRIEND!!! HUG! SQUISHY! SOFT!
+    interactDelay: 1
+    interactSuccessString: petting-success-sheep
+    interactFailureString: petting-failure-sheep
+    interactSuccessSpawn: EffectHearts #🥰
+    interactSuccessSound:
+      collection: SheepSpace
+      params:
+        variation: 0.05
+  - type: MobPrice
+    price: 600
+  - type: Wooly
+    quantity: 10
+    growthDelay: 120 #2 minutes
+  - type: Speech
+    speechSounds: SheepSpace
+    speechVerb: Sheep
+  - type: Vocal
+    sounds:
+      Female: SheepSpace
+      Male: SheepSpace
+      Unsexed: SheepSpace
+
+- type: entity
+  parent: [SimpleSpaceMobBase, BaseMobAnimal, SolutionVermin]
   id: MobSnail
   name: snail
   description: Revolting unless you're french.
@@ -510,6 +570,15 @@
       Dead:
         Base: dead
   - type: Edible
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 8
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Water
+        Quantity: 4 #It makes saline if you add salt!
   - type: Thirst
     startingThirst: 25  # spawn with Okay thirst state
     thresholds:
@@ -529,16 +598,6 @@
     baseDecayRate: 0.1
   - type: Extractable
     grindableSolutionName: food
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 3
-  - type: Butcherable
-    spawned:
-    - id: FoodMeatSnail
-      amount: 1
   - type: Tag
     tags:
     - Trash

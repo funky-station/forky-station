@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 eoineoineoin <helloworld@eoinrul.es>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Resources;
 using Content.Client.Stylesheets.SheetletConfigs;
 using Content.Client.UserInterface.Controls;

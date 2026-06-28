@@ -1,16 +1,3 @@
-// SPDX-FileCopyrightText: 2022, 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DisposableCrewmember42 <disposablecrewmember42@proton.me>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Jessica M <jessica@jessicamaybe.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Shared.Alert;
 using Content.Shared.FixedPoint;
@@ -227,4 +214,17 @@ public sealed partial class RevenantComponent : Component
     [DataField("harvestingState")]
     public string HarvestingState = "harvesting";
     #endregion
+
+    /// <summary>
+    /// The scaling for passively chilling surroundings.
+    /// </summary>
+    [DataField]
+    public FixedPoint2 ChillScaling = 7000;
+
+    /// <summary>
+    /// The upper limit for essence when passively chilling surroundings.
+    /// Beyond this point, more essence will not cause more chilling.
+    /// </summary>
+    [DataField]
+    public FixedPoint2 ChillUpperBound = 500;
 }

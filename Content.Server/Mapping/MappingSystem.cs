@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023, 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.IO;
 using Content.Server.Administration;
 using Content.Shared.Administration;
@@ -25,14 +16,14 @@ namespace Content.Server.Mapping;
 /// <summary>
 ///     Handles autosaving maps.
 /// </summary>
-public sealed class MappingSystem : EntitySystem
+public sealed partial class MappingSystem : EntitySystem
 {
-    [Dependency] private readonly IConsoleHost _conHost = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly IResourceManager _resMan = default!;
-    [Dependency] private readonly MapLoaderSystem _loader = default!;
+    [Dependency] private IConsoleHost _conHost = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private IResourceManager _resMan = default!;
+    [Dependency] private MapLoaderSystem _loader = default!;
 
     // Not a comp because I don't want to deal with this getting saved onto maps ever
     /// <summary>
@@ -82,10 +73,10 @@ public sealed class MappingSystem : EntitySystem
             }
 
             _currentlyAutosaving[uid] = (CalculateNextTime(), name);
-            var saveDir = Path.Combine(_cfg.GetCVar(CCVars.AutosaveDirectory), name).Replace(Path.DirectorySeparatorChar, '/');
-            _resMan.UserData.CreateDir(new ResPath(saveDir).ToRootedPath());
+            var saveDir = new ResPath(Path.Combine(_cfg.GetCVar(CCVars.AutosaveDirectory), name).Replace(Path.DirectorySeparatorChar, '/'));
+            _resMan.UserData.CreateDir(saveDir.ToRootedPath());
 
-            var path = new ResPath(Path.Combine(saveDir, $"{DateTime.Now:yyyy-M-dd_HH.mm.ss}-AUTO.yml"));
+            var path = saveDir / new ResPath($"{DateTime.Now:yyyy-M-dd_HH.mm.ss}-AUTO.yml");
             Log.Info($"Autosaving map {name} ({uid}) to {path}. Next save in {ReadableTimeLeft(uid)} seconds.");
 
             if (HasComp<MapComponent>(uid))

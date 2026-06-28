@@ -1,29 +1,11 @@
-# SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Julian Giebel <juliangiebel@live.de>
-# SPDX-FileCopyrightText: 2023-2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nairod <110078045+Nairodian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Debug <49997488+DebugOk@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
-  parent: ClothingHeadBase
+  parent: [ ClothingHeadBase, BaseToggleClothing ]
   id: WeldingMaskBase
   name: welding mask
   abstract: true
   components:
   - type: Item
     storedRotation: 0
-  - type: IngestionBlocker
-  - type: FlashImmunity
-  - type: IdentityBlocker
-  - type: EyeProtection
   - type: PhysicalComposition
     materialComposition:
       Steel: 200
@@ -34,9 +16,33 @@
     tags:
     - WhitelistChameleon
     - WeldingMask
-  - type: HideLayerClothing
-    slots:
-    - Snout
+  # Funky
+  - type: ToggleClothing
+    action: ActionToggleWeldingMask
+    mustEquip: false
+  - type: ItemToggle
+    activated: true
+  - type: ComponentToggler
+    components:
+    - type: IngestionBlocker
+    - type: FlashImmunity
+    - type: IdentityBlocker
+    - type: EyeProtection
+    - type: WeldingMaskOverlay
+      texture: /Textures/_Funkystation/Clothing/Head/Welding/weldingOverlay.png
+  - type: ItemTogglePrefix
+    prefixOn: null
+    prefixOff: up
+  - type: ToggleClothingPrefix
+    prefixOn: null
+    prefixOff: up
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: {state: icon}
+          False: {state: icon-up}
 
 - type: entity
   parent: WeldingMaskBase
@@ -46,6 +52,9 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Welding/welding.rsi
+    layers: # Funky
+    - state: icon
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Clothing
     sprite: Clothing/Head/Welding/welding.rsi
   - type: Tag
@@ -62,6 +71,9 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Welding/flame_welding_mask.rsi
+    layers: # Funky
+    - state: icon
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Clothing
     sprite: Clothing/Head/Welding/flame_welding_mask.rsi
 
@@ -73,6 +85,9 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Welding/blue_flame_welding_mask.rsi
+    layers: # Funky
+    - state: icon
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Clothing
     sprite: Clothing/Head/Welding/blue_flame_welding_mask.rsi
 
@@ -84,5 +99,20 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Welding/paintedwelding.rsi
+    layers: # Funky
+    - state: icon
+      map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Clothing
     sprite: Clothing/Head/Welding/paintedwelding.rsi
+
+# Funky
+- type: entity
+  parent: BaseAction
+  id: ActionToggleWeldingMask
+  name: Toggle Welding Mask
+  description: Flips the welding mask up or down.
+  components:
+  - type: Action
+    itemIconStyle: BigItem
+  - type: InstantAction
+    event: !type:ToggleActionEvent

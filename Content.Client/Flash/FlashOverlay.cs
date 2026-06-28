@@ -1,18 +1,3 @@
-// SPDX-FileCopyrightText: 2020-2022, 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2020 R. Neuser <rneuser@iastate.edu>
-// SPDX-FileCopyrightText: 2021 GraniteSidewalk <32942106+GraniteSidewalk@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 deathride58 <deathride58@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.CCVar;
 using Content.Shared.Flash;
 using Content.Shared.Flash.Components;
@@ -26,15 +11,15 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.Flash
 {
-    public sealed class FlashOverlay : Overlay
+    public sealed partial class FlashOverlay : Overlay
     {
         private static readonly ProtoId<ShaderPrototype> FlashedEffectShader = "FlashedEffect";
 
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IEntityManager _entityManager = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly IConfigurationManager _configManager = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IEntityManager _entityManager = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private IGameTiming _timing = default!;
+        [Dependency] private IConfigurationManager _configManager = default!;
 
         private readonly SharedFlashSystem _flash;
         private readonly StatusEffectsSystem _statusSys;
@@ -101,7 +86,7 @@ namespace Content.Client.Flash
             {
                 // TODO: This is a very simple placeholder.
                 // Replace it with a proper shader once we come up with something good.
-                // Turns out making an effect that is supposed to be a bright, sudden, and disorienting flash 
+                // Turns out making an effect that is supposed to be a bright, sudden, and disorienting flash
                 // not do any of that while also being equivalent in terms of game balance is hard.
                 var alpha = 1 - MathF.Pow(PercentComplete, 8f); // similar falloff curve to the flash shader
                 worldHandle.DrawRect(args.WorldBounds, new Color(0f, 0f, 0f, alpha));

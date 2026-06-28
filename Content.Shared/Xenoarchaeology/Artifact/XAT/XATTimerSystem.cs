@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Examine;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Xenoarchaeology.Artifact.XAT.Components;
@@ -11,9 +8,9 @@ namespace Content.Shared.Xenoarchaeology.Artifact.XAT;
 /// <summary>
 /// System for xeno artifact trigger that activates from time to time on schedule.
 /// </summary>
-public sealed class XATTimerSystem : BaseQueryUpdateXATSystem<XATTimerComponent>
+public sealed partial class XATTimerSystem : BaseQueryUpdateXATSystem<XATTimerComponent>
 {
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
+    [Dependency] private IRobustRandom _robustRandom = default!;
 
     /// <inheritdoc />
     public override void Initialize()
