@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Actions.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
@@ -24,9 +15,6 @@ public abstract partial class SharedStationAiSystem
      * Added when an entity is inserted into a StationAiCore.
      */
 
-    //TODO: Fix this, please
-    private const string JobNameLocId = "job-name-station-ai";
-
     private void InitializeHeld()
     {
         SubscribeLocalEvent<StationAiRadialMessage>(OnRadialMessage);
@@ -37,21 +25,15 @@ public abstract partial class SharedStationAiSystem
         SubscribeLocalEvent<StationAiHeldComponent, AttemptRelayActionComponentChangeEvent>(OnHeldRelay);
         SubscribeLocalEvent<StationAiHeldComponent, JumpToCoreEvent>(OnCoreJump);
 
-        SubscribeLocalEvent<TryGetIdentityShortInfoEvent>(OnTryGetIdentityShortInfo);
+        SubscribeLocalEvent<StationAiHeldComponent, TryGetIdentityShortInfoEvent>(OnTryGetIdentityShortInfo);
     }
 
-    private void OnTryGetIdentityShortInfo(TryGetIdentityShortInfoEvent args)
+    private void OnTryGetIdentityShortInfo(Entity<StationAiHeldComponent> ent, ref TryGetIdentityShortInfoEvent args)
     {
         if (args.Handled)
-        {
             return;
-        }
 
-        if (!HasComp<StationAiHeldComponent>(args.ForActor))
-        {
-            return;
-        }
-        args.Title = $"{Name(args.ForActor)} ({Loc.GetString(JobNameLocId)})";
+        args.Title = $"{Name(args.Target)} ({Loc.GetString("job-name-station-ai")})";
         args.Handled = true;
     }
 

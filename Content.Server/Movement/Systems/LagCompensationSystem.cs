@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Movement.Components;
 using Robust.Server.Player;
 using Robust.Shared.Map;
@@ -15,9 +10,9 @@ namespace Content.Server.Movement.Systems;
 /// Stores a buffer of previous positions of the relevant entity.
 /// Can be used to check the entity's position at a recent point in time.
 /// </summary>
-public sealed class LagCompensationSystem : EntitySystem
+public sealed partial class LagCompensationSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     // I figured 500 ping is max, so 1.5 is 750.
     // Max ping I've had is 350ms from aus to spain.

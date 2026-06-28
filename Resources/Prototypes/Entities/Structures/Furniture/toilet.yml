@@ -1,37 +1,6 @@
-# SPDX-FileCopyrightText: 2021-2022, 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 TNE <38938720+JustTNE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Topy <topy72.mine@gmail.com>
-# SPDX-FileCopyrightText: 2023 Nairod <110078045+Nairodian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024-2025 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nim <128169402+Nimfar11@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TurboTracker <130304754+TurboTrackerss14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 TheSecondLord <88201625+TheSecondLord@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Jessica M <jessica@jessicamaybe.com>
-# SPDX-FileCopyrightText: 2025 SurrealShibe <77357653+SurrealShibe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   abstract: true
-  parent: [ DisposalUnitBase, SeatBase ]
+  parent: [ SolutionTank, SolutionHuge, DisposalUnitBase, SeatBase]
   id: BaseToilet
   name: toilet
   description: The HT-451, a torque rotation-based, waste disposal unit for small matter. This one seems remarkably clean.
@@ -39,22 +8,37 @@
   - type: Sprite
     sprite: Structures/Furniture/toilet.rsi
     layers:
-    - state: condisposal
-      map: [ "enum.DisposalUnitVisualLayers.Unanchored" ]
-    - state: disposal
-      map: [ "enum.DisposalUnitVisualLayers.Base" ]
-    - state: disposal-charging
-      map: [ "enum.DisposalUnitVisualLayers.BaseCharging" ]
-    - state: disposal-flush
-      map: [ "enum.DisposalUnitVisualLayers.OverlayFlush" ]
-    - state: dispover-charge
-      map: [ "enum.DisposalUnitVisualLayers.OverlayCharging" ]
-    - state: dispover-ready
-      map: [ "enum.DisposalUnitVisualLayers.OverlayReady" ]
-    - state: dispover-full
-      map: [ "enum.DisposalUnitVisualLayers.OverlayFull" ]
-    - state: dispover-handle
-      map: [ "enum.DisposalUnitVisualLayers.OverlayEngaged" ]
+    - map: [ "enum.DisposalUnitVisualLayers.Base" ]
+      state: disposal
+    - map: [ "enum.DisposalUnitVisualLayers.OverlayCharging" ]
+      state: dispover-ready
+  - type: GenericVisualizer
+    visuals:
+      enum.DisposalUnitVisuals.IsReady:
+        enum.DisposalUnitVisualLayers.Base:
+          True: { state: disposal }
+          False: { state: disposal-charging }
+      enum.DisposalUnitVisuals.IsCharging:
+        enum.DisposalUnitVisualLayers.OverlayCharging:
+          True: { state: dispover-charge, visible: true }
+          False: { state: dispover-ready, visible: true }
+      enum.PowerDeviceVisuals.Powered:
+        enum.DisposalUnitVisualLayers.OverlayCharging:
+          False: { visible: false }
+      enum.AnchorVisuals.Anchored:
+        enum.DisposalUnitVisualLayers.Base:
+          True: { state: disposal }
+          False: { state: condisposal }
+        enum.DisposalUnitVisualLayers.OverlayCharging:
+          False: { visible: false }
+      enum.ToiletVisuals.SeatVisualState:
+        SeatVisualState.SeatUp:
+          SeatUp: { state: disposal-up }
+          SeatDown: { state: disposal-down }
+      enum.ToolOpenableVisuals.ToolOpenableVisualState:
+        ToolOpenableVisualState.StashOpen:
+          Open: { state: disposal-open }
+          Closed: { state: disposal-closed }
   - type: Rotatable
   - type: Transform
     noRot: false
@@ -63,6 +47,10 @@
       components:
       - HumanoidProfile
   - type: DisposalUnit
+    container:
+      occludes: true
+      showEnts: false
+      ents: []
     blacklist:
       components:
       - HumanoidProfile
@@ -78,7 +66,8 @@
   - type: ContainerContainer
     containers:
       stash: !type:ContainerSlot {}
-      disposals: !type:Container
+      DisposalUnitComponent: !type:Container
+      solutions: !type:Container
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -92,7 +81,6 @@
         - MachineMask
         layer:
         - None
-  - type: PlungerUse
   - type: Appearance
   - type: SecretStash
     secretStashName: secret-stash-toilet
@@ -111,21 +99,9 @@
     interfaces:
       enum.DisposalUnitUiKey.Key:
         type: DisposalUnitBoundUserInterface
-  - type: Rummageable
-    table: !type:NestedSelector
-      tableId: RatKingLoot
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      drainBuffer:
-        maxVol: 100
-      tank:
-        maxVol: 500
-  - type: SolutionRegeneration
-    solution: tank
-    generated:
-      reagents:
-      - ReagentId: Water
-        Quantity: 1
+    - SolutionDrainNormal
   - type: DrainableSolution
     solution: tank
   - type: ReagentTank
@@ -136,16 +112,23 @@
     solution: tank
     destroyOnEmpty: false
     utensil: Spoon
-  - type: GenericVisualizer
-    visuals:
-      enum.ToolOpenableVisuals.ToolOpenableVisualState:
-        ToolOpenableVisualState.StashOpen:
-          Open: { state: disposal-open }
-          Closed: { state: disposal-closed }
-      enum.ToiletVisuals.SeatVisualState:
-        SeatVisualState.SeatUp:
-          SeatUp: { state: disposal-up }
-          SeatDown: { state: disposal-down }
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: Water
+        Quantity: 1
+
+# constructed toilets don't come with Rummageable or plungeruse component to avoid infinite item spawning.
+- type: entity
+  parent: BaseToilet
+  id: ConstructedToilet
+  name: toilet
+  description: The HT-451, a torque rotation-based, waste disposal unit for small matter. This one seems remarkably clean.
+  suffix: Constructed, Unplungable
+  components:
+  - type: Construction
+    graph: Toilet
+    node: toilet
 
 - type: entity
   parent: BaseToilet
@@ -154,9 +137,10 @@
   description: The HT-451, a torque rotation-based, waste disposal unit for small matter. This one seems remarkably clean.
   suffix: Empty
   components:
-  - type: Construction
-    graph: Toilet
-    node: toilet
+  - type: PlungerUse
+  - type: Rummageable
+    table: !type:NestedSelector
+      tableId: RatKingLoot
 
 # so theres not actually any way to replenish the gastrotoxin / gold in these.
 # I wouldn't add it to the solutionregeneration comp because that doesn't make a lot of sense imo.
@@ -165,12 +149,8 @@
   id: ToiletDirtyWater
   suffix: Dirty Water
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drainBuffer:
-        maxVol: 100
-      tank:
-        maxVol: 500
+  - type: Solution
+    solution:
         reagents:
         - ReagentId: Water
           Quantity: 180
@@ -216,12 +196,6 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
         damage: 100
       behaviors:
       - !type:DoActsBehavior
@@ -236,6 +210,10 @@
           IngotGold1:
             min: 5
             max: 5
+  - type: PlungerUse
+  - type: Rummageable
+    table: !type:NestedSelector
+      tableId: RatKingLoot
 
 - type: entity
   parent: ToiletGoldenEmpty
@@ -244,12 +222,8 @@
   components:
   - type: StealTarget
     stealGroup: ToiletGoldenDirtyWater
-  - type: SolutionContainerManager
-    solutions:
-      drainBuffer:
-        maxVol: 100
-      tank:
-        maxVol: 500
+  - type: Solution
+    solution:
         reagents:
         - ReagentId: Water
           Quantity: 160

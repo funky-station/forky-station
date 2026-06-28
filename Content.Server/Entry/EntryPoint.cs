@@ -1,50 +1,4 @@
-// SPDX-FileCopyrightText: 2017-2025 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2017-2018 PJB3005 <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2018-2019, 2021-2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2018 clusterfack <clusterfack@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2018 Centronias <Centronias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019, 2021-2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019-2020 DamianX <DamianX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019-2020 moneyl <8206401+Moneyl@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019 Injazz <43905364+Injazz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019 PrPleGoo <PrPleGoo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019 Silver <Silvertorch5@gmail.com>
-// SPDX-FileCopyrightText: 2019 ScumbagDog <33865465+ScumbagDog@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021, 2023-2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
-// SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
-// SPDX-FileCopyrightText: 2020 py01 <60152240+collinlunn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Tyler Young <tyler.young@impromptu.ninja>
-// SPDX-FileCopyrightText: 2020 Swept <jamesurquhartwebb@gmail.com>
-// SPDX-FileCopyrightText: 2020 FL-OZ <yetanotherscuffed@gmail.com>
-// SPDX-FileCopyrightText: 2020 zumorica <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2020 Jackson Lewis <inquisitivepenguin@protonmail.com>
-// SPDX-FileCopyrightText: 2021-2023 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 moonheart08 <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022-2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Francesco <frafonia@gmail.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Sam Weaver <weaversam8@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2024-2025 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Palladinium <patrick.chieppe@hotmail.com>
-// SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
-// SPDX-License-Identifier: MIT
-
+using System.Threading.Tasks;
 using Content.Server.Acz;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
@@ -85,48 +39,48 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Entry
 {
-    public sealed class EntryPoint : GameServer
+    public sealed partial class EntryPoint : GameServer
     {
         internal const string ConfigPresetsDir = "/ConfigPresets/";
         private const string ConfigPresetsDirBuild = $"{ConfigPresetsDir}Build/";
 
-        [Dependency] private readonly CVarControlManager _cvarCtrl = default!;
-        [Dependency] private readonly ContentLocalizationManager _loc = default!;
-        [Dependency] private readonly ContentNetworkResourceManager _netResMan = default!;
-        [Dependency] private readonly DiscordChatLink _discordChatLink = default!;
-        [Dependency] private readonly DiscordLink _discordLink = default!;
-        [Dependency] private readonly EuiManager _euiManager = default!;
-        [Dependency] private readonly GhostKickManager _ghostKick = default!;
-        [Dependency] private readonly IAdminManager _admin = default!;
-        [Dependency] private readonly IAdminLogManager _adminLog = default!;
-        [Dependency] private readonly IAfkManager _afk = default!;
-        [Dependency] private readonly IBanManager _ban = default!;
-        [Dependency] private readonly IChatManager _chatSan = default!;
-        [Dependency] private readonly IChatSanitizationManager _chat = default!;
-        [Dependency] private readonly IComponentFactory _factory = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly IConnectionManager _connection = default!;
-        [Dependency] private readonly IEntitySystemManager _entSys = default!;
-        [Dependency] private readonly IGameMapManager _gameMap = default!;
-        [Dependency] private readonly ILogManager _log = default!;
-        [Dependency] private readonly INodeGroupFactory _nodeFactory = default!;
-        [Dependency] private readonly IPrototypeManager _proto = default!;
-        [Dependency] private readonly IResourceManager _res = default!;
-        [Dependency] private readonly IServerDbManager _dbManager = default!;
-        [Dependency] private readonly IServerPreferencesManager _preferences = default!;
-        [Dependency] private readonly IStatusHost _host = default!;
-        [Dependency] private readonly IVoteManager _voteManager = default!;
-        [Dependency] private readonly IWatchlistWebhookManager _watchlistWebhookManager = default!;
-        [Dependency] private readonly JobWhitelistManager _job = default!;
-        [Dependency] private readonly MultiServerKickManager _multiServerKick = default!;
-        [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!;
-        [Dependency] private readonly PlayerRateLimitManager _rateLimit = default!;
-        [Dependency] private readonly RecipeManager _recipe = default!;
-        [Dependency] private readonly RulesManager _rules = default!;
-        [Dependency] private readonly ServerApi _serverApi = default!;
-        [Dependency] private readonly ServerInfoManager _serverInfo = default!;
-        [Dependency] private readonly ServerUpdateManager _updateManager = default!;
-        [Dependency] private readonly ServerFeedbackManager _feedbackManager = null!;
+        [Dependency] private CVarControlManager _cvarCtrl = default!;
+        [Dependency] private ContentLocalizationManager _loc = default!;
+        [Dependency] private ContentNetworkResourceManager _netResMan = default!;
+        [Dependency] private DiscordChatLink _discordChatLink = default!;
+        [Dependency] private DiscordLink _discordLink = default!;
+        [Dependency] private EuiManager _euiManager = default!;
+        [Dependency] private GhostKickManager _ghostKick = default!;
+        [Dependency] private IAdminManager _admin = default!;
+        [Dependency] private IAdminLogManager _adminLog = default!;
+        [Dependency] private IAfkManager _afk = default!;
+        [Dependency] private IBanManager _ban = default!;
+        [Dependency] private IChatManager _chatSan = default!;
+        [Dependency] private IChatSanitizationManager _chat = default!;
+        [Dependency] private IComponentFactory _factory = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
+        [Dependency] private IConnectionManager _connection = default!;
+        [Dependency] private IEntitySystemManager _entSys = default!;
+        [Dependency] private IGameMapManager _gameMap = default!;
+        [Dependency] private ILogManager _log = default!;
+        [Dependency] private INodeGroupFactory _nodeFactory = default!;
+        [Dependency] private IPrototypeManager _proto = default!;
+        [Dependency] private IResourceManager _res = default!;
+        [Dependency] private IServerDbManager _dbManager = default!;
+        [Dependency] private IServerPreferencesManager _preferences = default!;
+        [Dependency] private IStatusHost _host = default!;
+        [Dependency] private IVoteManager _voteManager = default!;
+        [Dependency] private IWatchlistWebhookManager _watchlistWebhookManager = default!;
+        [Dependency] private JobWhitelistManager _job = default!;
+        [Dependency] private MultiServerKickManager _multiServerKick = default!;
+        [Dependency] private PlayTimeTrackingManager _playTimeTracking = default!;
+        [Dependency] private PlayerRateLimitManager _rateLimit = default!;
+        [Dependency] private RecipeManager _recipe = default!;
+        [Dependency] private RulesManager _rules = default!;
+        [Dependency] private ServerApi _serverApi = default!;
+        [Dependency] private ServerInfoManager _serverInfo = default!;
+        [Dependency] private ServerUpdateManager _updateManager = default!;
+        [Dependency] private ServerFeedbackManager _feedbackManager = null!;
 
         public override void PreInit()
         {
@@ -254,8 +208,8 @@ namespace Content.Server.Entry
 
             _serverApi.Shutdown();
 
-            // TODO Should this be awaited?
-            _discordLink.Shutdown();
+            // We don't care when or how this finishes, just spin the task off into the void.
+            _ = _discordLink.Shutdown();
             _discordChatLink.Shutdown();
         }
 

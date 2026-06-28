@@ -1,20 +1,5 @@
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2023 drteaspoon420 <87363733+drteaspoon420@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024-2025 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 superjj18 <gagnonjake@gmail.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Hitlinemoss <209321380+Hitlinemoss@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Tao <56692749+TaoNewt@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2026 Ignaz "Ian" Kraft <ignaz.k@live.de>
-# SPDX-License-Identifier: MIT
-
 - type: entity
-  parent: BaseItem
+  parent: [BaseItem, SolutionDart]
   id: BaseArrow
   abstract: true
   components:
@@ -56,17 +41,13 @@
     damage:
       types:
         Piercing: 25
-  - type: SolutionContainerManager
-    solutions:
-      ammo:
-        maxVol: 2
   - type: RefillableSolution # This is sus. You can't really just run an arrowhead under a sink faucet.
-    solution: ammo
+    solution: melee
   - type: InjectableSolution
-    solution: ammo
+    solution: melee
   - type: SolutionInjectOnEmbed
     transferAmount: 2
-    solution: ammo
+    solution: melee
   - type: SolutionTransfer
     maxTransferAmount: 2
   - type: Appearance

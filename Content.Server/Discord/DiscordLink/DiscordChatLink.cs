@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 sleepyyapril <123355664+sleepyyapril@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Chat.Managers;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
@@ -13,13 +8,13 @@ using Robust.Shared.Configuration;
 
 namespace Content.Server.Discord.DiscordLink;
 
-public sealed class DiscordChatLink : IPostInjectInit
+public sealed partial class DiscordChatLink : IPostInjectInit
 {
-    [Dependency] private readonly DiscordLink _discordLink = default!;
-    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly ITaskManager _taskManager = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
+    [Dependency] private DiscordLink _discordLink = default!;
+    [Dependency] private IConfigurationManager _configurationManager = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private ITaskManager _taskManager = default!;
+    [Dependency] private ILogManager _logManager = default!;
 
     private ISawmill _sawmill = default!;
 

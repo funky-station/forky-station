@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.Access.Components;
 using Content.Shared.CardboardBox;
@@ -24,14 +15,14 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.CardboardBox;
 
-public sealed class CardboardBoxSystem : SharedCardboardBoxSystem
+public sealed partial class CardboardBoxSystem : SharedCardboardBoxSystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedMoverController _mover = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedStealthSystem _stealth = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly EntityStorageSystem _storage = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedMoverController _mover = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedStealthSystem _stealth = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private EntityStorageSystem _storage = default!;
 
     public override void Initialize()
     {

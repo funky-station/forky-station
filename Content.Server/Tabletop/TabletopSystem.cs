@@ -1,18 +1,3 @@
-// SPDX-FileCopyrightText: 2021, 2023, 2025 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2021-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Kara D <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 eclips_e <67359748+Just-a-Unity-Dev@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2024-2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Hands.Systems;
 using Content.Server.Popups;
 using Content.Server.Tabletop.Components;
@@ -36,12 +21,12 @@ namespace Content.Server.Tabletop
     [UsedImplicitly]
     public sealed partial class TabletopSystem : SharedTabletopSystem
     {
-        [Dependency] private readonly SharedMapSystem _map = default!;
-        [Dependency] private readonly EyeSystem _eye = default!;
-        [Dependency] private readonly HandsSystem _hands = default!;
-        [Dependency] private readonly ViewSubscriberSystem _viewSubscriberSystem = default!;
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private SharedMapSystem _map = default!;
+        [Dependency] private EyeSystem _eye = default!;
+        [Dependency] private HandsSystem _hands = default!;
+        [Dependency] private ViewSubscriberSystem _viewSubscriberSystem = default!;
+        [Dependency] private PopupSystem _popupSystem = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
 
         public override void Initialize()
         {

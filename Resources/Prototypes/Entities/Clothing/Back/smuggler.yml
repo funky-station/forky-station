@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
-# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   abstract: true
   id: BaseSubfloorAnchorStorage
@@ -42,7 +36,7 @@
   description: A handy, suspicious looking satchel. Just flat enough to fit underneath floor tiles.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/smuggler.rsi
+    sprite: _Funkystation/Clothing/Back/Satchels/smuggler.rsi
     state: icon
 
 - type: entity
@@ -53,7 +47,7 @@
   description: A handy, suspicious looking satchel. Just flat enough to fit underneath floor tiles.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/smuggler.rsi
+    sprite: _Funkystation/Clothing/Back/Satchels/smuggler.rsi
     state: icon
 
 - type: entity
@@ -88,7 +82,7 @@
   suffix: Smuggler, Do Not Map
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/smuggler.rsi
+    sprite: _Funkystation/Clothing/Back/Satchels/smuggler.rsi
     state: icon
   - type: EntityTableContainerFill
     containers:
@@ -103,7 +97,7 @@
   components:
   - type: Sprite
     layers:
-      - sprite: Clothing/Back/Satchels/smuggler.rsi
+      - sprite: _Funkystation/Clothing/Back/Satchels/smuggler.rsi
         state: icon
   - type: EntityTableSpawner
     table: !type:NestedSelector

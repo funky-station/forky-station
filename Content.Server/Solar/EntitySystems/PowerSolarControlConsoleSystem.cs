@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2020-2021, 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 collinlunn <60152240+collinlunn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Solar.Components;
 using Content.Server.UserInterface;
 using Content.Shared.Solar;
@@ -21,10 +10,10 @@ namespace Content.Server.Solar.EntitySystems
     /// Responsible for updating solar control consoles.
     /// </summary>
     [UsedImplicitly]
-    internal sealed class PowerSolarControlConsoleSystem : EntitySystem
+    internal sealed partial class PowerSolarControlConsoleSystem : EntitySystem
     {
-        [Dependency] private readonly PowerSolarSystem _powerSolarSystem = default!;
-        [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+        [Dependency] private PowerSolarSystem _powerSolarSystem = default!;
+        [Dependency] private UserInterfaceSystem _uiSystem = default!;
 
         /// <summary>
         /// Timer used to avoid updating the UI state every frame (which would be overkill)

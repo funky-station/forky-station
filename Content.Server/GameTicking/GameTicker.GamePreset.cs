@@ -1,36 +1,14 @@
-// SPDX-FileCopyrightText: 2021-2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2022-2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023-2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kot <1192090+koteq@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2023 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 using Content.Server.GameTicking.Presets;
 using Content.Server.Maps;
 using Content.Shared.CCVar;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.Maps;
 using JetBrains.Annotations;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.GameTicking;
 
@@ -217,7 +195,6 @@ public sealed partial class GameTicker
         _gameMapManager.SelectMapRandom();
     }
 
-    [PublicAPI]
     private bool AddGamePresetRules()
     {
         if (DummyTicker || Preset == null)
@@ -226,7 +203,7 @@ public sealed partial class GameTicker
         CurrentPreset = Preset;
         foreach (var rule in Preset.Rules)
         {
-            AddGameRule(rule);
+            AddFilteredGameRule(rule);
         }
 
         return true;
@@ -249,6 +226,40 @@ public sealed partial class GameTicker
         {
             StartGameRule(rule);
         }
+    }
+
+    /// <inhereitdoc cref="GetMinimumPlayerCount(GamePresetPrototype)"/>
+    [PublicAPI]
+    public int GetMinimumPlayerCount(ProtoId<GamePresetPrototype> proto)
+    {
+        if (!_prototypeManager.Resolve(proto, out var preset))
+            return 0;
+
+        return GetMinimumPlayerCount(preset);
+    }
+
+    /// <summary>
+    /// Gets the minimum number of players required for a game preset to start.
+    /// Checks both the preset itself, and all rules to find the minimum.
+    /// </summary>
+    /// <param name="proto">Game preset prototype we're checking.</param>
+    /// <returns>Minimum number of players required for the rule to start.</returns>
+    [PublicAPI]
+    public int GetMinimumPlayerCount(GamePresetPrototype proto)
+    {
+        var min = proto.MinPlayers ?? 0;
+        foreach (var entProto in proto.Rules)
+        {
+            if (!_prototypeManager.Resolve(entProto, out var ent))
+                continue;
+
+            if (!ent.TryGetComponent<GameRuleComponent>(out var rule, Factory))
+                continue;
+
+            min = Math.Max(min, rule.MinPlayers);
+        }
+
+        return min;
     }
 
     private void IncrementRoundNumber()

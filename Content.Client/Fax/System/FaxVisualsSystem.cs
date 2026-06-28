@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Client.GameObjects;
 using Content.Shared.Fax.Components;
 using Content.Shared.Fax;
@@ -12,10 +8,10 @@ namespace Content.Client.Fax.System;
 /// <summary>
 /// Visualizer for the fax machine which displays the correct sprite based on the inserted entity.
 /// </summary>
-public sealed class FaxVisualsSystem : EntitySystem
+public sealed partial class FaxVisualsSystem : EntitySystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _player = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private AnimationPlayerSystem _player = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {

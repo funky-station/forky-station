@@ -1,19 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara D <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vlad <CyberTropic@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -160,7 +144,7 @@ namespace Content.MapRenderer
                 {
                     Console.Write($"Following map files did not exist on disk directly, searching through prototypes: {string.Join(", ", lookupPrototypeFiles)}");
 
-                    await using var pair = await PoolManager.GetServerClient();
+                    await using var pair = await PoolManager.GetServerClient(testContext: testContext);
                     var mapPrototypes = pair.Server
                         .ResolveDependency<IPrototypeManager>()
                         .EnumeratePrototypes<GameMapPrototype>()

@@ -1,37 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 lapatison <100279397+lapatison@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 CrudeWax <75271456+CrudeWax@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023, 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Warentan <113652968+Warentan@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nim <128169402+Nimfar11@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Arendian <137322659+Arendian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kit0vras <123590995+Kit0vras@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 FungiFellow <151778459+FungiFellow@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 Daxxi3 <158596935+Daxxi3@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 rumaks <me@rumaks.xyz>
-# SPDX-FileCopyrightText: 2025 Winkarst-cpu <74284083+Winkarst-cpu@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: reagent
   id: Blood
   name: reagent-name-blood
@@ -59,14 +25,19 @@
           - !type:MetabolizerTypeCondition
             type: [ Human ]
             inverted: true
-      - !type:HealthChange
+      - !type:EvenHealthChange
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Bloodsucker ]
         damage:
-          groups:
-            Brute: -3
-            Burn: -1.25
+          Brute: -3
+          Burn: -1.25
+    Bloodstream: # Don't inject someone else's blood into yourself! Your own blood won't actually metabolise.
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.2
   plantMetabolism:
     - !type:PlantAdjustWater
       amount: 0.5
@@ -167,6 +138,17 @@
   physicalDesc: reagent-physical-desc-pungent
 
 - type: reagent
+  parent: Blood
+  id: SulfurBlood
+  name: reagent-name-sulfur-blood
+  group: Biological
+  desc: reagent-desc-sulfur-blood
+  flavor: bitter
+  color: "#ccac1f"
+  recognizable: true
+  physicalDesc: reagent-physical-desc-strong-smelling
+
+- type: reagent
   id: ZombieBlood
   name: reagent-name-zombie-blood
   group: Biological
@@ -199,7 +181,7 @@
   color: "#f4692e"
   recognizable: true
   metabolisms:
-    Digestion:
+    Bloodstream:
       effects:
       - !type:SatiateThirst
         factor: 1.5

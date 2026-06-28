@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Objectives.Components;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
@@ -13,10 +10,10 @@ namespace Content.Server.Objectives.Systems;
 /// <summary>
 /// Provides API for other components and handles setting the title.
 /// </summary>
-public sealed class TargetObjectiveSystem : EntitySystem
+public sealed partial class TargetObjectiveSystem : EntitySystem
 {
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly SharedJobSystem _job = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private SharedJobSystem _job = default!;
 
     public override void Initialize()
     {

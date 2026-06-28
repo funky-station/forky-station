@@ -1,44 +1,16 @@
-# SPDX-FileCopyrightText: 2021-2022 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022, 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 TekuNut <13456422+TekuNut@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 coolmankid12345 <55817627+coolmankid12345@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Skye <22365940+Skyedra@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024-2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024-2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024-2025 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MACMAN2003 <macman2003c@gmail.com>
-# SPDX-FileCopyrightText: 2024 Adrian16199 <144424013+Adrian16199@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Rainfey <rainfey0+github@gmail.com>
-# SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 alexalexmax <149889301+alexalexmax@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Samuka <47865393+Samuka-C@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Connor Huffine <chuffine@gmail.com>
-# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 poklj <compgeek223@gmail.com>
-# SPDX-FileCopyrightText: 2025 Spanky <180730777+spanky-spanky@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: BaseGameRule
   abstract: true
   components:
   - type: GameRule
+
+- type: entity
+  parent: BaseGameRule
+  id: BaseRoundstartAntagRule
+  abstract: true
+  components:
+  - type: AntagSelection
+    selectionTime: PrePlayerSpawn
 
 - type: entity
   parent: BaseGameRule
@@ -60,7 +32,7 @@
       prob: 0.5
     - id: SubWizard
       prob: 0.05
-    - id: Xenoborgs
+    - id: SubXenoborgs
       prob: 0.05
 
 - type: entity
@@ -71,7 +43,7 @@
     rules:
     - id: Thief
       prob: 0.5
-    - id: Xenoborgs
+    - id: SubXenoborgs
       prob: 0.05
 
 - type: entity
@@ -170,7 +142,7 @@
     #- Vox
 
 - type: entity
-  parent: BaseNukeopsRule
+  parent: [ BaseNukeopsRule, BaseRoundstartAntagRule ]
   id: Nukeops
   components:
   - type: GameRule
@@ -178,61 +150,16 @@
   - type: LoadMapRule
     mapPath: /Maps/Nonstations/nukieplanet.yml
   - type: AntagSelection
-    selectionTime: PrePlayerSpawn
-    definitions:
-    - prefRoles: [ NukeopsCommander ]
-      fallbackRoles: [ Nukeops, NukeopsMedic ]
-      spawnerPrototype: SpawnPointNukeopsCommander
-      startingGear: SyndicateCommanderGearFull
-      roleLoadout:
-      - RoleSurvivalNukie
-      components:
-      - type: NukeOperative
-      - type: RandomMetadata
-        nameSegments:
-        - NamesSyndicateElite
-        nameFormat: name-format-nukie-commander
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      mindRoles:
-      - MindRoleNukeopsCommander
-    - prefRoles: [ NukeopsMedic ]
-      fallbackRoles: [ Nukeops, NukeopsCommander ]
-      spawnerPrototype: SpawnPointNukeopsMedic
-      startingGear: SyndicateOperativeMedicFull
-      roleLoadout:
-      - RoleSurvivalNukie
-      components:
-      - type: NukeOperative
-      - type: RandomMetadata
-        nameSegments:
-        - NamesSyndicateNormal
-        nameFormat: name-format-nukie-agent
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      mindRoles:
-      - MindRoleNukeopsMedic
-    - prefRoles: [ Nukeops ]
-      fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
-      spawnerPrototype: SpawnPointNukeopsOperative
-      max: 3
-      playerRatio: 10
-      startingGear: SyndicateOperativeGearFull
-      roleLoadout:
-      - RoleSurvivalNukie
-      components:
-      - type: NukeOperative
-      - type: RandomMetadata
-        nameSegments:
-        - NamesSyndicateNormal
-        nameFormat: name-format-nukie-operator
-      - type: NpcFactionMember
-        factions:
-        - Syndicate
-      mindRoles:
-      - MindRoleNukeops
+    antags:
+    - !type:FixedAntagCount
+      proto: NukeopsCommander
+    - !type:FixedAntagCount
+      proto: NukeopsMedic
+    - !type:LinearAntagCount
+      proto: NukeopsOperative
+      range:
+        min: 1
+        max: 3
   - type: DynamicRuleCost
     cost: 200
 
@@ -254,7 +181,7 @@
     cost: 100
 
 - type: entity
-  parent: BaseTraitorRule
+  parent: [ BaseTraitorRule, BaseRoundstartAntagRule ]
   id: Traitor
   components:
   - type: GameRule
@@ -263,99 +190,67 @@
       min: 240
       max: 420
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
-    definitions:
-    - prefRoles: [ Traitor ]
-      max: 8
-      playerRatio: 10
-      blacklist:
-        components:
-        - AntagImmune
-      lateJoinAdditional: false
-      mindRoles:
-      - MindRoleTraitor
+    lateJoinAdditional: true
+    antags:
+    - !type:LinearAntagCount
+      proto: Traitor
+      range:
+        min: 1
+        max: 8
 
 - type: entity
-  id: TraitorReinforcement
+  id: TraitorReinforcement # This shouldn't be in here but I'm not sure where to put it :(
   parent: BaseTraitorRule
   components:
   - type: TraitorRule
     giveUplink: false
-    giveCodewords: false # It would actually give them a different set of codewords than the regular traitors, anyway
     giveBriefing: false
   - type: AntagSelection
-    definitions:
-    - prefRoles: [ Traitor ]
-      mindRoles:
-      - MindRoleTraitorReinforcement
+    antags:
+    - !type:FixedAntagCount
+      proto: TraitorReinforcement
 
 - type: entity
   id: Changeling
-  parent: BaseGameRule
+  parent: [BaseGameRule, BaseRoundstartAntagRule]
   components:
   - type: GameRule
     minPlayers: 25
   - type: AntagSelection
     agentName: changeling-round-end-agent-name
-    selectionTime: IntraPlayerSpawn
-    definitions:
-    - prefRoles: [ Changeling ]
-      max: 3
+    antags:
+    - !type:LinearAntagCount
+      proto: Changeling
       playerRatio: 15
-      briefing:
-        text: changeling-role-greeting
-        color: Red
-        sound: /Audio/Ambience/Antag/changeling_start.ogg
-      components:
-      - type: ChangelingDevour
-      - type: ChangelingIdentity
-      - type: ChangelingTransform
-      - type: ActionGrant
-        actions:
-        - ActionChangelingStore
-      # TODO: Make it so the changeling gamerule changeling can inherit from the changeling store preset somehow
-      - type: Store
-        name: store-preset-name-changeling
-        categories:
-        - ChangelingAbilities
-        currencyWhitelist:
-        - ChangelingDNA
-        balance:
-          ChangelingDNA: 50
-      - type: UserInterface
-        interfaces:
-          enum.StoreUiKey.Key:
-            type: StoreBoundUserInterface
-            requireInputValidation: false
-      mindRoles:
-      - MindRoleChangeling
-  - type: AntagObjectives
-    objectives:
-    - ChangelingSurviveObjective
+      range:
+        min: 1
+        max: 3
+  - type: AntagRandomObjectives
+    sets:
+    - groups: ChangelingObjectiveGroupDevourDummy
+      maxPicks: 1
+    - groups: ChangelingObjectiveGroupEscapeDummy
+      maxPicks: 1
+    - groups: ChangelingObjectiveGroupKillDummy
+      maxPicks: 1
+    maxDifficulty: 8
 
 - type: entity
   id: Revolutionary
-  parent: BaseGameRule
+  parent: [BaseGameRule, BaseRoundstartAntagRule]
   components:
   - type: GameRule
     minPlayers: 15
   - type: RevolutionaryRule
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
-    definitions:
-    - prefRoles: [ HeadRev ]
-      max: 3
+    selectionTime: PrePlayerSpawn
+    antags:
+    - !type:LinearAntagCount
+      proto: HeadRev
       playerRatio: 15
-      briefing:
-        text: head-rev-role-greeting
-        color: CornflowerBlue
-        sound: "/Audio/Ambience/Antag/headrev_start.ogg"
-      startingGear: HeadRevGear
-      components:
-      - type: Revolutionary
-      - type: HeadRevolutionary
-      mindRoles:
-      - MindRoleHeadRevolutionary
+      range:
+        min: 1
+        max: 3
   - type: DynamicRuleCost
     cost: 200
 
@@ -384,49 +279,25 @@
     mapPath: /Maps/Nonstations/wizardsden.yml
   - type: RuleGrids
   - type: AntagSelection
+    agentName: wizard-round-end-name
+    antags:
+    - !type:FixedAntagCount
+      proto: Wizard
   - type: AntagLoadProfileRule
     speciesOverride: Human
 
 - type: entity
-  parent: BaseWizardRule
+  parent: [ BaseWizardRule, BaseRoundstartAntagRule ]
   id: Wizard
   components:
   - type: GameRule
     minPlayers: 10
-  - type: AntagSelection
-    agentName: wizard-round-end-name
-    selectionTime: PrePlayerSpawn
-    definitions:
-    - prefRoles: [ Wizard ]
-      max: 1
-      playerRatio: 1
-      spawnerPrototype: SpawnPointGhostWizard
-      roleLoadout:
-       - RoleSurvivalExtended
-      briefing:
-        text: wizard-role-greeting
-        color: Turquoise
-        # TODO: Need Wizard Start sound
-        #sound: "/Audio/Ambience/Antag/wizard_start.ogg"
-      startingGear: WizardBlueGear
-      # TODO: WizardComp as needed
-      components:
-      - type: NpcFactionMember
-        factions:
-        - Wizard
-      - type: RandomMetadata
-        nameSegments:
-        - NamesWizardFirst
-        - NamesWizardLast
-        nameFormat: name-format-wizard
-      mindRoles:
-      - MindRoleWizard
   - type: DynamicRuleCost
     cost: 150
 
 - type: entity
   id: Zombie
-  parent: BaseGameRule
+  parent: [ BaseGameRule, BaseRoundstartAntagRule]
   components:
   - type: GameRule
     minPlayers: 20
@@ -435,28 +306,46 @@
       max: 900
   - type: ZombieRule
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
-    definitions:
-    - prefRoles: [ InitialInfected ]
-      max: 6
-      playerRatio: 10
-      blacklist:
-        components:
-        - ZombieImmune
-        - AntagImmune
-      briefing:
-        text: zombie-patientzero-role-greeting
-        color: Plum
-        sound: "/Audio/Ambience/Antag/zombie_start.ogg"
-      components:
-      - type: PendingZombie
-      - type: ZombifyOnDeath
-      - type: IncurableZombie
-      - type: InitialInfected
-      mindRoles:
-      - MindRoleInitialInfected
+    antags:
+    - !type:LinearAntagCount
+      proto: InitialInfected
+      range:
+        min: 1
+        max: 6
   - type: DynamicRuleCost
     cost: 200
+
+- type: entity
+  abstract: true
+  parent: BaseGameRule
+  id: BaseXenoborgsRule
+  components:
+  - type: XenoborgsRule
+  - type: RuleGrids
+  - type: LoadMapRule
+    gridPath: /Maps/Shuttles/mothership.yml
+  - type: AntagMultipleRoleSpawner
+    antagRoleToPrototypes:
+      MothershipCore: [ MothershipCore ]
+      Xenoborg: [ XenoborgEngi, XenoborgHeavy, XenoborgScout, XenoborgStealth ]
+    pickAndTake: true
+  - type: AntagSelection
+    selectionTime: PrePlayerSpawn
+    antags:
+    - !type:FixedAntagCount
+      proto: MothershipCore
+    - !type:FixedAntagCount
+      proto: Xenoborg
+      count: 4
+  - type: DynamicRuleCost
+    cost: 200
+
+- type: entity
+  parent: [ BaseXenoborgsRule, BaseRoundstartAntagRule]
+  id: Xenoborgs
+  components:
+  - type: GameRule
+    minPlayers: 30
 
 # This rule makes the chosen players unable to get other antag rules, as a way to prevent metagaming job rolls.
 # Put this before antags assigned to station jobs, but after non-job antags (NukeOps/Wiz).
@@ -467,12 +356,24 @@
   - type: GameRule
     minPlayers: 5
   - type: AntagSelection
-    selectionTime: IntraPlayerSpawn # Pre-selection before jobs; assignment doesn't really matter though, we only care about the pre-selection to block other antags.
+    selectionTime: PrePlayerSpawn # Pre-selection before jobs; assignment doesn't really matter though, we only care about the pre-selection to block other antags.
     removeUponFailedSpawn: false
-    definitions:
-    - prefRoles: [ InitialInfected, Traitor, Thief, HeadRev ]
-      max: 2
+    antags:
+    - !type:LinearAntagCount
+      proto: DummyAntag
       playerRatio: 30
+      range:
+        min: 1
+        max: 2
+
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: DummyAntag
+  prefRoles: # Only Station bound roles.
+  - InitialInfected
+  - Traitor
+  - Thief
+  - HeadRev
 
 # event schedulers
 
@@ -582,29 +483,21 @@
       prob: 0.50
       orGroup: monospaceDecals
 
-- type: entity
-  id: BloodCult
-  parent: BaseGameRule
-  components:
-  - type: GameRule
-    minPlayers: 20
-  - type: BloodCultRule
-  - type: AntagSelection
-    selectionTime: IntraPlayerSpawn
-    definitions:
-    - prefRoles: [ BloodCultist ]
-      min: 3
-      max: 5
-      playerRatio: 10
-      startingGear: BloodCultistGear
-      briefing:
-        text: cult-start-briefing
-        color: CornflowerBlue
-        sound: "/Audio/Ambience/Antag/cultist_start.ogg"
-      blacklist:
-        components:
-        - BibleUser
-      components:
-      - type: BloodCultist
-      mindRoles:
-      - MindRoleCultist
+# Disabling until reworked after antag refactor
+#- type: entity
+#  id: BloodCult
+#  parent: BaseRoundstartAntagRule
+#  components:
+#  - type: GameRule
+#    minPlayers: 20
+#  - type: BloodCultRule
+#  - type: AntagSelection
+#    agentName: blood-cult-round-end-agent-name
+#    lateJoinAdditional: false
+#    antags:
+#    - !type:LinearAntagCount
+#      proto: BloodCultist
+#      playerRatio: 10
+#      range:
+#        min: 3
+#        max: 5

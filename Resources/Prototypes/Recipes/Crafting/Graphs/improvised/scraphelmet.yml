@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: constructionGraph
   id: scraphelmet
   start: start

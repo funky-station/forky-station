@@ -1,16 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 TekuNut <13456422+TekuNut@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Funce <funce.973@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Actions;
 using Content.Shared.Gravity;
 using Content.Shared.Interaction.Events;
@@ -24,14 +11,16 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Movement.Systems;
 
-public abstract class SharedJetpackSystem : EntitySystem
+public abstract partial class SharedJetpackSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
-    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
-    [Dependency] protected readonly SharedContainerSystem Container = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifier = default!;
+    [Dependency] protected SharedAppearanceSystem Appearance = default!;
+    [Dependency] protected SharedContainerSystem Container = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private ActionContainerSystem _actionContainer = default!;
+
+    [Dependency] private EntityQuery<JetpackComponent> _jetpackQuery = default!;
 
     public override void Initialize()
     {
@@ -67,13 +56,11 @@ public abstract class SharedJetpackSystem : EntitySystem
     private void OnJetpackUserGravityChanged(ref GravityChangedEvent ev)
     {
         var gridUid = ev.ChangedGridIndex;
-        var jetpackQuery = GetEntityQuery<JetpackComponent>();
-
         var query = EntityQueryEnumerator<JetpackUserComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var user, out var transform))
         {
             if (transform.GridUid == gridUid && ev.HasGravity &&
-                jetpackQuery.TryGetComponent(user.Jetpack, out var jetpack))
+                _jetpackQuery.TryGetComponent(user.Jetpack, out var jetpack))
             {
                 _popup.PopupClient(Loc.GetString("jetpack-to-grid"), uid, uid);
 
@@ -186,6 +173,14 @@ public abstract class SharedJetpackSystem : EntitySystem
 
         if (enabled)
         {
+            // If the user is already using another jetpack, disable it first
+            if (TryComp<JetpackUserComponent>(user, out var userComp) &&
+                userComp.Jetpack != uid &&
+                TryComp<JetpackComponent>(userComp.Jetpack, out var oldJetpack))
+            {
+                SetEnabled(userComp.Jetpack, oldJetpack, false, user);
+            }
+
             SetupUser(user.Value, uid, component);
             EnsureComp<ActiveJetpackComponent>(uid);
         }

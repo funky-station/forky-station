@@ -1,8 +1,5 @@
-# SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: localizedDataset
   id: NamesXenoborg
   values:
     prefix: names-xenoborg-dataset-
-    count: 60
+    count: 80

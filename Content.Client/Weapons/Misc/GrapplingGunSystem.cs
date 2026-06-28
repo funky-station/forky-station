@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Net;
 using Content.Client.Hands.Systems;
 using Content.Shared.CombatMode;
@@ -15,11 +11,11 @@ using Robust.Shared.Physics.Dynamics.Joints;
 
 namespace Content.Client.Weapons.Misc;
 
-public sealed class GrapplingGunSystem : SharedGrapplingGunSystem
+public sealed partial class GrapplingGunSystem : SharedGrapplingGunSystem
 {
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly InputSystem _input = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private InputSystem _input = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public override void Update(float frameTime)
     {

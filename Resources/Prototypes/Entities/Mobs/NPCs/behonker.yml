@@ -1,25 +1,6 @@
-# SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 I.K <45953835+notquitehadouken@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Nikovnik <116634167+nkokic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft <ignaz.k@live.de>
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   name: behonker
-  parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
+  parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat, BaseSlicingRefinable ]
   id: BaseMobBehonker
   abstract: true
   description: A floating demon aspect of the honkmother.
@@ -110,12 +91,11 @@
       updateInterval: 0.25
       metabolizerTypes: [ Dragon ]
       stages: [ Digestion, Bloodstream ]
-    - type: Butcherable
-      spawned:
-        - id: MaterialBananium1
-          amount: 2
-        - id: WeaponBehonkerLaser
-          amount: 1
+    - type: ToolRefinable
+      refineResult:
+      - id: MaterialBananium1
+        amount: 2
+      - id: WeaponBehonkerLaser
     - type: MeleeWeapon
       soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
@@ -141,14 +121,14 @@
   id: MobBehonkerElectrical
   suffix: "Pyro"
   components:
-    - type: PyroclasticAnomaly
-    - type: TempAffectingAnomaly
-      tempChangePerSecond: 25
-      hotspotExposeTemperature: 1000
-    - type: GasProducerAnomaly
-      releasedGas: 3
-      releaseOnMaxSeverity: true
-      spawnRadius: 0
+  - type: PyroclasticAnomaly
+  - type: TempAffectingAnomaly
+    tempChangePerSecond: 25
+    hotspotExposeTemperature: 1000
+  - type: GasProducerAnomaly
+    releasedGas: 3
+    releaseOnMaxSeverity: true
+    spawnRadius: 0
 
 - type: entity
   name: behonker

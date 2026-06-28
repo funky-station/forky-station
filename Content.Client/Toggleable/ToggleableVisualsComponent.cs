@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Hands.Components;
 
 namespace Content.Client.Toggleable;

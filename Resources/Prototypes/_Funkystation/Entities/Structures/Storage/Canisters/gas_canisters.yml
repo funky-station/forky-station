@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
-# SPDX-License-Identifier: MIT
-
 # Funky atmos - /tg/ gases
 - type: entity
   parent: GasCanister
@@ -11,19 +8,10 @@
     layers:
     - state: purple
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 #  Water vapor
-      - 0 # Miasma
-      - 0 # N2O
-      - 0 # Frezon
-      - 1871.71051 # BZ
+        BZ: 1871.71051 # BZ
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -60,20 +48,10 @@
     layers:
     - state: healium
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 #  Water vapor
-      - 0 # Miasma
-      - 0 # N2O
-      - 0 # Frezon
-      - 0 # BZ
-      - 1871.71051 # Healium
+        Healium: 1871.71051
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -110,21 +88,10 @@
     layers:
     - state: brown
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 #  Water vapor
-      - 0 # Miasma
-      - 0 # N2O
-      - 0 # Frezon
-      - 0 # BZ
-      - 0 # Healium
-      - 1871.71051 # Nitrium
+        Nitrium: 1871.71051
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -161,22 +128,10 @@
     layers:
     - state: darkblue
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 #  Water vapor
-      - 0 # Miasma
-      - 0 # N2O
-      - 0 # Frezon
-      - 0 # BZ
-      - 0 # Healium
-      - 0 # Nitrium
-      - 1871.71051 # Pluoxium
+        Pluoxium: 1871.71051
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -213,23 +168,10 @@
     layers:
     - state: white
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 #  Water vapor
-      - 0 # Miasma
-      - 0 # N2O
-      - 0 # Frezon
-      - 0 # BZ
-      - 0 # Healium
-      - 0 # Nitrium
-      - 0 # Pluoxium
-      - 1871.71051 # Hydrogen
+        Hydrogen: 1871.71051
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -266,24 +208,10 @@
     layers:
     - state: nob
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 #  Water vapor
-      - 0 # Miasma
-      - 0 # N2O
-      - 0 # Frezon
-      - 0 # BZ
-      - 0 # Healium
-      - 0 # Nitrium
-      - 0 # Pluoxium
-      - 0 # Hydrogen
-      - 1871.71051 # HyperNoblium
+        HyperNoblium: 1871.71051
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -320,25 +248,10 @@
     layers:
     - state: proto_nitrate
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 #  Water vapor
-      - 0 # Miasma
-      - 0 # N2O
-      - 0 # Frezon
-      - 0 # BZ
-      - 0 # Healium
-      - 0 # Nitrium
-      - 0 # Pluoxium
-      - 0 # Hydrogen
-      - 0 # HyperNoblium
-      - 1871.71051 # ProtoNitrate
+        ProtoNitrate: 1871.71051
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -375,26 +288,10 @@
     layers:
     - state: zauker
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 #  Water vapor
-      - 0 # Miasma
-      - 0 # N2O
-      - 0 # Frezon
-      - 0 # BZ
-      - 0 # Healium
-      - 0 # Nitrium
-      - 0 # Pluoxium
-      - 0 # Hydrogen
-      - 0 # HyperNoblium
-      - 0 # ProtoNitrate
-      - 1871.71051 # Zauker
+        Zauker: 1871.71051
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -431,27 +328,10 @@
     layers:
     - state: halon
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 #  Water vapor
-      - 0 # Miasma
-      - 0 # N2O
-      - 0 # Frezon
-      - 0 # BZ
-      - 0 # Healium
-      - 0 # Nitrium
-      - 0 # Pluoxium
-      - 0 # Hydrogen
-      - 0 # HyperNoblium
-      - 0 # ProtoNitrate
-      - 0 # Zauker
-      - 1871.71051 # Halon
+        Halon: 1871.71051
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -488,28 +368,10 @@
     layers:
     - state: helium
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 #  Water vapor
-      - 0 # Miasma
-      - 0 # N2O
-      - 0 # Frezon
-      - 0 # BZ
-      - 0 # Healium
-      - 0 # Nitrium
-      - 0 # Pluoxium
-      - 0 # Hydrogen
-      - 0 # HyperNoblium
-      - 0 # ProtoNitrate
-      - 0 # Zauker
-      - 0 # Halon
-      - 1871.71051 # Helium
+        Helium: 1871.71051
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -546,29 +408,10 @@
     layers:
     - state: antinob
   - type: GasCanister
-    gasMixture:
+    air:
       volume: 1000
       moles:
-      - 0 # oxygen
-      - 0 # nitrogen
-      - 0 # CO2
-      - 0 # Plasma
-      - 0 # Tritium
-      - 0 #  Water vapor
-      - 0 # Miasma
-      - 0 # N2O
-      - 0 # Frezon
-      - 0 # BZ
-      - 0 # Healium
-      - 0 # Nitrium
-      - 0 # Pluoxium
-      - 0 # Hydrogen
-      - 0 # HyperNoblium
-      - 0 # ProtoNitrate
-      - 0 # Zauker
-      - 0 # Halon
-      - 0 # Helium
-      - 1871.71051 # AntiNoblium
+        AntiNoblium: 1871.71051
       temperature: 293.15
   - type: Destructible
     thresholds:

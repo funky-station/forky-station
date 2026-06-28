@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Inventory.Events;
 using Content.Shared.Overlays;
 using Robust.Client.Graphics;
@@ -9,7 +6,7 @@ namespace Content.Client.Overlays;
 
 public sealed partial class NoirOverlaySystem : EquipmentHudSystem<NoirOverlayComponent>
 {
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
 
     private NoirOverlay _overlay = default!;
 

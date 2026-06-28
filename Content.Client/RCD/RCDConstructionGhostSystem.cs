@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2024 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
-// SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
-// SPDX-FileCopyrightText: 2026 taydeo <td12233a@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Atmos;
 using Content.Client.Hands.Systems;
 using Content.Shared.Input;
@@ -27,19 +16,18 @@ namespace Content.Client.RCD;
 /// <summary>
 /// System for handling structure ghost placement in places where RCD can create objects.
 /// </summary>
-public sealed class RCDConstructionGhostSystem : EntitySystem
+public sealed partial class RCDConstructionGhostSystem : EntitySystem
 {
     private const string PlacementMode = nameof(AlignRCDConstruction);
     private const string RpdPlacementMode = nameof(AlignRPDAtmosPipeLayers);
 
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IPlacementManager _placementManager = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IPlacementManager _placementManager = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private HandsSystem _hands = default!;
 
     private Direction _placementDirection = default;
     private bool _useMirrorPrototype = false;
-    public event EventHandler? FlipConstructionPrototype;
 
     public override void Initialize()
     {

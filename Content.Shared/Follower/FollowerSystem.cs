@@ -1,24 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Kara D <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Numerics;
 using Content.Shared.Administration.Managers;
@@ -45,15 +24,15 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Follower;
 
-public sealed class FollowerSystem : EntitySystem
+public sealed partial class FollowerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly SharedJointSystem _jointSystem = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
-    [Dependency] private readonly INetManager _netMan = default!;
-    [Dependency] private readonly ISharedAdminManager _adminManager = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private TagSystem _tagSystem = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private SharedJointSystem _jointSystem = default!;
+    [Dependency] private SharedPhysicsSystem _physicsSystem = default!;
+    [Dependency] private INetManager _netMan = default!;
+    [Dependency] private ISharedAdminManager _adminManager = default!;
 
     private static readonly ProtoId<TagPrototype> ForceableFollowTag = "ForceableFollow";
     private static readonly ProtoId<TagPrototype> PreventGhostnadoWarpTag = "NotGhostnadoWarpable";
@@ -180,11 +159,7 @@ public sealed class FollowerSystem : EntitySystem
 
     private void OnFollowedPolymorphed(Entity<FollowedComponent> entity, ref PolymorphedEvent args)
     {
-        foreach (var follower in entity.Comp.Following)
-        {
-            // Stop following the target's old entity and start following the new one
-            StartFollowingEntity(follower, args.NewEntity);
-        }
+        TransferFollowers(entity.AsNullable(), args.NewEntity);
     }
 
     // TODO: Slartibarfast mentioned that ideally this should be generalized and made part of SetRelay in SharedMoverController.Relay.cs.
@@ -194,8 +169,7 @@ public sealed class FollowerSystem : EntitySystem
         if (args.NewRemoteEntity == null)
             return;
 
-        foreach (var follower in entity.Comp.Following)
-            StartFollowingEntity(follower, args.NewRemoteEntity.Value);
+        TransferFollowers(entity.AsNullable(), args.NewRemoteEntity.Value);
     }
 
     /// <summary>
@@ -325,6 +299,21 @@ public sealed class FollowerSystem : EntitySystem
         {
             StopFollowingEntity(player, uid, followed);
         }
+    }
+
+    /// <summary>
+    ///     Moves every follower of <paramref name="from"/> over to <paramref name="to"/>.
+    ///     Use this when an entity is being replaced (polymorph, remote swap, ghost role spawn) and
+    ///     its watchers should ride along to the successor instead of being detached.
+    /// </summary>
+    public void TransferFollowers(Entity<FollowedComponent?> from, EntityUid to)
+    {
+        if (from.Owner == to || !Resolve(from, ref from.Comp, false))
+            return;
+
+        // Snapshot since HashSet is mutated down the line
+        foreach (var follower in from.Comp.Following.ToArray())
+            StartFollowingEntity(follower, to);
     }
 
     /// <summary>

@@ -1,28 +1,5 @@
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ben <50087092+benev0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Nikovnik <116634167+nkokic@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
-using Content.Shared.EntityEffects.Effects;
 using Content.Server.Spreader;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry;
@@ -51,32 +28,29 @@ namespace Content.Server.Fluids.EntitySystems;
 /// <summary>
 /// Handles non-atmos solution entities similar to puddles.
 /// </summary>
-public sealed class SmokeSystem : EntitySystem
+public sealed partial class SmokeSystem : EntitySystem
 {
     // If I could do it all again this could probably use a lot more of puddles.
-    [Dependency] private readonly IAdminLogManager _logger = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly BloodstreamSystem _blood = default!;
-    [Dependency] private readonly InternalsSystem _internals = default!;
-    [Dependency] private readonly ReactiveSystem _reactive = default!;
-    [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private IAdminLogManager _logger = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private BloodstreamSystem _blood = default!;
+    [Dependency] private InternalsSystem _internals = default!;
+    [Dependency] private ReactiveSystem _reactive = default!;
+    [Dependency] private SharedBroadphaseSystem _broadphase = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
 
-    private EntityQuery<SmokeComponent> _smokeQuery;
-    private EntityQuery<SmokeAffectedComponent> _smokeAffectedQuery;
+    [Dependency] private EntityQuery<SmokeComponent> _smokeQuery = default!;
+    [Dependency] private EntityQuery<SmokeAffectedComponent> _smokeAffectedQuery = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
-
-        _smokeQuery = GetEntityQuery<SmokeComponent>();
-        _smokeAffectedQuery = GetEntityQuery<SmokeAffectedComponent>();
 
         SubscribeLocalEvent<SmokeComponent, StartCollideEvent>(OnStartCollide);
         SubscribeLocalEvent<SmokeComponent, EndCollideEvent>(OnEndCollide);
@@ -187,12 +161,10 @@ public sealed class SmokeSystem : EntitySystem
 
         // We have no more neighbours to spread to. So instead we will randomly distribute our volume to neighbouring smoke tiles.
 
-        var smokeQuery = GetEntityQuery<SmokeComponent>();
-
         _random.Shuffle(args.Neighbors);
         foreach (var neighbor in args.Neighbors)
         {
-            if (!smokeQuery.TryGetComponent(neighbor, out var smoke))
+            if (!_smokeQuery.TryGetComponent(neighbor, out var smoke))
                 continue;
 
             smoke.SpreadAmount++;
@@ -226,7 +198,7 @@ public sealed class SmokeSystem : EntitySystem
 
     private void OnReactionAttempt(Entity<SmokeComponent> entity, ref SolutionRelayEvent<ReactionAttemptEvent> args)
     {
-        if (args.Name == SmokeComponent.SolutionName)
+        if (args.Solution.Comp.Id == SmokeComponent.SolutionName)
             OnReactionAttempt(entity, ref args.Event);
     }
 

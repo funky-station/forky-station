@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Trigger;
 using Content.Shared.Trigger.Components.Effects;
 using Content.Server.GhostKick;
@@ -8,9 +5,9 @@ using Robust.Shared.Player;
 
 namespace Content.Server.Trigger.Systems;
 
-public sealed class GhostKickUserOnTriggerSystem : EntitySystem
+public sealed partial class GhostKickUserOnTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly GhostKickManager _ghostKickManager = default!;
+    [Dependency] private GhostKickManager _ghostKickManager = default!;
 
     public override void Initialize()
     {

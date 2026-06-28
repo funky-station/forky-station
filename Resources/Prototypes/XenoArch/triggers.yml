@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 OrbitSystem07 <emilymurray717@gmail.com>
-# SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: weightedRandomXenoArchTrigger
   id: DefaultTriggers
   weights:
@@ -247,6 +243,7 @@
     - AmmoniaBlood
     - ZombieBlood
     - Sap
+    - SulfurBlood
 
 - type: xenoArchTrigger
   id: TriggerThrow

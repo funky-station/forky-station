@@ -1,13 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
-# SPDX-FileCopyrightText: 2025 Gentleman-Bird <dcgreen406@gmail.com>
-# SPDX-FileCopyrightText: 2025 Wolfkey-SomeoneElseTookMyUsername <wolfkey75@gmail.com>
-# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2026 Hitlinemoss <209321380+Hitlinemoss@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: foodSequenceElement
   id: BunTopBurger
   final: true
@@ -1573,6 +1563,21 @@
   sprites:
   - sprite: Objects/Fun/toy_ian.rsi
     state: icon
+
+- type: foodSequenceElement
+  id: SheepPlushie
+  scale: 0.8, 0.8
+  name: food-sequence-cotton-burger-content-plushie-sheep
+  sprites:
+  - sprite: Objects/Fun/Plushies/sheep.rsi
+    state: sheeptoy
+
+- type: foodSequenceElement
+  id: SheepSpacePlushie
+  name: food-sequence-cotton-burger-content-plushie-sheepspace
+  sprites:
+  - sprite: Objects/Fun/Plushies/sheep.rsi
+    state: spacesheeptoy
 
 #Among pequeño - does not work with randomized sprites
 

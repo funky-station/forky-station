@@ -1,15 +1,4 @@
-// SPDX-FileCopyrightText: 2020-2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+﻿using Content.IntegrationTests.Fixtures;
 using Content.Server.GameTicking;
 using Content.Shared.GameTicking;
 using Robust.Shared.GameObjects;
@@ -19,7 +8,7 @@ namespace Content.IntegrationTests.Tests
 {
     [TestFixture]
     [TestOf(typeof(RoundRestartCleanupEvent))]
-    public sealed class ResettingEntitySystemTests
+    public sealed class ResettingEntitySystemTests : GameTest
     {
         public sealed class TestRoundRestartCleanupEvent : EntitySystem
         {
@@ -38,15 +27,17 @@ namespace Content.IntegrationTests.Tests
             }
         }
 
+        public override PoolSettings PoolSettings => new PoolSettings
+        {
+            DummyTicker = false,
+            Connected = true,
+            Dirty = true
+        };
+
         [Test]
         public async Task ResettingEntitySystemResetTest()
         {
-            await using var pair = await PoolManager.GetServerClient(new PoolSettings
-            {
-                DummyTicker = false,
-                Connected = true,
-                Dirty = true
-            });
+            var pair = Pair;
             var server = pair.Server;
 
             var entitySystemManager = server.ResolveDependency<IEntitySystemManager>();
@@ -64,7 +55,6 @@ namespace Content.IntegrationTests.Tests
 
                 Assert.That(system.HasBeenReset);
             });
-            await pair.CleanReturnAsync();
         }
     }
 }

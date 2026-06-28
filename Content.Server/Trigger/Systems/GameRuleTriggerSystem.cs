@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration.Logs;
 using Content.Server.GameTicking;
 using Content.Shared.Database;
@@ -12,10 +9,10 @@ namespace Content.Server.Trigger.Systems;
 /// <summary>
 /// Trigger system for game rules.
 /// </summary>
-public sealed class GameRuleTriggerSystem : EntitySystem
+public sealed partial class GameRuleTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly GameTicker _ticker = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private GameTicker _ticker = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

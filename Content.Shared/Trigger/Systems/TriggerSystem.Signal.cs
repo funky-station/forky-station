@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Trigger.Components.Triggers;
 using Content.Shared.Trigger.Components.Effects;
 using Content.Shared.DeviceLinking.Events;

@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 ArZarLordOfMango <96249677+ArZarLordOfMango@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Actions;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
@@ -14,10 +10,10 @@ namespace Content.Shared.Clothing.EntitySystems;
 /// <summary>
 /// Handles adding and using a toggle action for <see cref="ToggleClothingComponent"/>.
 /// </summary>
-public sealed class ToggleClothingSystem : EntitySystem
+public sealed partial class ToggleClothingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
 
     public override void Initialize()
     {

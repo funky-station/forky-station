@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025-2026 jhrushbe <capnmerry@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: Turbine
   parent: BaseStructure
@@ -53,8 +50,9 @@
         layer:
         - MachineLayer
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Anchorable
     delay: 10
   - type: NodeContainer
@@ -151,11 +149,11 @@
     turbineMass: 400
     powerMultiplier: 0.4
     inletPos: 1, -1
-    inletRot: 0 
+    inletRot: 0
     outletPos: -1, -1
-    outletRot: 0 
+    outletRot: 0
     arrowPrototype: TurbineSmallFlowArrow
-  
+
 # Arrow to indicate flow
 - type: entity
   id: TurbineFlowArrow

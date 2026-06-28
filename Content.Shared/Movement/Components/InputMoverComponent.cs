@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023, 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Lordbrandon12 <107556696+Lordbrandon12@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.GameStates;
@@ -43,6 +35,7 @@ namespace Content.Shared.Movement.Components
         public Vector2 CurTickWalkMovement;
         public Vector2 CurTickSprintMovement;
 
+        [ViewVariables]
         public MoveButtons HeldMoveButtons = MoveButtons.None;
 
         /// <summary>
@@ -51,12 +44,14 @@ namespace Content.Shared.Movement.Components
         /// <remarks>
         /// This can be useful to filter out input from just pressing the walk button with no directions, for example.
         /// </remarks>
+        [ViewVariables]
         public bool HasDirectionalMovement => (HeldMoveButtons & MoveButtons.AnyDirection) != MoveButtons.None;
 
         // I don't know if we even need this networked? It's mostly so conveyors can calculate properly.
         /// <summary>
         /// Direction to move this tick.
         /// </summary>
+        [ViewVariables]
         public Vector2 WishDir;
 
         /// <summary>
@@ -87,6 +82,7 @@ namespace Content.Shared.Movement.Components
         public const float SprintingSoundModifier = 3.5f;
         public const float WalkingSoundModifier = 1.5f;
 
+        [ViewVariables]
         public bool Sprinting => (HeldMoveButtons & MoveButtons.Walk) == 0x0;
 
         [ViewVariables(VVAccess.ReadWrite)]

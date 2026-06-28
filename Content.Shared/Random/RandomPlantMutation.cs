@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 drakewill-CRL <46307022+drakewill-CRL@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.EntityEffects;
 using Robust.Shared.Serialization;
 

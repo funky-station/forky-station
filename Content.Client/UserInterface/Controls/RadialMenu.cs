@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Numerics;
 using Content.Shared.Input;
@@ -233,7 +228,6 @@ public class RadialMenu : BaseWindow
 /// Base class for radial menu buttons. Excludes all actions except clicks and alt-clicks
 /// from interactions.
 /// </summary>
-[Virtual]
 public abstract class RadialMenuButtonBase : BaseButton
 {
     /// <inheritdoc />
@@ -245,11 +239,15 @@ public abstract class RadialMenuButtonBase : BaseButton
     /// <inheritdoc />
     protected override void KeyBindUp(GUIBoundKeyEventArgs args)
     {
-        if (args.Function == EngineKeyFunctions.UIClick
-            || args.Function == ContentKeyFunctions.AltActivateItemInWorld)
-        {
+        if (args.Function.IsClickOrAltClick())
             base.KeyBindUp(args);
-        }
+    }
+
+    /// <inheritdoc />
+    protected override void KeyBindDown(GUIBoundKeyEventArgs args)
+    {
+        if (args.Function.IsClickOrAltClick())
+            base.KeyBindDown(args);
     }
 }
 
@@ -291,11 +289,15 @@ public sealed class RadialMenuContextualCentralTextureButton : TextureButton
     /// <inheritdoc />
     protected override void KeyBindUp(GUIBoundKeyEventArgs args)
     {
-        if (args.Function == EngineKeyFunctions.UIClick
-            || args.Function == ContentKeyFunctions.AltActivateItemInWorld)
-        {
+        if (args.Function.IsClickOrAltClick())
             base.KeyBindUp(args);
-        }
+    }
+
+    /// <inheritdoc />
+    protected override void KeyBindDown(GUIBoundKeyEventArgs args)
+    {
+        if (args.Function.IsClickOrAltClick())
+            base.KeyBindDown(args);
     }
 }
 
@@ -688,5 +690,14 @@ public class RadialMenuButtonWithSector : RadialMenuButton, IRadialMenuItemWithS
     private static bool IsWholeCircle(float angleSectorFrom, float angleSectorTo)
     {
         return new Angle(angleSectorFrom).EqualsApprox(new Angle(angleSectorTo));
+    }
+}
+
+static file class RadialMenuButtonsHelpers
+{
+    public static bool IsClickOrAltClick(this BoundKeyFunction function)
+    {
+        return function == EngineKeyFunctions.UIClick
+               || function == ContentKeyFunctions.AltActivateItemInWorld;
     }
 }
