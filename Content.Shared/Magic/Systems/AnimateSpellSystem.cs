@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Magic.Components;
 using Content.Shared.Physics;
 using Robust.Shared.Containers;
@@ -11,11 +8,11 @@ using System.Linq;
 
 namespace Content.Shared.Magic.Systems;
 
-public sealed class AnimateSpellSystem : EntitySystem
+public sealed partial class AnimateSpellSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {

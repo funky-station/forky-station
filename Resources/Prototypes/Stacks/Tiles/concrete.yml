@@ -1,14 +1,8 @@
-# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2026 Aearo-Deepwater <77557990+Aearo-Deepwater@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: stack
   parent: BaseTileStack
   id: FloorTileConcrete
   name: stack-concrete-tile
-  spawn: FloorTileItemGrayConcrete
+  spawn: FloorTileItemConcrete
 
 - type: stack
   parent: BaseTileStack

@@ -1,15 +1,12 @@
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.ActionBlocker;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory.Events;
 
 namespace Content.Shared.Inventory;
 
-public sealed class SelfEquipOnlySystem : EntitySystem
+public sealed partial class SelfEquipOnlySystem : EntitySystem
 {
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -26,7 +23,7 @@ public sealed class SelfEquipOnlySystem : EntitySystem
         if (TryComp<ClothingComponent>(ent, out var clothing) && (clothing.Slots & args.SlotFlags) == SlotFlags.NONE)
             return;
 
-        if (args.Equipee != args.EquipTarget)
+        if (args.User != args.EquipTarget)
             args.Cancel();
     }
 
@@ -35,7 +32,7 @@ public sealed class SelfEquipOnlySystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        if (args.Unequipee == args.UnEquipTarget)
+        if (args.User == args.UnEquipTarget)
             return;
 
         if (TryComp<ClothingComponent>(ent, out var clothing) && (clothing.Slots & args.SlotFlags) == SlotFlags.NONE)

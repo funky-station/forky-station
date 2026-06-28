@@ -1,24 +1,3 @@
-# SPDX-FileCopyrightText: 2020-2021 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2020-2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2020 daniel-cr <eldanielcr@gmail.com>
-# SPDX-FileCopyrightText: 2020 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021, 2023 Julian Giebel <juliangiebel@live.de>
-# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Steven K <84935671+ModeratelyAware@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Jack Fox <35575261+DubiousDoggo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Repo <47093363+Titian3@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Lordbrandon12 <107556696+Lordbrandon12@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 qwerltaz <msmarcinpl@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: ConveyorBelt
   name: conveyor belt
@@ -34,8 +13,9 @@
     anchored: true
   - type: Sprite
     sprite: Structures/conveyor.rsi
-    state: conveyor_stopped_cw
+    state: conveyor_stopped
     drawdepth: HighFloorObjects
+  - type: SyncSprite
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
   - type: Physics
@@ -60,23 +40,24 @@
     range: 200
   - type: DeviceLinkSink
     ports:
-      - Reverse
-      - Forward
-      - Off
+    - Reverse
+    - Forward
+    - Off
   - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.ConveyorVisuals.State:
         enum.ConveyorState.Off:
-          Off: { state: conveyor_stopped_cw }
-          Forward: { state: conveyor_started_cw }
-          Reverse: { state: conveyor_started_cw_r }
+          Off: { state: conveyor_stopped }
+          Forward: { state: conveyor_started }
+          Reverse: { state: conveyor_started_r }
   - type: Construction
     graph: ConveyorGraph
     node: entity
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -90,19 +71,28 @@
 - type: entity
   id: ConveyorBeltAssembly
   parent: BaseItem
-  name: conveyor belt
-  suffix: assembly
+  name: conveyor belt assembly
   description: A conveyor belt assembly. Used to construct a conveyor belt.
   components:
-  - type: Tag
-    tags:
-    - ConveyorAssembly
   - type: Sprite
     sprite: Structures/conveyor.rsi
-    state: conveyor_loose
+    layers:
+    - state: conveyor_loose
+      map: [ "base" ]
+  - type: Item
+    size: Normal
   - type: Construction
     graph: ConveyorGraph
     node: item
-  - type: StaticPrice
+  - type: StackPrice
     price: 40
-
+  - type: Stack
+    stackType: ConveyorBeltStack
+    count: 1
+    baseLayer: base
+    layerStates:
+    - conveyor_loose # 0-item state
+    - conveyor_loose
+    - conveyor_loose_2
+    - conveyor_loose_3
+  - type: Appearance

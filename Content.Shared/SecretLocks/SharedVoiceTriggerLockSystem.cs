@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Lock;
 using Content.Shared.Trigger.Components.Triggers;
@@ -9,7 +6,7 @@ namespace Content.Shared.SecretLocks;
 
 public sealed partial class SharedVoiceTriggerLockSystem : EntitySystem
 {
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
 
     public override void Initialize()
     {

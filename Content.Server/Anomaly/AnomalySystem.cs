@@ -1,17 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
-// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2026 Velken <8467292+Velken@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Anomaly.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Audio;
@@ -40,19 +26,19 @@ namespace Content.Server.Anomaly;
 /// </summary>
 public sealed partial class AnomalySystem : SharedAnomalySystem
 {
-    [Dependency] private readonly IConfigurationManager _configuration = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly AmbientSoundSystem _ambient = default!;
-    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
-    [Dependency] private readonly MaterialStorageSystem _material = default!;
-    [Dependency] private readonly SharedPointLightSystem _pointLight = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly RadiationSystem _radiation = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private IConfigurationManager _configuration = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private AmbientSoundSystem _ambient = default!;
+    [Dependency] private AtmosphereSystem _atmosphere = default!;
+    [Dependency] private ExplosionSystem _explosion = default!;
+    [Dependency] private MaterialStorageSystem _material = default!;
+    [Dependency] private SharedPointLightSystem _pointLight = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private RadioSystem _radio = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private RadiationSystem _radiation = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
 
     public const float MinParticleVariation = 0.8f;
     public const float MaxParticleVariation = 1.2f;

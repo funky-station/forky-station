@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Winkarst-cpu <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Nutrition.Components;
@@ -12,6 +7,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Content.Shared.Tools;
 
 namespace Content.Shared.Kitchen.Components;
 
@@ -32,6 +28,12 @@ public sealed partial class KitchenSpikeComponent : Component
     /// Default sound to play when the victim is butchered.
     /// </summary>
     private static readonly ProtoId<SoundCollectionPrototype> DefaultSpikeButcher = new("SpikeButcher");
+
+    /// <summary>
+    /// Tool quality that required for the entity that used for butchering.
+    /// </summary>
+    [DataField]
+    public ProtoId<ToolQualityPrototype> RequiredToolQuality = "Slicing";
 
     /// <summary>
     /// ID of the container where the victim will be stored.
@@ -63,7 +65,7 @@ public sealed partial class KitchenSpikeComponent : Component
     [DataField, AutoNetworkedField]
     public DamageSpecifier SpikeDamage = new()
     {
-        DamageDict = new Dictionary<string, FixedPoint2>
+        DamageDict = new()
         {
             { "Piercing", 10 },
         },
@@ -75,7 +77,7 @@ public sealed partial class KitchenSpikeComponent : Component
     [DataField, AutoNetworkedField]
     public DamageSpecifier ButcherDamage = new()
     {
-        DamageDict = new Dictionary<string, FixedPoint2>
+        DamageDict = new()
         {
             { "Slash", 20 },
         },
@@ -87,7 +89,7 @@ public sealed partial class KitchenSpikeComponent : Component
     [DataField, AutoNetworkedField]
     public DamageSpecifier TimeDamage = new()
     {
-        DamageDict = new Dictionary<string, FixedPoint2>
+        DamageDict = new()
         {
             { "Blunt", 1 }, // Mobs are only gibbed from blunt (at least for now).
         },

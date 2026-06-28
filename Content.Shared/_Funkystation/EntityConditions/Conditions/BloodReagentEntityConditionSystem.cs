@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
@@ -18,7 +15,7 @@ namespace Content.Shared._Funkystation.EntityConditions.Conditions;
 /// <inheritdoc cref="EntityConditionSystem{T, TCondition}"/>
 public sealed partial class BloodReagentEntityConditionSystem : EntityConditionSystem<BloodstreamComponent, BloodReagentCondition>
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private SharedSolutionContainerSystem _solution = default!;
 
     protected override void Condition(Entity<BloodstreamComponent> entity, ref EntityConditionEvent<BloodReagentCondition> args)
     {

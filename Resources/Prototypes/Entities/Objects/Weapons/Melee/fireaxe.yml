@@ -1,31 +1,3 @@
-# SPDX-FileCopyrightText: 2021, 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021-2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 TaralGit <76408146+TaralGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Tarlan2 <76408146+Tarlan2@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022, 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2023-2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 I.K <45953835+notquitehadouken@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 stopbreaking <126102320+stopbreaking@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Andrew Malcolm O'Neill <105134723+maland1@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   name: fireaxe
   parent: [BaseItem, BaseEngineeringContraband]
@@ -35,7 +7,6 @@
   - type: Tag
     tags:
     - FireAxe
-  - type: Sharp
   - type: Execution
     doAfterDuration: 4.0
   - type: Sprite
@@ -66,9 +37,12 @@
     quickEquip: false
     slots:
     - back
+    - suitStorage
   - type: Tool
     qualities:
-      - Prying
+    - Prying
+    - Slicing
+    - Sawing
   - type: ToolTileCompatible
   - type: Prying
   - type: UseDelay
@@ -81,11 +55,12 @@
 - type: entity
   id: FireAxeFlaming
   name: fire axe
-  parent: [BaseSyndicateContraband, FireAxe]
+  parent: [ BaseSyndicateContraband, FireAxe ]
   description: Why fight fire with an axe when you can fight with fire and axe? Now featuring rugged rubberized handle!
   components:
   - type: MeleeWeapon
-    wideAnimationRotation: 90
+    wideAnimationRotation: 135
+    swingLeft: true
   - type: IgniteOnMeleeHit
     fireStacks: 1
   - type: Sprite
@@ -96,3 +71,4 @@
     quickEquip: false
     slots:
     - back
+    - suitStorage

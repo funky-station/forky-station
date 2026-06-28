@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Anomaly.Components;
 using Content.Server.Beam;
 using Content.Server.DeviceLinking.Systems;
@@ -16,13 +9,13 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Anomaly.Effects;
 
-public sealed class TechAnomalySystem : EntitySystem
+public sealed partial class TechAnomalySystem : EntitySystem
 {
-    [Dependency] private readonly DeviceLinkSystem _signal = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly BeamSystem _beam = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private DeviceLinkSystem _signal = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private BeamSystem _beam = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

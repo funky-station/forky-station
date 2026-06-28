@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chemistry.Components;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
@@ -37,5 +27,11 @@ namespace Content.Shared.Fluids.Components
 
         [ViewVariables]
         public Entity<SolutionComponent>? Solution;
+
+        [DataField]
+        public bool AffectsMovement = true;
+
+        [DataField]
+        public bool AffectsSound = true;
     }
 }

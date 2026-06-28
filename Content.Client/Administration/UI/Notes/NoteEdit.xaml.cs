@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2023 Repo <47093363+Titian3@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Administration.Notes;
 using Content.Shared.Database;
@@ -23,8 +14,8 @@ namespace Content.Client.Administration.UI.Notes;
 [GenerateTypedNameReferences]
 public sealed partial class NoteEdit : FancyWindow
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IClientConsoleHost _console = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private IClientConsoleHost _console = default!;
 
     private enum Multipliers
     {

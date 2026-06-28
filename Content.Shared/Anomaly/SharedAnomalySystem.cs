@@ -1,22 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ninruB <ninrub@tuta.io>
-// SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Anomaly.Components;
@@ -43,19 +24,21 @@ using Content.Shared.Actions;
 
 namespace Content.Shared.Anomaly;
 
-public abstract class SharedAnomalySystem : EntitySystem
+public abstract partial class SharedAnomalySystem : EntitySystem
 {
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] protected readonly IRobustRandom Random = default!;
-    [Dependency] protected readonly ISharedAdminLogManager AdminLog = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] protected IRobustRandom Random = default!;
+    [Dependency] protected ISharedAdminLogManager AdminLog = default!;
+    [Dependency] protected SharedAudioSystem Audio = default!;
+    [Dependency] protected SharedAppearanceSystem Appearance = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] protected SharedPopupSystem Popup = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+
+    [Dependency] private EntityQuery<PhysicsComponent> _physQuery = default!;
 
     public override void Initialize()
     {
@@ -428,7 +411,6 @@ public abstract class SharedAnomalySystem : EntitySystem
         if (tilerefs.Count == 0)
             return null;
 
-        var physQuery = GetEntityQuery<PhysicsComponent>();
         var resultList = new List<TileRef>();
         while (resultList.Count < amount)
         {
@@ -450,10 +432,13 @@ public abstract class SharedAnomalySystem : EntitySystem
 
             if (!settings.CanSpawnOnEntities)
             {
+                // If it can't spawn on entities, ensure that maximum one entity will be spawned here this pulse.
+                tilerefs.Remove(tileref);
+
                 var valid = true;
                 foreach (var ent in _map.GetAnchoredEntities(xform.GridUid.Value, grid, tileref.GridIndices))
                 {
-                    if (!physQuery.TryGetComponent(ent, out var body))
+                    if (!_physQuery.TryGetComponent(ent, out var body))
                         continue;
 
                     if (body.BodyType != BodyType.Static ||
@@ -466,7 +451,6 @@ public abstract class SharedAnomalySystem : EntitySystem
                 }
                 if (!valid)
                 {
-                    tilerefs.Remove(tileref);
                     continue;
                 }
             }

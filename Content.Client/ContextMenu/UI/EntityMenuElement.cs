@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2021, 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2022-2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 08A <git@08a.re>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Client.Administration.Managers;
 using Content.Client.Administration.Systems;
@@ -21,9 +11,9 @@ namespace Content.Client.ContextMenu.UI
 {
     public sealed partial class EntityMenuElement : ContextMenuElement, IEntityControl
     {
-        [Dependency] private readonly IClientAdminManager _adminManager = default!;
-        [Dependency] private readonly IEntityManager _entityManager = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
+        [Dependency] private IClientAdminManager _adminManager = default!;
+        [Dependency] private IEntityManager _entityManager = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
 
         private AdminSystem _adminSystem;
 

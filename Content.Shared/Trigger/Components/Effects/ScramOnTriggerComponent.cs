@@ -1,6 +1,4 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+using System.Numerics;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
@@ -15,10 +13,10 @@ namespace Content.Shared.Trigger.Components.Effects;
 public sealed partial class ScramOnTriggerComponent : BaseXOnTriggerComponent
 {
     /// <summary>
-    /// Up to how far to teleport the entity.
+    /// Up to how far to teleport the entity. Represented with X as Min Radius, and Y as Max Radius
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float TeleportRadius = 100f;
+    public Vector2 TeleportRadius = new (10f, 15f);
 
     /// <summary>
     /// the sound to play when teleporting.

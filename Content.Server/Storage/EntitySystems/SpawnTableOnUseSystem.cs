@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration.Logs;
 using Content.Server.Storage.Components;
 using Content.Shared.Database;
@@ -11,12 +7,12 @@ using Content.Shared.Interaction.Events;
 
 namespace Content.Server.Storage.EntitySystems;
 
-public sealed class SpawnTableOnUseSystem : EntitySystem
+public sealed partial class SpawnTableOnUseSystem : EntitySystem
 {
-    [Dependency] private readonly EntityTableSystem _entityTable = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private EntityTableSystem _entityTable = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {

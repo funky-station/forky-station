@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022, 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023, 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System;
 using System.Collections.Generic;
 using System.Numerics;
@@ -30,11 +19,11 @@ namespace Content.Client.Viewport
     /// <summary>
     ///     Viewport control that has a fixed viewport size and scales it appropriately.
     /// </summary>
-    public sealed class ScalingViewport : Control, IViewportControl
+    public sealed partial class ScalingViewport : Control, IViewportControl
     {
-        [Dependency] private readonly IClyde _clyde = default!;
-        [Dependency] private readonly IEntityManager _entityManager = default!;
-        [Dependency] private readonly IInputManager _inputManager = default!;
+        [Dependency] private IClyde _clyde = default!;
+        [Dependency] private IEntityManager _entityManager = default!;
+        [Dependency] private IInputManager _inputManager = default!;
 
         // Internal viewport creation is deferred.
         private IClydeViewport? _viewport;

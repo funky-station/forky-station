@@ -1,21 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Repo <47093363+Titian3@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 KP <13428215+nok-ko@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 LightVillet <maxim12000@ya.ru>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Database;
 using Content.Shared.Fluids.Components;
@@ -32,11 +14,11 @@ public sealed partial class PuddleSystem
 
         SubscribeLocalEvent<SpillableComponent, LandEvent>(SpillOnLand);
         // Openable handles the event if it's closed
-        SubscribeLocalEvent<SpillableComponent, SolutionContainerOverflowEvent>(OnOverflow);
+        SubscribeLocalEvent<SpillableComponent, SolutionOverflowEvent>(OnOverflow);
         SubscribeLocalEvent<SpillableComponent, SpillDoAfterEvent>(OnDoAfter);
     }
 
-    private void OnOverflow(Entity<SpillableComponent> entity, ref SolutionContainerOverflowEvent args)
+    private void OnOverflow(Entity<SpillableComponent> entity, ref SolutionOverflowEvent args)
     {
         if (args.Handled)
             return;

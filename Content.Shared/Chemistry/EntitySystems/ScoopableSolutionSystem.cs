@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
@@ -13,12 +8,12 @@ namespace Content.Shared.Chemistry.EntitySystems;
 /// <summary>
 /// Handles solution transfer when a beaker is used on a scoopable entity.
 /// </summary>
-public sealed class ScoopableSolutionSystem : EntitySystem
+public sealed partial class ScoopableSolutionSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly SolutionTransferSystem _solutionTransfer = default!;
+    [Dependency] private INetManager _netManager = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private SolutionTransferSystem _solutionTransfer = default!;
 
     public override void Initialize()
     {

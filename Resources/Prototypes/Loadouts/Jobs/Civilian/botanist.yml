@@ -1,16 +1,12 @@
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: loadout
   id: BotanistHead
   equipment:
     head: ClothingHeadHatTrucker
 
-- type: loadout
-  id: BotanistBandana
-  equipment:
-    head: ClothingHeadBandBotany
+#- type: loadout
+#  id: BotanistBandana
+#  equipment:
+#    head: ClothingHeadBandBotany
 
 # Jumpsuit
 - type: loadout

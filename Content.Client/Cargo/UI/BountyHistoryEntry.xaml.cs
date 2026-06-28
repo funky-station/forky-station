@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 BarryNorfolk <barrynorfolkman@protonmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Message;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Prototypes;
@@ -16,7 +12,7 @@ namespace Content.Client.Cargo.UI;
 [GenerateTypedNameReferences]
 public sealed partial class BountyHistoryEntry : BoxContainer
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public BountyHistoryEntry(CargoBountyHistoryData bounty)
     {

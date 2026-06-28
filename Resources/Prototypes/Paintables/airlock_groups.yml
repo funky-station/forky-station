@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Whatstone <166147148+whatston3@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: paintableGroup
   id: AirlockStandard
   time: 3
@@ -16,6 +13,18 @@
     freezer: AirlockFreezer
     hydroponics: AirlockHydroponics
     maintenance: AirlockMaint
+    # begin Funkystation: departmental maintenance airlocks
+    maintenance-engi: AirlockMaintEngi
+    maintenance-atmo: AirlockMaintAtmo
+    maintenance-service: AirlockMaintService
+    maintenance-hydro: AirlockMaintHydro
+    maintenance-med: AirlockMaintMed
+    maintenance-chem: AirlockMaintChem
+    maintenance-rnd: AirlockMaintRnD
+    maintenance-sec: AirlockMaintSec
+    maintenance-cargo: AirlockMaintCargo
+    maintenance-command: AirlockMaintCommand
+    # end Funkystation
     medical: AirlockMedical
     salvage: AirlockSalvage
     science: AirlockScience

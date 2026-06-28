@@ -1,21 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Rainfey <11758391+Rainfey@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tornado Tech <54727692+Tornado-Technology@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 mhamster <81412348+mhamsterr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Access.Components;
 using Content.Shared.Clothing.Components;
@@ -35,20 +17,20 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Clothing.EntitySystems;
 
-public abstract class SharedChameleonClothingSystem : EntitySystem
+public abstract partial class SharedChameleonClothingSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ClothingSystem _clothingSystem = default!;
-    [Dependency] private readonly ContrabandSystem _contraband = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly SharedItemSystem _itemSystem = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] private readonly LockSystem _lock = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] protected readonly SharedUserInterfaceSystem UI = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private ClothingSystem _clothingSystem = default!;
+    [Dependency] private ContrabandSystem _contraband = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private SharedItemSystem _itemSystem = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] private LockSystem _lock = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] protected SharedUserInterfaceSystem UI = default!;
+    [Dependency] private INetManager _net = default!;
 
     private static readonly SlotFlags[] IgnoredSlots =
     {
@@ -84,12 +66,20 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
 
     private void OnGotEquipped(EntityUid uid, ChameleonClothingComponent component, GotEquippedEvent args)
     {
-        component.User = args.Equipee;
+        if (Timing.ApplyingState)
+            return; // Already networked as part of the same gamestate
+
+        component.User = args.EquipTarget;
+        Dirty(uid, component);
     }
 
     private void OnGotUnequipped(EntityUid uid, ChameleonClothingComponent component, GotUnequippedEvent args)
     {
+        if (Timing.ApplyingState)
+            return; // Already networked as part of the same gamestate
+
         component.User = null;
+        Dirty(uid, component);
     }
 
     // Updates chameleon visuals and meta information.
@@ -152,6 +142,9 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
         if (!args.CanAccess || !args.CanInteract || _lock.IsLocked(ent.Owner))
             return;
 
+        if (!ent.Comp.ShowVerb)
+            return;
+
         // Can't pass args from a ref event inside of lambdas
         var user = args.User;
 
@@ -202,6 +195,7 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
         // check if it's valid clothing
         if (!proto.TryGetComponent(out ClothingComponent? clothing, Factory))
             return false;
+
         if (!clothing.Slots.HasFlag(chameleonSlot))
             return false;
 
@@ -268,7 +262,15 @@ public abstract class SharedChameleonClothingSystem : EntitySystem
     }
 
     // TODO: Predict and use component states for the UI
-    public virtual void SetSelectedPrototype(EntityUid uid, string? protoId, bool forceUpdate = false,
+    /// <summary>
+    /// Change chameleon items name, description and sprite to mimic other entity prototype.
+    /// </summary>
+    /// <param name="uid">The entity who's appearance to swap.</param>
+    /// <param name="protoId">The target protoId of the target appearance.</param>
+    /// <param name="forceUpdate">Whether to force update appearance, even if the same one was selected.</param>
+    /// <param name="validate">Whether to validate if the target prototype is a valid chameleon target.</param>
+    /// <param name="component">The <see cref="ChameleonClothingComponent"/> of the entity we are updating.</param>
+    public virtual void SetSelectedPrototype(EntityUid uid, string? protoId, bool forceUpdate = false, bool validate = true,
         ChameleonClothingComponent? component = null)
     { }
 }

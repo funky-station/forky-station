@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2026 Sir Warock <67167466+SirWarock@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
@@ -9,6 +6,7 @@ using Content.Shared.Lock.BypassLock.Components;
 using Content.Shared.Tools;
 using Content.Shared.Tools.Systems;
 using Content.Shared.Verbs;
+using Content.Shared.Wires;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -16,9 +14,10 @@ namespace Content.Shared.Lock.BypassLock.Systems;
 
 public sealed partial class BypassLockSystem : EntitySystem
 {
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly LockSystem _lock = default!;
-    [Dependency] private readonly SharedToolSystem _tool = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private LockSystem _lock = default!;
+    [Dependency] private SharedToolSystem _tool = default!;
+    [Dependency] private SharedWiresSystem _wires = default!;
 
     public override void Initialize()
     {
@@ -35,7 +34,7 @@ public sealed partial class BypassLockSystem : EntitySystem
     {
         if (target.Owner == args.User)
             return;
-        
+
         if (!_tool.HasQuality(args.Used, target.Comp.BypassingTool)
             || !_lock.IsLocked(target.Owner))
             return;
@@ -73,6 +72,11 @@ public sealed partial class BypassLockSystem : EntitySystem
             return;
 
         _lock.Unlock(target, args.User, target.Comp);
+
+        if (TryComp<WiresPanelComponent>(target, out var wiresPanel) &&
+            TryComp<BypassLockComponent>(target, out var bypassLock) && bypassLock.OpenWiresPanel)
+            _wires.TogglePanel(target, wiresPanel, true, args.User);
+
     }
 
     private void OnGetVerb(Entity<BypassLockComponent> target, ref GetVerbsEvent<InteractionVerb> args)

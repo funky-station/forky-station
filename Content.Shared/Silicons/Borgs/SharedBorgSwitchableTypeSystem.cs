@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 lunarcomets <140772713+lunarcomets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Actions;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
@@ -20,14 +12,14 @@ namespace Content.Shared.Silicons.Borgs;
 /// Implements borg type switching.
 /// </summary>
 /// <seealso cref="BorgSwitchableTypeComponent"/>
-public abstract class SharedBorgSwitchableTypeSystem : EntitySystem
+public abstract partial class SharedBorgSwitchableTypeSystem : EntitySystem
 {
     // TODO: Allow borgs to be reset to default configuration.
 
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
-    [Dependency] protected readonly IPrototypeManager Prototypes = default!;
-    [Dependency] private readonly InteractionPopupSystem _interactionPopup = default!;
+    [Dependency] private SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private SharedUserInterfaceSystem _userInterface = default!;
+    [Dependency] protected IPrototypeManager Prototypes = default!;
+    [Dependency] private InteractionPopupSystem _interactionPopup = default!;
 
     public static readonly EntProtoId ActionId = "ActionSelectBorgType";
 

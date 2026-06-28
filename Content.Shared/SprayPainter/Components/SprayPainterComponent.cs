@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Magnus Larsen <i.am.larsenml@gmail.com>
-// SPDX-FileCopyrightText: 2025 Whatstone <166147148+whatston3@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Decals;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -113,6 +105,12 @@ public sealed partial class SprayPainterComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier SoundSwitchDecalMode = new SoundPathSpecifier("/Audio/Machines/quickbeep.ogg", AudioParams.Default.WithVolume(1.5f));
+
+    /// <summary>
+    /// Whether the decal color picker is currently active.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ColorPickerEnabled = false;
 }
 
 /// <summary>

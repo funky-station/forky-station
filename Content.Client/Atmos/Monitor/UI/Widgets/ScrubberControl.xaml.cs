@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2022 eoineoineoin <eoin.mcloughlin+gh@gmail.com>
-// SPDX-FileCopyrightText: 2022 vulppine <vulppine@gmail.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ser11y <160628372+Ser1-1y@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Atmos.Monitor.Components;
@@ -24,8 +13,8 @@ namespace Content.Client.Atmos.Monitor.UI.Widgets;
 [GenerateTypedNameReferences]
 public sealed partial class ScrubberControl : BoxContainer
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IEntityManager _entMan = default!;
 
     private GasVentScrubberData _data;
     private string _address;

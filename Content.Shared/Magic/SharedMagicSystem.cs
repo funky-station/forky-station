@@ -1,20 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2025 Winkarst-cpu <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-FileCopyrightText: 2026 mq <113324899+mqole@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
@@ -32,6 +15,7 @@ using Content.Shared.Magic.Components;
 using Content.Shared.Magic.Events;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
+using Content.Shared.Objectives.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Speech.Muting;
@@ -59,31 +43,32 @@ namespace Content.Shared.Magic;
 /// <summary>
 /// Handles learning and using spells (actions)
 /// </summary>
-public abstract class SharedMagicSystem : EntitySystem
+public abstract partial class SharedMagicSystem : EntitySystem
 {
-    [Dependency] private readonly ISerializationManager _seriMan = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedGunSystem _gunSystem = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedDoorSystem _door = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly LockSystem _lock = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly SharedChargesSystem _charges = default!;
-    [Dependency] private readonly ExamineSystemShared _examine= default!;
+    [Dependency] private ISerializationManager _seriMan = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private SharedMapSystem _mapSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedGunSystem _gunSystem = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private GibbingSystem _gibbing = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedDoorSystem _door = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private LockSystem _lock = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private TurfSystem _turf = default!;
+    [Dependency] private SharedChargesSystem _charges = default!;
+    [Dependency] private ExamineSystemShared _examine= default!;
+    [Dependency] private TargetSystem _target = default!;
 
     private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
 
@@ -285,10 +270,13 @@ public abstract class SharedMagicSystem : EntitySystem
     #region Projectile Spells
     private void OnProjectileSpell(ProjectileSpellEvent ev)
     {
-        if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer) || !_net.IsServer)
+        if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
         ev.Handled = true;
+
+        if (!_net.IsServer)
+            return; // client returns handled for predicted audio
 
         var xform = Transform(ev.Performer);
         var fromCoords = xform.Coordinates;
@@ -445,7 +433,7 @@ public abstract class SharedMagicSystem : EntitySystem
             if (TryComp<DoorComponent>(target, out var doorComp) && doorComp.State is not DoorState.Open)
                 _door.StartOpening(target);
 
-            if (TryComp<LockComponent>(target, out var lockComp) && lockComp.Locked)
+            if (TryComp<LockComponent>(target, out var lockComp) && lockComp.Locked && lockComp.BreakOnAccessBreaker)
                 _lock.Unlock(target, performer, lockComp);
         }
     }
@@ -489,7 +477,7 @@ public abstract class SharedMagicSystem : EntitySystem
 
         ev.Handled = true;
 
-        var allHumans = _mind.GetAliveHumans();
+        var allHumans = _target.GetAliveHumans();
 
         foreach (var human in allHumans)
         {

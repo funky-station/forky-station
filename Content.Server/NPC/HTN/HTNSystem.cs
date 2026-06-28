@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023, 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 osjarw <62134478+osjarw@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -25,12 +16,12 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.NPC.HTN;
 
-public sealed class HTNSystem : EntitySystem
+public sealed partial class HTNSystem : EntitySystem
 {
-    [Dependency] private readonly IAdminManager _admin = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly NPCUtilitySystem _utility = default!;
+    [Dependency] private IAdminManager _admin = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private NPCSystem _npc = default!;
+    [Dependency] private NPCUtilitySystem _utility = default!;
 
     private readonly JobQueue _planQueue = new(0.004);
 

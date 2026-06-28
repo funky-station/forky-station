@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 vulppine <vulppine@gmail.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Atmos.Monitor.Components;
@@ -26,12 +15,12 @@ using Content.Shared.DeviceNetwork.Components;
 
 namespace Content.Server.Atmos.Monitor.Systems;
 
-public sealed class AtmosAlarmableSystem : EntitySystem
+public sealed partial class AtmosAlarmableSystem : EntitySystem
 {
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly AudioSystem _audioSystem = default!;
-    [Dependency] private readonly DeviceNetworkSystem _deviceNet = default!;
-    [Dependency] private readonly AtmosDeviceNetworkSystem _atmosDevNetSystem = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private AudioSystem _audioSystem = default!;
+    [Dependency] private DeviceNetworkSystem _deviceNet = default!;
+    [Dependency] private AtmosDeviceNetworkSystem _atmosDevNetSystem = default!;
 
     /// <summary>
     ///     An alarm. Has three valid states: Normal, Warning, Danger.

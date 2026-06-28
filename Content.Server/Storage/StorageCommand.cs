@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 UpAndLeaves <92269094+Alpha-Two@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.Administration;
 using Content.Shared.Administration;
@@ -23,7 +20,7 @@ public sealed class StorageCommand : ToolshedCommand
     public IEnumerable<EntityUid> StorageInsert([PipedArgument] IEnumerable<EntityUid> entsToInsert,
         EntityUid targetEnt) => entsToInsert.Where(x => StorageInsert(x, targetEnt) != null);
 
-    public EntityUid? StorageInsert(EntityUid entToInsert, EntityUid targetEnt)
+    private EntityUid? StorageInsert(EntityUid entToInsert, EntityUid targetEnt)
     {
         _storage ??= GetSys<SharedStorageSystem>();
 
@@ -34,7 +31,6 @@ public sealed class StorageCommand : ToolshedCommand
             ? entToInsert
             : null;
     }
-
 
     [CommandImplementation("fasttake")]
     public IEnumerable<EntityUid> StorageFastTake([PipedArgument] IEnumerable<EntityUid> storageEnts) =>
@@ -56,6 +52,29 @@ public sealed class StorageCommand : ToolshedCommand
         return null;
     }
 
+    [CommandImplementation("contents")]
+    public IEnumerable<EntityUid> StorageQuery([PipedArgument] IEnumerable<EntityUid> storageEnts, bool recursive) =>
+        storageEnts.SelectMany(x => StorageQueryRecursiveBase(x, recursive));
 
+    public IEnumerable<EntityUid> StorageQueryRecursiveBase(EntityUid storageEnt, bool recursive)
+    {
+        _storage ??= GetSys<SharedStorageSystem>();
+        _container ??= GetSys<SharedContainerSystem>();
 
+        if (!EntityManager.TryGetComponent<StorageComponent>(storageEnt, out var storage))
+            return [];
+
+        IEnumerable<EntityUid> containedEntities = storage.Container.ContainedEntities;
+
+        if (recursive)
+        {
+            foreach (var ent in containedEntities)
+            {
+                containedEntities = containedEntities.Concat(StorageQueryRecursiveBase(ent, true));
+            }
+
+        }
+
+        return containedEntities;
+    }
 }

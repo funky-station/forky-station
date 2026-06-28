@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Interaction;
 using Content.Shared.Wall;
 using Robust.Client.Graphics;
@@ -12,9 +9,9 @@ namespace Content.Client.Wall;
 /// <summary>
 /// Shows the area in which entities with <see cref="WallMountComponent" /> can be interacted from.
 /// </summary>
-public sealed class WallmountDebugOverlay : Overlay
+public sealed partial class WallmountDebugOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
     private readonly SharedTransformSystem _transform;
     private readonly EntityLookupSystem _lookup;
     private readonly HashSet<Entity<WallMountComponent>> _intersecting = [];

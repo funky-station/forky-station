@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2021 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Dawid Bla <46636558+DawBla@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kot <1192090+koteq@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -28,9 +21,7 @@ namespace Content.Client.Atmos.UI
     [GenerateTypedNameReferences]
     public sealed partial class GasMixerWindow : DefaultWindow
     {
-        public bool MixerStatus = true;
-
-        public event Action? ToggleStatusButtonPressed;
+        public event Action<bool>? ToggleStatusButtonPressed;
         public event Action<string>? MixerOutputPressureChanged;
         public event Action<string>? MixerNodePercentageChanged;
 
@@ -40,8 +31,7 @@ namespace Content.Client.Atmos.UI
         {
             RobustXamlLoader.Load(this);
 
-            ToggleStatusButton.OnPressed += _ => SetMixerStatus(!MixerStatus);
-            ToggleStatusButton.OnPressed += _ => ToggleStatusButtonPressed?.Invoke();
+            ToggleStatusButton.OnToggled += _ => ToggleStatusButtonPressed?.Invoke(ToggleStatusButton.Pressed);
 
             MixerPressureOutputInput.OnTextChanged += _ => SetOutputPressureButton.Disabled = false;
             SetOutputPressureButton.OnPressed += _ =>
@@ -90,15 +80,7 @@ namespace Content.Client.Atmos.UI
 
         public void SetMixerStatus(bool enabled)
         {
-            MixerStatus = enabled;
-            if (enabled)
-            {
-                ToggleStatusButton.Text = Loc.GetString("comp-gas-mixer-ui-status-enabled");
-            }
-            else
-            {
-                ToggleStatusButton.Text = Loc.GetString("comp-gas-mixer-ui-status-disabled");
-            }
+            ToggleStatusButton.Pressed = enabled;
         }
     }
 }

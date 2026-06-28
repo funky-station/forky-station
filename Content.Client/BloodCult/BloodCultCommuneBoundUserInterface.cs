@@ -7,7 +7,7 @@ namespace Content.Client.BloodCult;
 
 public sealed class BloodCultCommuneBoundUserInterface : BoundUserInterface
 {
-    //[Dependency] private readonly IPrototypeManager _protomanager = default!;
+    //[Dependency] private IPrototypeManager _protomanager = default!;
 
     [ViewVariables]
     private BloodCultCommuneWindow? _window;

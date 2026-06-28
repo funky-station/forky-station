@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Cargo;
 using Content.Shared.Emp;
 using Content.Shared.Examine;
@@ -16,8 +12,8 @@ namespace Content.Shared.Power.EntitySystems;
 /// </summary>
 public abstract partial class SharedBatterySystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {

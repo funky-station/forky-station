@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Administration.Logs;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
@@ -22,13 +19,13 @@ namespace Content.Shared.Silicons.StationAi;
 /// </summary>
 public abstract partial class SharedStationAiFixerConsoleSystem : EntitySystem
 {
-    [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedUserInterfaceSystem _userInterface = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
 
     public override void Initialize()
     {

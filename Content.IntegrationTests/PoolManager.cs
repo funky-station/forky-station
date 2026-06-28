@@ -1,16 +1,4 @@
-// SPDX-FileCopyrightText: 2022-2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
-// SPDX-License-Identifier: MIT
-
+#nullable enable
 using System.Linq;
 using System.Reflection;
 using Content.IntegrationTests.Pair;
@@ -24,6 +12,11 @@ public static partial class PoolManager
 {
     public static readonly ContentPoolManager Instance = new();
     public const string TestMap = "Empty";
+
+    /// <summary>
+    /// Designated load bearing station. Sometimes you need a station for a test.
+    /// </summary>
+    public const string TestStation = "Saltern";
 
     /// <summary>
     /// Runs a server, or a client until a condition is true

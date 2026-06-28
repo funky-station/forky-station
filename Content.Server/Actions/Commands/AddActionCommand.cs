@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.Administration;
 using Content.Shared.Actions;
@@ -14,10 +10,10 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.Actions.Commands;
 
 [AdminCommand(AdminFlags.Debug)]
-public sealed class AddActionCommand : LocalizedEntityCommands
+public sealed partial class AddActionCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     public override string Command => "addaction";
 
@@ -25,7 +21,7 @@ public sealed class AddActionCommand : LocalizedEntityCommands
     {
         if (args.Length != 2)
         {
-            shell.WriteError(Loc.GetString(Loc.GetString("cmd-addaction-invalid-args")));
+            shell.WriteError(Loc.GetString("cmd-addaction-invalid-args"));
             return;
         }
 

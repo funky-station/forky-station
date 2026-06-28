@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.StatusEffectNew;
 using Robust.Shared.Console;
 using Robust.Shared.Prototypes;
@@ -14,6 +11,6 @@ public sealed class StatusEffectCompletionParser : CustomCompletionParser<EntPro
 {
     public override CompletionResult? TryAutocomplete(ParserContext ctx, CommandArgument? arg)
     {
-        return CompletionResult.FromHintOptions(StatusEffectsSystem.StatusEffectPrototypes, GetArgHint(arg));
+        return CompletionResult.FromHintOptions(IoCManager.Resolve<IEntityManager>().System<StatusEffectsSystem>().StatusEffectPrototypes, GetArgHint(arg));
     }
 }

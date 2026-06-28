@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos;
@@ -24,10 +21,8 @@ public sealed class AddMolsToMixtureTest
         var mixture = new GasMixture();
         var wrongLength = new float[Atmospherics.AdjustedNumberOfGases + num];
 
-        var ex = Assert.Throws<ArgumentOutOfRangeException>(() =>
+        Assert.Throws<ArgumentException>(() =>
             AtmosphereSystem.AddMolsToMixture(mixture, wrongLength));
-
-        Assert.That(ex!.ParamName, Is.EqualTo("Length"));
     }
 
     /// <summary>

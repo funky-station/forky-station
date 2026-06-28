@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Wrexbe (Josh) <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
@@ -15,19 +9,10 @@ namespace Content.Shared.Objectives.Systems;
 /// <summary>
 /// Provides API for creating and interacting with objectives.
 /// </summary>
-public abstract class SharedObjectivesSystem : EntitySystem
+public abstract partial class SharedObjectivesSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-
-    private EntityQuery<MetaDataComponent> _metaQuery;
-
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        _metaQuery = GetEntityQuery<MetaDataComponent>();
-    }
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
 
     /// <summary>
     /// Checks requirements and duplicate objectives to see if an objective can be assigned.
@@ -45,10 +30,10 @@ public abstract class SharedObjectivesSystem : EntitySystem
         // only check for duplicate prototypes if it's unique
         if (comp.Unique)
         {
-            var proto = _metaQuery.GetComponent(uid).EntityPrototype?.ID;
+            var proto = MetaData(uid).EntityPrototype?.ID;
             foreach (var objective in mind.Objectives)
             {
-                if (_metaQuery.GetComponent(objective).EntityPrototype?.ID == proto)
+                if (MetaData(objective).EntityPrototype?.ID == proto)
                     return false;
             }
         }

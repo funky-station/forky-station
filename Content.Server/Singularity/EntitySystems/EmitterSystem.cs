@@ -1,37 +1,17 @@
-// SPDX-FileCopyrightText: 2021, 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2022 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Andrew Montagne <andrew@montagne.uk>
-// SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 mq <113324899+mqole@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using System.Threading;
 using Content.Server.Administration.Logs;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Projectiles;
+using Content.Server.Pinpointer;
+using Content.Server.Radio.EntitySystems;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared.Construction;
 using Content.Shared.Database;
+using Content.Shared.Destructible;
 using Content.Shared.DeviceLinking.Events;
+using Content.Shared.Emag.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Lock;
 using Content.Shared.Popups;
@@ -50,14 +30,16 @@ using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server.Singularity.EntitySystems
 {
-    public sealed class EmitterSystem : SharedEmitterSystem
+    public sealed partial class EmitterSystem : SharedEmitterSystem
     {
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly SharedPopupSystem _popup = default!;
-        [Dependency] private readonly ProjectileSystem _projectile = default!;
-        [Dependency] private readonly GunSystem _gun = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
+        [Dependency] private SharedAppearanceSystem _appearance = default!;
+        [Dependency] private SharedPopupSystem _popup = default!;
+        [Dependency] private ProjectileSystem _projectile = default!;
+        [Dependency] private GunSystem _gun = default!;
+        [Dependency] private RadioSystem _radio = default!;
+        [Dependency] private NavMapSystem _navMap = default!;
 
         public override void Initialize()
         {
@@ -68,6 +50,9 @@ namespace Content.Server.Singularity.EntitySystems
             SubscribeLocalEvent<EmitterComponent, ActivateInWorldEvent>(OnActivate);
             SubscribeLocalEvent<EmitterComponent, AnchorStateChangedEvent>(OnAnchorStateChanged);
             SubscribeLocalEvent<EmitterComponent, SignalReceivedEvent>(OnSignalReceived);
+            SubscribeLocalEvent<EmitterComponent, DestructionEventArgs>(OnDestruction);
+            SubscribeLocalEvent<EmitterComponent, MachineDeconstructedEvent>(OnDeconstructed); // you shouldn't be able to deconstruct locked emitters but out of scope to fix
+            SubscribeLocalEvent<EmitterComponent, LockToggledEvent>(OnLockToggled);
         }
 
         private void OnAnchorStateChanged(EntityUid uid, EmitterComponent component, ref AnchorStateChangedEvent args)
@@ -105,9 +90,10 @@ namespace Content.Server.Singularity.EntitySystems
                         ("target", uid)), uid, args.User);
                 }
 
+                var stateText = component.IsOn ? "on" : "off";
                 _adminLogger.Add(LogType.FieldGeneration,
                     component.IsOn ? LogImpact.Medium : LogImpact.High,
-                    $"{ToPrettyString(args.User):player} toggled {ToPrettyString(uid):emitter}");
+                    $"{ToPrettyString(args.User):player} toggled {ToPrettyString(uid):emitter} to {stateText}");
                 args.Handled = true;
             }
             else
@@ -187,6 +173,8 @@ namespace Content.Server.Singularity.EntitySystems
             {
                 return;
             }
+
+            AlertRadio((uid, component), component.LocUnpowered);
 
             component.IsPowered = false;
 
@@ -307,6 +295,38 @@ namespace Content.Server.Singularity.EntitySystems
             {
                 component.BoltType = boltType;
             }
+        }
+
+        private void OnDestruction(Entity<EmitterComponent> ent, ref DestructionEventArgs args)
+        {
+            // Engineering needs to know if an emitter is destroyed so they can replace it before the engine looses.
+            AlertRadio(ent, ent.Comp.LocDestroyed);
+        }
+
+        private void OnDeconstructed(Entity<EmitterComponent> ent, ref MachineDeconstructedEvent args)
+        {
+            // right now you don't even need to unlock the emitter to deconstruct it. that's almost certainly a bug but even without it it probably still needs an alert
+            AlertRadio(ent, ent.Comp.LocDeconstructed);
+        }
+
+        private void AlertRadio(Entity<EmitterComponent> ent, string locString)
+        {
+            if (!ent.Comp.AlertRadio || !ent.Comp.IsOn || !ent.Comp.IsPowered)
+                return; // APEs do not need to scream over engineering radio, and an emitter that is off is probably not going to be alerting radios
+
+            var message = Loc.GetString(
+                locString,
+                ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString(ent.Owner)))
+            );
+            _radio.SendRadioMessage(ent.Owner, message, ent.Comp.RadioChannel, ent.Owner);
+        }
+
+        private void OnLockToggled(Entity<EmitterComponent> ent, ref LockToggledEvent args)
+        {
+            if (args.Locked)
+                return;
+
+            AlertRadio(ent, ent.Comp.LocUnlocked);
         }
     }
 }

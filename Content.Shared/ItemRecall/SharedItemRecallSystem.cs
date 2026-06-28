@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Cooper Wallace <6856074+CooperWallace@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Hands.Components;
@@ -21,13 +15,13 @@ namespace Content.Shared.ItemRecall;
 /// </summary>
 public abstract partial class SharedItemRecallSystem : EntitySystem
 {
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly SharedPvsOverrideSystem _pvs = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly SharedPopupSystem _popups = default!;
-    [Dependency] private readonly SharedProjectileSystem _proj = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private SharedPvsOverrideSystem _pvs = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private SharedPopupSystem _popups = default!;
+    [Dependency] private SharedProjectileSystem _proj = default!;
 
     public override void Initialize()
     {

@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization;
 

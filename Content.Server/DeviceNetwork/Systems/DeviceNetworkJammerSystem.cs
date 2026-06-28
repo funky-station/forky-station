@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.DeviceNetwork.Systems;
@@ -12,10 +6,10 @@ using Robust.Server.GameObjects;
 namespace Content.Server.DeviceNetwork.Systems;
 
 /// <inheritdoc/>
-public sealed class DeviceNetworkJammerSystem : SharedDeviceNetworkJammerSystem
+public sealed partial class DeviceNetworkJammerSystem : SharedDeviceNetworkJammerSystem
 {
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly SharedDeviceNetworkJammerSystem _jammer = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private SharedDeviceNetworkJammerSystem _jammer = default!;
 
     public override void Initialize()
     {

@@ -1,28 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
@@ -36,6 +11,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Power;
+using Content.Shared.Rejuvenate;
 using Content.Shared.Tools;
 using Content.Shared.Tools.Components;
 using Content.Shared.Wires;
@@ -46,16 +22,15 @@ using Robust.Shared.Random;
 
 namespace Content.Server.Wires;
 
-public sealed class WiresSystem : SharedWiresSystem
+public sealed partial class WiresSystem : SharedWiresSystem
 {
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ConstructionSystem _construction = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedInteractionSystem _interactionSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ConstructionSystem _construction = default!;
 
     private static readonly ProtoId<ToolQualityPrototype> CuttingQuality = "Cutting";
     private static readonly ProtoId<ToolQualityPrototype> PulsingQuality = "Pulsing";
@@ -80,6 +55,7 @@ public sealed class WiresSystem : SharedWiresSystem
         SubscribeLocalEvent<WiresComponent, TimedWireEvent>(OnTimedWire);
         SubscribeLocalEvent<WiresComponent, PowerChangedEvent>(OnWiresPowered);
         SubscribeLocalEvent<WiresComponent, WireDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<WiresComponent, RejuvenateEvent>(OnRejuvenate);
         SubscribeLocalEvent<WiresPanelSecurityComponent, WiresPanelSecurityEvent>(SetWiresPanelSecurity);
     }
 
@@ -473,7 +449,7 @@ public sealed class WiresSystem : SharedWiresSystem
         {
             if (TryComp(args.User, out ActorComponent? actor))
             {
-                _uiSystem.OpenUi(uid, WiresUiKey.Key, actor.PlayerSession);
+                UI.OpenUi(uid, WiresUiKey.Key, actor.PlayerSession);
                 args.Handled = true;
             }
         }
@@ -484,7 +460,7 @@ public sealed class WiresSystem : SharedWiresSystem
         if (args.Open)
             return;
 
-        _uiSystem.CloseUi(ent.Owner, WiresUiKey.Key);
+        UI.CloseUi(ent.Owner, WiresUiKey.Key);
     }
 
     private void OnMapInit(EntityUid uid, WiresComponent component, MapInitEvent args)
@@ -507,6 +483,21 @@ public sealed class WiresSystem : SharedWiresSystem
         }
 
         UpdateUserInterface(uid);
+    }
+
+    private void OnRejuvenate(Entity<WiresComponent> ent, ref RejuvenateEvent args)
+    {
+        foreach (var wire in ent.Comp.WiresList)
+        {
+            // Rejuvenate has no user so we mend as the entity having the wire.
+            if (wire.Action == null || wire.Action.Mend(ent, wire))
+            {
+                wire.IsCut = false;
+            }
+        }
+
+        // If we don't update the interface wires will be desynced on client.
+        UpdateUserInterface(ent.Owner, ent.Comp);
     }
     #endregion
 
@@ -573,17 +564,12 @@ public sealed class WiresSystem : SharedWiresSystem
 
         statuses.Sort((a, b) => a.position.CompareTo(b.position));
 
-        _uiSystem.SetUiState((uid, ui), WiresUiKey.Key, new WiresBoundUserInterfaceState(
+        UI.SetUiState((uid, ui), WiresUiKey.Key, new WiresBoundUserInterfaceState(
             clientList.ToArray(),
             statuses.Select(p => new StatusEntry(p.key, p.value)).ToArray(),
             Loc.GetString(wires.BoardName),
             wires.SerialNumber,
             wires.WireSeed));
-    }
-
-    public void OpenUserInterface(EntityUid uid, ICommonSession player)
-    {
-        _uiSystem.OpenUi(uid, WiresUiKey.Key, player);
     }
 
     /// <summary>
@@ -627,7 +613,7 @@ public sealed class WiresSystem : SharedWiresSystem
 
         if (!args.WiresAccessible)
         {
-            _uiSystem.CloseUi(uid, WiresUiKey.Key);
+            UI.CloseUi(uid, WiresUiKey.Key);
         }
     }
 

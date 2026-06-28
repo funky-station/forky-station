@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Actions.Components;
 using Content.Shared.Actions.Events;
 using Content.Shared.Popups;
@@ -11,10 +8,10 @@ namespace Content.Shared.Actions;
 /// <summary>
 /// Handles action priming, confirmation and automatic unpriming.
 /// </summary>
-public sealed class ConfirmableActionSystem : EntitySystem
+public sealed partial class ConfirmableActionSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

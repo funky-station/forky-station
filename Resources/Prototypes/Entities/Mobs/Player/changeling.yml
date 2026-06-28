@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 alexalexmax <149889301+alexalexmax@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: [ MobHuman, StorePresetChangeling ]
   id: MobLing
@@ -16,9 +12,36 @@
     - ActionChangelingStore
   - type: Store
     balance:
-      ChangelingDNA: 50
-  - type: UserInterface
-    interfaces:
-      enum.StoreUiKey.Key:
-        type: StoreBoundUserInterface
-        requireInputValidation: false
+      ChangelingDNA: 60
+
+- type: entity # dummy prototype for the store listing
+  id: ChangelingFleshClothingAbilityStoreDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ChangelingFleshClothingAbility
+    clothingPrototypes:
+      shoes: ChangelingFleshClothingFeet
+      jumpsuit: ChangelingFleshClothingInner
+      outerClothing: ChangelingFleshClothingOuter
+      gloves: ChangelingFleshClothingGloves
+      neck: ChangelingFleshClothingNeck
+      mask: ChangelingFleshClothingMask
+      eyes: ChangelingFleshClothingEyes
+      ears: ChangelingFleshClothingEars
+      head: ChangelingFleshClothingHead
+      suitstorage: ChangelingFleshClothingSuitStorage
+      #id: TODO: chameleon PDA that is not a functional PDA
+      belt: ChangelingFleshClothingBelt
+      back: ChangelingFleshClothingBack
+
+- type: entity # dummy prototype for the store listing
+  id: ChangelingVoiceMimicDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type:  VoiceMask
+    action: ActionChangelingVoiceMimic
+    isInnate: true
+    changeIDName: false
+    # this is set to false as to not mess with a changeling's ability to disguise.
+    accentHide: false
+    titleText: changeling-voice-mimic-window-title

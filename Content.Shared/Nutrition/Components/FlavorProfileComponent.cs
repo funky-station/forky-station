@@ -1,8 +1,5 @@
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023, 2025 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Nutrition.Components;
 
@@ -13,7 +10,7 @@ public sealed partial class FlavorProfileComponent : Component
     ///     Localized string containing the base flavor of this entity.
     /// </summary>
     [DataField]
-    public HashSet<string> Flavors { get; private set; } = new();
+    public HashSet<ProtoId<FlavorPrototype>> Flavors { get; private set; } = new();
 
     /// <summary>
     ///     Reagent IDs to ignore when processing this flavor profile. Defaults to nutriment.

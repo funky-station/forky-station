@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.UserInterface.Systems.Actions;
 using Content.Client.UserInterface.Systems.Admin;
 using Content.Client.UserInterface.Systems.Bwoink;
@@ -21,17 +13,17 @@ using Robust.Client.UserInterface.Controllers;
 
 namespace Content.Client.UserInterface.Systems.MenuBar;
 
-public sealed class GameTopMenuBarUIController : UIController
+public sealed partial class GameTopMenuBarUIController : UIController
 {
-    [Dependency] private readonly EscapeUIController _escape = default!;
-    [Dependency] private readonly AdminUIController _admin = default!;
-    [Dependency] private readonly CharacterUIController _character = default!;
-    [Dependency] private readonly CraftingUIController _crafting = default!;
-    [Dependency] private readonly AHelpUIController _ahelp = default!;
-    [Dependency] private readonly ActionUIController _action = default!;
-    [Dependency] private readonly SandboxUIController _sandbox = default!;
-    [Dependency] private readonly GuidebookUIController _guidebook = default!;
-    [Dependency] private readonly EmotesUIController _emotes = default!;
+    [Dependency] private EscapeUIController _escape = default!;
+    [Dependency] private AdminUIController _admin = default!;
+    [Dependency] private CharacterUIController _character = default!;
+    [Dependency] private CraftingUIController _crafting = default!;
+    [Dependency] private AHelpUIController _ahelp = default!;
+    [Dependency] private ActionUIController _action = default!;
+    [Dependency] private SandboxUIController _sandbox = default!;
+    [Dependency] private GuidebookUIController _guidebook = default!;
+    [Dependency] private EmotesUIController _emotes = default!;
 
     private GameTopMenuBar? GameTopMenuBar => UIManager.GetActiveUIWidgetOrNull<GameTopMenuBar>();
 

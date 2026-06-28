@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics;
 using System.IO.Compression;
 using Robust.Packaging;
@@ -18,13 +13,13 @@ public static class ClientPackaging
     /// <summary>
     /// Be advised this can be called from server packaging during a HybridACZ build.
     /// </summary>
-    public static async Task PackageClient(bool skipBuild, string configuration, IPackageLogger logger)
+    public static async Task PackageClient(bool skipBuild, bool logBuild, string configuration, IPackageLogger logger)
     {
         logger.Info("Building client...");
 
         if (!skipBuild)
         {
-            await ProcessHelpers.RunCheck(new ProcessStartInfo
+            var startInfo = new ProcessStartInfo
             {
                 FileName = "dotnet",
                 ArgumentList =
@@ -38,7 +33,15 @@ public static class ClientPackaging
                     "/p:FullRelease=true",
                     "/m"
                 }
-            });
+            };
+
+            if (logBuild)
+            {
+                startInfo.ArgumentList.Add($"/bl:{Path.Combine("release", "client.binlog")}");
+                startInfo.ArgumentList.Add("/p:ReportAnalyzer=true");
+            }
+
+            await ProcessHelpers.RunCheck(startInfo);
         }
 
         logger.Info("Packaging client...");

@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Sir Warock <67167466+SirWarock@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chemistry.Components;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;

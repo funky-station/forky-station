@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Vyacheslav Kovalevsky <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Mind;
 using Content.Server.Objectives.Components;
 using Content.Server.Popups;
@@ -22,13 +13,13 @@ namespace Content.Server.Ninja.Systems;
 /// <summary>
 /// Prevents planting a spider charge outside of its location and handles greentext.
 /// </summary>
-public sealed class SpiderChargeSystem : SharedSpiderChargeSystem
+public sealed partial class SpiderChargeSystem : SharedSpiderChargeSystem
 {
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly SharedRoleSystem _role = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SpaceNinjaSystem _ninja = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private SharedRoleSystem _role = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SpaceNinjaSystem _ninja = default!;
 
     public override void Initialize()
     {

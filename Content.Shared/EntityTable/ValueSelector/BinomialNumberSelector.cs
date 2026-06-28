@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Random;
 
 namespace Content.Shared.EntityTable.ValueSelector;
@@ -37,5 +34,21 @@ public sealed partial class BinomialNumberSelector : NumberSelector
         }
         return count;
         // get binomialed motherfucker
+    }
+
+    public override float Odds()
+    {
+        if (Chance >= 1f)
+            return 1;
+
+        return 1 - MathF.Pow(1 - Chance, Trials);
+    }
+
+    public override float Average()
+    {
+        if (Chance >= 1f)
+            return Trials;
+
+        return Trials * Chance;
     }
 }
