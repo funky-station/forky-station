@@ -1,4 +1,4 @@
-using Robust.Shared.Audio; // Funky change
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes; // Funky change
 using Robust.Shared.Serialization;
@@ -10,19 +10,25 @@ public sealed partial class ToggleTrayScannerEvent : InstantActionEvent
 {
 }
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class TrayScannerComponent : Component
 {
     /// <summary>
     ///     Whether the scanner is currently on.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool Enabled;
+
+    /// <summary>
+    ///     Current mode of operation, defines which subfloor entities are shown.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public TrayScannerMode Mode = TrayScannerMode.All;
 
     /// <summary>
     ///     Radius in which the scanner will reveal entities. Centered on the <see cref="LastLocation"/>.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float Range = 4f;
 
     // Funky change
@@ -52,12 +58,16 @@ public sealed partial class TrayScannerComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier? SoundOff;
+
+    [DataField]
+    public SoundSpecifier SoundSwitchMode = new SoundPathSpecifier("/Audio/Machines/quickbeep.ogg");
 }
 
 // Funky change
 [Serializable, NetSerializable]
-public sealed class TrayScannerState(bool enabled, float range) : ComponentState
+public enum TrayScannerMode
 {
-    public bool Enabled = enabled;
-    public float Range = range;
+    All,
+    Piping,
+    Wiring
 }

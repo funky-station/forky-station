@@ -1,11 +1,17 @@
 - type: guideEntry
   id: Species
   name: guide-entry-species
-  text: "/ServerInfo/Guidebook/Mobs/Species.xml"
+  text: "/ServerInfo/_MACRO/Guidebook/Mobs/Species.xml" #macro - redirected to our directory
   children:
+  # - Ant # macro - uncomment to enable
+  # - Allulalo # macro - uncomment to enable
+  # - Apid # macro - uncomment to enable
   - Arachnid
+  # - Decapoid # macro - uncomment to enable
   - Diona
   - Dwarf
+  # - Gastropoid # macro - uncomment to enable
+  # - Gray # macro - uncomment to enable
   - Human
   - Moth
   - Reptilian

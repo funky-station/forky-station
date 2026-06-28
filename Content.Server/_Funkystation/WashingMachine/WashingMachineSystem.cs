@@ -18,15 +18,16 @@ using Content.Shared.Damage.Systems;
 
 namespace Content.Server._Funkystation.WashingMachine;
 
-public sealed class WashingMachineSystem : SharedWashingMachineSystem
+public sealed partial class WashingMachineSystem : SharedWashingMachineSystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = null!;
-    [Dependency] private readonly SharedStainSystem _stains = null!;
-    [Dependency] private readonly ForensicsSystem _forensics = null!;
-    [Dependency] private readonly DamageableSystem _damageable = null!;
-    [Dependency] private readonly IPrototypeManager _proto = null!;
-    [Dependency] private readonly IRobustRandom _random = null!;
-    [Dependency] private readonly ReactiveSystem _reactive = null!;
+    [Dependency] private SharedSolutionContainerSystem _solution = null!;
+    [Dependency] private SharedStainSystem _stains = null!;
+    [Dependency] private ForensicsSystem _forensics = null!;
+    [Dependency] private DamageableSystem _damageable = null!;
+    [Dependency] private IPrototypeManager _proto = null!;
+    [Dependency] private IRobustRandom _random = null!;
+    [Dependency] private ReactiveSystem _reactive = null!;
+    private const string BluntProtoId = "Blunt";
 
     private static readonly SoundSpecifier HitSound = new SoundCollectionSpecifier("MetalThud");
 
@@ -66,7 +67,7 @@ public sealed class WashingMachineSystem : SharedWashingMachineSystem
         if (!TryComp<EntityStorageComponent>(uid, out var storage) || storage.Contents.ContainedEntities.Count == 0)
             return;
 
-        var bluntProto = _proto.Index<DamageTypePrototype>("Blunt");
+        var bluntProto = _proto.Index<DamageTypePrototype>(BluntProtoId);
         var damage = new DamageSpecifier(bluntProto, comp.BluntDamagePerSecond * frameTime);
 
         var waterSpray = new Solution();
@@ -145,7 +146,7 @@ public sealed class WashingMachineSystem : SharedWashingMachineSystem
 
         if (comp.AccumulatedSelfDamage > 0)
         {
-            var bluntProto = _proto.Index<DamageTypePrototype>("Blunt");
+            var bluntProto = _proto.Index<DamageTypePrototype>(BluntProtoId);
             var selfDamage = new DamageSpecifier(bluntProto, comp.AccumulatedSelfDamage);
             _damageable.TryChangeDamage(uid, selfDamage, ignoreResistances: true);
             comp.AccumulatedSelfDamage = 0;

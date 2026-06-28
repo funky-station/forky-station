@@ -8,12 +8,12 @@ using Robust.Shared.Player;
 
 namespace Content.Client._Funkystation.Clothing.Systems;
 
-public sealed class WeldingMaskOverlaySystem : EntitySystem
+public sealed partial class WeldingMaskOverlaySystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _player = null!;
-    [Dependency] private readonly IOverlayManager _overlayMan = null!;
-    [Dependency] private readonly IResourceCache _cache = null!;
-    [Dependency] private readonly InventorySystem _inventory = null!;
+    [Dependency] private IPlayerManager _player = null!;
+    [Dependency] private IOverlayManager _overlayMan = null!;
+    [Dependency] private IResourceCache _cache = null!;
+    [Dependency] private InventorySystem _inventory = null!;
 
     private WeldingMaskOverlay _overlay = null!;
 
@@ -45,13 +45,13 @@ public sealed class WeldingMaskOverlaySystem : EntitySystem
     private void OnEquip(Entity<WeldingMaskOverlayComponent> ent, ref GotEquippedEvent args)
     {
 
-        if (args.Equipee == _player.LocalSession?.AttachedEntity && (args.Slot == "head" || args.Slot == "mask"))
+        if (args.EquipTarget == _player.LocalSession?.AttachedEntity && (args.Slot == "head" || args.Slot == "mask"))
             RefreshOverlay();
     }
 
     private void OnUnequip(Entity<WeldingMaskOverlayComponent> ent, ref GotUnequippedEvent args)
     {
-        if (args.Equipee == _player.LocalSession?.AttachedEntity && (args.Slot == "head" || args.Slot == "mask"))
+        if (args.EquipTarget == _player.LocalSession?.AttachedEntity && (args.Slot == "head" || args.Slot == "mask"))
             RefreshOverlay(ignoreEnt: ent.Owner);
     }
 

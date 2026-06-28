@@ -16,16 +16,16 @@ namespace Content.Server.BloodCult.EntitySystems;
 /// System that allows mops to clean blood cult runes.
 /// This extends AbsorbentSystem behavior without modifying the core system.
 /// </summary>
-public sealed class BloodCultRuneCleaningSystem : EntitySystem
+public sealed partial class BloodCultRuneCleaningSystem : EntitySystem
 {
-	[Dependency] private readonly ForensicsSystem _forensics = default!;
-	[Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-	[Dependency] private readonly UseDelaySystem _useDelay = default!;
+	[Dependency] private ForensicsSystem _forensics = default!;
+	[Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+	[Dependency] private UseDelaySystem _useDelay = default!;
 
 	public override void Initialize()
 	{
 		base.Initialize();
-		
+
 		// Subscribe to the custom event raised by AbsorbentSystem when a mop is used
 		// This allows us to handle rune cleaning before AbsorbentSystem processes puddles/refillables
 		SubscribeLocalEvent<CleanableRuneComponent, AbsorbentMopTargetEvent>(OnAbsorbentMopTarget);
@@ -52,7 +52,7 @@ public sealed class BloodCultRuneCleaningSystem : EntitySystem
 			return false;
 
 		var solution = absorberSoln.Value.Comp.Solution;
-		
+
 		// Check if mop has water or space cleaner by iterating through solution contents
 		bool hasWater = false;
 		bool hasSpaceCleaner = false;
@@ -71,7 +71,7 @@ public sealed class BloodCultRuneCleaningSystem : EntitySystem
 		// Create a temporary CleansForensics component for the mop
 		var cleansForensics = EnsureComp<CleansForensicsComponent>(mop);
 		cleansForensics.CleanDelay = 3f; // Mops are slower than soap
-		
+
 		return _forensics.TryStartCleaning((mop, cleansForensics), user, target);
 	}
 }

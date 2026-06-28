@@ -13,6 +13,23 @@
   fireStates: 3
   temperature: 800
 
+# Funky RMC Explosions - Invisible explosion for explosives with visuals. Same as Default explosion
+- type: explosion
+  id: Transparent
+  damagePerIntensity:
+    types:
+      Heat: 5
+      Blunt: 5
+      Piercing: 5
+  fireColor: Transparent
+  tileBreakChance: [0, 0.5, 1]
+  tileBreakIntensity: [0, 10, 30]
+  tileBreakRerollReduction: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 3
+  temperature: 800
+
 - type: explosion
   id: DemolitionCharge
   damagePerIntensity:
@@ -37,6 +54,25 @@
       Blunt: 6
       Piercing: 6
       Structural: 20
+  tileBreakChance: [ 0, 0.5, 1 ]
+  tileBreakIntensity: [ 1, 10, 15 ]
+  tileBreakRerollReduction: 30
+  intensityPerState: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 3
+  temperature: 800
+
+# Funky RMC Explosions - Invisible explosion for explosives with visuals. Same as MicroBomb explosion
+- type: explosion
+  id: TransparentMicroBomb
+  damagePerIntensity:
+    types:
+      Heat: 6
+      Blunt: 6
+      Piercing: 6
+      Structural: 20
+  fireColor: Transparent
   tileBreakChance: [ 0, 0.5, 1 ]
   tileBreakIntensity: [ 1, 10, 15 ]
   tileBreakRerollReduction: 30
@@ -80,6 +116,23 @@
       Heat: 4
       Blunt: 7
       Piercing: 4
+  tileBreakChance: [0, 0.5, 1]
+  tileBreakIntensity: [0, 10, 30]
+  tileBreakRerollReduction: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 3
+  temperature: 800
+
+# Funky RMC Explosions - Invisible explosion for explosives with visuals. Same as Minibomb explosion
+- type: explosion
+  id: TransparentMinibomb
+  damagePerIntensity:
+    types:
+      Heat: 4
+      Blunt: 7
+      Piercing: 4
+  fireColor: Transparent
   tileBreakChance: [0, 0.5, 1]
   tileBreakIntensity: [0, 10, 30]
   tileBreakRerollReduction: 20
