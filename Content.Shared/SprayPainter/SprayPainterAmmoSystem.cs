@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Whatstone <166147148+whatston3@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Examine;
@@ -13,10 +10,10 @@ namespace Content.Shared.SprayPainter;
 /// <summary>
 /// The system handles interactions with spray painter ammo.
 /// </summary>
-public sealed class SprayPainterAmmoSystem : EntitySystem
+public sealed partial class SprayPainterAmmoSystem : EntitySystem
 {
-    [Dependency] private readonly SharedChargesSystem _charges = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedChargesSystem _charges = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

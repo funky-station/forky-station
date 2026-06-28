@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-FileCopyrightText: 2025 Zachary Yona <58833995+Magicalus@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Items;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
@@ -21,7 +14,7 @@ namespace Content.Client.UserInterface.Systems.Inventory.Controls;
 [GenerateTypedNameReferences]
 public sealed partial class ItemStatusPanel : Control
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
 
     [ViewVariables] private EntityUid? _entity;
     [ViewVariables] private Hand? _hand;

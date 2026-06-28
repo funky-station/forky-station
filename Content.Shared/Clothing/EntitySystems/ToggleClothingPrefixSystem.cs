@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Token <56667933+TokenStyle@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Clothing.Components;
 using Content.Shared.Item.ItemToggle.Components;
 
@@ -9,9 +6,9 @@ namespace Content.Shared.Clothing.EntitySystems;
 /// <summary>
 /// On toggle handles the changes to ItemComponent.HeldPrefix. <see cref="ToggleClothingPrefixComponent"/>.
 /// </summary>
-public sealed class ToggleClothingPrefixSystem : EntitySystem
+public sealed partial class ToggleClothingPrefixSystem : EntitySystem
 {
-    [Dependency] private readonly ClothingSystem _clothing = default!;
+    [Dependency] private ClothingSystem _clothing = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

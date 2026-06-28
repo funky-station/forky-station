@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2026 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.BarSign;
 using Content.Shared.Power;
 using Robust.Client.GameObjects;
@@ -8,9 +5,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.BarSign;
 
-public sealed class BarSignVisualizerSystem : VisualizerSystem<BarSignComponent>
+public sealed partial class BarSignVisualizerSystem : VisualizerSystem<BarSignComponent>
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     protected override void OnAppearanceChange(EntityUid uid, BarSignComponent component, ref AppearanceChangeEvent args)
     {

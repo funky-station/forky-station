@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: loadout
   id: ReporterJumpsuit
   equipment:
@@ -10,3 +7,27 @@
   id: JournalistJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitJournalist
+
+# Head
+- type: loadout
+  id: ReporterPressFedora
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobReporter
+      time: 10h
+  equipment:
+    head: ClothingHeadHatFedoraPress
+
+# Outerclothing
+- type: loadout
+  id: ReporterPressVest
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobReporter
+      time: 35h
+  equipment:
+    outerClothing: ClothingOuterVestPress

@@ -1,15 +1,11 @@
-// SPDX-FileCopyrightText: 2023, 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Client.Graphics;
 using Robust.Shared.Console;
 
 namespace Content.Client.Parallax.Commands;
 
-public sealed class ShowBiomeCommand : LocalizedCommands
+public sealed partial class ShowBiomeCommand : LocalizedCommands
 {
-    [Dependency] private readonly IOverlayManager _overlayMgr = default!;
+    [Dependency] private IOverlayManager _overlayMgr = default!;
 
     public override string Command => "showbiome";
     public override void Execute(IConsoleShell shell, string argStr, string[] args)

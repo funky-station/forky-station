@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SolStar <44028047+ewokswagger@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Interaction;
 using Content.Server.Popups;
@@ -15,11 +8,11 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Research.Disk
 {
-    public sealed class ResearchDiskSystem : EntitySystem
+    public sealed partial class ResearchDiskSystem : EntitySystem
     {
-        [Dependency] private readonly IPrototypeManager _prototype = default!;
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly ResearchSystem _research = default!;
+        [Dependency] private IPrototypeManager _prototype = default!;
+        [Dependency] private PopupSystem _popupSystem = default!;
+        [Dependency] private ResearchSystem _research = default!;
         public override void Initialize()
         {
             base.Initialize();

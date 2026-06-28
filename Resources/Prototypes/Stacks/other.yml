@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: stack
   parent: BaseSheetStack # Not a sheet, but spiritually similar
   id: MetalRod
@@ -16,3 +11,11 @@
   name: stack-gunpowder
   icon: { sprite: /Textures/Objects/Misc/reagent_fillings.rsi, state: powderpile }
   spawn: MaterialGunpowder
+
+- type: stack
+  parent: BaseVerySmallStack
+  id: ConveyorBeltStack
+  name: stack-conveyor-belt
+  icon: { sprite: /Textures/Structures/conveyor.rsi, state: conveyor_loose }
+  spawn: ConveyorBeltAssembly
+  maxCount: 3

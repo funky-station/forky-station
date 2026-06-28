@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.StationEvents.Components;
 using Content.Server.StationRecords;
@@ -12,9 +8,9 @@ using Robust.Shared.Random;
 
 namespace Content.Server.StationEvents.Events;
 
-public sealed class ClericalErrorRule : StationEventSystem<ClericalErrorRuleComponent>
+public sealed partial class ClericalErrorRule : StationEventSystem<ClericalErrorRuleComponent>
 {
-    [Dependency] private readonly StationRecordsSystem _stationRecords = default!;
+    [Dependency] private StationRecordsSystem _stationRecords = default!;
 
     protected override void Started(EntityUid uid, ClericalErrorRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

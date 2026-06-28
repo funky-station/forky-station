@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
@@ -82,7 +74,7 @@ public interface IBanManager
     /// <param name="player">The player.</param>
     /// <param name="antags">A list of valid antag prototype IDs.</param>
     /// <returns>Returns True if an active role ban is found for this player for any of the listed roles.</returns>
-    public bool IsRoleBanned(ICommonSession player, List<ProtoId<AntagPrototype>> antags);
+    public bool IsRoleBanned(ICommonSession player, params List<ProtoId<AntagPrototype>> antags);
 
     /// <summary>
     /// Checks if the player is currently banned from any of the listed roles.
@@ -90,7 +82,7 @@ public interface IBanManager
     /// <param name="player">The player.</param>
     /// <param name="jobs">A list of valid job prototype IDs.</param>
     /// <returns>Returns True if an active role ban is found for this player for any of the listed roles.</returns>
-    public bool IsRoleBanned(ICommonSession player, List<ProtoId<JobPrototype>> jobs);
+    public bool IsRoleBanned(ICommonSession player, params List<ProtoId<JobPrototype>> jobs);
 
     /// <summary>
     /// Gets a list of prototype IDs with the player's job bans.

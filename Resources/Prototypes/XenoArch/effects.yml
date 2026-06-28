@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2025 Quasr <182430031+quasr-9@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entityTable
   id: XenoArtifactEffectsDefaultTable
   table: !type:GroupSelector
@@ -258,10 +251,10 @@
   components:
   - type: XAEApplyComponents
     components:
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          maxVol: 150
+    - type: Solution
+      id: beaker
+      solution:
+        maxVol: 120
     - type: FitsInDispenser
       solution: beaker
     - type: RefillableSolution
@@ -307,7 +300,9 @@
           Blunt: 4
       soundHit:
         path: /Audio/Weapons/bladeslice.ogg
-    - type: Sharp
+    - type: Tool
+      qualities:
+      - Slicing
 
 - type: entity
   id: XenoArtifactGenerateEnergy
@@ -1263,9 +1258,13 @@
       components:
       - MobState
     damage:
-      groups:
-        Brute: -300
-        Burn: -300
+      types:
+        Blunt: -100
+        Piercing: -100
+        Slash: -100
+        Heat: -100
+        Cold: -100
+        Shock: -100
 
 - type: entity
   id: XenoArtifactTesla
@@ -1311,6 +1310,7 @@
     maxIntensity: 1.5
     canCreateVacuum: false
     repeatable: true
+  - type: ExplosionEffect # Funky RMC Explosions
 
 - type: entity
   id: XenoArtifactBoom
@@ -1320,11 +1320,12 @@
   - type: XAETriggerExplosives
   - type: Explosive
     deleteAfterExplosion: false
-    explosionType: Default
+    explosionType: Transparent # Funky RMC Explosions
     totalIntensity: 500
     intensitySlope: 2.5
     maxIntensity: 50
     repeatable: true
+  - type: ExplosionEffect # Funky RMC Explosions
 
 - type: entity
   id: XenoArtifactEffectCreationGasPlasma

@@ -60,29 +60,29 @@ namespace Content.Server.BloodCult.EntitySystems
 	{
 		private const string MindShieldTag = "MindShield";
 
-		[Dependency] private readonly PopupSystem _popupSystem = default!;
-		[Dependency] private readonly EntityLookupSystem _lookup = default!;
-		[Dependency] private readonly MobStateSystem _mobState = default!;
-		[Dependency] private readonly SharedRoleSystem _role = default!;
-		[Dependency] private readonly BloodCultistSystem _bloodCultist = default!;
-		[Dependency] private readonly MindSystem _mind = default!;
-		[Dependency] private readonly SharedAudioSystem _audio = default!;
-		[Dependency] private readonly GameTicker _gameTicker = default!;
-		[Dependency] private readonly SharedContainerSystem _container = default!;
-		[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
-		[Dependency] private readonly SharedStunSystem _stun = default!;
-	[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
-	[Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-		[Dependency] private readonly IGameTiming _gameTiming = default!;
-		[Dependency] private readonly ChatSystem _chat = default!;
-		[Dependency] private readonly SharedTransformSystem _transform = default!;
-		[Dependency] private readonly DamageableSystem _damageable = default!;
-		[Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-		[Dependency] private readonly TagSystem _tag = default!;
-		[Dependency] private readonly SharedSubdermalImplantSystem _implantSystem = default!;
-		[Dependency] private readonly SharedPhysicsSystem _physics = default!;
-		[Dependency] private readonly IRobustRandom _random = default!;
-		[Dependency] private readonly NpcFactionSystem _npcFaction = default!;
+		[Dependency] private PopupSystem _popupSystem = default!;
+		[Dependency] private EntityLookupSystem _lookup = default!;
+		[Dependency] private MobStateSystem _mobState = default!;
+		[Dependency] private SharedRoleSystem _role = default!;
+		[Dependency] private BloodCultistSystem _bloodCultist = default!;
+		[Dependency] private MindSystem _mind = default!;
+		[Dependency] private SharedAudioSystem _audio = default!;
+		[Dependency] private GameTicker _gameTicker = default!;
+		[Dependency] private SharedContainerSystem _container = default!;
+		[Dependency] private BloodstreamSystem _bloodstream = default!;
+		[Dependency] private SharedStunSystem _stun = default!;
+	    [Dependency] private BloodCultRuleSystem _bloodCultRule = default!;
+	    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+		[Dependency] private IGameTiming _gameTiming = default!;
+		[Dependency] private ChatSystem _chat = default!;
+		[Dependency] private SharedTransformSystem _transform = default!;
+		[Dependency] private DamageableSystem _damageable = default!;
+		[Dependency] private IPrototypeManager _prototypeManager = default!;
+		[Dependency] private TagSystem _tag = default!;
+		[Dependency] private SharedSubdermalImplantSystem _implantSystem = default!;
+		[Dependency] private SharedPhysicsSystem _physics = default!;
+		[Dependency] private IRobustRandom _random = default!;
+		[Dependency] private NpcFactionSystem _npcFaction = default!;
 
 		private static readonly ProtoId<DamageTypePrototype> SlashDamageType = "Slash";
 

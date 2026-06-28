@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Shared.Alert.Components;
 using Robust.Client.GameObjects;
@@ -11,9 +8,9 @@ namespace Content.Client.Alerts;
 /// <summary>
 /// This handles <see cref="GenericCounterAlertComponent"/>
 /// </summary>
-public sealed class GenericCounterAlertSystem : EntitySystem
+public sealed partial class GenericCounterAlertSystem : EntitySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
