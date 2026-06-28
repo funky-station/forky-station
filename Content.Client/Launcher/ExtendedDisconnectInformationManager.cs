@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System;
 using Robust.Client;
 using Robust.Client.UserInterface;
@@ -15,9 +12,9 @@ namespace Content.Client.Launcher;
 /// But honestly, given that content might have additional flags (i.e. hide disconnect button for bans)?
 /// This is responsible for collecting any extended disconnect information.
 /// </summary>
-public sealed class ExtendedDisconnectInformationManager
+public sealed partial class ExtendedDisconnectInformationManager
 {
-    [Dependency] private readonly IClientNetManager _clientNetManager = default!;
+    [Dependency] private IClientNetManager _clientNetManager = default!;
 
     private NetDisconnectedArgs? _lastNetDisconnectedArgs = null;
 

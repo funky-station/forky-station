@@ -26,17 +26,17 @@ using Content.Server.Explosion.EntitySystems;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
-public sealed class SummonOnTriggerSystem : EntitySystem
+public sealed partial class SummonOnTriggerSystem : EntitySystem
 {
-	[Dependency] private readonly PopupSystem _popupSystem = default!;
-	[Dependency] private readonly EntityLookupSystem _lookup = default!;
-	[Dependency] private readonly StackSystem _stackSystem = default!;
-	[Dependency] private readonly SharedTransformSystem _transform = default!;
-	[Dependency] private readonly MapSystem _mapSystem = default!;
-	[Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-	[Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-	//[Dependency] private readonly IPrototypeManager _protoMan = default!;
-	[Dependency] private readonly IMapManager _mapManager = default!;
+	[Dependency] private PopupSystem _popupSystem = default!;
+	[Dependency] private EntityLookupSystem _lookup = default!;
+	[Dependency] private StackSystem _stackSystem = default!;
+	[Dependency] private SharedTransformSystem _transform = default!;
+	[Dependency] private MapSystem _mapSystem = default!;
+	[Dependency] private SharedAudioSystem _audioSystem = default!;
+	[Dependency] private SharedHandsSystem _handsSystem = default!;
+	//[Dependency] private IPrototypeManager _protoMan = default!;
+	[Dependency] private IMapManager _mapManager = default!;
 
 	private EntityQuery<PhysicsComponent> _physicsQuery = default!;
 
@@ -74,16 +74,16 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 		// Get all entities on the same tile as the rune - this ensures we check all resources
 		// even if they're just placed on the floor (like a stack of runed glass)
 		var summonLookup = new HashSet<EntityUid>();
-		
+
 		var gridUid = _transform.GetGrid(runeCoords);
 		if (gridUid != null && TryComp<MapGridComponent>(gridUid, out var grid))
 		{
 			var tileIndices = _mapSystem.TileIndicesFor(gridUid.Value, grid, runeCoords);
-			
+
 			// Get all entities on this tile (both anchored and unanchored)
 			// Use Uncontained flag to exclude items in containers
 			_lookup.GetLocalEntitiesIntersecting(gridUid.Value, tileIndices, summonLookup, flags: LookupFlags.Uncontained, gridComp: grid);
-			
+
 			// Also include entities from range-based lookup as a fallback (in case something is slightly off-tile)
 			var rangeLookup = _lookup.GetEntitiesInRange(uid, component.SummonRange, LookupFlags.Uncontained);
 			foreach (var entity in rangeLookup)
@@ -152,19 +152,19 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 			if (TryConsumeMaterials(runedSteelStacks, JuggernautMetalRequired, user))
 			{
 				var juggernautShell = Spawn("CultJuggernautShell", runeCoords);
-				
+
 				// Ensure the shell is not anchored (it should be movable)
 				var shellTransform = Transform(juggernautShell);
 				if (shellTransform.Anchored)
 				{
 					_transform.Unanchor(juggernautShell, shellTransform);
 				}
-				
+
 				_popupSystem.PopupEntity(
 					Loc.GetString("cult-summoning-juggernaut-shell"),
 					user, user, PopupType.Large
 				);
-				
+
 				// Delete the rune after successful summoning
 				QueueDel(uid);
 				args.Handled = true;
@@ -182,7 +182,7 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 			{
 				// Check if it's an outerwear item (has ClothingComponent with OUTERCLOTHING slot flag)
 				// summonLookup already excludes items in containers via LookupFlags.Uncontained
-				if (TryComp<ClothingComponent>(entity, out var clothing) && 
+				if (TryComp<ClothingComponent>(entity, out var clothing) &&
 				    clothing.Slots.HasFlag(SlotFlags.OUTERCLOTHING))
 				{
 					// Found a valid outerwear item
@@ -202,12 +202,12 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 
 				// Spawn bloodcult robes at the rune coordinates
 				var bloodcultRobes = Spawn("ClothingOuterRobesBloodCult", runeCoords);
-					
+
 					_popupSystem.PopupEntity(
 						Loc.GetString("cult-summoning-acolyte-armor"),
 						user, user, PopupType.Large
 					);
-					
+
 					// Delete the rune after successful summoning
 					QueueDel(uid);
 					args.Handled = true;
@@ -232,7 +232,7 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 
 		// Check for Forsaken Boots - can use either 5 plastic + 5 cloth OR 5 durathread
 		// First check if enough materials exist (without consuming)
-		if (HasEnoughMaterials(plasticStacks, ForsakenBootsPlasticRequired) && 
+		if (HasEnoughMaterials(plasticStacks, ForsakenBootsPlasticRequired) &&
 		    HasEnoughMaterials(clothStacks, ForsakenBootsClothRequired))
 		{
 			// Primary method: 5 plastic + 5 cloth
@@ -240,12 +240,12 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 			    TryConsumeMaterials(clothStacks, ForsakenBootsClothRequired, user))
 			{
 				var forsakenBoots = Spawn("ClothingShoesBootsForsaken", runeCoords);
-				
+
 				_popupSystem.PopupEntity(
 					Loc.GetString("cult-summoning-forsaken-boots"),
 					user, user, PopupType.Large
 				);
-				
+
 				// Delete the rune after successful summoning
 				QueueDel(uid);
 				args.Handled = true;
@@ -260,12 +260,12 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 			if (TryConsumeMaterials(durathreadStacks, ForsakenBootsDurathreadRequired, user))
 			{
 				var forsakenBoots = Spawn("ClothingShoesBootsForsaken", runeCoords);
-				
+
 				_popupSystem.PopupEntity(
 					Loc.GetString("cult-summoning-forsaken-boots"),
 					user, user, PopupType.Large
 				);
-				
+
 				// Delete the rune after successful summoning
 				QueueDel(uid);
 				args.Handled = true;
@@ -309,7 +309,7 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 		{
 			// Perform ALL validation checks BEFORE consuming materials
 			// This ensures materials are never lost if summoning fails
-			
+
 			// First check: Verify we have a valid grid
 			var pylonGridUid = _transform.GetGrid(runeCoords);
 			if (pylonGridUid == null)
@@ -361,7 +361,7 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 
 			// Delete the rune immediately - this frees the snapgrid cell for the pylon
 			// Use EntityManager.DeleteEntity for immediate deletion
-			EntityManager.DeleteEntity(uid);
+			Del(uid);
 
 			// Now spawn the pylon normally - it will auto-anchor since CultPylon has anchored: true
 			// The rune is already deleted so there's no conflict
@@ -403,7 +403,7 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 					// Pylon didn't anchor - try spawning unanchored nearby as fallback
 					if (Exists(pylon.Value))
 						QueueDel(pylon.Value);
-					
+
 					// Try to find a nearby location to spawn unanchored pylon
 					if (TryFindNearbyLocation(runeCoordsForPylon, out var nearbyLocation))
 					{
@@ -414,7 +414,7 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 							// Ensure it's unanchored
 							_transform.Unanchor(unanchoredPylon, unanchoredXform);
 							unanchoredXform.LocalRotation = runeRotation;
-							
+
 							// Consume materials for unanchored pylon
 							if (TryConsumeMaterials(runedGlassStacks, PylonGlassRequired, user))
 							{
@@ -433,7 +433,7 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 							}
 						}
 					}
-					
+
 					// Fallback failed - show error
 					_popupSystem.PopupEntity(
 						Loc.GetString("cult-summoning-pylon-anchor-failed"),
@@ -453,7 +453,7 @@ public sealed class SummonOnTriggerSystem : EntitySystem
 					args.Handled = true;
 					return;
 				}
-				
+
 				var pylonXformCheck = Transform(pylon.Value);
 				if (!pylonXformCheck.Anchored)
 				{

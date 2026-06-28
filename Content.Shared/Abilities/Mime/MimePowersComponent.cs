@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Alert;
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;

@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024-2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Shared.Mobs;
 using Robust.Client.Graphics;
@@ -16,14 +8,14 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.UserInterface.Systems.DamageOverlays.Overlays;
 
-public sealed class DamageOverlay : Overlay
+public sealed partial class DamageOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> CircleMaskShader = "GradientCircleMask";
 
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
 

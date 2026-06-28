@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2022, 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Power.EntitySystems;
 using Content.Server.Research.Components;
 using Content.Shared.UserInterface;
@@ -22,7 +12,8 @@ namespace Content.Server.Research.Systems;
 
 public sealed partial class ResearchSystem
 {
-    [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private EmagSystem _emag = default!;
+    [Dependency] private IdentitySystem _identity = default!;
 
     private void InitializeConsole()
     {
@@ -56,14 +47,12 @@ public sealed partial class ResearchSystem
 
         if (!_emag.CheckFlag(uid, EmagType.Interaction))
         {
-            var getIdentityEvent = new TryGetIdentityShortInfoEvent(uid, act);
-            RaiseLocalEvent(getIdentityEvent);
 
             var message = Loc.GetString(
                 "research-console-unlock-technology-radio-broadcast",
                 ("technology", Loc.GetString(technologyPrototype.Name)),
                 ("amount", technologyPrototype.Cost),
-                ("approver", getIdentityEvent.Title ?? string.Empty)
+                ("approver", _identity.GetIdentityShortInfo(act, uid) ?? string.Empty)
             );
             _radio.SendRadioMessage(uid, message, component.AnnouncementChannel, uid, escapeMarkup: false);
         }

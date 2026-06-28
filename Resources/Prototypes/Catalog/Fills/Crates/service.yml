@@ -1,42 +1,3 @@
-# SPDX-FileCopyrightText: 2020-2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021-2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Pancake <Pangogie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022, 2024 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 dontbetank <59025279+dontbetank@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rinkashikachi <15rinkashikachi15@gmail.com>
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-# SPDX-FileCopyrightText: 2022 Lamrr <96937466+Lamrr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 potato1234_x <79580518+potato1234x@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 nmajask <nmajask@gmail.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Topy <topy72.mine@gmail.com>
-# SPDX-FileCopyrightText: 2023 end <72604018+laok233@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Puro <103608145+PuroSlavKing@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024-2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Maishul <140472900+githubuser508@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 KonstantinAngelov <168754339+KonstantinAngelov@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 nao fujiwara <awkwarddryad@gmail.com>
-# SPDX-FileCopyrightText: 2024 DenisShvalov <115770678+DenisShvalov@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Firewatch <54725557+musicmanvr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Hanz <41141796+Hanzdegloker@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2025 Hitlinemoss <209321380+Hitlinemoss@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SnappingOpossum <snappingopossum@outlook.com>
-# SPDX-FileCopyrightText: 2025 Tiniest Shark <head.rebel@yahoo.com>
-# SPDX-FileCopyrightText: 2025 Hrosts <35345601+Hrosts@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Velken <8467292+Velken@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: CratePlastic
   id: CrateServiceJanitorialSupplies
@@ -63,7 +24,6 @@
           amount: 2
         - id: BoxCleanerGrenades
         - id: WireBrush
-          amount: 2
 
 - type: entity
   parent: CratePlastic
@@ -165,8 +125,11 @@
       entity_storage: !type:AllSelector
         children:
         - id: BarberScissors
-        - id: ClothingOuterSuitMonkey
-        - id: ClothingHeadHatAnimalMonkey
+        # Begin Macrocosm: Costume bundles
+        # - id: ClothingOuterSuitMonkey
+        # - id: ClothingHeadHatAnimalMonkey
+        - id: CostumeBundleMonkey
+        # End Macrocosm
         - id: ClothingUniformJumpskirtJanimaid
         - id: ClothingUniformJumpskirtOldDress
         - id: ClothingHeadHatMagician
@@ -190,11 +153,14 @@
           - id: ClothingMaskMime
           - id: ClothingBeltSuspendersRed
           - id: ClothingBeltSuspendersBlack
-        - !type:AllSelector # Performer starter kit
-          children:
-          - id: ClothingUniformJumpskirtPerformer
-          - id: ClothingShoesBootsPerformer
-          - id: ClothingHeadPerformerWig
+        # Begin Macrocosm: Costume bundles
+        # - !type:AllSelector # Performer starter kit
+        #   children:
+        #   - id: ClothingUniformJumpskirtPerformer
+        #   - id: ClothingShoesBootsPerformer
+        #   - id: ClothingHeadPerformerWig
+        - id: CostumeBundlePerformer
+        # End Macrocosm
 
 - type: entity
   parent: CrateGenericSteel
@@ -239,6 +205,7 @@
         - id: NewtonCradle
         - id: BoxEnvelope
         - id: BrbSign
+        - id: DeskBell
 
 - type: entity
   parent: CrateGenericSteel

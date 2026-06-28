@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Administration.Logs;
 using Content.Server.DeviceLinking.Systems;
@@ -14,12 +11,12 @@ namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
 public sealed partial class NuclearReactorMonitorSystem : EntitySystem
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly NuclearReactorSystem _reactorSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly DeviceLinkSystem _signal = default!;
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = null!;
+    [Dependency] private EntityManager _entityManager = default!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
+    [Dependency] private NuclearReactorSystem _reactorSystem = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private DeviceLinkSystem _signal = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = null!;
 
     private readonly float _threshold = 0.5f;
     private float _accumulator = 0f;
@@ -42,7 +39,7 @@ public sealed partial class NuclearReactorMonitorSystem : EntitySystem
     {
         if (!_entityManager.TryGetComponent<DeviceLinkSinkComponent>(uid, out var sink))
             return;
-        
+
         foreach(var source in sink.LinkedSources)
         {
             if (!HasComp<NuclearReactorComponent>(source))

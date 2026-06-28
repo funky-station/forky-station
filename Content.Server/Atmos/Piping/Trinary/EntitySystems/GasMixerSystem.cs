@@ -1,28 +1,10 @@
-// SPDX-FileCopyrightText: 2021-2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022, 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 theashtronaut <112137107+theashtronaut@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Atmos.Piping.Components;
 using Content.Server.Atmos.Piping.Trinary.Components;
-using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.Nodes;
 using Content.Shared.Atmos;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.Piping;
 using Content.Shared.Atmos.Piping.Components;
 using Content.Shared.Atmos.Piping.Trinary.Components;
@@ -37,15 +19,15 @@ using Robust.Shared.Player;
 namespace Content.Server.Atmos.Piping.Trinary.EntitySystems
 {
     [UsedImplicitly]
-    public sealed class GasMixerSystem : EntitySystem
+    public sealed partial class GasMixerSystem : EntitySystem
     {
         [Dependency] private UserInterfaceSystem _userInterfaceSystem = default!;
         [Dependency] private IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-        [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
-        [Dependency] private readonly SharedPopupSystem _popup = default!;
+        [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
+        [Dependency] private SharedAmbientSoundSystem _ambientSoundSystem = default!;
+        [Dependency] private SharedAppearanceSystem _appearance = default!;
+        [Dependency] private NodeContainerSystem _nodeContainer = default!;
+        [Dependency] private SharedPopupSystem _popup = default!;
 
         public override void Initialize()
         {

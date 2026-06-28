@@ -1,19 +1,12 @@
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Text.Json;
 using Content.Server.Administration.Managers;
 
 namespace Content.Server.Administration.Logs.Converters;
 
 [AdminLogConverter]
-public sealed class EntityStringRepresentationConverter : AdminLogConverter<EntityStringRepresentation>
+public sealed partial class EntityStringRepresentationConverter : AdminLogConverter<EntityStringRepresentation>
 {
-    [Dependency] private readonly IAdminManager _adminManager = default!;
+    [Dependency] private IAdminManager _adminManager = default!;
 
     public override void Write(Utf8JsonWriter writer, EntityStringRepresentation value, JsonSerializerOptions options)
     {

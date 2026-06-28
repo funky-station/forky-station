@@ -1,13 +1,6 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Spessmann <156740760+Spessmann@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Partmedia <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Collections.Generic;
 using System.Linq;
+using Content.IntegrationTests.Fixtures;
 using Content.Server.GameTicking;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
@@ -21,7 +14,7 @@ using Robust.Shared.EntitySerialization;
 
 namespace Content.IntegrationTests.Tests.Power;
 
-public sealed class StationPowerTests
+public sealed class StationPowerTests : GameTest
 {
     /// <summary>
     /// How long the station should be able to survive on stored power if nothing is changed from round start.
@@ -44,14 +37,16 @@ public sealed class StationPowerTests
         "Exo",
     ];
 
+    public override PoolSettings PoolSettings => new ()
+    {
+        Dirty = true,
+    };
+
     [Explicit]
     [Test, TestCaseSource(nameof(GameMaps))]
     public async Task TestStationStartingPowerWindow(string mapProtoId)
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings
-        {
-            Dirty = true,
-        });
+        var pair = Pair;
         var server = pair.Server;
 
         var entMan = server.EntMan;
@@ -104,17 +99,12 @@ public sealed class StationPowerTests
             Assert.That(totalStartingCharge, Is.GreaterThanOrEqualTo(requiredStoredPower),
                 $"Needs at least {requiredStoredPower - totalStartingCharge} more stored power!");
         });
-
-        await pair.CleanReturnAsync();
     }
 
     [Test, TestCaseSource(nameof(GameMaps))]
     public async Task TestApcLoad(string mapProtoId)
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings
-        {
-            Dirty = true,
-        });
+        var pair = Pair;
         var server = pair.Server;
 
         var entMan = server.EntMan;
@@ -153,7 +143,5 @@ public sealed class StationPowerTests
                 }
             }
         });
-
-        await pair.CleanReturnAsync();
     }
 }

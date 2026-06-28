@@ -1,18 +1,12 @@
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Pancake <Pangogie@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Text;
 using Content.Server.Speech.Components;
 using Content.Shared.Speech;
 
 namespace Content.Server.Speech.EntitySystems;
 
-public sealed class RussianAccentSystem : EntitySystem
+public sealed partial class RussianAccentSystem : EntitySystem
 {
-    [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
+    [Dependency] private ReplacementAccentSystem _replacement = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<RussianAccentComponent, AccentGetEvent>(OnAccent);

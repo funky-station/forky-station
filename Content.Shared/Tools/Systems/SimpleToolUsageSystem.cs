@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Tools.Components;
@@ -11,8 +8,8 @@ namespace Content.Shared.Tools.Systems;
 
 public sealed partial class SimpleToolUsageSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly SharedToolSystem _tools = default!;
+    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private SharedToolSystem _tools = default!;
 
     public override void Initialize()
     {

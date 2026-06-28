@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Friends.Components;
 using Content.Shared.Interaction.Events;
@@ -11,21 +8,18 @@ using Content.Shared.Timing;
 
 namespace Content.Shared.Friends.Systems;
 
-public sealed class PettableFriendSystem : EntitySystem
+public sealed partial class PettableFriendSystem : EntitySystem
 {
-    [Dependency] private readonly NpcFactionSystem _factionException = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
+    [Dependency] private NpcFactionSystem _factionException = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private UseDelaySystem _useDelay = default!;
 
-    private EntityQuery<FactionExceptionComponent> _exceptionQuery;
-    private EntityQuery<UseDelayComponent> _useDelayQuery;
+    [Dependency] private EntityQuery<FactionExceptionComponent> _exceptionQuery = default!;
+    [Dependency] private EntityQuery<UseDelayComponent> _useDelayQuery = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-
-        _exceptionQuery = GetEntityQuery<FactionExceptionComponent>();
-        _useDelayQuery = GetEntityQuery<UseDelayComponent>();
 
         SubscribeLocalEvent<PettableFriendComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<PettableFriendComponent, GotRehydratedEvent>(OnRehydrated);

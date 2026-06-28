@@ -33,16 +33,16 @@ namespace Content.Server.BloodCult.EntitySystems
 {
 	public sealed partial class ReviveCultistOnTriggerSystem : EntitySystem
 	{
-		[Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-		[Dependency] private readonly DamageableSystem _damageableSystem = default!;
-		[Dependency] private readonly PopupSystem _popupSystem = default!;
+		[Dependency] private SharedAudioSystem _audioSystem = default!;
+		[Dependency] private DamageableSystem _damageableSystem = default!;
+		[Dependency] private PopupSystem _popupSystem = default!;
 
-		[Dependency] private readonly EntityLookupSystem _lookup = default!;
-		[Dependency] private readonly MobStateSystem _mobState = default!;
-		[Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-		[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
-		[Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
-		[Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+		[Dependency] private EntityLookupSystem _lookup = default!;
+		[Dependency] private MobStateSystem _mobState = default!;
+		[Dependency] private MobThresholdSystem _mobThreshold = default!;
+		[Dependency] private BloodCultRuleSystem _bloodCultRule = default!;
+		[Dependency] private RejuvenateSystem _rejuvenate = default!;
+		[Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
 
 		public override void Initialize()
 		{
@@ -57,7 +57,7 @@ namespace Content.Server.BloodCult.EntitySystems
 
 		EntityUid user = (EntityUid)args.User;
 		var lookup = _lookup.GetEntitiesInRange(uid, component.ReviveRange);
-		
+
 		// Find dead entities to revive (prioritize cultists, but can revive anyone)
 		foreach (var look in lookup)
 		{
@@ -80,7 +80,7 @@ namespace Content.Server.BloodCult.EntitySystems
 			if (_solutionContainer.ResolveSolution(look, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution))
 			{
 				bloodExtracted = (double)bloodSolution.Volume.Float();
-				
+
 				// Remove all blood from the entity
 				_solutionContainer.RemoveAllSolution(bloodstream.BloodSolution.Value);
 			}
@@ -88,7 +88,7 @@ namespace Content.Server.BloodCult.EntitySystems
 
 			// Revive the entity (no health cost to the user)
 			_rejuvenate.PerformRejuvenate(look);
-			
+
 			// Apply different conditions based on cultist status
 			if (isCultist)
 			{
@@ -119,10 +119,10 @@ namespace Content.Server.BloodCult.EntitySystems
 					_damageableSystem.TryChangeDamage(look, criticalDamage, true, origin: user);
 				}
 			}
-			
+
 			// Play effects
 			_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Magic/staff_healing.ogg"), Transform(look).Coordinates);
-			
+
 			// Use different messages for cultists vs non-cultists
 			if (isCultist)
 			{

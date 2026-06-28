@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.ActionBlocker;
 using Content.Shared.Movement.Events;
 using Content.Shared.Shuttles.BUIStates;
@@ -11,9 +6,9 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Shuttles.Systems
 {
-    public abstract class SharedShuttleConsoleSystem : EntitySystem
+    public abstract partial class SharedShuttleConsoleSystem : EntitySystem
     {
-        [Dependency] protected readonly ActionBlockerSystem ActionBlockerSystem = default!;
+        [Dependency] protected ActionBlockerSystem ActionBlockerSystem = default!;
 
         public override void Initialize()
         {

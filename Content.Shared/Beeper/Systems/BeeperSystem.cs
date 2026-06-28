@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Beeper.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Item.ItemToggle;
@@ -14,12 +10,12 @@ namespace Content.Shared.Beeper.Systems;
 
 
 //This handles generic proximity beeper logic
-public sealed class BeeperSystem : EntitySystem
+public sealed partial class BeeperSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Update(float frameTime)
     {

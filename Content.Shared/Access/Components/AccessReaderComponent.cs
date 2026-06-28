@@ -1,26 +1,3 @@
-// SPDX-FileCopyrightText: 2019 DamianX <DamianX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020, 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2020 FL-OZ <58238103+FL-OZ@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023-2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Access.Systems;
 using Content.Shared.StationRecords;
 using Robust.Shared.GameStates;
@@ -61,7 +38,7 @@ public sealed partial class AccessReaderComponent : Component
     /// An unmodified copy of the original list of the access groups that grant access to this reader.
     /// </summary>
     /// <remarks>
-    /// If null, the access lists of this entity have not been modified yet.
+    /// If null, entity isn't intialized yet.
     /// </remarks>
     [DataField]
     public List<HashSet<ProtoId<AccessLevelPrototype>>>? AccessListsOriginal = null;

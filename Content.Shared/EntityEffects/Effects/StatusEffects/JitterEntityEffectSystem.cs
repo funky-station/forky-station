@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Jittering;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Prototypes;
@@ -17,7 +12,7 @@ namespace Content.Shared.EntityEffects.Effects.StatusEffects;
 /// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
 public sealed partial class JitterEntityEffectSystem : EntityEffectSystem<StatusEffectsComponent, Jitter>
 {
-    [Dependency] private readonly SharedJitteringSystem _jittering = default!;
+    [Dependency] private SharedJitteringSystem _jittering = default!;
 
     protected override void Effect(Entity<StatusEffectsComponent> entity, ref EntityEffectEvent<Jitter> args)
     {

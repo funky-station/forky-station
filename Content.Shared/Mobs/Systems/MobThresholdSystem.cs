@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Alert;
@@ -21,10 +11,11 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.Mobs.Systems;
 
-public sealed class MobThresholdSystem : EntitySystem
+public sealed partial class MobThresholdSystem : EntitySystem
 {
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
 
     public override void Initialize()
     {
@@ -280,7 +271,7 @@ public sealed class MobThresholdSystem : EntitySystem
         if (!TryGetThresholdForState(target2, MobState.Dead, out var ent2DeadThreshold, threshold2))
             ent2DeadThreshold = 0;
 
-        damage = (oldDamage.Damage / ent1DeadThreshold.Value) * ent2DeadThreshold.Value;
+        damage = (_damageable.GetAllDamage((target1, oldDamage)) / ent1DeadThreshold.Value) * ent2DeadThreshold.Value;
         return true;
     }
 
@@ -349,7 +340,7 @@ public sealed class MobThresholdSystem : EntitySystem
     {
         foreach (var (threshold, mobState) in thresholdsComponent.Thresholds.Reverse())
         {
-            if (damageableComponent.TotalDamage < threshold)
+            if (_damageable.GetTotalDamage((target, damageableComponent)) < threshold)
                 continue;
 
             TriggerThreshold(target, mobState, mobStateComponent, thresholdsComponent, origin);
@@ -415,7 +406,7 @@ public sealed class MobThresholdSystem : EntitySystem
             }
 
             if (TryGetNextState(target, currentMobState, out var nextState, threshold) &&
-                TryGetPercentageForState(target, nextState.Value, damageable.TotalDamage, out var percentage))
+                TryGetPercentageForState(target, nextState.Value, _damageable.GetTotalDamage((target, damageable)), out var percentage))
             {
                 percentage = FixedPoint2.Clamp(percentage.Value, 0, 1);
 

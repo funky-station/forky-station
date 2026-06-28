@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Sir Warock <67167466+SirWarock@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Chemistry.UI;
 using Content.Client.Items;
 using Content.Shared.Chemistry.Components;
@@ -9,10 +6,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.Chemistry.EntitySystems;
 
-public sealed class InjectorStatusControlSystem : EntitySystem
+public sealed partial class InjectorStatusControlSystem : EntitySystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainers = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainers = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
 
     public override void Initialize()

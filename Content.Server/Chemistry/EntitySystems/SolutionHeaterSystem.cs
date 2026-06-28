@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2022, 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Chemistry.Components;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
@@ -19,11 +9,11 @@ using Content.Shared.Power;
 
 namespace Content.Server.Chemistry.EntitySystems;
 
-public sealed class SolutionHeaterSystem : EntitySystem
+public sealed partial class SolutionHeaterSystem : EntitySystem
 {
-    [Dependency] private readonly PowerReceiverSystem _powerReceiver = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private PowerReceiverSystem _powerReceiver = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -91,13 +81,10 @@ public sealed class SolutionHeaterSystem : EntitySystem
         var query = EntityQueryEnumerator<ActiveSolutionHeaterComponent, SolutionHeaterComponent, ItemPlacerComponent>();
         while (query.MoveNext(out _, out _, out var heater, out var placer))
         {
+            var energy = heater.HeatPerSecond * frameTime;
             foreach (var heatingEntity in placer.PlacedEntities)
             {
-                if (!TryComp<SolutionContainerManagerComponent>(heatingEntity, out var container))
-                    continue;
-
-                var energy = heater.HeatPerSecond * frameTime;
-                foreach (var (_, soln) in _solutionContainer.EnumerateSolutions((heatingEntity, container)))
+                foreach (var (_, soln) in _solutionContainer.EnumerateSolutions(heatingEntity))
                 {
                     _solutionContainer.AddThermalEnergy(soln, energy);
                 }

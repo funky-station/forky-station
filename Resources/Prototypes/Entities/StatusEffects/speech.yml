@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 NoreUhh <85219416+NoreUhh@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: MobStatusEffectDebuff
   id: SpeechStatusEffectBase
@@ -45,6 +41,14 @@
   name: owoaccent
   components:
   - type: OwOAccent
+
+# Causes you to shout everything.
+- type: entity
+  parent: SpeechStatusEffectBase
+  id: StatusEffectAllCaps
+  name: allcapsaccent
+  components:
+  - type: AllCapsAccent
 
 # Causes you to tark rike a dog. Woof!
 - type: entity

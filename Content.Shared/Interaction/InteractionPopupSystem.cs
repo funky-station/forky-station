@@ -1,18 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022, 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Júlio César Ueti <52474532+Mirino97@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Willhelm53 <97707302+Willhelm53@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Bed.Sleep;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Components;
@@ -29,15 +14,15 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Interaction;
 
-public sealed class InteractionPopupSystem : EntitySystem
+public sealed partial class InteractionPopupSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly INetManager _netMan = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private INetManager _netMan = default!;
 
     public override void Initialize()
     {

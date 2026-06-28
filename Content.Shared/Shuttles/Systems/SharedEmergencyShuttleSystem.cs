@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Winkarst-cpu <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.CCVar;
 using Content.Shared.Popups;
 using Content.Shared.Shuttles.Components;
@@ -10,10 +6,10 @@ using Robust.Shared.Configuration;
 
 namespace Content.Shared.Shuttles.Systems;
 
-public abstract class SharedEmergencyShuttleSystem : EntitySystem
+public abstract partial class SharedEmergencyShuttleSystem : EntitySystem
 {
-    [Dependency] protected readonly IConfigurationManager ConfigManager = default!;
-    [Dependency] protected readonly SharedPopupSystem Popup = default!;
+    [Dependency] protected IConfigurationManager ConfigManager = default!;
+    [Dependency] protected SharedPopupSystem Popup = default!;
 
     private bool _emergencyEarlyLaunchAllowed;
 

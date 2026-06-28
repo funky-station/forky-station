@@ -1,18 +1,3 @@
-// SPDX-FileCopyrightText: 2020-2021, 2023-2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2020-2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Manel Navola <6786088+ManelNavola@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 ColdAutumnRain <73938872+ColdAutumnRain@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 Vera Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SpaceManiac <tad@platymuus.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
@@ -26,12 +11,12 @@ namespace Content.Client.DoAfter;
 /// Handles events that need to happen after a certain amount of time where the event could be cancelled by factors
 /// such as moving.
 /// </summary>
-public sealed class DoAfterSystem : SharedDoAfterSystem
+public sealed partial class DoAfterSystem : SharedDoAfterSystem
 {
-    [Dependency] private readonly IOverlayManager _overlay = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly MetaDataSystem _metadata = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private MetaDataSystem _metadata = default!;
 
     public override void Initialize()
     {
@@ -65,9 +50,7 @@ public sealed class DoAfterSystem : SharedDoAfterSystem
 
         var time = GameTiming.CurTime;
         var comp = Comp<DoAfterComponent>(playerEntity.Value);
-        var xformQuery = GetEntityQuery<TransformComponent>();
-        var handsQuery = GetEntityQuery<HandsComponent>();
-        Update(playerEntity.Value, active, comp, time, xformQuery, handsQuery);
+        Update(playerEntity.Value, active, comp, time);
     }
 
     /// <summary>

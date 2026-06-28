@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Clothing.Components;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
@@ -26,7 +23,7 @@ public sealed class SelfUnremovableClothingSystem : EntitySystem
         if (TryComp<ClothingComponent>(selfUnremovableClothing, out var clothing) && (clothing.Slots & args.SlotFlags) == SlotFlags.NONE)
             return;
 
-        if (args.UnEquipTarget == args.Unequipee)
+        if (args.UnEquipTarget == args.User)
         {
             args.Cancel();
         }

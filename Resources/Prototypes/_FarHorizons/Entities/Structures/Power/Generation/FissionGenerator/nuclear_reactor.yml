@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025-2026 jhrushbe <capnmerry@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: BaseNuclearReactor
   parent: BaseStructure
@@ -86,8 +83,9 @@
         - MachineLayer
         - HighImpassable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralReactorCasing
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

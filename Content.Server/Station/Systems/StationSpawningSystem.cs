@@ -1,39 +1,3 @@
-// SPDX-FileCopyrightText: 2022, 2024-2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Morber <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 PrPleGoo <PrPleGoo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <shadowjjt@gmail.com>
-// SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-FileCopyrightText: 2025 SpaceManiac <tad@platymuus.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Access.Systems;
 using Content.Server.Humanoid;
 using Content.Server.Mind;
@@ -67,19 +31,19 @@ namespace Content.Server.Station.Systems;
 /// Also provides helpers for spawning in the player's mob.
 /// </summary>
 [PublicAPI]
-public sealed class StationSpawningSystem : SharedStationSpawningSystem
+public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
 {
-    [Dependency] private readonly SharedAccessSystem _accessSystem = default!;
-    [Dependency] private readonly ActorSystem _actors = default!;
-    [Dependency] private readonly IdCardSystem _cardSystem = default!;
-    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly HumanoidProfileSystem _humanoidProfile = default!;
-    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
-    [Dependency] private readonly IdentitySystem _identity = default!;
-    [Dependency] private readonly MetaDataSystem _metaSystem = default!;
-    [Dependency] private readonly PdaSystem _pdaSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly MindSystem _mindSystem = default!;
+    [Dependency] private SharedAccessSystem _accessSystem = default!;
+    [Dependency] private ActorSystem _actors = default!;
+    [Dependency] private IdCardSystem _cardSystem = default!;
+    [Dependency] private IConfigurationManager _configurationManager = default!;
+    [Dependency] private HumanoidProfileSystem _humanoidProfile = default!;
+    [Dependency] private SharedVisualBodySystem _visualBody = default!;
+    [Dependency] private IdentitySystem _identity = default!;
+    [Dependency] private MetaDataSystem _metaSystem = default!;
+    [Dependency] private PdaSystem _pdaSystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private MindSystem _mindSystem = default!;
 
     /// <summary>
     /// Attempts to spawn a player character onto the given station.

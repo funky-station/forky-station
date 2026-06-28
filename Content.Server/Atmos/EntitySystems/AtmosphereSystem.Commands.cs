@@ -1,18 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 Júlio César Ueti <52474532+Mirino97@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <@deltanedas:kde.org>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Atmos.Components;
@@ -27,7 +12,8 @@ namespace Content.Server.Atmos.EntitySystems;
 
 public sealed partial class AtmosphereSystem
 {
-    [Dependency] private readonly IConsoleHost _consoleHost = default!;
+    [Dependency] private IConsoleHost _consoleHost = default!;
+    [Dependency] private EntityQuery<AtmosFixMarkerComponent> _atmosFixMarkerQuery = default!;
 
     private void InitializeCommands()
     {
@@ -83,7 +69,7 @@ public sealed partial class AtmosphereSystem
     /// <remarks>Please be responsible with this method. Used only by tests and fixgridatmos.</remarks>
     public void RebuildGridAtmosphere(Entity<GridAtmosphereComponent, MapGridComponent> ent)
     {
-        var mixtures = new GasMixture[9];
+        var mixtures = new GasMixture[11]; // MACRO, from 9 to 11
         for (var i = 0; i < mixtures.Length; i++)
         {
             mixtures[i] = new GasMixture(Atmospherics.CellVolume) { Temperature = Atmospherics.T20C };
@@ -121,14 +107,19 @@ public sealed partial class AtmosphereSystem
         mixtures[8].AdjustMoles(Gas.Oxygen, Atmospherics.OxygenMolesGasMiner);
         mixtures[8].AdjustMoles(Gas.Nitrogen, Atmospherics.NitrogenMolesGasMiner);
 
+        // MACRO Start: Add water vapor for decapoids.
+        // 9: Water Vapor (GM)
+        mixtures[8].AdjustMoles(Gas.WaterVapor, Atmospherics.MolesCellGasMiner);
 
+        // 10: Water Vapor (101kpa) for decapoid rooms
+        mixtures[9].AdjustMoles(Gas.WaterVapor, Atmospherics.MolesCellStandard);
+        // Macro End
         // Force Invalidate & update air on all tiles
         Entity<GridAtmosphereComponent, GasTileOverlayComponent, MapGridComponent, TransformComponent> grid =
             new(ent.Owner, ent.Comp1, Comp<GasTileOverlayComponent>(ent), ent.Comp2, Transform(ent));
 
         RebuildGridTiles(grid);
 
-        var query = GetEntityQuery<AtmosFixMarkerComponent>();
         foreach (var (indices, tile) in ent.Comp1.Tiles.ToArray())
         {
             if (tile.Air is not {Immutable: false} air)
@@ -139,7 +130,7 @@ public sealed partial class AtmosphereSystem
             var enumerator = _mapSystem.GetAnchoredEntitiesEnumerator(grid, grid, indices);
             while (enumerator.MoveNext(out var entUid))
             {
-                if (query.TryComp(entUid, out var marker))
+                if (_atmosFixMarkerQuery.TryComp(entUid, out var marker))
                     mixtureId = marker.Mode;
             }
 

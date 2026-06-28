@@ -1,16 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 godisdeadLOL <169250097+godisdeadLOL@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Ghost;
 using Content.Shared.Movement.Pulling.Components;
@@ -37,16 +24,16 @@ namespace Content.Shared.Teleportation.Systems;
 /// Uses <see cref="LinkedEntitySystem"/> to get linked portals.
 /// </summary>
 /// <seealso cref="PortalComponent"/>
-public abstract class SharedPortalSystem : EntitySystem
+public abstract partial class SharedPortalSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly INetManager _netMan = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedJointSystem _joints = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private INetManager _netMan = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private PullingSystem _pulling = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedJointSystem _joints = default!;
 
     private const string PortalFixture = "portalFixture";
     private const string ProjectileFixture = "projectile";

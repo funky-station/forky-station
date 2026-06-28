@@ -12,12 +12,12 @@ using Content.Server.BloodCult.Components;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
-public sealed class BloodCultMeleeWeaponSystem : EntitySystem
+public sealed partial class BloodCultMeleeWeaponSystem : EntitySystem
 {
-	[Dependency] private readonly IRobustRandom _random = default!;
-	[Dependency] private readonly PopupSystem _popupSystem = default!;
-	[Dependency] private readonly HandsSystem _hands = default!;
-	[Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+	[Dependency] private IRobustRandom _random = default!;
+	[Dependency] private PopupSystem _popupSystem = default!;
+	[Dependency] private HandsSystem _hands = default!;
+	[Dependency] private SharedAudioSystem _audioSystem = default!;
 
 	public override void Initialize()
     {
@@ -37,13 +37,13 @@ public sealed class BloodCultMeleeWeaponSystem : EntitySystem
 			// Cast to List to modify - MeleeHitEvent is constructed with a List<EntityUid>
 			if (args.HitEntities is not List<EntityUid> hitList)
 				return;
-			
+
 			// Remove protected entities from the hit list instead of canceling the entire event
 			// This allows hitting enemies while protecting allies in wide attacks
 			for (int i = hitList.Count - 1; i >= 0; i--)
 			{
 				var target = hitList[i];
-				
+
 				if (HasComp<CultResistantComponent>(target))
 				{
 					blockedByChaplain = true;
@@ -55,7 +55,7 @@ public sealed class BloodCultMeleeWeaponSystem : EntitySystem
 					hitList.RemoveAt(i);
 				}
 			}
-			
+
 			// Only cancel the entire event if ALL entities were protected (no valid targets remain)
 			if (hitList.Count == 0)
 				args.Handled = true;

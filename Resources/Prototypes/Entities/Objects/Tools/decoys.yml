@@ -1,18 +1,8 @@
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Firewatch <54725557+musicmanvr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
-# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
-# SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: [BaseItem, BaseFoldable]
   id: BaseDecoy
   abstract: true
   components:
-  - type: Rotatable
   - type: Sprite
     sprite: Objects/Tools/Decoys/operative_decoy.rsi
     layers:
@@ -27,11 +17,11 @@
         !type:DamageTrigger
         damage: 100
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-        - !type:PlaySoundBehavior
-          sound:
-            path: /Audio/Effects/pop_high.ogg
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/pop_high.ogg
   - type: Appearance
   - type: Item
     size: Normal
@@ -41,6 +31,7 @@
     - NamesSyndicateNormal
     nameFormat: name-format-nukie-generic
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: ToggleableVisuals
     spriteLayer: light

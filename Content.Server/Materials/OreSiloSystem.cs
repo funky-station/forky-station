@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Pinpointer;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Materials.OreSilo;
@@ -10,12 +7,12 @@ using Robust.Shared.Player;
 namespace Content.Server.Materials;
 
 /// <inheritdoc/>
-public sealed class OreSiloSystem : SharedOreSiloSystem
+public sealed partial class OreSiloSystem : SharedOreSiloSystem
 {
-    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
-    [Dependency] private readonly NavMapSystem _navMap = default!;
-    [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
+    [Dependency] private EntityLookupSystem _entityLookup = default!;
+    [Dependency] private NavMapSystem _navMap = default!;
+    [Dependency] private PvsOverrideSystem _pvsOverride = default!;
+    [Dependency] private SharedUserInterfaceSystem _userInterface = default!;
 
     private const float OreSiloPreloadRangeSquared = 225f; // ~1 screen
 

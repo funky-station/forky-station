@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Chat.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Maths;

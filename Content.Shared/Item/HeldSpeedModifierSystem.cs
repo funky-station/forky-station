@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Clothing;
 using Content.Shared.Hands;
 using Content.Shared.Movement.Systems;
@@ -11,9 +7,9 @@ namespace Content.Shared.Item;
 /// <summary>
 /// This handles <see cref="HeldSpeedModifierComponent"/>
 /// </summary>
-public sealed class HeldSpeedModifierSystem : EntitySystem
+public sealed partial class HeldSpeedModifierSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifier = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

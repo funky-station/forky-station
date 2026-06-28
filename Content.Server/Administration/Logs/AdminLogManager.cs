@@ -1,19 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2023, 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Collections.Concurrent;
 using System.Text.Json;
 using System.Threading;
@@ -43,17 +27,17 @@ namespace Content.Server.Administration.Logs;
 
 public sealed partial class AdminLogManager : SharedAdminLogManager, IAdminLogManager
 {
-    [Dependency] private readonly IConfigurationManager _configuration = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
-    [Dependency] private readonly IServerDbManager _db = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IDynamicTypeFactory _typeFactory = default!;
-    [Dependency] private readonly IReflectionManager _reflection = default!;
-    [Dependency] private readonly IDependencyCollection _dependencies = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly ISharedPlaytimeManager _playtime = default!;
-    [Dependency] private readonly ISharedChatManager _chat = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IConfigurationManager _configuration = default!;
+    [Dependency] private ILogManager _logManager = default!;
+    [Dependency] private IServerDbManager _db = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IDynamicTypeFactory _typeFactory = default!;
+    [Dependency] private IReflectionManager _reflection = default!;
+    [Dependency] private IDependencyCollection _dependencies = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private ISharedPlaytimeManager _playtime = default!;
+    [Dependency] private ISharedChatManager _chat = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     public const string SawmillId = "admin.logs";
 

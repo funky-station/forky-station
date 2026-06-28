@@ -4,9 +4,9 @@ using Content.Shared.BloodCult.Components;
 
 namespace Content.Server.BloodCult;
 
-public sealed class BloodCultistSystem : SharedBloodCultistSystem
+public sealed partial class BloodCultistSystem : SharedBloodCultistSystem
 {
-	[Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
+	[Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
 
 	public override void Initialize()
 	{
@@ -25,7 +25,7 @@ public sealed class BloodCultistSystem : SharedBloodCultistSystem
 		// Check both separately to ensure variables are assigned
 		bool isCultist = TryComp<BloodCultistComponent>(ev.Performer, out var cultistComp);
 		bool isJuggernaut = TryComp<JuggernautComponent>(ev.Performer, out var juggernautComp);
-		
+
 		if (!isCultist && !isJuggernaut)
 			return;
 

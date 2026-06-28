@@ -1,11 +1,6 @@
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft <ignaz.k@live.de>
-// SPDX-License-Identifier: MIT
-
 using System.Collections.Generic;
 using Content.Client.Weapons.Ranged.Components;
+using Content.IntegrationTests.Fixtures;
 using Robust.Client.GameObjects;
 using Robust.Shared.GameObjects;
 
@@ -15,12 +10,12 @@ namespace Content.IntegrationTests.Tests;
 /// Tests all entity prototypes with the MagazineVisualsComponent.
 /// </summary>
 [TestFixture]
-public sealed class MagazineVisualsSpriteTest
+public sealed class MagazineVisualsSpriteTest : GameTest
 {
     [Test]
     public async Task MagazineVisualsSpritesExist()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true });
+        var pair = Pair;
         var client = pair.Client;
         var toTest = new List<(int, string)>();
         var protos = pair.GetPrototypesWithComponent<MagazineVisualsComponent>();
@@ -73,7 +68,5 @@ public sealed class MagazineVisualsSpriteTest
                 }
             });
         });
-
-        await pair.CleanReturnAsync();
     }
 }

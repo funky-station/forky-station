@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Celene <4323352+CuteMoonGod@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.ActionBlocker;
 using Content.Shared.Chat;
 using Content.Shared.CombatMode;
@@ -26,17 +20,17 @@ namespace Content.Shared.Execution;
 /// <summary>
 ///     Verb for violently murdering cuffed creatures.
 /// </summary>
-public sealed class SharedExecutionSystem : EntitySystem
+public sealed partial class SharedExecutionSystem : EntitySystem
 {
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedSuicideSystem _suicide = default!;
-    [Dependency] private readonly SharedCombatModeSystem _combat = default!;
-    [Dependency] private readonly SharedExecutionSystem _execution = default!;
-    [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedSuicideSystem _suicide = default!;
+    [Dependency] private SharedCombatModeSystem _combat = default!;
+    [Dependency] private SharedExecutionSystem _execution = default!;
+    [Dependency] private SharedMeleeWeaponSystem _melee = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

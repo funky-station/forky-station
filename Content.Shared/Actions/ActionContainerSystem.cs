@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Actions.Components;
@@ -23,22 +14,20 @@ namespace Content.Shared.Actions;
 /// <summary>
 /// Handles storing & spawning action entities in a container.
 /// </summary>
-public sealed class ActionContainerSystem : EntitySystem
+public sealed partial class ActionContainerSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly INetManager _netMan = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private INetManager _netMan = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
 
-    private EntityQuery<ActionComponent> _query;
+    [Dependency] private EntityQuery<ActionComponent> _query = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-
-        _query = GetEntityQuery<ActionComponent>();
 
         SubscribeLocalEvent<ActionsContainerComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<ActionsContainerComponent, ComponentShutdown>(OnShutdown);

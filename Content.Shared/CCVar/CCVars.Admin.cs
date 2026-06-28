@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2026 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;

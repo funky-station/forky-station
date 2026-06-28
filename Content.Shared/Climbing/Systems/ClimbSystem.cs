@@ -1,21 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 J. Brown <DrMelon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ben <benjaminevanownby@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Climbing.Components;
@@ -47,33 +29,30 @@ namespace Content.Shared.Climbing.Systems;
 
 public sealed partial class ClimbSystem : VirtualController
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly FixtureSystem _fixtureSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _containers = default!;
-    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedStunSystem _stunSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private ActionBlockerSystem _actionBlockerSystem = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private FixtureSystem _fixtureSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private SharedContainerSystem _containers = default!;
+    [Dependency] private SharedInteractionSystem _interactionSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedStunSystem _stunSystem = default!;
+    [Dependency] private SharedTransformSystem _xformSystem = default!;
+
+    [Dependency] private EntityQuery<ClimbableComponent> _climbableQuery = default!;
+    [Dependency] private EntityQuery<FixturesComponent> _fixturesQuery = default!;
+    [Dependency] private EntityQuery<TransformComponent> _xformQuery = default!;
 
     private const string ClimbingFixtureName = "climb";
     private const int ClimbingCollisionGroup = (int) (CollisionGroup.TableLayer | CollisionGroup.LowImpassable);
 
-    private EntityQuery<ClimbableComponent> _climbableQuery;
-    private EntityQuery<FixturesComponent> _fixturesQuery;
-    private EntityQuery<TransformComponent> _xformQuery;
 
     public override void Initialize()
     {
         base.Initialize();
-
-        _climbableQuery = GetEntityQuery<ClimbableComponent>();
-        _fixturesQuery = GetEntityQuery<FixturesComponent>();
-        _xformQuery = GetEntityQuery<TransformComponent>();
 
         SubscribeLocalEvent<ClimbingComponent, UpdateCanMoveEvent>(OnMoveAttempt);
         SubscribeLocalEvent<ClimbingComponent, EntParentChangedMessage>(OnParentChange);

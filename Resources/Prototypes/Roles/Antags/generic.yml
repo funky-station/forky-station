@@ -1,5 +1,4 @@
-# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
+# Non Descript Solo Antags
 
 - type: antag
   id: GenericAntagonist
@@ -7,20 +6,18 @@
   antagonist: true
   objective: never-shown
 
+# Non Descript Team Antags
+
 - type: antag
   id: GenericTeamAntagonist
   name: roles-antag-generic-team-antagonist-name
   antagonist: true
   objective: never-shown
 
+# Free Agents
+
 - type: antag
   id: GenericFreeAgent
   name: roles-antag-generic-free-agent-name
-  antagonist: true
-  objective: never-shown
-
-- type: antag
-  id: GenericSiliconAntagonist
-  name: roles-antag-generic-silicon-antagonist-name
   antagonist: true
   objective: never-shown

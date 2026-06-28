@@ -1,39 +1,3 @@
-# SPDX-FileCopyrightText: 2019-2021, 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2019, 2021 Acruid <shatter66@gmail.com>
-# SPDX-FileCopyrightText: 2020-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020-2021 Swept <jamesurquhartwebb@gmail.com>
-# SPDX-FileCopyrightText: 2020 F77F <66768086+F77F@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 Vince <39844191+Visne@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 ancientpower <evafleck@gmail.com>
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 Hugal31 <hugo.laloge@gmail.com>
-# SPDX-FileCopyrightText: 2020 zumorica <zddm@outlook.es>
-# SPDX-FileCopyrightText: 2021, 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2021 Remie Richards <remierichards@gmail.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023, 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 adamsong <adamsong@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024-2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: Incorporeal
   save: false
@@ -80,7 +44,32 @@
     color: "#fff8"
     layers:
     - state: animated
+      map: [ "ghostVariant" ]
       shader: unshaded
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.GhostVisuals.Damage:
+        ghostVariant:
+          ghost_Blunt0: { state: ghost_Blunt0 } # this is an icki way of doing this u.u -Thinbug
+          ghost_Blunt1: { state: ghost_Blunt1 }
+          ghost_Blunt2: { state: ghost_Blunt2 }
+          ghost_Slash0: { state: ghost_Slash0 }
+          ghost_Slash1: { state: ghost_Slash1 }
+          ghost_Slash2: { state: ghost_Slash2 }
+          ghost_Piercing0: { state: ghost_Piercing0 }
+          ghost_Piercing1: { state: ghost_Piercing1 }
+          ghost_Piercing2: { state: ghost_Piercing2 }
+          ghost_Heat0: { state: ghost_Heat0 }
+          ghost_Cold0: { state: ghost_Cold0 }
+          ghost_Shock0: { state: ghost_Shock0 }
+          ghost_Radiation0: { state: ghost_Radiation0 }
+          ghost_Cellular0: { state: ghost_Cellular0 }
+          ghost_Poison0: { state: ghost_Poison0 }
+          ghost_Asphyxiation0: { state: ghost_Asphyxiation0 }
+          ghost_Explosion0: { state: ghost_Explosion0 }
+          ghost_Explosion1: { state: ghost_Explosion1 }
+          ghost_Explosion2: { state: ghost_Explosion2 }
   - type: ContentEye
     maxZoom: 1.44,1.44
   - type: Eye
@@ -90,6 +79,19 @@
   - type: Examiner
     skipChecks: true
   - type: Ghost
+  - type: GhostSpriteState
+    damageMap:
+      Blunt: 3
+      Slash: 3
+      Piercing: 3
+      Heat: 1
+      Cold: 1
+      Shock: 1
+      Radiation: 1
+      Cellular: 1
+      Poison: 1
+      Asphyxiation: 1
+    prefix: "ghost_"
   - type: GhostHearing
   - type: ShowElectrocutionHUD
   - type: IntrinsicRadioReceiver

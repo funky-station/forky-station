@@ -1,34 +1,3 @@
-// SPDX-FileCopyrightText: 2018-2021, 2024 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2019-2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2019 moneyl <8206401+Moneyl@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019 Silver <Silvertorch5@gmail.com>
-// SPDX-FileCopyrightText: 2020, 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 R. Neuser <rneuser@iastate.edu>
-// SPDX-FileCopyrightText: 2020 ColdAutumnRain <73938872+ColdAutumnRain@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 DTanxxx <55208219+DTanxxx@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Tad Hardesty <tad@platymuus.com>
-// SPDX-FileCopyrightText: 2021-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Daniel Castro Razo <eldanielcr@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023-2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tornado Tech <54727692+Tornado-Technology@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Client.Examine;
@@ -53,18 +22,19 @@ using Robust.Shared.Utility;
 namespace Content.Client.Verbs
 {
     [UsedImplicitly]
-    public sealed class VerbSystem : SharedVerbSystem
+    public sealed partial class VerbSystem : SharedVerbSystem
     {
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly ExamineSystem _examine = default!;
-        [Dependency] private readonly SpriteTreeSystem _tree = default!;
-        [Dependency] private readonly TagSystem _tagSystem = default!;
-        [Dependency] private readonly IStateManager _stateManager = default!;
-        [Dependency] private readonly IEyeManager _eyeManager = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly SharedContainerSystem _containers = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly EntityLookupSystem _lookup = default!;
+        [Dependency] private PopupSystem _popupSystem = default!;
+        [Dependency] private ExamineSystem _examine = default!;
+        [Dependency] private SpriteTreeSystem _tree = default!;
+        [Dependency] private TagSystem _tagSystem = default!;
+        [Dependency] private IStateManager _stateManager = default!;
+        [Dependency] private IEyeManager _eyeManager = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private SharedContainerSystem _containers = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
+        [Dependency] private EntityLookupSystem _lookup = default!;
+        [Dependency] private EntityQuery<SpriteComponent> _spriteQuery = default!;
 
         private float _lookupSize;
 
@@ -190,10 +160,9 @@ namespace Content.Client.Verbs
             if (container == null && (visibility & MenuVisibility.InContainer) == 0)
                 return entities.Count != 0;
 
-            var spriteQuery = GetEntityQuery<SpriteComponent>();
             for (var i = entities.Count - 1; i >= 0; i--)
             {
-                if (!spriteQuery.TryGetComponent(entities[i], out var spriteComponent) || !spriteComponent.Visible)
+                if (!_spriteQuery.TryGetComponent(entities[i], out var spriteComponent) || !spriteComponent.Visible)
                     entities.RemoveSwap(i);
             }
 

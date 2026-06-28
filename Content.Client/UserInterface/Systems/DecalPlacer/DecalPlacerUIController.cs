@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Decals.UI;
 using Content.Client.Gameplay;
 using Content.Client.Sandbox;
@@ -14,9 +10,9 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.UserInterface.Systems.DecalPlacer;
 
-public sealed class DecalPlacerUIController : UIController, IOnStateExited<GameplayState>, IOnSystemChanged<SandboxSystem>
+public sealed partial class DecalPlacerUIController : UIController, IOnStateExited<GameplayState>, IOnSystemChanged<SandboxSystem>
 {
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
     [UISystemDependency] private readonly SandboxSystem _sandbox = default!;
 
     private DecalPlacerWindow? _window;
