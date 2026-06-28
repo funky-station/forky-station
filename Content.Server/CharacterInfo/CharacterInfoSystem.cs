@@ -1,17 +1,3 @@
-// SPDX-FileCopyrightText: 2021, 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 chavonadelal <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Mind;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
@@ -19,15 +5,17 @@ using Content.Shared.CharacterInfo;
 using Content.Shared.Objectives;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Objectives.Systems;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.CharacterInfo;
 
-public sealed class CharacterInfoSystem : EntitySystem
+public sealed partial class CharacterInfoSystem : EntitySystem
 {
-    [Dependency] private readonly JobSystem _jobs = default!;
-    [Dependency] private readonly MindSystem _minds = default!;
-    [Dependency] private readonly RoleSystem _roles = default!;
-    [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
+    [Dependency] private JobSystem _jobs = default!;
+    [Dependency] private MindSystem _minds = default!;
+    [Dependency] private RoleSystem _roles = default!;
+    [Dependency] private SharedObjectivesSystem _objectives = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
 
     public override void Initialize()
     {
@@ -56,8 +44,14 @@ public sealed class CharacterInfoSystem : EntitySystem
                 if (info == null)
                     continue;
 
+                if (!_protoMan.TryIndex(Comp<ObjectiveComponent>(objective).Issuer, out var issuerProto))
+                {
+                    Log.Error($"Found incorrect objective issuer {issuerProto} when generating character info for objective {MetaData(objective).EntityPrototype}.");
+                    continue;
+                }
+
                 // group objectives by their issuer
-                var issuer = Comp<ObjectiveComponent>(objective).LocIssuer;
+                var issuer = issuerProto.LocalizedName;
                 if (!objectives.ContainsKey(issuer))
                     objectives[issuer] = new List<ObjectiveInfo>();
                 objectives[issuer].Add(info.Value);

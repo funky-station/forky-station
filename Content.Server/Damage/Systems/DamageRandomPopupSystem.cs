@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Damage.Components;
 using Content.Server.Popups;
 using Content.Shared.Damage;
@@ -14,10 +10,10 @@ namespace Content.Server.Damage.Systems;
 /// <summary>
 /// Outputs a random pop-up from the strings list when an object receives damage
 /// </summary>
-public sealed class DamageRandomPopupSystem : EntitySystem
+public sealed partial class DamageRandomPopupSystem : EntitySystem
 {
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {

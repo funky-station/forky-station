@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Client.Movement.Components;
 using Content.Client.Movement.Systems;
@@ -13,10 +10,10 @@ using Robust.Client.Timing;
 
 namespace Content.Client.Wieldable;
 
-public sealed class WieldableSystem : SharedWieldableSystem
+public sealed partial class WieldableSystem : SharedWieldableSystem
 {
-    [Dependency] private readonly EyeCursorOffsetSystem _eyeOffset = default!;
-    [Dependency] private readonly IClientGameTiming _gameTiming = default!;
+    [Dependency] private EyeCursorOffsetSystem _eyeOffset = default!;
+    [Dependency] private IClientGameTiming _gameTiming = default!;
 
     public override void Initialize()
     {

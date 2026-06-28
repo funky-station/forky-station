@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Inventory;
 using Content.Shared.NameModifier.Components;
@@ -9,9 +5,9 @@ using Content.Shared.NameModifier.Components;
 namespace Content.Shared.NameModifier.EntitySystems;
 
 /// <inheritdoc cref="NameModifierComponent"/>
-public sealed class NameModifierSystem : EntitySystem
+public sealed partial class NameModifierSystem : EntitySystem
 {
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
 
     public override void Initialize()
     {

@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.DisplacementMap;
@@ -18,4 +13,7 @@ public sealed partial class DisplacementData
 
     [DataField]
     public string? ShaderOverride = "DisplacedDraw";
+
+    [DataField]
+    public string ShaderOverrideUnshaded = "DisplacedDrawUnshaded";
 }

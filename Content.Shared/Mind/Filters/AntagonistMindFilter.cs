@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Roles;
 
 namespace Content.Shared.Mind.Filters;
@@ -10,7 +7,7 @@ namespace Content.Shared.Mind.Filters;
 /// </summary>
 public sealed partial class AntagonistMindFilter : MindFilter
 {
-    protected override bool ShouldRemove(Entity<MindComponent> mind, EntityUid? exclude, IEntityManager entMan, SharedMindSystem mindSys)
+    protected override bool ShouldRemove(Entity<MindComponent> mind, EntityUid? exclude, IEntityManager entMan)
     {
         var roleSys = entMan.System<SharedRoleSystem>();
         return !roleSys.MindIsAntagonist(mind);

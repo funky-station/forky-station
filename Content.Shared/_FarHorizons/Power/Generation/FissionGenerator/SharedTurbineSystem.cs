@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025-2026 jhrushbe <capnmerry@gmail.com>
-// SPDX-FileCopyrightText: 2026 rotty <juaelwe@outlook.com>
-// SPDX-FileCopyrightText: 2026 princess-gurchi <kharitonovich.m+pg@gmail.com>
-// SPDX-License-Identifier: MIT
-
 
 using Content.Shared.Administration.Logs;
 using Content.Shared.Damage.Components;
@@ -23,16 +18,16 @@ namespace Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 // CC-BY-NC-SA-3.0
 // https://github.com/goonstation/goonstation/blob/ff86b044/code/obj/nuclearreactor/turbine.dm
 
-public abstract class SharedTurbineSystem : EntitySystem
+public abstract partial class SharedTurbineSystem : EntitySystem
 {
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] protected readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedToolSystem _toolSystem = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] protected SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedToolSystem _toolSystem = default!;
+    [Dependency] private EntityManager _entityManager = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {
@@ -139,14 +134,14 @@ public abstract class SharedTurbineSystem : EntitySystem
     }
 
     protected static bool AdjustStatorLoad(TurbineComponent turbine, float change)
-    { 
+    {
         var newSet = Math.Max(turbine.StatorLoad + change, 1000f);
         if (turbine.StatorLoad != newSet)
         {
             turbine.StatorLoad = newSet;
             return true;
         }
-        return false; 
+        return false;
     }
 
     #region Repairs
@@ -182,7 +177,7 @@ public abstract class SharedTurbineSystem : EntitySystem
 {
     if (args.Cancelled || args.Used == null)
         return;
-        
+
     if (comp.Ruined)
     {
         comp.Ruined = false;

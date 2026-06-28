@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Lock;
 using Content.Shared.Silicons.StationAi;
@@ -16,8 +13,8 @@ namespace Content.Client.Silicons.StationAi;
 [GenerateTypedNameReferences]
 public sealed partial class StationAiFixerConsoleWindow : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private readonly StationAiFixerConsoleSystem _stationAiFixerConsole;
     private readonly SharedStationAiSystem _stationAi;

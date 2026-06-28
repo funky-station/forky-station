@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Power.Components;
 using Content.Shared.Placeable;
 using Content.Shared.Temperature;
@@ -15,9 +9,9 @@ namespace Content.Server.Temperature.Systems;
 /// <summary>
 /// Handles the server-only parts of <see cref="SharedEntityHeaterSystem"/>
 /// </summary>
-public sealed class EntityHeaterSystem : SharedEntityHeaterSystem
+public sealed partial class EntityHeaterSystem : SharedEntityHeaterSystem
 {
-    [Dependency] private readonly TemperatureSystem _temperature = default!;
+    [Dependency] private TemperatureSystem _temperature = default!;
 
     public override void Initialize()
     {

@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Velken <8467292+Velken@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.AlertLevel;
 using Content.Shared.Trigger;
 using Content.Shared.Trigger.Components.Effects;
@@ -9,10 +5,10 @@ using Content.Server.Station.Systems;
 
 namespace Content.Server.Trigger.Systems;
 
-public sealed class AlertLevelChangeOnTriggerSystem : EntitySystem
+public sealed partial class AlertLevelChangeOnTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
-    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private AlertLevelSystem _alertLevelSystem = default!;
+    [Dependency] private StationSystem _station = default!;
 
     public override void Initialize()
     {

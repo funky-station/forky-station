@@ -24,13 +24,13 @@ namespace Content.Server.BloodCult.EntitySystems;
 /// <summary>
 /// System that handles juggernauts absorbing blood from puddles beneath them to heal.
 /// </summary>
-public sealed class JuggernautBloodAbsorptionSystem : EntitySystem
+public sealed partial class JuggernautBloodAbsorptionSystem : EntitySystem
 {
-	[Dependency] private readonly DamageableSystem _damageable = default!;
-	[Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-	[Dependency] private readonly SharedTransformSystem _transform = default!;
-	[Dependency] private readonly EntityLookupSystem _lookup = default!;
-	[Dependency] private readonly IGameTiming _timing = default!;
+	[Dependency] private DamageableSystem _damageable = default!;
+	[Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+	[Dependency] private SharedTransformSystem _transform = default!;
+	[Dependency] private EntityLookupSystem _lookup = default!;
+	[Dependency] private IGameTiming _timing = default!;
 	// Use these controls to adjust the rate that a juggernaut can self heal.
 	private const float AbsorptionRate = 2.0f; // Units per second
 	private const float UpdateInterval = 0.5f; // Check every 0.5 seconds
@@ -66,7 +66,7 @@ public sealed class JuggernautBloodAbsorptionSystem : EntitySystem
 				continue;
 
 			// Check if juggernaut has more than the threshold damage
-			var totalDamage = damageable.Damage.GetTotal();
+            var totalDamage = _damageable.GetTotalDamage(uid);
 			if (totalDamage <= MinDamageThreshold)
 				continue;
 
@@ -78,9 +78,9 @@ public sealed class JuggernautBloodAbsorptionSystem : EntitySystem
 			if (isCritical)
 			{
 				// Check if juggernaut is player controlled (has ActorComponent) or has a mind (player or AI)
-				bool isControlled = HasComp<ActorComponent>(uid) || 
+				bool isControlled = HasComp<ActorComponent>(uid) ||
 				                    (TryComp<MindContainerComponent>(uid, out var mindContainer) && mindContainer.Mind != null);
-				
+
 				// Skip healing if critical and not controlled
 				if (!isControlled)
 					continue;
@@ -91,16 +91,16 @@ public sealed class JuggernautBloodAbsorptionSystem : EntitySystem
 			var transform = Transform(uid);
 			var coordinates = transform.Coordinates;
 			var puddlesInRange = _lookup.GetEntitiesInRange<PuddleComponent>(coordinates, 0.6f, LookupFlags.Uncontained);
-			
+
 			if (puddlesInRange.Count == 0)
 				continue;
-			
+
 			// Find the closest puddle (or just use the first one if multiple)
 			// This handles if a juggernaut is partway between two tiles and it just picks the closest
 			EntityUid? puddleUid = null;
 			var juggernautMapPos = _transform.GetMapCoordinates(uid, transform);
 			float closestDistance = float.MaxValue;
-			
+
 			foreach (var puddleEntity in puddlesInRange)
 			{
 				var puddleMapPos = _transform.GetMapCoordinates(puddleEntity);
@@ -111,7 +111,7 @@ public sealed class JuggernautBloodAbsorptionSystem : EntitySystem
 					puddleUid = puddleEntity;
 				}
 			}
-			
+
 			if (puddleUid == null)
 				continue;
 
@@ -149,7 +149,7 @@ public sealed class JuggernautBloodAbsorptionSystem : EntitySystem
 
 			// Heal the juggernaut 1:1 (1 unit blood = 1 unit total healing)
 			// Heal all damage types proportionally based on current damage
-			var currentDamage = damageable.Damage;
+            var currentDamage = _damageable.GetAllDamage(uid);
 			var totalCurrentDamage = currentDamage.GetTotal();
 			var healAmount = absorbAmount.Float();
 			var healDamage = new DamageSpecifier();
@@ -189,7 +189,7 @@ public sealed class JuggernautBloodAbsorptionSystem : EntitySystem
 	{
 		// Instead of creating new ReagentIds, iterate through the solution and match by prototype
 		// This avoids issues with ReagentId Data field mismatches
-		
+
 		// Check for any blood reagent in the whitelist first (prioritize regular blood over UnholyBlood)
 		foreach (var bloodReagent in BloodCultConstants.SacrificeBloodReagents)
 		{

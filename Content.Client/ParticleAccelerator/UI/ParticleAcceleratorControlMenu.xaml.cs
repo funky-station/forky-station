@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 chavonadelal <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 BarryNorfolk <barrynorfolkman@protonmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Client.Message;
 using Content.Client.Resources;
@@ -27,10 +21,10 @@ namespace Content.Client.ParticleAccelerator.UI;
 [GenerateTypedNameReferences]
 public sealed partial class ParticleAcceleratorControlMenu : FancyWindow
 {
-    [Dependency] private readonly IResourceCache _cache = default!;
+    [Dependency] private IResourceCache _cache = default!;
 
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     private readonly AccessReaderSystem _accessReader;
 

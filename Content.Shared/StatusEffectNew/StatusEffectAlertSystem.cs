@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Alert;
 using Content.Shared.StatusEffectNew.Components;
 
@@ -11,11 +6,11 @@ namespace Content.Shared.StatusEffectNew;
 /// <summary>
 /// Handles displaying status effects that should show an alert, optionally with a duration.
 /// </summary>
-public sealed class StatusEffectAlertSystem : EntitySystem
+public sealed partial class StatusEffectAlertSystem : EntitySystem
 {
-    [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
 
-    private EntityQuery<StatusEffectComponent> _effectQuery;
+    [Dependency] private EntityQuery<StatusEffectComponent> _effectQuery = default!;
 
     public override void Initialize()
     {
@@ -24,8 +19,6 @@ public sealed class StatusEffectAlertSystem : EntitySystem
         SubscribeLocalEvent<StatusEffectAlertComponent, StatusEffectAppliedEvent>(OnStatusEffectApplied);
         SubscribeLocalEvent<StatusEffectAlertComponent, StatusEffectRemovedEvent>(OnStatusEffectRemoved);
         SubscribeLocalEvent<StatusEffectAlertComponent, StatusEffectEndTimeUpdatedEvent>(OnEndTimeUpdated);
-
-        _effectQuery = GetEntityQuery<StatusEffectComponent>();
     }
 
     private void OnStatusEffectApplied(Entity<StatusEffectAlertComponent> ent, ref StatusEffectAppliedEvent args)

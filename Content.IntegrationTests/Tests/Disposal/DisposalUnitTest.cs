@@ -1,26 +1,6 @@
-// SPDX-FileCopyrightText: 2020-2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020, 2022 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2020-2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2020 DamianX <DamianX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023-2025 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Numerics;
-using Content.Server.Disposal.Unit;
+using Content.IntegrationTests.Fixtures;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Disposal.Components;
@@ -35,31 +15,19 @@ namespace Content.IntegrationTests.Tests.Disposal
     [TestOf(typeof(DisposalHolderComponent))]
     [TestOf(typeof(DisposalEntryComponent))]
     [TestOf(typeof(DisposalUnitComponent))]
-    public sealed class DisposalUnitTest
+    public sealed class DisposalUnitTest : GameTest
     {
         [Reflect(false)]
         private sealed class DisposalUnitTestSystem : EntitySystem
         {
-            public override void Initialize()
-            {
-                base.Initialize();
 
-                SubscribeLocalEvent<DoInsertDisposalUnitEvent>(ev =>
-                {
-                    var (_, toInsert, unit) = ev;
-                    var insertTransform = Comp<TransformComponent>(toInsert);
-                    // Not in a tube yet
-                    Assert.That(insertTransform.ParentUid, Is.EqualTo(unit));
-                }, after: new[] { typeof(SharedDisposalUnitSystem) });
-            }
         }
 
-        private static void UnitInsert(EntityUid uid, DisposalUnitComponent unit, bool result, DisposalUnitSystem disposalSystem, params EntityUid[] entities)
+        private static void UnitInsert(EntityUid uid, DisposalUnitComponent unit, bool result, SharedDisposalUnitSystem disposalSystem, params EntityUid[] entities)
         {
             foreach (var entity in entities)
             {
-                Assert.That(disposalSystem.CanInsert(uid, unit, entity), Is.EqualTo(result));
-                disposalSystem.TryInsert(uid, entity, null);
+                Assert.That(disposalSystem.TryInsert((uid, unit), entity, null), Is.EqualTo(result));
             }
         }
 
@@ -71,20 +39,20 @@ namespace Content.IntegrationTests.Tests.Disposal
             }
         }
 
-        private static void UnitInsertContains(EntityUid uid, DisposalUnitComponent unit, bool result, DisposalUnitSystem disposalSystem, params EntityUid[] entities)
+        private static void UnitInsertContains(EntityUid uid, DisposalUnitComponent unit, bool result, SharedDisposalUnitSystem disposalSystem, params EntityUid[] entities)
         {
             UnitInsert(uid, unit, result, disposalSystem, entities);
             UnitContains(unit, result, entities);
         }
 
-        private static void Flush(EntityUid unitEntity, DisposalUnitComponent unit, bool result, DisposalUnitSystem disposalSystem, params EntityUid[] entities)
+        private static void Flush(EntityUid unitEntity, DisposalUnitComponent unit, bool result, SharedDisposalUnitSystem disposalSystem, params EntityUid[] entities)
         {
             Assert.Multiple(() =>
             {
                 Assert.That(unit.Container.ContainedEntities, Is.SupersetOf(entities));
                 Assert.That(entities, Has.Length.EqualTo(unit.Container.ContainedEntities.Count));
 
-                Assert.That(result, Is.EqualTo(disposalSystem.TryFlush(unitEntity, unit)));
+                Assert.That(result, Is.EqualTo(disposalSystem.TryFlush((unitEntity, unit))));
                 Assert.That(result || entities.Length == 0, Is.EqualTo(unit.Container.ContainedEntities.Count == 0));
             });
         }
@@ -103,6 +71,7 @@ namespace Content.IntegrationTests.Tests.Disposal
       0: Alive
       200: Dead
   - type: Damageable
+  - type: Injurable
     damageContainer: Biological
   - type: Physics
     bodyType: KinematicController
@@ -140,6 +109,10 @@ namespace Content.IntegrationTests.Tests.Disposal
     entryDelay: 0
     draggedEntryDelay: 0
     flushTime: 0
+    whitelist:
+      components:
+      - Item
+      - Body
   - type: Anchorable
   - type: ApcPowerReceiver
   - type: Physics
@@ -164,7 +137,7 @@ namespace Content.IntegrationTests.Tests.Disposal
         [Test]
         public async Task Test()
         {
-            await using var pair = await PoolManager.GetServerClient();
+            var pair = Pair;
             var server = pair.Server;
 
             var testMap = await pair.CreateTestMap();
@@ -179,7 +152,7 @@ namespace Content.IntegrationTests.Tests.Disposal
 
             var entityManager = server.ResolveDependency<IEntityManager>();
             var xformSystem = entityManager.System<SharedTransformSystem>();
-            var disposalSystem = entityManager.System<DisposalUnitSystem>();
+            var disposalSystem = entityManager.System<SharedDisposalUnitSystem>();
             var power = entityManager.System<PowerReceiverSystem>();
 
             await server.WaitAssertion(() =>
@@ -259,8 +232,6 @@ namespace Content.IntegrationTests.Tests.Disposal
                 // Re-pressurizing
                 Flush(disposalUnit, unitComponent, false, disposalSystem);
             });
-
-            await pair.CleanReturnAsync();
         }
     }
 }

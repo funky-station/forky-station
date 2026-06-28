@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Interaction;
 using Content.Shared.CombatMode;
 using Content.Shared.DoAfter;
@@ -14,7 +7,7 @@ namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators.Interactions;
 
 public sealed partial class InteractWithOperator : HTNOperator
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
     private SharedDoAfterSystem _doAfterSystem = default!;
 
     public override void Initialize(IEntitySystemManager sysManager)

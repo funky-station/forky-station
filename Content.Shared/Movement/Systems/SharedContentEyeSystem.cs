@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Artjom <artjombebenin@gmail.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Łukasz Mędrek <lukasz@lukaszm.xyz>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Managers;
@@ -23,9 +14,9 @@ namespace Content.Shared.Movement.Systems;
 /// <summary>
 /// Lets specific sessions scroll and set their zoom directly.
 /// </summary>
-public abstract class SharedContentEyeSystem : EntitySystem
+public abstract partial class SharedContentEyeSystem : EntitySystem
 {
-    [Dependency] private readonly ISharedAdminManager _admin = default!;
+    [Dependency] private ISharedAdminManager _admin = default!;
 
     // Admin flags required to ignore normal eye restrictions.
     public const AdminFlags EyeFlag = AdminFlags.Debug;
@@ -34,7 +25,7 @@ public abstract class SharedContentEyeSystem : EntitySystem
     public static readonly Vector2 DefaultZoom = Vector2.One;
     public static readonly Vector2 MinZoom = DefaultZoom * (float)Math.Pow(ZoomMod, -3);
 
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
 
     public override void Initialize()
     {

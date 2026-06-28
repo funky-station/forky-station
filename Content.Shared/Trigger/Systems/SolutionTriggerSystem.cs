@@ -1,15 +1,11 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Голубь <124601871+Golubgik@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Trigger.Components.Effects;
 using Content.Shared.Chemistry.EntitySystems;
 
 namespace Content.Shared.Trigger.Systems;
 
-public sealed class SolutionTriggerSystem : XOnTriggerSystem<AddSolutionOnTriggerComponent>
+public sealed partial class SolutionTriggerSystem : XOnTriggerSystem<AddSolutionOnTriggerComponent>
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
 
     protected override void OnTrigger(Entity<AddSolutionOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
     {

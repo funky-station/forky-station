@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Eui;
 using Robust.Shared.Serialization;
 

@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 c4llv07e <igor@c4llv07e.xyz>
-// SPDX-License-Identifier: MIT
-
 using System.Text.Json.Nodes;
 using Content.Shared.CCVar;
 using Robust.Server.ServerStatus;
@@ -12,7 +8,7 @@ namespace Content.Server.ServerInfo;
 /// <summary>
 /// Adds additional data like info links to the server info endpoint
 /// </summary>
-public sealed class ServerInfoManager
+public sealed partial class ServerInfoManager
 {
     private static readonly (CVarDef<string> cVar, string icon, string name)[] Vars =
     {
@@ -26,9 +22,9 @@ public sealed class ServerInfoManager
         // @formatter:on
     };
 
-    [Dependency] private readonly IStatusHost _statusHost = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly ILocalizationManager _loc = default!;
+    [Dependency] private IStatusHost _statusHost = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private ILocalizationManager _loc = default!;
 
     public void Initialize()
     {

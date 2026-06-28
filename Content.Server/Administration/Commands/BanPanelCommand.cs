@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 using Content.Server.EUI;
@@ -11,11 +5,11 @@ using Content.Server.EUI;
 namespace Content.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Ban)]
-public sealed class BanPanelCommand : LocalizedCommands
+public sealed partial class BanPanelCommand : LocalizedCommands
 {
 
-    [Dependency] private readonly IPlayerLocator _locator = default!;
-    [Dependency] private readonly EuiManager _euis = default!;
+    [Dependency] private IPlayerLocator _locator = default!;
+    [Dependency] private EuiManager _euis = default!;
 
     public override string Command => "banpanel";
 

@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Serialization;
 

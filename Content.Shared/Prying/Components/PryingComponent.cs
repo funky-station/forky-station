@@ -1,10 +1,7 @@
-// SPDX-FileCopyrightText: 2023-2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Winkarst-cpu <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+using Content.Shared.Alert;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Prying.Components;
 
@@ -23,6 +20,7 @@ public sealed partial class PryingComponent : Component
     /// </summary>
     [DataField]
     public bool Force;
+
     /// <summary>
     /// Modifier on the prying time.
     /// Lower values result in more time.
@@ -41,6 +39,12 @@ public sealed partial class PryingComponent : Component
     /// </summary>
     [DataField]
     public bool Enabled = true;
+
+    /// <summary>
+    /// What alert to show to an entity with this component.
+    /// </summary>
+    [DataField]
+    public ProtoId<AlertPrototype>? PryingAlertProtoId = "Prying";
 }
 
 /// <summary>

@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Physics;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Components;
@@ -8,9 +5,9 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared.Audio;
 
-public abstract class SharedContentAudioSystem : EntitySystem
+public abstract partial class SharedContentAudioSystem : EntitySystem
 {
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
+    [Dependency] protected SharedAudioSystem Audio = default!;
 
     /// <summary>
     /// Standard variation to use for sounds.

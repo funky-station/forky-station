@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Light.Components;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
@@ -11,9 +5,9 @@ using Content.Shared.Power;
 
 namespace Content.Server.Light.EntitySystems
 {
-    public sealed class LitOnPoweredSystem : EntitySystem
+    public sealed partial class LitOnPoweredSystem : EntitySystem
     {
-        [Dependency] private readonly SharedPointLightSystem _lights = default!;
+        [Dependency] private SharedPointLightSystem _lights = default!;
 
         public override void Initialize()
         {

@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 sleepyyapril <123355664+sleepyyapril@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Projectiles;
 using Content.Shared.Trigger.Components.Triggers;
 

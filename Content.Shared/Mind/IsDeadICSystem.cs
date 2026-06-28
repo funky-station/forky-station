@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 LankLTE <135308300+LankLTE@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Mind.Components;
 
 namespace Content.Shared.Mind;

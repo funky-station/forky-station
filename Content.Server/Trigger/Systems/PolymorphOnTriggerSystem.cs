@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Polymorph;
 using Content.Shared.Trigger;
@@ -11,7 +8,7 @@ namespace Content.Server.Trigger.Systems;
 
 public sealed partial class PolymorphOnTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
+    [Dependency] private PolymorphSystem _polymorph = default!;
 
     /// <summary>
     /// Need to do this so we don't get a collection enumeration error in physics by polymorphing

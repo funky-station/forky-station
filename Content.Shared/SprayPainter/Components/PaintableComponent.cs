@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Whatstone <166147148+whatston3@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.SprayPainter.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

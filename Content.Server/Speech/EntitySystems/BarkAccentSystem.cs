@@ -1,32 +1,18 @@
-// SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
-// SPDX-FileCopyrightText: 2021 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 NoreUhh <85219416+NoreUhh@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
-using Content.Shared.StatusEffectNew;
 using Content.Server.Speech.Components;
-using Content.Shared.Speech;
+using Content.Shared.Speech.EntitySystems;
 using Robust.Shared.Random;
 
-namespace Content.Server.Speech.EntitySystems
-{
-    public sealed class BarkAccentSystem : EntitySystem
-    {
-        [Dependency] private readonly IRobustRandom _random = default!;
+namespace Content.Server.Speech.EntitySystems;
 
-        private static readonly IReadOnlyList<string> Barks = new List<string>{
+public sealed partial class BarkAccentSystem : RelayAccentSystem<BarkAccentComponent>
+{
+    [Dependency] private IRobustRandom _random = default!;
+
+    private static readonly IReadOnlyList<string> Barks = new List<string>{
             " Woof!", " WOOF", " wof-wof"
         }.AsReadOnly();
 
-        private static readonly IReadOnlyDictionary<string, string> SpecialWords = new Dictionary<string, string>()
+    private static readonly IReadOnlyDictionary<string, string> SpecialWords = new Dictionary<string, string>()
         {
             { "ah", "arf" },
             { "Ah", "Arf" },
@@ -34,31 +20,14 @@ namespace Content.Server.Speech.EntitySystems
             { "Oh", "Oof" },
         };
 
-        public override void Initialize()
+    protected override string AccentuateInternal(EntityUid uid, BarkAccentComponent comp, string message)
+    {
+        foreach (var (word, repl) in SpecialWords)
         {
-            SubscribeLocalEvent<BarkAccentComponent, AccentGetEvent>(OnAccent);
-            SubscribeLocalEvent<BarkAccentComponent, StatusEffectRelayedEvent<AccentGetEvent>>(OnAccentRelayed);
+            message = message.Replace(word, repl);
         }
 
-        public string Accentuate(string message)
-        {
-            foreach (var (word, repl) in SpecialWords)
-            {
-                message = message.Replace(word, repl);
-            }
-
-            return message.Replace("!", _random.Pick(Barks))
-                .Replace("l", "r").Replace("L", "R");
-        }
-
-        private void OnAccent(Entity<BarkAccentComponent> entity, ref AccentGetEvent args)
-        {
-            args.Message = Accentuate(args.Message);
-        }
-
-        private void OnAccentRelayed(Entity<BarkAccentComponent> entity, ref StatusEffectRelayedEvent<AccentGetEvent> args)
-        {
-            args.Args.Message = Accentuate(args.Args.Message);
-        }
+        return message.Replace("!", _random.Pick(Barks))
+            .Replace("l", "r").Replace("L", "R");
     }
 }

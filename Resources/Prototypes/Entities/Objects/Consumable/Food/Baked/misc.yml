@@ -1,48 +1,15 @@
-# SPDX-FileCopyrightText: 2021 FoLoKe <36813380+FoLoKe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2022-2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 deathride58 <deathride58@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+ChilbroBaggins@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 dahnte <70238020+dahnte@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 SonicHDC <100022571+SonicHDC@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-# SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 RumiTiger <154005209+RumiTiger@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Goldminermac <112822310+Goldminermac@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aleksander Warzyniak <77325322+Froozigiusz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 5tickman <5tick@comcast.net>
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Qerd <73325910+BigfootBravo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 MissKay1994 <15877268+MissKay1994@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Smith <182301147+AgentSmithRadio@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
-  parent: FoodInjectableBase
+  parent: [SolutionVeryTiny, FoodInjectableBase]
   id: FoodBakedBase
   abstract: true
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/misc.rsi
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 6
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
   - type: Item
     size: Tiny
 
@@ -60,15 +27,6 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/misc.rsi
     state: muffin
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 2
   - type: FlavorProfile
     flavors:
       - sweet
@@ -83,17 +41,15 @@
   components:
   - type: Sprite
     state: muffin-berry
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 12
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 2
-        - ReagentId: JuiceBerry
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Vitamin
+        Quantity: 1
+      - ReagentId: JuiceBerry
+        Quantity: 1
   - type: Tag
     tags:
     - Fruit
@@ -106,17 +62,15 @@
   components:
   - type: Sprite
     state: muffin-cherry
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 12
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 2
-        - ReagentId: JuiceCherry
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Vitamin
+        Quantity: 1
+      - ReagentId: JuiceCherry
+        Quantity: 1
   - type: Tag
     tags:
     - Fruit
@@ -141,17 +95,15 @@
   components:
   - type: Sprite
     state: muffin-chocolate
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 12
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 2
-        - ReagentId: CocoaPowder
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Vitamin
+        Quantity: 1
+      - ReagentId: CocoaPowder
+        Quantity: 1
 
 - type: entity
   name: banana muffin
@@ -161,17 +113,15 @@
   components:
   - type: Sprite
     state: muffin-banana
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 12
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 2
-        - ReagentId: JuiceBanana
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Vitamin
+        Quantity: 1
+      - ReagentId: JuiceBanana
+        Quantity: 1
   - type: Tag
     tags:
     - Fruit
@@ -204,15 +154,6 @@
   components:
   - type: Sprite
     state: bun-meat
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 2
 
 # Cookies
 
@@ -233,15 +174,6 @@
   components:
   - type: Sprite
     state: cookie-oatmeal
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 8
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 1
 
 - type: entity
   name: raisin cookie
@@ -251,15 +183,6 @@
   components:
   - type: Sprite
     state: cookie-raisin
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 8
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 1
   - type: Tag
     tags:
     - Fruit
@@ -297,17 +220,6 @@
           lizard: ""
           star: ""
           corgi: ""
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 8
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: Protein
-          Quantity: 2
-        - ReagentId: Vitamin
-          Quantity: 1
 
 # Waffles/Pancakes
 
@@ -469,15 +381,13 @@
     - state: pancakescc9
       map: ["pancakescc9"]
       visible: false
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 6
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Theobromine
-          Quantity: 1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Theobromine
+        Quantity: 1
 
 - type: entity
   name: waffles
@@ -489,15 +399,6 @@
     layers:
       - state: tray
       - state: waffles
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-        - ReagentId: Vitamin
-          Quantity: 1
 
 - type: entity
   name: soy waffles
@@ -509,15 +410,6 @@
     layers:
       - state: tray
       - state: waffles-soy
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Vitamin
-          Quantity: 1
 
 - type: entity
   name: soylent waffles
@@ -529,15 +421,6 @@
     layers:
       - state: tray
       - state: waffles-soylent
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Vitamin
-          Quantity: 1
 
 - type: entity
   name: roffle waffles
@@ -549,15 +432,6 @@
     layers:
       - state: tray
       - state: waffles-roffle
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-        - ReagentId: Vitamin
-          Quantity: 2
 
 # Misc
 
@@ -578,15 +452,6 @@
   components:
   - type: Sprite
     state: cannoli
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 1
 
 - type: entity
   name: dumplings
@@ -596,15 +461,13 @@
   components:
   - type: Sprite
     state: dumplings
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-        - ReagentId: Protein
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Protein
+        Quantity: 2
   - type: FlavorProfile
     flavors:
       - meaty
@@ -627,15 +490,17 @@
       - smokey
   - type: Sprite
     state: chevrechaud
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: Vitamin
-          Quantity: 0.5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10.5
+      - ReagentId: Vitamin
+        Quantity: 1.05
+      - ReagentId: TableSalt
+        Quantity: 0.05
+      - ReagentId: Blackpepper
+        Quantity: 0.05
 
 - type: entity
   name: cotton chèvre chaud
@@ -657,20 +522,22 @@
   - type: Tag
     tags:
     - ClothMade
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1
-        - ReagentId: Fiber
-          Quantity: 1
-        - ReagentId: Vitamin
-          Quantity: 0.5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 7.25
+      - ReagentId: Fiber
+        Quantity: 3.25
+      - ReagentId: Vitamin
+        Quantity: 1.05
+      - ReagentId: TableSalt
+        Quantity: 0.05
+      - ReagentId: Blackpepper
+        Quantity: 0.05
 
 - type: entity
-  parent: FoodBakedBase
+  parent: [SolutionNormal, FoodBakedBase, BaseSlicingRefinableFood]
   id: FoodBakedBrownieBatch
   name: brownies
   description: A pan of brownies.
@@ -685,18 +552,19 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/brownie.rsi
     state: brownie-batch
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 78
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 30
-        - ReagentId: Theobromine
-          Quantity: 18
-  - type: SliceableFood
-    count: 6
-    slice: FoodBakedBrownie
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 48
+      - ReagentId: Sugar
+        Quantity: 32
+      - ReagentId: Theobromine
+        Quantity: 8
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodBakedBrownie
+      amount: 8
 
 - type: entity
   name: brownie
@@ -712,21 +580,21 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/snacks.rsi
     state: mre-brownie-open
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 13
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Theobromine
-          Quantity: 3
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 6
+      - ReagentId: Sugar
+        Quantity: 4
+      - ReagentId: Theobromine
+        Quantity: 2
   - type: Tag
     tags:
     - Slice
 
 - type: entity
-  parent: FoodBakedBase
+  parent: [SolutionNormal, FoodBakedBase, BaseSlicingRefinableFood]
   id: FoodBakedCannabisBrownieBatch
   name: special brownies
   description: A pan of "special" brownies.
@@ -742,20 +610,21 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/brownie.rsi
     state: brownie-batch
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 228
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 30
-        - ReagentId: Theobromine
-          Quantity: 18
-        - ReagentId: THC
-          Quantity: 150
-  - type: SliceableFood
-    count: 6
-    slice: FoodBakedCannabisBrownie
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 48
+      - ReagentId: Sugar
+        Quantity: 32
+      - ReagentId: Theobromine
+        Quantity: 8
+      - ReagentId: THC
+        Quantity: 16
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodBakedCannabisBrownie
+      amount: 8
 
 - type: entity
   parent: FoodBakedBase
@@ -771,17 +640,17 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/snacks.rsi
     state: mre-brownie-open
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 38
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Theobromine
-          Quantity: 3
-        - ReagentId: THC
-          Quantity: 25
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 6
+      - ReagentId: Sugar
+        Quantity: 4
+      - ReagentId: Theobromine
+        Quantity: 1
+      - ReagentId: THC
+        Quantity: 2
   - type: Tag
     tags:
     - Slice
@@ -798,20 +667,18 @@
         - oily
     - type: Sprite
       state: onionrings
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          maxVol: 4
-          reagents:
-          - ReagentId: Nutriment
-            Quantity: 1
-          - ReagentId: Allicin
-            Quantity: 1
-          - ReagentId: Vitamin
-            Quantity: 1
+    - type: Solution
+      solution:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Allicin
+          Quantity: 1
+        - ReagentId: Vitamin
+          Quantity: 1
 
 - type: entity
-  parent: FoodBakedBase
+  parent: [SolutionSmall, FoodBakedBase]
   id: FoodBakedCroissant
   name: croissant
   description: Buttery, flaky goodness.
@@ -828,17 +695,13 @@
       - butter
   - type: Sprite
     state: croissant
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 7
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3
-        - ReagentId: Butter
-          Quantity: 2
-        - ReagentId: Vitamin
-          Quantity: 1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 20
+      - ReagentId: Butter
+        Quantity: 2.5
 
 - type: entity
   parent: FoodBakedCroissant
@@ -863,22 +726,18 @@
   - type: Tag
     tags:
     - ClothMade
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 7
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1.5
-        - ReagentId: Fiber
-          Quantity: 1.5
-        - ReagentId: Butter
-          Quantity: 2
-        - ReagentId: Vitamin
-          Quantity: 1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Fiber
+        Quantity: 10
+      - ReagentId: Butter
+        Quantity: 2.5
 
 - type: entity
-  parent: FoodBakedBase
+  parent: [SolutionSmall, FoodBakedBase]
   id: FoodBakedGrilledCheeseSandwich
   name: grilled cheese sandwich
   description: Bread and cheese toasted with butter, perfect for a chilly day in space.
@@ -894,17 +753,13 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/misc.rsi
     state: grilled-cheese
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 21
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 11
-        - ReagentId: Butter
-          Quantity: 2
-        - ReagentId: Vitamin
-          Quantity: 3
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 37.5
+      - ReagentId: Butter
+        Quantity: 2.5
 
 - type: entity
   parent: FoodBakedGrilledCheeseSandwich
@@ -925,19 +780,15 @@
   - type: Tag
     tags:
     - ClothMade
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 21
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Fiber
-          Quantity: 5
-        - ReagentId: Butter
-          Quantity: 2
-        - ReagentId: Vitamin
-          Quantity: 3
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 25
+      - ReagentId: Fiber
+        Quantity: 12.5
+      - ReagentId: Butter
+        Quantity: 2.5
 
 # Entity Tables
 

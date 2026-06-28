@@ -1,44 +1,5 @@
-# SPDX-FileCopyrightText: 2021-2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 FoLoKe <36813380+FoLoKe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 bloodrizer <cheshire.panther@gmail.com>
-# SPDX-FileCopyrightText: 2023-2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+ChilbroBaggins@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Vladislav Kadira <130583174+FillerVK@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Bixkitts <72874643+Bixkitts@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024-2025 MissKay1994 <15877268+MissKay1994@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 SpaceLizard <the.justice.league.of.canada@gmail.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Redfire1331 <125223432+Redfire1331@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Waylon Cude <waylon.cude@finzdani.net>
-# SPDX-FileCopyrightText: 2024 Aexxie <codyfox.077@gmail.com>
-# SPDX-FileCopyrightText: 2025 Hitlinemoss <209321380+Hitlinemoss@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 5tickman <5tick@comcast.net>
-# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Orsoniks <orsoniksstuff@gmail.com>
-# SPDX-FileCopyrightText: 2025 Qerd <73325910+BigfootBravo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Smith <182301147+AgentSmithRadio@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
-  parent: FoodBase
+  parent: [SolutionTiny, FoodBaseTrash]
   id: FoodSnackBase
   abstract: true
   components:
@@ -47,13 +8,11 @@
       - FoodSnack
   - type: Sprite
     sprite: Objects/Consumable/Food/snacks.rsi
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30 # Room for extra condiments
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
   - type: Item
     sprite: Objects/Consumable/Food/snacks.rsi
     heldPrefix: packet
@@ -175,17 +134,15 @@
     tags:
       - FoodSnack
       - ReptilianFood
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Theobromine
-          Quantity: 3
-        - ReagentId: CocoaPowder
-          Quantity: 1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: Theobromine
+        Quantity: 3
+      - ReagentId: CocoaPowder
+        Quantity: 2
 
 - type: entity
   parent: FoodSnackBase
@@ -255,7 +212,7 @@
   - type: FlavorProfile
     flavors:
       - corn
-      - salt
+      - salty
       - butter
   - type: Sprite
     state: popcorn
@@ -350,15 +307,13 @@
     solution: food
   - type: InjectableSolution
     solution: food
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50 #big cup
-        reagents:
-        - ReagentId: DryRamen
-          Quantity: 30
-        - ReagentId: Soysauce
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: DryRamen
+        Quantity: 20
+      - ReagentId: Soysauce
+        Quantity: 5
   - type: Sprite
     state: ramen
   - type: Edible
@@ -374,15 +329,13 @@
   name: hell ramen
   description: Super spicy flavor!
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50
-        reagents:
-        - ReagentId: DryRamen
-          Quantity: 30
-        - ReagentId: CapsaicinOil
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: DryRamen
+        Quantity: 20
+      - ReagentId: CapsaicinOil
+        Quantity: 5
 
 - type: entity
   parent: FoodSnackBase
@@ -400,15 +353,13 @@
   - type: Item
     heldPrefix: chinese1
     storedOffset: 1,-2
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30 # Room for extra condiments
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Soysauce
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Soysauce
+        Quantity: 2
   - type: Edible
     trash:
     - FoodPacketChowMeinTrash
@@ -429,17 +380,15 @@
   - type: Item
     heldPrefix: chinese2
     storedOffset: 0,-2
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30 # Room for extra condiments
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: CapsaicinOil
-          Quantity: 2
-        - ReagentId: Soysauce
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: CapsaicinOil
+        Quantity: 2
+      - ReagentId: Soysauce
+        Quantity: 2
   - type: Edible
     trash:
     - FoodPacketDanDanTrash
@@ -455,13 +404,12 @@
       - fortunecookie
   - type: Sprite
     state: cookie_fortune
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 1
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 2.5
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1
   - type: Item
     sprite: Objects/Consumable/Food/snacks.rsi
     heldPrefix: cookie_fortune
@@ -512,13 +460,6 @@
       - ReptilianFood
   - type: Sprite
     state: nutribrick-open
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 20
 
 - type: entity
   parent: BaseItem
@@ -544,7 +485,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  parent: FoodSnackBase
+  parent: [SolutionVeryTiny, FoodSnackBase]
   id: FoodSnackMREBrownieOpen
   name: brownie
   suffix: MRE
@@ -558,15 +499,13 @@
   - type: Item
     heldPrefix: mre-brownie-open
     storedOffset: -1,-1
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Theobromine
-          Quantity: 3
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: Theobromine
+        Quantity: 1
 
 - type: entity
   parent: FoodSnackBase
@@ -587,13 +526,11 @@
     tags:
     - FoodSnack
     - ReptilianFood
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # Room for extra condiments
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 15
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Sugar
+        Quantity: 15
   - type: FlavorProfile
     flavors:
     - sweet
@@ -609,7 +546,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseItem
+  parent: [SolutionFood, SolutionVeryTiny, BaseItem]
   id: FoodPacketTrash
   description: This is rubbish.
   abstract: true
@@ -628,13 +565,12 @@
   - type: SpaceGarbage
   - type: StaticPrice
     price: 0
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: ToxinTrash
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 7.5
+      reagents:
+      - ReagentId: ToxinTrash
+        Quantity: 7.5
   - type: Edible
     requiresSpecialDigestion: true
 
@@ -897,13 +833,11 @@
   components:
   - type: Edible
     requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 20
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 10
   - type: Tag
     tags:
     - ClothMade

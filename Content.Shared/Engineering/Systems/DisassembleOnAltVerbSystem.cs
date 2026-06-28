@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 FungiFellow <151778459+FungiFellow@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.DoAfter;
 using Content.Shared.Engineering.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -12,9 +8,9 @@ namespace Content.Shared.Engineering.Systems;
 
 public sealed partial class DisassembleOnAltVerbSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedHandsSystem _handsSystem = default!;
+    [Dependency] private INetManager _net = default!;
 
     public override void Initialize()
     {

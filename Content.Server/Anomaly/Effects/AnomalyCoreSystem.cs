@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Cargo;
 using Robust.Shared.Timing;
@@ -12,9 +7,9 @@ namespace Content.Server.Anomaly.Effects;
 /// <summary>
 /// This component reduces the value of the entity during decay
 /// </summary>
-public sealed class AnomalyCoreSystem : EntitySystem
+public sealed partial class AnomalyCoreSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
 
     public override void Initialize()
     {

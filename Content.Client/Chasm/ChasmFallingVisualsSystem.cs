@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chasm;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
@@ -14,10 +8,10 @@ namespace Content.Client.Chasm;
 /// <summary>
 ///     Handles the falling animation for entities that fall into a chasm.
 /// </summary>
-public sealed class ChasmFallingVisualsSystem : EntitySystem
+public sealed partial class ChasmFallingVisualsSystem : EntitySystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _anim = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private AnimationPlayerSystem _anim = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     private readonly string _chasmFallAnimationKey = "chasm_fall";
 

@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2025 VoidMeticulous <voidmeticulous@gmail.com>
-# SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   name: scurret
   id: MobBaseScurret
@@ -46,7 +40,6 @@
     coldDamageThreshold: 285
   # Good eatin', you monster.
   - type: Butcherable
-    butcheringType: Spike
     spawned:
     - id: FoodMeat
       amount: 4

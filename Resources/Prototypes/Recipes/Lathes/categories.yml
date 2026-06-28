@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2025 Aearo-Deepwater <77557990+Aearo-Deepwater@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: latheCategory
   id: Circuitry
   name: lathe-category-circuitry
@@ -117,6 +112,22 @@
 - type: latheCategory
   id: Marble
   name: lathe-category-marble
+
+- type: latheCategory
+  id: Shuttle
+  name: lathe-category-shuttle-tile
+
+- type: latheCategory
+  id: Plastic
+  name: lathe-category-plastic-tile
+
+- type: latheCategory
+  id: Precious
+  name: lathe-category-precious-tile
+
+- type: latheCategory
+  id: Industrial
+  name: lathe-category-industrial-tile
 
 # Science
 - type: latheCategory

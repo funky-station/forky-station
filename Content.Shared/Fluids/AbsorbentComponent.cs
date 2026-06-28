@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Willhelm53 <97707302+Willhelm53@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Audio;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
@@ -40,7 +30,7 @@ public sealed partial class AbsorbentComponent : Component
     /// How much solution we can transfer in one interaction.
     /// </summary>
     [DataField]
-    public FixedPoint2 PickupAmount = FixedPoint2.New(100);
+    public FixedPoint2 PickupAmount = FixedPoint2.New(120);
 
     /// <summary>
     /// The effect spawned when the puddle fully evaporates.
@@ -66,4 +56,13 @@ public sealed partial class AbsorbentComponent : Component
     /// </summary>
     [DataField]
     public bool UseAbsorberSolution = true;
+
+    [DataField]
+    public float FootprintCleaningRange = 0.2f;
+
+    /// <summary>
+    /// How many footprints within FootprintCleaningRange can be cleaned at once.
+    /// </summary>
+    [DataField]
+    public int MaxCleanedFootprints = 9;
 }
