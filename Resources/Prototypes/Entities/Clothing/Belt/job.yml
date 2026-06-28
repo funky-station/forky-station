@@ -138,10 +138,9 @@
       - WireBrush
       - Screwdriver # Funky Start
       - Powerdrill
-      - CleanerGrenade
       - Rag # Funky End
-      components:
       - LightReplacer
+      - CleanerGrenade
   - type: ItemMapper
     sprite: *BeltOverlay
     mapLayers:
