@@ -98,8 +98,9 @@
     - 0,6,5,7
     - 0,9,5,10
   - type: Damageable
+    damageModifierSet: Metallic,
+  - type: Injureable
     damageContainer: Inorganic
-    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -243,9 +244,10 @@
       amount: 1
     - id: ClothingMaskBreathMedical
       amount: 3
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
+    - type: Damageable
+      damageModifierSet: Metallic,
+    - type: Injureable
+      damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
