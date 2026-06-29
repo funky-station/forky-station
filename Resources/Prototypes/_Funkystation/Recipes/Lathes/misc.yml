@@ -1,0 +1,6 @@
+- type: latheRecipe
+  id: PenReceptacle
+  result: PenReceptacle
+  completetime: 1
+  materials:
+    Steel: 50

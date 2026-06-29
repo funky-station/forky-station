@@ -1,0 +1,152 @@
+# Pen receptacle
+- type: entity
+  id: PenReceptacle
+  parent: BaseItem
+  name: pen receptacle
+  description: A metal container distributed by Nanotrasen in a futile attempt to limit loss of stationery.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Decoration/pen_receptacle.rsi
+    layers:
+    - state: icon
+  - type: Item
+    size: Small
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 10
+  - type: ItemSlots
+    slots:
+      pen_slot8:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 8
+      pen_slot7:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 7
+      pen_slot6:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 6
+      pen_slot5:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 5
+      pen_slot4:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 4
+      pen_slot3:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 3
+      pen_slot2:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 2
+      pen_slot1:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 1
+  - type: ContainerContainer
+    containers:
+      pen_slot8: !type:ContainerSlot { }
+      pen_slot7: !type:ContainerSlot { }
+      pen_slot6: !type:ContainerSlot { }
+      pen_slot5: !type:ContainerSlot { }
+      pen_slot4: !type:ContainerSlot { }
+      pen_slot3: !type:ContainerSlot { }
+      pen_slot2: !type:ContainerSlot { }
+      pen_slot1: !type:ContainerSlot { }
+  - type: ItemMapper
+    mapLayers:
+      pen1:
+        minCount: 1
+        whitelist:
+          tags:
+          - Write
+      pen2:
+        minCount: 2
+        whitelist:
+          tags:
+          - Write
+      pen3:
+        minCount: 3
+        whitelist:
+          tags:
+          - Write
+    sprite: _Funkystation/Objects/Decoration/pen_receptacle.rsi
+  - type: Appearance
+
+# Pen receptacle - mapping variants
+- type: entity
+  id: PenReceptacleHalfFull
+  parent: PenReceptacle
+  suffix: 4 Pens
+  components:
+  - type: ItemSlots
+    slots:
+      pen_slot4:
+        startingItem: Pen
+      pen_slot3:
+        startingItem: Pen
+      pen_slot2:
+        startingItem: Pen
+      pen_slot1:
+        startingItem: Pen
+
+- type: entity
+  id: PenReceptacleFull
+  parent: PenReceptacle
+  suffix: 8 Pens
+  components:
+  - type: ItemSlots
+    slots:
+      pen_slot8:
+        startingItem: Pen
+      pen_slot7:
+        startingItem: Pen
+      pen_slot6:
+        startingItem: Pen
+      pen_slot5:
+        startingItem: Pen
+      pen_slot4:
+        startingItem: Pen
+      pen_slot3:
+        startingItem: Pen
+      pen_slot2:
+        startingItem: Pen
+      pen_slot1:
+        startingItem: Pen
