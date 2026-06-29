@@ -98,7 +98,7 @@
     - 0,6,5,7
     - 0,9,5,10
   - type: Damageable
-    damageModifierSet: Metallic,
+    damageModifierSet: Metallic
   - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
@@ -245,7 +245,7 @@
     - id: ClothingMaskBreathMedical
       amount: 3
     - type: Damageable
-      damageModifierSet: Metallic,
+      damageModifierSet: Metallic
     - type: Injurable
       damageContainer: Inorganic
   - type: Destructible
