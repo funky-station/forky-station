@@ -99,7 +99,7 @@
     - 0,9,5,10
   - type: Damageable
     damageModifierSet: Metallic,
-  - type: Injureable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
@@ -246,7 +246,7 @@
       amount: 3
     - type: Damageable
       damageModifierSet: Metallic,
-    - type: Injureable
+    - type: Injurable
       damageContainer: Inorganic
   - type: Destructible
     thresholds:
