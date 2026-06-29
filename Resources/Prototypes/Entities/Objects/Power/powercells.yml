@@ -8,8 +8,9 @@
   - type: Battery
     pricePerJoule: 0.15
   - type: PowerCell
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: Explosive
-    explosionType: Default
+    explosionType: Transparent # Funky RMC Explosions
     maxIntensity: 200
     intensitySlope: 1.5
   - type: Sprite
