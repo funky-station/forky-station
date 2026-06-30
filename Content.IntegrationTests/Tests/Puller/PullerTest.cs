@@ -1,8 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-License-Identifier: MIT
-
+using Content.IntegrationTests.Fixtures;
 using Content.Shared.Hands.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Prototypes;
@@ -14,7 +10,7 @@ namespace Content.IntegrationTests.Tests.Puller;
 #nullable enable
 
 [TestFixture]
-public sealed class PullerTest
+public sealed class PullerTest : GameTest
 {
     /// <summary>
     /// Checks that needsHands on PullerComponent is not set on mobs that don't even have hands.
@@ -22,7 +18,7 @@ public sealed class PullerTest
     [Test]
     public async Task PullerSanityTest()
     {
-        await using var pair = await PoolManager.GetServerClient();
+        var pair = Pair;
         var server = pair.Server;
 
         var compFactory = server.ResolveDependency<IComponentFactory>();
@@ -44,7 +40,5 @@ public sealed class PullerTest
                 }
             });
         });
-
-        await pair.CleanReturnAsync();
     }
 }

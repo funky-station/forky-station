@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021 mirrorcult <notzombiedude@gmail.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System;
 using System.Collections.Generic;
 using Content.Shared.Eui;
@@ -17,11 +10,11 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.Eui
 {
-    public sealed class EuiManager
+    public sealed partial class EuiManager
     {
-        [Dependency] private readonly IClientNetManager _net = default!;
-        [Dependency] private readonly IReflectionManager _refl = default!;
-        [Dependency] private readonly IDynamicTypeFactory _dtf = default!;
+        [Dependency] private IClientNetManager _net = default!;
+        [Dependency] private IReflectionManager _refl = default!;
+        [Dependency] private IDynamicTypeFactory _dtf = default!;
 
         private readonly Dictionary<uint, EuiData> _openUis = new();
 

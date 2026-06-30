@@ -1,14 +1,11 @@
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Stunnable;
 using Content.Shared.Trigger.Components.Effects;
 
 namespace Content.Shared.Trigger.Systems;
 
-public sealed class StunOnTriggerSystem : XOnTriggerSystem<StunOnTriggerComponent>
+public sealed partial class StunOnTriggerSystem : XOnTriggerSystem<StunOnTriggerComponent>
 {
-    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
 
     protected override void OnTrigger(Entity<StunOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
     {

@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Cargo.Components;
@@ -22,17 +18,17 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Salvage.JobBoard;
 
-public sealed class SalvageJobBoardSystem : EntitySystem
+public sealed partial class SalvageJobBoardSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly CargoSystem _cargo = default!;
-    [Dependency] private readonly LabelSystem _label = default!;
-    [Dependency] private readonly PaperSystem _paper = default!;
-    [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private CargoSystem _cargo = default!;
+    [Dependency] private LabelSystem _label = default!;
+    [Dependency] private PaperSystem _paper = default!;
+    [Dependency] private RadioSystem _radio = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
 
     /// <summary>
     /// Radio channel that unlock messages are broadcast on.

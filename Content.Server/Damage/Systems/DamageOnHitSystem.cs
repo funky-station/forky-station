@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Damage.Components;
 using Content.Shared.Weapons.Melee.Events;
 using System.Linq;
@@ -9,9 +5,9 @@ using Content.Shared.Damage.Systems;
 
 namespace Content.Server.Damage.Systems;
 
-public sealed class DamageOnHitSystem : EntitySystem
+public sealed partial class DamageOnHitSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
 
     public override void Initialize()
     {

@@ -1,41 +1,12 @@
-# SPDX-FileCopyrightText: 2021-2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 cheesePizza2 <34486300+cheesePizza2@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 0x6273 <0x40@keemail.me>
-# SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 NotSoDana <75203942+NotSoDana@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 Lawdog <159507482+Lawdog4817@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SnappingOpossum <snappingopossum@outlook.com>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2025 Hitlinemoss <209321380+Hitlinemoss@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 iaada <iaada@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Prole <172158352+Prole0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Tiniest Shark <head.rebel@yahoo.com>
-# SPDX-FileCopyrightText: 2025 Oleshe <125771937+0leshe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
-# SPDX-FileCopyrightText: 2026 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: [DrinkBaseMaterialGlass, DrinkBase, DrinkVisualsFillOverlay]
   id: DrinkShotGlass
   name: shot glass
   description: Perfect for slamming down onto the table angrily.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 5
+  - type: Solution
+    solution:
+      maxVol: 5 # Shot glass translates to about 5.3u so we round down because Nanotrasen is cheap.
   - type: Item
     size: Tiny
   - type: Sprite
@@ -47,17 +18,18 @@
     solution: drink
 
 - type: entity
-  parent: [DrinkBaseMaterialMetal, DrinkBase]
+  parent: [DrinkBaseMaterialMetal, SolutionLarge, DrinkBase]
   id: DrinkIceBucket
   name: ice bucket
   description: A special bucket of refreshy ice. Prohibited use for challenge with the same name!
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: Ice
-          Quantity: 200
+  - type: Item
+    size: Large
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Ice
+        Quantity: 240
   - type: Sprite
     sprite: Objects/Consumable/Drinks/icebucket.rsi
     state: icon
@@ -66,18 +38,18 @@
       Steel: 75
 
 - type: entity
-  parent: [DrinkBaseMaterialPorcelain, DrinkBase]
+  parent: [DrinkBaseMaterialPorcelain, SolutionNormal, DrinkBase]
   id: DrinkTeapot
   name: teapot  # short and stout
   description: An elegant teapot. It simply oozes class.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 100
-        reagents:
-        - ReagentId: Tea
-          Quantity: 100
+  - type: Item
+    size: Normal
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Tea
+        Quantity: 120
   - type: Sprite
     sprite: Objects/Consumable/Drinks/teapot.rsi
   - type: FitsInDispenser
@@ -136,15 +108,14 @@
 # Bartender tools
 
 - type: entity
-  parent: [DrinkBaseMaterialStrongMetal, DrinkBase]
+  parent: [DrinkBaseMaterialStrongMetal, SolutionSmall, DrinkBase]
   id: DrinkShaker
   name: shaker
   description: The trusty mixing buddy of the bartender.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 100
+  - type: Solution
+    solution:
+      maxVol: 90 # Shakers are often about 700ml give or take and I like weird sizes so.
   - type: FitsInDispenser
     solution: drink
   - type: ExaminableSolution
@@ -154,6 +125,8 @@
     state: icon
   - type: Item
     sprite: Objects/Consumable/Drinks/shaker.rsi
+    shape:
+    - 0,0,0,2 # 3 tall
   - type: PhysicalComposition
     materialComposition:
       Steel: 50
@@ -184,10 +157,11 @@
   name: jigger
   description: Like a shaker, but smaller. Used to control the amount of ingredients.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 20
+  - type: Item
+    size: Tiny
+  - type: Solution
+    solution:
+      maxVol: 10 # Two shot glasses in size
   - type: SolutionTransfer
     canChangeTransferAmount: true
     minTransferAmount: 1
@@ -205,15 +179,13 @@
       Steel: 20
 
 - type: entity
-  parent: [DrinkBaseMaterialStrongMetal, DrinkBase, DrinkVisualsFill]
+  parent: [DrinkBaseMaterialStrongMetal, SolutionNormal, DrinkBase, DrinkVisualsFill]
   id: Pitcher
   name: metal pitcher
   description: A stainless steel insulated pitcher. Everyone's best friend in the morning.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 60
+  - type: Item
+    size: Normal
   - type: Sprite
     sprite: Objects/Consumable/Drinks/pitcher.rsi
   - type: SolutionContainerVisuals

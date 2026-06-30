@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Serialization;
 using Robust.Shared.GameStates;
 

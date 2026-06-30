@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 namespace Content.Shared.Magic;
 
 // TODO: If still needed, move to magic component

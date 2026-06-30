@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
-# SPDX-License-Identifier: MIT
-
 # Funky atmos - /tg/ gases
 - type: reagent
   id: BZ
@@ -126,29 +123,27 @@
   metabolisms:
     Respiration:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         conditions:
         - !type:ReagentCondition
           reagent: Healium
           max: 24
         ignoreResistances: true
         damage:
-          groups:
-            Burn: -2
-            Toxin: -5
-            Brute: -2
+          Burn: -2
+          Toxin: -5
+          Brute: -2
 
-      - !type:HealthChange
+      - !type:EvenHealthChange
         conditions:
         - !type:ReagentCondition
           reagent: Healium
           min: 24
         ignoreResistances: true
         damage:
-          groups:
-            Burn: -20
-            Toxin: -50
-            Brute: -20
+          Burn: -20
+          Toxin: -50
+          Brute: -20
 
       - !type:PopupMessage
         conditions:
@@ -184,12 +179,11 @@
 
     Bloodstream:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         damage:
-          groups:
-            Burn: -0.1
-            Toxin: -0.1
-            Brute: -0.1
+          Burn: -0.1
+          Toxin: -0.1
+          Brute: -0.1
 
       - !type:ModifyStatusEffect
         conditions:

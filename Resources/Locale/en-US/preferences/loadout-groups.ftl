@@ -5,13 +5,14 @@ loadout-group-species-restriction = This item is not available for your current 
 loadout-group-trinkets = Trinkets
 loadout-group-jobtrinkets = Job trinkets
 loadout-group-glasses = Glasses
+loadout-group-gloves = Gloves
 loadout-group-backpack = Backpack
 loadout-group-instruments = Instruments
-loadout-group-survival-basic = Survival Box
-loadout-group-survival-extended = Extended Survival Box
-loadout-group-survival-clown = Clown Survival Box
-loadout-group-survival-medical = Medical Survival Box
-loadout-group-survival-security = Security Survival Box
+loadout-group-survival-basic = Survival box
+loadout-group-survival-extended = Extended survival box
+loadout-group-survival-clown = Clown survival box
+loadout-group-survival-medical = Medical survival box
+loadout-group-survival-security = Security survival box
 loadout-group-survival-syndicate = Github is forcing me to write text that is literally twice-impossible for the player to ever see, send help
 loadout-group-survival-military = See line 14, no one will ever see this so :3
 loadout-group-breath-tool = Species-dependent breath tools
@@ -19,7 +20,7 @@ loadout-group-tank-harness = Species-specific survival equipment
 loadout-group-EVA-tank = Species-specific gas tank
 loadout-group-vox-tank = Vox-specific gas tank
 loadout-group-pocket-tank-double = Species-specific double emergency tank in pocket
-loadout-group-survival-mime = Mime Survival Box
+loadout-group-survival-mime = Mime survival box
 
 # Command
 loadout-group-captain-head = Captain head
@@ -156,21 +157,24 @@ loadout-group-head-of-security-outerclothing = Head of Security outer clothing
 
 loadout-group-warden-head = Warden head
 loadout-group-warden-jumpsuit = Warden jumpsuit
+loadout-group-warden-neck = Warden Neck
 loadout-group-warden-outerclothing = Warden outer clothing
 
 loadout-group-security-head = Security head
+loadout-group-security-neck = Security neck
 loadout-group-security-jumpsuit = Security jumpsuit
+loadout-group-security-gloves = Security gloves
 loadout-group-security-backpack = Security backpack
-loadout-group-security-belt = Security Belt
+loadout-group-security-belt = Security belt
 loadout-group-security-outerclothing = Security outer clothing
 loadout-group-security-shoes = Security shoes
 loadout-group-security-id = Security ID
-
 loadout-group-detective-head = Detective head
 loadout-group-detective-neck = Detective neck
 loadout-group-detective-jumpsuit = Detective jumpsuit
 loadout-group-detective-outerclothing = Detective outer clothing
 
+loadout-group-security-cadet-hat = Security cadet hat
 loadout-group-security-cadet-jumpsuit = Security cadet jumpsuit
 loadout-group-security-star = Security Star
 
@@ -203,5 +207,7 @@ loadout-group-paramedic-shoes = Paramedic shoes
 
 # Wildcards
 loadout-group-reporter-jumpsuit = Reporter jumpsuit
+loadout-group-reporter-head = Reporter hat
+loadout-group-reporter-outerclothing = Reporter vest
 
 loadout-group-psychologist-jumpsuit = Psychologist jumpsuit

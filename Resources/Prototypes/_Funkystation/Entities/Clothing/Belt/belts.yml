@@ -1,0 +1,48 @@
+- type: entity
+  parent: [ ClothingBeltStorageBase, BaseSecurityContraband ]
+  id: FuClothingBeltSecurityWebbing
+  name: security carrier
+  description: A specialized webbing designed for security gear.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Belt/security_webbing.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Belt/security_webbing.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Storage
+    whitelist:
+      tags:
+      - CigPack
+      - Taser
+      - SecBeltEquip
+      - Radio
+      - Sidearm
+      - MagazinePistol
+      - MagazineMagnum
+      - CombatKnife
+      - Truncheon
+      - HandGrenade
+      components:
+      - Stunbaton
+      - FlashOnTrigger
+      - SmokeOnTrigger
+      - Flash
+      - Handcuff
+      - BallisticAmmoProvider
+      - CartridgeAmmo
+      - DoorRemote
+      - Whistle
+      - BalloonPopper
+
+- type: entity
+  parent: FuClothingBeltSecurityWebbing
+  id: FuClothingBeltSecurityWebbingFilled
+  name: security carrier
+  suffix: Filled
+  description: A specialized webbing designed for security gear.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: BeltSecurityEntityTable

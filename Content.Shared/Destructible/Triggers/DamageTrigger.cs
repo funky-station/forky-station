@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Serialization;
@@ -24,6 +20,6 @@ public sealed partial class DamageTrigger : IThresholdTrigger
 
     public bool Reached(Entity<DamageableComponent> damageable, SharedDestructibleSystem system)
     {
-        return damageable.Comp.TotalDamage >= Damage;
+        return system.Damageable.GetTotalDamage(damageable.AsNullable()) >= Damage;
     }
 }

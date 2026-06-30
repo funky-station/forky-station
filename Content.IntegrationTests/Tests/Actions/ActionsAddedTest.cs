@@ -1,12 +1,6 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+#nullable enable
 using System.Linq;
+using Content.IntegrationTests.Fixtures;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.CombatMode;
@@ -19,15 +13,17 @@ namespace Content.IntegrationTests.Tests.Actions;
 /// This tests checks that actions properly get added to an entity's actions component..
 /// </summary>
 [TestFixture]
-public sealed class ActionsAddedTest
+public sealed class ActionsAddedTest : GameTest
 {
+    public override PoolSettings PoolSettings => new PoolSettings { Connected = true, DummyTicker = false };
+
     // TODO add magboot test (inventory action)
     // TODO add ghost toggle-fov test (client-side action)
 
     [Test]
     public async Task TestCombatActionsAdded()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true, DummyTicker = false });
+        var pair = Pair;
         var server = pair.Server;
         var client = pair.Client;
         var sEntMan = server.ResolveDependency<IEntityManager>();
@@ -75,7 +71,5 @@ public sealed class ActionsAddedTest
         // required, because integration tests do not respect the [NonSerialized] attribute and will simply events by reference.
         Assert.That(ReferenceEquals(sAct.Comp, cAct.Comp), Is.False);
         Assert.That(ReferenceEquals(sQuery.GetComponent(sAct).Event, cQuery.GetComponent(cAct).Event), Is.False);
-
-        await pair.CleanReturnAsync();
     }
 }

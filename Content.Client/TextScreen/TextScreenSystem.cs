@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 avery <51971268+graevy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Wrexbe (Josh) <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Numerics;
 using Content.Shared.TextScreen;
@@ -32,9 +24,9 @@ namespace Content.Client.TextScreen;
 /// <summary>
 ///     The TextScreenSystem draws text in the game world using 3x5 sprite states for each character.
 /// </summary>
-public sealed class TextScreenSystem : VisualizerSystem<TextScreenVisualsComponent>
+public sealed partial class TextScreenSystem : VisualizerSystem<TextScreenVisualsComponent>
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
 
     /// <summary>
     ///     Contains char/state Key/Value pairs. <br/>

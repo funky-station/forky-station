@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Administration;
 using Content.Client.Administration.UI.Tabs.PlayerTab;
 using Content.Shared.CCVar;
@@ -85,6 +80,8 @@ public sealed partial class AdminOptionsTab : Control
             OverlayGhostHideSlider,
             OverlayGhostHideMin,
             OverlayGhostHideMax);
+
+        Control.AddOptionCheckBox(CCVars.AdminStripMenuOverlayDefault, EnableAdminStripOverlayDefault);
     }
 }
 
