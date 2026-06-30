@@ -64,6 +64,6 @@
   source: "https://github.com/space-wizards/space-station-14"
 
 - files: ["stationisafuck.yml"]
-  license: "CC BY-SA"
+  license: "CC-BY-SA-3.0"
   copyright: "@fuzyfries on discord"
   source: "https://github.com/space-wizards/space-station-14"
