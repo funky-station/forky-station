@@ -107,6 +107,11 @@
         whitelist:
           tags:
           - Write
+      pen4:
+        minCount: 4
+        whitelist:
+          tags:
+          - Write
     sprite: _Funkystation/Objects/Decoration/pen_receptacle.rsi
   - type: Appearance
 
