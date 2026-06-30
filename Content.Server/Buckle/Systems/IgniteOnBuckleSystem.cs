@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2026 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Buckle.Components;
@@ -8,10 +5,10 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Buckle.Systems;
 
-public sealed class IgniteOnBuckleSystem : EntitySystem
+public sealed partial class IgniteOnBuckleSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly FlammableSystem _flammable = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private FlammableSystem _flammable = default!;
 
     public override void Initialize()
     {

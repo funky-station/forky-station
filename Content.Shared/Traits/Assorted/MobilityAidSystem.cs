@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Hands;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Wieldable;
@@ -10,9 +7,9 @@ namespace Content.Shared.Traits.Assorted;
 /// <summary>
 /// Handles <see cref="MobilityAidComponent"/>
 /// </summary>
-public sealed class MobilityAidSystem : EntitySystem
+public sealed partial class MobilityAidSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifier = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

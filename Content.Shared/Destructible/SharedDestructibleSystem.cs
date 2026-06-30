@@ -1,21 +1,16 @@
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TinManTim <73014819+Tin-Man-Tim@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
+using Content.Shared.Damage.Systems;
 
 namespace Content.Shared.Destructible;
 
-public abstract class SharedDestructibleSystem : EntitySystem
+public abstract partial class SharedDestructibleSystem : EntitySystem
 {
+    // TODO: I don't really like this but this is out of scope to re-do destructible triggers while refactoring damageable
+    [Dependency] public DamageableSystem Damageable = default!;
+
     /// <summary>
     /// Force entity to be destroyed and deleted.
     /// </summary>
-    public bool DestroyEntity(Entity<MetaDataComponent?> owner)
+    public bool DestroyEntity(EntityUid owner)
     {
         var ev = new DestructionAttemptEvent();
         RaiseLocalEvent(owner, ev);

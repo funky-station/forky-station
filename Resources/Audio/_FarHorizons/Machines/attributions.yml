@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - files: ["alarm_beep.ogg"]
   license: "CC0-1.0"
   copyright: "Created by JW_Audio, clipped and converted Mono and .ogg by Jhrushbe"

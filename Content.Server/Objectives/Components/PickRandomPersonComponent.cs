@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023, 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Objectives.Systems;
 using Content.Shared.Mind.Filters;
 
@@ -20,7 +16,7 @@ public sealed partial class PickRandomPersonComponent : Component
     /// A pool to pick potential targets from.
     /// </summary>
     [DataField]
-    public IMindPool Pool = new AliveHumansPool();
+    public MindPool Pool = new AliveHumansPool();
 
     /// <summary>
     /// Filters to apply to <see cref="Pool"/>.

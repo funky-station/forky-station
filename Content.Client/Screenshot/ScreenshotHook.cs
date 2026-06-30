@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.IO;
 using System.Threading.Tasks;
 using Content.Client.Viewport;
@@ -23,14 +13,14 @@ using SixLabors.ImageSharp.PixelFormats;
 
 namespace Content.Client.Screenshot
 {
-    internal sealed class ScreenshotHook : IScreenshotHook
+    internal sealed partial class ScreenshotHook : IScreenshotHook
     {
         private static readonly ResPath BaseScreenshotPath = new("/Screenshots");
 
-        [Dependency] private readonly IInputManager _inputManager = default!;
-        [Dependency] private readonly IClyde _clyde = default!;
-        [Dependency] private readonly IResourceManager _resourceManager = default!;
-        [Dependency] private readonly IStateManager _stateManager = default!;
+        [Dependency] private IInputManager _inputManager = default!;
+        [Dependency] private IClyde _clyde = default!;
+        [Dependency] private IResourceManager _resourceManager = default!;
+        [Dependency] private IStateManager _stateManager = default!;
 
         private ISawmill _sawmill = default!;
 

@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
-# SPDX-License-Identifier: MIT
-
 # Funky atmos - /tg/ gases
 - type: entity
   id: ElectrolyzerMachineCircuitboard
@@ -16,3 +13,16 @@
       Steel: 5
       Manipulator: 2
       CableHV: 5
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: WashingMachineCircuitboard
+  name: Nanotrasen Commercial Model-C washing machine board
+  description: A machine printed circuit board for an industrial-grade washing machine.
+  components:
+  - type: MachineBoard
+    prototype: WashingMachine
+    stackRequirements:
+      Steel: 1
+      Manipulator: 1
+      Cable: 1

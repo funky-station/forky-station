@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Labels.EntitySystems;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
@@ -20,8 +17,17 @@ public sealed partial class HandLabelerComponent : Component
     [DataField]
     public int MaxLabelChars = 50;
 
+    /// <summary>
+    /// Blacklist for entities that can be labeled.
+    /// </summary>
     [DataField]
-    public EntityWhitelist Whitelist = new();
+    public EntityWhitelist? Whitelist;
+
+    /// <summary>
+    /// Blacklist for entities that cannot be labeled.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? Blacklist;
 }
 
 [Serializable, NetSerializable]

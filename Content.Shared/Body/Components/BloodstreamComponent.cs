@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Nikovnik <116634167+nkokic@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft <ignaz.k@live.de>
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Alert;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
@@ -29,6 +22,7 @@ public sealed partial class BloodstreamComponent : Component
 {
     public const string DefaultBloodSolutionName = "bloodstream";
     public const string DefaultBloodTemporarySolutionName = "bloodstreamTemporary";
+    public const string DefaultMetabolitesSolutionName = "metabolites";
 
     /// <summary>
     /// The next time that blood level will be updated and bloodloss damage dealt.
@@ -154,10 +148,10 @@ public sealed partial class BloodstreamComponent : Component
     /// Defines which reagents are considered as 'blood' and how much of it is normal.
     /// </summary>
     /// <remarks>
-    /// Slime-people might use slime as their blood or something like that.
+    /// Default is human blood at 5 liters (600u) of blood.
     /// </remarks>
     [DataField, AutoNetworkedField]
-    public Solution BloodReferenceSolution = new([new("Blood", 300)]);
+    public Solution BloodReferenceSolution = new([new("Blood", 600)]);
 
     /// <summary>
     /// Caches the blood data of an entity.
@@ -179,6 +173,12 @@ public sealed partial class BloodstreamComponent : Component
     public string BloodTemporarySolutionName = DefaultBloodTemporarySolutionName;
 
     /// <summary>
+    /// Name/Key that <see cref="MetabolitesSolution"/> is indexed by.
+    /// </summary>
+    [DataField]
+    public string MetabolitesSolutionName = DefaultMetabolitesSolutionName;
+
+    /// <summary>
     /// Internal solution for blood storage
     /// </summary>
     [ViewVariables]
@@ -191,6 +191,12 @@ public sealed partial class BloodstreamComponent : Component
     /// </summary>
     [ViewVariables]
     public Entity<SolutionComponent>? TemporarySolution;
+
+    /// <summary>
+    /// Internal solution for metabolite storage
+    /// </summary>
+    [ViewVariables]
+    public Entity<SolutionComponent>? MetabolitesSolution;
 
     /// <summary>
     /// Alert to show when bleeding.

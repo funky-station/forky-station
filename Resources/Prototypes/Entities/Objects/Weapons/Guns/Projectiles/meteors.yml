@@ -1,18 +1,3 @@
-# SPDX-FileCopyrightText: 2021-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-# SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 WarMechanic <69510347+WarMechanic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025-2026 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: BaseMeteor
   name: meteor
@@ -49,6 +34,7 @@
         - Impassable
         - BulletImpassable
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Explosive
     explosionType: Default
@@ -56,6 +42,7 @@
     maxIntensity: 100
     maxTileBreak: 1
     tileBreakScale: 2
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: TileFrictionModifier
     modifier: 0
 
@@ -83,6 +70,7 @@
         - BulletImpassable
   - type: Explosive
     totalIntensity: 25
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: Destructible
     thresholds:
     - trigger:
@@ -118,6 +106,7 @@
         - BulletImpassable
   - type: Explosive
     totalIntensity: 50
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: Destructible
     thresholds:
     - trigger:
@@ -158,6 +147,7 @@
         - BulletImpassable
   - type: Explosive
     totalIntensity: 100
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: Destructible
     thresholds:
     - trigger:
@@ -186,6 +176,7 @@
     state: big
   - type: Explosive
     totalIntensity: 150
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: Destructible
     thresholds:
     - trigger:
@@ -206,6 +197,11 @@
         spawnAfter: 0.5
 
 - type: entity
+  abstract: true
+  parent: [SolutionHuge, BaseMeteor]
+  id: BaseSolutionMeteor
+
+- type: entity
   parent: BaseMeteor
   id: MeteorUrist
   name: Urist McMeteor
@@ -214,15 +210,14 @@
   components:
   - type: Sprite
     state: human_pixel
-  - type: SolutionContainerManager
-    solutions:
-      blood:
-        maxVol: 1000
-        reagents:
-        - ReagentId: Blood
-          Quantity: 1000
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 480
   - type: Explosive
     totalIntensity: 25
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: Destructible
     thresholds:
     - trigger:
@@ -237,7 +232,7 @@
           params:
             volume: 10
       - !type:SpillBehavior
-        solution: blood
+        solution: solution
       - !type:SpawnEntitiesBehavior
         spawn:
           FoodMeatHuman:
@@ -247,7 +242,7 @@
 
 # Cow Meteor
 - type: entity
-  parent: BaseMeteor
+  parent: BaseSolutionMeteor
   id: MeteorCow
   name: Cosmic cow
   description: Moo-ving at relativistic speeds!
@@ -257,13 +252,12 @@
     state: cow_pixel
   - type: Explosive
     totalIntensity: 25
-  - type: SolutionContainerManager
-    solutions:
-      milk:
-        maxVol: 500
-        reagents:
-        - ReagentId: Milk
-          Quantity: 500
+  - type: ExplosionEffect # Funky RMC Explosions
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Milk
+        Quantity: 480
   - type: Destructible
     thresholds:
     - trigger:
@@ -276,7 +270,7 @@
         sound:
           path: /Audio/Animals/cow_moo.ogg
       - !type:SpillBehavior
-        solution: milk
+        solution: solution
       - !type:SpawnEntitiesBehavior
         spawn:
           FoodMeat:
@@ -289,7 +283,7 @@
 
 # Clown Meteor
 - type: entity
-  parent: BaseMeteor
+  parent: BaseSolutionMeteor
   id: MeteorClown
   name: Honksteroid
   description: The final honkening!
@@ -299,13 +293,12 @@
     state: clown_pixel
   - type: Explosive
     totalIntensity: 25
-  - type: SolutionContainerManager
-    solutions:
-      laughter:
-        maxVol: 500
-        reagents:
-        - ReagentId: Laughter
-          Quantity: 500
+  - type: ExplosionEffect # Funky RMC Explosions
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Laughter
+        Quantity: 480
   - type: Destructible
     thresholds:
     - trigger:
@@ -318,7 +311,7 @@
         sound:
           path: /Audio/Items/bikehorn.ogg
       - !type:SpillBehavior
-        solution: laughter
+        solution: solution
       - !type:SpawnEntitiesBehavior
         spawn:
           FoodMeatClown:
@@ -334,7 +327,7 @@
 
 # Potato Meteor
 - type: entity
-  parent: BaseMeteor
+  parent: BaseSolutionMeteor
   id: MeteorPotato
   name: Space potato
   description: A starchy threat from the depths of the space. Contains 200% of your daily sodium intake!
@@ -343,13 +336,12 @@
     state: potato
   - type: Explosive
     totalIntensity: 25
-  - type: SolutionContainerManager
-    solutions:
-      ketchup:
-        maxVol: 100
-        reagents:
-        - ReagentId: Ketchup
-          Quantity: 100
+  - type: ExplosionEffect # Funky RMC Explosions
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Ketchup
+        Quantity: 120
   - type: Destructible
     thresholds:
     - trigger:
@@ -359,7 +351,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:SpillBehavior
-        solution: ketchup
+        solution: solution
       - !type:SpawnEntitiesBehavior
         spawn:
           FoodMealFries:

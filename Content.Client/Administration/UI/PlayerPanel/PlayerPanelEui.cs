@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Administration.Managers;
 using Content.Client.Eui;
 using Content.Shared.Administration;
@@ -14,11 +9,11 @@ using Robust.Client.UserInterface;
 namespace Content.Client.Administration.UI.PlayerPanel;
 
 [UsedImplicitly]
-public sealed class PlayerPanelEui : BaseEui
+public sealed partial class PlayerPanelEui : BaseEui
 {
-    [Dependency] private readonly IClientConsoleHost _console = default!;
-    [Dependency] private readonly IClientAdminManager _admin = default!;
-    [Dependency] private readonly IClipboardManager _clipboard = default!;
+    [Dependency] private IClientConsoleHost _console = default!;
+    [Dependency] private IClientAdminManager _admin = default!;
+    [Dependency] private IClipboardManager _clipboard = default!;
 
     private PlayerPanel PlayerPanel { get; }
 

@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Throwing;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee.Components;
@@ -9,9 +6,9 @@ using Content.Shared.Weapons.Melee.Events;
 namespace Content.Shared.Weapons.Melee;
 
 /// <inheritdoc cref="UseDelayOnMeleeHitComponent"/>
-public sealed class UseDelayOnMeleeHitSystem : EntitySystem
+public sealed partial class UseDelayOnMeleeHitSystem : EntitySystem
 {
-    [Dependency] private readonly UseDelaySystem _delay = default!;
+    [Dependency] private UseDelaySystem _delay = default!;
 
     public override void Initialize()
     {

@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Emp;
 using Content.Shared.SurveillanceCamera.Components;
 using Content.Shared.Verbs;
@@ -9,7 +5,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.SurveillanceCamera;
 
-public abstract class SharedSurveillanceCameraSystem : EntitySystem
+public abstract partial class SharedSurveillanceCameraSystem : EntitySystem
 {
     public override void Initialize()
     {
@@ -72,3 +68,11 @@ public enum SurveillanceCameraVisuals : byte
     Xray,
     Emp
 }
+
+/// <summary>
+/// Raised on a camera entity to find whether it is externally viewed by some entity.
+/// This does not use the actual viewers or monitors camera has and is simply used to see whether the camera is "technically"
+/// being looked through by somebody, such as the Station AI.
+/// </summary>
+[ByRefEvent]
+public record struct SurveillanceCameraGetIsViewedExternallyEvent(bool Viewed = false);

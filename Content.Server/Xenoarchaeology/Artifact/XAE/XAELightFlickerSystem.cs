@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Ghost;
 using Content.Server.Xenoarchaeology.Artifact.XAE.Components;
 using Content.Shared.Light.Components;
@@ -14,24 +10,15 @@ namespace Content.Server.Xenoarchaeology.Artifact.XAE;
 /// <summary>
 /// System for xeno artifact activation effect that flickers light on and off.
 /// </summary>
-public sealed class XAELightFlickerSystem : BaseXAESystem<XAELightFlickerComponent>
+public sealed partial class XAELightFlickerSystem : BaseXAESystem<XAELightFlickerComponent>
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly GhostSystem _ghost = default!;
-
-    private EntityQuery<PoweredLightComponent> _lights;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private GhostSystem _ghost = default!;
+    [Dependency] private EntityQuery<PoweredLightComponent> _poweredLightsQuery = default!;
 
     /// <summary> Pre-allocated and re-used collection.</summary>
     private readonly HashSet<EntityUid> _entities = new();
-
-    /// <inheritdoc />
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        _lights = GetEntityQuery<PoweredLightComponent>();
-    }
 
     /// <inheritdoc />
     protected override void OnActivated(Entity<XAELightFlickerComponent> ent, ref XenoArtifactNodeActivatedEvent args)
@@ -40,7 +27,7 @@ public sealed class XAELightFlickerSystem : BaseXAESystem<XAELightFlickerCompone
         _lookup.GetEntitiesInRange(ent.Owner, ent.Comp.Radius, _entities, LookupFlags.StaticSundries);
         foreach (var light in _entities)
         {
-            if (!_lights.HasComponent(light))
+            if (!_poweredLightsQuery.HasComponent(light))
                 continue;
 
             if (!_random.Prob(ent.Comp.FlickerChance))

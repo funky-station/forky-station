@@ -1,48 +1,15 @@
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 cammusubi <122420207+cammusubi@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
-# SPDX-FileCopyrightText: 2025 Dinner <180707738+DinnerCalzone@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 OneZerooo0 <172208291+OneZerooo0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2026 Ignaz "Ian" Kraft <ignaz.k@live.de>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   abstract: true
-  parent: BaseItem
+  parent: GrenadeBase
   id: ScatteringGrenadeBase
   components:
-  - type: Appearance
   - type: ContainerContainer
     containers:
       cluster-payload: !type:Container
-  - type: Damageable
-    damageContainer: Inorganic
   - type: ScatteringGrenade
-  - type: TriggerOnUse
-  - type: TimerTrigger
-    delay: 3
-  - type: Tag
-    tags:
-    - HandGrenade
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape: !type:PhysShapeCircle
-          radius: 0.2
-        density: 20 # derived from base_item
-        mask:
-        - ItemMask
-        restitution: 0.3
-        friction: 0.2
 
 - type: entity
-  parent: [FragileGrenadeBase, ScatteringGrenadeBase, BaseSecurityContraband]
+  parent: [FragileGrenadeBase, ScatteringGrenadeBase, TimerGrenadeBase, BaseSecurityContraband]
   id: ClusterBang
   name: clusterbang
   description: Can be used only with flashbangs. Explodes several times.
@@ -95,7 +62,7 @@
     positional: true
 
 - type: entity
-  parent: [VolatileGrenadeBase, ScatteringGrenadeBase, BaseSyndicateContraband]
+  parent: [VolatileGrenadeBase, ScatteringGrenadeBase, TimerGrenadeBase, BaseSyndicateContraband]
   id: ClusterGrenade
   name: clustergrenade
   description: Why use one grenade when you can use three at once!
@@ -125,18 +92,20 @@
     price: 2500
 
 - type: entity
-  parent: [FragileGrenadeBase, ScatteringGrenadeBase, BaseSyndicateContraband]
+  parent: [FragileGrenadeBase, ScatteringGrenadeBase, ImpactGrenadeBase, BaseSyndicateContraband]
   id: ClusterBananaPeel
   name: cluster banana peel
   description: Splits into 6 explosive banana peels after throwing, guaranteed fun!
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/banana.rsi
-    state: produce
+    layers:
+    - state: produce
   - type: ScatteringGrenade
     fillPrototype: TrashBananaPeelExplosive
     capacity: 6
     delayBeforeTriggerContents: 20
+    triggerKey: trigger
   - type: LandAtCursor
   - type: DamageOnLand
     damage:
@@ -150,7 +119,7 @@
     positional: true
 
 - type: entity
-  parent: [SoapSyndie, ScatteringGrenadeBase, BaseSyndicateContraband]
+  parent: [SoapSyndie, ScatteringGrenadeBase, ImpactGrenadeBase, BaseSyndicateContraband]
   id: SlipocalypseClusterSoap
   name: slipocalypse clustersoap
   description: Spreads small pieces of syndicate soap over an area upon landing on the floor.
@@ -161,6 +130,7 @@
     - state: syndie-4
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: ScatteringGrenade
+    triggerKey: trigger
     fillPrototype: SoapletSyndie
     capacity: 30
     delayBeforeTriggerContents: 60
@@ -181,7 +151,7 @@
     price: 1000
 
 - type: entity
-  parent: [FragileGrenadeBase, ScatteringGrenadeBase]
+  parent: [FragileGrenadeBase, ScatteringGrenadeBase, TimerGrenadeBase]
   id: GrenadeFoamDart
   name: foam dart grenade
   description: Releases a bothersome spray of foam darts that cause severe welching.

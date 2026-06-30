@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
-# SPDX-License-Identifier: MIT
-
 ## Engineering
 
 # Atmos
@@ -8,3 +5,11 @@
   parent: [ BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
   id: ElectrolyzerMachineCircuitboard
   result: ElectrolyzerMachineCircuitboard
+
+## Service
+
+# Washing machine
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: WashingMachineCircuitboard
+  result: WashingMachineCircuitboard

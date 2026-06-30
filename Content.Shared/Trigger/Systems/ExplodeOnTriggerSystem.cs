@@ -1,16 +1,11 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Trigger.Components.Effects;
 
 namespace Content.Shared.Trigger.Systems;
 
-public sealed class ExplodeOnTriggerSystem : XOnTriggerSystem<ExplodeOnTriggerComponent>
+public sealed partial class ExplodeOnTriggerSystem : XOnTriggerSystem<ExplodeOnTriggerComponent>
 {
-    [Dependency] private readonly SharedExplosionSystem _explosion = default!;
+    [Dependency] private SharedExplosionSystem _explosion = default!;
 
     protected override void OnTrigger(Entity<ExplodeOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
     {
@@ -19,9 +14,9 @@ public sealed class ExplodeOnTriggerSystem : XOnTriggerSystem<ExplodeOnTriggerCo
     }
 }
 
-public sealed class ExplosionOnTriggerSystem : XOnTriggerSystem<ExplosionOnTriggerComponent>
+public sealed partial class ExplosionOnTriggerSystem : XOnTriggerSystem<ExplosionOnTriggerComponent>
 {
-    [Dependency] private readonly SharedExplosionSystem _explosion = default!;
+    [Dependency] private SharedExplosionSystem _explosion = default!;
 
     protected override void OnTrigger(Entity<ExplosionOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
     {

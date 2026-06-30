@@ -1,53 +1,12 @@
-// SPDX-FileCopyrightText: 2019, 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2019 moneyl <8206401+Moneyl@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 nuke <47336974+nuke-makes-games@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Injazz <injazza@gmail.com>
-// SPDX-FileCopyrightText: 2021, 2023, 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021-2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2021 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
-// SPDX-FileCopyrightText: 2021 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 py01 <60152240+collinlunn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022 Sam Weaver <weaversam8@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023, 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Flesh <62557990+PolterTzi@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Adrian16199 <144424013+Adrian16199@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 kin98 <51699101+kin98@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Winkarst-cpu <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-FileCopyrightText: 2025 Jajsha <101492056+Zap527@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Collections.Frozen;
 using System.Linq;
 using Content.Shared.FixedPoint;
 using System.Text.Json.Serialization;
-using Content.Shared.Body.Prototypes;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Contraband;
 using Content.Shared.EntityEffects;
 using Content.Shared.Localizations;
+using Content.Shared.Metabolism;
 using Content.Shared.Nutrition;
 using Content.Shared.Roles;
 using Content.Shared.Slippery;
@@ -56,6 +15,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Generic;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Chemistry.Reagent
@@ -209,8 +169,20 @@ namespace Content.Shared.Chemistry.Reagent
         [DataField]
         public bool WorksOnTheDead;
 
+        /// <summary>
+        /// Funky - How flammable this reagent is. Higher values make it catch fire more easily and burn hotter.
+        /// </summary>
         [DataField]
-        public FrozenDictionary<ProtoId<MetabolismGroupPrototype>, ReagentEffectsEntry>? Metabolisms;
+        public int Flammability;
+
+        /// <summary>
+        /// Funky - If true, this reagent acts as its own oxidizer and can burn in vacuums or oxygen-deprived environments.
+        /// </summary>
+        [DataField]
+        public bool SelfOxidizing;
+
+        [DataField, AlwaysPushInheritance]
+        public ReagentMetabolisms? Metabolisms;
 
         [DataField]
         public Dictionary<ProtoId<ReactiveGroupPrototype>, ReactiveReagentEffectEntry>? ReactiveEffects;
@@ -283,15 +255,14 @@ namespace Content.Shared.Chemistry.Reagent
     {
         public string ReagentPrototype;
 
-        // TODO: Kill Metabolism groups!
-        public Dictionary<ProtoId<MetabolismGroupPrototype>, ReagentEffectsGuideEntry>? GuideEntries;
+        public Dictionary<ProtoId<MetabolismStagePrototype>, ReagentEffectsGuideEntry>? GuideEntries;
 
         public List<string>? PlantMetabolisms = null;
 
         public ReagentGuideEntry(ReagentPrototype proto, IPrototypeManager prototype, IEntitySystemManager entSys)
         {
             ReagentPrototype = proto.ID;
-            GuideEntries = proto.Metabolisms?
+            GuideEntries = proto.Metabolisms?.Metabolisms
                 .Select(x => (x.Key, x.Value.MakeGuideEntry(prototype, entSys, proto)))
                 .ToDictionary(x => x.Key, x => x.Item2);
             if (proto.PlantMetabolisms.Count > 0)
@@ -302,6 +273,12 @@ namespace Content.Shared.Chemistry.Reagent
         }
     }
 
+    [DataDefinition]
+    public sealed partial class ReagentMetabolisms
+    {
+        [IncludeDataField(customTypeSerializer: typeof(DictionarySerializer<ProtoId<MetabolismStagePrototype>, ReagentEffectsEntry>))]
+        public Dictionary<ProtoId<MetabolismStagePrototype>, ReagentEffectsEntry> Metabolisms;
+    }
 
     [DataDefinition]
     public sealed partial class ReagentEffectsEntry
@@ -310,21 +287,27 @@ namespace Content.Shared.Chemistry.Reagent
         ///     Amount of reagent to metabolize, per metabolism cycle.
         /// </summary>
         [JsonPropertyName("rate")]
-        [DataField("metabolismRate")]
+        [DataField]
         public FixedPoint2 MetabolismRate = FixedPoint2.New(0.5f);
 
         /// <summary>
         ///     A list of effects to apply when these reagents are metabolized.
         /// </summary>
         [JsonPropertyName("effects")]
-        [DataField("effects", required: true)]
-        public EntityEffect[] Effects = default!;
+        [DataField]
+        public EntityEffect[] Effects = Array.Empty<EntityEffect>();
+
+        /// <summary>
+        ///     Ratio of this reagent to metabolites for transfer to the next solution by a metabolizer
+        /// </summary>
+        [DataField]
+        public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2>? Metabolites;
 
         public string EntityEffectFormat => "guidebook-reagent-effect-description";
 
         public ReagentEffectsGuideEntry MakeGuideEntry(IPrototypeManager prototype, IEntitySystemManager entSys, ReagentPrototype proto)
         {
-            return new ReagentEffectsGuideEntry(MetabolismRate, proto.GuidebookReagentEffectsDescription(prototype, entSys, Effects, MetabolismRate).ToArray());
+            return new ReagentEffectsGuideEntry(MetabolismRate, proto.GuidebookReagentEffectsDescription(prototype, entSys, Effects, MetabolismRate).ToArray(), Metabolites);
         }
     }
 
@@ -335,10 +318,13 @@ namespace Content.Shared.Chemistry.Reagent
 
         public string[] EffectDescriptions;
 
-        public ReagentEffectsGuideEntry(FixedPoint2 metabolismRate, string[] effectDescriptions)
+        public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2>? Metabolites;
+
+        public ReagentEffectsGuideEntry(FixedPoint2 metabolismRate, string[] effectDescriptions, Dictionary<ProtoId<ReagentPrototype>, FixedPoint2>? metabolites)
         {
             MetabolismRate = metabolismRate;
             EffectDescriptions = effectDescriptions;
+            Metabolites = metabolites;
         }
     }
 

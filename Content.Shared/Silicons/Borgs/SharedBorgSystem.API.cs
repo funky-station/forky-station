@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Whitelist;
@@ -239,6 +234,16 @@ public abstract partial class SharedBorgSystem
                     return false;
                 }
             }
+        }
+
+        var attemptEv = new BorgModuleInsertAttemptEvent(module.Owner, chassis.Owner);
+        RaiseLocalEvent(chassis, ref attemptEv);
+        RaiseLocalEvent(module, ref attemptEv);
+
+        if (attemptEv.Cancelled)
+        {
+            _popup.PopupClient(attemptEv.Reason, chassis.Owner, user);
+            return false;
         }
 
         return true;

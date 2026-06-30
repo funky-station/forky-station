@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Token <56667933+TokenStyle@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Item.ItemToggle.Components;
 
 namespace Content.Shared.Item.ItemToggle;
@@ -8,9 +5,9 @@ namespace Content.Shared.Item.ItemToggle;
 /// <summary>
 /// On toggle handles the changes to ItemComponent.HeldPrefix. <see cref="ItemTogglePrefixComponent"/>.
 /// </summary>
-public sealed class ItemTogglePrefixSystem : EntitySystem
+public sealed partial class ItemTogglePrefixSystem : EntitySystem
 {
-    [Dependency] private readonly SharedItemSystem _item = default!;
+    [Dependency] private SharedItemSystem _item = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

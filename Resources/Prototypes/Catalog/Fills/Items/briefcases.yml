@@ -1,18 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Zymem <97173622+Zymem@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 JoeHammad1844 <130668733+JoeHammad1844@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Agoichi <92464780+Agoichi@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SnappingOpossum <snappingopossum@outlook.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: BriefcaseBrownFilled
   parent: BriefcaseBrown
@@ -26,15 +11,9 @@
 
 - type: entity
   id: BriefcaseSyndieSniperBundleFilled
-  parent: BriefcaseSyndie
+  parent: BriefcaseBrown
   suffix: Syndicate, Sniper Bundle
   components:
-  - type: Item
-    size: Ginormous
-  - type: Storage
-    maxItemSize: Huge
-    grid:
-    - 0,0,6,3
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
@@ -55,16 +34,15 @@
     containers:
       storagebase: !type:AllSelector
         children:
+        - id: ClothingOuterCoatJensenSyndie
+        - id: ClothingUniformJumpsuitTacticool
         - id: ClothingEyesGlassesSunglasses
         - id: SpaceCash30000
         - id: EncryptionKeySyndie
         - id: RubberStampTrader
         - id: PhoneInstrumentSyndicate
-        - id: ClothingUniformJumpsuitTacticool
-        - id: ClothingOuterCoatJensen
         - id: ClothingHandsGlovesCombat
         - id: ClothingMaskNeckGaiter
-        - id: SyndieHandyFlag
 
 - type: entity
   id: BriefcaseThiefBribingBundleFilled
@@ -75,7 +53,52 @@
     containers:
       storagebase: !type:AllSelector
         children:
+        - id: ClothingOuterCoatJensen
         - id: ClothingEyesGlassesSunglasses
         - id: SpaceCash20000
-        - id: ClothingOuterCoatJensen
         - id: ClothingHandsGlovesColorBlack
+
+- type: entity
+  id: BriefcaseWeaponHushpupFilled
+  parent: BriefcaseWeaponSmall
+  name: secure hushpup case
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponShotgunHushpup
+        - id: TreasureCoinIron
+
+- type: entity
+  id: BriefcaseWeaponC20Filled
+  parent: BriefcaseWeaponSmall
+  name: secure C-20r case
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: WeaponSubMachineGunC20r
+
+- type: entity
+  id: BriefcaseWeaponBulldogFilled
+  parent: BriefcaseWeaponSmall
+  name: secure bulldog case
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: WeaponShotgunBulldog
+
+- type: entity
+  id: BriefcaseWeaponChinaLakeFilled
+  parent: BriefcaseWeapon
+  name: secure china lake case
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponLauncherChinaLake
+        - id: GrenadeFrag
+          amount: 2

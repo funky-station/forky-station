@@ -27,14 +27,14 @@ namespace Content.Server.BloodCult.EntitySystems;
 /// Handles setting up the final Blood Cult summoning ritual site.
 /// Finds a valid 3x3 space near a departmental beacon, replaces flooring, and spawns the rift with runes.
 /// </summary>
-public sealed class BloodCultRiftSetupSystem : EntitySystem
+public sealed partial class BloodCultRiftSetupSystem : EntitySystem
 {
-	[Dependency] private readonly IRobustRandom _random = default!;
-	[Dependency] private readonly MapSystem _mapSystem = default!;
-	[Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
-	[Dependency] private readonly AtmosphereSystem _atmosphere = default!;
-	[Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-	[Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+	[Dependency] private IRobustRandom _random = default!;
+	[Dependency] private MapSystem _mapSystem = default!;
+	[Dependency] private ITileDefinitionManager _tileDefManager = default!;
+	[Dependency] private AtmosphereSystem _atmosphere = default!;
+	[Dependency] private SharedTransformSystem _transformSystem = default!;
+	[Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
 
 	//Arbitrary values for safe temperature and pressure ranges.
 	//If the location is outside these ranges, it'll fallback to a different site selection logic for the blood anomaly.
@@ -182,7 +182,7 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 		gridUid = EntityUid.Invalid;
 		grid = default!;
 
-		if (EntityManager.TryGetComponent<MapGridComponent>(coords.EntityId, out var directGrid) && directGrid != null)
+		if (TryComp<MapGridComponent>(coords.EntityId, out var directGrid) && directGrid != null)
 		{
 			gridUid = coords.EntityId;
 			grid = directGrid;
@@ -193,7 +193,7 @@ public sealed class BloodCultRiftSetupSystem : EntitySystem
 		if (resolvedGrid is not { } gridEntity)
 			return false;
 
-		if (!EntityManager.TryGetComponent<MapGridComponent>(gridEntity, out var resolvedComp) || resolvedComp == null)
+		if (!TryComp<MapGridComponent>(gridEntity, out var resolvedComp) || resolvedComp == null)
 			return false;
 
 		gridUid = gridEntity;
@@ -330,7 +330,7 @@ private bool TryFindValid3x3Space(EntityCoordinates center, out EntityCoordinate
 					// Safety check, never delete a player.
 					if (TryComp<MindContainerComponent>(entity, out var mind) && mind.Mind != null)
 						continue;
-					
+
 					// Destroy walls and other blockers so it doesn't spawn inside a wall.
 					if (TryComp<PhysicsComponent>(entity, out var physics))
 					{
@@ -348,7 +348,7 @@ private bool TryFindValid3x3Space(EntityCoordinates center, out EntityCoordinate
 		var centerTile = _mapSystem.TileIndicesFor(gridUid, grid, center);
 
 		// Replace 3x3 area with reinforced exterior hull flooring (centered around the rift position)
-		// Todo: Get a cooler looking bloodcult floor tile. 
+		// Todo: Get a cooler looking bloodcult floor tile.
 		// I just want to make sure they can't de-grid the anomaly because that'd break the code. And it needs to have adjacent tiles open because it needs those for offering runes to work.
 		var reinforcedTileDef = (ContentTileDefinition)_tileDefManager["FloorHullReinforced"];
 		var reinforcedTile = new Tile(reinforcedTileDef.TileId);

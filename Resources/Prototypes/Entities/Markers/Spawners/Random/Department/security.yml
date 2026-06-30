@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   name: security loot spawner
   suffix: Gear, Simple
@@ -43,8 +39,6 @@
         - BoxHandcuff
         - BoxFlashbang
         - TearGasGrenade
-        - WeaponDisabler
-        - Stunbaton
       rareChance: 0.05
       prototypes:
         - Flash
@@ -55,7 +49,7 @@
         - SecurityWhistle
         - Tourniquet
       chance: 0.85
- 
+
 # Armory loot spawner
 # Automatics are a complete mess right now, so the AK-MS And WT-550 have been commented out for consistency's sake. I have no idea what role these guns are supposed to fufill.
 - type: entity
@@ -87,7 +81,6 @@
         - ClothingOuterArmorRiot
         - ClothingOuterArmorBulletproof
 #        - WeaponSubMachineGunWt550
-        - WeaponDisabler
         - WeaponPistolMk58
         - WeaponRifleLecter
         - WeaponSubMachineGunDrozd
@@ -114,7 +107,6 @@
       rareChance: 0.05
       prototypes:
 #        - WeaponSubMachineGunWt550
-        - WeaponDisabler
         - WeaponPistolMk58
         - WeaponRifleLecter
         - WeaponSubMachineGunDrozd

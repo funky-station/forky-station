@@ -1,22 +1,3 @@
-# SPDX-FileCopyrightText: 2020-2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2021 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rinkashikachi <15rinkashikachi15@gmail.com>
-# SPDX-FileCopyrightText: 2022 ShuttleEnjoyer <100040020+youarereadingthis@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 youarereadingthis <100040020+youarereadingthis@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-# SPDX-FileCopyrightText: 2023 Puro <103608145+PuroSlavKing@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2024 pigeonpeas <147350443+pigeonpeas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Hitlinemoss <209321380+Hitlinemoss@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SnappingOpossum <snappingopossum@outlook.com>
-# SPDX-FileCopyrightText: 2025 Vladislav Suchkov <20380250+murolem@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: CrateEngineeringSecure
   id: CrateEngineeringAMEShielding
@@ -50,7 +31,7 @@
   - type: EntityTableContainerFill
     containers:
       entity_storage:
-        id: AmeControllerUnanchored
+        id: AmeControllerFlatpack
 
 # Singularity
 
@@ -132,17 +113,6 @@
 #    containers:
 #      entity_storage:
 #        id: Singularity
-
-- type: entity
-  parent: CrateEngineering
-  id: CrateEngineeringGenerator
-  name:  generator crate
-  suffix: DEBUG
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage:
-        id: DebugGenerator # TODO change to flatpack
 
 - type: entity
   parent: CrateEngineering
