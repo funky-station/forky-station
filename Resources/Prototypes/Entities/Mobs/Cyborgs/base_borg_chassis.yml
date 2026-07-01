@@ -253,6 +253,7 @@
     requiredMobState:
     - Critical
     - Dead
+  - type: IntercomOnlyBypass
 
 - type: entity
   abstract: true
@@ -337,6 +338,7 @@
   - type: InteractionPopup
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: IntercomOnlyBypass
 
 - type: entity
   id: BaseBorgChassisSyndicate
