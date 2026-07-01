@@ -476,6 +476,7 @@
     mindRoles:
     - MindRoleGhostRoleSilicon
     job: StationAi
+  - type: IntercomOnlyBypass
 
 # Hologram projection that the AI's eye tracks.
 - type: entity

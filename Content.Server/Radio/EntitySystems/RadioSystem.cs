@@ -142,6 +142,15 @@ public sealed partial class RadioSystem : EntitySystem
             if (attemptEv.Cancelled)
                 continue;
 
+            // check if the sender is using their headset and if the sender can send it using their headset
+            if (channel.IntercomOnly)
+            {
+                var parent = Transform(radioSource).ParentUid;
+
+                if (!HasComp<IntercomComponent>(radioSource) && !(HasComp<IntercomOnlyBypassComponent>(radioSource) || HasComp<IntercomOnlyBypassComponent>(parent)))
+                    continue;
+            }
+
             // send the message
             RaiseLocalEvent(receiver, ref ev);
         }
