@@ -1,1 +1,1 @@
-station-beacon-supply = Logistics
+station-beacon-logistics = Logistics
