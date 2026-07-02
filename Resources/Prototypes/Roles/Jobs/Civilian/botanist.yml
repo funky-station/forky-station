@@ -5,14 +5,15 @@
   playTimeTracker: JobBotanist
   startingGear: BotanistGear
   icon: "JobIconBotanist"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-qm
   access:
-  - Service
+  #- Service # Funky - No longer part of Service
+  - Cargo # Funky - Now in Logistics
   - Maintenance
   - Hydroponics
-  extendedAccess:
-  - Kitchen
-  - Bar
+  #extendedAccess: # Funky - These jobs are no longer in their department
+  #- Kitchen
+  #- Bar
   special:
   - !type:GiveItemOnHolidaySpecial
     holiday: FourTwenty
@@ -23,7 +24,8 @@
   equipment:
     shoes: ClothingShoesColorBrown
     id: BotanistPDA
-    ears: ClothingHeadsetService
+    #ears: ClothingHeadsetService # Funky - No longer part of Service
+    ears: ClothingHeadsetCargo # Funky - Now part of Logistics
     belt: ClothingBeltPlantFilled
   #storage:
     #back:
