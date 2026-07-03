@@ -122,6 +122,10 @@
     available:
       - skin:
           cheap_icon_base: Rainbow
+  - type: CheapLighter
+    failChance: 0.4
+    soundFail:
+      collection: lighterFailSounds
   - type: Welder
     fuelConsumption: 0.02
     fuelLitCost: 0.2
@@ -142,6 +146,10 @@
       visible: false
       shader: unshaded
       map: [ "flame" ]
+  - type: CheapLighter
+    failChance: 0.5
+    soundFail:
+      collection: lighterFailSounds
   - type: Welder # the single worst lighter invented by mankind
     fuelConsumption: 0.4
     fuelLitCost: 0.2
