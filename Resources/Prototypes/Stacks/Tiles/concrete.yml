@@ -2,7 +2,7 @@
   parent: BaseTileStack
   id: FloorTileConcrete
   name: stack-concrete-tile
-  spawn: FloorTileItemGrayConcrete
+  spawn: FloorTileItemConcrete
 
 - type: stack
   parent: BaseTileStack

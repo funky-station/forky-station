@@ -3,6 +3,7 @@
   parent: [BaseItem, BaseSecurityContraband]
   id: Stunbaton
   description: A stun baton for incapacitating people with. Actively harming with this is considered bad tone.
+  categories: [ DoNotMap ]
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/stunbaton.rsi
@@ -71,18 +72,18 @@
   - type: StaticPrice
     price: 80
   - type: Riggable
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      battery:
-        maxVol: 5
+    - SolutionRiggable
   - type: InjectableSolution
     solution: battery
   - type: DrawableSolution
     solution: battery
   - type: Explosive
-    explosionType: Default
+    explosionType: Transparent # Funky RMC Explosions
     intensitySlope: 1.5
     maxIntensity: 200
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
@@ -145,6 +146,7 @@
         visible: false
         shader: unshaded
     - type: Flash
+    - type: RevolutionaryConverter
     - type: LimitedCharges
       maxCharges: 5
     - type: MeleeWeapon

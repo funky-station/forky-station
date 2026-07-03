@@ -3,41 +3,20 @@
 # Sorting by path instead of by who added it one day :(
 # this isn't how codeowners rules work pls read the first comment instead of trying to force a sorting order
 
-/Resources/ConfigPresets/WizardsDen/  @crazybrain23
-/Content.*/Administration/ @DrSmugleaf @crazybrain23
-/Resources/ServerInfo/ @crazybrain23
-/Resources/ServerInfo/Guidebook/ServerRules/ @crazybrain23
+# taydeo
+/Content.*/_Funkystation/ @taydeo
 
-/Resources/Prototypes/Maps/** @Emisse @ArtisticRoomba @spanky-spanky
-/Resources/Maps/** @Emisse @ArtisticRoomba @spanky-spanky
+# maps
+/Resources/Maps/ @willowzeta
 
-/Resources/Prototypes/Body/ @DrSmugleaf @sowelipililimute # suffering
-/Resources/Prototypes/Entities/Mobs/Player/ @DrSmugleaf
-/Resources/Prototypes/Entities/Mobs/Species/ @DrSmugleaf
-/Resources/Prototypes/Guidebook/rules.yml @crazybrain23
-/Content.*/Body/ @DrSmugleaf @sowelipililimute
-/Content.*/Humanoid/ @sowelipililimute
-/Content.Client/Lobby/UI/Humanoid* @sowelipililimute
-/Content.YAMLLinter @DrSmugleaf
-/Content.Shared/Damage/ @DrSmugleaf
+# audio
+/Resources/Audio/ @vectorassembly
 
-/Content.*/Anomaly/ @TheShuEd
-/Resources/Prototypes/Entities/Structures/Specific/anomalies.yml @TheShuEd
+# textures
+/Resources/Textures/ @Teasq
 
-/Content.*/Forensics/ @ficcialfaint
+# rules
+/Resources/ServerInfo/ @salpphie @Huhm-1
 
-/Content.*/Trigger/ @slarticodefast
-
-/Content.*/Stunnable/ @Princess-Cheeseballs
-/Content.*/Nutrition/ @Princess-Cheeseballs
-/Content.*/EntityEffects @Princess-Cheeseballs @sowelipililimute
-
-# SKREEEE
-/Content.*.Database/ @PJB3005 @DrSmugleaf
-/Content.Shared.Database/Log*.cs @PJB3005 @DrSmugleaf @crazybrain23
-/Pow3r/ @PJB3005
-/Content.Server/Power/Pow3r/ @PJB3005
-
-/Content.Server/Discord/ @Simyon264
-
-/Content.*/Atmos/** @ArtisticRoomba
+# github
+/.github/ @taydeo @Komonighub

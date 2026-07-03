@@ -212,12 +212,12 @@
   id: FillWardrobeBotanist
   table: !type:AllSelector
     children:
-    - id: ClothingUniformJumpsuitHydroponics
+    - id: FuClothingUniformShirtPantstHydroponics #Funky botany uniforms
     - id: ClothingBackpackHydroponics
     - id: ClothingShoesColorBrown
     - id: ClothingOuterApronBotanist
     - id: ClothingUniformJumpskirtHydroponics
-    - id: ClothingUniformOveralls
+    - id: FuClothingUniformShirtPantstHydroponicsOveralls #Funky botany uniforms
     - id: ClothingHeadHatTrucker #the hat itself is a subtle joke
       prob: 0.15
     - id: ClothingHandsGlovesLeather

@@ -18,10 +18,10 @@ namespace Content.Server.Administration.Systems;
 
 public sealed partial class AdminVerbSystem
 {
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly ZombieSystem _zombie = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly OutfitSystem _outfit = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private ZombieSystem _zombie = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private OutfitSystem _outfit = default!;
 
     private static readonly EntProtoId DefaultTraitorRule = "Traitor";
     private static readonly EntProtoId DefaultInitialInfectedRule = "Zombie";
@@ -32,7 +32,7 @@ public sealed partial class AdminVerbSystem
     private static readonly EntProtoId ParadoxCloneRuleId = "ParadoxCloneSpawn";
     private static readonly EntProtoId DefaultWizardRule = "Wizard";
     private static readonly EntProtoId DefaultNinjaRule = "NinjaSpawn";
-    private static readonly EntProtoId DefaultBloodCultRule = "BloodCult"; // funkystation
+    // private static readonly EntProtoId DefaultBloodCultRule = "BloodCult"; // funkystation - disabled
     private static readonly ProtoId<StartingGearPrototype> PirateGearId = "PirateGear";
 
     // All antag verbs have names so invokeverb works.
@@ -228,20 +228,20 @@ public sealed partial class AdminVerbSystem
             args.Verbs.Add(paradox);
 
         // begin funkystation
-        var bloodCultName = Loc.GetString("admin-verb-text-make-bloodcult");
-        Verb bloodCult = new()
-        {
-            Text = bloodCultName,
-            Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Structures/BloodCult/bloodrune.rsi"), "offering-icon"),
-            Act = () =>
-            {
-                _antag.ForceMakeAntag<BloodCultRuleComponent>(targetPlayer, DefaultBloodCultRule);
-            },
-            Impact = LogImpact.High,
-            Message = string.Join(": ", bloodCultName, Loc.GetString("admin-verb-make-bloodcult")),
-        };
-        args.Verbs.Add(bloodCult);
+        // var bloodCultName = Loc.GetString("admin-verb-text-make-bloodcult");
+        // Verb bloodCult = new()
+        // {
+        //     Text = bloodCultName,
+        //     Category = VerbCategory.Antag,
+        //     Icon = new SpriteSpecifier.Rsi(new("/Textures/Structures/BloodCult/bloodrune.rsi"), "offering-icon"),
+        //     Act = () =>
+        //     {
+        //         _antag.ForceMakeAntag<BloodCultRuleComponent>(targetPlayer, DefaultBloodCultRule);
+        //     },
+        //     Impact = LogImpact.High,
+        //     Message = string.Join(": ", bloodCultName, Loc.GetString("admin-verb-make-bloodcult")),
+        // };
+        // args.Verbs.Add(bloodCult);
         // end funkystation
     }
 }
