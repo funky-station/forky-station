@@ -4,7 +4,7 @@
   defaultStyle: plain
   styles:
     plain: CardboardBoxLarge
-    hazard: CardboardBoxLargeHazard
-    restock: CardboardBoxLargeRestock
-    weh: CardboardBoxLargeWeh
-    internals: CardboardBoxLargeInternals
+#    hazard: CardboardBoxLargeHazard
+#    restock: CardboardBoxLargeRestock
+#    weh: CardboardBoxLargeWeh
+#    internals: CardboardBoxLargeInternals
