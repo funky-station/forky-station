@@ -19,6 +19,7 @@
     damageContainer: Inorganic
   - type: Appearance
   - type: AnimationPlayer
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: Tag
     tags:
     - HandGrenade

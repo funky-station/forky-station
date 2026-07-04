@@ -21,3 +21,15 @@ spray-painter-style-cardboard-hazard = Hazard
 spray-painter-style-cardboard-restock = Restock
 spray-painter-style-cardboard-weh = Weh
 spray-painter-style-cardboard-internals = Internals
+
+# Airlocks
+spray-painter-style-airlockstandard-maintenance-engi = Maintenance [Engineering]
+spray-painter-style-airlockstandard-maintenance-atmo = Maintenance [Atmospherics]
+spray-painter-style-airlockstandard-maintenance-service = Maintenance [Service]
+spray-painter-style-airlockstandard-maintenance-hydro = Maintenance [Hydroponics]
+spray-painter-style-airlockstandard-maintenance-med = Maintenance [Medical]
+spray-painter-style-airlockstandard-maintenance-chem = Maintenance [Chemistry]
+spray-painter-style-airlockstandard-maintenance-rnd = Maintenance [Science]
+spray-painter-style-airlockstandard-maintenance-sec = Maintenance [Security]
+spray-painter-style-airlockstandard-maintenance-cargo = Maintenance [Cargo]
+spray-painter-style-airlockstandard-maintenance-command = Maintenance [Command]

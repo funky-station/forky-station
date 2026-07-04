@@ -139,7 +139,6 @@
       - Screwdriver # Funky Start
       - Powerdrill
       - Rag # Funky End
-      components:
       - LightReplacer
       - CleanerGrenade
   - type: ItemMapper

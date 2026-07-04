@@ -19,11 +19,12 @@
     - state: fireball
       shader: unshaded
   - type: Explosive
-    explosionType: Default
+    explosionType: Transparent # Funky RMC Explosions
     maxIntensity: 40
     intensitySlope: 6
     totalIntensity: 200
     maxTileBreak: 0
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: IgnitionSource
     temperature: 400
     ignited: true
@@ -60,6 +61,7 @@
     canCreateVacuum: false
     deleteAfterExplosion: false
     repeatable: true
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: TimedDespawn
     lifetime: 5
 
@@ -78,6 +80,7 @@
     intensitySlope: 0.1
     totalIntensity: 0.3
     maxTileBreak: 0
+  - type: ExplosionEffect # Funky RMC Explosions
 
 - type: entity
   id: ProjectileLocker

@@ -269,6 +269,7 @@
     intensitySlope: 5
     maxIntensity: 5
     canCreateVacuum: false
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: ExplodeOnTrigger
   - type: Construction
     graph: DetCable

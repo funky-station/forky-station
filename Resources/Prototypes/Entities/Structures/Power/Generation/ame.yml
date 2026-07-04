@@ -59,9 +59,10 @@
       lockedFailPopup: ame-controller-component-fuel-slot-fail-locked
       insertSuccessPopup: ame-controller-component-fuel-slot-success-insert
   - type: Explosive
-    explosionType: Default
+    explosionType: Transparent # Funky RMC Explosions
     intensitySlope: 5
     maxIntensity: 60
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: ActivatableUI
     key: enum.AmeControllerUiKey.Key
   - type: UserInterface
