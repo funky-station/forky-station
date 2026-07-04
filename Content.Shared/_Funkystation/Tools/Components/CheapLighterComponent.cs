@@ -18,11 +18,5 @@ public sealed partial class CheapLighterComponent : Component
     [DataField]
     public float FailChance = 0f;
 
-    /// <summary>
-    /// The sound the lighter will play when it fails to light.
-    /// </summary>
-    [DataField]
-    public SoundSpecifier? SoundFail;
-
     public EntityUid? AudioStream;
 }
