@@ -44,11 +44,12 @@
   - type: TriggerOnEmptyGunshot
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: Default
+    explosionType: Transparent # Funky RMC Explosions
     maxIntensity: 10
     intensitySlope: 1.5
     totalIntensity: 30
     canCreateVacuum: false
+  - type: ExplosionEffect # Funky RMC Explosions
 
 - type: entity
   parent: BaseWeaponBallisticTurret

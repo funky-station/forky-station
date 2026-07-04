@@ -75,3 +75,9 @@
   background: /Textures/LobbyScreens/reclaimer-nuke.webp
   title: lobby-state-background-reclaimernuke-title
   artist: lobby-state-background-reclaimernuke-artist
+
+- type: lobbyBackground
+  id: StationIsAFuck
+  background: /Textures/LobbyScreens/stationisafuck.webp
+  title: lobby-state-background-stationisafuck-title
+  artist: lobby-state-background-stationisafuck-artist

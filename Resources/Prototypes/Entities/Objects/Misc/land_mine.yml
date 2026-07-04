@@ -107,11 +107,12 @@
   components:
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: Default
+    explosionType: Transparent # Funky RMC Explosions
     maxIntensity: 10
     intensitySlope: 3
     totalIntensity: 120 # about a ~4 tile radius
     canCreateVacuum: false
+  - type: ExplosionEffect # Funky RMC Explosions
 
 - type: entity
   suffix: armed

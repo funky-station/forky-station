@@ -1,0 +1,19 @@
+- files: ["rhythmandbluespt9.ogg", "vomitsuitemaster.ogg"]
+  license: "Custom"
+  copyright: "By DECEMBER 7TH SOUND TEAM. DECEMBER 7TH has stated in a Tumblr post (https://1207cbc.tumblr.com/post/775082009484754944/is-the-swollen-to-bursting-ost-copyrighted-in-the) that \"[t]he ost is free to use in anything except lame things\". The audio file for \"Rhythm and Blues Pt. 9\" was converted from FLAC to OGG."
+  source: "https://december7cbc.bandcamp.com/album/take-care-of-yourself"
+
+- files: ["dagd.ogg"]
+  license: "CC-BY-NC-SA-4.0"
+  copyright: "D.A.G.D by vectorassembly, a funky exclusive"
+  source: "https://vectorassembly.org"
+
+- files: ["meltdown.ogg"]
+  license: "CC-BY-NC-SA-4.0"
+  copyright: "M for Meltdown by vectorassembly"
+  source: "https://vectorassembly.org"
+
+- files: ["an_alien_song_alien_kids.ogg","the_great_message_alien_kids.ogg"]
+  license: "Custom"
+  copyright: "Alien Kids Rap by Gerald Jay Markoe, published by Creative Kids Production"
+  source: "https://www.youtube.com/playlist?list=PLhOMLRaahGFyA-vQ2shltSmvMJBVeMhYs"
