@@ -26,10 +26,9 @@
   - type: CheapLighter
     soundActivate:
       path: /Audio/_Funkystation/Items/Lighters/zippo_help4_open.ogg
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 9
-        maxVol: 11
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 9
+      maxVol: 11
