@@ -1,4 +1,4 @@
-job-name=cci = Central Command Intern
+job-name-cci = Central Command Intern
 job-name-cco = Central Command Official
 job-name-cl = Corporate Liaison
 job-name-command-maid = Command Maid

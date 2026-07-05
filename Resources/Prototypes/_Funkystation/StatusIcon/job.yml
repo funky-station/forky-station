@@ -113,7 +113,7 @@
   icon:
     sprite: *icon-rsi
     state: PartyMaker
-  jobName: job-name-party-maker-icon
+  jobName: job-name-party-maker
 
 - type: jobIcon
   parent: JobIcon
