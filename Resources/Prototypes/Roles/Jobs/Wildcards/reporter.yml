@@ -5,9 +5,9 @@
   playTimeTracker: JobReporter
   startingGear: ReporterGear
   icon: "JobIconReporter"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-audience # Funky - Now a contracted Civilian job
   access:
-  - Service
+  - Service # Funky - No longer a part of Service, but at the moment they do not have their own access type. So they get to keep this in the meantime so they can walk into their own office. TODO: Add Newsroom access.
   - Maintenance
 
 - type: startingGear
@@ -15,7 +15,8 @@
   equipment:
     shoes: ClothingShoesColorWhite
     id: ReporterPDA
-    ears: ClothingHeadsetService
+    #ears: ClothingHeadsetService
+    ears: ClothingHeadsetGrey # Funky - No longer a part of Service
   #storage:
     #back:
     #- Stuff

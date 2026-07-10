@@ -22,13 +22,13 @@
   #- Chef
   #- Clown
   #- HeadOfPersonnel
-  - Janitor
+  #- Janitor
   - Lawyer
   #- Librarian
   #- Mime
   #- Musician
   - Passenger
-  #- Reporter
+  - Reporter
   - Visitor
   #- ServiceWorker
 
