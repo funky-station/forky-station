@@ -7,8 +7,7 @@
     ClothingShoesColorBlack: 2
     ClothingHeadHatPurplesoft: 2
     ClothingBeltJanitor: 2
-    #ClothingHeadsetService: 2 # Funky - No longer part of Service
-    ClothingHeadsetGrey: 2 # Funky - Now part of Civilian
+    ClothingHeadsetService: 2
     ClothingOuterWinterJani: 2
     ClothingNeckScarfStripedPurple: 3
   contrabandInventory:

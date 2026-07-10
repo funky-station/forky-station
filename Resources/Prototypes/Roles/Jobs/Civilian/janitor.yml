@@ -5,9 +5,9 @@
   playTimeTracker: JobJanitor
   startingGear: JanitorGear
   icon: "JobIconJanitor"
-  supervisors: job-supervisors-everyone # Funky - No longer a part of Service
+  supervisors: job-supervisors-hop
   access:
-  #- Service # Funky - No longer part of Service
+  - Service
   - Janitor
   - Maintenance
   special:
@@ -20,8 +20,7 @@
   equipment:
     shoes: ClothingShoesGaloshes
     id: JanitorPDA
-    #ears: ClothingHeadsetService # Funky - No longer part of Service
-    ears: ClothingHeadsetGrey # Funky - Now part of Civilian
+    ears: ClothingHeadsetService
     belt: ClothingBeltJanitorFilled
   #storage:
     #back:
