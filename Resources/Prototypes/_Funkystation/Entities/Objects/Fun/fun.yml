@@ -1,6 +1,6 @@
 - type: entity
   id: BoxFunBoxing
-  parent: CardboardBoxLarge
+  parent: CardboardBoxLargeService
   name: boxing box
   description: Want to set up an underground fight club or host a tournament amongst station crew? This order is for you!
   components:
