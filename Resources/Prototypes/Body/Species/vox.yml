@@ -256,6 +256,7 @@
       types:
         Slash: 5 # Reduce?
   - type: Wagging
+  - type: TailDuoEmote # Funky Change
 
 - type: entity
   parent: OrganBaseOrganic

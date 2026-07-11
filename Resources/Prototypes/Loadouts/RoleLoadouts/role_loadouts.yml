@@ -298,7 +298,8 @@
   id: JobTechnicalAssistant
   groups:
   - GroupTankHarness
-  - TechnicalAssistantJumpsuit
+  - FuTechnicalAssistantHead
+  - FuTechnicalAssistantUniform
   - StationEngineerBackpack
   - SurvivalExtended
   - Trinkets
@@ -310,8 +311,8 @@
   id: JobStationEngineer
   groups:
   - GroupTankHarness
-  - StationEngineerHead
-  - StationEngineerJumpsuit
+  - FuStationEngineerHead # funky
+  - FuStationEngineerUniform # funky
   - StationEngineerBackpack
   - StationEngineerOuterClothing
   - StationEngineerShoes

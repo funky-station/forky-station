@@ -1702,6 +1702,8 @@
         Blunt: 1
     clumsySound:
       path: /Audio/Animals/monkey_scream.ogg
+  - type: DuoEmote # Funky Change
+  - type: TailDuoEmote # Funky Change
 
 
 - type: entity
@@ -1879,6 +1881,8 @@
         Blunt: 1
     clumsySound:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
+  - type: DuoEmote # Funky Change
+  - type: TailDuoEmote # Funky Change
 
 - type: entity
   id: MobBaseSyndicateKobold

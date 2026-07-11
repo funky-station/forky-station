@@ -211,6 +211,7 @@
     sprite:
       sprite: Effects/creampie.rsi
       state: creampie_vulpkanin
+  - type: TailDuoEmote # Funky Change
 
 - type: entity
   parent: OrganBaseOrganic
