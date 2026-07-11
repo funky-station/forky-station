@@ -7,8 +7,9 @@
   icon: "JobIconReporter"
   supervisors: job-supervisors-audience # Funky - Now a contracted Civilian job
   access:
-  - Service # Funky - No longer a part of Service, but at the moment they do not have their own access type. So they get to keep this in the meantime so they can walk into their own office. TODO: Add Newsroom access.
+  #- Service # Funky - No longer a part of Service
   - Maintenance
+  - Newsroom # Funky
 
 - type: startingGear
   id: ReporterGear
