@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseStructure
   id: BoxShelf
-  name: shelf
+  name: box shelf
   description: A shelf for storing boxes.
   components:
   - type: MeleeSound
@@ -14,10 +14,9 @@
   - type: Sprite
     sprite: _Funkystation/Structures/Furniture/boxshelf.rsi
     state: boxshelf
-    snapCardinals: true
   - type: Appearance
   - type: Occluder
-    boundingBox: -0.4, -0.4, 0.4, 0.4
+    boundingBox: -0.45, -0.45, 0.45, 0.45
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -116,3 +115,6 @@
           tags:
           - CardboardboxLarge
     sprite: _Funkystation/Structures/Furniture/boxshelf.rsi
+  - type: Construction
+    graph: BoxShelf
+    node: boxshelf
