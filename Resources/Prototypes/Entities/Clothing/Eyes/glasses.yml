@@ -59,9 +59,9 @@
   description: Nanotrasen-issue engineering goggles that utilize THz radiation and mesons to reveal sub-floor infrastructure, while protecting the eyes from sparks and debris.
   components:
   - type: Sprite
-    sprite: Clothing/Eyes/Glasses/meson.rsi
+    sprite: _Funkystation/Clothing/Eyes/Glasses/meson.rsi
   - type: Clothing
-    sprite: Clothing/Eyes/Glasses/meson.rsi
+    sprite: _Funkystation/Clothing/Eyes/Glasses/meson.rsi
   - type: IdentityBlocker
     coverage: EYES
   - type: Tag

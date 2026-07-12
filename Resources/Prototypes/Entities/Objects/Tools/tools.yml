@@ -102,12 +102,12 @@
     tags:
     - Wrench
   - type: Sprite
-    sprite: Objects/Tools/wrench.rsi
+    sprite: _Funkystation/Objects/Tools/wrench.rsi
     state: icon
   - type: Item
-    sprite: Objects/Tools/wrench.rsi
+    sprite: _Funkystation/Objects/Tools/wrench.rsi
     storedSprite:
-      sprite: Objects/Tools/wrench.rsi
+      sprite: _Funkystation/Objects/Tools/wrench.rsi
       state: storage
   - type: MeleeWeapon
     wideAnimationRotation: 135
@@ -141,7 +141,7 @@
     sound:
       path: /Audio/Items/multitool_drop.ogg
   - type: Sprite
-    sprite: Objects/Tools/multitool.rsi
+    sprite: _Funkystation/Objects/Tools/multitool.rsi
     layers:
     - state: icon
     - state: green-unlit
@@ -149,7 +149,7 @@
   - type: Item
     size: Small
   - type: Clothing
-    sprite: Objects/Tools/multitool.rsi
+    sprite: _Funkystation/Objects/Tools/multitool.rsi
     quickEquip: false
     slots:
     - Belt
@@ -195,7 +195,7 @@
       sound:
         path: /Audio/Items/multitool_drop.ogg
     - type: Sprite
-      sprite: Objects/Tools/network_configurator.rsi
+      sprite: _Funkystation/Objects/Tools/network_configurator.rsi
       layers:
         - state: icon
         - state: mode-link

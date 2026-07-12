@@ -15,12 +15,12 @@ namespace Content.Server._Funkystation.Fax;
 /// Falls back to the hands of whoever is carrying the storage, then drops on the ground.
 /// Also handles gibs produced by faxecuting a mob while the fax is in storage.
 /// </summary>
-public sealed class HandheldFaxSystem : EntitySystem
+public sealed partial class HandheldFaxSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedStorageSystem _storage = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedStorageSystem _storage = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -94,7 +94,7 @@ public sealed class HandheldFaxSystem : EntitySystem
 
         foreach (var giblet in args.Giblets)
         {
-            if (!EntityManager.EntityExists(giblet))
+            if (!Exists(giblet))
                 continue;
 
             _transform.AttachToGridOrMap(giblet);

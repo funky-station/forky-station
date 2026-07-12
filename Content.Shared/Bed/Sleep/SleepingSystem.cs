@@ -120,7 +120,11 @@ public sealed partial class SleepingSystem : EntitySystem
         {
             // Just in case we're not using the sleeping status
             EnsureComp<StunnedComponent>(ent);
-            EnsureComp<KnockedDownComponent>(ent);
+            // The entity will not fall over if they are buckled.
+            if (!TryComp<BuckleComponent>(ent, out var buckleComp) || !buckleComp.Buckled)
+            {
+                EnsureComp<KnockedDownComponent>(ent);
+            }
 
             if (TryComp<SleepEmitSoundComponent>(ent, out var sleepSound))
             {
