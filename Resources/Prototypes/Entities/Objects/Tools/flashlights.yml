@@ -48,7 +48,7 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
   - type: Sprite
-    sprite: Objects/Tools/flashlight.rsi
+    sprite: _Funkystation/Objects/Tools/flashlight.rsi
     layers:
       - state: flashlight
       - state: flashlight-overlay
@@ -70,7 +70,7 @@
   - type: StealTarget
     stealGroup: LAMP
   - type: Clothing
-    sprite: Objects/Tools/flashlight.rsi
+    sprite: _Funkystation/Objects/Tools/flashlight.rsi
     quickEquip: false
     slots:
       - Belt
@@ -101,7 +101,7 @@
       - state: inhand-right-light
         shader: unshaded
   - type: Sprite
-    sprite: Objects/Tools/seclite.rsi
+    sprite: _Funkystation/Objects/Tools/seclite.rsi
     layers:
       - state: seclite
       - state: seclite-overlay
@@ -116,12 +116,12 @@
     soundHit:
       collection: MetalThud
   - type: Item
-    sprite: Objects/Tools/seclite.rsi
+    sprite: _Funkystation/Objects/Tools/seclite.rsi
   - type: PointLight
     enabled: false
     radius: 8
   - type: Clothing
-    sprite: Objects/Tools/seclite.rsi
+    sprite: _Funkystation/Objects/Tools/seclite.rsi
     quickEquip: false
     slots:
       - Belt

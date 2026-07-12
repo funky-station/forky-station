@@ -45,7 +45,7 @@
   id: MechanicalCompression
   name: research-technology-mechanical-compression
   icon:
-    sprite: Structures/Machines/flatpacker.rsi
+    sprite: _Funkystation/Structures/Machines/flatpacker.rsi #Funky resprite
     state: base
   discipline: Industrial
   tier: 1

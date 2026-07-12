@@ -385,7 +385,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingHeadHatHardhatYellow
-    - id: ClothingUniformJumpsuitEngineering
+    - id: FuClothingUniformCoverallsEngineering # Funky
     - id: ClothingBackpackEngineering
     - id: ClothingShoesBootsWork
     - id: ClothingOuterVestHazard

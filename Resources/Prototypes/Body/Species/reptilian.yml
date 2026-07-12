@@ -170,6 +170,7 @@
       295: 0.8
       285: 0.7
   - type: Wagging
+  - type: TailDuoEmote # Funky Change
 
 - type: entity
   parent: OrganBaseOrganic

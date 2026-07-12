@@ -5,9 +5,9 @@
   description: A sheet of metal, used often on the station in various applications.
   components:
   - type: Sprite
-    sprite: Objects/Materials/Sheets/metal.rsi
+    sprite: _Funkystation/Objects/Materials/Sheets/metal.rsi #Funky resprite
   - type: Item
-    sprite: Objects/Materials/Sheets/metal.rsi
+    sprite: _Funkystation/Objects/Materials/Sheets/metal.rsi #Funky resprite
   - type: Tag
     tags:
     - Sheet

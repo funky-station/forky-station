@@ -565,9 +565,9 @@
   name: reinforced wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/solid.rsi
+    sprite: _Funkystation/Structures/Walls/solid.rsi #Funky resprite
   - type: Icon
-    sprite: Structures/Walls/solid.rsi
+    sprite: _Funkystation/Structures/Walls/solid.rsi #Funky resprite
     state: rgeneric
   - type: Construction
     graph: Girder
@@ -908,13 +908,13 @@
   name: solid wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/solid.rsi
+    sprite: _Funkystation/Structures/Walls/solid.rsi #Funky station
   - type: WallReplacementMarker
   - type: Construction
     graph: Girder
     node: wall
   - type: Icon
-    sprite: Structures/Walls/solid.rsi
+    sprite: _Funkystation/Structures/Walls/solid.rsi #Funky station
   - type: RCDDeconstructable
     cost: 60 # Funkystation
     delay: 8

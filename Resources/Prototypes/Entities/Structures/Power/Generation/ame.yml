@@ -9,7 +9,7 @@
   - type: InteractionOutline
   - type: Sprite
     snapCardinals: true
-    sprite: Structures/Power/Generation/ame.rsi
+    sprite: _Funkystation/Structures/Power/Generation/ame.rsi #Funky resprite
     state: control
     layers:
     - state: control
@@ -91,7 +91,7 @@
   - type: PowerMonitoringDevice
     group: Generator
     loadNode: input
-    sprite: Structures/Power/Generation/ame.rsi
+    sprite: _Funkystation/Structures/Power/Generation/ame.rsi #Funky resprite
     state: static
   - type: PowerSupplier
     supplyRate: 0
@@ -133,7 +133,7 @@
   - type: InteractionOutline
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Power/Generation/ame.rsi
+    sprite: _Funkystation/Structures/Power/Generation/ame.rsi #Funky resprite
     state: shield_0
     layers:
     - state: shield_0
