@@ -7,7 +7,6 @@
   components:
   - type: SolutionRegeneration
     duration: 3
-    solution: drink
     generated:
       reagents:
       - ReagentId: Water
@@ -20,7 +19,6 @@
   components:
   - type: SolutionRegeneration
     duration: 5
-    solution: drink
     generated:
       reagents:
       - ReagentId: Blood
@@ -33,7 +31,6 @@
   components:
   - type: SolutionRegeneration
     duration: 5
-    solution: drink
     generated:
       reagents:
       - ReagentId: CopperBlood
@@ -46,7 +43,6 @@
   components:
   - type: SolutionRegeneration
     duration: 5
-    solution: drink
     generated:
       reagents:
       - ReagentId: Syrup
@@ -59,7 +55,6 @@
   components:
   - type: SolutionRegeneration
     duration: 10
-    solution: drink
     generated:
       reagents:
       - ReagentId: Vodka
@@ -72,7 +67,6 @@
   components:
   - type: SolutionRegeneration
     duration: 10
-    solution: drink
     generated:
       reagents:
       - ReagentId: Rum
@@ -85,7 +79,6 @@
   components:
   - type: SolutionRegeneration
     duration: 10
-    solution: drink
     generated:
       reagents:
       - ReagentId: Happiness
@@ -98,7 +91,6 @@
   components:
   - type: SolutionRegeneration
     duration: 10
-    solution: drink
     generated:
       reagents:
       - ReagentId: Nothing
@@ -111,7 +103,6 @@
   components:
   - type: SolutionRegeneration
     duration: 10
-    solution: drink
     generated:
       reagents:
       - ReagentId: JuiceCarrot
@@ -124,7 +115,6 @@
   components:
   - type: SolutionRegeneration
     duration: 10
-    solution: drink
     generated:
       reagents:
       - ReagentId: Ammonia
@@ -137,7 +127,6 @@
   components:
   - type: SolutionRegeneration
     duration: 10
-    solution: drink
     generated:
       reagents:
       - ReagentId: Oil
@@ -150,7 +139,6 @@
   components:
   - type: SolutionRegeneration
     duration: 3
-    solution: drink
     generated:
       reagents:
       - ReagentId: Ice
@@ -163,7 +151,6 @@
   components:
   - type: SolutionRegeneration
     duration: 10
-    solution: drink
     generated:
       reagents:
       - ReagentId: SpaceLube
@@ -176,7 +163,6 @@
   components:
   - type: SolutionRegeneration
     duration: 10
-    solution: drink
     generated:
       reagents:
       - ReagentId: Rice
