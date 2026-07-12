@@ -156,6 +156,8 @@
     size: Tiny
     heldPrefix: green
 
+#Weird Mice
+
 - type: entity
   parent: MobMouse
   id: MobMouseBurnt
@@ -188,6 +190,7 @@
   - type: Item
     size: Tiny
     heldPrefix: burnt
+  - type: AlwaysHot
   - type: IgnitionSource #Todo make this fucker light you on fire if you touch them
     temperature: 800
     ignited: true
@@ -209,8 +212,6 @@
     energy: 2
   - type: RgbLightController
     layers: [ 0 ]
-
-#Weird Mice
 
 - type: entity
   parent: MobMouse1
@@ -264,13 +265,9 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: cow
       sprite: _Funkystation/Mobs/Animals/chocolate_cow.rsi
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      udder:
-        maxVol: 250
-        reagents:
-        - ReagentId: MilkChocolate
-          Quantity: 30
+    - SolutionUdderChocolate
   - type: Udder
     reagentId: MilkChocolate
     quantityPerUpdate: 25
@@ -279,6 +276,18 @@
     spawned:
     - id: FoodSnackChocolateBar
       amount: 5
+
+- type: entity
+  parent: SolutionLarge
+  id: SolutionUdderChocolate
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: udder
+    solution:
+      reagents:
+      - ReagentId: MilkChocolate
+        Quantity: 30
 
 - type: entity
   name: strawberry cow
@@ -292,13 +301,9 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: cow
       sprite: _Funkystation/Mobs/Animals/strawberry_cow.rsi
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      udder:
-        maxVol: 250
-        reagents:
-        - ReagentId: MilkStrawberry
-          Quantity: 30
+    - SolutionUdderStrawberry
   - type: Udder
     reagentId: MilkStrawberry
     quantityPerUpdate: 25
@@ -307,6 +312,18 @@
     spawned:
     - id: FoodFrozenSandwichStrawberry #Change to actual strawberries if someone implments them
       amount: 2
+
+- type: entity
+  parent: SolutionLarge
+  id: SolutionUdderStrawberry
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: udder
+    solution:
+      reagents:
+      - ReagentId: MilkStrawberry
+        Quantity: 30
 
 - type: entity
   name: banana cow
@@ -320,13 +337,9 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: cow
       sprite: _Funkystation/Mobs/Animals/banana_cow.rsi
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      udder:
-        maxVol: 250
-        reagents:
-        - ReagentId: MilkBanana
-          Quantity: 30
+    - SolutionUdderBanana
   - type: Udder
     reagentId: MilkBanana
     quantityPerUpdate: 25
@@ -337,6 +350,18 @@
       amount: 5
     - id: TrashBananaPeel
       amount: 5
+
+- type: entity
+  parent: SolutionLarge
+  id: SolutionUdderBanana
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: udder
+    solution:
+      reagents:
+      - ReagentId: MilkBanana
+        Quantity: 30
 
 - type: entity
   parent: MobCow
@@ -350,17 +375,25 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: cow
       sprite: Mobs/Animals/cow.rsi
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      udder:
-        maxVol: 250
-        reagents:
-        - ReagentId: Pilk
-          Quantity: 30
+    - SolutionUdderPilk
   - type: Udder
     reagentId: Pilk
     quantityPerUpdate: 25
     growthDelay: 30
+
+- type: entity
+  parent: SolutionLarge
+  id: SolutionUdderPilk
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: udder
+    solution:
+      reagents:
+      - ReagentId: Pilk
+        Quantity: 30
 
 #Devil Birds
 
