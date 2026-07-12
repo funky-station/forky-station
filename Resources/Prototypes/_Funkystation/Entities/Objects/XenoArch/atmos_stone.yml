@@ -18,6 +18,8 @@
       params:
         volume: -2
   - type: Damageable
+    damageModifierSet: Rock
+  - type: Injurable
     damageContainer: Inorganic
 
 - type: entity

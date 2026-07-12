@@ -31,8 +31,9 @@
   - type: ZombieImmune
   - type: Climbing
   - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Skeleton
+    damageModifierSet: Rock
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:

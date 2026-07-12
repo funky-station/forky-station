@@ -436,7 +436,7 @@
       types:
         Blunt: 12
         Structural: 20
-        Burn: 12
+        Heat: 12
   - type: GhostTakeoverAvailable
   - type: GhostRole
     name: ghost-role-information-narsie-goose-name

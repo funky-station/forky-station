@@ -119,7 +119,7 @@
     damage:
       types:
         Blunt: 5 #Bonk
-        bluntStaminaDamageFactor: 2.0
+    bluntStaminaDamageFactor: 2.0
   - type: StaminaDamageOnHit
     damage: 20
   - type: MovementSpeedModifier

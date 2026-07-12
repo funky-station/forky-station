@@ -41,7 +41,8 @@
   - type: ZombieImmune
   - type: Climbing
   - type: Damageable
-    damageContainer: Inorganic
+  - type: Injurable
+    damageContainer: Biological
   - type: Destructible
     thresholds:
     - trigger:
@@ -67,7 +68,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Brute: 1
+        Blunt: 1
     animation: WeaponArcFist
   - type: NameIdentifier
     group: GenericNumber

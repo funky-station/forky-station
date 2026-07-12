@@ -18,8 +18,9 @@
     radius: 3
     enabled: True
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: FlimsyGlass
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger: # Overkill threshold
