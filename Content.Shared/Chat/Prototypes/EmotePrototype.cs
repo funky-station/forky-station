@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2024 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;

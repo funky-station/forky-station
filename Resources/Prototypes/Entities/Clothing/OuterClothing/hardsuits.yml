@@ -1,67 +1,3 @@
-# SPDX-FileCopyrightText: 2020-2021 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2020 Ygg01 <daniel.fath7@gmail.com>
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
-# SPDX-FileCopyrightText: 2020 FrostMando <68990565+FrostMando@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 xRiriq <94037592+xRiriq@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 HoidC <99100948+HoidC@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Pancake <Pangogie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 StanTheCarpenter <66203777+StanTheCarpenter@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 EnDecc <33369477+Endecc@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 CrigCrag <137215465+CrigCrag@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Genkail <50331122+Genkail@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Puro <103608145+PuroSlavKing@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Maxtone <124747282+MagnusCrowe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Alekshhh <44923899+Alekshhh@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Hmeister-real <118129069+Hmeister-real@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 AlexUm & XGabriel08X <159550239+AlexUmAndXGabriel08X@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ERROR404 <100093430+ERORR404V1@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
-# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
-# SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 UpAndLeaves <92269094+Alpha-Two@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Alzore <140123969+Blackern5000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Michael <107807667+Doc-Michael@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Hyper B <137433177+HyperB1@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Mercer Bray <74152185+DissidentBullet@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Brassica Prime <114382089+Pumkin69@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 August Sun <45527070+august-sun@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseEngineeringContraband]
   id: ClothingOuterHardsuitAtmos
@@ -98,7 +34,6 @@
     clothingPrototype: ClothingHeadHelmetHardsuitAtmos
   - type: Tag
     tags:
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
 
@@ -135,7 +70,6 @@
     clothingPrototype: ClothingHeadHelmetHardsuitEngineering
   - type: Tag
     tags:
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
 
@@ -147,9 +81,9 @@
   description: A lightweight hardsuit designed for industrial EVA in zero gravity.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/spatio.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/spatio.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/spatio.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/spatio.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.7
     lowPressureMultiplier: 1000
@@ -172,7 +106,6 @@
     - Hardsuit
     - WhitelistChameleon
     - HardsuitSpatio
-    - CorgiWearable
 
 #Salvage Hardsuit
 - type: entity
@@ -182,9 +115,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has reinforced plating for wildlife encounters.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/salvage.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/salvage.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/salvage.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/salvage.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -207,7 +140,6 @@
     clothingPrototype: ClothingHeadHelmetHardsuitSalvage
   - type: Tag
     tags:
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
 
@@ -226,7 +158,7 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.3
+    damageCoefficient: 0.5
   - type: Armor
     modifiers:
       coefficients:
@@ -247,7 +179,6 @@
     node: hardsuitGoliath
   - type: Tag
     tags:
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
 
@@ -299,7 +230,7 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.4
+    damageCoefficient: 0.5
   - type: Armor
     modifiers:
       coefficients:
@@ -316,7 +247,6 @@
     clothingPrototype: ClothingHeadHelmetHardsuitSecurity
   - type: Tag
     tags:
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
 
@@ -362,7 +292,7 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.4
+    damageCoefficient: 0.5
   - type: Armor
     modifiers:
       coefficients:
@@ -393,7 +323,7 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
@@ -411,7 +341,6 @@
     clothingPrototype: ClothingHeadHelmetHardsuitCap
   - type: Tag
     tags:
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
 
@@ -450,7 +379,6 @@
     clothingPrototype: ClothingHeadHelmetHardsuitEngineeringWhite
   - type: Tag
     tags:
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
 
@@ -482,7 +410,6 @@
     clothingPrototype: ClothingHeadHelmetHardsuitMedical
   - type: Tag
     tags:
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
 
@@ -523,7 +450,6 @@
     tags:
     - WhitelistChameleon
     - HighRiskItem
-    - CorgiWearable
     - Hardsuit
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitRd
@@ -573,9 +499,9 @@
   categories: [ DoNotMap ]
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/luxury.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/luxury.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/luxury.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/luxury.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -638,7 +564,6 @@
     - MonkeyWearable
     - Hardsuit
     - WhitelistChameleon
-    - CorgiWearable
     - ScurretWearable
   - type: StaticPrice
     price: 5000
@@ -679,7 +604,7 @@
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
   - type: ExplosionResistance
-    damageCoefficient: 0.2
+    damageCoefficient: 0.3
   - type: FireProtection
     reduction: 0.8
   - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
@@ -703,7 +628,6 @@
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieElite
   - type: Tag
     tags:
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
 
@@ -742,7 +666,6 @@
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieCommander
   - type: Tag
     tags:
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
 
@@ -761,8 +684,6 @@
   - type: PressureProtection
     highPressureMultiplier: 0.2
     lowPressureMultiplier: 1000
-  - type: ExplosionResistance
-    damageCoefficient: 0.3
   # - type: StaminaResistance # Should not have stamina resistance, this is purely so people know it was not forgotten.
   - type: Armor
     modifiers:
@@ -782,7 +703,6 @@
   - type: Tag
     tags:
     - MonkeyWearable
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
 
@@ -819,7 +739,6 @@
     clothingPrototype: ClothingHeadHelmetHardsuitWizard
   - type: Tag
     tags:
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
 

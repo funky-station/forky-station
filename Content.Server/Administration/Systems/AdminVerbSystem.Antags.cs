@@ -1,29 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 drakewill-CRL <46307022+drakewill-CRL@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 coolmankid12345 <55817627+coolmankid12345@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ciac32 <aknoxlor@gmail.com>
-// SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Rainfey <rainfey0+github@gmail.com>
-// SPDX-FileCopyrightText: 2024 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 YoungThug <ramialanbagy@gmail.com>
-// SPDX-FileCopyrightText: 2025 ThatGuyUSA <thatguyusa123@gmail.com>
-// SPDX-FileCopyrightText: 2025 poklj <compgeek223@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pancake <Pangogie@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Antag;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
@@ -44,10 +18,10 @@ namespace Content.Server.Administration.Systems;
 
 public sealed partial class AdminVerbSystem
 {
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly ZombieSystem _zombie = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly OutfitSystem _outfit = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private ZombieSystem _zombie = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private OutfitSystem _outfit = default!;
 
     private static readonly EntProtoId DefaultTraitorRule = "Traitor";
     private static readonly EntProtoId DefaultInitialInfectedRule = "Zombie";
@@ -58,7 +32,7 @@ public sealed partial class AdminVerbSystem
     private static readonly EntProtoId ParadoxCloneRuleId = "ParadoxCloneSpawn";
     private static readonly EntProtoId DefaultWizardRule = "Wizard";
     private static readonly EntProtoId DefaultNinjaRule = "NinjaSpawn";
-    private static readonly EntProtoId DefaultBloodCultRule = "BloodCult";
+    // private static readonly EntProtoId DefaultBloodCultRule = "BloodCult"; // funkystation - disabled
     private static readonly ProtoId<StartingGearPrototype> PirateGearId = "PirateGear";
 
     // All antag verbs have names so invokeverb works.
@@ -82,7 +56,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = traitorName,
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Misc/job_icons.rsi"), "Syndicate"),
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_Funkystation/Interface/Misc/job_icons.rsi"), "Syndicate"), // Funky
             Act = () =>
             {
                 _antag.ForceMakeAntag<TraitorRuleComponent>(targetPlayer, DefaultTraitorRule);
@@ -97,7 +71,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = initialInfectedName,
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "InitialInfected"),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Funkystation/Interface/Misc/antag_icons.rsi"), "InitialInfected"), // Funky
             Act = () =>
             {
                 _antag.ForceMakeAntag<ZombieRuleComponent>(targetPlayer, DefaultInitialInfectedRule);
@@ -112,7 +86,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = zombieName,
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "Zombie"),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Funkystation/Interface/Misc/job_icons.rsi"), "Zombie"), // Funky
             Act = () =>
             {
                 _zombie.ZombifyEntity(args.Target);
@@ -158,7 +132,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = headRevName,
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "HeadRevolutionary"),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Funkystation/Interface/Misc/antag_icons.rsi"), "HeadRevolutionary"), // Funky
             Act = () =>
             {
                 _antag.ForceMakeAntag<RevolutionaryRuleComponent>(targetPlayer, DefaultRevsRule);
@@ -203,7 +177,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = paradoxCloneName,
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "ParadoxClone"),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Funkystation/Interface/Misc/antag_icons.rsi"), "ParadoxClone"), // Funky
             Act = () =>
             {
                 var ruleEnt = _gameTicker.AddGameRule(ParadoxCloneRuleId);
@@ -224,7 +198,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = wizardName,
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "Wizard"),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Funkystation/Interface/Misc/job_icons.rsi"), "Wizard"), // Funky
             Act = () =>
             {
                 // Wizard has no rule components as of writing, but I gotta put something here to satisfy the machine so just make it wizard mind rule :)
@@ -250,22 +224,24 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(ninja);
 
-        var bloodCultName = Loc.GetString("admin-verb-text-make-bloodcult");
-        Verb bloodCult = new()
-        {
-            Text = bloodCultName,
-            Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Structures/BloodCult/bloodrune.rsi"), "offering-icon"),
-            Act = () =>
-            {
-                _antag.ForceMakeAntag<BloodCultRuleComponent>(targetPlayer, DefaultBloodCultRule);
-            },
-            Impact = LogImpact.High,
-            Message = string.Join(": ", bloodCultName, Loc.GetString("admin-verb-make-bloodcult")),
-        };
-        args.Verbs.Add(bloodCult);
-
-        if (HasComp<HumanoidAppearanceComponent>(args.Target)) // only humanoids can be cloned
+        if (HasComp<HumanoidProfileComponent>(args.Target)) // only humanoids can be cloned
             args.Verbs.Add(paradox);
+
+        // begin funkystation
+        // var bloodCultName = Loc.GetString("admin-verb-text-make-bloodcult");
+        // Verb bloodCult = new()
+        // {
+        //     Text = bloodCultName,
+        //     Category = VerbCategory.Antag,
+        //     Icon = new SpriteSpecifier.Rsi(new("/Textures/Structures/BloodCult/bloodrune.rsi"), "offering-icon"),
+        //     Act = () =>
+        //     {
+        //         _antag.ForceMakeAntag<BloodCultRuleComponent>(targetPlayer, DefaultBloodCultRule);
+        //     },
+        //     Impact = LogImpact.High,
+        //     Message = string.Join(": ", bloodCultName, Loc.GetString("admin-verb-make-bloodcult")),
+        // };
+        // args.Verbs.Add(bloodCult);
+        // end funkystation
     }
 }

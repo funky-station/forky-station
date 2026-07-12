@@ -1,16 +1,13 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Implants.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 
 namespace Content.Shared.Implants;
 
-public sealed class ReplacementImplantSystem : EntitySystem
+public sealed partial class ReplacementImplantSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {

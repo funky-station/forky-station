@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration.Logs;
 using Content.Server.Power.Components;
 using Content.Shared.Database;
@@ -26,11 +21,11 @@ namespace Content.Server.Power.EntitySystems;
 /// it merely reconfigures parameters on <see cref="PowerNetworkBatteryComponent"/> from the UI.
 /// </para>
 /// </remarks>
-public sealed class BatteryInterfaceSystem : EntitySystem
+public sealed partial class BatteryInterfaceSystem : EntitySystem
 {
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = null!;
-    [Dependency] private readonly SharedBatterySystem _battery = null!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = null!;
+    [Dependency] private SharedBatterySystem _battery = null!;
 
     public override void Initialize()
     {

@@ -1,24 +1,5 @@
-// SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 DamianX <DamianX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 MehimoNemo <22804739+MehimoNemo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021 tmtmtl30 <53132901+tmtmtl30@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
+using Content.IntegrationTests.Fixtures;
 using Content.Server.Doors.Systems;
 using Content.Shared.Doors.Components;
 using Robust.Shared.GameObjects;
@@ -31,7 +12,7 @@ namespace Content.IntegrationTests.Tests.Doors
 {
     [TestFixture]
     [TestOf(typeof(AirlockComponent))]
-    public sealed class AirlockTest
+    public sealed class AirlockTest : GameTest
     {
         [TestPrototypes]
         private const string Prototypes = @"
@@ -74,7 +55,7 @@ namespace Content.IntegrationTests.Tests.Doors
         [Test]
         public async Task OpenCloseDestroyTest()
         {
-            await using var pair = await PoolManager.GetServerClient();
+            var pair = Pair;
             var server = pair.Server;
 
             var entityManager = server.ResolveDependency<IEntityManager>();
@@ -124,16 +105,12 @@ namespace Content.IntegrationTests.Tests.Doors
                     entityManager.DeleteEntity(airlock);
                 });
             });
-
-            server.RunTicks(5);
-
-            await pair.CleanReturnAsync();
         }
 
         [Test]
         public async Task AirlockBlockTest()
         {
-            await using var pair = await PoolManager.GetServerClient();
+            var pair = Pair;
             var server = pair.Server;
 
             await server.WaitIdleAsync();
@@ -199,7 +176,6 @@ namespace Content.IntegrationTests.Tests.Doors
             {
                 Assert.That(Math.Abs(xformSystem.GetWorldPosition(airlockPhysicsDummy).X - 1), Is.GreaterThan(0.01f));
             });
-            await pair.CleanReturnAsync();
         }
     }
 }

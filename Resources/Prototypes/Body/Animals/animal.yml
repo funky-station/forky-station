@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: OrganAnimalMetabolizer
   abstract: true
@@ -9,7 +6,7 @@
     metabolizerTypes: [ Animal ]
 
 - type: entity
-  parent: OrganBase
+  parent: OrganBaseOrganic
   id: OrganAnimal
   abstract: true
   suffix: Animal

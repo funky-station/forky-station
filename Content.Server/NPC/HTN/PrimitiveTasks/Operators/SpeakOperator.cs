@@ -1,14 +1,5 @@
-// SPDX-FileCopyrightText: 2022-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tornado Tech <54727692+Tornado-Technology@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Centronias <charlie.t.santos@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Chat.Systems;
+using Robust.Shared.Timing;
 using Content.Shared.Chat;
 using Content.Shared.Dataset;
 using Content.Shared.Random.Helpers;
@@ -21,9 +12,11 @@ namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators;
 
 public sealed partial class SpeakOperator : HTNOperator
 {
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
     private ChatSystem _chat = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     [DataField(required: true)]
     public SpeakOperatorSpeech Speech;
@@ -34,6 +27,18 @@ public sealed partial class SpeakOperator : HTNOperator
     [DataField]
     public bool Hidden;
 
+    /// <summary>
+    /// Skip speaking for `cooldown` seconds, intended to stop spam
+    /// </summary>
+    [DataField]
+    public TimeSpan Cooldown = TimeSpan.Zero;
+
+    /// <summary>
+    /// Define what key is used for storing the cooldown
+    /// </summary>
+    [DataField]
+    public string CooldownID = string.Empty;
+
     public override void Initialize(IEntitySystemManager sysManager)
     {
         base.Initialize(sysManager);
@@ -42,6 +47,14 @@ public sealed partial class SpeakOperator : HTNOperator
 
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
     {
+        if (Cooldown != TimeSpan.Zero && CooldownID != string.Empty)
+        {
+            if (blackboard.TryGetValue<TimeSpan>(CooldownID, out var nextSpeechTime, _entMan) && _gameTiming.CurTime < nextSpeechTime)
+                return base.Update(blackboard, frameTime);
+
+            blackboard.SetValue(CooldownID, _gameTiming.CurTime + Cooldown);
+        }
+
         LocId speechLocId;
         switch (Speech)
         {

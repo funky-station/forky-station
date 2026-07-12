@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -12,7 +9,7 @@ namespace Content.Shared.EntityEffects.Effects.Solution;
 
 public sealed partial class AddReagentToBloodstreamSystem : EntityEffectSystem<BloodstreamComponent, AddReagentToBloodstream>
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
 
     protected override void Effect(Entity<BloodstreamComponent> entity, ref EntityEffectEvent<AddReagentToBloodstream> args)
     {

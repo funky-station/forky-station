@@ -1,17 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -71,6 +57,8 @@ public sealed partial class GameMapPrototype : IPrototype
     /// </summary>
     public GameMapPrototype Persistence(ResPath mapPath)
     {
+        //TODO(Kaylie): Refactor gamemaps for this.
+#pragma warning disable RA0039
         return new()
         {
             ID = ID,
@@ -78,5 +66,6 @@ public sealed partial class GameMapPrototype : IPrototype
             MapPath = mapPath,
             _stations = _stations
         };
+#pragma warning restore RA0039
     }
 }

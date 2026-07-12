@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Nutrition.FoodMetamorphRules;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;

@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Antag.Components;
 
 namespace Content.Server.Antag;
@@ -19,6 +16,6 @@ public sealed class AntagSpawnerSystem : EntitySystem
 
     private void OnSelectEntity(Entity<AntagSpawnerComponent> ent, ref AntagSelectEntityEvent args)
     {
-        args.Entity = Spawn(ent.Comp.Prototype);
+        args.Entity = Spawn(ent.Comp.Prototype, args.Coords);
     }
 }

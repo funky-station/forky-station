@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: antag
   id: InitialInfected
   name: roles-antag-initial-infected-name
@@ -15,6 +8,30 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 1h
+
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: InitialInfected
+  prefRoles: [ InitialInfected ]
+  blacklist:
+    components:
+    - ZombieImmune
+    - AntagImmune
+  briefing:
+    text: zombie-patientzero-role-greeting
+    color: Plum
+    sound: "/Audio/Ambience/Antag/zombie_start.ogg"
+  components:
+  - type: PendingZombie #less time to prepare than normal
+    minInitialInfectedGrace: 300
+    maxInitialInfectedGrace: 450
+  - type: ZombifyOnDeath
+  - type: IncurableZombie
+  - type: InitialInfected
+  mindRoles:
+  - MindRoleInitialInfected
+
+# TODO: Make it so creating new zombies uses antag prototypes! This saves a *lot* of boilerplate for conversion antags.
 
 - type: antag
   id: Zombie

@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Centronias <me@centronias.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 poklj <compgeek223@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Actions;
 using Content.Shared.Cloning.Events;
 using Content.Shared.DoAfter;
@@ -23,14 +16,14 @@ namespace Content.Shared.Sericulture;
 public abstract partial class SharedSericultureSystem : EntitySystem
 {
     // Managers
-    [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private INetManager _netManager = default!;
 
     // Systems
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly HungerSystem _hungerSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedStackSystem _stackSystem = default!;
+    [Dependency] private SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private HungerSystem _hungerSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedStackSystem _stackSystem = default!;
 
     public override void Initialize()
     {
@@ -48,13 +41,15 @@ public abstract partial class SharedSericultureSystem : EntitySystem
         if (!args.Settings.EventComponents.Contains(Factory.GetRegistration(ent.Comp.GetType()).Name))
             return;
 
-        var comp = EnsureComp<SericultureComponent>(args.CloneUid);
-        comp.PopupText = ent.Comp.PopupText;
-        comp.ProductionLength = ent.Comp.ProductionLength;
-        comp.HungerCost = ent.Comp.HungerCost;
-        comp.EntityProduced = ent.Comp.EntityProduced;
-        comp.MinHungerThreshold = ent.Comp.MinHungerThreshold;
-        Dirty(args.CloneUid, comp);
+        // Make sure to set the datafields before adding the component so that the correct action gets spawned on map init.
+        var cloneComp = Factory.GetComponent<SericultureComponent>();
+        cloneComp.PopupText = ent.Comp.PopupText;
+        cloneComp.EntityProduced = ent.Comp.EntityProduced;
+        cloneComp.Action = ent.Comp.Action;
+        cloneComp.ProductionLength = ent.Comp.ProductionLength;
+        cloneComp.HungerCost = ent.Comp.HungerCost;
+        cloneComp.MinHungerThreshold = ent.Comp.MinHungerThreshold;
+        AddComp(args.CloneUid, cloneComp, true);
     }
 
     /// <summary>

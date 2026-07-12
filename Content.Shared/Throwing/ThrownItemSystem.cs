@@ -1,30 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2021 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2021 Silver <silvertorch5@gmail.com>
-// SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Júlio César Ueti <52474532+Mirino97@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Henry <sigma1198@gmail.com>
-// SPDX-FileCopyrightText: 2023 Vyacheslav Kovalevsky <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chubbygummibear <46236974+Chubbygummibear@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Justin Pfeifler <jrpl101998@gmail.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -43,15 +16,15 @@ namespace Content.Shared.Throwing
     /// <summary>
     ///     Handles throwing landing and collisions.
     /// </summary>
-    public sealed class ThrownItemSystem : EntitySystem
+    public sealed partial class ThrownItemSystem : EntitySystem
     {
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly INetManager _netMan = default!;
-        [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly FixtureSystem _fixtures = default!;
-        [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
-        [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-        [Dependency] private readonly SharedGravitySystem _gravity = default!;
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private INetManager _netMan = default!;
+        [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+        [Dependency] private FixtureSystem _fixtures = default!;
+        [Dependency] private SharedBroadphaseSystem _broadphase = default!;
+        [Dependency] private SharedPhysicsSystem _physics = default!;
+        [Dependency] private SharedGravitySystem _gravity = default!;
 
         private const string ThrowingFixture = "throw-fixture";
 

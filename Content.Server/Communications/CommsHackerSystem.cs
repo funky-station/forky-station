@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Ninja.Systems;
@@ -18,15 +12,15 @@ using Robust.Shared.Serialization;
 
 namespace Content.Server.Communications;
 
-public sealed class CommsHackerSystem : SharedCommsHackerSystem
+public sealed partial class CommsHackerSystem : SharedCommsHackerSystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IRobustRandom _random = default!;
     // TODO: remove when generic check event is used
-    [Dependency] private readonly NinjaGlovesSystem _gloves = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private NinjaGlovesSystem _gloves = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
 
     public override void Initialize()
     {

@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.Speech.Components;
 using Content.Shared.Speech;
@@ -12,12 +6,12 @@ using System.Text.RegularExpressions;
 
 namespace Content.Server.Speech.EntitySystems;
 
-public sealed class PirateAccentSystem : EntitySystem
+public sealed partial class PirateAccentSystem : EntitySystem
 {
     private static readonly Regex FirstWordAllCapsRegex = new(@"^(\S+)");
 
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ReplacementAccentSystem _replacement = default!;
 
     public override void Initialize()
     {

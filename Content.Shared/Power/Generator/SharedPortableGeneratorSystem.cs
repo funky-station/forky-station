@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 SpeltIncorrectyl <66873282+SpeltIncorrectyl@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Winkarst-cpu <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.DoAfter;
 using Robust.Shared.Serialization;
 

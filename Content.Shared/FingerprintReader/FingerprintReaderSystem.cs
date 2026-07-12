@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Inventory;
@@ -11,10 +8,10 @@ using JetBrains.Annotations;
 namespace Content.Shared.FingerprintReader;
 
 // TODO: This has a lot of overlap with the AccessReaderSystem, maybe merge them in the future?
-public sealed class FingerprintReaderSystem : EntitySystem
+public sealed partial class FingerprintReaderSystem : EntitySystem
 {
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -49,10 +46,11 @@ public sealed class FingerprintReaderSystem : EntitySystem
     /// <param name="user">User trying to gain access.</param>
     /// <param name="showPopup">Whether to display a popup with the reason you are not allowed to access this.</param>
     /// <param name="denyReason">The reason why access was denied.</param>
+    /// <param name="checkGloves">Allows bypassing glove check regardless of the component's IgnoreGloves param.</param>
     /// <returns>True if access was granted, otherwise false.</returns>
     // TODO: Remove showPopup, just keeping it here for backwards compatibility while I refactor mail
     [PublicAPI]
-    public bool IsAllowed(Entity<FingerprintReaderComponent?> target, EntityUid user, [NotNullWhen(false)] out string? denyReason, bool showPopup = true)
+    public bool IsAllowed(Entity<FingerprintReaderComponent?> target, EntityUid user, [NotNullWhen(false)] out string? denyReason, bool showPopup = true, bool checkGloves = true)
     {
         denyReason = null;
         if (!Resolve(target, ref target.Comp, false))
@@ -62,7 +60,7 @@ public sealed class FingerprintReaderSystem : EntitySystem
             return true;
 
         // Check for gloves first
-        if (!target.Comp.IgnoreGloves && TryGetBlockingGloves(user, out var gloves))
+        if (checkGloves && !target.Comp.IgnoreGloves && TryGetBlockingGloves(user, out var gloves))
         {
             denyReason = Loc.GetString("fingerprint-reader-fail-gloves", ("blocker", gloves));
 

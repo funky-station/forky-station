@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
 using Robust.Shared.Prototypes;
@@ -16,7 +13,7 @@ public sealed partial class JobMindFilter : MindFilter
     [DataField(required: true)]
     public ProtoId<JobPrototype> Job;
 
-    protected override bool ShouldRemove(Entity<MindComponent> mind, EntityUid? exclude, IEntityManager entMan, SharedMindSystem mindSys)
+    protected override bool ShouldRemove(Entity<MindComponent> mind, EntityUid? exclude, IEntityManager entMan)
     {
         var jobSys = entMan.System<SharedJobSystem>();
         return jobSys.MindHasJobWithId(mind, Job);

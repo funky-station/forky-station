@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Ninja.Events;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Ninja.Components;
@@ -11,11 +7,11 @@ using Content.Shared.Power.EntitySystems;
 
 namespace Content.Server.Ninja.Systems;
 
-public sealed class ItemCreatorSystem : SharedItemCreatorSystem
+public sealed partial class ItemCreatorSystem : SharedItemCreatorSystem
 {
-    [Dependency] private readonly SharedBatterySystem _battery = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedBatterySystem _battery = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

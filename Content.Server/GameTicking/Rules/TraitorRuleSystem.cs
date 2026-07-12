@@ -1,43 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Morbo <exstrominer@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 drakewill-CRL <46307022+drakewill-CRL@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023-2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2023-2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 router <messagebus@vk.com>
-// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vyacheslav Titov <rincew1nd@ya.ru>
-// SPDX-FileCopyrightText: 2023 Tom Leys <tom@gridspy.com>
-// SPDX-FileCopyrightText: 2023 Skye <22365940+Skyedra@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Rainfey <rainfey0+github@gmail.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 xsainteer <156868231+xsainteer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
@@ -58,23 +18,24 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server.Codewords;
+using Robust.Shared.Map;
 
 namespace Content.Server.GameTicking.Rules;
 
-public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
+public sealed partial class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 {
     private static readonly Color TraitorCodewordColor = Color.FromHex("#cc3b3b");
 
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly SharedJobSystem _jobs = default!;
-    [Dependency] private readonly MindSystem _mindSystem = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedRoleCodewordSystem _roleCodewordSystem = default!;
-    [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
-    [Dependency] private readonly UplinkSystem _uplink = default!;
-    [Dependency] private readonly CodewordSystem _codewordSystem = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private SharedJobSystem _jobs = default!;
+    [Dependency] private MindSystem _mindSystem = default!;
+    [Dependency] private NpcFactionSystem _npcFaction = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedRoleCodewordSystem _roleCodewordSystem = default!;
+    [Dependency] private SharedRoleSystem _roleSystem = default!;
+    [Dependency] private UplinkSystem _uplink = default!;
+    [Dependency] private CodewordSystem _codewordSystem = default!;
 
     public override void Initialize()
     {
@@ -188,32 +149,22 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     private (Note[]?, string) RequestUplink(EntityUid traitor, FixedPoint2 startingBalance, string briefing)
     {
         var pda = _uplink.FindUplinkTarget(traitor);
-        Note[]? code = null;
 
         Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink add");
-        var uplinked = _uplink.AddUplink(traitor, startingBalance, pda, true);
+        var uplinked = _uplink.AddUplink(traitor, startingBalance, out var code, pda, giveDiscounts: true, bindToPda: false);
 
-        if (pda is not null && uplinked)
+        if (code != null && uplinked == AddUplinkResult.Pda)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is PDA");
-            // Codes are only generated if the uplink is a PDA
-            var ev = new GenerateUplinkCodeEvent();
-            RaiseLocalEvent(pda.Value, ref ev);
 
-            if (ev.Code is { } generatedCode)
-            {
-                code = generatedCode;
-
-                // If giveUplink is false the uplink code part is omitted
-                briefing = string.Format("{0}\n{1}",
-                    briefing,
-                    Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))));
-                return (code, briefing);
-            }
-
-            Log.Error($"MakeTraitor {ToPrettyString(traitor)} failed to generate an uplink code on {ToPrettyString(pda)}.");
+            // If giveUplink is false the uplink code part is omitted
+            briefing = string.Format("{0}\n{1}",
+                briefing,
+                Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))));
+            return (code, briefing);
         }
-        else if (pda is null && uplinked)
+
+        if (uplinked == AddUplinkResult.Implant)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is implant");
             briefing += "\n" + Loc.GetString("traitor-role-uplink-implant-short");
@@ -222,6 +173,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         {
             Log.Error($"MakeTraitor failed on {ToPrettyString(traitor)} - No uplink could be added");
         }
+
 
         return (null, briefing);
     }

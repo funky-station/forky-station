@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Database;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Interaction;
@@ -18,7 +13,7 @@ namespace Content.Shared.Tools.Systems;
 
 public abstract partial class SharedToolSystem
 {
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private INetManager _net = default!;
 
     public void InitializeTile()
     {

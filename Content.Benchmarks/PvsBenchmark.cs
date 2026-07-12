@@ -1,10 +1,5 @@
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using BenchmarkDotNet.Attributes;
@@ -55,7 +50,7 @@ public class PvsBenchmark
 #endif
         PoolManager.Startup();
 
-        _pair = PoolManager.GetServerClient().GetAwaiter().GetResult();
+        _pair = PoolManager.GetServerClient(testContext: new ExternalTestContext("Benchmark", StreamWriter.Null)).GetAwaiter().GetResult();
         _entMan = _pair.Server.ResolveDependency<IEntityManager>();
         _pair.Server.CfgMan.SetCVar(CVars.NetPVS, true);
         _pair.Server.CfgMan.SetCVar(CVars.ThreadParallelCount, 0);

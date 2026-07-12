@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Store.Systems;
@@ -17,12 +12,12 @@ namespace Content.Server.StoreDiscount.Systems;
 /// <summary>
 /// Discount system that is part of <see cref="StoreSystem"/>.
 /// </summary>
-public sealed class StoreDiscountSystem : EntitySystem
+public sealed partial class StoreDiscountSystem : EntitySystem
 {
     private static readonly ProtoId<StoreCategoryPrototype> DiscountedStoreCategoryPrototypeKey = "DiscountedItems";
 
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     /// <inheritdoc />
     public override void Initialize()

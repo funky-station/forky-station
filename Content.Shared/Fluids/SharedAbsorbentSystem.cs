@@ -1,8 +1,5 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
+using Content.Shared._Funkystation.Footprints;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
@@ -15,24 +12,26 @@ using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Fluids;
 
 /// <summary>
 /// Mopping logic for interacting with puddle components.
 /// </summary>
-public abstract class SharedAbsorbentSystem : EntitySystem
+public abstract partial class SharedAbsorbentSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popups = default!;
-    [Dependency] protected readonly SharedPuddleSystem Puddle = default!;
-    [Dependency] private readonly SharedMeleeWeaponSystem _melee = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] protected readonly SharedSolutionContainerSystem SolutionContainer = default!;
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly SharedItemSystem _item = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popups = default!;
+    [Dependency] protected SharedPuddleSystem Puddle = default!;
+    [Dependency] private SharedMeleeWeaponSystem _melee = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] protected SharedSolutionContainerSystem SolutionContainer = default!;
+    [Dependency] private UseDelaySystem _useDelay = default!;
+    [Dependency] private SharedMapSystem _mapSystem = default!;
+    [Dependency] private SharedItemSystem _item = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -40,7 +39,7 @@ public abstract class SharedAbsorbentSystem : EntitySystem
 
         SubscribeLocalEvent<AbsorbentComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<AbsorbentComponent, UserActivateInWorldEvent>(OnActivateInWorld);
-        SubscribeLocalEvent<AbsorbentComponent, SolutionContainerChangedEvent>(OnAbsorbentSolutionChange);
+        SubscribeLocalEvent<AbsorbentComponent, SolutionChangedEvent>(OnAbsorbentSolutionChange);
     }
 
     private void OnActivateInWorld(Entity<AbsorbentComponent> ent, ref UserActivateInWorldEvent args)
@@ -61,8 +60,12 @@ public abstract class SharedAbsorbentSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnAbsorbentSolutionChange(Entity<AbsorbentComponent> ent, ref SolutionContainerChangedEvent args)
+    private void OnAbsorbentSolutionChange(Entity<AbsorbentComponent> ent, ref SolutionChangedEvent args)
     {
+        // The changes are already networked as part of the same game state.
+        if (_timing.ApplyingState)
+            return;
+
         if (!SolutionContainer.TryGetSolution(ent.Owner, ent.Comp.SolutionName, out _, out var solution))
             return;
 
@@ -354,6 +357,8 @@ public abstract class SharedAbsorbentSystem : EntitySystem
         localPos = userXform.LocalRotation.RotateVec(localPos);
 
         _melee.DoLunge(user, absorbEnt, Angle.Zero, localPos, null);
+
+        RaiseLocalEvent(target, new FootprintCleanEvent());
 
         return true;
     }

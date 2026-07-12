@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 

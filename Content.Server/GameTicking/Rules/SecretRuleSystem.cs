@@ -1,19 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023, 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022, 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Trevor Day <tday93@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 LankLTE <135308300+LankLTE@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Administration.Logs;
@@ -31,12 +15,12 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.GameTicking.Rules;
 
-public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
+public sealed partial class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IConfigurationManager _configurationManager = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
 
     private string _ruleCompName = default!;
 
@@ -63,6 +47,9 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
 
         foreach (var rule in preset.Rules)
         {
+            if (GameTicker.IsIgnored(rule))
+                continue;
+
             EntityUid ruleEnt;
 
             // if we're pre-round (i.e. will only be added)
@@ -169,19 +156,6 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
         if (selected == null)
             return false;
 
-        foreach (var ruleId in selected.Rules)
-        {
-            if (!_prototypeManager.TryIndex(ruleId, out EntityPrototype? rule)
-                || !rule.TryGetComponent(_ruleCompName, out GameRuleComponent? ruleComp))
-            {
-                Log.Error($"Encountered invalid rule {ruleId} in preset {selected.ID}");
-                return false;
-            }
-
-            if (ruleComp.MinPlayers > players && ruleComp.CancelPresetOnTooFewPlayers)
-                return false;
-        }
-
-        return true;
+        return players >= GameTicker.GetMinimumPlayerCount(selected);
     }
 }

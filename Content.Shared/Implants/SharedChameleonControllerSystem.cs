@@ -1,13 +1,10 @@
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Implants;
 
 public abstract partial class SharedChameleonControllerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
 
     public override void Initialize()
     {

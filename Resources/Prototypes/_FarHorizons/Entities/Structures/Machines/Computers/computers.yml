@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: BaseComputerAiAccess
   id: NuclearReactorMonitor
@@ -8,7 +5,10 @@
   description: A device that monitors the state of a connected nuclear reactor.
   components:
   - type: ApcPowerReceiver
-    powerLoad: 500
+    powerLoad: 50
+  - type: PowerState
+    idlePowerDraw: 50
+    workingPowerDraw: 500
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -52,7 +52,10 @@
   description: A device that monitors the state of a connected gas turbine.
   components:
   - type: ApcPowerReceiver
-    powerLoad: 500
+    powerLoad: 50
+  - type: PowerState
+    idlePowerDraw: 50
+    workingPowerDraw: 500
   - type: PointLight
     radius: 1.5
     energy: 1.6

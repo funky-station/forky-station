@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Alert;
 using Content.Shared.Inventory;
 using Content.Shared.Strip.Components;
@@ -15,7 +7,7 @@ namespace Content.Shared.Strip;
 
 public sealed partial class ThievingSystem : EntitySystem
 {
-    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
+    [Dependency] private AlertsSystem _alertsSystem = default!;
 
     public override void Initialize()
     {

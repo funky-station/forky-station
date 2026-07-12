@@ -1,19 +1,4 @@
-// SPDX-FileCopyrightText: 2023-2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Darkie <darksaiyanis@gmail.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025-2026 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 mq <113324899+mqole@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+#nullable enable
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -274,6 +259,7 @@ public abstract partial class InteractionTest
 
     /// <summary>
     /// Drops the currently held entity.
+    /// Causes an error if no entity was held.
     /// </summary>
     protected async Task Drop()
     {
@@ -290,6 +276,36 @@ public abstract partial class InteractionTest
 
         await RunTicks(1);
         Assert.That(HandSys.GetActiveItem((ToServer(Player), Hands)), Is.Null);
+    }
+
+    /// <summary>
+    /// Drops all currently held entities.
+    /// Does nothing if no entity was held.
+    /// </summary>
+    protected async Task DropAll()
+    {
+        await Server.WaitPost(() =>
+        {
+            HandSys.DropAll((ToServer(Player), Hands));
+        });
+
+        await RunTicks(1);
+
+        // make sure that all hands are empty
+        Assert.That(HandSys.GetEmptyHandCount((ToServer(Player), Hands)), Is.EqualTo(HandSys.GetHandCount((ToServer(Player), Hands))));
+    }
+
+    /// <summary>
+    /// Swaps the current hand.
+    /// </summary>
+    protected async Task SwapHands(bool reverse = false)
+    {
+        await Server.WaitPost(() =>
+        {
+            HandSys.SwapHands((ToServer(Player), Hands), reverse: reverse);
+        });
+
+        await RunTicks(1);
     }
 
     #region Interact

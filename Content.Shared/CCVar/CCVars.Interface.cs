@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Schrödinger <132720404+Schrodinger71@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;
@@ -127,4 +120,10 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<int> AdminOverlayStackMax =
         CVarDef.Create("ui.admin_overlay_stack_max", 3, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// The default state for showing admin overlays in the strip menu.
+    /// </summary>
+    public static readonly CVarDef<bool> AdminStripMenuOverlayDefault =
+        CVarDef.Create("ui.admin_strip_menu_overlay_default", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 }

@@ -1,16 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Pok <113675512+Pok27@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kowlin <10947836+Kowlin@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.IO;
 using System.Linq;
 using Content.Client.Administration.UI.CustomControls;
@@ -26,12 +13,12 @@ using static Content.Shared.Administration.Logs.AdminLogsEuiMsg;
 namespace Content.Client.Administration.UI.Logs;
 
 [UsedImplicitly]
-public sealed class AdminLogsEui : BaseEui
+public sealed partial class AdminLogsEui : BaseEui
 {
-    [Dependency] private readonly IClyde _clyde = default!;
-    [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
-    [Dependency] private readonly IFileDialogManager _dialogManager = default!;
-    [Dependency] private readonly ILogManager _log = default!;
+    [Dependency] private IClyde _clyde = default!;
+    [Dependency] private IUserInterfaceManager _uiManager = default!;
+    [Dependency] private IFileDialogManager _dialogManager = default!;
+    [Dependency] private ILogManager _log = default!;
 
     private const char CsvSeparator = ',';
     private const string CsvQuote = "\"";

@@ -1,25 +1,4 @@
-// SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2020 DamianX <DamianX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
-// SPDX-FileCopyrightText: 2020 py01 <60152240+collinlunn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Jackson Lewis <inquisitivepenguin@protonmail.com>
-// SPDX-FileCopyrightText: 2021-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Justin Pfeifler <jrpl101998@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+using Content.IntegrationTests.Fixtures;
 using Content.Server.Power.Components;
 using Content.Shared.Gravity;
 using Robust.Shared.GameObjects;
@@ -33,7 +12,7 @@ namespace Content.IntegrationTests.Tests
     /// making sure that gravity is applied to the correct grids.
     [TestFixture]
     [TestOf(typeof(GravityGeneratorComponent))]
-    public sealed class GravityGridTest
+    public sealed class GravityGridTest : GameTest
     {
         [TestPrototypes]
         private const string Prototypes = @"
@@ -53,7 +32,7 @@ namespace Content.IntegrationTests.Tests
         [Test]
         public async Task Test()
         {
-            await using var pair = await PoolManager.GetServerClient();
+            var pair = Pair;
             var server = pair.Server;
 
             var testMap = await pair.CreateTestMap();
@@ -118,8 +97,6 @@ namespace Content.IntegrationTests.Tests
                     Assert.That(entityMan.GetComponent<GravityComponent>(grid2).Enabled, Is.False);
                 });
             });
-
-            await pair.CleanReturnAsync();
         }
     }
 }

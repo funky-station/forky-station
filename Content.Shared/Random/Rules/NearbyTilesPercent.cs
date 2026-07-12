@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Maps;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;

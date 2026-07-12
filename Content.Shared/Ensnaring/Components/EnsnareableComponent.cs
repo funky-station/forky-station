@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022, 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pubbi <63283968+impubbi@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Alert;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -16,6 +8,7 @@ namespace Content.Shared.Ensnaring.Components;
 /// Use this on an entity that you would like to be ensnared by anything that has the <see cref="EnsnaringComponent"/>
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
+[Access(typeof(SharedEnsnareableSystem))]
 public sealed partial class EnsnareableComponent : Component
 {
     /// <summary>
@@ -31,15 +24,9 @@ public sealed partial class EnsnareableComponent : Component
     public float SprintSpeed = 1.0f;
 
     /// <summary>
-    /// Is this entity currently ensnared?
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool IsEnsnared;
-
-    /// <summary>
     /// The container where the <see cref="EnsnaringComponent"/> entity will be stored
     /// </summary>
-    public Container Container = default!;
+    public Container? Container = default!;
 
     [DataField]
     public string? Sprite;

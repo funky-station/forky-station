@@ -1,60 +1,3 @@
-// SPDX-FileCopyrightText: 2018-2021, 2024 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2018-2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2019-2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019 L.E.D <10257081+unusualcrow@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019 PrPleGoo <PrPleGoo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019 Silver <Silvertorch5@gmail.com>
-// SPDX-FileCopyrightText: 2020-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 ColdAutumnRain <73938872+ColdAutumnRain@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
-// SPDX-FileCopyrightText: 2020 derek <xderek.luix@gmail.com>
-// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
-// SPDX-FileCopyrightText: 2020 Tomeno <Tomeno@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Hugal31 <hugo.laloge@gmail.com>
-// SPDX-FileCopyrightText: 2020 Injazz <43905364+Injazz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Profane McBane <profanedbane+github@gmail.com>
-// SPDX-FileCopyrightText: 2020 Qustinnus <Floydje123@hotmail.com>
-// SPDX-FileCopyrightText: 2020 Markus W. Halvorsen <markus@halvorsenfamilien.com>
-// SPDX-FileCopyrightText: 2021-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Wrexbe <wrexbe@protonmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2021 Clyybber <darkmine956@gmail.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 collinlunn <60152240+collinlunn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2021 Remie Richards <remierichards@gmail.com>
-// SPDX-FileCopyrightText: 2022-2023, 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 KP <13428215+nok-ko@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Menshin <Menshin@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Tyzemol <85772526+Tyzemol@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <shadowjjt@gmail.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Callmore <22885888+Callmore@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Server.Stack;
 using Content.Server.Stunnable;
@@ -80,17 +23,16 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Hands.Systems
 {
-    public sealed class HandsSystem : SharedHandsSystem
+    public sealed partial class HandsSystem : SharedHandsSystem
     {
-        [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly StackSystem _stackSystem = default!;
-        [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
-        [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-        [Dependency] private readonly PullingSystem _pullingSystem = default!;
-        [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
-
-        private EntityQuery<PhysicsComponent> _physicsQuery;
+        [Dependency] private IGameTiming _timing = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private StackSystem _stackSystem = default!;
+        [Dependency] private ActionBlockerSystem _actionBlockerSystem = default!;
+        [Dependency] private SharedTransformSystem _transformSystem = default!;
+        [Dependency] private PullingSystem _pullingSystem = default!;
+        [Dependency] private ThrowingSystem _throwingSystem = default!;
+        [Dependency] private EntityQuery<PhysicsComponent> _physicsQuery = default!;
 
         /// <summary>
         /// Items dropped when the holder falls down will be launched in
@@ -114,8 +56,6 @@ namespace Content.Server.Hands.Systems
             CommandBinds.Builder
                 .Bind(ContentKeyFunctions.ThrowItemInHand, new PointerInputCmdHandler(HandleThrowItem))
                 .Register<HandsSystem>();
-
-            _physicsQuery = GetEntityQuery<PhysicsComponent>();
         }
 
         public override void Shutdown()

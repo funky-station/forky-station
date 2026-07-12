@@ -1,18 +1,5 @@
-// SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
+using Content.IntegrationTests.Fixtures;
 using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind;
@@ -36,7 +23,7 @@ using Robust.Shared.Prototypes;
 namespace Content.IntegrationTests.Tests.Minds;
 
 [TestFixture]
-public sealed partial class MindTests
+public sealed partial class MindTests : GameTest
 {
     private static readonly ProtoId<DamageTypePrototype> BluntDamageType = "Blunt";
 
@@ -47,6 +34,7 @@ public sealed partial class MindTests
   components:
   - type: MindContainer
   - type: Damageable
+  - type: Injurable
     damageContainer: Biological
   - type: Body
     prototype: Human
@@ -69,7 +57,7 @@ public sealed partial class MindTests
     [Test]
     public async Task TestCreateAndTransferMindToNewEntity()
     {
-        await using var pair = await PoolManager.GetServerClient();
+        var pair = Pair;
         var server = pair.Server;
 
         var entMan = server.ResolveDependency<IServerEntityManager>();
@@ -88,14 +76,12 @@ public sealed partial class MindTests
             mindSystem.TransferTo(mind, entity, mind: mind);
             Assert.That(mindSystem.GetMind(entity, mindComp), Is.EqualTo(mind.Owner));
         });
-
-        await pair.CleanReturnAsync();
     }
 
     [Test]
     public async Task TestReplaceMind()
     {
-        await using var pair = await PoolManager.GetServerClient();
+        var pair = Pair;
         var server = pair.Server;
 
         var entMan = server.ResolveDependency<IServerEntityManager>();
@@ -120,14 +106,12 @@ public sealed partial class MindTests
                 Assert.That(mind.OwnedEntity, Is.Not.EqualTo(entity));
             });
         });
-
-        await pair.CleanReturnAsync();
     }
 
     [Test]
     public async Task TestEntityDeadWhenGibbed()
     {
-        await using var pair = await PoolManager.GetServerClient();
+        var pair = Pair;
         var server = pair.Server;
 
         var entMan = server.ResolveDependency<IServerEntityManager>();
@@ -173,14 +157,12 @@ public sealed partial class MindTests
             var mind = entMan.GetComponent<MindComponent>(mindId);
             Assert.That(mindSystem.IsCharacterDeadPhysically(mind));
         });
-
-        await pair.CleanReturnAsync();
     }
 
     [Test]
     public async Task TestMindTransfersToOtherEntity()
     {
-        await using var pair = await PoolManager.GetServerClient();
+        var pair = Pair;
         var server = pair.Server;
 
         var entMan = server.ResolveDependency<IServerEntityManager>();
@@ -207,18 +189,12 @@ public sealed partial class MindTests
                 Assert.That(mindSystem.GetMind(targetEntity), Is.EqualTo(mind));
             });
         });
-
-        await pair.CleanReturnAsync();
     }
 
     [Test]
     public async Task TestOwningPlayerCanBeChanged()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings
-        {
-            Connected = true,
-            DummyTicker = false
-        });
+        var pair = Pair;
         var server = pair.Server;
 
         var entMan = server.ResolveDependency<IServerEntityManager>();
@@ -266,14 +242,12 @@ public sealed partial class MindTests
         });
 
         await pair.RunTicksSync(5);
-
-        await pair.CleanReturnAsync();
     }
 
     [Test]
     public async Task TestAddRemoveHasRoles()
     {
-        await using var pair = await PoolManager.GetServerClient();
+        var pair = Pair;
         var server = pair.Server;
 
         var entMan = server.ResolveDependency<IServerEntityManager>();
@@ -336,15 +310,13 @@ public sealed partial class MindTests
                 Assert.That(roleSystem.MindHasRole<JobRoleComponent>(mindId), Is.False);
             });
         });
-
-        await pair.CleanReturnAsync();
     }
 
     [Test]
     public async Task TestPlayerCanGhost()
     {
         // Client is needed to spawn session
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true, DummyTicker = false });
+        var pair = Pair;
         var server = pair.Server;
 
         var entMan = server.ResolveDependency<IServerEntityManager>();
@@ -412,19 +384,12 @@ public sealed partial class MindTests
                 Assert.That(mId, Is.Not.EqualTo(mindId));
             });
         });
-
-        await pair.CleanReturnAsync();
     }
 
     [Test]
     public async Task TestGhostDoesNotInfiniteLoop()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings
-        {
-            DummyTicker = false,
-            Connected = true,
-            Dirty = true
-        });
+        var pair = Pair;
         var server = pair.Server;
 
         var entMan = server.ResolveDependency<IServerEntityManager>();
@@ -495,7 +460,5 @@ public sealed partial class MindTests
             Assert.That(player.AttachedEntity, Is.Not.Null);
             Assert.That(player.AttachedEntity!.Value, Is.EqualTo(ghost));
         });
-
-        await pair.CleanReturnAsync();
     }
 }

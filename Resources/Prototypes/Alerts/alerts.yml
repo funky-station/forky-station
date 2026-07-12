@@ -1,32 +1,3 @@
-# SPDX-FileCopyrightText: 2020-2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
-# SPDX-FileCopyrightText: 2021-2022, 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021-2022 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2021-2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2021 Kara D <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 DmitriyRubetskoy <75271456+DmitriyRubetskoy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022, 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Keiku <41867291+Keikiru@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Phill101 <28949487+Phill101@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-# SPDX-FileCopyrightText: 2024-2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: alertOrder
   # Defines ordering in alert tab, higher up = higher in tab.
   # List below can contain alert type or category, if both are present the id will take precedence.
@@ -170,8 +141,8 @@
 - type: alert
   id: Stun
   icons:
-  - sprite: /Textures/Objects/Weapons/Melee/stunbaton.rsi #Should probably draw a proper icon
-    state: stunbaton_off
+  - sprite: /Textures/_Funkystation/Objects/Weapons/Melee/nightstick.rsi # Funky - Stun batons aren't used to stun anymore. Original comment suggested making a separate icon so that's another alternative
+    state: icon
   name: alerts-stunned-name
   description: alerts-stunned-desc
 
@@ -506,6 +477,17 @@
     state: heart-on
   name: alerts-adrenaline-name
   description: alerts-adrenaline-desc
+
+# Making alerts for innate abilities like this should generally be avoided by turning them into actions or giving better UX.
+# This was done this way because several entities currently can pry innately and have no indicator for this whatsoever.
+# The ideal solution would be to clean up actions to handle this sort of thing easier while avoiding bloating the action UI.
+- type: alert
+  id: Prying
+  icons:
+  - sprite: /Textures/Objects/Tools/crowbar.rsi
+    state: icon
+  name: alerts-prying-name
+  description: alerts-prying-desc
 
 - type: alert
   id: Debug1

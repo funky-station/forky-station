@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Info;
 using Content.Client.Info.PlaytimeStats;
 using Content.Client.Resources;
@@ -15,6 +10,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Configuration;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client.Lobby.UI
@@ -25,11 +21,11 @@ namespace Content.Client.Lobby.UI
     [GenerateTypedNameReferences]
     public sealed partial class CharacterSetupGui : Control
     {
-        [Dependency] private readonly IClientPreferencesManager _preferencesManager = default!;
-        [Dependency] private readonly IEntityManager _entManager = default!;
-        [Dependency] private readonly IPrototypeManager _protomanager = default!;
-        [Dependency] private readonly IResourceCache _resourceCache = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private IClientPreferencesManager _preferencesManager = default!;
+        [Dependency] private IPrototypeManager _protomanager = default!;
+        [Dependency] private IResourceCache _resourceCache = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
+        [Dependency] private ISharedPlayerManager _playerManager = default!;
 
         private readonly Button _createNewCharacterButton;
 
@@ -96,8 +92,8 @@ namespace Content.Client.Lobby.UI
             foreach (var (slot, character) in _preferencesManager.Preferences!.Characters)
             {
                 numberOfFullSlots++;
-                var characterPickerButton = new CharacterPickerButton(_entManager,
-                    _protomanager,
+                var characterPickerButton = new CharacterPickerButton(_protomanager,
+                    _playerManager,
                     characterButtonsGroup,
                     character,
                     slot == selectedSlot);

@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Radiation.Overlays;
 using Content.Shared.Radiation.Events;
 using Content.Shared.Radiation.Systems;
@@ -10,9 +5,9 @@ using Robust.Client.Graphics;
 
 namespace Content.Client.Radiation.Systems;
 
-public sealed class RadiationSystem : EntitySystem
+public sealed partial class RadiationSystem : SharedRadiationSystem
 {
-    [Dependency] private readonly IOverlayManager _overlayMan = default!;
+    [Dependency] private IOverlayManager _overlayMan = default!;
 
     public List<DebugRadiationRay>? Rays;
     public Dictionary<NetEntity, Dictionary<Vector2i, float>>? ResistanceGrids;

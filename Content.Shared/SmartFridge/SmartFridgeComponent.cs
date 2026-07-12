@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-FileCopyrightText: 2026 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Whitelist;
 using Robust.Shared.Analyzers;
 using Robust.Shared.Audio;
@@ -103,7 +97,7 @@ public enum SmartFridgeUiKey : byte
 }
 
 /// <summary>
-/// Send by the client when trying to dispense an item inside the fridge.
+/// Sent by the client when trying to dispense an item inside the fridge.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class SmartFridgeDispenseItemMessage(SmartFridgeEntry entry) : BoundUserInterfaceMessage
@@ -112,7 +106,7 @@ public sealed class SmartFridgeDispenseItemMessage(SmartFridgeEntry entry) : Bou
 }
 
 /// <summary>
-/// Send by the client when trying to remove an empty smart fridge entry from the list of items in the UI.
+/// Sent by the client when trying to remove an empty smart fridge entry from the list of items in the UI.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class SmartFridgeRemoveEntryMessage(SmartFridgeEntry entry) : BoundUserInterfaceMessage

@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 poklj <compgeek223@gmail.com>
-// SPDX-License-Identifier: MIT
-
 namespace Content.Server.GameTicking.Rules.Components;
 
 /// <summary>

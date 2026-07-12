@@ -1,19 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 lunarcomets <140772713+lunarcomets@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.GameStates;
 using Robust.Shared.Audio;
 

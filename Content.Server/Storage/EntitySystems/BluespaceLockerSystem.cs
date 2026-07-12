@@ -1,20 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Resist;
@@ -38,17 +21,17 @@ using Robust.Shared.Physics;
 
 namespace Content.Server.Storage.EntitySystems;
 
-public sealed class BluespaceLockerSystem : EntitySystem
+public sealed partial class BluespaceLockerSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly EntityStorageSystem _entityStorage = default!;
-    [Dependency] private readonly WeldableSystem _weldableSystem = default!;
-    [Dependency] private readonly LockSystem _lockSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
+    [Dependency] private IRobustRandom _robustRandom = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private EntityStorageSystem _entityStorage = default!;
+    [Dependency] private WeldableSystem _weldableSystem = default!;
+    [Dependency] private LockSystem _lockSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private ExplosionSystem _explosionSystem = default!;
 
     public override void Initialize()
     {

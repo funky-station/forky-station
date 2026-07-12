@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: [ BaseItem, BaseSecurityContraband ]
   id: EmptyDetonator
@@ -19,6 +16,7 @@
     graph: DetonatorGraph
     node: emptyDetonator
   - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
@@ -64,6 +62,7 @@
     intensitySlope: 100
     maxIntensity: 2.5
     canCreateVacuum: false
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: ExplodeOnTrigger
   - type: Sticky
     stickDelay: 2

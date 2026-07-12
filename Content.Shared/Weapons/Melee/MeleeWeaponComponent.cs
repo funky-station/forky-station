@@ -1,20 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023, 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Darkie <darksaiyanis@gmail.com>
-// SPDX-FileCopyrightText: 2023 I.K <45953835+notquitehadouken@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Arimah Greene <30327355+arimah@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Errant <35878406+dmnct@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 HerCoyote23 <131214189+HerCoyote23@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 jicksaw <jicksaw@pm.me>
-// SPDX-FileCopyrightText: 2024 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2026 Red <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
@@ -147,7 +130,7 @@ public sealed partial class MeleeWeaponComponent : Component
     /// We don't connect it with attack range, because different weapons have different sprites,
     /// and this value should be adjusted manually for every weapon ideally
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float AnimationOffset = 1f;
 
     // Sounds

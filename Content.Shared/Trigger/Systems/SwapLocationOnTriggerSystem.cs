@@ -1,15 +1,12 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Trigger.Components.Effects;
 using Robust.Shared.Network;
 
 namespace Content.Shared.Trigger.Systems;
 
-public sealed class SwapLocationOnTriggerSystem : EntitySystem
+public sealed partial class SwapLocationOnTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private INetManager _net = default!;
 
     public override void Initialize()
     {

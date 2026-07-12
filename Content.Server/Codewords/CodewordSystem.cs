@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.GameTicking.Events;
@@ -15,11 +11,11 @@ namespace Content.Server.Codewords;
 /// <summary>
 /// Gamerule that provides codewords for other gamerules that rely on them.
 /// </summary>
-public sealed class CodewordSystem : EntitySystem
+public sealed partial class CodewordSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {

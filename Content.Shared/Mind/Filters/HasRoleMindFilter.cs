@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Roles;
 using Content.Shared.Whitelist;
 
@@ -17,7 +14,7 @@ public sealed partial class HasRoleMindFilter : MindFilter
     [DataField(required: true)]
     public EntityWhitelist Whitelist;
 
-    protected override bool ShouldRemove(Entity<MindComponent> mind, EntityUid? exclude, IEntityManager entMan, SharedMindSystem mindSys)
+    protected override bool ShouldRemove(Entity<MindComponent> mind, EntityUid? exclude, IEntityManager entMan)
     {
         var roleSys = entMan.System<SharedRoleSystem>();
         return !roleSys.MindHasRole(mind, Whitelist);

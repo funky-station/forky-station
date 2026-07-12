@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 Centronias <charlie.t.santos@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: htnCompound
   id: HugBotCompound
   branches:
@@ -123,7 +118,7 @@
   query:
   - !type:ComponentQuery
     components:
-    - type: HumanoidAppearance
+    - type: HumanoidProfile
       species: Human # This specific value isn't actually used, so don't worry about it being just `Human`.
   - !type:ComponentFilter
     retainWithComp: false

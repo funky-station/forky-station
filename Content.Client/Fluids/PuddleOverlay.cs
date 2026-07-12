@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Shared.FixedPoint;
 using Robust.Client.Graphics;
@@ -18,11 +8,11 @@ using Robust.Shared.Map.Components;
 
 namespace Content.Client.Fluids;
 
-public sealed class PuddleOverlay : Overlay
+public sealed partial class PuddleOverlay : Overlay
 {
-    [Dependency] private readonly IEyeManager _eyeManager = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] private IEyeManager _eyeManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IEntitySystemManager _entitySystemManager = default!;
     private readonly PuddleDebugOverlaySystem _debugOverlaySystem;
     private readonly SharedTransformSystem _transformSystem;
 

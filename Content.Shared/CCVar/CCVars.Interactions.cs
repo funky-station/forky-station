@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;
@@ -75,4 +70,17 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<bool> NestedStorage =
         CVarDef.Create("control.nested_storage", true, CVar.REPLICATED | CVar.SERVER);
+
+    /// <summary>
+    ///     If enabled, melee weapons that have click-to-attack patterns (unarmed, slow weapons) will continue attacking if the button is held.
+    /// </summary>
+    public static readonly CVarDef<bool> ControlHoldToAttackMelee =
+        CVarDef.Create("control.hold_to_attack_melee", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    ///     If enabled, ranged weapons that have click-to-attack patterns (burst and semi-auto guns) will continue attacking if the button is held.
+    /// </summary>
+    public static readonly CVarDef<bool> ControlHoldToAttackRanged =
+        CVarDef.Create("control.hold_to_attack_ranged", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
 }

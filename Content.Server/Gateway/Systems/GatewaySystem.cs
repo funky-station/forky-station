@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Gateway.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.UserInterface;
@@ -23,17 +16,17 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Gateway.Systems;
 
-public sealed class GatewaySystem : EntitySystem
+public sealed partial class GatewaySystem : EntitySystem
 {
-    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly LinkedEntitySystem _linkedEntity = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly MetaDataSystem _metadata = default!;
-    [Dependency] private readonly StationSystem _stations = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private AccessReaderSystem _accessReader = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private LinkedEntitySystem _linkedEntity = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private MetaDataSystem _metadata = default!;
+    [Dependency] private StationSystem _stations = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {

@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
-# SPDX-License-Identifier: MIT
-
 # Funky atmos - /tg/ gases
 - type: reagent
   id: BZMetabolites
@@ -12,7 +9,7 @@
   physicalDesc: reagent-physical-desc-nondescript
   # Effects to be readded with Changelings
   # metabolisms:
-  #   Poison:
+  #   Bloodstream:
   #     effects:
   #     - !type:AdjustLingChemicals
   #       conditions:

@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Pinpointer;
 using Content.Shared.Mobs.Components;
@@ -11,11 +8,11 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Trigger.Systems;
 
-public sealed class RattleOnTriggerSystem : EntitySystem
+public sealed partial class RattleOnTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly NavMapSystem _navMap = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private RadioSystem _radio = default!;
+    [Dependency] private NavMapSystem _navMap = default!;
 
     public override void Initialize()
     {

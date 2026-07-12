@@ -1,16 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Winkarst-cpu <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Alert;
 using Content.Shared.Inventory;
 using Content.Shared.Throwing;
@@ -27,14 +14,14 @@ namespace Content.Shared.Gravity;
 
 public abstract partial class SharedGravitySystem : EntitySystem
 {
-    [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] private AlertsSystem _alerts = default!;
 
     public static readonly ProtoId<AlertPrototype> WeightlessAlert = "Weightless";
 
-    protected EntityQuery<GravityComponent> GravityQuery;
-    private EntityQuery<GravityAffectedComponent> _weightlessQuery;
-    private EntityQuery<PhysicsComponent> _physicsQuery;
+    [Dependency] protected EntityQuery<GravityComponent> GravityQuery = default!;
+    [Dependency] private EntityQuery<GravityAffectedComponent> _weightlessQuery = default!;
+    [Dependency] private EntityQuery<PhysicsComponent> _physicsQuery = default!;
 
     public override void Initialize()
     {
@@ -56,10 +43,6 @@ public abstract partial class SharedGravitySystem : EntitySystem
         // Impulse
         SubscribeLocalEvent<GravityAffectedComponent, ShooterImpulseEvent>(OnShooterImpulse);
         SubscribeLocalEvent<GravityAffectedComponent, ThrowerImpulseEvent>(OnThrowerImpulse);
-
-        GravityQuery = GetEntityQuery<GravityComponent>();
-        _weightlessQuery = GetEntityQuery<GravityAffectedComponent>();
-        _physicsQuery = GetEntityQuery<PhysicsComponent>();
     }
 
     public override void Update(float frameTime)

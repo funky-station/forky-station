@@ -1,25 +1,10 @@
-// SPDX-FileCopyrightText: 2023-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Luiz Costa <33888056+luizwritescode@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 WarMechanic <69510347+WarMechanic@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Partmedia <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Callmore <22885888+Callmore@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
-using Content.Server.Atmos;
-using Content.Server.Atmos.EntitySystems;
-using Content.Server.Atmos.Piping.Components;
+﻿using Content.Server.Atmos.EntitySystems;
 using Content.Server.Audio;
-using Content.Server.DeviceNetwork;
 using Content.Server.DeviceNetwork.Systems;
-using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.Nodes;
 using Content.Server.Power.Components;
 using Content.Shared.Atmos;
+using Content.Shared.Atmos.Components;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Examine;
@@ -29,7 +14,6 @@ using Content.Shared.Power.EntitySystems;
 using Content.Shared.Power.Generation.Teg;
 using Content.Shared.Rounding;
 using Robust.Server.GameObjects;
-using Robust.Shared.Utility;
 
 namespace Content.Server.Power.Generation.Teg;
 
@@ -60,7 +44,7 @@ namespace Content.Server.Power.Generation.Teg;
 /// <seealso cref="TegCirculatorComponent"/>
 /// <seealso cref="TegNodeGroup"/>
 /// <seealso cref="TegSensorData"/>
-public sealed class TegSystem : EntitySystem
+public sealed partial class TegSystem : EntitySystem
 {
     /// <summary>
     /// Node name for the TEG part connection nodes (<see cref="TegNodeGroup"/>).
@@ -82,14 +66,13 @@ public sealed class TegSystem : EntitySystem
     /// </summary>
     public const string DeviceNetworkCommandSyncData = "teg_sync_data";
 
-    [Dependency] private readonly AmbientSoundSystem _ambientSound = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
-    [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
-    [Dependency] private readonly PointLightSystem _pointLight = default!;
-    [Dependency] private readonly SharedPowerReceiverSystem _receiver = default!;
-
-    private EntityQuery<NodeContainerComponent> _nodeContainerQuery;
+    [Dependency] private AmbientSoundSystem _ambientSound = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private AtmosphereSystem _atmosphere = default!;
+    [Dependency] private DeviceNetworkSystem _deviceNetwork = default!;
+    [Dependency] private PointLightSystem _pointLight = default!;
+    [Dependency] private SharedPowerReceiverSystem _receiver = default!;
+    [Dependency] private EntityQuery<NodeContainerComponent> _nodeContainerQuery = default!;
 
     public override void Initialize()
     {
@@ -100,8 +83,6 @@ public sealed class TegSystem : EntitySystem
         SubscribeLocalEvent<TegGeneratorComponent, DeviceNetworkPacketEvent>(DeviceNetworkPacketReceived);
 
         SubscribeLocalEvent<TegGeneratorComponent, ExaminedEvent>(GeneratorExamined);
-
-        _nodeContainerQuery = GetEntityQuery<NodeContainerComponent>();
     }
 
     private void GeneratorExamined(EntityUid uid, TegGeneratorComponent component, ExaminedEvent args)

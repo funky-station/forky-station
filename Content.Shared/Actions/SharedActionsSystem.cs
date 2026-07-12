@@ -1,34 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2025 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2025 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ForestNoises <33579038+ForestNoises@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Menshin <Menshin@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Winkarst-cpu <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.ActionBlocker;
@@ -43,6 +12,7 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Mind;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Whitelist;
+using Content.Shared.Wires;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
@@ -53,29 +23,25 @@ namespace Content.Shared.Actions;
 
 public abstract partial class SharedActionsSystem : EntitySystem
 {
-    [Dependency] protected readonly IGameTiming GameTiming = default!;
-    [Dependency] private   readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private   readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private   readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private   readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private   readonly RotateToFaceSystem _rotateToFace = default!;
-    [Dependency] private   readonly SharedAudioSystem _audio = default!;
-    [Dependency] private   readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private   readonly SharedTransformSystem _transform = default!;
-    [Dependency] private   readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] protected IGameTiming GameTiming = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private ActionContainerSystem _actionContainer = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private RotateToFaceSystem _rotateToFace = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
 
-    private EntityQuery<ActionComponent> _actionQuery;
-    private EntityQuery<ActionsComponent> _actionsQuery;
-    private EntityQuery<MindComponent> _mindQuery;
+    [Dependency] private EntityQuery<ActionComponent> _actionQuery = default!;
+    [Dependency] private EntityQuery<ActionsComponent> _actionsQuery = default!;
+    [Dependency] private EntityQuery<MindComponent> _mindQuery = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         InitializeActionDoAfter();
-
-        _actionQuery = GetEntityQuery<ActionComponent>();
-        _actionsQuery = GetEntityQuery<ActionsComponent>();
-        _mindQuery = GetEntityQuery<MindComponent>();
 
         SubscribeLocalEvent<ActionComponent, MapInitEvent>(OnActionMapInit);
 
@@ -958,7 +924,7 @@ public abstract partial class SharedActionsSystem : EntitySystem
         if (GameTiming.ApplyingState)
             return;
 
-        var ev = new GetItemActionsEvent(_actionContainer, args.Equipee, args.Equipment, args.SlotFlags);
+        var ev = new GetItemActionsEvent(_actionContainer, args.EquipTarget, args.Equipment, args.SlotFlags);
         RaiseLocalEvent(args.Equipment, ev);
 
         if (ev.Actions.Count == 0)
