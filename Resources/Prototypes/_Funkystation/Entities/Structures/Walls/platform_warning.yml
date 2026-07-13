@@ -1,0 +1,154 @@
+- type: entity
+  parent: BaseStructure
+  id: BasePlatformWarning
+  abstract: true
+  name: platform warning
+  description: Basic platform warning meant to protect idiots like you from falling.
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _Funkystation/Structures/Walls/platform_warning.rsi
+  - type: Icon
+    sprite: _Funkystation/Structures/Walls/platform_warning.rsi
+  - type: InteractionOutline
+  - type: Repairable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: FlimsyMetallic
+  - type: Climbable
+  - type: RCDDeconstructable
+    cost: 20 # Funkystation
+    delay: 2
+    fx: EffectRCDDeconstruct2
+
+- type: entity
+  parent: BasePlatformWarning
+  id: PlatformWarning
+  components:
+  - type: Sprite
+    state: warning_side
+  - type: Icon
+    state: warning_side
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BasePlatformWarning
+  id: PlatformWarningCorner
+  components:
+  - type: Sprite
+    state: warning_corner
+  - type: Icon
+    state: warning_corner
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BasePlatformWarning
+  id: PlatformWarningCornerSmall
+  components:
+  - type: Sprite
+    state: warning_corner_small
+  - type: Icon
+    state: warning_corner_small
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: BasePlatformWarning
+  id: PlatformWarningRound
+  components:
+  - type: Sprite
+    state: warning_round
+  - type: Icon
+    state: warning_round
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 0
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
