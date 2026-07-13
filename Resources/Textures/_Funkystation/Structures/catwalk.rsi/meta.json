@@ -39,6 +39,9 @@
     },
     {
       "name": "glas"
+    },
+    {
+      "name": "lattice"
     }
   ]
 }
