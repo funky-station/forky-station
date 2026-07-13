@@ -104,7 +104,7 @@
   - type: Speech
     speechVerb: Slime
     speechSounds: Slime
-    allowedEmotes: ['Squish']
+    allowedEmotes: ['Squish', 'Bubble', 'Slosh','Pop', 'Fizz']
   - type: TypingIndicator
     proto: slime
   - type: Vocal

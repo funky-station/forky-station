@@ -135,6 +135,14 @@
   sounds:
     Squish:
       collection: Squishes
+    Bubble:
+      collection: Bubbles
+    Pop:
+      collection: Pops
+    Slosh:
+      collection: Sloshes
+    Fizz:
+      collection: Fizzes
     Scream:
       collection: MaleScreams
     Laugh:
@@ -179,6 +187,14 @@
   sounds:
     Squish:
       collection: Squishes
+    Bubble:
+      collection: Bubbles
+    Pop:
+      collection: Pops
+    Slosh:
+      collection: Sloshes
+    Fizz:
+      collection: Fizzes
     Scream:
       collection: FemaleScreams
     Laugh:

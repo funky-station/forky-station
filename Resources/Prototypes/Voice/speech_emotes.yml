@@ -131,7 +131,7 @@
   name: chat-emote-name-squish
   category: Vocal
   available: false
-  icon: Interface/Emotes/squish.png
+  icon: _Funkystation/Interface/Emotes/squish.png
   whitelist:
     components:
     - Vocal
@@ -143,6 +143,81 @@
     - squish
     - squishing
     - squishes
+
+- type: emote #Funky!
+  id: Bubble
+  name: chat-emote-name-bubble
+  category: Vocal
+  available: false
+  icon: _Funkystation/Interface/Emotes/bubble.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    tags:
+    - SiliconEmotes
+  chatMessages: ["chat-emote-msg-bubble"]
+  chatTriggers:
+    - bubble
+    - bubbling
+    - bubbles
+
+- type: emote #Funky!
+  id: Pop
+  name: chat-emote-name-pop
+  category: Vocal
+  available: false
+  icon: _Funkystation/Interface/Emotes/pop.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    tags:
+    - SiliconEmotes
+  chatMessages: ["chat-emote-msg-pop"]
+  chatTriggers:
+    - pop
+    - poping
+    - pops
+
+- type: emote #Funky!
+  id: Slosh
+  name: chat-emote-name-slosh
+  category: Vocal
+  available: false
+  icon: _Funkystation/Interface/Emotes/slosh.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    tags:
+    - SiliconEmotes
+  chatMessages: ["chat-emote-msg-slosh"]
+  chatTriggers:
+    - slosh
+    - sloshing
+    - sloshes
+
+- type: emote #Funky!
+  id: Fizz
+  name: chat-emote-name-fizz
+  category: Vocal
+  available: false
+  icon: _Funkystation/Interface/Emotes/fizz.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    tags:
+    - SiliconEmotes
+  chatMessages: ["chat-emote-msg-fizz"]
+  chatTriggers:
+    - fizz
+    - fizzing
+    - fizzes
+    - carbonate
+    - carbonating
+    - carbonates
 
 - type: emote
   id: Chitter
