@@ -78,7 +78,7 @@
 #Reagent Eggs
 
 - type: entity
-  parent: BaseItem
+  parent: [BaseItem, SolutionVeryTiny, FoodInjectableBase, ItemHeftyBase]
   id: ReagentEggBase
   name: weird egg
   description: A strange egg!
@@ -145,348 +145,294 @@
   id: ReagentEggCogni
   suffix: Cogni
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Cognizine
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Cognizine
+        Quantity: 6
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggCarpotoxin
   suffix: Carpotoxin
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: CarpoToxin
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: CarpoToxin
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggAntifreeze
   suffix: Antifreeze
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Antifreeze
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Antifreeze
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggDevilsKiss
   suffix: DevilsKiss
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: DevilsKiss
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: DevilsKiss
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggThermite
   suffix: Thermite
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Thermite
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Thermite
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggFelinase
   suffix: Felinase
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Felinase
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Felinase
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggWeldingFuel
   suffix: WeldingFuel
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggTHC
   suffix: THC
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: THC
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: THC
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggNothing
   suffix: Nothing
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nothing
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nothing
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggVomit
   suffix: Vomit
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Vomit
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Vomit
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggIpecac
   suffix: Ipecac
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Ipecac
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Ipecac
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggHonk
   suffix: Honk
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Honk
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Honk
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggSpaceCleaner
   suffix: SpaceCleaner
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: SpaceCleaner
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: SpaceCleaner
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggMustard
   suffix: Mustard
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Mustard
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Mustard
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggChloralHydrate
   suffix: ChloralHydrate
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: ChloralHydrate
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: ChloralHydrate
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggMuteToxin
   suffix: MuteToxin
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: MuteToxin
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: MuteToxin
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggHistamine
   suffix: Histamine
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Histamine
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Histamine
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggWine
   suffix: Wine
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Wine
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Wine
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggCaninase
   suffix: Caninase
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Caninase
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Caninase
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggMindbreakerToxin
   suffix: MindbreakerToxin
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: MindbreakerToxin
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: MindbreakerToxin
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggMopwata
   suffix: Mopwata
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Mopwata
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Mopwata
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggSpaceLube
   suffix: SpaceLube
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: SpaceLube
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: SpaceLube
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggBeer
   suffix: Beer
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Beer
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Beer
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggHealium
   suffix: Healium
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Healium
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Healium
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggFersilicite
   suffix: Fersilicite
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fersilicite
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Fersilicite
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggFlour
   suffix: Flour
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Flour
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Flour
+        Quantity: 10
 
 - type: entity
   parent: ReagentEggBase
   id: ReagentEggChlorineTrifluoride
   suffix: ChlorineTrifluoride
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: ChlorineTrifluoride
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: ChlorineTrifluoride
+        Quantity: 10
