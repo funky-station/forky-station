@@ -118,6 +118,11 @@
     - /Audio/Voice/Slime/slime_fizz_3.ogg
 
 - type: soundCollection
+  id: Wobbles
+  files:
+    - /Audio/_RMC14/Voice/Slime/slime_wobble.ogg #RMC
+
+- type: soundCollection
   id: Weh
   files:
   - /Audio/Items/Toys/weh.ogg

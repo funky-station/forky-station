@@ -219,6 +219,25 @@
     - carbonating
     - carbonates
 
+- type: emote #RMC
+  id: Wobble
+  name: chat-emote-name-wobble
+  category: Vocal
+  available: false
+  icon: _Funkystation/Interface/Emotes/wobble.png #Funky!
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    tags:
+    - SiliconEmotes
+  chatMessages: ["chat-emote-msg-wobble"]
+  chatTriggers:
+    - wobble
+    - wobbling
+    - wobbles
+
+
 - type: emote
   id: Chitter
   name: chat-emote-name-chitter

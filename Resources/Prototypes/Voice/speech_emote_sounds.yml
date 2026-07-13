@@ -143,6 +143,8 @@
       collection: Sloshes
     Fizz:
       collection: Fizzes
+    Wobble:
+      collection: Wobbles
     Scream:
       collection: MaleScreams
     Laugh:
@@ -195,6 +197,8 @@
       collection: Sloshes
     Fizz:
       collection: Fizzes
+    Wobble:
+      collection: Wobbles
     Scream:
       collection: FemaleScreams
     Laugh:
