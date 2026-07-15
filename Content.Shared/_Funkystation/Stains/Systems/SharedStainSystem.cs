@@ -20,16 +20,16 @@ public enum StainVisuals : byte
     Toggle
 }
 
-public abstract class SharedStainSystem : EntitySystem
+public abstract partial class SharedStainSystem : EntitySystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = null!;
-    [Dependency] private readonly SharedItemSystem _item = null!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = null!;
-    [Dependency] private readonly SharedContainerSystem _container = null!;
-    [Dependency] private readonly InventorySystem _inventory = null!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
-    [Dependency] private readonly SharedPuddleSystem _puddle = null!;
-    [Dependency] private readonly SharedPopupSystem _popup = null!;
+    [Dependency] private SharedSolutionContainerSystem _solution = null!;
+    [Dependency] private SharedItemSystem _item = null!;
+    [Dependency] private SharedAppearanceSystem _appearance = null!;
+    [Dependency] private SharedContainerSystem _container = null!;
+    [Dependency] private InventorySystem _inventory = null!;
+    [Dependency] private SharedDoAfterSystem _doAfter = null!;
+    [Dependency] private SharedPuddleSystem _puddle = null!;
+    [Dependency] private SharedPopupSystem _popup = null!;
 
     public override void Initialize()
     {
@@ -39,12 +39,12 @@ public abstract class SharedStainSystem : EntitySystem
         SubscribeLocalEvent<StainableComponent, InventoryRelayedEvent<SpilledOnEvent>>(OnSpilledOn);
         SubscribeLocalEvent<StainableComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
         SubscribeLocalEvent<StainableComponent, WringStainDoAfterEvent>(OnWring);
-        SubscribeLocalEvent<StainableComponent, SolutionContainerChangedEvent>(OnSolutionChanged);
+        SubscribeLocalEvent<StainableComponent, SolutionChangedEvent>(OnSolutionChanged);
     }
 
-    private void OnSolutionChanged(Entity<StainableComponent> ent, ref SolutionContainerChangedEvent args)
+    private void OnSolutionChanged(Entity<StainableComponent> ent, ref SolutionChangedEvent args)
     {
-        if (args.SolutionId == ent.Comp.SolutionName)
+        if (args.Solution.Comp.Id == ent.Comp.SolutionName)
             UpdateVisuals(ent);
     }
 

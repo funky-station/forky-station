@@ -85,7 +85,7 @@
   id: MMI
   result: MMI
   icon:
-    sprite: Objects/Specific/Robotics/mmi.rsi
+    sprite: _Funkystation/Objects/Specific/Robotics/mmi.rsi #Funky resprite
     state: mmi_off
   materials:
     Steel: 1000

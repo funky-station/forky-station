@@ -4,10 +4,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._FarHorizons.Power.Generation.FissionGenerator;
 
-public sealed class ReactorPartSystem : SharedReactorPartSystem
+public sealed partial class ReactorPartSystem : SharedReactorPartSystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {
@@ -30,5 +30,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
     }
 
     private void OnComponentInit(Entity<ReactorPartComponent> ent, ref ComponentInit args)
-        => _sprite.LayerSetColor((ent.Owner, EntityManager.GetComponent<SpriteComponent>(ent.Owner)), 0, _proto.Index(ent.Comp.Material).Color);
+    {
+        _sprite.LayerSetColor((ent.Owner, Comp<SpriteComponent>(ent.Owner)), 0, _proto.Index(ent.Comp.Material).Color);
+    }
 }

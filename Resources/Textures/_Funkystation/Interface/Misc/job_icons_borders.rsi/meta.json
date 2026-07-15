@@ -1,0 +1,24 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Mindshield and broken mindshield border by @Catazeus (GitHub)",
+
+    "size": {
+        "x": 8,
+        "y": 8
+    },
+    "states": [
+        {
+            "name": "MindShieldBorder",
+            "delays": [
+                [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ]
+            ]
+        },
+        {
+            "name": "MindShieldBrokenBorder",
+            "delays": [
+                [ 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 ]
+            ]
+        }
+    ]
+}

@@ -1,3 +1,4 @@
+using Content.Server._Funkystation.ReagentFires.Systems;
 using Content.Server.Fluids.Components;
 using Content.Server.Spreader;
 using Content.Shared.Chemistry;
@@ -17,6 +18,7 @@ using Content.Shared.Slippery;
 using Content.Shared.Inventory;
 using Content.Shared._Funkystation.Fluids;
 using Content.Shared._Funkystation.Footprints;
+using Content.Shared._Funkystation.WallStains;
 using Robust.Shared.Collections;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -31,24 +33,26 @@ namespace Content.Server.Fluids.EntitySystems;
 /// </summary>
 public sealed partial class PuddleSystem : SharedPuddleSystem
 {
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedColorFlashEffectSystem _color = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private TurfSystem _turf = default!;
+    [Dependency] private InventorySystem _inventory = default!;
 
-    private EntityQuery<PuddleComponent> _puddleQuery;
+    [Dependency] private ReagentFireSystem _fireSystem = default!;
+
+    [Dependency] private EntityQuery<PuddleComponent> _puddleQuery = default!;
+    [Dependency] private EntityQuery<EvaporationSparkleComponent> _evaporationSparklesQuery = default!;
+    [Dependency] private EntityQuery<FootprintComponent> _footprintQuery = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
-
-        _puddleQuery = GetEntityQuery<PuddleComponent>();
 
         SubscribeLocalEvent<PuddleComponent, SpreadNeighborsEvent>(OnPuddleSpread);
         SubscribeLocalEvent<PuddleComponent, SlipEvent>(OnPuddleSlip);
@@ -173,6 +177,7 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
                     break;
             }
 
+            // If there is nothing left to overflow from our tile, then we'll stop this tile being an active spreader
             if (overflow.Volume == FixedPoint2.Zero)
             {
                 RemCompDeferred<ActiveEdgeSpreaderComponent>(entity);
@@ -270,6 +275,10 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         {
             var stainEv = new SpilledOnEvent(entity.Owner, splitSol.Clone());
             RaiseLocalEvent(args.Slipped, stainEv);
+
+            // Funky Wall Stains
+            var splashEv = new SplashOnWallEvent(Transform(entity.Owner).Coordinates, splitSol.Clone());
+            RaiseLocalEvent(ref splashEv);
         }
     }
 
@@ -288,20 +297,13 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         Solution addedSolution,
         bool sound = true,
         bool checkForOverflow = true,
-        PuddleComponent? puddleComponent = null,
-        SolutionContainerManagerComponent? sol = null)
+        PuddleComponent? puddleComponent = null)
     {
-        if (!Resolve(puddleUid, ref puddleComponent, ref sol))
+        if (!Resolve(puddleUid, ref puddleComponent))
             return false;
 
-        _solutionContainerSystem.EnsureAllSolutions((puddleUid, sol));
-
-        if (addedSolution.Volume == 0 ||
-            !_solutionContainerSystem.ResolveSolution(puddleUid, puddleComponent.SolutionName,
-                ref puddleComponent.Solution))
-        {
+        if (addedSolution.Volume == 0 || !_solutionContainerSystem.ResolveSolution(puddleUid, puddleComponent.SolutionName, ref puddleComponent.Solution))
             return false;
-        }
 
         _solutionContainerSystem.AddSolution(puddleComponent.Solution.Value, addedSolution);
 
@@ -429,6 +431,10 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         _color.RaiseEffect(spilled.GetColor(_prototypeManager), targets,
             Filter.Pvs(entity, entityManager: EntityManager));
 
+        // Funky Wall Stains
+        var splashEv = new SplashOnWallEvent(coordinates, spilled.Clone());
+        RaiseLocalEvent(ref splashEv);
+
         return TrySpillAt(coordinates, spilled, out puddleUid, sound);
     }
 
@@ -497,22 +503,19 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         }
 
         var anchored = _map.GetAnchoredEntitiesEnumerator(gridId, mapGrid, tileRef.GridIndices);
-        var puddleQuery = GetEntityQuery<PuddleComponent>();
-        var sparklesQuery = GetEntityQuery<EvaporationSparkleComponent>();
-        var footprintQuery = GetEntityQuery<FootprintComponent>();
 
         while (anchored.MoveNext(out var ent))
         {
-            if (sparklesQuery.TryGetComponent(ent, out var sparkles))
+            if (_evaporationSparklesQuery.TryGetComponent(ent, out var sparkles))
             {
                 QueueDel(ent.Value);
                 continue;
             }
 
-            if (!puddleQuery.TryGetComponent(ent, out var puddle))
+            if (!_puddleQuery.TryGetComponent(ent, out var puddle))
                 continue;
 
-            if (footprintQuery.HasComponent(ent.Value))
+            if (_footprintQuery.HasComponent(ent.Value))
                 continue;
 
             if (TryAddSolution(ent.Value, solution, sound, puddleComponent: puddle))
@@ -545,15 +548,12 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
             return false;
 
         var anc = _map.GetAnchoredEntitiesEnumerator(tile.GridUid, grid, tile.GridIndices);
-        var puddleQuery = GetEntityQuery<PuddleComponent>();
-        var footprintQuery = GetEntityQuery<FootprintComponent>();
-
         while (anc.MoveNext(out var ent))
         {
-            if (!puddleQuery.HasComponent(ent.Value))
+            if (!_puddleQuery.HasComponent(ent.Value))
                 continue;
 
-            if (footprintQuery.HasComponent(ent.Value))
+            if (_footprintQuery.HasComponent(ent.Value))
                 continue;
 
             puddleUid = ent.Value;
@@ -562,4 +562,12 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
 
         return false;
     }
+
+    // Funky edit - handle reagent fire
+    protected override void OnSolutionUpdate(Entity<PuddleComponent> entity, ref SolutionChangedEvent args)
+    {
+        base.OnSolutionUpdate(entity, ref args);
+        _fireSystem.UpdateFire(entity);
+    }
+    // Funky edit end
 }

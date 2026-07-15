@@ -53,7 +53,10 @@
   icon:
     sprite: Objects/Devices/mousetrap.rsi
     state: mousetrap
-  product: CrateMousetrapBoxes
+  product: BoxMousetrap
+  container:
+    entity: WrappedParcel
+    containerId: contents
   cost: 500
   category: cargoproduct-category-name-service
   group: market
@@ -101,7 +104,7 @@
 - type: cargoProduct
   id: ServiceFaxMachine
   icon:
-    sprite: Structures/Machines/fax_machine.rsi
+    sprite: _Funkystation/Structures/Machines/fax_machine.rsi #Funky resprite
     state: icon
   product: CrateServiceFaxMachine
   cost: 2000

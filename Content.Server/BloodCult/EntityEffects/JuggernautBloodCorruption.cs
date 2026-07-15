@@ -25,8 +25,8 @@ public sealed partial class JuggernautBloodCorruption : EntityEffectBase<Juggern
 /// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
 public sealed partial class JuggernautBloodCorruptionEntityEffectSystem : EntityEffectSystem<JuggernautComponent, JuggernautBloodCorruption>
 {
-    [Dependency] private readonly PuddleSystem _puddle = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private PuddleSystem _puddle = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     protected override void Effect(Entity<JuggernautComponent> entity, ref EntityEffectEvent<JuggernautBloodCorruption> args)
     {

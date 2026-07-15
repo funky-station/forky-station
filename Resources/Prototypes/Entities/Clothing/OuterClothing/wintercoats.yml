@@ -21,17 +21,6 @@
     priceMultiplier: 0
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.55
-  - type: Edible
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-      stain:
-        maxVol: 5
   - type: Tag
     tags:
     - ClothMade
@@ -845,7 +834,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatnomi.rsi
 
 - type: entity
-  parent: ClothingOuterWinterCoatToggleable
+  parent: [ClothingOuterWinterCoatToggleable, BaseSlicingRefinable]
   id: ClothingOuterWinterWeb
   name: web winter coat
   description: Feels like the inside of a cocoon, not that this would make you less afraid of being in one.
@@ -868,8 +857,8 @@
   - type: Construction
     graph: WebObjects
     node: coat
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: MaterialWebSilk1
       amount: 5
   - type: FlavorProfile
