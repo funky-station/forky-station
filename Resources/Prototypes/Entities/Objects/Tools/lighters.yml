@@ -12,7 +12,7 @@
       collection: lighterOnSounds
     soundDeactivate:
       collection: lighterOffSounds
-    soundFailToActivate:
+    soundFailToActivate: # funky station
       collection: lighterFailSounds
   - type: ItemToggleMeleeWeapon
     activatedDamage:
