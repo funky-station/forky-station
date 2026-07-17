@@ -22,7 +22,9 @@ public sealed partial class ItemToggleRandomFailSystem : EntitySystem
         if (_random.NextFloat() < component.FailChance)
         {
             args.Cancelled = true;
-            args.Popup = component.PopupText;
+            args.Popup = !string.IsNullOrWhiteSpace(component.PopupText)
+                ? Loc.GetString(component.PopupText)
+                : null;
         }
     }
 }

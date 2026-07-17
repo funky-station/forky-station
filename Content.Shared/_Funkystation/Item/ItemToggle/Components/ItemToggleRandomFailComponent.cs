@@ -14,6 +14,9 @@ public sealed partial class ItemToggleRandomFailComponent : Component
     [DataField]
     public float FailChance = 0f;
 
+    /// <summary>
+    /// Localization ID for text to display when the item fails to activate.
+    /// </summary>
     [DataField]
-    public string? PopupText; // TODO: use localized strings
+    public LocId? PopupText;
 }
