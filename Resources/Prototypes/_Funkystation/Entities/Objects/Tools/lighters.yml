@@ -23,7 +23,7 @@
     predictable: false
     soundDeactivate:
       path: /Audio/_Funkystation/Items/Lighters/zippo_help4_close.ogg
-  - type: CheapLighter
+  - type: ItemToggleInterruptibleSound
     soundActivate:
       path: /Audio/_Funkystation/Items/Lighters/zippo_help4_open.ogg
   - type: Solution

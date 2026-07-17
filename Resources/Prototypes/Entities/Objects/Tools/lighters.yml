@@ -124,8 +124,9 @@
     available:
       - skin:
           cheap_icon_base: Rainbow
-  - type: CheapLighter
+  - type: ItemToggleRandomFail # funky station
     failChance: 0.4
+    popupText: "A flame appears and then fizzles out." # todo use localized strings
   - type: Welder
     fuelConsumption: 0.02
     fuelLitCost: 0.2
@@ -146,8 +147,9 @@
       visible: false
       shader: unshaded
       map: [ "flame" ]
-  - type: CheapLighter
+  - type: ItemToggleRandomFail # funkystation
     failChance: 0.5
+    popupText: "A flame appears and then fizzles out." # todo use localized strings
   - type: Welder # the single worst lighter invented by mankind
     fuelConsumption: 0.4
     fuelLitCost: 0.2
