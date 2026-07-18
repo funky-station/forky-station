@@ -97,7 +97,8 @@ uplink-shrapnel-grenade-name = Shrapnel Grenade
 uplink-shrapnel-grenade-desc = Launches a spray of sharp fragments dealing great damage against unarmored targets.
 
 uplink-pizza-bomb-name = Nefarious Pizza bomb
-uplink-pizza-bomb-desc = This tech, first pioneered by terrorists, now is used by the syndicate for eliminating high value targets
+uplink-pizza-bomb-desc = uplink-pizza-bomb-name = Pizza Bomb
+uplink-pizza-bomb-desc = This tech, first pioneered by terrorists, now is used by the Syndicate for eliminating high value targets. WARNING: Explodes after opening with a short timer. Do not attempt to throw.
 
 uplink-pizza-bomb-surplus-name = Surplus Pizza Bomb
 uplink-pizza--surplus-desc = This shouldn't be visible, report me.
