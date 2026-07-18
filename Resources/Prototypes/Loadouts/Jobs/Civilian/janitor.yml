@@ -13,6 +13,11 @@
   equipment:
     head: ClothingHeadHatPurplesoft
 
+- type: loadout
+  id: RainHat
+  equipment:
+    head: ClothingHeadHatRainHat
+
 # Jumpsuit
 - type: loadout
   id: JanitorJumpsuit
@@ -122,6 +127,12 @@
   equipment:
     outerClothing: ClothingOuterWinterJani
 
+- type: loadout
+  id: RainCoat
+  equipment:
+    outerClothing: ClothingOuterCoatRain
+
+# Galoshes
 - type: loadout
   id: Galoshes
   equipment:
