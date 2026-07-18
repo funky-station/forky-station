@@ -102,12 +102,16 @@
         shader: unshaded
   - type: Item
     sprite: Objects/Tools/Lighters/lighters.rsi
+  - type: ItemToggleRandomFail # funky station
+    failChance: 0.4
+    popupText: lighter-activate-attempt-failure
 
 - type: entity
   parent: Lighter
   id: CheapLighter
   name: cheap lighter
   description: "A dangerously inexpensive plastic lighter. Don't burn your thumb!"
+  categories: [ DoNotMap, HideSpawnMenu ] # funky station
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/lighters.rsi
@@ -124,9 +128,6 @@
     available:
       - skin:
           cheap_icon_base: Rainbow
-  - type: ItemToggleRandomFail # funky station
-    failChance: 0.4
-    popupText: lighter-activate-attempt-failure
   - type: Welder
     fuelConsumption: 0.02
     fuelLitCost: 0.2
@@ -147,9 +148,6 @@
       visible: false
       shader: unshaded
       map: [ "flame" ]
-  - type: ItemToggleRandomFail # funkystation
-    failChance: 0.5
-    popupText: lighter-activate-attempt-failure
   - type: Welder # the single worst lighter invented by mankind
     fuelConsumption: 0.4
     fuelLitCost: 0.2
@@ -174,6 +172,9 @@
       damage:
         types:
           Heat: 2
+  - type: ItemToggleRandomFail # funkystation
+    failChance: 0.5
+    popupText: lighter-activate-attempt-failure
 
 ## Flippos
 
