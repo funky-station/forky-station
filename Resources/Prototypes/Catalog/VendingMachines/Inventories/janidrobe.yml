@@ -2,13 +2,22 @@
   id: JaniDrobeInventory
   startingInventory:
     ClothingUniformJumpsuitJanitor: 2
+    ClothingUniformJumpsuitJanitorGreen: 2
+    ClothingUniformJumpsuitJanitorOrange: 2
     ClothingUniformJumpskirtJanitor: 2
+    ClothingUniformJumpskirtJanitorGreen: 2
+    ClothingUniformJumpskirtJanitorOrange: 2
     ClothingHandsGlovesJanitor: 2
+    ClothingHandsGlovesJanitorTeal: 2
+    ClothingHandsGlovesJanitorOrange: 2
+    ClothingHandsGlovesJanitorPurple: 2
     ClothingShoesColorBlack: 2
     ClothingHeadHatPurplesoft: 2
+    ClothingHeadHatRainHat: 2
     ClothingBeltJanitor: 2
     ClothingHeadsetService: 2
     ClothingOuterWinterJani: 2
+    ClothingOuterCoatRain: 2
     ClothingNeckScarfStripedPurple: 3
   contrabandInventory:
     ToyFigurineJanitor: 1
