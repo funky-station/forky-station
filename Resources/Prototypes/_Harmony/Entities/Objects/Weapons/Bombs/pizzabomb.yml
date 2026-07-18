@@ -1,10 +1,6 @@
 ﻿- type: entity
   parent: FoodBoxPizzaFilled
   id: Pizzabomb
-<<<<<<< HEAD
-  name: Pizza Box
-=======
->>>>>>> c62182bf6d (make pizza bomb actually work (#490))
   suffix: Bomb
   components:
   - type: Sprite
