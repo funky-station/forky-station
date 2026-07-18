@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "license": "MIT",
+    "license": "CC-BY-SA-3.0",
     "copyright": "Taken from tgstation and modified by Swept at https://github.com/tgstation/tgstation/commit/40d75cc340c63582fb66ce15bf75a36115f6bdaa , box-open sprite (previously 'primed') made by _Rot on Discord for use in Harmony, ported and relicensed by Yunis with permission   ",
     "size": {
         "x": 32,
