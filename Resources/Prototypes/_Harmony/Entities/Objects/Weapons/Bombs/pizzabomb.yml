@@ -11,7 +11,7 @@
     - type: ExplodeOnTrigger # Explode after the delay
       keysIn:
       - stageTwo
-  - type: SoundOnTrigger
+  - type: EmitSoundOnTrigger
     sound: /Audio/Machines/microwave_done_beep.ogg
   - type: TriggerOnUiOpen # Timer is triggered on storage open
   - type: Explosive # Weak explosion in a very small radius. Doesn't break underplating.
