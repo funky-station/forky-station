@@ -486,13 +486,59 @@
   description: High-quality rubber gloves, squeaky to do some cleaning!
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/janitor.rsi
+    sprite: _Funkystation/Clothing/Hands/Janitor/janitor.rsi
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/janitor.rsi
+    sprite: _Funkystation/Clothing/Hands/Janitor/janitor.rsi
   - type: Fiber
     fiberMaterial: fibers-rubber
     fiberColor: fibers-yellow
   - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesJanitorTeal
+  name: rubber gloves
+  description: High-quality rubber gloves, squeaky to do some cleaning!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/Janitor/janitorteal.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/Janitor/janitorteal.rsi
+  - type: Fiber
+    fiberMaterial: fibers-rubber
+    fiberColor: fibers-blue
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesJanitorOrange
+  name: rubber gloves
+  description: High-quality rubber gloves, squeaky to do some cleaning!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/Janitor/janitororange.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/Janitor/janitororange.rsi
+  - type: Fiber
+    fiberMaterial: fibers-rubber
+    fiberColor: fibers-orange
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesJanitorPurple
+  name: rubber gloves
+  description: High-quality rubber gloves, squeaky to do some cleaning!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/Janitor/janitorpurple.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/Janitor/janitorpurple.rsi
+  - type: Fiber
+    fiberMaterial: fibers-rubber
+    fiberColor: fibers-purple
+  - type: FingerprintMask
+
 
 #Knuckledusters
 - type: entity

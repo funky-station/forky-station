@@ -250,9 +250,64 @@
   description: The jumpskirt for the poor sop with a mop.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/janitor.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Janitorial/Jumpskirts/janiskirt_purple.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/janitor.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Janitorial/Jumpskirts/janiskirt_purple.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtJanitorGreen
+  name: janitor jumpskirt
+  description: The jumpskirt for the poor sop with a mop.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Janitorial/Jumpskirts/janiskirt_green.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Janitorial/Jumpskirts/janiskirt_green.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtJanitorOrange
+  name: janitor jumpskirt
+  description: The jumpskirt for the poor sop with a mop.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Janitorial/Jumpskirts/janiskirt_orange.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Janitorial/Jumpskirts/janiskirt_orange.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformOverallSkirtJanitor
+  name: janitor skirt overalls
+  description: The skirt overalls for the poor sop with a mop.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Janitorial/OverallSkirts/janioverall_purple.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Janitorial/OverallSkirts/janioverall_purple.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformOverallSkirtJanitorGreen
+  name: janitor skirt overalls
+  description: The skirt overalls for the poor sop with a mop.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Janitorial/OverallSkirts/janioverall_green.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Janitorial/OverallSkirts/janioverall_green.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformOverallSkirtJanitorOrange
+  name: janitor skirt overalls
+  description: The skirt overalls for the poor sop with a mop.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Janitorial/OverallSkirts/janioverall_orange.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Janitorial/OverallSkirts/janioverall_orange.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase

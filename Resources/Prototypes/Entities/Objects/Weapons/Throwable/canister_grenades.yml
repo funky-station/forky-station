@@ -30,7 +30,7 @@
   description: Special grenade for janitors, releasing large cloud of space cleaner foam.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/janitor.rsi
+    sprite: _Funkystation/Objects/Specific/Janitorial/cleanade.rsi
   - type: SmokeOnTrigger
     keysIn:
     - timer
