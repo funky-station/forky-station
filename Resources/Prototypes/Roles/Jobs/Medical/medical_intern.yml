@@ -6,7 +6,8 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 10h
+      #time: 10h
+      time: 35h # Funky
       inverted: true # stop playing intern if you're good at med!
   startingGear: MedicalInternGear
   icon: "JobIconMedicalIntern"

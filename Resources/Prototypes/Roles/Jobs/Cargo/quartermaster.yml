@@ -9,11 +9,15 @@
       time: 5h
     - !type:RoleTimeRequirement
       role: JobSalvageSpecialist
-      time: 2.5h
+      #time: 2.5h
+      time: 5h # Funky
     - !type:DepartmentTimeRequirement
       department: Cargo
       time: 10h
-  weight: 10
+    - !type:OverallPlaytimeRequirement
+      time: 20h # Funky
+    # Funky - TODO: Add Botanist playtime requirement once that's moved to Cargo/Logistics
+  #weight: 10 # Funky - Weighting all jobs equally now
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
   supervisors: job-supervisors-captain

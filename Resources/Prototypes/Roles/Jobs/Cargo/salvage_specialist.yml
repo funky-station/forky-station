@@ -6,7 +6,10 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Cargo
-      time: 2.5h
+      #time: 2.5h
+      time: 1h # Funky
+    - !type:OverallPlaytimeRequirement
+      time: 3h # Funky
   icon: "JobIconShaftMiner"
   startingGear: SalvageSpecialistGear
   supervisors: job-supervisors-qm
