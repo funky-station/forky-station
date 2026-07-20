@@ -26,6 +26,7 @@
       time: 20h # Funky
     - !type:OverallPlaytimeRequirement
       time: 40h # Funky
+    # TODO: Add a time requirement for Internal Affairs when that gets added
   #weight: 20 # Funky - Weighting all jobs equally now
   startingGear: CaptainGear
   icon: "JobIconCaptain"
