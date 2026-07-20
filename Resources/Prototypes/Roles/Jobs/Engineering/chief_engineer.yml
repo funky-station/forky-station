@@ -14,6 +14,8 @@
     - !type:DepartmentTimeRequirement
       department: Engineering
       #time: 10h
+      time: 20h # Funky
+    - !type:OverallPlaytimeRequirement
       time: 25h # Funky
   #weight: 10 # Funky - Weighting all jobs equally now
   startingGear: ChiefEngineerGear
