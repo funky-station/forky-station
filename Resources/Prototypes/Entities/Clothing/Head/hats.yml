@@ -123,9 +123,9 @@
   description: A beret with the engineering department's insignia. For engineers that are more inclined towards style than safety.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/beret_engineering.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/engineering_beret.rsi # Funky
   - type: Clothing
-    sprite: Clothing/Head/Hats/beret_engineering.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/engineering_beret.rsi # Funky
   - type: Tag
     tags:
     - PetWearable

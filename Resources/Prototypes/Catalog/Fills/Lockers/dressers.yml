@@ -24,10 +24,15 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: ClothingUniformJumpsuitChiefEngineerTurtle
-        - id: ClothingUniformJumpskirtChiefEngineerTurtle
+        #- id: ClothingUniformJumpsuitChiefEngineerTurtle
+        #- id: ClothingUniformJumpskirtChiefEngineerTurtle
+        - id: FuClothingUniformJumpsuitCE # Funky
+        - id: FuClothingUniformOverallsCE # Funky
+        - id: FuClothingUniformShirtPantsCE # Funky
+        - id: FuClothingHeadHatCEConductor # Funky
         - id: ClothingHeadHatBeretEngineering
-        - id: ClothingOuterWinterCE
+        #- id: ClothingOuterWinterCE
+        - id: FuClothingOuterInsulatedCE # Funky
         - id: ClothingNeckCloakCe
 
 - type: entity

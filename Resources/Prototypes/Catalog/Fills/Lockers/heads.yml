@@ -157,7 +157,8 @@
       prob: 0.15
     - id: ClothingBeltChiefEngineerFilled
     - id: ClothingEyesGlassesMeson
-    - id: ClothingHandsGlovesColorYellow
+    #- id: ClothingHandsGlovesColorYellow
+    - id: FuClothingHandsGlovesChiefEngineerArc # Funky
     - id: ClothingHeadsetAltEngineering
     - id: DoorRemoteEngineering
     - id: BoxCECircuitboards

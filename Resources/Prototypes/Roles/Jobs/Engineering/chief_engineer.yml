@@ -39,7 +39,7 @@
     id: CEPDA
     eyes: ClothingEyesGlassesMeson
     ears: ClothingHeadsetCE
-    belt: ClothingBeltUtilityEngineering
+    #belt: ClothingBeltUtilityEngineering # Funky - They have a better belt in their locker
   storage:
     back:
     - Flash
@@ -52,6 +52,8 @@
     head: ClothingHeadHatBeretEngineering
     mask: ClothingMaskBreath
     neck: ClothingNeckCloakCe
-    outerClothing: ClothingOuterWinterCE
-    gloves: ClothingHandsGlovesColorYellow
+    #outerClothing: ClothingOuterWinterCE
+    outerClothing: FuClothingOuterInsulatedCE # Funky
+    #gloves: ClothingHandsGlovesColorYellow
+    gloves: FuClothingHandsGlovesChiefEngineerArc # Funky
     shoes: ClothingShoesBootsMagAdv

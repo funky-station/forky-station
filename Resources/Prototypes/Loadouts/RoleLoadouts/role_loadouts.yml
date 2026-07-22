@@ -282,12 +282,16 @@
   id: JobChiefEngineer
   groups:
   - GroupTankHarness
-  - ChiefEngineerHead
-  - ChiefEngineerJumpsuit
+  #- ChiefEngineerHead
+  - FuChiefEngineerHead # Funky
+  #- ChiefEngineerJumpsuit
+  - FuChiefEngineerUniform # Funky
   - StationEngineerBackpack
   - ChiefEngineerNeck
-  - ChiefEngineerOuterClothing
-  - ChiefEngineerShoes
+  #- ChiefEngineerOuterClothing
+  - FuChiefEngineerOuterClothing # Funky
+  #- ChiefEngineerShoes
+  - FuChiefEngineerShoes # Funky
   - SurvivalExtended
   - Trinkets
   #- ChiefEngineerJobTrinkets

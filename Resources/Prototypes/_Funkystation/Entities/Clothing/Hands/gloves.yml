@@ -1,0 +1,17 @@
+- type: entity
+  parent: [ClothingHandsBase, BaseCommandContraband] # Does not descend from insuls because we don't want them to be cuttable
+  id: FuClothingHandsGlovesChiefEngineerArc
+  name: chief engineer's arc gloves
+  description: High-quality, heavy-duty insulated arc gloves. These'll keep you safe from just about any voltage.
+  components:
+  - type: FingerprintMask
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/ce_arc.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/ce_arc.rsi
+  - type: Insulated # Right now these are just a drippy alternative to insuls. Uncomment the entries below if/when zappy insuls are ported.
+    #coefficient: 0.0
+    #maxSiemensThreshold: 4
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-black

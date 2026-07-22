@@ -50,10 +50,10 @@
   description: State-of-the-art magnetic boots that do not slow down their wearer.
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/magboots-advanced.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/magboots-advanced.rsi # Funky
     state: icon
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/magboots-advanced.rsi
+    sprite: _Funkystation/Clothing/Shoes/Boots/magboots-advanced.rsi # Funky
   - type: ClothingSpeedModifier
     walkModifier: 1
     sprintModifier: 1

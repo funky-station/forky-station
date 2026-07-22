@@ -140,6 +140,7 @@
   parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
   id: ClothingOuterWinterCE
   name: chief engineer's winter coat
+  suffix: Deprecated # Funky - Use FuClothingOuterWinterCE instead
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi

@@ -13,3 +13,20 @@
   - type: Tag
     tags:
     - ClothMade
+
+
+# Chief engineer's conductor hat
+
+- type: entity
+  parent: [ClothingHeadBase, BaseCommandContraband]
+  id: FuClothingHeadHatCEConductor
+  name: chief engineer's conductor hat
+  description: A conductor can either mean a leader or something that large amounts of electricity course through. Chief engineers tend to be both.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/ce_conductor.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/ce_conductor.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon

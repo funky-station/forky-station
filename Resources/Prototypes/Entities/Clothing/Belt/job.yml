@@ -100,9 +100,9 @@
   description: Holds tools, looks snazzy.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/ce.rsi
+    sprite: _Funkystation/Clothing/Belt/ce_belt.rsi # Funky
   - type: Clothing
-    sprite: Clothing/Belt/ce.rsi
+    sprite: _Funkystation/Clothing/Belt/ce_belt.rsi # Funky
   - type: Storage
     grid:
     - 0,0,9,1

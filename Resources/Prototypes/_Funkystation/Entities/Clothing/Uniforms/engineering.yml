@@ -22,7 +22,27 @@
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Engineering/Coveralls/ripley.rsi
 
+# jumpsuits
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: FuClothingUniformJumpsuitCE
+  name: chief engineer's jumpsuit
+  description: A black-and-white durathread jumpsuit made for the Chief Engineer.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Engineering/Jumpsuits/ce.rsi
+
 # overalls
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: FuClothingUniformOverallsCE
+  name: chief engineer's overalls
+  description: A pair of heavier-duty durathread overalls with an black shirt.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Engineering/Overalls/ce.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -47,6 +67,15 @@
     sprite: _Funkystation/Clothing/Uniforms/Engineering/Overalls/engi_grease.rsi
 
 # pants two piece sets
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: FuClothingUniformShirtPantsCE
+  name: chief engineer's dress shirt
+  description: A pair of heavier-duty durathread pants with a black button-up shirt.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Engineering/TwoPiecePants/ce.rsi
 
 - type: entity
   parent: ClothingUniformBase

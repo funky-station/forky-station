@@ -1,0 +1,34 @@
+# TODO: Add recipes for all new Funky clothes here
+
+# Uniforms
+
+## CE
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: FuClothingUniformJumpsuitCE
+  result: FuClothingUniformJumpsuitCE
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: FuClothingUniformOverallsCE
+  result: FuClothingUniformOverallsCE
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: FuClothingUniformShirtPantsCE
+  result: FuClothingUniformShirtPantsCE
+
+# Command winter coats
+
+- type: latheRecipe
+  parent: BaseCommandCoatRecipe
+  id: FuClothingOuterInsulatedCE
+  result: FuClothingOuterInsulatedCE
+
+# Command hats
+
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: FuClothingHeadHatCEConductor
+  result: FuClothingHeadHatCEConductor

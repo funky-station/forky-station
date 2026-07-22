@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-NC-4.0",
-  "copyright": "Sprites created by Tea(d.d.tea on Discord, @teasq.bsky.social)",
+  "copyright": "Botany-related sprites created by Tea(d.d.tea on Discord, @teasq.bsky.social), Engineering-related sprites by @YaraaraY (GitHub)",
   "size": {
     "x": 32,
     "y": 32
@@ -9,6 +9,18 @@
   "states": [
     {
       "name": "bottle"
+    },
+    {
+      "name": "crowbar"
+    },
+    {
+      "name": "crowbar_red"
+    },
+    {
+      "name": "cutters_red"
+    },
+    {
+      "name": "drill"
     },
     {
       "name": "hatchet"
@@ -20,10 +32,25 @@
       "name": "hydro"
     },
     {
+      "name": "jaws"
+    },
+    {
+      "name": "multitool"
+    },
+    {
       "name": "plantbgone"
     },
     {
+      "name": "screwdriver"
+    },
+    {
+      "name": "screwdriver_nuke"
+    },
+    {
       "name": "secateurs"
+    },
+    {
+      "name": "wrench"
     }
   ]
 }

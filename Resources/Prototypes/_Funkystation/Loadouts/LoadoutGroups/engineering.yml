@@ -1,4 +1,38 @@
 - type: loadoutGroup
+  id: FuChiefEngineerHead
+  name: fu-loadout-group-chief-engineer-head
+  minLimit: 0
+  loadouts:
+  - ChiefEngineerBeret
+  - FuChiefEngiConductorHat
+  - StationEngineerHardhatOrange
+  - StationEngineerHardhatYellow
+  - EngiHardhatOffwhite
+  - EngiHardhatBlack
+
+- type: loadoutGroup
+  id: FuChiefEngineerUniform
+  name: fu-loadout-group-chief-engineer-uniform
+  loadouts:
+  - FuChiefEngiJumpsuit
+  - FuChiefEngiOveralls
+  - FuChiefEngiShirtPants
+
+- type: loadoutGroup
+  id: FuChiefEngineerOuterClothing
+  name: fu-loadout-group-chief-engineer-outerclothing
+  minLimit: 0
+  loadouts:
+  - FuChiefEngiInsulatedCoat
+
+- type: loadoutGroup
+  id: FuChiefEngineerShoes
+  name: fu-loadout-group-chief-engineer-shoes
+  loadouts:
+  - WorkBoots
+  - EngineeringWinterBoots
+
+- type: loadoutGroup
   id: FuStationEngineerHead
   name: fu-loadout-group-station-engineer-head
   minLimit: 0

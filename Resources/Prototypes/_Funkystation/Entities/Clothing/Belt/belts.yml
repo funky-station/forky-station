@@ -1,3 +1,39 @@
+# Engineering
+
+- type: entity
+  parent: ClothingBeltChiefEngineer
+  id: FuClothingBeltChiefEngineerHarness
+  name: chief engineer's harness
+  description: Slightly scorched, frayed straps. It seems you STILL forgot your carabiners, though.
+  components:
+  - type: ItemMapper
+    sprite: _Funkystation/Clothing/Belt/belt_overlay.rsi
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Belt/ce_harness.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Belt/ce_harness.rsi
+  - type: Storage
+    maxItemSize: Normal
+
+# This is currently unobtainable because giving the CE two belts is kind of a no no given that the functionality is supposed to belong to a unique command item.
+# Once there's some sort of way to make sure that one and only one of the two spawns in a way that's accessible from the locker, this can be used.
+- type: entity
+  id: FuClothingBeltChiefEngineerHarnessFilled
+  parent: FuClothingBeltChiefEngineerHarness
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: PowerDrill
+    - id: JawsOfLife
+    - id: WelderExperimental
+    - id: Multitool
+    - id: HolofanProjector
+    - id: GasAnalyzer
+    - id: ClothingMaskWeldingGas
+
+# Security
+
 - type: entity
   parent: [ ClothingBeltStorageBase, BaseSecurityContraband ]
   id: FuClothingBeltSecurityWebbing

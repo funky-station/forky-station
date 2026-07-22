@@ -41,12 +41,16 @@
 
 - type: latheRecipePack
   id: ClothingEngineering
-  recipes:
+  recipes: # TODO: Replace deprecated prototypes with the Funky versions
   - ClothingHeadHatBeretEngineering
-  - ClothingUniformJumpsuitChiefEngineer
-  - ClothingUniformJumpskirtChiefEngineer
-  - ClothingUniformJumpsuitChiefEngineerTurtle
-  - ClothingUniformJumpskirtChiefEngineerTurtle
+  - FuClothingHeadHatCEConductor # Funky
+  #- ClothingUniformJumpsuitChiefEngineer
+  #- ClothingUniformJumpskirtChiefEngineer
+  #- ClothingUniformJumpsuitChiefEngineerTurtle
+  #- ClothingUniformJumpskirtChiefEngineerTurtle
+  - FuClothingUniformJumpsuitCE # Funky
+  - FuClothingUniformOverallsCE # Funky
+  - FuClothingUniformShirtPantsCE # Funky
   - ClothingUniformJumpsuitEngineering
   - ClothingUniformJumpskirtEngineering
   - ClothingUniformJumpsuitSeniorEngineer
@@ -84,7 +88,7 @@
 
 - type: latheRecipePack
   id: ClothingSecurity
-  recipes:
+  recipes: # TODO: Replace deprecated prototypes with the Funky versions
   - ClothingUniformJumpsuitDetective
   - ClothingUniformJumpskirtDetective
   - ClothingHeadHatBeretHoS
@@ -116,7 +120,7 @@
 
 - type: latheRecipePack
   id: ClothingService
-  recipes:
+  recipes: # TODO: Replace deprecated prototypes with the Funky versions, move hydroponics clothes to ClothingCargo
   - ClothingUniformJumpsuitBartender
   - ClothingUniformJumpskirtBartender
   - ClothingUniformJumpsuitChaplain
@@ -139,9 +143,10 @@
 
 - type: latheRecipePack
   id: WinterCoats
-  recipes:
+  recipes: # TODO: Replace deprecated prototypes with the Funky versions
   - ClothingOuterWinterCap
-  - ClothingOuterWinterCE
+  #- ClothingOuterWinterCE
+  - FuClothingOuterInsulatedCE # Funky
   - ClothingOuterWinterCMO
   - ClothingOuterWinterHoP
   - ClothingOuterWinterHoSUnarmored
