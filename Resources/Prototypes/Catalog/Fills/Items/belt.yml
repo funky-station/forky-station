@@ -45,7 +45,8 @@
         - id: Multitool
         - id: HolofanProjector
         - id: GasAnalyzer
-        - id: trayScanner
+        #- id: trayScanner # Funky - Mesons now act as a T-ray, making this redundant
+        - id: ClothingHeadHatWeldingMaskFlameBlue # Funky - Mesons now act as a T-ray, making this required for welding
 
 - type: entityTable
   id: BeltSecurityEntityTable
