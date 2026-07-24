@@ -42,8 +42,7 @@ highlights-bartender = Bartender, Barkeeper, Barkeep, "Bar", Service, "Serv"
 highlights-chaplain = Chaplain, "Chap", Chapel, Service, "Serv"
 highlights-chef = Chef, "Cook", Kitchen, Service, "Serv"
 highlights-clown = Clown, Theatre, Theater, Service, "Serv"
-# Funky - Replaced Serv(ice) with Civ(ilian)
-highlights-janitor = Janitor, "Jani", Civilian, "Civ"
+highlights-janitor = Janitor, "Jani", Service, "Serv"
 highlights-lawyer = Lawyer, Attorney, "Law", Civilian, "Civ"
 highlights-librarian = Librarian, Library, Service, "Serv"
 highlights-mime = Mime, Theatre, Theater, Service, "Serv"
@@ -53,7 +52,8 @@ highlights-passenger = Passenger, Greytider, Graytider, "Tider", "Tide", Assista
 highlights-service-worker = Service Worker, Service, "Serv"
 
 # Station-specific
-highlights-reporter = Reporter, Journalist, Newsroom, News
+# Funky - Added Civ(ilian) to the highlights list
+highlights-reporter = Reporter, Journalist, Newsroom, News, Civilian, "Civ"
 highlights-psychologist = Psychologist, Psychology, "Psych", Medbay, Medical, "Med"
 
 # Silicon
