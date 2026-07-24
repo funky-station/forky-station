@@ -9,7 +9,7 @@
       Acidic: [Touch]
   - type: Damageable
   - type: Injurable
-    damageContainer: Inorganic
+    damageContainer: Silicon # Funkystation: make bots not instantly disappear on death
   - type: MovedByPressure
   - type: Physics
     bodyType: KinematicController # Same for all inheritors
@@ -29,15 +29,21 @@
   - type: MobState
     allowedStates:
       - Alive
+      - Critical # Funkystation: make bots not instantly disappear on death
       - Dead
   - type: MobThresholds
     thresholds:
       0: Alive
-      120: Dead
+      # begin Funkystation: make bots not instantly disappear on death
+      100: Critical
+      150: Dead
+      # end Funkystation
     stateAlertDict:
       Alive: BorgHealth
+      Critical: BorgCrit
       Dead: BorgDead
     showOverlays: false
+    allowRevives: true # Funkystation: make bots not instantly disappear on death
   - type: Speech
     speechVerb: Robotic
     speechSounds: Borg
@@ -51,6 +57,12 @@
   - type: ProtectedFromStepTriggers
   - type: NoSlip
   - type: Insulated
+  - type: DamagedSiliconAccent # Funkystation: give bots cyborg-style damaged accent
+    enableChargeCorruption: false
+  - type: StandingState # Funkystation: needed for bots to be able to fall on death
+  - type: RotationVisuals # Funkystation: needed for bots to be able to fall on death
+    defaultRotation: 0
+    horizontalRotation: 90
 
 # Used for bots
 - type: entity
@@ -66,9 +78,15 @@
     tags:
     - BasicSilicon
   - type: IntrinsicRadioReceiver
+  # begin Funkystation: bot comms
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
   - type: ActiveRadio
     channels:
+    - Binary
     - Common
+  # end Funkystation: bot comms
   - type: HealthExaminable
     examinableTypes:
     - Blunt
@@ -93,7 +111,7 @@
       - !type:TriggerBehavior
     - trigger:
         !type:DamageTrigger
-        damage: 120
+        damage: 200 # Funkystation: make bots not instantly disappear on death
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -108,7 +126,9 @@
     - Unimplantable
   - type: Speech
     speechVerb: Robotic
-    speechSounds: Pai #couldn't decide if this should be borg or pai sounds so I flipped a coin.
+    speechSounds: Borg # Funkystation: silicon voices for bots
+  - type: BodyEmotes # Funkystation: give bots ability to emote
+    soundsId: UnisexSilicon
 
 - type: entity
   parent: [MobSiliconBase, SolutionFireExtinguisherMini]
@@ -149,6 +169,18 @@
   - type: Vocalizer
   - type: DatasetVocalizer
     dataset: FirebotAd
+  # begin Funkystation: bot comms
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Engineering
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Engineering
+  # end Funkystation: bot comms
+  - type: UnblockableSpeech # Funkystation: cyborg-type behavior on death (can still talk)
 
 - type: entity
   parent: MobSiliconBase
@@ -212,6 +244,18 @@
       path: /Audio/Items/bikehorn.ogg
       params:
         variation: 0.125
+  # begin Funkystation: bot comms
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Service
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Service
+  # end Funkystation: bot comms
+  - type: UnblockableSpeech # Funkystation: cyborg-type behavior on death (can still talk)
 
 - type: entity
   parent: MobHonkBot
@@ -253,6 +297,18 @@
     totalIntensity: 10
     intensitySlope: 5
     canCreateVacuum: false
+  # begin Funkystation: bot comms
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Service
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Service
+  # end Funkystation: bot comms
+  - type: UnblockableSpeech # Funkystation: cyborg-type behavior on death (can still talk)
 
 - type: entity
   parent: [MobSiliconBase, SolutionMopNormal]
@@ -290,6 +346,32 @@
     interactFailureString: petting-failure-cleanbot
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
+  # begin Funkystation: make cleanbots ghost roles
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-cleanbot-name
+    description: ghost-role-information-cleanbot-description
+    rules: ghost-role-information-cleanbot-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  # end Funkystation
+  - type: RotationVisuals # Funkystation: make cleanbots dramatically lay on their backs upon death
+    defaultRotation: 0
+    horizontalRotation: 180
+  - type: CombatMode # Funkystation: it's spinning time (for bots with rotational sprites)
+  # begin Funkystation: bot comms
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Service
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Service
+  # end Funkystation: bot comms
+  - type: UnblockableSpeech # Funkystation: cyborg-type behavior on death (can still talk)
 
 - type: entity
   parent:
@@ -339,6 +421,28 @@
   - type: Inventory
     templateId: medibot
   - type: DoAfter
+  # begin Funkystation: make medibots ghost roles
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-medibot-name
+    description: ghost-role-information-medibot-description
+    rules: ghost-role-information-medibot-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  # end Funkystation
+  # begin Funkystation: bot comms
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Medical
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Medical
+  # end Funkystation: bot comms
+  - type: UnblockableSpeech # Funkystation: cyborg-type behavior on death (can still talk)
 
 - type: entity
   parent:
@@ -370,6 +474,18 @@
     interactFailureString: petting-failure-mimebot
   - type: Inventory
     templateId: head
+  - type: CombatMode # Funkystation: it's spinning time (for bots with rotational sprites)
+  # begin Funkystation: bot comms
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Service
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Service
+  # end Funkystation: bot comms
 
 - type: entity
   parent: MobSiliconBase
@@ -435,12 +551,21 @@
     - SiliconEmotes
     - Bot
     - Unimplantable
-  - type: ActiveRadio
-    channels:
-    - Common
-    - Supply
   - type: Puller
     needsHands: false
+  - type: CombatMode # Funkystation: it's spinning time (for bots with rotational sprites)
+  # begin Funkystation: bot comms
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Supply
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Supply
+  # end Funkystation: bot comms
+  - type: UnblockableSpeech # Funkystation: cyborg-type behavior on death (can still talk)
 
 - type: entity
   parent: [ MobSiliconBase, MobCombat ]
@@ -476,3 +601,15 @@
     interactSuccessString: hugging-success-generic
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
+  # begin Funkystation: bot comms
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Service
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Service
+  # end Funkystation: bot comms
+  - type: UnblockableSpeech # Funkystation: cyborg-type behavior on death (can still talk)
