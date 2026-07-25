@@ -1,0 +1,25 @@
+- type: entity
+  abstract: true
+  parent: PlushieMoth
+  id: BasePlushieMothJob
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/plushiemoth_jobs.rsi
+
+- type: entity
+  parent: BasePlushieMothJob
+  id: PlushieMothJobBartender
+  name: bartender moth plushie
+  description: A fluffy stuffed toy that resembles a moth as a bartender. It seems to have been dipped in alcohol once or twice.
+  components:
+  - type: Sprite
+    state: bartender
+
+- type: entity
+  parent: BasePlushieMothJob
+  id: PlushieMothJobPassenger
+  name: passenger moth plushie
+  description: A fluffy stuffed toy that resembles a moth as a passenger. Its eyes look at you, a little bit more beady than the rest.
+  components:
+  - type: Sprite
+    state: passenger
