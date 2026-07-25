@@ -62,6 +62,51 @@
 
 - type: entity
   parent: BasePlushieMothJob
+  id: PlushieMothJobChaplain
+  name: chaplain moth plushie
+  description: A fluffy stuffed toy that resembles a moth as a chaplain. It smells faintly of incense.
+  components:
+  - type: Sprite
+    state: chaplain
+
+- type: entity
+  parent: BasePlushieMothJob
+  id: PlushieMothJobChef
+  name: chef moth plushie
+  description: A fluffy stuffed toy that resembles a moth as a chef. It smells faintly of spices, with spots of oil on its apron.
+  components:
+  - type: Sprite
+    state: chef
+
+- type: entity
+  parent: BasePlushieMothJob
+  id: PlushieMothJobChemist
+  name: chemist moth plushie
+  description: A fluffy stuffed toy that resembles a moth as a chemist. Parts of the plushie are stained with chemicals.
+  components:
+  - type: Sprite
+    state: chemist
+
+- type: entity
+  parent: BasePlushieMothJob
+  id: PlushieMothJobChiefengineer
+  name: chief engineer moth plushie
+  description: A fluffy stuffed toy that resembles a moth as the chief engineer. It's covered in metal shavings and welding splatter.
+  components:
+  - type: Sprite
+    state: chiefengineer
+
+- type: entity
+  parent: BasePlushieMothJob
+  id: PlushieMothJobChiefmedicalofficer
+  name: chief medical officer moth plushie
+  description: A fluffy stuffed toy that resembles a moth as the chief medical officer. The plushie has been reopened and closed again, probably from practicing surgery.
+  components:
+  - type: Sprite
+    state: chiefmedicalofficer
+
+- type: entity
+  parent: BasePlushieMothJob
   id: PlushieMothJobPassenger
   name: passenger moth plushie
   description: A fluffy stuffed toy that resembles a moth as a passenger. Its eyes look at you, a little bit more beady than the rest.
