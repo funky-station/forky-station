@@ -26,10 +26,46 @@
             "name": "cargotechnician"
         },
         {
+            "name": "chaplain"
+        },
+        {
+            "name": "chef"
+        },
+        {
+            "name": "chemist"
+        },
+        {
+            "name": "chiefengineer"
+        },
+        {
+            "name": "chiefmedicalofficer"
+        },
+        {
             "name": "clown"
         },
         {
             "name": "detective"
+        },
+        {
+            "name": "headofpersonnel"
+        },
+        {
+            "name": "headofsecurity"
+        },
+        {
+            "name": "janitor"
+        },
+        {
+            "name": "lawyer"
+        },
+        {
+            "name": "librarian"
+        },
+        {
+            "name": "medicaldoctor"
+        },
+        {
+            "name": "medicalintern"
         },
         {
             "name": "mime"
