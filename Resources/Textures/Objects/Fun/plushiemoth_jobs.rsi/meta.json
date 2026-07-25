@@ -71,7 +71,22 @@
             "name": "mime"
         },
         {
+            "name": "musician"
+        },
+        {
+            "name": "paramedic"
+        },
+        {
             "name": "passenger"
+        },
+        {
+            "name": "psychologist"
+        },
+        {
+            "name": "quartermaster"
+        },
+        {
+            "name": "reporter"
         },
         {
             "name": "researchdirector"
