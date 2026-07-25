@@ -89,7 +89,37 @@
             "name": "reporter"
         },
         {
+            "name": "researchassistant"
+        },
+        {
             "name": "researchdirector"
+        },
+        {
+            "name": "salvager"
+        },
+        {
+            "name": "scientist"
+        },
+        {
+            "name": "securitycadet"
+        },
+        {
+            "name": "securityofficer"
+        },
+        {
+            "name": "serviceworker"
+        },
+        {
+            "name": "stationengineer"
+        },
+        {
+            "name": "technicalassistant"
+        },
+        {
+            "name": "warden"
+        },
+        {
+            "name": "zookeeper"
         }
     ]
 }
