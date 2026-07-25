@@ -8,12 +8,57 @@
 
 - type: entity
   parent: BasePlushieMothJob
+  id: PlushieMothJobAtmospherictechnician
+  name: atmospheric technician moth plushie
+  description: A fluffy stuffed toy that resembles a moth as an atmospheric technician. Smells faintly of frezon.
+  components:
+  - type: Sprite
+    state: atmospherictechnician
+
+- type: entity
+  parent: BasePlushieMothJob
   id: PlushieMothJobBartender
   name: bartender moth plushie
   description: A fluffy stuffed toy that resembles a moth as a bartender. It seems to have been dipped in alcohol once or twice.
   components:
   - type: Sprite
     state: bartender
+
+- type: entity
+  parent: BasePlushieMothJob
+  id: PlushieMothJobBotanist
+  name: botanist moth plushie
+  description: A fluffy stuffed toy that resembles a moth as a botanist. There's prickly bits on its feet and it smells faintly of plant fertilizer.
+  components:
+  - type: Sprite
+    state: botanist
+
+- type: entity
+  parent: BasePlushieMothJob
+  id: PlushieMothJobBoxer
+  name: boxer moth plushie
+  description: A fluffy stuffed toy that resembles a moth as a boxer. The threads on its gloves are starting to come loose.
+  components:
+  - type: Sprite
+    state: boxer
+
+- type: entity
+  parent: BasePlushieMothJob
+  id: PlushieMothJobCaptain
+  name: captain moth plushie
+  description: A fluffy stuffed toy that resembles a moth as the captain. There's bits of pie on its face.
+  components:
+  - type: Sprite
+    state: captain
+
+- type: entity
+  parent: BasePlushieMothJob
+  id: PlushieMothJobCargotechnician
+  name: cargo technician moth plushie
+  description: A fluffy stuffed toy that resembles a moth as a cargo technician. Crumbs of packing peanuts are stuck to its scales.
+  components:
+  - type: Sprite
+    state: cargotechnician
 
 - type: entity
   parent: BasePlushieMothJob
