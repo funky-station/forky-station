@@ -13,6 +13,8 @@ public sealed class BostonAccentSystem : EntitySystem
     private static readonly Regex RegexSentenceCaseEr = new(@"Er\B");
     private static readonly Regex RegexLowercaseEndingEr = new(@"\Ber(?=(s\b|\b))");
     private static readonly Regex RegexUppercaseEndingEr = new(@"\BER(?=(s\b|\b))");
+    private static readonly Regex RegexLowercaseEndingEre = new(@"\Bere(?=(as\b|by\b|of\b|\b))");
+    private static readonly Regex RegexUppercaseEndingEre = new(@"\BERE(?=(as\b|by\b|of\b|\b))");
     private static readonly Regex RegexLowercaseEndingOr = new(@"\Bor(?=(s\b|\b))");
     private static readonly Regex RegexUppercaseEndingOr = new(@"\BOR(?=(s\b|\b))");
     private static readonly Regex RegexLowercaseNty = new(@"\Bnt(?=(y|ie))");
@@ -32,6 +34,11 @@ public sealed class BostonAccentSystem : EntitySystem
         // this doesn't change "are" because that feels wrong to me
         msg = RegexLowercaseAr.Replace(msg, "ah");
         msg = RegexUppercaseAr.Replace(msg, "AH");
+
+        // here -> heah
+        // catches words like "whereas", "thereof", and "hereby", too!
+        msg = RegexLowercaseEndingEre.Replace(msg, "eah");
+        msg = RegexUppercaseEndingEre.Replace(msg, "EAH");
 
         // error -> ehror
         msg = RegexLowercaseEr.Replace(msg, "eh");
