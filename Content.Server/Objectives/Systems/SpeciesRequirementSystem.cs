@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Objectives.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Objectives.Components;
@@ -24,7 +21,7 @@ public sealed class SpeciesRequirementSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        if (!TryComp<HumanoidAppearanceComponent>(args.Mind.OwnedEntity, out var appearance)) {
+        if (!TryComp<HumanoidProfileComponent>(args.Mind.OwnedEntity, out var appearance)) {
             args.Cancelled = true;
             return;
         }

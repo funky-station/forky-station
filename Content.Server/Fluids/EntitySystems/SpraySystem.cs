@@ -1,42 +1,15 @@
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 TekuNut <13456422+TekuNut@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Golinth <amh2023@gmail.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 chaisftw <30545471+chaisftw@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
-using Content.Server.Chemistry.Components;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Gravity;
 using Content.Server.Popups;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.FixedPoint;
 using Content.Shared.Fluids;
 using Content.Shared.Interaction;
 using Content.Shared.Timing;
-using Content.Shared.Vapor;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Prototypes;
 using System.Numerics;
 using Content.Shared.Fluids.EntitySystems;
 using Content.Shared.Fluids.Components;
@@ -45,20 +18,18 @@ using Robust.Shared.Map;
 
 namespace Content.Server.Fluids.EntitySystems;
 
-public sealed class SpraySystem : SharedSpraySystem
+public sealed partial class SpraySystem : SharedSpraySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly GravitySystem _gravity = default!;
-    [Dependency] private readonly PhysicsSystem _physics = default!;
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly VaporSystem _vapor = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
+    [Dependency] private GravitySystem _gravity = default!;
+    [Dependency] private PhysicsSystem _physics = default!;
+    [Dependency] private UseDelaySystem _useDelay = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private VaporSystem _vapor = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private ContainerSystem _container = default!;
 
     private float _gridImpulseMultiplier;
 
@@ -78,7 +49,7 @@ public sealed class SpraySystem : SharedSpraySystem
 
         args.Handled = true;
 
-        var targetMapPos = _transform.GetMapCoordinates(GetEntityQuery<TransformComponent>().GetComponent(args.Target));
+        var targetMapPos = _transform.GetMapCoordinates(Transform(args.Target));
 
         Spray(entity, targetMapPos, args.User);
     }
@@ -133,8 +104,7 @@ public sealed class SpraySystem : SharedSpraySystem
             return;
         }
 
-        var xformQuery = GetEntityQuery<TransformComponent>();
-        var sprayerXform = xformQuery.GetComponent(entity);
+        var sprayerXform = Transform(entity);
 
         var sprayerMapPos = _transform.GetMapCoordinates(sprayerXform);
         var clickMapPos = mapcoord;
@@ -174,34 +144,21 @@ public sealed class SpraySystem : SharedSpraySystem
                 target = sprayerMapPos.Offset(diffNorm * entity.Comp.SprayDistance);
 
             var adjustedSolutionAmount = entity.Comp.TransferAmount / entity.Comp.VaporAmount;
-            var newSolution = _solutionContainer.SplitSolution(soln.Value, adjustedSolutionAmount);
-
-            if (newSolution.Volume <= FixedPoint2.Zero)
-                break;
 
             // Spawn the vapor cloud onto the grid/map the user is present on. Offset the start position based on how far the target destination is.
             var vaporPos = sprayerMapPos.Offset(distance < 1 ? quarter : threeQuarters);
             var vapor = Spawn(entity.Comp.SprayedPrototype, vaporPos);
-            var vaporXform = xformQuery.GetComponent(vapor);
+            var vaporXform = Transform(vapor);
 
             _transform.SetWorldRotation(vaporXform, rotation);
 
-            if (TryComp(vapor, out AppearanceComponent? appearance))
-            {
-                _appearance.SetData(vapor, VaporVisuals.Color, solution.GetColor(_proto).WithAlpha(1f), appearance);
-                _appearance.SetData(vapor, VaporVisuals.State, true, appearance);
-            }
-
-            // Add the solution to the vapor and actually send the thing
-            var vaporComponent = Comp<VaporComponent>(vapor);
-            var ent = (vapor, vaporComponent);
-            _vapor.TryAddSolution(ent, newSolution);
+            _vapor.TryAddSolution(vapor, soln.Value, adjustedSolutionAmount);
 
             // impulse direction is defined in world-coordinates, not local coordinates
             var impulseDirection = rotation.ToVec();
             var time = diffLength / entity.Comp.SprayVelocity;
 
-            _vapor.Start(ent, vaporXform, impulseDirection * diffLength, entity.Comp.SprayVelocity, target, time, user);
+            _vapor.Start(vapor, vaporXform, impulseDirection * diffLength, entity.Comp.SprayVelocity, target, time, user);
 
             var thingGettingPushed = entity.Owner;
             if (_container.TryGetOuterContainer(entity, sprayerXform, out var container))

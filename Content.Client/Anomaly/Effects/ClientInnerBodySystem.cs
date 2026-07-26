@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Anomaly.Effects;
 using Content.Shared.Humanoid;
@@ -10,9 +5,9 @@ using Robust.Client.GameObjects;
 
 namespace Content.Client.Anomaly.Effects;
 
-public sealed class ClientInnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
+public sealed partial class ClientInnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -30,8 +25,8 @@ public sealed class ClientInnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
 
         var index = _sprite.LayerMapReserve((ent.Owner, sprite), ent.Comp.LayerMap);
 
-        if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoidAppearance) &&
-            ent.Comp.SpeciesSprites.TryGetValue(humanoidAppearance.Species, out var speciesSprite))
+        if (TryComp<HumanoidProfileComponent>(ent, out var humanoid) &&
+            ent.Comp.SpeciesSprites.TryGetValue(humanoid.Species, out var speciesSprite))
         {
             _sprite.LayerSetSprite((ent.Owner, sprite), index, speciesSprite);
         }

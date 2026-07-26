@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: Wristwatch
   parent: BaseItem
@@ -15,7 +10,12 @@
     - state: wristwatch
     - map: [ "enum.ClockVisualLayers.MinuteHand"]
     - map: [ "enum.ClockVisualLayers.HourHand"]
-  - type: Clock
+  - type: StationClock # funky change
+    showSeconds: false
+    showDate: false
+    showTemperature: false
+    toggleSound:
+      path: /Audio/Machines/lightswitch.ogg
   - type: Item
     sprite: Objects/Devices/wristwatch.rsi
     size: Small
@@ -25,6 +25,7 @@
     - gloves
   - type: Appearance
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: StaticPrice
     price: 50

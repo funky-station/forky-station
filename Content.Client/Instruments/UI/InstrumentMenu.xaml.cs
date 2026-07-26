@@ -1,23 +1,3 @@
-// SPDX-FileCopyrightText: 2019-2021, 2024-2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2019-2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Radrark <76271993+Radrark@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 DTanxxx <55208219+DTanxxx@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023-2024 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2021, 2023 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 Andreas Kämper <andreas@kaemper.tech>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.IO;
 using System.Numerics;
 using System.Threading.Tasks;
@@ -40,9 +20,9 @@ namespace Content.Client.Instruments.UI
     [GenerateTypedNameReferences]
     public sealed partial class InstrumentMenu : DefaultWindow
     {
-        [Dependency] private readonly IEntityManager _entManager = default!;
-        [Dependency] private readonly IFileDialogManager _dialogs = default!;
-        [Dependency] private readonly IPlayerManager _player = default!;
+        [Dependency] private IEntityManager _entManager = default!;
+        [Dependency] private IFileDialogManager _dialogs = default!;
+        [Dependency] private IPlayerManager _player = default!;
 
         private bool _isMidiFileDialogueWindowOpen;
 

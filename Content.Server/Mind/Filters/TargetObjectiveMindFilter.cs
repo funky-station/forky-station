@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Objectives.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Filters;
@@ -24,7 +20,7 @@ public sealed partial class TargetObjectiveMindFilter : MindFilter
     [DataField]
     public EntityWhitelist? Blacklist;
 
-    protected override bool ShouldRemove(Entity<MindComponent> mind, EntityUid? excluded, IEntityManager entMan, SharedMindSystem mindSys)
+    protected override bool ShouldRemove(Entity<MindComponent> mind, EntityUid? excluded, IEntityManager entMan)
     {
         // ignore this filter if there is no user to check
         if (!entMan.TryGetComponent<MindComponent>(excluded, out var excludedMind))

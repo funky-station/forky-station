@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 eoineoineoin <helloworld@eoinrul.es>
-// SPDX-License-Identifier: MIT
-
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Content.Client.Stylesheets;

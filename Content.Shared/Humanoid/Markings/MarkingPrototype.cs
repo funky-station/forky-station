@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 csqrb <56765288+CaptainSqrBeard@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -23,17 +14,11 @@ namespace Content.Shared.Humanoid.Markings
         [DataField("bodyPart", required: true)]
         public HumanoidVisualLayers BodyPart { get; private set; } = default!;
 
-        [DataField("markingCategory", required: true)]
-        public MarkingCategories MarkingCategory { get; private set; } = default!;
-
-        [DataField("speciesRestriction")]
-        public List<string>? SpeciesRestrictions { get; private set; }
+        [DataField]
+        public List<ProtoId<MarkingsGroupPrototype>>? GroupWhitelist;
 
         [DataField("sexRestriction")]
         public Sex? SexRestriction { get; private set; }
-
-        [DataField("followSkinColor")]
-        public bool FollowSkinColor { get; private set; } = false;
 
         [DataField("forcedColoring")]
         public bool ForcedColoring { get; private set; } = false;
@@ -50,6 +35,14 @@ namespace Content.Shared.Humanoid.Markings
 
         [DataField("sprites", required: true)]
         public List<SpriteSpecifier> Sprites { get; private set; } = default!;
+
+        // MACRO ADDITION
+        /// <summary>
+        ///     Optional dictionary allowing assignment of shaders to sprite layers in a marking.
+        ///     This implementation is very messy but unfortunately Robust doesn't like shaders in SpriteSpecifiers.
+        /// </summary>
+        [DataField]
+        public Dictionary<string, string>? Shaders { get; private set; }
 
         public Marking AsMarking()
         {

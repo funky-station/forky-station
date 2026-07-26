@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.EntityTable.ValueSelector;
 using Robust.Shared.Prototypes;
 
@@ -30,5 +26,15 @@ public sealed partial class EntSelector : EntityTableSelector
         {
             yield return Id;
         }
+    }
+
+    protected override IEnumerable<(EntProtoId spawn, double)> ListSpawnsImplementation(IEntityManager entMan, IPrototypeManager proto, EntityTableContext ctx)
+    {
+        yield return (Id, 1f);
+    }
+
+    protected override IEnumerable<(EntProtoId spawn, double)> AverageSpawnsImplementation(IEntityManager entMan, IPrototypeManager proto, EntityTableContext ctx)
+    {
+        yield return (Id, Amount.Average());
     }
 }

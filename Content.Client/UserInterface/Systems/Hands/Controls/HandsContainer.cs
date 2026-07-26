@@ -1,11 +1,7 @@
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Client.UserInterface.Systems.Inventory.Controls;
+using Content.Shared.Hands.Components;
 using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client.UserInterface.Systems.Hands.Controls;
@@ -13,10 +9,10 @@ namespace Content.Client.UserInterface.Systems.Hands.Controls;
 public sealed class HandsContainer : ItemSlotUIContainer<HandButton>
 {
     private readonly GridContainer _grid;
-    public int ColumnLimit { get => _grid.Columns; set => _grid.Columns = value; }
-    public int MaxButtonCount { get; set; } = 0;
+    private readonly List<HandButton> _orderedButtons = new();
+    public HandsComponent? PlayerHandsComponent;
 
-    public int MaxButtonsPerRow { get; set;  }= 6;
+    public int ColumnLimit { get; set; } = 6;
 
     /// <summary>
     ///     Indexer. This is used to reference a HandsContainer from the
@@ -30,57 +26,32 @@ public sealed class HandsContainer : ItemSlotUIContainer<HandButton>
         _grid.ExpandBackwards = true;
     }
 
-    public override HandButton? AddButton(HandButton newButton)
+    protected override void AddButton(HandButton newButton)
     {
-        if (MaxButtonCount > 0)
-        {
-            if (ButtonCount >= MaxButtonCount)
-                return null;
+        _orderedButtons.Add(newButton);
 
-            _grid.AddChild(newButton);
-        }
-        else
+        _grid.RemoveAllChildren();
+        var enumerable = PlayerHandsComponent?.SortedHands is { } sortedHands
+            ? _orderedButtons.OrderBy(it => sortedHands.IndexOf(it.SlotName))
+            : _orderedButtons.OrderBy(it => it.HandLocation);
+        foreach (var button in enumerable)
         {
-            _grid.AddChild(newButton);
+            _grid.AddChild(button);
         }
 
-        _grid.Columns = Math.Min(_grid.ChildCount, MaxButtonsPerRow);
-        return base.AddButton(newButton);
+        _grid.Columns = Math.Min(_grid.ChildCount, ColumnLimit);
     }
 
-    public override void RemoveButton(string handName)
+    protected override void RemoveButton(HandButton button)
     {
-        var button = GetButton(handName);
-        if (button == null)
-            return;
-        base.RemoveButton(button);
+        _orderedButtons.Remove(button);
         _grid.RemoveChild(button);
     }
 
-    public bool TryGetLastButton(out HandButton? control)
+    public override void ClearButtons()
     {
-        if (Buttons.Count == 0)
-        {
-            control = null;
-            return false;
-        }
-
-        control = Buttons.Values.Last();
-        return true;
-    }
-
-    public bool TryRemoveLastHand(out HandButton? control)
-    {
-        var success = TryGetLastButton(out control);
-        if (control != null)
-            RemoveButton(control);
-        return success;
-    }
-
-    public void Clear()
-    {
-        ClearButtons();
-        _grid.RemoveAllChildren();
+        base.ClearButtons();
+        _orderedButtons.Clear();
     }
 
     public IEnumerable<HandButton> GetButtons()
@@ -91,8 +62,4 @@ public sealed class HandsContainer : ItemSlotUIContainer<HandButton>
                 yield return hand;
         }
     }
-
-    public bool IsFull => (MaxButtonCount != 0 && ButtonCount >= MaxButtonCount);
-
-    public int ButtonCount => _grid.ChildCount;
 }

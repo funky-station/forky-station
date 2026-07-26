@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 David <david.owen.dev@gmail.com>
-// SPDX-FileCopyrightText: 2025 Kowlin <10947836+Kowlin@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Text;
 using Content.Shared.Administration.Notes;
 using Content.Shared.Database;
@@ -78,7 +70,7 @@ public sealed partial class AdminNotesLine : BoxContainer
 
         TimeLabel.Text = Note.CreatedAt.ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss");
         ServerLabel.Text = Note.ServerName ?? "Unknown";
-        RoundLabel.Text = Note.Round == null ? "Unknown round" : "Round " + Note.Round;
+        RoundLabel.Text = Note.Rounds.Length == 0 ? "Unknown round" : "Round " + string.Join(',', Note.Rounds);
         AdminLabel.Text = Note.CreatedByName;
         PlaytimeLabel.Text = $"{Note.PlaytimeAtNote.TotalHours: 0.0}h";
 
@@ -151,7 +143,12 @@ public sealed partial class AdminNotesLine : BoxContainer
 
     private string FormatRoleBanMessage()
     {
-        var banMessage = new StringBuilder($"{Loc.GetString("admin-notes-banned-from")} {string.Join(", ", Note.BannedRoles ?? new[] { "unknown" })} ");
+        var rolesText = string.Join(
+            ", ",
+            // Explicit cast here to avoid sandbox violation.
+            (IEnumerable<BanRoleDef>?)Note.BannedRoles ?? [new BanRoleDef("what", "You should not be seeing this")]);
+
+        var banMessage = new StringBuilder($"{Loc.GetString("admin-notes-banned-from")} {rolesText} ");
         return FormatBanMessageCommon(banMessage);
     }
 

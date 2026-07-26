@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2023, 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration;
 using Content.Server.Radiation.Components;
 using Content.Shared.Administration;
@@ -94,9 +87,9 @@ public partial class RadiationSystem
 ///     Toggle visibility of radiation rays coming from rad sources.
 /// </summary>
 [AdminCommand(AdminFlags.Admin)]
-public sealed class RadiationViewCommand : LocalizedEntityCommands
+public sealed partial class RadiationViewCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly RadiationSystem _radiation = default!;
+    [Dependency] private RadiationSystem _radiation = default!;
 
     public override string Command => "showradiation";
 

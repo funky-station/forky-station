@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Arcade;
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;
@@ -11,8 +7,8 @@ namespace Content.Server.Arcade.BlockGame;
 
 public sealed partial class BlockGame
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
     private readonly ArcadeSystem _arcadeSystem;
     private readonly UserInterfaceSystem _uiSystem;
 

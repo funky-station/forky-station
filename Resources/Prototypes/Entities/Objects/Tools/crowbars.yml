@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Hitlinemoss <209321380+Hitlinemoss@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   abstract: true
   parent: BaseItem
@@ -44,9 +39,7 @@
     - Belt
   - type: Item
     sprite: Objects/Tools/crowbar.rsi
-    size: Normal
-    shape:
-    - 0,0,0,1
+    size: Small
 
 # Standard (grey) Crowbar
 - type: entity

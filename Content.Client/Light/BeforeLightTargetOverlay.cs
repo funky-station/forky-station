@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Graphics;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
@@ -11,11 +7,11 @@ namespace Content.Client.Light;
 /// <summary>
 /// Handles an enlarged lighting target so content can use large blur radii.
 /// </summary>
-public sealed class BeforeLightTargetOverlay : Overlay
+public sealed partial class BeforeLightTargetOverlay : Overlay
 {
     public override OverlaySpace Space => OverlaySpace.BeforeLighting;
 
-    [Dependency] private readonly IClyde _clyde = default!;
+    [Dependency] private IClyde _clyde = default!;
 
     private readonly OverlayResourceCache<CachedResources> _resources = new();
 

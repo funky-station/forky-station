@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2026 Velken <8467292+Velken@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.IntegrationTests.Tests.Interaction;
 using Content.Shared.Charges.Systems;
@@ -43,9 +38,9 @@ public sealed class RCDTest : InteractionTest
         pEast = Transform.WithEntityId(pEast, MapData.Grid);
         pWest = Transform.WithEntityId(pWest, MapData.Grid);
 
-        await SetTile(Plating, SEntMan.GetNetCoordinates(pNorth), MapData.Grid);
-        await SetTile(Plating, SEntMan.GetNetCoordinates(pSouth), MapData.Grid);
-        await SetTile(Plating, SEntMan.GetNetCoordinates(pEast), MapData.Grid);
+        await SetTile(PlatingRCD, SEntMan.GetNetCoordinates(pNorth), MapData.Grid);
+        await SetTile(PlatingRCD, SEntMan.GetNetCoordinates(pSouth), MapData.Grid);
+        await SetTile(PlatingRCD, SEntMan.GetNetCoordinates(pEast), MapData.Grid);
         await SetTile(Lattice, SEntMan.GetNetCoordinates(pWest), MapData.Grid);
 
         Assert.That(ProtoMan.TryIndex(RCDSettingWall, out var settingWall), $"RCDPrototype not found: {RCDSettingWall}.");
@@ -199,7 +194,7 @@ public sealed class RCDTest : InteractionTest
         // Deconstruct the steel tile.
         await Interact(null, pEast);
         await RunSeconds(settingDeconstructTile.Delay + 1); // wait for the deconstruction to finish
-        await AssertTile(Lattice, FromServer(pEast));
+        await AssertTile(PlatingRCD, FromServer(pEast));
 
         // Check that the cost of the deconstruction was subtracted from the current charges.
         newCharges = sCharges.GetCurrentCharges(ToServer(rcd));

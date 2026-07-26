@@ -1,28 +1,4 @@
-// SPDX-FileCopyrightText: 2021-2023, 2025 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 pointer-to-null <91910481+pointer-to-null@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022, 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 alexalexmax <149889301+alexalexmax@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 nikitosych <boriszyn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-License-Identifier: MIT
-
+using System.Globalization;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
@@ -52,17 +28,17 @@ public abstract partial class SharedStunSystem : EntitySystem
 {
     public static readonly EntProtoId StunId = "StatusEffectStunned";
 
-    [Dependency] protected readonly IGameTiming GameTiming = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] protected readonly ActionBlockerSystem Blocker = default!;
-    [Dependency] protected readonly AlertsSystem Alerts = default!;
-    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
-    [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
-    [Dependency] protected readonly SharedStaminaSystem Stamina = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] protected IGameTiming GameTiming = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] protected ActionBlockerSystem Blocker = default!;
+    [Dependency] protected AlertsSystem Alerts = default!;
+    [Dependency] private EntityWhitelistSystem _entityWhitelist = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifier = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] protected SharedAppearanceSystem Appearance = default!;
+    [Dependency] protected SharedDoAfterSystem DoAfter = default!;
+    [Dependency] protected SharedStaminaSystem Stamina = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
 
     public override void Initialize()
     {
@@ -152,25 +128,25 @@ public abstract partial class SharedStunSystem : EntitySystem
     }
 
     // TODO STUN: Make events for different things. (Getting modifiers, attempt events, informative events...)
-    public bool TryAddStunDuration(EntityUid uid, TimeSpan duration)
+    public bool TryAddStunDuration(EntityUid uid, TimeSpan duration, bool visualized = false)
     {
         if (!_status.TryAddStatusEffectDuration(uid, StunId, duration))
             return false;
 
-        OnStunnedSuccessfully(uid, duration);
+        OnStunnedSuccessfully(uid, duration, visualized);
         return true;
     }
 
-    public bool TryUpdateStunDuration(EntityUid uid, TimeSpan? duration)
+    public bool TryUpdateStunDuration(EntityUid uid, TimeSpan? duration, bool visualized = false)
     {
         if (!_status.TryUpdateStatusEffectDuration(uid, StunId, duration))
             return false;
 
-        OnStunnedSuccessfully(uid, duration);
+        OnStunnedSuccessfully(uid, duration, visualized);
         return true;
     }
 
-    private void OnStunnedSuccessfully(EntityUid uid, TimeSpan? duration)
+    private void OnStunnedSuccessfully(EntityUid uid, TimeSpan? duration, bool visualized)
     {
         var ev = new StunnedEvent(); // todo: rename event or change how it is raised - this event is raised each time duration of stun was externally changed
         RaiseLocalEvent(uid, ref ev);
@@ -178,8 +154,11 @@ public abstract partial class SharedStunSystem : EntitySystem
         var evDropHands = new DropHandItemsEvent();
         RaiseLocalEvent(uid, ref evDropHands);
 
+        if (visualized)
+            TrySeeingStars(uid);
+
         var timeForLogs = duration.HasValue
-            ? duration.Value.Seconds.ToString()
+            ? duration.Value.TotalSeconds.ToString(CultureInfo.CurrentCulture)
             : "Infinite";
         _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(uid):user} stunned for {timeForLogs} seconds");
     }
@@ -307,7 +286,7 @@ public abstract partial class SharedStunSystem : EntitySystem
         if (time != null)
         {
             UpdateKnockdownTime((uid, component), time.Value, refresh);
-            _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(uid):user} was knocked down for {time.Value.Seconds} seconds");
+            _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(uid):user} was knocked down for {time.Value.TotalSeconds} seconds");
         }
         else
         {
@@ -316,7 +295,7 @@ public abstract partial class SharedStunSystem : EntitySystem
         }
     }
 
-    public bool TryAddParalyzeDuration(EntityUid uid, TimeSpan? duration)
+    public bool TryAddParalyzeDuration(EntityUid uid, TimeSpan? duration, bool visualized = false)
     {
         if (duration == null)
             return TryUpdateParalyzeDuration(uid, duration);
@@ -326,19 +305,19 @@ public abstract partial class SharedStunSystem : EntitySystem
 
         // We can't exit knockdown when we're stunned, so this prevents knockdown lasting longer than the stun.
         Knockdown(uid, null, false, true, true);
-        OnStunnedSuccessfully(uid, duration);
+        OnStunnedSuccessfully(uid, duration, visualized);
 
         return true;
     }
 
-    public bool TryUpdateParalyzeDuration(EntityUid uid, TimeSpan? duration)
+    public bool TryUpdateParalyzeDuration(EntityUid uid, TimeSpan? duration, bool visualized = false)
     {
         if (!_status.TryUpdateStatusEffectDuration(uid, StunId, duration))
             return false;
 
         // We can't exit knockdown when we're stunned, so this prevents knockdown lasting longer than the stun.
         Knockdown(uid, null, false, true, true);
-        OnStunnedSuccessfully(uid, duration);
+        OnStunnedSuccessfully(uid, duration, visualized);
 
         return true;
     }
@@ -417,14 +396,14 @@ public abstract partial class SharedStunSystem : EntitySystem
     private void OnEquipAttempt(EntityUid uid, StunnedComponent stunned, IsEquippingAttemptEvent args)
     {
         // is this a self-equip, or are they being stripped?
-        if (args.Equipee == uid)
+        if (args.User == uid)
             args.Cancel();
     }
 
     private void OnUnequipAttempt(EntityUid uid, StunnedComponent stunned, IsUnequippingAttemptEvent args)
     {
         // is this a self-equip, or are they being stripped?
-        if (args.Unequipee == uid)
+        if (args.User == uid)
             args.Cancel();
     }
 

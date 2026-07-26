@@ -1,19 +1,5 @@
-// SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023-2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
+using Content.IntegrationTests.Fixtures;
 using Content.Shared.Interaction;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
@@ -25,7 +11,7 @@ namespace Content.IntegrationTests.Tests.Interaction
 {
     [TestFixture]
     [TestOf(typeof(SharedInteractionSystem))]
-    public sealed class InRangeUnobstructed
+    public sealed class InRangeUnobstructed : GameTest
     {
         private const string HumanId = "MobHuman";
 
@@ -42,7 +28,7 @@ namespace Content.IntegrationTests.Tests.Interaction
         [Test]
         public async Task EntityEntityTest()
         {
-            await using var pair = await PoolManager.GetServerClient();
+            var pair = Pair;
             var server = pair.Server;
 
             var sEntities = server.ResolveDependency<IEntityManager>();
@@ -124,8 +110,6 @@ namespace Content.IntegrationTests.Tests.Interaction
                     Assert.That(interactionSys.InRangeUnobstructed(mapCoordinates, origin, InteractionRangeDivided15Times3));
                 });
             });
-
-            await pair.CleanReturnAsync();
         }
     }
 }

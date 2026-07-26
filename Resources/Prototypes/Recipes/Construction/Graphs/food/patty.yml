@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 SG6732 <151011904+SG6732@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
-# SPDX-License-Identifier: MIT
-
 - type: constructionGraph
   id: CookedPatty
   start: start

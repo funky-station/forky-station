@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Console;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
@@ -16,13 +10,7 @@ public sealed partial class MindTests
     [Test]
     public async Task DeleteAllThenGhost()
     {
-        var settings = new PoolSettings
-        {
-            Dirty = true,
-            DummyTicker = false,
-            Connected = true
-        };
-        await using var pair = await PoolManager.GetServerClient(settings);
+        var pair = Pair;
 
         // Client is connected with a valid entity & mind
         Assert.That(pair.Client.EntMan.EntityExists(pair.Client.AttachedEntity));
@@ -61,7 +49,5 @@ public sealed partial class MindTests
         Assert.That(pair.Server.EntMan.EntityExists(pair.PlayerData?.Mind));
         var xform = pair.Client.Transform(pair.Client.AttachedEntity!.Value);
         Assert.That(xform.MapID, Is.EqualTo(mapId));
-
-        await pair.CleanReturnAsync();
     }
 }

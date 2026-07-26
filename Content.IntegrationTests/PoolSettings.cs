@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 namespace Content.IntegrationTests;
 
 /// <inheritdoc/>

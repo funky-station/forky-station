@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: MarkerBase
   id: SpawnClownSpider
@@ -142,15 +138,16 @@
     - state: green
     - state: quartz_crab
       sprite: Mobs/Elemental/orecrab.rsi
-  - type: RandomSpawner
-    prototypes:
-    - MobSpawnCrabUranium
-    - MobSpawnCrabIron
-    - MobSpawnCrabQuartz
-    - MobSpawnCrabSilver
-    - MobSpawnCrabCoal
-    - MobSpawnCrabGold
-    - MobSpawnCrabBananium
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: MobSpawnCrabUranium
+      - id: MobSpawnCrabIron
+      - id: MobSpawnCrabQuartz
+      - id: MobSpawnCrabSilver
+      - id: MobSpawnCrabCoal
+      - id: MobSpawnCrabGold
+      - id: MobSpawnCrabBananium
 
 - type: entity
   parent: MarkerBase

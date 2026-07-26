@@ -1,48 +1,13 @@
-# SPDX-FileCopyrightText: 2020-2021 Ygg01 <daniel.fath7@gmail.com>
-# SPDX-FileCopyrightText: 2020-2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2020-2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 nuke <47336974+nuke-makes-games@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 py01 <60152240+collinlunn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2021-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Justin Trotter <trotter.justin@gmail.com>
-# SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Profane McBane <profanedbane+github@gmail.com>
-# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Tunguso4ka <71643624+Tunguso4ka@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 scrivoy <179060466+scrivoy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
-  parent: BaseWallmountMetallic
-  id: BaseDispenser
   abstract: true
+  parent: [SolutionTank, SolutionGinormous, BaseWallmountMetallic]
+  id: BaseDispenser
   components:
   - type: Sprite
     sprite: Structures/Wallmounts/walldispenser.rsi
   - type: Appearance
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTypeTrigger
         damageType: Heat
@@ -89,13 +54,11 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 5
     fillBaseName: fill-
-  - type: SolutionContainerManager
-    solutions:
-      tank:
-        maxVol: 5000
-        reagents:
-        - ReagentId: SpaceCleaner
-          Quantity: 5000
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: SpaceCleaner
+        Quantity: 960
 
 - type: entity
   parent: BaseDispenser
@@ -112,13 +75,11 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 5
     fillBaseName: fill-
-  - type: SolutionContainerManager
-    solutions:
-      tank:
-        maxVol: 1000
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 1000
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 960
   - type: ReagentTank
     tankType: Fuel
   - type: DamageOnToolInteract
@@ -128,5 +89,6 @@
         Heat: 20
   - type: PacifismDangerousAttack
   - type: Explosive
-    explosionType: Default
+    explosionType: Transparent # Funky RMC Explosions
     totalIntensity: 50
+  - type: ExplosionEffect # Funky RMC Explosions

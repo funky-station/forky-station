@@ -1,15 +1,3 @@
-# SPDX-FileCopyrightText: 2023-2024 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Hanz <41141796+Hanzdegloker@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 degradka <degradka@gmail.com>
-# SPDX-FileCopyrightText: 2025 SnappingOpossum <snappingopossum@outlook.com>
-# SPDX-FileCopyrightText: 2025 Hitlinemoss <209321380+Hitlinemoss@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 96flo <163569033+96flo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: DresserCaptainFilled
   parent: Dresser
@@ -85,12 +73,11 @@
         children:
         - id: ClothingHeadHatBeretHoS
         - id: ClothingHeadHatHoshat
-        - id: ClothingMaskNeckGaiter
-        - id: ClothingUniformJumpskirtHoSAlt
-        - id: ClothingUniformJumpsuitHoSAlt
-        - id: ClothingUniformJumpskirtHosFormal
-        - id: ClothingUniformJumpsuitHosFormal
-        - id: ClothingOuterWinterHoS
+        - id: FuClothingUniformHosDressPants
+        - id: FuClothingUniformHosDressSkirt
+        - id: FuClothingUniformHosMessPants
+        - id: FuClothingUniformHosMessSkirt
+        - id: FuClothingOuterWinterHos
         - id: ClothingNeckCloakHos
 
 - type: entity

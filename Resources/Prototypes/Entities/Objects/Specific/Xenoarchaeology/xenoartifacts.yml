@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: BaseXenoArtifact
   parent: BaseMob # we use this since it can technically get inhabited
@@ -33,6 +27,7 @@
     effectsTable: !type:NestedSelector
       tableId: XenoArtifactEffectsDefaultTable
   - type: Damageable
+  - type: Injurable
   - type: Actions
   - type: Physics
     bodyType: KinematicController

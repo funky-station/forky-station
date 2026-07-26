@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Preston Smith <92108534+thetolbean@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Server.Speech.Components;
@@ -13,7 +6,7 @@ using Robust.Shared.Random;
 
 namespace Content.Server.Speech.EntitySystems;
 
-public sealed class MobsterAccentSystem : EntitySystem
+public sealed partial class MobsterAccentSystem : EntitySystem
 {
     private static readonly Regex RegexIng = new(@"(?<=\w\w)(in)g(?!\w)", RegexOptions.IgnoreCase);
     private static readonly Regex RegexLowerOr = new(@"(?<=\w)o[Rr](?=\w)");
@@ -23,8 +16,8 @@ public sealed class MobsterAccentSystem : EntitySystem
     private static readonly Regex RegexFirstWord = new(@"^(\S+)");
     private static readonly Regex RegexLastWord = new(@"(\S+)$");
     private static readonly Regex RegexLastPunctuation = new(@"([.!?]+$)(?!.*[.!?])|(?<![.!?])$");
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ReplacementAccentSystem _replacement = default!;
 
     public override void Initialize()
     {

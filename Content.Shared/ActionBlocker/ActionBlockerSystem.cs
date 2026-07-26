@@ -1,24 +1,3 @@
-// SPDX-FileCopyrightText: 2020-2021, 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022, 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Dakamakat <52600490+dakamakat@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Body.Events;
 using Content.Shared.Emoting;
 using Content.Shared.Hands;
@@ -40,18 +19,11 @@ namespace Content.Shared.ActionBlocker
     /// Utility methods to check if a specific entity is allowed to perform an action.
     /// </summary>
     [UsedImplicitly]
-    public sealed class ActionBlockerSystem : EntitySystem
+    public sealed partial class ActionBlockerSystem : EntitySystem
     {
-        [Dependency] private readonly SharedContainerSystem _container = default!;
+        [Dependency] private SharedContainerSystem _container = default!;
 
-        private EntityQuery<ComplexInteractionComponent> _complexInteractionQuery;
-
-        public override void Initialize()
-        {
-            base.Initialize();
-
-            _complexInteractionQuery = GetEntityQuery<ComplexInteractionComponent>();
-        }
+        [Dependency] private EntityQuery<ComplexInteractionComponent> _complexInteractionQuery = default!;
 
         // These two methods should probably both live in SharedMoverController
         // but they're called in a million places and I'm not doing that
@@ -73,7 +45,9 @@ namespace Content.Shared.ActionBlocker
                 Dirty(uid, component);
 
             component.CanMove = !ev.Cancelled;
-            return !ev.Cancelled;
+            var updatedEv = new CanMoveUpdatedEvent(component.CanMove);
+            RaiseLocalEvent(uid, ref updatedEv);
+            return component.CanMove;
         }
 
         /// <summary>

@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-FileCopyrightText: 2025 Zachary Yona <58833995+Magicalus@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Items;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
@@ -21,13 +14,13 @@ namespace Content.Client.UserInterface.Systems.Inventory.Controls;
 [GenerateTypedNameReferences]
 public sealed partial class ItemStatusPanel : Control
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
 
     [ViewVariables] private EntityUid? _entity;
     [ViewVariables] private Hand? _hand;
 
     // Tracked so we can re-run SetSide() if the theme changes.
-    private HandUILocation _side;
+    private HandLocation _side;
 
     public ItemStatusPanel()
     {
@@ -35,7 +28,7 @@ public sealed partial class ItemStatusPanel : Control
         IoCManager.InjectDependencies(this);
     }
 
-    public void SetSide(HandUILocation location)
+    public void SetSide(HandLocation location)
     {
         // AN IMPORTANT REMINDER ABOUT THIS CODE:
         // In the UI, the RIGHT hand is on the LEFT on the screen.
@@ -50,14 +43,14 @@ public sealed partial class ItemStatusPanel : Control
 
         switch (location)
         {
-            case HandUILocation.Right:
+            case HandLocation.Right or HandLocation.Middle:
                 texture = Theme.ResolveTexture("item_status_right");
                 textureHighlight = Theme.ResolveTexture("item_status_right_highlight");
                 cutOut = StyleBox.Margin.Left;
                 flat = StyleBox.Margin.Right;
                 contentMargin = MarginFromThemeColor("_itemstatus_content_margin_right");
                 break;
-            case HandUILocation.Left:
+            case HandLocation.Left:
                 texture = Theme.ResolveTexture("item_status_left");
                 textureHighlight = Theme.ResolveTexture("item_status_left_highlight");
                 cutOut = StyleBox.Margin.Right;

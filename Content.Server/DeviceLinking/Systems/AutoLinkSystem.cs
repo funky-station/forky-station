@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.DeviceLinking.Components;
 
 namespace Content.Server.DeviceLinking.Systems;
@@ -11,9 +5,9 @@ namespace Content.Server.DeviceLinking.Systems;
 /// <summary>
 /// This handles automatically linking autolinked entities at round-start.
 /// </summary>
-public sealed class AutoLinkSystem : EntitySystem
+public sealed partial class AutoLinkSystem : EntitySystem
 {
-    [Dependency] private readonly DeviceLinkSystem _deviceLinkSystem = default!;
+    [Dependency] private DeviceLinkSystem _deviceLinkSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

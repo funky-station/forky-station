@@ -1,14 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 liltenhead <104418166+liltenhead@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Aexxie <codyfox.077@gmail.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Archee <archee3@hotmail.co.uk>
-# SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Tiniest Shark <head.rebel@yahoo.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: [ BaseItem, BaseMinorContraband ]
   id: FireBomb
@@ -42,6 +31,7 @@
     intensitySlope: 5
     maxIntensity: 3
     canCreateVacuum: false
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: ExplodeOnTrigger
     keysIn:
     - timer
@@ -50,6 +40,7 @@
   - type: TimerTriggerVisuals
     unprimedSprite: base
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
@@ -104,13 +95,11 @@
     - state: base
       map: ["enum.OpenableVisuals.Layer"]
     - state: fuel
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 30
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 40
   - type: Construction
     node: fuel
     defaultTarget: firebomb

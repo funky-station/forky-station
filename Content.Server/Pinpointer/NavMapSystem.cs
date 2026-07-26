@@ -1,22 +1,8 @@
-// SPDX-FileCopyrightText: 2023-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Shared.Database;
-using Content.Shared.Examine;
 using Content.Shared.Localizations;
 using Content.Shared.Maps;
 using Content.Shared.Pinpointer;
@@ -34,20 +20,20 @@ namespace Content.Server.Pinpointer;
 /// </summary>
 public sealed partial class NavMapSystem : SharedNavMapSystem
 {
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly TurfSystem _turfSystem = default!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedMapSystem _mapSystem = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private TurfSystem _turfSystem = default!;
+
+    [Dependency] private EntityQuery<AirtightComponent> _airtightQuery = default!;
+    [Dependency] private EntityQuery<MapGridComponent> _gridQuery = default!;
+    [Dependency] private EntityQuery<NavMapComponent> _navQuery = default!;
 
     public const float CloseDistance = 15f;
     public const float FarDistance = 30f;
-
-    private EntityQuery<AirtightComponent> _airtightQuery;
-    private EntityQuery<MapGridComponent> _gridQuery;
-    private EntityQuery<NavMapComponent> _navQuery;
 
     public override void Initialize()
     {
@@ -56,10 +42,6 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
         var categories = Enum.GetNames(typeof(NavMapChunkType)).Length - 1; // -1 due to "Invalid" entry.
         if (Categories != categories)
             throw new Exception($"{nameof(Categories)} must be equal to the number of chunk types");
-
-        _airtightQuery = GetEntityQuery<AirtightComponent>();
-        _gridQuery = GetEntityQuery<MapGridComponent>();
-        _navQuery = GetEntityQuery<NavMapComponent>();
 
         // Initialization events
         SubscribeLocalEvent<StationGridAddedEvent>(OnStationInit);
@@ -181,11 +163,11 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
 
     private void OnNavMapBeaconMapInit(EntityUid uid, NavMapBeaconComponent component, MapInitEvent args)
     {
-        if (component.DefaultText == null || component.Text != null)
-            return;
-
-        component.Text = Loc.GetString(component.DefaultText);
-        Dirty(uid, component);
+        if (component.DefaultText != null && component.Text == null)
+        {
+            component.Text = Loc.GetString(component.DefaultText);
+            Dirty(uid, component);
+        }
 
         UpdateNavMapBeaconData(uid, component);
     }

@@ -1,21 +1,19 @@
-# SPDX-FileCopyrightText: 2025 Disp-Dev <91643998+Disp-Dev@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
+  parent: MarkerBase
   id: RandomFoodBreakfast
   name: random food spawner
-  suffix: Meal
-  parent: MarkerBase
+  suffix: Breakfast
   placement:
     mode: AlignTileAny
   components:
   - type: Sprite
     layers:
-      - sprite: Objects/Consumable/Food/breakfast.rsi
-        state: fullamerican
-  - type: RandomSpawner
-    prototypes:
-      - FoodBreakfastAmerican
-      - FoodBreakfastEnglish
-    chance: 0.8
+    - sprite: Objects/Consumable/Food/breakfast.rsi
+      state: fullamerican
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      prob: 0.8
+      children:
+      - id: FoodBreakfastAmerican
+      - id: FoodBreakfastEnglish
     offset: 0.0

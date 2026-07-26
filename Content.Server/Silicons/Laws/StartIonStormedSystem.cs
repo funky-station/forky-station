@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 ScarKy0 <scarky0@onet.eu>
-// SPDX-FileCopyrightText: 2024 The Canned One <greentopcan@gmail.com>
-// SPDX-FileCopyrightText: 2024 Golden Can <greentopcan@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -12,11 +7,11 @@ namespace Content.Server.Silicons.Laws;
 /// <summary>
 /// This handles running the ion storm event a on specific entity when that entity is spawned in.
 /// </summary>
-public sealed class StartIonStormedSystem : EntitySystem
+public sealed partial class StartIonStormedSystem : EntitySystem
 {
-    [Dependency] private readonly IonStormSystem _ionStorm = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SiliconLawSystem _siliconLaw = default!;
+    [Dependency] private IonStormSystem _ionStorm = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private SiliconLawSystem _siliconLaw = default!;
 
     public override void Initialize()
     {
