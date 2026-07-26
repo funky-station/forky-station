@@ -260,9 +260,11 @@
   description: Moo.
   components:
   - type: Sprite
-    sprite: _Funkystation/Mobs/Animals/chocolate_cow.rsi
+    drawdepth: Mobs
     layers:
-      state: cow
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: cow
+        sprite: _Funkystation/Mobs/Animals/chocolate_cow.rsi
   - type: SolutionManager
     solutions:
     - SolutionUdderChocolate
