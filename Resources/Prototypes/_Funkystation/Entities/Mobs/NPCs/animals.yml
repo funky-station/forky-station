@@ -258,8 +258,11 @@
   parent: MobCow
   id: MobCowChocolate
   description: Moo.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Mobs/Animals/chocolate_cow.rsi
+    layers:
       state: cow
-      sprite: _Funkystation/Mobs/Animals/chocolate_cow.rsi
   - type: SolutionManager
     solutions:
     - SolutionUdderChocolate
