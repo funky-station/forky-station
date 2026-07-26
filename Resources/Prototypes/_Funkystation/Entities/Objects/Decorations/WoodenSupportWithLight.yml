@@ -61,6 +61,7 @@
           - WallLayer
           density: 1000
     - type: Damageable
+    - type: Injurable
       damageContainer: Inorganic
     - type: Destructible
       thresholds:
