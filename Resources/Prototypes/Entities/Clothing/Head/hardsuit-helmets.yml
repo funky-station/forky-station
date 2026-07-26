@@ -92,13 +92,10 @@
   description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/engineering.rsi
+    sprite: _Funkystation/Clothing/Head/Hardsuits/engineering.rsi # Funky changes
     layers:
     - state: icon
       map: [ "enum.ToggleableVisuals.Layer" ]
-    - state: icon-unshaded
-      shader: unshaded
-      map: [ "unshaded_base" ]
     - state: light-overlay
       visible: false
       shader: unshaded
@@ -123,24 +120,16 @@
       head-reptilian:
       - state: equipped-head-light-reptilian
         shader: unshaded
-  - type: Clothing
+  - type: Clothing # Funky changes, removed unshaded
     clothingVisuals:
       head:
       - state: equipped-head
-      - state: equipped-head-unshaded
-        shader: unshaded
       head-vox:
       - state: equipped-head-vox
-      - state: equipped-head-unshaded-vox
-        shader: unshaded
       head-vulpkanin:
       - state: equipped-head-vulpkanin
-      - state: equipped-head-unshaded-vulpkanin
-        shader: unshaded
       head-reptilian:
       - state: equipped-head-reptilian
-      - state: equipped-head-unshaded-reptilian
-        shader: unshaded
   - type: PointLight
     color: "#ffdbad"
   - type: PressureProtection
@@ -440,7 +429,7 @@
   description: Special hardsuit helmet, made for the chief engineer of the station.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/engineering-white.rsi
+    sprite: _Funkystation/Clothing/Head/Hardsuits/engineering-white.rsi # Funky
     layers:
     - state: icon
       map: [ "enum.ToggleableVisuals.Layer" ]

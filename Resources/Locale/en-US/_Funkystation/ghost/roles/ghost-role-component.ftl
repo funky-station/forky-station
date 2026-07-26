@@ -11,3 +11,6 @@ ghost-role-information-arti-corgi-description = A traveler from another plane of
 ghost-role-information-zleeb-zlorb-name = Zleeb Zlorb
 ghost-role-information-zleeb-zlorb-description = Glorp zleeb zleeble gnranish! Glorb zlabble zleep sprazzle zlorp. gnar zleep SPACE COP glorbo. (You are Zleep the great! You dislike crime greatly. You are a SPACE COP.
 ghost-role-information-zleeb-zlorb-rules = You are a small alien SPACE COP. You must enforce your laws (NOT NANOTRASEN'S!). These laws are up to you to decide but should match no more than 50% of NT's space law. This will probably put you at odds with sec that's okay. You are a free agent after all. Whatever you do, DON'T be a boot licker. Enforce YOUR version of galactic law to your best ability. Good luck, SPACE COP!
+
+ghost-role-information-meowl-name = Meowl
+ghost-role-information-meowl-description = A highly invasive apex predator. The sole cause of the rapid decline of mothroaches.

@@ -1,0 +1,84 @@
+﻿- type: entity
+  parent: BaseWallmount
+  id: CatClock
+  name: cat clock
+  description: A cute little cat clock that reminds you time is always moving forward.
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _Funkystation/Objects/Devices/cat_clock.rsi
+    layers:
+    - state: cat_clock
+      map: [ "base" ]
+  - type: StationClock
+    showSeconds: false
+    showDate: false
+    showTemperature: false
+    toggleSound:
+      path: /Audio/Machines/lightswitch.ogg
+  - type: AmbientSound
+    enabled: true
+    volume: -5
+    range: 5
+    sound:
+      path: /Audio/_Funkystation/Machines/clock_ticking.ogg
+  - type: Construction
+    graph: CatClockGraph
+    node: clock
+
+- type: entity
+  parent: BaseWallmount
+  id: AnalogClock
+  name: analog clock
+  description: A boring old analog clock. It seems slightly out of sync.
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _Funkystation/Objects/Devices/analog_clock.rsi
+    layers:
+    - state: analog_clock
+      map: [ "base" ]
+  - type: StationClock
+    showSeconds: false
+    showDate: false
+    showTemperature: false
+    toggleSound:
+      path: /Audio/Machines/lightswitch.ogg
+  - type: AmbientSound
+    enabled: true
+    volume: -5
+    range: 5
+    sound:
+      path: /Audio/_Funkystation/Machines/clock_ticking.ogg
+  - type: Construction
+    graph: AnalogClockGraph
+    node: clock
+
+- type: entity
+  parent: BaseItem
+  id: DigitalClock
+  name: digital clock
+  description: A digital clock with a built-in thermometer. Reminds you how long you have before the shift is over.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/digital_clock.rsi
+    layers:
+    - state: icon
+      map: [ "base" ]
+    - state: digital_clock_screen_1
+      map: [ "screen" ]
+      shader: unshaded
+  - type: StationClock
+    showSeconds: false
+    showDate: true
+    showTemperature: true
+    temperatureUpdateInterval: 5
+    toggleSound:
+      path: /Audio/Machines/lightswitch.ogg
+    screenStates:
+    - digital_clock_screen_1
+    - digital_clock_screen_2
+    - digital_clock_screen_3
+    - digital_clock_screen_4

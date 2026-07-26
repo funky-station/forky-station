@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "sproten by zergologist (Discord) for Funky Station",
+  "size": {
+    "x": 16,
+    "y": 16
+  },
+  "states": [
+    {
+        "name": "admin"
+    },
+    {
+        "name": "engineering"
+    },
+    {
+        "name": "internalaffairs"
+    },
+    {
+        "name": "legal"
+    },
+    {
+        "name": "logistics"
+    },
+    {
+        "name": "medical"
+    },
+    {
+        "name": "misc"
+    },
+    {
+        "name": "research"
+    },
+    {
+        "name": "unregulated"
+    },
+    {
+        "name": "syndicate"
+    }
+  ]
+}

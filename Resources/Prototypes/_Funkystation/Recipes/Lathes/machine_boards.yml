@@ -13,3 +13,9 @@
   parent: BaseCircuitboardRecipe
   id: WashingMachineCircuitboard
   result: WashingMachineCircuitboard
+
+# Document Printer
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: DocumentPrinterCircuitboard
+  result: DocumentPrinterCircuitboard
