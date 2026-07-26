@@ -60,50 +60,102 @@
 - type: entity
   parent: BaseStorageItem
   id: DrinkCanPack
-  name: 6pack
+  name: 6pack of cola # funky change
   components:
   - type: Sprite
     sprite: Objects/Misc/6pack.rsi
     layers:
     - state: plastic-thingy
-    - state: 6pack1
-      map: ["6pack1"]
-    - state: 6pack2
-      map: ["6pack2"]
-    - state: 6pack3
-      map: ["6pack3"]
-    - state: 6pack4
-      map: ["6pack4"]
-    - state: 6pack5
-      map: ["6pack5"]
-    - state: 6pack6
-      map: ["6pack6"]
   - type: Item
     size: Normal
-  - type: Storage
-    grid:
-    - 0,0,2,3
-    whitelist:
-      tags:
-      - Cola
-    hideStackVisualsWhenClosed: false
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: DrinkColaCan
-        amount: 6
-  - type: ItemCounter
-    count:
-      tags: [Cola]
-    composite: true
-    layerStates:
-    - 6pack1
-    - 6pack2
-    - 6pack3
-    - 6pack4
-    - 6pack5
-    - 6pack6
   - type: Appearance
+  - type: ItemSlots # funky change start
+    slots:
+      6pack_slot6:
+        ejectOnUse: true
+        startingItem: DrinkColaCan
+        whitelist:
+          tags:
+          - DrinkCan
+        priority: 6
+      6pack_slot5:
+        ejectOnUse: true
+        startingItem: DrinkColaCan
+        whitelist:
+          tags:
+          - DrinkCan
+        priority: 5
+      6pack_slot4:
+        ejectOnUse: true
+        startingItem: DrinkColaCan
+        whitelist:
+          tags:
+          - DrinkCan
+        priority: 4
+      6pack_slot3:
+        ejectOnUse: true
+        startingItem: DrinkColaCan
+        whitelist:
+          tags:
+          - DrinkCan
+        priority: 3
+      6pack_slot2:
+        ejectOnUse: true
+        startingItem: DrinkColaCan
+        whitelist:
+          tags:
+          - DrinkCan
+        priority: 2
+      6pack_slot1:
+        ejectOnUse: true
+        startingItem: DrinkColaCan
+        whitelist:
+          tags:
+          - DrinkCan
+        priority: 1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: [ ]
+      6pack_slot6: !type:ContainerSlot { }
+      6pack_slot5: !type:ContainerSlot { }
+      6pack_slot4: !type:ContainerSlot { }
+      6pack_slot3: !type:ContainerSlot { }
+      6pack_slot2: !type:ContainerSlot { }
+      6pack_slot1: !type:ContainerSlot { }
+  - type: ItemMapper
+    mapLayers:
+      6pack1:
+        minCount: 1
+        whitelist:
+          tags:
+          - DrinkCan
+      6pack2:
+        minCount: 2
+        whitelist:
+          tags:
+          - DrinkCan
+      6pack3:
+        minCount: 3
+        whitelist:
+          tags:
+          - DrinkCan
+      6pack4:
+        minCount: 4
+        whitelist:
+          tags:
+          - DrinkCan
+      6pack5:
+        minCount: 5
+        whitelist:
+          tags:
+          - DrinkCan
+      6pack6:
+        minCount: 6
+        whitelist:
+          tags:
+          - DrinkCan
+    sprite: Objects/Misc/6pack.rsi # funky change end
 
 # Bartender tools
 

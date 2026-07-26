@@ -27,11 +27,13 @@
   id: StationEngineerHardhatYellow
   equipment:
     head: ClothingHeadHatHardhatYellow
+  groupBy: "hardhats"
 
 - type: loadout
   id: StationEngineerHardhatOrange
   equipment:
     head: ClothingHeadHatHardhatOrange
+  groupBy: "hardhats"
 
 - type: loadout
   id: StationEngineerHardhatRed

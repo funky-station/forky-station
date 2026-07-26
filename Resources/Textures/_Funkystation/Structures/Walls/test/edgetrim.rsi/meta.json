@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "sproten by zergologist (Discord) for development purposes",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "test-smooth0",
+      "directions": 4
+    },
+    {
+      "name": "test-smooth1",
+      "directions": 4
+    },
+    {
+      "name": "test-smooth2",
+      "directions": 4
+    },
+    {
+      "name": "test-smooth3",
+      "directions": 4
+    },
+    {
+      "name": "test-smooth4",
+      "directions": 4
+    },
+    {
+      "name": "test-smooth5",
+      "directions": 4
+    },
+    {
+      "name": "test-smooth6",
+      "directions": 4
+    },
+    {
+      "name": "test-smooth7",
+      "directions": 4
+    },
+    {
+      "name": "test-edge0",
+      "directions": 4
+    },
+    {
+      "name": "test-edge1",
+      "directions": 4
+    },
+    {
+      "name": "test-edge2",
+      "directions": 4
+    },
+    {
+      "name": "test-edge3",
+      "directions": 4
+    },
+    {
+      "name": "test-edge4",
+      "directions": 4
+    },
+    {
+      "name": "test-edge5",
+      "directions": 4
+    },
+    {
+      "name": "test-edge6",
+      "directions": 4
+    },
+    {
+      "name": "test-edge7",
+      "directions": 4
+    },
+    {
+      "name": "test-edge8",
+      "directions": 4
+    }
+  ]
+}

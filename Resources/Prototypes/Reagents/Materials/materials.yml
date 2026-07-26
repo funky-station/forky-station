@@ -58,7 +58,7 @@
   id: Paper
   stackEntity: SheetPaper1
   name: materials-paper
-  icon: { sprite: Objects/Materials/Sheets/other.rsi, state: paper }
+  icon: { sprite: _Funkystation/Objects/Materials/Sheets/other.rsi, state: paper } #Funky resprite
   color: "#d9d9d9"
   price: 0.01 # it's paper bro what do you expect?
   properties: # FH edit
@@ -71,7 +71,7 @@
   id: Plasma
   stackEntity: SheetPlasma1
   name: materials-plasma
-  icon: { sprite: Objects/Materials/Sheets/other.rsi, state: plasma }
+  icon: { sprite: _Funkystation/Objects/Materials/Sheets/other.rsi, state: plasma } #Funky resprite
   color: "#7e009e"
   price: 0.35 # $35 for 1 unit
   properties: # FH edit
@@ -88,7 +88,7 @@
   id: Plastic
   stackEntity: SheetPlastic1
   name: materials-plastic
-  icon: { sprite: Objects/Materials/Sheets/other.rsi, state: plastic }
+  icon: { sprite: _Funkystation/Objects/Materials/Sheets/other.rsi, state: plastic } #Funky resprite
   color: "#d9d9d9"
   price: 0.20 # $20 for 1 unit
   properties: # FH edit
@@ -116,7 +116,7 @@
   id: Uranium
   stackEntity: SheetUranium1
   name: materials-uranium
-  icon: { sprite: Objects/Materials/Sheets/other.rsi, state: uranium }
+  icon: { sprite: _Funkystation/Objects/Materials/Sheets/other.rsi, state: uranium } #Funky resprite
   color: "#32a852"
   price: 0.85 # $85 for 1 unit
   properties: # FH edit

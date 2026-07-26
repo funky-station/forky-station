@@ -29,7 +29,7 @@
   id: FloorSteel
   parent: BaseStationTile
   name: tiles-steel-floor
-  sprite: /Textures/Tiles/steel.png
+  sprite: /Textures/_Funkystation/Tiles/steel.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -42,7 +42,7 @@
   id: FloorSteelCheckerLight
   parent: BaseStationTile
   name: tiles-steel-floor-checker-light
-  sprite: /Textures/Tiles/cafeteria.png
+  sprite: /Textures/_Funkystation/Tiles/cafeteria.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -55,7 +55,7 @@
   id: FloorSteelCheckerDark
   parent: BaseStationTile
   name: tiles-steel-floor-checker-dark
-  sprite: /Textures/Tiles/checker_dark.png
+  sprite: /Textures/_Funkystation/Tiles/checker_dark.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -68,7 +68,7 @@
   id: FloorSteelMini
   parent: BaseStationTile
   name: tiles-steel-floor-mini
-  sprite: /Textures/Tiles/steel_mini.png
+  sprite: /Textures/_Funkystation/Tiles/steel_mini.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -81,7 +81,7 @@
   id: FloorSteelPavement
   parent: BaseStationTile
   name: tiles-steel-floor-pavement
-  sprite: /Textures/Tiles/steel_pavement.png
+  sprite: /Textures/_Funkystation/Tiles/steel_pavement.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -94,7 +94,7 @@
   id: FloorSteelDiagonal
   parent: BaseStationTile
   name: tiles-steel-floor-diagonal
-  sprite: /Textures/Tiles/steel_diagonal.png
+  sprite: /Textures/_Funkystation/Tiles/steel_diagonal.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -107,14 +107,14 @@
   id: FloorSteelOffset
   parent: BaseStationTile
   name: tiles-steel-floor-offset
-  sprite: /Textures/Tiles/steel_offset.png
+  sprite: /Textures/_Funkystation/Tiles/steel_offset.png # Funky
   itemDrop: FloorTileItemSteelOffset
 
 - type: tile
   id: FloorSteelMono
   parent: BaseStationTile
   name: tiles-steel-floor-mono
-  sprite: /Textures/Tiles/steel_mono.png
+  sprite: /Textures/_Funkystation/Tiles/steel_mono.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -127,7 +127,7 @@
   id: FloorSteelPavementVertical
   parent: BaseStationTile
   name: tiles-steel-floor-pavement-vertical
-  sprite: /Textures/Tiles/steel_pavement_vertical.png
+  sprite: /Textures/_Funkystation/Tiles/steel_pavement_vertical.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -140,7 +140,7 @@
   id: FloorSteelHerringbone
   parent: BaseStationTile
   name: tiles-steel-floor-herringbone
-  sprite: /Textures/Tiles/steel_herringbone.png
+  sprite: /Textures/_Funkystation/Tiles/steel_herringbone.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -153,7 +153,7 @@
   id: FloorSteelDiagonalMini
   parent: BaseStationTile
   name: tiles-steel-floor-diagonal-mini
-  sprite: /Textures/Tiles/steel_diagonal_mini.png
+  sprite: /Textures/_Funkystation/Tiles/steel_diagonal_mini.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -224,7 +224,7 @@
   id: FloorPlastic
   parent: BaseStationTile
   name: tiles-plastic-floor
-  sprite: /Textures/Tiles/plastic.png
+  sprite: /Textures/_Funkystation/Tiles/plastic.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -237,7 +237,7 @@
   id: FloorWood
   parent: BaseStationTile
   name: tiles-wood
-  sprite: /Textures/Tiles/wood.png
+  sprite: /Textures/_Funkystation/Tiles/wood.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -254,7 +254,7 @@
   id: FloorWhite
   parent: BaseStationTile
   name: tiles-white-floor
-  sprite: /Textures/Tiles/white.png
+  sprite: /Textures/_Funkystation/Tiles/white.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -269,7 +269,7 @@
   id: FloorWhiteMini
   parent: BaseStationTile
   name: tiles-white-floor-mini
-  sprite: /Textures/Tiles/white_mini.png
+  sprite: /Textures/_Funkystation/Tiles/white_mini.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -324,7 +324,7 @@
   id: FloorWhitePavement
   parent: BaseStationTile
   name: tiles-white-floor-pavement
-  sprite: /Textures/Tiles/white_pavement.png
+  sprite: /Textures/_Funkystation/Tiles/white_pavement.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -339,7 +339,7 @@
   id: FloorWhiteDiagonal
   parent: BaseStationTile
   name: tiles-white-floor-diagonal
-  sprite: /Textures/Tiles/white_diagonal.png
+  sprite: /Textures/_Funkystation/Tiles/white_diagonal.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -354,7 +354,7 @@
   id: FloorWhiteOffset
   parent: BaseStationTile
   name: tiles-white-floor-offset
-  sprite: /Textures/Tiles/white_offset.png
+  sprite: /Textures/_Funkystation/Tiles/white_offset.png # Funky
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemWhiteOffset
@@ -363,7 +363,7 @@
   id: FloorWhiteMono
   parent: BaseStationTile
   name: tiles-white-floor-mono
-  sprite: /Textures/Tiles/white_mono.png
+  sprite: /Textures/_Funkystation/Tiles/white_mono.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -378,7 +378,7 @@
   id: FloorWhitePavementVertical
   parent: BaseStationTile
   name: tiles-white-floor-pavement-vertical
-  sprite: /Textures/Tiles/white_pavement_vertical.png
+  sprite: /Textures/_Funkystation/Tiles/white_pavement_vertical.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -393,7 +393,7 @@
   id: FloorWhiteHerringbone
   parent: BaseStationTile
   name: tiles-white-floor-herringbone
-  sprite: /Textures/Tiles/white_herringbone.png
+  sprite: /Textures/_Funkystation/Tiles/white_herringbone.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -408,7 +408,7 @@
   id: FloorWhiteDiagonalMini
   parent: BaseStationTile
   name: tiles-white-floor-diagonal-mini
-  sprite: /Textures/Tiles/white_diagonal_mini.png
+  sprite: /Textures/_Funkystation/Tiles/white_diagonal_mini.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -423,7 +423,7 @@
   id: FloorWhitePlastic
   parent: BaseStationTile
   name: tiles-plastic-white-floor
-  sprite: /Textures/Tiles/white_plastic.png
+  sprite: /Textures/_Funkystation/Tiles/white_plastic.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -438,7 +438,7 @@
   id: FloorDark
   parent: BaseStationTile
   name: tiles-dark-floor
-  sprite: /Textures/Tiles/dark.png
+  sprite: /Textures/_Funkystation/Tiles/dark.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -453,7 +453,7 @@
   id: FloorDarkMini
   parent: BaseStationTile
   name: tiles-dark-floor-mini
-  sprite: /Textures/Tiles/dark_mini.png
+  sprite: /Textures/_Funkystation/Tiles/dark_mini.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -508,7 +508,7 @@
   id: FloorDarkPavement
   parent: BaseStationTile
   name: tiles-dark-floor-pavement
-  sprite: /Textures/Tiles/dark_pavement.png
+  sprite: /Textures/_Funkystation/Tiles/dark_pavement.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -523,7 +523,7 @@
   id: FloorDarkDiagonal
   parent: BaseStationTile
   name: tiles-dark-floor-diagonal
-  sprite: /Textures/Tiles/dark_diagonal.png
+  sprite: /Textures/_Funkystation/Tiles/dark_diagonal.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -538,7 +538,7 @@
   id: FloorDarkOffset
   parent: BaseStationTile
   name: tiles-dark-floor-offset
-  sprite: /Textures/Tiles/dark_offset.png
+  sprite: /Textures/_Funkystation/Tiles/dark_offset.png # Funky
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemDarkOffset
@@ -547,7 +547,7 @@
   id: FloorDarkMono
   parent: BaseStationTile
   name: tiles-dark-floor-mono
-  sprite: /Textures/Tiles/dark_mono.png
+  sprite: /Textures/_Funkystation/Tiles/dark_mono.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -562,7 +562,7 @@
   id: FloorDarkPavementVertical
   parent: BaseStationTile
   name: tiles-dark-floor-pavement-vertical
-  sprite: /Textures/Tiles/dark_pavement_vertical.png
+  sprite: /Textures/_Funkystation/Tiles/dark_pavement_vertical.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -577,7 +577,7 @@
   id: FloorDarkHerringbone
   parent: BaseStationTile
   name: tiles-dark-floor-herringbone
-  sprite: /Textures/Tiles/dark_herringbone.png
+  sprite: /Textures/_Funkystation/Tiles/dark_herringbone.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -592,7 +592,7 @@
   id: FloorDarkDiagonalMini
   parent: BaseStationTile
   name: tiles-dark-floor-diagonal-mini
-  sprite: /Textures/Tiles/dark_diagonal_mini.png
+  sprite: /Textures/_Funkystation/Tiles/dark_diagonal_mini.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -607,7 +607,7 @@
   id: FloorDarkPlastic
   parent: BaseStationTile
   name: tiles-plastic-dark-floor
-  sprite: /Textures/Tiles/dark_plastic.png
+  sprite: /Textures/_Funkystation/Tiles/dark_plastic.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -667,8 +667,8 @@
   id: FloorSteelDirty
   parent: BaseStationTile
   name: tiles-dirty-steel-floor
-  sprite: /Textures/Tiles/steel_dirty.png
-  variants: 4
+  sprite: /Textures/_Funkystation/Tiles/steel_dirty.png # Funky
+  variants: 1 # Funky
   placementVariants:
   - 1.0
   - 1.0
@@ -709,7 +709,7 @@
   id: FloorBlue
   parent: BaseStationTile
   name: tiles-blue-tile
-  sprite: /Textures/Tiles/blue.png
+  sprite: /Textures/_Funkystation/Tiles/blue.png # Funky
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemBlue
@@ -759,7 +759,7 @@
   id: FloorFreezer
   parent: BaseStationTile
   name: tiles-freezer
-  sprite: /Textures/Tiles/freezer.png
+  sprite: /Textures/_Funkystation/Tiles/freezer.png # Funky
   footstepSounds:
     collection: FootstepHull
   itemDrop: FloorTileItemFreezer
@@ -768,21 +768,21 @@
   id: FloorShowroom
   parent: BaseStationTile
   name: tiles-showroom-floor
-  sprite: /Textures/Tiles/showroom.png
+  sprite: /Textures/_Funkystation/Tiles/showroom.png # Funky
   itemDrop: FloorTileItemShowroom
 
 - type: tile
   id: FloorHydro
   parent: BaseStationTile
   name: tiles-hydro-floor
-  sprite: /Textures/Tiles/hydro.png
+  sprite: /Textures/_Funkystation/Tiles/hydro.png # Funky
   itemDrop: FloorTileItemHydro
 
 - type: tile
   id: FloorBar
   parent: BaseStationTile
   name: tiles-bar-floor
-  sprite: /Textures/Tiles/bar.png
+  sprite: /Textures/_Funkystation/Tiles/bar.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -795,21 +795,21 @@
   id: FloorClown
   parent: BaseStationTile
   name: tiles-clown-floor
-  sprite: /Textures/Tiles/clown.png
+  sprite: /Textures/_Funkystation/Tiles/clown.png # Funky
   itemDrop: FloorTileItemClown
 
 - type: tile
   id: FloorMime
   parent: BaseStationTile
   name: tiles-mime-floor
-  sprite: /Textures/Tiles/mime.png
+  sprite: /Textures/_Funkystation/Tiles/mime.png # Funky
   itemDrop: FloorTileItemMime
 
 - type: tile
   id: FloorKitchen
   parent: BaseStationTile
   name: tiles-kitchen-floor
-  sprite: /Textures/Tiles/kitchen.png
+  sprite: /Textures/_Funkystation/Tiles/kitchen.png # Funky
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemKitchen
@@ -818,7 +818,7 @@
   id: FloorLaundry
   parent: BaseStationTile
   name: tiles-laundry-floor
-  sprite: /Textures/Tiles/laundry.png
+  sprite: /Textures/_Funkystation/Tiles/laundry.png # Funky
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemLaundry
@@ -827,7 +827,7 @@
   id: FloorSteelDamaged
   parent: BaseStationTile
   name: tiles-steel-floor
-  sprite: /Textures/Tiles/steel_damaged.png
+  sprite: /Textures/_Funkystation/Tiles/steel_damaged.png # Funky
   variants: 5
   placementVariants:
   - 1.0
@@ -1632,7 +1632,7 @@
   id: FloorTechMaint2
   parent: BaseStationTile
   name: tiles-techmaint2-floor
-  sprite: /Textures/Tiles/steel_maint.png
+  sprite: /Textures/_Funkystation/Tiles/steel_maint.png # Funky
   footstepSounds:
     collection: FootstepHull
   itemDrop: FloorTileItemSteelMaint
@@ -1656,7 +1656,7 @@
   id: FloorWoodTile
   parent: BaseStationTile
   name: tiles-wood2
-  sprite: /Textures/Tiles/wood_tile.png
+  sprite: /Textures/_Funkystation/Tiles/wood_tile.png # Funky
   variants: 4
   placementVariants:
   - 1.0
@@ -1673,7 +1673,7 @@
   id: FloorBrokenWood
   parent: BaseStationTile
   name: tiles-wood3
-  sprite: /Textures/Tiles/wood_broken.png
+  sprite: /Textures/_Funkystation/Tiles/wood_broken.png # Funky
   variants: 7
   placementVariants:
   - 1.0
@@ -1873,7 +1873,7 @@
   id: FloorWoodLarge
   parent: BaseStationTile
   name: tiles-wood-large
-  sprite: /Textures/Tiles/wood_large.png
+  sprite: /Textures/_Funkystation/Tiles/wood_large.png # Funky
   variants: 4
   placementVariants:
   - 1.0
