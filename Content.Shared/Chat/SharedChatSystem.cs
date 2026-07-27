@@ -4,6 +4,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
+using Content.Shared.Radio.Components;
 using Content.Shared.Speech;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
@@ -160,20 +161,20 @@ public abstract partial class SharedChatSystem : EntitySystem
             return false;
 
         // BEGIN funkystation
-        // Commenting out checking for the common prefix. We want the common prefix to act like :h instead.
-        // if (input.StartsWith(RadioCommonPrefix))
-        // {
-        //     output = SanitizeMessageCapital(input[1..].TrimStart());
-        //     channel = _prototypeManager.Index<RadioChannelPrototype>(CommonChannel);
-        //     return true;
-        // }
+        // Unless the source can bypass intercom restrictions, we want the common prefix to act like :h instead.
+        if (input.StartsWith(RadioCommonPrefix) && HasComp<IntercomOnlyBypassComponent>(source))
+        {
+            output = SanitizeMessageCapital(input[1..].TrimStart());
+            channel = _prototypeManager.Index<RadioChannelPrototype>(CommonChannel);
+            return true;
+        }
 
         if (!(input.StartsWith(RadioChannelPrefix)
               || input.StartsWith(RadioChannelAltPrefix)
-              || input.StartsWith(RadioCommonPrefix))) // new check necessary since we aren't checking for the common prefix earlier
+              || input.StartsWith(RadioCommonPrefix)))
             return false;
 
-        if (input.Length < 2 || (char.IsWhiteSpace(input[1]) && !input.StartsWith(RadioCommonPrefix))) // same here
+        if (input.Length < 2 || (char.IsWhiteSpace(input[1]) && !input.StartsWith(RadioCommonPrefix)))
         {
             output = SanitizeMessageCapital(input[1..].TrimStart());
             if (!quiet)

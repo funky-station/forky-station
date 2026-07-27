@@ -212,10 +212,18 @@ public sealed partial class EncryptionKeySystem : EntitySystem
         RadioChannelPrototype? proto;
         foreach (var id in channels)
         {
-            if (id == SharedChatSystem.CommonChannel) // Funkystation
-                continue;
-
             proto = _protoManager.Index<RadioChannelPrototype>(id);
+
+            // BEGIN Funkystation
+            if (proto.IntercomOnly)
+            {
+                examineEvent.PushMarkup(Loc.GetString("examine-encryption-intercom-only-channel", // yes its hardcoded i didnt wanna mess with the function signature
+                    ("color", proto.Color),
+                    ("id", proto.LocalizedName),
+                    ("freq", proto.Frequency / 10f)));
+                continue;
+            }
+            // END Funkystation
 
             var key = id == SharedChatSystem.CommonChannel // redundant if skipping common channel
                 ? SharedChatSystem.RadioCommonPrefix.ToString()
