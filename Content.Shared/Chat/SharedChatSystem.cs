@@ -159,17 +159,21 @@ public abstract partial class SharedChatSystem : EntitySystem
         if (input.Length == 0)
             return false;
 
-        if (input.StartsWith(RadioCommonPrefix))
-        {
-            output = SanitizeMessageCapital(input[1..].TrimStart());
-            channel = _prototypeManager.Index<RadioChannelPrototype>(CommonChannel);
-            return true;
-        }
+        // BEGIN funkystation
+        // Commenting out checking for the common prefix. We want the common prefix to act like :h instead.
+        // if (input.StartsWith(RadioCommonPrefix))
+        // {
+        //     output = SanitizeMessageCapital(input[1..].TrimStart());
+        //     channel = _prototypeManager.Index<RadioChannelPrototype>(CommonChannel);
+        //     return true;
+        // }
 
-        if (!(input.StartsWith(RadioChannelPrefix) || input.StartsWith(RadioChannelAltPrefix)))
+        if (!(input.StartsWith(RadioChannelPrefix)
+              || input.StartsWith(RadioChannelAltPrefix)
+              || input.StartsWith(RadioCommonPrefix))) // new check necessary since we aren't checking for the common prefix earlier
             return false;
 
-        if (input.Length < 2 || char.IsWhiteSpace(input[1]))
+        if (input.Length < 2 || (char.IsWhiteSpace(input[1]) && !input.StartsWith(RadioCommonPrefix))) // same here
         {
             output = SanitizeMessageCapital(input[1..].TrimStart());
             if (!quiet)
@@ -177,9 +181,16 @@ public abstract partial class SharedChatSystem : EntitySystem
             return true;
         }
 
-        var channelKey = input[1];
+        var channelKey = !input.StartsWith(RadioCommonPrefix)
+            ? input[1]
+            : DefaultChannelKey;
         channelKey = char.ToLower(channelKey);
-        output = SanitizeMessageCapital(input[2..].TrimStart());
+
+        // if the message starts with ; then the message begins one character earlier (no radio prefix)
+        output = SanitizeMessageCapital(!input.StartsWith(RadioCommonPrefix)
+            ? input[2..].TrimStart()
+            : input[1..].TrimStart());
+        // END funky station
 
         if (channelKey == DefaultChannelKey)
         {

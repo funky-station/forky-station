@@ -212,9 +212,12 @@ public sealed partial class EncryptionKeySystem : EntitySystem
         RadioChannelPrototype? proto;
         foreach (var id in channels)
         {
+            if (id == SharedChatSystem.CommonChannel) // Funkystation
+                continue;
+
             proto = _protoManager.Index<RadioChannelPrototype>(id);
 
-            var key = id == SharedChatSystem.CommonChannel
+            var key = id == SharedChatSystem.CommonChannel // redundant if skipping common channel
                 ? SharedChatSystem.RadioCommonPrefix.ToString()
                 : $"{SharedChatSystem.RadioChannelPrefix}{proto.KeyCode}";
 
