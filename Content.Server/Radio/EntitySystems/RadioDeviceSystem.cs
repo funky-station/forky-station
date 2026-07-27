@@ -12,6 +12,7 @@ using Content.Shared.Radio.Components;
 using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Speech;
 using Content.Shared.Speech.Components;
+using Content.Shared.Verbs;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Radio.EntitySystems;
@@ -36,7 +37,8 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
         base.Initialize();
         SubscribeLocalEvent<RadioMicrophoneComponent, ComponentInit>(OnMicrophoneInit);
         SubscribeLocalEvent<RadioMicrophoneComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<RadioMicrophoneComponent, ActivateInWorldEvent>(OnActivateMicrophone);
+        //SubscribeLocalEvent<RadioMicrophoneComponent, ActivateInWorldEvent>(OnActivateMicrophone);
+        SubscribeLocalEvent<RadioMicrophoneComponent, GetVerbsEvent<AlternativeVerb>>(AddMicrophoneVerb); // Funkystation
         SubscribeLocalEvent<RadioMicrophoneComponent, ListenEvent>(OnListen);
         SubscribeLocalEvent<RadioMicrophoneComponent, ListenAttemptEvent>(OnAttemptListen);
         SubscribeLocalEvent<RadioMicrophoneComponent, PowerChangedEvent>(OnPowerChanged);
@@ -77,17 +79,39 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
     #endregion
 
     #region Toggling
-    private void OnActivateMicrophone(EntityUid uid, RadioMicrophoneComponent component, ActivateInWorldEvent args)
+    // BEGIN Funkystation
+    // private void OnActivateMicrophone(EntityUid uid, RadioMicrophoneComponent component, ActivateInWorldEvent args)
+    // {
+    //     if (!args.Complex)
+    //         return;
+    //
+    //     if (!component.ToggleOnInteract)
+    //         return;
+    //
+    //     ToggleRadioMicrophone(uid, args.User, args.Handled, component);
+    //     args.Handled = true;
+    // }
+
+    private void AddMicrophoneVerb(EntityUid uid, RadioMicrophoneComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
-        if (!args.Complex)
+        if(!args.CanAccess || !args.CanInteract)
             return;
 
         if (!component.ToggleOnInteract)
             return;
 
-        ToggleRadioMicrophone(uid, args.User, args.Handled, component);
-        args.Handled = true;
+        AlternativeVerb verb = new()
+        {
+            Act = () =>
+            {
+                ToggleRadioMicrophone(uid, args.User, false, component);
+            },
+            Text = Loc.GetString("handheld-radio-component-mic-verb"),
+            Priority = -3,
+        };
+        args.Verbs.Add(verb);
     }
+    // END Funkystation
 
     private void OnActivateSpeaker(EntityUid uid, RadioSpeakerComponent component, ActivateInWorldEvent args)
     {
@@ -116,12 +140,15 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
         if (component.PowerRequired && !this.IsPowered(uid, EntityManager))
             return;
 
+        if (!TryComp<RadioSpeakerComponent>(uid, out RadioSpeakerComponent? speaker) || !speaker.Enabled)
+            return;
+
         component.Enabled = enabled;
 
         if (!quiet && user != null)
         {
             var state = Loc.GetString(component.Enabled ? "handheld-radio-component-on-state" : "handheld-radio-component-off-state");
-            var message = Loc.GetString("handheld-radio-component-on-use", ("radioState", state));
+            var message = Loc.GetString("handheld-radio-component-mic-toggle", ("radioState", state));
             _popup.PopupEntity(message, user.Value, user.Value);
         }
 

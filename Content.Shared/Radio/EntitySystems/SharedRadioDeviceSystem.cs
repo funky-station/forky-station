@@ -32,6 +32,11 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
+        if (!enabled && TryComp<RadioMicrophoneComponent>(uid, out RadioMicrophoneComponent? mic) && mic.Enabled)
+        {
+            SetMicrophoneEnabled(uid, user, false, true, mic);
+        }
+
         component.Enabled = enabled;
         Dirty(uid, component);
 
