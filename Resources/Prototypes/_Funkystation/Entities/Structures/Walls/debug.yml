@@ -1,0 +1,181 @@
+- type: entity
+  parent: BaseWall
+  id: DebugWallTrimmed
+  name: trimmed debug wall
+  suffix: DEBUG
+  components:
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: _Funkystation/Structures/Walls/test/edgetrim.rsi
+  - type: Icon
+    sprite: _Funkystation/Structures/Walls/test/edgetrim.rsi
+    state: icon
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Girder:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: EdgeTrim
+    smoothKey: debug1
+    base: test
+    edgeKeys:
+    - debug2
+
+- type: entity
+  parent: BaseWall
+  id: DebugWallTrimmed2
+  name: second trimmed debug wall
+  suffix: DEBUG
+  components:
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: _Funkystation/Structures/Walls/test/edgetrim.rsi
+  - type: Icon
+    sprite: _Funkystation/Structures/Walls/test/edgetrim.rsi
+    state: icon
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Girder:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: EdgeTrim
+    smoothKey: debug2
+    base: test
+    edgeKeys:
+    - debug1
+
+- type: entity
+  parent: BaseWall
+  id: DebugWallTrimless
+  name: trimless debug wall
+  suffix: DEBUG
+  components:
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: _Funkystation/Structures/Walls/test/trimless.rsi
+  - type: Icon
+    sprite: _Funkystation/Structures/Walls/test/trimless.rsi
+    state: icon
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Girder:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: EdgeTrim
+    smoothKey: debug2
+    base: test
+    addSmoothKeys:
+    - debug1
+
+- type: entity
+  parent: BaseWall
+  id: DebugSlantedTrimWall
+  name: slanted trimmed wall
+  description: Either something commonplace or completely out of the ordinary.  
+  suffix: DEBUG
+  components:
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: _Funkystation/Structures/Walls/test/normwall.rsi
+  - type: Icon
+    sprite: _Funkystation/Structures/Walls/test/normwall.rsi
+    state: icon
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Girder:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: EdgeTrim
+    smoothKey: normwall
+    base: wall
+    addSmoothKeys:
+    - purpwall
+    edgeKeys:
+    - evildoor
+
+- type: entity
+  parent: BaseWall
+  id: DebugPurpleSlantedTrimWall
+  name: purple slanted trimmed wall
+  description: Something considerably more out of the ordinary.  
+  suffix: DEBUG
+  components:
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: _Funkystation/Structures/Walls/test/purpwall.rsi
+  - type: Icon
+    sprite: _Funkystation/Structures/Walls/test/purpwall.rsi
+    state: icon
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Girder:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: EdgeTrim
+    smoothKey: purpwall
+    base: wall
+    edgeKeys:
+    - normwall
+    - evildoor
+
+- type: entity
+  parent: Airlock
+  id: TrimmedAirlock
+  name: trimmed airlock
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+  - type: EdgeTrim
+    smoothKey: evildoor
+    mode: NoSprite

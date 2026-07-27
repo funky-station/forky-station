@@ -62,6 +62,7 @@
     intensitySlope: 100
     maxIntensity: 2.5
     canCreateVacuum: false
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: ExplodeOnTrigger
   - type: Sticky
     stickDelay: 2

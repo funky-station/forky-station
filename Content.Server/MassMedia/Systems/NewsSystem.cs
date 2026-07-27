@@ -28,6 +28,8 @@ using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
+using Content.Shared._Funkystation.StationTime.EntitySystems; // Funky Change
+using Content.Shared._Funkystation.StationTime.Components; // Funky Change
 
 namespace Content.Server.MassMedia.Systems;
 
@@ -47,6 +49,7 @@ public sealed partial class NewsSystem : SharedNewsSystem
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IBaseServer _baseServer = default!;
     [Dependency] private IdentitySystem _identity = default!;
+    [Dependency] private StationTimeSystem _stationTime = default!; // Funky Change
 
     private WebhookIdentifier? _webhookId = null;
     private Color _webhookEmbedColor;
@@ -204,12 +207,24 @@ public sealed partial class NewsSystem : SharedNewsSystem
             return false;
         }
 
+        // Funky Change Start
+        var rd = _ticker.RoundDuration();
+        var shareTimeString = rd < TimeSpan.Zero ? "00:00:00" : $"{(int)rd.TotalHours:D2}:{rd.Minutes:D2}:{rd.Seconds:D2}";
+        var station = _station.GetOwningStation(uid);
+        if (station != null && TryComp<StationTimeComponent>(station.Value, out var timeComp))
+        {
+            var st = _stationTime.GetStationTime((station.Value, timeComp));
+            shareTimeString = _stationTime.FormatTimestamp(st);
+        }
+        // Funky Change End
+
         article = new NewsArticle
         {
             Title = title.Length <= MaxTitleLength ? title : $"{title[..MaxTitleLength]}...",
             Content = content.Length <= MaxContentLength ? content : $"{content[..MaxContentLength]}...",
             Author = author,
-            ShareTime = _ticker.RoundDuration()
+            ShareTime = _ticker.RoundDuration(),
+            ShareTimeString = shareTimeString // Funky Change
         };
 
         articles.Add(article.Value);
@@ -439,7 +454,7 @@ public sealed partial class NewsSystem : SharedNewsSystem
                         ("server", _baseServer.ServerName),
                         ("round", _ticker.RoundId),
                         ("author", article.Author ?? Loc.GetString("news-discord-unknown-author")),
-                        ("time", article.ShareTime.ToString(@"hh\:mm\:ss")))
+                        ("time", article.ShareTimeString)) // Funky Change
                 }
             };
             var payload = new WebhookPayload { Embeds = [embed] };

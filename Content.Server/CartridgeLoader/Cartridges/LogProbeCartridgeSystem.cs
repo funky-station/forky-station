@@ -108,7 +108,7 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem
         var number = 1;
         foreach (var log in ent.Comp.PulledAccessLogs)
         {
-            var time = TimeSpan.FromSeconds(Math.Truncate(log.Time.TotalSeconds)).ToString();
+            var time = log.Time.ToString("hh\\:mm\\:ss"); // Funky Change
             builder.AppendLine(Loc.GetString("log-probe-printout-entry", ("number", number), ("time", time), ("accessor", log.Accessor)));
             number++;
         }

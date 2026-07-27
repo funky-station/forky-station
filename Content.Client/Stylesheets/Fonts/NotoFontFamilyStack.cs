@@ -37,7 +37,7 @@ public sealed class NotoFontFamilyStack(IResourceCache resCache)
     /// <summary>
     ///     The fallback font path, exactly. (no string substitutions.)
     /// </summary>
-    private string[] _extras = new[] { "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf" };
+    private string[] _extras = new[] { "/Fonts/NotoSans/NotoSans-Regular.ttf", "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf" }; // FUNKY EDIT
 
     public HashSet<FontKind> AvailableKinds = [FontKind.Regular, FontKind.Bold, FontKind.Italic, FontKind.BoldItalic];
 

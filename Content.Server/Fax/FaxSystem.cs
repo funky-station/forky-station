@@ -12,6 +12,7 @@ using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Emag.Systems;
+using Content.Shared._Funkystation.Fax;
 using Content.Shared.Fax;
 using Content.Shared.Fax.Components;
 using Content.Shared.Fax.Systems;
@@ -640,6 +641,10 @@ public sealed partial class FaxSystem : EntitySystem
         {
             _labelSystem.Label(printed, label);
         }
+
+        // _Funkystation: allow other systems (HandheldFaxSystem) to redirect the paper
+        var printedEvent = new FaxPaperPrintedEvent(printed);
+        RaiseLocalEvent(uid, ref printedEvent);
 
         _adminLogger.Add(LogType.Action, LogImpact.Low, $"\"{component.FaxName}\" {ToPrettyString(uid):tool} printed {ToPrettyString(printed):subject}: {printout.Content}");
     }

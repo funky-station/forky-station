@@ -126,6 +126,12 @@
   kind: source
   path: "/Textures/Shaders/heatBlur.swsl"
 
+# Funky RMC Explosions
+- type: shader
+  id: ShockWave
+  kind: source
+  path: "/Textures/_Funkystation/Shaders/shock_wave.swsl"
+
 # Funky goggles shader
 - type: shader
   id: Goggles

@@ -111,6 +111,8 @@
     fuel: 5
     time: 3
   - type: Firelock
+  - type: DoorBolt # Funky change
+  - type: FirelockBoltControl # Funky change
   - type: Appearance
   - type: WiresVisuals
   - type: WiresPanel
@@ -118,6 +120,8 @@
     interfaces:
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
+      enum.FirelockOverrideUiKey.Key: # Funky change
+        type: FirelockOverrideBoundUserInterface # Funky change
   - type: Physics
     canCollide: false
   - type: Airtight

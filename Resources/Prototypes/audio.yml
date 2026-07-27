@@ -204,6 +204,8 @@
     - /Audio/Ambience/spookyspace2.ogg
     - /Audio/Ambience/ambispace2.ogg
     - /Audio/Lobby/title2.ogg
+    # Funky
+    - /Audio/_Funkystation/Lobby/rhythmandbluespt9.ogg
 
 - type: soundCollection
   id: AmbienceSpooky
