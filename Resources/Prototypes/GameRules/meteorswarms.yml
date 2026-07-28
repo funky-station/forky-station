@@ -1,3 +1,5 @@
+# Event Tables
+
 - type: entityTable
   id: MeteorSwarmDustEventsTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
@@ -101,7 +103,6 @@
     earliestStart: 12
     minimumPlayers: 25
   - type: MeteorSwarm
-    announcementSound: /Audio/Announcements/meteors_mono.ogg # funky - mono for PA sound effects
 
 - type: entity
   parent: MeteorSwarm
@@ -133,7 +134,7 @@
     minimumPlayers: 0
   - type: MeteorSwarm
     announcement: station-event-space-dust-start-announcement
-    announcementSound: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
+    announcementSound: Attention # Macrocosm edit - sound prototypes
     nonDirectional: true
     meteors:
       MeteorSpaceDust: 1
@@ -188,7 +189,7 @@
     weight: 0.05
   - type: MeteorSwarm
     announcement: station-event-meteor-urist-start-announcement
-    announcementSound: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
+    announcementSound: Attention # Macrocosm edit - sound prototypes
     meteors:
       MeteorUrist: 1
     waves:
@@ -204,8 +205,7 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-immovable-rod-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
+    startAudio: Attention # Macrocosm edit - sound prototypes
     weight: 3.5
     reoccurrenceDelay: 1
     duration: 1
@@ -249,7 +249,7 @@
     weight: 0.05
   - type: MeteorSwarm
     announcement: station-event-meteor-cow-start-announcement
-    announcementSound: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
+    announcementSound: Attention # Macrocosm edit - sound prototypes
     meteors:
       MeteorCow: 1
     waves:
@@ -267,7 +267,7 @@
     weight: 0.05
   - type: MeteorSwarm
     announcement: station-event-meteor-clown-start-announcement
-    announcementSound: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
+    announcementSound: Attention # Macrocosm edit - sound prototypes
     meteors:
       MeteorClown: 1
     waves:
@@ -285,7 +285,7 @@
     weight: 0.05
   - type: MeteorSwarm
     announcement: station-event-meteor-potato-start-announcement
-    announcementSound: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
+    announcementSound: Attention # Macrocosm edit - sound prototypes
     meteors:
       MeteorPotato: 1
     waves:
@@ -303,7 +303,7 @@
     weight: 0.03
   - type: MeteorSwarm
     announcement: station-event-fun-swarm-start-announcement
-    announcementSound: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
+    announcementSound: Attention # Macrocosm edit - sound prototypes
     meteors:
       MeteorClown: 1
       MeteorCow: 1

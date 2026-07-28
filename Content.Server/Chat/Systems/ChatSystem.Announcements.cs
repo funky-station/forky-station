@@ -1,3 +1,4 @@
+using Content.Server._MACRO.Announcements;
 using Content.Server._Funkystation.Communications;
 using Content.Shared._Funkystation.CCVar;
 using Content.Shared.Chat;
@@ -11,13 +12,10 @@ namespace Content.Server.Chat.Systems;
 
 public sealed partial class ChatSystem
 {
+    [Dependency] private AnnouncerManager _announcer = default!; // macrocosm
+
     [Dependency] private PASystem _paSystem = null!; // funky - announcements via PA speakers
     /// <inheritdoc />
-    /// <funky>If you're developing content for
-    /// Funky Station or one of its downstreams
-    /// and passing an announcementSound, please
-    /// make sure it is in mono when cvar
-    /// funkystation.chat.pa_announcements = true.</funky>
     public override void DispatchGlobalAnnouncement(
         string message,
         string? sender = null,
@@ -39,20 +37,18 @@ public sealed partial class ChatSystem
         _chatManager.ChatMessageToAll(ChatChannel.Radio, message, wrappedMessage, default, false, true, colorOverride);
         if (playSound)
         {
-            _audio.PlayGlobal(announcementSound ?? DefaultAnnouncementSound, Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
+            // Macrocosm edit start - announcer variation
+            if (announcementSound == null)
+            {
+                _announcer.TryGetAnnouncerSound(DefaultAnnouncementSound, out announcementSound);
+            }
+            _audio.PlayGlobal(announcementSound, Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
+            // Macrocosm edit end
         }
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Global station announcement from {sender}: {message}");
     }
 
     /// <inheritdoc />
-    /// <note>Will function identically to
-    /// DispatchGlobalAnnouncement when cvar
-    /// funkystation.chat.pa_announcements = true.</note>
-    /// <funky>If you're developing content for
-    /// Funky Station or one of its downstreams
-    /// and passing an announcementSound, please
-    /// make sure it is in mono when cvar
-    /// funkystation.chat.pa_announcements = true.</funky>
     public override void DispatchFilteredAnnouncement(
         Filter filter,
         string message,
@@ -75,17 +71,18 @@ public sealed partial class ChatSystem
         _chatManager.ChatMessageToManyFiltered(filter, ChatChannel.Radio, message, wrappedMessage, source ?? default, false, true, colorOverride);
         if (playSound)
         {
-            _audio.PlayGlobal(announcementSound ?? DefaultAnnouncementSound, filter, true, AudioParams.Default.WithVolume(-2f));
+            // Macrocosm edit start - announcer variation
+            if (announcementSound == null)
+            {
+                _announcer.TryGetAnnouncerSound(DefaultAnnouncementSound, out announcementSound);
+            }
+            _audio.PlayGlobal(announcementSound, filter, true, AudioParams.Default.WithVolume(-2f));
+            // Macrocosm edit end
         }
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement from {sender}: {message}");
     }
 
     /// <inheritdoc />
-    /// <funky>If you're developing content for
-    /// Funky Station or one of its downstreams
-    /// and passing an announcementSound, please
-    /// make sure it is in mono when cvar
-    /// funkystation.chat.pa_announcements = true.</funky>
     public override void DispatchStationAnnouncement(
         EntityUid source,
         string message,
@@ -120,7 +117,13 @@ public sealed partial class ChatSystem
 
         if (playDefaultSound)
         {
-            _audio.PlayGlobal(announcementSound ?? DefaultAnnouncementSound, filter, true, AudioParams.Default.WithVolume(-2f));
+            // Macrocosm edit start - announcer variation
+            if (announcementSound == null)
+            {
+                _announcer.TryGetAnnouncerSound(DefaultAnnouncementSound, out announcementSound);
+            }
+            _audio.PlayGlobal(announcementSound, filter, true, AudioParams.Default.WithVolume(-2f));
+            // Macrocosm edit end
         }
 
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement on {station} from {sender}: {message}");

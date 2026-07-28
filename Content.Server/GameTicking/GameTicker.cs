@@ -1,3 +1,4 @@
+using Content.Server._MACRO.Announcements;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
@@ -65,6 +66,7 @@ namespace Content.Server.GameTicking
         [Dependency] private MetaDataSystem _metaData = default!;
         [Dependency] private SharedRoleSystem _roles = default!;
         [Dependency] private ServerDbEntryManager _dbEntryManager = default!;
+        [Dependency] private AnnouncerManager _announcer = default!; // Macrocosm edit
 
         [ViewVariables] private bool _initialized;
         [ViewVariables] private bool _postInitialized;

@@ -1,3 +1,4 @@
+using Content.Server._MACRO.Announcements;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
@@ -27,13 +28,15 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
     [Dependency] protected StationSystem StationSystem = default!;
     [Dependency] private IConfigurationManager _cfg = null!; // funky - pa announcement cvar
 
+    [Dependency] protected AnnouncerManager Announcer = default!; // Macrocosm
+
     protected ISawmill Sawmill = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        Sawmill = Logger.GetSawmill("stationevents");
+        Sawmill = LogManager.GetSawmill("stationevents");
     }
 
     /// <inheritdoc/>
@@ -51,13 +54,20 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
         // we don't want to send to players who aren't in game (i.e. in the lobby)
         Filter allPlayersInGame = Filter.Empty().AddWhere(GameTicker.UserHasJoinedGame);
 
+        // Macrocosm edit start - announcer variation
+        if (stationEvent.StartAudio is { } startAudio && Announcer.TryGetAnnouncerSound(startAudio, out var soundSpecifier))
+        {
+            if (!paAnnouncements)
+                Audio.PlayGlobal(soundSpecifier, allPlayersInGame, true);
+        }
+        // Macrocosm edit end
+
         if (stationEvent.StartAnnouncement != null)
             ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.StartAnnouncement),
-                playSound: paAnnouncements, announcementSound: paAnnouncements ? stationEvent.StartAudio : null, // funky
+                playSound: paAnnouncements, announcementSound: paAnnouncements ? soundSpecifier : null, // funky
                 colorOverride: stationEvent.StartAnnouncementColor);
 
-        if (!paAnnouncements) // funky
-            Audio.PlayGlobal(stationEvent.StartAudio, allPlayersInGame, true);
+
     }
 
     /// <inheritdoc/>
@@ -94,14 +104,19 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
 
         // we don't want to send to players who aren't in game (i.e. in the lobby)
         Filter allPlayersInGame = Filter.Empty().AddWhere(GameTicker.UserHasJoinedGame);
-
+        // Macrocosm edit start - announcer variation
+        if (stationEvent.EndAudio is { } endAudio && Announcer.TryGetAnnouncerSound(stationEvent.EndAudio.Value, out var soundSpecifier))
+        {
+            if (!paAnnouncements)
+                Audio.PlayGlobal(soundSpecifier, allPlayersInGame, true);
+        }
+        // Macrocosm edit end
         if (stationEvent.EndAnnouncement != null)
             ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.EndAnnouncement),
-                playSound: paAnnouncements, announcementSound: paAnnouncements ? stationEvent.EndAudio : null, // funky
+                playSound: paAnnouncements, announcementSound: paAnnouncements ? soundSpecifier : null, // funky
                 colorOverride: stationEvent.EndAnnouncementColor);
 
-        if (!paAnnouncements) // funky
-            Audio.PlayGlobal(stationEvent.EndAudio, allPlayersInGame, true);
+
     }
 
     /// <summary>

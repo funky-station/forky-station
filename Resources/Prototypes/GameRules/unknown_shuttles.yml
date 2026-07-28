@@ -1,3 +1,5 @@
+# Shuttle Game Rule Tables -- If you dont add your rules to these they wont be used by the games schedulers.
+
 - type: entityTable
   id: UnknownShuttlesHostileTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
@@ -28,8 +30,7 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming
-    startAudio:
-      path: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
+    startAudio: Attention # Macrocosm edit - sound prototypes
 
 # The power of 3 clowns proved too strong for the players and may need to be 1984'ed. Replace this with a more engaging clown shuttle.
 - type: entity

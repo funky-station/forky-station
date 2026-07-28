@@ -60,7 +60,10 @@ namespace Content.Server.StationEvents.Events
             component.AnnounceCancelToken = new CancellationTokenSource();
             Timer.Spawn(3000, () =>
             {
-                Audio.PlayGlobal(component.PowerOnSound, Filter.Broadcast(), true);
+                // Macrocosm edit - announcer variations
+                Announcer.TryGetAnnouncerSound(component.PowerOnSound, out var sound);
+                Audio.PlayGlobal(sound, Filter.Broadcast(), true);
+                // Macrocosm edit end
             }, component.AnnounceCancelToken.Token);
             component.Unpowered.Clear();
         }
