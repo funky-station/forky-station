@@ -1,4 +1,5 @@
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Radiation.Systems;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.Atmos;
 using Robust.Shared.Random;
@@ -7,6 +8,7 @@ using Content.Shared.Examine;
 using Content.Shared.Nutrition;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
@@ -15,13 +17,15 @@ namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 // CC-BY-NC-SA-3.0
 // https://github.com/goonstation/goonstation/blob/ff86b044/code/obj/nuclearreactor/reactorcomponents.dm
 
-public sealed class ReactorPartSystem : SharedReactorPartSystem
+public sealed partial class ReactorPartSystem : SharedReactorPartSystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly SharedPointLightSystem _lightSystem = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private EntityManager _entityManager = default!;
+    [Dependency] private SharedPointLightSystem _lightSystem = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private RadiationSystem _radiationSystem = default!;
 
     /// <summary>
     /// Changes the overall rate of events
@@ -73,7 +77,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
         if (radvalue > 0)
         {
             var radcomp = EnsureComp<RadiationSourceComponent>(uid);
-            radcomp.Intensity = radvalue;
+            _radiationSystem.SetIntensity(uid, radvalue);
         }
 
         if (component.Properties.NeutronRadioactivity > 0)
@@ -152,10 +156,10 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
 
         var properties = comp.Properties;
 
-        if (!_entityManager.TryGetComponent<DamageableComponent>(args.Target, out var damageable) || damageable.Damage.DamageDict == null)
+        if (!_entityManager.TryGetComponent<DamageableComponent>(args.Target, out var damageable))
             return;
 
-        var dict = damageable.Damage.DamageDict;
+        var dict = _damageable.GetAllDamage(args.Target).DamageDict;
 
         var dmgKey = "Radiation";
         var dmg = (properties.NeutronRadioactivity * 20) + (properties.Radioactivity * 10) + (properties.FissileIsotopes * 5);
@@ -199,20 +203,17 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
 
             burncomp.IsDamageActive = component.Temperature > Atmospherics.T0C + _hotTemp;
 
-            if (burncomp.IsDamageActive)
-            {
-                var damage = Math.Max((component.Temperature - Atmospherics.T0C - _hotTemp) / _burnDiv, 0);
+            var damage = Math.Max((component.Temperature - Atmospherics.T0C - _hotTemp) / _burnDiv, 0);
 
-                // Giant string of if/else that makes sure it will interfere only as much as it needs to
-                if (burncomp.Damage == null)
-                    burncomp.Damage = new() { DamageDict = new() { { "Heat", damage } } };
-                else if (burncomp.Damage.DamageDict == null)
-                    burncomp.Damage.DamageDict = new() { { "Heat", damage } };
-                else if (!burncomp.Damage.DamageDict.ContainsKey("Heat"))
-                    burncomp.Damage.DamageDict.Add("Heat", damage);
-                else
-                    burncomp.Damage.DamageDict["Heat"] = damage;
-            }
+            // Giant string of if/else that makes sure it will interfere only as much as it needs to
+            if (burncomp.Damage == null)
+                burncomp.Damage = new() { DamageDict = new() { { "Heat", damage } } };
+            else if (burncomp.Damage.DamageDict == null)
+                burncomp.Damage.DamageDict = new() { { "Heat", damage } };
+            else if (!burncomp.Damage.DamageDict.ContainsKey("Heat"))
+                burncomp.Damage.DamageDict.Add("Heat", damage);
+            else
+                burncomp.Damage.DamageDict["Heat"] = damage;
 
             Dirty(uid, burncomp);
         }
@@ -346,7 +347,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
             reactorPart.MeltHealth -= _random.Next(10, 50 + 1);
         if (reactorPart.MeltHealth <= 0)
             Melt(reactorPart, reactorEnt, reactorSystem);
-        
+
         return;
 
         // I would really like for these to be defined by the MaterialPrototype, like GasReactionPrototype, but it caused the client and server to fight when I tried
@@ -370,7 +371,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
                 return;
 
             var molesPerUnit = 100f; // Arbitrary value for how much gaseous plasma is in each unit of active plasma
-            
+
             var payload = new GasMixture();
             payload.SetMoles(Gas.Plasma, (float)Math.Min(part.Properties.ActivePlasma * molesPerUnit, Math.Log(((part.Temperature - temperatureThreshold) / 100) + 1)));
             payload.Temperature = part.Temperature;
@@ -380,7 +381,7 @@ public sealed class ReactorPartSystem : SharedReactorPartSystem
             _atmosphereSystem.Merge(reactor.AirContents, payload);
         }
     }
-    
+
     /// <summary>
     /// Melts the related ReactorPart.
     /// </summary>

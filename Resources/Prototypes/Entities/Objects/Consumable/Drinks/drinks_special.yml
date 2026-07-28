@@ -4,10 +4,9 @@
   name: shot glass
   description: Perfect for slamming down onto the table angrily.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 5
+  - type: Solution
+    solution:
+      maxVol: 5 # Shot glass translates to about 5.3u so we round down because Nanotrasen is cheap.
   - type: Item
     size: Tiny
   - type: Sprite
@@ -19,17 +18,18 @@
     solution: drink
 
 - type: entity
-  parent: [DrinkBaseMaterialMetal, DrinkBase]
+  parent: [DrinkBaseMaterialMetal, SolutionLarge, DrinkBase]
   id: DrinkIceBucket
   name: ice bucket
   description: A special bucket of refreshy ice. Prohibited use for challenge with the same name!
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: Ice
-          Quantity: 200
+  - type: Item
+    size: Large
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Ice
+        Quantity: 240
   - type: Sprite
     sprite: Objects/Consumable/Drinks/icebucket.rsi
     state: icon
@@ -38,18 +38,18 @@
       Steel: 75
 
 - type: entity
-  parent: [DrinkBaseMaterialPorcelain, DrinkBase]
+  parent: [DrinkBaseMaterialPorcelain, SolutionNormal, DrinkBase]
   id: DrinkTeapot
   name: teapot  # short and stout
   description: An elegant teapot. It simply oozes class.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 100
-        reagents:
-        - ReagentId: Tea
-          Quantity: 100
+  - type: Item
+    size: Normal
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Tea
+        Quantity: 120
   - type: Sprite
     sprite: Objects/Consumable/Drinks/teapot.rsi
   - type: FitsInDispenser
@@ -60,63 +60,114 @@
 - type: entity
   parent: BaseStorageItem
   id: DrinkCanPack
-  name: 6pack
+  name: 6pack of cola # funky change
   components:
   - type: Sprite
     sprite: Objects/Misc/6pack.rsi
     layers:
     - state: plastic-thingy
-    - state: 6pack1
-      map: ["6pack1"]
-    - state: 6pack2
-      map: ["6pack2"]
-    - state: 6pack3
-      map: ["6pack3"]
-    - state: 6pack4
-      map: ["6pack4"]
-    - state: 6pack5
-      map: ["6pack5"]
-    - state: 6pack6
-      map: ["6pack6"]
   - type: Item
     size: Normal
-  - type: Storage
-    grid:
-    - 0,0,2,3
-    whitelist:
-      tags:
-      - Cola
-    hideStackVisualsWhenClosed: false
-  - type: EntityTableContainerFill
-    containers:
-      storagebase:
-        id: DrinkColaCan
-        amount: 6
-  - type: ItemCounter
-    count:
-      tags: [Cola]
-    composite: true
-    layerStates:
-    - 6pack1
-    - 6pack2
-    - 6pack3
-    - 6pack4
-    - 6pack5
-    - 6pack6
   - type: Appearance
+  - type: ItemSlots # funky change start
+    slots:
+      6pack_slot6:
+        ejectOnUse: true
+        startingItem: DrinkColaCan
+        whitelist:
+          tags:
+          - DrinkCan
+        priority: 6
+      6pack_slot5:
+        ejectOnUse: true
+        startingItem: DrinkColaCan
+        whitelist:
+          tags:
+          - DrinkCan
+        priority: 5
+      6pack_slot4:
+        ejectOnUse: true
+        startingItem: DrinkColaCan
+        whitelist:
+          tags:
+          - DrinkCan
+        priority: 4
+      6pack_slot3:
+        ejectOnUse: true
+        startingItem: DrinkColaCan
+        whitelist:
+          tags:
+          - DrinkCan
+        priority: 3
+      6pack_slot2:
+        ejectOnUse: true
+        startingItem: DrinkColaCan
+        whitelist:
+          tags:
+          - DrinkCan
+        priority: 2
+      6pack_slot1:
+        ejectOnUse: true
+        startingItem: DrinkColaCan
+        whitelist:
+          tags:
+          - DrinkCan
+        priority: 1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: [ ]
+      6pack_slot6: !type:ContainerSlot { }
+      6pack_slot5: !type:ContainerSlot { }
+      6pack_slot4: !type:ContainerSlot { }
+      6pack_slot3: !type:ContainerSlot { }
+      6pack_slot2: !type:ContainerSlot { }
+      6pack_slot1: !type:ContainerSlot { }
+  - type: ItemMapper
+    mapLayers:
+      6pack1:
+        minCount: 1
+        whitelist:
+          tags:
+          - DrinkCan
+      6pack2:
+        minCount: 2
+        whitelist:
+          tags:
+          - DrinkCan
+      6pack3:
+        minCount: 3
+        whitelist:
+          tags:
+          - DrinkCan
+      6pack4:
+        minCount: 4
+        whitelist:
+          tags:
+          - DrinkCan
+      6pack5:
+        minCount: 5
+        whitelist:
+          tags:
+          - DrinkCan
+      6pack6:
+        minCount: 6
+        whitelist:
+          tags:
+          - DrinkCan
+    sprite: Objects/Misc/6pack.rsi # funky change end
 
 # Bartender tools
 
 - type: entity
-  parent: [DrinkBaseMaterialStrongMetal, DrinkBase]
+  parent: [DrinkBaseMaterialStrongMetal, SolutionSmall, DrinkBase]
   id: DrinkShaker
   name: shaker
   description: The trusty mixing buddy of the bartender.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 100
+  - type: Solution
+    solution:
+      maxVol: 90 # Shakers are often about 700ml give or take and I like weird sizes so.
   - type: FitsInDispenser
     solution: drink
   - type: ExaminableSolution
@@ -126,6 +177,8 @@
     state: icon
   - type: Item
     sprite: Objects/Consumable/Drinks/shaker.rsi
+    shape:
+    - 0,0,0,2 # 3 tall
   - type: PhysicalComposition
     materialComposition:
       Steel: 50
@@ -156,10 +209,11 @@
   name: jigger
   description: Like a shaker, but smaller. Used to control the amount of ingredients.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 20
+  - type: Item
+    size: Tiny
+  - type: Solution
+    solution:
+      maxVol: 10 # Two shot glasses in size
   - type: SolutionTransfer
     canChangeTransferAmount: true
     minTransferAmount: 1
@@ -177,15 +231,13 @@
       Steel: 20
 
 - type: entity
-  parent: [DrinkBaseMaterialStrongMetal, DrinkBase, DrinkVisualsFill]
+  parent: [DrinkBaseMaterialStrongMetal, SolutionNormal, DrinkBase, DrinkVisualsFill]
   id: Pitcher
   name: metal pitcher
   description: A stainless steel insulated pitcher. Everyone's best friend in the morning.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 60
+  - type: Item
+    size: Normal
   - type: Sprite
     sprite: Objects/Consumable/Drinks/pitcher.rsi
   - type: SolutionContainerVisuals

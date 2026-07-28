@@ -1,6 +1,8 @@
 using System.Numerics;
 using Content.IntegrationTests.Tests.Interaction;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 
 namespace Content.IntegrationTests.Tests.Movement;
 
@@ -12,6 +14,7 @@ namespace Content.IntegrationTests.Tests.Movement;
 public abstract class MovementTest : InteractionTest
 {
     protected override string PlayerPrototype => "MobHuman";
+    protected static readonly EntProtoId WallPrototype = "WallSolid";
 
     /// <summary>
     ///     Number of tiles to add either side of the player.
@@ -46,8 +49,8 @@ public abstract class MovementTest : InteractionTest
 
         if (AddWalls)
         {
-            var sWallLeft = await SpawnEntity("WallSolid", pCoords.Offset(new Vector2(-Tiles, 0)));
-            var sWallRight = await SpawnEntity("WallSolid", pCoords.Offset(new Vector2(Tiles, 0)));
+            var sWallLeft = await SpawnEntity(WallPrototype, pCoords.Offset(new Vector2(-Tiles, 0)));
+            var sWallRight = await SpawnEntity(WallPrototype, pCoords.Offset(new Vector2(Tiles, 0)));
 
             WallLeft = SEntMan.GetNetEntity(sWallLeft);
             WallRight = SEntMan.GetNetEntity(sWallRight);
@@ -58,7 +61,7 @@ public abstract class MovementTest : InteractionTest
     }
 
     /// <summary>
-    ///     Get the relative horizontal between two entities. Defaults to using the target & player entity.
+    /// Get the relative horizontal between two entities. Defaults to using the target & player entity.
     /// </summary>
     protected float Delta(NetEntity? target = null, NetEntity? other = null)
     {
@@ -70,6 +73,18 @@ public abstract class MovementTest : InteractionTest
         }
 
         var delta = Transform.GetWorldPosition(SEntMan.GetEntity(target.Value)) - Transform.GetWorldPosition(SEntMan.GetEntity(other ?? Player));
+        return delta.X;
+    }
+
+    /// <summary>
+    /// Get the relative horizontal between a set of coordinates and an entity. Defaults to using the target coordinates and the player entity.
+    /// </summary>
+    protected float DeltaCoordinates(NetCoordinates? coords = null, NetEntity? other = null)
+    {
+        other ??= Player;
+        coords ??= TargetCoords;
+
+        var delta = Transform.ToWorldPosition(ToServer(coords.Value)) - Transform.GetWorldPosition(ToServer(other.Value));
         return delta.X;
     }
 }

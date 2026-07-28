@@ -27,13 +27,13 @@ namespace Content.Server.BloodCult.EntitySystems;
 /// - Unholy Blood (touch) -> heals holy damage
 /// - Holy Water (touch) -> deals additional holy damage
 /// </summary>
-public sealed class BloodCultistReactionSystem : EntitySystem
+public sealed partial class BloodCultistReactionSystem : EntitySystem
 {
-	[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
-	[Dependency] private readonly DamageableSystem _damageable = default!;
-	[Dependency] private readonly PopupSystem _popup = default!;
-	[Dependency] private readonly SharedAudioSystem _audio = default!;
-	[Dependency] private readonly StaminaSystem _stamina = default!;
+	[Dependency] private BloodstreamSystem _bloodstream = default!;
+	[Dependency] private DamageableSystem _damageable = default!;
+	[Dependency] private PopupSystem _popup = default!;
+	[Dependency] private SharedAudioSystem _audio = default!;
+	[Dependency] private StaminaSystem _stamina = default!;
 
 	public override void Initialize()
 	{
@@ -88,7 +88,7 @@ public sealed class BloodCultistReactionSystem : EntitySystem
 		if (TryComp<BloodstreamComponent>(uid, out var bloodstream))
 		{
 			_bloodstream.TryModifyBloodLevel((uid, bloodstream), FixedPoint2.New(bloodAmount.Float() * 2.0f));
-			
+
 			/// Commented out below code. Why did I ever think it was a good idea to bleed when you drink blood?
 			// Cause brief bleeding (1 unit/second for each 5 units consumed)
 			// This represents the blood being processed through their system
@@ -97,7 +97,7 @@ public sealed class BloodCultistReactionSystem : EntitySystem
 			//{
 			//	_bloodstream.TryModifyBleedAmount(uid, bleedAmount, bloodstream);
 			//}
-			
+
 		}
 
 		/// Commented out, handled by the blooddrinker flag now
@@ -135,8 +135,9 @@ public sealed class BloodCultistReactionSystem : EntitySystem
 			return;
 
 		// Get the amount of holy damage
-		if (!damageable.Damage.DamageDict.TryGetValue("Holy", out var holyDamage) || holyDamage <= 0)
-			return;
+        var damageDict = _damageable.GetDamagePerGroup(uid);
+        if (!damageDict.TryGetValue("Holy", out var holyDamage) || holyDamage <= 0)
+            return;
 
 		// Calculate healing amount based on Unholy Blood quantity
 		// 5u of Unholy Blood heals 1 point of holy damage
@@ -210,8 +211,8 @@ public sealed class BloodCultistReactionSystem : EntitySystem
 
 		// Make it so that the deCultify effect is only 25% as strong as the metabolism version, because touch effects multiply how much is being sprayed
 		// The idea is to make it so you can deconvert with a fire extinguisher, but that a cultist would probably reasonably kill you first in a fair fight.
-		var deCultifyMultiplier = .35f; 
-		
+		var deCultifyMultiplier = .35f;
+
 		var scale = args.ReagentQuantity.Quantity.Float();
 		var deCultifyAmount = scale * deCultifyMultiplier;
 

@@ -55,28 +55,28 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	private static readonly ProtoId<StackPrototype> RunedGlassStack = "RunedGlass";
 	private static readonly ProtoId<StackPrototype> RunedPlasteelStack = "RunedPlasteel";
 
-	[Dependency] private readonly IRobustRandom _random = default!;
-	[Dependency] private readonly IPrototypeManager _proto = default!;
-	[Dependency] private readonly SharedActionsSystem _action = default!;
-	[Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-	[Dependency] private readonly MindSystem _mind = default!;
-	[Dependency] private readonly DamageableSystem _damageableSystem = default!;
-	[Dependency] private readonly PopupSystem _popup = default!;
-	[Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-	[Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-	[Dependency] private readonly BloodCultRuleSystem _bloodCultRules = default!;
-	[Dependency] private readonly HandsSystem _hands = default!;
-	//[Dependency] private readonly StaminaSystem _stamina = default!;
-	[Dependency] private readonly EmpSystem _emp = default!;
-	[Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-	[Dependency] private readonly SharedTransformSystem _transform = default!;
-	[Dependency] private readonly MapSystem _mapSystem = default!;
-	[Dependency] private readonly IMapManager _mapManager = default!;
-	//[Dependency] private readonly IEntityManager _entMan = default!;
-	[Dependency] private readonly SharedStunSystem _stun = default!;
-	//[Dependency] private readonly ConstructionSystem _construction = default!;
-	[Dependency] private readonly SharedStackSystem _stack = default!;
-	[Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+	[Dependency] private IRobustRandom _random = default!;
+	[Dependency] private IPrototypeManager _proto = default!;
+	[Dependency] private SharedActionsSystem _action = default!;
+	[Dependency] private ActionContainerSystem _actionContainer = default!;
+	[Dependency] private MindSystem _mind = default!;
+	[Dependency] private DamageableSystem _damageableSystem = default!;
+	[Dependency] private PopupSystem _popup = default!;
+	[Dependency] private SharedAudioSystem _audioSystem = default!;
+	[Dependency] private StatusEffectsSystem _statusEffect = default!;
+	[Dependency] private BloodCultRuleSystem _bloodCultRules = default!;
+	[Dependency] private HandsSystem _hands = default!;
+	//[Dependency] private StaminaSystem _stamina = default!;
+	[Dependency] private EmpSystem _emp = default!;
+	[Dependency] private SharedDoAfterSystem _doAfter = default!;
+	[Dependency] private SharedTransformSystem _transform = default!;
+	[Dependency] private MapSystem _mapSystem = default!;
+	[Dependency] private IMapManager _mapManager = default!;
+	//[Dependency] private IEntityManager _entMan = default!;
+	[Dependency] private SharedStunSystem _stun = default!;
+	//[Dependency] private ConstructionSystem _construction = default!;
+	[Dependency] private SharedStackSystem _stack = default!;
+	[Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
 
 	private static readonly ProtoId<DamageTypePrototype> BloodlossDamageType = "Bloodloss";
 	private static readonly ProtoId<DamageTypePrototype> ShockDamageType = "Shock";
@@ -125,13 +125,14 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			RemoveSpell(GetSpell(actionComp.AbilityId), ent.Comp);
 		}
 
+        var damageDict = _damageableSystem.GetDamagePerGroup(ent.Owner);
 		// apply damage
 		if (actionComp.HealthCost > 0 && TryComp<DamageableComponent>(ent, out var damageable))
 		{
 			DamageSpecifier appliedDamageSpecifier;
-			if (damageable.Damage.DamageDict.ContainsKey("Bloodloss"))
+			if (damageDict.ContainsKey("Bloodloss"))
 				appliedDamageSpecifier = new DamageSpecifier(_proto.Index(BloodlossDamageType), FixedPoint2.New(actionComp.HealthCost));
-			else if (damageable.Damage.DamageDict.ContainsKey("Shock"))
+			else if (damageDict.ContainsKey("Shock"))
 				appliedDamageSpecifier = new DamageSpecifier(_proto.Index(ShockDamageType), FixedPoint2.New(actionComp.HealthCost));
 			else
 				appliedDamageSpecifier = new DamageSpecifier(_proto.Index(SlashDamageType), FixedPoint2.New(actionComp.HealthCost));
@@ -252,7 +253,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			}
 			if (args.RecordKnownSpell)
 				ent.Comp.KnownSpells.Add(args.CultAbility);
-			
+
 			// Apply damage if health drain > 0
 			if (args.CultAbility.HealthDrain > 0 && TryComp<DamageableComponent>(ent, out var damageableForDamage))
 			{
@@ -306,7 +307,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	{
 		// Get all actions for this cultist
 		var actions = _action.GetActions(uid);
-		
+
 		// Create a set of spell IDs for quick lookup
 		var knownSpellIds = new HashSet<ProtoId<CultAbilityPrototype>>(cultist.KnownSpells);
 
@@ -379,7 +380,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			return true;
 
 		// Check if the target's mind has BloodCultistComponent (for SSD cultists)
-		if (TryComp<MindContainerComponent>(target, out var mindContainer) && 
+		if (TryComp<MindContainerComponent>(target, out var mindContainer) &&
 		    mindContainer.Mind != null &&
 		    HasComp<BloodCultistComponent>(mindContainer.Mind.Value))
 			return true;
@@ -454,28 +455,28 @@ public sealed partial class CultistSpellSystem : EntitySystem
 				//Making this extra long to account for the nocturine slow onset time.
 				_stun.TryKnockdown((target, crawlerForStun), TimeSpan.FromSeconds(5), true);
 			}
-			
+
 			// Inject sleep chemicals (Nocturine + Chloral Hydrate)
 			var sleepSolution = new Solution();
 			sleepSolution.AddReagent((ProtoId<ReagentPrototype>)"Nocturine", FixedPoint2.New(15));  // 15u Nocturine
 			sleepSolution.AddReagent((ProtoId<ReagentPrototype>)"EdgeEssentia", FixedPoint2.New(5));  // 5u Edge Essentia
-			
+
 			if (_solutionContainer.ResolveSolution(target, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out _))
 			{
 				if (bloodstream.BloodSolution != null)
 					_solutionContainer.TryAddSolution(bloodstream.BloodSolution.Value, sleepSolution);
 			}
-			
+
 			// Show the dream message
 			_popup.PopupEntity(
 				Loc.GetString("cult-spell-sleep-dream"),
 				target, target, PopupType.LargeCaution
 			);
-			
+
 			// Mark them for follow-up attacks
 			// disabled for now, follow up attacks work, but end up being too fancy and not really needed.
 			//EnsureComp<CultMarkedComponent>(target);
-			
+
 			// Added a manual mute, since I know upstream has a possible Nocturine debuff that makes it take effect slower.
 			// The intent is for this to work to kidnap any non-mindshielded crew member.
 			_statusEffect.TryAddStatusEffectDuration(target, (EntProtoId)"Muted", TimeSpan.FromSeconds(15));
@@ -483,7 +484,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		else
 		{
 		// Fallback for entities without bloodstream
-		
+
 		// Apply EMP effects directly to the entity, and mute them.
 		_emp.DoEmpEffects(target, empDamage, TimeSpan.FromSeconds(empDuration));
 		_statusEffect.TryAddStatusEffectDuration(target, (EntProtoId)"Muted", TimeSpan.FromSeconds(empDuration));
@@ -626,8 +627,8 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		}
 
 		// Check if target is a reinforced wall
-		/*if (TryComp<ConstructionComponent>(args.Target, out var construction) && 
-		    construction.Graph == "Girder" && 
+		/*if (TryComp<ConstructionComponent>(args.Target, out var construction) &&
+		    construction.Graph == "Girder" &&
 		    construction.Node == "reinforcedWall")
 		{
 			// Wall deconstruction doesn't consume spell charges
@@ -641,7 +642,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			}
 
 			// Start do-after for wall deconstruction
-			var doAfterArgs = new DoAfterArgs(EntityManager, ent, TimeSpan.FromSeconds(3), 
+			var doAfterArgs = new DoAfterArgs(EntityManager, ent, TimeSpan.FromSeconds(3),
 				new TwistedConstructionDoAfterEvent(args.Target), ent, target: args.Target)
 			{
 				BreakOnMove = true,
@@ -655,8 +656,8 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		}*/
 
 		// Check if target is a reinforced girder
-		/*if (TryComp<ConstructionComponent>(args.Target, out var girderConstruction) && 
-		    girderConstruction.Graph == "Girder" && 
+		/*if (TryComp<ConstructionComponent>(args.Target, out var girderConstruction) &&
+		    girderConstruction.Graph == "Girder" &&
 		    girderConstruction.Node == "reinforcedGirder")
 		{
 			// Girder downgrade doesn't consume spell charges
@@ -670,7 +671,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			}
 
 			// Start do-after for reinforced girder downgrade
-			var doAfterArgs = new DoAfterArgs(EntityManager, ent, TimeSpan.FromSeconds(2), 
+			var doAfterArgs = new DoAfterArgs(EntityManager, ent, TimeSpan.FromSeconds(2),
 				new TwistedConstructionDoAfterEvent(args.Target), ent, target: args.Target)
 			{
 				BreakOnMove = true,
@@ -690,7 +691,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			return;
 
 		// Verify it's a valid target (reinforced wall or reinforced girder)
-		if (construction.Graph != "Girder" || 
+		if (construction.Graph != "Girder" ||
 		    (construction.Node != "reinforcedWall" && construction.Node != "reinforcedGirder"))
 			return;
 

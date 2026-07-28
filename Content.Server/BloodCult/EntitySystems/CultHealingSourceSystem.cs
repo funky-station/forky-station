@@ -44,13 +44,13 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 	public float GridcastMaxDistance { get; private set; }
 
 	// Dependencies
-	[Dependency] private readonly SharedStackSystem _stack = default!;
-	[Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-	[Dependency] private readonly DamageableSystem _damageableSystem = default!;
-	[Dependency] private readonly MobStateSystem _mobState = default!;
-	[Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
+	[Dependency] private SharedStackSystem _stack = default!;
+	[Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+	[Dependency] private DamageableSystem _damageableSystem = default!;
+	[Dependency] private MobStateSystem _mobState = default!;
+	[Dependency] private BloodstreamSystem _bloodstreamSystem = default!;
 
 	/// <summary>
 	/// 	Subscribe to the cult healing system's server CCVars.
@@ -341,14 +341,15 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 		// Apply healing multiplier based on cult progression
 		float healingMultiplier = GetHealingMultiplier();
 		float adjustedHealing = healingPerSecond * healingMultiplier;
-		
+
 		// Heal the torso (main damageable component)
 		// Note: This is independent of limb healing - limbs will heal even if torso is fully healed
 		if (TryComp<DamageableComponent>(uid, out var damageable))
 		{
 			var keys = new List<string>();
-			
-			foreach (var item in damageable.Damage.DamageDict)
+            var damageDict = _damageableSystem.GetDamagePerGroup(uid);
+
+			foreach (var item in damageDict)
 			{
 				if (item.Value > 0)
 					keys.Add(item.Key);
@@ -363,10 +364,10 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 				_damageableSystem.TryChangeDamage(uid, ds, true, false, origin: uid);
 			}
 		}
-		
+
 		// Note: In forky, the body system only has organs, not body parts.
 		// Body part healing is not applicable in this workspace right now.
-		
+
 		// Restore blood levels slowly (4 minutes from 0% to 100%)
 		// Only restore for entities with blood (cultists), not constructs
 		if (TryComp<BloodstreamComponent>(uid, out var bloodstream))
@@ -377,14 +378,14 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 			{
 				// Check current blood level
 				var currentBloodLevel = _bloodstreamSystem.GetBloodLevel((uid, bloodstream));
-				
+
 				// Only restore if below 100%
 				if (currentBloodLevel < 1.0f)
 				{
 					// Calculate blood recovery: restore 100% in 240 seconds (4 minutes)
 					// Blood recovery per update = (bloodMaxVolume / 240.0) * time
 					var bloodRecovery = FixedPoint2.New((maxVolume.Float() / 240.0f) * time);
-					
+
 					// Restore blood
 					_bloodstreamSystem.TryModifyBloodLevel((uid, bloodstream), bloodRecovery);
 				}
@@ -406,15 +407,15 @@ public sealed partial class CultHealingSourceSystem : EntitySystem
 			// Phase 3 (Rise): 50% more healing
 			if (ruleComp.HasRisen)
 				return 1.5f;
-			
+
 			// Phase 2 (Eyes): 25% more healing
 			if (ruleComp.HasEyes)
 				return 1.25f;
-			
+
 			// Phase 1 (Base): normal healing
 			return 1.0f;
 		}
-		
+
 		// Default if no rule found
 		return 1.0f;
 	}

@@ -24,7 +24,6 @@
           amount: 2
         - id: BoxCleanerGrenades
         - id: WireBrush
-          amount: 2
 
 - type: entity
   parent: CratePlastic
@@ -126,8 +125,11 @@
       entity_storage: !type:AllSelector
         children:
         - id: BarberScissors
-        - id: ClothingOuterSuitMonkey
-        - id: ClothingHeadHatAnimalMonkey
+        # Begin Macrocosm: Costume bundles
+        # - id: ClothingOuterSuitMonkey
+        # - id: ClothingHeadHatAnimalMonkey
+        - id: CostumeBundleMonkey
+        # End Macrocosm
         - id: ClothingUniformJumpskirtJanimaid
         - id: ClothingUniformJumpskirtOldDress
         - id: ClothingHeadHatMagician
@@ -151,11 +153,14 @@
           - id: ClothingMaskMime
           - id: ClothingBeltSuspendersRed
           - id: ClothingBeltSuspendersBlack
-        - !type:AllSelector # Performer starter kit
-          children:
-          - id: ClothingUniformJumpskirtPerformer
-          - id: ClothingShoesBootsPerformer
-          - id: ClothingHeadPerformerWig
+        # Begin Macrocosm: Costume bundles
+        # - !type:AllSelector # Performer starter kit
+        #   children:
+        #   - id: ClothingUniformJumpskirtPerformer
+        #   - id: ClothingShoesBootsPerformer
+        #   - id: ClothingHeadPerformerWig
+        - id: CostumeBundlePerformer
+        # End Macrocosm
 
 - type: entity
   parent: CrateGenericSteel
@@ -200,6 +205,7 @@
         - id: NewtonCradle
         - id: BoxEnvelope
         - id: BrbSign
+        - id: DeskBell
 
 - type: entity
   parent: CrateGenericSteel

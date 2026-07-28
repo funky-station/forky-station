@@ -5,7 +5,7 @@
   description: An industrial machine used for expediting machine construction across the station.
   components:
   - type: Sprite
-    sprite: Structures/Machines/flatpacker.rsi
+    sprite: _Funkystation/Structures/Machines/flatpacker.rsi #Funky resprite
     snapCardinals: true
     layers:
     - state: base

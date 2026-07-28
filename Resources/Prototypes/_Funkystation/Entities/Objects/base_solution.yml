@@ -1,0 +1,8 @@
+- type: entity
+  parent: Solution
+  id: SolutionStain
+  components:
+  - type: Solution
+    id: stain
+    solution:
+      maxVol: 5

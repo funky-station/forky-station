@@ -9,7 +9,7 @@
   - type: InteractionOutline
   - type: Sprite
     snapCardinals: true
-    sprite: Structures/Power/Generation/ame.rsi
+    sprite: _Funkystation/Structures/Power/Generation/ame.rsi #Funky resprite
     state: control
     layers:
     - state: control
@@ -29,16 +29,11 @@
         layer:
         - WallLayer
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
-    - trigger: # Excess damage, don't spawn entities
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 100
@@ -64,9 +59,10 @@
       lockedFailPopup: ame-controller-component-fuel-slot-fail-locked
       insertSuccessPopup: ame-controller-component-fuel-slot-success-insert
   - type: Explosive
-    explosionType: Default
+    explosionType: Transparent # Funky RMC Explosions
     intensitySlope: 5
     maxIntensity: 60
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: ActivatableUI
     key: enum.AmeControllerUiKey.Key
   - type: UserInterface
@@ -95,7 +91,7 @@
   - type: PowerMonitoringDevice
     group: Generator
     loadNode: input
-    sprite: Structures/Power/Generation/ame.rsi
+    sprite: _Funkystation/Structures/Power/Generation/ame.rsi #Funky resprite
     state: static
   - type: PowerSupplier
     supplyRate: 0
@@ -137,7 +133,7 @@
   - type: InteractionOutline
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Power/Generation/ame.rsi
+    sprite: _Funkystation/Structures/Power/Generation/ame.rsi #Funky resprite
     state: shield_0
     layers:
     - state: shield_0
@@ -161,16 +157,11 @@
         layer:
         - WallLayer
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
-    - trigger: # Excess damage, don't spawn entities
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 100
