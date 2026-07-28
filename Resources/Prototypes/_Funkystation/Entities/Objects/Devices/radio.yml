@@ -1,4 +1,3 @@
-
 - type: entity
   name: service handheld radio
   description: A handheld radio tuned to the service radio frequency.
