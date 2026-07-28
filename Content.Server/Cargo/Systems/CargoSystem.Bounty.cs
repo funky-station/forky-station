@@ -388,7 +388,7 @@ public sealed partial class CargoSystem
     /// <returns>true if <paramref name="entity"/> is a valid item for the bounty entry, otherwise false</returns>
     public bool IsValidBountyEntry(EntityUid entity, CargoReagentBountyItemData reagentBounty)
     {
-        if (!TryComp<SolutionContainerManagerComponent>(entity, out var solutions))
+        if (!TryComp<SolutionManagerComponent>(entity, out var solutions))
             return false;
 
         if (!_protoMan.TryIndex(reagentBounty.Reagent, out var bounty))
@@ -517,7 +517,7 @@ public sealed partial class CargoSystem
                     break;
                 case CargoReagentBountyItemData bountyItem:
                     // TODO: This is horrible and I hate it, but I am bad and need to study to implement it better
-                    if (!TryComp<SolutionContainerManagerComponent>(entity, out var solutions))
+                    if (!TryComp<SolutionManagerComponent>(entity, out var solutions))
                         continue;
                     foreach (var (_, soln) in _solutionContainer.EnumerateSolutions((entity, solutions)))
                     {
