@@ -55,23 +55,24 @@
 # For the Estoc
 - type: listing
   id: UplinkRifle50MagazineIncendiary
-  name: uplink-rifle-magazine-50-incendiary-name
-  description: uplink-rifle-magazine-50-incendiary-desc
-  icon: { sprite: /Textures/_Funkystation/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag_50.rsi, state: red-icon }
-  productEntity: MagazineRifle50Incendiary
+  name: uplink-rifle-magazine-50-name
+  description: uplink-rifle-magazine-50-desc
+  icon: { sprite: /Textures/_Funkystation/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag_50.rsi, state: base }
+  productEntity: MagazineRifle50
   cost:
     Telecrystal: 3
   categories:
   - UplinkAmmo
   saleBlacklist: true
-
-# Smol and evil. Can hide in small places.
+  
 - type: listing
-  id: UplinkRevolverSalamander
-  name: uplink-revolver-salamander-name
-  description: uplink-revolver-salamander-desc
-  productEntity: WeaponRevolverSalamander
+  id: UplinkRifle50MagazineIncendiary
+  name: uplink-rifle-magazine-50-incendiary-name
+  description: uplink-rifle-magazine-50-incendiary-desc
+  icon: { sprite: /Textures/_Funkystation/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag_50.rsi, state: red-icon }
+  productEntity: MagazineRifle50Incendiary
   cost:
-    Telecrystal: 3
+    Telecrystal: 4
   categories:
-  - UplinkWeaponry
+  - UplinkAmmo
+  saleBlacklist: true

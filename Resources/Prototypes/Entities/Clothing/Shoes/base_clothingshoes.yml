@@ -65,7 +65,6 @@
           tags:
           - Knife
           - Sidearm
-          - RevolverSalamander # Funky
 
 - type: entity
   abstract: true

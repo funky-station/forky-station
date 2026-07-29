@@ -8,5 +8,5 @@
       storagebase: !type:AllSelector
         children:
         - id: WeaponRifleEstoc
-        - id: MagazineRifle50Incendiary
+        - id: MagazineRifle50
           amount: 3

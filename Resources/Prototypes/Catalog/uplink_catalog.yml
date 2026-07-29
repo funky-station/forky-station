@@ -11,6 +11,20 @@
   categories:
   - UplinkWeaponry
 
+# Funky - Returned from the graveyard
+- type: listing
+  id: UplinkRevolverPython
+  name: uplink-revolver-python-name
+  description: uplink-revolver-python-desc
+  productEntity: WeaponRevolverPythonAP
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkWeaponry
+
 # Inbuilt suppressor so it's sneaky + more expensive.
 - type: listing
   id: UplinkPistolCobra
@@ -585,6 +599,18 @@
   productEntity: MagazinePistolCaselessRifle
   cost:
     Telecrystal: 1
+  categories:
+  - UplinkAmmo
+
+# Funky - For the Python
+- type: listing
+  id: UplinkSpeedLoaderMagnumAP
+  name: uplink-pistol-speedloader-magnum-name
+  description: uplink-pistol-speedloader-magnum-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
+  productEntity: SpeedLoaderMagnumAP
+  cost:
+    Telecrystal: 3
   categories:
   - UplinkAmmo
 

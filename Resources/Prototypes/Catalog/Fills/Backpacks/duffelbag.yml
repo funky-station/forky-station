@@ -91,7 +91,7 @@
       storagebase: !type:AllSelector
         children:
         - id: WeaponRifleEstoc
-        - id: MagazineRifle50Incendiary # Funky
+        - id: MagazineRifle50 # Funky
           amount: 3
 
 - type: entity
