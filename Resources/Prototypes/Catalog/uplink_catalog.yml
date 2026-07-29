@@ -605,8 +605,8 @@
 # Funky - For the Python
 - type: listing
   id: UplinkSpeedLoaderMagnumAP
-  name: uplink-pistol-speedloader-magnum-name
-  description: uplink-pistol-speedloader-magnum-desc
+  name: uplink-speedloader-magnum-name
+  description: uplink-speedloader-magnu-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
   productEntity: SpeedLoaderMagnumAP
   cost:
