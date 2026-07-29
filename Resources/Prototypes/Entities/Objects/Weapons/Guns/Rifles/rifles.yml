@@ -216,6 +216,8 @@
     - SemiAuto
     - FullAuto
 
+# Funky version of estoc
+
 - type: entity
   name: Estoc DMR
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
@@ -235,6 +237,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Rifles/estoc.rsi
   - type: Gun
+    fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/estocshot.ogg
     minAngle: 40
@@ -244,10 +247,10 @@
     availableModes:
     - Burst
     - SemiAuto
-    burstFireRate: 0.75
+    burstFireRate: 1.5
   - type: GunWieldBonus
-    minAngle: -30
-    maxAngle: -40
+    minAngle: -33
+    maxAngle: -43
   - type: ItemSlots
     slots:
       gun_magazine:

@@ -54,7 +54,7 @@
   
 # For the Estoc
 - type: listing
-  id: UplinkRifle50MagazineIncendiary
+  id: UplinkRifle50Magazine
   name: uplink-rifle-magazine-50-name
   description: uplink-rifle-magazine-50-desc
   icon: { sprite: /Textures/_Funkystation/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag_50.rsi, state: base }
