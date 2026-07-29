@@ -1,0 +1,11 @@
+#- type: guideEntry
+#  id: CEA
+#  name: guide-entry-cea
+#  text: "/ServerInfo/_Funky/Guidebook/CEA/"
+#  children:
+#  - CTM
+
+- type: guideEntry
+  id: CTM
+  name: command-training-manual
+  text: "/ServerInfo/_Funky/Guidebook/CEA/CTM.xml"
