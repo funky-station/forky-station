@@ -1,0 +1,9 @@
+- files: [ "bar.png", "blue.png", "cafeteria.png", "checker_dark.png", "clown.png", "dark.png", "dark_diagonal.png", "dark_diagonal_mini.png", "dark_dirty.png", "dark_herringbone.png", "dark_maint.png", "dark_mini.png", "dark_mono.png", "dark_offset.png", "dark_pavement.png", "dark_pavement_vertical.png", "dark_plastic.png", "freezer.png", "hydro.png", "kitchen.png", "laundry.png", "mime.png", "plastic.png", "showroom.png", "steel.png", "steel_burnt.png", "steel_damaged.png", "steel_diagonal.png", "steel_diagonal_mini.png", "steel_dirty.png", "steel_herringbone.png", "steel_maint.png", "steel_mini.png", "steel_mono.png", "steel_offset.png", "steel_pavement.png", "steel_pavement_vertical.png", "white.png", "white_diagonal.png", "white_diagonal_mini.png", "white_dirty.png", "white_herringbone.png", "white_maint.png", "white_mini.png", "white_mono.png", "white_offset.png", "white_pavement.png", "white_pavement_vertical.png", "white_plastic.png", "wood.png", "wood_broken.png", "wood_large.png", "wood_tile.png" ]
+  license: "MIT"
+  copyright: "Made by Alecksohs"
+  source: "https://github.com/funky-station/funky-station/pull/1635"
+
+- files: ["plating.png", "plating_burnt.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "TauCetiStation commit 4cd533cf0a4243050364023af9a4fcaca209dce7"
+  source: "https://github.com/TauCetiStation/TauCetiClassic/"

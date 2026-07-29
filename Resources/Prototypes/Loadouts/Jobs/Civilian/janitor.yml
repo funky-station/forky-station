@@ -30,10 +30,10 @@
   equipment:
     gloves: ClothingHandsGlovesJanitor
 
-- type: loadout
-  id: OrangeGloves
-  equipment:
-    gloves: ClothingHandsGlovesColorOrange
+#- type: loadout
+#  id: OrangeGloves
+#  equipment:
+#    gloves: ClothingHandsGlovesColorOrange
 
 - type: loadout
   id: PurpleGloves

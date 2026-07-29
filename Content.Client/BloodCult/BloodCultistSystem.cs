@@ -5,9 +5,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.BloodCult;
 
-public sealed class BloodCultistSystem : SharedBloodCultistSystem
+public sealed partial class BloodCultistSystem : SharedBloodCultistSystem
 {
-	[Dependency] private readonly IPrototypeManager _prototype = default!;
+	[Dependency] private IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {

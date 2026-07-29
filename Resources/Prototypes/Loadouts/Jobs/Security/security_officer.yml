@@ -75,6 +75,73 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorOfficer
 
+##########################################
+# Funky security uniforms
+
+- type: loadout
+  id: FuSecurityService
+  equipment:
+    jumpsuit: FuClothingUniformSecService
+  groupBy: "service"
+
+- type: loadout
+  id: FuSecurityDressPants
+  equipment:
+    jumpsuit: FuClothingUniformSecDressPants
+  groupBy: "dresspants"
+
+# No senior gear
+#- type: loadout
+#  id: FuSecurityDressPantsSenior
+#  equipment:
+#    jumpsuit: FuClothingUniformSecDressPantsSenior
+#  groupBy: "dresspants"
+
+- type: loadout
+  id: FuSecurityDressSkirt
+  equipment:
+    jumpsuit: FuClothingUniformSecDressSkirt
+  groupBy: "dressskirt"
+
+- type: loadout
+  id: FuSecurityDressSkirtStockings
+  equipment:
+    jumpsuit: FuClothingUniformSecDressSkirtStockings
+  groupBy: "dressskirt"
+
+# No senior uniforms
+#- type: loadout
+#  id: FuSecurityDressSkirtSenior
+#  equipment:
+#    jumpsuit: FuClothingUniformSecDressSkirtSenior
+#  groupBy: "dressskirt"
+
+#- type: loadout
+#  id: FuSecurityDressSkirtSeniorStockings
+#  equipment:
+#   jumpsuit: FuClothingUniformSecDressSkirtSeniorStockings
+# groupBy: "dressskirt"
+
+- type: loadout
+  id: FuSecurityMessPants
+  equipment:
+    jumpsuit: FuClothingUniformSecMessPants
+  groupBy: "messpants"
+
+- type: loadout
+  id: FuSecurityMessSkirt
+  equipment:
+    jumpsuit: FuClothingUniformSecMessSkirt
+  groupBy: "messskirt"
+
+- type: loadout
+  id: FuSecurityMessSkirtStockings
+  equipment:
+    jumpsuit: FuClothingUniformSecMessSkirtStockings
+  groupBy: "messskirt"
+
+##########################################
+
 # Back
 - type: loadout
   id: SecurityBackpack
@@ -100,7 +167,7 @@
 - type: loadout
   id: SecurityWebbing
   equipment:
-    belt: ClothingBeltSecurityWebbingFilled
+    belt: FuClothingBeltSecurityWebbingFilled
 
 # Outerclothing
 - type: loadout
@@ -116,7 +183,7 @@
 - type: loadout
   id: SecurityOfficerWintercoat
   equipment:
-    outerClothing: ClothingOuterWinterSec
+    outerClothing: FuClothingOuterWinterSec
 
 # Shoes
 - type: loadout

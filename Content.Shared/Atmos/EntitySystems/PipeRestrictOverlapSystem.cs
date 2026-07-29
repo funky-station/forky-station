@@ -1,25 +1,27 @@
 using System.Linq;
+using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
+using Content.Shared.Construction.Components;
 using Content.Shared.NodeContainer;
 using Content.Shared.Popups;
-using Content.Shared.Construction.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Map.Components;
 
-namespace Content.Shared.Atmos.EntitySystems;
+namespace Content.Server.Atmos.EntitySystems;
 
 /// <summary>
 /// This handles restricting pipe-based entities from overlapping outlets/inlets with other entities.
 /// </summary>
-public sealed class PipeRestrictOverlapSystem : EntitySystem
+public sealed partial class PipeRestrictOverlapSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private EntityQuery<NodeContainerComponent> _nodeContainerQuery = default!;
 
     private readonly List<EntityUid> _anchoredEntities = new();
-    private EntityQuery<NodeContainerComponent> _nodeContainerQuery;
 
+    // begin funky
     public readonly record struct ProposedPipe(
 
         PipeDirection Direction,
@@ -27,14 +29,13 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
         AtmosPipeLayer Layer,
 
         Angle Rotation = default);
+    // end funky
 
     /// <inheritdoc/>
     public override void Initialize()
     {
         SubscribeLocalEvent<PipeRestrictOverlapComponent, AnchorStateChangedEvent>(OnAnchorStateChanged);
         SubscribeLocalEvent<PipeRestrictOverlapComponent, AnchorAttemptEvent>(OnAnchorAttempt);
-
-        _nodeContainerQuery = GetEntityQuery<NodeContainerComponent>();
     }
 
     private void OnAnchorStateChanged(Entity<PipeRestrictOverlapComponent> ent, ref AnchorStateChangedEvent args)
@@ -119,12 +120,15 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
         {
             foreach (var node in pipe.Comp1.Nodes.Values)
             {
+                // begin funky
                 if (node is IPipeNode pipeNode)
                     yield return (pipeNode.Direction.RotatePipeDirection(pipe.Comp2.LocalRotation), pipeNode.Layer);
+                // end funky
             }
         }
     }
 
+    // begin funky
     /// <summary>
     /// Checks if placing a new pipe with the given direction and layer on the specified tile would conflict
     /// with any existing anchored pipe on the same tile, same layer and overlapping direction.
@@ -177,4 +181,5 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
                 yield return (pipeNode.Direction.RotatePipeDirection(rotation), pipeNode.Layer);
         }
     }
+    // end funky
 }

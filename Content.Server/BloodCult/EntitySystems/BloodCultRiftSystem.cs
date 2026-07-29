@@ -47,24 +47,24 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 	private const float FinalRitualShakeIntensity = 9f;
 	private static readonly float[] SacrificeChantDelays = { 15f, 10f, 7f, 5f, 3f, 1f };
 
-	[Dependency] private readonly PopupSystem _popupSystem = default!;
-	[Dependency] private readonly MobStateSystem _mobState = default!;
-	[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
-	[Dependency] private readonly EntityLookupSystem _lookup = default!;
-	[Dependency] private readonly AppearanceSystem _appearance = default!;
-	[Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-	[Dependency] private readonly CameraRecoilSystem _cameraRecoil = default!;
-	[Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-	[Dependency] private readonly IPlayerManager _playerManager = default!;
-	[Dependency] private readonly IRobustRandom _random = default!;
-	[Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-	//[Dependency] private readonly MindSystem _mindSystem = default!;
-	[Dependency] private readonly OfferOnTriggerSystem _offerSystem = default!;
-	[Dependency] private readonly IGameTiming _timing = default!;
-	[Dependency] private readonly SharedAudioSystem _audio = default!;
-	[Dependency] private readonly ServerGlobalSoundSystem _sound = default!;
-	[Dependency] private readonly ChatSystem _chatSystem = default!;
-	[Dependency] private readonly PuddleSystem _puddleSystem = default!;
+	[Dependency] private PopupSystem _popupSystem = default!;
+	[Dependency] private MobStateSystem _mobState = default!;
+	[Dependency] private BloodCultRuleSystem _bloodCultRule = default!;
+	[Dependency] private EntityLookupSystem _lookup = default!;
+	[Dependency] private AppearanceSystem _appearance = default!;
+	[Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+	[Dependency] private CameraRecoilSystem _cameraRecoil = default!;
+	[Dependency] private SharedTransformSystem _transformSystem = default!;
+	[Dependency] private IPlayerManager _playerManager = default!;
+	[Dependency] private IRobustRandom _random = default!;
+	[Dependency] private ExplosionSystem _explosionSystem = default!;
+	//[Dependency] private MindSystem _mindSystem = default!;
+	[Dependency] private OfferOnTriggerSystem _offerSystem = default!;
+	[Dependency] private IGameTiming _timing = default!;
+	[Dependency] private SharedAudioSystem _audio = default!;
+	[Dependency] private ServerGlobalSoundSystem _sound = default!;
+	[Dependency] private ChatSystem _chatSystem = default!;
+	[Dependency] private PuddleSystem _puddleSystem = default!;
 
 	public override void Initialize()
 	{
@@ -103,7 +103,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 				// Check if enough living cultists are present
 				// GetCultistsOnSummoningRunes filters out soulstones, juggernauts, shades, ghosts, dead, and critical entities
 				var cultistsOnRunes = GetCultistsOnSummoningRunes(riftComp);
-				
+
 				// RequiredCultistsForChant decreases after each sacrifice (3 -> 2 -> 1)
 				// This allows the ritual to continue with fewer cultists as it progresses
 				if (cultistsOnRunes.Count < riftComp.RequiredCultistsForChant)
@@ -115,7 +115,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 						_sound.StopStationEventMusic(riftUid, StationEventMusicType.BloodCult);
 						riftComp.RitualMusicPlaying = false;
 					}
-					
+
 					// Clear pending sacrifice if it's no longer valid (e.g., became soulstone, juggernaut, shade, died, or left)
 					if (riftComp.PendingSacrifice is { } pending)
 					{
@@ -170,10 +170,10 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 						// Store the current sacrifice index to prevent race conditions
 						// If SacrificesCompleted changes during this check, we'll catch it
 						var currentSacrificeIndex = riftComp.SacrificesCompleted;
-						
+
 						// Elapsed time since RitualStartTime was set
 						var elapsed = (_timing.CurTime - riftComp.RitualStartTime).TotalSeconds;
-						
+
 						// Calculate the actual position in the music track
 						// If music was resumed, RitualStartTime was reset and music plays from an offset
 						var currentMusicPosition = elapsed;
@@ -181,7 +181,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 						{
 							// Expected minimum position if playing continuously
 							var minExpectedPosition = (riftComp.RitualMusicDuration / riftComp.RequiredSacrifices) * currentSacrificeIndex;
-							
+
 							// If elapsed is less than the minimum expected, music was resumed
 							// Add the offset to get the actual position in the track
 							if (elapsed < minExpectedPosition - 1.0f) // 1 second tolerance for timing variations
@@ -191,7 +191,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 								currentMusicPosition = musicOffset + elapsed;
 							}
 						}
-						
+
 						// Validate that elapsed time is reasonable (not negative or impossibly large)
 						// This prevents issues if RitualStartTime is set incorrectly
 						if (elapsed < 0f || elapsed > riftComp.RitualMusicDuration * 2f)
@@ -199,12 +199,12 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 							// Timing is invalid, skip this frame
 							continue;
 						}
-						
+
 						// Calculate target time for the NEXT sacrifice (currentSacrificeIndex + 1)
 						// Each sacrifice should happen at: (duration / requiredSacrifices) * sacrificeNumber
 						// For 3 sacrifices: at duration/3, 2*duration/3, and duration
 						var targetMusicTime = (riftComp.RitualMusicDuration / riftComp.RequiredSacrifices) * (currentSacrificeIndex + 1);
-						
+
 						// CRITICAL SAFETY: Enforce minimum 5-second cooldown between sacrifices
 						// This prevents multiple sacrifices from triggering in rapid succession
 						var timeSinceLastSacrifice = (_timing.CurTime - riftComp.TimeSinceLastSacrifice).TotalSeconds;
@@ -213,7 +213,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 							// Not enough time has passed since last sacrifice, skip
 							continue;
 						}
-						
+
 						// Check if it's time for the next sacrifice
 						// Use a small tolerance (0.1s) to account for frame timing
 						// Also check that we're not too far past the target time (max 0.5s tolerance)
@@ -226,7 +226,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 								// Another sacrifice happened this frame, skip
 								continue;
 							}
-							
+
 							// Re-check cultist count right before sacrifice to prevent sync issues
 							var currentCultistsOnRunes = GetCultistsOnSummoningRunes(riftComp);
 							if (currentCultistsOnRunes.Count >= riftComp.RequiredCultistsForChant)
@@ -234,7 +234,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 								// Mark that we're processing a sacrifice this frame
 								// This prevents multiple sacrifices from being processed in the same frame
 								sacrificeProcessedThisFrame = true;
-								
+
 								// Final validation: ensure SacrificesCompleted hasn't changed
 								// This is a critical safety check to prevent duplicate sacrifices
 								if (riftComp.SacrificesCompleted != currentSacrificeIndex)
@@ -243,10 +243,10 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 									sacrificeProcessedThisFrame = false;
 									continue;
 								}
-								
+
 								// Time for this sacrifice
 								TryPerformFinalSacrifice(riftUid, riftComp, xform);
-								
+
 								// After a sacrifice, immediately check if ritual is complete
 								// This prevents any further processing in this frame
 								// CRITICAL: Check both SacrificesCompleted and FinalSacrificeDone to ensure summoning happens
@@ -257,7 +257,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 									{
 										riftComp.FinalSacrificeDone = true;
 									}
-									
+
 									// SUCCESS! Summon Nar'Sie
 									SummonNarsie(riftUid, xform);
 									AnnounceRitualSuccess();
@@ -399,19 +399,19 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		// Re-check cultist count to prevent sync issues
 		// This ensures we have enough cultists right before the sacrifice
 		var cultistsOnRunes = GetCultistsOnSummoningRunes(component);
-		
+
 		// Ensure we still have enough cultists for the ritual
 		if (cultistsOnRunes.Count < component.RequiredCultistsForChant)
 		{
 			return;
 		}
-			
+
 		if (cultistsOnRunes.Count == 0)
 		{
 			return;
 		}
 
-		// If we haven't picked someone to lead the chant, pick someone. 
+		// If we haven't picked someone to lead the chant, pick someone.
 		// Whoever gets the fancy chant is the next to die. Hopefully that's spooky and ominous.
 		// I want people thinking "Why am I saying something different from everyone else?"
 		// Foreshadowing is fun *evil laugh*
@@ -467,7 +467,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		component.RequiredCultistsForChant = Math.Max(1, component.RequiredCultistsForChant - 1);
 		component.PendingSacrifice = null;
 		component.FinalSacrificePending = false;
-		
+
 		// Record the time of this sacrifice to enforce 5-second cooldown
 		component.TimeSinceLastSacrifice = _timing.CurTime;
 
@@ -889,7 +889,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 			// If pending sacrifice is still in the list and is still a valid participant, keep it
 			if (cultists.Contains(pending) && IsValidSummoningParticipant(pending))
 				return;
-			
+
 			// Otherwise, clear it (entity may have become invalid - e.g., soulstone, juggernaut, shade, or died)
 			component.PendingSacrifice = null;
 		}
@@ -916,7 +916,7 @@ public sealed partial class BloodCultRiftSystem : EntitySystem
 		var audioLength = _audio.GetAudioLength(resolved);
 		component.RitualMusicDuration = (float)audioLength.TotalSeconds;
 		component.RitualStartTime = _timing.CurTime;
-		
+
 		// Initialize sacrifice cooldown to allow first sacrifice immediately
 		// This will be updated after each sacrifice to enforce 5-second minimum
 		component.TimeSinceLastSacrifice = TimeSpan.Zero;

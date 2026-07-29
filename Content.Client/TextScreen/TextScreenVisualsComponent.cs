@@ -73,4 +73,10 @@ public sealed partial class TextScreenVisualsComponent : Component
     public string MinuteFormat = "D2";
     [DataField("secondFormat")]
     public string SecondFormat = "D2";
+
+    /// <summary>
+    /// Funky. Tracks the last drawn clock time so we don't redraw every frame
+    /// </summary>
+    [ViewVariables]
+    public string? LastClockTime = null;
 }

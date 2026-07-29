@@ -9,6 +9,7 @@ public sealed partial class NewsArticleCard : Control
 {
     private string? _authorMarkup;
     private TimeSpan? _publicationTime;
+    private string? _publicationTimeString; // Funky Change
 
     public Action? OnDeletePressed;
     public int ArtcileNumber;
@@ -38,6 +39,19 @@ public sealed partial class NewsArticleCard : Control
             PublishTimeLabel.Text = value?.ToString(@"hh\:mm\:ss") ?? "";
         }
     }
+
+    // Funky Change start
+    public string? PublicationTimeString
+    {
+        get => _publicationTimeString;
+        set
+        {
+            _publicationTimeString = value;
+            if (!string.IsNullOrEmpty(value))
+                PublishTimeLabel.Text = value;
+        }
+    }
+    // Funky Change end
 
     public NewsArticleCard()
     {

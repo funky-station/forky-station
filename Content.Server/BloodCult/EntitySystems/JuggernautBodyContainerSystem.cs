@@ -15,17 +15,17 @@ using Robust.Shared.Random;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
-public sealed class JuggernautBodyContainerSystem : EntitySystem
+public sealed partial class JuggernautBodyContainerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private MindSystem _mind = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        
+
         SubscribeLocalEvent<JuggernautBodyContainerComponent, MobStateChangedEvent>(OnMobStateChanged);
     }
 
@@ -51,29 +51,29 @@ public sealed class JuggernautBodyContainerSystem : EntitySystem
             return;
 
         var coordinates = Transform(uid).Coordinates;
-        
+
         // Get the juggernaut's mind before ejecting
         EntityUid? juggernautMindId = CompOrNull<MindContainerComponent>(uid)?.Mind;
         MindComponent? juggernautMindComp = CompOrNull<MindComponent>(juggernautMindId);
-        
+
         // Eject all entities from the container (should just be the body)
         foreach (var contained in container.ContainedEntities.ToArray())
         {
             _container.Remove(contained, container, destination: coordinates);
-            
+
             // Give the body a physics push for visual effect
             if (TryComp<PhysicsComponent>(contained, out var physics))
             {
                 // Wake the physics body so it responds to the impulse
                 _physics.SetAwake((contained, physics), true);
-                
+
                 // Generate a random direction and speed (8-15 units/sec for dramatic ejection)
                 var randomDirection = _random.NextVector2();
                 var speed = _random.NextFloat(8f, 15f);
                 var impulse = randomDirection * speed * physics.Mass;
                 _physics.ApplyLinearImpulse(contained, impulse, body: physics);
             }
-            
+
             // Transfer the mind back to the body
             if (juggernautMindId != null && juggernautMindComp != null)
             {
@@ -112,23 +112,23 @@ public sealed class JuggernautBodyContainerSystem : EntitySystem
         foreach (var contained in soulstoneContainer.ContainedEntities.ToArray())
         {
             var soulstone = contained;
-            
+
             // Transfer the mind back to the soulstone
             _mind.TransferTo((EntityUid)mindId, soulstone, mind: mindComp);
-            
+
             // Ensure the soulstone can speak but not move
             EnsureComp<SpeechComponent>(soulstone);
             EnsureComp<EmotingComponent>(soulstone);
-            
+
             // Remove the soulstone from the container
             _container.Remove(soulstone, soulstoneContainer, destination: coordinates);
-            
+
             // Give the soulstone a physics push for visual effect
             if (TryComp<PhysicsComponent>(soulstone, out var physics))
             {
                 // Wake the physics body so it responds to the impulse
                 _physics.SetAwake((soulstone, physics), true);
-                
+
                 // Generate a random direction and speed (8-15 units/sec for dramatic ejection)
                 var randomDirection = _random.NextVector2();
                 var speed = _random.NextFloat(8f, 15f);

@@ -21,11 +21,8 @@
         name: clothing-boots-sidearm
         whitelist:
           tags:
-          - Knife
+          - ToyKnife
           - ToySidearm
-        blacklist:
-          components:
-          - Sharp
 
 - type: entity
   parent: ClothingShoesClownBase
@@ -117,6 +114,7 @@
   - type: NoSlip
   - type: SlowedOverSlippery
     slowdownModifier: 0.7
+  - type: NoFootprints # Funky change
   - type: SpeedModifierContactCapClothing
     maxContactSprintSlowdown: 0.7
     maxContactWalkSlowdown: 0.7

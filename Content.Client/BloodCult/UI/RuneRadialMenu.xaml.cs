@@ -23,11 +23,11 @@ namespace Content.Client.BloodCult.UI;
 
 public sealed partial class RuneRadialMenu : RadialMenu
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-    [Dependency] private readonly IResourceCache _resourceCache = default!;
+    [Dependency] private EntityManager _entityManager = default!;
+    [Dependency] private IEntitySystemManager _entitySystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
+    [Dependency] private IResourceCache _resourceCache = default!;
     private SpriteSystem _spriteSystem = default!;
 
 	public event Action<string>? SendRunesMessageAction;
@@ -123,10 +123,10 @@ public sealed partial class RuneRadialMenu : RadialMenu
     // TearVeilRune is special because it has a different rsi
     private Texture GetRuneIconTexture(string rune)
     {
-        var iconName = rune == "TearVeilRune" 
-            ? "narsierune-icon" 
+        var iconName = rune == "TearVeilRune"
+            ? "narsierune-icon"
             : rune.Replace("Rune", "").ToLowerInvariant() + "-icon";
-        
+
         var rsiPath = rune == "TearVeilRune"
             ? "Structures/BloodCult/narsierune.rsi"
             : "Structures/BloodCult/bloodrune.rsi";
