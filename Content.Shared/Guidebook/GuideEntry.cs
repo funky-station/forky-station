@@ -46,4 +46,12 @@ public class GuideEntry
     ///     If the guide is the child of some other guide, the order simply determined by the order of children in <see cref="Children"/>.
     /// </summary>
     [DataField] public int Priority = 0;
+
+    /// <summary>
+    ///     A Funky Station Addition
+    ///     If true, this guide will not appear in the guidebook navigation tree.
+    ///     It can still be opened programmatically or through links.
+    /// </summary>
+    [DataField] 
+    public bool Hidden = false;
 }

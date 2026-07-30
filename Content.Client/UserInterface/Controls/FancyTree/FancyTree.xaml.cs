@@ -263,6 +263,11 @@ public sealed partial class FancyTree : Control
 
     private void RecursivelyUpdateRowStyle(TreeItem item, ref int index)
     {
+	/// Funky Change
+	/// Alows for hidden entries
+        if (!item.DisplayInTree)
+            return;
+
         if (int.IsOddInteger(index))
         {
             item.Button.RemoveStyleClass(TreeItem.StyleClassEvenRow);
@@ -274,16 +279,16 @@ public sealed partial class FancyTree : Control
             item.Button.RemoveStyleClass(TreeItem.StyleClassOddRow);
         }
 
-        index++;
+    	index++;
 
-        if (!item.Expanded)
-            return;
+    	if (!item.Expanded)
+    	    return;
 
-        foreach (var child in item.Body.Children)
-        {
-            RecursivelyUpdateRowStyle((TreeItem) child, ref index);
-        }
-    }
+   	 foreach (var child in item.Body.Children)
+   	 {
+  	      RecursivelyUpdateRowStyle((TreeItem) child, ref index);
+  	  }
+}
 
     private void SetHideEmptyIcon(bool value)
     {

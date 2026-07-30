@@ -1,26 +1,23 @@
 <Document>
+ 
+# Command Training Manual
+### CMD-00
 
-# BY ORDER OF THE CENTRAL COMMAND DEPARTMENT OF CENSURE
+    <Box> [color=green]BY ORDER OF THE CENTRAL COMMAND </Box>
+    <Box> [color=green]DEPARTMENT OF CENSURE </Box>
+    <Box>This file is Level [color=#1b67a5]COMMAND[/color] classified, Unauthorized access is forbidden. </Box>
 
-The following file is [color=#cb0000]Level COMMAND classified[/color]. Unauthorized access is forbidden.
+    <Box> =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= </Box>
 
-If you have come upon this document without proper authorization, provide it to the nearest command member and await additional instructions.
-
-[color=#a4885c]Command Training Manual[/color]
-
-[color=#a4885c]CEA-S-3.54[/color]
-
----
-
-## FOREWORD
+# Foreword
 
 If you are reading this manual, then one of two things has occurred.
 
-You have either been assigned to a command position aboard a NanoTrasen installation, or you have demonstrated the aptitude necessary to be entrusted with one.
+You have either been assigned to a command position aboard a NanoTrasen station, or you have demonstrated the aptitude necessary to be entrusted with one.
 
 Congratulations.
 
-Before continuing, understand that this manual is not introductory reading. It is not intended to teach you how to wear your uniform, complete paperwork, or manage departmental budgets. This document exists to prepare you for the aspects of command that cannot be discussed openly, cannot be taught in public classrooms, and cannot appear in standard operating procedures.
+Before continuing, understand that this manual is not introductory reading. It is not intended to teach you how to wear your uniform, complete paperwork, or manage departmental budgets. This document exists to prepare you for the aspects of command that cannot be discussed openly, cannot be taught in ocupational training, and cannot appear in standard operating procedures.
 
 Everything beyond this page has been classified under corporate authority.
 
@@ -66,21 +63,13 @@ Your authority began upon assuming command.
 
 Your responsibility begins now.
 
-## Thieves
+# Recorded Threats
 
-While light thievery is not uncommon even upon our own stations, sometimes more skilled personnel are discovered operating black market enterprises aboard NanoTrasen facilities.
-
-When apprehended, these personnel are implanted with a pacification implant, permanently recorded within corporate records, and released following completion of their sentence.
-
-To determine whether an individual possesses one of these implants, submit Form NT-REC-512.124 through the appropriate records request process.
-
-Additional intelligence regarding recovered equipment and historical operations can be found in Section █.██.
+The following are threats we have records of that are deemed possible to appear within your assigned sector.
 
 ## The Syndicate
 
-The Syndicate is a conglomeration of personnel drawn from the upper echelons of numerous hostile organizations.
-
-These organizations include rival corporations such as Interdyne and CyberSun, ideological groups including the Animal Rights Consortium, and organized raider organizations such as the Gorlax Marauders.
+The Syndicate is a conglomeration of personnel drawn from the upper echelons of numerous hostile organizations. These organizations include rival corporations such as Interdyne and CyberSun, ideological groups including the Animal Rights Consortium, and organized raider organizations such as the Gorlax Marauders.
 
 ### Undercover Syndicate Agents
 
@@ -88,7 +77,7 @@ These organizations most commonly deploy covert operatives with diverse objectiv
 
 Command personnel should therefore assume nothing regarding an operative's capabilities.
 
-For known operational methods and recovered equipment, refer to Section █.██.
+For known operational targets and recovered equipment, refer to [textlink="Section █.██" link="Traitors"].
 
 ### Nuclear Operatives
 
@@ -96,13 +85,13 @@ On rare occasions, stations may be targeted by Nuclear Operatives.
 
 While public-facing corporate policy continues to dismiss such reports as fictional entertainment, these operatives are real.
 
-They are elite terrorists recruited primarily from organized raider groups and are tasked with the total destruction of NanoTrasen installations through nuclear detonation.
+They are elite terrorists recruited primarily from organized raider groups and are tasked with the total destruction of NanoTrasen stationss through nuclear detonation.
 
 Do not allow them to succeed.
 
-Standard equipment profiles and tactical assessments are available in Section █.██.
+Standard equipment profiles and tactical assessments are available in [textlink="Section █.██" link="NuclearOperatives"].
 
-## Zombies
+### Zombies
 
 The zombie pathogen has been employed by Syndicate forces through contaminated cargo, infected personnel, and during Nuclear Operative assaults.
 
@@ -114,7 +103,7 @@ Stations experiencing confirmed outbreaks should immediately implement quarantin
 
 Upon death, infected individuals become highly aggressive vectors whose sole objective is the spread of infection.
 
-Further information regarding the pathogen and approved treatment protocols is available in Section █.██.
+Further information regarding the pathogen and approved treatment protocols is available in [textlink="Section █.██" link="Zombies"].
 
 ## Religions, Cults, and Magic
 
@@ -138,7 +127,7 @@ These groups are designated Cosmic Cults.
 
 Historical incident reports are maintained within Section █.██.
 
-## Xeno Borgs
+### Xenoborgs
 
 It remains unknown whether standard cyborg designs predate these autonomous constructs or were derived from them.
 
@@ -148,8 +137,18 @@ This grants capabilities substantially exceeding those of conventional NanoTrase
 
 Their observed objective is the acquisition of intelligent life, its integration beneath a unified law structure, and eventual incorporation into a larger collective directed from an unidentified mothership.
 
-Known Xeno Borg classifications are catalogued in Section █.██.
+Known Xenoborg classifications are catalogued in [textlink="Section █.██" link="Xenoborgs"].
+
+## Other Threats
+
+### Thieves
+
+While light thievery is not uncommon even upon our own stations, sometimes more skilled personnel are discovered operating black market enterprises aboard NanoTrasen facilities.
+
+When apprehended, these personnel are provided with a pacification implant, permanently recorded within corporate records, and released following completion of their sentence.
+
+To determine whether an individual possesses one of these implants, submit Form NT-REC-512.124 through the appropriate records request process.
+
+Additional intelligence regarding recovered equipment and historical operations can be found in [textlink="Section █.██" link="Thieves"].
 
 </Document>
-
-

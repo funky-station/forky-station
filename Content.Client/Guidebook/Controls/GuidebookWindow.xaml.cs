@@ -237,6 +237,11 @@ public sealed partial class GuidebookWindow : FancyWindow, ILinkClickHandler, IA
         item.Metadata = entry;
         var name = Loc.GetString(entry.Name);
         item.Label.Text = name;
+        
+        // Funky Change
+        // Hidden entries still exist in the tree, but won't be displayed.
+        item.DisplayInTree = !entry.Hidden;
+        item.Visible = item.DisplayInTree;
 
         foreach (var child in entry.Children)
         {

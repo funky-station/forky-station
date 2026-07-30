@@ -7,5 +7,6 @@
 
 - type: guideEntry
   id: CTM
-  name: command-training-manual
+  name: guide-entry-command-training-manual
   text: "/ServerInfo/_Funky/Guidebook/CEA/CTM.xml"
+  hidden: true

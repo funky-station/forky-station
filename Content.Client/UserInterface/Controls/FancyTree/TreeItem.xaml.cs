@@ -22,6 +22,9 @@ public sealed partial class TreeItem : PanelContainer
     public event Action<TreeItem>? OnSelected;
     public event Action<TreeItem>? OnDeselected;
 
+    /// Funky Change for invisible guidebook enteries
+    public bool DisplayInTree { get; set; } = true;
+
     public bool Expanded { get; private set; } = false;
 
     public TreeItem()

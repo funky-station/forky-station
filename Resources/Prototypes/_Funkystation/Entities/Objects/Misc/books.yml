@@ -1,0 +1,20 @@
+- type: entity
+  id: BookCorporateSecrets
+  parent: [BaseGuidebook]
+  name: Command Training Manual
+  description: The cover reads [color=red]"If you have come upon this document without proper authorization, provide it to the nearest command member and await additional instructions"[/color]
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/books.rsi
+    layers:
+    - state: corporate-secrets
+  - type: GuideHelp
+    guides:
+    - CTM
+    - Traitors
+    - NuclearOperatives
+    - Zombies
+    - SpaceNinja
+    - Xenoborgs
+    - Thieves
+    - MinorAntagonists
