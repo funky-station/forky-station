@@ -52,6 +52,7 @@
         max: 15
     - id: PlushieLizardJobCaptain
       prob: 0.02
+    - id: BookCorporateSecrets #Funky change
 
 # No laser table + Laser table
 - type: entityTable
