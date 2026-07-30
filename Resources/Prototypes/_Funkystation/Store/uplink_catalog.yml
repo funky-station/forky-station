@@ -3,7 +3,7 @@
   id: UplinkPistolWyvern
   name: uplink-pistol-wyvern-name
   description: uplink-pistol-wyvern-desc
-  productEntity: WeaponPistolWyvernSyndicate
+  productEntity: WeaponPistolWyvern
   cost:
     Telecrystal: 8
   categories:
@@ -22,23 +22,23 @@
   categories:
   - UplinkAmmo
   saleBlacklist: true
-
-- type: listing
-  id: UplinkPistolLargeMagazineIncendiary
-  name: uplink-pistol-magazine-large-incendiary-name
-  description: uplink-pistol-magazine-large-incendiary-desc
-  icon: { sprite: /Textures/_Funkystation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag_50.rsi, state: red-icon }
-  productEntity: MagazinePistolLargeIncendiary
-  cost:
-    Telecrystal: 2
-  categories:
-  - UplinkAmmo
-  saleBlacklist: true
   conditions:
     - !type:BuyerWhitelistCondition # as to not spam the surplus crates with a bunch of ammo types
       blacklist:
         components:
           - SurplusBundle
+
+- type: listing
+  id: UplinkPistolLargeMagazineIncendiary
+  name: uplink-pistol-magazine-large-name
+  description: uplink-pistol-magazine-large-desc
+  icon: { sprite: /Textures/_Funkystation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag_50.rsi, state: base }
+  productEntity: MagazinePistolLarge
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAmmo
+  saleBlacklist: true
 
 # Estoc, except this time it actually is useful (i hope)
 - type: listing
