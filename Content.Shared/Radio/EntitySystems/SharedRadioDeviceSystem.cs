@@ -32,7 +32,8 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        if (!enabled && TryComp<RadioMicrophoneComponent>(uid, out RadioMicrophoneComponent? mic) && mic.Enabled)
+        // If the mic is on when the speaker is turned off, turn the mic off (Funkystation)
+        if (!enabled && TryComp<RadioMicrophoneComponent>(uid, out var mic) && mic.Enabled)
         {
             SetMicrophoneEnabled(uid, user, false, true, mic);
         }
