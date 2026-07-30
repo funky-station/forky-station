@@ -1,14 +1,3 @@
-# SPDX-FileCopyrightText: 2023 coolmankid12345 <55817627+coolmankid12345@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 IntegerTempest <30300017+IntegerTempest@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 psykana <36602558+psykana@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Golinth <amh2023@gmail.com>
-# SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: factionIcon
   id: ZombieFaction
   priority: 11
@@ -18,7 +7,7 @@
     - Zombie
     - InitialInfected
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: &job-icon-rsi /Textures/_Funkystation/Interface/Misc/job_icons.rsi # Funky - Any antag faction icons that are already ID card options go here
     state: Zombie
 
 - type: factionIcon
@@ -30,7 +19,7 @@
     - InitialInfected
     - Zombie
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: &antag-icon-rsi /Textures/_Funkystation/Interface/Misc/antag_icons.rsi # Funky - All other antag faction icons go here
     state: InitialInfected
 
 - type: factionIcon
@@ -42,7 +31,7 @@
       - ShowAntagIcons
       - Revolutionary
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: *antag-icon-rsi # Funky
     state: Revolutionary
 
 - type: factionIcon
@@ -54,7 +43,7 @@
       - ShowAntagIcons
       - Revolutionary
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: *antag-icon-rsi # Funky
     state: HeadRevolutionary
 
 - type: factionIcon
@@ -68,7 +57,7 @@
       - ShowAntagIcons
       - BloodCultist
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: *antag-icon-rsi # Funky
     state: Cultist
 
 - type: factionIcon
@@ -76,5 +65,5 @@
   priority: 0
   locationPreference: Left
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
+    sprite: *job-icon-rsi # Funky
     state: Syndicate

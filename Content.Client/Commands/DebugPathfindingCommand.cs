@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2020, 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 zamp <v.j.nousiainen@gmail.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 PrPleGoo <PrPleGoo@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.NPC;
 using Content.Shared.NPC;
 using JetBrains.Annotations;
@@ -15,9 +7,9 @@ using System.Linq;
 namespace Content.Client.Commands;
 
 [UsedImplicitly]
-public sealed class DebugPathfindingCommand : LocalizedCommands
+public sealed partial class DebugPathfindingCommand : LocalizedCommands
 {
-    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] private IEntitySystemManager _entitySystemManager = default!;
 
     public override string Command => "pathfinder";
 

@@ -35,19 +35,19 @@ using System.Collections.Generic;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
-public sealed class SoulStoneSystem : EntitySystem
+public sealed partial class SoulStoneSystem : EntitySystem
 {
-	[Dependency] private readonly MindSystem _mind = default!;
-	[Dependency] private readonly PopupSystem _popupSystem = default!;
-	[Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-	[Dependency] private readonly BloodCultRuleSystem _cultRuleSystem = default!;
-	[Dependency] private readonly BloodCultConstructSystem _constructSystem = default!;
-	[Dependency] private readonly MobStateSystem _mobState = default!;
-	[Dependency] private readonly IEntityManager _entityManager = default!;
-	[Dependency] private readonly DamageableSystem _damageable = default!;
-	[Dependency] private readonly RoleSystem _role = default!;
-	[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
-	[Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
+	[Dependency] private MindSystem _mind = default!;
+	[Dependency] private PopupSystem _popupSystem = default!;
+	[Dependency] private SharedAudioSystem _audioSystem = default!;
+	[Dependency] private BloodCultRuleSystem _cultRuleSystem = default!;
+	[Dependency] private BloodCultConstructSystem _constructSystem = default!;
+	[Dependency] private MobStateSystem _mobState = default!;
+	[Dependency] private IEntityManager _entityManager = default!;
+	[Dependency] private DamageableSystem _damageable = default!;
+	[Dependency] private RoleSystem _role = default!;
+	[Dependency] private BloodstreamSystem _bloodstream = default!;
+	[Dependency] private SharedColorFlashEffectSystem _color = default!;
 
 	private EntityQuery<ShadeComponent> _shadeQuery;
 
@@ -59,18 +59,18 @@ public sealed class SoulStoneSystem : EntitySystem
 		SubscribeLocalEvent<SoulStoneComponent, UseInHandEvent>(OnUseInHand);
 		SubscribeLocalEvent<ShadeComponent, MobStateChangedEvent>(OnShadeDeath);
 		SubscribeLocalEvent<SoulStoneComponent, DestructionEventArgs>(OnSoulStoneDestroyed);
-		
+
 		// Prevent soulstones from moving or rotating
 		SubscribeLocalEvent<SoulStoneComponent, UpdateCanMoveEvent>(OnSoulstoneMove);
 		SubscribeLocalEvent<SoulStoneComponent, MoveInputEvent>(OnSoulstoneMoveInput);
-		
+
 		// Ensure soulstones can speak and emote when they have a mind
 		SubscribeLocalEvent<SoulStoneComponent, ComponentStartup>(OnSoulstoneStartup);
 		SubscribeLocalEvent<SoulStoneComponent, DamageChangedEvent>(OnSoulstoneDamaged);
 
 		_shadeQuery = GetEntityQuery<ShadeComponent>();
 	}
-	
+
 	private void OnSoulstoneStartup(EntityUid uid, SoulStoneComponent component, ComponentStartup args)
 	{
 		// Ensure the soulstone has speech components if it has a mind
@@ -155,17 +155,17 @@ public sealed class SoulStoneSystem : EntitySystem
 				{
 					_role.MindAddRole(mindId, "MindRoleCultist", mindComp);
 				}
-				
+
 				// Damage the user for releasing the shade
 				if (TryComp<DamageableComponent>(args.User, out var damageableForShade))
 				{
 					var damage = new DamageSpecifier();
-					
+
 					// Deal significant slash damage (30 points)
 					damage.DamageDict.Add("Slash", FixedPoint2.New(30));
-					
+
 					_damageable.TryChangeDamage((args.User, damageableForShade), damage, ignoreResistances: false, interruptsDoAfters: true);
-					
+
 					// Add a very large bleed if the user has a bloodstream
 					if (TryComp<BloodstreamComponent>(args.User, out var bloodstream))
 					{
@@ -173,17 +173,17 @@ public sealed class SoulStoneSystem : EntitySystem
 						_bloodstream.TryModifyBleedAmount((args.User, bloodstream), 10.0f);
 					}
 				}
-				
+
 				var summonCoordinates = Transform((EntityUid)args.User).Coordinates;
 				var shadeEntity = Spawn("MobBloodCultShade", summonCoordinates);
 				_mind.TransferTo(mindId, shadeEntity);
-				
+
 				// Set the soulstone reference on the Shade so it knows where to return
 				if (TryComp<ShadeComponent>(shadeEntity, out var shadeComponent))
 				{
 					shadeComponent.SourceSoulstone = ent;
 				}
-			
+
 				_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), summonCoordinates);
 				_popupSystem.PopupEntity(
 					Loc.GetString("cult-shade-summoned"),
@@ -214,7 +214,7 @@ public sealed class SoulStoneSystem : EntitySystem
 
 
 		var soulstone = shade.Comp.SourceSoulstone.Value;
-		
+
 		// Verify the soulstone still exists
 		if (!Exists(soulstone))
 			return;
@@ -227,20 +227,20 @@ public sealed class SoulStoneSystem : EntitySystem
 	// Transfer the mind back to the soulstone
 	var coordinates = Transform(shade).Coordinates;
 	_mind.TransferTo(mindId.Value, soulstone);
-	
+
 	// Ensure the soulstone can speak but not move
 	EnsureComp<SpeechComponent>(soulstone);
 	EnsureComp<EmotingComponent>(soulstone);
-	
+
 	_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), coordinates);
-		
+
 		// Delete the Shade entity
 		QueueDel(shade);
 	}
 
 	private void OnSoulStoneDestroyed(Entity<SoulStoneComponent> soulstone, ref DestructionEventArgs args)
 	{
-	
+
 		// Figure out where the soulstone is
 		var coordinates = Transform(soulstone).Coordinates;
 		// Glassbreak sound playing at the coordinates above

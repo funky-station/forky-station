@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2022, 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Shuttles.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Dynamics;
@@ -16,12 +10,9 @@ namespace Content.Server.Shuttles.Systems;
 /// </summary>
 public sealed class SpaceGarbageSystem : EntitySystem
 {
-    private EntityQuery<TransformComponent> _xformQuery;
-
     public override void Initialize()
     {
         base.Initialize();
-        _xformQuery = GetEntityQuery<TransformComponent>();
         SubscribeLocalEvent<SpaceGarbageComponent, StartCollideEvent>(OnCollide);
     }
 
@@ -30,8 +21,8 @@ public sealed class SpaceGarbageSystem : EntitySystem
         if (args.OtherBody.BodyType != BodyType.Static)
             return;
 
-        var ourXform = _xformQuery.GetComponent(uid);
-        var otherXform = _xformQuery.GetComponent(args.OtherEntity);
+        var ourXform = Transform(uid);
+        var otherXform = Transform(args.OtherEntity);
 
         if (ourXform.GridUid == otherXform.GridUid)
             return;

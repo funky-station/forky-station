@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Text.Json;
 using Microsoft.EntityFrameworkCore.Migrations;
 

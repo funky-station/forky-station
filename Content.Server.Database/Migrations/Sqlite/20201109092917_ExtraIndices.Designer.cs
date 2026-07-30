@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2020, 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
-// SPDX-License-Identifier: MIT
-
 using System;
 using Content.Server.Database;
 using Microsoft.EntityFrameworkCore;

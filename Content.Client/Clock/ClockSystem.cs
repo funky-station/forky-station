@@ -1,15 +1,11 @@
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Clock;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.Clock;
 
-public sealed class ClockSystem : SharedClockSystem
+public sealed partial class ClockSystem : SharedClockSystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Update(float frameTime)
     {

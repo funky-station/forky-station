@@ -1,53 +1,15 @@
-// SPDX-FileCopyrightText: 2020-2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 SoulSloth <67545203+SoulSloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022, 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 och-och <80923370+och-och@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023-2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 corentt <36075110+corentt@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 poklj <compgeek223@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
-using Content.Server.Humanoid;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Body;
 using Content.Shared.Cloning;
 using Content.Shared.Cloning.Events;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.StatusEffect;
-using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Whitelist;
@@ -65,22 +27,23 @@ namespace Content.Server.Cloning;
 /// </summary>
 public sealed partial class CloningSystem : SharedCloningSystem
 {
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedStorageSystem _storage = default!;
-    [Dependency] private readonly SharedSubdermalImplantSystem _subdermalImplant = default!;
-    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
-    [Dependency] private readonly NameModifierSystem _nameMod = default!;
-    [Dependency] private readonly Shared.StatusEffectNew.StatusEffectsSystem _statusEffects = default!; //TODO: This system has to support both the old and new status effect systems, until the old is able to be fully removed.
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedStorageSystem _storage = default!;
+    [Dependency] private SharedSubdermalImplantSystem _subdermalImplant = default!;
+    [Dependency] private SharedVisualBodySystem _visualBody = default!;
+    [Dependency] private NameModifierSystem _nameMod = default!;
+    [Dependency] private IdentitySystem _identity = default!;
 
-    /// <summary>
-    ///     Spawns a clone of the given humanoid mob at the specified location or in nullspace.
-    /// </summary>
-    public bool TryCloning(EntityUid original, MapCoordinates? coords, ProtoId<CloningSettingsPrototype> settingsId, [NotNullWhen(true)] out EntityUid? clone)
+    public override bool TryCloning(
+        EntityUid original,
+        MapCoordinates? coords,
+        ProtoId<CloningSettingsPrototype> settingsId,
+        [NotNullWhen(true)] out EntityUid? clone)
     {
         clone = null;
         if (!_prototype.Resolve(settingsId, out var settings))
@@ -92,10 +55,13 @@ public sealed partial class CloningSystem : SharedCloningSystem
         if (!_prototype.Resolve(humanoid.Species, out var speciesPrototype))
             return false; // invalid species
 
-        var attemptEv = new CloningAttemptEvent(settings);
-        RaiseLocalEvent(original, ref attemptEv);
-        if (attemptEv.Cancelled && !settings.ForceCloning)
-            return false; // cannot clone, for example due to the unrevivable trait
+        if (!settings.ForceCloning)
+        {
+            var attemptEv = new CloningAttemptEvent(settings);
+            RaiseLocalEvent(original, ref attemptEv);
+            if (attemptEv.Cancelled)
+                return false; // cannot clone, for example due to the unrevivable trait
+        }
 
         clone = coords == null ? Spawn(speciesPrototype.Prototype) : Spawn(speciesPrototype.Prototype, coords.Value);
         _visualBody.CopyAppearanceFrom(original, clone.Value);
@@ -122,13 +88,17 @@ public sealed partial class CloningSystem : SharedCloningSystem
         var originalName = _nameMod.GetBaseName(original);
 
         // Set the clone's name. The raised events will also adjust their PDA and ID card names.
-        _metaData.SetEntityName(clone.Value, originalName);
+        _metaData.SetEntityName(clone.Value, originalName, raiseEvents: settings.RaiseEntityRenamedEvent);
+        _identity.QueueIdentityUpdate(clone.Value); // We have to manually refresh the identity in case we did not raise events.
 
         _adminLogger.Add(LogType.Chat, LogImpact.Medium, $"The body of {original:player} was cloned as {clone.Value:player}");
         return true;
     }
 
-    public override void CloneComponents(EntityUid original, EntityUid clone, ProtoId<CloningSettingsPrototype> settings)
+    public override void CloneComponents(
+        EntityUid original,
+        EntityUid clone,
+        ProtoId<CloningSettingsPrototype> settings)
     {
         if (!_prototype.Resolve(settings, out var proto))
             return;
@@ -136,7 +106,10 @@ public sealed partial class CloningSystem : SharedCloningSystem
         CloneComponents(original, clone, proto);
     }
 
-    public override void CloneComponents(EntityUid original, EntityUid clone, CloningSettingsPrototype settings)
+    public override void CloneComponents(
+        EntityUid original,
+        EntityUid clone,
+        CloningSettingsPrototype settings)
     {
         var componentsToCopy = settings.Components;
         var componentsToEvent = settings.EventComponents;
@@ -182,11 +155,12 @@ public sealed partial class CloningSystem : SharedCloningSystem
         RaiseLocalEvent(original, ref cloningEv); // used for datafields that cannot be directly copied using CopyComp
     }
 
-    /// <summary>
-    ///     Copies the equipment the original has to the clone.
-    ///     This uses the original prototype of the items, so any changes to components that are done after spawning are lost!
-    /// </summary>
-    public void CopyEquipment(Entity<InventoryComponent?> original, Entity<InventoryComponent?> clone, SlotFlags slotFlags, EntityWhitelist? whitelist = null, EntityWhitelist? blacklist = null)
+    public override void CopyEquipment(
+        Entity<InventoryComponent?> original,
+        Entity<InventoryComponent?> clone,
+        SlotFlags slotFlags,
+        EntityWhitelist? whitelist = null,
+        EntityWhitelist? blacklist = null)
     {
         if (!Resolve(original, ref original.Comp) || !Resolve(clone, ref clone.Comp))
             return;
@@ -204,15 +178,11 @@ public sealed partial class CloningSystem : SharedCloningSystem
         }
     }
 
-    /// <summary>
-    ///     Copies an item and its storage recursively, placing all items at the same position in grid storage.
-    ///     This uses the original prototype of the items, so any changes to components that are done after spawning are lost!
-    /// </summary>
-    /// <remarks>
-    ///     This is not perfect and only considers item in storage containers.
-    ///     Some components have their own additional spawn logic on map init, so we cannot just copy all containers.
-    /// </remarks>
-    public EntityUid? CopyItem(EntityUid original, EntityCoordinates coords, EntityWhitelist? whitelist = null, EntityWhitelist? blacklist = null)
+    public override EntityUid? CopyItem(
+        EntityUid original,
+        EntityCoordinates coords,
+        EntityWhitelist? whitelist = null,
+        EntityWhitelist? blacklist = null)
     {
         // we use a whitelist and blacklist to be sure to exclude any problematic entities
         if (!_whitelist.CheckBoth(original, blacklist, whitelist))
@@ -248,12 +218,11 @@ public sealed partial class CloningSystem : SharedCloningSystem
         return spawned;
     }
 
-    /// <summary>
-    ///     Copies an item's storage recursively to another storage.
-    ///     The storage grids should have the same shape or it will drop on the floor.
-    ///     Basically the same as CopyItem, but we don't copy the outermost container.
-    /// </summary>
-    public void CopyStorage(Entity<StorageComponent?> original, Entity<StorageComponent?> target, EntityWhitelist? whitelist = null, EntityWhitelist? blacklist = null)
+    public override void CopyStorage(
+        Entity<StorageComponent?> original,
+        Entity<StorageComponent?> target,
+        EntityWhitelist? whitelist = null,
+        EntityWhitelist? blacklist = null)
     {
         if (!Resolve(original, ref original.Comp, false) || !Resolve(target, ref target.Comp, false))
             return;
@@ -272,17 +241,12 @@ public sealed partial class CloningSystem : SharedCloningSystem
         }
     }
 
-    /// <summary>
-    ///     Copies all implants from one mob to another.
-    ///     Might result in duplicates if the target already has them.
-    ///     Can copy the storage inside a storage implant according to a whitelist and blacklist.
-    /// </summary>
-    /// <param name="original">Entity to copy implants from.</param>
-    /// <param name="target">Entity to copy implants to.</param>
-    /// <param name="copyStorage">If true will copy storage of the implants (E.g storage implant)</param>
-    /// <param name="whitelist">Whitelist for the storage copy (If copyStorage is true)</param>
-    /// <param name="blacklist">Blacklist for the storage copy (If copyStorage is true)</param>
-    public void CopyImplants(Entity<ImplantedComponent?> original, EntityUid target, bool copyStorage = false, EntityWhitelist? whitelist = null, EntityWhitelist? blacklist = null)
+    public override void CopyImplants(
+        Entity<ImplantedComponent?> original,
+        EntityUid target,
+        bool copyStorage = false,
+        EntityWhitelist? whitelist = null,
+        EntityWhitelist? blacklist = null)
     {
         if (!Resolve(original, ref original.Comp, false))
             return; // they don't have any implants to copy!
@@ -308,36 +272,6 @@ public sealed partial class CloningSystem : SharedCloningSystem
 
             if (copyStorage)
                 CopyStorage(originalImplant, targetImplant.Value, whitelist, blacklist); // only needed for storage implants
-        }
-
-    }
-
-    /// <summary>
-    ///    Scans all permanent status effects applied to the original entity and transfers them to the clone.
-    /// </summary>
-    public void CopyStatusEffects(Entity<StatusEffectContainerComponent?> original, Entity<StatusEffectContainerComponent?> target)
-    {
-        if (!Resolve(original, ref original.Comp, false))
-            return;
-
-        if (original.Comp.ActiveStatusEffects is null)
-            return;
-
-        foreach (var effect in original.Comp.ActiveStatusEffects.ContainedEntities)
-        {
-            if (!TryComp<StatusEffectComponent>(effect, out var effectComp))
-                continue;
-
-            //We are not interested in temporary effects, only permanent ones.
-            if (effectComp.EndEffectTime is not null)
-                continue;
-
-            var effectProto = Prototype(effect);
-
-            if (effectProto is null)
-                continue;
-
-            _statusEffects.TrySetStatusEffectDuration(target, effectProto);
         }
     }
 }

@@ -1,0 +1,28 @@
+# Costume bundles that represent uniforms for specific jobs - for example, "alt costumes" for clowns.
+# =======================
+
+- type: entity
+  parent: BaseCostumeBundle
+  id: CostumeBundleJester
+  name: jester costume bundle
+  components:
+  - type: Sprite
+    layers:
+    - state: outfit-1
+      map: [ "enum.StorageFillLayers.Fill" ]
+      color: "#dd1818"
+    - state: wrapper-fill
+      color: "#ffffff22"
+    - state: wrapper
+    - state: label
+      color: "#74ff33"
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatJester
+        - id: ClothingHeadHatJesterAlt
+        - id: ClothingUniformJumpsuitJester
+        - id: ClothingUniformJumpsuitJesterAlt
+        - id: ClothingShoesJester
+        - id: ClothingShoesJester

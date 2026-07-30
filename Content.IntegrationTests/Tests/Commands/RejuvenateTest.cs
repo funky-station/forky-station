@@ -1,22 +1,4 @@
-// SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 DamianX <DamianX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Silver <silvertorch5@gmail.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+﻿using Content.IntegrationTests.Fixtures;
 using Content.Shared.Administration.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -33,7 +15,7 @@ namespace Content.IntegrationTests.Tests.Commands
 {
     [TestFixture]
     [TestOf(typeof(RejuvenateSystem))]
-    public sealed class RejuvenateTest
+    public sealed class RejuvenateTest : GameTest
     {
         private static readonly ProtoId<DamageGroupPrototype> TestDamageGroup = "Toxin";
 
@@ -44,6 +26,7 @@ namespace Content.IntegrationTests.Tests.Commands
   id: DamageableDummy
   components:
   - type: Damageable
+  - type: Injurable
     damageContainer: Biological
   - type: MobState
   - type: MobThresholds
@@ -55,7 +38,7 @@ namespace Content.IntegrationTests.Tests.Commands
         [Test]
         public async Task RejuvenateDeadTest()
         {
-            await using var pair = await PoolManager.GetServerClient();
+            var pair = Pair;
             var server = pair.Server;
             var entManager = server.ResolveDependency<IEntityManager>();
             var prototypeManager = server.ResolveDependency<IPrototypeManager>();
@@ -108,10 +91,9 @@ namespace Content.IntegrationTests.Tests.Commands
                     Assert.That(mobStateSystem.IsDead(human, mobState), Is.False);
                     Assert.That(mobStateSystem.IsIncapacitated(human, mobState), Is.False);
 
-                    Assert.That(damageable.TotalDamage, Is.EqualTo(FixedPoint2.Zero));
+                    Assert.That(damSystem.GetTotalDamage((human, damageable)), Is.EqualTo(FixedPoint2.Zero));
                 });
             });
-            await pair.CleanReturnAsync();
         }
     }
 }

@@ -1,15 +1,3 @@
-// SPDX-FileCopyrightText: 2020-2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020, 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 mirrorcult <notzombiedude@gmail.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Eui;
 using Robust.Server.Player;
 using Robust.Shared.Enums;
@@ -19,11 +7,11 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.EUI
 {
-    public sealed class EuiManager : IPostInjectInit
+    public sealed partial class EuiManager : IPostInjectInit
     {
-        [Dependency] private readonly ILogManager _log = default!;
-        [Dependency] private readonly IPlayerManager _players = default!;
-        [Dependency] private readonly IServerNetManager _net = default!;
+        [Dependency] private ILogManager _log = default!;
+        [Dependency] private IPlayerManager _players = default!;
+        [Dependency] private IServerNetManager _net = default!;
 
         private ISawmill? _sawmill;
 

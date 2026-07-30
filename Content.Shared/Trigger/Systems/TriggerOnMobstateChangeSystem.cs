@@ -1,15 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Arendian <137322659+Arendian@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 WlarusFromDaSpace <44726328+WlarusFromDaSpace@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aexxie <codyfox.077@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Implants;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
@@ -20,7 +8,7 @@ namespace Content.Shared.Trigger.Systems;
 
 public sealed partial class TriggerOnMobstateChangeSystem : TriggerOnXSystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -43,10 +31,10 @@ public sealed partial class TriggerOnMobstateChangeSystem : TriggerOnXSystem
 
     private void OnMobStateRelay(EntityUid uid, TriggerOnMobstateChangeComponent component, ImplantRelayEvent<MobStateChangedEvent> args)
     {
-        if (!component.MobState.Contains(args.Event.NewMobState))
+        if (!component.MobState.Contains(args.Args.NewMobState))
             return;
 
-        Trigger.Trigger(uid, component.TargetMobstateEntity ? args.ImplantedEntity : args.Event.Origin, component.KeyOut);
+        Trigger.Trigger(uid, component.TargetMobstateEntity ? args.ImplantedEntity : args.Args.Origin, component.KeyOut);
     }
 
     /// <summary>
@@ -68,13 +56,13 @@ public sealed partial class TriggerOnMobstateChangeSystem : TriggerOnXSystem
 
     private void OnSuicideRelay(EntityUid uid, TriggerOnMobstateChangeComponent component, ImplantRelayEvent<SuicideEvent> args)
     {
-        if (args.Event.Handled)
+        if (args.Args.Handled)
             return;
 
         if (!component.PreventSuicide)
             return;
 
-        _popup.PopupClient(Loc.GetString("suicide-prevented"), args.Event.Victim);
-        args.Event.Handled = true;
+        _popup.PopupClient(Loc.GetString("suicide-prevented"), args.Args.Victim);
+        args.Args.Handled = true;
     }
 }

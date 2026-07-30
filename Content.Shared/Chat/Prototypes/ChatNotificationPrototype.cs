@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Crotalus <Crotalus@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 

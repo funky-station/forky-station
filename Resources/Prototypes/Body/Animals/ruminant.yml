@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: [ OrganBaseStomach, OrganAnimalInternal, OrganAnimalMetabolizer ]
   id: OrganRuminantStomach
@@ -12,10 +9,18 @@
       - Ruminant
       - Wheat
       - BananaPeel
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      stomach:
-        maxVol: 80
+    - SolutionStomachRuminant
+
+- type: entity
+  parent: SolutionStomach
+  id: SolutionStomachRuminant
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 240
 
 - type: entity
   id: BaseMobRuminant

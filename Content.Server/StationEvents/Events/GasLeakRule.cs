@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.StationEvents.Components;
@@ -16,10 +8,10 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.StationEvents.Events
 {
-    internal sealed class GasLeakRule : StationEventSystem<GasLeakRuleComponent>
+    internal sealed partial class GasLeakRule : StationEventSystem<GasLeakRuleComponent>
     {
-        [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
+        [Dependency] private IGameTiming _timing = default!;
+        [Dependency] private AtmosphereSystem _atmosphere = default!;
 
         protected override void Started(EntityUid uid, GasLeakRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
         {

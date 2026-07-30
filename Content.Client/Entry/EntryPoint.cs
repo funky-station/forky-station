@@ -1,64 +1,4 @@
-// SPDX-FileCopyrightText: 2017-2025 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2017-2018 PJB3005 <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2018-2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2018 clusterfack <clusterfack@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019-2020, 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019-2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019-2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019-2020 moneyl <8206401+Moneyl@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019-2020 DamianX <DamianX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019 Silver <Silvertorch5@gmail.com>
-// SPDX-FileCopyrightText: 2020-2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
-// SPDX-FileCopyrightText: 2020 nuke <47336974+nuke-makes-games@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 ancientpower <evafleck@gmail.com>
-// SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
-// SPDX-FileCopyrightText: 2020 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Tyler Young <tyler.young@impromptu.ninja>
-// SPDX-FileCopyrightText: 2020 py01 <60152240+collinlunn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 F77F <66768086+F77F@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 FL-OZ <yetanotherscuffed@gmail.com>
-// SPDX-FileCopyrightText: 2020 Swept <jamesurquhartwebb@gmail.com>
-// SPDX-FileCopyrightText: 2020 zumorica <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2020 Tomeno <Tomeno@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Jackson Lewis <inquisitivepenguin@protonmail.com>
-// SPDX-FileCopyrightText: 2020 Injazz <injazza@gmail.com>
-// SPDX-FileCopyrightText: 2020 adrian <artii.ftw@hotmail.com>
-// SPDX-FileCopyrightText: 2021-2023 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2021-2022 Vera Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2021-2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2021 Pancake <Pangogie@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 GraniteSidewalk <32942106+GraniteSidewalk@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022, 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Miro Kavaliou <miraslauk@gmail.com>
-// SPDX-FileCopyrightText: 2023 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024-2025 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Matthew Herber <32679887+Happyrobot33@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Justin Pfeifler <jrpl101998@gmail.com>
-// SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 deathride58 <deathride58@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+using Content.Client._Funkystation.Explosion; // Funky RMC explosions
 using Content.Client.Administration.Managers;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
@@ -104,42 +44,42 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.Entry
 {
-    public sealed class EntryPoint : GameClient
+    public sealed partial class EntryPoint : GameClient
     {
-        [Dependency] private readonly IBaseClient _baseClient = default!;
-        [Dependency] private readonly IGameController _gameController = default!;
-        [Dependency] private readonly IStateManager _stateManager = default!;
-        [Dependency] private readonly IComponentFactory _componentFactory = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IClientAdminManager _adminManager = default!;
-        [Dependency] private readonly IParallaxManager _parallaxManager = default!;
-        [Dependency] private readonly IConfigurationManager _configManager = default!;
-        [Dependency] private readonly IStylesheetManager _stylesheetManager = default!;
-        [Dependency] private readonly IScreenshotHook _screenshotHook = default!;
-        [Dependency] private readonly FullscreenHook _fullscreenHook = default!;
-        [Dependency] private readonly ChangelogManager _changelogManager = default!;
-        [Dependency] private readonly ViewportManager _viewportManager = default!;
-        [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
-        [Dependency] private readonly IInputManager _inputManager = default!;
-        [Dependency] private readonly IOverlayManager _overlayManager = default!;
-        [Dependency] private readonly IChatManager _chatManager = default!;
-        [Dependency] private readonly IClientPreferencesManager _clientPreferencesManager = default!;
-        [Dependency] private readonly EuiManager _euiManager = default!;
-        [Dependency] private readonly IVoteManager _voteManager = default!;
-        [Dependency] private readonly DocumentParsingManager _documentParsingManager = default!;
-        [Dependency] private readonly GhostKickManager _ghostKick = default!;
-        [Dependency] private readonly ExtendedDisconnectInformationManager _extendedDisconnectInformation = default!;
-        [Dependency] private readonly JobRequirementsManager _jobRequirements = default!;
-        [Dependency] private readonly ContentLocalizationManager _contentLoc = default!;
-        [Dependency] private readonly ContentReplayPlaybackManager _playbackMan = default!;
-        [Dependency] private readonly IResourceManager _resourceManager = default!;
-        [Dependency] private readonly IReplayLoadManager _replayLoad = default!;
-        [Dependency] private readonly ILogManager _logManager = default!;
-        [Dependency] private readonly DebugMonitorManager _debugMonitorManager = default!;
-        [Dependency] private readonly TitleWindowManager _titleWindowManager = default!;
-        [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
-        [Dependency] private readonly ClientsidePlaytimeTrackingManager _clientsidePlaytimeManager = default!;
-        [Dependency] private readonly ClientFeedbackManager _feedbackManager = null!;
+        [Dependency] private IBaseClient _baseClient = default!;
+        [Dependency] private IGameController _gameController = default!;
+        [Dependency] private IStateManager _stateManager = default!;
+        [Dependency] private IComponentFactory _componentFactory = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IClientAdminManager _adminManager = default!;
+        [Dependency] private IParallaxManager _parallaxManager = default!;
+        [Dependency] private IConfigurationManager _configManager = default!;
+        [Dependency] private IStylesheetManager _stylesheetManager = default!;
+        [Dependency] private IScreenshotHook _screenshotHook = default!;
+        [Dependency] private FullscreenHook _fullscreenHook = default!;
+        [Dependency] private ChangelogManager _changelogManager = default!;
+        [Dependency] private ViewportManager _viewportManager = default!;
+        [Dependency] private IUserInterfaceManager _userInterfaceManager = default!;
+        [Dependency] private IInputManager _inputManager = default!;
+        [Dependency] private IOverlayManager _overlayManager = default!;
+        [Dependency] private IChatManager _chatManager = default!;
+        [Dependency] private IClientPreferencesManager _clientPreferencesManager = default!;
+        [Dependency] private EuiManager _euiManager = default!;
+        [Dependency] private IVoteManager _voteManager = default!;
+        [Dependency] private DocumentParsingManager _documentParsingManager = default!;
+        [Dependency] private GhostKickManager _ghostKick = default!;
+        [Dependency] private ExtendedDisconnectInformationManager _extendedDisconnectInformation = default!;
+        [Dependency] private JobRequirementsManager _jobRequirements = default!;
+        [Dependency] private ContentLocalizationManager _contentLoc = default!;
+        [Dependency] private ContentReplayPlaybackManager _playbackMan = default!;
+        [Dependency] private IResourceManager _resourceManager = default!;
+        [Dependency] private IReplayLoadManager _replayLoad = default!;
+        [Dependency] private ILogManager _logManager = default!;
+        [Dependency] private DebugMonitorManager _debugMonitorManager = default!;
+        [Dependency] private TitleWindowManager _titleWindowManager = default!;
+        [Dependency] private IEntitySystemManager _entitySystemManager = default!;
+        [Dependency] private ClientsidePlaytimeTrackingManager _clientsidePlaytimeManager = default!;
+        [Dependency] private ClientFeedbackManager _feedbackManager = null!;
 
         public override void PreInit()
         {
@@ -180,7 +120,6 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("noiseChannel");
             _prototypeManager.RegisterIgnore("playerConnectionWhitelist");
             _prototypeManager.RegisterIgnore("spaceBiome");
-            _prototypeManager.RegisterIgnore("worldgenConfig");
             _prototypeManager.RegisterIgnore("gameRule");
             _prototypeManager.RegisterIgnore("worldSpell");
             _prototypeManager.RegisterIgnore("entitySpell");
@@ -226,6 +165,7 @@ namespace Content.Client.Entry
 
             _overlayManager.AddOverlay(new SingularityOverlay());
             _overlayManager.AddOverlay(new RadiationPulseOverlay());
+            _overlayManager.AddOverlay(new ExplosionShockWaveOverlay()); // Funky RMC Explosions
             _chatManager.Initialize();
             _clientPreferencesManager.Initialize();
             _euiManager.Initialize();

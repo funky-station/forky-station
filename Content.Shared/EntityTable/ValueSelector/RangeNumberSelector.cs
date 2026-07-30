@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 namespace Content.Shared.EntityTable.ValueSelector;
 
 /// <summary>
@@ -22,5 +18,15 @@ public sealed partial class RangeNumberSelector : NumberSelector
         // rand.Next() is inclusive on the first number and exclusive on the second number,
         // so we add 1 to the second number.
         return rand.Next(Range.X, Range.Y + 1);
+    }
+
+    public override float Odds()
+    {
+        return Range.X == 0 ? 1f / (Range.Y + 1) : 1;
+    }
+
+    public override float Average()
+    {
+        return (Range.X + Range.Y) / 2f;
     }
 }

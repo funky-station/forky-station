@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.NameModifier.EntitySystems;
 using Robust.Shared.GameStates;
 

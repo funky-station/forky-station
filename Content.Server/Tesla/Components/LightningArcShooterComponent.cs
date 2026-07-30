@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Tesla.EntitySystems;
 using Robust.Shared.Prototypes;
 
@@ -20,6 +16,13 @@ public sealed partial class LightningArcShooterComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public int MaxLightningArc = 1;
+
+    /// <summary>
+    /// Fire instantly after spawning?
+    /// If false this entity will fire after <see cref="ShootMaxInterval"/> instead.
+    /// </summary>
+    [DataField]
+    public bool Instant = false;
 
     /// <summary>
     /// Minimum interval between shooting.

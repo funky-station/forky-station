@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Decals.Overlays;
 using Content.Shared.Decals;
 using Robust.Client.GameObjects;
@@ -15,10 +8,10 @@ using static Content.Shared.Decals.DecalGridComponent;
 
 namespace Content.Client.Decals
 {
-    public sealed class DecalSystem : SharedDecalSystem
+    public sealed partial class DecalSystem : SharedDecalSystem
     {
-        [Dependency] private readonly IOverlayManager _overlayManager = default!;
-        [Dependency] private readonly SpriteSystem _sprites = default!;
+        [Dependency] private IOverlayManager _overlayManager = default!;
+        [Dependency] private SpriteSystem _sprites = default!;
 
         private DecalOverlay? _overlay;
 

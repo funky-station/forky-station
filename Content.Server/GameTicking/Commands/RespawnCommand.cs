@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2020-2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Mind;
@@ -18,12 +8,12 @@ using Robust.Shared.Network;
 
 namespace Content.Server.GameTicking.Commands
 {
-    sealed class RespawnCommand : LocalizedEntityCommands
+    sealed partial class RespawnCommand : LocalizedEntityCommands
     {
-        [Dependency] private readonly IPlayerManager _player = default!;
-        [Dependency] private readonly IPlayerLocator _locator = default!;
-        [Dependency] private readonly GameTicker _gameTicker = default!;
-        [Dependency] private readonly MindSystem _mind = default!;
+        [Dependency] private IPlayerManager _player = default!;
+        [Dependency] private IPlayerLocator _locator = default!;
+        [Dependency] private GameTicker _gameTicker = default!;
+        [Dependency] private MindSystem _mind = default!;
 
         public override string Command => "respawn";
 

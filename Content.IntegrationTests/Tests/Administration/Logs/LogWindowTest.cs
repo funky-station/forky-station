@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Client.Administration.UI;
 using Content.Client.Administration.UI.CustomControls;
@@ -43,9 +40,9 @@ public sealed class LogWindowTest : InteractionTest
         // Search for the log we added earlier.
         await Client.WaitPost(() => search.Text = guid.ToString());
         await ClickControl(refresh);
-        await RunTicks(5);
+        await RunTicks(10);
         var searchResult = cont.Children.Where(x => x.Visible && x is AdminLogLabel).Cast<AdminLogLabel>().ToArray();
-        Assert.That(searchResult.Length, Is.EqualTo(1));
+        Assert.That(searchResult, Has.Length.EqualTo(1));
         Assert.That(searchResult[0].Log.Message, Contains.Substring($" test log 1: {guid}"));
 
         // Add a new log
@@ -55,9 +52,9 @@ public sealed class LogWindowTest : InteractionTest
         // Update the search and refresh
         await Client.WaitPost(() => search.Text = guid.ToString());
         await ClickControl(refresh);
-        await RunTicks(5);
+        await RunTicks(10);
         searchResult = cont.Children.Where(x => x.Visible && x is AdminLogLabel).Cast<AdminLogLabel>().ToArray();
-        Assert.That(searchResult.Length, Is.EqualTo(1));
+        Assert.That(searchResult, Has.Length.EqualTo(1));
         Assert.That(searchResult[0].Log.Message, Contains.Substring($" test log 2: {guid}"));
     }
 }

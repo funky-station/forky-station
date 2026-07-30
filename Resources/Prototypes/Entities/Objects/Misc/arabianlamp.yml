@@ -1,15 +1,6 @@
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SnappingOpossum <snappingopossum@outlook.com>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
-# SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   name: lamp
-  parent: BaseItem
+  parent: [SolutionToolWelderIndsutrial, BaseItem]
   id: ArabianLamp
   description: Why the heck won't this piece of junk open!?
   components:
@@ -100,13 +91,6 @@
       right:
       - state: inhand-right-flame
         shader: unshaded
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 25
-        maxVol: 25
   - type: SolutionTransfer
     transferAmount: 5
     canChangeTransferAmount: false
@@ -123,7 +107,6 @@
     heldOnly: true
     exactVolume: true
   - type: SolutionRegeneration
-    solution: Welder
     generated:
       reagents:
       - ReagentId: WeldingFuel

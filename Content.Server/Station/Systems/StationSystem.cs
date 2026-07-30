@@ -1,26 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-// SPDX-FileCopyrightText: 2023, 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
@@ -48,17 +25,15 @@ namespace Content.Server.Station.Systems;
 [PublicAPI]
 public sealed partial class StationSystem : SharedStationSystem
 {
-    [Dependency] private readonly ILogManager _logManager = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
+    [Dependency] private ILogManager _logManager = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private ChatSystem _chatSystem = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private PvsOverrideSystem _pvsOverride = default!;
+    [Dependency] private EntityQuery<MapGridComponent> _gridQuery = default!;
 
     private ISawmill _sawmill = default!;
-
-    private EntityQuery<MapGridComponent> _gridQuery;
-    private EntityQuery<TransformComponent> _xformQuery;
 
     private ValueList<MapId> _mapIds;
     private ValueList<(Box2Rotated Bounds, MapId MapId)> _gridBounds;
@@ -69,9 +44,6 @@ public sealed partial class StationSystem : SharedStationSystem
         base.Initialize();
 
         _sawmill = _logManager.GetSawmill("station");
-
-        _gridQuery = GetEntityQuery<MapGridComponent>();
-        _xformQuery = GetEntityQuery<TransformComponent>();
 
         SubscribeLocalEvent<GameRunLevelChangedEvent>(OnRoundEnd);
         SubscribeLocalEvent<PostGameMapLoad>(OnPostGameMapLoad);
@@ -241,7 +213,7 @@ public sealed partial class StationSystem : SharedStationSystem
         // First collect all valid map IDs where station grids exist
         foreach (var gridUid in dataComponent.Grids)
         {
-            if (!_xformQuery.TryGetComponent(gridUid, out var xform))
+            if (!TryComp(gridUid, out TransformComponent? xform))
                 continue;
 
             var mapId = xform.MapID;
@@ -255,7 +227,7 @@ public sealed partial class StationSystem : SharedStationSystem
         foreach (var gridUid in dataComponent.Grids)
         {
             if (!_gridQuery.TryComp(gridUid, out var grid) ||
-                !_xformQuery.TryGetComponent(gridUid, out var gridXform))
+                !TryComp(gridUid, out TransformComponent? gridXform))
             {
                 continue;
             }
@@ -275,7 +247,7 @@ public sealed partial class StationSystem : SharedStationSystem
         foreach (var session in Filter.GetAllPlayers(_player))
         {
             var entity = session.AttachedEntity;
-            if (entity == null || !_xformQuery.TryGetComponent(entity, out var xform))
+            if (entity == null || !TryComp(entity, out TransformComponent? xform))
                 continue;
 
             var mapId = xform.MapID;

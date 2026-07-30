@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.ActionBlocker;
 using Content.Shared.Input;
 using Content.Shared.Interaction;
@@ -18,12 +15,12 @@ namespace Content.Shared.Rotatable;
 /// <summary>
 /// Handles verbs for the <see cref="RotatableComponent"/> and <see cref="FlippableComponent"/> components.
 /// </summary>
-public sealed class RotatableSystem : EntitySystem
+public sealed partial class RotatableSystem : EntitySystem
 {
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {

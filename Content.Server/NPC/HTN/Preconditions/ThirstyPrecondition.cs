@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 778b <33431126+778b@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Hands.Components;
 using Content.Shared.Nutrition.Components;
 using Robust.Shared.Prototypes;
@@ -12,7 +9,7 @@ namespace Content.Server.NPC.HTN.Preconditions;
 /// </summary>
 public sealed partial class ThirstyPrecondition : HTNPrecondition
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     [DataField(required: true)]
     public ThirstThreshold MinThirstState = ThirstThreshold.Parched;

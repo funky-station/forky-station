@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 UpAndLeaves <92269094+Alpha-Two@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.Administration;
 using Content.Shared.Administration;
@@ -14,6 +11,27 @@ namespace Content.Server.Inventory;
 public sealed class InventoryCommand : ToolshedCommand
 {
     private InventorySystem? _inventorySystem;
+
+    [CommandImplementation("contents")]
+    public IEnumerable<EntityUid> InventoryQuery([PipedArgument] IEnumerable<EntityUid> entities) =>
+        entities.SelectMany(InventoryQuery);
+
+    private IEnumerable<EntityUid> InventoryQuery(EntityUid entity)
+    {
+        _inventorySystem ??= GetSys<InventorySystem>();
+
+        if (!EntityManager.TryGetComponent<InventoryComponent>(entity, out var inventory))
+            return [];
+
+        List<EntityUid> result = new();
+
+        foreach (var slot in inventory.Slots)
+        {
+            if (_inventorySystem.TryGetSlotEntity(entity, slot.Name, out var item, inventory))
+                result.Add(item.Value);
+        }
+        return result;
+    }
 
     [CommandImplementation("getflags")]
     public IEnumerable<EntityUid> InventoryGetFlags([PipedArgument] IEnumerable<EntityUid> ents, SlotFlags slotFlag)
@@ -46,7 +64,6 @@ public sealed class InventoryCommand : ToolshedCommand
 
         return items;
     }
-
 
     [CommandImplementation("getnamed")]
     public IEnumerable<EntityUid> InventoryGetNamed([PipedArgument] IEnumerable<EntityUid> ents, string slotName)
@@ -84,6 +101,7 @@ public sealed class InventoryCommand : ToolshedCommand
     public EntityUid? InventoryForcePut([PipedArgument] IEnumerable<EntityUid> ents,
         EntityUid itemEnt,
         SlotFlags slotFlag) => InventoryPutEnumerableBase(ents, itemEnt, slotFlag, PutType.ForcePut);
+
     [CommandImplementation("forcespawn")]
     public EntityUid? InventoryForceSpawn([PipedArgument] IEnumerable<EntityUid> ents,
         EntProtoId itemEnt,
@@ -93,6 +111,7 @@ public sealed class InventoryCommand : ToolshedCommand
     public EntityUid? InventoryPut([PipedArgument] IEnumerable<EntityUid> ents,
         EntityUid itemEnt,
         SlotFlags slotFlag) => InventoryPutEnumerableBase(ents, itemEnt, slotFlag, PutType.Put);
+
     [CommandImplementation("spawn")]
     public EntityUid? InventorySpawn([PipedArgument] IEnumerable<EntityUid> ents,
         EntProtoId itemEnt,
@@ -102,6 +121,7 @@ public sealed class InventoryCommand : ToolshedCommand
     public EntityUid? InventoryTryPut([PipedArgument] IEnumerable<EntityUid> ents,
         EntityUid itemEnt,
         SlotFlags slotFlag) => InventoryPutEnumerableBase(ents, itemEnt, slotFlag, PutType.Put);
+
     [CommandImplementation("tryspawn")]
     public EntityUid? InventoryTrySpawn([PipedArgument] IEnumerable<EntityUid> ents,
         EntProtoId itemEnt,
@@ -111,11 +131,11 @@ public sealed class InventoryCommand : ToolshedCommand
     public EntityUid? InventoryEnsure([PipedArgument] IEnumerable<EntityUid> ents,
         EntityUid itemEnt,
         SlotFlags slotFlag) => InventoryPutEnumerableBase(ents, itemEnt, slotFlag, PutType.Ensure);
+
     [CommandImplementation("ensurespawn")]
     public EntityUid? InventoryEnsureSpawn([PipedArgument] IEnumerable<EntityUid> ents,
         EntProtoId itemEnt,
         SlotFlags slotFlag) => InventorySpawnEnumerableBase(ents, itemEnt, slotFlag, PutType.Ensure);
-
 
     private EntityUid? InventorySpawnEnumerableBase(IEnumerable<EntityUid> targetEnts,
         EntProtoId itemToInsert,
@@ -139,6 +159,7 @@ public sealed class InventoryCommand : ToolshedCommand
         Del(spawnedItem);
         return null;
     }
+
     private EntityUid? InventoryPutEnumerableBase(IEnumerable<EntityUid> targetEnts,
         EntityUid itemToInsert,
         SlotFlags slotFlags,

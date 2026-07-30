@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Random;
@@ -14,10 +8,10 @@ namespace Content.Shared.Random;
 /// <summary>
 ///     System containing various content-related random helpers.
 /// </summary>
-public sealed class RandomHelperSystem : EntitySystem
+public sealed partial class RandomHelperSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public void RandomOffset(EntityUid entity, float minX, float maxX, float minY, float maxY)
     {
