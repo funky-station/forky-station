@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.IdentityManagement;
 using Content.Shared.Security;
 using Content.Shared.Security.Components;
@@ -14,11 +9,11 @@ namespace Content.Shared.CriminalRecords.Systems;
 /// <summary>
 /// Station records aren't predicted, just exists for access.
 /// </summary>
-public abstract class SharedCriminalRecordsConsoleSystem : EntitySystem
+public abstract partial class SharedCriminalRecordsConsoleSystem : EntitySystem
 {
-    [Dependency] private readonly SharedCriminalRecordsSystem _criminalRecords = default!;
-    [Dependency] private readonly SharedStationRecordsSystem _records = default!;
-    [Dependency] private readonly SharedStationSystem _station = default!;
+    [Dependency] private SharedCriminalRecordsSystem _criminalRecords = default!;
+    [Dependency] private SharedStationRecordsSystem _records = default!;
+    [Dependency] private SharedStationSystem _station = default!;
 
     /// <summary>
     /// Checks if the new identity's name has a criminal record attached to it, and gives the entity the icon that

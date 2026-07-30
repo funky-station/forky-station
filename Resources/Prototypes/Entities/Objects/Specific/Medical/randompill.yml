@@ -1,13 +1,3 @@
-# SPDX-FileCopyrightText: 2023-2024 MisterMecky <mrmecky@hotmail.com>
-# SPDX-FileCopyrightText: 2023 CrigCrag <137215465+CrigCrag@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 forthbridge <79264743+forthbridge@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 DuckManZach <144298822+DuckManZach@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: weightedRandomFillSolution
   id: RandomFillStrangePill
   fills:
@@ -21,7 +11,6 @@
       weight: 5
       reagents:
       - Ichor
-      - Necrosol
     - quantity: 5
       weight: 4
       reagents:
@@ -107,10 +96,6 @@
   id: StrangePill
   description: This unusual pill bears no markings. There's no telling what it contains.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
   - type: RandomFillSolution
     solution: food
     weightedRandomId: RandomFillStrangePill

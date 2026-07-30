@@ -10,9 +10,9 @@ using Content.Shared.Interaction.Events;
 
 namespace Content.Shared.BloodCult;
 
-public abstract class SharedBloodCultistSystem : EntitySystem
+public abstract partial class SharedBloodCultistSystem : EntitySystem
 {
-	[Dependency] private readonly MobStateSystem _mobState = default!;
+	[Dependency] private MobStateSystem _mobState = default!;
 
 	public override void Initialize()
     {
@@ -25,31 +25,31 @@ public abstract class SharedBloodCultistSystem : EntitySystem
 		SubscribeLocalEvent<JuggernautComponent, CanDropTargetEvent>(OnJuggernautCanDropTarget);
 		SubscribeLocalEvent<JuggernautComponent, GettingInteractedWithAttemptEvent>(OnJuggernautGettingInteractedWith);
 	}
-	
+
 	private void OnJuggernautShellCanDropTarget(EntityUid uid, BloodCultConstructShellComponent component, ref CanDropTargetEvent args)
 	{
 		// Check if the dragged entity is a dead body with a mind
-		args.CanDrop = _mobState.IsDead(args.Dragged) && 
+		args.CanDrop = _mobState.IsDead(args.Dragged) &&
 		               CompOrNull<MindContainerComponent>(args.Dragged)?.Mind != null;
 		args.Handled = true;
 	}
-	
+
 	private void OnJuggernautShellGettingInteractedWith(EntityUid uid, BloodCultConstructShellComponent component, ref GettingInteractedWithAttemptEvent args)
 	{
 		// Allow interactions on juggernaut shells for drag-drop operations
 		// This ensures shells can be targeted for dragging dead bodies onto them
 		args.Cancelled = false;
 	}
-	
+
 	private void OnJuggernautCanDropTarget(EntityUid uid, JuggernautComponent component, ref CanDropTargetEvent args)
 	{
 		// Only allow dropping dead bodies with minds into inactive juggernauts
-		args.CanDrop = component.IsInactive && 
-		               _mobState.IsDead(args.Dragged) && 
+		args.CanDrop = component.IsInactive &&
+		               _mobState.IsDead(args.Dragged) &&
 		               CompOrNull<MindContainerComponent>(args.Dragged)?.Mind != null;
 		args.Handled = true;
 	}
-	
+
 	private void OnJuggernautGettingInteractedWith(EntityUid uid, JuggernautComponent component, ref GettingInteractedWithAttemptEvent args)
 	{
 		// Allow interactions on inactive juggernauts even if they're critical/dead
@@ -60,7 +60,7 @@ public abstract class SharedBloodCultistSystem : EntitySystem
 			args.Cancelled = false;
 		}
 	}
-	
+
 	public override void Shutdown()
 	{
 		base.Shutdown();

@@ -1,30 +1,9 @@
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 KIBORG04 <bossmira4@gmail.com>
-// SPDX-FileCopyrightText: 2023-2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023-2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TaralGit <76408146+TaralGit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Arendian <137322659+Arendian@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
-// SPDX-FileCopyrightText: 2025 Sir Warock <67167466+SirWarock@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 mq <113324899+mqole@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.DoAfter;
 using Content.Shared.Emp;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Stacks;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
@@ -36,8 +15,9 @@ namespace Content.Shared.Weapons.Ranged.Systems;
 
 public abstract partial class SharedGunSystem
 {
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedStackSystem _stack = null!;
 
     [MustCallBase]
     protected virtual void InitializeBallistic()
@@ -56,6 +36,8 @@ public abstract partial class SharedGunSystem
 
         SubscribeLocalEvent<BallisticAmmoSelfRefillerComponent, MapInitEvent>(OnBallisticRefillerMapInit);
         SubscribeLocalEvent<BallisticAmmoSelfRefillerComponent, EmpPulseEvent>(OnRefillerEmpPulsed);
+
+        SubscribeLocalEvent<BallisticAmmoInteractLoaderComponent, AfterInteractEvent>(OnBallisticAmmoLoad);
     }
 
     private void OnBallisticRefillerMapInit(Entity<BallisticAmmoSelfRefillerComponent> entity, ref MapInitEvent _)
@@ -85,7 +67,6 @@ public abstract partial class SharedGunSystem
     {
         if (args.Handled ||
             !component.MayTransfer ||
-            !Timing.IsFirstTimePredicted ||
             args.Target == null ||
             args.Used == args.Target ||
             Deleted(args.Target) ||
@@ -346,11 +327,20 @@ public abstract partial class SharedGunSystem
         bool suppressInsertionSound = false
     )
     {
-        if (!CanInsertBallistic(entity, inserted))
+        inserted = _stack.GetOne(inserted);
+        var ammoEv = new BeforeAmmoLoadedEvent();
+        RaiseLocalEvent(inserted, ref ammoEv);
+
+        if (!ammoEv.CanLoad)
             return false;
 
-        entity.Comp.Entities.Add(inserted);
-        Containers.Insert(inserted, entity.Comp.Container);
+        var ammo = ammoEv.AmmoOverride ?? inserted;
+
+        if (!CanInsertBallistic(entity, ammo))
+            return false;
+
+        entity.Comp.Entities.Add(ammo);
+        Containers.Insert(ammo, entity.Comp.Container);
         if (!suppressInsertionSound)
         {
             Audio.PlayPredicted(entity.Comp.SoundInsert, entity, user);
@@ -365,11 +355,8 @@ public abstract partial class SharedGunSystem
 
     public void UpdateBallisticAppearance(Entity<BallisticAmmoProviderComponent> ent)
     {
-        if (!Timing.IsFirstTimePredicted || !TryComp<AppearanceComponent>(ent, out var appearance))
-            return;
-
-        Appearance.SetData(ent, AmmoVisuals.AmmoCount, GetBallisticShots(ent.Comp), appearance);
-        Appearance.SetData(ent, AmmoVisuals.AmmoMax, ent.Comp.Capacity, appearance);
+        Appearance.SetData(ent, AmmoVisuals.AmmoCount, GetBallisticShots(ent.Comp));
+        Appearance.SetData(ent, AmmoVisuals.AmmoMax, ent.Comp.Capacity);
     }
 
     public void SetBallisticUnspawned(Entity<BallisticAmmoProviderComponent> entity, int count)
@@ -389,6 +376,21 @@ public abstract partial class SharedGunSystem
             return;
 
         PauseSelfRefill(entity, args.Duration);
+    }
+
+    private void OnBallisticAmmoLoad(Entity<BallisticAmmoInteractLoaderComponent> ent, ref AfterInteractEvent args)
+    {
+        if (args.Handled || args.Target == null)
+            return;
+
+        if (!TryComp<BallisticAmmoProviderComponent>(ent, out var ballisticAmmoProviderComp))
+            return;
+
+        if (TryBallisticInsert(
+                (ent, ballisticAmmoProviderComp),
+                args.Target.Value,
+                args.User))
+            args.Handled = true;
     }
 
     private void UpdateBallistic(float frameTime)

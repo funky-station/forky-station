@@ -1,14 +1,11 @@
-// SPDX-FileCopyrightText: 2025 Justin Pfeifler <jrpl101998@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Popups;
 using Content.Shared.Construction.Components;
 
 namespace Content.Shared.Gravity;
 
-public abstract class SharedGravityGeneratorSystem : EntitySystem
+public abstract partial class SharedGravityGeneratorSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {

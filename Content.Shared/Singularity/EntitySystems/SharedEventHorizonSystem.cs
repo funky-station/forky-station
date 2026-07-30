@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Components;
@@ -21,12 +13,12 @@ namespace Content.Shared.Singularity.EntitySystems;
 /// <summary>
 /// The entity system primarily responsible for managing <see cref="EventHorizonComponent"/>s.
 /// </summary>
-public abstract class SharedEventHorizonSystem : EntitySystem
+public abstract partial class SharedEventHorizonSystem : EntitySystem
 {
 
-    [Dependency] private readonly FixtureSystem _fixtures = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] protected readonly IViewVariablesManager Vvm = default!;
+    [Dependency] private FixtureSystem _fixtures = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] protected IViewVariablesManager Vvm = default!;
 
     public override void Initialize()
     {

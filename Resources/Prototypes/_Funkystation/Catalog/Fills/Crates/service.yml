@@ -1,0 +1,30 @@
+﻿# Washing Machine
+- type: entity
+  id: CrateServiceWashingMachineSet
+  parent: CratePlastic
+  name: DIY washing machine kit
+  description: A Nanotrasen Commercial Model-C washing machine, disassembled and ready for shipping. Contains small parts that may be ingested by infants.
+  components:
+  - type: StorageFill
+    contents:
+    - id: SheetSteel1
+      amount: 6
+    - id: CableApcStack10
+    - id: MicroManipulatorStockPart
+    - id: WashingMachineCircuitboard
+
+# Document Printer
+- type: entity
+  id: CrateServiceDocumentPrinterSet
+  parent: CratePlastic
+  name: DIY document printer kit
+  description: A Model XF-880 document printer, disassembled and ready for shipping. Does not contain ink refills.
+  components:
+  - type: StorageFill
+    contents:
+    - id: SheetSteel1
+      amount: 6
+    - id: CableApcStack10
+    - id: MicroManipulatorStockPart
+      amount: 2
+    - id: DocumentPrinterBridgeCircuitboard

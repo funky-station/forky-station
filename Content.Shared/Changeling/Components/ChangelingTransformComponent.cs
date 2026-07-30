@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 poklj <compgeek223@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Changeling.Systems;
 using Content.Shared.Cloning;
 using Robust.Shared.Audio;
@@ -34,7 +30,7 @@ public sealed partial class ChangelingTransformComponent : Component
     /// Time it takes to Transform
     /// </summary>
     [DataField, AutoNetworkedField]
-    public TimeSpan TransformWindup = TimeSpan.FromSeconds(5);
+    public TimeSpan TransformWindup = TimeSpan.FromSeconds(4f);
 
     /// <summary>
     /// The noise used when attempting to transform

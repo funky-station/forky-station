@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Graphics;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
@@ -11,12 +7,12 @@ namespace Content.Client.Light;
 /// <summary>
 /// Essentially handles blurring for content-side light overlays.
 /// </summary>
-public sealed class LightBlurOverlay : Overlay
+public sealed partial class LightBlurOverlay : Overlay
 {
     public override OverlaySpace Space => OverlaySpace.BeforeLighting;
 
-    [Dependency] private readonly IClyde _clyde = default!;
-    [Dependency] private readonly IOverlayManager _overlay = default!;
+    [Dependency] private IClyde _clyde = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
 
     public const int ContentZIndex = TileEmissionOverlay.ContentZIndex + 1;
 

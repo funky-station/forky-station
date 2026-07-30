@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 Velken <8467292+Velken@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Anomaly.Components;
 using Content.Server.Anomaly.Effects;
 using Content.Shared.Anomaly;
@@ -11,10 +7,10 @@ using Content.Shared.DoAfter;
 namespace Content.Server.Anomaly;
 
 /// <inheritdoc cref="SharedAnomalyScannerSystem"/>
-public sealed class AnomalyScannerSystem : SharedAnomalyScannerSystem
+public sealed partial class AnomalyScannerSystem : SharedAnomalyScannerSystem
 {
-    [Dependency] private readonly SecretDataAnomalySystem _secretData = default!;
-    [Dependency] private readonly AnomalySystem _anomaly = default!;
+    [Dependency] private SecretDataAnomalySystem _secretData = default!;
+    [Dependency] private AnomalySystem _anomaly = default!;
 
     public override void Initialize()
     {

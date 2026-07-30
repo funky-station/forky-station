@@ -30,6 +30,7 @@
   - type: ExaminableDamage
     messages: WindowMessages
   - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
@@ -60,8 +61,9 @@
     - type: ComplexInteraction
     - type: ZombieImmune
     - type: Damageable
-      damageContainer: BloodCultConstruct
       damageModifierSet: CultJuggernaut
+    - type: Injurable
+      damageContainer: BloodCultConstruct
     - type: IgnoreSlowOnDamage
     - type: BloodCultConstruct
     - type: Reactive
@@ -181,8 +183,9 @@
     #- type: Hands
     - type: ZombieImmune
     - type: Damageable
-      damageContainer: BloodCultConstruct
       damageModifierSet: CultShade
+    - type: Injurable
+      damageContainer: BloodCultConstruct
     - type: BloodCultConstruct
     - type: Bloodstream
       maxBleedAmount: 0

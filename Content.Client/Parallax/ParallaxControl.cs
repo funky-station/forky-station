@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2025 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Client.Parallax.Data;
 using Content.Client.Parallax.Managers;
@@ -20,11 +13,11 @@ namespace Content.Client.Parallax;
 /// <summary>
 ///     Renders the parallax background as a UI control.
 /// </summary>
-public sealed class ParallaxControl : Control
+public sealed partial class ParallaxControl : Control
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IParallaxManager _parallaxManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IParallaxManager _parallaxManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private string _parallaxPrototype = "FastSpace";
 

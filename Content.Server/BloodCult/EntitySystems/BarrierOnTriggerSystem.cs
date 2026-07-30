@@ -24,15 +24,15 @@ namespace Content.Server.BloodCult.EntitySystems
 	{
 		private static readonly ProtoId<DamageTypePrototype> SlashDamageType = "Slash";
 
-		[Dependency] private readonly EntityManager _entManager = default!;
-		[Dependency] private readonly SharedTransformSystem _transform = default!;
-		[Dependency] private readonly MapSystem _mapSystem = default!;
-		[Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-		[Dependency] private readonly DamageableSystem _damageableSystem = default!;
-		[Dependency] private readonly PopupSystem _popupSystem = default!;
-		[Dependency] private readonly IPrototypeManager _protoMan = default!;
-		[Dependency] private readonly IMapManager _mapManager = default!;
-		[Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
+		[Dependency] private EntityManager _entManager = default!;
+		[Dependency] private SharedTransformSystem _transform = default!;
+		[Dependency] private MapSystem _mapSystem = default!;
+		[Dependency] private SharedAudioSystem _audioSystem = default!;
+		[Dependency] private DamageableSystem _damageableSystem = default!;
+		[Dependency] private PopupSystem _popupSystem = default!;
+		[Dependency] private IPrototypeManager _protoMan = default!;
+		[Dependency] private IMapManager _mapManager = default!;
+		[Dependency] private BloodCultRuleSystem _bloodCultRule = default!;
 
 		private EntityQuery<BloodCultRuneComponent> _runeQuery;
 		private EntityQuery<ForceBarrierComponent> _barrierQuery;

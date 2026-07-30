@@ -1,25 +1,3 @@
-// SPDX-FileCopyrightText: 2017 PJB3005 <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2018-2021 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2019 ZelteHonor <gabrieldionbouchard@gmail.com>
-// SPDX-FileCopyrightText: 2019 Silver <Silvertorch5@gmail.com>
-// SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 DTanxxx <55208219+DTanxxx@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Hugal31 <hugo.laloge@gmail.com>
-// SPDX-FileCopyrightText: 2020 FL-OZ <yetanotherscuffed@gmail.com>
-// SPDX-FileCopyrightText: 2020 PrPleGoo <felix.leeuwen@gmail.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Remie Richards <remierichards@gmail.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022-2023, 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
@@ -37,13 +15,13 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Entry
 {
-    public sealed class EntryPoint : GameShared
+    public sealed partial class EntryPoint : GameShared
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
-        [Dependency] private readonly IResourceManager _resMan = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private ITileDefinitionManager _tileDefinitionManager = default!;
+        [Dependency] private IResourceManager _resMan = default!;
 #if DEBUG
-        [Dependency] private readonly IConfigurationManager _configurationManager = default!;
+        [Dependency] private IConfigurationManager _configurationManager = default!;
 #endif
 
         private readonly ResPath _ignoreFileDirectory = new("/IgnoredPrototypes/");

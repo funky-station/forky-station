@@ -1,34 +1,9 @@
-// SPDX-FileCopyrightText: 2020-2021, 2025 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2020, 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2020 Vince <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Tyler Young <tyler.young@impromptu.ninja>
-// SPDX-FileCopyrightText: 2020 JiimBob <44332255+JiimBob@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Text;
+using Content.IntegrationTests.Fixtures;
+using Content.IntegrationTests.Fixtures.Attributes;
 using Robust.Shared;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.Configuration;
@@ -38,22 +13,34 @@ using Robust.Shared.Map;
 using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager.Attributes;
+using Robust.Shared.Spawners;
 
 namespace Content.IntegrationTests.Tests
 {
     [TestFixture]
     [TestOf(typeof(EntityUid))]
-    public sealed class EntityTest
+    public sealed class EntityTest : GameTest
     {
-        private static readonly ProtoId<EntityCategoryPrototype> SpawnerCategory = "Spawner";
+        private static readonly HashSet<ProtoId<EntityCategoryPrototype>> IgnoredCategories = ["Spawner", "Debug"];
+
+        public override PoolSettings PoolSettings => new()
+        {
+            Connected = true,
+            Dirty = true
+        };
+
+        public static PoolSettings Disconnected => new()
+        {
+            Dirty = true,
+        };
 
         [Test]
+        [PairConfig(nameof(Disconnected))]
         public async Task SpawnAndDeleteAllEntitiesOnDifferentMaps()
         {
             // This test dirties the pair as it simply deletes ALL entities when done. Overhead of restarting the round
             // is minimal relative to the rest of the test.
-            var settings = new PoolSettings { Dirty = true };
-            await using var pair = await PoolManager.GetServerClient(settings);
+            var pair = Pair;
             var server = pair.Server;
 
             var entityMan = server.ResolveDependency<IEntityManager>();
@@ -106,17 +93,14 @@ namespace Content.IntegrationTests.Tests
 
                 Assert.That(entityMan.EntityCount, Is.Zero);
             });
-
-            await pair.CleanReturnAsync();
         }
 
         [Test]
+        [PairConfig(nameof(Disconnected))]
         public async Task SpawnAndDeleteAllEntitiesInTheSameSpot()
         {
-            // This test dirties the pair as it simply deletes ALL entities when done. Overhead of restarting the round
-            // is minimal relative to the rest of the test.
-            var settings = new PoolSettings { Dirty = true };
-            await using var pair = await PoolManager.GetServerClient(settings);
+            var pair = Pair;
+            Assert.That(pair.Client.Session, Is.Null);
             var server = pair.Server;
             var map = await pair.CreateTestMap();
 
@@ -161,8 +145,6 @@ namespace Content.IntegrationTests.Tests
 
                 Assert.That(entityMan.EntityCount, Is.Zero);
             });
-
-            await pair.CleanReturnAsync();
         }
 
         /// <summary>
@@ -172,10 +154,7 @@ namespace Content.IntegrationTests.Tests
         [Test]
         public async Task SpawnAndDirtyAllEntities()
         {
-            // This test dirties the pair as it simply deletes ALL entities when done. Overhead of restarting the round
-            // is minimal relative to the rest of the test.
-            var settings = new PoolSettings { Connected = true, Dirty = true };
-            await using var pair = await PoolManager.GetServerClient(settings);
+            var pair = Pair;
             var server = pair.Server;
             var client = pair.Client;
 
@@ -209,7 +188,7 @@ namespace Content.IntegrationTests.Tests
                 }
             });
 
-            await pair.RunTicksSync(15);
+            await pair.RunUntilSynced();
 
             // Make sure the client actually received the entities
             // 500 is completely arbitrary. Note that the client & sever entity counts aren't expected to match.
@@ -236,8 +215,6 @@ namespace Content.IntegrationTests.Tests
 
                 Assert.That(sEntMan.EntityCount, Is.Zero);
             });
-
-            await pair.CleanReturnAsync();
         }
 
         /// <summary>
@@ -257,8 +234,7 @@ namespace Content.IntegrationTests.Tests
         [Test]
         public async Task SpawnAndDeleteEntityCountTest()
         {
-            var settings = new PoolSettings { Connected = true, Dirty = true };
-            await using var pair = await PoolManager.GetServerClient(settings);
+            var pair = Pair;
             var mapSys = pair.Server.System<SharedMapSystem>();
             var server = pair.Server;
             var client = pair.Client;
@@ -280,7 +256,7 @@ namespace Content.IntegrationTests.Tests
                 .Where(p => !p.Abstract)
                 .Where(p => !pair.IsTestPrototype(p))
                 .Where(p => !excluded.Any(p.Components.ContainsKey))
-                .Where(p => p.Categories.All(x => x.ID != SpawnerCategory))
+                .Where(p => p.Categories.All(x => !IgnoredCategories.Contains(x.ID)))
                 .Select(p => p.ID)
                 .ToList();
 
@@ -315,6 +291,8 @@ namespace Content.IntegrationTests.Tests
                     // If the entity deleted itself, check that it didn't spawn other entities
                     if (!server.EntMan.EntityExists(uid))
                     {
+                        await CleanupTransientEntities(pair, serverEntities);
+
                         Assert.That(Count(server.EntMan), Is.EqualTo(count), $"Server prototype {protoId} failed on deleting itself\n" +
                             BuildDiffString(serverEntities, Entities(server.EntMan), server.EntMan));
                         Assert.That(Count(client.EntMan), Is.EqualTo(clientCount), $"Client prototype {protoId} failed on deleting itself\n" +
@@ -334,6 +312,7 @@ namespace Content.IntegrationTests.Tests
 
                     await server.WaitPost(() => server.EntMan.DeleteEntity(uid));
                     await pair.RunTicksSync(3);
+                    await CleanupTransientEntities(pair, serverEntities);
 
                     // Check that the number of entities has gone back to the original value.
                     Assert.That(Count(server.EntMan), Is.EqualTo(count), $"Server prototype {protoId} failed on deletion: count didn't reset properly\n" +
@@ -344,8 +323,33 @@ namespace Content.IntegrationTests.Tests
                         BuildDiffString(clientEntities, Entities(client.EntMan), client.EntMan));
                 }
             });
+        }
 
-            await pair.CleanReturnAsync();
+        /// <summary>
+        /// Deletes any entities with <see cref="TimedDespawnComponent"/> that were not present in the baseline snapshot.
+        /// Some entities spawn transient side-effects on deletion (e.g. explosion visuals). These side-effect entities
+        /// use TimedDespawn and would persist across test iterations, corrupting baseline entity counts and causing
+        /// cascading assertion failures.
+        /// </summary>
+        private static async Task CleanupTransientEntities(Pair.TestPair pair, HashSet<EntityUid> baselineEntities)
+        {
+            var server = pair.Server;
+            await server.WaitPost(() =>
+            {
+                var toRemove = new List<EntityUid>();
+                var query = server.EntMan.AllEntityQueryEnumerator<TimedDespawnComponent>();
+                while (query.MoveNext(out var uid, out _))
+                {
+                    if (!baselineEntities.Contains(uid))
+                        toRemove.Add(uid);
+                }
+
+                foreach (var uid in toRemove)
+                {
+                    server.EntMan.DeleteEntity(uid);
+                }
+            });
+            await pair.RunTicksSync(3);
         }
 
         private static string BuildDiffString(IEnumerable<EntityUid> oldEnts, IEnumerable<EntityUid> newEnts, IEntityManager entMan)
@@ -412,14 +416,11 @@ namespace Content.IntegrationTests.Tests
                 "StationData", // errors when removed mid-round
                 "StationJobs",
                 "Actor", // We aren't testing actor components, those need their player session set.
-                "BlobFloorPlanBuilder", // Implodes if unconfigured.
-                "DebrisFeaturePlacerController", // Above.
-                "LoadedChunk", // Worldgen chunk loading malding.
                 "BiomeSelection", // Whaddya know, requires config.
                 "ActivatableUI", // Requires enum key
             };
 
-            await using var pair = await PoolManager.GetServerClient();
+            var pair = Pair;
             var server = pair.Server;
             var entityManager = server.ResolveDependency<IEntityManager>();
             var componentFactory = server.ResolveDependency<IComponentFactory>();
@@ -472,8 +473,6 @@ namespace Content.IntegrationTests.Tests
                     }
                 });
             });
-
-            await pair.CleanReturnAsync();
         }
     }
 }

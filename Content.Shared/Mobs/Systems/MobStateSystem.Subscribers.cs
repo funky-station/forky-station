@@ -1,21 +1,6 @@
-// SPDX-FileCopyrightText: 2023-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 alexalexmax <149889301+alexalexmax@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Buckle.Components;
 using Content.Shared.CombatMode.Pacification;
-using Content.Shared.Damage;
 using Content.Shared.Damage.ForceSay;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Emoting;
@@ -32,7 +17,7 @@ using Content.Shared.Speech;
 using Content.Shared.Standing;
 using Content.Shared.Strip.Components;
 using Content.Shared.Throwing;
-using Robust.Shared.Physics.Components;
+using Content.Shared.Tools.Systems;
 
 namespace Content.Shared.Mobs.Systems;
 
@@ -61,6 +46,7 @@ public partial class MobStateSystem
         SubscribeLocalEvent<MobStateComponent, CombatModeShouldHandInteractEvent>(OnCombatModeShouldHandInteract);
         SubscribeLocalEvent<MobStateComponent, AttemptPacifiedAttackEvent>(OnAttemptPacifiedAttack);
         SubscribeLocalEvent<MobStateComponent, DamageModifyEvent>(OnDamageModify);
+        SubscribeLocalEvent<MobStateComponent, AttemptToolRefineEvent>(OnAttemptToolRefine);
 
         SubscribeLocalEvent<MobStateComponent, UnbuckleAttemptEvent>(OnUnbuckleAttempt);
     }
@@ -154,6 +140,14 @@ public partial class MobStateSystem
         }
     }
 
+    private void OnAttemptToolRefine(Entity<MobStateComponent> ent, ref AttemptToolRefineEvent args)
+    {
+        if (!IsDead(ent, ent))
+        {
+            args = args with { IsCancelled = true, BlockCause = Loc.GetString("refined-slice-verb-target-isnt-dead") };
+        }
+    }
+
     #region Event Subscribers
 
     private void OnSleepAttempt(EntityUid target, MobStateComponent component, ref TryingToSleepEvent args)
@@ -196,14 +190,14 @@ public partial class MobStateSystem
     private void OnEquipAttempt(EntityUid target, MobStateComponent component, IsEquippingAttemptEvent args)
     {
         // is this a self-equip, or are they being stripped?
-        if (args.Equipee == target)
+        if (args.User == target)
             CheckAct(target, component, args);
     }
 
     private void OnUnequipAttempt(EntityUid target, MobStateComponent component, IsUnequippingAttemptEvent args)
     {
         // is this a self-equip, or are they being stripped?
-        if (args.Unequipee == target)
+        if (args.User == target)
             CheckAct(target, component, args);
     }
 

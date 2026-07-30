@@ -1,27 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2024 metalgearsloth <metalgearsloth@gmail.com>
-// SPDX-FileCopyrightText: 2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Wrexbe <wrexbe@protonmail.com>
-// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 theashtronaut <112137107+theashtronaut@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 HerCoyote23 <131214189+HerCoyote23@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Jark255 <jaroslav.asanov@gmail.com>
-// SPDX-FileCopyrightText: 2024 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Managers;
 using Content.Shared.Ghost;
@@ -39,12 +15,13 @@ namespace Content.Shared.UserInterface;
 
 public sealed partial class ActivatableUISystem : EntitySystem
 {
-    [Dependency] private readonly ISharedAdminManager _adminManager = default!;
-    [Dependency] private readonly ActionBlockerSystem _blockerSystem = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private ISharedAdminManager _adminManager = default!;
+    [Dependency] private ActionBlockerSystem _blockerSystem = default!;
+    [Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
 
     public override void Initialize()
     {
@@ -96,7 +73,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
 
         args.Verbs.Add(new ActivationVerb
         {
-            Act = () => InteractUI(args.User, uid, component),
+            Act = () => InteractUI(args.User, (uid, component)), // Stellar - interaction particles
             Text = Loc.GetString(component.VerbText),
             // TODO VERB ICON find a better icon
             Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
@@ -110,7 +87,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
 
         args.Verbs.Add(new Verb
         {
-            Act = () => InteractUI(args.User, uid, component),
+            Act = () => InteractUI(args.User, (uid, component)), // Stellar - interaction particles
             Text = Loc.GetString(component.VerbText),
             // TODO VERB ICON find a better icon
             Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
@@ -157,7 +134,8 @@ public sealed partial class ActivatableUISystem : EntitySystem
         if (component.RequiredItems != null)
             return;
 
-        args.Handled = InteractUI(args.User, uid, component);
+        var interactionParticle = false; // Stellar - interaction particles
+        args.Handled = InteractUI(args.User, uid, component, ref interactionParticle); // Stellar - interaction particles
     }
 
     private void OnActivate(EntityUid uid, ActivatableUIComponent component, ActivateInWorldEvent args)
@@ -171,7 +149,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
         if (component.RequiredItems != null)
             return;
 
-        args.Handled = InteractUI(args.User, uid, component);
+        args.Handled = InteractUI(args.User, uid, component, ref args.InteractionParticle); // Stellar - interaction particles
     }
 
     private void OnInteractUsing(EntityUid uid, ActivatableUIComponent component, InteractUsingEvent args)
@@ -188,7 +166,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
         if (_whitelistSystem.IsWhitelistFail(component.RequiredItems, args.Used))
             return;
 
-        args.Handled = InteractUI(args.User, uid, component);
+        args.Handled = InteractUI(args.User, uid, component, ref args.InteractionParticle); // Stellar - interaction particles
     }
 
     private void OnUIClose(EntityUid uid, ActivatableUIComponent component, BoundUIClosedEvent args)
@@ -204,13 +182,23 @@ public sealed partial class ActivatableUISystem : EntitySystem
         SetCurrentSingleUser(uid, null, component);
     }
 
-    private bool InteractUI(EntityUid user, EntityUid uiEntity, ActivatableUIComponent aui)
+    // Begin Stellar - interaction particles
+    private void InteractUI(EntityUid user, Entity<ActivatableUIComponent> ui)
+    {
+        var interactionParticle = false;
+        InteractUI(user, ui, ui, ref interactionParticle);
+        _interaction.DoContactInteraction(user, ui, null, true, interactionParticles: interactionParticle);
+    }
+    // End Stellar - interaction particles
+
+    private bool InteractUI(EntityUid user, EntityUid uiEntity, ActivatableUIComponent aui, ref bool interactionParticle) // Stellar - interaction particles
     {
         if (aui.Key == null || !_uiSystem.HasUi(uiEntity, aui.Key))
             return false;
 
         if (_uiSystem.IsUiOpen(uiEntity, aui.Key, user))
         {
+            interactionParticle = false; // Stellar - interaction particles
             _uiSystem.CloseUi(uiEntity, aui.Key, user);
             return true;
         }
@@ -266,6 +254,8 @@ public sealed partial class ActivatableUISystem : EntitySystem
         //Let the component know a user opened it so it can do whatever it needs to do
         var aae = new AfterActivatableUIOpenEvent(user);
         RaiseLocalEvent(uiEntity, aae);
+
+        interactionParticle = aae.InteractionParticle; // Stellar
 
         return true;
     }

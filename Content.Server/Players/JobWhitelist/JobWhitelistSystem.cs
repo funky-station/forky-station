@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Collections.Immutable;
 using Content.Server.GameTicking.Events;
 using Content.Server.Station.Events;
@@ -14,12 +10,12 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Players.JobWhitelist;
 
-public sealed class JobWhitelistSystem : EntitySystem
+public sealed partial class JobWhitelistSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly JobWhitelistManager _manager = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private IConfigurationManager _config = default!;
+    [Dependency] private JobWhitelistManager _manager = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
 
     private ImmutableArray<ProtoId<JobPrototype>> _whitelistedJobs = [];
 

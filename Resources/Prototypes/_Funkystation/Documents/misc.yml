@@ -1,0 +1,7 @@
+- type: document
+  id: DocGeneralComplaint
+  name: doc-general-complaint-name
+  description: doc-general-complaint-desc
+  category: DocCatMisc
+  paperPrototype: Paper
+  content: doc-general-complaint-content

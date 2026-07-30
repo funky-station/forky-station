@@ -1,22 +1,12 @@
-# SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 I.K <45953835+notquitehadouken@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   name: arm blade
   parent: BaseItem
   id: ArmBlade
   description: A grotesque blade made out of bone and flesh that can pry open doors and cleaves through people as a hot knife through butter.
   components:
-  - type: Sharp
+  - type: Tool
+    qualities:
+    - Slicing
   - type: Execution
     doAfterDuration: 4.0
   - type: Sprite
@@ -28,9 +18,9 @@
     wideAnimationRotation: 90
     attackRate: 1
     damage:
-      types: # Same as energy sword, but slash/pierce instead of slash/heat
-        Slash: 15
-        Piercing: 15
+      types:
+        Slash: 11
+        Piercing: 11
         Structural: 20
   - type: Item
     size: Normal

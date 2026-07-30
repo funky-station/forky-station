@@ -1,39 +1,17 @@
-// SPDX-FileCopyrightText: 2020-2021, 2023-2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
-// SPDX-FileCopyrightText: 2020 nuke <47336974+nuke-makes-games@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Brandon Li <48413902+aspiringLich@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Numerics;
+using Content.Client.Administration.Managers;
 using Content.Client.Examine;
 using Content.Client.Hands.Systems;
 using Content.Client.Strip;
-using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Hands.Controls;
 using Content.Client.Verbs.UI;
+using Content.Shared.CCVar;
+using Content.Shared.Clothing.Components;
+using Content.Shared.Contraband;
 using Content.Shared.Cuffs;
-using Content.Shared.Cuffs.Components;
+using Content.Shared.Ensnaring;
 using Content.Shared.Ensnaring.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
@@ -46,24 +24,45 @@ using Robust.Client.GameObjects;
 using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Configuration;
 using Robust.Shared.Input;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 using static Content.Client.Inventory.ClientInventorySystem;
 using static Robust.Client.UserInterface.Control;
 
 namespace Content.Client.Inventory
 {
     [UsedImplicitly]
-    public sealed class StrippableBoundUserInterface : BoundUserInterface
+    public sealed partial class StrippableBoundUserInterface : BoundUserInterface
     {
-        [Dependency] private readonly IPlayerManager _player = default!;
-        [Dependency] private readonly IUserInterfaceManager _ui = default!;
+        [Dependency] private IPlayerManager _player = default!;
+        [Dependency] private IUserInterfaceManager _ui = default!;
+        [Dependency] private IClientAdminManager _admin = default!;
+        [Dependency] private IPrototypeManager _proto = default!;
+        [Dependency] private IConfigurationManager _cvar = default!;
 
         private readonly ExamineSystem _examine;
         private readonly HandsSystem _hands;
         private readonly InventorySystem _inv;
         private readonly SharedCuffableSystem _cuffable;
         private readonly StrippableSystem _strippable;
+        private readonly SharedEnsnareableSystem _snare;
+        private readonly ContrabandSystem _contraband;
+
+        // Is the BUI in admin view? If in admin view, has custom UI elements to help admins see things
+        // (E.g contraband status icon, is the item chameleon etc...)
+        private bool _isAdminView;
+
+        #region Admin overlay vars
+
+        private readonly ResPath _chameleonClothingTexturePath = new("/Textures/Interface/Default/Slots/camo.png");
+        private readonly ResPath _contrabandTexturePath = new("/Textures/Interface/Default/Slots/contra.png");
+
+        private readonly Color _chameleonColor = new(147, 112, 219);
+
+        #endregion
 
         [ViewVariables]
         private const int ButtonSeparation = 4;
@@ -96,8 +95,12 @@ namespace Content.Client.Inventory
             _inv = EntMan.System<InventorySystem>();
             _cuffable = EntMan.System<SharedCuffableSystem>();
             _strippable = EntMan.System<StrippableSystem>();
+            _contraband = EntMan.System<ContrabandSystem>();
+            _snare = EntMan.System<SharedEnsnareableSystem>();
 
             _virtualHiddenEntity = EntMan.SpawnEntity(HiddenPocketEntityId, MapCoordinates.Nullspace);
+
+            _isAdminView = _cvar.GetCVar(CCVars.AdminStripMenuOverlayDefault);
         }
 
         protected override void Open()
@@ -174,17 +177,36 @@ namespace Content.Client.Inventory
             }
 
             // snare-removal button. This is just the old button before the change to item slots. It is pretty out of place.
-            if (EntMan.TryGetComponent<EnsnareableComponent>(Owner, out var snare) && snare.IsEnsnared)
+            if (EntMan.TryGetComponent<EnsnareableComponent>(Owner, out var snare) && _snare.IsEnsnared((Owner, snare)))
             {
                 var button = new Button()
                 {
                     Text = Loc.GetString("strippable-bound-user-interface-stripping-menu-ensnare-button"),
-                    StyleClasses = { StyleClass.ButtonOpenRight }
                 };
 
                 button.OnPressed += (_) => SendPredictedMessage(new StrippingEnsnareButtonPressed());
 
-                _strippingMenu.SnareContainer.AddChild(button);
+                _strippingMenu.ButtonContainer.AddChild(button);
+            }
+
+            if (_admin.IsAdmin())
+            {
+                var adminButton = new Button()
+                {
+                    Text = Loc.GetString("strippable-bound-user-interface-stripping-menu-admin-button"),
+                    ToggleMode = true,
+                    Pressed = _isAdminView,
+                    ToolTip = Loc.GetString("strippable-bound-user-interface-stripping-menu-admin-button-tooltip")
+                };
+
+                adminButton.OnToggled += args =>
+                {
+                    _isAdminView = !_isAdminView;
+                    args.Button.Pressed = _isAdminView;
+                    UpdateMenu();
+                };
+
+                _strippingMenu.ButtonContainer.AddChild(adminButton);
             }
 
             // TODO fix layout container measuring (its broken atm).
@@ -200,8 +222,7 @@ namespace Content.Client.Inventory
             // +27 vertically from the window header
             var horizontalMenuSize = Math.Max(200, Math.Max(_handCount, _inventoryDimensions.X + 1) * (SlotControl.DefaultButtonSize + ButtonSeparation) + 20);
             var verticalMenuSize = Math.Max(200, (_inventoryDimensions.Y + (_handCount > 0 ? 2 : 1)) * (SlotControl.DefaultButtonSize + ButtonSeparation) + 53);
-            if (snare?.IsEnsnared == true)
-                verticalMenuSize += 20;
+            verticalMenuSize += 25 * _strippingMenu.ButtonContainer.Children.Count();
             _strippingMenu.SetSize = new Vector2(horizontalMenuSize, verticalMenuSize);
         }
 
@@ -219,8 +240,10 @@ namespace Content.Client.Inventory
                     button.BlockedRect.MouseFilter = MouseFilterMode.Ignore;
             }
 
-            UpdateEntityIcon(button, heldEntity);
             _strippingMenu!.HandsContainer.AddChild(button);
+
+            UpdateEntityIcon(button, heldEntity);
+
             LayoutContainer.SetPosition(button, new Vector2i(_handCount, 0) * (SlotControl.DefaultButtonSize + ButtonSeparation));
             _handCount++;
         }
@@ -298,6 +321,16 @@ namespace Content.Client.Inventory
                 return;
 
             button.SetEntity(viewEnt);
+
+            if (_admin.IsAdmin() && _isAdminView && EntMan.HasComponent<ChameleonClothingComponent>(entity))
+            {
+                button.AddAdminOverlay(_chameleonClothingTexturePath, _chameleonColor);
+            }
+
+            if (_admin.IsAdmin() && _isAdminView && _contraband.IsContraband(entity.Value, Owner, out var contraProtoId))
+            {
+                button.AddAdminOverlay(_contrabandTexturePath, _proto.Index(contraProtoId).Color);
+            }
         }
     }
 }

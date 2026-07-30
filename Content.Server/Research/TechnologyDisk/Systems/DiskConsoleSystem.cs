@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Research.Systems;
 using Content.Server.Research.TechnologyDisk.Components;
 using Content.Shared.UserInterface;
@@ -14,12 +9,12 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Research.TechnologyDisk.Systems;
 
-public sealed class DiskConsoleSystem : EntitySystem
+public sealed partial class DiskConsoleSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly ResearchSystem _research = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private ResearchSystem _research = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

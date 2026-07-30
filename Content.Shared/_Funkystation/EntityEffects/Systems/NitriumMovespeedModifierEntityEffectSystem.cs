@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.EntityEffects;
 using Content.Shared.EntityEffects.Effects.StatusEffects;
 using Content.Shared.Movement.Components;
@@ -16,8 +13,8 @@ namespace Content.Shared._Funkystation.EntityEffects.Effects.StatusEffects;
 /// </summary>
 public sealed partial class NitriumMovementSpeedModifierSystem : EntityEffectSystem<MovementSpeedModifierComponent, NitriumMovementSpeedModifier>
 {
-    [Dependency] private readonly StatusEffectNew.StatusEffectsSystem _status = default!;
-    [Dependency] private readonly MovementModStatusSystem _movementModStatus = default!;
+    [Dependency] private StatusEffectNew.StatusEffectsSystem _status = default!;
+    [Dependency] private MovementModStatusSystem _movementModStatus = default!;
 
     protected override void Effect(Entity<MovementSpeedModifierComponent> entity, ref EntityEffectEvent<NitriumMovementSpeedModifier> args)
     {

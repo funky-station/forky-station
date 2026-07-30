@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2021 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kot <1192090+koteq@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -29,11 +18,10 @@ namespace Content.Client.Atmos.UI
     {
         private readonly ButtonGroup _buttonGroup = new();
 
-        public bool FilterStatus = true;
         public string? SelectedGas;
         public string? CurrentGasId;
 
-        public event Action? ToggleStatusButtonPressed;
+        public event Action<bool>? ToggleStatusButtonPressed;
         public event Action<string>? FilterTransferRateChanged;
         public event Action? SelectGasPressed;
 
@@ -41,8 +29,7 @@ namespace Content.Client.Atmos.UI
         {
             RobustXamlLoader.Load(this);
 
-            ToggleStatusButton.OnPressed += _ => SetFilterStatus(!FilterStatus);
-            ToggleStatusButton.OnPressed += _ => ToggleStatusButtonPressed?.Invoke();
+            ToggleStatusButton.OnToggled += _ => ToggleStatusButtonPressed?.Invoke(ToggleStatusButton.Pressed);
 
             FilterTransferRateInput.OnTextChanged += _ => SetFilterRate.Disabled = false;
             SetFilterRate.OnPressed += _ =>
@@ -64,15 +51,7 @@ namespace Content.Client.Atmos.UI
 
         public void SetFilterStatus(bool enabled)
         {
-            FilterStatus = enabled;
-            if (enabled)
-            {
-                ToggleStatusButton.Text = Loc.GetString("comp-gas-filter-ui-status-enabled");
-            }
-            else
-            {
-                ToggleStatusButton.Text = Loc.GetString("comp-gas-filter-ui-status-disabled");
-            }
+            ToggleStatusButton.Pressed = enabled;
         }
 
         public void SetGasFiltered(string? id, string name)

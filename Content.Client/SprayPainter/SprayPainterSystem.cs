@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Brandon Li <48413902+aspiringLich@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Whatstone <166147148+whatston3@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Client.Items;
 using Content.Client.Message;
@@ -26,9 +18,9 @@ namespace Content.Client.SprayPainter;
 /// <summary>
 /// Client-side spray painter functions. Caches information for spray painter windows and updates the UI to reflect component state.
 /// </summary>
-public sealed class SprayPainterSystem : SharedSprayPainterSystem
+public sealed partial class SprayPainterSystem : SharedSprayPainterSystem
 {
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
 
     public List<SprayPainterDecalEntry> Decals = [];
     public Dictionary<string, List<string>> PaintableGroupsByCategory = new();

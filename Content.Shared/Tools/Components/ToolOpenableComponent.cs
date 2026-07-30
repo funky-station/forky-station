@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;
 using Content.Shared.DoAfter;

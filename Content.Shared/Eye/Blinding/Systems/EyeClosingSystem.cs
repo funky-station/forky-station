@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Actions;
 using Content.Shared.Eye.Blinding.Components;
 using Robust.Shared.Audio.Systems;
@@ -13,14 +7,14 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Eye.Blinding.Systems;
 
-public sealed class EyeClosingSystem : EntitySystem
+public sealed partial class EyeClosingSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly BlindableSystem _blindableSystem = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private BlindableSystem _blindableSystem = default!;
+    [Dependency] private SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
 
     public override void Initialize()
     {
@@ -125,7 +119,7 @@ public sealed class EyeClosingSystem : EntitySystem
         var ev = new GetBlurEvent(blindable.Comp.EyeDamage);
         RaiseLocalEvent(blindable.Owner, ev);
 
-        if (EntityManager.TryGetComponent<EyeClosingComponent>(blindable, out var eyelids) && !eyelids.NaturallyCreated)
+        if (TryComp<EyeClosingComponent>(blindable, out var eyelids) && !eyelids.NaturallyCreated)
             return;
 
         if (ev.Blur < BlurryVisionComponent.MaxMagnitude || ev.Blur >= blindable.Comp.MaxDamage)

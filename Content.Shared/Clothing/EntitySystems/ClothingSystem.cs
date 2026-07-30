@@ -1,24 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 FunTust <49007663+FunTust@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 DinoWattz <116862698+DinoWattz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-FileCopyrightText: 2025 paige404 <59348003+paige404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Clothing.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -31,11 +10,11 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.Clothing.EntitySystems;
 
-public abstract class ClothingSystem : EntitySystem
+public abstract partial class ClothingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedItemSystem _itemSys = default!;
-    [Dependency] private readonly InventorySystem _invSystem = default!;
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+    [Dependency] private SharedItemSystem _itemSys = default!;
+    [Dependency] private InventorySystem _invSystem = default!;
+    [Dependency] private SharedHandsSystem _handsSystem = default!;
 
     public override void Initialize()
     {
@@ -109,22 +88,22 @@ public abstract class ClothingSystem : EntitySystem
         if ((component.Slots & args.SlotFlags) == SlotFlags.NONE)
             return;
 
-        var gotEquippedEvent = new ClothingGotEquippedEvent(args.Equipee, component);
+        var gotEquippedEvent = new ClothingGotEquippedEvent(args.EquipTarget, component);
         RaiseLocalEvent(uid, ref gotEquippedEvent);
 
         var didEquippedEvent = new ClothingDidEquippedEvent((uid, component));
-        RaiseLocalEvent(args.Equipee, ref didEquippedEvent);
+        RaiseLocalEvent(args.EquipTarget, ref didEquippedEvent);
     }
 
     protected virtual void OnGotUnequipped(EntityUid uid, ClothingComponent component, GotUnequippedEvent args)
     {
         if ((component.Slots & args.SlotFlags) != SlotFlags.NONE)
         {
-            var gotUnequippedEvent = new ClothingGotUnequippedEvent(args.Equipee, component);
+            var gotUnequippedEvent = new ClothingGotUnequippedEvent(args.EquipTarget, component);
             RaiseLocalEvent(uid, ref gotUnequippedEvent);
 
             var didUnequippedEvent = new ClothingDidUnequippedEvent((uid, component));
-            RaiseLocalEvent(args.Equipee, ref didUnequippedEvent);
+            RaiseLocalEvent(args.EquipTarget, ref didUnequippedEvent);
         }
 
         component.InSlot = null;
@@ -159,6 +138,21 @@ public abstract class ClothingSystem : EntitySystem
     }
 
     #region Public API
+
+    /// <summary>
+    /// Returns true if this clothing item is currently inside an inventory slot AND that slot is considered valid for equipping.
+    /// For example putting shoes into your pockets does not count as being equipped.
+    /// </summary>
+    public bool IsEquipped(Entity<ClothingComponent?> item)
+    {
+        if (!Resolve(item, ref item.Comp, false))
+            return false;
+
+        if ((item.Comp.Slots & item.Comp.InSlotFlag) != SlotFlags.NONE)
+            return true;
+
+        return false;
+    }
 
     public void SetEquippedPrefix(EntityUid uid, string? prefix, ClothingComponent? clothing = null)
     {

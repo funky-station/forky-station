@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Botany.Components;
 using Content.Server.Botany.Systems;
 using Content.Server.Popups;
@@ -14,7 +9,7 @@ namespace Content.Server.EntityEffects.Effects.Botany.PlantAttributes;
 
 public sealed partial class PlantDestroySeedsEntityEffectSystem : EntityEffectSystem<PlantHolderComponent, PlantDestroySeeds>
 {
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private PopupSystem _popup = default!;
 
     protected override void Effect(Entity<PlantHolderComponent> entity, ref EntityEffectEvent<PlantDestroySeeds> args)
     {

@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Popups;
 
 namespace Content.Shared.UserInterface;
@@ -9,9 +5,9 @@ namespace Content.Shared.UserInterface;
 /// <summary>
 /// <see cref="ActivatableUIRequiresAnchorComponent"/>
 /// </summary>
-public sealed class ActivatableUIRequiresAnchorSystem : EntitySystem
+public sealed partial class ActivatableUIRequiresAnchorSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

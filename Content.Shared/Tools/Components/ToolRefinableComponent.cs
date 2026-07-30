@@ -1,23 +1,10 @@
-// SPDX-FileCopyrightText: 2020 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
-// SPDX-FileCopyrightText: 2022, 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+using Content.Shared.Popups;
 using Content.Shared.Storage;
+using Content.Shared.Tools.Systems;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Content.Shared.Tools.Systems;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Tools.Components;
 
@@ -32,13 +19,13 @@ public sealed partial class ToolRefinableComponent : Component
     /// The items created when the item is refined.
     /// </summary>
     [DataField(required: true)]
-    public List<EntitySpawnEntry> RefineResult = new();
+    public List<EntitySpawnEntry> RefineResult;
 
     /// <summary>
     /// The amount of time it takes to refine a given item.
     /// </summary>
     [DataField]
-    public float RefineTime = 2f;
+    public TimeSpan RefineTime = TimeSpan.FromSeconds(2);
 
     /// <summary>
     /// The amount of fuel it takes to refine a given item.
@@ -51,4 +38,55 @@ public sealed partial class ToolRefinableComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<ToolQualityPrototype> QualityNeeded = "Welding";
+
+    /// <summary>
+    /// Sound that will be played after refine process finished.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? Sound;
+
+    /// <summary>
+    /// Refine verb text. If there is no text, verb will not be added.
+    /// </summary>
+    [DataField]
+    public LocId? VerbText;
+
+    /// <summary>
+    /// Icon for refine verb.
+    /// </summary>
+    [DataField]
+    public SpriteSpecifier? VerbIcon;
+
+    /// <summary>
+    /// Default tooltip text for refine verb.
+    /// </summary>
+    [DataField]
+    public LocId? VerbDefaultTooltip;
+
+    /// <summary>
+    /// Verb tooltip in case currently used tool
+    /// is missing required (<see cref="QualityNeeded"/>) quality.
+    /// </summary>
+    [DataField]
+    public LocId? ToolMissingQualityTooltip;
+
+    /// <summary>
+    /// Popup text to display for action performer
+    /// on refine action performed (end of DoAfter).
+    /// </summary>
+    [DataField]
+    public LocId? PopupForUser;
+
+    /// <summary>
+    /// Popup text to display for players near action performer
+    /// on action performed (end of DoAfter).
+    /// </summary>
+    [DataField]
+    public LocId? PopupForOther;
+
+    /// <summary>
+    /// What type of popup should be used for <see cref="PopupForUser"/> and <see cref="PopupForOther"/>.
+    /// </summary>
+    [DataField]
+    public PopupType PopupType = PopupType.Small;
 }

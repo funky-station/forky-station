@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 EnDecc <33369477+Endecc@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -14,10 +5,10 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Chemistry.EntitySystems;
 
-public sealed class SolutionPurgeSystem : EntitySystem
+public sealed partial class SolutionPurgeSystem : EntitySystem
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -36,8 +27,8 @@ public sealed class SolutionPurgeSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<SolutionPurgeComponent, SolutionContainerManagerComponent>();
-        while (query.MoveNext(out var uid, out var purge, out var manager))
+        var query = EntityQueryEnumerator<SolutionPurgeComponent, SolutionComponent>();
+        while (query.MoveNext(out var uid, out var purge, out var solution))
         {
             if (_timing.CurTime < purge.NextPurgeTime)
                 continue;
@@ -47,12 +38,9 @@ public sealed class SolutionPurgeSystem : EntitySystem
             // Needs to be networked and dirtied so that the client can reroll it during prediction
             Dirty(uid, purge);
 
-            if (_solutionContainer.TryGetSolution((uid, manager), purge.Solution, out var solution))
-            {
-                _solutionContainer.SplitSolutionWithout(solution.Value,
-                    purge.Quantity,
-                    purge.Preserve.Select(proto => proto.Id).ToArray());
-            }
+            _solutionContainer.SplitSolutionWithout((uid, solution),
+                purge.Quantity,
+                purge.Preserve.ToArray());
         }
     }
 }

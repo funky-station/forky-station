@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Sir Warock <67167466+SirWarock@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -25,6 +16,7 @@ using Content.Shared.Spillable;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared._Funkystation.Fluids;
 using Robust.Shared.Player;
 
 namespace Content.Shared.Fluids;
@@ -32,7 +24,7 @@ namespace Content.Shared.Fluids;
 public abstract partial class SharedPuddleSystem
 {
     private static readonly FixedPoint2 MeleeHitTransferProportion = 0.25;
-    [Dependency] private readonly InjectorSystem _injectorSystem = default!;
+    [Dependency] private InjectorSystem _injectorSystem = default!;
 
     protected virtual void InitializeSpillable()
     {
@@ -171,6 +163,12 @@ public abstract partial class SharedPuddleSystem
                 continue;
 
             var splitSolution = _solutionContainerSystem.SplitSolution(soln.Value, totalSplit / hitCount);
+
+            if (splitSolution.Volume > 0)
+            {
+                var stainEv = new SpilledOnEvent(entity.Owner, splitSolution.Clone());
+                RaiseLocalEvent(hit, stainEv);
+            }
 
             AdminLogger.Add(LogType.MeleeHit,
                 $"{ToPrettyString(args.User):actor} "

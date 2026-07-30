@@ -1,18 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Saphire <lattice@saphi.re>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <slambamactionman@gmail.com>
-// SPDX-FileCopyrightText: 2025 Connor Huffine <chuffine@gmail.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.ParticleAccelerator.Components;
 using Content.Shared.Popups;
 using Content.Shared.Singularity.Components;
@@ -25,13 +10,14 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Singularity.EntitySystems;
 
-public sealed class SingularityGeneratorSystem : SharedSingularityGeneratorSystem
+public sealed partial class SingularityGeneratorSystem : SharedSingularityGeneratorSystem
 {
     #region Dependencies
-    [Dependency] private readonly IViewVariablesManager _vvm = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly PhysicsSystem _physics = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IViewVariablesManager _vvm = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private PhysicsSystem _physics = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private EntityQuery<ContainmentFieldComponent> _containmentFieldQuery = default!;
     #endregion Dependencies
 
     public override void Initialize()
@@ -188,13 +174,12 @@ public sealed class SingularityGeneratorSystem : SharedSingularityGeneratorSyste
 
         var ray = new CollisionRay(worldPosition, dirRad.ToVec(), component.CollisionMask);
         var rayCastResults = _physics.IntersectRay(transform.MapID, ray, component.FailsafeDistance, generator, false);
-        var genQuery = GetEntityQuery<ContainmentFieldComponent>();
 
         RayCastResults? closestResult = null;
 
         foreach (var result in rayCastResults)
         {
-            if (!genQuery.HasComponent(result.HitEntity))
+            if (!_containmentFieldQuery.HasComponent(result.HitEntity))
                 continue;
 
             closestResult = result;

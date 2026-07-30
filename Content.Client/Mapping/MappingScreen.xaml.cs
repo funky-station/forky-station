@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Numerics;
 using Content.Client.Decals;
@@ -22,7 +18,7 @@ namespace Content.Client.Mapping;
 [GenerateTypedNameReferences]
 public sealed partial class MappingScreen : InGameScreen
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public DecalPlacementSystem DecalSystem = default!;
 

@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking.Rules;
@@ -18,12 +14,12 @@ using Robust.Shared.Random;
 
 namespace Content.Server.StationEvents.Events;
 
-public sealed class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmComponent>
+public sealed partial class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmComponent>
 {
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private StationSystem _station = default!;
 
     protected override void Added(EntityUid uid, MeteorSwarmComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {

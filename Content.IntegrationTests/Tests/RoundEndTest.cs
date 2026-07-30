@@ -1,15 +1,4 @@
-// SPDX-FileCopyrightText: 2022, 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Arimah Greene <30327355+arimah@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
+using Content.IntegrationTests.Fixtures;
 using Content.Server.GameTicking;
 using Content.Server.RoundEnd;
 using Content.Shared.CCVar;
@@ -19,7 +8,7 @@ using Robust.Shared.GameObjects;
 namespace Content.IntegrationTests.Tests
 {
     [TestFixture]
-    public sealed class RoundEndTest
+    public sealed class RoundEndTest : GameTest
     {
         private sealed class RoundEndTestSystem : EntitySystem
         {
@@ -37,15 +26,18 @@ namespace Content.IntegrationTests.Tests
             }
         }
 
+
+        public override PoolSettings PoolSettings => new PoolSettings
+        {
+            DummyTicker = false,
+            Connected = true,
+            Dirty = true
+        };
+
         [Test]
         public async Task Test()
         {
-            await using var pair = await PoolManager.GetServerClient(new PoolSettings
-            {
-                DummyTicker = false,
-                Connected = true,
-                Dirty = true
-            });
+            var pair = Pair;
 
             var server = pair.Server;
 
@@ -163,7 +155,6 @@ namespace Content.IntegrationTests.Tests
                 roundEndSystem.DefaultCountdownDuration = TimeSpan.FromMinutes(4);
                 ticker.RestartRound();
             });
-            await pair.CleanReturnAsync();
         }
     }
 }

@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Голубь <124601871+Golubgik@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using  Content.Shared.Inventory;
 
 namespace Content.Shared.Actions;
@@ -9,9 +5,9 @@ namespace Content.Shared.Actions;
 /// <summary>
 /// <see cref="ActionGrantComponent"/>
 /// </summary>
-public sealed class ActionGrantSystem : EntitySystem
+public sealed partial class ActionGrantSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
 
     public override void Initialize()
     {

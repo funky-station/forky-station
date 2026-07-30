@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 namespace Content.Shared.EntityTable.ValueSelector;
 
 /// <summary>
@@ -18,6 +14,17 @@ public sealed partial class ConstantNumberSelector : NumberSelector
     }
 
     public override int Get(System.Random rand)
+    {
+        return Value;
+    }
+
+    public override float Odds()
+    {
+        // You really shouldn't have a constant value of 0 ever.
+        return 1;
+    }
+
+    public override float Average()
     {
         return Value;
     }

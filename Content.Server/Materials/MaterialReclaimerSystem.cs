@@ -1,42 +1,19 @@
-// SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 LucasTheDrgn <kirbyfan.95@gmail.com>
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration.Logs;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Ghost;
 using Content.Server.Popups;
 using Content.Server.Stack;
-using Content.Server.Wires;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
 using Content.Shared.Emag.Components;
+using Content.Shared.Gibbing;
+using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Materials;
 using Content.Shared.Mind;
-using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Power;
 using Content.Shared.Repairable;
 using Content.Shared.Stacks;
@@ -44,27 +21,23 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using System.Linq;
-using Content.Shared.Gibbing;
-using Content.Shared.Humanoid;
 
 namespace Content.Server.Materials;
 
 /// <inheritdoc/>
-public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
+public sealed partial class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly GhostSystem _ghostSystem = default!;
-    [Dependency] private readonly MaterialStorageSystem _materialStorage = default!;
-    [Dependency] private readonly OpenableSystem _openable = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
-    [Dependency] private readonly PuddleSystem _puddle = default!;
-    [Dependency] private readonly StackSystem _stack = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private GhostSystem _ghostSystem = default!;
+    [Dependency] private MaterialStorageSystem _materialStorage = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private GibbingSystem _gibbing = default!;
+    [Dependency] private PuddleSystem _puddle = default!;
+    [Dependency] private StackSystem _stack = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -72,8 +45,6 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         base.Initialize();
 
         SubscribeLocalEvent<MaterialReclaimerComponent, PowerChangedEvent>(OnPowerChanged);
-        SubscribeLocalEvent<MaterialReclaimerComponent, InteractUsingEvent>(OnInteractUsing,
-            before: [typeof(WiresSystem), typeof(SolutionTransferSystem)]);
         SubscribeLocalEvent<MaterialReclaimerComponent, SuicideByEnvironmentEvent>(OnSuicideByEnvironment);
         SubscribeLocalEvent<ActiveMaterialReclaimerComponent, PowerChangedEvent>(OnActivePowerChanged);
 
@@ -86,29 +57,6 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         AmbientSound.SetAmbience(entity.Owner, entity.Comp.Enabled && args.Powered);
         entity.Comp.Powered = args.Powered;
         Dirty(entity);
-    }
-
-    private void OnInteractUsing(Entity<MaterialReclaimerComponent> entity, ref InteractUsingEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        // if we're trying to get a solution out of the reclaimer, don't destroy it
-        if (_solutionContainer.TryGetSolution(entity.Owner, entity.Comp.SolutionContainerId, out _, out var outputSolution) && outputSolution.Contents.Any())
-        {
-            if (TryComp<SolutionContainerManagerComponent>(args.Used, out var managerComponent) &&
-                _solutionContainer.EnumerateSolutions((args.Used, managerComponent)).Any(s => s.Solution.Comp.Solution.AvailableVolume > 0))
-            {
-                if (_openable.IsClosed(args.Used))
-                    return;
-
-                if (TryComp<SolutionTransferComponent>(args.Used, out var transfer) &&
-                    transfer.CanReceive)
-                    return;
-            }
-        }
-
-        args.Handled = TryStartProcessItem(entity.Owner, args.Used, entity.Comp, args.User);
     }
 
     private void OnSuicideByEnvironment(Entity<MaterialReclaimerComponent> entity, ref SuicideByEnvironmentEvent args)
@@ -271,7 +219,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         TransformComponent? xform = null,
         PhysicalCompositionComponent? composition = null)
     {
-        if (!Resolve(reclaimer, ref reclaimerComponent, ref xform))
+        if (!Resolve(reclaimer, ref reclaimerComponent, ref xform) || reclaimerComponent.SolutionContainerId == null)
             return;
 
         efficiency *= reclaimerComponent.Efficiency;

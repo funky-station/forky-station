@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Wolfkey-SomeoneElseTookMyUsername <wolfkey75@gmail.com>
-// SPDX-FileCopyrightText: 2025 MossyGreySlope <mossygreyslope@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using System.Text;
 using Content.Shared.Chemistry.EntitySystems;
@@ -23,17 +13,17 @@ using Robust.Shared.Random;
 
 namespace Content.Shared.Nutrition.EntitySystems;
 
-public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
+public sealed partial class FoodSequenceSystem : SharedFoodSequenceSystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly IngestionSystem _ingestion = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private IngestionSystem _ingestion = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private TagSystem _tag = default!;
 
     public override void Initialize()
     {
@@ -107,7 +97,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
             return;
 
         _solutionContainer.RemoveAllSolution(resultSoln.Value); //Remove all YML reagents
-        resultSoln.Value.Comp.Solution.MaxVolume = startSoln.Value.Comp.Solution.MaxVolume;
+        _solutionContainer.SetCapacity(resultSoln.Value, startSoln.Value.Comp.Solution.MaxVolume);
         _solutionContainer.TryAddSolution(resultSoln.Value, startSolution);
 
         MergeFlavorProfiles(start, result);
