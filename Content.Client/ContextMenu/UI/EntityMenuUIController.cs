@@ -160,24 +160,35 @@ namespace Content.Client.ContextMenu.UI
             }
         }
 
+        // ES START
+        // reverse returns they were incorrect before
         private bool HandleOpenEntityMenu(in PointerInputCmdHandler.PointerInputCmdArgs args)
         {
+            // ES START
+            // despite what you may infer from outsidePrediction, that doesnt actually mean this doesnt get predicted,
+            // it appears to just mean this is a clientside/local bind that can prevent server binds from running?
+            // so we still have to check. this was papered over in earlier impls, because of the bad return values, afaict.
+            if (!_gameTiming.IsFirstTimePredicted)
+                return true;
+            // ES END
+
             if (args.State != BoundKeyState.Down)
-                return false;
+                return true;
 
             if (_stateManager.CurrentState is not GameplayStateBase)
-                return false;
+                return true;
 
             if (_combatMode.IsInCombatMode(args.Session?.AttachedEntity))
-                return false;
+                return true;
 
             var coords = _xform.ToMapCoordinates(args.Coordinates);
 
             if (_verbSystem.TryGetEntityMenuEntities(coords, out var entities))
                 OpenRootMenu(entities);
 
-            return true;
+            return false;
         }
+        // ES END
 
         /// <summary>
         ///     Check that entities in the context menu are still visible. If not, remove them from the context menu.

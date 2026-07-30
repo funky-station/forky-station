@@ -199,6 +199,8 @@
   - type: Tag
     tags:
     - DNASolutionScannable
+  - type: ESViewconeOccludable # Funky
+    occludeIfAnchored: true
 
 # Funky footprints
 - type: entity
@@ -246,3 +248,5 @@
   - type: Tag
     tags:
     - DNASolutionScannable
+  - type: ESViewconeOccludable
+    occludeIfAnchored: true

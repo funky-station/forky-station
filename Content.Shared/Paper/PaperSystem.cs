@@ -12,6 +12,10 @@ using Robust.Shared.Audio.Systems;
 using static Content.Shared.Paper.PaperComponent;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared.IdentityManagement;
+using Content.Shared.IdentityManagement.Components;
+using Content.Shared.Mind.Components;
+using Content.Shared.Roles;
 
 namespace Content.Shared.Paper;
 
@@ -27,7 +31,7 @@ public sealed partial class PaperSystem : EntitySystem
     [Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private MetaDataSystem _metaSystem = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
-
+    [Dependency] private IdentitySystem _identitySystem = default!;
     [Dependency] private EntityQuery<PaperComponent> _paperQuery = default!;
 
     private static readonly ProtoId<TagPrototype> WriteIgnoreStampsTag = "WriteIgnoreStamps";
@@ -48,6 +52,8 @@ public sealed partial class PaperSystem : EntitySystem
         SubscribeLocalEvent<RandomPaperContentComponent, MapInitEvent>(OnRandomPaperContentMapInit);
 
         SubscribeLocalEvent<ActivateOnPaperOpenedComponent, PaperWriteEvent>(OnPaperWrite);
+        SubscribeLocalEvent<PaperComponent, PaperSignatureRequestMessage>(OnSignatureRequest);
+        
     }
 
     private void OnMapInit(Entity<PaperComponent> entity, ref MapInitEvent args)
@@ -249,6 +255,14 @@ public sealed partial class PaperSystem : EntitySystem
         if (!entity.Comp.StampedBy.Contains(stampInfo))
         {
             entity.Comp.StampedBy.Add(stampInfo);
+
+            // Clean unfilled form and signature tags when stamping to finalize the document
+            var cleanedContent = CleanUnfilledTags(entity.Comp.Content);
+            if (cleanedContent != entity.Comp.Content)
+            {
+                SetContent(entity, cleanedContent);
+            }
+
             Dirty(entity);
             if (entity.Comp.StampState == null && TryComp<AppearanceComponent>(entity, out var appearance))
             {
@@ -306,6 +320,110 @@ public sealed partial class PaperSystem : EntitySystem
     private void UpdateUserInterface(Entity<PaperComponent> entity)
     {
         _uiSystem.SetUiState(entity.Owner, PaperUiKey.Key, new PaperBoundUserInterfaceState(entity.Comp.Content, entity.Comp.StampedBy, entity.Comp.Mode));
+    }
+
+    private void OnSignatureRequest(Entity<PaperComponent> entity, ref PaperSignatureRequestMessage args)
+    {
+        var signature = GetPlayerSignature(args.Actor);
+        var newText = ReplaceNthSignatureTag(entity.Comp.Content, args.SignatureIndex, signature);
+        SetContent(entity, newText);
+
+        _adminLogger.Add(LogType.Chat, LogImpact.Low,
+            $"{ToPrettyString(args.Actor):player} signed {ToPrettyString(entity):entity} with signature: {signature}");
+    }
+
+    /// <summary>
+    /// Gets the player's signature using the identity system, including rank, name, and role.
+    /// </summary>
+    private string GetPlayerSignature(EntityUid player)
+    {
+        var name = string.Empty;
+        var rank = string.Empty;
+        var role = string.Empty;
+
+        // Get the identity entity (ID card, etc.)
+        var identityEntity = player;
+        if (TryComp<IdentityComponent>(player, out var identity) &&
+            identity.IdentityEntitySlot != null &&
+            identity.IdentityEntitySlot.ContainedEntity is { } idEntity)
+        {
+            identityEntity = idEntity;
+        }
+
+        // Get name from identity or fallback to entity name
+        name = MetaData(identityEntity).EntityName;
+
+        // Get role from mind system
+        if (TryComp<MindContainerComponent>(player, out var mindContainer) &&
+            mindContainer.Mind != null)
+        {
+            var roleSystem = EntityManager.System<SharedRoleSystem>();
+            var roleInfo = roleSystem.MindGetAllRoleInfo((mindContainer.Mind.Value, null));
+            if (roleInfo.Count > 0)
+            {
+                role = Loc.GetString(roleInfo[0].Name);
+            }
+        }
+
+        // Format: "Rank Name, Role" or fallback combinations
+        var signature = string.Empty;
+        if (!string.IsNullOrEmpty(rank) && !string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(role))
+        {
+            signature = $"{rank} {name}, {role}";
+        }
+        else if (!string.IsNullOrEmpty(rank) && !string.IsNullOrEmpty(name))
+        {
+            signature = $"{rank} {name}";
+        }
+        else if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(role))
+        {
+            signature = $"{name}, {role}";
+        }
+        else
+        {
+            signature = name;
+        }
+
+        return signature;
+    }
+
+    /// <summary>
+    /// Replaces the nth occurrence of [signature] tag with replacement text.
+    /// </summary>
+    private static string ReplaceNthSignatureTag(string text, int index, string replacement)
+    {
+        const string signatureTag = "[signature]";
+        var currentIndex = 0;
+        var pos = 0;
+
+        while (pos < text.Length)
+        {
+            var foundPos = text.IndexOf(signatureTag, pos);
+            if (foundPos == -1) break;
+
+            if (currentIndex == index)
+            {
+                return text.Substring(0, foundPos) + replacement + text.Substring(foundPos + signatureTag.Length);
+            }
+
+            currentIndex++;
+            pos = foundPos + signatureTag.Length;
+        }
+
+        return text;
+    }
+
+    /// <summary>
+    /// Removes any unfilled [form] and [signature] tags, and converts [check] tags to ☐.
+    /// Called when the paper is stamped to finalize the document.
+    /// </summary>
+    /// <param name="text">The paper text to clean</param>
+    /// <returns>Text with unfilled tags cleaned</returns>
+    private static string CleanUnfilledTags(string text)
+    {
+        return text.Replace("[form]", string.Empty)
+                  .Replace("[signature]", string.Empty)
+                  .Replace("[check]", "☐");
     }
 }
 

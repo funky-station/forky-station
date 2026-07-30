@@ -1,9 +1,21 @@
-﻿- type: cargoProduct
+﻿# Washing Machine
+- type: cargoProduct
   id: ServiceWashingMachineKit
   icon:
     sprite: _Funkystation/Structures/Machines/washing_machine.rsi
     state: base
   product: CrateServiceWashingMachineSet
   cost: 1500
+  category: cargoproduct-category-name-service
+  group: market
+
+# Document Printer
+- type: cargoProduct
+  id: ServiceDocumentPrinterKit
+  icon:
+    sprite: _Funkystation/Structures/Machines/document_printer.rsi
+    state: icon
+  product: CrateServiceDocumentPrinterSet
+  cost: 900
   category: cargoproduct-category-name-service
   group: market

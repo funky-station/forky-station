@@ -253,6 +253,7 @@
     requiredMobState:
     - Critical
     - Dead
+  - type: ESViewconeOccludable # Funky
 
 - type: entity
   abstract: true
