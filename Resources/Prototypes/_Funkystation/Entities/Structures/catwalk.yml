@@ -23,9 +23,6 @@
       collection: FootstepCatwalk
       params:
         volume: 8
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -76,9 +73,6 @@
       collection: FootstepCatwalk
       params:
         volume: 8
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -129,9 +123,6 @@
       collection: FootstepCatwalk
       params:
         volume: 8
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -182,9 +173,6 @@
       collection: FootstepCatwalk
       params:
         volume: 8
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -235,9 +223,6 @@
       collection: FootstepCatwalk
       params:
         volume: 8
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -288,9 +273,6 @@
       collection: FootstepCatwalk
       params:
         volume: 8
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -341,9 +323,6 @@
       collection: FootstepCatwalk
       params:
         volume: 8
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -394,9 +373,6 @@
       collection: FootstepCatwalk
       params:
         volume: 8
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -447,9 +423,6 @@
       collection: FootstepCatwalk
       params:
         volume: 8
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -500,9 +473,6 @@
       collection: FootstepCatwalk
       params:
         volume: 8
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -553,9 +523,6 @@
       collection: FootstepCatwalk
       params:
         volume: 8
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
