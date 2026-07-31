@@ -7,6 +7,8 @@
   - type: TelecomExempt
   - type: RadioMicrophone
     broadcastChannel: Handheld
+    toggleOnSound: /Audio/_Funkystation/Radio/radio_on.ogg # funky addition
+    toggleOffSound: /Audio/_Funkystation/Radio/radio_off.ogg # funky addition
   - type: RadioSpeaker
     channels:
     - Handheld

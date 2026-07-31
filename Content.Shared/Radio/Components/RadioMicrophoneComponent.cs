@@ -1,5 +1,6 @@
 using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Chat;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -37,4 +38,9 @@ public sealed partial class RadioMicrophoneComponent : Component
     /// </summary>
     [DataField]
     public bool UnobstructedRequired = false;
+
+    [DataField]
+    public SoundSpecifier? ToggleOnSound; // funky addition
+    [DataField]
+    public SoundSpecifier? ToggleOffSound; // funky addition
 }

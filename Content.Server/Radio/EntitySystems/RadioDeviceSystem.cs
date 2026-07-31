@@ -13,6 +13,7 @@ using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Speech;
 using Content.Shared.Speech.Components;
 using Content.Shared.Verbs;
+using Robust.Server.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Radio.EntitySystems;
@@ -28,6 +29,7 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
     [Dependency] private RadioSystem _radio = default!;
     [Dependency] private InteractionSystem _interaction = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private AudioSystem _audio = null!;
 
     // Used to prevent a shitter from using a bunch of radios to spam chat.
     private HashSet<(string, EntityUid, RadioChannelPrototype)> _recentlySent = new();
@@ -160,6 +162,7 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
 
         if (!quiet && user != null)
         {
+            _audio.PlayPvs(enabled ? component.ToggleOnSound : component.ToggleOffSound, uid); // funky addition
             var state = Loc.GetString(component.Enabled ? "handheld-radio-component-on-state" : "handheld-radio-component-off-state");
             var message = Loc.GetString("handheld-radio-component-mic-toggle", ("radioState", state)); // Funkystation
             _popup.PopupEntity(message, user.Value, user.Value);
