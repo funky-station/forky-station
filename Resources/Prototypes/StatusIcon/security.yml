@@ -33,7 +33,7 @@
   icon:
     sprite: /Textures/Interface/Misc/security_icons.rsi
     state: hud_suspected
-  
+
 - type: securityIcon
   parent: SecurityIcon
   id: SecurityIconHostile
@@ -62,8 +62,8 @@
   layer: Mod
   isShaded: true
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: MindShield
+    sprite: /Textures/_Funkystation/Interface/Misc/job_icons_borders.rsi # Funky
+    state: MindShieldBorder # Funky - Consistency with other job icon borders
 
 - type: securityIcon
   id: CrewBorderIcon

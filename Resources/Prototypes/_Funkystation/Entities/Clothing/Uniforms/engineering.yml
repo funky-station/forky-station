@@ -1,0 +1,84 @@
+# coveralls
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformCoverallsEngineering
+  name: engineering coveralls
+  description: A pair of overalls for the engineering department. Simple, but effective!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Engineering/Coveralls/engi.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Engineering/Coveralls/engi.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformCoverallsEngineeringRipley
+  name: engineering coveralls w/ patches
+  description: A pair of slightly modified overalls for the engineering department. Simple, but effective! This pair comes with patches reminiscent of stars.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Engineering/Coveralls/ripley.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Engineering/Coveralls/ripley.rsi
+
+# overalls
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformOverallsEngineering
+  name: engineering overalls
+  description: A pair of heavy-duty cotton overalls with an orange shirt.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Engineering/Overalls/engi.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Engineering/Overalls/engi.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformOverallsEngineeringGrease
+  name: engineering overalls
+  description: A pair of heavy-duty cotton overalls with a simple shirt that is stained with old grease.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Engineering/Overalls/engi_grease.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Engineering/Overalls/engi_grease.rsi
+
+# pants two piece sets
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformShirtPantsEngineering
+  name: engineering uniform
+  description: A pair of heavy-duty cotton pants with an orange shirt.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Engineering/TwoPiecePants/engi.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Engineering/TwoPiecePants/engi.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformShirtPantsEngineeringGrease
+  name: engineering uniform
+  description: A pair of heavy-duty cotton pants with a simple shirt that is stained with old grease.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Engineering/TwoPiecePants/engi_grease.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Engineering/TwoPiecePants/engi_grease.rsi
+
+# intern
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformCoverallsEngineeringIntern
+  name: technical assistant's coveralls
+  description: A pair of overalls for the engineering department. This is intended for an assistant, with a built-in hi-viz vest
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Engineering/Coveralls/intern.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Engineering/Coveralls/intern.rsi

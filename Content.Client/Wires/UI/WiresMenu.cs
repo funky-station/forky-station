@@ -15,9 +15,9 @@ using static Robust.Client.UserInterface.Controls.BoxContainer;
 
 namespace Content.Client.Wires.UI
 {
-    public sealed class WiresMenu : BaseWindow
+    public sealed partial class WiresMenu : BaseWindow
     {
-        [Dependency] private readonly IResourceCache _resourceCache = default!;
+        [Dependency] private IResourceCache _resourceCache = default!;
 
         private readonly Control _wiresHBox;
         private readonly Control _topContainer;
@@ -144,9 +144,11 @@ namespace Content.Client.Wires.UI
             rootContainer.AddChild(topContainerWrap);
 
             LayoutContainer.SetAnchorPreset(topContainerWrap, LayoutContainer.LayoutPreset.Wide);
-
-            var font = _resourceCache.GetFont("/Fonts/Boxfont-round/Boxfont Round.ttf", 13);
-            var fontSmall = _resourceCache.GetFont("/Fonts/Boxfont-round/Boxfont Round.ttf", 10);
+            // FUNKY EDIT START
+            // i guess here??
+            var font = _resourceCache.GetFont("/Fonts/Sysfont/Sysfont-Regular.otf", 13);
+            var fontSmall = _resourceCache.GetFont("/Fonts/Sysfont/Sysfont-Regular.otf", 10);
+            // FUNKY EDIT END
 
             Button helpButton;
             var topRow = new BoxContainer
@@ -564,7 +566,7 @@ namespace Content.Client.Wires.UI
                     };
                 }
 
-                var font = resourceCache.GetFont("/Fonts/Boxfont-round/Boxfont Round.ttf", 12);
+                var font = resourceCache.GetFont("/Fonts/Sysfont/Sysfont-Regular.otf", 12);
 
                 var hBox = new BoxContainer
                 {

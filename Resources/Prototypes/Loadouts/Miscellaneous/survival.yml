@@ -18,6 +18,10 @@
     - Moth
     - Reptilian
     - Vulpkanin
+    # macro below
+    - Gray
+    - Apid
+    - Gastropoid
 
 - type: loadoutEffectGroup
   id: EffectSpeciesVox
@@ -76,6 +80,10 @@
     - Human
     - Reptilian
     - Vulpkanin
+    # macro below
+    - Gray
+    - Apid
+    - Gastropoid
 
 - type: loadoutEffectGroup
   id: OxygenBreatherMimeMoth

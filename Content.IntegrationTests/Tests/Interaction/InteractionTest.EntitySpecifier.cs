@@ -1,3 +1,4 @@
+#nullable enable
 using Content.Shared.Stacks;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;

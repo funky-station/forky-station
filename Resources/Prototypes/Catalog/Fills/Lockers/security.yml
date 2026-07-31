@@ -27,15 +27,13 @@
   table: !type:AllSelector
     children:
     - id: FlashlightSeclite
-    - id: WeaponDisabler
-    - id: WeaponTaser
     - id: ClothingBeltSecurityFilled
     - id: Flash
     - id: ClothingEyesGlassesSecurity
     - id: ClothingHandsGlovesCombat
     - id: ClothingShoesBootsJack
     - id: ClothingOuterCoatWarden
-    - id: ClothingOuterWinterWarden
+    - id: FuClothingOuterWinterWard
     - id: RubberStampWarden
     - id: DoorRemoteArmory
     - id: HoloprojectorSecurity
@@ -73,9 +71,7 @@
     children:
     - id: FlashlightSeclite
       prob: 0.8
-    - id: WeaponDisabler
-    - id: WeaponTaser
-    - id: ClothingUniformJumpsuitSecGrey
+    - id: FuClothingUniformSecService
       prob: 0.3
     - id: ClothingHeadHelmetBasic
     - id: ClothingOuterArmorBasic
@@ -112,7 +108,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingEyesGlassesSecurity
-    - id: WeaponTaser
+    - id: WeaponTaser # Funky - We're 100% getting rid of brigmed anyway, so I'm not even going to bother touching this
     - id: WeaponDisabler
     - id: TrackingImplanter
       amount: 2
@@ -200,6 +196,7 @@
   parent: [GunSafeBaseSecure, BaseSecurityContraband]
   id: GunSafeDisabler
   name: disabler safe
+  categories: [ DoNotMap ]
   components:
   - type: EntityTableContainerFill
     containers:

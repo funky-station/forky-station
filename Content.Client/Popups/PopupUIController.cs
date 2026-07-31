@@ -25,10 +25,11 @@ public sealed class PopupUIController : UIController, IOnStateEntered<GameplaySt
     {
         base.Initialize();
         var cache = IoCManager.Resolve<IResourceCache>();
-
-        _smallFont = new VectorFont(cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Italic.ttf"), 10);
-        _mediumFont = new VectorFont(cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Italic.ttf"), 12);
-        _largeFont = new VectorFont(cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-BoldItalic.ttf"), 14);
+        // FUNKY EDIT START
+        _smallFont = new VectorFont(cache.GetResource<FontResource>("/Fonts/Atkinson/AtkinsonHyperlegibleNext-Italic.ttf"), 10);
+        _mediumFont = new VectorFont(cache.GetResource<FontResource>("/Fonts/Atkinson/AtkinsonHyperlegibleNext-Italic.ttf"), 12);
+        _largeFont = new VectorFont(cache.GetResource<FontResource>("/Fonts/Atkinson/AtkinsonHyperlegibleNext-BoldItalic.ttf"), 14);
+        // FUNKY EDIT END
     }
 
     public void OnStateEntered(GameplayState state)

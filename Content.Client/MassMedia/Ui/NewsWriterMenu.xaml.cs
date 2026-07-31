@@ -11,7 +11,7 @@ namespace Content.Client.MassMedia.Ui;
 [GenerateTypedNameReferences]
 public sealed partial class NewsWriterMenu : FancyWindow
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
 
     private TimeSpan? _nextPublish;
 
@@ -47,7 +47,7 @@ public sealed partial class NewsWriterMenu : FancyWindow
             {
                 Title = article.Title,
                 Author = article.Author ?? Loc.GetString("news-read-ui-no-author"),
-                PublicationTime = article.ShareTime,
+                PublicationTimeString = article.ShareTimeString ?? article.ShareTime.ToString(@"hh\:mm\:ss"), // Funky Change
                 ArtcileNumber = i
             };
             control.OnDeletePressed += () => DeleteButtonPressed?.Invoke(control.ArtcileNumber);

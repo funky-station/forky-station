@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: [ BaseItem, StorePresetUplink ] #PDA's have uplinks so they have to inherit the data.
+  parent: [ BaseItem ]
   id: BasePDA
   name: PDA
   description: Personal Data Assistant.
@@ -33,7 +33,7 @@
         components:
         - PAI
     penSlot:
-      startingItem: Pen
+#      startingItem: Pen # funky # you get to ask for a pen from the HoP/cargo! hope this leads to shenanigans
       priority: -1
       whitelist:
         tags:
@@ -107,6 +107,7 @@
         type: InstrumentBoundUserInterface
       enum.HealthAnalyzerUiKey.Key:
         type: HealthAnalyzerBoundUserInterface
+  - type: RemoteStore # PDAs can access uplinks so they need this component.
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -296,8 +297,6 @@
     borderColor: "#d7d7d0"
   - type: Icon
     state: pda-cook
-  - type: ReplacementAccent # for random sentience event
-    accent: italian
 
 - type: entity
   parent: BasePDA
@@ -415,6 +414,9 @@
       whitelist:
         components:
         - Cartridge
+    preinstalled:
+    - CrewManifestCartridge
+    - NewsReaderCartridge
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -464,6 +466,12 @@
   components:
   - type: Pda
     id: QuartermasterIDCard
+    penSlot:
+      startingItem: LuxuryPen #funky change, only important people have pens roundstart
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -554,7 +562,7 @@
   - type: Pda
     id: LibrarianIDCard
     penSlot:
-      startingItem: LuxuryPen
+      startingItem: LuxuryPen #funky change, only important people have pens roundstart #well these aren't command people but it makes sense that they have pens
       priority: -1
       whitelist:
         tags:
@@ -589,7 +597,7 @@
   - type: Pda
     id: LawyerIDCard
     penSlot:
-      startingItem: LuxuryPen
+      startingItem: LuxuryPen #funky change, only important people have pens roundstart #well these aren't command people but it makes sense that they have pens
       priority: -1
       whitelist:
         tags:
@@ -690,6 +698,12 @@
   components:
   - type: Pda
     id: CEIDCard
+    penSlot:
+      startingItem: LuxuryPen #funky change, only important people have pens roundstart
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -728,6 +742,12 @@
   components:
   - type: Pda
     id: CMOIDCard
+    penSlot:
+      startingItem: LuxuryPen #funky change, only important people have pens roundstart
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -819,6 +839,12 @@
   components:
   - type: Pda
     id: RDIDCard
+    penSlot:
+      startingItem: LuxuryPen #funky change, only important people have pens roundstart
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -858,6 +884,12 @@
   components:
   - type: Pda
     id: HoSIDCard
+    penSlot:
+      startingItem: LuxuryPen #funky change, only important people have pens roundstart
+      priority: -1
+      whitelist:
+        tags:
+        - Write
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -923,7 +955,7 @@
   - type: Pda
     id: CentcomIDCard
     penSlot:
-      startingItem: PenCentcom
+      startingItem: PenCentcom #admeme, doubt this is gonna get misused + this is literally the most important person on station if this person exists so like... yeah.
       priority: -1
       whitelist:
         tags:
@@ -1270,7 +1302,7 @@
   - type: Pda
     id: ReporterIDCard
     penSlot:
-      startingItem: LuxuryPen
+      startingItem: LuxuryPen #funky change, only important people have pens roundstart #well these aren't command people but it makes sense that they have pens
       priority: -1
       whitelist:
         tags:

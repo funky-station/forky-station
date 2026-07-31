@@ -1,0 +1,109 @@
+- type: construction
+  name: structures-mail-pipe
+  id: MailPipe
+  graph: mailpipes
+  startNode: start
+  targetNode: pipe
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+
+- type: construction
+  name: structures-mail-tagger
+  id: MailTagger
+  graph: mailpipes
+  startNode: start
+  targetNode: tagger
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+
+- type: construction
+  name: structures-mail-trunk
+  id: MailTrunk
+  graph: mailpipes
+  startNode: start
+  targetNode: trunk
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+
+- type: construction
+  name: structures-mail-router
+  id: MailRouter
+  graph: mailpipes
+  startNode: start
+  targetNode: router
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+
+- type: construction
+  name: structures-mail-router-flipped
+  id: MailRouterFlipped
+  graph: mailpipes
+  startNode: start
+  targetNode: routerflipped
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+
+- type: construction
+  name: structures-mail-junction
+  id: MailJunction
+  graph: mailpipes
+  startNode: start
+  targetNode: junction
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+
+- type: construction
+  name: structures-mail-junction-flipped
+  id: MailJunctionFlipped
+  graph: mailpipes
+  startNode: start
+  targetNode: junctionflipped
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+
+- type: construction
+  name: structures-mail-y-junction
+  id: MailYJunction
+  graph: mailpipes
+  startNode: start
+  targetNode: yJunction
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+
+- type: construction
+  name: structures-mail-bend
+  id: MailBend
+  graph: mailpipes
+  startNode: start
+  targetNode: bend
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+
+- type: construction
+  name: structures-mail-signal-router
+  id: MailSignalRouter
+  graph: mailpipes
+  startNode: start
+  targetNode: signal_router
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+
+- type: construction
+  name: structures-mail-signal-signal-router-flipped
+  id: MailSignalRouterFlipped
+  graph: mailpipes
+  startNode: start
+  targetNode: signal_router_flipped
+  category: construction-category-utilities
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false

@@ -19,6 +19,8 @@
     layers:
       Snout: Mask
     hideOnToggle: true
+  - type: ESViewconeModifier # Funky
+    angleModifier: -90
 
 - type: entity
   parent: [ClothingMaskGas, BaseSecurityContraband]
@@ -39,6 +41,8 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
+  - type: ESViewconeModifier # Funky
+    angleModifier: -20
 
 - type: entity
   parent: [ClothingMaskGas, BaseSyndicateContraband]
@@ -59,6 +63,8 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
+  - type: ESViewconeModifier # Funky
+    angleModifier: -35
 
 - type: entity
   parent: ClothingMaskGas
@@ -118,6 +124,8 @@
         Slash: 0.90
         Piercing: 0.95
         Heat: 0.95
+  - type: ESViewconeModifier # Funky
+    angleModifier: -35
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -194,6 +202,7 @@
   name: clown wig and mask
   description: A true prankster's facial attire. A clown is incomplete without his wig and mask.
   components:
+  - type: Appearance
   - type: Sprite
     sprite: Clothing/Mask/clown.rsi
   - type: Clothing
@@ -213,7 +222,6 @@
   id: ClothingMaskClown
   description: A clown mask featuring a foldable wig; a true prankster's attire.
   components:
-  - type: Appearance
   - type: Foldable
     canFoldInsideContainer: true
   - type: FoldableClothing
@@ -710,9 +718,6 @@
     sprite: Clothing/Mask/italian_moustache.rsi
   - type: Item
     storedRotation: -90
-  - type: AddAccentClothing
-    accent: ReplacementAccent
-    replacement: italian
 
 - type: entity
   parent: ClothingMaskBase
@@ -743,6 +748,8 @@
     sprite: Clothing/Mask/welding-gas.rsi
   - type: FlashImmunity
   - type: EyeProtection
+  - type: ESViewconeModifier # Funky
+    angleModifier: -90
   - type: PhysicalComposition
     materialComposition:
       Steel: 200
