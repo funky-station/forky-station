@@ -375,11 +375,11 @@
   id: LockerFillVault
   table: !type:AllSelector
     children:
+    - id: WeaponRevolverDeckard
     - id: JetpackBlue
     - id: SpaceCash1000
     - id: BeachBall
     - id: BikeHorn
-    - id: WeaponPistolWyvern #funkieststation
 
 - type: entity
   id: LockerFreezerVaultFilled
