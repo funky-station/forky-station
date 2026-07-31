@@ -8,7 +8,6 @@
     Telecrystal: 8
   categories:
   - UplinkWeaponry
-  saleLimit: 1
 
 # For the wyvern
 - type: listing
@@ -50,7 +49,6 @@
     Telecrystal: 15
   categories:
   - UplinkWeaponry
-  saleLimit: 2
   
 # For the Estoc
 - type: listing
