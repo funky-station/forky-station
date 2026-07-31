@@ -428,7 +428,6 @@
     whitelist:
       tags:
       - NukeOpsUplink
-  - !type:WarOpsCondition
 
 - type: listing
   id: UplinkL6SawBundle
@@ -443,8 +442,6 @@
     Telecrystal: 75
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:WarOpsCondition
 
 # Explosives
 
@@ -1406,7 +1403,6 @@
       whitelist:
         tags:
           - NukeOpsUplink
-    - !type:WarOpsCondition
 
 - type: listing
   id: UplinkReinforcementRadioSyndicateAncestor
