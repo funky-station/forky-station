@@ -38,13 +38,14 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
         SubscribeLocalEvent<RadioMicrophoneComponent, ComponentInit>(OnMicrophoneInit);
         SubscribeLocalEvent<RadioMicrophoneComponent, ExaminedEvent>(OnExamine);
         //SubscribeLocalEvent<RadioMicrophoneComponent, ActivateInWorldEvent>(OnActivateMicrophone);
-        SubscribeLocalEvent<RadioMicrophoneComponent, GetVerbsEvent<AlternativeVerb>>(AddMicrophoneVerb); // Funkystation
+        SubscribeLocalEvent<RadioSpeakerComponent, GetVerbsEvent<AlternativeVerb>>(AddPowerOnVerb); // Funkystation
         SubscribeLocalEvent<RadioMicrophoneComponent, ListenEvent>(OnListen);
         SubscribeLocalEvent<RadioMicrophoneComponent, ListenAttemptEvent>(OnAttemptListen);
         SubscribeLocalEvent<RadioMicrophoneComponent, PowerChangedEvent>(OnPowerChanged);
 
         SubscribeLocalEvent<RadioSpeakerComponent, ComponentInit>(OnSpeakerInit);
         SubscribeLocalEvent<RadioSpeakerComponent, ActivateInWorldEvent>(OnActivateSpeaker);
+        SubscribeLocalEvent<RadioMicrophoneComponent, ActivateInWorldEvent>(OnActivateMicrophone); // funky
         SubscribeLocalEvent<RadioSpeakerComponent, RadioReceiveEvent>(OnReceiveRadio);
 
         SubscribeLocalEvent<IntercomComponent, EncryptionChannelsChangedEvent>(OnIntercomEncryptionChannelsChanged);
@@ -80,7 +81,7 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
 
     #region Toggling
     // BEGIN Funkystation
-    private void AddMicrophoneVerb(EntityUid uid, RadioMicrophoneComponent component, GetVerbsEvent<AlternativeVerb> args)
+    private void AddPowerOnVerb(EntityUid uid, RadioSpeakerComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
         if(!args.CanAccess || !args.CanInteract)
             return;
@@ -92,26 +93,49 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
         {
             Act = () =>
             {
-                ToggleRadioMicrophone(uid, args.User, false, component);
+                ToggleRadioSpeaker(uid, args.User, false, component);
             },
-            Text = Loc.GetString("handheld-radio-component-mic-verb"),
+            Text = Loc.GetString("handheld-radio-component-power-verb"),
             Priority = -3,
         };
         args.Verbs.Add(verb);
     }
-    // END Funkystation
-
-    private void OnActivateSpeaker(EntityUid uid, RadioSpeakerComponent component, ActivateInWorldEvent args)
+    // toggling the radio as a whole (the speaker) with Z if the speaker is off or there is no mic present (otherwise, toggle the mic)
+    private void OnActivateSpeaker(EntityUid uid, RadioSpeakerComponent speaker, ActivateInWorldEvent args)
     {
         if (!args.Complex)
             return;
 
-        if (!component.ToggleOnInteract)
+        if (!speaker.ToggleOnInteract)
             return;
 
-        ToggleRadioSpeaker(uid, args.User, args.Handled, component);
+        if (speaker.Enabled && HasComp<RadioMicrophoneComponent>(uid))
+            return;
+
+        ToggleRadioSpeaker(uid, args.User, args.Handled, speaker);
+
         args.Handled = true;
     }
+    // toggling the microphone with Z if and only if the speaker is turned on
+    private void OnActivateMicrophone(EntityUid uid, RadioMicrophoneComponent mic, ActivateInWorldEvent args)
+    {
+        if (args.Handled) // we dont want the mic to turn on at the same time as the speaker (does doing it this way make sense?)
+            return;
+
+        if (!args.Complex)
+            return;
+
+        if (!mic.ToggleOnInteract)
+            return;
+
+        if (!TryComp<RadioSpeakerComponent>(uid, out var speaker) || !speaker.Enabled) // TODO: implement radio bugs (radios with only microphones)
+            return;
+
+        ToggleRadioMicrophone(uid, args.User, args.Handled, mic);
+
+        args.Handled = true;
+    }
+    // END Funkystation
     private void OnPowerChanged(EntityUid uid, RadioMicrophoneComponent component, ref PowerChangedEvent args)
     {
         if (args.Powered)
