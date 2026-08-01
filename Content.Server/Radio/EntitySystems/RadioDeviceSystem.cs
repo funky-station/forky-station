@@ -33,15 +33,18 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
     // Used to prevent a shitter from using a bunch of radios to spam chat.
     private HashSet<(string, EntityUid, RadioChannelPrototype)> _recentlySent = new();
 
+    // TODO: volume switch (full speech volume + full listening range, whisper volume + reduced listening range, perhaps audible to holder only + only holder speech)
+    // TODO: perhaps relay incoming radio messages into your chat like a headset when held
+
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<RadioMicrophoneComponent, ComponentInit>(OnMicrophoneInit);
         SubscribeLocalEvent<RadioMicrophoneComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<RadioMicrophoneComponent, ActivateInWorldEvent>(OnActivateMicrophone);
         SubscribeLocalEvent<RadioMicrophoneComponent, ListenEvent>(OnListen);
         SubscribeLocalEvent<RadioMicrophoneComponent, ListenAttemptEvent>(OnAttemptListen);
         SubscribeLocalEvent<RadioMicrophoneComponent, PowerChangedEvent>(OnPowerChanged);
-        SubscribeLocalEvent<RadioMicrophoneComponent, ActivateInWorldEvent>(OnActivateMicrophone); // funky
 
         SubscribeLocalEvent<RadioSpeakerComponent, ComponentInit>(OnSpeakerInit);
         SubscribeLocalEvent<RadioSpeakerComponent, ActivateInWorldEvent>(OnActivateSpeaker);
@@ -108,7 +111,7 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
         if (!mic.ToggleOnInteract)
             return;
 
-        if (!TryComp<RadioSpeakerComponent>(uid, out var speaker) || !speaker.Enabled) // TODO: implement radio bugs (radios with only microphones)
+        if (mic.SpeakerRequired && (!TryComp<RadioSpeakerComponent>(uid, out var speaker) || !speaker.Enabled))
             return;
 
         ToggleRadioMicrophone(uid, args.User, args.Handled, mic);

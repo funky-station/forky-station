@@ -127,7 +127,7 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
     }
 
     // seems to be this way because it can't be predicted on client
-    public virtual void SetMicrophoneEnabled(EntityUid uid, EntityUid? user, bool enabled, bool quiet = false, RadioMicrophoneComponent? component = null) {}
+    public virtual void SetMicrophoneEnabled(EntityUid uid, EntityUid? user, bool enabled, bool quiet = false, RadioMicrophoneComponent? component = null) { }
 
     public void ToggleRadioSpeaker(EntityUid uid, EntityUid user, bool quiet = false, RadioSpeakerComponent? component = null)
     {
@@ -146,7 +146,7 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
         // If the mic is on when the speaker is turned off, turn the mic off (Funkystation)
         if (!enabled && TryComp<RadioMicrophoneComponent>(uid, out var mic) && mic.Enabled)
         {
-            _actions.SetToggled(mic.ActionEntity, !mic.Enabled);
+            _actions.SetToggled(mic.ActionEntity, false);
             SetMicrophoneEnabled(uid, user, false, true, mic);
         }
 
