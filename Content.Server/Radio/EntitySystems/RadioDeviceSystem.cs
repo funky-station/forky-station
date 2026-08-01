@@ -142,7 +142,7 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
             _audio.PlayPvs(enabled ? component.ToggleOnSound : component.ToggleOffSound, uid); // funky addition
             var state = Loc.GetString(component.Enabled ? "handheld-radio-component-on-state" : "handheld-radio-component-off-state");
             var message = Loc.GetString("handheld-radio-component-mic-toggle", ("radioState", state)); // Funkystation
-            _popup.PopupEntity(message, user.Value, user.Value);
+            _popup.PopupEntity(message, uid, user.Value); //funky
         }
 
         _appearance.SetData(uid, RadioDeviceVisuals.Broadcasting, component.Enabled);

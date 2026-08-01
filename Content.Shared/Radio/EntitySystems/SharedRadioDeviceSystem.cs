@@ -102,8 +102,14 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (!component.ToggleOnInteract || (component.SpeakerRequired && !Comp<RadioSpeakerComponent>(uid).Enabled))
+        if (!component.ToggleOnInteract)
             return;
+
+        if (component.SpeakerRequired && (!TryComp<RadioSpeakerComponent>(uid, out var speaker) || !speaker.Enabled))
+        {
+            _popup.PopupEntity(Loc.GetString("handheld-radio-component-mic-desc-disabled"), uid, args.Performer);
+            return;
+        }
 
         ToggleRadioMicrophone(uid, args.Performer, false, component);
         args.Handled = true;
@@ -184,7 +190,7 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
         {
             var state = Loc.GetString(component.Enabled ? "handheld-radio-component-on-state" : "handheld-radio-component-off-state");
             var message = Loc.GetString("handheld-radio-component-on-use", ("radioState", state));
-            _popup.PopupEntity(message, user.Value, user.Value);
+            _popup.PopupEntity(message, uid, user.Value);
         }
 
         _appearance.SetData(uid, RadioDeviceVisuals.Speaker, component.Enabled);
