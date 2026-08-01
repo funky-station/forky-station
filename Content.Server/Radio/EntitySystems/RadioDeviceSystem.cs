@@ -49,6 +49,7 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
         SubscribeLocalEvent<RadioSpeakerComponent, ComponentInit>(OnSpeakerInit);
         SubscribeLocalEvent<RadioSpeakerComponent, ActivateInWorldEvent>(OnActivateSpeaker);
         SubscribeLocalEvent<RadioSpeakerComponent, RadioReceiveEvent>(OnReceiveRadio);
+        SubscribeLocalEvent<RadioSpeakerComponent, ExaminedEvent>(OnExamine);
 
         SubscribeLocalEvent<IntercomComponent, EncryptionChannelsChangedEvent>(OnIntercomEncryptionChannelsChanged);
         SubscribeLocalEvent<IntercomComponent, ToggleIntercomMicMessage>(OnToggleIntercomMic);
@@ -153,7 +154,26 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
     }
 
     #endregion
+    private void OnExamine(EntityUid uid, RadioSpeakerComponent component, ExaminedEvent args) //funky
+    {
+        if (!args.IsInDetailsRange)
+            return;
 
+        var state = Loc.GetString(component.Enabled
+            ? "handheld-radio-component-on-state"
+            : "handheld-radio-component-off-state");
+
+        var color = component.Enabled
+            ? Color.LightBlue
+            : Color.Red;
+
+        using (args.PushGroup(nameof(RadioSpeakerComponent), priority: 1))
+        {
+            args.PushMarkup(Loc.GetString("handheld-radio-component-speaker-examine",
+                ("speakerState", state),
+                ("color", color)));
+        }
+    }
     private void OnExamine(EntityUid uid, RadioMicrophoneComponent component, ExaminedEvent args)
     {
         if (!args.IsInDetailsRange)
@@ -161,8 +181,19 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
 
         var proto = _protoMan.Index<RadioChannelPrototype>(component.BroadcastChannel);
 
-        using (args.PushGroup(nameof(RadioMicrophoneComponent)))
+        var state = Loc.GetString(component.Enabled
+            ? "handheld-radio-component-on-state"
+            : "handheld-radio-component-off-state"); //funky
+
+        var color = component.Enabled
+            ? Color.LightBlue
+            : Color.Red; //funky
+
+        using (args.PushGroup(nameof(RadioMicrophoneComponent), priority: 0))
         {
+            args.PushMarkup(Loc.GetString("handheld-radio-component-mic-examine",
+                ("micState", state),
+                ("color", color))); //funky
             args.PushMarkup(Loc.GetString("handheld-radio-component-on-examine", ("frequency", proto.Frequency)));
             args.PushMarkup(Loc.GetString("handheld-radio-component-chennel-examine",
                 ("channel", proto.LocalizedName)));
