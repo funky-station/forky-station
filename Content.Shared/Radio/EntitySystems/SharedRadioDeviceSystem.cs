@@ -1,6 +1,7 @@
 using Content.Shared.Actions;
 using Content.Shared.Popups;
 using Content.Shared.Radio.Components;
+using Content.Shared.Timing;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 
@@ -11,6 +12,7 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedActionsSystem _actions = null!; // Funky
+    [Dependency] private UseDelaySystem _delays = null!;
 
 
     public override void Initialize() // funky additions!!
@@ -110,10 +112,14 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
     private void OnGetActions(EntityUid uid, RadioSpeakerComponent component, GetItemActionsEvent args)
     {
         _actions.AddAction(args.User, ref component.ActionEntity, component.ActionId, uid);
+        if (component.Cooldown.HasValue)
+            _actions.SetUseDelay(component.ActionEntity, component.Cooldown.Value);
     }
     private void OnGetActions(EntityUid uid, RadioMicrophoneComponent component, GetItemActionsEvent args)
     {
         _actions.AddAction(args.User, ref component.ActionEntity, component.ActionId, uid);
+        if (component.Cooldown.HasValue)
+            _actions.SetUseDelay(component.ActionEntity, component.Cooldown.Value);
     }
     #endregion
     #region Toggling
@@ -121,6 +127,17 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
     {
         if (!Resolve(uid, ref component))
             return;
+
+        // no matter how the component is toggled, we want the cooldown to be enforced (funky station)
+        if (TryComp<UseDelayComponent>(uid, out var delayComp) && component.Cooldown.HasValue)
+        {
+            if (_delays.IsDelayed((uid, delayComp)))
+                return;
+
+            _delays.SetLength((uid, delayComp), component.Cooldown.Value);
+            _delays.TryResetDelay((uid, delayComp));
+
+        }
 
         _actions.SetToggled(component.ActionEntity, !component.Enabled); // funky
         SetMicrophoneEnabled(uid, user, !component.Enabled, quiet, component);
@@ -133,6 +150,16 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
     {
         if (!Resolve(uid, ref component))
             return;
+
+        // no matter how the component is toggled, we want the cooldown to be enforced (funky station)
+        if (TryComp<UseDelayComponent>(uid, out var delayComp) && component.Cooldown.HasValue)
+        {
+            if (_delays.IsDelayed((uid, delayComp)))
+                return;
+
+            _delays.SetLength((uid, delayComp), component.Cooldown.Value);
+            _delays.TryResetDelay((uid, delayComp));
+        }
 
         _actions.SetToggled(component.ActionEntity, !component.Enabled); // funky
         SetSpeakerEnabled(uid, user, !component.Enabled, quiet, component);

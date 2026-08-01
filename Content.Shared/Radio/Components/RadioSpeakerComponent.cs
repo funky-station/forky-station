@@ -27,6 +27,9 @@ public sealed partial class RadioSpeakerComponent : Component
     public bool Enabled;
 
     [DataField]
+    public TimeSpan? Cooldown = TimeSpan.FromSeconds(1); // funky addition
+
+    [DataField]
     public EntProtoId ActionId = "ActionToggleRadioSpeaker"; // funky addition
 
     [DataField]

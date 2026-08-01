@@ -41,6 +41,9 @@ public sealed partial class RadioMicrophoneComponent : Component
     public bool UnobstructedRequired = false;
 
     [DataField]
+    public TimeSpan? Cooldown = TimeSpan.FromSeconds(1); // funky addition
+
+    [DataField]
     public bool SpeakerRequired = true; // funky addition
 
     [DataField]
