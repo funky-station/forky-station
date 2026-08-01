@@ -1,0 +1,9 @@
+- type: document
+  id: DocDepartmentAudit
+  name: doc-department-audit-name
+  description: doc-department-audit-desc
+  category: DocCatInternalAffairs
+  paperPrototype: Paper
+  content: doc-department-audit-content
+  access:
+    - Command

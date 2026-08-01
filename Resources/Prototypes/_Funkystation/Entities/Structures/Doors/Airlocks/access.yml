@@ -1,0 +1,23 @@
+- type: entity
+  parent: Airlock
+  id: AirlockNewsroomLocked
+  suffix: Newsroom, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNewsroom ]
+  - type: Wires
+    layoutId: AirlockService # Civilian jobs use the same wire layout as Service because NT is cheap like that
+
+# Glass Airlocks
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockGlassNewsroomLocked
+  suffix: Newsroom, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNewsroom ]
+  - type: Wires
+    layoutId: AirlockService

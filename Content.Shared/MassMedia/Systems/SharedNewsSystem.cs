@@ -25,6 +25,9 @@ public struct NewsArticle
 
     [ViewVariables]
     public TimeSpan ShareTime;
+
+    [ViewVariables]
+    public string ShareTimeString; // Funky Change
 }
 
 [ByRefEvent]

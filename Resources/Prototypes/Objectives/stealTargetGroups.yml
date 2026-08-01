@@ -309,7 +309,7 @@
   id: FaxMachineCaptain
   name: steal-target-groups-fax-machine-captain
   sprite:
-    sprite: Structures/Machines/fax_machine.rsi
+    sprite: _Funkystation/Structures/Machines/fax_machine.rsi #Funky resprite
     state: icon
 
 - type: stealTargetGroup

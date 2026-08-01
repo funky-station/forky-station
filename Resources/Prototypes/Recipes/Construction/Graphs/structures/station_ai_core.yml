@@ -73,7 +73,7 @@
         name: construction-graph-component-borg-brain
         store: station_ai_brain_slot
         icon:
-          sprite: "Objects/Specific/Robotics/mmi.rsi"
+          sprite: "_Funkystation/Objects/Specific/Robotics/mmi.rsi" #Funky resprite
           state: "mmi_icon"
     - to: frameWithoutBrainFinished
       steps:

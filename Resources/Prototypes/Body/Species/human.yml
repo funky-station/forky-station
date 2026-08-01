@@ -125,10 +125,10 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Mobs/Species/Human/parts.rsi
+    sprite: _Funkystation/Mobs/Species/Human/parts.rsi
   - type: VisualOrgan
     data:
-      sprite: Mobs/Species/Human/parts.rsi
+      sprite: _Funkystation/Mobs/Species/Human/parts.rsi
   - type: VisualOrganMarkings
     markingData:
       group: Human

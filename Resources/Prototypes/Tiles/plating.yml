@@ -14,7 +14,7 @@
   id: Plating
   parent: BasePlating
   name: tiles-plating
-  sprite: /Textures/Tiles/plating.png
+  sprite: /Textures/_Funkystation/Tiles/plating.png # Funky
 
 - type: tile
   id: PlatingRCD

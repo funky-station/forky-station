@@ -121,6 +121,10 @@
   - type: HideLayerClothing
     layers:
       Hair: HEAD
+  - type: ESViewconeModifier # Funky
+    angleModifier: -35
+  - type: StainBlocker # Funky
+    slots: [ MASK ]
 
 #Bombsuit Helmet
 - type: entity
@@ -146,6 +150,10 @@
     layers:
       Hair: HEAD
       Snout: HEAD
+  - type: ESViewconeModifier # Funky
+    angleModifier: -90
+  - type: StainBlocker # Funky
+    slots: [ MASK ]
 
 #Janitorial Bombsuit Helmet
 - type: entity
@@ -225,6 +233,10 @@
   - type: HideLayerClothing
     layers:
       Hair: HEAD
+  - type: ESViewconeModifier # Funky
+    angleModifier: -90
+  - type: StainBlocker # Funky
+    slots: [ MASK ]
 
 #Thunderdome Helmet
 - type: entity
@@ -285,6 +297,10 @@
     layers:
       Hair: HEAD
       Snout: HEAD
+  - type: ESViewconeModifier # Funky
+    angleModifier: -90
+  - type: StainBlocker # Funky
+    slots: [ MASK ]
 
 #Atmos Fire Helmet
 - type: entity
@@ -317,6 +333,10 @@
       Hair: HEAD
       Snout: HEAD
   - type: BreathMask
+  - type: ESViewconeModifier # Funky
+    angleModifier: -90
+  - type: StainBlocker # Funky
+    slots: [ MASK ]
 
 #Chitinous Helmet
 - type: entity

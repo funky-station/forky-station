@@ -2,7 +2,7 @@
   parent: BaseSheetStack
   id: Paper
   name: stack-paper
-  icon: { sprite: /Textures/Objects/Materials/Sheets/other.rsi, state: paper }
+  icon: { sprite: /Textures/_Funkystation/Objects/Materials/Sheets/other.rsi, state: paper } #Funky resprite
   spawn: SheetPaper1
 
 - type: stack

@@ -253,7 +253,8 @@
     requiredMobState:
     - Critical
     - Dead
-  - type: IntercomOnlyBypass
+  - type: IntercomOnlyBypass # Funky
+  - type: ESViewconeOccludable # Funky
 
 - type: entity
   abstract: true
