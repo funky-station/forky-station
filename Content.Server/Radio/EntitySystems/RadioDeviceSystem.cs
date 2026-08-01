@@ -12,7 +12,6 @@ using Content.Shared.Radio.Components;
 using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Speech;
 using Content.Shared.Speech.Components;
-using Content.Shared.Verbs;
 using Robust.Server.Audio;
 using Robust.Shared.Prototypes;
 
@@ -39,15 +38,13 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
         base.Initialize();
         SubscribeLocalEvent<RadioMicrophoneComponent, ComponentInit>(OnMicrophoneInit);
         SubscribeLocalEvent<RadioMicrophoneComponent, ExaminedEvent>(OnExamine);
-        //SubscribeLocalEvent<RadioMicrophoneComponent, ActivateInWorldEvent>(OnActivateMicrophone);
-        SubscribeLocalEvent<RadioSpeakerComponent, GetVerbsEvent<AlternativeVerb>>(AddPowerOnVerb); // Funkystation
         SubscribeLocalEvent<RadioMicrophoneComponent, ListenEvent>(OnListen);
         SubscribeLocalEvent<RadioMicrophoneComponent, ListenAttemptEvent>(OnAttemptListen);
         SubscribeLocalEvent<RadioMicrophoneComponent, PowerChangedEvent>(OnPowerChanged);
+        SubscribeLocalEvent<RadioMicrophoneComponent, ActivateInWorldEvent>(OnActivateMicrophone); // funky
 
         SubscribeLocalEvent<RadioSpeakerComponent, ComponentInit>(OnSpeakerInit);
         SubscribeLocalEvent<RadioSpeakerComponent, ActivateInWorldEvent>(OnActivateSpeaker);
-        SubscribeLocalEvent<RadioMicrophoneComponent, ActivateInWorldEvent>(OnActivateMicrophone); // funky
         SubscribeLocalEvent<RadioSpeakerComponent, RadioReceiveEvent>(OnReceiveRadio);
 
         SubscribeLocalEvent<IntercomComponent, EncryptionChannelsChangedEvent>(OnIntercomEncryptionChannelsChanged);
@@ -83,25 +80,6 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
 
     #region Toggling
     // BEGIN Funkystation
-    private void AddPowerOnVerb(EntityUid uid, RadioSpeakerComponent component, GetVerbsEvent<AlternativeVerb> args)
-    {
-        if(!args.CanAccess || !args.CanInteract)
-            return;
-
-        if (!component.ToggleOnInteract)
-            return;
-
-        AlternativeVerb verb = new()
-        {
-            Act = () =>
-            {
-                ToggleRadioSpeaker(uid, args.User, false, component);
-            },
-            Text = Loc.GetString("handheld-radio-component-power-verb"),
-            Priority = -3,
-        };
-        args.Verbs.Add(verb);
-    }
     // toggling the radio as a whole (the speaker) with Z if the speaker is off or there is no mic present (otherwise, toggle the mic)
     private void OnActivateSpeaker(EntityUid uid, RadioSpeakerComponent speaker, ActivateInWorldEvent args)
     {
@@ -121,7 +99,7 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
     // toggling the microphone with Z if and only if the speaker is turned on
     private void OnActivateMicrophone(EntityUid uid, RadioMicrophoneComponent mic, ActivateInWorldEvent args)
     {
-        if (args.Handled) // we dont want the mic to turn on at the same time as the speaker (does doing it this way make sense?)
+        if (args.Handled) // we dont want the mic to turn on at the same time as the speaker (does this actually ensure that?)
             return;
 
         if (!args.Complex)
@@ -152,10 +130,6 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
             return;
 
         if (component.PowerRequired && !this.IsPowered(uid, EntityManager))
-            return;
-
-        // Make sure the speaker is turned on (Funkystation)
-        if (!TryComp<RadioSpeakerComponent>(uid, out var speaker) || !speaker.Enabled)
             return;
 
         component.Enabled = enabled;
@@ -211,6 +185,7 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
         }
     }
 
+    // TODO: im glad ghosts dont get their chat clogged, but what about lots of adjacent radios!
     private void OnReceiveRadio(EntityUid uid, RadioSpeakerComponent component, ref RadioReceiveEvent args)
     {
         if (uid == args.RadioSource)

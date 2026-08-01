@@ -1,3 +1,4 @@
+using Content.Shared.Actions;
 using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Chat;
 using Robust.Shared.GameStates;
@@ -24,4 +25,12 @@ public sealed partial class RadioSpeakerComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool Enabled;
+
+    [DataField]
+    public EntProtoId ActionId = "ActionToggleRadioSpeaker"; // funky addition
+
+    [DataField]
+    public EntityUid? ActionEntity; // funky addition
 }
+
+public sealed partial class ToggleRadioSpeakerEvent : InstantActionEvent;

@@ -1,0 +1,21 @@
+- type: entity
+  id: ActionToggleRadioSpeaker
+  parent: BaseAction
+  name: Toggle radio power
+  description: Turns the radio and its speaker on and off.
+  components:
+  - type: Action
+    icon: {sprite: /Textures/Clothing/Ears/Headsets/base.rsi/, state: icon}
+  - type: InstantAction
+    event: !type:ToggleRadioSpeakerEvent
+
+- type: entity
+  id: ActionToggleRadioMicrophone
+  parent: BaseAction
+  name: Toggle mic
+  description: Turns the radio's microphone on and off.
+  components:
+  - type: Action
+    icon: {sprite: /Textures/Interface/Actions/voice-mask.rsi/, state: icon}
+  - type: InstantAction
+    event: !type:ToggleRadioMicrophoneEvent

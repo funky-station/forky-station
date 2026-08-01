@@ -1,3 +1,4 @@
+using Content.Shared.Actions;
 using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Chat;
 using Robust.Shared.Audio;
@@ -40,7 +41,19 @@ public sealed partial class RadioMicrophoneComponent : Component
     public bool UnobstructedRequired = false;
 
     [DataField]
+    public bool SpeakerRequired = true; // funky addition
+
+    [DataField]
     public SoundSpecifier? ToggleOnSound; // funky addition
     [DataField]
     public SoundSpecifier? ToggleOffSound; // funky addition
+
+    [DataField]
+    public EntProtoId ActionId = "ActionToggleRadioMicrophone"; // funky addition
+
+    [DataField]
+    public EntityUid? ActionEntity; // funky addition
+
 }
+
+public sealed partial class ToggleRadioMicrophoneEvent : InstantActionEvent; // funky addition
