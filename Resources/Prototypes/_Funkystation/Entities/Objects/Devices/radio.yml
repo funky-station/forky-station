@@ -1,7 +1,7 @@
 - type: entity
   id: ActionToggleRadioSpeaker
   parent: BaseAction
-  name: Toggle radio power
+  name: Toggle radio on/off
   description: Turns the radio and its speaker on and off.
   components:
   - type: Action
@@ -12,7 +12,7 @@
 - type: entity
   id: ActionToggleRadioMicrophone
   parent: BaseAction
-  name: Toggle mic
+  name: Toggle mic on/off
   description: Turns the radio's microphone on and off.
   components:
   - type: Action
