@@ -10,9 +10,9 @@
     toggleOnSound: /Audio/_Funkystation/Radio/radio_on.ogg # funky addition
     toggleOffSound: /Audio/_Funkystation/Radio/radio_off.ogg # funky addition
   - type: RadioSpeaker
-  - type: UseDelay
     channels:
     - Handheld
+  - type: UseDelay
   - type: Speech
     speechVerb: Robotic
   - type: Sprite
