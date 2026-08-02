@@ -32,8 +32,8 @@
 - type: entity
   parent: [ EncryptionKey, BaseCargoContraband ]
   id: EncryptionKeyCargo
-  name: cargo encryption key
-  description: An encryption key used by supply employees.
+  name: logistics encryption key #funky supply -> logistics rename
+  description: An encryption key used by logistics employees. #funky supply -> logistics rename
   components:
   - type: EncryptionKey
     channels:
