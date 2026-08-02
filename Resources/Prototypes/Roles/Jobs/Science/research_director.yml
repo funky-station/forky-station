@@ -17,6 +17,7 @@
   #weight: 10 # Funky - Weighting all jobs equally now
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
+  joinNotifyCrew: true # Funky
   supervisors: job-supervisors-captain
   access:
   - Research

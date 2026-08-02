@@ -1,3 +1,4 @@
+job-name-assistant = Assistant
 job-name-cci = Central Command Intern
 job-name-cco = Central Command Official
 job-name-cl = Corporate Liaison

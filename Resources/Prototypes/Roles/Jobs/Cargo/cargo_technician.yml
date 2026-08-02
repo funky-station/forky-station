@@ -10,6 +10,7 @@
   - Cargo
   - Maintenance
   extendedAccess:
+  - Hydroponics # Funky - Botanist is now in Logistics
   - Salvage
   special:
   - !type:GiveItemOnHolidaySpecial

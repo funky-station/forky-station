@@ -6,6 +6,7 @@ using Content.Shared.Construction.Components;
 using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Database;
 using Content.Shared.Friction;
+using Content.Shared.Interaction;
 using Content.Shared.Projectiles;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
@@ -37,7 +38,9 @@ public sealed partial class ThrowingSystem : EntitySystem
     [Dependency] private SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private IConfigurationManager _configManager = default!;
-
+    // ES START
+    [Dependency] private RotateToFaceSystem _rotate = default!;
+    // ES END
     [Dependency] private EntityQuery<AnchorableComponent> _anchorableQuery = default!;
     [Dependency] private EntityQuery<PhysicsComponent> _physicsQuery = default!;
     [Dependency] private EntityQuery<ProjectileComponent> _projectileQuery = default!;
@@ -237,6 +240,12 @@ public sealed partial class ThrowingSystem : EntitySystem
             return;
         var msg = new ThrowPushbackAttemptEvent();
         RaiseLocalEvent(uid, msg);
+
+        // ES START
+        // rotate them in the direction of the thrown thing
+        if (user.Value.Valid)
+            _rotate.TryFaceAngle(user.Value, direction.ToWorldAngle());
+        // ES END
 
         if (msg.Cancelled)
             return;

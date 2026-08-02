@@ -1,6 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
+using Content.Shared._Funkystation.StationTime.EntitySystems; // Funky Change
+using Content.Shared._Funkystation.StationTime.Components; // Funky Change
 using Content.Shared.Access.Components;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Emag.Systems;
@@ -13,6 +15,7 @@ using Content.Shared.Localizations;
 using Content.Shared.Lock;
 using Content.Shared.NameIdentifier;
 using Content.Shared.PDA;
+using Content.Shared.Station; // Funky Change
 using Content.Shared.StationRecords;
 using Content.Shared.Tag;
 using Robust.Shared.Containers;
@@ -35,6 +38,8 @@ public sealed partial class AccessReaderSystem : EntitySystem
     [Dependency] private SharedContainerSystem _containerSystem = default!;
     [Dependency] private SharedStationRecordsSystem _recordsSystem = default!;
     [Dependency] private IdentitySystem _identity = default!;
+    [Dependency] private StationTimeSystem _stationTime = default!; // Funky Change
+    [Dependency] private SharedStationSystem _station = default!; // Funky Change
 
     private static readonly ProtoId<TagPrototype> PreventAccessLoggingTag = "PreventAccessLogging";
 
@@ -942,8 +947,29 @@ public sealed partial class AccessReaderSystem : EntitySystem
                 ent.Comp.AccessLog.Dequeue();
         }
 
-        var stationTime = accessTime ?? _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
-        ent.Comp.AccessLog.Enqueue(new AccessRecord(stationTime, name));
+        // Funky Change start
+        TimeSpan loggedTime;
+        if (accessTime != null)
+        {
+            loggedTime = accessTime.Value;
+        }
+        else
+        {
+            var station = _station.GetOwningStation(ent);
+            if (station != null && TryComp<StationTimeComponent>(station.Value, out var timeComp))
+            {
+                var st = _stationTime.GetStationTime((station.Value, timeComp));
+                loggedTime = st.TimeOfDay;
+            }
+            else
+            {
+                var curTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
+                loggedTime = curTime < TimeSpan.Zero ? TimeSpan.Zero : curTime;
+            }
+        }
+
+        ent.Comp.AccessLog.Enqueue(new AccessRecord(loggedTime, name));
+        // Funky Change end
 
         Dirty(ent);
     }

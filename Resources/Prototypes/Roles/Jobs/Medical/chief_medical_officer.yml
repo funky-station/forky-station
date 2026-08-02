@@ -21,6 +21,7 @@
   #weight: 10 # Funky - Weighting all jobs equally now
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
+  joinNotifyCrew: true # Funky
   supervisors: job-supervisors-captain
   access:
   - Medical
