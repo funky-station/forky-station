@@ -12,7 +12,8 @@
 ####
     ClothingNeckScarfStripedGreen: 3
 #    ClothingHeadBandBotany: 3
-    ClothingHeadsetService: 2
+    #ClothingHeadsetService: 2 # Funky - No longer part of Service
+    ClothingHeadsetCargo: 2 # Funky - Now part of Logistics
     ClothingOuterWinterHydro: 2
   contrabandInventory:
     ToyFigurineBotanist: 1
