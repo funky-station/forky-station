@@ -10,5 +10,5 @@
     defaultChannel: Emergency
   - type: Sprite
     layers:
-    - state: default
+    - state: crypt_gray # upstream name
     - state: label-emergency

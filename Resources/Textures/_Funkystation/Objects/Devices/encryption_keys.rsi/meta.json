@@ -8,82 +8,82 @@
   },
     "states": [
         {
-            "name": "default"
+            "name": "crypt_gray"
         },
         {
-            "name": "silver"
+            "name": "crypt_silver"
         },
         {
-            "name": "gold"
+            "name": "crypt_gold"
         },
         {
-            "name": "cc"
+            "name": "crypt_blue"
         },
         {
             "name": "nt"
         },
         {
-            "name": "freelance"
+            "name": "crypt_rusted"
         },
         {
-            "name": "syndicate"
+            "name": "crypt_red"
         },
         {
             "name": "future"
         },
         {
-            "name": "label-common"
+            "name": "common_label"
         },
         {
-            "name": "label-service"
+            "name": "service_label"
         },
         {
-            "name": "label-cargo"
+            "name": "cargo_label"
         },
         {
-            "name": "label-engineering"
+            "name": "eng_label"
         },
         {
-            "name": "label-medical"
+            "name": "med_label"
         },
         {
             "name": "label-emergency"
         },
         {
-            "name": "label-medsci"
+            "name": "medsci_label"
         },
         {
-            "name": "label-science"
+            "name": "sci_label"
         },
         {
-            "name": "label-robotics"
+            "name": "robotics_label"
         },
         {
-            "name": "label-security"
+            "name": "sec_label"
         },
         {
-            "name": "label-command"
+            "name": "com_label"
         },
         {
-            "name": "label-master"
+            "name": "cap_label"
         },
         {
-            "name": "label-cc"
+            "name": "nano_label"
         },
         {
             "name": "label-nt"
         },
         {
-            "name": "label-binary"
+            "name": "ai_label"
         },
         {
             "name": "label-sinary"
         },
         {
-            "name": "label-syndicate"
+            "name": "synd_label"
         },
         {
-            "name": "label-freelance"
+            "name": "pirate_label"
         },
         {
             "name": "label-future",
