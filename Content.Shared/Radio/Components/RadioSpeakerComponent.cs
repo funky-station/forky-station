@@ -9,7 +9,7 @@ namespace Content.Shared.Radio.Components;
 /// <summary>
 ///     Listens for radio messages and relays them to local chat.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 [Access(typeof(SharedRadioDeviceSystem))]
 public sealed partial class RadioSpeakerComponent : Component
 {
@@ -34,6 +34,9 @@ public sealed partial class RadioSpeakerComponent : Component
 
     [DataField]
     public EntityUid? ActionEntity; // funky addition
+
+    [DataField, AutoNetworkedField]
+    public int Volume = 1; // funky
 }
 
 public sealed partial class ToggleRadioSpeakerEvent : InstantActionEvent;

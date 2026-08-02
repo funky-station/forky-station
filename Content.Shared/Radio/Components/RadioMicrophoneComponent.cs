@@ -10,7 +10,7 @@ namespace Content.Shared.Radio.Components;
 /// <summary>
 ///     Listens for local chat messages and relays them to some radio frequency
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 [Access(typeof(SharedRadioDeviceSystem))]
 public sealed partial class RadioMicrophoneComponent : Component
 {
@@ -56,6 +56,9 @@ public sealed partial class RadioMicrophoneComponent : Component
 
     [DataField]
     public EntityUid? ActionEntity; // funky addition
+
+    [DataField, AutoNetworkedField]
+    public int Sensitivity = 1; // funky
 
 }
 

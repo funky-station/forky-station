@@ -1,0 +1,38 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'radio-vol-menu-title'}"
+                      Resizable="False"
+                      SetSize="300 180">
+
+    <BoxContainer Orientation="Vertical"
+                  HorizontalExpand="True"
+                  VerticalExpand="True"
+                  Margin="5 0 5 0">
+
+        <BoxContainer Orientation="Vertical" HorizontalAlignment="Center" Margin="0 5">
+            <Label Name="VolumeLabel" Text="{Loc 'radio-vol-menu-vol-label'}" HorizontalAlignment="Center" StyleClasses="LabelSubText" Margin="30 5"/>
+        </BoxContainer>
+
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="5 10">
+            <Slider Name="VolumeSlider" MinValue="1" MaxValue="4" HorizontalExpand="True" Rounded="True"></Slider>
+        </BoxContainer>
+
+        <BoxContainer Orientation="Vertical" HorizontalAlignment="Center" Margin="0 5">
+            <Label Name="SensitivityLabel" Text="{Loc 'radio-vol-menu-mic-label'}" HorizontalAlignment="Center" StyleClasses="LabelSubText" Margin="30 5"/>
+        </BoxContainer>
+
+        <BoxContainer Orientation="Vertical">
+            <PanelContainer StyleClasses="LowDivider" />
+            <BoxContainer Orientation="Horizontal" Margin="10 2 5 0" VerticalAlignment="Bottom">
+                <Label Text="{Loc 'intercom-flavor-text-left'}" StyleClasses="WindowFooterText"
+                       HorizontalAlignment="Left" HorizontalExpand="True"  Margin="0 0 5 0" />
+                <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered"
+                             VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19"/>
+            </BoxContainer>
+        </BoxContainer>
+
+    </BoxContainer>
+
+
+
+</controls:FancyWindow>
