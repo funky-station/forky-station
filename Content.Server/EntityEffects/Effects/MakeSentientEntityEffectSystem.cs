@@ -3,6 +3,8 @@ using Content.Server.Speech.Components;
 using Content.Shared.EntityEffects;
 using Content.Shared.EntityEffects.Effects;
 using Content.Shared.Mind.Components;
+using Content.Shared.NPC.Components;
+using Content.Shared.NPC.Systems;
 
 namespace Content.Server.EntityEffects.Effects;
 
@@ -13,6 +15,14 @@ namespace Content.Server.EntityEffects.Effects;
 /// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
 public sealed partial class MakeSentientEntityEffectSystem : EntityEffectSystem<MetaDataComponent, MakeSentient>
 {
+    // Funky start
+    [Dependency] private NpcFactionSystem _npcFaction = default!;
+
+    // These two are used in functions that don't like literal values
+    private static readonly string MindRoleGhostRoleSoloAntagonist = "MindRoleGhostRoleSoloAntagonist";
+    private static readonly string NanoTrasen = "NanoTrasen";
+    // Funky end
+
     protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<MakeSentient> args)
     {
         // Let affected entities speak normally to make this effect different from, say, the "random sentience" event
@@ -38,5 +48,20 @@ public sealed partial class MakeSentientEntityEffectSystem : EntityEffectSystem<
 
         ghostRole.RoleName = entity.Comp.EntityName;
         ghostRole.RoleDescription = Loc.GetString("ghost-role-information-cognizine-description");
+
+        // Funky start
+        // If the entity doesn't have a faction, assume they're friendly
+        if (!TryComp(entity, out NpcFactionMemberComponent? faction))
+            return;
+        // If any of the entity's faction wants to hurt NT personnel, make them a ghost solo antagonist and amend the ghost role rules
+        foreach (var i in faction.Factions)
+        {
+            if (_npcFaction.IsFactionHostile(i.Id, NanoTrasen))
+            {
+                ghostRole.RoleRules = Loc.GetString("ghost-role-information-sentient-hostile-rules");
+                ghostRole.MindRoles.Add(MindRoleGhostRoleSoloAntagonist);
+            }
+        }
+        // Funky end
     }
 }
