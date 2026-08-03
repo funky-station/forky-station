@@ -104,12 +104,12 @@
       machine_parts: !type:Container
       hidden_slot: !type:ContainerSlot # funky start
   - type: ItemSlots
-      slots:
-        hidden_slot:
-          name: computer_slot_accessory
-          whitelist:
-            tags:
-            - SurveillanceDevices # funky end
+    slots:
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end
   - type: Construction
     containers:
     - machine_parts
