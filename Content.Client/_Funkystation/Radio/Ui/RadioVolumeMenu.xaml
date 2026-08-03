@@ -13,17 +13,23 @@
             <Label Name="VolumeLabel" Text="{Loc 'radio-vol-menu-vol-label'}" HorizontalAlignment="Center" StyleClasses="LabelSubText" Margin="30 5"/>
         </BoxContainer>
 
-        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="5 10">
-            <Slider Name="VolumeSlider" MinValue="1" MaxValue="4" Rounded="True" HorizontalExpand="True" StyleIdentifier="VolumeSlider"/> <!-- TODO: un-hardcode min max values -->
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5 5">
+            <Slider Name="VolumeSlider" MinValue="1" MaxValue="4" Rounded="True" HorizontalExpand="True" StyleIdentifier="VolumeSlider" Margin="0 -5"/> <!-- TODO: un-hardcode min max values -->
+            <BoxContainer Name="SensitivityNumbers" SetHeight="10" Orientation="Horizontal" HorizontalExpand="True" Margin="12 0">
+                <Label Text="1" MinWidth="82"/> <!-- TODO: UNHARDCODE THESE!!! -->
+                <Label Text="2" MinWidth="82" />
+                <Label Text="3" MinWidth="82" />
+                <Label Text="4" />
+            </BoxContainer>
         </BoxContainer>
 
         <BoxContainer Orientation="Vertical" HorizontalAlignment="Center" Margin="0 5">
-            <Label Name="SensitivityLabel" Text="{Loc 'radio-vol-menu-mic-label'}" HorizontalAlignment="Center" StyleClasses="LabelSubText" Margin="30 5"/>
+            <Label Name="SensitivityLabel" Text="{Loc 'radio-vol-menu-mic-label'}" HorizontalAlignment="Center" StyleClasses="LabelSubText" Margin="30 10 30 2"/>
         </BoxContainer>
 
-        <BoxContainer Orientation="Vertical">
+        <BoxContainer Orientation="Vertical" VerticalExpand="True" VerticalAlignment="Bottom">
             <PanelContainer StyleClasses="LowDivider" />
-            <BoxContainer Orientation="Horizontal" Margin="10 2 5 0" VerticalAlignment="Bottom">
+            <BoxContainer Orientation="Horizontal" Margin="10 2 5 2" VerticalAlignment="Bottom">
                 <Label Text="{Loc 'intercom-flavor-text-left'}" StyleClasses="WindowFooterText"
                        HorizontalAlignment="Left" HorizontalExpand="True"  Margin="0 0 5 0" />
                 <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered"
