@@ -1,52 +1,10 @@
-// SPDX-FileCopyrightText: 2019-2021, 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2019-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019-2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2019 ZelteHonor <gabrieldionbouchard@gmail.com>
-// SPDX-FileCopyrightText: 2019 moneyl <8206401+Moneyl@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019 DamianX <DamianX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019 Injazz <43905364+Injazz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019 Silver <Silvertorch5@gmail.com>
-// SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2020 ColdAutumnRain <73938872+ColdAutumnRain@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2020 Vince <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
-// SPDX-FileCopyrightText: 2020 Tyler Young <tyler.young@impromptu.ninja>
-// SPDX-FileCopyrightText: 2020 Memory <58238103+FL-OZ@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Jackson Lewis <inquisitivepenguin@protonmail.com>
-// SPDX-FileCopyrightText: 2020 zumorica <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2020 4dplanner <3combined@gmail.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-// SPDX-FileCopyrightText: 2021 tmtmtl30 <53132901+tmtmtl30@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Radrark <76271993+Radrark@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023-2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 router <messagebus@vk.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 {Koks} <koks@blue-creature.com>
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
@@ -57,19 +15,19 @@ using DroneConsoleComponent = Content.Server.Shuttles.DroneConsoleComponent;
 
 namespace Content.Server.Physics.Controllers;
 
-public sealed class MoverController : SharedMoverController
+public sealed partial class MoverController : SharedMoverController
 {
     private static readonly Gauge ActiveMoverGauge = Metrics.CreateGauge(
         "physics_active_mover_count",
         "Amount of ActiveInputMovers being processed by MoverController");
 
-    [Dependency] private readonly ThrusterSystem _thruster = default!;
+    [Dependency] private ThrusterSystem _thruster = default!;
+
+    [Dependency] private EntityQuery<ActiveInputMoverComponent> _activeQuery = default!;
+    [Dependency] private EntityQuery<DroneConsoleComponent> _droneQuery = default!;
+    [Dependency] private EntityQuery<ShuttleComponent> _shuttleQuery = default!;
 
     private Dictionary<EntityUid, (ShuttleComponent, List<(EntityUid, PilotComponent, InputMoverComponent, TransformComponent)>)> _shuttlePilots = new();
-
-    private EntityQuery<ActiveInputMoverComponent> _activeQuery;
-    private EntityQuery<DroneConsoleComponent> _droneQuery;
-    private EntityQuery<ShuttleComponent> _shuttleQuery;
 
     // Not needed for persistence; just used to save an alloc
     private readonly HashSet<EntityUid> _seenMovers = [];
@@ -87,10 +45,6 @@ public sealed class MoverController : SharedMoverController
         SubscribeLocalEvent<RelayInputMoverComponent, PlayerDetachedEvent>(OnRelayPlayerDetached);
         SubscribeLocalEvent<InputMoverComponent, PlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<InputMoverComponent, PlayerDetachedEvent>(OnPlayerDetached);
-
-        _activeQuery = GetEntityQuery<ActiveInputMoverComponent>();
-        _droneQuery = GetEntityQuery<DroneConsoleComponent>();
-        _shuttleQuery = GetEntityQuery<ShuttleComponent>();
     }
 
     private void OnEntityPaused(Entity<ActiveInputMoverComponent> ent, ref EntityPausedEvent args)
@@ -103,6 +57,20 @@ public sealed class MoverController : SharedMoverController
 
     private void OnEntityUnpaused(Entity<InputMoverComponent> ent, ref EntityUnpausedEvent args)
     {
+        UpdateMoverStatus((ent, ent.Comp));
+    }
+
+    protected override void OnInputMoverCanMoveUpdated(Entity<InputMoverComponent> ent, ref CanMoveUpdatedEvent args)
+    {
+        base.OnInputMoverCanMoveUpdated(ent, ref args);
+
+        if (!args.CanMove)
+        {
+            // Remove from active mover query when entity cannot move
+            RemCompDeferred<ActiveInputMoverComponent>(ent);
+            return;
+        }
+
         UpdateMoverStatus((ent, ent.Comp));
     }
 

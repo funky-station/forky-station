@@ -1,11 +1,7 @@
-# SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: cargoAccount
   id: Cargo
-  name: cargo-account-cargo-name
-  code: cargo-account-cargo-code
+  name: cargo-account-logistics-name # Funky - Logistics rename
+  code: cargo-account-logistics-code # Funky - Logistics rename
   color: "#b48b57"
   radioChannel: Supply
   acquisitionSlip: PaperAcquisitionSlipCargo

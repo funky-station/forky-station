@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Atmos.Components;
 using Content.Shared.Database;
 using Content.Shared.Examine;
@@ -25,11 +20,11 @@ namespace Content.Shared.Atmos.EntitySystems;
 /// </summary>
 public abstract partial class SharedAtmosPipeLayersSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly SharedToolSystem _tool = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private SharedToolSystem _tool = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

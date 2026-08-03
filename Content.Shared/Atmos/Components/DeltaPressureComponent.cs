@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
@@ -70,7 +67,7 @@ public sealed partial class DeltaPressureComponent : Component
     [DataField]
     public DamageSpecifier BaseDamage = new()
     {
-        DamageDict = new Dictionary<string, FixedPoint2>
+        DamageDict = new ()
         {
             { "Structural", 10 },
         },

@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2022, 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Łukasz Mędrek <lukasz@lukaszm.xyz>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Dataset;
 using Content.Shared.Random.Helpers;
 using JetBrains.Annotations;
@@ -15,11 +6,11 @@ using Robust.Shared.Random;
 
 namespace Content.Server.RandomMetadata;
 
-public sealed class RandomMetadataSystem : EntitySystem
+public sealed partial class RandomMetadataSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
 
     private readonly List<(string, object)> _outputSegments = new();
 

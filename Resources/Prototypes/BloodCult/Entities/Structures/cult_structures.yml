@@ -30,6 +30,7 @@
   - type: ExaminableDamage
     messages: WindowMessages
   - type: Damageable
+  - type: Injurable
     damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:

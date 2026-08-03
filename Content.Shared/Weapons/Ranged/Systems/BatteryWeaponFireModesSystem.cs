@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2023, 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GeneralGaws <122978178+GeneralGaws@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 imatsoup <93290208+imatsoup@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 mq <113324899+mqole@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Access.Systems;
 using Content.Shared.Database;
 using Content.Shared.Examine;
@@ -19,13 +9,13 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
-public sealed class BatteryWeaponFireModesSystem : EntitySystem
+public sealed partial class BatteryWeaponFireModesSystem : EntitySystem
 {
-    [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private AccessReaderSystem _accessReaderSystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private SharedGunSystem _gun = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {

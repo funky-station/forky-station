@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Explosion.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Trigger;
@@ -16,13 +12,13 @@ using Content.Shared.Explosion.EntitySystems;
 
 namespace Content.Server.Explosion.EntitySystems;
 
-public sealed class ScatteringGrenadeSystem : SharedScatteringGrenadeSystem
+public sealed partial class ScatteringGrenadeSystem : SharedScatteringGrenadeSystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
-    [Dependency] private readonly TriggerSystem _trigger = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ThrowingSystem _throwingSystem = default!;
+    [Dependency] private TransformSystem _transformSystem = default!;
+    [Dependency] private TriggerSystem _trigger = default!;
 
     public override void Initialize()
     {

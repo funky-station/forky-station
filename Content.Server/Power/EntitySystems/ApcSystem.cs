@@ -1,26 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 James Simonson <jamessimo89@gmail.com>
-// SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 AshBats <119367329+AshBats@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Partmedia <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.Pow3r;
@@ -40,16 +17,16 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Power.EntitySystems;
 
-public sealed class ApcSystem : EntitySystem
+public sealed partial class ApcSystem : EntitySystem
 {
-    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private AccessReaderSystem _accessReader = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private EmagSystem _emag = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {
@@ -110,7 +87,8 @@ public sealed class ApcSystem : EntitySystem
     // Change the APC's state only when the battery state changes, or when it's first created.
     private void OnBatteryChargeChanged(EntityUid uid, ApcComponent component, ref ChargeChangedEvent args)
     {
-        UpdateApcState(uid, component);
+        // Defer until the next tick.
+        component.NeedStateUpdate = true;
     }
 
     private static void OnApcStartup(EntityUid uid, ApcComponent component, ComponentStartup args)

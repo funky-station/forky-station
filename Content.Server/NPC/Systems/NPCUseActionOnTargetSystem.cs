@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.NPC.Components;
 using Content.Server.NPC.HTN;
 using Content.Shared.Actions;
@@ -11,9 +5,9 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.NPC.Systems;
 
-public sealed class NPCUseActionOnTargetSystem : EntitySystem
+public sealed partial class NPCUseActionOnTargetSystem : EntitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

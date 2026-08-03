@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Chat.V2;
 using Content.Shared.Radio;

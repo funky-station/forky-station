@@ -1,15 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2023 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Zachary Yona <58833995+Magicalus@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.DeviceNetwork.Systems;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 

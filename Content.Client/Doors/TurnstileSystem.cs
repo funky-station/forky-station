@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Examine;
@@ -14,10 +10,10 @@ using Robust.Shared.Prototypes;
 namespace Content.Client.Doors;
 
 /// <inheritdoc/>
-public sealed class TurnstileSystem : SharedTurnstileSystem
+public sealed partial class TurnstileSystem : SharedTurnstileSystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _animationPlayer = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private AnimationPlayerSystem _animationPlayer = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     private static readonly EntProtoId ExamineArrow = "TurnstileArrow";
 

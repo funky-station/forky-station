@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2025 beesterman <72782957+beesterman@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
@@ -20,12 +14,12 @@ using Robust.Shared.Random;
 
 namespace Content.Server.Audio;
 
-public sealed class ContentAudioSystem : SharedContentAudioSystem
+public sealed partial class ContentAudioSystem : SharedContentAudioSystem
 {
-    [Dependency] private readonly AudioSystem _serverAudio = default!;
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private AudioSystem _serverAudio = default!;
+    [Dependency] private IRobustRandom _robustRandom = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     private SoundCollectionPrototype? _lobbyMusicCollection = default!;
     private string[]? _lobbyPlaylist;

@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2021, 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Brandon Li <48413902+aspiringLich@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System;
 using Content.Client.Stylesheets;
 using Content.Shared.Ghost;
@@ -20,9 +13,9 @@ namespace Content.Client.Voting.UI
     [GenerateTypedNameReferences]
     public sealed partial class VotePopup : Control
     {
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly IVoteManager _voteManager = default!;
-        [Dependency] private readonly IEntityNetworkManager _net = default!;
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private IVoteManager _voteManager = default!;
+        [Dependency] private IEntityNetworkManager _net = default!;
 
         private readonly VoteManager.ActiveVote _vote;
         private readonly Button[] _voteButtons;

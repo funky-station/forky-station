@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2022, 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using JetBrains.Annotations;
 using Robust.Shared.GameStates;
 

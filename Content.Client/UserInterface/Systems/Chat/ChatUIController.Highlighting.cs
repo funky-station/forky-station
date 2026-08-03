@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 vitopigno <103512727+VitusVeit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Text.RegularExpressions;
 using Robust.Client.UserInterface;
@@ -18,7 +14,7 @@ namespace Content.Client.UserInterface.Systems.Chat;
 /// </summary>
 public sealed partial class ChatUIController : IOnSystemChanged<CharacterInfoSystem>
 {
-    [Dependency] private readonly ILocalizationManager _loc = default!;
+    [Dependency] private ILocalizationManager _loc = default!;
     [UISystemDependency] private readonly CharacterInfoSystem _characterInfo = default!;
 
     private static readonly Regex StartDoubleQuote = new("\"$");

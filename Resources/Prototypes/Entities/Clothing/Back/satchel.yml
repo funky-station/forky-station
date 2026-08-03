@@ -1,28 +1,3 @@
-# SPDX-FileCopyrightText: 2020-2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2020 FrostMando <68990565+FrostMando@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
-# SPDX-FileCopyrightText: 2022, 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Justin Trotter <trotter.justin@gmail.com>
-# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 potato1234_x <79580518+potato1234x@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Puro <103608145+PuroSlavKing@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk228 <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 potato1234x <79580518+potato1234x@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deathride58 <deathride58@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 YoungThug <ramialanbagy@gmail.com>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackSatchel
@@ -30,7 +5,7 @@
   description: A trendy looking satchel.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/satchel.rsi
+    sprite: _Funkystation/Clothing/Back/Satchels/satchel.rsi
   - type: Storage
     grid:
     - 0,0,1,3
@@ -44,7 +19,7 @@
   description: A trend-setting satchel from a bygone era.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/leather.rsi
+    sprite: _Funkystation/Clothing/Back/Satchels/leather.rsi
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -53,7 +28,7 @@
   description: A tough satchel with extra pockets.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/engineering.rsi
+    sprite: _Funkystation/Clothing/Back/Satchels/engineering.rsi
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -62,7 +37,7 @@
   description: A tough satchel made of fire resistant fibers. Smells like plasma.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/atmospherics.rsi
+    sprite: _Funkystation/Clothing/Back/Satchels/atmospherics.rsi
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -71,7 +46,7 @@
   description: For fast running from security.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/clown.rsi
+    sprite: _Funkystation/Clothing/Back/Satchels/clown.rsi
   - type: Storage
     storageOpenSound:
       collection: BikeHorn
@@ -89,7 +64,7 @@
   description: A satchel designed for the silent and expressive art of miming.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/mime.rsi
+    sprite: _Funkystation/Clothing/Back/Satchels/mime.rsi
   - type: Storage
     storageOpenSound: null
     storageInsertSound: null
@@ -101,7 +76,7 @@
   description: A sterile satchel used in medical departments.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/medical.rsi
+    sprite: _Funkystation/Clothing/Back/Satchels/medical.rsi
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -110,7 +85,7 @@
   description: A sterile satchel with chemist colours.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/chemistry.rsi
+    sprite: _Funkystation/Clothing/Back/Satchels/chemistry.rsi
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -119,7 +94,7 @@
   description: A satchel made of hypo-allergenic fibers. It's designed to help prevent the spread of disease. Smells like monkey.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/virology.rsi
+    sprite: _Funkystation/Clothing/Back/Satchels/virology.rsi
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -128,7 +103,7 @@
   description: A sterile satchel with geneticist colours.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/genetics.rsi
+    sprite: _Funkystation/Clothing/Back/Satchels/genetics.rsi
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -137,7 +112,7 @@
   description: Useful for holding research materials.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/science.rsi
+    sprite: _Funkystation/Clothing/Back/Satchels/science.rsi
 
 - type: entity
   parent: [ClothingBackpackSatchel, BaseSecurityContraband]
@@ -146,7 +121,7 @@
   description: A robust satchel for security related needs.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/security.rsi
+    sprite: _Funkystation/Clothing/Back/Satchels/security.rsi
 
 - type: entity
   parent: [ClothingBackpackSatchel, BaseSecurityContraband]
@@ -164,7 +139,7 @@
   description: An exclusive satchel for Nanotrasen officers.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/captain.rsi
+    sprite: _Funkystation/Clothing/Back/Satchels/captain.rsi
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -173,7 +148,7 @@
   description: A satchel made of all natural fibers.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/hydroponics.rsi
+    sprite: _Funkystation/Clothing/Back/Satchels/hydroponics.rsi
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -182,7 +157,7 @@
   description: A robust satchel for stealing cargo's loot.
   components:
     - type: Sprite
-      sprite: Clothing/Back/Satchels/cargo.rsi
+      sprite: _Funkystation/Clothing/Back/Satchels/cargo.rsi
 
 - type: entity
   parent: ClothingBackpackSatchel
@@ -191,7 +166,7 @@
   description: A robust satchel for stashing your loot.
   components:
     - type: Sprite
-      sprite: Clothing/Back/Satchels/salvage.rsi
+      sprite: _Funkystation/Clothing/Back/Satchels/salvage.rsi
 
 - type: entity
   parent: [ClothingBackpackSatchel, BaseHighlyIllegalContraband]
@@ -212,11 +187,11 @@
   description: A satchel that opens into a localized pocket of bluespace.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Satchels/holding.rsi
+    sprite: _Funkystation/Clothing/Back/Satchels/holding.rsi
     state: icon
     layers:
     - state: icon
-    - state: icon-unlit
+    - state: icon-unshaded
       shader: unshaded
   - type: Item
     size: Ginormous

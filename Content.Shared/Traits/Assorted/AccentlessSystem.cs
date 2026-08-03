@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Serialization.Manager;
 
 namespace Content.Shared.Traits.Assorted;

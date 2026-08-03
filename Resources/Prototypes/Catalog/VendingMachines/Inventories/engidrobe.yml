@@ -1,22 +1,14 @@
-# SPDX-FileCopyrightText: 2022 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 theashtronaut <112137107+theashtronaut@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Andreas Kämper <andreas@kaemper.tech>
-# SPDX-FileCopyrightText: 2022 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kilk <142771861+TheKilk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Smith <182301147+AgentSmithRadio@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: vendingMachineInventory
   id: EngiDrobeInventory
   startingInventory:
     ClothingBackpackDuffelEngineering: 3
     ClothingBackpackSatchelEngineering: 3
     ClothingBackpackEngineering: 3
-    ClothingUniformJumpsuitEngineering: 3
-    ClothingUniformJumpskirtEngineering: 3
-    ClothingUniformJumpsuitEngineeringHazard: 3
+# Funky uniforms
+    FuClothingUniformCoverallsEngineering: 3
+    FuClothingUniformOverallsEngineering: 3
+    FuClothingUniformShirtPantsEngineering: 3
+####
     ClothingShoesColorBlack: 3
     ClothingOuterVestHazard: 3
     ClothingShoesBootsWork: 3

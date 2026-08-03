@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 kaiserbirch <150971100+kaiserbirch@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Examine;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
@@ -12,9 +9,9 @@ namespace Content.Shared.Armable;
 /// state. If ItemComponent.Activated is true then the item is considered to be armed and should be able to be
 /// triggered.
 /// </summary>
-public sealed class ArmableSystem : EntitySystem
+public sealed partial class ArmableSystem : EntitySystem
 {
-    [Dependency] private readonly ItemToggleSystem _itemToggle = default!;
+    [Dependency] private ItemToggleSystem _itemToggle = default!;
 
     public override void Initialize()
     {

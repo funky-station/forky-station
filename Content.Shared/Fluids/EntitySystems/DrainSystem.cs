@@ -1,23 +1,4 @@
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Topy <topy72.mine@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Partmedia <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 Pok <113675512+Pok27@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Audio;
-using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
@@ -41,20 +22,21 @@ namespace Content.Shared.Fluids.EntitySystems;
 
 /// <summary>
 /// Handles the draining of solutions from containers into drains.
+/// TODO: This system is very bad, and needs to be rewritten.
 /// </summary>
-public sealed class DrainSystem : EntitySystem
+public sealed partial class DrainSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedAmbientSoundSystem _ambientSound = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedPuddleSystem _puddle = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedAmbientSoundSystem _ambientSound = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPuddleSystem _puddle = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private readonly HashSet<Entity<PuddleComponent>> _puddles = [];
 
@@ -148,9 +130,9 @@ public sealed class DrainSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<DrainComponent, SolutionContainerManagerComponent>();
+        var query = EntityQueryEnumerator<DrainComponent>();
         var curTime = _timing.CurTime;
-        while (query.MoveNext(out var uid, out var drain, out var manager))
+        while (query.MoveNext(out var uid, out var drain))
         {
             if (curTime < drain.NextUpdate)
                 continue;
@@ -159,7 +141,7 @@ public sealed class DrainSystem : EntitySystem
             Dirty(uid, drain);
 
             // Best to do this one every second rather than once every tick...
-            if (!_solutionContainerSystem.ResolveSolution((uid, manager), DrainComponent.SolutionName, ref drain.Solution, out var drainSolution))
+            if (!_solutionContainerSystem.ResolveSolution(uid, DrainComponent.SolutionName, ref drain.Solution, out var drainSolution))
                 continue;
 
             if (drainSolution.Volume <= 0 && !drain.AutoDrain)
@@ -219,12 +201,9 @@ public sealed class DrainSystem : EntitySystem
 
     private void OnExamined(Entity<DrainComponent> ent, ref ExaminedEvent args)
     {
-        if (!args.IsInDetailsRange ||
-            !HasComp<SolutionContainerManagerComponent>(ent) ||
-            !_solutionContainerSystem.ResolveSolution(ent.Owner, DrainComponent.SolutionName, ref ent.Comp.Solution, out var drainSolution))
-        {
+        if (!args.IsInDetailsRange
+            || !_solutionContainerSystem.ResolveSolution(ent.Owner, DrainComponent.SolutionName, ref ent.Comp.Solution, out var drainSolution))
             return;
-        }
 
         var text = drainSolution.AvailableVolume != 0
             ? Loc.GetString("drain-component-examine-volume", ("volume", drainSolution.AvailableVolume))
@@ -264,10 +243,7 @@ public sealed class DrainSystem : EntitySystem
         if (args.Target == null)
             return;
 
-        // TODO: Replace with RandomPredicted once the engine PR is merged
-        var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, ent.Owner.GetHashCode());
-        var rand = new System.Random(seed);
-        if (!rand.Prob(ent.Comp.UnclogProbability))
+        if (!SharedRandomExtensions.PredictedProb(_timing, ent.Comp.UnclogProbability, GetNetEntity(ent)))
         {
             _popup.PopupPredicted(Loc.GetString("drain-component-unclog-fail", ("object", args.Target.Value)), args.Target.Value, args.User);
             return;

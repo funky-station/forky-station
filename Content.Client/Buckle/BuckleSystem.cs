@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Saphire Lattice <lattice@saphi.re>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Rotation;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
@@ -19,12 +8,12 @@ using Robust.Client.Graphics;
 
 namespace Content.Client.Buckle;
 
-internal sealed class BuckleSystem : SharedBuckleSystem
+internal sealed partial class BuckleSystem : SharedBuckleSystem
 {
-    [Dependency] private readonly RotationVisualizerSystem _rotationVisualizerSystem = default!;
-    [Dependency] private readonly IEyeManager _eye = default!;
-    [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private RotationVisualizerSystem _rotationVisualizerSystem = default!;
+    [Dependency] private IEyeManager _eye = default!;
+    [Dependency] private SharedTransformSystem _xformSystem = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -59,6 +48,9 @@ internal sealed class BuckleSystem : SharedBuckleSystem
         // The entire thing should be a concern of the engine, or something engine helps to implement properly.
         // Give some of the sprite rotations their own drawdepth, maybe as an offset within the rsi, or something like this
         // And we won't ever need to set the draw depth manually
+
+        if (!component.ModifyBuckleDrawDepth)
+            return;
 
         if (args.NewRotation == args.OldRotation)
             return;
@@ -97,6 +89,9 @@ internal sealed class BuckleSystem : SharedBuckleSystem
     /// </summary>
     private void OnBuckledEvent(Entity<BuckleComponent> ent, ref BuckledEvent args)
     {
+        if (!args.Strap.Comp.ModifyBuckleDrawDepth)
+            return;
+
         if (!TryComp<SpriteComponent>(args.Strap, out var strapSprite))
             return;
 
@@ -117,6 +112,9 @@ internal sealed class BuckleSystem : SharedBuckleSystem
     /// </summary>
     private void OnUnbuckledEvent(Entity<BuckleComponent> ent, ref UnbuckledEvent args)
     {
+        if (!args.Strap.Comp.ModifyBuckleDrawDepth)
+            return;
+
         if (!TryComp<SpriteComponent>(ent.Owner, out var buckledSprite))
             return;
 

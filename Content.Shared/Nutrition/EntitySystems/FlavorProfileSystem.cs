@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry.Components;
@@ -19,10 +10,10 @@ namespace Content.Shared.Nutrition.EntitySystems;
 /// <summary>
 ///     Deals with flavor profiles when you eat something.
 /// </summary>
-public sealed class FlavorProfileSystem : EntitySystem
+public sealed partial class FlavorProfileSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IConfigurationManager _configManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IConfigurationManager _configManager = default!;
 
     private const string BackupFlavorMessage = "flavor-profile-unknown";
 
@@ -30,7 +21,7 @@ public sealed class FlavorProfileSystem : EntitySystem
 
     public string GetLocalizedFlavorsMessage(Entity<FlavorProfileComponent?> entity, EntityUid user, Solution? solution)
     {
-        HashSet<string> flavors = new();
+        HashSet<ProtoId<FlavorPrototype>> flavors = new();
         HashSet<string>? ignore = null;
 
         if (Resolve(entity, ref entity.Comp, false))
@@ -64,17 +55,12 @@ public sealed class FlavorProfileSystem : EntitySystem
         return FlavorsToFlavorMessage(flavors);
     }
 
-    private string FlavorsToFlavorMessage(HashSet<string> flavorSet)
+    private string FlavorsToFlavorMessage(HashSet<ProtoId<FlavorPrototype>> flavorSet)
     {
-        var flavors = new List<FlavorPrototype>();
+        var flavors = new List<FlavorPrototype>(flavorSet.Count);
         foreach (var flavor in flavorSet)
         {
-            if (string.IsNullOrEmpty(flavor) || !_prototypeManager.TryIndex<FlavorPrototype>(flavor, out var flavorPrototype))
-            {
-                continue;
-            }
-
-            flavors.Add(flavorPrototype);
+            flavors.Add(_prototypeManager.Index(flavor));
         }
 
         flavors.Sort((a, b) => a.FlavorType.CompareTo(b.FlavorType));
@@ -94,9 +80,9 @@ public sealed class FlavorProfileSystem : EntitySystem
         return Loc.GetString(BackupFlavorMessage);
     }
 
-    private HashSet<string> GetFlavorsFromReagents(Solution solution, int desiredAmount, HashSet<string>? toIgnore = null)
+    private HashSet<ProtoId<FlavorPrototype>> GetFlavorsFromReagents(Solution solution, int desiredAmount, HashSet<string>? toIgnore = null)
     {
-        var flavors = new HashSet<string>();
+        var flavors = new HashSet<ProtoId<FlavorPrototype>>();
         foreach (var (reagent, quantity) in solution.GetReagentPrototypes(_prototypeManager))
         {
             if (toIgnore != null && toIgnore.Contains(reagent.ID))
@@ -116,7 +102,7 @@ public sealed class FlavorProfileSystem : EntitySystem
             }
 
             if (reagent.Flavor != null)
-                flavors.Add(reagent.Flavor);
+                flavors.Add(reagent.Flavor.Value);
         }
 
         return flavors;
@@ -125,12 +111,12 @@ public sealed class FlavorProfileSystem : EntitySystem
 
 public sealed class FlavorProfileModificationEvent : EntityEventArgs
 {
-    public FlavorProfileModificationEvent(EntityUid user, HashSet<string> flavors)
+    public FlavorProfileModificationEvent(EntityUid user, HashSet<ProtoId<FlavorPrototype>> flavors)
     {
         User = user;
         Flavors = flavors;
     }
 
     public EntityUid User { get; }
-    public HashSet<string> Flavors { get; }
+    public HashSet<ProtoId<FlavorPrototype>> Flavors { get; }
 }

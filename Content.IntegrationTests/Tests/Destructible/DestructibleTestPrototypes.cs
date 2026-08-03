@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2021, 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Silver <silvertorch5@gmail.com>
-// SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 KrasnoshchekovPavel <119816022+KrasnoshchekovPavel@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 namespace Content.IntegrationTests.Tests.Destructible
 {
     public static class DestructibleTestPrototypes
@@ -76,6 +67,7 @@ namespace Content.IntegrationTests.Tests.Destructible
   name: {DestructibleEntityId}
   components:
   - type: Damageable
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger:
@@ -103,6 +95,7 @@ namespace Content.IntegrationTests.Tests.Destructible
   name: {DestructibleDestructionEntityId}
   components:
   - type: Damageable
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger:
@@ -125,6 +118,7 @@ namespace Content.IntegrationTests.Tests.Destructible
   name: {DestructibleDamageTypeEntityId}
   components:
   - type: Damageable
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger:
@@ -142,6 +136,7 @@ namespace Content.IntegrationTests.Tests.Destructible
   name: {DestructibleDamageGroupEntityId}
   components:
   - type: Damageable
+  - type: Injurable
   - type: Destructible
     thresholds:
     - trigger:

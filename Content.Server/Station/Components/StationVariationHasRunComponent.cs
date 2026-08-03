@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.GameTicking.Rules;
 
 namespace Content.Server.Station.Components;

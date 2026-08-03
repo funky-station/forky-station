@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Gameplay;
 using Content.Client.Info;
 using Content.Shared.Guidebook;
@@ -17,11 +10,11 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.UserInterface.Systems.Info;
 
-public sealed class InfoUIController : UIController, IOnStateExited<GameplayState>
+public sealed partial class InfoUIController : UIController, IOnStateExited<GameplayState>
 {
-    [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IClientConsoleHost _consoleHost = default!;
+    [Dependency] private INetManager _netManager = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     private RulesPopup? _rulesPopup;
     private RulesAndInfoWindow? _infoWindow;
@@ -44,7 +37,7 @@ public sealed class InfoUIController : UIController, IOnStateExited<GameplayStat
             "",
             (_, _, _) =>
         {
-            OnAcceptPressed();
+            OnAcceptPressed(true);
         });
     }
 
@@ -86,9 +79,10 @@ public sealed class InfoUIController : UIController, IOnStateExited<GameplayStat
         _consoleHost.ExecuteCommand("quit");
     }
 
-    private void OnAcceptPressed()
+    private void OnAcceptPressed(bool fuckRules)
     {
-        _netManager.ClientSendMessage(new RulesAcceptedMessage());
+        var message = new RulesAcceptedMessage() { FuckRules = fuckRules };
+        _netManager.ClientSendMessage(message);
 
         _rulesPopup?.Orphan();
         _rulesPopup = null;

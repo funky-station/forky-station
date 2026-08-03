@@ -1,32 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Wrexbe <wrexbe@protonmail.com>
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Radrark <76271993+Radrark@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Varen <ychwack@hotmail.it>
-// SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 mtrs163 <153596133+mtrs163@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration.Logs;
 using Content.Server.Buckle.Systems;
 using Content.Server.Parallax;
@@ -64,48 +35,42 @@ namespace Content.Server.Shuttles.Systems;
 [UsedImplicitly]
 public sealed partial class ShuttleSystem : SharedShuttleSystem
 {
-    [Dependency] private readonly IAdminLogManager _logger = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly BiomeSystem _biomes = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
-    [Dependency] private readonly BuckleSystem _buckle = default!;
-    [Dependency] private readonly DamageableSystem _damageSys = default!;
-    [Dependency] private readonly DockingSystem _dockSystem = default!;
-    [Dependency] private readonly DungeonSystem _dungeon = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly MapLoaderSystem _loader = default!;
-    [Dependency] private readonly MapSystem _mapSystem = default!;
-    [Dependency] private readonly MetaDataSystem _metadata = default!;
-    [Dependency] private readonly PvsOverrideSystem _pvs = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedSalvageSystem _salvage = default!;
-    [Dependency] private readonly ShuttleConsoleSystem _console = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly StunSystem _stuns = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly ThrusterSystem _thruster = default!;
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private IAdminLogManager _logger = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private IMapManager _mapManager = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private BiomeSystem _biomes = default!;
+    [Dependency] private GibbingSystem _gibbing = default!;
+    [Dependency] private BuckleSystem _buckle = default!;
+    [Dependency] private DamageableSystem _damageSys = default!;
+    [Dependency] private DockingSystem _dockSystem = default!;
+    [Dependency] private DungeonSystem _dungeon = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private MapLoaderSystem _loader = default!;
+    [Dependency] private MapSystem _mapSystem = default!;
+    [Dependency] private MetaDataSystem _metadata = default!;
+    [Dependency] private PvsOverrideSystem _pvs = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedSalvageSystem _salvage = default!;
+    [Dependency] private ShuttleConsoleSystem _console = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private StunSystem _stuns = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private ThrusterSystem _thruster = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private TurfSystem _turf = default!;
 
-    private EntityQuery<BuckleComponent> _buckleQuery;
-    private EntityQuery<MapGridComponent> _gridQuery;
-    private EntityQuery<PhysicsComponent> _physicsQuery;
-    private EntityQuery<TransformComponent> _xformQuery;
+    [Dependency] private EntityQuery<BuckleComponent> _buckleQuery = default!;
+    [Dependency] private EntityQuery<MapGridComponent> _gridQuery = default!;
+    [Dependency] private EntityQuery<PhysicsComponent> _physicsQuery = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-
-        _buckleQuery = GetEntityQuery<BuckleComponent>();
-        _gridQuery = GetEntityQuery<MapGridComponent>();
-        _physicsQuery = GetEntityQuery<PhysicsComponent>();
-        _xformQuery = GetEntityQuery<TransformComponent>();
 
         InitializeFTL();
         InitializeGridFills();

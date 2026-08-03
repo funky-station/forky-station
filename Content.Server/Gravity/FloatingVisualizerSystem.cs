@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Gravity;
 using Robust.Shared.GameStates;
 

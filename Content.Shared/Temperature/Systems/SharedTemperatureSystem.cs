@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Atmos;
 using Content.Shared.Movement.Components;
@@ -18,12 +11,12 @@ namespace Content.Shared.Temperature.Systems;
 /// <summary>
 /// This handles predicting temperature based speedup.
 /// </summary>
-public abstract class SharedTemperatureSystem : EntitySystem
+public abstract partial class SharedTemperatureSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifier = default!;
 
-    protected EntityQuery<TemperatureComponent> TemperatureQuery;
+    [Dependency] protected EntityQuery<TemperatureComponent> TemperatureQuery = default!;
 
     /// <summary>
     /// Band-aid for unpredicted atmos. Delays the application for a short period so that laggy clients can get the replicated temperature.
@@ -36,8 +29,6 @@ public abstract class SharedTemperatureSystem : EntitySystem
 
         SubscribeLocalEvent<TemperatureSpeedComponent, OnTemperatureChangeEvent>(OnTemperatureChanged);
         SubscribeLocalEvent<TemperatureSpeedComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
-
-        TemperatureQuery = GetEntityQuery<TemperatureComponent>();
     }
 
     private void OnTemperatureChanged(Entity<TemperatureSpeedComponent> ent, ref OnTemperatureChangeEvent args)

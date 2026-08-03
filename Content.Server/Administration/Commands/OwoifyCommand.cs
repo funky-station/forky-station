@@ -1,22 +1,13 @@
-// SPDX-FileCopyrightText: 2021 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Speech.EntitySystems;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
-using Robust.Shared.Random;
 
 namespace Content.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Fun)]
-public sealed class OwoifyCommand : IConsoleCommand
+public sealed partial class OwoifyCommand : IConsoleCommand
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     public string Command => "owoify";
 
@@ -49,7 +40,6 @@ public sealed class OwoifyCommand : IConsoleCommand
 
         var owoSys = _entManager.System<OwOAccentSystem>();
         var metaDataSys = _entManager.System<MetaDataSystem>();
-
         metaDataSys.SetEntityName(eUid.Value, owoSys.Accentuate(meta.EntityName), meta);
         metaDataSys.SetEntityDescription(eUid.Value, owoSys.Accentuate(meta.EntityDescription), meta);
     }

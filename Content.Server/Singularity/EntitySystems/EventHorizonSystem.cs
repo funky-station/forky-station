@@ -1,22 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Partmedia <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Server.Administration.Logs;
 using Content.Server.Singularity.Events;
@@ -41,29 +22,26 @@ namespace Content.Server.Singularity.EntitySystems;
 /// The entity system primarily responsible for managing <see cref="EventHorizonComponent"/>s.
 /// Handles their consumption of entities.
 /// </summary>
-public sealed class EventHorizonSystem : SharedEventHorizonSystem
+public sealed partial class EventHorizonSystem : SharedEventHorizonSystem
 {
     #region Dependencies
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IMapManager _mapMan = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IMapManager _mapMan = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedTransformSystem _xformSystem = default!;
+    [Dependency] private SharedMapSystem _mapSystem = default!;
+    [Dependency] private TagSystem _tagSystem = default!;
+    [Dependency] private EntityQuery<PhysicsComponent> _physicsQuery = default!;
     #endregion Dependencies
 
     private static readonly ProtoId<TagPrototype> HighRiskItemTag = "HighRiskItem";
 
-    private EntityQuery<PhysicsComponent> _physicsQuery;
-
     public override void Initialize()
     {
         base.Initialize();
-
-        _physicsQuery = GetEntityQuery<PhysicsComponent>();
 
         SubscribeLocalEvent<MapGridComponent, EventHorizonAttemptConsumeEntityEvent>(PreventConsume);
         SubscribeLocalEvent<StationDataComponent, EventHorizonAttemptConsumeEntityEvent>(PreventConsume);

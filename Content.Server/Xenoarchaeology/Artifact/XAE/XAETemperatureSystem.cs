@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Xenoarchaeology.Artifact.XAE.Components;
 using Content.Shared.Atmos;
@@ -13,10 +10,10 @@ namespace Content.Server.Xenoarchaeology.Artifact.XAE;
 /// <summary>
 /// System for xeno artifact effect that changes atmospheric temperature on adjacent tiles.
 /// </summary>
-public sealed class XAETemperatureSystem : BaseXAESystem<XAETemperatureComponent>
+public sealed partial class XAETemperatureSystem : BaseXAESystem<XAETemperatureComponent>
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
+    [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private TransformSystem _transformSystem = default!;
 
     /// <inheritdoc />
     protected override void OnActivated(Entity<XAETemperatureComponent> ent, ref XenoArtifactNodeActivatedEvent args)

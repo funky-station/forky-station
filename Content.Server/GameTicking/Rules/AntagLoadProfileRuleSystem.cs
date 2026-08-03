@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Humanoid;
@@ -16,12 +10,11 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.GameTicking.Rules;
 
-public sealed class AntagLoadProfileRuleSystem : GameRuleSystem<AntagLoadProfileRuleComponent>
+public sealed partial class AntagLoadProfileRuleSystem : GameRuleSystem<AntagLoadProfileRuleComponent>
 {
-    [Dependency] private readonly HumanoidProfileSystem _humanoidProfile = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IServerPreferencesManager _prefs = default!;
-    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
+    [Dependency] private HumanoidProfileSystem _humanoidProfile = default!;
+    [Dependency] private IServerPreferencesManager _prefs = default!;
+    [Dependency] private SharedVisualBodySystem _visualBody = default!;
 
     public override void Initialize()
     {
@@ -40,18 +33,18 @@ public sealed class AntagLoadProfileRuleSystem : GameRuleSystem<AntagLoadProfile
             : HumanoidCharacterProfile.RandomWithSpecies();
 
 
-        if (profile?.Species is not { } speciesId || !_proto.Resolve(speciesId, out var species))
+        if (profile?.Species is not { } speciesId || !Proto.Resolve(speciesId, out var species))
         {
-            species = _proto.Index<SpeciesPrototype>(HumanoidCharacterProfile.DefaultSpecies);
+            species = Proto.Index(HumanoidCharacterProfile.DefaultSpecies);
         }
 
         if (ent.Comp.SpeciesOverride != null
             && (ent.Comp.SpeciesOverrideBlacklist?.Contains(new ProtoId<SpeciesPrototype>(species.ID)) ?? false))
         {
-            species = _proto.Index(ent.Comp.SpeciesOverride.Value);
+            species = Proto.Index(ent.Comp.SpeciesOverride.Value);
         }
 
-        args.Entity = Spawn(species.Prototype);
+        args.Entity = Spawn(species.Prototype, args.Coords);
         if (profile?.WithSpecies(species.ID) is { } humanoidProfile)
         {
             _visualBody.ApplyProfileTo(args.Entity.Value, humanoidProfile);

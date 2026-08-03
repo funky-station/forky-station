@@ -1,25 +1,3 @@
-// SPDX-FileCopyrightText: 2022, 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023, 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Arimah Greene <30327355+arimah@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 eoineoineoin <eoin.mcloughlin+gh@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 CaasGit <87243814+CaasGit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-// SPDX-FileCopyrightText: 2024 exincore <me@exin.xyz>
-// SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Deatherd <69344159+Deatherd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Guilherme Ornel <86210200+joshepvodka@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
@@ -34,9 +12,11 @@ using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Emag.Systems;
+using Content.Shared._Funkystation.Fax;
 using Content.Shared.Fax;
 using Content.Shared.Fax.Components;
 using Content.Shared.Fax.Systems;
+using Content.Shared.GameTicking;
 using Content.Shared.Interaction;
 using Content.Shared.Labels.Components;
 using Content.Shared.Labels.EntitySystems;
@@ -52,27 +32,29 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Fax;
 
-public sealed class FaxSystem : EntitySystem
+public sealed partial class FaxSystem : EntitySystem
 {
-    [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly IAdminManager _adminManager = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
-    [Dependency] private readonly PaperSystem _paperSystem = default!;
-    [Dependency] private readonly LabelSystem _labelSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly ToolSystem _toolSystem = default!;
-    [Dependency] private readonly QuickDialogSystem _quickDialog = default!;
-    [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly FaxecuteSystem _faxecute = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private IChatManager _chat = default!;
+    [Dependency] private IAdminManager _adminManager = default!;
+    [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;
+    [Dependency] private SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private SharedGameTicker _gameTicker = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private DeviceNetworkSystem _deviceNetworkSystem = default!;
+    [Dependency] private PaperSystem _paperSystem = default!;
+    [Dependency] private LabelSystem _labelSystem = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private ToolSystem _toolSystem = default!;
+    [Dependency] private QuickDialogSystem _quickDialog = default!;
+    [Dependency] private UserInterfaceSystem _userInterface = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private FaxecuteSystem _faxecute = default!;
+    [Dependency] private EmagSystem _emag = default!;
 
     private static readonly ProtoId<ToolQualityPrototype> ScrewingQuality = "Screwing";
 
@@ -322,8 +304,9 @@ public sealed class FaxSystem : EntitySystem
                     args.Data.TryGetValue(FaxConstants.FaxPaperStampedByData, out List<StampDisplayInfo>? stampedBy);
                     args.Data.TryGetValue(FaxConstants.FaxPaperPrototypeData, out string? prototypeId);
                     args.Data.TryGetValue(FaxConstants.FaxPaperLockedData, out bool? locked);
+                    args.Data.TryGetValue(FaxConstants.FaxPaperSenderFaxNameData, out string? senderFaxName);
 
-                    var printout = new FaxPrintout(content, name, label, prototypeId, stampState, stampedBy, locked ?? false);
+                    var printout = new FaxPrintout(content, name, label, prototypeId, stampState, stampedBy, locked ?? false, senderFaxName);
                     Receive(uid, printout, args.SenderAddress);
 
                     break;
@@ -414,6 +397,7 @@ public sealed class FaxSystem : EntitySystem
             return;
 
         component.DestinationFaxAddress = destAddress;
+        component.DestinationFaxName = component.KnownFaxes[destAddress];
 
         UpdateUserInterface(uid, component);
     }
@@ -543,13 +527,35 @@ public sealed class FaxSystem : EntitySystem
 
         TryComp<LabelComponent>(sendEntity, out var labelComponent);
 
+        var content = paper.Content;
+
+        if (component.AddSenderInfo)
+        {
+            var faxMachineAddress = TryComp<DeviceNetworkComponent>(uid, out var deviceNetworkComponent)
+            ? deviceNetworkComponent.Address
+            : Loc.GetString("device-address-unknown");
+
+            var time = _gameTicker.RoundDuration();
+            var timeString = TimeSpan.FromSeconds(Math.Truncate(time.TotalSeconds)).ToString();
+
+            content += "\n";
+            content += Loc.GetString(component.SenderInfo,
+                ("sender_name", component.FaxName),
+                ("sender_addr", faxMachineAddress),
+                ("recipient_name", component.DestinationFaxName ?? Loc.GetString("fax-machine-popup-source-unknown")),
+                ("recipient_addr", component.DestinationFaxAddress),
+                ("time", timeString)
+            );
+        }
+
         var payload = new NetworkPayload()
         {
             { DeviceNetworkConstants.Command, FaxConstants.FaxPrintCommand },
             { FaxConstants.FaxPaperNameData, nameMod?.BaseName ?? metadata.EntityName },
             { FaxConstants.FaxPaperLabelData, labelComponent?.CurrentLabel },
-            { FaxConstants.FaxPaperContentData, paper.Content },
+            { FaxConstants.FaxPaperContentData, content },
             { FaxConstants.FaxPaperLockedData, paper.EditingDisabled },
+            { FaxConstants.FaxPaperSenderFaxNameData, component.FaxName ?? Loc.GetString("fax-machine-popup-source-unknown") }
         };
 
         if (metadata.EntityPrototype != null)
@@ -592,9 +598,7 @@ public sealed class FaxSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        var faxName = Loc.GetString("fax-machine-popup-source-unknown");
-        if (fromAddress != null && component.KnownFaxes.TryGetValue(fromAddress, out var fax)) // If message received from unknown fax address
-            faxName = fax;
+        var faxName = printout.SenderFaxName ?? Loc.GetString("fax-machine-popup-source-unknown");
 
         _popupSystem.PopupEntity(Loc.GetString("fax-machine-popup-received", ("from", faxName)), uid);
         _appearanceSystem.SetData(uid, FaxMachineVisuals.VisualState, FaxMachineVisualState.Printing);
@@ -637,6 +641,10 @@ public sealed class FaxSystem : EntitySystem
         {
             _labelSystem.Label(printed, label);
         }
+
+        // _Funkystation: allow other systems (HandheldFaxSystem) to redirect the paper
+        var printedEvent = new FaxPaperPrintedEvent(printed);
+        RaiseLocalEvent(uid, ref printedEvent);
 
         _adminLogger.Add(LogType.Action, LogImpact.Low, $"\"{component.FaxName}\" {ToPrettyString(uid):tool} printed {ToPrettyString(printed):subject}: {printout.Content}");
     }

@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2023 avery <51971268+graevy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Net;
 using System.Net.Sockets;
 using Content.Server.Administration.Managers;
@@ -21,14 +11,14 @@ using Robust.Shared.Network;
 
 namespace Content.Server.Administration;
 
-public sealed class BanPanelEui : BaseEui
+public sealed partial class BanPanelEui : BaseEui
 {
-    [Dependency] private readonly IBanManager _banManager = default!;
-    [Dependency] private readonly IEntityManager _entities = default!;
-    [Dependency] private readonly ILogManager _log = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly IAdminManager _admins = default!;
+    [Dependency] private IBanManager _banManager = default!;
+    [Dependency] private IEntityManager _entities = default!;
+    [Dependency] private ILogManager _log = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
+    [Dependency] private IChatManager _chat = default!;
+    [Dependency] private IAdminManager _admins = default!;
 
     private readonly ISawmill _sawmill;
 

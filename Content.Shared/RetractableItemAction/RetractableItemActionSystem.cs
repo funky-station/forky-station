@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Actions;
 using Content.Shared.Cuffs;
 using Content.Shared.Hands;
@@ -17,13 +13,13 @@ namespace Content.Shared.RetractableItemAction;
 /// <summary>
 /// System for handling retractable items, such as armblades.
 /// </summary>
-public sealed class RetractableItemActionSystem : EntitySystem
+public sealed partial class RetractableItemActionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedContainerSystem _containers = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedPopupSystem _popups = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedContainerSystem _containers = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedPopupSystem _popups = default!;
 
     public override void Initialize()
     {

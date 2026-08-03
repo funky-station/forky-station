@@ -1,20 +1,3 @@
-// SPDX-FileCopyrightText: 2022, 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-// SPDX-FileCopyrightText: 2022 Chris V <HoofedEar@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 FungiFellow <151778459+FungiFellow@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Dataset;
 using Content.Server.Ghost.Roles.Components;
@@ -26,13 +9,13 @@ using Robust.Shared.Random;
 
 namespace Content.Server.StationEvents.Events;
 
-public sealed class RandomSentienceRule : StationEventSystem<RandomSentienceRuleComponent>
+public sealed partial class RandomSentienceRule : StationEventSystem<RandomSentienceRuleComponent>
 {
     private static readonly ProtoId<LocalizedDatasetPrototype> DataSourceNames = "RandomSentienceEventData";
     private static readonly ProtoId<LocalizedDatasetPrototype> IntelligenceLevelNames = "RandomSentienceEventStrength";
 
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     protected override void Started(EntityUid uid, RandomSentienceRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

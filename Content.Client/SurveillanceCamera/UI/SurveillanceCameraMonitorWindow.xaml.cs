@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 eoineoineoin <helloworld@eoinrul.es>
-// SPDX-FileCopyrightText: 2026 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Client.Resources;
 using Content.Client.Viewport;
@@ -27,9 +20,9 @@ public sealed partial class SurveillanceCameraMonitorWindow : DefaultWindow
 {
     private static readonly ProtoId<ShaderPrototype> CameraStaticShader = "CameraStatic";
 
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IResourceCache _resourceCache = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IResourceCache _resourceCache = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
 
     /// <summary>
     /// Triggered when a camera is selected.

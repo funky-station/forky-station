@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Winkarst-cpu <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry.Components;
@@ -24,21 +15,22 @@ namespace Content.Shared.Chemistry.EntitySystems;
 /// Allows an entity to transfer solutions with a customizable amount -per click-.
 /// Also provides <see cref="Transfer"/>, <see cref="RefillTransfer"/> and <see cref="DrainTransfer"/> API for other systems.
 /// </summary>
-public sealed class SolutionTransferSystem : EntitySystem
+public sealed partial class SolutionTransferSystem : EntitySystem
 {
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
 
-    private EntityQuery<RefillableSolutionComponent> _refillableQuery;
-    private EntityQuery<DrainableSolutionComponent> _drainableQuery;
+    [Dependency] private EntityQuery<RefillableSolutionComponent> _refillableQuery = default!;
+    [Dependency] private EntityQuery<DrainableSolutionComponent> _drainableQuery = default!;
 
     /// <summary>
     ///     Default transfer amounts for the set-transfer verb.
     /// </summary>
-    public static readonly FixedPoint2[] DefaultTransferAmounts = new FixedPoint2[] { 1, 5, 10, 25, 50, 100, 250, 500, 1000 };
+    /// TODO: Turn this into a prototype just like with injectors.
+    public static readonly FixedPoint2[] DefaultTransferAmounts = new FixedPoint2[] { 1, 5, 10, 15, 30, 60, 120, 240, 480, 960 };
 
     public override void Initialize()
     {
@@ -49,9 +41,6 @@ public sealed class SolutionTransferSystem : EntitySystem
         SubscribeLocalEvent<SolutionTransferComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<SolutionTransferComponent, SolutionDrainTransferDoAfterEvent>(OnSolutionDrainTransferDoAfter);
         SubscribeLocalEvent<SolutionTransferComponent, SolutionRefillTransferDoAfterEvent>(OnSolutionFillTransferDoAfter);
-
-        _refillableQuery = GetEntityQuery<RefillableSolutionComponent>();
-        _drainableQuery = GetEntityQuery<DrainableSolutionComponent>();
     }
 
     private void AddSetTransferVerbs(Entity<SolutionTransferComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)

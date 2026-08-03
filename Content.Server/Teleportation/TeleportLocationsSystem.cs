@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Chat.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Teleportation;
@@ -18,8 +14,8 @@ namespace Content.Server.Teleportation;
 /// </summary>
 public sealed partial class TeleportLocationsSystem : SharedTeleportLocationsSystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {

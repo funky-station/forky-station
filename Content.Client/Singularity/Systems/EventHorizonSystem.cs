@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2022 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Saphire <lattice@saphi.re>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Singularity.EntitySystems;
 using Content.Shared.Singularity.Components;
 

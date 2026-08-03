@@ -1,27 +1,8 @@
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2022-2023 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Chris V <HoofedEar@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nairod <110078045+Nairodian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 AsikKEsel <115815982+AsikKEsel@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MACMAN2003 <macman2003c@gmail.com>
-# SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
-# SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
-# SPDX-FileCopyrightText: 2026 taydeo <td12233a@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: material
   id: Glass
   stackEntity: SheetGlass1
   name: materials-glass
-  icon: { sprite: Objects/Materials/Sheets/glass.rsi, state: glass }
+  icon: { sprite: _Funkystation/Objects/Materials/Sheets/glass.rsi, state: glass } #Funky resprite
   color: "#a8ccd7"
   price: 0.15 # $15 for one unit
   properties: # FH edit
@@ -35,7 +16,7 @@
   id: ReinforcedGlass
   stackEntity: SheetRGlass1
   name: materials-reinforced-glass
-  icon: { sprite: Objects/Materials/Sheets/glass.rsi, state: rglass }
+  icon: { sprite: _Funkystation/Objects/Materials/Sheets/glass.rsi, state: rglass } #Funky resprite
   color: "#549bb0"
   price: 0.225 # 1-0.5 mix of glass and metal.
   # Interpolated properties
@@ -50,7 +31,7 @@
   id: PlasmaGlass
   stackEntity: SheetPGlass1
   name: materials-plasma-glass
-  icon: { sprite: Objects/Materials/Sheets/glass.rsi, state: pglass }
+  icon: { sprite: _Funkystation/Objects/Materials/Sheets/glass.rsi, state: pglass } #Funky resprite
   color: "#b35989"
   price: 0.50 # 1-1 mix of plasma and glass.
   properties: # FH edit
@@ -64,7 +45,7 @@
   id: ReinforcedPlasmaGlass
   stackEntity: SheetRPGlass1
   name: materials-reinforced-plasma-glass
-  icon: { sprite: Objects/Materials/Sheets/glass.rsi, state: rpglass }
+  icon: { sprite: _Funkystation/Objects/Materials/Sheets/glass.rsi, state: rpglass } #Funky resprite
   color: "#8c4069"
   price: 0.575 # 1-1-0.5 mix of plasma, glass, and metal.
   # Interpolated properties
@@ -79,7 +60,7 @@
   id: BrassGlass
   stackEntity: SheetClockworkGlass1
   name: materials-clockwork-glass
-  icon: { sprite: Objects/Materials/Sheets/glass.rsi, state: cglass }
+  icon: { sprite: _Funkystation/Objects/Materials/Sheets/glass.rsi, state: cglass } #Funky resprite
   color: "#9b6f07"
   price: 0.225 # average of glass and brass.
   # Interpolated properties
@@ -94,7 +75,7 @@
   id: UraniumGlass
   stackEntity: SheetUGlass1
   name: materials-uranium-glass
-  icon: { sprite: Objects/Materials/Sheets/glass.rsi, state: uglass }
+  icon: { sprite: _Funkystation/Objects/Materials/Sheets/glass.rsi, state: uglass } #Funky resprite
   color: "#3cab38"
   price: 1.0 # 1-1 mix of uranium and glass.
   # Interpolated properties
@@ -111,7 +92,7 @@
   id: ReinforcedUraniumGlass
   stackEntity: SheetRUGlass1
   name: materials-reinforced-uranium-glass
-  icon: { sprite: Objects/Materials/Sheets/glass.rsi, state: ruglass }
+  icon: { sprite: _Funkystation/Objects/Materials/Sheets/glass.rsi, state: ruglass } #Funky resprite
   color: "#2d872a"
   price: 1.075 # 2-2-1 mix of uranium, glass, and metal.
   # Interpolated properties

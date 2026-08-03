@@ -1,18 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2023, 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Samuka <47865393+Samuka-C@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-# SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
-# SPDX-FileCopyrightText: 2025 Terraspark4941 <terraspark4941@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: [ClothingBackpack, BaseChameleon]
   id: ClothingBackpackChameleon
@@ -35,7 +20,7 @@
           type: ChameleonBoundUserInterface
 
 - type: entity
-  parent: [Clothing, ClothingSlotBase]
+  parent: [SolutionTank, SolutionGinormous, Clothing, ClothingSlotBase]
   id: ClothingBackpackWaterTank
   name: backpack water tank
   description: Holds a large amount of fluids. Supplies to spray nozzles in your hands, and has a slot on the side for said spray nozzles.
@@ -69,10 +54,6 @@
   - type: SolutionAmmoProvider
     solutionId: tank
     proto: BulletWaterShot
-  - type: SolutionContainerManager
-    solutions:
-      tank:
-        maxVol: 1000 #much water
   - type: SolutionTransfer
     transferAmount: 50
     maxTransferAmount: 100

@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 M4rchy-S <89603088+M4rchy-S@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Xenoarchaeology.Artifact.XAE.Components;
 using Content.Shared.Atmos.Components;
@@ -14,24 +10,15 @@ namespace Content.Server.Xenoarchaeology.Artifact.XAE;
 /// <summary>
 /// System for xeno artifact activation effect that ignites any flammable entity in range.
 /// </summary>
-public sealed class XAEIgniteSystem : BaseXAESystem<XAEIgniteComponent>
+public sealed partial class XAEIgniteSystem : BaseXAESystem<XAEIgniteComponent>
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly FlammableSystem _flammable = default!;
-
-    private EntityQuery<FlammableComponent> _flammables;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private FlammableSystem _flammable = default!;
+    [Dependency] private EntityQuery<FlammableComponent> _flammables = default!;
 
     /// <summary> Pre-allocated and re-used collection.</summary>
     private readonly HashSet<EntityUid> _entities = new();
-
-    /// <inheritdoc />
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        _flammables = GetEntityQuery<FlammableComponent>();
-    }
 
     /// <inheritdoc />
     protected override void OnActivated(Entity<XAEIgniteComponent> ent, ref XenoArtifactNodeActivatedEvent args)

@@ -10,13 +10,13 @@ using Content.Shared.Popups;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
-public sealed class EmpowerOnStandSystem : EntitySystem
+public sealed partial class EmpowerOnStandSystem : EntitySystem
 {
-	[Dependency] private readonly SharedTransformSystem _transform = default!;
-	[Dependency] private readonly MapSystem _mapSystem = default!;
-	[Dependency] private readonly IMapManager _mapManager = default!;
-	[Dependency] private readonly SharedActionsSystem _action = default!;
-	[Dependency] private readonly PopupSystem _popup = default!;
+	[Dependency] private SharedTransformSystem _transform = default!;
+	[Dependency] private MapSystem _mapSystem = default!;
+	[Dependency] private IMapManager _mapManager = default!;
+	[Dependency] private SharedActionsSystem _action = default!;
+	[Dependency] private PopupSystem _popup = default!;
 
 	public override void Initialize()
 	{

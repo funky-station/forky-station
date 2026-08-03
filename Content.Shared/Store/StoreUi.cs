@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2022, 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -44,9 +37,10 @@ public sealed class StoreRequestUpdateInterfaceMessage : BoundUserInterfaceMessa
 }
 
 [Serializable, NetSerializable]
-public sealed class StoreBuyListingMessage(ProtoId<ListingPrototype> listing) : BoundUserInterfaceMessage
+public sealed class StoreBuyListingMessage(ProtoId<ListingPrototype> listing, NetEntity? soundSource) : BoundUserInterfaceMessage
 {
     public ProtoId<ListingPrototype> Listing = listing;
+    public NetEntity? SoundSource = soundSource;
 }
 
 [Serializable, NetSerializable]

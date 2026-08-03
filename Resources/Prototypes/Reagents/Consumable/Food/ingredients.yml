@@ -1,27 +1,3 @@
-# SPDX-FileCopyrightText: 2021-2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2022-2023 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 router <messagebus@vk.com>
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2022 Sam Weaver <weaversam8@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Michael Phillips <1194692+MeltedPixel@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+ChilbroBaggins@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Vladislav Kadira <130583174+FillerVK@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 Maxtone <124747282+MagnusCrowe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2025 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: reagent
   id: Flour
   name: reagent-name-flour
@@ -198,6 +174,7 @@
   flavorMinimum: 0.05
   recognizable: true
   color: "#b67823"
+  flammability: 1 # Funky change
   boilingPoint: 300.0
   meltingPoint: -16.0
   tileReactions:

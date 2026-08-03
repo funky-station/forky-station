@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Access;
@@ -22,9 +18,9 @@ namespace Content.Client.TurretController;
 [GenerateTypedNameReferences]
 public sealed partial class TurretControllerWindow : BaseWindow
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IResourceCache _cache = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IResourceCache _cache = default!;
 
     private readonly AccessReaderSystem _accessReaderSystem;
 

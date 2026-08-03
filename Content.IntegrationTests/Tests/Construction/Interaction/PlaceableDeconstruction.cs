@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.IntegrationTests.Tests.Interaction;
 using Content.Shared.Placeable;
 

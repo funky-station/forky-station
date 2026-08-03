@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Procedural;
 using Content.Shared.Procedural.DungeonLayers;

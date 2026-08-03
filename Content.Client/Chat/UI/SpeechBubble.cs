@@ -1,32 +1,3 @@
-// SPDX-FileCopyrightText: 2019-2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2020, 2023 Visne <vincefvanwijk@gmail.com>
-// SPDX-FileCopyrightText: 2020-2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 ColdAutumnRain <73938872+ColdAutumnRain@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Hugo Laloge <hugo.laloge@gmail.com>
-// SPDX-FileCopyrightText: 2021, 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Clyybber <darkmine956@gmail.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Michael Phillips <1194692+MeltedPixel@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deathride58 <deathride58@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024-2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 maylokana <88361930+maylokana@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-FileCopyrightText: 2025 noirogen <raethertechnologies@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Client.Chat.Managers;
 using Content.Shared.CCVar;
@@ -41,12 +12,12 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.Chat.UI
 {
-    public abstract class SpeechBubble : Control
+    public abstract partial class SpeechBubble : Control
     {
-        [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly IEyeManager _eyeManager = default!;
-        [Dependency] private readonly IEntityManager _entityManager = default!;
-        [Dependency] protected readonly IConfigurationManager ConfigManager = default!;
+        [Dependency] private IGameTiming _timing = default!;
+        [Dependency] private IEyeManager _eyeManager = default!;
+        [Dependency] private IEntityManager _entityManager = default!;
+        [Dependency] protected IConfigurationManager ConfigManager = default!;
         private readonly SharedTransformSystem _transformSystem;
 
         public enum SpeechType : byte

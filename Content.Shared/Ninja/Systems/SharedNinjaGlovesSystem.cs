@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Connor Huffine <chuffine@gmail.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Clothing.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.Examine;
@@ -22,14 +14,14 @@ namespace Content.Shared.Ninja.Systems;
 /// <summary>
 /// Provides the toggle action and handles examining and unequipping.
 /// </summary>
-public abstract class SharedNinjaGlovesSystem : EntitySystem
+public abstract partial class SharedNinjaGlovesSystem : EntitySystem
 {
-    [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedSpaceNinjaSystem _ninja = default!;
+    [Dependency] private SharedCombatModeSystem _combatMode = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedSpaceNinjaSystem _ninja = default!;
 
     public override void Initialize()
     {

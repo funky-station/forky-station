@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Alert;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;

@@ -1,20 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 eclips_e <67359748+Just-a-Unity-Dev@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2025 Brandon Li <48413902+aspiringLich@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Client.Tabletop.UI;
 using Content.Client.Viewport;
@@ -37,15 +20,15 @@ using static Robust.Shared.Input.Binding.PointerInputCmdHandler;
 namespace Content.Client.Tabletop
 {
     [UsedImplicitly]
-    public sealed class TabletopSystem : SharedTabletopSystem
+    public sealed partial class TabletopSystem : SharedTabletopSystem
     {
-        [Dependency] private readonly IInputManager _inputManager = default!;
-        [Dependency] private readonly IUserInterfaceManager _uiManger = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly AppearanceSystem _appearance = default!;
-        [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-        [Dependency] private readonly SpriteSystem _sprite = default!;
+        [Dependency] private IInputManager _inputManager = default!;
+        [Dependency] private IUserInterfaceManager _uiManger = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private AppearanceSystem _appearance = default!;
+        [Dependency] private SharedTransformSystem _transformSystem = default!;
+        [Dependency] private SpriteSystem _sprite = default!;
 
         // Time in seconds to wait until sending the location of a dragged entity to the server again
         private const float Delay = 1f / 10; // 10 Hz

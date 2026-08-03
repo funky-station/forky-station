@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.Database;
 using Content.Server.EUI;
@@ -14,11 +10,11 @@ using static Content.Shared.Administration.Notes.AdminMessageEuiMsg;
 
 namespace Content.Server.Administration.Notes;
 
-public sealed class AdminMessageEui : BaseEui
+public sealed partial class AdminMessageEui : BaseEui
 {
-    [Dependency] private readonly IAdminNotesManager _notesMan = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private IAdminNotesManager _notesMan = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
 
     private readonly TimeSpan _closeWait;
     private readonly TimeSpan _endTime;

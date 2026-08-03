@@ -1,0 +1,254 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Admin icon by @Catazeus (GitHub) | Assistant icon from /tg/station (GitHub, tgstation/tgstation/icons/mob/hud.dmi), modified by @Catazeus | Atmospheric Technician icon by @Catazeus  | Bartender icon from /tg/station, modified by @Catazeus | Borg icon by @EmoGarbage404 (GitHub), modified by @Catazeus | Botanist icon from /vg/station (GitHub, vgstation-coders/vgstation13/icons/mob/hud.dmi), modified by @PJB3005 (GitHub) and @Catazeus | Brigmedic icon by @PuroSlavKing (GitHub), modified by @Catazeus | Captain icon from /tg/station, modified by @Catazeus and @pirakaplant (GitHub) | Cargo Technician icon from /tg/station, modified by @Catazeus | CBURN icon by @Catazeus, modified by @pirakaplant | CentralCommandIntern icon by @TheHolyAegis (GitHub), modified by @pirakaplant | Central Command Official by @Catazeus, modified by @pirakaplant | Chaplain icon by @pirakaplant | Chef icon from /tg/station, modified by @Catazeus | Chemist icon from /tg/station, modified by @Catazeus | Chief Engineer icon by @pirakaplant | Chief Medifical Officer icon by @pirakaplant, symbol (as Paramedic) from /tg/station | Clown icon from /tg/station, modified by @Catazeus | Cluwne icon by @Catazeus | Command Maid by @vectorassembly (GitHub) | Corporate Liaison icon (as CentCom Official) from /tg/station, modified by @pirakaplant | Cowboy by @mkanke-real (GitHub) | Deathsquad icon by @Catazeus | Deputy Icon by @Catazeus | Detective icon from /tg/station, modified by @Catazeus | ERT icons by @Catazeus, ERT Chaplain and Medic symbols by @pirakaplant, ERT Engineer, Janitor, Leader (as Captain), and Security symbols from /tg/station | Executive Officer by @pirakaplant, symbol (as Head of Personnel) from /tg/station | Fitness Instructor by @pirakaplant | Geneticist icon (as Scientist) by @EmoGarbage404, modified by @Catazeus | Head of Security icon by @pirakaplant | Hospitality Director icon by @Catazeus, symbol (as Service Worker) by @anno_midi (Discord) | Internal Affairs Agent icon by @pirakaplant, symbol by @Catazeus | Janitor icon from /tg/station, modified by @Catazeus | Lawyer icon by @pirakaplant, symbol by @Alicios | Librarian icon from /tg/station, modified by @pirakaplant | Magistrate icon by @pirakaplant, symbol by @Alicios | Medical Doctor icon from /tg/station, modified by @Catazeus | Medical Intern icon by @Catazeus | Mime icon from /tg/station, modified by @pirakaplant | Mindshield overlay by @Catazeus | Musician icon by @HoofedEar (GitHub), modified by @Catazeus | Nanotrasen Career Trainer icon  by @Catazeus | Ninja icon by @ThatGuyUSA (GitHub), modified by @pirakaplant | NoId from /tg/station, modified by @Catazeus |  Paramedic by @pirakaplant | Party Maker icon by @lzk228 (GitHub), modified by @Catazeus and @pirakaplant | Pirate icon by @ThatGuyUSA, modified by @Catazeus | Prisoner icon from /tg/station, modified by @Catazeus | Psychologist icon by @Emisse (GitHub), modified by @Catazeus | Quartermaster icon by @pirakaplant | Reporter icon by @Emisse (GitHub), modified by @Catazeus | Research Assistant icon by @Catazeus | Research Director icon by @Catazeus | Roboticist icon from /tg/station, modified by @Catazeus | Salvage Specialist icon (as Shaft Miner) from /tg/station, modified by @Catazeus | Scientist icon by @Catazeus | Security Cadet icon by @Catazeus | Security Clown icon by @Catazeus and @pirakaplant | Security Officer icon from /tg/station, modified by @Catazeus | Senior icons by @Nairodian (GitHub), modified by @Catazeus | Service Worker icon by @Catazeus | Station AI icon from /tg/station, modified by @lunarcomets (GitHub) and @Catazeus | Station Engineer icon from /tg/station, modified by @Catazeus | Syndicate icon by @Catazeus | Syndicate Commander, Corpsman, and Operative icons by @Catazeus, Commander symbol (as ERT Leader) from /tg/station | Technical Assistant icon by @Catazeus | Unknown from /tg/station, modified by @Catazeus | Virologist icon by @Catazeus | Visitor icon by @SlamBamActionMan (GitHub), modified by @Catazeus | Wizard icon by @Catazeus | Zombie icon by @RamZ (Discord), modified by @Catazeus | Zookeeper icon by @netwy (Discord), modified by @Catazeus",
+    "size": {
+        "x": 8,
+        "y": 8
+    },
+    "states": [
+        {
+            "name": "Admin"
+        },
+        {
+            "name": "Assistant"
+        },
+        {
+            "name": "AtmosphericTechnician"
+        },
+        {
+            "name": "Bartender"
+        },
+        {
+            "name": "Borg"
+        },
+        {
+            "name": "Botanist"
+        },
+        {
+            "name": "Brigmedic"
+        },
+        {
+            "name": "Captain"
+        },
+        {
+            "name": "CargoTechnician"
+        },
+        {
+            "name": "CBURN"
+        },
+        {
+            "name": "CentralCommandIntern"
+        },
+        {
+            "name": "CentralCommandOfficial"
+        },
+        {
+            "name": "Chaplain"
+        },
+        {
+            "name": "Chef"
+        },
+        {
+            "name": "Chemist"
+        },
+        {
+            "name": "ChiefEngineer"
+        },
+        {
+            "name": "ChiefMedicalOfficer"
+        },
+        {
+            "name": "Clown"
+        },
+        {
+            "name": "Cluwne"
+        },
+        {
+            "name": "CommandMaid"
+        },
+        {
+            "name": "CorporateLiaison"
+        },
+        {
+            "name": "Cowboy"
+        },
+        {
+            "name": "DeathSquad"
+        },
+        {
+            "name": "Deputy"
+        },
+        {
+            "name": "Detective"
+        },
+        {
+            "name": "ERTChaplain"
+        },
+        {
+            "name": "ERTEngineer"
+        },
+        {
+            "name": "ERTJanitor"
+        },
+        {
+            "name": "ERTLeader"
+        },
+        {
+            "name": "ERTMedical"
+        },
+        {
+            "name": "ERTSecurity"
+        },
+        {
+            "name": "ExecutiveOfficer"
+        },
+        {
+            "name": "FitnessInstructor"
+        },
+        {
+            "name": "Geneticist"
+        },
+        {
+            "name": "HeadOfSecurity"
+        },
+        {
+            "name": "HospitalityDirector"
+        },
+        {
+            "name": "InternalAffairsAgent"
+        },
+        {
+            "name": "Janitor"
+        },
+        {
+            "name": "Lawyer"
+        },
+        {
+            "name": "Librarian"
+        },
+        {
+            "name": "Magistrate"
+        },
+        {
+            "name": "MedicalDoctor"
+        },
+        {
+            "name": "MedicalIntern"
+        },
+        {
+            "name": "Mime"
+        },
+        {
+            "name": "Musician"
+        },
+        {
+            "name": "NanotrasenCareerTrainer"
+        },
+        {
+            "name": "Ninja"
+        },
+        {
+            "name": "NoId"
+        },
+        {
+            "name": "Paramedic"
+        },
+        {
+            "name": "PartyMaker"
+        },
+        {
+            "name": "Pirate"
+        },
+        {
+            "name": "Prisoner"
+        },
+        {
+            "name": "Psychologist"
+        },
+        {
+            "name": "Quartermaster"
+        },
+        {
+            "name": "Reporter"
+        },
+        {
+            "name": "ResearchAssistant"
+        },
+        {
+            "name": "ResearchDirector"
+        },
+        {
+            "name": "Roboticist"
+        },
+        {
+            "name": "SalvageSpecialist"
+        },
+        {
+            "name": "Scientist"
+        },
+        {
+            "name": "SecurityCadet"
+        },
+        {
+            "name": "SecurityClown"
+        },
+        {
+            "name": "SecurityOfficer"
+        },
+        {
+            "name": "SeniorEngineer"
+        },
+        {
+            "name": "SeniorOfficer"
+        },
+        {
+            "name": "SeniorPhysician"
+        },
+        {
+            "name": "SeniorResearcher"
+        },
+        {
+            "name": "ServiceWorker"
+        },
+        {
+            "name": "StationAi"
+        },
+        {
+            "name": "StationEngineer"
+        },
+        {
+            "name": "Syndicate"
+        },
+        {
+            "name": "SyndicateCommander"
+        },
+        {
+            "name": "SyndicateCorpsman"
+        },
+        {
+            "name": "SyndicateOperative"
+        },
+        {
+            "name": "TechnicalAssistant"
+        },
+        {
+            "name": "Unknown"
+        },
+        {
+            "name": "Virologist"
+        },
+        {
+            "name": "Visitor"
+        },
+        {
+            "name": "Wizard"
+        },
+        {
+            "name": "Zombie"
+        },
+        {
+            "name": "Zookeeper"
+        }
+    ]
+}

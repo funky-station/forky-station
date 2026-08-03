@@ -1,18 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SkaldetSkaeg <impotekh@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2025 Red <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Buckle.Components;
@@ -48,14 +33,14 @@ namespace Content.Shared.Bed.Sleep;
 
 public sealed partial class SleepingSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly BlindableSystem _blindableSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedEmitSoundSystem _emitSound = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private BlindableSystem _blindableSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedEmitSoundSystem _emitSound = default!;
+    [Dependency] private StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
 
     public static readonly EntProtoId SleepActionId = "ActionSleep";
     public static readonly EntProtoId WakeActionId = "ActionWake";
@@ -88,6 +73,7 @@ public sealed partial class SleepingSystem : EntitySystem
         SubscribeLocalEvent<SleepingComponent, StunEndAttemptEvent>(OnStunEndAttempt);
         SubscribeLocalEvent<SleepingComponent, StandUpAttemptEvent>(OnStandUpAttempt);
 
+        SubscribeLocalEvent<ForcedSleepingStatusEffectComponent, StatusEffectRelayedEvent<MobStateChangedEvent>>(OnStatusMobStateChanged);
         SubscribeLocalEvent<ForcedSleepingStatusEffectComponent, StatusEffectAppliedEvent>(OnStatusEffectApplied);
         SubscribeLocalEvent<SleepingComponent, UnbuckleAttemptEvent>(OnUnbuckleAttempt);
         SubscribeLocalEvent<SleepingComponent, EmoteAttemptEvent>(OnEmoteAttempt);
@@ -134,7 +120,11 @@ public sealed partial class SleepingSystem : EntitySystem
         {
             // Just in case we're not using the sleeping status
             EnsureComp<StunnedComponent>(ent);
-            EnsureComp<KnockedDownComponent>(ent);
+            // The entity will not fall over if they are buckled.
+            if (!TryComp<BuckleComponent>(ent, out var buckleComp) || !buckleComp.Buckled)
+            {
+                EnsureComp<KnockedDownComponent>(ent);
+            }
 
             if (TryComp<SleepEmitSoundComponent>(ent, out var sleepSound))
             {
@@ -178,7 +168,6 @@ public sealed partial class SleepingSystem : EntitySystem
 
     private void OnSpeakAttempt(Entity<SleepingComponent> ent, ref SpeakAttemptEvent args)
     {
-        // TODO reduce duplication of this behavior with MobStateSystem somehow
         if (HasComp<AllowNextCritSpeechComponent>(ent))
         {
             RemCompDeferred<AllowNextCritSpeechComponent>(ent);
@@ -285,14 +274,19 @@ public sealed partial class SleepingSystem : EntitySystem
     /// </summary>
     private void OnMobStateChanged(Entity<SleepingComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead)
-        {
-            RemComp<SpamEmitSoundComponent>(ent);
-            RemComp<SleepingComponent>(ent);
-            return;
-        }
         if (TryComp<SpamEmitSoundComponent>(ent, out var spam))
             _emitSound.SetEnabled((ent, spam), args.NewMobState == MobState.Alive);
+
+        if (args.NewMobState == MobState.Dead)
+            RemCompDeferred<SleepingComponent>(ent);
+    }
+
+    private void OnStatusMobStateChanged(Entity<ForcedSleepingStatusEffectComponent> ent, ref StatusEffectRelayedEvent<MobStateChangedEvent> args)
+    {
+        if (args.Args.NewMobState == MobState.Dead || HasComp<SleepingComponent>(args.Args.Target))
+            return;
+
+        TrySleeping(args.Args.Target);
     }
 
     private void OnStatusEffectApplied(Entity<ForcedSleepingStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)

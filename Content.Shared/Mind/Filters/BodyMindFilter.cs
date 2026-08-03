@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Whitelist;
 
 namespace Content.Shared.Mind.Filters;
@@ -13,7 +10,7 @@ public sealed partial class BodyMindFilter : MindFilter
     [DataField(required: true)]
     public EntityWhitelist Whitelist = new();
 
-    protected override bool ShouldRemove(Entity<MindComponent> ent, EntityUid? exclude, IEntityManager entMan, SharedMindSystem mindSys)
+    protected override bool ShouldRemove(Entity<MindComponent> ent, EntityUid? exclude, IEntityManager entMan)
     {
         if (ent.Comp.OwnedEntity is not {} mob)
             return true;

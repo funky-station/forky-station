@@ -1,16 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.DeviceNetwork;
 using Content.Server.DeviceNetwork.Systems;
@@ -24,10 +11,10 @@ using Robust.Server.GameObjects;
 
 namespace Content.Server.Medical.CrewMonitoring;
 
-public sealed class CrewMonitoringConsoleSystem : EntitySystem
+public sealed partial class CrewMonitoringConsoleSystem : EntitySystem
 {
-    [Dependency] private readonly PowerCellSystem _cell = default!;
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private PowerCellSystem _cell = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
 
     public override void Initialize()
     {

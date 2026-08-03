@@ -18,10 +18,10 @@ namespace Content.Server.Administration.Systems;
 
 public sealed partial class AdminVerbSystem
 {
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly ZombieSystem _zombie = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly OutfitSystem _outfit = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private ZombieSystem _zombie = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private OutfitSystem _outfit = default!;
 
     private static readonly EntProtoId DefaultTraitorRule = "Traitor";
     private static readonly EntProtoId DefaultInitialInfectedRule = "Zombie";
@@ -32,7 +32,7 @@ public sealed partial class AdminVerbSystem
     private static readonly EntProtoId ParadoxCloneRuleId = "ParadoxCloneSpawn";
     private static readonly EntProtoId DefaultWizardRule = "Wizard";
     private static readonly EntProtoId DefaultNinjaRule = "NinjaSpawn";
-    private static readonly EntProtoId DefaultBloodCultRule = "BloodCult"; // funkystation
+    // private static readonly EntProtoId DefaultBloodCultRule = "BloodCult"; // funkystation - disabled
     private static readonly ProtoId<StartingGearPrototype> PirateGearId = "PirateGear";
 
     // All antag verbs have names so invokeverb works.
@@ -56,7 +56,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = traitorName,
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Misc/job_icons.rsi"), "Syndicate"),
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_Funkystation/Interface/Misc/job_icons.rsi"), "Syndicate"), // Funky
             Act = () =>
             {
                 _antag.ForceMakeAntag<TraitorRuleComponent>(targetPlayer, DefaultTraitorRule);
@@ -71,7 +71,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = initialInfectedName,
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "InitialInfected"),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Funkystation/Interface/Misc/antag_icons.rsi"), "InitialInfected"), // Funky
             Act = () =>
             {
                 _antag.ForceMakeAntag<ZombieRuleComponent>(targetPlayer, DefaultInitialInfectedRule);
@@ -86,7 +86,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = zombieName,
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "Zombie"),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Funkystation/Interface/Misc/job_icons.rsi"), "Zombie"), // Funky
             Act = () =>
             {
                 _zombie.ZombifyEntity(args.Target);
@@ -132,7 +132,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = headRevName,
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "HeadRevolutionary"),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Funkystation/Interface/Misc/antag_icons.rsi"), "HeadRevolutionary"), // Funky
             Act = () =>
             {
                 _antag.ForceMakeAntag<RevolutionaryRuleComponent>(targetPlayer, DefaultRevsRule);
@@ -177,7 +177,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = paradoxCloneName,
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "ParadoxClone"),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Funkystation/Interface/Misc/antag_icons.rsi"), "ParadoxClone"), // Funky
             Act = () =>
             {
                 var ruleEnt = _gameTicker.AddGameRule(ParadoxCloneRuleId);
@@ -198,7 +198,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = wizardName,
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "Wizard"),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Funkystation/Interface/Misc/job_icons.rsi"), "Wizard"), // Funky
             Act = () =>
             {
                 // Wizard has no rule components as of writing, but I gotta put something here to satisfy the machine so just make it wizard mind rule :)
@@ -228,20 +228,20 @@ public sealed partial class AdminVerbSystem
             args.Verbs.Add(paradox);
 
         // begin funkystation
-        var bloodCultName = Loc.GetString("admin-verb-text-make-bloodcult");
-        Verb bloodCult = new()
-        {
-            Text = bloodCultName,
-            Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Structures/BloodCult/bloodrune.rsi"), "offering-icon"),
-            Act = () =>
-            {
-                _antag.ForceMakeAntag<BloodCultRuleComponent>(targetPlayer, DefaultBloodCultRule);
-            },
-            Impact = LogImpact.High,
-            Message = string.Join(": ", bloodCultName, Loc.GetString("admin-verb-make-bloodcult")),
-        };
-        args.Verbs.Add(bloodCult);
+        // var bloodCultName = Loc.GetString("admin-verb-text-make-bloodcult");
+        // Verb bloodCult = new()
+        // {
+        //     Text = bloodCultName,
+        //     Category = VerbCategory.Antag,
+        //     Icon = new SpriteSpecifier.Rsi(new("/Textures/Structures/BloodCult/bloodrune.rsi"), "offering-icon"),
+        //     Act = () =>
+        //     {
+        //         _antag.ForceMakeAntag<BloodCultRuleComponent>(targetPlayer, DefaultBloodCultRule);
+        //     },
+        //     Impact = LogImpact.High,
+        //     Message = string.Join(": ", bloodCultName, Loc.GetString("admin-verb-make-bloodcult")),
+        // };
+        // args.Verbs.Add(bloodCult);
         // end funkystation
     }
 }

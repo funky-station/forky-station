@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 namespace Content.Server.Xenoarchaeology.Artifact.XAE.Components;
 
 /// <summary>
