@@ -1,61 +1,11 @@
-# SPDX-FileCopyrightText: 2021-2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021-2022 TaralGit <76408146+TaralGit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021-2022 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2021-2022 TimrodDX <timrod@gmail.com>
-# SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 buletsponge <96000213+buletsponge@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2025 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023, 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022, 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
-# SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-# SPDX-FileCopyrightText: 2022 moonheart08 <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Morbo <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023-2024 JustCone <141039037+JustCone14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 778b <33431126+778b@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 eoineoineoin <github@eoinrul.es>
-# SPDX-FileCopyrightText: 2023 Jackrost <jackrost@mail.ru>
-# SPDX-FileCopyrightText: 2024 TytosB <54259736+TytosB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Spanky <scott@wearejacob.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025-2026 Spessmann <156740760+Spessmann@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Hitlinemoss <209321380+Hitlinemoss@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Justin Pfeifler <jrpl101998@gmail.com>
-# SPDX-FileCopyrightText: 2025 Absotively <jen@jenpollock.ca>
-# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Crude Oil <124208219+CroilBird@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Deerstop <edainturner@gmail.com>
-# SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 meta:
   format: 7
   category: Map
-  engineVersion: 268.0.0
+  engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/27/2025 23:30:45
-  entityCount: 18260
+  time: 05/27/2026 14:38:48
+  entityCount: 18268
 maps:
 - 1793
 grids:
@@ -6633,9 +6583,10 @@ entities:
           23,22:
             1: 3059
           23,23:
-            1: 63095
+            1: 1655
+            6: 61440
           23,24:
-            1: 15
+            6: 15
           24,20:
             1: 4369
           24,21:
@@ -6697,6 +6648,8 @@ entities:
     - type: RadiationGridResistance
     - type: NavMap
     - type: ExplosionAirtightGrid
+    - type: TileHistory
+      chunkHistory: {}
   - uid: 1793
     components:
     - type: MetaData
@@ -12885,6 +12838,46 @@ entities:
     components:
     - type: Transform
       pos: 77.5,12.5
+      parent: 1
+  - uid: 18261
+    components:
+    - type: Transform
+      pos: 92.5,96.5
+      parent: 1
+  - uid: 18262
+    components:
+    - type: Transform
+      pos: 92.5,95.5
+      parent: 1
+  - uid: 18263
+    components:
+    - type: Transform
+      pos: 93.5,96.5
+      parent: 1
+  - uid: 18264
+    components:
+    - type: Transform
+      pos: 93.5,95.5
+      parent: 1
+  - uid: 18265
+    components:
+    - type: Transform
+      pos: 94.5,96.5
+      parent: 1
+  - uid: 18266
+    components:
+    - type: Transform
+      pos: 94.5,95.5
+      parent: 1
+  - uid: 18267
+    components:
+    - type: Transform
+      pos: 95.5,96.5
+      parent: 1
+  - uid: 18268
+    components:
+    - type: Transform
+      pos: 95.5,95.5
       parent: 1
 - proto: AtmosFixFreezerMarker
   entities:
@@ -52333,7 +52326,7 @@ entities:
     components:
     - type: Transform
       anchored: False
-      rot: -1.5707963267948966 rad
+      rot: -3.141592653589793 rad
       pos: 43.5,109.5
       parent: 1
     - type: Physics
@@ -56357,6 +56350,11 @@ entities:
     - type: Transform
       pos: 52.5,94.5
       parent: 1
+    - type: GasMixer
+      inletTwoConcentration: 0.78
+      inletOneConcentration: 0.22
+      targetPressure: 303.975
+      enabled: True
 - proto: GasOutletInjector
   entities:
   - uid: 940
@@ -60515,12 +60513,6 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#009900FF'
-  - uid: 5213
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 50.5,92.5
-      parent: 1
   - uid: 5214
     components:
     - type: Transform
@@ -60532,12 +60524,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 50.5,94.5
-      parent: 1
-  - uid: 5216
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 51.5,94.5
       parent: 1
   - uid: 5217
     components:
@@ -75491,6 +75477,18 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#0055CCFF'
+  - uid: 5213
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 51.5,94.5
+      parent: 1
+  - uid: 5216
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 50.5,92.5
+      parent: 1
   - uid: 5240
     components:
     - type: Transform
@@ -76821,6 +76819,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 49.5,92.5
       parent: 1
+    - type: GasPressurePump
+      targetPressure: 4500
+      enabled: True
     - type: AtmosPipeColor
       color: '#009900FF'
   - uid: 5196
@@ -76841,6 +76842,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 49.5,94.5
       parent: 1
+    - type: GasPressurePump
+      targetPressure: 4500
+      enabled: True
     - type: AtmosPipeColor
       color: '#009900FF'
   - uid: 5198
@@ -76863,26 +76867,6 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#009900FF'
-  - uid: 5220
-    components:
-    - type: MetaData
-      name: distro gas pump
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 55.5,96.5
-      parent: 1
-    - type: AtmosPipeColor
-      color: '#0055CCFF'
-  - uid: 5223
-    components:
-    - type: MetaData
-      name: waste gas pump
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 55.5,97.5
-      parent: 1
-    - type: AtmosPipeColor
-      color: '#990000FF'
   - uid: 10269
     components:
     - type: Transform
@@ -76979,6 +76963,24 @@ entities:
       parent: 1
     - type: AtmosPipeColor
       color: '#0055CCFF'
+  - uid: 5220
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 55.5,96.5
+      parent: 1
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
+  - uid: 5223
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 55.5,97.5
+      parent: 1
+    - type: GasValve
+      open: False
+    - type: AtmosPipeColor
+      color: '#990000FF'
   - uid: 15371
     components:
     - type: MetaData
@@ -82989,7 +82991,6 @@ entities:
   - uid: 6652
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 59.5,38.5
       parent: 1
   - uid: 6788
@@ -83010,13 +83011,11 @@ entities:
   - uid: 7073
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 57.5,38.5
       parent: 1
   - uid: 7244
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 58.5,38.5
       parent: 1
   - uid: 7306
@@ -83052,7 +83051,6 @@ entities:
   - uid: 7839
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 57.5,40.5
       parent: 1
   - uid: 8487
@@ -83068,7 +83066,6 @@ entities:
   - uid: 8762
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 57.5,39.5
       parent: 1
   - uid: 8901
@@ -83169,13 +83166,11 @@ entities:
   - uid: 10802
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 60.5,38.5
       parent: 1
   - uid: 10818
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 61.5,38.5
       parent: 1
   - uid: 10820

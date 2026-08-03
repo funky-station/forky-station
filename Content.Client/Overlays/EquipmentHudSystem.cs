@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 PrPleGoo <PrPleGoo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.GameTicking;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
@@ -17,9 +10,9 @@ namespace Content.Client.Overlays;
 /// This is a base system to make it easier to enable or disabling UI elements based on whether or not the player has
 /// some component, either on their controlled entity on some worn piece of equipment.
 /// </summary>
-public abstract class EquipmentHudSystem<T> : EntitySystem where T : IComponent
+public abstract partial class EquipmentHudSystem<T> : EntitySystem where T : IComponent
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     [ViewVariables]
     public bool IsActive { get; private set; }

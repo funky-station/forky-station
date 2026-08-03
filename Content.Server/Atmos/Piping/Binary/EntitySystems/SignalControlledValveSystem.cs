@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Atmos.Piping.Binary.Components;
 using Content.Server.DeviceLinking.Systems;
 using Content.Shared.Atmos.Piping.Binary.Components;
@@ -12,10 +5,10 @@ using Content.Shared.DeviceLinking.Events;
 
 namespace Content.Server.Atmos.Piping.Binary.EntitySystems;
 
-public sealed class SignalControlledValveSystem : EntitySystem
+public sealed partial class SignalControlledValveSystem : EntitySystem
 {
-    [Dependency] private readonly DeviceLinkSystem _signal = default!;
-    [Dependency] private readonly GasValveSystem _valve = default!;
+    [Dependency] private DeviceLinkSystem _signal = default!;
+    [Dependency] private GasValveSystem _valve = default!;
 
     public override void Initialize()
     {

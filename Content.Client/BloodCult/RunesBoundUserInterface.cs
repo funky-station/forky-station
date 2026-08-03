@@ -8,11 +8,11 @@ using Content.Shared.BloodCult.Components;
 
 namespace Content.Client.BloodCult;
 
-public sealed class RunesBoundUserInterface : BoundUserInterface
+public sealed partial class RunesBoundUserInterface : BoundUserInterface
 {
-	[Dependency] private readonly IClyde _displayManager = default!;
-	[Dependency] private readonly IInputManager _inputManager = default!;
-	[Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
+	[Dependency] private IClyde _displayManager = default!;
+	[Dependency] private IInputManager _inputManager = default!;
+	[Dependency] private IEntitySystemManager _entitySystemManager = default!;
 
 	private RuneRadialMenu? _runeRitualMenu;
 

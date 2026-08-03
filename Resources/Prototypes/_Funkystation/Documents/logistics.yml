@@ -1,0 +1,7 @@
+- type: document
+  id: DocMaterialRequest
+  name: doc-material-request-name
+  description: doc-material-request-desc
+  category: DocCatLogistics
+  paperPrototype: Paper
+  content: doc-material-request-content

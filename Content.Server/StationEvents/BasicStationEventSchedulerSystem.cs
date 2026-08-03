@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2022, 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022, 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.Administration;
 using Content.Server.GameTicking;
@@ -30,10 +20,10 @@ namespace Content.Server.StationEvents
     ///     game presets use.
     /// </summary>
     [UsedImplicitly]
-    public sealed class BasicStationEventSchedulerSystem : GameRuleSystem<BasicStationEventSchedulerComponent>
+    public sealed partial class BasicStationEventSchedulerSystem : GameRuleSystem<BasicStationEventSchedulerComponent>
     {
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly EventManagerSystem _event = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private EventManagerSystem _event = default!;
 
         protected override void Started(EntityUid uid, BasicStationEventSchedulerComponent component, GameRuleComponent gameRule,
             GameRuleStartedEvent args)
@@ -161,7 +151,7 @@ namespace Content.Server.StationEvents
         }
 
         [CommandImplementation("lsprob")]
-        public IEnumerable<(string, float)> LsProb([CommandArgument] EntProtoId eventSchedulerProto)
+        public IEnumerable<(string, double)> LsProb([CommandArgument] EntProtoId eventSchedulerProto)
         {
             _compFac ??= IoCManager.Resolve<IComponentFactory>();
             _stationEvent ??= GetSys<EventManagerSystem>();
@@ -172,19 +162,18 @@ namespace Content.Server.StationEvents
             if (!eventScheduler.TryGetComponent<BasicStationEventSchedulerComponent>(out var basicScheduler, _compFac))
                 yield break;
 
-            if (!_stationEvent.TryListLimitedEvents(basicScheduler.ScheduledGameRules, out var events))
-                yield break;
+            var sortedEvents
+                = _stationEvent.ListLimitedEvents(basicScheduler.ScheduledGameRules)
+                .OrderBy(x => -x.Item2);
 
-            var totalWeight = events.Sum(x => x.Value.Weight); // Well this shit definitely isnt correct now, and I see no way to make it correct.
-                                                               // Its probably *fine* but it wont be accurate if the EntityTableSelector does any subsetting.
-            foreach (var (proto, comp) in events)              // The only solution I see is to do a simulation, and we already have that, so...!
+            foreach (var eventProb in sortedEvents)
             {
-                yield return (proto.ID, comp.Weight * (float)basicScheduler.ScheduledGameRules.Prob / totalWeight);
+                yield return eventProb;
             }
         }
 
         [CommandImplementation("lsprobtheoretical")]
-        public IEnumerable<(string, float)> LsProbTime([CommandArgument] EntProtoId eventSchedulerProto, [CommandArgument] int playerCount, [CommandArgument] float time)
+        public IEnumerable<(EntProtoId, double)> LsProbTime([CommandArgument] EntProtoId eventSchedulerProto, [CommandArgument] int playerCount, [CommandArgument] float time)
         {
             _compFac ??= IoCManager.Resolve<IComponentFactory>();
             _stationEvent ??= GetSys<EventManagerSystem>();
@@ -197,24 +186,21 @@ namespace Content.Server.StationEvents
 
             var timemins = time * 60;
             var theoryTime = TimeSpan.Zero + TimeSpan.FromSeconds(timemins);
-            if (!_stationEvent.TryListLimitedEvents(basicScheduler.ScheduledGameRules,
-                    out var untimedEvents,
-                    currentTime: theoryTime,
-                    playerCount: playerCount))
-                yield break;
 
-            var events = untimedEvents.Where(pair => pair.Value.EarliestStart <= timemins).ToList();
+            var sortedEvents
+                = _stationEvent.ListLimitedEvents(basicScheduler.ScheduledGameRules,
+                        currentTime: theoryTime,
+                        playerCount: playerCount)
+                    .OrderBy(x => -x.Item2);
 
-            var totalWeight = events.Sum(x => x.Value.Weight); // same subsetting issue as lsprob.
-
-            foreach (var (proto, comp) in events)
+            foreach (var eventProb in sortedEvents)
             {
-                yield return (proto.ID, comp.Weight * (float)basicScheduler.ScheduledGameRules.Prob / totalWeight);
+                yield return eventProb;
             }
         }
 
         [CommandImplementation("prob")]
-        public float Prob([CommandArgument] EntProtoId eventSchedulerProto, [CommandArgument] string eventId)
+        public double Prob([CommandArgument] EntProtoId eventSchedulerProto, [CommandArgument] string eventId)
         {
             _compFac ??= IoCManager.Resolve<IComponentFactory>();
             _stationEvent ??= GetSys<EventManagerSystem>();
@@ -225,17 +211,15 @@ namespace Content.Server.StationEvents
             if (!eventScheduler.TryGetComponent<BasicStationEventSchedulerComponent>(out var basicScheduler, _compFac))
                 return 0f;
 
-            if (!_stationEvent.TryListLimitedEvents(basicScheduler.ScheduledGameRules, out var events))
-                return 0f;
-
-            var totalWeight = events.Sum(x => x.Value.Weight); // same subsetting issue as lsprob.
-            var weight = 0f;
-            if (events.TryFirstOrNull(p => p.Key.ID == eventId, out var pair))
+            foreach (var (proto, prob) in _stationEvent.ListLimitedEvents(basicScheduler.ScheduledGameRules))
             {
-                weight = pair.Value.Value.Weight * (float)basicScheduler.ScheduledGameRules.Prob;
+                if (eventSchedulerProto != proto)
+                    continue;
+
+                return prob;
             }
 
-            return weight / totalWeight;
+            return 0f;
         }
     }
 }

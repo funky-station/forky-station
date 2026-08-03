@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2026 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 alexalexmax <149889301+alexalexmax@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 

@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Spessmann <156740760+Spessmann@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 TytosB <54259736+TytosB@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 meta:
   format: 7
   category: Grid
@@ -6202,7 +6196,6 @@ entities:
   - uid: 1313
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 32.5,14.5
       parent: 1
 - proto: HydroponicsToolMiniHoe

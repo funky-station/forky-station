@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: BaseWallmount
   abstract: true
@@ -37,8 +33,9 @@
       Brute:
         collection: GlassSmash
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Glass
+  - type: Injurable
+    damageContainer: StructuralInorganic
 
 - type: entity
   parent: BaseWallmount
@@ -46,8 +43,9 @@
   abstract: true
   components:
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
 
 - type: entity
   parent: BaseWallmountMetallic
@@ -59,3 +57,4 @@
   - type: ExtensionCableReceiver
   - type: LightningTarget
     priority: 1
+  - type: TooShortForUiBlacklist # MACRO

@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Boaz1111 <149967078+Boaz1111@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 paige404 <59348003+paige404@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtColorWhite
@@ -11,7 +5,7 @@
   description: A generic white jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     layers:
     - state: icon
     - state: trinkets-icon
@@ -24,7 +18,7 @@
       - state: inhand-right
       - state: trinkets-inhand-right
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
@@ -38,7 +32,7 @@
   description: A tasteful grey jumpskirt that reminds you of the good old days.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     layers:
     - state: icon
       color: "#b3b3b3"
@@ -54,7 +48,7 @@
         color: "#b3b3b3"
       - state: trinkets-inhand-right
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
@@ -69,7 +63,7 @@
   description: A generic black jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     layers:
     - state: icon
       color: "#3f3f3f"
@@ -85,7 +79,7 @@
         color: "#3f3f3f"
       - state: trinkets-inhand-right
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
@@ -100,7 +94,7 @@
   description: A generic blue jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     layers:
     - state: icon
       color: "#52aecc"
@@ -116,7 +110,7 @@
         color: "#52aecc"
       - state: trinkets-inhand-right
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
@@ -131,7 +125,7 @@
   description: A generic dark blue jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     layers:
     - state: icon
       color: "#3285ba"
@@ -147,7 +141,7 @@
         color: "#3285ba"
       - state: trinkets-inhand-right
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
@@ -162,7 +156,7 @@
   description: A generic teal jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     layers:
     - state: icon
       color: "#77f3b7"
@@ -178,7 +172,7 @@
         color: "#77f3b7"
       - state: trinkets-inhand-right
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
@@ -193,7 +187,7 @@
   description: A generic green jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     layers:
     - state: icon
       color: "#9ed63a"
@@ -209,7 +203,7 @@
         color: "#9ed63a"
       - state: trinkets-inhand-right
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
@@ -224,7 +218,7 @@
   description: A generic dark green jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     layers:
     - state: icon
       color: "#007923"
@@ -240,7 +234,7 @@
         color: "#007923"
       - state: trinkets-inhand-right
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
@@ -255,7 +249,7 @@
   description: Don't wear this near paranoid security officers.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     layers:
     - state: icon
       color: "#ff8c19"
@@ -271,7 +265,7 @@
         color: "#ff8c19"
       - state: trinkets-inhand-right
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
@@ -286,7 +280,7 @@
   description: Just looking at this makes you feel <i>fabulous</i>.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     layers:
     - state: icon
       color: "#ffa69b"
@@ -302,7 +296,7 @@
         color: "#ffa69b"
       - state: trinkets-inhand-right
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
@@ -317,7 +311,7 @@
   description: A generic red jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     layers:
     - state: icon
       color: "#eb0c07"
@@ -333,7 +327,7 @@
         color: "#eb0c07"
       - state: trinkets-inhand-right
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
@@ -348,7 +342,7 @@
   description: A generic yellow jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     layers:
     - state: icon
       color: "#ffe14d"
@@ -364,7 +358,7 @@
         color: "#ffe14d"
       - state: trinkets-inhand-right
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
@@ -379,7 +373,7 @@
   description: A generic light purple jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     layers:
     - state: icon
       color: "#9f70cc"
@@ -395,7 +389,7 @@
         color: "#9f70cc"
       - state: trinkets-inhand-right
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
@@ -410,7 +404,7 @@
   description: A generic light brown jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     layers:
     - state: icon
       color: "#c59431"
@@ -426,7 +420,7 @@
         color: "#c59431"
       - state: trinkets-inhand-right
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
@@ -441,7 +435,7 @@
   description: A generic brown jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     layers:
     - state: icon
       color: "#a17229"
@@ -457,7 +451,7 @@
         color: "#a17229"
       - state: trinkets-inhand-right
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
@@ -472,7 +466,7 @@
   description: A generic maroon jumpskirt with no rank markings.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     layers:
     - state: icon
       color: "#cc295f"
@@ -488,7 +482,7 @@
         color: "#cc295f"
       - state: trinkets-inhand-right
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/color.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Jumpskirt/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING

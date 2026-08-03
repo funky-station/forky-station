@@ -15,23 +15,23 @@ namespace Content.Server.BloodCult.EntitySystems;
 /// <summary>
 /// Changes blood cultists' blood to Unholy Blood
 /// </summary>
-public sealed class BloodCultistMetabolismSystem : EntitySystem
+public sealed partial class BloodCultistMetabolismSystem : EntitySystem
 {
-    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
+    [Dependency] private BloodstreamSystem _bloodstream = default!;
+    [Dependency] private IComponentFactory _componentFactory = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        
+
         SubscribeLocalEvent<BloodCultistComponent, ComponentInit>(OnCultistInit);
         SubscribeLocalEvent<BloodCultistComponent, ComponentShutdown>(OnCultistShutdown);
         // Note: ComponentRemove is handled by BloodCultRuleSystem, so we use ComponentShutdown and EntityTerminatingEvent instead
         SubscribeLocalEvent<BloodCultistComponent, EntityTerminatingEvent>(OnCultistTerminating);
-        
+
 
     }
-    
+
     public override void Shutdown()
     {
         base.Shutdown();
@@ -46,7 +46,7 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
             if (string.IsNullOrEmpty(component.OriginalBloodReagent))
             {
                 string originalBlood = "Blood"; // Default fallback
-                
+
                 // Try to get from prototype first
                 if (TryGetPrototypeBloodReagent(uid, out var prototypeBlood) && !string.IsNullOrEmpty(prototypeBlood))
                 {
@@ -58,10 +58,10 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
                     originalBlood = bloodstream.BloodReferenceSolution.Contents.First().Reagent.Prototype.ToString();
                 }
                 // Otherwise use default "Blood"
-                
+
                 component.OriginalBloodReagent = originalBlood;
             }
-            
+
             // Change their blood type to Unholy Blood so they bleed it
             // Only if they have a valid bloodstream component
             try
@@ -89,7 +89,7 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
         if (TryComp<BloodstreamComponent>(uid, out var bloodstream))
         {
             string restoreReagent = "Blood"; // Default fallback
-            
+
             // Try to use stored original blood reagent
             if (!string.IsNullOrEmpty(component.OriginalBloodReagent))
             {
@@ -101,7 +101,7 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
                 restoreReagent = prototypeReagent;
             }
             // Otherwise use default "Blood"
-            
+
             // Restore the blood type with error handling
             try
             {
@@ -121,9 +121,9 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
         // Restore blood type to original blood reagent
         if (!TryComp<BloodstreamComponent>(uid, out var bloodstream))
             return; // No bloodstream, nothing to restore
-        
+
         string restoreReagent = "Blood"; // Default fallback
-        
+
         // Try to use stored original blood reagent
         if (!string.IsNullOrEmpty(component.OriginalBloodReagent))
         {
@@ -135,7 +135,7 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
             restoreReagent = prototypeReagent;
         }
         // Otherwise use default "Blood"
-        
+
         // Restore the blood type with error handling
         try
         {
@@ -168,7 +168,7 @@ public sealed class BloodCultistMetabolismSystem : EntitySystem
 				bloodReagent = prototypeBloodstream.BloodReferenceSolution.Contents.First().Reagent.Prototype.ToString();
 				return true;
 			}
-			
+
 			// If prototype has empty blood reagent, return false but keep default "Blood"
 			return false;
 		}

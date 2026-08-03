@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Chat.Systems;
 using Content.Shared.Actions.Events;
 using Content.Shared.Chat;
@@ -16,9 +12,9 @@ namespace Content.Server.Speech.EntitySystems;
 /// As soon as the chat refactor moves to Shared
 /// the logic here can move to the shared <see cref="SharedSpeakOnActionSystem"/>
 /// </summary>
-public sealed class SpeakOnActionSystem : SharedSpeakOnActionSystem
+public sealed partial class SpeakOnActionSystem : SharedSpeakOnActionSystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private ChatSystem _chat = default!;
 
     public override void Initialize()
     {

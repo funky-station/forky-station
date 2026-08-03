@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
@@ -13,9 +10,9 @@ using Robust.Shared.Map.Components;
 namespace Content.Server.Atmos.Commands;
 
 [AdminCommand(AdminFlags.Debug)]
-public sealed class SubstepAtmosCommand : LocalizedEntityCommands
+public sealed partial class SubstepAtmosCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
 
     public override string Command => "substepatmos";
 

@@ -1,14 +1,3 @@
-# SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nim <128169402+Nimfar11@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
-# SPDX-License-Identifier: MIT
-
 - files:
   - water1.ogg
   - water2.ogg
@@ -57,7 +46,7 @@
   - blood4.ogg
   - blood5.ogg
   license: "CC-BY-NC-4.0"
-  copyright: "Created by Robinhood76 on freesound.org, modified by EmoGarbage404 (github)"
+  copyright: "Created by Robinhood76 on freesound.org, modified by EmoGarbage404 (github), background noise removed by Prole0 (Github)"
   source: "https://freesound.org/people/Robinhood76/sounds/98731/"
 
 - files:

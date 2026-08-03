@@ -1,31 +1,6 @@
-// SPDX-FileCopyrightText: 2020-2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
-// SPDX-FileCopyrightText: 2021-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 TekuNut <13456422+TekuNut@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Chemistry.Components;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
 using Content.Shared.Physics;
@@ -40,19 +15,22 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 using System.Numerics;
+using Content.Shared._Funkystation.WallStains; // Funky Wall Stains
+using Content.Shared.Vapor;
 
 namespace Content.Server.Chemistry.EntitySystems
 {
     [UsedImplicitly]
-    internal sealed class VaporSystem : EntitySystem
+    internal sealed partial class VaporSystem : EntitySystem
     {
-        [Dependency] private readonly IPrototypeManager _protoManager = default!;
-        [Dependency] private readonly SharedMapSystem _map = default!;
-        [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-        [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-        [Dependency] private readonly ThrowingSystem _throwing = default!;
-        [Dependency] private readonly ReactiveSystem _reactive = default!;
-        [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+        [Dependency] private IPrototypeManager _protoManager = default!;
+        [Dependency] private ReactiveSystem _reactive = default!;
+        [Dependency] private ThrowingSystem _throwing = default!;
+        [Dependency] private SharedAppearanceSystem _appearance = default!;
+        [Dependency] private SharedMapSystem _map = default!;
+        [Dependency] private SharedPhysicsSystem _physics = default!;
+        [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+        [Dependency] private SharedTransformSystem _transformSystem = default!;
 
         public override void Initialize()
         {
@@ -63,12 +41,21 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private void HandleCollide(Entity<VaporComponent> entity, ref StartCollideEvent args)
         {
-            if (!TryComp(entity.Owner, out SolutionContainerManagerComponent? contents)) return;
+            // Funky Wall Stains
+            var hitWall = (args.OtherFixture.CollisionLayer & (int)CollisionGroup.Impassable) != 0
+                          && args.OtherFixture.Hard;
 
-            foreach (var (_, soln) in _solutionContainerSystem.EnumerateSolutions((entity.Owner, contents)))
+            foreach (var (_, soln) in _solutionContainer.EnumerateSolutions(entity.Owner))
             {
                 var solution = soln.Comp.Solution;
                 _reactive.DoEntityReaction(args.OtherEntity, solution, ReactionMethod.Touch);
+
+                // Funky Wall Stains
+                if (hitWall && solution.Volume > 0)
+                {
+                    var splashEv = new SplashOnWallEvent(Transform(entity.Owner).Coordinates, solution.Clone());
+                    RaiseLocalEvent(ref splashEv);
+                }
             }
 
             // Check for collision with a impassable object (e.g. wall) and stop
@@ -78,7 +65,7 @@ namespace Content.Server.Chemistry.EntitySystems
             }
         }
 
-        public void Start(Entity<VaporComponent> vapor,
+        public void Start(Entity<VaporComponent?> vapor,
             TransformComponent vaporXform,
             Vector2 dir,
             float speed,
@@ -86,6 +73,9 @@ namespace Content.Server.Chemistry.EntitySystems
             float aliveTime,
             EntityUid? user = null)
         {
+            if (!Resolve(vapor, ref vapor.Comp))
+                return;
+
             vapor.Comp.Active = true;
             var despawn = EnsureComp<TimedDespawnComponent>(vapor);
             despawn.Lifetime = aliveTime;
@@ -104,21 +94,20 @@ namespace Content.Server.Chemistry.EntitySystems
             }
         }
 
-        internal bool TryAddSolution(Entity<VaporComponent> vapor, Solution solution)
+        internal bool TryAddSolution(Entity<SolutionComponent?> vapor, Entity<SolutionComponent> solution, FixedPoint2 split)
         {
-            if (solution.Volume == 0)
-            {
+            if (solution.Comp.Solution.Volume <= 0 || split <= 0 || !Resolve(vapor, ref vapor.Comp))
                 return false;
+
+            var newSolution = _solutionContainer.SplitSolution(solution, split);
+
+            if (TryComp<AppearanceComponent>(vapor, out var appearance))
+            {
+                _appearance.SetData(vapor, VaporVisuals.Color, newSolution.GetColor(_protoManager).WithAlpha(1f), appearance);
+                _appearance.SetData(vapor, VaporVisuals.State, true, appearance);
             }
 
-            if (!_solutionContainerSystem.TryGetSolution(vapor.Owner,
-                    VaporComponent.SolutionName,
-                    out var vaporSolution))
-            {
-                return false;
-            }
-
-            return _solutionContainerSystem.TryAddSolution(vaporSolution.Value, solution);
+            return _solutionContainer.TryAddSolution((vapor, vapor.Comp), newSolution);
         }
 
         public override void Update(float frameTime)
@@ -126,8 +115,9 @@ namespace Content.Server.Chemistry.EntitySystems
             base.Update(frameTime);
 
             // Enumerate over all VaporComponents
-            var query = EntityQueryEnumerator<VaporComponent, SolutionContainerManagerComponent, TransformComponent>();
-            while (query.MoveNext(out var uid, out var vaporComp, out var container, out var xform))
+            // TODO: Vapor should just use SolutionComponent and not be capable of having multiple solutions.
+            var query = EntityQueryEnumerator<VaporComponent, SolutionComponent, TransformComponent>();
+            while (query.MoveNext(out var uid, out var vaporComp, out var solution, out var xform))
             {
                 // Return early if we're not active
                 if (!vaporComp.Active)
@@ -143,46 +133,42 @@ namespace Content.Server.Chemistry.EntitySystems
                     if (vaporComp.PreviousTileRef != null && tile == vaporComp.PreviousTileRef)
                         continue;
 
-                    // Enumerate over all the reagents in the vapor entity solution
-                    foreach (var (_, soln) in _solutionContainerSystem.EnumerateSolutions((uid, container)))
+                    // Iterate over the reagents in the solution
+                    // Reason: Each reagent in our solution may have a unique TileReaction
+                    // In this instance, we check individually for each reagent's TileReaction
+                    // This is not doing chemical reactions!
+                    var contents = solution.Solution;
+                    foreach (var reagentQuantity in contents.Contents.ToArray())
                     {
-                        // Iterate over the reagents in the solution
-                        // Reason: Each reagent in our solution may have a unique TileReaction
-                        // In this instance, we check individually for each reagent's TileReaction
-                        // This is not doing chemical reactions!
-                        var contents = soln.Comp.Solution;
-                        foreach (var reagentQuantity in contents.Contents.ToArray())
-                        {
-                            // Check if the reagent is empty
-                            if (reagentQuantity.Quantity == FixedPoint2.Zero)
-                                continue;
+                        // Check if the reagent is empty
+                        if (reagentQuantity.Quantity == FixedPoint2.Zero)
+                            continue;
 
-                            var reagent = _protoManager.Index<ReagentPrototype>(reagentQuantity.Reagent.Prototype);
+                        var reagent = _protoManager.Index<ReagentPrototype>(reagentQuantity.Reagent.Prototype);
 
-                            // Limit the reaction amount to a minimum value to ensure no floating point funnies.
-                            // Ex: A solution with a low percentage transfer amount will slowly approach 0.01... and never get deleted
-                            var clampedAmount = Math.Max(
-                                (float)reagentQuantity.Quantity * vaporComp.TransferAmountPercentage,
-                                vaporComp.MinimumTransferAmount);
+                        // Limit the reaction amount to a minimum value to ensure no floating point funnies.
+                        // Ex: A solution with a low percentage transfer amount will slowly approach 0.01... and never get deleted
+                        var clampedAmount = Math.Max(
+                            (float)reagentQuantity.Quantity * vaporComp.TransferAmountPercentage,
+                            vaporComp.MinimumTransferAmount);
 
-                            // Preform the reagent's TileReaction
-                            var reaction =
-                                reagent.ReactionTile(tile,
-                                    clampedAmount,
-                                    EntityManager,
-                                    reagentQuantity.Reagent.Data);
+                        // Preform the reagent's TileReaction
+                        var reaction =
+                            reagent.ReactionTile(tile,
+                                clampedAmount,
+                                EntityManager,
+                                reagentQuantity.Reagent.Data);
 
-                            if (reaction > reagentQuantity.Quantity)
-                                reaction = reagentQuantity.Quantity;
+                        if (reaction > reagentQuantity.Quantity)
+                            reaction = reagentQuantity.Quantity;
 
-                            _solutionContainerSystem.RemoveReagent(soln, reagentQuantity.Reagent, reaction);
-                        }
-
-                        // Delete the vapor entity if it has no contents
-                        if (contents.Volume == 0)
-                            QueueDel(uid);
-
+                        _solutionContainer.RemoveReagent((uid, solution), reagentQuantity.Reagent, reaction);
                     }
+
+                    // Delete the vapor entity if it has no contents
+                    if (contents.Volume == 0)
+                        QueueDel(uid);
+
 
                     // Set the previous tile reference to the current tile
                     vaporComp.PreviousTileRef = tile;

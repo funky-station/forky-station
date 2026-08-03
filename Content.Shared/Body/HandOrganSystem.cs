@@ -1,13 +1,10 @@
-// SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Hands.EntitySystems;
 
 namespace Content.Shared.Body;
 
-public sealed class HandOrganSystem : EntitySystem
+public sealed partial class HandOrganSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
 
     public override void Initialize()
     {

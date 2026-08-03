@@ -1,18 +1,13 @@
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Administration.Managers;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 
 namespace Content.Client.NodeContainer
 {
-    public sealed class NodeVisCommand : LocalizedEntityCommands
+    public sealed partial class NodeVisCommand : LocalizedEntityCommands
     {
-        [Dependency] private readonly IClientAdminManager _adminManager = default!;
-        [Dependency] private readonly NodeGroupSystem _nodeSystem = default!;
+        [Dependency] private IClientAdminManager _adminManager = default!;
+        [Dependency] private NodeGroupSystem _nodeSystem = default!;
 
         public override string Command => "nodevis";
 
@@ -28,9 +23,9 @@ namespace Content.Client.NodeContainer
         }
     }
 
-    public sealed class NodeVisFilterCommand : LocalizedEntityCommands
+    public sealed partial class NodeVisFilterCommand : LocalizedEntityCommands
     {
-        [Dependency] private readonly NodeGroupSystem _nodeSystem = default!;
+        [Dependency] private NodeGroupSystem _nodeSystem = default!;
 
         public override string Command => "nodevisfilter";
 

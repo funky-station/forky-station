@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Shuttles.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
@@ -32,35 +26,42 @@ public sealed partial class StationEmergencyShuttleComponent : Component
     /// <summary>
     /// The announcement made when the shuttle has successfully docked with the station.
     /// </summary>
+    [DataField]
     public LocId DockedAnnouncement = "emergency-shuttle-docked";
 
     /// <summary>
     /// Sound played when the shuttle has successfully docked with the station.
     /// </summary>
+    [DataField]
     public SoundSpecifier DockedAudio = new SoundPathSpecifier("/Audio/Announcements/shuttle_dock.ogg");
 
     /// <summary>
     /// The announcement made when the shuttle is unable to dock and instead parks in nearby space.
     /// </summary>
+    [DataField]
     public LocId NearbyAnnouncement = "emergency-shuttle-nearby";
 
     /// <summary>
     /// Sound played when the shuttle is unable to dock and instead parks in nearby space.
     /// </summary>
+    [DataField]
     public SoundSpecifier NearbyAudio = new SoundPathSpecifier("/Audio/Misc/notice1.ogg");
 
     /// <summary>
     /// The announcement made when the shuttle is unable to find a station.
     /// </summary>
+    [DataField]
     public LocId FailureAnnouncement = "emergency-shuttle-good-luck";
 
     /// <summary>
     /// Sound played when the shuttle is unable to find a station.
     /// </summary>
+    [DataField]
     public SoundSpecifier FailureAudio = new SoundPathSpecifier("/Audio/Misc/notice1.ogg");
 
     /// <summary>
     /// Text appended to the docking announcement if the launch time has been extended.
     /// </summary>
+    [DataField]
     public LocId LaunchExtendedMessage = "emergency-shuttle-extended";
 }
