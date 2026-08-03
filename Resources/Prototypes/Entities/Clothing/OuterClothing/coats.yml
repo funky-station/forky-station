@@ -141,6 +141,17 @@
         Slash: 0.95
 
 - type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatRain
+  name: rain coat
+  description: never know when it might rain in space...
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/raincoat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/raincoat.rsi
+
+- type: entity
   parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterCoatLab
   name: lab coat

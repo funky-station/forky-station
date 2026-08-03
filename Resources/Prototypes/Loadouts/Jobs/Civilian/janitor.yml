@@ -13,27 +13,108 @@
   equipment:
     head: ClothingHeadHatPurplesoft
 
+- type: loadout
+  id: RainHat
+  equipment:
+    head: ClothingHeadHatRainHat
+
 # Jumpsuit
 - type: loadout
   id: JanitorJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitJanitor
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: JanitorJumpsuitGreen
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitJanitorGreen
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: JanitorJumpsuitOrange
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitJanitorOrange
+  groupBy: "jumpsuit"
 
 - type: loadout
   id: JanitorJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtJanitor
+  groupBy: "jumpskirt"
+
+- type: loadout
+  id: JanitorJumpskirtGreen
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtJanitorGreen
+  groupBy: "jumpskirt"
+
+- type: loadout
+  id: JanitorJumpskirtOrange
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtJanitorOrange
+  groupBy: "jumpskirt"
+
+- type: loadout
+  id: JanitorOveralls
+  equipment:
+    jumpsuit: ClothingUniformOverallsJanitor
+  groupBy: "overalls"
+
+- type: loadout
+  id: JanitorOverallsGreen
+  equipment:
+    jumpsuit: ClothingUniformOverallsJanitorGreen
+  groupBy: "overalls"
+
+- type: loadout
+  id: JanitorOverallsOrange
+  equipment:
+    jumpsuit: ClothingUniformOverallsJanitorOrange
+  groupBy: "overalls"
+
+- type: loadout
+  id: JanitorSkirtOveralls
+  equipment:
+    jumpsuit: ClothingUniformOverallSkirtJanitor
+  groupBy: "skirtoveralls"
+
+- type: loadout
+  id: JanitorSkirtOverallsGreen
+  equipment:
+    jumpsuit: ClothingUniformOverallSkirtJanitorGreen
+  groupBy: "skirtoveralls"
+
+- type: loadout
+  id: JanitorSkirtOverallsOrange
+  equipment:
+    jumpsuit: ClothingUniformOverallSkirtJanitorOrange
+  groupBy: "skirtoveralls"
 
 # Gloves
 - type: loadout
   id: JanitorRubberGloves
   equipment:
     gloves: ClothingHandsGlovesJanitor
+  groupBy: "rubbergloves"
 
-#- type: loadout
-#  id: OrangeGloves
-#  equipment:
-#    gloves: ClothingHandsGlovesColorOrange
+- type: loadout
+  id: JanitorRubberGlovesTeal
+  equipment:
+    gloves: ClothingHandsGlovesJanitorTeal
+  groupBy: "rubbergloves"
+
+- type: loadout
+  id: JanitorRubberGlovesOrange
+  equipment:
+    gloves: ClothingHandsGlovesJanitorOrange
+  groupBy: "rubbergloves"
+
+- type: loadout
+  id: JanitorRubberGlovesPurple
+  equipment:
+    gloves: ClothingHandsGlovesJanitorPurple
+  groupBy: "rubbergloves"
 
 - type: loadout
   id: PurpleGloves
@@ -45,3 +126,33 @@
   id: JanitorWintercoat
   equipment:
     outerClothing: ClothingOuterWinterJani
+
+- type: loadout
+  id: RainCoat
+  equipment:
+    outerClothing: ClothingOuterCoatRain
+
+# Galoshes
+- type: loadout
+  id: Galoshes
+  equipment:
+    shoes: ClothingShoesGaloshes
+  groupBy: "galoshes"
+
+- type: loadout
+  id: GaloshesTeal
+  equipment:
+    shoes: ClothingShoesGaloshesTeal
+  groupBy: "galoshes"
+
+- type: loadout
+  id: GaloshesOrange
+  equipment:
+    shoes: ClothingShoesGaloshesOrange
+  groupBy: "galoshes"
+
+- type: loadout
+  id: GaloshesPurple
+  equipment:
+    shoes: ClothingShoesGaloshesPurple
+  groupBy: "galoshes"

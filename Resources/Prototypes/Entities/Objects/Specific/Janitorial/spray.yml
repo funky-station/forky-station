@@ -38,7 +38,7 @@
   description: A spray bottle with an unscrewable top.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Janitorial/spray_bottle.rsi
+    sprite: _Funkystation/Objects/Specific/Janitorial/spray_bottle.rsi
     layers:
     - state: cleaner
     - state: cleaner-fill-1
@@ -56,7 +56,7 @@
   description: A huge spray bottle, capable of unrivaled janitorial power.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Janitorial/spray_bottle.rsi
+    sprite: _Funkystation/Objects/Specific/Janitorial/spray_bottle.rsi
     layers:
     - state: cleaner_large
     - state: cleaner_large-fill-1

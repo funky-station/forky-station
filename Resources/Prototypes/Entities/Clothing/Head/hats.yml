@@ -1121,6 +1121,17 @@
 
 - type: entity
   parent: ClothingHeadBase
+  id: ClothingHeadHatRainHat
+  name: rain hat
+  description: Saving gingerbreads and slime people from water across the whole galaxy!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/rainhat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/rainhat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
   id: ClothingHeadHatHetmanHat
   name: hetman hat
   description: From the Zaporozhian Sich with love.

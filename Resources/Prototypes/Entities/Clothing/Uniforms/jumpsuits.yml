@@ -405,7 +405,52 @@
   description: The jumpsuit for the poor sop with a mop.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/janitor.rsi
+    sprite: _Funkystation/Clothing/Uniforms/Janitorial/Jumpsuits/jani_purple.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitJanitorGreen
+  name: janitor jumpsuit
+  description: The jumpsuit for the poor sop with a mop.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Janitorial/Jumpsuits/jani_green.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitJanitorOrange
+  name: janitor jumpsuit
+  description: The jumpsuit for the poor sop with a mop.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Janitorial/Jumpsuits/jani_orange.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformOverallsJanitor
+  name: janitor overalls
+  description: The overalls for the poor sop with a mop.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Janitorial/Overalls/janioverall_purple.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformOverallsJanitorGreen
+  name: janitor overalls
+  description: The overalls for the poor sop with a mop.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Janitorial/Overalls/janioverall_green.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformOverallsJanitorOrange
+  name: janitor overalls
+  description: The overalls for the poor sop with a mop.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Janitorial/Overalls/janioverall_orange.rsi
 
 - type: entity
   parent: ClothingUniformBase

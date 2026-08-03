@@ -6,7 +6,7 @@
   components:
   - type: Clickable
   - type: Sprite
-    sprite: Objects/Specific/Janitorial/janitorial.rsi
+    sprite: _Funkystation/Objects/Specific/Janitorial/mopbucket.rsi
     noRot: true
     layers:
     - state: mopbucket

@@ -437,13 +437,24 @@
   minLimit: 0
   loadouts:
   - JanitorHead
+  - RainHat
 
 - type: loadoutGroup
   id: JanitorJumpsuit
   name: loadout-group-janitor-jumpsuit
   loadouts:
   - JanitorJumpsuit
+  - JanitorJumpsuitGreen
+  - JanitorJumpsuitOrange
   - JanitorJumpskirt
+  - JanitorJumpskirtGreen
+  - JanitorJumpskirtOrange
+  - JanitorOveralls
+  - JanitorOverallsGreen
+  - JanitorOverallsOrange
+  - JanitorSkirtOveralls
+  - JanitorSkirtOverallsGreen
+  - JanitorSkirtOverallsOrange
 
 - type: loadoutGroup
   id: JanitorGloves
@@ -451,6 +462,9 @@
   minLimit: 0
   loadouts:
   - JanitorRubberGloves
+  - JanitorRubberGlovesTeal
+  - JanitorRubberGlovesOrange
+  - JanitorRubberGlovesPurple
   - OrangeGloves
   - PurpleGloves
 
@@ -460,6 +474,16 @@
   minLimit: 0
   loadouts:
   - JanitorWintercoat
+  - RainCoat
+
+- type: loadoutGroup
+  id: JanitorShoes
+  name: loadout-group-janitor-shoes
+  loadouts:
+  - Galoshes
+  - GaloshesTeal
+  - GaloshesOrange
+  - GaloshesPurple
 
 - type: loadoutGroup
   id: JanitorJobTrinkets
