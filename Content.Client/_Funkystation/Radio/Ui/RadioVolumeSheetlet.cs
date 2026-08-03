@@ -22,11 +22,13 @@ public sealed class RadioVolumeSheetlet : Sheetlet<NanotrasenStylesheet>
         };
         sliderKnob.SetPatchMargin(StyleBox.Margin.All, 8);
         sliderKnob.TextureScale = 2*Vector2.One;
+
         var sliderBackground = new StyleBoxTexture
         {
             Texture = ResCache.GetTexture("/Textures/_Funkystation/Interface/slider-back.png"),
         };
-        sliderBackground.SetPatchMargin(StyleBox.Margin.All, 15);
+        sliderBackground.SetPatchMargin(StyleBox.Margin.All, 7);
+        sliderBackground.TextureScale = 2*Vector2.One;
 
         var sliderForeground = new StyleBoxEmpty();
         var sliderFill = new StyleBoxEmpty();
