@@ -34,7 +34,7 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
     // Used to prevent a shitter from using a bunch of radios to spam chat.
     private HashSet<(string, EntityUid, RadioChannelPrototype)> _recentlySent = new();
 
-    // TODO: volume switch (full speech volume + full listening range, whisper volume + reduced listening range, perhaps audible to holder only + only holder speech)
+    // TODO: improve volume ui
     // TODO: perhaps relay incoming radio messages into your chat like a headset when held
 
     public override void Initialize()
@@ -239,7 +239,12 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
             ("originalName", nameEv.VoiceName));
 
         // log to chat so people can identity the speaker/source, but avoid clogging ghost chat if there are many radios
-        _chat.TrySendInGameICMessage(uid, args.Message, InGameICChatType.Whisper, ChatTransmitRange.GhostRangeLimit, nameOverride: name, checkRadioPrefix: false);
+        _chat.TrySendInGameICMessage(uid,
+            args.Message,
+            component.Volume <= 2 ? InGameICChatType.Whisper : InGameICChatType.Speak, // funky change - adjustable volume
+            ChatTransmitRange.GhostRangeLimit,
+            nameOverride: name,
+            checkRadioPrefix: false);
     }
 
     // Funky - radio volume UI events
@@ -252,6 +257,9 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
     {
         ent.Comp.ListenRange = args.Value;
         Dirty(ent);
+        // update the range on the active listener if its present
+        if (TryComp<ActiveListenerComponent>(ent, out var listener))
+            listener.Range = ent.Comp.ListenRange;
     }
 
     private void OnIntercomEncryptionChannelsChanged(Entity<IntercomComponent> ent, ref EncryptionChannelsChangedEvent args)

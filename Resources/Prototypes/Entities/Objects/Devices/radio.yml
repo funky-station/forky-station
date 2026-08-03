@@ -9,12 +9,12 @@
     broadcastChannel: Handheld
     toggleOnSound: /Audio/_Funkystation/Radio/radio_on.ogg # funky addition - toggle sfx
     toggleOffSound: /Audio/_Funkystation/Radio/radio_off.ogg # funky addition - toggle sfx
-  - type: ActivatableUI #funkayyyy - ui
+  - type: ActivatableUI #funkayyyy - volume ui
     verbOnly: true
     requiresComplex: true
     verbText: radio-vol-menu-verb
     key: enum.RadioVolumeUiKey.Key
-  - type: UserInterface #funkayyyy - ui
+  - type: UserInterface #funkayyyy - volume ui
     interfaces:
       enum.RadioVolumeUiKey.Key:
         type: RadioVolumeBoundUserInterface
