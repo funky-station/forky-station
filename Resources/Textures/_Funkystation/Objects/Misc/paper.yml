@@ -12,4 +12,10 @@
   - type: StorageFill
     contents:
     - id: Paper
-#    - id: Waiting on colored paper PR merge
+    - id: PaperOrange
+    - id: PaperYellow
+    - id: PaperGreen
+    - id: PaperRed
+    - id: PaperPurple
+    - id: PaperBlue
+    - id: PaperBrown

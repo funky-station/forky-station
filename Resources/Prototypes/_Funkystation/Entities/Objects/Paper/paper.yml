@@ -319,7 +319,7 @@
 
 
 - type: entity
-  name: plue Paper
+  name: blue Paper
   parent: Paper
   id: PaperBlue
   description:  'A piece of blue paper.'
