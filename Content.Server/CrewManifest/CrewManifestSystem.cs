@@ -1,6 +1,8 @@
 using System.Linq;
 using Content.Server.Administration;
 using Content.Server.EUI;
+using Content.Server._Funkystation.StationRecords.Components; // Funky
+using Content.Server._Funkystation.StationRecords.Systems; // Funky
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords;
 using Content.Server.StationRecords.Systems;
@@ -37,9 +39,7 @@ public sealed partial class CrewManifestSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<AfterGeneralRecordCreatedEvent>(AfterGeneralRecordCreated);
-        SubscribeLocalEvent<RecordModifiedEvent>(OnRecordModified);
-        SubscribeLocalEvent<RecordRemovedEvent>(OnRecordRemoved);
+        SubscribeLocalEvent<XoRecordManifestSystem.XoRecordManifestUpdatedEvent>(OnManifestUpdated); // funky
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
         SubscribeNetworkEvent<RequestCrewManifestMessage>(OnRequestCrewManifest);
 
@@ -72,27 +72,13 @@ public sealed partial class CrewManifestSystem : EntitySystem
         OpenEui(GetEntity(message.Id), sessionCast);
     }
 
-    // Not a big fan of this one. Rebuilds the crew manifest every time
-    // somebody spawns in, meaning that at round start, it rebuilds the crew manifest
-    // wrt the amount of players readied up.
-    private void AfterGeneralRecordCreated(AfterGeneralRecordCreatedEvent ev)
+    // funky start, updates on XO publish
+    private void OnManifestUpdated(XoRecordManifestSystem.XoRecordManifestUpdatedEvent ev)
     {
-        BuildCrewManifest(ev.Key.OriginStation);
-        UpdateEuis(ev.Key.OriginStation);
+        BuildCrewManifest(ev.Station);
+        UpdateEuis(ev.Station);
     }
-
-    private void OnRecordModified(RecordModifiedEvent ev)
-    {
-        BuildCrewManifest(ev.Key.OriginStation);
-        UpdateEuis(ev.Key.OriginStation);
-    }
-
-    private void OnRecordRemoved(RecordRemovedEvent ev)
-    {
-        BuildCrewManifest(ev.Key.OriginStation);
-        UpdateEuis(ev.Key.OriginStation);
-    }
-
+    // funky end
     private void OnBoundUiClose(EntityUid uid, CrewManifestViewerComponent component, BoundUIClosedEvent ev)
     {
         if (!Equals(ev.UiKey, component.OwnerKey))
@@ -221,14 +207,13 @@ public sealed partial class CrewManifestSystem : EntitySystem
     /// <param name="station"></param>
     private void BuildCrewManifest(EntityUid station)
     {
-        var iter = _recordsSystem.GetRecordsOfType<GeneralStationRecord>(station);
+        var manifest = EnsureComp<XoRecordManifestComponent>(station); // funky
 
         var entries = new CrewManifestEntries();
 
         var entriesSort = new List<(JobPrototype? job, CrewManifestEntry entry)>();
-        foreach (var recordObject in iter)
+        foreach (var record in manifest.Published.Values) // Funky
         {
-            var record = recordObject.Item2;
             var entry = new CrewManifestEntry(record.Name, record.JobTitle, record.JobIcon, record.JobPrototype);
 
             _prototypeManager.TryIndex(record.JobPrototype, out JobPrototype? job);
