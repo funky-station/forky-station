@@ -1,16 +1,11 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Dice;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.Dice;
 
-public sealed class DiceSystem : SharedDiceSystem
+public sealed partial class DiceSystem : SharedDiceSystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {

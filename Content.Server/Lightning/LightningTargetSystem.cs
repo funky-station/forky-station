@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Lightning;
 using Content.Server.Lightning.Components;
@@ -18,11 +10,11 @@ namespace Content.Server.Tesla.EntitySystems;
 /// <summary>
 /// The component allows lightning to strike this target. And determining the behavior of the target when struck by lightning.
 /// </summary>
-public sealed class LightningTargetSystem : EntitySystem
+public sealed partial class LightningTargetSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private ExplosionSystem _explosionSystem = default!;
+    [Dependency] private TransformSystem _transform = default!;
 
     public override void Initialize()
     {

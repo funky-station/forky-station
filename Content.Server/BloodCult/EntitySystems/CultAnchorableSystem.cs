@@ -6,7 +6,7 @@ namespace Content.Server.BloodCult.EntitySystems;
 
 public sealed partial class CultAnchorableSystem : EntitySystem
 {
-	[Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+	[Dependency] private SharedAppearanceSystem _appearance = default!;
 
 	public override void Initialize()
 	{

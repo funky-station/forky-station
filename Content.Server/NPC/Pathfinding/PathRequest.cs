@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Shared.NPC;

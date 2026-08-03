@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 ThunderBear2006 <100388962+ThunderBear2006@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Anomaly.Components;
 using Content.Shared.Anomaly.Components;
@@ -10,9 +7,9 @@ namespace Content.Server.Anomaly.Effects;
 /// <summary>
 /// This handles <see cref="ExplosionAnomalyComponent"/>
 /// </summary>
-public sealed class ExplosionAnomalySystem : EntitySystem
+public sealed partial class ExplosionAnomalySystem : EntitySystem
 {
-    [Dependency] private readonly ExplosionSystem _boom = default!;
+    [Dependency] private ExplosionSystem _boom = default!;
 
     public override void Initialize()
     {

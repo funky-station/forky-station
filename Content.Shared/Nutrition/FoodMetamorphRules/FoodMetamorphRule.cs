@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
@@ -140,9 +136,6 @@ public sealed partial class FoodHasReagent : FoodMetamorphRule
 
     public override bool Check(IPrototypeManager protoMan, EntityManager entMan, EntityUid food, List<FoodSequenceVisualLayer> ingredients)
     {
-        if (!entMan.TryGetComponent<SolutionContainerManagerComponent>(food, out var solMan))
-            return false;
-
         var solutionMan = entMan.System<SharedSolutionContainerSystem>();
 
         if (!solutionMan.TryGetSolution(food, Solution, out var foodSoln, out var foodSolution))

@@ -1,14 +1,11 @@
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Configurable.UI;
 using Content.Shared.Configurable;
 
 namespace Content.Client.Configurable;
 
-public sealed class ConfigurationSystem : SharedConfigurationSystem
+public sealed partial class ConfigurationSystem : SharedConfigurationSystem
 {
-    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
 
     public override void Initialize()
     {

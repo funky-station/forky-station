@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Ciarán Walsh <github@ciaranwal.sh>
-// SPDX-License-Identifier: MIT
-
 using System.Collections.Generic;
 using Content.IntegrationTests.Tests.Interaction;
 using Content.Shared.Interaction;

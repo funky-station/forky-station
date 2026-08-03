@@ -1,16 +1,11 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Lock;
 using Content.Shared.Trigger.Components.Effects;
 
 namespace Content.Shared.Trigger.Systems;
 
-public sealed class LockOnTriggerSystem : XOnTriggerSystem<LockOnTriggerComponent>
+public sealed partial class LockOnTriggerSystem : XOnTriggerSystem<LockOnTriggerComponent>
 {
-    [Dependency] private readonly LockSystem _lock = default!;
+    [Dependency] private LockSystem _lock = default!;
 
     protected override void OnTrigger(Entity<LockOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
     {

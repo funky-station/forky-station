@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.NodeContainer;
 using Content.Server.Power.Components;
 using Content.Server.Power.NodeGroups;
@@ -24,11 +13,11 @@ using Robust.Shared.Utility;
 namespace Content.Server.Power.EntitySystems
 {
     [UsedImplicitly]
-    public sealed class CableMultitoolSystem : EntitySystem
+    public sealed partial class CableMultitoolSystem : EntitySystem
     {
-        [Dependency] private readonly ToolSystem _toolSystem = default!;
-        [Dependency] private readonly PowerNetSystem _pnSystem = default!;
-        [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
+        [Dependency] private ToolSystem _toolSystem = default!;
+        [Dependency] private PowerNetSystem _pnSystem = default!;
+        [Dependency] private ExamineSystemShared _examineSystem = default!;
 
         public override void Initialize()
         {

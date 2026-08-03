@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2026 āda <ss.adasts@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   abstract: true
   parent: BaseItem
@@ -16,6 +13,7 @@
   - type: EmitSoundOnLand
     sound: *SoundBalloonHit
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: TileFrictionModifier
     modifier: 0.3

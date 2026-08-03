@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025-2026 Samuka <47865393+Samuka-C@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: [ BaseXenoborgChassis, BaseXenoborgTransponder ]
   id: XenoborgEngi
@@ -95,6 +90,7 @@
     baseSprintSpeed : 2.2
   - type: MovementAlwaysTouching # it flies in space by pure will power
   - type: FlashImmunity
+    showInExamine: false
   - type: MobThresholds # tankier
     thresholds:
       0: Alive
@@ -179,6 +175,7 @@
       collection: FootstepHoverXenoborg
   - type: MovementAlwaysTouching # it flies in space with tiny thrusters
   - type: FlashImmunity
+    showInExamine: false
   - type: BorgChassis
     maxModules: 4
     hasMindState: xenoborg_scout_e

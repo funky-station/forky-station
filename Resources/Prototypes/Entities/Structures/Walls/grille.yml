@@ -1,118 +1,95 @@
-# SPDX-FileCopyrightText: 2021-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021-2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2021 Kara D <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023, 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2023-2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 FungiFellow <151778459+FungiFellow@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MACMAN2003 <macman2003c@gmail.com>
-# SPDX-FileCopyrightText: 2025 ruddygreat <53099277+ruddygreat@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
-# SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
-# SPDX-FileCopyrightText: 2026 taydeo <td12233a@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: Grille
   parent: BaseStructure
   name: grille
   description: A flimsy framework of iron rods.
   components:
-    - type: MeleeSound
-      soundGroups:
-        Brute:
-          path:
-            "/Audio/Weapons/grille_hit.ogg"
-    - type: RCDDeconstructable
-      cost: 60 # Funkystation
-      delay: 4
-      fx: EffectRCDDeconstruct4
-    - type: CanBuildWindowOnTop
-    - type: Sprite
-      drawdepth: Walls
-      sprite: Structures/Walls/grille.rsi
-      layers:
-        - state: grille
-        - state: electrified
-          sprite: Effects/electricity.rsi
-          map: ["enum.ElectrifiedLayers.Sparks"]
-          shader: unshaded
-          visible: false
-    - type: Icon
-      sprite: Structures/Walls/grille.rsi
-      state: grille
-    - type: Construction
-      graph: Grille
-      node: grille
-      deconstructionTarget: start
-    - type: Damageable
-      damageContainer: StructuralInorganic
-      damageModifierSet: PerforatedMetallic
-    - type: Electrified
-      requirePower: true
-      noWindowInTile: true
-      highVoltageNode: high
-      mediumVoltageNode: medium
-      lowVoltageNode: low
-    - type: NodeContainer
-      nodes:
-        high:
-          !type:CableDeviceNode
-          nodeGroupID: HVPower
-        medium:
-          !type:CableDeviceNode
-          nodeGroupID: MVPower
-        low:
-          !type:CableDeviceNode
-          nodeGroupID: Apc
-    - type: Physics
-      bodyType: Static
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape:
-            !type:PhysShapeAabb
-            bounds: "-0.5,-0.5,0.5,0.5"
-          layer:
-          - GlassLayer
-    - type: Destructible
-      thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 130 #excess damage (nuke?). avoid computational cost of spawning entities.
-          behaviors:
-            - !type:DoActsBehavior
-              acts: ["Destruction"]
-        - trigger:
-            !type:DamageTrigger
-            damage: 100
-          behaviors:
-            - !type:ChangeConstructionNodeBehavior
-              node: grilleBroken
-            - !type:DoActsBehavior
-              acts: ["Breakage"]
-    - type: Appearance
-    - type: GenericVisualizer
-      visuals:
-        enum.ElectrifiedVisuals.ShowSparks:
-          enum.ElectrifiedLayers.Sparks:
-            True: { visible: True }
-            False: { visible: False }
-    - type: AnimationPlayer
+  - type: Transform # required
+    noRot: true
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path:
+          "/Audio/Weapons/grille_hit.ogg"
+  - type: RCDDeconstructable
+    cost: 60 # Funkystation
+    delay: 4
+    fx: EffectRCDDeconstruct4
+  - type: CanBuildWindowOnTop
+  - type: Sprite
+    drawdepth: Walls
+    sprite: Structures/Walls/grille.rsi
+    layers:
+    - state: grille
+    - state: electrified
+      sprite: Effects/electricity.rsi
+      map: [ "enum.ElectrifiedLayers.Sparks" ]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    sprite: Structures/Walls/grille.rsi
+    state: grille
+  - type: Construction
+    graph: Grille
+    node: grille
+    deconstructionTarget: start
+  - type: Damageable
+    damageModifierSet: PerforatedMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Electrified
+    requirePower: true
+    noWindowInTile: true
+    highVoltageNode: high
+    mediumVoltageNode: medium
+    lowVoltageNode: low
+  - type: NodeContainer
+    nodes:
+      high:
+        !type:CableDeviceNode
+        nodeGroupID: HVPower
+      medium:
+        !type:CableDeviceNode
+        nodeGroupID: MVPower
+      low:
+        !type:CableDeviceNode
+        nodeGroupID: Apc
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200 #excess damage (nuke?). avoid computational cost of spawning entities.
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: grilleBroken
+      - !type:DoActsBehavior
+        acts: [ "Breakage" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ElectrifiedVisuals.ShowSparks:
+        enum.ElectrifiedLayers.Sparks:
+          True: { visible: True }
+          False: { visible: False }
+  - type: AnimationPlayer
 
 - type: entity
   id: ClockworkGrille
@@ -125,7 +102,7 @@
     sprite: Structures/Walls/clockwork_grille.rsi
     state: ratvargrille
     layers:
-      - state: ratvargrille
+    - state: ratvargrille
   - type: Icon
     sprite: Structures/Walls/clockwork_grille.rsi
     state: ratvargrille
@@ -163,8 +140,9 @@
     tags:
     - ForceNoFixRotations
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: FlimsyMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -174,7 +152,7 @@
       - !type:ChangeConstructionNodeBehavior
         node: start
       - !type:DoActsBehavior
-        acts: ["Destruction"]
+        acts: [ "Destruction" ]
 
 - type: entity
   id: ClockworkGrilleBroken
@@ -198,6 +176,8 @@
   parent: Grille
   name: diagonal grille
   components:
+  - type: Transform
+    noRot: false
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/grille.rsi
@@ -205,7 +185,7 @@
     - state: grille_diagonal
     - state: electrified_diagonal
       sprite: Effects/electricity.rsi
-      map: ["enum.ElectrifiedLayers.Sparks"]
+      map: [ "enum.ElectrifiedLayers.Sparks" ]
       shader: unshaded
       visible: false
   - type: Icon
@@ -219,10 +199,10 @@
       fix1:
         shape:
           !type:PolygonShape
-            vertices:
-            - "-0.5,-0.5"
-            - "0.5,0.5"
-            - "0.5,-0.5"
+          vertices:
+          - "-0.5,-0.5"
+          - "0.5,0.5"
+          - "0.5,-0.5"
         mask:
         - FullTileMask
         layer:
@@ -236,6 +216,8 @@
   parent: ClockworkGrille
   name: diagonal clockwork grille
   components:
+  - type: Transform
+    noRot: false
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/clockwork_grille.rsi
@@ -243,7 +225,7 @@
     - state: ratvargrille_diagonal
     - state: electrified_diagonal
       sprite: Effects/electricity.rsi
-      map: ["enum.ElectrifiedLayers.Sparks"]
+      map: [ "enum.ElectrifiedLayers.Sparks" ]
       shader: unshaded
       visible: false
   - type: Icon
@@ -257,10 +239,10 @@
       fix1:
         shape:
           !type:PolygonShape
-            vertices:
-            - "-0.5,-0.5"
-            - "0.5,0.5"
-            - "0.5,-0.5"
+          vertices:
+          - "-0.5,-0.5"
+          - "0.5,0.5"
+          - "0.5,-0.5"
         mask:
         - FullTileMask
         layer:

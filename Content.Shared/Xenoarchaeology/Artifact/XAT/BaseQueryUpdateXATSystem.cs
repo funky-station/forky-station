@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 
 namespace Content.Shared.Xenoarchaeology.Artifact.XAT;
@@ -10,17 +6,9 @@ namespace Content.Shared.Xenoarchaeology.Artifact.XAT;
 /// Base type for xeno artifact trigger systems, that are relied on updating loop.
 /// </summary>
 /// <typeparam name="T">Type of XAT component that system will work with.</typeparam>
-public abstract class BaseQueryUpdateXATSystem<T> : BaseXATSystem<T> where T : Component
+public abstract partial class BaseQueryUpdateXATSystem<T> : BaseXATSystem<T> where T : Component
 {
-    protected EntityQuery<XenoArtifactComponent> _xenoArtifactQuery;
-
-    /// <inheritdoc />
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        _xenoArtifactQuery = GetEntityQuery<XenoArtifactComponent>();
-    }
+    [Dependency] protected EntityQuery<XenoArtifactComponent> _xenoArtifactQuery = default!;
 
     /// <inheritdoc />
     public override void Update(float frameTime)

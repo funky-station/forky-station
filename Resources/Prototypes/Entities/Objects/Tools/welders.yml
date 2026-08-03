@@ -1,53 +1,18 @@
-# SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
-# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2021 py01 <60152240+collinlunn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2023-2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Darkie <darksaiyanis@gmail.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 I.K <45953835+notquitehadouken@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Cody ~ Aexxie <125095677+Aexxie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 gus <august.eymann@gmail.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 liltenhead <104418166+liltenhead@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Minerva <218184747+mnva0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
-# SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
-  name: welding tool
-  parent: BaseItem
-  id: Welder
-  description: "Melts anything as long as it's fueled, don't forget your eye protection!"
+  abstract: true
+  parent: [SolutionWelder, BaseItem]
+  id: BaseWelder
   components:
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Items/welder_drop.ogg
   - type: Sprite
-    sprite: Objects/Tools/welder.rsi
     layers:
     - state: icon
     - state: welder_flame
       visible: false
       shader: unshaded
-      map: ["enum.ToggleableVisuals.Layer"]
+      map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/welder_drop.ogg
   - type: GenericVisualizer
     visuals:
       enum.ToggleableVisuals.Enabled:
@@ -83,8 +48,8 @@
     deactivatedSoundOnHitNoDamage:
       collection: MetalThud
     activatedDamage:
-        types:
-            Heat: 8
+      types:
+        Heat: 8
   - type: ItemToggleSize
     activatedSize: Large
   - type: ItemToggleHot
@@ -110,14 +75,7 @@
     soundHit:
       collection: MetalThud
   - type: RefillableSolution
-    solution: Welder
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 100
-        maxVol: 100
+    solution: welder
   - type: Tool
     useSound:
       collection: Welder
@@ -140,8 +98,29 @@
     temperature: 700
 
 - type: entity
+  parent: [SolutionToolWelder, BaseWelder]
+  id: Welder
+  name: welding tool
+  description: "Melts anything as long as it's fueled, don't forget your eye protection!"
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/welder.rsi
+
+- type: entity
+  parent: [SolutionWelder, SolutionSmall]
+  id: SolutionToolWelder
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 100 # TODO: This needs to be dropped to 30
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 100
+
+- type: entity
   name: industrial welding tool
-  parent: Welder
+  parent: [SolutionToolWelderIndsutrial, BaseWelder]
   id: WelderIndustrial
   description: "An industrial welder with over double the fuel capacity."
   components:
@@ -149,13 +128,18 @@
     sprite: Objects/Tools/welder_industrial.rsi
   - type: Item
     sprite: Objects/Tools/welder_industrial.rsi
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 250
-        maxVol: 250
+
+- type: entity
+  parent: [SolutionWelder, SolutionToolNormal]
+  id: SolutionToolWelderIndsutrial
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 250 # TODO: This needs to be dropped to 60
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 250
 
 - type: entity
   name: advanced industrial welding tool
@@ -167,19 +151,12 @@
     sprite: Objects/Tools/welder_industrialadv.rsi
   - type: Item
     sprite: Objects/Tools/welder_industrialadv.rsi
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 250
-        maxVol: 250
   - type: Tool
     speedModifier: 1.3
 
 - type: entity
   name: experimental welding tool
-  parent: Welder
+  parent: [SolutionToolWelderExperimental, BaseWelder]
   id: WelderExperimental
   description: "An experimental welder capable of self-fuel generation and less harmful to the eyes."
   components:
@@ -187,29 +164,34 @@
     sprite: Objects/Tools/welder_experimental.rsi
   - type: Item
     sprite: Objects/Tools/welder_experimental.rsi
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 1000
-        maxVol: 1000
   - type: PointLight
     enabled: false
     radius: 1.5
     color: lightblue
-  - type: SolutionRegeneration
-    solution: Welder
-    generated:
-      reagents:
-      - ReagentId: WeldingFuel
-        Quantity: 1
+  - type: Welder
+    fuelReagent: Plasma
   - type: RequiresEyeProtection
     statusEffectTime: 5 # less harmful; sunglasses can block it
 
 - type: entity
+  parent: [SolutionWelder, SolutionToolGinormous] # Bluespace technology
+  id: SolutionToolWelderExperimental
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Plasma
+        Quantity: 480 # Literally infinite so this number basically doesn't matter, also this should be a battery tbqh.
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: Plasma
+        Quantity: 1
+
+- type: entity
   name: emergency welding tool
-  parent: Welder
+  parent: [SolutionToolWelderMiniEmergency, BaseWelder]
   id: WelderMini
   description: "A miniature welder used during emergencies."
   components:
@@ -219,20 +201,36 @@
     size: Tiny
     sprite: Objects/Tools/welder_mini.rsi
   - type: RefillableSolution
-    solution: Welder
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 50
-        maxVol: 50
+    solution: welder
   - type: Tool
     speedModifier: 0.7
   - type: PointLight
     enabled: false
     radius: 1.0
     color: orange
+
+- type: entity
+  parent: [SolutionWelder, SolutionTiny]
+  id: SolutionToolWelderMiniEmergency # TODO, replace with below :(
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 50 # TODO: This needs to be dropped to 15
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 50
+
+- type: entity
+  parent: [SolutionWelder, SolutionToolTiny]
+  id: SolutionToolWelderMini
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 15
 
 - type: entity
   parent: [ Welder, BaseXenoborgContraband ]
@@ -246,7 +244,6 @@
     fuelConsumption: 2
     fuelLitCost: 1
   - type: SolutionRegeneration
-    solution: Welder
     generated:
       reagents:
       - ReagentId: WeldingFuel

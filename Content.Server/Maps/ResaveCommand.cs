@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2024 PursuitInAshes <pursuitinashes@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.Administration;
 using Content.Shared.Administration;
@@ -20,11 +14,11 @@ namespace Content.Server.Maps;
 /// Loads every map and resaves it into the data folder.
 /// </summary>
 [AdminCommand(AdminFlags.Host)]
-public sealed class ResaveCommand : LocalizedCommands
+public sealed partial class ResaveCommand : LocalizedCommands
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IResourceManager _res = default!;
-    [Dependency] private readonly ILogManager _log = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IResourceManager _res = default!;
+    [Dependency] private ILogManager _log = default!;
 
     public override string Command => "resave";
 

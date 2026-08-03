@@ -1,15 +1,12 @@
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Atmos.Components;
 using Content.Shared.Examine;
 using Content.Shared.Temperature;
 
 namespace Content.Shared.Atmos.EntitySystems;
 
-public abstract class SharedGasMinerSystem : EntitySystem
+public abstract partial class SharedGasMinerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAtmosphereSystem _sharedAtmosphereSystem = default!;
+    [Dependency] private SharedAtmosphereSystem _sharedAtmosphereSystem = default!;
 
     public override void Initialize()
     {

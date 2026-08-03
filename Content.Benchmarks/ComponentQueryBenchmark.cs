@@ -1,8 +1,6 @@
-// SPDX-FileCopyrightText: 2024-2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-License-Identifier: MIT
-
+#nullable enable
 using System;
+using System.IO;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using BenchmarkDotNet.Attributes;
@@ -47,7 +45,7 @@ public class ComponentQueryBenchmark
         ProgramShared.PathOffset = "../../../../";
         PoolManager.Startup(typeof(QueryBenchSystem).Assembly);
 
-        _pair = PoolManager.GetServerClient().GetAwaiter().GetResult();
+        _pair = PoolManager.GetServerClient(testContext: new ExternalTestContext("Benchmark", StreamWriter.Null)).GetAwaiter().GetResult();
         _entMan = _pair.Server.ResolveDependency<IEntityManager>();
 
         _itemQuery = _entMan.GetEntityQuery<ItemComponent>();

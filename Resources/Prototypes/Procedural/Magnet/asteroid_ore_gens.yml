@@ -1,13 +1,10 @@
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: weightedRandom
   id: AsteroidOre
   weights:
     OreIron: 1.0
     OreQuartz: 1.0
     OreCoal: 0.33
-    OreSalt: 0.25
+    OreSalt: 0.20
     OreGold: 0.25
     OreSilver: 0.25
     OrePlasma: 0.20

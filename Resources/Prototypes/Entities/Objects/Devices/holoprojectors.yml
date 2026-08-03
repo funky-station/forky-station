@@ -1,23 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Interrobang01 <113810873+Interrobang01@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Nairod <110078045+Nairodian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Lei Yunxing <lyx2020@sjtu.edu.cn>
-# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Callmore <22885888+Callmore@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ThatGuyUSA <thatguyusa123@gmail.com>
-# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
-# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
-# SPDX-FileCopyrightText: 2025 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: BaseItem
   id: Holoprojector
@@ -43,7 +23,7 @@
     state: icon
   - type: Tag
     tags:
-      - HolosignProjector
+    - HolosignProjector
 
 - type: entity
   parent: Holoprojector
@@ -107,7 +87,7 @@
     state: icon
   - type: Tag
     tags:
-      - HolofanProjector
+    - HolofanProjector
   - type: StaticPrice
     price: 50
   - type: GuideHelp
@@ -146,17 +126,17 @@
   name: force field projector
   description: Creates an impassable forcefield that won't let anything through. Close proximity may or may not cause cancer.
   components:
-    - type: HolosignProjector
-      signProto: HolosignForcefield
-      chargeUse: 120
-    - type: Sprite
-      sprite: Objects/Devices/Holoprojectors/field.rsi
-      state: icon
-    - type: Tag
-      tags:
-        - HolofanProjector
-    - type: StaticPrice
-      price: 130
+  - type: HolosignProjector
+    signProto: HolosignForcefield
+    chargeUse: 120
+  - type: Sprite
+    sprite: Objects/Devices/Holoprojectors/field.rsi
+    state: icon
+  - type: Tag
+    tags:
+    - HolofanProjector
+  - type: StaticPrice
+    price: 130
 
 - type: entity
   parent: HoloprojectorField
@@ -174,18 +154,18 @@
   name: holobarrier projector
   description: Creates a solid but fragile holographic barrier.
   components:
-    - type: HolosignProjector
-      signProto: HolosignSecurity
-      chargeUse: 90
-    - type: Sprite
-      sprite: Objects/Devices/Holoprojectors/security.rsi
-      state: icon
-    - type: Tag
-      tags:
-        - HolofanProjector
-        - SecBeltEquip
-    - type: StaticPrice
-      price: 50
+  - type: HolosignProjector
+    signProto: HolosignSecurity
+    chargeUse: 90
+  - type: Sprite
+    sprite: Objects/Devices/Holoprojectors/security.rsi
+    state: icon
+  - type: Tag
+    tags:
+    - HolofanProjector
+    - SecBeltEquip
+  - type: StaticPrice
+    price: 50
 
 - type: entity
   parent: HoloprojectorSecurity

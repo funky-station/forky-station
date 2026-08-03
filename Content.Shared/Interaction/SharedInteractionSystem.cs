@@ -1,55 +1,6 @@
-// SPDX-FileCopyrightText: 2020-2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021, 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Tomeno <Tomeno@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 FL-OZ <anotherscuffed@gmail.com>
-// SPDX-FileCopyrightText: 2020 Sam <Sam.V_@hotmail.com>
-// SPDX-FileCopyrightText: 2021-2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021-2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Wrexbe <wrexbe@protonmail.com>
-// SPDX-FileCopyrightText: 2021 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Clyybber <darkmine956@gmail.com>
-// SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022-2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 WlarusFromDaSpace <44726328+WlarusFromDaSpace@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vyacheslav Kovalevsky <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ilya Chvilyov <90278813+Telyonok@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024-2025 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 lunarcomets <140772713+lunarcomets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ciarán Walsh <github@ciaranwal.sh>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-FileCopyrightText: 2025 SpaceManiac <tad@platymuus.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._ST.Interaction; // Stellar - Interaction particles
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
@@ -79,6 +30,7 @@ using Content.Shared.Timing;
 using Content.Shared.UserInterface;
 using Content.Shared.Verbs;
 using Content.Shared.Wall;
+using Content.Shared.Inventory.VirtualItem; // Stellar - interaction particles
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
 using Robust.Shared.Input;
@@ -103,38 +55,39 @@ namespace Content.Shared.Interaction
     [UsedImplicitly]
     public abstract partial class SharedInteractionSystem : EntitySystem
     {
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly IMapManager _mapManager = default!;
-        [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly ISharedChatManager _chat = default!;
-        [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
-        [Dependency] private readonly EntityLookupSystem _lookup = default!;
-        [Dependency] private readonly SharedHandsSystem _hands = default!;
-        [Dependency] private readonly InventorySystem _inventory = default!;
-        [Dependency] private readonly PullingSystem _pullSystem = default!;
-        [Dependency] private readonly RotateToFaceSystem _rotateToFaceSystem = default!;
-        [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-        [Dependency] private readonly SharedMapSystem _map = default!;
-        [Dependency] private readonly SharedPhysicsSystem _broadphase = default!;
-        [Dependency] private readonly SharedTransformSystem _transform = default!;
-        [Dependency] private readonly SharedVerbSystem _verbSystem = default!;
-        [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-        [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-        [Dependency] private readonly SharedStrippableSystem _strippable = default!;
-        [Dependency] private readonly SharedPlayerRateLimitManager _rateLimit = default!;
-        [Dependency] private readonly TagSystem _tagSystem = default!;
-        [Dependency] private readonly UseDelaySystem _useDelay = default!;
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private IMapManager _mapManager = default!;
+        [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+        [Dependency] private ISharedChatManager _chat = default!;
+        [Dependency] private ActionBlockerSystem _actionBlockerSystem = default!;
+        [Dependency] private EntityLookupSystem _lookup = default!;
+        [Dependency] private SharedHandsSystem _hands = default!;
+        [Dependency] private InventorySystem _inventory = default!;
+        [Dependency] private PullingSystem _pullSystem = default!;
+        [Dependency] private RotateToFaceSystem _rotateToFaceSystem = default!;
+        [Dependency] private SharedContainerSystem _containerSystem = default!;
+        [Dependency] private SharedMapSystem _map = default!;
+        [Dependency] private SharedPhysicsSystem _broadphase = default!;
+        [Dependency] private SharedTransformSystem _transform = default!;
+        [Dependency] private SharedVerbSystem _verbSystem = default!;
+        [Dependency] private SharedPopupSystem _popupSystem = default!;
+        [Dependency] private SharedUserInterfaceSystem _ui = default!;
+        [Dependency] private SharedStrippableSystem _strippable = default!;
+        [Dependency] private SharedPlayerRateLimitManager _rateLimit = default!;
+        [Dependency] private TagSystem _tagSystem = default!;
+        [Dependency] private UseDelaySystem _useDelay = default!;
+        [Dependency] private INetManager _net = default!; // Stellar - interaction particles
 
-        private EntityQuery<IgnoreUIRangeComponent> _ignoreUiRangeQuery;
-        private EntityQuery<FixturesComponent> _fixtureQuery;
-        private EntityQuery<ItemComponent> _itemQuery;
-        private EntityQuery<PhysicsComponent> _physicsQuery;
-        private EntityQuery<HandsComponent> _handsQuery;
-        private EntityQuery<InteractionRelayComponent> _relayQuery;
-        private EntityQuery<CombatModeComponent> _combatQuery;
-        private EntityQuery<WallMountComponent> _wallMountQuery;
-        private EntityQuery<UseDelayComponent> _delayQuery;
-        private EntityQuery<ActivatableUIComponent> _uiQuery;
+        [Dependency] private EntityQuery<IgnoreUIRangeComponent> _ignoreUiRangeQuery = default!;
+        [Dependency] private EntityQuery<FixturesComponent> _fixtureQuery = default!;
+        [Dependency] private EntityQuery<ItemComponent> _itemQuery = default!;
+        [Dependency] private EntityQuery<PhysicsComponent> _physicsQuery = default!;
+        [Dependency] private EntityQuery<HandsComponent> _handsQuery = default!;
+        [Dependency] private EntityQuery<InteractionRelayComponent> _relayQuery = default!;
+        [Dependency] private EntityQuery<CombatModeComponent> _combatQuery = default!;
+        [Dependency] private EntityQuery<WallMountComponent> _wallMountQuery = default!;
+        [Dependency] private EntityQuery<UseDelayComponent> _delayQuery = default!;
+        [Dependency] private EntityQuery<ActivatableUIComponent> _uiQuery = default!;
 
         /// <summary>
         /// The collision mask used by default for
@@ -153,17 +106,6 @@ namespace Content.Shared.Interaction
 
         public override void Initialize()
         {
-            _ignoreUiRangeQuery = GetEntityQuery<IgnoreUIRangeComponent>();
-            _fixtureQuery = GetEntityQuery<FixturesComponent>();
-            _itemQuery = GetEntityQuery<ItemComponent>();
-            _physicsQuery = GetEntityQuery<PhysicsComponent>();
-            _handsQuery = GetEntityQuery<HandsComponent>();
-            _relayQuery = GetEntityQuery<InteractionRelayComponent>();
-            _combatQuery = GetEntityQuery<CombatModeComponent>();
-            _wallMountQuery = GetEntityQuery<WallMountComponent>();
-            _delayQuery = GetEntityQuery<UseDelayComponent>();
-            _uiQuery = GetEntityQuery<ActivatableUIComponent>();
-
             SubscribeLocalEvent<BoundUserInterfaceCheckRangeEvent>(HandleUserInterfaceRangeCheck);
 
             // TODO make this a broadcast event subscription again when engine has updated.
@@ -185,6 +127,10 @@ namespace Content.Shared.Interaction
                     new PointerInputCmdHandler(HandleActivateItemInWorld))
                 .Bind(ContentKeyFunctions.TryPullObject,
                     new PointerInputCmdHandler(HandleTryPullObject))
+                // ES START
+                .Bind(EngineKeyFunctions.UseSecondary,
+                    new PointerInputCmdHandler(ESHandleEntityMenuRotate))
+                // ES END
                 .Register<SharedInteractionSystem>();
 
             _rateLimit.Register(RateLimitKey,
@@ -197,6 +143,20 @@ namespace Content.Shared.Interaction
 
             InitializeBlocking();
         }
+
+        // ES START
+        private bool ESHandleEntityMenuRotate(ICommonSession? session, EntityCoordinates coords, EntityUid uid)
+        {
+            if (!ValidateClientInput(session, coords, uid, out var user))
+                return true;
+
+            // clientside handles opening the menu, but we want to rotate to it also
+            // // which we do in shared
+            ValidateInteractAndFace(user.Value, coords);
+
+            return false;
+        }
+        // ES END
 
         private void RateLimitAlertAdmins(ICommonSession session)
         {
@@ -581,7 +541,7 @@ namespace Content.Shared.Interaction
             RaiseLocalEvent(user, userMessage, true);
 
             _adminLogger.Add(LogType.InteractHand, LogImpact.Low, $"{user} interacted with {target}");
-            DoContactInteraction(user, target, message);
+            DoContactInteraction(user, target, null, true, message); // Stellar - interaction particles
             if (message.Handled || userMessage.Handled)
                 return;
 
@@ -627,7 +587,7 @@ namespace Content.Shared.Interaction
                 RaiseLocalEvent(target.Value, rangedMsg, true);
 
                 // We contact the USED entity, but not the target.
-                DoContactInteraction(user, used, rangedMsg);
+                DoContactInteraction(user, used, null, true, rangedMsg); // Stellar - interaction particles
                 if (rangedMsg.Handled)
                     return;
             }
@@ -1067,7 +1027,7 @@ namespace Content.Shared.Interaction
                 return false;
 
             // We contact the USED entity, but not the target.
-            DoContactInteraction(user, used, ev);
+            DoContactInteraction(user, used, null, true, ev); // Stellar - interaction particles
             return ev.Handled;
         }
 
@@ -1119,8 +1079,8 @@ namespace Content.Shared.Interaction
             var userInteractUsingEvent = new UserInteractUsingEvent(user, used, target, clickLocation);
             RaiseLocalEvent(user, userInteractUsingEvent, true);
 
-            DoContactInteraction(user, used, interactUsingEvent);
-            DoContactInteraction(user, target, interactUsingEvent);
+            DoContactInteraction(user, used, null, true, interactUsingEvent, interactionParticles: interactUsingEvent.InteractionParticle); // Stellar - interaction particles
+            DoContactInteraction(user, target, used, true, interactUsingEvent, interactionParticles: interactUsingEvent.InteractionParticle); // Stellar - interaction particles
             // Contact interactions are currently only used for forensics, so we don't raise used -> target
             if (interactUsingEvent.Handled || userInteractUsingEvent.Handled)
                 return true;
@@ -1152,10 +1112,10 @@ namespace Content.Shared.Interaction
 
             var afterInteractEvent = new AfterInteractEvent(user, used, target, clickLocation, canReach);
             RaiseLocalEvent(used, afterInteractEvent);
-            DoContactInteraction(user, used, afterInteractEvent);
+            DoContactInteraction(user, used, null, true, afterInteractEvent, interactionParticles: afterInteractEvent.SpawnInteractionParticles); // Stellar/ES Interaction particles
             if (canReach)
             {
-                DoContactInteraction(user, target, afterInteractEvent);
+                DoContactInteraction(user, target, used, true, afterInteractEvent, interactionParticles: afterInteractEvent.SpawnInteractionParticles); // Stellar/ES Interaction particles
                 // Contact interactions are currently only used for forensics, so we don't raise used -> target
             }
 
@@ -1169,10 +1129,10 @@ namespace Content.Shared.Interaction
             var afterInteractUsingEvent = new AfterInteractUsingEvent(user, used, target, clickLocation, canReach);
             RaiseLocalEvent(target.Value, afterInteractUsingEvent);
 
-            DoContactInteraction(user, used, afterInteractUsingEvent);
+            DoContactInteraction(user, used, null, true, afterInteractUsingEvent, interactionParticles: afterInteractUsingEvent.SpawnInteractionParticles); // Stellar/ES Interaction particles
             if (canReach)
             {
-                DoContactInteraction(user, target, afterInteractUsingEvent);
+                DoContactInteraction(user, target, used, true, afterInteractUsingEvent, interactionParticles: afterInteractUsingEvent.SpawnInteractionParticles); // Stellar/ES Interaction particles
                 // Contact interactions are currently only used for forensics, so we don't raise used -> target
             }
 
@@ -1235,7 +1195,7 @@ namespace Content.Shared.Interaction
             RaiseLocalEvent(used, activateMsg, true);
             if (activateMsg.Handled)
             {
-                DoContactInteraction(user, used);
+                DoContactInteraction(user, used, null, true, interactionParticles: activateMsg.InteractionParticle); // Interaction particles
                 if (!activateMsg.WasLogged)
                     _adminLogger.Add(LogType.InteractActivate, LogImpact.Low, $"{ToPrettyString(user):user} activated {ToPrettyString(used):used}");
 
@@ -1250,7 +1210,7 @@ namespace Content.Shared.Interaction
             if (!userEv.Handled)
                 return false;
 
-            DoContactInteraction(user, used);
+            DoContactInteraction(user, used, null, true); // Interaction particles
             // Still need to call this even without checkUseDelay in case this gets relayed from Activate.
             if (delayComponent != null)
                 _useDelay.TryResetDelay(used, component: delayComponent);
@@ -1291,7 +1251,7 @@ namespace Content.Shared.Interaction
             RaiseLocalEvent(used, useMsg, true);
             if (useMsg.Handled)
             {
-                DoContactInteraction(user, used, useMsg);
+                DoContactInteraction(user, used, null, true, useMsg); // Interaction particles
                 if (delayComponent != null && useMsg.ApplyDelay)
                     _useDelay.TryResetDelay((used, delayComponent));
                 return true;
@@ -1477,7 +1437,14 @@ namespace Content.Shared.Interaction
         /// <summary>
         ///     Simple convenience function to raise contact events (disease, forensics, etc).
         /// </summary>
-        public void DoContactInteraction(EntityUid uidA, EntityUid? uidB, HandledEntityEventArgs? args = null)
+        /// <param name="uidA">The entity doing the contacting.</param>
+        /// <param name="uidB">The entity being contacted.</param>
+        /// <param name="used">The entity used to contact <see cref="uidB"/>.</param>
+        /// <param name="predicted">Whether this interaction is predicted. <see cref="uidA"/> is assumed to be the client entity.</param>
+        /// <param name="args">Optional handleable entity event to check.</param>
+        /// <param name="interactionParticles">Whether to spawn interaction particles on this contact.</param>
+        /// <param name="interactionParticleType">The type of interaction particle to spawn for this event.</param>
+        public void DoContactInteraction(EntityUid uidA, EntityUid? uidB, EntityUid? used, bool predicted, HandledEntityEventArgs? args = null, bool interactionParticles = true, StellarInteractionParticleType interactionParticleType = StellarInteractionParticleType.Use) // Stellar/ES - interaction particles
         {
             if (uidB == null || args?.Handled == false)
                 return;
@@ -1497,6 +1464,25 @@ namespace Content.Shared.Interaction
 
             ev.Other = uidA;
             RaiseLocalEvent(uidB.Value, ev);
+
+            // Begin Stellar/ES Additions - Interaction particles
+            if (!interactionParticles || HasComp<VirtualItemComponent>(uidB))
+                return;
+
+            if (_net.IsServer)
+            {
+                var filter = predicted
+                    ? Filter.PvsExcept(uidA, entityManager: EntityManager)
+                    : Filter.Pvs(uidA, entityManager: EntityManager);
+
+                RaiseNetworkEvent(new StellarInteractionParticleEvent(GetNetEntity(uidA), GetNetEntity(used), GetNetEntity(uidB.Value), false, interactionParticleType), filter);
+            }
+            else if (_gameTiming.IsFirstTimePredicted)
+            {
+                var evt = new StellarInteractionParticleEvent(GetNetEntity(uidA), GetNetEntity(used), GetNetEntity(uidB.Value), true, interactionParticleType);
+                RaiseLocalEvent(evt);
+            }
+            // End Stellar/ES Additions - Interaction particles
         }
 
 

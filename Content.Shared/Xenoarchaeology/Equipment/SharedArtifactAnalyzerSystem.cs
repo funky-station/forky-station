@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
@@ -18,10 +12,10 @@ namespace Content.Shared.Xenoarchaeology.Equipment;
 /// This system is used for managing the artifact analyzer as well as the analysis console.
 /// It also handles scanning and ui updates for both systems.
 /// </summary>
-public abstract class SharedArtifactAnalyzerSystem : EntitySystem
+public abstract partial class SharedArtifactAnalyzerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
-    [Dependency] private readonly SharedDeviceLinkSystem _deviceLink = default!;
+    [Dependency] private SharedPowerReceiverSystem _powerReceiver = default!;
+    [Dependency] private SharedDeviceLinkSystem _deviceLink = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

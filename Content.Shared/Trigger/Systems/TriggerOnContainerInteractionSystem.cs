@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Artxmisery <78118840+Artxmisery@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Trigger.Components.Triggers;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
@@ -11,9 +7,9 @@ namespace Content.Shared.Trigger.Systems;
 /// <summary>
 /// System for creating triggers when entities are inserted into or removed from containers.
 /// </summary>
-public sealed class TriggerOnContainerInteractionSystem : TriggerOnXSystem
+public sealed partial class TriggerOnContainerInteractionSystem : TriggerOnXSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

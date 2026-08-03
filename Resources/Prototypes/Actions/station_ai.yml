@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
-# SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: BaseAction
   id: ActionJumpToCore
@@ -17,34 +12,6 @@
       state: ai_core
   - type: InstantAction
     event: !type:JumpToCoreEvent
-
-- type: entity
-  parent: BaseAction
-  id: ActionSurvCameraLights
-  name: Toggle camera lights
-  description: Enable surveillance camera lights near wherever you're viewing.
-  components:
-  - type: Action
-    priority: -5
-    itemIconStyle: BigAction
-    icon:
-      sprite: Interface/Actions/actions_ai.rsi
-      state: camera_light
-  - type: InstantAction
-    event: !type:RelayedActionComponentChangeEvent
-      components:
-      - type: LightOnCollideCollider
-      - type: FixturesChange
-        fixtures:
-          lightTrigger:
-            shape:
-              !type:PhysShapeCircle
-              radius: 0.35
-            density: 80
-            hard: false
-            layer:
-            - GhostImpassable
-
 
 - type: entity
   parent: BaseMentalAction

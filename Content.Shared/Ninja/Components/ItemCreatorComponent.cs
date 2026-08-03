@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Ninja.Systems;

@@ -1,17 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2023 Hebi <spiritbreakz@gmail.com>
-// SPDX-FileCopyrightText: 2024 12rabbits <53499656+12rabbits@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Sk1tch <ben.peter.smith@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Ciarán Walsh <github@ciaranwal.sh>
-// SPDX-FileCopyrightText: 2025 GrownSamoyedDog <61863648+GrownSamoyedDog@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics;
 using System.Linq;
 using Content.Client.Guidebook.RichText;
@@ -32,8 +18,8 @@ namespace Content.Client.Guidebook.Controls;
 [GenerateTypedNameReferences]
 public sealed partial class GuidebookWindow : FancyWindow, ILinkClickHandler, IAnchorClickHandler
 {
-    [Dependency] private readonly DocumentParsingManager _parsingMan = default!;
-    [Dependency] private readonly IResourceManager _resourceManager = default!;
+    [Dependency] private DocumentParsingManager _parsingMan = default!;
+    [Dependency] private IResourceManager _resourceManager = default!;
 
     private Dictionary<ProtoId<GuideEntryPrototype>, GuideEntry> _entries = new();
 

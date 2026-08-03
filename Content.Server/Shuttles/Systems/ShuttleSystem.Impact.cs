@@ -1,26 +1,12 @@
-// SPDX-FileCopyrightText: 2022-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Shuttles.Components;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Audio;
 using Content.Shared.CCVar;
-using Content.Shared.Clothing;
 using Content.Shared.Damage;
 using Content.Shared.Database;
-using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Content.Shared.Projectiles;
-using Content.Shared.Slippery;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -38,6 +24,9 @@ namespace Content.Server.Shuttles.Systems;
 // shuttle impact damage ported from Goobstation (AGPLv3) with agreement of all coders involved
 public sealed partial class ShuttleSystem
 {
+    [Dependency] private EntityQuery<DamageableComponent> _damageableQuery = default!;
+    [Dependency] private EntityQuery<MovedByPressureComponent> _movedByPressureQuery = default!;
+
     private bool _enabled;
     private float _minimumImpactInertia;
     private float _minimumImpactVelocity;
@@ -65,9 +54,6 @@ public sealed partial class ShuttleSystem
     private readonly ProtoId<ContentTileDefinition> _platingId = "Plating";
     private readonly EntProtoId _sparkEffect = "EffectSparks";
 
-    private EntityQuery<DamageableComponent> _dmgQuery;
-    private EntityQuery<ProjectileComponent> _projQuery;
-
     private HashSet<EntityUid> _countedEnts = new();
     private HashSet<EntityUid> _intersecting = new();
     // for _adminLogSpacing
@@ -76,9 +62,6 @@ public sealed partial class ShuttleSystem
     private void InitializeImpact()
     {
         SubscribeLocalEvent<ShuttleComponent, StartCollideEvent>(OnShuttleCollide);
-
-        _dmgQuery = GetEntityQuery<DamageableComponent>();
-        _projQuery = GetEntityQuery<ProjectileComponent>();
 
         Subs.CVar(_cfg, CCVars.ImpactEnabled, value => _enabled = value, true);
         Subs.CVar(_cfg, CCVars.MinimumImpactInertia, value => _minimumImpactInertia = value, true);
@@ -238,7 +221,6 @@ public sealed partial class ShuttleSystem
     /// </summary>
     private void ThrowEntitiesOnGrid(EntityUid gridUid, TransformComponent xform, Vector2 direction)
     {
-        var movedByPressureQuery = GetEntityQuery<MovedByPressureComponent>();
         var knockdownTime = TimeSpan.FromSeconds(5);
 
         var minsq = _minThrowVelocity * _minThrowVelocity;
@@ -261,13 +243,13 @@ public sealed partial class ShuttleSystem
                 continue;
 
             // don't throw them if they have magboots
-            if (movedByPressureQuery.TryComp(ent, out var moved) && !moved.Enabled)
+            if (_movedByPressureQuery.TryComp(ent, out var moved) && !moved.Enabled)
                 continue;
 
             if (direction.LengthSquared() > minsq)
             {
                 _stuns.TryCrawling(ent.Owner, knockdownTime);
-                _throwing.TryThrow(ent, direction, ent.Comp, Transform(ent), _projQuery, direction.Length(), playSound: false);
+                _throwing.TryThrow(ent, direction, ent.Comp, Transform(ent), direction.Length(), playSound: false);
             }
             else
             {
@@ -400,7 +382,7 @@ public sealed partial class ShuttleSystem
                 if (MathF.Abs(toCenter.X) > 0.5f || MathF.Abs(toCenter.Y) > 0.5f)
                     continue;
 
-                if (_dmgQuery.TryComp(localEnt, out var damageable))
+                if (_damageableQuery.TryComp(localEnt, out var damageable))
                 {
                     // Apply damage scaled by distance but capped to prevent gibbing
                     var scaledDamage = tileData.Energy * _damageMultiplier;
@@ -425,7 +407,7 @@ public sealed partial class ShuttleSystem
                 else
                 {
                     var direction = throwDirection * tileData.DistanceFactor;
-                    _throwing.TryThrow(localEnt, direction, physics, localEnt.Comp, _projQuery, direction.Length(), playSound: false);
+                    _throwing.TryThrow(localEnt, direction, physics, localEnt.Comp, direction.Length(), playSound: false);
                 }
             }
 

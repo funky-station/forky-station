@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Skye <22365940+Skyedra@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Gameplay;
 using Content.Client.Info;
 using Robust.Client.Input;
@@ -14,10 +9,10 @@ using Robust.Shared.Input.Binding;
 
 namespace Content.Client.UserInterface.Systems.Info;
 
-public sealed class CloseRecentWindowUIController : UIController
+public sealed partial class CloseRecentWindowUIController : UIController
 {
-    [Dependency] private readonly IInputManager _inputManager = default!;
-    [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
+    [Dependency] private IInputManager _inputManager = default!;
+    [Dependency] private IUserInterfaceManager _uiManager = default!;
 
     /// <summary>
     /// A list of windows that have been interacted with recently.  Windows should only

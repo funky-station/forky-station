@@ -1,0 +1,21 @@
+- type: entity
+  parent: ClothingHeadHatHardhatBase
+  id: FuClothingHeadHatHardhatOffwhite
+  name: off-white hard hat
+  description: A hard hat, painted in off-white, used in dangerous working conditions to protect the head. Comes with a built-in flashlight.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hardhats/offwhite.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hardhats/offwhite.rsi
+
+- type: entity
+  parent: ClothingHeadHatHardhatBase
+  id: FuClothingHeadHatHardhatBlack
+  name: black hard hat
+  description: A hard hat, painted in black, used in dangerous working conditions to protect the head. Comes with a built-in flashlight.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hardhats/black.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hardhats/black.rsi

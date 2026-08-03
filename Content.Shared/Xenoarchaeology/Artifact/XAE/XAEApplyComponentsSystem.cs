@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Xenoarchaeology.Artifact.XAE.Components;
 using Robust.Shared.Timing;
 
@@ -10,9 +6,9 @@ namespace Content.Shared.Xenoarchaeology.Artifact.XAE;
 /// <summary>
 /// System for applying component-registry when artifact effect is activated.
 /// </summary>
-public sealed class XAEApplyComponentsSystem : BaseXAESystem<XAEApplyComponentsComponent>
+public sealed partial class XAEApplyComponentsSystem : BaseXAESystem<XAEApplyComponentsComponent>
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     /// <inheritdoc />
     protected override void OnActivated(Entity<XAEApplyComponentsComponent> ent, ref XenoArtifactNodeActivatedEvent args)

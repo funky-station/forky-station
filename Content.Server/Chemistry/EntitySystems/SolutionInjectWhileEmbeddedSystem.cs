@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SpaceManiac <tad@platymuus.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Chemistry.Components;
 using Content.Shared.Chemistry.Events;
 using Content.Shared.Projectiles;
@@ -12,9 +8,9 @@ namespace Content.Server.Chemistry.EntitySystems;
 /// <summary>
 /// System for handling injecting into an entity while a projectile is embedded.
 /// </summary>
-public sealed class SolutionInjectWhileEmbeddedSystem : EntitySystem
+public sealed partial class SolutionInjectWhileEmbeddedSystem : EntitySystem
 {
-	[Dependency] private readonly IGameTiming _gameTiming = default!;
+	[Dependency] private IGameTiming _gameTiming = default!;
 
     public override void Initialize()
     {

@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Beam;
 using Content.Shared.Revenant.Components;
 using Content.Shared.Revenant.EntitySystems;
@@ -11,9 +7,9 @@ namespace Content.Server.Revenant.EntitySystems;
 /// <summary>
 /// This handles...
 /// </summary>
-public sealed class RevenantOverloadedLightsSystem : SharedRevenantOverloadedLightsSystem
+public sealed partial class RevenantOverloadedLightsSystem : SharedRevenantOverloadedLightsSystem
 {
-    [Dependency] private readonly BeamSystem _beam = default!;
+    [Dependency] private BeamSystem _beam = default!;
 
     protected override void OnZap(Entity<RevenantOverloadedLightsComponent> lights)
     {

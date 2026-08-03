@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.EntityTable.EntitySelectors;
@@ -14,6 +11,16 @@ public sealed partial class NoneSelector : EntityTableSelector
         IEntityManager entMan,
         IPrototypeManager proto,
         EntityTableContext ctx)
+    {
+        yield break;
+    }
+
+    protected override IEnumerable<(EntProtoId spawn, double)> ListSpawnsImplementation(IEntityManager entMan, IPrototypeManager proto, EntityTableContext ctx)
+    {
+        yield break;
+    }
+
+    protected override IEnumerable<(EntProtoId spawn, double)> AverageSpawnsImplementation(IEntityManager entMan, IPrototypeManager proto, EntityTableContext ctx)
     {
         yield break;
     }

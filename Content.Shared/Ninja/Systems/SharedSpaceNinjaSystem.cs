@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Connor Huffine <chuffine@gmail.com>
-// SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Ninja.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Events;
@@ -15,18 +9,16 @@ namespace Content.Shared.Ninja.Systems;
 /// <summary>
 /// Provides shared ninja API, handles being attacked revealing ninja and stops guns from shooting.
 /// </summary>
-public abstract class SharedSpaceNinjaSystem : EntitySystem
+public abstract partial class SharedSpaceNinjaSystem : EntitySystem
 {
-    [Dependency] protected readonly SharedNinjaSuitSystem Suit = default!;
-    [Dependency] protected readonly SharedPopupSystem Popup = default!;
+    [Dependency] protected SharedNinjaSuitSystem Suit = default!;
+    [Dependency] protected SharedPopupSystem Popup = default!;
 
-    public EntityQuery<SpaceNinjaComponent> NinjaQuery;
+    [Dependency] public EntityQuery<SpaceNinjaComponent> NinjaQuery = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-
-        NinjaQuery = GetEntityQuery<SpaceNinjaComponent>();
 
         SubscribeLocalEvent<SpaceNinjaComponent, AttackedEvent>(OnNinjaAttacked);
         SubscribeLocalEvent<SpaceNinjaComponent, MeleeAttackEvent>(OnNinjaAttack);

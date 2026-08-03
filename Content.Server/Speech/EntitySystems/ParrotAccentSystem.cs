@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Server.Speech.Components;
@@ -15,7 +10,7 @@ public sealed partial class ParrotAccentSystem : EntitySystem
 {
     private static readonly Regex WordCleanupRegex = new Regex("[^A-Za-z0-9 -]");
 
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {

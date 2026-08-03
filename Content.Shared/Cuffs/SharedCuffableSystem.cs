@@ -1,35 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023, 2025 Errant <35878406+dmnct@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Clon clover <76759079+noudoit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2023 Menshin <Menshin@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Mr0maks <mr.maks0443@gmail.com>
-// SPDX-FileCopyrightText: 2024-2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 InsoPL <lukasz.lindert@protonmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.ActionBlocker;
@@ -74,20 +42,20 @@ namespace Content.Shared.Cuffs
     // TODO remove all the IsServer() checks.
     public abstract partial class SharedCuffableSystem : EntitySystem
     {
-        [Dependency] private readonly INetManager _net = default!;
-        [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-        [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-        [Dependency] private readonly AlertsSystem _alerts = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
-        [Dependency] private readonly SharedContainerSystem _container = default!;
-        [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-        [Dependency] private readonly SharedHandsSystem _hands = default!;
-        [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
-        [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-        [Dependency] private readonly SharedPopupSystem _popup = default!;
-        [Dependency] private readonly SharedTransformSystem _transform = default!;
-        [Dependency] private readonly UseDelaySystem _delay = default!;
-        [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
+        [Dependency] private INetManager _net = default!;
+        [Dependency] private ISharedAdminLogManager _adminLog = default!;
+        [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+        [Dependency] private AlertsSystem _alerts = default!;
+        [Dependency] private SharedAudioSystem _audio = default!;
+        [Dependency] private SharedContainerSystem _container = default!;
+        [Dependency] private SharedDoAfterSystem _doAfter = default!;
+        [Dependency] private SharedHandsSystem _hands = default!;
+        [Dependency] private SharedVirtualItemSystem _virtualItem = default!;
+        [Dependency] private SharedInteractionSystem _interaction = default!;
+        [Dependency] private SharedPopupSystem _popup = default!;
+        [Dependency] private SharedTransformSystem _transform = default!;
+        [Dependency] private UseDelaySystem _delay = default!;
+        [Dependency] private SharedCombatModeSystem _combatMode = default!;
 
         public override void Initialize()
         {
@@ -604,8 +572,11 @@ namespace Content.Shared.Cuffs
         /// /// <param name="target">The entity to be checked</param>
         /// <param name="requireFullyCuffed">when true, return false if the target is only partially cuffed (for things with more than 2 hands)</param>
         /// <returns></returns>
-        public bool IsCuffed(Entity<CuffableComponent> target, bool requireFullyCuffed = true)
+        public bool IsCuffed(Entity<CuffableComponent?> target, bool requireFullyCuffed = true)
         {
+            if (!Resolve(target, ref target.Comp, false))
+                return false;
+
             if (!TryComp<HandsComponent>(target, out var hands))
                 return false;
 
@@ -827,14 +798,14 @@ namespace Content.Shared.Cuffs
         private void OnEquipAttempt(EntityUid uid, CuffableComponent component, IsEquippingAttemptEvent args)
         {
             // is this a self-equip, or are they being stripped?
-            if (args.Equipee == uid)
+            if (args.User == uid)
                 CheckAct(uid, component, args);
         }
 
         private void OnUnequipAttempt(EntityUid uid, CuffableComponent component, IsUnequippingAttemptEvent args)
         {
             // is this a self-equip, or are they being stripped?
-            if (args.Unequipee == uid)
+            if (args.User == uid)
                 CheckAct(uid, component, args);
         }
 

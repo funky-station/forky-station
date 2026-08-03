@@ -1,24 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023, 2025 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Tomás Alves <tomasalves35@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 dragonryan06 <71857681+dragonryan06@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MisterMecky <mrmecky@hotmail.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 godisdeadLOL <169250097+godisdeadLOL@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Zachary Higgs <compgeek223@gmail.com>
-// SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.EntitySystems;
@@ -36,6 +15,7 @@ using Content.Shared.Forensics;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Forensics.Systems;
 using Content.Shared.Gibbing;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
@@ -47,13 +27,13 @@ using Content.Shared.Hands.Components;
 
 namespace Content.Server.Forensics
 {
-    public sealed class ForensicsSystem : SharedForensicsSystem
+    public sealed partial class ForensicsSystem : SharedForensicsSystem
     {
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly InventorySystem _inventory = default!;
-        [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private InventorySystem _inventory = default!;
+        [Dependency] private DoAfterSystem _doAfterSystem = default!;
+        [Dependency] private PopupSystem _popupSystem = default!;
+        [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
 
         public override void Initialize()
         {
@@ -69,11 +49,11 @@ namespace Content.Server.Forensics
             SubscribeLocalEvent<ForensicsComponent, CleanForensicsDoAfterEvent>(OnCleanForensicsDoAfter);
             SubscribeLocalEvent<CleanableRuneComponent, CleanForensicsDoAfterEvent>(OnCleanRuneDoAfter);
             SubscribeLocalEvent<DnaComponent, TransferDnaEvent>(OnTransferDnaEvent);
-            SubscribeLocalEvent<DnaSubstanceTraceComponent, SolutionContainerChangedEvent>(OnSolutionChanged);
+            SubscribeLocalEvent<DnaSubstanceTraceComponent, SolutionChangedEvent>(OnSolutionChanged);
             SubscribeLocalEvent<CleansForensicsComponent, GetVerbsEvent<UtilityVerb>>(OnUtilityVerb);
         }
 
-        private void OnSolutionChanged(Entity<DnaSubstanceTraceComponent> ent, ref SolutionContainerChangedEvent ev)
+        private void OnSolutionChanged(Entity<DnaSubstanceTraceComponent> ent, ref SolutionChangedEvent ev)
         {
             var soln = GetSolutionsDNA(ev.Solution);
             if (soln.Count > 0)
@@ -174,12 +154,9 @@ namespace Content.Server.Forensics
         public List<string> GetSolutionsDNA(EntityUid uid)
         {
             List<string> list = new();
-            if (TryComp<SolutionContainerManagerComponent>(uid, out var comp))
+            foreach (var (_, soln) in _solutionContainerSystem.EnumerateSolutions(uid))
             {
-                foreach (var (_, soln) in _solutionContainerSystem.EnumerateSolutions((uid, comp)))
-                {
-                    list.AddRange(GetSolutionsDNA(soln.Comp.Solution));
-                }
+                list.AddRange(GetSolutionsDNA(soln.Comp.Solution));
             }
             return list;
         }
@@ -268,7 +245,7 @@ namespace Content.Server.Forensics
             }
             if (!TryComp<ForensicsComponent>(target, out var forensicsComp))
             {
-                _popupSystem.PopupEntity(Loc.GetString("forensics-cleaning-cannot-clean", ("target", target)), user, user, PopupType.MediumCaution);
+                _popupSystem.PopupEntity(Loc.GetString("forensics-cleaning-cannot-clean", ("target", Identity.Entity(target, EntityManager))), user, user, PopupType.MediumCaution);
                 return false;
             }
 
@@ -289,13 +266,13 @@ namespace Content.Server.Forensics
 
                 _doAfterSystem.TryStartDoAfter(doAfterArgs);
 
-                _popupSystem.PopupEntity(Loc.GetString("forensics-cleaning", ("target", target)), user, user);
+                _popupSystem.PopupEntity(Loc.GetString("forensics-cleaning", ("target", Identity.Entity(target, EntityManager))), user, user);
 
                 return true;
             }
             else
             {
-                _popupSystem.PopupEntity(Loc.GetString("forensics-cleaning-cannot-clean", ("target", target)), user, user, PopupType.MediumCaution);
+                _popupSystem.PopupEntity(Loc.GetString("forensics-cleaning-cannot-clean", ("target", Identity.Entity(target, EntityManager))), user, user, PopupType.MediumCaution);
                 return false;
             }
 

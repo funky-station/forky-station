@@ -1,24 +1,3 @@
-# SPDX-FileCopyrightText: 2022-2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Dakamakat <52600490+dakamakat@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Chronophylos <nikolai@chronophylos.com>
-# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
-# SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 AftrLite <61218133+AftrLite@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 LittleNyanCat <littlenyancat204@gmail.com>
-# SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
-# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Keer-Sar <144283718+Keer-Sar@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 AsnDen <75905158+AsnDen@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Pancake <Pangogie@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - files: ["anomaly_generate.ogg"]
   license: "CC0-1.0"
   copyright: "Created by szegvari, converted to mono and .ogg by EmoGarbage404 (github)."
@@ -134,10 +113,15 @@
   copyright: "cmorris035"
   source: "https://freesound.org/people/cmorris035/sounds/319152/"
 
-- files: ["airlock_open.ogg", "airlock_close.ogg", "airlock_deny.ogg"]
+- files: ["airlock_open.ogg", "airlock_deny.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "/tg/station"
   source: "https://github.com/tgstation/tgstation/tree/5f5002b21253354c20ea224be3f604d79299b37e/sound/machines"
+
+- files: ["airlock_close.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "From eris/bay at commit 789ed19064ac42376d2355192cd1069a45a310f1, modified by mirrorcult to be shorter and match airlock timings"
+  source: "https://github.com/discordia-space/CEV-Eris/commit/789ed19064ac42376d2355192cd1069a45a310f1"
 
 - files: ["machine_vend_hot_drink.ogg"]
   license: "CC0-1.0"

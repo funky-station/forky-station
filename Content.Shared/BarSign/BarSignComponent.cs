@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -22,6 +16,12 @@ public sealed partial class BarSignComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public ProtoId<BarSignPrototype>? Current;
+
+    /// <summary>
+    /// The bar sign fallback state upon being EMPed.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public ProtoId<BarSignPrototype>? Emped = "EmpBarSign";
 }
 
 /// <summary>

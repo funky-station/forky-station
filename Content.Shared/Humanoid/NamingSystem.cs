@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Dataset;
 using Content.Shared.Random.Helpers;
@@ -18,12 +10,12 @@ namespace Content.Shared.Humanoid
     /// <summary>
     /// Figure out how to name a humanoid with these extensions.
     /// </summary>
-    public sealed class NamingSystem : EntitySystem
+    public sealed partial class NamingSystem : EntitySystem
     {
         private static readonly ProtoId<SpeciesPrototype> FallbackSpecies = "Human";
 
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
 
         public string GetName(string species, Gender? gender = null)
         {

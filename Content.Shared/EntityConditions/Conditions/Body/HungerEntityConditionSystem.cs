@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Prototypes;
@@ -15,7 +10,7 @@ namespace Content.Shared.EntityConditions.Conditions.Body;
 /// <inheritdoc cref="EntityConditionSystem{T, TCondition}"/>
 public sealed partial class TotalHungerEntityConditionSystem : EntityConditionSystem<HungerComponent, HungerCondition>
 {
-    [Dependency] private readonly HungerSystem _hunger = default!;
+    [Dependency] private HungerSystem _hunger = default!;
 
     protected override void Condition(Entity<HungerComponent> entity, ref EntityConditionEvent<HungerCondition> args)
     {

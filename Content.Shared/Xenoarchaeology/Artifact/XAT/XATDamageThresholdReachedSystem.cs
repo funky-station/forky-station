@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
@@ -13,9 +9,9 @@ namespace Content.Shared.Xenoarchaeology.Artifact.XAT;
 /// <summary>
 /// System for xeno artifact trigger that requires certain damage to be applied to artifact within a timeframe.
 /// </summary>
-public sealed class XATDamageThresholdReachedSystem : BaseXATSystem<XATDamageThresholdReachedComponent>
+public sealed partial class XATDamageThresholdReachedSystem : BaseXATSystem<XATDamageThresholdReachedComponent>
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
