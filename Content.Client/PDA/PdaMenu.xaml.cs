@@ -19,6 +19,7 @@ namespace Content.Client.PDA
         [Dependency] private IGameTiming _gameTiming = default!;
         [Dependency] private IEntitySystemManager _entitySystem = default!;
         private readonly ClientGameTicker _gameTicker;
+        private readonly _Funkystation.StationTime.StationTimeUiSystem _stationTimeUi; // Funky Change
 
         public const int HomeView = 0;
         public const int ProgramListView = 1;
@@ -43,6 +44,7 @@ namespace Content.Client.PDA
         {
             IoCManager.InjectDependencies(this);
             _gameTicker = _entitySystem.GetEntitySystem<ClientGameTicker>();
+            _stationTimeUi = _entitySystem.GetEntitySystem<_Funkystation.StationTime.StationTimeUiSystem>(); // Funky Change
             RobustXamlLoader.Load(this);
 
             ViewContainer.OnChildAdded += control => control.Visible = false;
@@ -116,8 +118,8 @@ namespace Content.Client.PDA
 
             StationTimeButton.OnPressed += _ =>
             {
-                var stationTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
-                _clipboard.SetText((stationTime.ToString("hh\\:mm\\:ss")));
+                var timeStr = _stationTimeUi.GetPdaTimeString(); // Funky Change
+                _clipboard.SetText(timeStr); // Funky Change
             };
 
             StationAlertLevelInstructionsButton.OnPressed += _ =>
@@ -167,10 +169,10 @@ namespace Content.Client.PDA
                 ("station", _stationName)));
 
 
-            var stationTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
+            var timeStr = _stationTimeUi.GetPdaTimeString(); // Funky Change
 
-            StationTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-station-time",
-                ("time", stationTime.ToString("hh\\:mm\\:ss"))));
+            StationTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-station-time-funky", // Funky Change
+                ("time", timeStr))); // Funky Change
 
             var alertLevel = state.PdaOwnerInfo.StationAlertLevel;
             var alertColor = state.PdaOwnerInfo.StationAlertColor;
@@ -341,10 +343,10 @@ namespace Content.Client.PDA
         {
             base.Draw(handle);
 
-            var stationTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
+            var timeStr = _stationTimeUi.GetPdaTimeString(); // Funky Change
 
-            StationTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-station-time",
-                ("time", stationTime.ToString("hh\\:mm\\:ss"))));
+            StationTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-station-time-funky",
+                ("time", timeStr))); // Funky Change
         }
     }
 }

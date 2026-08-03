@@ -4,6 +4,10 @@ using Content.Shared.TextScreen;
 using Robust.Client.GameObjects;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared._Funkystation.StationTime.EntitySystems; // Funky Change
+using Content.Shared._Funkystation.StationTime.Components; // Funky Change
+using Content.Shared.Station; // Funky Change
+using Content.Shared.GameTicking; // Funky Change
 
 namespace Content.Client.TextScreen;
 
@@ -27,6 +31,13 @@ namespace Content.Client.TextScreen;
 public sealed partial class TextScreenSystem : VisualizerSystem<TextScreenVisualsComponent>
 {
     [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private StationTimeSystem _stationTime = null!; // Funky Change
+    [Dependency] private SharedStationSystem _station = null!; // Funky Change
+    [Dependency] private SharedGameTicker _gameTicker = null!; // Funky Change
+
+    private float _clockAccumulator; // Funky Change
+    private const float ClockCheckInterval = 1f; // Funky Change — only need to catch minute rollovers
+
 
     /// <summary>
     ///     Contains char/state Key/Value pairs. <br/>
@@ -297,6 +308,72 @@ public sealed partial class TextScreenSystem : VisualizerSystem<TextScreenVisual
             BuildTimerLayers(uid, timer, screen);
             DrawLayers(uid, timer.LayerStatesToDraw);
         }
+
+        // Funky Change Start
+        _clockAccumulator += frameTime;
+        if (_clockAccumulator < ClockCheckInterval)
+            return;
+        _clockAccumulator = 0f;
+
+        var emptyScreenQuery = EntityQueryEnumerator<TextScreenVisualsComponent>();
+        while (emptyScreenQuery.MoveNext(out var uid, out var screen))
+        {
+            if (HasComp<TextScreenTimerComponent>(uid))
+            {
+                screen.LastClockTime = null;
+                continue;
+            }
+
+            // check if the screen has no text configured to display
+            var isEmpty = true;
+            foreach (var row in screen.TextToDraw)
+            {
+                if (!string.IsNullOrWhiteSpace(row))
+                {
+                    isEmpty = false;
+                    break;
+                }
+            }
+
+            if (!isEmpty)
+            {
+                screen.LastClockTime = null;
+                continue;
+            }
+
+            var timeString = "";
+            var station = _station.GetOwningStation(uid);
+
+            if (station != null && TryComp<StationTimeComponent>(station.Value, out var timeComp))
+            {
+                var time = _stationTime.GetStationTime((station.Value, timeComp));
+                timeString = time.ToString("HH:mm");
+            }
+            else
+            {
+                var curTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
+                if (curTime < TimeSpan.Zero)
+                    curTime = TimeSpan.Zero;
+
+                timeString = TimeToString(curTime, false, screen.HourFormat, screen.MinuteFormat, screen.SecondFormat);
+            }
+
+            if (screen.LastClockTime == timeString)
+                continue;
+
+            screen.LastClockTime = timeString;
+
+            if (TryComp<SpriteComponent>(uid, out var sprite))
+            {
+                var previousText = screen.TextToDraw;
+                screen.TextToDraw = new string?[] { timeString };
+                ResetText(uid, screen, sprite);
+                BuildTextLayers(uid, screen, sprite);
+                DrawLayers(uid, screen.LayerStatesToDraw, sprite);
+                screen.TextToDraw = previousText;
+            }
+        }
+        // Funky Change End
     }
 
     /// <summary>

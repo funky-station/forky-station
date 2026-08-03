@@ -28,8 +28,8 @@
     - type: FlashImmunity
     - type: IdentityBlocker
     - type: EyeProtection
-    - type: WeldingMaskOverlay
-      texture: /Textures/_Funkystation/Clothing/Head/Welding/weldingOverlay.png
+    - type: ESViewconeModifier
+      angleModifier: -160
   - type: ItemTogglePrefix
     prefixOn: null
     prefixOff: up
