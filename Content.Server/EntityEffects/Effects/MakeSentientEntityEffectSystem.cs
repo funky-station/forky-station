@@ -60,6 +60,7 @@ public sealed partial class MakeSentientEntityEffectSystem : EntityEffectSystem<
             {
                 ghostRole.RoleRules = Loc.GetString("ghost-role-information-sentient-hostile-rules");
                 ghostRole.MindRoles.Add(MindRoleGhostRoleSoloAntagonist);
+                return;
             }
         }
         // Funky end
