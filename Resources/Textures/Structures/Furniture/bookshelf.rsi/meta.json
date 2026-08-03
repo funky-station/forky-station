@@ -84,37 +84,25 @@
       "name": "paper"
     },
       {
-          "name": "PaperDyedPink"
+          "name": "PaperOrange"
       },
       {
-          "name": "PaperDyedRed"
+          "name": "PaperYellow"
       },
       {
-          "name": "PaperDyedOrange"
+          "name": "PaperGreen"
       },
       {
-          "name": "PaperDyedYellow"
+          "name": "PaperRed"
       },
       {
-          "name": "PaperDyedPlainGreen"
+          "name": "PaperPurple"
       },
       {
-          "name": "PaperDyedGreen"
+          "name": "PaperBlue"
       },
       {
-          "name": "PaperDyedBlue"
-      },
-      {
-          "name": "PaperDyedSky"
-      },
-      {
-          "name": "PaperDyedPurple"
-      },
-      {
-          "name": "PaperDyedTan"
-      },
-      {
-          "name": "PaperDyedBrown"
+          "name": "PaperBrown"
       }
   ]
 }
