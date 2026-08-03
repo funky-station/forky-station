@@ -5,6 +5,9 @@ using Robust.Client.UserInterface.XAML;
 
 namespace Content.Client._Funkystation.Radio.Ui;
 
+/// <summary>
+/// Pertains to the user interface for the volume / mic sensitivty of a handheld radio
+/// </summary>
 [GenerateTypedNameReferences]
 public sealed partial class RadioVolumeMenu : FancyWindow
 {
@@ -22,20 +25,20 @@ public sealed partial class RadioVolumeMenu : FancyWindow
 
     public void Update(Entity<RadioMicrophoneComponent> micEntity)
     {
-        VolumeSlider.SetValueWithoutEvent(micEntity.Comp.Sensitivity);
+        VolumeSlider.SetValueWithoutEvent(micEntity.Comp.ListenRange);
         SensitivityLabel.Visible = true;
-
+        // if the radio has a microphone but not a speaker, let's hide the volume label
         if (!_entitys.HasComponent<RadioSpeakerComponent>(micEntity.Owner))
             VolumeLabel.Visible = false;
     }
     public void Update(Entity<RadioSpeakerComponent> speakerEntity)
     {
         VolumeLabel.Visible = true;
-
+        // if the radio has a speaker but not a microphone, let's hide the sensitivity label
         if (!_entitys.HasComponent<RadioMicrophoneComponent>(speakerEntity.Owner))
         {
             SensitivityLabel.Visible = false;
-            VolumeSlider.SetValueWithoutEvent(speakerEntity.Comp.Volume); // dont want two different components setting it at the same time
+            VolumeSlider.SetValueWithoutEvent(speakerEntity.Comp.Volume); // dont want two different components setting it at the same time so lets do it here
         }
     }
 }

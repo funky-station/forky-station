@@ -26,17 +26,31 @@ public sealed partial class RadioSpeakerComponent : Component
     [DataField, AutoNetworkedField]
     public bool Enabled;
 
+    /// <summary>
+    /// Funky - the length of the cooldown period
+    /// for toggling the speaker
+    /// </summary>
     [DataField]
-    public TimeSpan? Cooldown = TimeSpan.FromSeconds(1); // funky addition
+    public TimeSpan? Cooldown = TimeSpan.FromSeconds(1);
 
+    /// <summary>
+    /// Funky - an action to add to the person holding
+    /// the object, which toggles its speaker
+    /// </summary>
     [DataField]
-    public EntProtoId ActionId = "ActionToggleRadioSpeaker"; // funky addition
+    public EntProtoId ActionId = "ActionToggleRadioSpeaker";
 
     [DataField]
     public EntityUid? ActionEntity; // funky addition
 
+    /// <summary>
+    /// Funky - the volume of the speaker.
+    /// Messages are a whisper when volume
+    /// is 2 or less.
+    /// </summary>
+    // if only we had more control over the range people can hear a message :(
     [DataField, AutoNetworkedField]
-    public int Volume = 1; // funky
+    public int Volume = 1;
 }
-
+// Funky
 public sealed partial class ToggleRadioSpeakerEvent : InstantActionEvent;

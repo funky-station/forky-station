@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Radio;
+namespace Content.Shared._Funkystation.Radio;
 
 [Serializable, NetSerializable]
 public enum RadioVolumeUiKey

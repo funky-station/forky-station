@@ -17,8 +17,9 @@ public sealed partial class RadioMicrophoneComponent : Component
     [DataField]
     public ProtoId<RadioChannelPrototype> BroadcastChannel = SharedChatSystem.CommonChannel;
 
-    [DataField]
-    public int ListenRange = 4;
+    // funky - change default listen range (and network it for ui)
+    [DataField, AutoNetworkedField]
+    public int ListenRange = 1;
 
     [DataField]
     public bool Enabled = false;
@@ -40,26 +41,43 @@ public sealed partial class RadioMicrophoneComponent : Component
     [DataField]
     public bool UnobstructedRequired = false;
 
+    /// <summary>
+    /// Funky - the length of the cooldown period
+    /// for toggling the microphone on and off
+    /// </summary>
     [DataField]
-    public TimeSpan? Cooldown = TimeSpan.FromSeconds(1); // funky addition
+    public TimeSpan? Cooldown = TimeSpan.FromSeconds(1);
 
+    /// <summary>
+    /// Funky - whether or not the object this mic
+    /// is attached to must have a speaker that is
+    /// switched on
+    /// </summary>
     [DataField]
-    public bool SpeakerRequired = true; // funky addition
+    public bool SpeakerRequired = true;
 
+    /// <summary>
+    /// Funky - a sound to play when this mic is
+    /// toggled on
+    /// </summary>
     [DataField]
-    public SoundSpecifier? ToggleOnSound; // funky addition
+    public SoundSpecifier? ToggleOnSound;
+    /// <summary>
+    /// Funky - a sound to play when this mic is
+    /// toggled off
+    /// </summary>
     [DataField]
     public SoundSpecifier? ToggleOffSound; // funky addition
 
+    /// <summary>
+    /// Funky - an action to add to the person holding
+    /// the object, which toggles its mic
+    /// </summary>
     [DataField]
     public EntProtoId ActionId = "ActionToggleRadioMicrophone"; // funky addition
 
     [DataField]
     public EntityUid? ActionEntity; // funky addition
-
-    [DataField, AutoNetworkedField]
-    public int Sensitivity = 1; // funky
-
 }
-
-public sealed partial class ToggleRadioMicrophoneEvent : InstantActionEvent; // funky addition
+// Funky
+public sealed partial class ToggleRadioMicrophoneEvent : InstantActionEvent;

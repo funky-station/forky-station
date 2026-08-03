@@ -1,3 +1,4 @@
+using Content.Shared._Funkystation.Radio;
 using Content.Client._Funkystation.Radio.Ui;
 using Content.Client.Radio.Ui;
 using Content.Shared.Radio;
@@ -14,12 +15,14 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
     /// <inheritdoc/>
     public override void Initialize()
     {
+        // funky - radio volume ui
         SubscribeLocalEvent<RadioSpeakerComponent, AfterAutoHandleStateEvent>(OnAfterHandleState);
         SubscribeLocalEvent<RadioMicrophoneComponent, AfterAutoHandleStateEvent>(OnAfterHandleState);
 
         SubscribeLocalEvent<IntercomComponent, AfterAutoHandleStateEvent>(OnAfterHandleState);
     }
 
+    // funky - radio volume ui
     private void OnAfterHandleState(Entity<RadioSpeakerComponent> ent, ref AfterAutoHandleStateEvent args)
     {
         if (_ui.TryGetOpenUi<RadioVolumeBoundUserInterface>(ent.Owner, RadioVolumeUiKey.Key, out var bui))

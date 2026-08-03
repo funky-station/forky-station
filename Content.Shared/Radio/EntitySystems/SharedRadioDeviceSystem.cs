@@ -11,8 +11,8 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
 {
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
-    [Dependency] private SharedActionsSystem _actions = null!; // Funky
-    [Dependency] private UseDelaySystem _delays = null!;
+    [Dependency] private SharedActionsSystem _actions = null!; // Funky - add speaker/mic toggle actions
+    [Dependency] private UseDelaySystem _delays = null!; // Funky - toggle cooldown
 
 
     public override void Initialize() // funky additions!!
@@ -31,7 +31,7 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
     }
 
     // this entire region is funky additions
-    #region verbs and actions
+    #region Funky - Verbs and actions
     private void AddSpeakerToggleVerb(EntityUid uid, RadioSpeakerComponent component, GetVerbsEvent<AlternativeVerb> args) // Funkystation
     {
         if(!args.CanAccess || !args.CanInteract)
@@ -119,13 +119,13 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
     {
         _actions.AddAction(args.User, ref component.ActionEntity, component.ActionId, uid);
         if (component.Cooldown.HasValue)
-            _actions.SetUseDelay(component.ActionEntity, component.Cooldown.Value);
+            _actions.SetUseDelay(component.ActionEntity, component.Cooldown.Value); // overrides whatever cooldown the base action has
     }
     private void OnGetActions(EntityUid uid, RadioMicrophoneComponent component, GetItemActionsEvent args)
     {
         _actions.AddAction(args.User, ref component.ActionEntity, component.ActionId, uid);
         if (component.Cooldown.HasValue)
-            _actions.SetUseDelay(component.ActionEntity, component.Cooldown.Value);
+            _actions.SetUseDelay(component.ActionEntity, component.Cooldown.Value); // overrides whatever cooldown the base action has
     }
     #endregion
     #region Toggling
@@ -149,7 +149,7 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
         SetMicrophoneEnabled(uid, user, !component.Enabled, quiet, component);
     }
 
-    // seems to be this way because it can't be predicted on client
+    // seems to be this way because it can't be predicted on client? https://github.com/space-wizards/space-station-14/pull/39484#discussion_r2263840164
     public virtual void SetMicrophoneEnabled(EntityUid uid, EntityUid? user, bool enabled, bool quiet = false, RadioMicrophoneComponent? component = null) { }
 
     public void ToggleRadioSpeaker(EntityUid uid, EntityUid user, bool quiet = false, RadioSpeakerComponent? component = null)
@@ -177,7 +177,10 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
             return;
 
         // If the mic is on when the speaker is turned off, turn the mic off (Funkystation)
-        if (!enabled && TryComp<RadioMicrophoneComponent>(uid, out var mic) && mic.Enabled)
+        if (!enabled &&
+            TryComp<RadioMicrophoneComponent>(uid, out var mic)
+            && mic.SpeakerRequired
+            && mic.Enabled)
         {
             _actions.SetToggled(mic.ActionEntity, false);
             SetMicrophoneEnabled(uid, user, false, true, mic);
@@ -190,7 +193,7 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
         {
             var state = Loc.GetString(component.Enabled ? "handheld-radio-component-on-state" : "handheld-radio-component-off-state");
             var message = Loc.GetString("handheld-radio-component-on-use", ("radioState", state));
-            _popup.PopupEntity(message, uid, user.Value);
+            _popup.PopupEntity(message, uid, user.Value); // funky - show the popup over the radio, not the player
         }
 
         _appearance.SetData(uid, RadioDeviceVisuals.Speaker, component.Enabled);

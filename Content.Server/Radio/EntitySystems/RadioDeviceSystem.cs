@@ -8,6 +8,7 @@ using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Power;
 using Content.Shared.Radio;
+using Content.Shared._Funkystation.Radio;
 using Content.Shared.Radio.Components;
 using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Speech;
@@ -28,7 +29,7 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
     [Dependency] private RadioSystem _radio = default!;
     [Dependency] private InteractionSystem _interaction = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
-    [Dependency] private AudioSystem _audio = null!;
+    [Dependency] private AudioSystem _audio = null!; // funky - sound effects for radios
 
     // Used to prevent a shitter from using a bunch of radios to spam chat.
     private HashSet<(string, EntityUid, RadioChannelPrototype)> _recentlySent = new();
@@ -49,10 +50,10 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
         SubscribeLocalEvent<RadioSpeakerComponent, ComponentInit>(OnSpeakerInit);
         SubscribeLocalEvent<RadioSpeakerComponent, ActivateInWorldEvent>(OnActivateSpeaker);
         SubscribeLocalEvent<RadioSpeakerComponent, RadioReceiveEvent>(OnReceiveRadio);
-        SubscribeLocalEvent<RadioSpeakerComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<RadioSpeakerComponent, ExaminedEvent>(OnExamine); // funky - display state when examined
 
-        SubscribeLocalEvent<RadioSpeakerComponent, RadioVolumeSliderMessage>(OnRadioVolumeChanged);
-        SubscribeLocalEvent<RadioMicrophoneComponent, RadioVolumeSliderMessage>(OnRadioSensitivityChanged);
+        SubscribeLocalEvent<RadioSpeakerComponent, RadioVolumeSliderMessage>(OnRadioVolumeChanged); // funky - radio volume ui
+        SubscribeLocalEvent<RadioMicrophoneComponent, RadioVolumeSliderMessage>(OnRadioSensitivityChanged); // funky - radio volume ui
 
         SubscribeLocalEvent<IntercomComponent, EncryptionChannelsChangedEvent>(OnIntercomEncryptionChannelsChanged);
         SubscribeLocalEvent<IntercomComponent, ToggleIntercomMicMessage>(OnToggleIntercomMic);
@@ -103,7 +104,7 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
 
         args.Handled = true;
     }
-    // toggling the microphone with Z if and only if the speaker is turned on
+    // toggling the microphone with Z if the speaker is turned on
     private void OnActivateMicrophone(EntityUid uid, RadioMicrophoneComponent mic, ActivateInWorldEvent args)
     {
         if (args.Handled) // we dont want the mic to turn on at the same time as the speaker (does this actually ensure that?)
@@ -114,7 +115,7 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
 
         if (!mic.ToggleOnInteract)
             return;
-
+        // fail if this radio requires that the speaker be switched on and there is no speaker / its switched off
         if (mic.SpeakerRequired && (!TryComp<RadioSpeakerComponent>(uid, out var speaker) || !speaker.Enabled))
             return;
 
@@ -143,9 +144,9 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
 
         if (!quiet && user != null)
         {
-            _audio.PlayPvs(enabled ? component.ToggleOnSound : component.ToggleOffSound, uid); // funky addition
+            _audio.PlayPvs(enabled ? component.ToggleOnSound : component.ToggleOffSound, uid); // funky - radio sfx
             var state = Loc.GetString(component.Enabled ? "handheld-radio-component-on-state" : "handheld-radio-component-off-state");
-            var message = Loc.GetString("handheld-radio-component-mic-toggle", ("radioState", state)); // Funkystation
+            var message = Loc.GetString("handheld-radio-component-mic-toggle", ("radioState", state)); // funky - popup for mic toggle
             _popup.PopupEntity(message, uid, user.Value); //funky
         }
 
@@ -157,7 +158,8 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
     }
 
     #endregion
-    private void OnExamine(EntityUid uid, RadioSpeakerComponent component, ExaminedEvent args) //funky
+    // funky addition - showing the speaker's state when examined separately from the microphone
+    private void OnExamine(EntityUid uid, RadioSpeakerComponent component, ExaminedEvent args)
     {
         if (!args.IsInDetailsRange)
             return;
@@ -177,6 +179,7 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
                 ("color", color)));
         }
     }
+    // showing the microphone's state when examined
     private void OnExamine(EntityUid uid, RadioMicrophoneComponent component, ExaminedEvent args)
     {
         if (!args.IsInDetailsRange)
@@ -184,19 +187,19 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
 
         var proto = _protoMan.Index<RadioChannelPrototype>(component.BroadcastChannel);
 
-        var state = Loc.GetString(component.Enabled
+        var state = Loc.GetString(component.Enabled //funky
             ? "handheld-radio-component-on-state"
-            : "handheld-radio-component-off-state"); //funky
+            : "handheld-radio-component-off-state");
 
-        var color = component.Enabled
+        var color = component.Enabled //funky
             ? Color.LightBlue
-            : Color.Red; //funky
+            : Color.Red;
 
         using (args.PushGroup(nameof(RadioMicrophoneComponent), priority: 0))
         {
-            args.PushMarkup(Loc.GetString("handheld-radio-component-mic-examine",
+            args.PushMarkup(Loc.GetString("handheld-radio-component-mic-examine", //funky
                 ("micState", state),
-                ("color", color))); //funky
+                ("color", color)));
             args.PushMarkup(Loc.GetString("handheld-radio-component-on-examine", ("frequency", proto.Frequency)));
             args.PushMarkup(Loc.GetString("handheld-radio-component-chennel-examine",
                 ("channel", proto.LocalizedName)));
@@ -239,6 +242,7 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
         _chat.TrySendInGameICMessage(uid, args.Message, InGameICChatType.Whisper, ChatTransmitRange.GhostRangeLimit, nameOverride: name, checkRadioPrefix: false);
     }
 
+    // Funky - radio volume UI events
     private void OnRadioVolumeChanged(Entity<RadioSpeakerComponent> ent, ref RadioVolumeSliderMessage args)
     {
         ent.Comp.Volume = args.Value;
@@ -246,7 +250,7 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
     }
     private void OnRadioSensitivityChanged(Entity<RadioMicrophoneComponent> ent, ref RadioVolumeSliderMessage args)
     {
-        ent.Comp.Sensitivity = args.Value;
+        ent.Comp.ListenRange = args.Value;
         Dirty(ent);
     }
 
