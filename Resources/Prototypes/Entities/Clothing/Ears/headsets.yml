@@ -30,7 +30,8 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetGrey
-  name: passenger headset
+  #name: passenger headset
+  name: civilian headset # Funky - Headset is used by jobs other than Passenger/Assistant now, so it gets a more generic name
   components:
   - type: Sprite
     sprite: Clothing/Ears/Headsets/base.rsi
@@ -38,8 +39,10 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetCargo
-  name: cargo headset
-  description: A headset used by supply employees.
+  #name: cargo headset
+  name: logistics headset # Funky - Logistics rename
+  #description: A headset used by supply employees.
+  description: A headset used by employees of the logistics department. # Funky - Logistics rename
   components:
   - type: ContainerFill
     containers:

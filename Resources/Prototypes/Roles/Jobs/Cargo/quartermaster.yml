@@ -20,6 +20,7 @@
   supervisors: job-supervisors-captain
   access:
   - Cargo
+  - Hydroponics # Funky - Botanist is now in Logistics
   - Salvage
   - Quartermaster
   - Maintenance

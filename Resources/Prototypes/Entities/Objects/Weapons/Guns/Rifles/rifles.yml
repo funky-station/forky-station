@@ -216,11 +216,13 @@
     - SemiAuto
     - FullAuto
 
+# Funky version of estoc
+
 - type: entity
   name: Estoc DMR
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleEstoc
-  description: "A designated marksman rifle firing in 3-round bursts. The Estoc was designed as the Lecter’s long-range counterpart, equipped with an extended 20-inch barrel and telescopic sight.\nFeeds from .20 rifle magazines."
+  description: "A designated marksman rifle firing in 2-round bursts. The Estoc was designed as a long-range marksman rifle, equipped with an extended 20-inch barrel and telescopic sight.Feeds from .50 rifle magazines."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/estoc.rsi
@@ -235,32 +237,38 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Rifles/estoc.rsi
   - type: Gun
+    fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/estocshot.ogg
-    shotsPerBurst: 3
+    minAngle: 40
+    maxAngle: 50
+    shotsPerBurst: 2
     selectedMode: Burst
     availableModes:
     - Burst
     - SemiAuto
-    burstFireRate: 14
+    burstFireRate: 1.5
+  - type: GunWieldBonus
+    minAngle: -33
+    maxAngle: -43
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazineRifle
+        startingItem: MagazineRifle50
         insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
         priority: 2
         whitelist:
           tags:
-          - MagazineRifle
+          - MagazineRifle50
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         priority: 1
         whitelist:
           tags:
-          - CartridgeRifle
+          - CartridgePistolLarge
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
     maxOffset: 2
