@@ -35,7 +35,8 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
     private HashSet<(string, EntityUid, RadioChannelPrototype)> _recentlySent = new();
 
     // TODO: improve volume ui
-    // TODO: perhaps relay incoming radio messages into your chat like a headset when held
+    // TODO: perhaps relay incoming radio messages into your chat like a headset when held (this should probably be implemented as a new component, separately)
+    // TODO: ability to change max / min volume / sensitivity on the component (and make UI reflect this)
 
     public override void Initialize()
     {

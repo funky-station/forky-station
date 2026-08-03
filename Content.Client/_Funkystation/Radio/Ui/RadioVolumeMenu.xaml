@@ -14,7 +14,7 @@
         </BoxContainer>
 
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="5 10">
-            <Slider Name="VolumeSlider" MinValue="1" MaxValue="4" HorizontalExpand="True" Rounded="True"></Slider>
+            <Slider Name="VolumeSlider" MinValue="1" MaxValue="4" Rounded="True" HorizontalExpand="True" StyleIdentifier="VolumeSlider"/> <!-- TODO: un-hardcode min max values -->
         </BoxContainer>
 
         <BoxContainer Orientation="Vertical" HorizontalAlignment="Center" Margin="0 5">
