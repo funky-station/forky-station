@@ -22,6 +22,9 @@
 - type: Tag # Funky borgs - for the foam module
   id: FoamGrenade
   
+- type: Tag
+  id: StargazerShellTag # Funky - ConstructionGraphs for stargazer lollipop
+
 - type: Tag # Funky Wall Stains
   id: DirectionalWindow
   
