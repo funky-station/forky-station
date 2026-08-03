@@ -147,10 +147,10 @@
 
 # Shotgun
 - type: entity
-  name: box of (.50 pellet) ammo drums
+  name: box of (12 gauge pellet) ammo drums
   parent: BoxMagazine
   id: BoxMagazineShotgun
-  description: A box full of (.50 pellet) ammo drums.
+  description: A box full of (12 gauge pellet) ammo drums.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -159,10 +159,10 @@
         amount: 4
 
 - type: entity
-  name: box of (.50 beanbag) ammo drums
+  name: box of (12 gauge beanbag) ammo drums
   parent: BoxMagazine
   id: BoxMagazineShotgunBeanbag
-  description: A box full of (.50 beanbag) ammo drums.
+  description: A box full of (12 gauge beanbag) ammo drums.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -171,10 +171,10 @@
         amount: 4
 
 - type: entity
-  name: box of (.50 slug) ammo drums
+  name: box of (12 gauge slug) ammo drums
   parent: BoxMagazine
   id: BoxMagazineShotgunSlug
-  description: A box full of (.50 slug) ammo drums.
+  description: A box full of (12 gauge slug) ammo drums.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -183,10 +183,10 @@
         amount: 4
 
 - type: entity
-  name: box of (.50 incendiary) ammo drums
+  name: box of (12 gauge incendiary) ammo drums
   parent: BoxMagazine
   id: BoxMagazineShotgunIncendiary
-  description: A box full of (.50 incendiary) ammo drums.
+  description: A box full of (12 gauge incendiary) ammo drums.
   components:
   - type: EntityTableContainerFill
     containers:
@@ -217,4 +217,49 @@
     containers:
       storagebase:
         id: MagazineRiflePractice
+        amount: 4
+
+# Funky - .50 AE
+- type: entity
+  name: box of (.50 AE) magazines
+  parent: BoxMagazine
+  id: BoxMagazinePistolLarge
+  description: A box full of (.50 AE) magazines.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazinePistolLarge
+        amount: 4
+
+- type: entity
+  name: box of (.50 AE Practice) magazines
+  parent: BoxMagazine
+  id: BoxMagazinePistolLargePractice
+  description: A box full of (.50 AE Practice) magazines.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazinePistolLargePractice
+        amount: 4
+
+- type: entity
+  name: box of (.50 AE Incendiary) magazines
+  parent: BoxMagazine
+  id: BoxMagazinePistolLargeIncendiary
+  description: A box full of (.50 AE Incendiary) magazines.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazinePistolLargeIncendiary
+        amount: 4
+
+- type: entity
+  name: box of (.50 AE Uranium) magazines
+  parent: BoxMagazine
+  id: BoxMagazinePistolLargeUranium
+  description: A box full of (.50 AE Uranium) magazines.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MagazinePistolLargeUranium
         amount: 4
