@@ -1513,7 +1513,7 @@
   productEntity: ReinforcementRadioSyndicateSyndiCat
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 30
+    Telecrystal: 15 # Funky changed to 15 from 30
   cost:
     Telecrystal: 30
   categories:
