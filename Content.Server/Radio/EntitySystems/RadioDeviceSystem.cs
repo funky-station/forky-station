@@ -174,6 +174,28 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
             args.PushMarkup(Loc.GetString("handheld-radio-component-speaker-examine",
                 ("speakerState", state),
                 ("color", color)));
+            if (HasComp<IntercomComponent>(uid))
+                return;
+            // some extra markup we dont want to display on intercoms, since they have encryption key markup
+            if (component.Channels.Count > 1)
+            {
+                args.PushMarkup(Loc.GetString("handheld-radio-component-speaker-freq-multiple"));
+                foreach (var channel in component.Channels)
+                {
+                    var proto = _protoMan.Index(channel);
+                    // visually mimicking intercoms / encryption key holders
+                    args.PushMarkup(Loc.GetString("handheld-radio-component-freq",
+                        ("color", proto.Color),
+                        ("id", proto.LocalizedName),
+                        ("freq", proto.Frequency/10f)));
+                }
+            }
+            // display the singular received channel if there isnt a mic (reduces clutter)
+            else if (!HasComp<RadioMicrophoneComponent>(uid))
+            {
+                var proto = _protoMan.Index(component.Channels.FirstOrDefault());
+                args.PushMarkup(Loc.GetString("handheld-radio-component-speaker-freq", ("freq", proto.Frequency)));
+            }
         }
     }
     // showing the microphone's state when examined
@@ -225,7 +247,8 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
     }
 
     // TODO: im glad ghosts dont get their chat clogged, but what about lots of adjacent radios?
-    //       if there are many radios near each other, is it possible to prevent all but one from logging to chat?
+    //  if there are many radios near each other, is it possible to prevent all but one from logging to chat?
+    //  i gave it a shot, chat system straight up just discards whispers that arent logged. fixing this is out of scope
     private void OnReceiveRadio(EntityUid uid, RadioSpeakerComponent component, ref RadioReceiveEvent args)
     {
         if (uid == args.RadioSource)

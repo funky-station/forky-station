@@ -17,9 +17,9 @@ public sealed partial class RadioMicrophoneComponent : Component
     [DataField]
     public ProtoId<RadioChannelPrototype> BroadcastChannel = SharedChatSystem.CommonChannel;
 
-    // funky - change default listen range (and network it for ui)
+    // funky - network listen range for ui
     [DataField, AutoNetworkedField]
-    public int ListenRange = 1;
+    public int ListenRange = 4;
 
     /// <summary>
     /// Funky - The maximum listen range this radio

@@ -9,6 +9,7 @@
     broadcastChannel: Handheld
     toggleOnSound: /Audio/_Funkystation/Radio/radio_on.ogg # funky addition - toggle sfx
     toggleOffSound: /Audio/_Funkystation/Radio/radio_off.ogg # funky addition - toggle sfx
+    listenRange: 1 #funky
     maxRange: 4 #funkayyyy - volume ui
     speakerRequired: true # funky - toggleable mic
   - type: ActivatableUI #funkayyyy - volume ui

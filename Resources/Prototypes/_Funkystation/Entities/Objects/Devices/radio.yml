@@ -21,3 +21,82 @@
     icon: {sprite: /Textures/Interface/Actions/voice-mask.rsi/, state: icon}
   - type: InstantAction
     event: !type:ToggleRadioMicrophoneEvent
+
+- type: entity
+  name: handheld radio (no mic)
+  id: RadioHandheldSpeakerOnly
+  suffix: TESTING
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/communication.rsi
+    layers:
+    - state: old-radio
+  - type: Item
+    sprite: Objects/Devices/communication.rsi
+    heldPrefix: old-radio
+  - type: TelecomExempt
+  - type: ActivatableUI
+    verbOnly: true
+    requiresComplex: true
+    verbText: radio-vol-menu-verb
+    key: enum.RadioVolumeUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.RadioVolumeUiKey.Key:
+        type: RadioVolumeBoundUserInterface
+  - type: RadioSpeaker
+    channels:
+    - Handheld
+  - type: UseDelay
+  - type: Speech
+    speechVerb: Robotic
+
+- type: entity
+  name: handheld radio (no speaker)
+  id: RadioHandheldMicOnly
+  suffix: TESTING
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/Instruments/microphone.rsi
+    layers:
+    - state: icon
+    state: icon
+  - type: Item
+    sprite: Objects/Fun/Instruments/microphone.rsi
+    heldPrefix: icon
+  - type: TelecomExempt
+  - type: RadioMicrophone
+    broadcastChannel: Handheld
+    toggleOnSound: /Audio/_Funkystation/Radio/radio_on.ogg
+    toggleOffSound: /Audio/_Funkystation/Radio/radio_off.ogg
+    listenRange: 1
+    maxRange: 4
+  - type: ActivatableUI
+    verbOnly: true
+    requiresComplex: true
+    verbText: radio-vol-menu-verb
+    key: enum.RadioVolumeUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.RadioVolumeUiKey.Key:
+        type: RadioVolumeBoundUserInterface
+  - type: UseDelay
+
+- type: entity
+  id: RadioHandheldNoMicMaster
+  name: handheld radio (no mic, master)
+  parent: RadioHandheldSpeakerOnly
+  suffix: TESTING
+  components:
+  - type: RadioSpeaker
+    channels:
+    - Common
+    - Command
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
