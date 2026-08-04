@@ -4,7 +4,7 @@
 
 - type: entity
   id: FolderStandardForms
-  parent: BoxFolderBase
+  parent: BoxFolderBaseEmpty
   name: standard forms folder
   description: A folder filled with editable standard forms for designing paperwork.
   components:
