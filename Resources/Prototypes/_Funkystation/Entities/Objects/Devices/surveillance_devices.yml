@@ -137,9 +137,6 @@
     subnetFrequency: SurveillanceCameraHidden
   - type: WirelessNetworkConnection
     range: 2000
-  - type: DeviceNetworkRequiresPower
-  - type: ApcPowerReceiver
-    powerLoad: 0
   - type: UserInterface
     interfaces:
       enum.SurveillanceCameraSetupUiKey.Router:

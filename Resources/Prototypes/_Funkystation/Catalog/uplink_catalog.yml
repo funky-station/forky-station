@@ -4,7 +4,7 @@
   id: UplinkRadioListeningBugSyndicate
   name: uplink-contraband-listening-bug-name
   description: uplink-contraband-listening-bug-desc
-  icon: { sprite: Clothing/Hands/Gloves/KnuckleDusters/syndicateknuckleduster.rsi, state: syndicateknuckleduster }
+  icon: { sprite: _Funkystation/Objects/Devices/syndicate_listening_bug.rsi, state: icon }
   productEntity: RadioListeningBugSyndicate
   cost:
     Telecrystal: 1
@@ -15,7 +15,7 @@
   id: UplinkCameraBugKit
   name: uplink-contraband-hidden-camera-kit-name
   description: uplink-contraband-hidden-camera-kit-desc
-  icon: { sprite: Clothing/Hands/Gloves/KnuckleDusters/syndicateknuckleduster.rsi, state: syndicateknuckleduster }
+  icon: { sprite: _Funkystation/Objects/Devices/syndicate_hidden_camera.rsi, state: icon }
   productEntity: BriefcaseBrownCameraBugKit
   discountCategory: usualDiscounts
   discountDownTo:
@@ -32,7 +32,7 @@
   id: UplinkEspionageKit
   name: uplink-contraband-espionage-kit-name
   description: uplink-contraband-espionage-kit-desc
-  icon: { sprite: Clothing/Hands/Gloves/KnuckleDusters/syndicateknuckleduster.rsi, state: syndicateknuckleduster }
+  icon: { sprite: Objects/Storage/Briefcases/briefcase_brown.rsi, state: icon }
   productEntity: BriefcaseBrownEspionageKit
   discountCategory: rareDiscounts
   discountDownTo:
