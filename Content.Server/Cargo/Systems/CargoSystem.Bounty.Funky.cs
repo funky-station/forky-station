@@ -149,7 +149,7 @@ public sealed partial class CargoSystem
 
         if (totalBountyItems > 30)
         {
-            newBountyDescription += " (This bounty requires more compact storage methods such as cardboard boxes or bags)";
+            newBountyDescription += " " + Loc.GetString("bounty-console-storage-warning");
         }
         if (component.Bounties.Any(b => b.Id == $"{newBountyIdPrefix}{newBountyId:D3}"))
         {

@@ -50,10 +50,9 @@ public sealed partial class BountyEntry : BoxContainer
                     break;
             }
         }
-        // TODO: figure out / handle Unknown messageId ("en-US") warnings
         ManifestLabel.SetMarkup(Loc.GetString("bounty-console-manifest-label", ("item", string.Join(", ", items))));
         RewardLabel.SetMarkup(Loc.GetString("bounty-console-reward-label", ("reward", bounty.Reward))); // Funky Station
-        DescriptionLabel.SetMarkup(Loc.GetString("bounty-console-description-label", ("description", Loc.GetString(bounty.Description)))); // Funky Station
+        DescriptionLabel.SetMarkup(Loc.GetString("bounty-console-description-label", ("description", bounty.Description))); // Funky Station
         IdLabel.SetMarkup(Loc.GetString("bounty-console-id-label", ("id", bounty.Id)));
 
         PrintButton.OnPressed += _ => OnLabelButtonPressed?.Invoke();

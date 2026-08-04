@@ -36,3 +36,5 @@ bounty-console-history-notice-completed-label = [color=limegreen]Completed[/colo
 bounty-console-history-notice-skipped-label = [color=red]Skipped[/color] by {$id}
 
 bounty-console-category-description = {$category} Bounty: {$id}
+
+bounty-console-storage-warning = (This bounty requires more compact storage methods such as cardboard boxes or bags)

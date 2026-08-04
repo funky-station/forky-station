@@ -32,7 +32,7 @@ public readonly partial record struct CargoBountyData
     /// A description for flavour purposes.
     /// </summary>
     [DataField]
-    public LocId Description { get; init; } = string.Empty;
+    public string Description { get; init; } = string.Empty;
 
     /// <summary>
     /// The entries that must be satisfied for the cargo bounty to be complete.
@@ -67,7 +67,7 @@ public readonly partial record struct CargoBountyData
     {
         Bounty = prototype.ID;
         Id = $"{IdPrefix}{uniqueIdentifier:D3}";
-        Description = prototype.Description;
+        Description = Loc.GetString("bounty-console-description-label", ("description", Loc.GetString(prototype.Description)));
         IdPrefix = prototype.IdPrefix;
         Reward = prototype.Reward;
         var items = new List<CargoBountyItemData>();
