@@ -12,7 +12,8 @@
     ClothingUniformJumpsuitLawyerGood: 1
     ClothingUniformJumpskirtLawyerGood: 1
     ClothingShoesBootsLaceup: 2
-    ClothingHeadsetService: 2
+    #ClothingHeadsetService: 2 # Funky - No longer part of Service
+    ClothingHeadsetGrey: 2 # Funky - Now part of Civilian
     ClothingNeckLawyerbadge: 2
     BriefcaseBrown: 2
     BookSpaceLaw: 3

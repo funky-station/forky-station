@@ -33,8 +33,10 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCargomedal
-  name: cargo medal
-  description: Given for the best work in the cargo department.
+  #name: cargo medal
+  name: logistics medal # Funky - Logistics rename
+  #description: Given for the best work in the cargo department.
+  description: Given for the best work in the logistics department. # Funky - Logistics rename
   components:
   - type: Sprite
     sprite: Clothing/Neck/Medals/cargomedal.rsi

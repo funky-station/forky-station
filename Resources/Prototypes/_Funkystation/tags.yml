@@ -9,6 +9,18 @@
 
 - type: Tag # Funky atmos - /tg/ gases
   id: PlasmaSheet
+  
+- type: Tag # Funky weapon - ammo
+  id: CartridgePistolLarge
+
+- type: Tag # Funky weapon - magazine
+  id: MagazinePistolLarge
+
+- type: Tag # Funky weapon - magazine
+  id: MagazineRifle50
+
+- type: Tag
+  id: StargazerShellTag # Funky - ConstructionGraphs for stargazer lollipop
 
 - type: Tag # Funky Wall Stains
   id: DirectionalWindow

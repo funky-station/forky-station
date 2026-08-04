@@ -1,0 +1,17 @@
+- type: department
+  id: Service
+  name: department-Service
+  description: department-Service-description
+  color: "#9FED58"
+  weight: -5 # Between Science (0) and Civilian (-10)
+  roles:
+  - Bartender
+  - Chaplain
+  - Chef
+  - Clown
+  - Janitor
+  - HeadOfPersonnel
+  - Librarian
+  - Mime
+  - Musician
+  - ServiceWorker
