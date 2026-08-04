@@ -21,10 +21,10 @@
     interfaces:
       enum.RadioVolumeUiKey.Key:
         type: RadioVolumeBoundUserInterface
+  - type: UseDelay # funky
   - type: RadioSpeaker
     channels:
     - Handheld
-  - type: UseDelay
   - type: Speech
     speechVerb: Robotic
   - type: Sprite
