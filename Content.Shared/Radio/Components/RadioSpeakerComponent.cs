@@ -30,6 +30,7 @@ public sealed partial class RadioSpeakerComponent : Component
     /// Funky - the length of the cooldown period
     /// for toggling the speaker
     /// </summary>
+    /// <remarks>Intercom UI ignores this.</remarks>
     [DataField]
     public TimeSpan? Cooldown = TimeSpan.FromSeconds(1);
 

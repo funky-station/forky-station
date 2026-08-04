@@ -62,6 +62,7 @@ public sealed partial class RadioMicrophoneComponent : Component
     /// Funky - the length of the cooldown period
     /// for toggling the microphone on and off
     /// </summary>
+    /// <remarks>Intercom UI ignores this.</remarks>
     [DataField]
     public TimeSpan? Cooldown = TimeSpan.FromSeconds(1);
 
@@ -70,19 +71,22 @@ public sealed partial class RadioMicrophoneComponent : Component
     /// is attached to must have a speaker that is
     /// switched on
     /// </summary>
+    /// <remarks>Intercom UI ignores this.</remarks>
     [DataField]
-    public bool SpeakerRequired = true;
+    public bool SpeakerRequired = false;
 
     /// <summary>
     /// Funky - a sound to play when this mic is
     /// toggled on
     /// </summary>
+    /// <remarks>Intercom UI ignores this.</remarks>
     [DataField]
     public SoundSpecifier? ToggleOnSound;
     /// <summary>
     /// Funky - a sound to play when this mic is
     /// toggled off
     /// </summary>
+    /// <remarks>Intercom UI ignores this.</remarks>
     [DataField]
     public SoundSpecifier? ToggleOffSound; // funky addition
 
