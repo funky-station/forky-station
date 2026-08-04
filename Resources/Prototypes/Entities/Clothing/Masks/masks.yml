@@ -19,6 +19,8 @@
     layers:
       Snout: Mask
     hideOnToggle: true
+  - type: ESViewconeModifier # Funky
+    angleModifier: -90
 
 - type: entity
   parent: [ClothingMaskGas, BaseSecurityContraband]
@@ -39,6 +41,8 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
+  - type: ESViewconeModifier # Funky
+    angleModifier: -20
 
 - type: entity
   parent: [ClothingMaskGas, BaseSyndicateContraband]
@@ -59,6 +63,8 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
+  - type: ESViewconeModifier # Funky
+    angleModifier: -35
 
 - type: entity
   parent: ClothingMaskGas
@@ -118,6 +124,8 @@
         Slash: 0.90
         Piercing: 0.95
         Heat: 0.95
+  - type: ESViewconeModifier # Funky
+    angleModifier: -35
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -740,8 +748,8 @@
     sprite: Clothing/Mask/welding-gas.rsi
   - type: FlashImmunity
   - type: EyeProtection
-  - type: WeldingMaskOverlay
-    texture: /Textures/_Funkystation/Clothing/Head/Welding/weldingOverlayWeak.png
+  - type: ESViewconeModifier # Funky
+    angleModifier: -90
   - type: PhysicalComposition
     materialComposition:
       Steel: 200
