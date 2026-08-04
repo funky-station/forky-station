@@ -34,9 +34,6 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
     // Used to prevent a shitter from using a bunch of radios to spam chat.
     private HashSet<(string, EntityUid, RadioChannelPrototype)> _recentlySent = new();
 
-    // TODO: improve volume ui
-    // TODO: radio headset (headset that only works when "attached" to a radio, that makes the radio silent) (thanks joaco!)
-
     public override void Initialize()
     {
         base.Initialize();
@@ -225,7 +222,8 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
         }
     }
 
-    // TODO: im glad ghosts dont get their chat clogged, but what about lots of adjacent radios!
+    // TODO: im glad ghosts dont get their chat clogged, but what about lots of adjacent radios?
+    //       if there are many radios near each other, is it possible to prevent all but one from logging to chat?
     private void OnReceiveRadio(EntityUid uid, RadioSpeakerComponent component, ref RadioReceiveEvent args)
     {
         if (uid == args.RadioSource)
