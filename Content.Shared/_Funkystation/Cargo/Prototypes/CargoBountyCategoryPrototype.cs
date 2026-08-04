@@ -29,7 +29,7 @@ public sealed partial class CargoBountyCategoryPrototype : IPrototype
     /// List of possible entities the bounty can be created using
     /// </summary>
     [DataField(required: true)]
-    public required List<CargoBountyItemEntry> Entries;
+    public required List<ICargoBountyEntry> Entries;
 
     /// <summary>
     /// A prefix appended to the beginning of a bounty's ID.

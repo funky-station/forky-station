@@ -43,7 +43,7 @@ public sealed partial class CargoObjectBountyItemData : CargoBountyItemData
 
     // todo: implement some kind of simple generic condition system
 
-    public CargoObjectBountyItemData(CargoObjectBountyItemEntry entry)
+    public CargoObjectBountyItemData(CargoBountyItemEntry entry)
     {
         Name = entry.Name;
         Amount = entry.Amount;
@@ -60,7 +60,7 @@ public sealed partial class CargoReagentBountyItemData : CargoBountyItemData
     /// </summary>
     public ProtoId<ReagentPrototype> Reagent;
 
-    public CargoReagentBountyItemData(CargoReagentBountyItemEntry entry)
+    public CargoReagentBountyItemData(CargoBountyReagentEntry entry)
     {
         Name = entry.Name;
         Amount = entry.Amount;
@@ -78,7 +78,7 @@ public sealed partial class CargoGasBountyItemData : CargoBountyItemData
     /// </summary>
     public Gas Gas;
 
-    public CargoGasBountyItemData(CargoGasBountyItemEntry entry)
+    public CargoGasBountyItemData(CargoBountyGasEntry entry)
     {
         Name = entry.Name;
         Amount = entry.Amount;

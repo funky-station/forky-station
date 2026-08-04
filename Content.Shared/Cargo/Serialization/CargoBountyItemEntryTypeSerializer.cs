@@ -12,38 +12,38 @@ namespace Content.Shared.Cargo.Serialization;
 
 
 [TypeSerializer]
-public sealed class CargoBountyItemEntryTypeSerializer : ITypeReader<CargoBountyItemEntry, MappingDataNode>
+public sealed class CargoBountyItemEntryTypeSerializer : ITypeReader<ICargoBountyEntry, MappingDataNode>
 {
     private Type? GetType(MappingDataNode node)
     {
         if (node.Has("whitelist"))
         {
-            return typeof(CargoObjectBountyItemEntry);
+            return typeof(CargoBountyItemEntry);
         }
 
         if (node.Has("reagent"))
         {
-            return typeof(CargoReagentBountyItemEntry);
+            return typeof(CargoBountyReagentEntry);
         }
 
         if (node.Has("gas"))
         {
-            return typeof(CargoGasBountyItemEntry);
+            return typeof(CargoBountyGasEntry);
         }
 
         return null;
     }
-    public CargoBountyItemEntry Read(ISerializationManager serializationManager,
+    public ICargoBountyEntry Read(ISerializationManager serializationManager,
         MappingDataNode node,
         IDependencyCollection dependencies,
         SerializationHookContext hookCtx,
         ISerializationContext? context = null,
-        ISerializationManager.InstantiationDelegate<CargoBountyItemEntry>? instanceProvider = null)
+        ISerializationManager.InstantiationDelegate<ICargoBountyEntry>? instanceProvider = null)
     {
         var type = GetType(node) ??
                    throw new ArgumentException(
                        "Tried to convert invalid YAML node mapping to ConstructionGraphStep!");
-        return (CargoBountyItemEntry)serializationManager.Read(type, node, hookCtx, context)!;
+        return (ICargoBountyEntry)serializationManager.Read(type, node, hookCtx, context)!;
     }
     public ValidationNode Validate(ISerializationManager serializationManager,
         MappingDataNode node,

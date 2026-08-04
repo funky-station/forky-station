@@ -75,9 +75,9 @@ public readonly partial record struct CargoBountyData
         {
             CargoBountyItemData newItem = entry switch
             {
-                CargoObjectBountyItemEntry itemEntry => new CargoObjectBountyItemData(itemEntry),
-                CargoReagentBountyItemEntry itemEntry => new CargoReagentBountyItemData(itemEntry),
-                CargoGasBountyItemEntry itemEntry => new CargoGasBountyItemData(itemEntry),
+                CargoBountyItemEntry itemEntry => new CargoObjectBountyItemData(itemEntry),
+                CargoBountyReagentEntry itemEntry => new CargoReagentBountyItemData(itemEntry),
+                CargoBountyGasEntry itemEntry => new CargoGasBountyItemData(itemEntry),
                 _ => throw new NotImplementedException($"Unknown type: {entry.GetType().Name}"),
             };
             items.Add(newItem);
