@@ -15,6 +15,7 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
     /// <inheritdoc/>
     public override void Initialize()
     {
+        base.Initialize();
         // funky - radio volume ui
         SubscribeLocalEvent<RadioSpeakerComponent, AfterAutoHandleStateEvent>(OnAfterHandleState);
         SubscribeLocalEvent<RadioMicrophoneComponent, AfterAutoHandleStateEvent>(OnAfterHandleState);

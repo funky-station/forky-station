@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Radio.Components;
 using Content.Shared.Timing;
@@ -23,7 +24,9 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
         SubscribeLocalEvent<RadioSpeakerComponent, GetVerbsEvent<AlternativeVerb>>(AddSpeakerToggleVerb);
         SubscribeLocalEvent<RadioSpeakerComponent, ToggleRadioSpeakerEvent>(OnSpeakerToggleAction);
         SubscribeLocalEvent<RadioSpeakerComponent, GetItemActionsEvent>(OnGetActions);
+        SubscribeLocalEvent<RadioSpeakerComponent, ActivateInWorldEvent>(OnActivateSpeaker);
 
+        SubscribeLocalEvent<RadioMicrophoneComponent, ActivateInWorldEvent>(OnActivateMicrophone);
         SubscribeLocalEvent<RadioMicrophoneComponent, GetVerbsEvent<AlternativeVerb>>(AddMicToggleVerb);
         SubscribeLocalEvent<RadioMicrophoneComponent, ToggleRadioMicrophoneEvent>(OnMicrophoneToggleAction);
         SubscribeLocalEvent<RadioMicrophoneComponent, GetItemActionsEvent>(OnGetActions);
@@ -129,6 +132,41 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
     }
     #endregion
     #region Toggling
+    // funky - toggling the radio as a whole (the speaker) with Z if the speaker is off or there is no mic present (otherwise, toggle the mic)
+    private void OnActivateSpeaker(EntityUid uid, RadioSpeakerComponent speaker, ActivateInWorldEvent args)
+    {
+        if (!args.Complex)
+            return;
+
+        if (!speaker.ToggleOnInteract)
+            return;
+
+        if (speaker.Enabled && HasComp<RadioMicrophoneComponent>(uid))
+            return;
+
+        ToggleRadioSpeaker(uid, args.User, args.Handled, speaker);
+
+        args.Handled = true;
+    }
+    // funky - toggling the microphone with Z if the speaker is turned on
+    private void OnActivateMicrophone(EntityUid uid, RadioMicrophoneComponent mic, ActivateInWorldEvent args)
+    {
+        if (args.Handled) // we dont want the mic to turn on at the same time as the speaker (does this actually ensure that?)
+            return;
+
+        if (!args.Complex)
+            return;
+
+        if (!mic.ToggleOnInteract)
+            return;
+        // fail if this radio requires that the speaker be switched on and there is no speaker / its switched off
+        if (mic.SpeakerRequired && (!TryComp<RadioSpeakerComponent>(uid, out var speaker) || !speaker.Enabled))
+            return;
+
+        ToggleRadioMicrophone(uid, args.User, args.Handled, mic);
+
+        args.Handled = true;
+    }
     public void ToggleRadioMicrophone(EntityUid uid, EntityUid user, bool quiet = false, RadioMicrophoneComponent? component = null)
     {
         if (!Resolve(uid, ref component))
@@ -193,7 +231,7 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
         {
             var state = Loc.GetString(component.Enabled ? "handheld-radio-component-on-state" : "handheld-radio-component-off-state");
             var message = Loc.GetString("handheld-radio-component-on-use", ("radioState", state));
-            _popup.PopupEntity(message, uid, user.Value); // funky - show the popup over the radio, not the player
+            _popup.PopupClient(message, uid, user.Value); // funky - show the popup over the radio, not the player
         }
 
         _appearance.SetData(uid, RadioDeviceVisuals.Speaker, component.Enabled);

@@ -39,13 +39,11 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
         base.Initialize();
         SubscribeLocalEvent<RadioMicrophoneComponent, ComponentInit>(OnMicrophoneInit);
         SubscribeLocalEvent<RadioMicrophoneComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<RadioMicrophoneComponent, ActivateInWorldEvent>(OnActivateMicrophone);
         SubscribeLocalEvent<RadioMicrophoneComponent, ListenEvent>(OnListen);
         SubscribeLocalEvent<RadioMicrophoneComponent, ListenAttemptEvent>(OnAttemptListen);
         SubscribeLocalEvent<RadioMicrophoneComponent, PowerChangedEvent>(OnPowerChanged);
 
         SubscribeLocalEvent<RadioSpeakerComponent, ComponentInit>(OnSpeakerInit);
-        SubscribeLocalEvent<RadioSpeakerComponent, ActivateInWorldEvent>(OnActivateSpeaker);
         SubscribeLocalEvent<RadioSpeakerComponent, RadioReceiveEvent>(OnReceiveRadio);
         SubscribeLocalEvent<RadioSpeakerComponent, ExaminedEvent>(OnExamine); // funky - display state when examined
 
@@ -84,42 +82,6 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
     #endregion
 
     #region Toggling
-    // funky - toggling the radio as a whole (the speaker) with Z if the speaker is off or there is no mic present (otherwise, toggle the mic)
-    private void OnActivateSpeaker(EntityUid uid, RadioSpeakerComponent speaker, ActivateInWorldEvent args)
-    {
-        if (!args.Complex)
-            return;
-
-        if (!speaker.ToggleOnInteract)
-            return;
-
-        if (speaker.Enabled && HasComp<RadioMicrophoneComponent>(uid))
-            return;
-
-        ToggleRadioSpeaker(uid, args.User, args.Handled, speaker);
-
-        args.Handled = true;
-    }
-    // funky - toggling the microphone with Z if the speaker is turned on
-    private void OnActivateMicrophone(EntityUid uid, RadioMicrophoneComponent mic, ActivateInWorldEvent args)
-    {
-        if (args.Handled) // we dont want the mic to turn on at the same time as the speaker (does this actually ensure that?)
-            return;
-
-        if (!args.Complex)
-            return;
-
-        if (!mic.ToggleOnInteract)
-            return;
-        // fail if this radio requires that the speaker be switched on and there is no speaker / its switched off
-        if (mic.SpeakerRequired && (!TryComp<RadioSpeakerComponent>(uid, out var speaker) || !speaker.Enabled))
-            return;
-
-        ToggleRadioMicrophone(uid, args.User, args.Handled, mic);
-
-        args.Handled = true;
-    }
-
     private void OnPowerChanged(EntityUid uid, RadioMicrophoneComponent component, ref PowerChangedEvent args)
     {
         if (args.Powered)
