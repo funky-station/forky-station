@@ -1,8 +1,11 @@
 using System.Linq;
 using Content.Server.Cargo.Components;
 using Content.Shared._Funkystation.Cargo.Prototypes;
+using Content.Shared.Atmos.Components;
+using Content.Shared.Atmos.Piping.Unary.Components;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Prototypes;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Systems;
@@ -15,6 +18,73 @@ public sealed partial class CargoSystem
 {
     [Dependency] private SharedResearchSystem _research = default!;
     [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
+
+    /// <summary>
+    /// Determines whether the <paramref name="entity"/> meets the criteria for the bounty <paramref name="reagentBounty"/>.
+    /// </summary>
+    /// <param name="entity">Some given entity to be checked against criteria</param>
+    /// <param name="reagentBounty">The specific bounty reagent item that is being checked against</param>
+    /// <returns>true if <paramref name="entity"/> is a valid item for the bounty entry, otherwise false</returns>
+    public bool IsValidBountyEntry(EntityUid entity, CargoReagentBountyItemData reagentBounty)
+    {
+        if (!TryComp<SolutionComponent>(entity, out var solutions))
+            return false;
+
+        if (!_protoMan.TryIndex(reagentBounty.Reagent, out var bounty))
+            return false;
+
+        foreach (var sol in solutions.Solution.Contents)
+        {
+            if (sol.Reagent.Prototype.Equals(bounty.ID))
+                return true;
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Determines whether the <paramref name="entity"/> meets the criteria for the bounty <paramref name="gasBounty"/>.
+    /// </summary>
+    /// <param name="entity">Some given entity to be checked against criteria</param>
+    /// <param name="gasBounty">The specific bounty gas that is being checked against</param>
+    /// <returns>true if <paramref name="entity"/> is a valid item for the bounty entry, otherwise false</returns>
+    public bool IsValidBountyEntry(EntityUid entity, CargoGasBountyItemData gasBounty)
+    {
+        // Currently checking components separately since I don't know a method to query for interfaces.
+        // Please replace if a better method is made / found
+        if (TryComp<GasTankComponent>(entity, out var gasTank))
+        {
+            var gases = gasTank.Air;
+
+            return gases.GetMoles(gasBounty.Gas) > 0;
+        }
+
+        if (TryComp<GasCanisterComponent>(entity, out var gasCan))
+        {
+            var gases = gasCan.Air;
+
+            return gases.GetMoles(gasBounty.Gas) > 0;
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// Determines whether the <paramref name="entity"/> meets the criteria for the bounty <paramref name="entry"/>.
+    /// </summary>
+    /// <returns>true if <paramref name="entity"/> is a valid item for the bounty entry, otherwise false</returns>
+    public bool IsValidBountyEntry(EntityUid entity, ICargoBountyEntry entry)
+    {
+        return entry switch
+        {
+            CargoBountyItemEntry objectBounty =>
+                IsValidBountyEntry(entity, new CargoObjectBountyItemData(objectBounty)),
+            CargoBountyReagentEntry reagentBounty =>
+                IsValidBountyEntry(entity, new CargoReagentBountyItemData(reagentBounty)),
+            CargoBountyGasEntry gasBounty =>
+                IsValidBountyEntry(entity, new CargoGasBountyItemData(gasBounty)),
+            _ => throw new NotImplementedException($"Unknown type: {entry.GetType().Name}"),
+        };
+    }
 
     /// <summary>
     /// This method will attempt to add a bounty to a given station bounty database

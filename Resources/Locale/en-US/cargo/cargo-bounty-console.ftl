@@ -6,9 +6,9 @@ bounty-console-reward-label = Reward: [color=limegreen]${$reward}[/color]
 bounty-console-manifest-label = Manifest: [color=orange]{$item}[/color]
 bounty-console-manifest-entry =
     { $amount ->
-    [1] {$item}
-    *[other] {$item} x{$amount}
-        }
+        [1] {$item}
+        *[other] {$item} x{$amount}
+    }
 bounty-console-manifest-entry-reagent =
     { $amount ->
     [1] {$item}
