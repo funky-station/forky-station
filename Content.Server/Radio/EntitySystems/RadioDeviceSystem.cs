@@ -35,8 +35,7 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
     private HashSet<(string, EntityUid, RadioChannelPrototype)> _recentlySent = new();
 
     // TODO: improve volume ui
-    // TODO: perhaps relay incoming radio messages into your chat like a headset when held (this should probably be implemented as a new component, separately)
-    // TODO: ability to change max / min volume / sensitivity on the component (and make UI reflect this)
+    // TODO: radio headset (headset that only works when "attached" to a radio, that makes the radio silent) (thanks joaco!)
 
     public override void Initialize()
     {
@@ -251,12 +250,16 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
     // Funky - radio volume UI events
     private void OnRadioVolumeChanged(Entity<RadioSpeakerComponent> ent, ref RadioVolumeSliderMessage args)
     {
-        ent.Comp.Volume = args.Value;
+        ent.Comp.Volume = Math.Clamp(args.Value, ent.Comp.MinVolume, ent.Comp.MaxVolume);
         Dirty(ent);
     }
     private void OnRadioSensitivityChanged(Entity<RadioMicrophoneComponent> ent, ref RadioVolumeSliderMessage args)
     {
-        ent.Comp.ListenRange = args.Value;
+        // if a max range is specified, clamp to it
+        if (ent.Comp.MaxRange != null)
+            ent.Comp.ListenRange = Math.Clamp(args.Value, ent.Comp.MinRange ?? 1, ent.Comp.MaxRange.Value);
+        else
+            ent.Comp.ListenRange = args.Value;
         Dirty(ent);
         // update the range on the active listener if its present
         if (TryComp<ActiveListenerComponent>(ent, out var listener))

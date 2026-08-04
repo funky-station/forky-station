@@ -50,7 +50,20 @@ public sealed partial class RadioSpeakerComponent : Component
     /// </summary>
     // if only we had more control over the range people can hear a message :(
     [DataField, AutoNetworkedField]
-    public int Volume = 1;
+    public float Volume = 1;
+
+    /// <summary>
+    /// Funky - the max volume of the speaker.
+    /// In most situations you should leave this unchanged.
+    /// </summary>
+    [DataField]
+    public float MaxVolume = 4;
+    /// <summary>
+    /// Funky - the min volume of the speaker.
+    /// In most situations you should leave this unchanged.
+    /// </summary>
+    [DataField]
+    public float MinVolume = 1;
 }
 // Funky
 public sealed partial class ToggleRadioSpeakerEvent : InstantActionEvent;

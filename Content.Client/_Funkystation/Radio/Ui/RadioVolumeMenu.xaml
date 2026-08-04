@@ -14,13 +14,8 @@
         </BoxContainer>
 
         <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="5 5">
-            <Slider Name="VolumeSlider" MinValue="1" MaxValue="4" Rounded="True" HorizontalExpand="True" StyleIdentifier="VolumeSlider" Margin="0 -5"/> <!-- TODO: un-hardcode min max values -->
-            <BoxContainer Name="SensitivityNumbers" SetHeight="10" Orientation="Horizontal" HorizontalExpand="True" Margin="12 0">
-                <Label Text="1" MinWidth="82"/> <!-- TODO: UNHARDCODE THESE!!! -->
-                <Label Text="2" MinWidth="82" />
-                <Label Text="3" MinWidth="82" />
-                <Label Text="4" />
-            </BoxContainer>
+            <Slider Name="VolumeSlider" MinValue="1" MaxValue="4" Rounded="True" HorizontalExpand="True" StyleIdentifier="VolumeSlider" Margin="0 -5"/>
+            <BoxContainer Name="SensitivityNumbers" SetHeight="10" Orientation="Horizontal" HorizontalExpand="True" Margin="12 0"/>
         </BoxContainer>
 
         <BoxContainer Orientation="Vertical" HorizontalAlignment="Center" Margin="0 5">
@@ -36,9 +31,5 @@
                              VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19"/>
             </BoxContainer>
         </BoxContainer>
-
     </BoxContainer>
-
-
-
 </controls:FancyWindow>

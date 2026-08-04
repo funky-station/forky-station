@@ -19,7 +19,24 @@ public sealed partial class RadioMicrophoneComponent : Component
 
     // funky - change default listen range (and network it for ui)
     [DataField, AutoNetworkedField]
-    public int ListenRange = 1;
+    public float ListenRange = 1;
+
+    /// <summary>
+    /// Funky - The maximum listen range
+    /// this radio can have. This should
+    /// be specified if the microphone
+    /// sensitivity is adjustable (e.g.
+    /// via UI.)
+    /// </summary>
+    [DataField]
+    public float? MaxRange;
+    /// <summary>
+    /// Funky - The minimum listen range
+    /// this radio can have, if adjustable
+    /// by UI. Defaults to 1.
+    /// </summary>
+    [DataField]
+    public float? MinRange = 1;
 
     [DataField]
     public bool Enabled = false;

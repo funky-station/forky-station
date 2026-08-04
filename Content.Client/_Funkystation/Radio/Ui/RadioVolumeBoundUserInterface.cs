@@ -18,11 +18,18 @@ public sealed class RadioVolumeBoundUserInterface(EntityUid owner, Enum uiKey) :
 
         if (EntMan.TryGetComponent(Owner, out RadioMicrophoneComponent? mic))
         {
+            if (mic.MaxRange != null)
+                _menu.SetSliderMaxMin(mic.MaxRange.Value, mic.MinRange);
             _menu.Update((Owner, mic));
+            _menu.UpdateLabels((Owner, mic));
         }
         if (EntMan.TryGetComponent(Owner, out RadioSpeakerComponent? speaker))
         {
+            // if we don't have a mic or it has no specified max range, fallback to speaker's defaults
+            if (mic?.MaxRange == null)
+                _menu.SetSliderMaxMin(speaker.MaxVolume, speaker.MinVolume);
             _menu.Update((Owner, speaker));
+            _menu.UpdateLabels((Owner, speaker));
         }
 
         _menu.OnSliderChanged += value =>
