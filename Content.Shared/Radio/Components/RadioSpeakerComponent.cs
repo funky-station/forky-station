@@ -46,8 +46,7 @@ public sealed partial class RadioSpeakerComponent : Component
 
     /// <summary>
     /// Funky - the volume of the speaker.
-    /// Messages are a whisper when volume
-    /// is 2 or less.
+    /// Messages are a whisper when volume is 2 or less.
     /// </summary>
     // if only we had more control over the range people can hear a message :(
     [DataField, AutoNetworkedField]

@@ -13,6 +13,4 @@ radio-vol-menu-verb = Adjust volume / mic
 radio-vol-menu-title = Radio volume / sensitivity
 radio-vol-menu-vol-label = VOLUME
 radio-vol-menu-mic-label = SENSITIVITY
-radio-vol-menu-min = Min.
-radio-vol-menu-max = Max.
 

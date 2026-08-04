@@ -22,18 +22,16 @@ public sealed partial class RadioMicrophoneComponent : Component
     public int ListenRange = 1;
 
     /// <summary>
-    /// Funky - The maximum listen range
-    /// this radio can have. This should
-    /// be specified if the microphone
-    /// sensitivity is adjustable (e.g.
+    /// Funky - The maximum listen range this radio
+    /// can have. This should be specified if the
+    /// microphone sensitivity is adjustable (e.g.
     /// via UI.)
     /// </summary>
     [DataField]
     public int? MaxRange;
     /// <summary>
-    /// Funky - The minimum listen range
-    /// this radio can have, if adjustable
-    /// by UI. Defaults to 1.
+    /// Funky - The minimum listen range this radio
+    /// can have, if adjustable by UI. Defaults to 1.
     /// </summary>
     [DataField]
     public int? MinRange = 1;
