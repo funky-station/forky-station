@@ -84,8 +84,7 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
     #endregion
 
     #region Toggling
-    // BEGIN Funkystation
-    // toggling the radio as a whole (the speaker) with Z if the speaker is off or there is no mic present (otherwise, toggle the mic)
+    // funky - toggling the radio as a whole (the speaker) with Z if the speaker is off or there is no mic present (otherwise, toggle the mic)
     private void OnActivateSpeaker(EntityUid uid, RadioSpeakerComponent speaker, ActivateInWorldEvent args)
     {
         if (!args.Complex)
@@ -101,7 +100,7 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
 
         args.Handled = true;
     }
-    // toggling the microphone with Z if the speaker is turned on
+    // funky - toggling the microphone with Z if the speaker is turned on
     private void OnActivateMicrophone(EntityUid uid, RadioMicrophoneComponent mic, ActivateInWorldEvent args)
     {
         if (args.Handled) // we dont want the mic to turn on at the same time as the speaker (does this actually ensure that?)
@@ -120,7 +119,7 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
 
         args.Handled = true;
     }
-    // END Funkystation
+
     private void OnPowerChanged(EntityUid uid, RadioMicrophoneComponent component, ref PowerChangedEvent args)
     {
         if (args.Powered)
@@ -153,8 +152,9 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
         else
             RemCompDeferred<ActiveListenerComponent>(uid);
     }
-
     #endregion
+
+    #region Examining
     // funky addition - showing the speaker's state when examined separately from the microphone
     private void OnExamine(EntityUid uid, RadioSpeakerComponent component, ExaminedEvent args)
     {
@@ -202,7 +202,9 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
                 ("channel", proto.LocalizedName)));
         }
     }
+    #endregion
 
+    #region Chat
     private void OnListen(EntityUid uid, RadioMicrophoneComponent component, ListenEvent args)
     {
         if (HasComp<RadioSpeakerComponent>(args.Source))
@@ -244,7 +246,9 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
             nameOverride: name,
             checkRadioPrefix: false);
     }
+    #endregion
 
+    #region Funky - radio volume UI events
     // Funky - radio volume UI events
     private void OnRadioVolumeChanged(Entity<RadioSpeakerComponent> ent, ref RadioVolumeSliderMessage args)
     {
@@ -263,7 +267,9 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
         if (TryComp<ActiveListenerComponent>(ent, out var listener))
             listener.Range = ent.Comp.ListenRange;
     }
+    #endregion
 
+    #region Intercoms
     private void OnIntercomEncryptionChannelsChanged(Entity<IntercomComponent> ent, ref EncryptionChannelsChangedEvent args)
     {
         ent.Comp.SupportedChannels = args.Component.Channels.Select(p => new ProtoId<RadioChannelPrototype>(p)).ToList();
@@ -326,4 +332,5 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
             speaker.Channels = new() { channel.Value };
         Dirty(ent);
     }
+    #endregion
 }
