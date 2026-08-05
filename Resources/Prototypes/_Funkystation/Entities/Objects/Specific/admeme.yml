@@ -1,5 +1,3 @@
-#Collection for useful admin only items
-
 - type: entity
   parent: Crayon
   id: InfinityCrayon
@@ -14,6 +12,8 @@
     color: Red
     selectableColor: true
     capacity: 9999999
+  - type: LimitedCharges
+    maxCharges: 9999999
   - type: Tag
     tags:
     - Write
@@ -34,20 +34,16 @@
 - type: entity
   name: admeme spray bottle
   id: AdmemeSprayBottle
-  parent: SprayBottle
+  parent: MegaSprayBottle
   suffix: Admeme Water
   description: A huge spray bottle full of water. No felinid will go unsprayed.
   components:
-  - type: Sprite
-    sprite: Objects/Specific/Janitorial/janitorial.rsi
-    state: cleaner_large
-  - type: SolutionContainerManager
-    solutions:
-      spray:
-        maxVol: 9999999
-        reagents:
-        - ReagentId: Water
-          Quantity: 9999999
+  - type: Solution
+    solution:
+      maxVol: 999999999
+      reagents:
+      - ReagentId: Water
+        Quantity: 999999999
   - type: Spray
     transferAmount: 15
     sprayedPrototype: BigVapor
