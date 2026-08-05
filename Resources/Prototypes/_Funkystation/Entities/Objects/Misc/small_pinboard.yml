@@ -27,8 +27,8 @@
           Paper: { state: paper }
   - type: PaperLabel
     labelSlot:
-      insertVerbTest: comp-paper-label-insert
-      ejectVerbTest: comp-paper-label-eject
+      insertVerbText: comp-paper-label-insert
+      ejectVerbText: comp-paper-label-eject
       whitelist:
         components:
         - Paper
