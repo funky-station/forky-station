@@ -110,7 +110,7 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
 
         if (component.SpeakerRequired && (!TryComp<RadioSpeakerComponent>(uid, out var speaker) || !speaker.Enabled))
         {
-            _popup.PopupEntity(Loc.GetString("handheld-radio-component-mic-desc-disabled"), uid, args.Performer);
+            _popup.PopupClient(Loc.GetString("handheld-radio-component-mic-desc-disabled"), uid, args.Performer);
             return;
         }
 
