@@ -39,3 +39,4 @@
     containers:
       paper_label: !type:ContainerSlot
   - type: ItemSlots
+  - type: Anchorable

@@ -24,6 +24,7 @@
   - Holoprojector
   - WetFloorSign
   - WireBrush
+  - SmallPinboard #funky
 
 - type: latheRecipePack
   id: ServiceBoardsStatic
