@@ -28,7 +28,6 @@
   components:
   - type: LimitedCharges
     maxCharges: 5000
-    charges: 5000
 
 - type: entity
   name: admeme spray bottle
