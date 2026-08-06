@@ -82,6 +82,8 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
     #endregion
 
     #region Toggling
+    // FUNKY - ActivateInWorldEvent functions (OnActivateMicrophone, OnActivateSpeaker) have been moved to Content.Shared
+
     private void OnPowerChanged(EntityUid uid, RadioMicrophoneComponent component, ref PowerChangedEvent args)
     {
         if (args.Powered)
