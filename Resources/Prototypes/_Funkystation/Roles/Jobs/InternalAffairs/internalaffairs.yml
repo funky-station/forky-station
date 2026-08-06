@@ -2,7 +2,7 @@
   id: InternalAffairsAgent
   name: job-name-iaa
   description: job-description-iaa
-  playTimeTracker: JobInternalAffairs
+  playTimeTracker: JobIAA
   requirements:
    - !type:RoleTimeRequirement
      role: JobLawyer
@@ -14,7 +14,7 @@
   - InternalAffairs
   - Brig
   - Medical
-  - Science
+  - Research
   - Engineering
   - Cargo
   - Bar

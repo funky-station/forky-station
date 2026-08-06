@@ -5,7 +5,7 @@
   playTimeTracker: JobMagistrate
   requirements:
   - !type:RoleTimeRequirement
-    role: JobInternalAffairs
+    role: JobIAA
     time: 5h
   startingGear: MagistrateGear
   icon: "JobIconMagistrate"
