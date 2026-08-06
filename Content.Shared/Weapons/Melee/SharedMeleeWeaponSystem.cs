@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._ES.Camera;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions.Events;
 using Content.Shared.Administration.Components;
@@ -68,7 +69,9 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] private DamageExamineSystem _damageExamine = default!;
 
     [Dependency] private EntityQuery<DamageableComponent> _damageQuery = default!;
-
+    // ES START
+    [Dependency] private ESScreenshakeSystem _shake = default!;
+    // ES END
     private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
 
     /// <summary>
@@ -539,11 +542,11 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
         var weapon = GetEntity(ev.Weapon);
 
         // We skip weapon -> target interaction, as forensics system applies DNA on hit
-        Interaction.DoContactInteraction(user, weapon);
+        Interaction.DoContactInteraction(user, weapon, null, true); // Stellar - Interaction particles
 
         // If the user is using a long-range weapon, this probably shouldn't be happening? But I'll interpret melee as a
         // somewhat messy scuffle. See also, heavy attacks.
-        Interaction.DoContactInteraction(user, target);
+        Interaction.DoContactInteraction(user, target, weapon, true, interactionParticles: false); // Stellar/ES - Interaction particles
 
         // For stuff that cares about it being attacked.
         var attackedEvent = new AttackedEvent(meleeUid, user, targetXform.Coordinates);
@@ -579,6 +582,18 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
         if (damageResult.GetTotal() > FixedPoint2.Zero && !TerminatingOrDeleted(target.Value))
         {
             DoDamageEffect(targets, user, targetXform);
+
+            // ES START
+            // dog shit copy plaste but thats melee for you
+            var userShakeRotation = new ESScreenshakeParameters()
+                { Trauma = 0.08f, DecayRate = 1.0f, Frequency = 0.009f };
+            var otherShakeTranslation = new ESScreenshakeParameters() { Trauma = 0.45f, DecayRate = 1.1f, Frequency = 0.04f };
+            _shake.Screenshake(user, null, userShakeRotation);
+            foreach (var shakeTarget in targets)
+            {
+                _shake.Screenshake(shakeTarget, otherShakeTranslation, null);
+            }
+            // ES END
         }
     }
 
@@ -678,7 +693,7 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
 
         var weapon = GetEntity(ev.Weapon);
 
-        Interaction.DoContactInteraction(user, weapon);
+        Interaction.DoContactInteraction(user, weapon, null, true); // Stellar - Interaction particles
 
         // For stuff that cares about it being attacked.
         foreach (var target in targets)
@@ -687,7 +702,7 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
 
             // If the user is using a long-range weapon, this probably shouldn't be happening? But I'll interpret melee as a
             // somewhat messy scuffle. See also, light attacks.
-            Interaction.DoContactInteraction(user, target);
+            Interaction.DoContactInteraction(user, target, weapon, true, interactionParticles: false); // Stellar/ES - Interaction particles
         }
 
         var appliedDamage = new DamageSpecifier();
@@ -744,6 +759,18 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
             var target = entities.First();
             _meleeSound.PlayHitSound(target, user, GetHighestDamageSound(appliedDamage, _protoManager), hitEvent.HitSoundOverride, component);
         }
+
+        // ES START
+        // dog shit copy plaste but thats melee for you
+        var userShakeRotation = new ESScreenshakeParameters()
+            { Trauma = 0.08f, DecayRate = 1.0f, Frequency = 0.009f };
+        var otherShakeTranslation = new ESScreenshakeParameters() { Trauma = 0.45f, DecayRate = 1.1f, Frequency = 0.04f };
+        _shake.Screenshake(user, null, userShakeRotation);
+        foreach (var shakeTarget in targets)
+        {
+            _shake.Screenshake(shakeTarget, otherShakeTranslation, null);
+        }
+        // ES END
 
         if (appliedDamage.GetTotal() > FixedPoint2.Zero && targets.Count > 0)
         {
@@ -930,7 +957,7 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
             return false;
         }
 
-        Interaction.DoContactInteraction(user, target);
+        Interaction.DoContactInteraction(user, target, null, true); // Stellar - Interaction particles
         AdminLogger.Add(LogType.DisarmedAction, $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
 
         AdminLogger.Add(LogType.DisarmedAction, $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");

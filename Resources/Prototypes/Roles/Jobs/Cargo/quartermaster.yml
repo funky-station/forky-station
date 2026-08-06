@@ -16,9 +16,11 @@
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
+  joinNotifyCrew: true # Funky
   supervisors: job-supervisors-captain
   access:
   - Cargo
+  - Hydroponics # Funky - Botanist is now in Logistics
   - Salvage
   - Quartermaster
   - Maintenance

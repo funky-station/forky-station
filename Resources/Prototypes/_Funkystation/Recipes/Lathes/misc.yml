@@ -1,4 +1,4 @@
-- type: latheRecipe
+﻿- type: latheRecipe
   parent: BaseToolRecipe
   id: DigitalClock
   result: DigitalClock
@@ -12,3 +12,10 @@
   completetime: 1
   materials:
     Steel: 50
+
+- type: latheRecipe
+  id: ShredderBin
+  result: ShredderBin
+  completetime: 4
+  materials:
+    Plastic: 100

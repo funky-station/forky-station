@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._ES.Viewcone;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Gravity;
@@ -9,6 +10,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Throwing
@@ -25,6 +27,11 @@ namespace Content.Shared.Throwing
         [Dependency] private SharedBroadphaseSystem _broadphase = default!;
         [Dependency] private SharedPhysicsSystem _physics = default!;
         [Dependency] private SharedGravitySystem _gravity = default!;
+        // ES START
+        [Dependency] private ESViewconeEffectSystem _effect = default!;
+
+        public static EntProtoId LandViewconeEffect = "ESViewconeEffectAttack";
+        // ES END
 
         private const string ThrowingFixture = "throw-fixture";
 
@@ -125,6 +132,12 @@ namespace Content.Shared.Throwing
             // Assume it's uninteresting if it has no thrower. For now anyway.
             if (thrownItem.Thrower is not null)
                 _adminLogger.Add(LogType.Landed, LogImpact.Low, $"{ToPrettyString(uid):entity} thrown by {ToPrettyString(thrownItem.Thrower.Value):thrower} landed.");
+
+            // ES START
+            // play effect if there was a thrower
+            if (thrownItem.Thrower != null)
+                _effect.SpawnEffect(uid, LandViewconeEffect);
+            // ES END
 
             _broadphase.RegenerateContacts((uid, physics));
             var landEvent = new LandEvent(thrownItem.Thrower, playSound);

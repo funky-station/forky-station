@@ -1,0 +1,7 @@
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsNewsroom
+  suffix: Newsroom, Locked
+  components:
+  - type: AccessReader
+    access: [["Newsroom"]]
