@@ -1,0 +1,30 @@
+- type: job
+  id: InternalAffairsAgent
+  name: job-name-iaa
+  description: job-description-iaa
+  playTimeTracker: JobInternalAffairs
+  requirements:
+   - !type:RoleTimeRequirement
+     role: JobLawyer
+     time: 5h
+  startingGear: IAAGear
+  icon: "JobIconInternalAffairsAgent"
+  supervisors: job-supervisors-ia
+  access:
+  - InternalAffairs
+  - Brig
+  - Medical
+  - Science
+  - Engineering
+  - Cargo
+  - Bar
+  - Kitchen
+  - Service
+  - Maintenance
+
+- type: startingGear
+  id: IAAGear
+  equipment:
+    shoes: ClothingShoesBootsLaceup
+    id: IAAPDA
+    ears: ClothingHeadsetInternalAffairs

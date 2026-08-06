@@ -1,0 +1,26 @@
+- type: job
+  id: CorporateLiaison
+  name: job-name-cl
+  description: job-description-cl
+  playTimeTracker: JobCorporateLiaison
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 10h
+  - !type:DepartmentTimeRequirement
+    department: InternalAffairs
+    time: 10h
+  startingGear: CLGear
+  icon: "JobIconCorporateLiaison"
+  supervisors: job-supervisors-cl
+  access:
+  - Corporate
+  - Command
+  - Maintenance
+
+- type: startingGear
+  id: CLGear
+  equipment:
+    shoes: ClothingShoesBootsLaceup
+    id: CLPDA
+    ears: ClothingHeadsetCL

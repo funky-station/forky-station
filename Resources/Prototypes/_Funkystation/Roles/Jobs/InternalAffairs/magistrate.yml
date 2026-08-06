@@ -1,0 +1,24 @@
+- type: job
+  id: Magistrate
+  name: job-name-magistrate
+  description: job-description-magistrate
+  playTimeTracker: JobMagistrate
+  requirements:
+  - !type:RoleTimeRequirement
+    role: JobInternalAffairs
+    time: 5h
+  startingGear: MagistrateGear
+  icon: "JobIconMagistrate"
+  supervisors: job-supervisors-ia
+  access:
+  - Magistrate
+  - Brig
+  - InternalAffairs
+  - Maintenance
+
+- type: startingGear
+  id: MagistrateGear
+  equipment:
+    shoes: ClothingShoesBootsLaceup
+    id: MagistratePDA
+    ears: ClothingHeadsetMagistrate

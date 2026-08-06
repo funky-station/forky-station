@@ -1,0 +1,38 @@
+- type: job
+  id: HospitalityDirector
+  name: job-name-hd
+  description: job-description-hd
+  playTimeTracker: JobHospitalityDirector
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Service
+    time: 10h
+  weight: 20
+  startingGear: HDGear
+  icon: "JobIconHospitalityDirector"
+  joinNotifyCrew: true
+  supervisors: job-supervisors-captain
+  access:
+  - Command
+  - HospitalityDirector
+  - Bar
+  - Service
+  - Maintenance
+  - Janitor
+  - Theatre
+  - Kitchen
+  - Chapel
+  - Library
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: CommandStaff
+
+- type: startingGear
+  id: HDGear
+  equipment:
+    shoes: ClothingShoesColorBlack
+    id: HDPDA
+    ears: ClothingHeadsetHD
