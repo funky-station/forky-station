@@ -16,7 +16,6 @@
   id: JobMagistrate
   groups:
   - GroupTankHarness
-  - LawyerNeck
   - LawyerJumpsuit
   - CommonBackpack
   - Glasses
@@ -44,7 +43,6 @@
   id: JobCorporateLiaison
   groups:
   - GroupTankHarness
-  - LawyerNeck
   - LawyerJumpsuit
   - CommonBackpack
   - Glasses

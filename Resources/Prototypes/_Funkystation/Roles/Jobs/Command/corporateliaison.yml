@@ -21,6 +21,17 @@
 - type: startingGear
   id: CLGear
   equipment:
+    head: ClothingHeadHatBeretCommand
+    eyes: ClothingEyesGlassesSunglasses
     shoes: ClothingShoesBootsLaceup
     id: CLPDA
     ears: ClothingHeadsetCL
+
+- type: chameleonOutfit
+  id: CLChameleonOutfit
+  job: CorporateLiaison
+  hasMindShield: true
+  equipment:
+    mask: ClothingMaskNeckGaiter
+    neck: ClothingNeckScarfStripedBlue
+    outerClothing: ClothingOuterWinterColorBlue

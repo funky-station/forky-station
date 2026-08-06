@@ -19,6 +19,15 @@
 - type: startingGear
   id: MagistrateGear
   equipment:
+    head: ClothingHeadHatPwig
     shoes: ClothingShoesBootsLaceup
     id: MagistratePDA
     ears: ClothingHeadsetMagistrate
+    outerClothing: ClothingOuterRobesJudge
+
+- type: chameleonOutfit
+  id: MagistrateChameleonOutfit
+  job: Magistrate
+  equipment:
+    mask: ClothingMaskNeckGaiter
+    neck: ClothingNeckScarfStripedPurple

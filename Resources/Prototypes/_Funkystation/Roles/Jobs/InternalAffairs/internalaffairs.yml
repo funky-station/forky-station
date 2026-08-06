@@ -25,6 +25,18 @@
 - type: startingGear
   id: IAAGear
   equipment:
+    head: ClothingHeadHatFedoraBrown
     shoes: ClothingShoesBootsLaceup
     id: IAAPDA
+    eyes: ClothingEyesGlassesSunglasses
     ears: ClothingHeadsetInternalAffairs
+    outerClothing: ClothingOuterCoatTrench
+
+- type: chameleonOutfit
+  id: IAAChameleonOutfit
+  job: InternalAffairsAgent
+  hasMindShield: true
+  equipment:
+    mask: ClothingMaskNeckGaiterRed
+    neck: ClothingNeckLawyerbadge
+
