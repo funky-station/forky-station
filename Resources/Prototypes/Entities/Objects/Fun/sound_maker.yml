@@ -205,14 +205,20 @@
   - type: Clothing
     sprite: Objects/Fun/whistles.rsi
     quickEquip: false
-    slots: neck
+    slots:
+      - neck
+      - mask
   - type: UseDelay
     delay: 3
   - type: EmitSoundOnUse
     sound:
       collection: BaseWhistle
+  - type: EmitSoundOnAction
+    sound:
+      collection: BaseWhistle
   - type: Whistle
     distance: 3
+  - type: RMCWhistle
 
 - type: entity
   parent: BaseWhistle

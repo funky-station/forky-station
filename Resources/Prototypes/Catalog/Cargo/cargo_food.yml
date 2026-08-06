@@ -53,7 +53,7 @@
   icon:
     sprite: Objects/Consumable/Drinks/cola.rsi
     state: icon
-  product: CrateFoodSoftdrinks
+  product: BoxFoodSoftdrinks #Funky change boxification
   cost: 1500
   category: cargoproduct-category-name-food
   group: market
@@ -73,7 +73,7 @@
   icon:
     sprite: Objects/Consumable/Food/burger.rsi
     state: bigbite
-  product: CrateFoodHappyHonkBigBite
+  product: BoxFoodHappyHonkBigBite #Funky change boxification
   cost: 2800
   category: cargoproduct-category-name-food
   group: market

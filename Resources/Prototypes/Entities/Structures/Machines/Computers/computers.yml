@@ -1450,7 +1450,7 @@
   - type: DeviceNetworkRequiresPower
   - type: NewsWriter
   - type: AccessReader
-    access: [[ "Service" ]]
+    access: [[ "Newsroom" ]] # Funky - Reporters now have a separate access
   - type: ActivatableUI
     key: enum.NewsWriterUiKey.Key
   - type: ActivatableUIRequiresVision

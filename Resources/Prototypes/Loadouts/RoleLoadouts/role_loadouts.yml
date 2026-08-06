@@ -6,9 +6,10 @@
   - CaptainJumpsuit
   - CaptainBackpack
   - CaptainOuterClothing
+  - Pager
   - Survival
   - Trinkets
-  #- CaptainJobTrinkets
+  - CaptainJobTrinkets # Funky uncommented
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
@@ -21,10 +22,11 @@
   - HoPJumpsuit
   - HoPBackpack
   - HoPOuterClothing
+  - Pager
   - Glasses
   - Survival
   - Trinkets
-  #- HoPJobTrinkets
+  - HoPJobTrinkets # Funky uncommented
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
@@ -51,6 +53,7 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
+  - Pager
   - Glasses
   - Survival
   - Trinkets
@@ -66,6 +69,7 @@
   - BartenderJumpsuit
   - CommonBackpack
   - BartenderOuterClothing
+  - Pager
   - Glasses
   - Survival
   - Trinkets
@@ -79,6 +83,7 @@
   - GroupTankHarness
   - BartenderJumpsuit
   - CommonBackpack
+  - Pager
   - Glasses
   - Survival
   - Trinkets
@@ -95,6 +100,7 @@
   - ChefJumpsuit
   - CommonBackpack
   - ChefOuterClothing
+  - Pager
   - Glasses
   - Survival
   - Trinkets
@@ -108,6 +114,7 @@
   - GroupTankHarness
   - LibrarianJumpsuit
   - CommonBackpack
+  - Pager
   - Glasses
   - Survival
   - Trinkets
@@ -122,6 +129,7 @@
   - LawyerNeck
   - LawyerJumpsuit
   - CommonBackpack
+  - Pager
   - Glasses
   - Survival
   - Trinkets
@@ -141,6 +149,7 @@
   - CommonBackpack
   - ChaplainOuterClothing
   - ChaplainBible
+  - Pager
   - Glasses
   - Survival
   - Trinkets
@@ -157,6 +166,7 @@
   - JanitorGloves
   - CommonBackpack
   - JanitorOuterClothing
+  - Pager
   - Glasses
   - Survival
   - Trinkets
@@ -172,6 +182,7 @@
   - BotanistJumpsuit
   - BotanistBackpack
   - BotanistOuterClothing
+  - Pager
   - Glasses
   - Survival
   - Trinkets
@@ -189,6 +200,7 @@
   - ClownBackpack
   - ClownOuterClothing
   - ClownShoes
+  - Pager
   - Glasses
   - SurvivalClown
   - Trinkets
@@ -206,6 +218,7 @@
   - MimeBackpack
   - MimeOuterClothing
   - MimeBelt
+  - Pager
   - Glasses
   - SurvivalMime
   - Trinkets
@@ -220,6 +233,7 @@
   - MusicianJumpsuit
   - CommonBackpack
   - MusicianOuterClothing
+  - Pager
   - Glasses
   - Survival
   - Trinkets
@@ -239,10 +253,11 @@
   - CargoTechnicianBackpack
   - QuartermasterOuterClothing
   - QuartermasterShoes
+  - Pager
   - Glasses
   - Survival
   - Trinkets
-  #- QuartermasterJobTrinkets
+  - QuartermasterJobTrinkets # Funky uncommented
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
@@ -256,6 +271,7 @@
   - CargoTechnicianOuterClothing
   - CargoTechnicianShoes
   - CargoTechnicianID
+  - Pager
   - Glasses
   - Survival
   - Trinkets
@@ -270,6 +286,7 @@
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
+  - Pager
   - Glasses
   - Survival
   - Trinkets
@@ -292,9 +309,10 @@
   - FuChiefEngineerOuterClothing # Funky
   #- ChiefEngineerShoes
   - FuChiefEngineerShoes # Funky
+  - Pager
   - SurvivalExtended
   - Trinkets
-  #- ChiefEngineerJobTrinkets
+  - ChiefEngineerJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
@@ -305,6 +323,7 @@
   - FuTechnicalAssistantHead
   - FuTechnicalAssistantUniform
   - StationEngineerBackpack
+  - Pager
   - SurvivalExtended
   - Trinkets
   #- TechnicalAssistantJobTrinkets
@@ -321,6 +340,7 @@
   - StationEngineerOuterClothing
   - StationEngineerShoes
   - StationEngineerID
+  - Pager
   - SurvivalExtended
   - Trinkets
   #- StationEngineerJobTrinkets
@@ -335,6 +355,7 @@
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
   - AtmosphericTechnicianShoes
+  - Pager
   - SurvivalExtended
   - Trinkets
   #- AtmosphericTechnicianJobTrinkets
@@ -353,10 +374,11 @@
   - ResearchDirectorOuterClothing
   - ScientistGloves
   - ResearchDirectorShoes
+  - Pager
   - Glasses
   - Survival
   - Trinkets
-  #- ResearchDirectorJobTrinkets
+  - ResearchDirectorJobTrinkets # Funky uncommented
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
@@ -372,6 +394,7 @@
   - ScientistGloves
   - ScientistShoes
   - ScientistPDA
+  - Pager
   - Glasses
   - Survival
   - Trinkets
@@ -385,6 +408,7 @@
   - GroupTankHarness
   - ResearchAssistantJumpsuit
   - ScientistBackpack
+  - Pager
   - Glasses
   - Survival
   - Trinkets
@@ -403,6 +427,7 @@
   - SecurityBelt
   - HeadofSecurityOuterClothing
   - SecurityShoes
+  - Pager
   - SurvivalSecurity
   - Trinkets
   - HeadofSecurityJobTrinkets
@@ -419,6 +444,7 @@
   - SecurityBelt
   - WardenOuterClothing
   - SecurityShoes
+  - Pager
   - SurvivalSecurity
   - Trinkets
   - WardenJobTrinkets
@@ -437,6 +463,7 @@
   - SecurityShoes
   - SecurityPDA
   - SecurityBelt
+  - Pager
   - SurvivalSecurity
   - Trinkets
   - SecurityJobTrinkets
@@ -452,6 +479,7 @@
   - SecurityBackpack
   - DetectiveOuterClothing
   - SecurityShoes
+  - Pager
   - SurvivalSecurity
   - Trinkets
   - DetectiveJobTrinkets
@@ -464,6 +492,7 @@
   - SecurityCadetHat
   - SecurityCadetJumpsuit
   - SecurityBackpack
+  - Pager
   - SurvivalSecurity
   - Trinkets
   #- SecurityCadetJobTrinkets
@@ -474,6 +503,7 @@
 - type: roleLoadout
   id: JobReporter
   groups:
+  - Pager
   - GroupTankHarness
   - ReporterJumpsuit
   - ReporterHead
@@ -492,6 +522,7 @@
   - GroupTankHarness
   - PsychologistJumpsuit
   - MedicalBackpack
+  - Pager
   - Glasses
   - Survival
   - Trinkets

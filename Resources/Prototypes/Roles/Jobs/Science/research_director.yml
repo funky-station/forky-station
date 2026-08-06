@@ -13,6 +13,7 @@
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
+  joinNotifyCrew: true # Funky
   supervisors: job-supervisors-captain
   access:
   - Research

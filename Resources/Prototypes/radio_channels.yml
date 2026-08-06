@@ -57,7 +57,7 @@
 
 - type: radioChannel
   id: Supply
-  name: chat-radio-supply
+  name: chat-radio-logistics # Funky - Logistics rename
   keycode: 'u'
   frequency: 1347
   color: "#b48b57"

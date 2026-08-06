@@ -142,11 +142,13 @@
   - CaptainOuterClothing
   - CaptainWintercoat
 
-#- type: loadoutGroup
-#  id: CaptainJobTrinkets
-#  name: loadout-group-jobtrinkets
-#  minLimit: 0
-#  loadouts: []
+# Funky uncommented, added whistle
+- type: loadoutGroup
+  id: CaptainJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - CommandWhistle
 
 - type: loadoutGroup
   id: HoPHead
@@ -186,11 +188,13 @@
   loadouts:
   - HoPWintercoat
 
-#- type: loadoutGroup
-#  id: HoPJobTrinkets
-#  name: loadout-group-jobtrinkets
-#  minLimit: 0
-#  loadouts: []
+# Funky uncommented, added whistle
+- type: loadoutGroup
+  id: HoPJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - CommandWhistle
 
 # Civilian
 - type: loadoutGroup
@@ -741,11 +745,13 @@
   - BrownShoes
   - CargoWinterBoots
 
-#- type: loadoutGroup
-#  id: QuartermasterJobTrinkets
-#  name: loadout-group-jobtrinkets
-#  minLimit: 0
-#  loadouts:
+# Funky uncommented, added whistle
+- type: loadoutGroup
+  id: QuartermasterJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - CommandWhistle
 
 - type: loadoutGroup
   id: CargoTechnicianHead
@@ -864,11 +870,13 @@
   - BrownShoes
   - EngineeringWinterBoots
 
-#- type: loadoutGroup
-#  id: ChiefEngineerJobTrinkets
-#  name: loadout-group-jobtrinkets
-#  minLimit: 0
-#  loadouts:
+# Funky uncommented, added whistle
+- type: loadoutGroup
+  id: ChiefEngineerJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - CommandWhistle
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit
@@ -1025,11 +1033,13 @@
   - BrownShoes
   - ScienceWinterBoots
 
-#- type: loadoutGroup
-#  id: ResearchDirectorJobTrinkets
-#  name: loadout-group-jobtrinkets
-#  minLimit: 0
-#  loadouts:
+# Funky uncommented, added whistle
+- type: loadoutGroup
+  id: ResearchDirectorJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - CommandWhistle
 
 - type: loadoutGroup
   id: ScientistHead
@@ -1038,6 +1048,7 @@
   loadouts:
   - RoboticistCap
   - SkullBandana
+  - ScientistHardhatWhite # Funky
   - ScientificBeret
 
 - type: loadoutGroup
@@ -1169,6 +1180,7 @@
   minLimit: 0
   loadouts:
   - SecStar
+  - SecurityWhistle # Funky
 
 - type: loadoutGroup
   id: WardenHead
