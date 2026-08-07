@@ -1,0 +1,85 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseMagazineBoxPistolLarge
+  name: ammunition box (.50 AE)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgePistolLarge
+    proto: CartridgePistolLarge
+    capacity: 28
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Guns/Ammunition/Boxes/pistol_large.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: false
+  - type: Appearance
+
+# Boxes
+- type: entity
+  parent: BaseMagazineBoxPistolLarge
+  id: MagazineBoxPistolLarge
+  name: ammunition box (.50 AE)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolLarge
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazineBoxPistolLarge
+  id: MagazineBoxPistolLargePractice
+  name: ammunition box (.50 AE practice)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolLargePractice
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: practice
+
+- type: entity
+  id: MagazineBoxPistolLargeIncendiary
+  parent: BaseMagazineBoxPistolLarge
+  name: ammunition box (.50 AE incendiary)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolLargeIncendiary
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: incendiary
+
+- type: entity
+  id: MagazineBoxPistolLargeUranium
+  parent: BaseMagazineBoxPistolLarge
+  name: ammunition box (.50 AE uranium)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolLargeUranium
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: uranium

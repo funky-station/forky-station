@@ -11,10 +11,11 @@
   - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
   - ChiefMedicalOfficerShoes
+  - Pager
   - Glasses
   - SurvivalMedical
   - Trinkets
-#  - ChiefMedicalOfficerJobTrinkets
+  - ChiefMedicalOfficerJobTrinkets # Funky uncommented
   - GroupSpeciesBreathToolMedical
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
@@ -29,6 +30,7 @@
   - MedicalDoctorOuterClothing
   - MedicalShoes
   - MedicalDoctorPDA
+  - Pager
   - Glasses
   - SurvivalMedical
   - Trinkets
@@ -42,6 +44,7 @@
   - GroupTankHarness
   - MedicalInternJumpsuit
   - MedicalBackpack
+  - Pager
   - Glasses
   - SurvivalMedical
   - Trinkets
@@ -58,6 +61,7 @@
   - ChemistBackpack
   - ChemistOuterClothing
   - MedicalShoes
+  - Pager
   - Glasses
   - SurvivalMedical
   - Trinkets
@@ -75,6 +79,7 @@
   - MedicalBackpack
   - ParamedicOuterClothing
   - ParamedicShoes
+  - Pager
   - Glasses
   - SurvivalMedical
   - Trinkets

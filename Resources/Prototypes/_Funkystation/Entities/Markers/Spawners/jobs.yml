@@ -1,0 +1,59 @@
+- type: entity
+  id: SpawnPointInternalAffairsAgent
+  parent: SpawnPointJobBase
+  name: internalaffairs
+  components:
+  - type: SpawnPoint
+    job_id: InternalAffairsAgent
+  - type: Sprite
+    layers:
+    - state: green
+    - state: lawyer
+
+- type: entity
+  id: SpawnPointMagistrate
+  parent: SpawnPointJobBase
+  name: magistrate
+  components:
+  - type: SpawnPoint
+    job_id: Magistrate
+  - type: Sprite
+    layers:
+    - state: green
+    - state: lawyer
+
+- type: entity
+  id: SpawnPointCorporateLiaison
+  parent: SpawnPointJobBase
+  name: corporateliaison
+  components:
+  - type: SpawnPoint
+    job_id: CorporateLiaison
+  - type: Sprite
+    layers:
+    - state: green
+    - state: lawyer
+
+- type: entity
+  id: SpawnPointHospitalityDirector
+  parent: SpawnPointJobBase
+  name: hospitalitydirector
+  components:
+  - type: SpawnPoint
+    job_id: HospitalityDirector
+  - type: Sprite
+    layers:
+    - state: green
+    - state: hop
+
+- type: entity
+  id: SpawnPointExecutiveOfficer
+  parent: SpawnPointJobBase
+  name: executiveofficer
+  components:
+  - type: SpawnPoint
+    job_id: ExecutiveOfficer
+  - type: Sprite
+    layers:
+    - state: green
+    - state: hop

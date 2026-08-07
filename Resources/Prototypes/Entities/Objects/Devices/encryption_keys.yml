@@ -79,6 +79,7 @@
     - Service
     - Supply
     - Emergency #funkystation
+    - InternalAffairs #funky
     defaultChannel: Command
   - type: Sprite
     layers:

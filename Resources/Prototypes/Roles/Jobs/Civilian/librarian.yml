@@ -9,6 +9,7 @@
   access:
   - Service
   - Maintenance
+  - Library # funky
 
 - type: startingGear
   id: LibrarianGear

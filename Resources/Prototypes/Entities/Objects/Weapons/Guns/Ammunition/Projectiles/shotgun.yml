@@ -2,7 +2,7 @@
   parent: BaseBullet
   id: PelletShotgunSlug
   categories: [ HideSpawnMenu ]
-  name: pellet (.50 slug)
+  name: pellet (12 gauge slug)
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
@@ -18,7 +18,7 @@
   parent: BaseBullet
   id: PelletShotgunBeanbag
   categories: [ HideSpawnMenu ]
-  name: beanbag (.50)
+  name: beanbag (12 gauge)
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
@@ -35,7 +35,7 @@
   parent: BaseBullet
   id: PelletShotgun
   categories: [ HideSpawnMenu ]
-  name: pellet (.50)
+  name: pellet (12 gauge)
   components:
   - type: Projectile
     damage:
@@ -57,7 +57,7 @@
   parent: BaseBulletIncendiary
   id: PelletShotgunIncendiary
   categories: [ HideSpawnMenu ]
-  name: pellet (.50 incendiary)
+  name: pellet (12 gauge incendiary)
   components:
   - type: Projectile
     damage:
@@ -81,7 +81,7 @@
   parent: BaseBulletPractice
   id: PelletShotgunPractice
   categories: [ HideSpawnMenu ]
-  name: pellet (.50 practice)
+  name: pellet (12 gauge practice)
   components:
   - type: Projectile
     damage:
@@ -129,7 +129,7 @@
   parent: [SolutionAmmo, SolutionToolVeryTiny, BaseBulletPractice]
   id: PelletShotgunTranquilizer
   categories: [ HideSpawnMenu ]
-  name: pellet (.50 tranquilizer)
+  name: pellet (12 gauge tranquilizer)
   components:
   - type: Projectile
     damage:
@@ -142,7 +142,7 @@
 - type: entity
   id: PelletShotgunFlare
   categories: [ HideSpawnMenu ]
-  name: pellet (.50 flare)
+  name: pellet (12 gauge flare)
   components:
   - type: Physics
     bodyType: Dynamic
@@ -190,7 +190,7 @@
   parent: BaseBulletUranium
   id: PelletShotgunUranium
   categories: [ HideSpawnMenu ]
-  name: pellet (.50 uranium)
+  name: pellet (12 gauge uranium)
   components:
   - type: Projectile
     damage:

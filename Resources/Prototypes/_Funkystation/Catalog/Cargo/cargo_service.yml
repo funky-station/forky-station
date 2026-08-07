@@ -19,3 +19,14 @@
   cost: 900
   category: cargoproduct-category-name-service
   group: market
+
+# Paper Shredder
+- type: cargoProduct
+  id: ServicePaperShredderKit
+  icon:
+    sprite: _Funkystation/Structures/Machines/shredder.rsi
+    state: icon
+  product: CrateServicePaperShredderSet
+  cost: 700
+  category: cargoproduct-category-name-service
+  group: market

@@ -177,10 +177,12 @@ public abstract partial class SharedRingerSystem : EntitySystem
         if (args.Ringtone.Length != RingtoneLength)
             return;
 
-        // Try to toggle the uplink first
-        if (TryToggleUplink(ent.Owner, args.Ringtone))
+        // Try to toggle the uplink first. Funky changed to ignore pagers
+        if (TryComp<RingerUplinkComponent>(ent, out var uplink))
+        {
+          if (TryToggleUplink((ent.Owner, uplink), args.Ringtone))
             return; // Don't save the uplink code as the ringtone
-
+        }
         UpdateRingerRingtone(ent, args.Ringtone);
     }
 
@@ -209,7 +211,7 @@ public abstract partial class SharedRingerSystem : EntitySystem
 
         UpdateRingerUi(ent);
 
-        _popup.PopupPredicted(Loc.GetString("comp-ringer-vibration-popup"),
+        _popup.PopupPredicted(Loc.GetString(ent.Comp.Popup), // Funky
             ent,
             ent.Owner,
             Filter.Pvs(ent, 0.05f),

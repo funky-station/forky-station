@@ -1,0 +1,12 @@
+﻿- type: loadoutGroup
+  id: Pager
+  name: loadout-group-pager
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - PagerGray
+  - PagerBeige
+  - PagerBlue
+  - PagerTransCyan
+  - PagerTransPink
+  - PagerTransYellow
