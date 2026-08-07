@@ -46,6 +46,7 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
         SubscribeLocalEvent<RadioSpeakerComponent, ComponentInit>(OnSpeakerInit);
         SubscribeLocalEvent<RadioSpeakerComponent, RadioReceiveEvent>(OnReceiveRadio);
         SubscribeLocalEvent<RadioSpeakerComponent, ExaminedEvent>(OnExamine); // funky - display state when examined
+        SubscribeLocalEvent<RadioSpeakerComponent, PowerChangedEvent>(OnPowerChanged); // funky
 
         SubscribeLocalEvent<RadioSpeakerComponent, RadioVolumeSliderMessage>(OnRadioVolumeChanged); // funky - radio volume ui
         SubscribeLocalEvent<RadioMicrophoneComponent, RadioVolumeSliderMessage>(OnRadioSensitivityChanged); // funky - radio volume ui
@@ -89,6 +90,18 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
         if (args.Powered)
             return;
         SetMicrophoneEnabled(uid, null, false, true, component);
+    }
+
+    // funky - turn back on if OnWhenPowered for speaker machines
+    private void OnPowerChanged(EntityUid uid, RadioSpeakerComponent component, ref PowerChangedEvent args)
+    {
+        if (args.Powered)
+        {
+            if (component.OnWhenPowered)
+                SetSpeakerEnabled(uid, null, true, true, component);
+        }
+        else if (component.PowerRequired)
+            SetSpeakerEnabled(uid, null, false, true, component);
     }
 
 
@@ -216,6 +229,9 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
     private void OnReceiveRadio(EntityUid uid, RadioSpeakerComponent component, ref RadioReceiveEvent args)
     {
         if (uid == args.RadioSource)
+            return;
+
+        if (component.PowerRequired && !this.IsPowered(uid, EntityManager))
             return;
 
         var nameEv = new TransformSpeakerNameEvent(args.MessageSource, Name(args.MessageSource));

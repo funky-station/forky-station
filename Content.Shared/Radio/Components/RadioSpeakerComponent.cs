@@ -23,8 +23,28 @@ public sealed partial class RadioSpeakerComponent : Component
     [DataField]
     public HashSet<ProtoId<RadioChannelPrototype>> Channels = new() { SharedChatSystem.CommonChannel };
 
+    /// <summary>
+    /// Setting this to true on a prototype will
+    /// have the speaker on by default i.e., for
+    /// a PA system.
+    /// </summary>
     [DataField, AutoNetworkedField]
     public bool Enabled;
+
+
+    /// <summary>
+    /// Whether this speaker should turn back on
+    /// after gaining power. i.e., for a PA system.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool OnWhenPowered = false;
+
+    /// <summary>
+    /// Funky - whether this speaker needs to be
+    /// powered to receive messages.
+    /// </summary>
+    [DataField]
+    public bool PowerRequired = false;
 
     /// <summary>
     /// Funky - the length of the cooldown period

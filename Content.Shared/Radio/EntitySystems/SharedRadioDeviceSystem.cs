@@ -2,6 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Radio.Components;
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.Timing;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
@@ -14,6 +15,7 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedActionsSystem _actions = null!; // Funky - add speaker/mic toggle actions
     [Dependency] private UseDelaySystem _delays = null!; // Funky - toggle cooldown
+    [Dependency] private SharedPowerReceiverSystem _powerReceiverSystem = null!; // funky - speaker power states
 
 
     public override void Initialize() // funky additions!!
@@ -212,6 +214,10 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
     public void SetSpeakerEnabled(EntityUid uid, EntityUid? user, bool enabled, bool quiet = false, RadioSpeakerComponent? component = null)
     {
         if (!Resolve(uid, ref component))
+            return;
+
+        // if we're switching the speaker on, make sure we don't need power first (funky)
+        if (enabled && component.PowerRequired && !_powerReceiverSystem.IsPowered(uid))
             return;
 
         // If the mic is on when the speaker is turned off, turn the mic off (Funkystation)
