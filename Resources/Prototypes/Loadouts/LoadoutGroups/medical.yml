@@ -74,11 +74,13 @@
   - BrownShoes
   - MedicalWinterBoots
 
-#- type: loadoutGroup
-#  id: ChiefMedicalOfficerJobTrinkets
-#  name: loadout-group-jobtrinkets
-#  minLimit: 0
-#  loadouts:
+# Funky uncommented, added whistle
+- type: loadoutGroup
+  id: ChiefMedicalOfficerJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - CommandWhistle
 
 # Medical Doctor
 

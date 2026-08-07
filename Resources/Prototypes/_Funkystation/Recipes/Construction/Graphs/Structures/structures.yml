@@ -1,0 +1,203 @@
+#Steel
+- type: construction
+  name: structures-steel-curb
+  id: SteelCurb
+  graph: curbs
+  startNode: start
+  targetNode: steelCurb
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+
+- type: construction
+  name: structures-steel-curb-corner
+  id: SteelCurbCorner
+  graph: curbs
+  startNode: start
+  targetNode: steelCurbCorner
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+
+- type: construction
+  name: structures-steel-curb-inside-corner
+  id: SteelCurbCornerInside
+  graph: curbs
+  startNode: start
+  targetNode: steelCurbCornerInside
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+
+- type: construction
+  name: structures-steel-curb-ubend
+  id: SteelCurbUbend
+  graph: curbs
+  startNode: start
+  targetNode: steelCurbUbend
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+
+- type: construction
+  name: structures-steel-curb-square
+  id: SteelCurbSquare
+  graph: curbs
+  startNode: start
+  targetNode: steelCurbSquare
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+
+#Brass
+- type: construction
+  name: structures-brass-curb
+  id: BrassCurb
+  graph: curbs
+  startNode: start
+  targetNode: brassCurb
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+
+- type: construction
+  name: structures-brass-curb-corner
+  id: BrassCurbCorner
+  graph: curbs
+  startNode: start
+  targetNode: brassCurbCorner
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+
+- type: construction
+  name: structures-brass-curb-inside-corner
+  id: BrassCurbCornerInside
+  graph: curbs
+  startNode: start
+  targetNode: brassCurbCornerInside
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+
+- type: construction
+  name: structures-brass-curb-ubend
+  id: BrassCurbUbend
+  graph: curbs
+  startNode: start
+  targetNode: brassCurbUbend
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+
+- type: construction
+  name: structures-brass-curb-square
+  id: BrassCurbSquare
+  graph: curbs
+  startNode: start
+  targetNode: brassCurbSquare
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+
+#Gold
+- type: construction
+  name: structures-gold-curb
+  id: GoldCurb
+  graph: curbs
+  startNode: start
+  targetNode: goldCurb
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+
+- type: construction
+  name: structures-gold-curb-corner
+  id: GoldCurbCorner
+  graph: curbs
+  startNode: start
+  targetNode: goldCurbCorner
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+
+- type: construction
+  name: structures-gold-curb-inside-corner
+  id: GoldCurbCornerInside
+  graph: curbs
+  startNode: start
+  targetNode: goldCurbCornerInside
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+
+- type: construction
+  name: structures-gold-curb-ubend
+  id: GoldCurbUbend
+  graph: curbs
+  startNode: start
+  targetNode: goldCurbUbend
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+
+- type: construction
+  name: structures-gold-curb-square
+  id: GoldCurbSquare
+  graph: curbs
+  startNode: start
+  targetNode: goldCurbSquare
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+
+#Hydrogen
+- type: construction
+  name: structures-hydrogen-curb
+  id: HydrogenCurb
+  graph: curbs
+  startNode: start
+  targetNode: hydrogenCurb
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+
+- type: construction
+  name: structures-hydrogen-curb-corner
+  id: HydrogenCurbCorner
+  graph: curbs
+  startNode: start
+  targetNode: hydrogenCurbCorner
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+
+- type: construction
+  name: structures-hydrogen-curb-inside-corner
+  id: HydrogenCurbCornerInside
+  graph: curbs
+  startNode: start
+  targetNode: hydrogenCurbCornerInside
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+
+- type: construction
+  name: structures-hydrogen-curb-ubend
+  id: HydrogenCurbUbend
+  graph: curbs
+  startNode: start
+  targetNode: hydrogenCurbUbend
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure
+
+- type: construction
+  name: structures-hydrogen-curb-square
+  id: HydrogenCurbSquare
+  graph: curbs
+  startNode: start
+  targetNode: hydrogenCurbSquare
+  category: construction-category-structures
+  placementMode: SnapgridCenter
+  objectType: Structure

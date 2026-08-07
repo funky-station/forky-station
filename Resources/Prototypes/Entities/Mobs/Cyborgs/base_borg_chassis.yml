@@ -254,6 +254,7 @@
     - Critical
     - Dead
   - type: IntercomOnlyBypass
+  - type: ESViewconeOccludable # Funky
 
 - type: entity
   abstract: true

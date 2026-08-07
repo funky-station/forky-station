@@ -26,6 +26,10 @@ public sealed partial class GeneralRecord : Control
             ("fingerprint", record.Fingerprint ?? Loc.GetString("generic-not-available-shorthand")));
         Dna.Text = Loc.GetString("general-station-record-console-record-dna",
             ("dna", record.DNA ?? Loc.GetString("generic-not-available-shorthand")));
+        // Funky start
+        Pager.Text = Loc.GetString("general-station-record-console-record-pager",
+            ("pager", record.PagerNumber?.ToString() ?? Loc.GetString("generic-not-available-shorthand")));
+        // Funky end
 
         if (canDelete && id != null)
         {

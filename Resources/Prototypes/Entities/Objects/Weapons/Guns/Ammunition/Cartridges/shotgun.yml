@@ -2,7 +2,7 @@
   abstract: true
   parent: BaseCartridge
   id: BaseShellShotgun
-  name: shell (.50)
+  name: shell (12 gauge)
   components:
   - type: Tag
     tags:
@@ -21,7 +21,7 @@
 - type: entity
   parent: [ BaseShellShotgun, BaseSecurityBartenderContraband ]
   id: ShellShotgunBeanbag
-  name: shell (.50 beanbag)
+  name: shell (12 gauge beanbag)
   description: The standard cartridge used by most modern shotguns. Beanbag ammunition contains a single less-than-lethal projectile that can stun targets.
   components:
   - type: Tag
@@ -40,7 +40,7 @@
 - type: entity
   parent: [ BaseShellShotgun, BaseSecurityContraband]
   id: ShellShotgunSlug
-  name: shell (.50 slug)
+  name: shell (12 gauge slug)
   description: The standard cartridge used by most modern shotguns. Slug ammunition contains a single high-density projectile effective at longer ranges than pellet ammunition.
   components:
   - type: Sprite
@@ -55,7 +55,7 @@
 - type: entity
   parent: BaseShellShotgun
   id: ShellShotgunFlare
-  name: shell (.50 flare)
+  name: shell (12 gauge flare)
   description: The standard cartridge used by most modern shotguns. Flare ammunition contains a single brightly-burning projectile intended for illumination and signalling, rather than combat.
   components:
   - type: Tag
@@ -74,7 +74,7 @@
 - type: entity
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   id: ShellShotgun
-  name: shell (.50 pellet)
+  name: shell (12 gauge pellet)
   description: The standard cartridge used by most modern shotguns. Standard kinetic ammunition is common and useful in most situations.
   components:
   - type: Sprite
@@ -87,7 +87,7 @@
 - type: entity
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   id: ShellShotgunIncendiary
-  name: shell (.50 incendiary)
+  name: shell (12 gauge incendiary)
   description: The standard cartridge used by most modern shotguns. Incendiary ammunition contains a self-igniting compound that sets targets ablaze.
   components:
   - type: Sprite
@@ -102,7 +102,7 @@
 - type: entity
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   id: ShellShotgunPractice
-  name: shell (.50 practice)
+  name: shell (12 gauge practice)
   description: The standard cartridge used by most modern shotguns. Practice ammunition fires chalk pellets that sting a little, but otherwise cause no lasting damage.
   components:
   - type: Sprite
@@ -117,7 +117,7 @@
 - type: entity
   parent: [ SolutionAmmo, SolutionToolVeryTiny, BaseShellShotgun, BaseSecurityContraband ]
   id: ShellTranquilizer
-  name: shell (.50 tranquilizer)
+  name: shell (12 gauge tranquilizer)
   description: The standard cartridge used by most modern shotguns. Tranquilizer ammunition contains a single ballistic syringe loaded with a strong sedative that harmlessly puts targets to sleep.
   components:
   - type: Tag

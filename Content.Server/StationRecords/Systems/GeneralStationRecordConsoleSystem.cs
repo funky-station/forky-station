@@ -1,4 +1,6 @@
 using System.Linq;
+using Content.Server._Funkystation.StationRecords.Components; // funky
+using Content.Server._Funkystation.StationRecords.Systems; // funky
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords.Components;
 using Content.Shared.StationRecords;
@@ -14,9 +16,7 @@ public sealed partial class GeneralStationRecordConsoleSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<GeneralStationRecordConsoleComponent, RecordModifiedEvent>(UpdateUserInterface);
-        SubscribeLocalEvent<GeneralStationRecordConsoleComponent, AfterGeneralRecordCreatedEvent>(UpdateUserInterface);
-        SubscribeLocalEvent<GeneralStationRecordConsoleComponent, RecordRemovedEvent>(UpdateUserInterface);
+        SubscribeLocalEvent<XoRecordManifestSystem.XoRecordManifestUpdatedEvent>(OnManifestUpdated); // funky
 
         Subs.BuiEvents<GeneralStationRecordConsoleComponent>(GeneralStationRecordConsoleKey.Key, subs =>
         {
@@ -26,6 +26,18 @@ public sealed partial class GeneralStationRecordConsoleSystem : EntitySystem
             subs.Event<DeleteStationRecord>(OnRecordDelete);
         });
     }
+
+    // funky start, broadcast
+    private void OnManifestUpdated(XoRecordManifestSystem.XoRecordManifestUpdatedEvent args)
+    {
+        var query = EntityQueryEnumerator<GeneralStationRecordConsoleComponent>();
+        while (query.MoveNext(out var uid, out var console))
+        {
+            if (_station.GetOwningStation(uid) == args.Station)
+                UpdateUserInterface((uid, console));
+        }
+    }
+    // funky end
 
     private void OnRecordDelete(Entity<GeneralStationRecordConsoleComponent> ent, ref DeleteStationRecord args)
     {
@@ -68,13 +80,27 @@ public sealed partial class GeneralStationRecordConsoleSystem : EntitySystem
         var (uid, console) = ent;
         var owningStation = _station.GetOwningStation(uid);
 
-        if (!TryComp<StationRecordsComponent>(owningStation, out var stationRecords))
+        // funky start
+        if (owningStation is not { } station || !HasComp<StationRecordsComponent>(station))
         {
             _ui.SetUiState(uid, GeneralStationRecordConsoleKey.Key, new GeneralStationRecordConsoleState());
             return;
         }
 
-        var listing = _stationRecords.BuildListing((owningStation.Value, stationRecords), console.Filter);
+        if (!TryComp<XoRecordManifestComponent>(station, out var manifest))
+        {
+            _ui.SetUiState(uid, GeneralStationRecordConsoleKey.Key, new GeneralStationRecordConsoleState());
+            return;
+        }
+        var listing = new Dictionary<uint, string>();
+        foreach (var (id, record) in manifest.Published)
+        {
+            if (_stationRecords.IsSkipped(console.Filter, record))
+                continue;
+
+            listing.Add(id, record.Name);
+        }
+        // Funky end
 
         switch (listing.Count)
         {
@@ -87,13 +113,12 @@ public sealed partial class GeneralStationRecordConsoleSystem : EntitySystem
                 break;
         }
 
-        if (console.ActiveKey is not { } id)
+        if (console.ActiveKey is not { } id2) // funky changed to id2, record2
             return;
 
-        var key = new StationRecordKey(id, owningStation.Value);
-        _stationRecords.TryGetRecord<GeneralStationRecord>(key, out var record, stationRecords);
+        manifest.Published.TryGetValue(id2, out var record2); // funky
 
-        GeneralStationRecordConsoleState newState = new(id, record, listing, console.Filter, ent.Comp.CanDeleteEntries);
+        GeneralStationRecordConsoleState newState = new(id2, record2, listing, console.Filter, ent.Comp.CanDeleteEntries); // funky
         _ui.SetUiState(uid, GeneralStationRecordConsoleKey.Key, newState);
     }
 }

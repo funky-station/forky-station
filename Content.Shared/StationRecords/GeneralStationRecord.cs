@@ -68,4 +68,10 @@ public sealed record GeneralStationRecord
     /// </summary>
     [DataField]
     public string? DNA;
+
+    /// <summary>
+    ///     Funky, pager number assigned roundstart or on late join.
+    /// </summary>
+    [DataField]
+    public int? PagerNumber;
 }
