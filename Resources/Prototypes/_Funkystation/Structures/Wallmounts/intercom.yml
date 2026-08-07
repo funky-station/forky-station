@@ -1,0 +1,64 @@
+- type: entity
+  parent: BaseWallmountMachine
+  id: BaseIntercomSpeaker
+  name: intercom speaker
+  description: An intercom speaker. For when the station just needs to know something.
+  abstract: true
+  components:
+  - type: TelecomExempt
+  - type: EncryptionKeyHolder
+    keySlots: 3
+    keysExtractionMethod: Prying
+  - type: Speech
+    speechVerb: Robotic
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      key_slots: !type:Container
+  - type: Sprite
+    noRot: false
+    drawdepth: SmallObjects
+    sprite: Structures/Wallmounts/intercom.rsi
+    layers:
+    - state: base
+    - state: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      shader: unshaded
+    - state: broadcasting
+      map: ["enum.RadioDeviceVisualLayers.Broadcasting"]
+      shader: unshaded
+      visible: false
+    - state: speaker
+      map: ["enum.RadioDeviceVisualLayers.Speaker"]
+      shader: unshaded
+      visible: false
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      visible: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+          params:
+            volume: -4
+
+- type: entity
+  id: IntercomSpeakerCommon
+  parent: BaseIntercomSpeaker
+  suffix: Common
+  components:
+  - type: RadioSpeaker
+    toggleOnInteract: false
+    channels:
+    - Common
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
