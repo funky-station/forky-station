@@ -1,5 +1,6 @@
 using System.Collections.Frozen;
 using System.Text.RegularExpressions;
+using Content.Shared._Funkystation.CCVar;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Popups;
@@ -9,6 +10,7 @@ using Content.Shared.Speech;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -52,6 +54,7 @@ public abstract partial class SharedChatSystem : EntitySystem
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private INetManager _net = default!;
+    [Dependency] private IConfigurationManager _cfg = default!; // Funky
 
     /// <summary>
     /// Cache of the keycodes for faster lookup.
@@ -162,7 +165,7 @@ public abstract partial class SharedChatSystem : EntitySystem
 
         // BEGIN funkystation
         // Unless the source can bypass intercom restrictions, we want the common prefix to act like :h instead.
-        if (input.StartsWith(RadioCommonPrefix) && HasComp<IntercomOnlyBypassComponent>(source))
+        if (!_cfg.GetCVar(ChatPrefixCVars.RedirectCommonPrefix) || input.StartsWith(RadioCommonPrefix) && HasComp<IntercomOnlyBypassComponent>(source))
         {
             output = SanitizeMessageCapital(input[1..].TrimStart());
             channel = _prototypeManager.Index<RadioChannelPrototype>(CommonChannel);
