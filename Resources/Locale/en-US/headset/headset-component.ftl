@@ -4,6 +4,7 @@ chat-radio-message-wrap-bold = [color={$color}]{$channel} [bold]{$name}[/bold] {
 
 examine-headset-default-channel = Use {$prefix} for the default channel ([color={$color}]{$channel}[/color]).
 
+# renamed common -> intercom (funky)
 chat-radio-common = Intercom
 chat-radio-centcom = CentComm
 chat-radio-command = Command
