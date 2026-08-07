@@ -163,9 +163,9 @@ public abstract partial class SharedChatSystem : EntitySystem
         if (input.Length == 0)
             return false;
 
-        // BEGIN funkystation
-        // Unless the source can bypass intercom restrictions, we want the common prefix to act like :h instead.
-        if (!_cfg.GetCVar(ChatPrefixCVars.RedirectCommonPrefix) || input.StartsWith(RadioCommonPrefix) && HasComp<IntercomOnlyBypassComponent>(source))
+        // funky - Unless the source can bypass intercom restrictions, we want the common prefix to act like :h instead.
+        if (input.StartsWith(RadioCommonPrefix)
+            && (!_cfg.GetCVar(ChatPrefixCVars.RedirectCommonPrefix) || HasComp<IntercomOnlyBypassComponent>(source)))
         {
             output = SanitizeMessageCapital(input[1..].TrimStart());
             channel = _prototypeManager.Index<RadioChannelPrototype>(CommonChannel);
@@ -174,10 +174,11 @@ public abstract partial class SharedChatSystem : EntitySystem
 
         if (!(input.StartsWith(RadioChannelPrefix)
               || input.StartsWith(RadioChannelAltPrefix)
-              || input.StartsWith(RadioCommonPrefix)))
+              || input.StartsWith(RadioCommonPrefix))) // funky
             return false;
 
-        if (input.Length < 2 || (char.IsWhiteSpace(input[1]) && !input.StartsWith(RadioCommonPrefix)))
+        // funky - if the input is ": <message here>", fail, but not if the input is "; <message here>".
+        if (input.Length < 2 || (!input.StartsWith(RadioCommonPrefix) && char.IsWhiteSpace(input[1])))
         {
             output = SanitizeMessageCapital(input[1..].TrimStart());
             if (!quiet)
@@ -185,16 +186,16 @@ public abstract partial class SharedChatSystem : EntitySystem
             return true;
         }
 
+        // funky change
         var channelKey = !input.StartsWith(RadioCommonPrefix)
             ? input[1]
             : DefaultChannelKey;
         channelKey = char.ToLower(channelKey);
 
-        // if the message starts with ; then the message begins one character earlier (no radio prefix)
+        // funky - if the message starts with ; then the message begins one character earlier (no radio prefix)
         output = SanitizeMessageCapital(!input.StartsWith(RadioCommonPrefix)
             ? input[2..].TrimStart()
             : input[1..].TrimStart());
-        // END funky station
 
         if (channelKey == DefaultChannelKey)
         {

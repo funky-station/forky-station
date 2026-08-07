@@ -225,7 +225,8 @@ public sealed partial class EncryptionKeySystem : EntitySystem
             }
             // END Funkystation
 
-            var key = id == SharedChatSystem.CommonChannel // redundant if skipping common channel
+            // redundant if skipping common channel
+            var key = id == SharedChatSystem.CommonChannel
                 ? SharedChatSystem.RadioCommonPrefix.ToString()
                 : $"{SharedChatSystem.RadioChannelPrefix}{proto.KeyCode}";
 
