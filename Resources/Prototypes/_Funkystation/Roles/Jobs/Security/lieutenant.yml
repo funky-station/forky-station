@@ -1,15 +1,15 @@
 - type: job
-  id: SecurityOfficer
-  name: job-name-security
-  description: job-description-security
-  playTimeTracker: JobSecurityOfficer
+  id: Lieutenant
+  name: job-name-lieutenant
+  description: job-description-lieutenant
+  playTimeTracker: JobLieutenant
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 4h
-  startingGear: SecurityOfficerGear
-  icon: "JobIconSecurityOfficer"
-  supervisors: job-supervisors-lieutenant #funky
+  - !type:RoleTimeRequirement
+    role: JobSecurityOfficer
+    time: 5h
+  startingGear: LieutenantGear
+  icon: "JobIconDeputy"
+  supervisors: job-supervisors-ac
   access:
   - Security
   - Brig
@@ -21,19 +21,20 @@
     implants: [ MindShieldImplant ]
 
 - type: startingGear
-  id: SecurityOfficerGear
+  id: LieutenantGear
   equipment:
+    id: LieutenantPDA
     eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetSecurity
-    pocket1: WeaponPistolMk58
+    pocket2: WeaponPistolMk58
   storage:
     back:
     - Flash
     - MagazinePistol
 
 - type: chameleonOutfit
-  id: SecurityOfficerChameleonOutfit
-  job: SecurityOfficer
+  id: LieutenantChameleonOutfit
+  job: Lieutenant
   hasMindShield: true
   equipment:
     head: ClothingHeadHatBeretSecurity

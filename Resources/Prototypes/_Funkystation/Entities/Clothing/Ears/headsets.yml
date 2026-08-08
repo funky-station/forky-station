@@ -46,3 +46,16 @@
       key_slots:
       - EncryptionKeyCommand
       - EncryptionKeyCentCom
+
+- type: entity
+  parent: ClothingHeadsetSecurity
+  id: ClothingHeadsetDispatcher
+  name: dispatch headset
+  description: One of the many links to the beating heart of the station.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeySecurity
+      - EncryptionKeyMedical
+      - EncryptionKeyCommon

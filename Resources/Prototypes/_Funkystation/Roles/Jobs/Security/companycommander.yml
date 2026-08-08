@@ -1,0 +1,62 @@
+- type: job
+  id: AegisCommander
+  name: job-name-ac
+  description: job-description-ac
+  playTimeTracker: JobAegisCommander
+  requirements:
+  - !type:RoleTimeRequirement
+    role: JobWarden
+    time: 5h
+  - !type:RoleTimeRequirement
+    role: JobDetective
+    time: 5h
+  - !type:RoleTimeRequirement
+    role: JobLieutenant
+    time: 5h
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 30h
+  weight: 10
+  startingGear: AegisCommanderGear
+  icon: "JobIconHeadOfSecurity"
+  joinNotifyCrew: true # Funky
+  supervisors: job-supervisors-cap-ac
+  access:
+  - HeadOfSecurity
+  - Brig
+  - Security
+  - Armory
+  - Maintenance
+  - External
+  - Detective
+  - Cryogenics
+  - GenpopEnter
+  - GenpopLeave
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: CommandStaff
+
+- type: startingGear
+  id: AegisCommanderGear
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+    id: ACPDA
+    gloves: ClothingHandsGlovesCombat
+    ears: ClothingHeadsetAltSecurity
+    pocket2: WeaponPistolMk58
+  storage:
+    back:
+    - Flash
+    - MagazinePistol
+
+- type: chameleonOutfit
+  id: AegisCommanderChameleonOutfit
+  job: AegisCommander
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatBeretHoS
+    mask: ClothingMaskGasSecurity
+    neck: ClothingNeckCloakHos
