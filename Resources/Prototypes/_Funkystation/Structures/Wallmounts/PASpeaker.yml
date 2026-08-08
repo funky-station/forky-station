@@ -8,6 +8,28 @@
   - type: TelecomExempt
   - type: Speech
     speechVerb: Robotic
+    speechBubbleOffset: -0.5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+          params:
+            volume: -4
+
+- type: entity
+  parent: BasePASpeaker
+  id: PASpeaker
+  name: PA speaker
+  description: A PA speaker. For when you really need to know whats happening.
+  suffix: Announce only
+  components:
   - type: Appearance
   - type: Sprite
     noRot: false
@@ -26,23 +48,10 @@
       map: ["enum.RadioDeviceVisualLayers.Speaker"]
       shader: unshaded
       visible: false
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalGlassBreak
-          params:
-            volume: -4
 
 - type: entity
   id: PASpeakerCommon
-  parent: BasePASpeaker
+  parent: PASpeaker
   suffix: Common
   components:
   - type: RadioSpeaker
@@ -55,7 +64,7 @@
 
 - type: entity
   id: PASpeakerEngineering
-  parent: BasePASpeaker
+  parent: PASpeaker
   suffix: Engi
   components:
   - type: RadioSpeaker
@@ -69,7 +78,7 @@
 
 - type: entity
   id: PASpeakerMedical
-  parent: BasePASpeaker
+  parent: PASpeaker
   suffix: Med
   components:
   - type: RadioSpeaker
@@ -83,7 +92,7 @@
 
 - type: entity
   id: PASpeakerScience
-  parent: BasePASpeaker
+  parent: PASpeaker
   suffix: Sci
   components:
   - type: RadioSpeaker
@@ -97,7 +106,7 @@
 
 - type: entity
   id: PASpeakerSecurity
-  parent: BasePASpeaker
+  parent: PASpeaker
   suffix: Sec
   components:
   - type: RadioSpeaker
@@ -111,7 +120,7 @@
 
 - type: entity
   id: PASpeakerService
-  parent: BasePASpeaker
+  parent: PASpeaker
   suffix: Service
   components:
   - type: RadioSpeaker
@@ -125,7 +134,7 @@
 
 - type: entity
   id: PASpeakerSupply
-  parent: BasePASpeaker
+  parent: PASpeaker
   suffix: Supply
   components:
   - type: RadioSpeaker
@@ -139,7 +148,7 @@
 
 - type: entity
   id: PASpeakerFreelance
-  parent: BasePASpeaker
+  parent: PASpeaker
   suffix: Freelance
   components:
   - type: RadioSpeaker
@@ -153,7 +162,7 @@
 
 - type: entity
   id: PASpeakerHailing
-  parent: BasePASpeaker
+  parent: PASpeaker
   suffix: Hailing
   components:
   - type: RadioSpeaker
@@ -162,5 +171,4 @@
     onWhenPowered: true
     powerRequired: true
     channels:
-    - Common
     - Hailing
