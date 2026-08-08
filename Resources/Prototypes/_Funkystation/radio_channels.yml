@@ -4,3 +4,12 @@
   keycode: "i"
   frequency: 1375
   color: "#bda499"
+
+- type: radioChannel
+  id: Hailing
+  name: chat-radio-hailing
+  keycode: "^"
+  frequency: 5767
+  color: "#f6ce64"
+  # long range since otherwise it'd defeat the point of a hailing frequency
+  longRange: true
