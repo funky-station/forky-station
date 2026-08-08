@@ -50,125 +50,101 @@
       visible: false
 
 - type: entity
-  id: PASpeakerCommon
+  id: PARadioSpeaker
   parent: PASpeaker
-  suffix: Common
+  abstract: true
   components:
   - type: RadioSpeaker
     toggleOnInteract: false
     enabled: true
     onWhenPowered: true
     powerRequired: true
+    volume: 4
+
+- type: entity
+  id: PASpeakerCommon
+  parent: PARadioSpeaker
+  suffix: Common
+  components:
+  - type: RadioSpeaker
     channels:
     - Common
 
 - type: entity
   id: PASpeakerEngineering
-  parent: PASpeaker
+  parent: PARadioSpeaker
   suffix: Engi
   components:
   - type: RadioSpeaker
-    toggleOnInteract: false
-    enabled: true
-    onWhenPowered: true
-    powerRequired: true
     channels:
     - Common
     - Engineering
 
 - type: entity
   id: PASpeakerMedical
-  parent: PASpeaker
+  parent: PARadioSpeaker
   suffix: Med
   components:
   - type: RadioSpeaker
-    toggleOnInteract: false
-    enabled: true
-    onWhenPowered: true
-    powerRequired: true
     channels:
     - Common
     - Medical
 
 - type: entity
   id: PASpeakerScience
-  parent: PASpeaker
+  parent: PARadioSpeaker
   suffix: Sci
   components:
   - type: RadioSpeaker
-    toggleOnInteract: false
-    enabled: true
-    onWhenPowered: true
-    powerRequired: true
     channels:
     - Common
     - Science
 
 - type: entity
   id: PASpeakerSecurity
-  parent: PASpeaker
+  parent: PARadioSpeaker
   suffix: Sec
   components:
   - type: RadioSpeaker
-    toggleOnInteract: false
-    enabled: true
-    onWhenPowered: true
-    powerRequired: true
     channels:
     - Common
     - Security
 
 - type: entity
   id: PASpeakerService
-  parent: PASpeaker
+  parent: PARadioSpeaker
   suffix: Service
   components:
   - type: RadioSpeaker
-    toggleOnInteract: false
-    enabled: true
-    onWhenPowered: true
-    powerRequired: true
     channels:
     - Common
     - Service
 
 - type: entity
   id: PASpeakerSupply
-  parent: PASpeaker
+  parent: PARadioSpeaker
   suffix: Supply
   components:
   - type: RadioSpeaker
-    toggleOnInteract: false
-    enabled: true
-    onWhenPowered: true
-    powerRequired: true
     channels:
     - Common
     - Supply
 
 - type: entity
   id: PASpeakerFreelance
-  parent: PASpeaker
+  parent: PARadioSpeaker
   suffix: Freelance
   components:
   - type: RadioSpeaker
-    toggleOnInteract: false
-    enabled: true
-    onWhenPowered: true
-    powerRequired: true
     channels:
     - Common
     - Freelance
 
 - type: entity
   id: PASpeakerHailing
-  parent: PASpeaker
+  parent: PARadioSpeaker
   suffix: Hailing
   components:
   - type: RadioSpeaker
-    toggleOnInteract: false
-    enabled: true
-    onWhenPowered: true
-    powerRequired: true
     channels:
     - Hailing
