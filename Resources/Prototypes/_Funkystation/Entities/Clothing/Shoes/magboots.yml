@@ -40,3 +40,14 @@
       moles:
         Oxygen: 0.153853429 # oxygen
         Nitrogen: 0.153853429 # nitrogen
+
+- type: entity
+  parent: ClothingShoesBootsMagERTAdvanced
+  id: ClothingShoesBootsMagERTAdvancedFilled
+  name: ERT magboots
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - CombatKnife
