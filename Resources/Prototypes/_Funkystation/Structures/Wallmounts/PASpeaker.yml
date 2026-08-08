@@ -30,6 +30,7 @@
   description: A PA speaker. For when you really need to know whats happening.
   suffix: Announce only
   components:
+  - type: PAAnnouncer
   - type: Appearance
   - type: Sprite
     noRot: false

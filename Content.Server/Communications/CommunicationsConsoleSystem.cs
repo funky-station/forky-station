@@ -10,6 +10,7 @@ using Content.Server.Station.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
+using Content.Shared._Funkystation.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Communications;
 using Content.Shared.Database;
@@ -229,6 +230,12 @@ namespace Content.Server.Communications
         private void OnAnnounceMessage(EntityUid uid, CommunicationsConsoleComponent comp,
             CommunicationsConsoleAnnounceMessage message)
         {
+            if (_cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements))
+            {
+                Log.Debug("cvar true");
+                AnnounceMessageViaPASystem(uid, comp, message);
+                return;
+            }
             var maxLength = _cfg.GetCVar(CCVars.ChatMaxAnnouncementLength);
             var msg = SharedChatSystem.SanitizeAnnouncement(message.Message, maxLength);
             var author = Loc.GetString("comms-console-announcement-unknown-sender");
