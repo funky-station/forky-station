@@ -14,10 +14,10 @@
   - BorgModuleFireExtinguisher
   - BorgModuleInflatable
   - BorgModuleArtistry
-  - BorgModulePaperwork
-  - BorgModuleMedicalBasic
-  - BorgModuleChemicalBasic
-  - BorgModuleFoam
+  - BorgModulePaperwork #Funky
+  - BorgModuleMedicalBasic #Funky
+  - BorgModuleChemicalBasic #Funky
+  - BorgModuleFoam #Funky
 
 - type: latheRecipePack
   id: BorgLimbsStatic
@@ -44,7 +44,7 @@
   - BorgModuleAdvancedClowning
   - BorgModuleAdvancedTopical
   - BorgModuleAdvancedMining
-  - BorgModuleAnomalyAdvanced
+  - BorgModuleAnomalyAdvanced #Funky
 
 - type: latheRecipePack
   id: MechParts
