@@ -110,7 +110,7 @@
   weight: 20
   roles:
 #  - HeadOfSecurity - funky
-  - AegisCommander # funky
+  - Commandant # funky
   - Lieutenant # funky
   - SecurityCadet
   - SecurityOfficer

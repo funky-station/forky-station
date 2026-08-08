@@ -1,8 +1,8 @@
 - type: job
-  id: AegisCommander
-  name: job-name-ac
-  description: job-description-ac
-  playTimeTracker: JobAegisCommander
+  id: Commandant
+  name: job-name-commandant
+  description: job-description-commandant
+  playTimeTracker: JobCommandant
   requirements:
   - !type:RoleTimeRequirement
     role: JobWarden
@@ -17,10 +17,10 @@
     department: Security
     time: 30h
   weight: 10
-  startingGear: AegisCommanderGear
+  startingGear: CommandantGear
   icon: "JobIconHeadOfSecurity"
   joinNotifyCrew: true # Funky
-  supervisors: job-supervisors-cap-ac
+  supervisors: job-supervisors-cap-commandant
   access:
   - HeadOfSecurity
   - Brig
@@ -40,10 +40,10 @@
     - type: CommandStaff
 
 - type: startingGear
-  id: AegisCommanderGear
+  id: CommandantGear
   equipment:
     eyes: ClothingEyesGlassesSecurity
-    id: ACPDA
+    id: CommandantPDA
     gloves: ClothingHandsGlovesCombat
     ears: ClothingHeadsetAltSecurity
     pocket2: WeaponPistolMk58
@@ -53,8 +53,8 @@
     - MagazinePistol
 
 - type: chameleonOutfit
-  id: AegisCommanderChameleonOutfit
-  job: AegisCommander
+  id: CommandantChameleonOutfit
+  job: Commandant
   hasMindShield: true
   equipment:
     head: ClothingHeadHatBeretHoS

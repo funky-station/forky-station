@@ -40,11 +40,11 @@
 
 - type: entity
   parent: HoSIDCard
-  id: ACIDCard
-  name: commander ID card
+  id: CommandantIDCard
+  name: commandant ID card
   components:
   - type: PresetIdCard
-    job: AegisCommander
+    job: Commandant
 
 - type: entity
   parent: SecurityIDCard

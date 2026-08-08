@@ -59,12 +59,12 @@
     - state: hop
 
 - type: entity
-  id: SpawnPointAegisCommander
+  id: SpawnPointCommandant
   parent: SpawnPointJobBase
-  name: aegiscommander
+  name: commandant
   components:
   - type: SpawnPoint
-    job_id: AegisCommander
+    job_id: Commandant
   - type: Sprite
     layers:
     - state: green

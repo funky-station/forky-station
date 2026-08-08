@@ -69,7 +69,7 @@
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
-  id: JobAegisCommander
+  id: JobCommandant
   groups:
   - HeadofSecurityHead
   - HeadofSecurityNeck

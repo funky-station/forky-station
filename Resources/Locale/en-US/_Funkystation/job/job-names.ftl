@@ -14,5 +14,5 @@ job-name-nct = Nanotrasen Career Trainer
 job-name-security-clown = Security Clown
 job-name-xo = Executive Officer
 job-name-lieutenant = Lieutenant
-job-name-ac = Aegis Commander
+job-name-commandant = Commandant
 job-name-dispatcher = Dispatcher

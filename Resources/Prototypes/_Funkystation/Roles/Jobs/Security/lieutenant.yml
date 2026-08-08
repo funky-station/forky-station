@@ -9,7 +9,7 @@
     time: 5h
   startingGear: LieutenantGear
   icon: "JobIconDeputy"
-  supervisors: job-supervisors-ac
+  supervisors: job-supervisors-commandant
   access:
   - Security
   - Brig

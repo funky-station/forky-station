@@ -73,11 +73,11 @@
 
 - type: entity
   parent: HoSPDA
-  id: ACPDA
-  name: commander PDA
+  id: CommandantPDA
+  name: commandant PDA
   components:
   - type: Pda
-    id: ACIDCard
+    id: CommandantIDCard
 
 - type: entity
   parent: SecurityPDA

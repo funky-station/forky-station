@@ -14,7 +14,7 @@
   id: JobExecutiveOfficer
 
 - type: playTimeTracker
-  id: JobAegisCommander
+  id: JobCommandant
 
 - type: playTimeTracker
   id: JobLieutenant
