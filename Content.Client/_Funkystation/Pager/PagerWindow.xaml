@@ -1,0 +1,74 @@
+﻿<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                      x:Class="Content.Client._Funkystation.Pager.PagerWindow"
+                      Title="{Loc 'pager-window-title'}"
+                      MinSize="440 220"
+                      SetSize="440 220">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+
+        <PanelContainer Name="GlassBackground" VerticalExpand="True" HorizontalExpand="True">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#111115" />
+            </PanelContainer.PanelOverride>
+
+            <BoxContainer Orientation="Vertical" Margin="10" SeparationOverride="8" HorizontalExpand="True" VerticalExpand="True">
+
+                <BoxContainer Orientation="Horizontal" SeparationOverride="10" HorizontalExpand="True" VerticalExpand="True">
+
+                    <BoxContainer Orientation="Vertical" VerticalAlignment="Center" SeparationOverride="6" Margin="2 0 0 0">
+                        <TextureRect TexturePath="/Textures/Interface/NavMap/beveled_circle.png" SetSize="10 10" Stretch="KeepAspectCentered" Modulate="#440000" />
+                        <TextureRect TexturePath="/Textures/Interface/NavMap/beveled_circle.png" SetSize="10 10" Stretch="KeepAspectCentered" Modulate="#d6a851" />
+                    </BoxContainer>
+
+                    <controls:StripeBack HorizontalExpand="True" VerticalExpand="True">
+                        <PanelContainer Name="ScreenBackground" Margin="2" HorizontalExpand="True" VerticalExpand="True">
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BackgroundColor="#120f0a" BorderColor="#382a17" BorderThickness="2" />
+                            </PanelContainer.PanelOverride>
+
+                            <BoxContainer Orientation="Vertical" Margin="8" HorizontalAlignment="Center" VerticalAlignment="Center" SeparationOverride="2">
+                                <Label Name="OwnNumberLabel" StyleClasses="LabelSubText" FontColorOverride="#55421a" HorizontalAlignment="Center" />
+                                <Label Name="ScreenLabel" HorizontalAlignment="Center" StyleClasses="LabelBig" FontColorOverride="#d6a851" />
+                            </BoxContainer>
+                        </PanelContainer>
+                    </controls:StripeBack>
+                </BoxContainer>
+
+                <PanelContainer StyleClasses="LowDivider" />
+
+                <BoxContainer Orientation="Horizontal" SeparationOverride="12" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 2">
+                    <BoxContainer Orientation="Vertical" SeparationOverride="2" VerticalAlignment="Center">
+                        <Label Text="{Loc 'pager-window-number-label'}" StyleClasses="LabelSubText" FontColorOverride="#555555" HorizontalAlignment="Center" />
+                        <LineEdit Name="NumberEdit" PlaceHolder="{Loc 'pager-window-number-placeholder'}" MinWidth="50" HorizontalAlignment="Center" />
+                    </BoxContainer>
+
+                    <BoxContainer Orientation="Vertical" SeparationOverride="2" VerticalAlignment="Center">
+                        <Label Text="{Loc 'pager-window-code-label'}" StyleClasses="LabelSubText" FontColorOverride="#555555" HorizontalAlignment="Center" />
+                        <LineEdit Name="CodeEdit" PlaceHolder="{Loc 'pager-window-code-placeholder'}" MinWidth="90" HorizontalAlignment="Center" />
+                    </BoxContainer>
+
+                    <Control MinWidth="8" />
+
+                    <BoxContainer Orientation="Vertical" SeparationOverride="2" VerticalAlignment="Bottom">
+                        <Control MinHeight="12" />
+                        <Button Name="SendButton" Text="{Loc 'pager-window-send'}" MinWidth="130" MinHeight="24" />
+                    </BoxContainer>
+                </BoxContainer>
+
+            </BoxContainer>
+        </PanelContainer>
+
+        <PanelContainer StyleClasses="LowDivider" />
+
+        <BoxContainer Orientation="Horizontal" Margin="8 3 8 3" MinHeight="25" VerticalAlignment="Center">
+            <Label Text="{Loc 'pager-flavor-left'}" StyleClasses="WindowFooterText" />
+            <Label Text="{Loc 'pager-flavor-right'}" StyleClasses="WindowFooterText"
+                   HorizontalAlignment="Right" HorizontalExpand="True" Margin="0 0 5 0" />
+            <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered"
+                         VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="16 16"/>
+        </BoxContainer>
+
+    </BoxContainer>
+</controls:FancyWindow>

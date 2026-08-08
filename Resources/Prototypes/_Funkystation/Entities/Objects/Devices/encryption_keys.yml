@@ -1,0 +1,15 @@
+- type: entity
+  parent: EncryptionKeyCommon
+  id: EncryptionKeyIA
+  name: IA encryption key
+  description: An encryption key used by internal affairs employees.
+  components:
+  - type: EncryptionKey
+    channels:
+    - InternalAffairs
+    defaultChannel: InternalAffairs
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: common_label
+

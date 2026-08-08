@@ -307,6 +307,7 @@
         - id: ClothingHandsGlovesColorYellowBudget
         - id: DoubleEmergencyOxygenTankFilled
         - id: DoubleEmergencyNitrogenTankFilled
+        - id: SuitSealantCanister # Funky
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -355,6 +356,7 @@
     - id: ClothingHandsGlovesCombat
     - id: DoubleEmergencyOxygenTankFilled
     - id: DoubleEmergencyNitrogenTankFilled
+    - id: SuitSealantCanister # Funky
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle

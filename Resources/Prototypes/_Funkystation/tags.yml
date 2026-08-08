@@ -24,13 +24,16 @@
 
 - type: Tag # Funky Wall Stains
   id: DirectionalWindow
-  
+
 - type: Tag # Funky - Making plastic lighters whitelisted for cig packs
   id: PlasticLighter
 
 - type: Tag # Funky - Rag fits in janibelt
   id: Rag
 
+- type: Tag # Funky, for shredder
+  id: ShredderBin
+  
 - type: Tag
   id: GasTank
 
