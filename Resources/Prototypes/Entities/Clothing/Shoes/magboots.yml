@@ -125,7 +125,7 @@
   - type: Sprite
     sprite: Clothing/Shoes/Boots/magboots-ert.rsi
   - type: Clothing
-sprite: Clothing/Shoes/Boots/magboots-ert.rsi
+    sprite: Clothing/Shoes/Boots/magboots-ert.rsi
 
 - type: entity
   parent: BaseAction
