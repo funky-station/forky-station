@@ -32,7 +32,6 @@
     sprite: null
     size: Normal
   - type: GasTank
-    outputPressure: 42.6
     air:
       # 2 minutes of thrust 
       volume: 0.75
