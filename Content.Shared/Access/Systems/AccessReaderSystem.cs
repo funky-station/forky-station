@@ -1,6 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
+using Content.Shared._Funkystation.StationTime.EntitySystems; // Funky Change
+using Content.Shared._Funkystation.StationTime.Components; // Funky Change
 using Content.Shared.Access.Components;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Emag.Systems;
@@ -13,6 +15,7 @@ using Content.Shared.Localizations;
 using Content.Shared.Lock;
 using Content.Shared.NameIdentifier;
 using Content.Shared.PDA;
+using Content.Shared.Station; // Funky Change
 using Content.Shared.StationRecords;
 using Content.Shared.Tag;
 using Robust.Shared.Containers;
@@ -23,17 +26,20 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Access.Systems;
 
-public sealed class AccessReaderSystem : EntitySystem
+public sealed partial class AccessReaderSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly SharedGameTicker _gameTicker = default!;
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly SharedStationRecordsSystem _recordsSystem = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private InventorySystem _inventorySystem = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private EmagSystem _emag = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private SharedGameTicker _gameTicker = default!;
+    [Dependency] private SharedHandsSystem _handsSystem = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private SharedStationRecordsSystem _recordsSystem = default!;
+    [Dependency] private IdentitySystem _identity = default!;
+    [Dependency] private StationTimeSystem _stationTime = default!; // Funky Change
+    [Dependency] private SharedStationSystem _station = default!; // Funky Change
 
     private static readonly ProtoId<TagPrototype> PreventAccessLoggingTag = "PreventAccessLogging";
 
@@ -41,6 +47,7 @@ public sealed class AccessReaderSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<AccessReaderComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<AccessReaderComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<AccessReaderComponent, GotEmaggedEvent>(OnEmagged);
         SubscribeLocalEvent<AccessReaderComponent, LinkAttemptEvent>(OnLinkAttempt);
@@ -52,12 +59,17 @@ public sealed class AccessReaderSystem : EntitySystem
         SubscribeLocalEvent<AccessReaderComponent, ComponentHandleState>(OnHandleState);
     }
 
+    private void OnMapInit(Entity<AccessReaderComponent> ent, ref MapInitEvent args)
+    {
+        ent.Comp.AccessListsOriginal ??= [.. ent.Comp.AccessLists];
+        Dirty(ent);
+    }
+
     private void OnExamined(Entity<AccessReaderComponent> ent, ref ExaminedEvent args)
     {
-        if (!GetMainAccessReader(ent, out var mainAccessReader))
+        if (!GetMainAccessReader(ent, out var mainAccessReader) ||
+            mainAccessReader.Value.Comp.AccessListsOriginal == null)
             return;
-
-        mainAccessReader.Value.Comp.AccessListsOriginal ??= new(mainAccessReader.Value.Comp.AccessLists);
 
         var accessHasBeenModified = mainAccessReader.Value.Comp.AccessLists.Count != mainAccessReader.Value.Comp.AccessListsOriginal.Count;
 
@@ -914,12 +926,7 @@ public sealed class AccessReaderSystem : EntitySystem
 
         // TODO pass the ID card on IsAllowed() instead of using this expensive method
         // Set name if the accessor has a card and that card has a name and allows itself to be recorded
-        var getIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(ent, accessor, true);
-        RaiseLocalEvent(getIdentityShortInfoEvent);
-        if (getIdentityShortInfoEvent.Title != null)
-        {
-            name = getIdentityShortInfoEvent.Title;
-        }
+        name = _identity.GetIdentityShortInfo(accessor, ent, true) ?? name;
 
         LogAccess(ent, name ?? Loc.GetString("access-reader-unknown-id"));
     }
@@ -940,8 +947,29 @@ public sealed class AccessReaderSystem : EntitySystem
                 ent.Comp.AccessLog.Dequeue();
         }
 
-        var stationTime = accessTime ?? _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
-        ent.Comp.AccessLog.Enqueue(new AccessRecord(stationTime, name));
+        // Funky Change start
+        TimeSpan loggedTime;
+        if (accessTime != null)
+        {
+            loggedTime = accessTime.Value;
+        }
+        else
+        {
+            var station = _station.GetOwningStation(ent);
+            if (station != null && TryComp<StationTimeComponent>(station.Value, out var timeComp))
+            {
+                var st = _stationTime.GetStationTime((station.Value, timeComp));
+                loggedTime = st.TimeOfDay;
+            }
+            else
+            {
+                var curTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
+                loggedTime = curTime < TimeSpan.Zero ? TimeSpan.Zero : curTime;
+            }
+        }
+
+        ent.Comp.AccessLog.Enqueue(new AccessRecord(loggedTime, name));
+        // Funky Change end
 
         Dirty(ent);
     }

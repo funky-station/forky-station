@@ -22,8 +22,8 @@
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
+  joinNotifyCrew: true # Funky
   supervisors: job-supervisors-captain
-  canBeAntag: false
   access:
   - Command
   - HeadOfPersonnel
@@ -51,6 +51,8 @@
   - Cargo
   - Atmospherics
   - Medical
+  - GenpopEnter
+  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

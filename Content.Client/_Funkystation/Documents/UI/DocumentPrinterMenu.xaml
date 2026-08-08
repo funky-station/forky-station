@@ -1,0 +1,54 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                      Title="{Loc 'document-printer-title'}"
+                      MinSize="720 480">
+    <BoxContainer Orientation="Vertical">
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
+            <PanelContainer StyleClasses="Dark" MinWidth="180" VerticalExpand="True">
+                <ScrollContainer VerticalExpand="True" HScrollEnabled="False" Margin="4">
+                    <BoxContainer Name="CategoryList" Orientation="Vertical" HorizontalExpand="True" />
+                </ScrollContainer>
+            </PanelContainer>
+
+            <PanelContainer MinWidth="2" StyleClasses="LowDivider" />
+
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="8 8 8 4">
+                <PanelContainer Margin="0 0 0 8">
+                    <PanelContainer.PanelOverride>
+                        <graphics:StyleBoxFlat BackgroundColor="#444550" />
+                    </PanelContainer.PanelOverride>
+                    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="8 4">
+                        <RichTextLabel Name="CopySlotLabel"
+                                       HorizontalExpand="True"
+                                       VerticalAlignment="Center" />
+                        <Button Name="EjectButton"
+                                Text="{Loc 'document-printer-eject-button'}"
+                                Margin="4 0 0 0" />
+                        <Button Name="CopyButton"
+                                Text="{Loc 'document-printer-copy-button'}"
+                                Margin="4 0 0 0" />
+                    </BoxContainer>
+                </PanelContainer>
+
+                <LineEdit Name="SearchBar"
+                          PlaceHolder="{Loc 'document-printer-search-placeholder'}"
+                          Margin="0 0 0 8" />
+
+                <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
+                    <BoxContainer Name="DocumentList" Orientation="Vertical" />
+                </ScrollContainer>
+            </BoxContainer>
+        </BoxContainer>
+
+        <BoxContainer Orientation="Vertical">
+            <PanelContainer StyleClasses="LowDivider" />
+            <BoxContainer Orientation="Horizontal" Margin="10 4 10 4" VerticalAlignment="Bottom">
+                <Label Text="NT XERO-FLUX 880" StyleClasses="WindowFooterText" />
+                <Label Text="OFFICE SYS" StyleClasses="WindowFooterText" HorizontalAlignment="Right" HorizontalExpand="True" Margin="0 0 5 0" />
+                <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered" VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="16 16"/>
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

@@ -12,8 +12,10 @@
     tags:
     - SuitEVA
     - MonkeyWearable
-    - CorgiWearable
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.5
+    minDamageToRoll: 8.0
 
 #Syndicate EVA
 - type: entity
@@ -33,6 +35,9 @@
     - WhitelistChameleon
   - type: StaticPrice
     price: 1000 # Helmet is 500
+  - type: SuitBreachable # Funky
+    breachChance: 0.4
+    minDamageToRoll: 9.0
 
 #Emergency EVA
 - type: entity
@@ -64,6 +69,9 @@
     - ScurretWearable
     - MonkeyWearable
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.9
+    minDamageToRoll: 5.0
 
 #Prisoner EVA
 - type: entity
@@ -88,6 +96,9 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.75
+    minDamageToRoll: 7.0
 
 #NTSRA Voidsuit / Ancient Voidsuit
 - type: entity
@@ -104,6 +115,9 @@
     walkModifier: 0.85
     sprintModifier: 0.85
   - type: HeldSpeedModifier
+  - type: SuitBreachable # Funky
+    breachChance: 0.40
+    minDamageToRoll: 12.0
 
 #Paramedic Voidsuit
 - type: entity
@@ -170,5 +184,7 @@
       toggleable-clothing: !type:ContainerSlot {}
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.40
+    minDamageToRoll: 12.0

@@ -1,0 +1,42 @@
+- type: job
+  id: Dispatcher
+  name: job-name-dispatcher
+  description: job-description-dispatcher
+  playTimeTracker: JobDispatcher
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 4h
+  startingGear: DispatcherGear
+  icon: "JobIconBrigmedic"
+  supervisors: job-supervisors-secmiddle
+  access:
+  - Security
+  - Brig
+  - Maintenance
+  - External
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: DispatcherGear
+  equipment:
+    id: DispatcherPDA
+    eyes: ClothingEyesGlassesSecurity
+    ears: ClothingHeadsetDispatcher
+    pocket2: WeaponPistolMk58
+  storage:
+    back:
+    - Flash
+    - MagazinePistol
+
+- type: chameleonOutfit
+  id: DispatcherChameleonOutfit
+  job: Dispatcher
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatBeretSecurity
+    mask: ClothingMaskGasSecurity
+    neck: Dinkystar
+    gloves: ClothingHandsGlovesColorBlack

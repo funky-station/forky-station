@@ -1,0 +1,23 @@
+- type: playTimeTracker
+  id: JobMagistrate
+
+- type: playTimeTracker
+  id: JobIAA
+
+- type: playTimeTracker
+  id: JobHospitalityDirector
+
+- type: playTimeTracker
+  id: JobCorporateLiaison
+
+- type: playTimeTracker
+  id: JobExecutiveOfficer
+
+- type: playTimeTracker
+  id: JobCommandant
+
+- type: playTimeTracker
+  id: JobLieutenant
+
+- type: playTimeTracker
+  id: JobDispatcher

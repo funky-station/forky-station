@@ -41,17 +41,17 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 	private static readonly ProtoId<DamageTypePrototype> ShockDamageType = "Shock";
 	private static readonly ProtoId<DamageTypePrototype> SlashDamageType = "Slash";
 
-	[Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-	[Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-	[Dependency] private readonly SharedTransformSystem _transform = default!;
-	[Dependency] private readonly MapSystem _mapSystem = default!;
-	[Dependency] private readonly IMapManager _mapManager = default!;
-	[Dependency] private readonly IPrototypeManager _protoMan = default!;
-	[Dependency] private readonly DamageableSystem _damageableSystem = default!;
-	[Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-	[Dependency] private readonly PopupSystem _popupSystem = default!;
-	[Dependency] private readonly BloodstreamSystem _bloodstream = default!;
-	[Dependency] private readonly SharedInteractionSystem _interaction = default!;
+	[Dependency] private UserInterfaceSystem _uiSystem = default!;
+	[Dependency] private SharedDoAfterSystem _doAfter = default!;
+	[Dependency] private SharedTransformSystem _transform = default!;
+	[Dependency] private MapSystem _mapSystem = default!;
+	[Dependency] private IMapManager _mapManager = default!;
+	[Dependency] private IPrototypeManager _protoMan = default!;
+	[Dependency] private DamageableSystem _damageableSystem = default!;
+	[Dependency] private SharedAudioSystem _audioSystem = default!;
+	[Dependency] private PopupSystem _popupSystem = default!;
+	[Dependency] private BloodstreamSystem _bloodstream = default!;
+	[Dependency] private SharedInteractionSystem _interaction = default!;
 
 	private EntityQuery<BloodCultRuneComponent> _runeQuery;
 
@@ -108,7 +108,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 
 		// Get the user's position
 		var userCoords = Transform(user).Coordinates;
-		
+
 		// Start drawing the rune at the user's location
 		StartDrawingRuneAtLocation(ent, user, userCoords, cultist);
     }
@@ -151,7 +151,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
             // Raise InteractHandEvent to simulate clicking with an open hand
             var interactHandEvent = new InteractHandEvent(args.User, target);
             RaiseLocalEvent(target, interactHandEvent, true);
-            
+
             // If the hand interaction didn't handle it, also try activation (for TriggerOnActivate components)
             if (!interactHandEvent.Handled)
             {
@@ -165,7 +165,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
                     checkDeletion: false
                 );
             }
-            
+
             args.Handled = true;
             return;
         }
@@ -427,13 +427,15 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 
 		// Apply bloodloss damage + bleeding + slashing damage when drawing runes
 		DamageSpecifier appliedDamageSpecifier;
-		if (ent.Comp.Damage.DamageDict.ContainsKey("Bloodloss"))
+
+		// TODO: it would be nice if this wasnt a hardcoded damage specificer ? maybe.
+		if (_damageableSystem.CanBeDamagedBy(ent.Owner, "Bloodloss"))
 		{
 			// Organic entities: bloodloss + slash damage
 			appliedDamageSpecifier = new DamageSpecifier();
 			appliedDamageSpecifier.DamageDict.Add("Bloodloss", FixedPoint2.New(ev.BleedOnCarve));
 			appliedDamageSpecifier.DamageDict.Add("Slash", FixedPoint2.New(10));
-			
+
 			// Add bleeding effect
 			if (TryComp<BloodstreamComponent>(ent, out var bloodstream))
 			{
@@ -441,7 +443,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 				_bloodstream.TryModifyBleedAmount(bloodstreamEnt, ev.BleedOnCarve / 10f);
 			}
 		}
-		else if (ent.Comp.Damage.DamageDict.ContainsKey(ShockDamageType.Id))
+		else if (_damageableSystem.CanBeDamagedBy(ent.Owner,ShockDamageType.Id))
 			appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index(ShockDamageType), FixedPoint2.New(ev.BleedOnCarve));
 		else
 			appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index(SlashDamageType), FixedPoint2.New(ev.BleedOnCarve));
@@ -464,7 +466,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 				var damageableEnt = new Entity<DamageableComponent?>(ent.Owner, ent.Comp);
 				_damageableSystem.TryChangeDamage(damageableEnt, appliedDamageSpecifier, true, origin: ent.Owner);
 				_audioSystem.PlayPvs(ev.CarveSound, ent);
-				
+
 				// Clear the selected rune so the UI opens automatically on next click
 				if (TryComp<BloodCultRuneCarverComponent>(ev.CarverUid, out var carverComp))
 				{

@@ -25,6 +25,10 @@
       Snout: HEAD
       HeadTop: HEAD
       HeadSide: HEAD
+  - type: ESViewconeModifier # Funky
+    angleModifier: -90
+  - type: StainBlocker # Funky
+    slots: [ MASK ]
 
 - type: entity
   parent: ClothingHeadHatHoodBioGeneral
@@ -165,6 +169,7 @@
         Heat: 0.95
         Radiation: 0.65
   - type: IdentityBlocker
+  - type: IngestionBlocker
   - type: BreathMask
   - type: HideLayerClothing
     slots:
@@ -172,6 +177,10 @@
     - Snout
     - HeadTop
     - HeadSide
+  - type: ESViewconeModifier # Funky
+    angleModifier: -90
+  - type: StainBlocker # Funky
+    slots: [ MASK ]
 
 - type: entity
   parent: ClothingHeadBase
@@ -206,7 +215,6 @@
     - Hair
   - type: Tag
     tags:
-    - CorgiWearable
     - ClothMade
     - WhitelistChameleon
 

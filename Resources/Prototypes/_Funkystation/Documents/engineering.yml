@@ -1,0 +1,7 @@
+- type: document
+  id: DocBuildingPermit
+  name: doc-building-permit-name
+  description: doc-building-permit-desc
+  category: DocCatEngineering
+  paperPrototype: Paper
+  content: doc-building-permit-content

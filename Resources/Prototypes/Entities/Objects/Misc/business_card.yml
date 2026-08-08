@@ -5,7 +5,7 @@
   description: A black card with the syndicate's logo. There's something written on the back.
   components:
     - type: Sprite
-      sprite: Objects/Misc/bureaucracy.rsi
+      sprite: _Funkystation/Objects/Misc/bureaucracy.rsi # Funky
       layers:
       - state: syndicate_card
       - state: syndicate_card

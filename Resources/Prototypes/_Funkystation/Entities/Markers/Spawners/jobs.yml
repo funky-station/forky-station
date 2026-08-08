@@ -1,0 +1,95 @@
+- type: entity
+  id: SpawnPointInternalAffairsAgent
+  parent: SpawnPointJobBase
+  name: internalaffairs
+  components:
+  - type: SpawnPoint
+    job_id: InternalAffairsAgent
+  - type: Sprite
+    layers:
+    - state: green
+    - state: lawyer
+
+- type: entity
+  id: SpawnPointMagistrate
+  parent: SpawnPointJobBase
+  name: magistrate
+  components:
+  - type: SpawnPoint
+    job_id: Magistrate
+  - type: Sprite
+    layers:
+    - state: green
+    - state: lawyer
+
+- type: entity
+  id: SpawnPointCorporateLiaison
+  parent: SpawnPointJobBase
+  name: corporateliaison
+  components:
+  - type: SpawnPoint
+    job_id: CorporateLiaison
+  - type: Sprite
+    layers:
+    - state: green
+    - state: lawyer
+
+- type: entity
+  id: SpawnPointHospitalityDirector
+  parent: SpawnPointJobBase
+  name: hospitalitydirector
+  components:
+  - type: SpawnPoint
+    job_id: HospitalityDirector
+  - type: Sprite
+    layers:
+    - state: green
+    - state: hop
+
+- type: entity
+  id: SpawnPointExecutiveOfficer
+  parent: SpawnPointJobBase
+  name: executiveofficer
+  components:
+  - type: SpawnPoint
+    job_id: ExecutiveOfficer
+  - type: Sprite
+    layers:
+    - state: green
+    - state: hop
+
+- type: entity
+  id: SpawnPointCommandant
+  parent: SpawnPointJobBase
+  name: commandant
+  components:
+  - type: SpawnPoint
+    job_id: Commandant
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ertsecurity
+
+- type: entity
+  id: SpawnPointLieutenant
+  parent: SpawnPointJobBase
+  name: lieutenant
+  components:
+  - type: SpawnPoint
+    job_id: Lieutenant
+  - type: Sprite
+    layers:
+    - state: green
+    - state: hos
+
+- type: entity
+  id: SpawnPointDispatcher
+  parent: SpawnPointJobBase
+  name: dispatcher
+  components:
+  - type: SpawnPoint
+    job_id: Dispatcher
+  - type: Sprite
+    layers:
+    - state: green
+    - state: brigmedic

@@ -50,6 +50,7 @@
   - SurveillanceWirelessCameraMonitorCircuitboard
   - TelecomServerCircuitboard
   - HolopadMachineCircuitboard
+  - PagerServerCircuitboard # Funky
 
 - type: technology
   id: AdvancedEntertainment
@@ -66,6 +67,8 @@
     - DawInstrumentMachineCircuitboard
     - MassMediaCircuitboard
     - JukeboxCircuitBoard
+    - DocumentPrinterCircuitboard # Funky - close enough I guess
+    - PaperShredderCircuitboard # Funky - close enough I guess
 
 - type: technology
   id: MeatManipulation
@@ -101,6 +104,7 @@
   - FauxTileAstroIce
   - FauxTileAstroSnow
   - FauxTileAstroAsteroidSand
+  - FauxTileAstroAsteroidSandBorderless
   - FauxTileDesertAstroSand
   - FauxTileAstroIronsand
   - FauxTileAstroIronsandBorderless
@@ -146,6 +150,7 @@
   - AdvMopItem
   - MegaSprayBottle
   - BorgModuleAdvancedCleaning
+  - WashingMachineCircuitboard
 
 - type: technology
   id: HONKMech

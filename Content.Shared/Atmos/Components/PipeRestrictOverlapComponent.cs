@@ -1,4 +1,4 @@
-using Content.Shared.Atmos.EntitySystems;
+using Content.Server.Atmos.EntitySystems;
 
 namespace Content.Shared.Atmos.Components;
 

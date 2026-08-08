@@ -27,8 +27,9 @@
       state: rock_asteroid_west
   - type: MiningScannerViewable
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Rock
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -88,6 +89,7 @@
     intensitySlope: 2.5
     maxIntensity: 10
     canCreateVacuum: false
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: Destructible
     thresholds:
     - trigger:
@@ -804,8 +806,9 @@
       tags:
       - Pickaxe
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

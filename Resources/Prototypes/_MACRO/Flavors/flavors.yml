@@ -1,0 +1,14 @@
+- type: flavor
+  id: ants
+  flavorType: Complex
+  description: flavor-complex-ants
+
+- type: flavor
+  id: snotty
+  flavorType: Complex
+  description: flavor-complex-snotty
+
+- type: flavor
+  id: allulalo
+  flavorType: Complex
+  description: flavor-complex-allulalo

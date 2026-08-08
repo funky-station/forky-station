@@ -1,0 +1,59 @@
+﻿- type: entity
+  parent: BoxFolderClipboardEmpty
+  id: BoxFolderCateringDigiboard
+  name: catering digi-board
+  description: A bulky electric clipboard for designing and printing menus for the Service department's catering.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/catering_digiboard.rsi
+    layers:
+    - state: icon
+    - state: paper
+      map: ["paper"]
+      visible: false
+    - state: pen
+      map: ["pen"]
+      visible: false
+    - state: icon_over
+  - type: Item
+    sprite: _Funkystation/Objects/Misc/catering_digiboard.rsi
+    size: Normal
+  - type: Clothing
+    sprite: _Funkystation/Objects/Misc/catering_digiboard.rsi
+    slots:
+    - Belt
+  - type: Storage
+    grid:
+    - 0,0,4,3
+    quickInsert: true
+  - type: ItemSlots
+    slots:
+      pen_slot:
+        name: clipboard-slot-component-slot-name-pen
+        whitelist:
+          tags:
+          - Write
+        insertOnInteract: true
+  - type: ItemMapper
+    mapLayers:
+      paper:
+        whitelist:
+          tags:
+          - Document
+      pen:
+        whitelist:
+          tags:
+          - Write
+  - type: CateringDigiboard
+  - type: ActivatableUI
+    key: enum.CateringDigiboardUiKey.Key
+    verbText: catering-digiboard-verb-text
+  - type: UserInterface
+    interfaces:
+      enum.CateringDigiboardUiKey.Key:
+        type: CateringDigiboardBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: Tag
+    tags:
+    - Folder

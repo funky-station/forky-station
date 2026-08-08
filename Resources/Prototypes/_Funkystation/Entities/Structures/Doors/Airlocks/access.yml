@@ -1,0 +1,155 @@
+- type: entity
+  parent: Airlock
+  id: AirlockNewsroomLocked
+  suffix: Newsroom, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNewsroom ]
+  - type: Wires
+    layoutId: AirlockService # Civilian jobs use the same wire layout as Service because NT is cheap like that
+
+- type: entity
+  parent: Airlock
+  id: AirlockLibraryLocked
+  suffix: Library, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsLibrary ]
+  - type: Wires
+    layoutId: AirlockService
+
+- type: entity
+  parent: AirlockSecurity
+  id: AirlockInternalAffairsLocked
+  suffix: InternalAffairs, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsInternalAffairs ]
+  - type: Wires
+    layoutId: AirlockSecurity
+
+- type: entity
+  parent: AirlockSecurity
+  id: AirlockMagistrateLocked
+  suffix: Magistrate, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMagistrate ]
+  - type: Wires
+    layoutId: AirlockSecurity
+
+- type: entity
+  parent: AirlockCommand
+  id: AirlockExecutiveOfficerLocked
+  suffix: ExecutiveOfficer, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsExecutiveOfficer ]
+  - type: Wires
+    layoutId: AirlockCommand
+
+- type: entity
+  parent: AirlockCommand
+  id: AirlockHospitalityDirectorLocked
+  suffix: HospitalityDirector, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsHospitalityDirector ]
+  - type: Wires
+    layoutId: AirlockCommand
+
+- type: entity
+  parent: AirlockCommand
+  id: AirlockCorporateLocked
+  suffix: Corporate, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCorporate ]
+  - type: Wires
+    layoutId: AirlockCommand
+
+# Glass Airlocks
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockGlassNewsroomLocked
+  suffix: Newsroom, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNewsroom ]
+  - type: Wires
+    layoutId: AirlockService
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockLibraryGlassLocked
+  suffix: Library, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsLibrary ]
+  - type: Wires
+    layoutId: AirlockService
+
+- type: entity
+  parent: AirlockSecurityGlass
+  id: AirlockInternalAffairsGlassLocked
+  suffix: InternalAffairs, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsInternalAffairs ]
+  - type: Wires
+    layoutId: AirlockSecurity
+
+- type: entity
+  parent: AirlockSecurityGlass
+  id: AirlockMagistrateGlassLocked
+  suffix: Magistrate, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMagistrate ]
+  - type: Wires
+    layoutId: AirlockSecurity
+
+- type: entity
+  parent: AirlockCommandGlass
+  id: AirlockExecutiveOfficerGlassLocked
+  suffix: ExecutiveOfficer, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsExecutiveOfficer ]
+  - type: Wires
+    layoutId: AirlockCommand
+
+- type: entity
+  parent: AirlockCommandGlass
+  id: AirlockHospitalityDirectorGlassLocked
+  suffix: HospitalityDirector, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsHospitalityDirector ]
+  - type: Wires
+    layoutId: AirlockCommand
+
+- type: entity
+  parent: AirlockCommandGlass
+  id: AirlockCorporateGlassLocked
+  suffix: Corporate, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCorporate ]
+  - type: Wires
+    layoutId: AirlockCommand

@@ -12,8 +12,8 @@ namespace Content.Server.BloodCult.EntityEffects.Effects;
 /// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
 public sealed partial class DeCultifyEntityEffectSystem : EntityEffectSystem<BloodCultistComponent, DeCultify>
 {
-	[Dependency] private readonly SharedAudioSystem _audio = default!;
-	[Dependency] private readonly SharedStaminaSystem _stamina = default!;
+	[Dependency] private SharedAudioSystem _audio = default!;
+	[Dependency] private SharedStaminaSystem _stamina = default!;
 
 	protected override void Effect(Entity<BloodCultistComponent> entity, ref EntityEffectEvent<DeCultify> args)
 	{

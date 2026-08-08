@@ -37,7 +37,7 @@ public sealed partial class LogProbeUiFragment : BoxContainer
 
     private void AddAccessLog(PulledAccessLog log, int numberLabelText)
     {
-        var timeLabelText = TimeSpan.FromSeconds(Math.Truncate(log.Time.TotalSeconds)).ToString();
+        var timeLabelText = log.Time.ToString("hh\\:mm\\:ss"); // Funky Change
         var accessorLabelText = log.Accessor;
         var entry = new LogProbeUiEntry(numberLabelText, timeLabelText, accessorLabelText);
 

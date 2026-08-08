@@ -67,11 +67,12 @@
           True: { visible: false }
           False: { visible: true }
   - type: Explosive
-    explosionType: Default
+    explosionType: Transparent # Funky RMC Explosions
     maxIntensity: 20
     intensitySlope: 30
     totalIntensity: 30
     canCreateVacuum: false
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: Destructible
     thresholds:
     - trigger:
@@ -113,6 +114,7 @@
     intensitySlope: 7.5
     totalIntensity: 500
     canCreateVacuum: true
+  - type: ExplosionEffect # Funky RMC Explosions
 
 - type: entity
   id: MachineAPE
