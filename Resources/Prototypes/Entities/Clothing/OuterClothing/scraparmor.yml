@@ -80,3 +80,6 @@
   - type: Construction
     graph: scraparmor
     node: scraparmorfinished
+  - type: Tag
+    tags:
+    - ScrapArmor

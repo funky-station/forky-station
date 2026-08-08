@@ -17,15 +17,76 @@ public readonly partial record struct CargoBountyData
     public string Id { get; init; } = string.Empty;
 
     /// <summary>
-    /// The prototype containing information about the bounty.
+    /// The prototype containing information about the bounty. TODO: TEMP FOR TEST WORK
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField(required: true)]
     public ProtoId<CargoBountyPrototype> Bounty { get; init; } = string.Empty;
 
-    public CargoBountyData(CargoBountyPrototype bounty, int uniqueIdentifier)
+    /// <summary>
+    /// The monetary reward for completing the bounty
+    /// </summary>
+    [DataField(required: true)]
+    public int Reward { get; init; } = 0;
+
+    /// <summary>
+    /// A description for flavour purposes.
+    /// </summary>
+    [DataField]
+    public string Description { get; init; } = string.Empty;
+
+    /// <summary>
+    /// The entries that must be satisfied for the cargo bounty to be complete.
+    /// </summary>
+    [DataField(required: true)]
+    public List<CargoBountyItemData> Entries { get; init; } = new();
+
+    /// <summary>
+    /// A prefix appended to the beginning of a bounty's ID.
+    /// </summary>
+    [DataField]
+    public string IdPrefix { get; init; } = "NT";
+
+    public LocId Category { get; init; } = "";
+
+    public CargoBountyData(int uniqueIdentifier, int reward, LocId description, List<CargoBountyItemData> entries, LocId category, string idPrefix = "NT")
     {
-        Bounty = bounty.ID;
-        Id = $"{bounty.IdPrefix}{uniqueIdentifier:D3}";
+        Id = $"{IdPrefix}{uniqueIdentifier:D3}";
+        Reward = reward;
+        Description = description;
+        Entries = entries;
+        IdPrefix = idPrefix;
+        Category = category;
+    }
+
+    /// <summary>
+    /// Used for creating bounties via the old system with pre-defined bounties
+    /// </summary>
+    /// <param name="uniqueIdentifier">Some number to be used as an ID with IdPrefix</param>
+    /// <param name="prototype">The prototype of the bounty to be created</param>
+    public CargoBountyData(CargoBountyPrototype prototype, int uniqueIdentifier)
+    {
+        Bounty = prototype.ID;
+        Id = $"{IdPrefix}{uniqueIdentifier:D3}";
+        Description = Loc.GetString("bounty-console-description-label", ("description", Loc.GetString(prototype.Description)));
+        IdPrefix = prototype.IdPrefix;
+        Reward = prototype.Reward;
+        var items = new List<CargoBountyItemData>();
+        foreach (var entry in prototype.Entries)
+        {
+            CargoBountyItemData newItem = entry switch
+            {
+                CargoBountyItemEntry itemEntry => new CargoObjectBountyItemData(itemEntry),
+                CargoBountyReagentEntry itemEntry => new CargoReagentBountyItemData(itemEntry),
+                CargoBountyGasEntry itemEntry => new CargoGasBountyItemData(itemEntry),
+                _ => throw new NotImplementedException($"Unknown type: {entry.GetType().Name}"),
+            };
+            items.Add(newItem);
+        }
+        Entries = items;
+    }
+
+    public CargoBountyData()
+    {
+
     }
 }

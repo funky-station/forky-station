@@ -1,0 +1,7 @@
+# SPDX-FileCopyrightText: 2026 Gansu <peat.allan13@gmail.com>
+# SPDX-License-Identifier: MIT
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: MusicTechFabCircuitboard
+  result: MusicTechFabCircuitboard

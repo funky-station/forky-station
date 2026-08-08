@@ -40,6 +40,9 @@
     - type: GuideHelp
       guides:
       - MedicalDoctor
+    - type: Tag
+      tags:
+      - Defibrillator
 
 - type: entity
   id: Defibrillator

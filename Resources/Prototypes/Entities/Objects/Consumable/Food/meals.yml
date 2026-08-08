@@ -161,6 +161,9 @@
       - spicy
   - type: Sprite
     state: nachos-cuban
+  - type: Tag
+    tags:
+    - CubanNachos
   - type: Solution
     solution:
       reagents:
@@ -533,6 +536,7 @@
     - type: Tag
       tags:
       - Meat
+      - Enchiladas
 # What do Europeans eat instead of enchiladas? 25.4 millimeter-iladas.
 
 - type: entity

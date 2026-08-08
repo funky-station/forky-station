@@ -118,6 +118,9 @@
       params:
         maxDistance: 1
         volume: -8
+  - type: Tag
+    tags:
+    - AnomalyLocator
 
 - type: entity
   id: AnomalyLocator
@@ -220,3 +223,6 @@
         Cold: 100
         Radiation: 100
     slots: NONE
+  - type: Tag
+    tags:
+    - GorillaGauntlet

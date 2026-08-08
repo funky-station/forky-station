@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: 2026 Gansu <peat.allan13@gmail.com>
+# SPDX-License-Identifier: MIT
+
+# Tier 1
+
+- type: technology
+  id: Instruments
+  name: research-technology-instruments
+  icon:
+    sprite: Objects/Fun/Instruments/trumpet.rsi
+    state: icon
+  discipline: CivilianServices
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - MusicTechFabCircuitboard
+
+# Tier 2
+
+# Tier 3

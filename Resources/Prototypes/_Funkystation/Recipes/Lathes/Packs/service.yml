@@ -1,0 +1,31 @@
+# SPDX-FileCopyrightText: 2026 Gansu <peat.allan13@gmail.com>
+# SPDX-License-Identifier: MIT
+
+- type: latheRecipePack
+  id: InstrumentsStatic
+  recipes:
+  - TrumpetInstrument
+  - TromboneInstrument
+  - FrenchHornInstrument
+  - EuphoniumInstrument
+  - GunpetInstrument
+  - GlockenspielInstrument
+  - MusicBoxInstrument
+  - XylophoneInstrument
+  - MicrophoneInstrument
+  - WoodblockInstrument
+  - KalimbaInstrument
+  - ElectricGuitarInstrument
+  - BassGuitarInstrument
+  - RockGuitarInstrument
+  - AcousticGuitarInstrument
+  - BanjoInstrument
+  - ViolinInstrument
+  - ViolaInstrument
+  - CelloInstrument
+  - SaxophoneInstrument
+  - HarmonicaInstrument
+  - ClarinetInstrument
+  - FluteInstrument
+  - RecorderInstrument
+  - BagpipeInstrument

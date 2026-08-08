@@ -2,6 +2,9 @@
   id: AccessBreakerImmune # Default value in EmagProviderComponent. Marks tagged entity as immune to AccessBreakerUnlimited.
 
 - type: Tag
+  id: AdvancedSurgeryTool # Cargo Bounty Target
+
+- type: Tag
   id: AirAlarm # Used by AtmosAlarmableComponent for syncing devices.
 
 - type: Tag
@@ -26,6 +29,12 @@
   id: AnomalyHost # Targeting whitelist: BaseAnomalyInjector
 
 - type: Tag
+  id: AnomalyLocator # Cargo Bounty Target
+
+- type: Tag
+  id: AnomalySyncronizerCircuitBoard # Cargo Bounty Target
+
+- type: Tag
   id: AppraisalTool # Storage whitelist: BaseClothingBeltEngineering
 
 - type: Tag
@@ -36,6 +45,9 @@
 
 - type: Tag
   id: ArtifactFragment # Storage whitelist: OreBag. CargoBounty: BountyArtifactFragment. ConstructionGraph: Artifact
+
+- type: Tag
+  id: AutoinjectorCartridge # Cargo Bounty Target
 
 ## B ##
 
@@ -71,6 +83,15 @@
 
 - type: Tag
   id: BikeHorn # ConstructionGraph: HonkBot, BananiumHorn
+
+- type: Tag
+  id: BiosyntheticEyes # Cargo Bounty Target
+
+- type: Tag
+  id: BiosyntheticLiver # Cargo Bounty Target
+
+- type: Tag
+  id: BiosyntheticHeart # Cargo Bounty Target
 
 - type: Tag
   id: Bloodpack # Storage whitelist: ClothingBeltMedical
@@ -299,6 +320,12 @@
   id: ChiliBowl # CargoBounty: BountyChili
 
 - type: Tag
+  id: ChimpHandcannon # Cargo Bounty Target
+
+- type: Tag
+  id: ChowMein # Cargo Bounty Target
+
+- type: Tag
   id: Cigar # ItemCounter: CigarCase
 
 - type: Tag
@@ -413,6 +440,12 @@
   id: CrowbarRed # Storage whitelist: BaseClothingBeltEngineering, ClothingBeltChiefEngineer. ItemMapper: BaseClothingBeltEngineering, ClothingBeltChiefEngineer
 
 - type: Tag
+  id: Cryobeaker # Cargo Bounty Target
+
+- type: Tag
+  id: Cryosyringe # Cargo Bounty Target
+
+- type: Tag
   id: CrystalBlack # ConstructionGraph: BlackLight, BlackLightBulb
 
 - type: Tag
@@ -440,9 +473,21 @@
   id: CubanCarp # CargoBounty: BountyCubanCarp
 
 - type: Tag
+  id: CubanNachos # Cargo Bounty Target
+
+- type: Tag
   id: Cutlet # MetamorphRecipe: FoodBurgerCheese, FoodBurgerChicken, FoodBurgerDuck
 
+- type: Tag
+  id: CyberneticMedicalEyes # Cargo Bounty Target
+
+- type: Tag
+  id: CyberneticSecurityEyes # Cargo Bounty Target
+
 ## D ##
+
+- type: Tag
+  id: Defibrillator # Cargo Bounty Target
 
 - type: Tag # Exists on diagonal walls and windows
   id: Diagonal # Used by TileWallsCommand and FixRotationsCommand
@@ -452,6 +497,9 @@
 
 - type: Tag
   id: Dice # Storage whitelist: BorgModuleService, DiceBag, BooksBag
+
+- type: Tag
+  id: DisablerSMG # Cargo Bounty Target
 
 - type: Tag
   id: DiscreteHealthAnalyzer # Storage whitelist: ClothingBeltMedical. ConstructionGraph: MediBot
@@ -514,6 +562,9 @@
   id: EmitterBolt # Default value in ContainmentFieldGeneratorComponent for tagged collisions that power the generator.
 
 - type: Tag
+  id: Enchiladas # Cargo Bounty Target
+
+- type: Tag
   id: EncryptionCargo # ItemMapper: TelecomServer
 
 - type: Tag
@@ -543,6 +594,9 @@
 - type: Tag
   id: ExCable # Placement blacklist on CableDetStack. Placement whitelist on WiredDetonator
 
+- type: Tag
+  id: ExperimentalVesselMachineBoard # Cargo Bounty Target
+
 ## F ##
 
 - type: Tag
@@ -562,6 +616,9 @@
 
 - type: Tag
   id: FireAxe # Storage whitelist: FireAxeCabinet
+
+- type: Tag
+  id: FireBomb # Cargo Bounty Target
 
 - type: Tag
   id: FireExtinguisher # ConstructionGraph: FireBot
@@ -600,6 +657,9 @@
   id: ForceFixRotations # fixrotations command WILL target this
 
 - type: Tag
+  id: ForceFieldProjector # Cargo Bounty Target
+
+- type: Tag
   id: ForceNoFixRotations # fixrotations command WON'T target this
 
 - type: Tag
@@ -607,6 +667,9 @@
 
 - type: Tag
   id: Fruit # SpecialDigestible: OrganReptilianStomach. CargoBounty: BountyFruit
+
+- type: Tag
+  id: FruitSalad # Cargo Bounty Target
 
 ## G ##
 
@@ -654,6 +717,9 @@
   id: GoliathPlate # CargoBounty: BountyGoliathPlates
 
 - type: Tag
+  id: GorillaGauntlet # Cargo Bounty Target
+
+- type: Tag
   id: GPS # Storage whitelist: BaseClothingBeltEngineering
 
 - type: Tag # Exists for propelled explosives, not hand grenades.
@@ -673,6 +739,9 @@
 
 - type: Tag
   id: GunUpgradeReloadSpeed # Used by PKAUpgradeFireRate:GunUpgrade to ensure mutually exclusive upgrades.
+
+- type: Tag
+  id: Gyro # Cargo Bounty Target
 
 ## H ##
 
@@ -797,6 +866,12 @@
   id: Igniter # ConstructionGraph: makeshiftstunprod, FireBomb. Common ingredient in machines (HyperConvection)
 
 - type: Tag
+  id: ImprovisedBow # Cargo Bounty Target
+
+- type: Tag
+  id: ImprovisedShotgun # Cargo Bounty Target
+
+- type: Tag
   id: Inflatable # Storage whitelist: BorgModuleInflatable
 
 - type: Tag
@@ -845,6 +920,8 @@
                       # Blacklist on MobStandStatusEffectBase.
 
 ## L ##
+- type: Tag
+  id: LaserCannon # Cargo Bounty Target
 
 - type: Tag
   id: LaserWeapon # Used for a cargo bounty. Added to all hitscan weapons that shoot lasers.
@@ -916,6 +993,15 @@
   id: Maints # RoomFill spawner whitelist for MaintsRoomMarker.
 
 - type: Tag
+  id: MakeshiftBola # Cargo Bounty Target
+
+- type: Tag
+  id: MakeshiftShield # Cargo Bounty Target
+
+- type: Tag
+  id: MakeshiftStunprod # Cargo Bounty Target
+
+- type: Tag
   id: Matchstick # Storage whitelist: Ashtray. ConstructionGraph: ImprovisedShotgunShellGraph
 
 - type: Tag
@@ -929,6 +1015,9 @@
 
 - type: Tag
   id: Medkit # CargoBounty: BountyMedkitBox. ConstructionGraph: MediBot
+
+- type: Tag
+  id: MedSecHud # Cargo Bounty Target
 
 - type: Tag
   id: MessyDrinkerImmune # Default value in MessyDrinkerComponent. Tagged entity is immune to spills.
@@ -995,6 +1084,9 @@
   id: NinjaBombingTargetBlocker # Ninjas will not target this warp point
 
 - type: Tag
+  id: NightVisionGoggles # Cargo Bounty Target
+
+- type: Tag
   id: NoConsoleSound # Blacklist on BaseComputer, StationMap. Tagged entity will not make sound when opening the UI.
 
 - type: Tag
@@ -1051,6 +1143,9 @@
 
 - type: Tag
   id: ParcelWrapBlacklist # Tagged entities can't be wrapped in ParcelWrap.
+
+- type: Tag
+  id: ParticleDecelerator # Cargo Bounty Target
 
 - type: Tag
   id: Payload # Used by PayloadSystem to find entities to send TriggerEvent. ConstructionGraph: ModularGrenadeGraph, ModularMineGraph
@@ -1249,6 +1344,12 @@
   id: Scarf # CargoBounty: BountyWarmCloth
 
 - type: Tag
+  id: ScrapArmor # Cargo Bounty Target
+
+- type: Tag
+  id: ScrapHelmet # Cargo Bounty Target
+
+- type: Tag
   id: Screwdriver # Storage whitelist: BaseClothingBeltEngineering. ItemMapper: BaseClothingBeltEngineering
 
 - type: Tag # Flags items that scurrets can wear in their back and outerwear slots.
@@ -1301,6 +1402,12 @@
 
 - type: Tag # sliced fruit, vegetables, pizza etc.
   id: Slice # CargoBounty blacklist: BountyFruit, BountyVegetable, BountyBread, BountyPie
+
+- type: Tag
+  id: SlopBowl # Cargo Bounty Target
+
+- type: Tag
+  id: SloppyJoe # Cargo Bounty Target
 
 - type: Tag
   id: SlowImmune # Tagged mob entity cannot gain the slowed status effect. Blacklist on StatusEffectSlowdown.
@@ -1364,10 +1471,16 @@
   id: Steak # CargoBounty: BountySteak
 
 - type: Tag
+  id: Stew # Cargo Bounty Target
+
+- type: Tag
   id: StringInstrument # MachineBoard construction: DawInstrumentMachineCircuitboard
 
 - type: Tag
   id: Structure # # Targeting whitelist: HandLabeler
+
+- type: Tag
+  id: Stunbaton # Cargo Bounty Target
 
 - type: Tag
   id: StunImmune # Tagged mob entity cannot gain the stunned status effect. Blacklist on StatusEffectStunned.
@@ -1380,6 +1493,9 @@
 
 - type: Tag
   id: Sunglasses # ConstructionGraph: GlassesSecHUD
+
+- type: Tag
+  id: SuperBiteBurger # Cargo Bounty Target
 
 - type: Tag
   id: SurgeryTool # Storage whitelist: ClothingBeltMedical
@@ -1399,6 +1515,9 @@
 - type: Tag
   id: Spellbook # Storage whitelist: Bookshelf
 
+- type: Tag
+  id: SvalinnPistol # Cargo Bounty Target
+
 ## T ##
 
 - type: Tag
@@ -1409,6 +1528,9 @@
 
 - type: Tag
   id: Taser # Storage whitelist: ClothingBeltSecurity
+
+- type: Tag
+  id: TechDiskTerminalCircuitBoard # Cargo Bounty Target
 
 - type: Tag
   id: TheaterBagel # used for Bagel Station's randomized theater
@@ -1483,6 +1605,8 @@
   id: UtilityKnife # Storage whitelist: BaseClothingBeltEngineering, BountyKnife
 
 ## V ##
+- type: Tag
+  id: ValidSalad # Cargo Bounty Target
 
 - type: Tag
   id: Vegetable # CargoBounty: BountyVegetable
@@ -1498,6 +1622,8 @@
   id: VoiceTrigger # ConstructionGraph: Vim
 
 ## W ##
+- type: Tag
+  id: Waffle # Cargo Bounty Target
 
 - type: Tag
   id: Wall # Tagged entity is a wall. Several systems and several targeting whitelists (BaseMobDragon) care about this.
@@ -1561,6 +1687,9 @@
              # MaterialStorage whitelist: Sheetifier
 
 - type: Tag
+  id: WoodenBuckler # Cargo Bounty Target
+
+- type: Tag
   id: WoodwindInstrument # even more like our atmos
                          # MachineBoard construction: DawInstrumentMachineCircuitboard
 
@@ -1593,6 +1722,9 @@
 
 - type: Tag
   id: XenoborgModuleStealth # Cyborg module category for evil stealth xenoborg
+
+- type: Tag
+  id: XrayCannon # Cargo Bounty Target
 
 ## Y ##
 ## Z ##

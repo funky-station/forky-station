@@ -1,3 +1,6 @@
+using Content.Shared.Atmos;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Research.Prototypes;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -33,7 +36,7 @@ public sealed partial class CargoBountyPrototype : IPrototype
     /// The entries that must be satisfied for the cargo bounty to be complete.
     /// </summary>
     [DataField(required: true)]
-    public List<CargoBountyItemEntry> Entries = new();
+    public List<ICargoBountyEntry> Entries = new();
 
     /// <summary>
     /// A prefix appended to the beginning of a bounty's ID.
@@ -55,7 +58,7 @@ public sealed partial class CargoBountyPrototype : IPrototype
 }
 
 [DataDefinition, Serializable, NetSerializable]
-public readonly partial record struct CargoBountyItemEntry()
+public readonly partial record struct CargoBountyItemEntry : ICargoBountyEntry
 {
     /// <summary>
     /// A whitelist for determining what items satisfy the entry.
@@ -70,10 +73,6 @@ public readonly partial record struct CargoBountyItemEntry()
     public EntityWhitelist? Blacklist { get; init; } = null;
 
     // todo: implement some kind of simple generic condition system
-
-    /// <summary>
-    /// How much of the item must be present to satisfy the entry
-    /// </summary>
     [DataField]
     public int Amount { get; init; } = 1;
 
@@ -82,4 +81,18 @@ public readonly partial record struct CargoBountyItemEntry()
     /// </summary>
     [DataField]
     public LocId Name { get; init; } = string.Empty;
+
+    [DataField]
+    public int MinAmount { get; init; } = 1;
+    [DataField]
+    public int MaxAmount { get; init; } = 1;
+    [DataField]
+    public int AmountStep { get; init; } = 1;
+    [DataField]
+    public int RewardPer { get; init; } = 1;
+    [DataField]
+    public double Weight { get; init; } = 1;
+    [DataField]
+    public List<ProtoId<TechnologyPrototype>>? RequiredResearch { get; init; }
+
 }

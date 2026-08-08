@@ -142,6 +142,9 @@
       - carrot
   - type: Sprite
     state: chowmein
+  - type: Tag
+    tags:
+    - ChowMein
   - type: Solution
     solution:
       reagents:
