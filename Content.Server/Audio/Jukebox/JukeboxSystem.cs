@@ -12,6 +12,7 @@ namespace Content.Server.Audio.Jukebox;
 
 public sealed partial class JukeboxSystem : SharedJukeboxSystem
 {
+    [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private AppearanceSystem _appearanceSystem = default!;
 
     public override void Initialize()
@@ -155,7 +156,7 @@ public sealed partial class JukeboxSystem : SharedJukeboxSystem
         else
         {
             if (string.IsNullOrEmpty(ent.Comp.SelectedSongId) ||
-                !ProtoMan.Resolve(ent.Comp.SelectedSongId, out var jukeboxProto))
+                !_protoManager.Resolve(ent.Comp.SelectedSongId, out var jukeboxProto))
             {
                 return false;
             }

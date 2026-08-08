@@ -1,8 +1,5 @@
 using Robust.Shared.Configuration;
 
-using Content.Shared.Administration;
-using Content.Shared.CCVar.CVarAccess;
-
 namespace Content.Shared.CCVar;
 
 public sealed partial class CCVars
@@ -148,9 +145,8 @@ public sealed partial class CCVars
     /// <summary>
     ///     How long an admin client can go without any input before being considered AFK.
     /// </summary>
-    [CVarControl(AdminFlags.VarEdit, min: 0f, max: float.MaxValue)]
     public static readonly CVarDef<float> AdminAfkTime =
-        CVarDef.Create("admin.afk_time",10800f, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("admin.afk_time", 600f, CVar.SERVERONLY);
 
     /// <summary>
     ///     If true, admins are able to connect even if
@@ -180,6 +176,7 @@ public sealed partial class CCVars
     ///     If it is false, it'd use the actual rank name regardless of the individual's title.
     /// </summary>
     /// <seealso cref="AhelpAdminPrefix"/>
+    /// <seealso cref="AhelpAdminPrefixWebhook"/>
     public static readonly CVarDef<bool> AdminUseCustomNamesAdminRank =
         CVarDef.Create("admin.use_custom_names_admin_rank", true, CVar.SERVERONLY);
 

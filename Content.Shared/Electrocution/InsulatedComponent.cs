@@ -2,9 +2,6 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.Electrocution
 {
-    /// <summary>
-    /// This component protects an entity from being electrocuted.
-    /// </summary>
     [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
     [Access(typeof(SharedElectrocutionSystem))]
     public sealed partial class InsulatedComponent : Component

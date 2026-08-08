@@ -68,6 +68,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
 
     [Dependency] protected IGameTiming Timing = default!;
     [Dependency] protected INetManager Net = default!;
+    [Dependency] protected IPrototypeManager PrototypeManager = default!;
     [Dependency] protected ChemicalReactionSystem ChemicalReactionSystem = default!;
     [Dependency] protected ExamineSystemShared ExamineSystem = default!;
     [Dependency] protected OpenableSystem Openable = default!;
@@ -243,7 +244,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
     {
         solution = null;
 
-        if (!ProtoMan.Resolve(entProtoId, out var proto))
+        if (!PrototypeManager.Resolve(entProtoId, out var proto))
             return false;
 
         return TryGetSolution(proto, name, out solution, errorOnMissing);
@@ -255,7 +256,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         bool errorOnMissing = false)
     {
         solution = null;
-        if (entProto.TryComp<SolutionComponent>(out var sol, Factory) && sol.Id == name)
+        if (entProto.TryGetComponent<SolutionComponent>(out var sol, Factory) && sol.Id == name)
         {
             solution = sol.Solution;
             return true;
@@ -266,10 +267,10 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
 
         foreach (var protoId in solutions)
         {
-            if (!ProtoMan.Resolve(protoId, out var proto))
+            if (!PrototypeManager.Resolve(protoId, out var proto))
                 continue;
 
-            if (!proto.TryComp(out sol, Factory))
+            if (!proto.TryGetComponent(out sol, Factory))
             {
                 Log.Error($"Entity prototype {proto}, tried to spawn in a solution container in prototype {entProto.ID}, but had no {nameof(SolutionComponent)}");
                 continue;
@@ -315,10 +316,10 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
 
         foreach (var protoId in solutions)
         {
-            if (!ProtoMan.Resolve(protoId, out var proto))
+            if (!PrototypeManager.Resolve(protoId, out var proto))
                 continue;
 
-            if (!proto.TryComp<SolutionComponent>(out var sol, Factory))
+            if (!proto.TryGetComponent<SolutionComponent>(out var sol, Factory))
             {
                 Log.Error($"Entity prototype {proto}, tried to spawn in a solution container in prototype {entProto.ID}, but had no {nameof(SolutionComponent)}");
                 continue;
@@ -331,7 +332,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
     private bool TryGetSolutionFill(EntityPrototype entProto, [NotNullWhen(true)] out EntProtoId[]? fill)
     {
         fill = null;
-        if (!entProto.TryComp<SolutionManagerComponent>(out var manager, Factory))
+        if (!entProto.TryGetComponent<SolutionManagerComponent>(out var manager, Factory))
             return false;
 
         fill = manager.SolutionEnts;
@@ -347,7 +348,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         var solution = soln.Comp.Solution;
 
         AppearanceSystem.SetData(uid, SolutionContainerVisuals.FillFraction, solution.FillFraction, appearanceComponent);
-        AppearanceSystem.SetData(uid, SolutionContainerVisuals.Color, solution.GetColor(ProtoMan), appearanceComponent);
+        AppearanceSystem.SetData(uid, SolutionContainerVisuals.Color, solution.GetColor(PrototypeManager), appearanceComponent);
         AppearanceSystem.SetData(uid, SolutionContainerVisuals.SolutionName, soln.Comp.Id, appearanceComponent);
 
         if (solution.GetPrimaryReagentId() is { } reagent)
@@ -480,7 +481,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
     // Funky start
     public void BurnFlammableReagents(Entity<SolutionComponent> soln, float fraction)
     {
-        soln.Comp.Solution.BurnFlammableReagents(fraction, ProtoMan);
+        soln.Comp.Solution.BurnFlammableReagents(fraction, PrototypeManager);
         UpdateChemicals(soln);
     }
     // Funky end
@@ -538,8 +539,8 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         }
         else
         {
-            var proto = ProtoMan.Index<ReagentPrototype>(reagentQuantity.Reagent.Prototype);
-            solution.AddReagent(proto, acceptedQuantity, temperature.Value, ProtoMan);
+            var proto = PrototypeManager.Index<ReagentPrototype>(reagentQuantity.Reagent.Prototype);
+            solution.AddReagent(proto, acceptedQuantity, temperature.Value, PrototypeManager);
         }
 
         UpdateChemicals(soln);
@@ -656,7 +657,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
 
         // TODO This should be made into a function that directly transfers reagents.
         // Currently this is quite inefficient.
-        solution.AddSolution(source.SplitSolution(quantity), ProtoMan);
+        solution.AddSolution(source.SplitSolution(quantity), PrototypeManager);
 
         UpdateChemicals(soln);
         return true;
@@ -699,10 +700,10 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         {
             // TODO: This should be made into a function that directly transfers reagents.
             // Currently this is quite inefficient.
-            solution.AddSolution(toAdd.Clone().SplitSolution(quantity), ProtoMan);
+            solution.AddSolution(toAdd.Clone().SplitSolution(quantity), PrototypeManager);
         }
         else
-            solution.AddSolution(toAdd, ProtoMan);
+            solution.AddSolution(toAdd, PrototypeManager);
 
         UpdateChemicals(soln);
         return quantity;
@@ -723,7 +724,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         if (toAdd.Volume == FixedPoint2.Zero)
             return false;
 
-        solution.AddSolution(toAdd, ProtoMan);
+        solution.AddSolution(toAdd, PrototypeManager);
         UpdateChemicals(soln);
         return true;
     }
@@ -750,7 +751,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
             return false;
         }
 
-        solution.AddSolution(toAdd, ProtoMan);
+        solution.AddSolution(toAdd, PrototypeManager);
         overflowingSolution = solution.SplitSolution(FixedPoint2.Max(FixedPoint2.Zero, solution.Volume - overflowThreshold));
         UpdateChemicals(soln);
         return true;
@@ -819,7 +820,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         var (_, comp) = soln;
         var solution = comp.Solution;
 
-        var heatCap = solution.GetHeatCapacity(ProtoMan);
+        var heatCap = solution.GetHeatCapacity(PrototypeManager);
         solution.Temperature = heatCap == 0 ? 0 : thermalEnergy / heatCap;
         UpdateChemicals(soln);
     }
@@ -838,7 +839,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         if (thermalEnergy == 0.0f)
             return;
 
-        var heatCap = solution.GetHeatCapacity(ProtoMan);
+        var heatCap = solution.GetHeatCapacity(PrototypeManager);
         solution.Temperature += heatCap == 0 ? 0 : thermalEnergy / heatCap;
         UpdateChemicals(soln);
     }
@@ -857,7 +858,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         if (thermalEnergy == 0.0f)
             return;
 
-        var heatCap = solution.GetHeatCapacity(ProtoMan);
+        var heatCap = solution.GetHeatCapacity(PrototypeManager);
         var deltaT = thermalEnergy / heatCap;
         solution.Temperature = Math.Clamp(solution.Temperature + deltaT, min, max);
         UpdateChemicals(soln);
@@ -901,7 +902,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
 
             // If there's no primary reagent, assume the solution is empty and exit early
             if (string.IsNullOrEmpty(primaryReagent?.Prototype) ||
-                !ProtoMan.Resolve<ReagentPrototype>(primaryReagent.Value.Prototype, out var primary))
+                !PrototypeManager.Resolve<ReagentPrototype>(primaryReagent.Value.Prototype, out var primary))
             {
                 args.PushMarkup(Loc.GetString(entity.Comp.LocVolume, ("fillLevel", ExaminedVolumeDisplay.Empty)));
                 return;
@@ -916,7 +917,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
 
             // Push the physical description of the primary reagent
 
-            var colorHex = solution.GetColor(ProtoMan)
+            var colorHex = solution.GetColor(PrototypeManager)
                 .ToHexNoAlpha(); //TODO: If the chem has a dark color, the examine text becomes black on a black background, which is unreadable.
 
             args.PushMarkup(Loc.GetString(entity.Comp.LocPhysicalQuality,
@@ -927,7 +928,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
             // Push the recognizable reagents
 
             // Sort the reagents by amount, descending then alphabetically
-            var sortedReagentPrototypes = solution.GetReagentPrototypes(ProtoMan)
+            var sortedReagentPrototypes = solution.GetReagentPrototypes(PrototypeManager)
                 .OrderByDescending(pair => pair.Value.Value)
                 .ThenBy(pair => pair.Key.LocalizedName);
 
@@ -1043,7 +1044,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
 
         msg.AddMarkupOrThrow(Loc.GetString("scannable-solution-main-text"));
 
-        var reagentPrototypes = solution.GetReagentPrototypes(ProtoMan);
+        var reagentPrototypes = solution.GetReagentPrototypes(PrototypeManager);
 
         // Sort the reagents by amount, descending then alphabetically
         var sortedReagentPrototypes = reagentPrototypes

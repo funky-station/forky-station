@@ -29,6 +29,7 @@ public sealed partial class CloningSystem : SharedCloningSystem
 {
     [Dependency] private InventorySystem _inventory = default!;
     [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private EntityWhitelistSystem _whitelist = default!;
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private SharedContainerSystem _container = default!;
@@ -45,13 +46,13 @@ public sealed partial class CloningSystem : SharedCloningSystem
         [NotNullWhen(true)] out EntityUid? clone)
     {
         clone = null;
-        if (!ProtoMan.Resolve(settingsId, out var settings))
+        if (!_prototype.Resolve(settingsId, out var settings))
             return false; // invalid settings
 
         if (!TryComp<HumanoidProfileComponent>(original, out var humanoid))
             return false; // whatever body was to be cloned, was not a humanoid
 
-        if (!ProtoMan.Resolve(humanoid.Species, out var speciesPrototype))
+        if (!_prototype.Resolve(humanoid.Species, out var speciesPrototype))
             return false; // invalid species
 
         if (!settings.ForceCloning)
@@ -69,20 +70,20 @@ public sealed partial class CloningSystem : SharedCloningSystem
 
         // Add equipment first so that SetEntityName also renames the ID card.
         if (settings.CopyEquipment != null)
-            CopyEquipment(original, clone.Value, settings.CopyEquipment.Value, settings.EquipmentWhitelist, settings.EquipmentBlacklist);
+            CopyEquipment(original, clone.Value, settings.CopyEquipment.Value, settings.Whitelist, settings.Blacklist);
 
         // Copy storage on the mob itself as well.
         // This is needed for slime storage.
         if (settings.CopyInternalStorage)
-            CopyStorage(original, clone.Value, settings.EquipmentWhitelist, settings.EquipmentBlacklist);
+            CopyStorage(original, clone.Value, settings.Whitelist, settings.Blacklist);
 
         // copy implants and their storage contents
         if (settings.CopyImplants)
-            CopyImplants(original, clone.Value, settings.CopyInternalStorage, settings.EquipmentWhitelist, settings.EquipmentBlacklist);
+            CopyImplants(original, clone.Value, settings.CopyInternalStorage, settings.Whitelist, settings.Blacklist);
 
         // Copy permanent status effects
         if (settings.CopyStatusEffects)
-            CopyStatusEffects(original, clone.Value, settings.StatusEffectWhitelist, settings.StatusEffectBlacklist);
+            CopyStatusEffects(original, clone.Value);
 
         var originalName = _nameMod.GetBaseName(original);
 
@@ -99,7 +100,7 @@ public sealed partial class CloningSystem : SharedCloningSystem
         EntityUid clone,
         ProtoId<CloningSettingsPrototype> settings)
     {
-        if (!ProtoMan.Resolve(settings, out var proto))
+        if (!_prototype.Resolve(settings, out var proto))
             return;
 
         CloneComponents(original, clone, proto);

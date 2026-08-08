@@ -63,9 +63,6 @@ public sealed partial class EnsnaringComponent : Component
     [DataField]
     public bool CanMoveBreakout;
 
-/// <summary>
-/// The sound to play when being ensnared.
-/// </summary>
     [DataField]
     public SoundSpecifier? EnsnareSound = new SoundPathSpecifier("/Audio/Effects/snap.ogg");
 }

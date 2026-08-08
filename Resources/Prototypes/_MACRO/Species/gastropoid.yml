@@ -12,12 +12,6 @@
   lastNames: NamesGastropoidLast
   sexes:
   - Unsexed
-  defaultSoundsBySex:
-  - UnisexSnail
-  - UnisexSnail
-  - UnisexSnail
-  voices:
-  - UnisexSnail
 
 # Developer Notes
 #

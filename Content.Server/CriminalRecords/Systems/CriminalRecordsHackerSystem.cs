@@ -7,6 +7,7 @@ using Content.Shared.CriminalRecords.Systems;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Security;
 using Content.Shared.StationRecords;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server.CriminalRecords.Systems;
@@ -15,6 +16,7 @@ public sealed partial class CriminalRecordsHackerSystem : SharedCriminalRecordsH
 {
     [Dependency] private ChatSystem _chat = default!;
     [Dependency] private CriminalRecordsSystem _criminalRecords = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private StationSystem _station = default!;
     [Dependency] private StationRecordsSystem _records = default!;
@@ -34,7 +36,7 @@ public sealed partial class CriminalRecordsHackerSystem : SharedCriminalRecordsH
         if (_station.GetOwningStation(ent) is not {} station)
             return;
 
-        var reasons = ProtoMan.Index(ent.Comp.Reasons);
+        var reasons = _proto.Index(ent.Comp.Reasons);
         foreach (var (key, record) in _records.GetRecordsOfType<CriminalRecord>(station))
         {
             var reason = _random.Pick(reasons);

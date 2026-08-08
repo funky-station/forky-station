@@ -1,4 +1,3 @@
-using Content.Server._MACRO.Announcements;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Station.Components;
@@ -10,8 +9,6 @@ namespace Content.Server.Chat.Systems;
 
 public sealed partial class ChatSystem
 {
-    [Dependency] private AnnouncerManager _announcer = default!; // macrocosm
-
     /// <inheritdoc />
     public override void DispatchGlobalAnnouncement(
         string message,
@@ -27,13 +24,7 @@ public sealed partial class ChatSystem
         _chatManager.ChatMessageToAll(ChatChannel.Radio, message, wrappedMessage, default, false, true, colorOverride);
         if (playSound)
         {
-            // Macrocosm edit start - announcer variation
-            if (announcementSound == null)
-            {
-                _announcer.TryGetAnnouncerSound(DefaultAnnouncementSound, out announcementSound);
-            }
-            _audio.PlayGlobal(announcementSound, Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
-            // Macrocosm edit end
+            _audio.PlayGlobal(announcementSound ?? DefaultAnnouncementSound, Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
         }
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Global station announcement from {sender}: {message}");
     }
@@ -54,13 +45,7 @@ public sealed partial class ChatSystem
         _chatManager.ChatMessageToManyFiltered(filter, ChatChannel.Radio, message, wrappedMessage, source ?? default, false, true, colorOverride);
         if (playSound)
         {
-            // Macrocosm edit start - announcer variation
-            if (announcementSound == null)
-            {
-                _announcer.TryGetAnnouncerSound(DefaultAnnouncementSound, out announcementSound);
-            }
-            _audio.PlayGlobal(announcementSound, filter, true, AudioParams.Default.WithVolume(-2f));
-            // Macrocosm edit end
+            _audio.PlayGlobal(announcementSound ?? DefaultAnnouncementSound, filter, true, AudioParams.Default.WithVolume(-2f));
         }
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement from {sender}: {message}");
     }
@@ -93,13 +78,7 @@ public sealed partial class ChatSystem
 
         if (playDefaultSound)
         {
-            // Macrocosm edit start - announcer variation
-            if (announcementSound == null)
-            {
-                _announcer.TryGetAnnouncerSound(DefaultAnnouncementSound, out announcementSound);
-            }
-            _audio.PlayGlobal(announcementSound, filter, true, AudioParams.Default.WithVolume(-2f));
-            // Macrocosm edit end
+            _audio.PlayGlobal(announcementSound ?? DefaultAnnouncementSound, filter, true, AudioParams.Default.WithVolume(-2f));
         }
 
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement on {station} from {sender}: {message}");

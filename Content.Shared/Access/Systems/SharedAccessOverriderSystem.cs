@@ -10,6 +10,7 @@ namespace Content.Shared.Access.Systems
     public abstract partial class SharedAccessOverriderSystem : EntitySystem
     {
         [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;
+        [Dependency] private ILogManager _log = default!;
 
         public const string Sawmill = "accessoverrider";
         protected ISawmill _sawmill = default!;
@@ -17,7 +18,7 @@ namespace Content.Shared.Access.Systems
         public override void Initialize()
         {
             base.Initialize();
-            _sawmill = LogManager.GetSawmill(Sawmill);
+            _sawmill = _log.GetSawmill(Sawmill);
 
             SubscribeLocalEvent<AccessOverriderComponent, ComponentInit>(OnComponentInit);
             SubscribeLocalEvent<AccessOverriderComponent, ComponentRemove>(OnComponentRemove);

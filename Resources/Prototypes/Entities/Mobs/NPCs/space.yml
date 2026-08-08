@@ -1,7 +1,7 @@
 - type: entity
   name: basic
   id: MobSpaceBasic
-  parent: [ SimpleSpaceMobBase, MobNightVision ]
+  parent: SimpleSpaceMobBase
   abstract: true
   description: It looks friendly. Why don't you give it a hug?
   components:
@@ -105,19 +105,14 @@
   - type: ReplacementAccent
     accent: genericAggressive
   - type: Vocal
-    emoteSounds: Bear
+    sounds:
+      Unsexed: Bear
   - type: InteractionPopup
     successChance: 0.25
     interactSuccessString: petting-success-bear
     interactFailureString: petting-failure-bear
     interactSuccessSound:
       path: /Audio/Animals/sloth_squeak.ogg
-# MACRO start
-  - type: NpcFactionMember
-    factions:
-    - AnimalFriend
-    - SimpleHostile
-# MACRO end
 
 - type: entity
   id: MobBearSpaceSalvage
@@ -168,7 +163,8 @@
     speciesId: kangaroo
     templateId: spacekangaroo
   - type: Vocal
-    emoteSounds: Kangaroo
+    sounds:
+      Unsexed: Kangaroo
   - type: ReplacementAccent
     accent: kangaroo
   - type: ToolRefinable
@@ -179,12 +175,6 @@
     thresholds:
       0: Alive
       60: Dead
-# MACRO start
-  - type: NpcFactionMember
-    factions:
-    - AnimalFriend
-    - SimpleHostile
-# MACRO end
 
 - type: entity
   id: MobKangarooSpaceSalvage
@@ -276,7 +266,10 @@
     speechSounds: Arachnid
     allowedEmotes: ['Click', 'Chitter']
   - type: Vocal
-    emoteSounds: UnisexArachnid
+    sounds:
+      Male: UnisexArachnid
+      Female: UnisexArachnid
+      Unsexed: UnisexArachnid
   - type: TypingIndicator
     proto: spider
 
@@ -494,10 +487,13 @@
     speechSounds: SheepSpace
     speechVerb: Sheep
   - type: Vocal
-    emoteSounds: SheepSpace
+    sounds:
+      Female: SheepSpace
+      Male: SheepSpace
+      Unsexed: SheepSpace
 
 - type: entity
-  parent: [SimpleSpaceMobBase, BaseMobAnimal, SolutionVermin, MobNightVision]
+  parent: [SimpleSpaceMobBase, BaseMobAnimal, SolutionVermin]
   id: MobSnail
   name: snail
   description: Revolting unless you're french.

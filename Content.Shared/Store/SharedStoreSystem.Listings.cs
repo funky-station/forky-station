@@ -46,7 +46,7 @@ public abstract partial class SharedStoreSystem
     public HashSet<ListingDataWithCostModifiers> GetAllListings()
     {
         var clones = new HashSet<ListingDataWithCostModifiers>();
-        foreach (var prototype in ProtoMan.EnumeratePrototypes<ListingPrototype>())
+        foreach (var prototype in Proto.EnumeratePrototypes<ListingPrototype>())
         {
             clones.Add(new ListingDataWithCostModifiers(prototype));
         }
@@ -62,7 +62,7 @@ public abstract partial class SharedStoreSystem
     /// <returns>Whether or not the listing was added successfully</returns>
     public bool TryAddListing(StoreComponent component, string listingId)
     {
-        if (!ProtoMan.TryIndex<ListingPrototype>(listingId, out var proto))
+        if (!Proto.TryIndex<ListingPrototype>(listingId, out var proto))
         {
             Log.Error("Attempted to add invalid listing.");
             return false;

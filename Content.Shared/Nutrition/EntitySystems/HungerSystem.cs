@@ -15,6 +15,7 @@ namespace Content.Shared.Nutrition.EntitySystems;
 public sealed partial class HungerSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private AlertsSystem _alerts = default!;
     [Dependency] private DamageableSystem _damageable = default!;
@@ -234,13 +235,13 @@ public sealed partial class HungerSystem : EntitySystem
         switch (component.CurrentThreshold)
         {
             case HungerThreshold.Overfed:
-                ProtoMan.Resolve(HungerIconOverfedId, out prototype);
+                _prototype.Resolve(HungerIconOverfedId, out prototype);
                 break;
             case HungerThreshold.Peckish:
-                ProtoMan.Resolve(HungerIconPeckishId, out prototype);
+                _prototype.Resolve(HungerIconPeckishId, out prototype);
                 break;
             case HungerThreshold.Starving:
-                ProtoMan.Resolve(HungerIconStarvingId, out prototype);
+                _prototype.Resolve(HungerIconStarvingId, out prototype);
                 break;
             default:
                 prototype = null;

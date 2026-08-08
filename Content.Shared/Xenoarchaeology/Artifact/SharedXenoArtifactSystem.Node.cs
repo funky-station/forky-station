@@ -83,7 +83,7 @@ public abstract partial class SharedXenoArtifactSystem
     /// </summary>
     public Entity<XenoArtifactNodeComponent> CreateNode(Entity<XenoArtifactComponent> ent, ProtoId<XenoArchTriggerPrototype> trigger, int depth = 0)
     {
-        var triggerProto = ProtoMan.Index(trigger);
+        var triggerProto = PrototypeManager.Index(trigger);
         return CreateNode(ent, triggerProto, depth);
     }
 

@@ -41,8 +41,7 @@ public sealed partial class DisplacementMapSystem : EntitySystem
         if (displacementKey is null)
             return false;
 
-        if (EnsureDisplacementIsNotOnSprite(sprite, key))
-            index--;
+        EnsureDisplacementIsNotOnSprite(sprite, key);
 
         if (data.ShaderOverride is not null)
         {
@@ -92,21 +91,10 @@ public sealed partial class DisplacementMapSystem : EntitySystem
 
         var displacementLayer = _serialization.CreateCopy(displacementDataLayer, notNullableOverride: true);
 
-        if (key is Enum)
-        {
-            // We are doing this enum-to-string conversion here because CopyToShaderParameters.LayerKey only takes a string,
-            // but LayerMap keys are stored as objects, and therefore can take enums.
-            // There is a key parser in SpriteComponent but it requires the qualified (i.e. full) enum name.
-            // It feels like CopyToShaderParameters should be able to just take objects, but until then:
-            displacementLayer.CopyToShaderParameters!.LayerKey = $"enum.{key.GetType().Name}.{key}";
-        }
-        else
-        {
-            // This previously assigned a string reading "this is impossible" if key.ToString eval'd to false.
-            // However, for the sake of sanity, we've changed this to assert non-null - !.
-            // If this throws an error, we're not sorry. Nanotrasen thanks you for your service fixing this bug.
-            displacementLayer.CopyToShaderParameters!.LayerKey = key.ToString()!;
-        }
+        // This previously assigned a string reading "this is impossible" if key.ToString eval'd to false.
+        // However, for the sake of sanity, we've changed this to assert non-null - !.
+        // If this throws an error, we're not sorry. Nanotrasen thanks you for your service fixing this bug.
+        displacementLayer.CopyToShaderParameters!.LayerKey = key.ToString()!;
 
         _sprite.AddLayer(sprite.AsNullable(), displacementLayer, index);
         _sprite.LayerMapSet(sprite.AsNullable(), displacementKey, index);
@@ -119,13 +107,13 @@ public sealed partial class DisplacementMapSystem : EntitySystem
     /// </summary>
     /// <param name="sprite">The sprite to remove the displacement layer from.</param>
     /// <param name="key">The key of the layer that is referenced by the displacement layer we want to remove.</param>
-    /// <returns>Returns true if the displacement existed and was removed.</returns>
-    public bool EnsureDisplacementIsNotOnSprite(Entity<SpriteComponent> sprite, object key)
+    /// <param name="logMissing">Whether to report an error if the displacement map isn't on the sprite.</param>
+    public void EnsureDisplacementIsNotOnSprite(Entity<SpriteComponent> sprite, object key)
     {
         var displacementLayerKey = BuildDisplacementLayerKey(key);
         if (displacementLayerKey is null)
-            return false;
+            return;
 
-        return _sprite.RemoveLayer(sprite.AsNullable(), displacementLayerKey, false);
+        _sprite.RemoveLayer(sprite.AsNullable(), displacementLayerKey, false);
     }
 }

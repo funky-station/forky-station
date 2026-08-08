@@ -17,13 +17,13 @@ public sealed partial class MedTekCartridgeSystem : EntitySystem
 
     private void OnCartridgeAdded(Entity<MedTekCartridgeComponent> ent, ref CartridgeAddedEvent args)
     {
-        EnsureComp<HealthAnalyzerComponent>(args.Loader);
+        var healthAnalyzer = EnsureComp<HealthAnalyzerComponent>(args.Loader);
     }
 
     private void OnCartridgeRemoved(Entity<MedTekCartridgeComponent> ent, ref CartridgeRemovedEvent args)
     {
         // only remove when the program itself is removed
-        if (!_cartridgeLoaderSystem.HasProgram<MedTekCartridgeComponent>(args.Loader.AsNullable()))
+        if (!_cartridgeLoaderSystem.HasProgram<MedTekCartridgeComponent>(args.Loader))
         {
             RemComp<HealthAnalyzerComponent>(args.Loader);
         }

@@ -1,5 +1,4 @@
 using System.Threading;
-using Content.Server._MACRO.Announcements;
 using Content.Server.Administration.Logs;
 using Content.Server.AlertLevel;
 using Content.Shared.CCVar;
@@ -11,17 +10,16 @@ using Content.Server.Screens.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
-using Content.Shared._MACRO.Announcements;
 using Content.Shared.Database;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.GameTicking;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.Station.Components;
-using Robust.Shared.Prototypes;
 using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server.RoundEnd
@@ -36,18 +34,13 @@ namespace Content.Server.RoundEnd
         [Dependency] private IConfigurationManager _cfg = default!;
         [Dependency] private IChatManager _chatManager = default!;
         [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private IPrototypeManager _protoManager = default!;
         [Dependency] private ChatSystem _chatSystem = default!;
         [Dependency] private GameTicker _gameTicker = default!;
         [Dependency] private DeviceNetworkSystem _deviceNetworkSystem = default!;
         [Dependency] private EmergencyShuttleSystem _shuttle = default!;
         [Dependency] private SharedAudioSystem _audio = default!;
         [Dependency] private StationSystem _stationSystem = default!;
-        [Dependency] private AnnouncerManager _announcer = default!; // Macrocosm edit
-
-        // Macrocosm edit start
-        private static readonly ProtoId<AnnouncementSoundPrototype> ShuttleCalledAnnouncementId = "ShuttleCalled";
-        private static readonly ProtoId<AnnouncementSoundPrototype> ShuttleRecalledAnnouncementId = "ShuttleRecalled";
-        // Macrocosm edit end
 
         public TimeSpan DefaultCooldownDuration { get; set; } = TimeSpan.FromSeconds(30);
 
@@ -156,7 +149,7 @@ namespace Content.Server.RoundEnd
                 var stationUid = _stationSystem.GetOwningStation(requester.Value);
                 if (TryComp<AlertLevelComponent>(stationUid, out var alertLevel))
                 {
-                    duration = ProtoMan
+                    duration = _protoManager
                         .Index<AlertLevelPrototype>(AlertLevelSystem.DefaultAlertLevelSet)
                         .Levels[alertLevel.CurrentLevel].ShuttleTime;
                 }
@@ -218,10 +211,7 @@ namespace Content.Server.RoundEnd
                 null,
                 Color.Gold);
 
-            // Macrocosm edit start - announcer override
-            _announcer.TryGetAnnouncerSound(ShuttleCalledAnnouncementId, out var sound);
-            _audio.PlayGlobal(sound, Filter.Broadcast(), true);
-            // Macrocosm edit end
+            _audio.PlayGlobal("/Audio/Announcements/shuttlecalled.ogg", Filter.Broadcast(), true);
 
             LastCountdownStart = _gameTiming.CurTime;
             ExpectedCountdownEnd = _gameTiming.CurTime + countdownTime;
@@ -271,10 +261,7 @@ namespace Content.Server.RoundEnd
             _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("round-end-system-shuttle-recalled-announcement"),
                 Loc.GetString("round-end-system-shuttle-sender-announcement"), false, colorOverride: Color.Gold);
 
-            // Macrocosm edit start - announcer override
-            _announcer.TryGetAnnouncerSound(ShuttleRecalledAnnouncementId, out var sound);
-            _audio.PlayGlobal(sound, Filter.Broadcast(), true);
-            // Macrocosm edit end
+            _audio.PlayGlobal("/Audio/Announcements/shuttlerecalled.ogg", Filter.Broadcast(), true);
 
             LastCountdownStart = null;
             ExpectedCountdownEnd = null;

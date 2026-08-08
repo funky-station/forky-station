@@ -5,6 +5,8 @@ using Content.Shared.Item;
 using Content.Shared.Storage.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
@@ -12,6 +14,7 @@ namespace Content.Shared.Storage.EntitySystems;
 
 public sealed partial class DumpableSystem : EntitySystem
 {
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
@@ -105,7 +108,7 @@ public sealed partial class DumpableSystem : EntitySystem
         foreach (var entity in storage.Container.ContainedEntities)
         {
             if (!_itemQuery.TryGetComponent(entity, out var itemComp) ||
-                !ProtoMan.Resolve(itemComp.Size, out var itemSize))
+                !_prototypeManager.Resolve(itemComp.Size, out var itemSize))
             {
                 continue;
             }

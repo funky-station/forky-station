@@ -14,13 +14,10 @@
   # - Gray # macro - uncomment to enable
   - Human
   - Moth
-  # - Ovinia # macro - uncomment to enable
   - Reptilian
   - SlimePerson
-  # - Ungu # macro - uncomment to enable
   - Vox
   - Vulpkanin
-
 
 - type: guideEntry
   id: Arachnid

@@ -1,7 +1,7 @@
 - type: entity
   name: basic slime
   id: BaseMobAdultSlimes
-  parent: [ BaseMobSlimes, SimpleMobBase, MobCombat, BaseSlicingRefinable, MobNightVision ]
+  parent: [ BaseMobSlimes, SimpleMobBase, MobCombat, BaseSlicingRefinable ]
   abstract: true
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
@@ -159,7 +159,6 @@
     - type: NpcFactionMember
       factions:
         - SimpleHostile
-        - AnimalFriend # MACRO
     - type: GhostRole
       description: ghost-role-information-angry-slimes-description
       rules: ghost-role-information-angry-slimes-rules
@@ -200,7 +199,6 @@
     - type: NpcFactionMember
       factions:
         - SimpleHostile
-        - AnimalFriend # MACRO
     - type: GhostRole
       description: ghost-role-information-angry-slimes-description
       rules: ghost-role-information-angry-slimes-rules
@@ -240,7 +238,6 @@
     - type: NpcFactionMember
       factions:
         - SimpleHostile
-        - AnimalFriend # MACRO
     - type: GhostRole
       description: ghost-role-information-angry-slimes-description
       rules: ghost-role-information-angry-slimes-rules

@@ -24,6 +24,7 @@ namespace Content.Shared.VendingMachines;
 public abstract partial class SharedVendingMachineSystem : EntitySystem
 {
     [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] protected IPrototypeManager PrototypeManager = default!;
     [Dependency] private AccessReaderSystem _accessReader = default!;
     [Dependency] private SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] protected SharedAudioSystem Audio = default!;
@@ -324,7 +325,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
             return;
         }
 
-        if (!ProtoMan.TryIndex(component.PackPrototypeId, out VendingMachineInventoryPrototype? packPrototype))
+        if (!PrototypeManager.TryIndex(component.PackPrototypeId, out VendingMachineInventoryPrototype? packPrototype))
             return;
 
         AddInventoryFromPrototype(uid, packPrototype.StartingInventory, InventoryType.Regular, component, restockQuality);
@@ -404,7 +405,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
 
         foreach (var (id, amount) in entries)
         {
-            if (ProtoMan.HasIndex<EntityPrototype>(id))
+            if (PrototypeManager.HasIndex<EntityPrototype>(id))
             {
                 var restock = amount;
                 var chanceOfMissingStock = 1 - restockQuality;

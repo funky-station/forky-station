@@ -9,6 +9,7 @@ namespace Content.Shared.Alert;
 public abstract partial class AlertsSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     [Dependency] private EntityQuery<AlertsComponent> _alertsQuery = default!;
     private FrozenDictionary<ProtoId<AlertPrototype>, AlertPrototype> _typeToAlert = default!;
@@ -325,7 +326,7 @@ public abstract partial class AlertsSystem : EntitySystem
     protected virtual void LoadPrototypes()
     {
         var dict = new Dictionary<ProtoId<AlertPrototype>, AlertPrototype>();
-        foreach (var alert in ProtoMan.EnumeratePrototypes<AlertPrototype>())
+        foreach (var alert in _prototypeManager.EnumeratePrototypes<AlertPrototype>())
         {
             if (!dict.TryAdd(alert.ID, alert))
                 Log.Error($"Found alert with duplicate alertType {alert.ID} - all alerts must have a unique alertType, this one will be skipped");

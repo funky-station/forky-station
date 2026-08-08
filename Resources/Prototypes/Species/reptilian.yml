@@ -9,10 +9,3 @@
   maleFirstNames: NamesReptilianMale
   femaleFirstNames: NamesReptilianFemale
   naming: FirstDashFirst
-  defaultSoundsBySex:
-  - MaleReptilian
-  - FemaleReptilian
-  - MaleReptilian
-  voices:
-  - MaleReptilian
-  - FemaleReptilian

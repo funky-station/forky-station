@@ -2,9 +2,7 @@ using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
-using Content.Server.Database;
 using Content.Server.Discord.WebhookMessages;
-using Content.Server.GameTicking;
 using Content.Server.Voting.Managers;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -73,14 +71,12 @@ namespace Content.Server.Voting
         [Dependency] private IChatManager _chatManager = default!;
         [Dependency] private VoteWebhooks _voteWebhooks = default!;
         [Dependency] private IConfigurationManager _cfg = default!;
-        [Dependency] private IServerDbManager _dbManager = default!;
-        [Dependency] private IEntitySystemManager _esm = default!;
 
         private const int MaxArgCount = 10;
 
         public override string Command => "customvote";
 
-        public override async void Execute(IConsoleShell shell, string argStr, string[] args)
+        public override void Execute(IConsoleShell shell, string argStr, string[] args)
         {
             if (args.Length < 3 || args.Length > MaxArgCount)
             {
@@ -110,15 +106,9 @@ namespace Content.Server.Voting
 
             var vote = _voteManager.CreateVote(options);
 
-            var voteLogId = await _dbManager.CustomVoteLogAdd(
-                title,
-                GameTicker.GetRoundId(_esm),
-                shell.Player?.UserId,
-                [..options.Options.Select(x => x.text)]);
-
             var webhookState = _voteWebhooks.CreateWebhookIfConfigured(options, _cfg.GetCVar(CCVars.DiscordVoteWebhook));
 
-            vote.OnFinished += async (_, eventArgs) =>
+            vote.OnFinished += (_, eventArgs) =>
             {
                 if (eventArgs.Winner == null)
                 {
@@ -133,13 +123,11 @@ namespace Content.Server.Voting
                 }
 
                 _voteWebhooks.UpdateWebhookIfConfigured(webhookState, eventArgs);
-                await _dbManager.CustomVoteLogFinish(voteLogId, [..eventArgs.Votes]);
             };
 
-            vote.OnCancelled += async _ =>
+            vote.OnCancelled += _ =>
             {
                 _voteWebhooks.UpdateCancelledWebhookIfConfigured(webhookState);
-                await _dbManager.CustomVoteLogCancel(voteLogId);
             };
         }
 

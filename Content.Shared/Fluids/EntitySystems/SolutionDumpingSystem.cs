@@ -21,6 +21,7 @@ namespace Content.Shared.Fluids.EntitySystems;
 /// <seealso cref="DrainableSolutionComponent" />
 public sealed partial class SolutionDumpingSystem : EntitySystem
 {
+    [Dependency] private IPrototypeManager _protoMan = default!;
     [Dependency] private ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private OpenableSystem _openable = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
@@ -94,7 +95,7 @@ public sealed partial class SolutionDumpingSystem : EntitySystem
             // TODO: This should be replaced with proper support for unlimited solutions, rather than cheating by bypassing UpdateChemicals using AddSolution. We can already avoid reactions using CanReact = false, this cheat just bypasses solution overflow.
             targetSol.AddSolution(
                 _solContainer.SplitSolution(sourceEnt.Value, sourceEnt.Value.Comp.Solution.Volume),
-                ProtoMan);
+                _protoMan);
             // Solution.AddSolution doesn't dirty targetSol for us
             Dirty(targetSolEnt.Value);
         }

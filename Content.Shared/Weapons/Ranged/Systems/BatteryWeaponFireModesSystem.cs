@@ -12,6 +12,7 @@ namespace Content.Shared.Weapons.Ranged.Systems;
 public sealed partial class BatteryWeaponFireModesSystem : EntitySystem
 {
     [Dependency] private AccessReaderSystem _accessReaderSystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private SharedGunSystem _gun = default!;
     [Dependency] private SharedPopupSystem _popupSystem = default!;
@@ -32,7 +33,7 @@ public sealed partial class BatteryWeaponFireModesSystem : EntitySystem
 
         var fireMode = GetMode(ent.Comp);
 
-        if (!ProtoMan.TryIndex<EntityPrototype>(fireMode.Prototype, out var proto))
+        if (!_prototypeManager.TryIndex<EntityPrototype>(fireMode.Prototype, out var proto))
             return;
 
         args.PushMarkup(Loc.GetString("gun-set-fire-mode-examine", ("mode", proto.Name)));
@@ -57,7 +58,7 @@ public sealed partial class BatteryWeaponFireModesSystem : EntitySystem
         for (var i = 0; i < component.FireModes.Count; i++)
         {
             var fireMode = component.FireModes[i];
-            var entProto = ProtoMan.Index<EntityPrototype>(fireMode.Prototype);
+            var entProto = _prototypeManager.Index<EntityPrototype>(fireMode.Prototype);
             var index = i;
 
             var v = new Verb
@@ -115,7 +116,7 @@ public sealed partial class BatteryWeaponFireModesSystem : EntitySystem
         ent.Comp.CurrentFireMode = index;
         Dirty(ent);
 
-        if (ProtoMan.TryIndex<EntityPrototype>(fireMode.Prototype, out var prototype))
+        if (_prototypeManager.TryIndex<EntityPrototype>(fireMode.Prototype, out var prototype))
         {
             if (TryComp<AppearanceComponent>(ent, out var appearance))
                 _appearanceSystem.SetData(ent, BatteryWeaponFireModeVisuals.State, prototype.ID, appearance);

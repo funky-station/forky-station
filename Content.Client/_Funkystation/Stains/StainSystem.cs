@@ -13,6 +13,7 @@ namespace Content.Client._Funkystation.Stains;
 
 public sealed partial class StainSystem : SharedStainSystem
 {
+    [Dependency] private IPrototypeManager _prototypeManager = null!;
     [Dependency] private SharedSolutionContainerSystem _solution = null!;
     [Dependency] private SpriteSystem _sprite = null!;
 
@@ -66,7 +67,7 @@ public sealed partial class StainSystem : SharedStainSystem
         if (!_solution.TryGetSolution(ent.Owner, ent.Comp.SolutionName, out _, out var sol) || sol.Volume <= FixedPoint2.Zero)
             yield break;
 
-        var color = sol.GetColor(ProtoMan);
+        var color = sol.GetColor(_prototypeManager);
         for (var i = 0; i < templates.Count; i++)
         {
             var layer = templates[i];

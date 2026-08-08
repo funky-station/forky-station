@@ -171,7 +171,10 @@
     footstepSoundCollection:
       path: /Audio/_MACRO/Effects/Footsteps/snailstep.ogg
   - type: Vocal
-    emoteSounds: UnisexSnail
+    sounds:
+      Male: UnisexSnail
+      Female: UnisexSnail
+      Unsexed: UnisexSnail
   - type: BodyEmotes
     soundsId: GastropoidBodyEmotes
   - type: GastropoidAccent

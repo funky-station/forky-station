@@ -8,6 +8,7 @@ namespace Content.Shared.BarSign;
 
 public sealed partial class BarSignSystem : EntitySystem
 {
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private MetaDataSystem _metaData = default!;
     [Dependency] private SharedUserInterfaceSystem _ui = default!;
@@ -32,8 +33,8 @@ public sealed partial class BarSignSystem : EntitySystem
     {
         BarSignPrototype? newPrototype;
         if (ent.Comp.Current is null)
-            newPrototype = _random.Pick(GetAllBarSigns(ProtoMan));
-        else if (!ProtoMan.Resolve(ent.Comp.Current, out newPrototype))
+            newPrototype = _random.Pick(GetAllBarSigns(_prototypeManager));
+        else if (!_prototypeManager.Resolve(ent.Comp.Current, out newPrototype))
             return;
 
         SetBarSign(ent, newPrototype);
@@ -48,7 +49,7 @@ public sealed partial class BarSignSystem : EntitySystem
 
     private void OnSetBarSignMessage(Entity<BarSignComponent> ent, ref SetBarSignMessage args)
     {
-        if (!ProtoMan.Resolve(args.Sign, out var signPrototype))
+        if (!_prototypeManager.Resolve(args.Sign, out var signPrototype))
             return;
 
         if (signPrototype.Hidden)
@@ -59,7 +60,7 @@ public sealed partial class BarSignSystem : EntitySystem
 
     private void OnEmpPulse(Entity<BarSignComponent> ent, ref EmpPulseEvent args)
     {
-        if (!ProtoMan.Resolve(ent.Comp.Emped, out var empedPrototype))
+        if (!_prototypeManager.Resolve(ent.Comp.Emped, out var empedPrototype))
             return;
 
         SetBarSign(ent, empedPrototype);

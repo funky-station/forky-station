@@ -1,4 +1,3 @@
-using Content.Server._MACRO.Announcements;
 using Content.Server.Administration.Logs;
 using Content.Server.AlertLevel;
 using Content.Server.Chat.Systems;
@@ -19,7 +18,6 @@ using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
 
 namespace Content.Server.Communications
@@ -38,8 +36,6 @@ namespace Content.Server.Communications
         [Dependency] private IConfigurationManager _cfg = default!;
         [Dependency] private IAdminLogManager _adminLogger = default!;
         [Dependency] private IdentitySystem _identity = default!;
-
-        [Dependency] private AnnouncerManager _announcer = default!; // Macrocosm
 
         private const float UIUpdateInterval = 5.0f;
 
@@ -267,10 +263,7 @@ namespace Content.Server.Communications
 
             if (comp.Global)
             {
-                // Macrocosm start - Announcer overrides
-                _announcer.TryGetAnnouncerSound(comp.Sound, out var sound);
-                _chatSystem.DispatchGlobalAnnouncement(msg, title, announcementSound: sound, colorOverride: comp.Color);
-                // Macrocosm end
+                _chatSystem.DispatchGlobalAnnouncement(msg, title, announcementSound: comp.Sound, colorOverride: comp.Color);
 
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following global announcement: {msg}");
                 return;

@@ -17,6 +17,7 @@ public sealed partial class WaggingSystem : EntitySystem
 {
     [Dependency] private ActionsSystem _actions = default!;
     [Dependency] private SharedVisualBodySystem _visualBody = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {
@@ -114,7 +115,7 @@ public sealed partial class WaggingSystem : EntitySystem
                     }
                 }
 
-                if (!ProtoMan.HasIndex<MarkingPrototype>(newMarkingId))
+                if (!_prototype.HasIndex<MarkingPrototype>(newMarkingId))
                 {
                     Log.Warning($"{ToPrettyString(ent):ent} tried toggling wagging but {newMarkingId} marking doesn't exist");
                     continue;

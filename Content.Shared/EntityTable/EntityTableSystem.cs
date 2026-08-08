@@ -8,33 +8,25 @@ namespace Content.Shared.EntityTable;
 
 public sealed partial class EntityTableSystem : EntitySystem
 {
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private IRobustRandom _random = default!;
 
-    /// <summary>
-    /// Compiles a random list of entity prototypes using constraints.
-    /// </summary>
-    public IEnumerable<EntProtoId> GetSpawns(EntityTablePrototype entTableProto, IRobustRandom? rand = null, EntityTableContext? ctx = null)
+    public IEnumerable<EntProtoId> GetSpawns(EntityTablePrototype entTableProto, System.Random? rand = null, EntityTableContext? ctx = null)
     {
         // convenient
         return GetSpawns(entTableProto.Table, rand, ctx);
     }
 
-    /// <summary>
-    /// Compiles a random list of entity prototypes using constraints.
-    /// </summary>
-    public IEnumerable<EntProtoId> GetSpawns(EntityTableSelector? table, IRobustRandom? rand = null, EntityTableContext? ctx = null)
+    public IEnumerable<EntProtoId> GetSpawns(EntityTableSelector? table, System.Random? rand = null, EntityTableContext? ctx = null)
     {
         if (table == null)
             return new List<EntProtoId>();
 
-        rand ??= _random;
+        rand ??= _random.GetRandom();
         ctx ??= new EntityTableContext();
-        return table.GetSpawns(rand, EntityManager, ProtoMan, ctx);
+        return table.GetSpawns(rand, EntityManager, _prototypeManager, ctx);
     }
 
-    /// <summary>
-    /// Builds a list of all the spawns in an EntityTable as keys, and their modified weights as values.
-    /// </summary>
     public IEnumerable<(EntProtoId spawn, double)> ListSpawns(EntityTablePrototype entTableProto, EntityTableContext? ctx = null)
     {
         return ListSpawns(entTableProto.Table, ctx);
@@ -51,7 +43,7 @@ public sealed partial class EntityTableSystem : EntitySystem
             return new List<(EntProtoId spawn, double)>();
 
         ctx ??= new EntityTableContext();
-        return table.ListSpawns(EntityManager, ProtoMan, ctx);
+        return table.ListSpawns(EntityManager, _prototypeManager, ctx);
     }
 
     /// <inheritdoc cref="AverageSpawns(EntityTableSelector?,EntityTableContext?)"/>
@@ -72,7 +64,7 @@ public sealed partial class EntityTableSystem : EntitySystem
             return new List<(EntProtoId spawn, double)>();
 
         ctx ??= new EntityTableContext();
-        return table.AverageSpawns(EntityManager, ProtoMan, ctx);
+        return table.AverageSpawns(EntityManager, _prototypeManager, ctx);
     }
 }
 

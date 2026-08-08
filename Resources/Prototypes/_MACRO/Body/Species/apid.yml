@@ -192,7 +192,10 @@
         color: "#808A51"
   - type: MothAccent
   - type: Vocal
-    emoteSounds: UnisexMoth
+    sounds:
+      Male: UnisexMoth
+      Female: UnisexMoth
+      Unsexed: UnisexMoth
   - type: BodyEmotes
     soundsId: MothBodyEmotes
 

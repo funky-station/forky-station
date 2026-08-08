@@ -17,6 +17,7 @@ public sealed partial class XAEFoamSystem : BaseXAESystem<XAEFoamComponent>
 {
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SmokeSystem _smoke = default!;
+    [Dependency] private IPrototypeManager _prototypeManager= default!;
     [Dependency] private MetaDataSystem _metaData = default!;
 
     /// <inheritdoc />
@@ -39,7 +40,7 @@ public sealed partial class XAEFoamSystem : BaseXAESystem<XAEFoamComponent>
 
         if (component.ReplaceDescription)
         {
-            var reagent = ProtoMan.Index<ReagentPrototype>(component.SelectedReagent);
+            var reagent = _prototypeManager.Index<ReagentPrototype>(component.SelectedReagent);
             var newEntityDescription = Loc.GetString("xenoarch-effect-foam", ("reagent", reagent.LocalizedName));
             _metaData.SetEntityDescription(uid, newEntityDescription);
         }

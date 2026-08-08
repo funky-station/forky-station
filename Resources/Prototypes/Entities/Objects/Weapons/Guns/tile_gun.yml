@@ -21,11 +21,6 @@
   - type: Tool
     qualities:
     - Prying
-  - type: BlockItemNameInHand
-  - type: CustomSpriteAmmoCounter
-    loadedAmmoSprite: Interface/ItemStatus/Tiles/not_spent.png
-    spentAmmoSprite: Interface/ItemStatus/Tiles/spent.png
-    numberOfRows: 3
   - type: AmmoCounter
   - type: Gun
     fireRate: 4
@@ -43,7 +38,7 @@
     whitelist:
       components:
       - FloorTile
-    capacity: 27
+    capacity: 30
     proto: FloorTileItemXenoborg
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/tile_load.ogg

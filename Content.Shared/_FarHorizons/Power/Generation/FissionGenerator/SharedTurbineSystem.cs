@@ -27,6 +27,7 @@ public abstract partial class SharedTurbineSystem : EntitySystem
     [Dependency] private SharedToolSystem _toolSystem = default!;
     [Dependency] private EntityManager _entityManager = default!;
     [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     public override void Initialize()
     {

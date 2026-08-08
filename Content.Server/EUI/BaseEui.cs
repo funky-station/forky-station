@@ -15,10 +15,8 @@ namespace Content.Server.EUI
     ///     An equivalently named class much exist server side for an EUI to work.
     ///     It will be instantiated, opened and closed automatically.
     /// </remarks>
-    public abstract partial class BaseEui
+    public abstract class BaseEui
     {
-        [Dependency] private IServerNetManager _netMgr = null!;
-
         private bool _isStateDirty = false;
 
         /// <summary>
@@ -28,11 +26,6 @@ namespace Content.Server.EUI
         public bool IsShutDown { get; private set; }
         public EuiManager Manager { get; private set; } = default!;
         public uint Id { get; private set; }
-
-        protected BaseEui()
-        {
-            IoCManager.InjectDependencies(this);
-        }
 
         /// <summary>
         ///     Called when the UI has been opened. Do initializing logic here.
@@ -88,13 +81,12 @@ namespace Content.Server.EUI
         /// </summary>
         public void SendMessage(EuiMessageBase message)
         {
-            var msg = new MsgEuiMessage
-            {
-                Id = Id,
-                Message = message,
-            };
+            var netMgr = IoCManager.Resolve<IServerNetManager>();
+            var msg = new MsgEuiMessage();
+            msg.Id = Id;
+            msg.Message = message;
 
-            _netMgr.ServerSendMessage(msg, Player.Channel);
+            netMgr.ServerSendMessage(msg, Player.Channel);
         }
 
         /// <summary>
@@ -117,13 +109,12 @@ namespace Content.Server.EUI
 
             var state = GetNewState();
 
-            var msg = new MsgEuiState
-            {
-                Id = Id,
-                State = state,
-            };
+            var netMgr = IoCManager.Resolve<IServerNetManager>();
+            var msg = new MsgEuiState();
+            msg.Id = Id;
+            msg.State = state;
 
-            _netMgr.ServerSendMessage(msg, Player.Channel);
+            netMgr.ServerSendMessage(msg, Player.Channel);
         }
 
         internal void Initialize(EuiManager manager, ICommonSession player, uint id)

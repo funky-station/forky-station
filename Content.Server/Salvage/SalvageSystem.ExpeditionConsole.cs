@@ -1,3 +1,4 @@
+using Content.Shared.Shuttles.Components;
 using Content.Shared.Procedural;
 using Content.Shared.Salvage.Expeditions;
 using Content.Shared.Dataset;
@@ -24,10 +25,10 @@ public sealed partial class SalvageSystem
         SpawnMission(missionparams, station.Value, cdUid);
 
         data.ActiveMission = args.Index;
-        var mission = GetMission(ProtoMan.Index<SalvageDifficultyPrototype>(missionparams.Difficulty), missionparams.Seed);
+        var mission = GetMission(_prototypeManager.Index<SalvageDifficultyPrototype>(missionparams.Difficulty), missionparams.Seed);
         data.NextOffer = _timing.CurTime + mission.Duration + TimeSpan.FromSeconds(1);
 
-        _labelSystem.Label(cdUid, GetFTLName(ProtoMan.Index(PlanetNames), missionparams.Seed));
+        _labelSystem.Label(cdUid, GetFTLName(_prototypeManager.Index(PlanetNames), missionparams.Seed));
         _audio.PlayPvs(component.PrintSound, uid);
 
         UpdateConsoles((station.Value, data));

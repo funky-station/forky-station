@@ -6,9 +6,6 @@ namespace Content.Shared.Effects;
 [RegisterComponent]
 public sealed partial class ColorFlashEffectComponent : Component
 {
-    /// <summary>
-    /// The color in which the entity should flash.
-    /// </summary>
     [ViewVariables]
     public Color Color = Color.White;
 }

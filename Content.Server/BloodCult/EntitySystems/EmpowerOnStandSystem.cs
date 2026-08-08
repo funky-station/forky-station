@@ -1,12 +1,12 @@
-using Content.Server.Popups;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
+using Robust.Server.GameObjects;
+using Content.Shared.Interaction;
 using Content.Shared.Actions;
 using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
-using Content.Shared.Interaction;
+using Content.Server.Popups;
 using Content.Shared.Popups;
-using Robust.Server.GameObjects;
-using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
@@ -14,6 +14,7 @@ public sealed partial class EmpowerOnStandSystem : EntitySystem
 {
 	[Dependency] private SharedTransformSystem _transform = default!;
 	[Dependency] private MapSystem _mapSystem = default!;
+	[Dependency] private IMapManager _mapManager = default!;
 	[Dependency] private SharedActionsSystem _action = default!;
 	[Dependency] private PopupSystem _popup = default!;
 
@@ -79,7 +80,7 @@ public sealed partial class EmpowerOnStandSystem : EntitySystem
 	private bool IsStandingOnRune(EntityUid user, Entity<EmpowerOnStandComponent> rune)
 	{
 		var userCoords = Transform(user).Coordinates;
-		var userLocation = userCoords.AlignWithClosestGridTile(entityManager: EntityManager);
+		var userLocation = userCoords.AlignWithClosestGridTile(entityManager: EntityManager, mapManager: _mapManager);
 		var userGridUid = _transform.GetGrid(userLocation);
 		if (!TryComp<MapGridComponent>(userGridUid, out var userGrid))
 			return false;
@@ -88,7 +89,7 @@ public sealed partial class EmpowerOnStandSystem : EntitySystem
 
 		// Check if the rune is on the same tile
 		var runeCoords = Transform(rune).Coordinates;
-		var runeLocation = runeCoords.AlignWithClosestGridTile(entityManager: EntityManager);
+		var runeLocation = runeCoords.AlignWithClosestGridTile(entityManager: EntityManager, mapManager: _mapManager);
 		var runeGridUid = _transform.GetGrid(runeLocation);
 		if (!TryComp<MapGridComponent>(runeGridUid, out var runeGrid))
 			return false;

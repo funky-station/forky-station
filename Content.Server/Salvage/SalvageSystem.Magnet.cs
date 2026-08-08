@@ -8,7 +8,6 @@ using Content.Shared.Radio;
 using Content.Shared.Salvage.Magnet;
 using Robust.Shared.Exceptions;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Salvage;
@@ -293,12 +292,12 @@ public sealed partial class SalvageSystem
         switch (offering)
         {
             case AsteroidOffering asteroid:
-                var grid = _mapSystem.CreateGridEntity(salvMap);
+                var grid = _mapManager.CreateGridEntity(salvMap);
                 await _dungeon.GenerateDungeonAsync(asteroid.DungeonConfig, grid.Owner, grid.Comp, Vector2i.Zero, seed);
                 break;
             case DebrisOffering debris:
-                var debrisProto = ProtoMan.Index<DungeonConfigPrototype>(debris.Id);
-                var debrisGrid = _mapSystem.CreateGridEntity(salvMap);
+                var debrisProto = _prototypeManager.Index<DungeonConfigPrototype>(debris.Id);
+                var debrisGrid = _mapManager.CreateGridEntity(salvMap);
                 await _dungeon.GenerateDungeonAsync(debrisProto, debrisGrid.Owner, debrisGrid.Comp, Vector2i.Zero, seed);
                 break;
             case SalvageOffering wreck:
@@ -423,7 +422,6 @@ public sealed partial class SalvageSystem
         var magnetPos = _transform.GetWorldPosition(magnet) + worldAngle.ToVec() * bounds.MaxDimension;
         var origin = attachedAABB.ClosestPoint(magnetPos);
         var fraction = 0.50f;
-        var grids = new List<Entity<MapGridComponent>>();
 
         // Thanks 20kdc
         for (var i = 0; i < 20; i++)
@@ -439,9 +437,7 @@ public sealed partial class SalvageSystem
 
             // This doesn't stop it from spawning on top of random things in space
             // Might be better like this, ghosts could stop it before
-            grids.Clear();
-            _mapSystem.FindGridsIntersecting(finalCoords.MapId, box2Rot, ref grids);
-            if (grids.Count > 0)
+            if (_mapManager.FindGridsIntersecting(finalCoords.MapId, box2Rot).Any())
             {
                 // Bump it further and further just in case.
                 fraction += 0.1f;

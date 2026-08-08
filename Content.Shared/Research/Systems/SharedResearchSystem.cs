@@ -11,6 +11,7 @@ namespace Content.Shared.Research.Systems;
 
 public abstract partial class SharedResearchSystem : EntitySystem
 {
+    [Dependency] protected IPrototypeManager PrototypeManager = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedLatheSystem _lathe = default!;
 
@@ -53,7 +54,7 @@ public abstract partial class SharedResearchSystem : EntitySystem
 
         var availableTechnologies = new List<TechnologyPrototype>();
         var disciplineTiers = GetDisciplineTiers(component);
-        foreach (var tech in ProtoMan.EnumeratePrototypes<TechnologyPrototype>())
+        foreach (var tech in PrototypeManager.EnumeratePrototypes<TechnologyPrototype>())
         {
             if (IsTechnologyAvailable(component, tech, disciplineTiers))
                 availableTechnologies.Add(tech);
@@ -100,17 +101,17 @@ public abstract partial class SharedResearchSystem : EntitySystem
 
     public int GetHighestDisciplineTier(TechnologyDatabaseComponent component, string disciplineId)
     {
-        return GetHighestDisciplineTier(component, ProtoMan.Index<TechDisciplinePrototype>(disciplineId));
+        return GetHighestDisciplineTier(component, PrototypeManager.Index<TechDisciplinePrototype>(disciplineId));
     }
 
     public int GetHighestDisciplineTier(TechnologyDatabaseComponent component, TechDisciplinePrototype techDiscipline)
     {
-        var allTech = ProtoMan.EnumeratePrototypes<TechnologyPrototype>()
+        var allTech = PrototypeManager.EnumeratePrototypes<TechnologyPrototype>()
             .Where(p => p.Discipline == techDiscipline.ID && !p.Hidden).ToList();
         var allUnlocked = new List<TechnologyPrototype>();
         foreach (var recipe in component.UnlockedTechnologies)
         {
-            var proto = ProtoMan.Index<TechnologyPrototype>(recipe);
+            var proto = PrototypeManager.Index<TechnologyPrototype>(recipe);
             if (proto.Discipline != techDiscipline.ID)
                 continue;
             allUnlocked.Add(proto);
@@ -155,7 +156,7 @@ public abstract partial class SharedResearchSystem : EntitySystem
         var description = new FormattedMessage();
         if (includeTier)
         {
-            disciplinePrototype ??= ProtoMan.Index(technology.Discipline);
+            disciplinePrototype ??= PrototypeManager.Index(technology.Discipline);
             description.AddMarkupOrThrow(Loc.GetString("research-console-tier-discipline-info",
                 ("tier", technology.Tier), ("color", disciplinePrototype.Color), ("discipline", Loc.GetString(disciplinePrototype.Name))));
             description.PushNewline();
@@ -172,7 +173,7 @@ public abstract partial class SharedResearchSystem : EntitySystem
             description.AddMarkupOrThrow(Loc.GetString("research-console-prereqs-list-start"));
             foreach (var recipe in technology.TechnologyPrerequisites)
             {
-                var techProto = ProtoMan.Index(recipe);
+                var techProto = PrototypeManager.Index(recipe);
                 description.PushNewline();
                 description.AddMarkupOrThrow(Loc.GetString("research-console-prereqs-list-entry",
                     ("text", Loc.GetString(techProto.Name))));
@@ -183,7 +184,7 @@ public abstract partial class SharedResearchSystem : EntitySystem
         description.AddMarkupOrThrow(Loc.GetString("research-console-unlocks-list-start"));
         foreach (var recipe in technology.RecipeUnlocks)
         {
-            var recipeProto = ProtoMan.Index(recipe);
+            var recipeProto = PrototypeManager.Index(recipe);
             description.PushNewline();
             description.AddMarkupOrThrow(Loc.GetString("research-console-unlocks-list-entry",
                 ("name", _lathe.GetRecipeName(recipeProto))));
@@ -221,7 +222,7 @@ public abstract partial class SharedResearchSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        var discipline = ProtoMan.Index(prototype.Discipline);
+        var discipline = PrototypeManager.Index(prototype.Discipline);
         if (prototype.Tier < discipline.LockoutTier)
             return;
         component.MainDiscipline = prototype.Discipline;
@@ -236,7 +237,7 @@ public abstract partial class SharedResearchSystem : EntitySystem
     /// </summary>
     public bool TryRemoveTechnology(Entity<TechnologyDatabaseComponent> entity, ProtoId<TechnologyPrototype> tech)
     {
-        return TryRemoveTechnology(entity, ProtoMan.Index(tech));
+        return TryRemoveTechnology(entity, PrototypeManager.Index(tech));
     }
 
     /// <summary>
@@ -256,7 +257,7 @@ public abstract partial class SharedResearchSystem : EntitySystem
             var hasTechElsewhere = false;
             foreach (var unlockedTech in entity.Comp.UnlockedTechnologies)
             {
-                var unlockedTechProto = ProtoMan.Index<TechnologyPrototype>(unlockedTech);
+                var unlockedTechProto = PrototypeManager.Index<TechnologyPrototype>(unlockedTech);
 
                 if (!unlockedTechProto.RecipeUnlocks.Contains(recipe))
                     continue;

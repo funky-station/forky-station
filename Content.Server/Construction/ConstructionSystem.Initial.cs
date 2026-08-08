@@ -324,13 +324,13 @@ namespace Content.Server.Construction
         // LEGACY CODE. See warning at the top of the file!
         public async Task<bool> TryStartItemConstruction(string prototype, EntityUid user)
         {
-            if (!ProtoMan.TryIndex(prototype, out ConstructionPrototype? constructionPrototype))
+            if (!PrototypeManager.TryIndex(prototype, out ConstructionPrototype? constructionPrototype))
             {
                 Log.Error($"Tried to start construction of invalid recipe '{prototype}'!");
                 return false;
             }
 
-            if (!ProtoMan.TryIndex(constructionPrototype.Graph,
+            if (!PrototypeManager.TryIndex(constructionPrototype.Graph,
                     out ConstructionGraphPrototype? constructionGraph))
             {
                 Log.Error(
@@ -403,14 +403,14 @@ namespace Content.Server.Construction
         // LEGACY CODE. See warning at the top of the file!
         private async void HandleStartStructureConstruction(TryStartStructureConstructionMessage ev, EntitySessionEventArgs args)
         {
-            if (!ProtoMan.TryIndex(ev.PrototypeName, out ConstructionPrototype? constructionPrototype))
+            if (!PrototypeManager.TryIndex(ev.PrototypeName, out ConstructionPrototype? constructionPrototype))
             {
                 Log.Error($"Tried to start construction of invalid recipe '{ev.PrototypeName}'!");
                 RaiseNetworkEvent(new AckStructureConstructionMessage(ev.Ack));
                 return;
             }
 
-            if (!ProtoMan.TryIndex(constructionPrototype.Graph, out ConstructionGraphPrototype? constructionGraph))
+            if (!PrototypeManager.TryIndex(constructionPrototype.Graph, out ConstructionGraphPrototype? constructionGraph))
             {
                 Log.Error($"Invalid construction graph '{constructionPrototype.Graph}' in recipe '{ev.PrototypeName}'!");
                 RaiseNetworkEvent(new AckStructureConstructionMessage(ev.Ack));

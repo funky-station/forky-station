@@ -33,7 +33,7 @@ public sealed partial class ResistLockerSystem : EntitySystem
         if (component.IsResisting)
             return;
 
-        if (!TryComp(uid, out EntityStorageComponent? storageComponent) || !storageComponent.OpenOnMove)
+        if (!TryComp(uid, out EntityStorageComponent? storageComponent))
             return;
 
         if (!_actionBlocker.CanMove(args.Entity))
@@ -65,34 +65,30 @@ public sealed partial class ResistLockerSystem : EntitySystem
         _popupSystem.PopupEntity(Loc.GetString("resist-locker-component-start-resisting"), user, user, PopupType.Large);
     }
 
-    // TODO: Convert to DoAfterAttemptEvent
     private void OnDoAfter(EntityUid uid, ResistLockerComponent component, DoAfterEvent args)
     {
-        if (args.Handled)
+        if (args.Cancelled)
+        {
+            component.IsResisting = false;
+            _popupSystem.PopupEntity(Loc.GetString("resist-locker-component-resist-interrupted"), args.Args.User, args.Args.User, PopupType.Medium);
+            return;
+        }
+
+        if (args.Handled || args.Args.Target == null)
             return;
 
         component.IsResisting = false;
 
-        if (args.Target != uid)
-            return;
-
-        if (args.Cancelled)
-        {
-            _popupSystem.PopupEntity(Loc.GetString("resist-locker-component-resist-interrupted"), args.User, args.User, PopupType.Medium);
-            return;
-        }
-
-        if (TryComp(uid, out EntityStorageComponent? storageComponent))
+        if (HasComp<EntityStorageComponent>(uid))
         {
             WeldableComponent? weldable = null;
             if (_weldable.IsWelded(uid, weldable))
                 _weldable.SetWeldedState(uid, false, weldable);
 
-            if (TryComp<LockComponent>(uid, out var lockComponent))
-                _lockSystem.Unlock(uid, args.User, lockComponent);
+            if (TryComp<LockComponent>(args.Args.Target.Value, out var lockComponent))
+                _lockSystem.Unlock(uid, args.Args.User, lockComponent);
 
-            if (storageComponent.OpenOnMove)
-                _entityStorage.TryOpenStorage(args.User, uid);
+            _entityStorage.TryOpenStorage(args.Args.User, uid);
         }
 
         args.Handled = true;

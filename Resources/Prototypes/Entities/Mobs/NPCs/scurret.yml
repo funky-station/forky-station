@@ -45,7 +45,10 @@
       amount: 4
   # They wawa!
   - type: Vocal
-    emoteSounds: Scurret
+    sounds:
+      Male: Scurret
+      Female: Scurret
+      Unsexed: Scurret
     wilhelmProbability: 0.01 # the scug, it screams like a man
   - type: Speech
     speechVerb: Wawa

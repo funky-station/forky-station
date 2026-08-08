@@ -23,8 +23,7 @@ public sealed partial class TippyUI : UIWidget
         if (visuals == null)
             return;
 
-        if (visuals.DefaultTextColor != null)
-            Label.ModulateSelfOverride = visuals.DefaultTextColor;
+        Label.ModulateSelfOverride = visuals.FontAccentColor;
 
         if (visuals.BackgroundImagePath == null)
             return;

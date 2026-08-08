@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.Containers;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
 using Content.Shared.Popups;
@@ -11,6 +12,7 @@ using Robust.Shared.Collections;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Replays;
 using Robust.Shared.Timing;
 
@@ -22,6 +24,7 @@ namespace Content.Client.Popups
         [Dependency] private IInputManager _inputManager = default!;
         [Dependency] private IOverlayManager _overlay = default!;
         [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private IPrototypeManager _prototype = default!;
         [Dependency] private IGameTiming _timing = default!;
         [Dependency] private IUserInterfaceManager _uiManager = default!;
         [Dependency] private IReplayRecordingManager _replayRecording = default!;
@@ -49,7 +52,7 @@ namespace Content.Client.Popups
                     _configManager,
                     EntityManager,
                     _playerManager,
-                    ProtoMan,
+                    _prototype,
                     _uiManager,
                     _uiManager.GetUIController<PopupUIController>(),
                     _examine,

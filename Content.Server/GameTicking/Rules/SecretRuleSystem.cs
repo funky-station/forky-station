@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Administration.Logs;
+using Content.Server.Chat.Managers;
 using Content.Server.GameTicking.Presets;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.GameTicking.Components;
@@ -16,6 +17,7 @@ namespace Content.Server.GameTicking.Rules;
 
 public sealed partial class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
 {
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private IConfigurationManager _configurationManager = default!;
     [Dependency] private IAdminLogManager _adminLogger = default!;
@@ -74,7 +76,7 @@ public sealed partial class SecretRuleSystem : GameRuleSystem<SecretRuleComponen
 
     private bool TryPickPreset(ProtoId<WeightedRandomPrototype> weights, [NotNullWhen(true)] out GamePresetPrototype? preset)
     {
-        var options = ProtoMan.Index(weights).Weights.ShallowClone();
+        var options = _prototypeManager.Index(weights).Weights.ShallowClone();
         var players = GameTicker.ReadyPlayerCount();
 
         GamePresetPrototype? selectedPreset = null;
@@ -89,7 +91,7 @@ public sealed partial class SecretRuleSystem : GameRuleSystem<SecretRuleComponen
                 if (accumulated < rand)
                     continue;
 
-                if (!ProtoMan.TryIndex(key, out selectedPreset))
+                if (!_prototypeManager.TryIndex(key, out selectedPreset))
                     Log.Error($"Invalid preset {selectedPreset} in secret rule weights: {weights}");
 
                 options.Remove(key);
@@ -122,7 +124,7 @@ public sealed partial class SecretRuleSystem : GameRuleSystem<SecretRuleComponen
     /// </summary>
     public bool CanPickAny(ProtoId<WeightedRandomPrototype> weightedPresets)
     {
-        var ids = ProtoMan.Index(weightedPresets).Weights.Keys
+        var ids = _prototypeManager.Index(weightedPresets).Weights.Keys
             .Select(x => new ProtoId<GamePresetPrototype>(x));
 
         return CanPickAny(ids);
@@ -136,7 +138,7 @@ public sealed partial class SecretRuleSystem : GameRuleSystem<SecretRuleComponen
         var players = GameTicker.ReadyPlayerCount();
         foreach (var id in protos)
         {
-            if (!ProtoMan.TryIndex(id, out var selectedPreset))
+            if (!_prototypeManager.TryIndex(id, out var selectedPreset))
                 Log.Error($"Invalid preset {selectedPreset} in secret rule weights: {id}");
 
             if (CanPick(selectedPreset, players))

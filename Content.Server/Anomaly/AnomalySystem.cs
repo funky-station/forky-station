@@ -27,6 +27,7 @@ namespace Content.Server.Anomaly;
 public sealed partial class AnomalySystem : SharedAnomalySystem
 {
     [Dependency] private IConfigurationManager _configuration = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private AmbientSoundSystem _ambient = default!;
     [Dependency] private AtmosphereSystem _atmosphere = default!;
     [Dependency] private ExplosionSystem _explosion = default!;
@@ -100,7 +101,7 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
         var behaviorMod = 1f;
         if (anomaly.Comp.CurrentBehavior != null)
         {
-            var b = ProtoMan.Index(anomaly.Comp.CurrentBehavior.Value);
+            var b = _prototype.Index(anomaly.Comp.CurrentBehavior.Value);
             behaviorMod = b.ParticleSensivity;
         }
         // small function to randomize because it's easier to read like this
@@ -151,7 +152,7 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
         //Apply behavior modifier
         if (component.CurrentBehavior != null)
         {
-            var behavior = ProtoMan.Index(component.CurrentBehavior.Value);
+            var behavior = _prototype.Index(component.CurrentBehavior.Value);
             multiplier *= behavior.EarnPointModifier;
         }
 
@@ -188,7 +189,7 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
     #region Behavior
     private string GetRandomBehavior()
     {
-        var weightList = ProtoMan.Index(WeightListProto);
+        var weightList = _prototype.Index(WeightListProto);
         return weightList.Pick(_random);
     }
 
@@ -201,7 +202,7 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
             RemoveBehavior(anomaly, anomaly.Comp.CurrentBehavior.Value);
 
         anomaly.Comp.CurrentBehavior = behaviorProto;
-        var behavior = ProtoMan.Index(behaviorProto);
+        var behavior = _prototype.Index(behaviorProto);
         EntityManager.AddComponents(anomaly, behavior.Components);
 
         var ev = new AnomalyBehaviorChangedEvent(anomaly, anomaly.Comp.CurrentBehavior, behaviorProto);
@@ -213,7 +214,7 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
         if (anomaly.Comp.CurrentBehavior == null)
             return;
 
-        var behavior = ProtoMan.Index(behaviorProto);
+        var behavior = _prototype.Index(behaviorProto);
 
         EntityManager.RemoveComponents(anomaly, behavior.Components);
     }
@@ -346,7 +347,7 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
         {
             if (anomalyComp.CurrentBehavior != null)
             {
-                var behavior = ProtoMan.Index(anomalyComp.CurrentBehavior.Value);
+                var behavior = _prototype.Index(anomalyComp.CurrentBehavior.Value);
 
                 msg.AddMarkupOrThrow("- " + Loc.GetString(behavior.Description));
                 msg.PushNewline();

@@ -12,6 +12,7 @@ namespace Content.Shared.Objectives.Systems;
 public abstract partial class SharedObjectivesSystem : EntitySystem
 {
     [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
 
     /// <summary>
     /// Checks requirements and duplicate objectives to see if an objective can be assigned.
@@ -47,7 +48,7 @@ public abstract partial class SharedObjectivesSystem : EntitySystem
     /// </summary>
     public EntityUid? TryCreateObjective(EntityUid mindId, MindComponent mind, string proto)
     {
-        if (!ProtoMan.HasIndex<EntityPrototype>(proto))
+        if (!_protoMan.HasIndex<EntityPrototype>(proto))
             return null;
 
         var uid = Spawn(proto);

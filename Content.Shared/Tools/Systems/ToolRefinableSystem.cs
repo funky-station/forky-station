@@ -18,6 +18,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Tools.Systems;
 
@@ -47,7 +48,7 @@ public sealed partial class ToolRefinablSystem : EntitySystem
     /// <summary> Normal interactions. </summary>
     private void OnInteractUsing(Entity<ToolRefinableComponent> ent, ref InteractUsingEvent args)
     {
-        if (args.Handled || !_toolSystem.HasQuality(args.Used, ent.Comp.QualityNeeded))
+        if (args.Handled)
             return;
 
         var component = ent.Comp;
@@ -86,17 +87,14 @@ public sealed partial class ToolRefinablSystem : EntitySystem
                 ? null
                 : Loc.GetString(ent.Comp.ToolMissingQualityTooltip, ("target", ent.Owner));
         }
-        else
-        {
-            // We have the necessary tool, make an attempt to ensure refinement is not blocked.
-            var attemptEvent = new AttemptToolRefineEvent(tool);
-            RaiseLocalEvent(args.Target, ref attemptEvent);
+        // make an attempt to ensure refinement is not blocked.
+        var attemptEvent = new AttemptToolRefineEvent(tool);
+        RaiseLocalEvent(args.Target, ref attemptEvent);
 
-            if (attemptEvent.IsCancelled)
-            {
-                verbDisabled = true;
-                verbMessage = attemptEvent.BlockCause;
-            }
+        if (attemptEvent.IsCancelled)
+        {
+            verbDisabled = true;
+            verbMessage = attemptEvent.BlockCause;
         }
 
         verbMessage ??= component.VerbDefaultTooltip == null
@@ -149,8 +147,7 @@ public sealed partial class ToolRefinablSystem : EntitySystem
         {
             // TODO: Use RandomPredicted https://github.com/space-wizards/RobustToolbox/pull/5849
             var rndSeed = SharedRandomExtensions.HashCodeCombine((int)_gameTiming.CurTick.Value, args.User.Id, uid.Id);
-            var rng = new RobustRandom();
-            rng.SetSeed(rndSeed);
+            var rng = new System.Random(rndSeed);
             SpawnRefinement(component.RefineResult, uid, rng);
         }
 
@@ -161,22 +158,18 @@ public sealed partial class ToolRefinablSystem : EntitySystem
         _destructible.DestroyEntity(uid);
     }
 
-    private void SpawnRefinement(List<EntitySpawnEntry> spawnList, EntityUid source, IRobustRandom rng)
+    private void SpawnRefinement(List<EntitySpawnEntry> spawnList, EntityUid source, System.Random rng)
     {
         var spawns = EntitySpawnCollection.GetSpawns(spawnList, rng);
         var spawned = new List<EntityUid>(spawns.Count);
-
-        if (_container.TryGetContainingContainer(source, out var container))
-            _container.Remove((source, null, null), container);
-
         foreach (var protoId in spawns)
         {
             var refineResultUid = PredictedSpawnNextToOrDrop(protoId, source);
             spawned.Add(refineResultUid);
 
-            if (container == null || !_container.Insert(refineResultUid, container))
+            if (!_container.IsEntityOrParentInContainer(refineResultUid))
             {
-                var randVect = rng.NextVector2(2.0f, 2.5f);
+                var randVect = rng.NextPolarVector2(2.0f, 2.5f);
                 _physics.SetLinearVelocity(refineResultUid, randVect);
             }
         }

@@ -113,11 +113,6 @@
     layers:
     - state: tin
     - state: baklava
-  # macro edit start - allow ungu to eat
-  - type: Tag
-    tags:
-    - UnguFood
-  # macro edit end
   - type: ToolRefinable
     refineResult:
     - id: FoodPieBaklavaSlice
@@ -135,11 +130,6 @@
       - nutty
   - type: Sprite
     state: baklava-slice
-  # macro edit start - allow ungu to eat
-  - type: Tag
-    tags:
-    - UnguFood
-  # macro edit end
 # Tastes like pie, nuts.
 
 - type: entity
@@ -495,11 +485,6 @@
     layers:
     - state: tin
     - state: amanita
-  # macro edit start - allow ungu to eat
-  - type: Tag
-    tags:
-    - UnguFood
-  # macro edit end
   - type: Solution
     solution:
       reagents:
@@ -552,15 +537,9 @@
     flavors:
       - mushroom
   - type: Sprite
-    state: plump
     layers:
     - state: tin
     - state: plump
-  # macro edit start - allow ungu to eat
-  - type: Tag
-    tags:
-    - UnguFood
-  # macro edit end
   - type: ToolRefinable
     refineResult:
     - id: FoodPiePlumpSlice

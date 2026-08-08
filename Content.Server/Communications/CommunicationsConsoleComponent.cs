@@ -1,8 +1,6 @@
 using Content.Server.UserInterface;
-using Content.Shared._MACRO.Announcements;
 using Content.Shared.Communications;
 using Robust.Shared.Audio;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Communications
 {
@@ -68,7 +66,7 @@ namespace Content.Server.Communications
         /// Announce sound file path
         /// </summary>
         [DataField]
-        public ProtoId<AnnouncementSoundPrototype> Sound = "Announce"; // Macrocosm edit - announcement sound prototypes
+        public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Announcements/announce.ogg");
 
         /// <summary>
         /// Hides the sender identity (If they even have one).

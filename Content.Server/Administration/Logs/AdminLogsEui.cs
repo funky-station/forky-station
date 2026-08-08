@@ -129,14 +129,14 @@ public sealed partial class AdminLogsEui : BaseEui
                 var roundId = _filter.Round ??= CurrentRoundId;
                 await LoadFromDb(roundId);
 
-                SendLogs(true, _filter);
+                SendLogs(true);
                 break;
             }
             case NextLogsRequest:
             {
                 _sawmill.Info($"Admin log next batch request from admin with id {Player.UserId.UserId} and name {Player.Name}");
 
-                SendLogs(false, _filter);
+                SendLogs(false);
                 break;
             }
         }
@@ -152,32 +152,29 @@ public sealed partial class AdminLogsEui : BaseEui
         SendMessage(message);
     }
 
-    private async void SendLogs(bool replace, LogFilter filter)
+    private async void SendLogs(bool replace)
     {
         var stopwatch = new Stopwatch();
         stopwatch.Start();
 
-        var logs = await Task.Run(async () => await _adminLogs.All(filter, _adminLogListPool.Get),
-            filter.CancellationToken);
+        var logs = await Task.Run(async () => await _adminLogs.All(_filter, _adminLogListPool.Get),
+            _filter.CancellationToken);
 
         if (logs.Count > 0)
         {
-            filter.LogsSent += logs.Count;
+            _filter.LogsSent += logs.Count;
 
-            var largestId = filter.DateOrder switch
+            var largestId = _filter.DateOrder switch
             {
                 DateOrder.Ascending => 0,
                 DateOrder.Descending => ^1,
-                _ => throw new ArgumentOutOfRangeException(nameof(filter.DateOrder), filter.DateOrder, null)
+                _ => throw new ArgumentOutOfRangeException(nameof(_filter.DateOrder), _filter.DateOrder, null)
             };
 
-            filter.LastLogId = logs[largestId].Id;
+            _filter.LastLogId = logs[largestId].Id;
         }
 
-        var message = new NewLogs(logs, replace, logs.Count >= filter.Limit);
-
-        if (filter.CancellationToken.IsCancellationRequested)
-            return;
+        var message = new NewLogs(logs, replace, logs.Count >= _filter.Limit);
 
         SendMessage(message);
 

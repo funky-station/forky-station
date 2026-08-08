@@ -2,6 +2,7 @@ using System.Numerics;
 using Content.Shared.Decals;
 using Content.Shared.Maps;
 using Content.Shared.Procedural;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Whitelist;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -40,7 +41,7 @@ public sealed partial class DungeonSystem
 
         _availableRooms.Clear();
 
-        foreach (var proto in ProtoMan.EnumeratePrototypes<DungeonRoomPrototype>())
+        foreach (var proto in _prototype.EnumeratePrototypes<DungeonRoomPrototype>())
         {
             if (minSize is not null && (proto.Size.X < minSize.Value.X || proto.Size.Y < minSize.Value.Y))
                 continue;
@@ -250,7 +251,7 @@ public sealed partial class DungeonSystem
                 // but place 1 nanometre off grid and fail the add.
                 if (!_maps.TryGetTileRef(gridUid, grid, tilePos, out var tileRef) || tileRef.Tile.IsEmpty)
                 {
-                    _maps.SetTile(gridUid, grid, tilePos, _tile.GetVariantTile((ContentTileDefinition)_tileDefManager[FallbackTileId], _random));
+                    _maps.SetTile(gridUid, grid, tilePos, _tile.GetVariantTile((ContentTileDefinition)_tileDefManager[FallbackTileId], _random.GetRandom()));
                 }
 
                 var result = _decals.TryAddDecal(

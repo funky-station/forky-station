@@ -1,6 +1,5 @@
 using System.Threading;
 using Content.Server.StationEvents.Events;
-using Content.Shared._MACRO.Announcements;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -9,12 +8,16 @@ namespace Content.Server.StationEvents.Components;
 [RegisterComponent, Access(typeof(PowerGridCheckRule))]
 public sealed partial class PowerGridCheckRuleComponent : Component
 {
+    /// <summary>
+    /// Default sound for power restoration announcement.
+    /// </summary>
+    private static readonly ProtoId<SoundCollectionPrototype> DefaultPowerOn = new("PowerOn");
 
     /// <summary>
     /// Sound to play when power is restored.
     /// </summary>
     [DataField]
-    public ProtoId<AnnouncementSoundPrototype> PowerOnSound = "GridPowerOn"; // Macrocosm edit - Announcement Sound Prototypes
+    public SoundSpecifier PowerOnSound = new SoundCollectionSpecifier(DefaultPowerOn, AudioParams.Default.WithVolume(-4f));
 
     /// <summary>
     /// Token source for cancelling the power restoration announcement.
@@ -61,13 +64,4 @@ public sealed partial class PowerGridCheckRuleComponent : Component
     /// </summary>
     [DataField]
     public float FrameTimeAccumulator = 0.0f;
-}
-
-/// <summary>
-/// This component is used to detect when APCs are constructed
-/// while the PowerGridCheckRule is active.
-/// </summary>
-[RegisterComponent]
-public sealed partial class PowerGridCheckNotifyComponent : Component
-{
 }

@@ -41,6 +41,7 @@ public sealed partial class GunExecutionSystem : EntitySystem
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private IComponentFactory _compFactory = default!;
     [Dependency] private INetManager _net = default!;
     [Dependency] private EntityWhitelistSystem _whitelist = default!;
@@ -260,7 +261,7 @@ public sealed partial class GunExecutionSystem : EntitySystem
         {
             case CartridgeAmmoComponent cartridge:
             {
-                if (!ProtoMan.TryIndex<EntityPrototype>(cartridge.Prototype, out var projectilePrototype))
+                if (!_proto.TryIndex<EntityPrototype>(cartridge.Prototype, out var projectilePrototype))
                 {
                     return null;
                 }

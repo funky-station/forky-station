@@ -8,6 +8,7 @@ namespace Content.Server.Vocalization.Systems;
 /// <inheritdoc cref="DatasetVocalizerComponent"/>
 public sealed partial class DatasetVocalizationSystem : EntitySystem
 {
+    [Dependency] private IPrototypeManager _protoMan = default!;
     [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
@@ -22,7 +23,7 @@ public sealed partial class DatasetVocalizationSystem : EntitySystem
         if (args.Handled)
             return;
 
-        var dataset = ProtoMan.Index(ent.Comp.Dataset);
+        var dataset = _protoMan.Index(ent.Comp.Dataset);
 
         args.Message = _random.Pick(dataset);
         args.Handled = true;

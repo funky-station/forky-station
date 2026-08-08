@@ -351,6 +351,7 @@
   id: BaseXenoArtifactEffect
   name: effect
   description: Unknown
+  categories: [ HideSpawnMenu ]
   abstract: true
   components:
   - type: XenoArtifactNode
@@ -358,10 +359,11 @@
     group: XenoArtifactNode
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: BaseOneTimeXenoArtifactEffect
+  parent: BaseXenoArtifactEffect
   name: one-time-effect
   description: Unknown
+  categories: [ HideSpawnMenu ]
   abstract: true
   components:
   - type: XenoArtifactNode
@@ -373,8 +375,8 @@
     group: XenoArtifactNode
 
 - type: entity
-  parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactEffectUniversalIntercom
+  parent: BaseOneTimeXenoArtifactEffect
   description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -402,8 +404,8 @@
       - Supply
 
 - type: entity
-  parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactBecomeRandomInstrument
+  parent: BaseOneTimeXenoArtifactEffect
   description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -415,8 +417,8 @@
       key: enum.InstrumentUiKey.Key
 
 - type: entity
-  parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactStorage
+  parent: BaseOneTimeXenoArtifactEffect
   description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -429,15 +431,15 @@
       - 0,0,10,5
 
 - type: entity
-  parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactPhasing
+  parent: BaseOneTimeXenoArtifactEffect
   description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAERemoveCollision
 
 - type: entity
-  parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactWandering
+  parent: BaseOneTimeXenoArtifactEffect
   description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -449,8 +451,8 @@
       maxStepCooldown: 3
 
 - type: entity
-  parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactSolutionStorage
+  parent: BaseOneTimeXenoArtifactEffect
   description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -480,8 +482,8 @@
       utensil: None
 
 - type: entity
-  parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactSpeedUp
+  parent: BaseOneTimeXenoArtifactEffect
   description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -491,8 +493,8 @@
       sprintModifier: 1.3
 
 - type: entity
-  parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactDrill
+  parent: BaseOneTimeXenoArtifactEffect
   description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -509,8 +511,8 @@
       - Slicing
 
 - type: entity
-  parent: BaseOneTimeXenoArtifactEffect # todo - increment power, but only once per node
   id: XenoArtifactGenerateEnergy
+  parent: BaseOneTimeXenoArtifactEffect # todo - increment power, but only once per node
   description: Electromagnetic disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -525,8 +527,8 @@
           nodeGroupID: HVPower
 
 - type: entity
-  parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactGun
+  parent: BaseOneTimeXenoArtifactEffect
   description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -556,8 +558,8 @@
         path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
 
 - type: entity
-  parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactGhost
+  parent: BaseOneTimeXenoArtifactEffect
   description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -576,8 +578,8 @@
     - type: GhostTakeoverAvailable
 
 - type: entity
-  parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactOmnitool
+  parent: BaseOneTimeXenoArtifactEffect
   description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -623,8 +625,8 @@
           path: /Audio/Items/change_drill.ogg
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactEffectBadFeeling
+  parent: BaseXenoArtifactEffect
   description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAETelepathic
@@ -653,8 +655,8 @@
     - badfeeling-artifact-drastic-6
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactEffectGoodFeeling
+  parent: BaseXenoArtifactEffect
   description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAETelepathic
@@ -682,8 +684,8 @@
     - goodfeeling-artifact-drastic-6
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactEffectJunkSpawn
+  parent: BaseXenoArtifactEffect
   description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -704,15 +706,15 @@
           weight: 1
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactEffectLightFlicker
+  parent: BaseXenoArtifactEffect
   description: Electromagnetic disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAELightFlicker
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactPotassiumWave
+  parent: BaseXenoArtifactEffect
   description: Spontaneous organic creation #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -740,8 +742,8 @@
     - Potassium
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactFloraSpawn
+  parent: BaseXenoArtifactEffect
   description: Spontaneous organic creation #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -760,8 +762,8 @@
 #Funky changes start. Splitting chems into their own prototypes for consistency in nodes
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactChemicalAluminiumPuddle
+  parent: BaseXenoArtifactEffect
   description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XAECreatePuddle
@@ -1062,23 +1064,23 @@
 #Funky changes end
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactThrowThingsAround
+  parent: BaseXenoArtifactEffect
   description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEThrowThingsAround
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactColdWave
+  parent: BaseXenoArtifactEffect
   description: Temperature disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAETemperature
     targetTemp: 50
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactHeatWave
+  parent: BaseXenoArtifactEffect
   description: Temperature disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAETemperature
@@ -1087,8 +1089,8 @@
 #Funky changes start. Splitting the list into individual listings
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactFoamOxygen
+  parent: BaseXenoArtifactEffect
   description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XAEFoam
@@ -1170,8 +1172,8 @@
 #Funky changes end
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactRandomInstrumentSpawn
+  parent: BaseXenoArtifactEffect
   description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
@@ -1190,8 +1192,8 @@
         - id: RandomInstruments
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactMonkeySpawn
+  parent: BaseXenoArtifactEffect
   description: Spontaneous organic creation #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
@@ -1213,8 +1215,8 @@
           weight: 5.0
 
 - type: entity
-  parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactRadioactive
+  parent: BaseOneTimeXenoArtifactEffect
   description: Radiological disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -1226,8 +1228,8 @@
       slope: 0.3
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactChargeBattery
+  parent: BaseXenoArtifactEffect
   description: Electromagnetic interference #Funky Edit add more mystery to sci
   components:
   - type: XAEChargeBattery
@@ -1236,16 +1238,16 @@
     - charge-artifact-popup
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactKnock
+  parent: BaseXenoArtifactEffect
   description: Electromagnetic interference #Funky Edit add more mystery to sci
   components:
   - type: XAEKnock
   - type: XAELightFlicker
 
 - type: entity
-  parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactMagnet
+  parent: BaseOneTimeXenoArtifactEffect
   description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -1258,8 +1260,8 @@
       baseTangentialAcceleration: 3
 
 - type: entity
-  parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactMagnetNegative
+  parent: BaseOneTimeXenoArtifactEffect
   description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -1272,8 +1274,8 @@
       baseTangentialAcceleration: -3
 
 - type: entity
-  parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactStealth
+  parent: BaseOneTimeXenoArtifactEffect
   description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -1285,8 +1287,8 @@
       movementVisibilityRate: 0.10
 
 - type: entity
-  parent: BaseXenoArtifactEffect # todo: splice into different well-named effects, amounts should reflect how rare material is
   id: XenoArtifactRareMaterialSpawn
+  parent: BaseXenoArtifactEffect # todo: splice into different well-named effects, amounts should reflect how rare material is
   description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -1315,8 +1317,8 @@
           prob: 0.3
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactRareMaterialSpawnSilver
+  parent: BaseXenoArtifactEffect
   description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
@@ -1338,8 +1340,8 @@
           prob: 0.3
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactRareMaterialSpawnPlasma
+  parent: BaseXenoArtifactEffect
   description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
@@ -1361,8 +1363,8 @@
           prob: 0.3
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactRareMaterialSpawnGold
+  parent: BaseXenoArtifactEffect
   description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
@@ -1384,8 +1386,8 @@
           prob: 0.3
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactRareMaterialSpawnUranium
+  parent: BaseXenoArtifactEffect
   description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
@@ -1407,8 +1409,8 @@
           prob: 0.3
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactAngryCarpSpawn
+  parent: BaseXenoArtifactEffect
   description: Spontaneous organic creation #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
@@ -1430,8 +1432,8 @@
           weight: 1.0
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactFaunaSpawn
+  parent: BaseXenoArtifactEffect
   description: Spontaneous organic creation #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
@@ -1495,8 +1497,8 @@
             range: 2, 3
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactHostileFaunaSpawn
+  parent: BaseXenoArtifactEffect
   description: Spontaneous organic creation #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
@@ -1522,8 +1524,8 @@
         - id: MobKangarooSpace
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactCashSpawn
+  parent: BaseXenoArtifactEffect
   description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
@@ -1551,8 +1553,8 @@
           weight: 0.1
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactShatterWindows
+  parent: BaseXenoArtifactEffect
   description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
@@ -1571,8 +1573,8 @@
 
 # Funky changes start. Breaking chems into individual effects
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactFoamDermaline
+  parent: BaseXenoArtifactEffect
   description: Creates wave of foam #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
@@ -1676,8 +1678,8 @@
     - Omnizine
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactFoamTritium
+  parent: BaseXenoArtifactEffect
   description: Creates wave of foam #Funky Edit add more mystery to sci
   components:
   - type: XAEFoam
@@ -1808,8 +1810,8 @@
     - Amatoxin
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactPuddleDermaline
+  parent: BaseXenoArtifactEffect
   description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XAECreatePuddle
@@ -2050,8 +2052,8 @@
 #Funky changes end
 
 - type: entity
-  parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactAnomalySpawn
+  parent: BaseOneTimeXenoArtifactEffect
   description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -2065,8 +2067,8 @@
         - id: RandomAnomalySpawner
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactIgnite
+  parent: BaseXenoArtifactEffect
   description: Pyrotechnic disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEIgnite
@@ -2076,15 +2078,15 @@
       max: 6
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactTeleport
+  parent: BaseXenoArtifactEffect
   description: Bluespace disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAERandomTeleportInvoker
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactEmp
+  parent: BaseXenoArtifactEffect
   description: Electromagnetic interference #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
@@ -2095,31 +2097,31 @@
   - type: XAEEmpInArea
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactPolyMonkey
+  parent: BaseXenoArtifactEffect
   description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEPolymorph
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactPolyLizard
+  parent: BaseXenoArtifactEffect
   description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEPolymorph
     polymorphPrototypeName: ArtifactLizard
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactPolyLuminous
+  parent: BaseXenoArtifactEffect
   description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEPolymorph
     polymorphPrototypeName: ArtifactLuminous
 
 - type: entity
-  parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactRadioactiveStrong
+  parent: BaseOneTimeXenoArtifactEffect
   description: Radiological disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -2131,8 +2133,8 @@
       slope: 0.3
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactMaterialSpawnGlass
+  parent: BaseXenoArtifactEffect
   description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -2146,8 +2148,8 @@
         - id: SheetGlass
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactMaterialSpawnSteel
+  parent: BaseXenoArtifactEffect
   description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -2161,8 +2163,8 @@
         - id: SheetSteel
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactMaterialSpawnPlastic
+  parent: BaseXenoArtifactEffect
   description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -2176,15 +2178,15 @@
         - id: SheetPlastic
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactPortal
+  parent: BaseXenoArtifactEffect
   description: Bluespace disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEPortal
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactArtifactSpawn
+  parent: BaseXenoArtifactEffect
   description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
@@ -2203,8 +2205,8 @@
         - id: RandomArtifactSpawner
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactShuffle
+  parent: BaseXenoArtifactEffect
   description: Bluespace disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEShuffle
@@ -2214,8 +2216,8 @@
     - shuffle-artifact-popup
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactHealAll
+  parent: BaseXenoArtifactEffect
   description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEDamageInArea
@@ -2234,8 +2236,8 @@
         Shock: -100
 
 - type: entity
-  parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactTesla
+  parent: BaseOneTimeXenoArtifactEffect
   description: Pyrotechnic disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -2249,8 +2251,8 @@
         - id: Singularity
 
 - type: entity
-  parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactSingularity
+  parent: BaseOneTimeXenoArtifactEffect
   description: Electrostatic disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
@@ -2264,8 +2266,8 @@
         - id: TeslaEnergyBall
 
 - type: entity
-  parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactExplosionScary
+  parent: BaseOneTimeXenoArtifactEffect
   description: Radiological disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAETriggerExplosives
@@ -2280,8 +2282,8 @@
   - type: ExplosionEffect # Funky RMC Explosions
 
 - type: entity
-  parent: BaseOneTimeXenoArtifactEffect
   id: XenoArtifactBoom
+  parent: BaseOneTimeXenoArtifactEffect
   description: Pyrotechnic disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAETriggerExplosives
@@ -2295,8 +2297,8 @@
   - type: ExplosionEffect # Funky RMC Explosions
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactEffectCreationGasPlasma
+  parent: BaseXenoArtifactEffect
   description: Expels a mystery gas #Funky Edit add more mystery to sci
   components:
   - type: XAECreateGas
@@ -2304,8 +2306,8 @@
       Plasma: 300
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactEffectCreationGasTritium
+  parent: BaseXenoArtifactEffect
   description: Expels a mystery gas #Funky Edit add more mystery to sci
   components:
   - type: XAECreateGas
@@ -2313,8 +2315,8 @@
       Tritium: 300
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactEffectCreationGasAmmonia
+  parent: BaseXenoArtifactEffect
   description: Expels a mystery gas #Funky Edit add more mystery to sci
   components:
   - type: XAECreateGas
@@ -2322,8 +2324,8 @@
       Ammonia: 300
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactEffectCreationGasFrezon
+  parent: BaseXenoArtifactEffect
   description: Expels a mystery gas #Funky Edit add more mystery to sci
   components:
   - type: XAECreateGas
@@ -2331,8 +2333,8 @@
       Frezon: 300
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactEffectCreationGasNitrousOxide
+  parent: BaseXenoArtifactEffect
   description: Expels a mystery gas #Funky Edit add more mystery to sci
   components:
   - type: XAECreateGas
@@ -2340,8 +2342,8 @@
       NitrousOxide: 300
 
 - type: entity
-  parent: BaseXenoArtifactEffect
   id: XenoArtifactEffectCreationGasCarbonDioxide
+  parent: BaseXenoArtifactEffect
   description: Expels a mystery gas #Funky Edit add more mystery to sci
   components:
   - type: XAECreateGas

@@ -26,7 +26,7 @@ public sealed partial class VentClogRule : StationEventSystem<VentClogRuleCompon
             return;
 
         // TODO: "safe random" for chems. Right now this includes admin chemicals.
-        var allReagents = ProtoMan.EnumeratePrototypes<ReagentPrototype>()
+        var allReagents = PrototypeManager.EnumeratePrototypes<ReagentPrototype>()
             .Where(x => !x.Abstract)
             .Select(x => new ProtoId<ReagentPrototype>(x.ID)).ToList();
 

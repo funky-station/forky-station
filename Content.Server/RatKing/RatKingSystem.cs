@@ -121,7 +121,7 @@ namespace Content.Server.RatKing
             base.DoCommandCallout(uid, component);
 
             if (!component.OrderCallouts.TryGetValue(component.CurrentOrder, out var datasetId) ||
-                !ProtoMan.TryIndex<LocalizedDatasetPrototype>(datasetId, out var datasetPrototype))
+                !PrototypeManager.TryIndex<LocalizedDatasetPrototype>(datasetId, out var datasetPrototype))
                 return;
 
             var msg = Random.Pick(datasetPrototype);

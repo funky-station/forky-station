@@ -14,12 +14,6 @@
   - Male
   - Female
   - Unsexed
-  defaultSoundsBySex:
-  - UnisexMoth
-  - UnisexMoth
-  - UnisexMoth
-  voices:
-  - UnisexMoth
 
 # Developer Notes
 #

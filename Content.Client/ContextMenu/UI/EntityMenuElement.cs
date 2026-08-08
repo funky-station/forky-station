@@ -41,9 +41,9 @@ namespace Content.Client.ContextMenu.UI
             UpdateEntity();
         }
 
-        protected override void ExitedTree()
+        protected override void Dispose(bool disposing)
         {
-            base.ExitedTree();
+            base.Dispose(disposing);
             Entity = null;
             Count = 0;
         }

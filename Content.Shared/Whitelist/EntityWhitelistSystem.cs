@@ -1,24 +1,26 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Item;
 using Content.Shared.Tag;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Whitelist;
 
 public sealed partial class EntityWhitelistSystem : EntitySystem
 {
+    [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private TagSystem _tag = default!;
     [Dependency] private EntityQuery<ItemComponent> _itemQuery;
 
-    private CompName _itemComponentName = default;
-    private CompName _tagComponentName = default;
+    private string _itemComponentName = string.Empty;
+    private string _tagComponentName = string.Empty;
 
     public override void Initialize()
     {
         base.Initialize();
 
         // caching for minor performance improvement
-        _itemComponentName = CompName.Get<ItemComponent>(Factory);
-        _tagComponentName = CompName.Get<TagComponent>(Factory);
+        _itemComponentName = Factory.GetComponentName<ItemComponent>();
+        _tagComponentName = Factory.GetComponentName<TagComponent>();
     }
 
     /// <summary>

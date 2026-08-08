@@ -18,6 +18,7 @@ namespace Content.Shared.Contraband;
 public sealed partial class ContrabandSystem : EntitySystem
 {
     [Dependency] private IConfigurationManager _configuration = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private SharedIdCardSystem _id = default!;
     [Dependency] private ExamineSystemShared _examine = default!;
 
@@ -66,7 +67,7 @@ public sealed partial class ContrabandSystem : EntitySystem
         // two strings:
         // one, the actual informative 'this is restricted'
         // then, the 'you can/shouldn't carry this around' based on the ID the user is wearing
-        var severity = ProtoMan.Index(component.Severity);
+        var severity = _proto.Index(component.Severity);
         String departmentExamineMessage;
         if (severity.ShowDepartmentsAndJobs)
         {
@@ -105,8 +106,8 @@ public sealed partial class ContrabandSystem : EntitySystem
     /// <returns>A localized string with the formatted message</returns>
     public string GenerateDepartmentExamineMessage(HashSet<ProtoId<DepartmentPrototype>> allowedDepartments, HashSet<ProtoId<JobPrototype>> allowedJobs, Color color, ContrabandItemType itemType = ContrabandItemType.Item)
     {
-        var localizedDepartments = allowedDepartments.Select(p => Loc.GetString("contraband-department-plural", ("department", Loc.GetString(ProtoMan.Index(p).Name))));
-        var jobs = allowedJobs.Select(p => ProtoMan.Index(p).LocalizedName).ToArray();
+        var localizedDepartments = allowedDepartments.Select(p => Loc.GetString("contraband-department-plural", ("department", Loc.GetString(_proto.Index(p).Name))));
+        var jobs = allowedJobs.Select(p => _proto.Index(p).LocalizedName).ToArray();
         var localizedJobs = jobs.Select(p => Loc.GetString("contraband-job-plural", ("job", p)));
 
         //creating a combined list of jobs and departments for the restricted text
@@ -164,7 +165,7 @@ public sealed partial class ContrabandSystem : EntitySystem
                 jobId = id.Comp.LocalizedJobTitle;
         }
 
-        var jobs = contraband.Comp.AllowedJobs.Select(p => ProtoMan.Index(p).LocalizedName).ToArray();
+        var jobs = contraband.Comp.AllowedJobs.Select(p => _proto.Index(p).LocalizedName).ToArray();
         // if it is fully restricted, you're department-less, or your department isn't in the allowed list, you cannot carry it. Otherwise, you can.
         if (departments.Intersect(contraband.Comp.AllowedDepartments).Any() || jobs.Contains(jobId))
             return false;

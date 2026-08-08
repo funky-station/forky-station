@@ -16,13 +16,18 @@
   - type: WarpPoint
     location: beacon
 
+# Use for areas like CC
 - type: entity
-  id: TeleportScrollWarpPoint # You can teleport to this warp point using a teleport scroll.
+  id: GhostWarpPoint
   parent: MarkerBase
-  name: teleport scroll warp point
+  name: ghost only warp point
   components:
   - type: Tag
     tags:
-    - TeleportScrollWarp
+    - GhostOnlyWarp
+  - type: WarpPoint
+    blacklist:
+      tags:
+      - GhostOnlyWarp
   - type: Sprite
     state: pink

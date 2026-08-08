@@ -55,10 +55,10 @@ namespace Content.Client.ContextMenu.UI
                 Text = text;
         }
 
-        protected override void ExitedTree()
+        protected override void Dispose(bool disposing)
         {
-            base.ExitedTree();
-            _subMenu?.Orphan();
+            base.Dispose(disposing);
+            _subMenu?.Dispose();
             _subMenu = null;
             ParentMenu = null;
         }

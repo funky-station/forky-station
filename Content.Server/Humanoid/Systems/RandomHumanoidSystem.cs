@@ -5,6 +5,7 @@ using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 
 namespace Content.Server.Humanoid.Systems;
@@ -15,6 +16,7 @@ namespace Content.Server.Humanoid.Systems;
 public sealed partial class RandomHumanoidSystem : EntitySystem
 {
     [Dependency] private HumanoidProfileSystem _humanoidProfile = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private ISerializationManager _serialization = default!;
     [Dependency] private MetaDataSystem _metaData = default!;
     [Dependency] private SharedVisualBodySystem _visualBody = default!;
@@ -35,11 +37,11 @@ public sealed partial class RandomHumanoidSystem : EntitySystem
 
     public EntityUid SpawnRandomHumanoid(string prototypeId, EntityCoordinates coordinates, string name)
     {
-        if (!ProtoMan.TryIndex<RandomHumanoidSettingsPrototype>(prototypeId, out var prototype))
+        if (!_prototypeManager.TryIndex<RandomHumanoidSettingsPrototype>(prototypeId, out var prototype))
             throw new ArgumentException("Could not get random humanoid settings");
 
         var profile = HumanoidCharacterProfile.Random(prototype.SpeciesBlacklist);
-        var speciesProto = ProtoMan.Index<SpeciesPrototype>(profile.Species);
+        var speciesProto = _prototypeManager.Index<SpeciesPrototype>(profile.Species);
         var humanoid = EntityManager.CreateEntityUninitialized(speciesProto.Prototype, coordinates);
 
         _metaData.SetEntityName(humanoid, prototype.RandomizeName ? profile.Name : name);

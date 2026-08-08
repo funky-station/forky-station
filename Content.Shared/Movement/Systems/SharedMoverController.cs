@@ -80,9 +80,6 @@ public abstract partial class SharedMoverController : VirtualController
     private float _minDamping;
     private float _airDamping;
     private float _offGridDamping;
-    private float _frictionModifier;
-
-    private const LookupFlags _touchingFlags = LookupFlags.Approximate | LookupFlags.Dynamic | LookupFlags.Static;
 
     /// <summary>
     /// Cache the mob movement calculation to re-use elsewhere.
@@ -103,8 +100,6 @@ public abstract partial class SharedMoverController : VirtualController
 
         InitializeInput();
         InitializeRelay();
-
-        Subs.CVar(_configManager, CCVars.TileFrictionModifier, value => _frictionModifier = value, true);
         Subs.CVar(_configManager, CCVars.RelativeMovement, value => _relativeMovement = value, true);
         Subs.CVar(_configManager, CCVars.MinFriction, value => _minDamping = value, true);
         Subs.CVar(_configManager, CCVars.AirFriction, value => _airDamping = value, true);
@@ -250,7 +245,7 @@ public abstract partial class SharedMoverController : VirtualController
         ContentTileDefinition? tileDef = null;
 
         var touching = false;
-        // Should we use tile friction or not?
+        // Whether we use tilefriction or not
         if (weightless || inAirHelpless)
         {
             // Find the speed we should be moving at and make sure we're not trying to move faster than that
@@ -266,7 +261,7 @@ public abstract partial class SharedMoverController : VirtualController
 
             // If we're not on a grid, and not able to move in space check if we're close enough to a grid to touch.
             if (!touching && MobMoverQuery.TryComp(uid, out var mobMover))
-                touching |= IsAroundCollider((uid, physicsComponent, mobMover, xform));
+                touching |= IsAroundCollider(_lookup, (uid, physicsComponent, mobMover, xform));
 
             // If we're touching then use the weightless values
             if (touching)
@@ -287,7 +282,6 @@ public abstract partial class SharedMoverController : VirtualController
         }
         else
         {
-            // Should we ignore the friction of the tile we're standing on?
             if (MapGridQuery.TryComp(xform.GridUid, out var gridComp)
                 && _mapSystem.TryGetTileRef(xform.GridUid.Value, gridComp, xform.Coordinates, out var tile)
                 && physicsComponent.BodyStatus == BodyStatus.OnGround)
@@ -316,12 +310,12 @@ public abstract partial class SharedMoverController : VirtualController
 
             if (wishDir != Vector2.Zero)
             {
-                friction = moveSpeedComponent?.Friction ?? MovementSpeedModifierComponent.DefaultFriction * _frictionModifier;
+                friction = moveSpeedComponent?.Friction ?? MovementSpeedModifierComponent.DefaultFriction;
                 friction *= tileDef?.MobFriction ?? tileDef?.Friction ?? 1f;
             }
             else
             {
-                friction = moveSpeedComponent?.FrictionNoInput ?? MovementSpeedModifierComponent.DefaultFrictionNoInput * _frictionModifier;
+                friction = moveSpeedComponent?.FrictionNoInput ?? MovementSpeedModifierComponent.DefaultFrictionNoInput;
                 friction *= tileDef?.Friction ?? 1f;
             }
 
@@ -502,26 +496,26 @@ public abstract partial class SharedMoverController : VirtualController
     /// <summary>
     /// Used for weightlessness to determine if we are near a wall.
     /// </summary>
-    private bool IsAroundCollider(Entity<PhysicsComponent, MobMoverComponent, TransformComponent> entity)
+    private bool IsAroundCollider(EntityLookupSystem lookupSystem, Entity<PhysicsComponent, MobMoverComponent, TransformComponent> entity)
     {
         var (uid, collider, mover, transform) = entity;
         var enlargedAABB = _lookup.GetWorldAABB(entity.Owner, transform).Enlarged(mover.GrabRange);
 
         _aroundColliderSet.Clear();
-        _lookup.GetEntitiesIntersecting(transform.MapID, enlargedAABB, _aroundColliderSet, _touchingFlags);
+        lookupSystem.GetEntitiesIntersecting(transform.MapID, enlargedAABB, _aroundColliderSet);
         foreach (var otherEntity in _aroundColliderSet)
         {
-            if (otherEntity == uid || _transform.IsParentOf(transform, otherEntity))
-                continue; // Don't try to push off of yourself or your children!
+            if (otherEntity == uid)
+                continue; // Don't try to push off of yourself!
 
             if (!PhysicsQuery.TryComp(otherEntity, out var otherCollider))
                 continue;
 
             // Only allow pushing off of anchored things that have collision.
-            // NOTE: collision is one-way - we want the mover to push off (collide with) walls, not vice versa (consider bullets and lasers)
             if (otherCollider.BodyType != BodyType.Static ||
                 !otherCollider.CanCollide ||
-                (collider.CollisionMask & otherCollider.CollisionLayer) == 0 ||
+                (collider.CollisionMask & otherCollider.CollisionLayer) == 0 &&
+                (otherCollider.CollisionMask & collider.CollisionLayer) == 0 ||
                 PullableQuery.TryComp(otherEntity, out var pullable) && pullable.BeingPulled)
             {
                 continue;

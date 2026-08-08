@@ -10,6 +10,7 @@ using Content.Shared.SprayPainter.Components;
 using Content.Shared.SprayPainter.Prototypes;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace Content.Shared.SprayPainter;
 public abstract partial class SharedSprayPainterSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] protected IPrototypeManager Proto = default!;
     [Dependency] protected ISharedAdminLogManager AdminLogger = default!;
     [Dependency] protected SharedAppearanceSystem Appearance = default!;
     [Dependency] protected SharedAudioSystem Audio = default!;
@@ -58,7 +60,7 @@ public abstract partial class SharedSprayPainterSystem : EntitySystem
     private void OnMapInit(Entity<SprayPainterComponent> ent, ref MapInitEvent args)
     {
         bool stylesByGroupPopulated = false;
-        foreach (var groupProto in ProtoMan.EnumeratePrototypes<PaintableGroupPrototype>())
+        foreach (var groupProto in Proto.EnumeratePrototypes<PaintableGroupPrototype>())
         {
             ent.Comp.StylesByGroup[groupProto.ID] = groupProto.DefaultStyle;
             stylesByGroupPopulated = true;
@@ -180,7 +182,7 @@ public abstract partial class SharedSprayPainterSystem : EntitySystem
 
         if (ent.Comp.Group is not { } group
             || !painter.StylesByGroup.TryGetValue(group, out var selectedStyle)
-            || !ProtoMan.Resolve(group, out PaintableGroupPrototype? targetGroup))
+            || !Proto.Resolve(group, out PaintableGroupPrototype? targetGroup))
             return;
 
         // Valid paint target.

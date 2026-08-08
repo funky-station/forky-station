@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Linq;
 using Content.Client.Guidebook.RichText;
 using Content.Client.UserInterface.ControlExtensions;
@@ -20,12 +21,11 @@ public sealed partial class GuidebookWindow : FancyWindow, ILinkClickHandler, IA
     [Dependency] private DocumentParsingManager _parsingMan = default!;
     [Dependency] private IResourceManager _resourceManager = default!;
 
-    private Dictionary<ProtoId<GuideEntryPrototype>, GuideEntry> _entries = [];
+    private Dictionary<ProtoId<GuideEntryPrototype>, GuideEntry> _entries = new();
 
     private readonly ISawmill _sawmill;
 
-    public ProtoId<GuideEntryPrototype>? Selected { get; private set; }
-
+    public ProtoId<GuideEntryPrototype> LastEntry;
 
     public GuidebookWindow()
     {
@@ -76,7 +76,7 @@ public sealed partial class GuidebookWindow : FancyWindow, ILinkClickHandler, IA
 
             UserInterfaceManager.DeferAction(() =>
             {
-                if (control.GetControlScrollPosition() is not { } position)
+                if (control.GetControlScrollPosition() is not {} position)
                     return;
 
                 Scroll.HScrollTarget = position.X;
@@ -91,10 +91,6 @@ public sealed partial class GuidebookWindow : FancyWindow, ILinkClickHandler, IA
     {
         if (item != null && item.Metadata is GuideEntry entry)
         {
-            // do nothing if the guide is the same as the currently selected one
-            if (entry.Id == Selected)
-                return;
-
             ShowGuide(entry);
 
             var isRulesEntry = entry.RuleEntry;
@@ -111,8 +107,6 @@ public sealed partial class GuidebookWindow : FancyWindow, ILinkClickHandler, IA
         EntryContainer.Visible = false;
         SearchContainer.Visible = false;
         EntryContainer.RemoveAllChildren();
-
-        Selected = null;
     }
 
     private void ShowGuide(GuideEntry entry)
@@ -133,11 +127,11 @@ public sealed partial class GuidebookWindow : FancyWindow, ILinkClickHandler, IA
             _sawmill.Error($"Failed to parse contents of guide document {entry.Id}.");
         }
 
-        Selected = entry.Id;
+        LastEntry = entry.Id;
 
         var (linkableControls, linkControls) = GetLinkableControlsAndLinks(EntryContainer);
 
-        HashSet<IPrototype> availablePrototypeLinks = [];
+        HashSet<IPrototype> availablePrototypeLinks = new();
         foreach (var linkableControl in linkableControls)
         {
             var prototype = linkableControl.RepresentedPrototype;
@@ -153,58 +147,46 @@ public sealed partial class GuidebookWindow : FancyWindow, ILinkClickHandler, IA
         }
     }
 
-    /// <summary>
-    /// Updates the guides used in the window.
-    /// Returns whether the guides changed.
-    /// </summary>
-    public bool UpdateGuides(
+    public void UpdateGuides(
         Dictionary<ProtoId<GuideEntryPrototype>, GuideEntry> entries,
         List<ProtoId<GuideEntryPrototype>>? rootEntries = null,
         ProtoId<GuideEntryPrototype>? forceRoot = null,
         ProtoId<GuideEntryPrototype>? selected = null)
     {
-        // check if old and new entries are equal
-        var sameAsLastUpdate = entries.Count != _entries.Count || !entries.All(_entries.Contains);
-        if (sameAsLastUpdate)
+        _entries = entries;
+        RepopulateTree(rootEntries, forceRoot);
+        ClearSelectedGuide();
+
+        Split.State = SplitContainer.SplitState.Auto;
+        if (entries.Count == 1)
         {
-            _entries = entries;
-            RepopulateTree(rootEntries, forceRoot);
-            Split.State = SplitContainer.SplitState.Auto;
-            if (entries.Count == 1)
-            {
-                TreeBox.Visible = false;
-                Split.ResizeMode = SplitContainer.SplitResizeMode.NotResizable;
-                selected = entries.Keys.First();
-            }
-            else
-            {
-                TreeBox.Visible = true;
-                Split.ResizeMode = SplitContainer.SplitResizeMode.RespectChildrenMinSize;
-            }
+            TreeBox.Visible = false;
+            Split.ResizeMode = SplitContainer.SplitResizeMode.NotResizable;
+            selected = entries.Keys.First();
+        }
+        else
+        {
+            TreeBox.Visible = true;
+            Split.ResizeMode = SplitContainer.SplitResizeMode.RespectChildrenMinSize;
         }
 
-        if (selected == null)
-            ClearSelectedGuide();
-        else
+        if (selected != null)
         {
             var item = Tree.Items.FirstOrDefault(x => x.Metadata is GuideEntry entry && entry.Id == selected);
             Tree.SetSelectedIndex(item?.Index);
         }
-
-        return sameAsLastUpdate;
     }
 
     private IEnumerable<GuideEntry> GetSortedEntries(List<ProtoId<GuideEntryPrototype>>? rootEntries)
     {
         if (rootEntries == null)
         {
-            HashSet<ProtoId<GuideEntryPrototype>> entries = [.. _entries.Keys];
+            HashSet<ProtoId<GuideEntryPrototype>> entries = new(_entries.Keys);
             foreach (var entry in _entries.Values)
             {
                 entries.ExceptWith(entry.Children);
             }
-
-            rootEntries = [.. entries];
+            rootEntries = entries.ToList();
         }
 
         // Only roots need to be sorted.
@@ -221,7 +203,7 @@ public sealed partial class GuidebookWindow : FancyWindow, ILinkClickHandler, IA
     {
         Tree.Clear();
 
-        HashSet<ProtoId<GuideEntryPrototype>> addedEntries = [];
+        HashSet<ProtoId<GuideEntryPrototype>> addedEntries = new();
 
         var parent = forcedRoot == null ? null : AddEntry(forcedRoot.Value, null, addedEntries);
         foreach (var entry in GetSortedEntries(roots))
@@ -266,6 +248,8 @@ public sealed partial class GuidebookWindow : FancyWindow, ILinkClickHandler, IA
 
     private void HandleFilter()
     {
+        var emptySearch = SearchBar.Text.Trim().Length == 0;
+
         if (Tree.SelectedItem != null && Tree.SelectedItem.Metadata is GuideEntry entry && entry.FilterEnabled)
         {
             var foundElements = EntryContainer.GetSearchableControls();
@@ -279,8 +263,8 @@ public sealed partial class GuidebookWindow : FancyWindow, ILinkClickHandler, IA
 
     private static (List<IPrototypeRepresentationControl>, List<IPrototypeLinkControl>) GetLinkableControlsAndLinks(Control parent)
     {
-        List<IPrototypeRepresentationControl> linkableList = [];
-        List<IPrototypeLinkControl> linkList = [];
+        List<IPrototypeRepresentationControl> linkableList = new();
+        List<IPrototypeLinkControl> linkList = new();
 
         foreach (var child in parent.Children)
         {

@@ -1,6 +1,8 @@
+using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Xenoarchaeology.Artifact.XAT.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Xenoarchaeology.Artifact.XAT;
 
@@ -9,6 +11,8 @@ namespace Content.Shared.Xenoarchaeology.Artifact.XAT;
 /// </summary>
 public sealed partial class XATDamageThresholdReachedSystem : BaseXATSystem<XATDamageThresholdReachedComponent>
 {
+    [Dependency] private IPrototypeManager _prototype = default!;
+
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -37,7 +41,7 @@ public sealed partial class XATDamageThresholdReachedSystem : BaseXATSystem<XATD
 
         foreach (var (group, needed) in damageTriggerComponent.GroupsNeeded)
         {
-            var damageGroupPrototype = ProtoMan.Index(group);
+            var damageGroupPrototype = _prototype.Index(group);
             if (!damageTriggerComponent.AccumulatedDamage.TryGetDamageInGroup(damageGroupPrototype, out var damage))
                 continue;
 

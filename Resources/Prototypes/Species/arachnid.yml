@@ -11,9 +11,3 @@
   lastNames: NamesArachnidLast
   sexes:
   - Unsexed
-  defaultSoundsBySex:
-  - UnisexArachnid
-  - UnisexArachnid
-  - UnisexArachnid
-  voices:
-  - UnisexArachnid

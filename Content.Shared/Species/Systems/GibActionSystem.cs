@@ -1,5 +1,6 @@
 using Content.Shared.Species.Components;
 using Content.Shared.Actions;
+using Content.Shared.Body.Systems;
 using Content.Shared.Gibbing;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -13,6 +14,7 @@ public sealed partial class GibActionSystem : EntitySystem
 {
     [Dependency] private SharedActionsSystem _actionsSystem = default!;
     [Dependency] private GibbingSystem _gibbing = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private SharedPopupSystem _popupSystem = default!;
 
     public override void Initialize()
@@ -29,8 +31,9 @@ public sealed partial class GibActionSystem : EntitySystem
         if (!TryComp<MobStateComponent>(uid, out var mobState))
             return;
 
-        if (!ProtoMan.TryIndex<EntityPrototype>(comp.ActionPrototype, out var actionProto))
+        if (!_protoManager.TryIndex<EntityPrototype>(comp.ActionPrototype, out var actionProto))
             return;
+
 
         foreach (var allowedState in comp.AllowedStates)
         {

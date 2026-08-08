@@ -2,7 +2,6 @@ using System.Linq;
 using System.Numerics;
 using System.Threading;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Atmos.Piping.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.Electrocution;
 using Content.Server.Explosion.EntitySystems;
@@ -17,11 +16,11 @@ using Content.Server.Speech.Components;
 using Content.Shared.Speech.Components;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.Tabletop;
+using Content.Server.Tabletop.Components;
 using Content.Shared.Actions;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Components;
 using Content.Shared.Administration.Systems;
-using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Body;
 using Content.Shared.Body.Components;
@@ -98,7 +97,6 @@ public sealed partial class AdminVerbSystem
     [Dependency] private SlipperySystem _slipperySystem = default!;
     [Dependency] private GibbingSystem _gibbing = default!;
     [Dependency] private DamageableSystem _damageable = default!;
-    [Dependency] private AtmosDeviceSystem _atmosDevice = default!;
 
     private readonly EntProtoId _actionViewLawsProtoId = "ActionViewLaws";
     private readonly ProtoId<SiliconLawsetPrototype> _crewsimovLawset = "Crewsimov";
@@ -1075,29 +1073,6 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", homingRodSlowName, Loc.GetString("admin-smite-homing-rod-slow-description"))
         };
         args.Verbs.Add(homingRodSlow);
-
-        var makeStinkyName = Loc.GetString("admin-smite-make-stinky-name").ToLowerInvariant();
-        Verb makeStinky = new()
-        {
-            Text = makeStinkyName,
-            Category = VerbCategory.Smite,
-            Icon = new SpriteSpecifier.Rsi(new("Clothing/Mask/gas.rsi"), "icon"),
-            Act = () =>
-            {
-                var gasMiner = EnsureComp<GasMinerComponent>(args.Target);
-                gasMiner.SpawnGas = Gas.Ammonia;
-                gasMiner.SpawnAmount = 20;
-                gasMiner.ShowExamineText = false;
-
-                var atmosDevice = EnsureComp<AtmosDeviceComponent>(args.Target);
-                atmosDevice.RequireAnchored = false;
-
-                _atmosDevice.JoinAtmosphere((args.Target, atmosDevice));
-            },
-            Impact = LogImpact.Extreme,
-            Message = string.Join(": ", makeStinkyName, Loc.GetString("admin-smite-make-stinky-description"))
-        };
-        args.Verbs.Add(makeStinky);
     }
 
     public void HomingLaunchSequence(EntityUid target, EntProtoId proto, float distance, float speed)
@@ -1106,9 +1081,7 @@ public sealed partial class AdminVerbSystem
         // I would do it now but theres a massive rod rewrite, and I don't wanna poke it for this.
         // find reasonable spawn location (use gamerule and find rod?) but respect map not on grid etc etc
 
-        var random = new RobustRandom() as IRobustRandom;
-        random.SetSeed(target.Id);
-        var offset = random.NextAngle().RotateVec(new Vector2(distance, 0));
+        var offset = new Random(target.Id).NextAngle().RotateVec(new Vector2(distance, 0));
         var spawnCoords = _transformSystem.GetMapCoordinates(target).Offset(offset);
         var rod = Spawn(proto, spawnCoords);
         // Here we abuse the ChasingWalkComp by making it skip targetting logic and dialling its frequency up

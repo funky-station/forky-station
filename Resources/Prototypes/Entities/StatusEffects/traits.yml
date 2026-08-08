@@ -6,13 +6,7 @@
   - type: CloneableStatusEffect
 
 - type: entity
-  abstract: true
-  id: ChangelingStatusEffectBase # Used to whitelist specific status effects to be cloneable by the changeling. Primarily some traits.
-  components:
-  - type: ChangelingCloneableStatusEffect
-
-- type: entity
-  parent: [ BloodstreamStatusEffectBase, TraitStatusEffectBase, ChangelingStatusEffectBase ]
+  parent: [BloodstreamStatusEffectBase, TraitStatusEffectBase]
   id: TraitStatusEffectHemophilia
   components:
   - type: HemophiliaStatusEffect

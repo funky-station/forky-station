@@ -23,6 +23,7 @@ public sealed partial class FootprintSystem : EntitySystem
     [Dependency] private SharedMapSystem _map = null!;
     [Dependency] private SharedSolutionContainerSystem _solutionContainer = null!;
     [Dependency] private SharedPuddleSystem _puddle = null!;
+    [Dependency] private IPrototypeManager _prototypeManager = null!;
     [Dependency] private IRobustRandom _random = null!;
     [Dependency] private InventorySystem _inventory = null!;
 
@@ -62,7 +63,7 @@ public sealed partial class FootprintSystem : EntitySystem
         if (!_solutionContainer.TryGetSolution(uid, PrintSolutionName, out var solution, out _))
             return;
 
-        var newBaseColor = solution.Value.Comp.Solution.GetColor(ProtoMan);
+        var newBaseColor = solution.Value.Comp.Solution.GetColor(_prototypeManager);
 
         for (var i = 0; i < component.Prints.Count; i++)
         {
@@ -178,7 +179,7 @@ public sealed partial class FootprintSystem : EntitySystem
 
         var maxVol = isStanding ? component.MaxFootprintVolume : component.MaxBodyprintVolume;
         var alpha = (float)transferAmount / maxVol / 2f;
-        var color = ownerSolution.Value.Comp.Solution.GetColor(ProtoMan).WithAlpha(alpha);
+        var color = ownerSolution.Value.Comp.Solution.GetColor(_prototypeManager).WithAlpha(alpha);
 
         _solutionContainer.TryTransferSolution(printSolution, ownerSolution.Value.Comp.Solution, transferAmount);
 

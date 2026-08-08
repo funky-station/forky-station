@@ -26,7 +26,8 @@
       max: 10
   - type: StationEvent
     startColor: "#18abf5"
-    startAudio: Announce # Macrocosm edit - sound prototypes
+    startAudio:
+      path: /Audio/Announcements/announce.ogg
   - type: CargoGiftsRule
     sender: cargo-gift-default-sender
 

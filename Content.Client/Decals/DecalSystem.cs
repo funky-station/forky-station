@@ -22,7 +22,7 @@ namespace Content.Client.Decals
         {
             base.Initialize();
 
-            _overlay = new DecalOverlay(_sprites, EntityManager, ProtoMan);
+            _overlay = new DecalOverlay(_sprites, EntityManager, PrototypeManager);
             _overlayManager.AddOverlay(_overlay);
 
             SubscribeLocalEvent<DecalGridComponent, ComponentHandleState>(OnHandleState);

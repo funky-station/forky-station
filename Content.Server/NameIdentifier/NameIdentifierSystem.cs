@@ -9,6 +9,7 @@ namespace Content.Server.NameIdentifier;
 
 public sealed partial class NameIdentifierSystem : SharedNameIdentifierSystem
 {
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private IRobustRandom _robustRandom = default!;
     [Dependency] private NameModifierSystem _nameModifier = default!;
 
@@ -54,7 +55,7 @@ public sealed partial class NameIdentifierSystem : SharedNameIdentifierSystem
     /// </summary>
     public string GenerateUniqueName(EntityUid uid, ProtoId<NameIdentifierGroupPrototype> proto, out int randomVal)
     {
-        return GenerateUniqueName(uid, ProtoMan.Index(proto), out randomVal);
+        return GenerateUniqueName(uid, _prototypeManager.Index(proto), out randomVal);
     }
 
     /// <summary>
@@ -87,7 +88,7 @@ public sealed partial class NameIdentifierSystem : SharedNameIdentifierSystem
         if (ent.Comp.Group is null)
             return;
 
-        if (!ProtoMan.Resolve(ent.Comp.Group, out var group))
+        if (!_prototypeManager.Resolve(ent.Comp.Group, out var group))
             return;
 
         int id;
@@ -146,7 +147,7 @@ public sealed partial class NameIdentifierSystem : SharedNameIdentifierSystem
 
     private void EnsureIds()
     {
-        foreach (var proto in ProtoMan.EnumeratePrototypes<NameIdentifierGroupPrototype>())
+        foreach (var proto in _prototypeManager.EnumeratePrototypes<NameIdentifierGroupPrototype>())
         {
             var ids = GetOrCreateIdList(proto);
 
@@ -163,7 +164,7 @@ public sealed partial class NameIdentifierSystem : SharedNameIdentifierSystem
 
         foreach (var proto in CurrentIds.Keys)
         {
-            if (!ProtoMan.HasIndex<NameIdentifierGroupPrototype>(proto))
+            if (!_prototypeManager.HasIndex<NameIdentifierGroupPrototype>(proto))
             {
                 toRemove.Add(proto);
             }

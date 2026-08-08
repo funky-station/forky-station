@@ -15,6 +15,7 @@ namespace Content.Server.Machines.EntitySystems;
 /// </summary>
 public sealed partial class MultipartMachineSystem : SharedMultipartMachineSystem
 {
+    [Dependency] private IComponentFactory _factory = default!;
     [Dependency] private MapSystem _mapSystem = default!;
     [Dependency] private EntityLookupSystem _lookupSystem = default!;
 
@@ -98,7 +99,7 @@ public sealed partial class MultipartMachineSystem : SharedMultipartMachineSyste
             var originalPart = part.Entity;
             part.Entity = null;
 
-            if (!Factory.TryGetRegistration(part.Component, out var registration))
+            if (!_factory.TryGetRegistration(part.Component, out var registration))
                 break;
 
             var query = EntityManager.GetEntityQuery(registration.Type);

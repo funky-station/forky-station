@@ -1,5 +1,6 @@
 using Content.Client.UserInterface.Fragments;
 using Content.Shared.CartridgeLoader;
+using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 
 namespace Content.Client.CartridgeLoader;
@@ -66,7 +67,7 @@ public abstract class CartridgeLoaderBoundUserInterface : BoundUserInterface
     protected void ActivateCartridge(EntityUid cartridgeUid)
     {
         var message = new CartridgeLoaderUiMessage(_entManager.GetNetEntity(cartridgeUid), CartridgeUiMessageAction.Activate);
-        SendPredictedMessage(message);
+        SendMessage(message);
     }
 
     protected void DeactivateActiveCartridge()
@@ -75,19 +76,19 @@ public abstract class CartridgeLoaderBoundUserInterface : BoundUserInterface
             return;
 
         var message = new CartridgeLoaderUiMessage(_entManager.GetNetEntity(_activeProgram.Value), CartridgeUiMessageAction.Deactivate);
-        SendPredictedMessage(message);
+        SendMessage(message);
     }
 
     protected void InstallCartridge(EntityUid cartridgeUid)
     {
         var message = new CartridgeLoaderUiMessage(_entManager.GetNetEntity(cartridgeUid), CartridgeUiMessageAction.Install);
-        SendPredictedMessage(message);
+        SendMessage(message);
     }
 
     protected void UninstallCartridge(EntityUid cartridgeUid)
     {
         var message = new CartridgeLoaderUiMessage(_entManager.GetNetEntity(cartridgeUid), CartridgeUiMessageAction.Uninstall);
-        SendPredictedMessage(message);
+        SendMessage(message);
     }
 
     private List<(EntityUid, CartridgeComponent)> GetCartridgeComponents(List<EntityUid> programs)

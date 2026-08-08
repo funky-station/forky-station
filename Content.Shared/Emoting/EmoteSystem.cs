@@ -9,9 +9,6 @@ public sealed class EmoteSystem : EntitySystem
         SubscribeLocalEvent<EmoteAttemptEvent>(OnEmoteAttempt);
     }
 
-    /// <summary>
-    /// Tries to enable emoting component on an entity.
-    /// </summary>
     public void SetEmoting(EntityUid uid, bool value, EmotingComponent? component = null)
     {
         if (value && !Resolve(uid, ref component))

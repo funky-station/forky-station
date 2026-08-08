@@ -11,9 +11,7 @@ public sealed class AdminLogLabel : RichTextLabel
         Log = log;
         Separator = separator;
 
-        var localTime = log.Date.ToLocalTime();
-
-        SetMessage($"{localTime:HH:mm:ss}: {log.Message}");
+        SetMessage($"{log.Date:HH:mm:ss}: {log.Message}");
         OnVisibilityChanged += VisibilityChanged;
     }
 

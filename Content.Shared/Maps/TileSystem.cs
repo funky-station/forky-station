@@ -21,6 +21,7 @@ namespace Content.Shared.Maps;
 public sealed partial class TileSystem : EntitySystem
 {
     [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private IRobustRandom _robustRandom = default!;
     [Dependency] private ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private SharedDecalSystem _decal = default!;
@@ -104,7 +105,7 @@ public sealed partial class TileSystem : EntitySystem
     /// </summary>
     public byte PickVariant(ContentTileDefinition tile)
     {
-        return PickVariant(tile, _robustRandom);
+        return PickVariant(tile, _robustRandom.GetRandom());
     }
 
     /// <summary>
@@ -112,15 +113,14 @@ public sealed partial class TileSystem : EntitySystem
     /// </summary>
     public byte PickVariant(ContentTileDefinition tile, int seed)
     {
-        var rand = new RobustRandom();
-        rand.SetSeed(seed);
+        var rand = new System.Random(seed);
         return PickVariant(tile, rand);
     }
 
     /// <summary>
     ///     Returns a weighted pick of a tile variant.
     /// </summary>
-    public byte PickVariant(ContentTileDefinition tile, IRobustRandom random)
+    public byte PickVariant(ContentTileDefinition tile, System.Random random)
     {
         var variants = tile.PlacementVariants;
 
@@ -143,7 +143,7 @@ public sealed partial class TileSystem : EntitySystem
     /// <summary>
     ///     Returns a tile with a weighted random variant.
     /// </summary>
-    public Tile GetVariantTile(ContentTileDefinition tile, IRobustRandom random)
+    public Tile GetVariantTile(ContentTileDefinition tile, System.Random random)
     {
         return new Tile(tile.TileId, variant: PickVariant(tile, random));
     }
@@ -153,8 +153,7 @@ public sealed partial class TileSystem : EntitySystem
     /// </summary>
     public Tile GetVariantTile(ContentTileDefinition tile, int seed)
     {
-        var rand = new RobustRandom();
-        rand.SetSeed(seed);
+        var rand = new System.Random(seed);
         return new Tile(tile.TileId, variant: PickVariant(tile, rand));
     }
 
@@ -313,7 +312,7 @@ public sealed partial class TileSystem : EntitySystem
         }
 
         //Destroy any decals on the tile
-        var decals = _decal.GetDecalsInRange(gridUid, coordinates.SnapToGrid(EntityManager).Position, 0.5f);
+        var decals = _decal.GetDecalsInRange(gridUid, coordinates.SnapToGrid(EntityManager, _mapManager).Position, 0.5f);
         foreach (var (id, _) in decals)
         {
             _decal.RemoveDecal(tileRef.GridUid, id);

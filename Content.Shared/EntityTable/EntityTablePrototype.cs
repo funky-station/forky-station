@@ -13,9 +13,6 @@ public sealed partial class EntityTablePrototype : IPrototype
     [IdDataField]
     public string ID { get; private set; } = default!;
 
-    /// <summary>
-    /// The Entity Table associated with this prototype.
-    /// </summary>
     [DataField(required: true)]
     public EntityTableSelector Table = default!;
 }

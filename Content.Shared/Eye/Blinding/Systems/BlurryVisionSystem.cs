@@ -21,10 +21,6 @@ public sealed class BlurryVisionSystem : EntitySystem
         args.Args.CorrectionPower *= glasses.Comp.CorrectionPower;
     }
 
-    /// <summary>
-    /// Update a blurry vision component according to a blindable component.
-    /// </summary>
-    /// <param name="ent">The entity with the component to update.</param>
     public void UpdateBlurMagnitude(Entity<BlindableComponent?> ent)
     {
         if (!Resolve(ent.Owner, ref ent.Comp, false))

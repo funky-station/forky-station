@@ -57,6 +57,7 @@ public sealed partial class StationAiSystem : SharedStationAiSystem
     [Dependency] private SharedPopupSystem _popups = default!;
     [Dependency] private StationSystem _station = default!;
     [Dependency] private StationJobsSystem _stationJobs = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
 
@@ -268,7 +269,7 @@ public sealed partial class StationAiSystem : SharedStationAiSystem
         if (!TryGetHeld((ent.Owner, ent.Comp), out var held))
             return;
 
-        if (!ProtoMan.TryIndex(_batteryAlert, out var proto))
+        if (!_proto.TryIndex(_batteryAlert, out var proto))
             return;
 
         var chargePercent = _battery.GetChargeLevel((ent.Owner, battery));
@@ -296,7 +297,7 @@ public sealed partial class StationAiSystem : SharedStationAiSystem
         if (!TryGetHeld((ent.Owner, ent.Comp), out var held))
             return;
 
-        if (!ProtoMan.TryIndex(_damageAlert, out var proto))
+        if (!_proto.TryIndex(_damageAlert, out var proto))
             return;
 
         var damagePercent = _damageable.GetTotalDamage((ent, damageable)) / _destructible.DestroyedAt(ent, destructible);

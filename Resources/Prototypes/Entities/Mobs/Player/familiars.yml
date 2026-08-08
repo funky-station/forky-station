@@ -90,4 +90,7 @@
   - type: MindExaminable
   - type: Familiar
   - type: Vocal
-    emoteSounds: Cerberus
+    sounds:
+      Male: Cerberus
+      Female: Cerberus
+      Unsexed: Cerberus

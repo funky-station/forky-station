@@ -122,7 +122,7 @@ namespace Content.Server.Sandbox
                 return;
             }
 
-            var allAccess = ProtoMan
+            var allAccess = PrototypeManager
                 .EnumeratePrototypes<AccessLevelPrototype>()
                 .Select(p => new ProtoId<AccessLevelPrototype>(p.ID)).ToList();
 

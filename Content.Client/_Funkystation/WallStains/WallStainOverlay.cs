@@ -28,6 +28,7 @@ public sealed partial class WallStainOverlay : Overlay
     [Dependency] private IEntityManager _entityManager = null!;
     [Dependency] private IPrototypeManager _prototypeManager = null!;
     [Dependency] private IGameTiming _gameTiming = null!;
+    [Dependency] public IMapManager MapManager = null!;
 
     private readonly TransformSystem _transformSystem;
     private readonly SpriteSystem _spriteSystem;

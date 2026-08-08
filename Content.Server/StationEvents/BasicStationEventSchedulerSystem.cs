@@ -10,6 +10,8 @@ using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Toolshed;
+using Robust.Shared.Toolshed.TypeParsers;
+using Robust.Shared.Utility;
 
 namespace Content.Server.StationEvents
 {
@@ -111,7 +113,7 @@ namespace Content.Server.StationEvents
 
             var eventScheduler = _protoMan.Index(eventSchedulerProto);
 
-            if (!eventScheduler.TryComp<BasicStationEventSchedulerComponent>(out var basicScheduler, _compFac))
+            if (!eventScheduler.TryGetComponent<BasicStationEventSchedulerComponent>(out var basicScheduler, _compFac))
             {
                 return occurrences.Select(p => (p.Key, (float)p.Value)).OrderByDescending(p => p.Item2);
             }
@@ -157,7 +159,7 @@ namespace Content.Server.StationEvents
 
             var eventScheduler = _protoMan.Index(eventSchedulerProto);
 
-            if (!eventScheduler.TryComp<BasicStationEventSchedulerComponent>(out var basicScheduler, _compFac))
+            if (!eventScheduler.TryGetComponent<BasicStationEventSchedulerComponent>(out var basicScheduler, _compFac))
                 yield break;
 
             var sortedEvents
@@ -179,7 +181,7 @@ namespace Content.Server.StationEvents
 
             var eventScheduler = _protoMan.Index(eventSchedulerProto);
 
-            if (!eventScheduler.TryComp<BasicStationEventSchedulerComponent>(out var basicScheduler, _compFac))
+            if (!eventScheduler.TryGetComponent<BasicStationEventSchedulerComponent>(out var basicScheduler, _compFac))
                 yield break;
 
             var timemins = time * 60;
@@ -206,7 +208,7 @@ namespace Content.Server.StationEvents
 
             var eventScheduler = _protoMan.Index(eventSchedulerProto);
 
-            if (!eventScheduler.TryComp<BasicStationEventSchedulerComponent>(out var basicScheduler, _compFac))
+            if (!eventScheduler.TryGetComponent<BasicStationEventSchedulerComponent>(out var basicScheduler, _compFac))
                 return 0f;
 
             foreach (var (proto, prob) in _stationEvent.ListLimitedEvents(basicScheduler.ScheduledGameRules))

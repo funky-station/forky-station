@@ -1,7 +1,9 @@
 using Content.Shared.Access.Components;
 using Content.Shared.Containers.ItemSlots;
 using JetBrains.Annotations;
+using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Access.Systems
 {
@@ -9,6 +11,7 @@ namespace Content.Shared.Access.Systems
     public abstract partial class SharedIdCardConsoleSystem : EntitySystem
     {
         [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;
+        [Dependency] private ILogManager _log = default!;
 
         public const string Sawmill = "idconsole";
         protected ISawmill _sawmill = default!;
@@ -16,7 +19,7 @@ namespace Content.Shared.Access.Systems
         public override void Initialize()
         {
             base.Initialize();
-            _sawmill = LogManager.GetSawmill(Sawmill);
+            _sawmill = _log.GetSawmill(Sawmill);
 
             SubscribeLocalEvent<IdCardConsoleComponent, ComponentInit>(OnComponentInit);
             SubscribeLocalEvent<IdCardConsoleComponent, ComponentRemove>(OnComponentRemove);

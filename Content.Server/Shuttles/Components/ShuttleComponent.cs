@@ -19,7 +19,7 @@ namespace Content.Server.Shuttles.Components
         /// <summary>
         /// Maximum velocity.
         /// </summary>
-        [DataField]
+        [ViewVariables(VVAccess.ReadWrite)]
         public float BaseMaxLinearVelocity = 60f;
 
         public const float MaxAngularVelocity = 4f;

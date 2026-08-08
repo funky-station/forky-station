@@ -43,7 +43,7 @@
     - Meat
 
 - type: entity
-  parent: OrganBase
+  parent: OrganBaseOrganic
   id: OrganBaseTorso
   name: torso
   abstract: true

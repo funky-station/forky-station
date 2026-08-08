@@ -21,9 +21,6 @@ public sealed partial class HasAnyTagEntityConditionSystem : EntityConditionSyst
 /// <inheritdoc cref="EntityCondition"/>
 public sealed partial class AnyTagCondition : EntityConditionBase<AnyTagCondition>
 {
-    /// <summary>
-    /// List of tags from which one must be matched.
-    /// </summary>
     [DataField(required: true)]
     public ProtoId<TagPrototype>[] Tags = [];
 

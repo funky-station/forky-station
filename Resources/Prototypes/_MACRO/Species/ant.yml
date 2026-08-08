@@ -13,12 +13,6 @@
   - Male
   - Female
   - Unsexed
-  defaultSoundsBySex:
-  - UnisexAnt
-  - UnisexAnt
-  - UnisexAnt
-  voices:
-  - UnisexAnt
 
 # Developer Notes
 #

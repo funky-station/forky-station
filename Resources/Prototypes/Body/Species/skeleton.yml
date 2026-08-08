@@ -106,7 +106,10 @@
     speechVerb: Skeleton
   - type: ZombieImmune
   - type: Vocal
-    emoteSounds: Skeleton
+    sounds:
+      Male: Skeleton
+      Female: Skeleton
+      Unsexed: Skeleton
   - type: SkeletonAccent
   - type: Fixtures
     fixtures:

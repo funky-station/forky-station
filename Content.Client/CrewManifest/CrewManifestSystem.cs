@@ -6,6 +6,8 @@ namespace Content.Client.CrewManifest;
 
 public sealed partial class CrewManifestSystem : EntitySystem
 {
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+
     private Dictionary<string, Dictionary<string, int>> _jobDepartmentLookup = new();
     private HashSet<string> _departments = new();
 
@@ -38,7 +40,7 @@ public sealed partial class CrewManifestSystem : EntitySystem
     {
         _jobDepartmentLookup.Clear();
         _departments.Clear();
-        foreach (var department in ProtoMan.EnumeratePrototypes<DepartmentPrototype>())
+        foreach (var department in _prototypeManager.EnumeratePrototypes<DepartmentPrototype>())
         {
             _departments.Add(department.ID);
 

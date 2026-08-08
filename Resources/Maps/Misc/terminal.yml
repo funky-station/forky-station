@@ -5537,7 +5537,7 @@ entities:
     missingComponents:
     - Anchorable
     - Destructible
-- proto: WarpPoint
+- proto: GhostWarpPoint
   entities:
   - uid: 916
     components:

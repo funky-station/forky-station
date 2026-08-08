@@ -107,12 +107,10 @@ public sealed partial class PaperVisualsComponent : Component
     public int ContentImageNumLines = 1;
 
     /// <summary>
-    ///     Optional default color for text written on the paper. Useful to
-    ///     specify light color text for use on dark backgrounds. Paper text
-    ///     can still use markup to override color for subsections.
+    ///     Modulate the style's font by this color
     /// </summary>
     [DataField]
-    public Color? DefaultTextColor = null;
+    public Color FontAccentColor = new Color(223, 223, 213);
 
     /// <summary>
     ///     This can enforce that your paper has a limited area to write in.

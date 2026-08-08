@@ -1,6 +1,6 @@
 - type: entity
   name: bat
-  parent: [ SimpleMobBase, FlyingMobBase, MobCombat, BaseSlicingRefinable, MobNightVision ]
+  parent: [ SimpleMobBase, FlyingMobBase, MobCombat, BaseSlicingRefinable ]
   id: MobBat
   description: Some cultures find them terrifying, others crunchy on the teeth.
   components:
@@ -189,7 +189,6 @@
   - type: NpcFactionMember
     factions:
     - SimpleHostile
-    - AnimalFriend # MACRO
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
@@ -350,7 +349,7 @@
 
 - type: entity
   name: cockroach
-  parent: [SolutionFood, SolutionTiny, SimpleMobBase, BaseSlicingRefinable, MobNightVision]
+  parent: [SolutionFood, SolutionTiny, SimpleMobBase, BaseSlicingRefinable]
   id: MobCockroach
   description: This station is just crawling with bugs.
   components:
@@ -581,7 +580,10 @@
   - type: ZombieAccentOverride
     accent: zombieMoth
   - type: Vocal
-    emoteSounds: UnisexMoth
+    sounds:
+      Male: UnisexMoth
+      Female: UnisexMoth
+      Unsexed: UnisexMoth
     wilhelmProbability: 0.001
   - type: BodyEmotes
     soundsId: MothBodyEmotes
@@ -931,7 +933,6 @@
     guides:
     - Chef
     - FoodRecipes
-  - type: CowToolProficiency #macro edit - this was made for ungus, but i'm putting this here in case an admin wants to be cute and give a cow hands
 
 - type: entity
   parent: SolutionLarge
@@ -1087,7 +1088,10 @@
     speechSounds: Goat
     speechVerb: Goat
   - type: Vocal
-    emoteSounds: Goat
+    sounds:
+      Female: Goat
+      Male: Goat
+      Unsexed: Goat
   - type: BleatingAccent
   - type: InteractionPopup
     successChance: 0.2
@@ -1221,7 +1225,10 @@
     speechSounds: Sheep
     speechVerb: Sheep
   - type: Vocal
-    emoteSounds: Sheep
+    sounds:
+      Female: Sheep
+      Male: Sheep
+      Unsexed: Sheep
   - type: BleatingAccent
   - type: InteractionPopup
     successChance: 0.8 #SHEEP so FRIEND!!! HUG! SQUISHY! SOFT!
@@ -1508,7 +1515,8 @@
     rules: ghost-role-information-nonantagonist-rules
   - type: GhostTakeoverAvailable
   - type: Vocal
-    emoteSounds: Kangaroo
+    sounds:
+      Unsexed: Kangaroo
   - type: Puller
     needsHands: false
   - type: StaminaDamageOnHit
@@ -1543,7 +1551,6 @@
   - type: NpcFactionMember
     factions:
     - SimpleHostile
-    - AnimalFriend # MACRO
 
 - type: entity
   name: genetic ancestor
@@ -1765,7 +1772,10 @@
     speechVerb: Reptilian
     allowedEmotes: ['Thump']
   - type: Vocal
-    emoteSounds: MaleReptilian
+    sounds:
+      Male: MaleReptilian
+      Female: FemaleReptilian
+      Unsexed: MaleReptilian
   - type: BodyEmotes
     soundsId: ReptilianBodyEmotes
   - type: TypingIndicator
@@ -1917,7 +1927,7 @@
 
 - type: entity
   name: mouse
-  parent: [SimpleMobBase, BaseMobAnimal, SolutionVermin, BaseSlicingRefinable, MobNightVision]
+  parent: [SimpleMobBase, BaseMobAnimal, SolutionVermin, BaseSlicingRefinable]
   id: MobMouse
   description: Squeak!
   components:
@@ -2050,7 +2060,10 @@
       types:
         Blunt: 0.1
   - type: Vocal
-    emoteSounds: Mouse
+    sounds:
+      Male: Mouse
+      Female: Mouse
+      Unsexed: Mouse
     wilhelmProbability: 0.001
   # TODO: Remove CombatMode when Prototype Composition is added
   - type: CombatMode
@@ -2438,7 +2451,8 @@
     speechSounds: Parrot
     speechVerb: Parrot
   - type: Vocal
-    emoteSounds: Parrot
+    sounds:
+      Unsexed: Parrot
   - type: ActiveListener
   - type: Vocalizer
   - type: RadioVocalizer
@@ -2672,7 +2686,7 @@
 # Code unique spider prototypes or combine them all into one spider and get a
 # random sprite state when you spawn it.
 - type: entity
-  parent: [ SimpleMobBase, BaseMobHemocyanin, MobCombat, BaseSlicingRefinable, MobNightVision ]
+  parent: [ SimpleMobBase, BaseMobHemocyanin, MobCombat, BaseSlicingRefinable ]
   id: MobSpiderBase
   abstract: true
   components:
@@ -2700,6 +2714,11 @@
   - type: SolutionManager
     solutions:
     - SolutionVenomSpider
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+      - ReagentId: Mechanotoxin
+        Quantity: 1
   - type: MeleeChemicalInjector
     transferAmount: 0.75
     solution: melee
@@ -2727,7 +2746,10 @@
     speechSounds: Arachnid
     allowedEmotes: ['Click', 'Chitter']
   - type: Vocal
-    emoteSounds: UnisexArachnid
+    sounds:
+      Male: UnisexArachnid
+      Female: UnisexArachnid
+      Unsexed: UnisexArachnid
   - type: TypingIndicator
     proto: spider
   - type: Tag
@@ -2757,12 +2779,6 @@
   parent: [SolutionWeapon, SolutionTiny]
   id: SolutionVenomSpider
   categories: [ HideSpawnMenu ]
-  components:
-  - type: SolutionRegeneration
-    generated:
-      reagents:
-      - ReagentId: Mechanotoxin
-        Quantity: 1
 
 - type: entity
   parent: MobSpiderBase
@@ -3613,7 +3629,7 @@
 
 - type: entity
   name: hamster
-  parent: [ SimpleMobBase, MobCombat, StripableInventoryBase, BaseSlicingRefinable, MobNightVision]
+  parent: [ SimpleMobBase, MobCombat, StripableInventoryBase, BaseSlicingRefinable]
   id: MobHamster
   description: A cute, fluffy, robust hamster.
   components:
@@ -3903,7 +3919,10 @@
     speechSounds: Alto
     allowedEmotes: ['Chirp']
   - type: Vocal
-    emoteSounds: UnisexDiona
+    sounds:
+      Male: UnisexDiona
+      Female: UnisexDiona
+      Unsexed: UnisexDiona
   - type: Tag
     tags:
     - DoorBumpOpener

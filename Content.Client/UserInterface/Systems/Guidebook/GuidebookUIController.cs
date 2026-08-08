@@ -30,6 +30,7 @@ public sealed partial class GuidebookUIController : UIController, IOnStateEntere
 
     private GuidebookWindow? _guideWindow;
     private MenuButton? GuidebookButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.GuidebookButton;
+    private ProtoId<GuideEntryPrototype>? _lastEntry;
 
     public void OnStateEntered(LobbyState state)
     {
@@ -144,6 +145,7 @@ public sealed partial class GuidebookUIController : UIController, IOnStateEntere
         if (_guideWindow != null)
         {
             _guideWindow.ReturnContainer.Visible = false;
+            _lastEntry = _guideWindow.LastEntry;
         }
     }
 
@@ -181,7 +183,7 @@ public sealed partial class GuidebookUIController : UIController, IOnStateEntere
         if (guides == null)
         {
             guides = _prototypeManager.EnumeratePrototypes<GuideEntryPrototype>()
-                .ToDictionary(x => new ProtoId<GuideEntryPrototype>(x.ID), x => (GuideEntry)x);
+                .ToDictionary(x => new ProtoId<GuideEntryPrototype>(x.ID), x => (GuideEntry) x);
         }
         else if (includeChildren)
         {
@@ -195,23 +197,20 @@ public sealed partial class GuidebookUIController : UIController, IOnStateEntere
 
         if (selected == null)
         {
-            if (_guideWindow.Selected is { } lastEntry && guides.ContainsKey(lastEntry))
+            if (_lastEntry is { } lastEntry && guides.ContainsKey(lastEntry))
             {
-                selected = lastEntry;
+                selected = _lastEntry;
             }
             else
             {
                 selected = _configuration.GetCVar(CCVars.DefaultGuide);
             }
         }
-        var changed = _guideWindow.UpdateGuides(guides, rootEntries, forceRoot, selected);
+        _guideWindow.UpdateGuides(guides, rootEntries, forceRoot, selected);
 
         // Expand up to depth-2.
-        if (changed)
-        {
-            _guideWindow.Tree.SetAllExpanded(false);
-            _guideWindow.Tree.SetAllExpanded(true, 1);
-        }
+        _guideWindow.Tree.SetAllExpanded(false);
+        _guideWindow.Tree.SetAllExpanded(true, 1);
 
         _guideWindow.OpenCenteredRight();
     }

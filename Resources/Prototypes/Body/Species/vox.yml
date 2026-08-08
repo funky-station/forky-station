@@ -176,7 +176,10 @@
       sprite: Effects/creampie.rsi
       state: creampie_vox
   - type: Vocal
-    emoteSounds: UnisexVox
+    sounds:
+      Male: UnisexVox
+      Female: UnisexVox
+      Unsexed: UnisexVox
   - type: Butcherable
     spawned:
     - id: FoodMeatChicken

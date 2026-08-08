@@ -21,9 +21,6 @@ public sealed partial class HasAllTagsEntityConditionSystem : EntityConditionSys
 /// <inheritdoc cref="EntityCondition"/>
 public sealed partial class AllTagsCondition : EntityConditionBase<AllTagsCondition>
 {
-    /// <summary>
-    /// Tags which all need to be possessed to fulfill the condition.
-    /// </summary>
     [DataField(required: true)]
     public ProtoId<TagPrototype>[] Tags = [];
 

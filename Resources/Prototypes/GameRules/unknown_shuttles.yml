@@ -28,7 +28,8 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-unknown-shuttle-incoming
-    startAudio: Attention # Macrocosm edit - sound prototypes
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
 
 # The power of 3 clowns proved too strong for the players and may need to be 1984'ed. Replace this with a more engaging clown shuttle.
 - type: entity

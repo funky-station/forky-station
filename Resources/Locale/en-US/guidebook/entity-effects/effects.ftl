@@ -138,19 +138,19 @@ entity-effect-guidebook-status-effect =
         [update]{ $chance ->
                     [1] Causes
                     *[other] cause
-                 } {$key} for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} without accumulation
+                 } {LOC($key)} for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} without accumulation
         [add]   { $chance ->
                     [1] Causes
                     *[other] cause
-                } {$key} for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} with accumulation
+                } {LOC($key)} for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} with accumulation
         [set]  { $chance ->
                     [1] Causes
                     *[other] cause
-                } {$key} for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} without accumulation
+                } {LOC($key)} for at least {NATURALFIXED($time, 3)} {MANY("second", $time)} without accumulation
         *[remove]{ $chance ->
                     [1] Removes
                     *[other] remove
-                } {NATURALFIXED($time, 3)} {MANY("second", $time)} of {$key}
+                } {NATURALFIXED($time, 3)} {MANY("second", $time)} of {LOC($key)}
     } { $delay ->
         [0] immediately
         *[other] after a {NATURALFIXED($delay, 3)} second delay
@@ -161,19 +161,19 @@ entity-effect-guidebook-status-effect-indef =
         [update]{ $chance ->
                     [1] Causes
                     *[other] cause
-                 } permanent {$key}
+                 } permanent {LOC($key)}
         [add]   { $chance ->
                     [1] Causes
                     *[other] cause
-                } permanent {$key}
+                } permanent {LOC($key)}
         [set]  { $chance ->
                     [1] Causes
                     *[other] cause
-                } permanent {$key}
+                } permanent {LOC($key)}
         *[remove]{ $chance ->
                     [1] Removes
                     *[other] remove
-                } {$key}
+                } {LOC($key)}
     } { $delay ->
         [0] immediately
         *[other] after a {NATURALFIXED($delay, 3)} second delay
@@ -479,8 +479,8 @@ entity-effect-guidebook-plant-attribute =
         [1] Adjusts
         *[other] adjust
     } {$attribute} by {$positive ->
-    [false] [color=red]{$amount}[/color]
-    *[true] [color=green]{$amount}[/color]
+    [true] [color=red]{$amount}[/color]
+    *[false] [color=green]{$amount}[/color]
     }
 
 entity-effect-guidebook-plant-cryoxadone =

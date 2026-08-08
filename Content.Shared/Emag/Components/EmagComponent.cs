@@ -8,9 +8,6 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Emag.Components;
 
-/// <summary>
-/// This allows an entity to emag other entities upon interaction.
-/// </summary>
 [Access(typeof(EmagSystem))]
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState]

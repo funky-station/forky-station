@@ -8,6 +8,7 @@ using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared.Nutrition.EntitySystems;
@@ -16,6 +17,7 @@ namespace Content.Shared.Nutrition.EntitySystems;
 public sealed partial class ThirstSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private AlertsSystem _alerts = default!;
     [Dependency] private MovementSpeedModifierSystem _movement = default!;
@@ -124,15 +126,15 @@ public sealed partial class ThirstSystem : EntitySystem
         switch (component.CurrentThirstThreshold)
         {
             case ThirstThreshold.OverHydrated:
-                ProtoMan.Resolve(ThirstIconOverhydratedId, out prototype);
+                _prototype.Resolve(ThirstIconOverhydratedId, out prototype);
                 break;
 
             case ThirstThreshold.Thirsty:
-                ProtoMan.Resolve(ThirstIconThirstyId, out prototype);
+                _prototype.Resolve(ThirstIconThirstyId, out prototype);
                 break;
 
             case ThirstThreshold.Parched:
-                ProtoMan.Resolve(ThirstIconParchedId, out prototype);
+                _prototype.Resolve(ThirstIconParchedId, out prototype);
                 break;
 
             default:

@@ -25,7 +25,7 @@ public abstract partial class SharedStackSystem
             return stackEnt.Owner;
 
         ReduceCount(stackEnt, 1);
-        var stackId = ProtoMan.Index(stackEnt.Comp.StackTypeId);
+        var stackId = _prototype.Index(stackEnt.Comp.StackTypeId);
         var entityUid = PredictedSpawnNextToOrDrop(stackId.Spawn, stackEnt.Owner);
 
         SetCount(entityUid, 1);
@@ -262,7 +262,7 @@ public abstract partial class SharedStackSystem
         if (component.MaxCountOverride != null)
             return component.MaxCountOverride.Value;
 
-        var stackProto = ProtoMan.Index(component.StackTypeId);
+        var stackProto = _prototype.Index(component.StackTypeId);
         return stackProto.MaxCount ?? int.MaxValue;
     }
 
@@ -270,8 +270,8 @@ public abstract partial class SharedStackSystem
     [PublicAPI]
     public int GetMaxCount(EntProtoId entityId)
     {
-        var entProto = ProtoMan.Index<EntityPrototype>(entityId);
-        entProto.TryComp<StackComponent>(out var stackComp, EntityManager.ComponentFactory);
+        var entProto = _prototype.Index<EntityPrototype>(entityId);
+        entProto.TryGetComponent<StackComponent>(out var stackComp, EntityManager.ComponentFactory);
         return GetMaxCount(stackComp);
     }
 
@@ -279,7 +279,7 @@ public abstract partial class SharedStackSystem
     [PublicAPI]
     public int GetMaxCount(EntityPrototype entityId)
     {
-        entityId.TryComp<StackComponent>(out var stackComp, EntityManager.ComponentFactory);
+        entityId.TryGetComponent<StackComponent>(out var stackComp, EntityManager.ComponentFactory);
         return GetMaxCount(stackComp);
     }
 
@@ -303,7 +303,7 @@ public abstract partial class SharedStackSystem
     [PublicAPI]
     public int GetMaxCount(ProtoId<StackPrototype> stackId)
     {
-        return GetMaxCount(ProtoMan.Index(stackId));
+        return GetMaxCount(_prototype.Index(stackId));
     }
 
     /// <summary>

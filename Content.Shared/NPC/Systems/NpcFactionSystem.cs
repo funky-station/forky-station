@@ -12,6 +12,7 @@ namespace Content.Shared.NPC.Systems;
 public sealed partial class NpcFactionSystem : EntitySystem
 {
     [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private SharedTransformSystem _xform = default!;
 
     /// <summary>
@@ -103,7 +104,7 @@ public sealed partial class NpcFactionSystem : EntitySystem
     /// </summary>
     public void AddFaction(Entity<NpcFactionMemberComponent?> ent, [ForbidLiteral] string faction, bool dirty = true)
     {
-        if (!ProtoMan.HasIndex<NpcFactionPrototype>(faction))
+        if (!_proto.HasIndex<NpcFactionPrototype>(faction))
         {
             Log.Error($"Unable to find faction {faction}");
             return;
@@ -126,7 +127,7 @@ public sealed partial class NpcFactionSystem : EntitySystem
 
         foreach (var faction in factions)
         {
-            if (!ProtoMan.HasIndex(faction))
+            if (!_proto.HasIndex(faction))
             {
                 Log.Error($"Unable to find faction {faction}");
                 continue;
@@ -144,7 +145,7 @@ public sealed partial class NpcFactionSystem : EntitySystem
     /// </summary>
     public void RemoveFaction(Entity<NpcFactionMemberComponent?> ent, [ForbidLiteral] string faction, bool dirty = true)
     {
-        if (!ProtoMan.HasIndex<NpcFactionPrototype>(faction))
+        if (!_proto.HasIndex<NpcFactionPrototype>(faction))
         {
             Log.Error($"Unable to find faction {faction}");
             return;
@@ -306,7 +307,7 @@ public sealed partial class NpcFactionSystem : EntitySystem
 
     private void RefreshFactions()
     {
-        _factions = ProtoMan.EnumeratePrototypes<NpcFactionPrototype>().ToFrozenDictionary(
+        _factions = _proto.EnumeratePrototypes<NpcFactionPrototype>().ToFrozenDictionary(
             faction => faction.ID,
             faction =>  new FactionData
             {

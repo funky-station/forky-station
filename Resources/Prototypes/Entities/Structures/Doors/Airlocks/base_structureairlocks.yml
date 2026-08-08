@@ -104,7 +104,6 @@
   - type: Electrified
     enabled: false
     usesApcPower: true
-    onActivateInWorld: true
   - type: WiresPanel
   - type: WiresPanelSecurity
   - type: Wires

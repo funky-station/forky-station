@@ -18,6 +18,7 @@ namespace Content.Server.Shuttles.Systems
 {
     public sealed partial class DockingSystem : SharedDockingSystem
     {
+        [Dependency] private IMapManager _mapManager = default!;
         [Dependency] private SharedMapSystem _mapSystem = default!;
         [Dependency] private DoorSystem _doorSystem = default!;
         [Dependency] private EntityLookupSystem _lookup = default!;

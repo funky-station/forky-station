@@ -1,4 +1,6 @@
+using System.Linq;
 using System.Numerics;
+using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Shared.Administration;
@@ -7,6 +9,7 @@ using Content.Shared.Database;
 using Content.Shared.Decals;
 using Content.Shared.Maps;
 using Microsoft.Extensions.ObjectPool;
+using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared;
 using Robust.Shared.Configuration;
@@ -298,7 +301,7 @@ namespace Content.Server.Decals
         {
             decalId = 0;
 
-            if (!ProtoMan.HasIndex<DecalPrototype>(decal.Id))
+            if (!PrototypeManager.HasIndex<DecalPrototype>(decal.Id))
                 return false;
 
             var gridId = _transform.GetGrid(coordinates);
@@ -419,7 +422,7 @@ namespace Content.Server.Decals
 
         public bool SetDecalId(EntityUid gridId, uint decalId, string id, DecalGridComponent? comp = null)
         {
-            if (!ProtoMan.HasIndex<DecalPrototype>(id))
+            if (!PrototypeManager.HasIndex<DecalPrototype>(id))
                 throw new ArgumentOutOfRangeException($"Tried to set decal id to invalid prototypeid: {id}");
 
             return ModifyDecal(gridId, decalId, x => x.WithId(id), comp);

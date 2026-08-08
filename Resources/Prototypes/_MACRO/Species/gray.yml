@@ -10,12 +10,6 @@
   femaleFirstNames: NamesGrayFirst
   lastNames: NamesGrayLast
   youngAge: 999
-  defaultSoundsBySex:
-  - UnisexGray
-  - UnisexGray
-  - UnisexGray
-  voices:
-  - UnisexGray
 
 # Developer Notes
 #

@@ -30,6 +30,7 @@ namespace Content.Server._Funkystation.Documents;
 /// </summary>
 public sealed partial class DocumentPrinterSystem : EntitySystem
 {
+    [Dependency] private IPrototypeManager _proto = null!;
     [Dependency] private PaperSystem _paper = null!;
     [Dependency] private AccessReaderSystem _accessReader = null!;
     [Dependency] private UserInterfaceSystem _ui = null!;
@@ -153,7 +154,7 @@ public sealed partial class DocumentPrinterSystem : EntitySystem
 
         foreach (var docId in GetActiveDocumentIds(uid, comp))
         {
-            if (!ProtoMan.TryIndex<DocumentPrototype>(docId, out var doc))
+            if (!_proto.TryIndex<DocumentPrototype>(docId, out var doc))
                 continue;
 
             var accessible = IsDocAccessible(comp, actor, doc);
@@ -229,7 +230,7 @@ public sealed partial class DocumentPrinterSystem : EntitySystem
         if (!GetActiveDocumentIds(uid, comp).Contains(msg.DocumentId))
             return;
 
-        if (!ProtoMan.TryIndex<DocumentPrototype>(msg.DocumentId, out var doc))
+        if (!_proto.TryIndex<DocumentPrototype>(msg.DocumentId, out var doc))
             return;
 
         if (!IsDocAccessible(comp, actor, doc))

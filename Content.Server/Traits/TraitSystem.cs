@@ -10,6 +10,7 @@ namespace Content.Server.Traits;
 
 public sealed partial class TraitSystem : EntitySystem
 {
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private SharedHandsSystem _sharedHandsSystem = default!;
     [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
 
@@ -25,7 +26,7 @@ public sealed partial class TraitSystem : EntitySystem
     {
         // Check if player's job allows to apply traits
         if (args.JobId == null ||
-            !ProtoMan.Resolve<JobPrototype>(args.JobId, out var protoJob) ||
+            !_prototypeManager.Resolve<JobPrototype>(args.JobId, out var protoJob) ||
             !protoJob.ApplyTraits)
         {
             return;
@@ -33,7 +34,7 @@ public sealed partial class TraitSystem : EntitySystem
 
         foreach (var traitId in args.Profile.TraitPreferences)
         {
-            if (!ProtoMan.TryIndex<TraitPrototype>(traitId, out var traitPrototype))
+            if (!_prototypeManager.TryIndex<TraitPrototype>(traitId, out var traitPrototype))
             {
                 Log.Error($"No trait found with ID {traitId}!");
                 return;

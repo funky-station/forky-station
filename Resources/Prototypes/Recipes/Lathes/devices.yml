@@ -166,7 +166,7 @@
 
 - type: latheRecipe
   id: WeaponForceGun
-  result: WeaponForceGunEmpty
+  result: WeaponForceGun
   categories:
   - Tools
   completetime: 5
@@ -206,7 +206,7 @@
 
 - type: latheRecipe
   id: WeaponTetherGun
-  result: WeaponTetherGunEmpty
+  result: WeaponTetherGun
   categories:
   - Tools
   completetime: 5

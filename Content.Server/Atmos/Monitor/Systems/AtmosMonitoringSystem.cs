@@ -16,6 +16,7 @@ using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Power;
 using Content.Shared.Tag;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Atmos.Monitor.Systems;
 
@@ -29,6 +30,7 @@ public sealed partial class AtmosMonitorSystem : EntitySystem
     [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private AtmosDeviceSystem _atmosDeviceSystem = default!;
     [Dependency] private DeviceNetworkSystem _deviceNetSystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private NodeContainerSystem _nodeContainerSystem = default!;
 
     // Commands
@@ -82,13 +84,13 @@ public sealed partial class AtmosMonitorSystem : EntitySystem
     {
         if (component.TemperatureThresholdId != null)
         {
-            var proto = ProtoMan.Index<AtmosAlarmThresholdPrototype>(component.TemperatureThresholdId);
+            var proto = _prototypeManager.Index<AtmosAlarmThresholdPrototype>(component.TemperatureThresholdId);
             component.TemperatureThreshold ??= new(proto);
         }
 
         if (component.PressureThresholdId != null)
         {
-            var proto = ProtoMan.Index<AtmosAlarmThresholdPrototype>(component.PressureThresholdId);
+            var proto = _prototypeManager.Index<AtmosAlarmThresholdPrototype>(component.PressureThresholdId);
             component.PressureThreshold ??= new(proto);
         }
 
@@ -98,7 +100,7 @@ public sealed partial class AtmosMonitorSystem : EntitySystem
         component.GasThresholds ??= new();
         foreach (var (gas, id) in component.GasThresholdPrototypes)
         {
-            var proto = ProtoMan.Index<AtmosAlarmThresholdPrototype>(id);
+            var proto = _prototypeManager.Index<AtmosAlarmThresholdPrototype>(id);
             component.GasThresholds.TryAdd(gas, new(proto));
         }
     }

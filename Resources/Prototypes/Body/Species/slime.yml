@@ -108,7 +108,10 @@
   - type: TypingIndicator
     proto: slime
   - type: Vocal
-    emoteSounds: MaleSlime
+    sounds:
+      Male: MaleSlime
+      Female: FemaleSlime
+      Unsexed: MaleSlime
   - type: Damageable
     damageModifierSet: Slime
   - type: PassiveDamage # Around 8 damage a minute healed

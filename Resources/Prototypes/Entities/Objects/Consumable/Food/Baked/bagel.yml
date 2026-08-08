@@ -35,11 +35,6 @@
       - medicine
   - type: Sprite
     state: bagel-poppy
-  # macro edit start - allow ungu to eat
-  - type: Tag
-    tags:
-    - UnguFood
-  # macro edit end
   - type: Solution
     solution:
       reagents:

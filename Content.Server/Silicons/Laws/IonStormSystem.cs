@@ -7,11 +7,13 @@ using Robust.Shared.Random;
 using System.Linq;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Silicons.Laws;
 
 public sealed partial class IonStormSystem : EntitySystem
 {
+    [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private SiliconLawSystem _siliconLaw = default!;
     [Dependency] private IRobustRandom _robustRandom = default!;
@@ -34,7 +36,7 @@ public sealed partial class IonStormSystem : EntitySystem
         // try to swap it out with a random lawset
         if (_robustRandom.Prob(target.RandomLawsetChance))
         {
-            var lawsets = ProtoMan.Index<WeightedRandomPrototype>(target.RandomLawsets);
+            var lawsets = _proto.Index<WeightedRandomPrototype>(target.RandomLawsets);
             var lawset = lawsets.Pick(_robustRandom);
             laws = _siliconLaw.GetLawset(lawset);
         }

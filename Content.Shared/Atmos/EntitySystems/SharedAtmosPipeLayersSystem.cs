@@ -21,6 +21,7 @@ namespace Content.Shared.Atmos.EntitySystems;
 public abstract partial class SharedAtmosPipeLayersSystem : EntitySystem
 {
     [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private SharedToolSystem _tool = default!;
     [Dependency] private SharedHandsSystem _hands = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
@@ -51,7 +52,7 @@ public abstract partial class SharedAtmosPipeLayersSystem : EntitySystem
         if (ent.Comp.NumberOfPipeLayers <= 1 || ent.Comp.PipeLayersLocked)
             return;
 
-        if (!ProtoMan.Resolve(ent.Comp.Tool, out var toolProto))
+        if (!_protoManager.Resolve(ent.Comp.Tool, out var toolProto))
             return;
 
         var user = args.User;
@@ -137,7 +138,7 @@ public abstract partial class SharedAtmosPipeLayersSystem : EntitySystem
 
         if (!TryGetHeldTool(args.User, ent.Comp.Tool, out var tool))
         {
-            if (ProtoMan.Resolve(ent.Comp.Tool, out var toolProto))
+            if (_protoManager.Resolve(ent.Comp.Tool, out var toolProto))
             {
                 var toolName = Loc.GetString(toolProto.ToolName).ToLower();
                 var message = Loc.GetString("atmos-pipe-layers-component-tool-missing", ("toolName", toolName));

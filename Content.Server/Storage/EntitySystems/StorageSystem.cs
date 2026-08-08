@@ -5,10 +5,13 @@ using Content.Shared.Storage.Components;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 namespace Content.Server.Storage.EntitySystems;
 
 public sealed partial class StorageSystem : SharedStorageSystem
 {
+    [Dependency] private IPrototypeManager _prototype = default!;
+
     public override void Initialize()
     {
         base.Initialize();

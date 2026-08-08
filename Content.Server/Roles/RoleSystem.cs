@@ -2,12 +2,14 @@ using Content.Server.Chat.Managers;
 using Content.Shared.Chat;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Roles;
 
 public sealed partial class RoleSystem : SharedRoleSystem
 {
     [Dependency] private IChatManager _chat = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     public string? MindGetBriefing(EntityUid? mindId)
     {
@@ -47,7 +49,7 @@ public sealed partial class RoleSystem : SharedRoleSystem
         if (!Player.TryGetSessionById(mind.UserId, out var session))
             return;
 
-        if (!ProtoMan.Resolve(mind.RoleType, out var proto))
+        if (!_proto.Resolve(mind.RoleType, out var proto))
             return;
 
         var roleText = Loc.GetString(proto.Name);

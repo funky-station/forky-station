@@ -15,7 +15,6 @@ using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
-using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
@@ -93,11 +92,9 @@ namespace Content.Client.Hands.Systems
         public override void DoDrop(Entity<HandsComponent?> ent,
             string handId,
             bool doDropInteraction = true,
-            bool log = true,
-            EntityCoordinates? targetDropLocation = null
-        )
+            bool log = true)
         {
-            base.DoDrop(ent, handId, doDropInteraction, log, targetDropLocation);
+            base.DoDrop(ent, handId, doDropInteraction, log);
 
             if (TryGetHeldItem(ent, handId, out var held) && TryComp(held, out SpriteComponent? sprite))
                 sprite.RenderOrder = EntityManager.CurrentTick.Value;

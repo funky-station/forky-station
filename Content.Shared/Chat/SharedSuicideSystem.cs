@@ -13,6 +13,7 @@ public sealed partial class SharedSuicideSystem : EntitySystem
     private static readonly ProtoId<DamageTypePrototype> FallbackDamageType = "Blunt";
 
     [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     /// <summary>
     /// Applies lethal damage spread out across the damage types given.
@@ -58,10 +59,10 @@ public sealed partial class SharedSuicideSystem : EntitySystem
         var lethalAmountOfDamage = mobThresholds.Thresholds.Keys.Last() - _damageableSystem.GetTotalDamage(target.AsNullable());
 
         // We don't want structural damage for the same reasons listed above
-        if (!ProtoMan.TryIndex(damageType, out var damagePrototype) || damagePrototype.ID == "Structural")
+        if (!_prototypeManager.TryIndex(damageType, out var damagePrototype) || damagePrototype.ID == "Structural")
         {
             Log.Error($"{nameof(SharedSuicideSystem)} could not find the damage type prototype associated with {damageType}. Falling back to {FallbackDamageType}");
-            damagePrototype = ProtoMan.Index(FallbackDamageType);
+            damagePrototype = _prototypeManager.Index(FallbackDamageType);
         }
 
         var damage = new DamageSpecifier(damagePrototype, lethalAmountOfDamage);

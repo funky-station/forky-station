@@ -1,5 +1,4 @@
-﻿using System.Numerics;
-using Content.Server._Funkystation.Atmos.Events;
+﻿using Content.Server._Funkystation.Atmos.Events;
 using Content.Server._Funkystation.WallStains.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared._Funkystation.ReagentFires;
@@ -14,6 +13,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Funkystation.WallStains.Systems;
 
@@ -22,6 +22,7 @@ public sealed partial class FlammableWallStainSystem : EntitySystem
     [Dependency] private AtmosphereSystem _atmos = null!;
     [Dependency] private SharedTransformSystem _transform = null!;
     [Dependency] private SharedSolutionContainerSystem _solution = null!;
+    [Dependency] private IPrototypeManager _proto = null!;
     [Dependency] private DamageableSystem _damageable = null!;
     [Dependency] private SharedAudioSystem _audio = null!;
     [Dependency] private SharedPointLightSystem _light = null!;
@@ -69,7 +70,7 @@ public sealed partial class FlammableWallStainSystem : EntitySystem
                         if (wallTile + stain.Direction == fireTile || offset == Vector2i.Zero)
                         {
                             if (_solution.TryGetSolution(child, stain.SolutionName, out var solComp))
-                                fireComp.Flammability = solComp.Value.Comp.Solution.GetSolutionFlammability(ProtoMan);
+                                fireComp.Flammability = solComp.Value.Comp.Solution.GetSolutionFlammability(_proto);
                             else
                                 fireComp.Flammability = 0;
 
@@ -99,7 +100,7 @@ public sealed partial class FlammableWallStainSystem : EntitySystem
         if (TryComp<WallStainComponent>(uid, out var stain) &&
             _solution.TryGetSolution(uid, stain.SolutionName, out var solComp))
         {
-            component.Flammability = solComp.Value.Comp.Solution.GetSolutionFlammability(ProtoMan);
+            component.Flammability = solComp.Value.Comp.Solution.GetSolutionFlammability(_proto);
         }
         else
         {
@@ -157,7 +158,7 @@ public sealed partial class FlammableWallStainSystem : EntitySystem
             {
                 var fireEnt = Spawn("WallStainFireEffect", Transform(parentWall).Coordinates);
                 _transform.SetParent(fireEnt, parentWall);
-                _transform.SetLocalPosition(fireEnt, Vector2.Zero);
+                _transform.SetLocalPosition(fireEnt, System.Numerics.Vector2.Zero);
                 fireComp.FireEffectEntity = fireEnt;
             }
         }
@@ -215,8 +216,8 @@ public sealed partial class FlammableWallStainSystem : EntitySystem
             if (!_solution.TryGetSolution(uid, currentStain.SolutionName, out var solComp))
                 continue;
 
-            var flammability = solComp.Value.Comp.Solution.GetSolutionFlammability(ProtoMan);
-            var selfOxidizing = solComp.Value.Comp.Solution.IsSolutionSelfOxidizing(ProtoMan);
+            var flammability = solComp.Value.Comp.Solution.GetSolutionFlammability(_proto);
+            var selfOxidizing = solComp.Value.Comp.Solution.IsSolutionSelfOxidizing(_proto);
             currentFireComp.Flammability = flammability;
 
             if (flammability <= 0)
@@ -335,7 +336,7 @@ public sealed partial class FlammableWallStainSystem : EntitySystem
                                 if (TryComp<WallStainComponent>(child, out var adjacentStain) &&
                                     _solution.TryGetSolution(child, adjacentStain.SolutionName, out var adjSol))
                                 {
-                                    adjacentFire.Flammability = adjSol.Value.Comp.Solution.GetSolutionFlammability(ProtoMan);
+                                    adjacentFire.Flammability = adjSol.Value.Comp.Solution.GetSolutionFlammability(_proto);
                                 }
                                 else
                                 {

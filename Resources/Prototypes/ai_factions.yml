@@ -60,7 +60,6 @@
   - AllHostile
   - Wizard
   - Xenoborg
-  - AnimalFriend # MACRO
 
 - type: npcFaction
   id: SimpleNeutral

@@ -27,6 +27,7 @@ namespace Content.Server.Polymorph.Systems;
 public sealed partial class PolymorphSystem : EntitySystem
 {
     [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private IGameTiming _gameTiming = default!;
     [Dependency] private ActionsSystem _actions = default!;
     [Dependency] private AudioSystem _audio = default!;
@@ -112,7 +113,7 @@ public sealed partial class PolymorphSystem : EntitySystem
 
     private void OnPolymorphActionEvent(Entity<PolymorphableComponent> ent, ref PolymorphActionEvent args)
     {
-        if (!ProtoMan.Resolve(args.ProtoId, out var prototype) || args.Handled)
+        if (!_proto.Resolve(args.ProtoId, out var prototype) || args.Handled)
             return;
 
         PolymorphEntity(ent, prototype.Configuration);
@@ -167,7 +168,7 @@ public sealed partial class PolymorphSystem : EntitySystem
     /// <param name="protoId">The id of the polymorph prototype</param>
     public EntityUid? PolymorphEntity(EntityUid uid, ProtoId<PolymorphPrototype> protoId)
     {
-        var config = ProtoMan.Index(protoId).Configuration;
+        var config = _proto.Index(protoId).Configuration;
         return PolymorphEntity(uid, config);
     }
 
@@ -389,10 +390,10 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (target.Comp.PolymorphActions.ContainsKey(id))
             return;
 
-        if (!ProtoMan.Resolve(id, out var polyProto))
+        if (!_proto.Resolve(id, out var polyProto))
             return;
 
-        var entProto = ProtoMan.Index(polyProto.Configuration.Entity);
+        var entProto = _proto.Index(polyProto.Configuration.Entity);
 
         EntityUid? actionId = default!;
         if (!_actions.AddAction(target, ref actionId, RevertPolymorphId, target))

@@ -1,12 +1,13 @@
+using Content.Shared.DeviceNetwork;
+using JetBrains.Annotations;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using System.Buffers;
 using System.Diagnostics.CodeAnalysis;
-using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.DeviceNetwork.Systems;
 using Content.Shared.Examine;
-using JetBrains.Annotations;
-using Robust.Shared.Random;
 
 namespace Content.Server.DeviceNetwork.Systems
 {
@@ -18,6 +19,7 @@ namespace Content.Server.DeviceNetwork.Systems
     public sealed partial class DeviceNetworkSystem : SharedDeviceNetworkSystem
     {
         [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private IPrototypeManager _protoMan = default!;
         [Dependency] private SharedTransformSystem _transformSystem = default!;
         [Dependency] private DeviceListSystem _deviceLists = default!;
         [Dependency] private NetworkConfiguratorSystem _configurator = default!;
@@ -105,14 +107,14 @@ namespace Content.Server.DeviceNetwork.Systems
         {
             if (device.ReceiveFrequency == null
                 && device.ReceiveFrequencyId != null
-                && ProtoMan.TryIndex<DeviceFrequencyPrototype>(device.ReceiveFrequencyId, out var receive))
+                && _protoMan.TryIndex<DeviceFrequencyPrototype>(device.ReceiveFrequencyId, out var receive))
             {
                 device.ReceiveFrequency = receive.Frequency;
             }
 
             if (device.TransmitFrequency == null
                 && device.TransmitFrequencyId != null
-                && ProtoMan.TryIndex<DeviceFrequencyPrototype>(device.TransmitFrequencyId, out var xmit))
+                && _protoMan.TryIndex<DeviceFrequencyPrototype>(device.TransmitFrequencyId, out var xmit))
             {
                 device.TransmitFrequency = xmit.Frequency;
             }

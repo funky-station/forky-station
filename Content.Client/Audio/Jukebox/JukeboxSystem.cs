@@ -8,6 +8,7 @@ namespace Content.Client.Audio.Jukebox;
 
 public sealed partial class JukeboxSystem : SharedJukeboxSystem
 {
+    [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private AnimationPlayerSystem _animationPlayer = default!;
     [Dependency] private SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
@@ -20,13 +21,13 @@ public sealed partial class JukeboxSystem : SharedJukeboxSystem
         SubscribeLocalEvent<JukeboxComponent, AnimationCompletedEvent>(OnAnimationCompleted);
         SubscribeLocalEvent<JukeboxComponent, AfterAutoHandleStateEvent>(OnJukeboxAfterState);
 
-        ProtoMan.PrototypesReloaded += OnProtoReload;
+        _protoManager.PrototypesReloaded += OnProtoReload;
     }
 
     public override void Shutdown()
     {
         base.Shutdown();
-        ProtoMan.PrototypesReloaded -= OnProtoReload;
+        _protoManager.PrototypesReloaded -= OnProtoReload;
     }
 
     private void OnProtoReload(PrototypesReloadedEventArgs obj)

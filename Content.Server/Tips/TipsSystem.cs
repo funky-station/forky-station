@@ -15,6 +15,7 @@ namespace Content.Server.Tips;
 public sealed partial class TipsSystem : SharedTipsSystem
 {
     [Dependency] private IChatManager _chat = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IRobustRandom _random = default!;
@@ -112,7 +113,7 @@ public sealed partial class TipsSystem : SharedTipsSystem
 
     public override void AnnounceRandomTip()
     {
-        if (!ProtoMan.TryIndex<LocalizedDatasetPrototype>(_tipsDataset, out var tips))
+        if (!_prototype.TryIndex<LocalizedDatasetPrototype>(_tipsDataset, out var tips))
             return;
 
         var tip = _random.Pick(tips.Values);

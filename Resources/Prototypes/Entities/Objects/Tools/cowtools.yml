@@ -25,7 +25,6 @@
     speedModifier: 0.05
   - type: Item
     sprite: Objects/Tools/Cowtools/haycutters.rsi
-  - type: CowTool #macro edit, lets ungus use this with the speed of a normal tool
 
 - type: entity
   name: moodriver
@@ -49,7 +48,6 @@
     useSound:
       collection: Screwdriver
     speedModifier: 0.05
-  - type: CowTool #macro edit, lets ungus use this with the speed of a normal tool
 
 - type: entity
   name: wronch
@@ -73,7 +71,6 @@
     useSound:
       path: /Audio/Items/ratchet.ogg
     speedModifier: 0.05
-  - type: CowTool #macro edit, lets ungus use this with the speed of a normal tool
 
 - type: entity
   name: cowbar
@@ -99,8 +96,6 @@
     delay: 10
   - type: Prying
     speedModifier: 0.05
-  - type: CowTool #macro edit, lets ungus use this with the speed of a normal tool
-  - type: CowToolTileCompatible #macro edit, same as above, but for tiles
 
 - type: entity
   name: mooltitool
@@ -133,7 +128,6 @@
     sprite: Objects/Tools/Cowtools/cowelder.rsi
   - type: Tool
     speedModifier: 0.05
-  - type: CowTool #macro edit, lets ungus use this with the speed of a normal tool
 
 - type: entity
   name: milkalyzer
@@ -156,7 +150,6 @@
       enum.GasAnalyzerUiKey.Key:
         type: GasAnalyzerBoundUserInterface
   - type: Appearance
-  - type: CowTool #macro edit, lets ungus use this with the speed of a normal tool
 
 - type: entity
   name: cow toolbox

@@ -24,6 +24,7 @@ public abstract partial class SharedIdCardSystem : EntitySystem
     [Dependency] private SharedHandsSystem _hands = default!;
     [Dependency] private InventorySystem _inventorySystem = default!;
     [Dependency] private MetaDataSystem _metaSystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private SharedJobStatusSystem _jobStatus = default!;
 
     // CCVar.
@@ -198,7 +199,7 @@ public abstract partial class SharedIdCardSystem : EntitySystem
             return false;
 
         id.JobDepartments.Clear();
-        foreach (var department in ProtoMan.EnumeratePrototypes<DepartmentPrototype>())
+        foreach (var department in _prototypeManager.EnumeratePrototypes<DepartmentPrototype>())
         {
             if (department.Roles.Contains(job.ID))
                 id.JobDepartments.Add(department.ID);

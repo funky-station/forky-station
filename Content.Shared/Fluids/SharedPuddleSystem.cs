@@ -30,6 +30,7 @@ namespace Content.Shared.Fluids;
 public abstract partial class SharedPuddleSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] protected ISharedAdminLogManager AdminLogger = default!;
     [Dependency] protected OpenableSystem Openable = default!;
     [Dependency] protected ReactiveSystem Reactive = default!;
@@ -107,7 +108,7 @@ public abstract partial class SharedPuddleSystem : EntitySystem
     /// </summary>
     private void CacheStandsout()
     {
-        _standoutReagents = [.. ProtoMan.EnumeratePrototypes<ReagentPrototype>().Where(x => x.Standsout).Select(x => x.ID)];
+        _standoutReagents = [.. _prototypeManager.EnumeratePrototypes<ReagentPrototype>().Where(x => x.Standsout).Select(x => x.ID)];
     }
 
     // Funky edit - Make protected virtual so that it can be overriden server side
@@ -144,7 +145,7 @@ public abstract partial class SharedPuddleSystem : EntitySystem
 
         var reagentId = solution.GetPrimaryReagentId();
         if (!string.IsNullOrWhiteSpace(reagentId?.Prototype)
-            && ProtoMan.TryIndex(reagentId.Value.Prototype, out ReagentPrototype? proto))
+            && _prototypeManager.TryIndex(reagentId.Value.Prototype, out ReagentPrototype? proto))
         {
             args.Sound = proto.FootstepSound;
         }
@@ -210,7 +211,7 @@ public abstract partial class SharedPuddleSystem : EntitySystem
             // Kinda EH
             // Could potentially do alpha per-solution but future problem.
 
-            color = solution.GetColorWithout(ProtoMan, _standoutReagents);
+            color = solution.GetColorWithout(_prototypeManager, _standoutReagents);
             color = color.WithAlpha(0.7f);
 
             foreach (var standout in _standoutReagents)
@@ -221,7 +222,7 @@ public abstract partial class SharedPuddleSystem : EntitySystem
 
                 var interpolateValue = quantity.Float() / solution.Volume.Float();
                 color = Color.InterpolateBetween(color,
-                    ProtoMan.Index<ReagentPrototype>(standout).SubstanceColor,
+                    _prototypeManager.Index<ReagentPrototype>(standout).SubstanceColor,
                     interpolateValue);
             }
         }
@@ -275,7 +276,7 @@ public abstract partial class SharedPuddleSystem : EntitySystem
 
         foreach (var (reagent, quantity) in solution.Contents)
         {
-            var reagentProto = ProtoMan.Index<ReagentPrototype>(reagent.Prototype);
+            var reagentProto = _prototypeManager.Index<ReagentPrototype>(reagent.Prototype);
 
             // Calculate the minimum speed needed to slip in the puddle. Average the overall slip thresholds for all reagents
             var deltaSlipTrigger = reagentProto.SlipData?.RequiredSlipSpeed ?? entity.Comp.DefaultSlippery;
@@ -336,7 +337,7 @@ public abstract partial class SharedPuddleSystem : EntitySystem
         var maxViscosity = 0f;
         foreach (var (reagent, _) in solution.Contents)
         {
-            var reagentProto = ProtoMan.Index<ReagentPrototype>(reagent.Prototype);
+            var reagentProto = _prototypeManager.Index<ReagentPrototype>(reagent.Prototype);
             maxViscosity = Math.Max(maxViscosity, reagentProto.Viscosity);
         }
 
@@ -357,7 +358,7 @@ public abstract partial class SharedPuddleSystem : EntitySystem
         for (var i = solution.Contents.Count - 1; i >= 0; i--)
         {
             var (reagent, quantity) = solution.Contents[i];
-            var proto = ProtoMan.Index<ReagentPrototype>(reagent.Prototype);
+            var proto = _prototypeManager.Index<ReagentPrototype>(reagent.Prototype);
             var removed = proto.ReactionTile(tileRef, quantity, EntityManager, reagent.Data);
             if (removed <= FixedPoint2.Zero)
                 continue;
