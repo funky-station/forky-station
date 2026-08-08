@@ -54,6 +54,7 @@
     - id: ClothingOuterHardsuitWarden
     - id: OxygenTankFilled
     - id: ClothingMaskBreath
+    - id: SuitSealantCanister # Funky
 
 - type: entity
   id: LockerSecurityFilled
@@ -168,6 +169,7 @@
     - id: HoloprojectorSecurity
     - id: BoxEvidenceMarkers
     - id: HandLabeler
+    - id: CrayonBox #funky, for sketches of crime sites
     - id: PlushieLizardJobDetective
       prob: 0.02
 

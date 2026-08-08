@@ -76,6 +76,9 @@
   - type: HideLayerClothing
     slots:
     - Tail
+  - type: SuitBreachable # Funky
+    breachChance: 0.4
+    minDamageToRoll: 9.0
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
@@ -114,6 +117,9 @@
   - type: HideLayerClothing
     slots:
     - Tail
+  - type: SuitBreachable # Funky
+    breachChance: 0.5
+    minDamageToRoll: 8.0
 
 - type: entity
   parent: [ClothingOuterBaseLarge, GeigerCounterClothing, AllowSuitStorageClothing]

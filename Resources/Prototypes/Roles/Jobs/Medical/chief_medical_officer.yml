@@ -47,7 +47,7 @@
   job: ChiefMedicalOfficer
   hasMindShield: true
   equipment:
-    head: ClothingHeadHatBeretCmo
+    head: FuClothingHeadHatScrubcapTeal # ClothingHeadHatBeretCmo funky - fuck department berets
     eyes: ClothingEyesHudMedical
     mask: ClothingMaskSterile
     neck: ClothingCloakCmo

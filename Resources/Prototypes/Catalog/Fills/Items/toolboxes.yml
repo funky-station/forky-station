@@ -12,6 +12,7 @@
         - id: RadioHandheld
         - id: WelderMini
         - id: FireExtinguisherMini
+        - id: SuitSealantCanister # Funky
         # Random lighting item GroupSelector
         - !type:GroupSelector
           children:

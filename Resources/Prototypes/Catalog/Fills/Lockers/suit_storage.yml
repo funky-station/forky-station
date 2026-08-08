@@ -182,6 +182,7 @@
     - id: OxygenTankFilled
     - id: ClothingOuterHardsuitSecurity
     - id: ClothingMaskBreath
+    - id: SuitSealantCanister # Funky
 
 #CE's hardsuit
 - type: entity
@@ -293,6 +294,7 @@
     - id: ClothingOuterHardsuitSyndie
     - id: ClothingShoesBootsMagSyndie
     - id: ClothingMaskGasSyndicate
+    - id: SuitSealantCanister # Funky
 
 #Pirate Captain's hardsuit
 - type: entity

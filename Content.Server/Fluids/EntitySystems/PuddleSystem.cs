@@ -70,6 +70,10 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
             _map.CoordinatesToTile(gridUid.Value, grid, args.OldPosition) == _map.CoordinatesToTile(gridUid.Value, grid, args.NewPosition))
             return;
 
+        // Funky - skip early if they don't have shoes
+        if (!_inventory.TryGetSlotEntity(ent.Owner, "shoes", out var shoes))
+            return;
+
         var tile = _map.GetTileRef(gridUid.Value, grid, args.NewPosition);
 
         if (!TryGetPuddle(tile, out var puddleUid) || !_puddleQuery.TryGetComponent(puddleUid, out var puddleComp))
@@ -84,11 +88,14 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
         var transferAmount = FixedPoint2.Min(FixedPoint2.New(1), solution.Volume);
         var splitSol = _solutionContainerSystem.SplitSolution(puddleComp.Solution.Value, transferAmount);
 
-        if (_inventory.TryGetSlotEntity(ent.Owner, "shoes", out var shoes))
+        var spilledEvent = new SpilledOnEvent(puddleUid, splitSol);
+        var relayedEvent = new InventoryRelayedEvent<SpilledOnEvent>(spilledEvent);
+        RaiseLocalEvent(shoes.Value, relayedEvent);
+
+        // Funky - return any leftover reagent the shoes didn't absorb back into the puddle
+        if (splitSol.Volume > FixedPoint2.Zero)
         {
-            var spilledEvent = new SpilledOnEvent(puddleUid, splitSol);
-            var relayedEvent = new InventoryRelayedEvent<SpilledOnEvent>(spilledEvent);
-            RaiseLocalEvent(shoes.Value, relayedEvent);
+            _solutionContainerSystem.TryAddSolution(puddleComp.Solution.Value, splitSol);
         }
     }
 

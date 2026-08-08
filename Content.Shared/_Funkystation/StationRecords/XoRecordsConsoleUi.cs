@@ -25,7 +25,8 @@ public sealed class XoRecordFields(
     string species,
     Gender gender,
     string? fingerprint,
-    string? dna)
+    string? dna,
+    int? pagerNumber = null)
 {
     public readonly string Name = name;
     public readonly int Age = age;
@@ -34,6 +35,7 @@ public sealed class XoRecordFields(
     public readonly Gender Gender = gender;
     public readonly string? Fingerprint = fingerprint;
     public readonly string? Dna = dna;
+    public readonly int? PagerNumber = pagerNumber;
 }
 
 [Serializable, NetSerializable]
