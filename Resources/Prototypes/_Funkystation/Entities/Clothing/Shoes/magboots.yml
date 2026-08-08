@@ -1,0 +1,42 @@
+- type: entity
+  parent: [ClothingShoesBootsMagBase, BaseJetpack, BaseCentcommContraband]
+  id: ClothingShoesBootsMagERTAdvanced
+  name: ERT magboots
+  description: Extremely advanced magboots that do not slow the wearer. An advanced gyroscopic dampening system offers for steadier movement while an easily accessible compartment allows for the storage of small weapons and its built-in thrusters allow for movement on space.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Shoes/Boots/magboots-ert.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Shoes/Boots/magboots-ert.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: StaticPrice
+    price: 1750
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.5
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-boots-sidearm
+        priority: 4
+        whitelist:
+          tags:
+          - Knife
+          - Sidearm
+  - type: Item
+    sprite: null
+    size: Normal
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      # 2 minutes of thrust
+      volume: 0.75
+      temperature: 293.15
+      moles:
+        Oxygen: 0.153853429 # oxygen
+        Nitrogen: 0.153853429 # nitrogen
