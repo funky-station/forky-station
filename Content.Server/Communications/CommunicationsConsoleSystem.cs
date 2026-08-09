@@ -233,7 +233,7 @@ namespace Content.Server.Communications
             // funky - redirect comms console announcements to PA speakers
             if (_cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements))
             {
-                AnnounceMessageViaPASystem(uid, comp, message);
+                AnnounceCommsConsoleViaPASystem(uid, comp, message);
                 return;
             }
             var maxLength = _cfg.GetCVar(CCVars.ChatMaxAnnouncementLength);

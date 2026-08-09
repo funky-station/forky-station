@@ -1,51 +1,41 @@
-using System.Linq;
 using Content.Server._Funkystation.Communications;
 using Content.Server.Chat.Systems;
+using Content.Shared.Communications;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
-using Content.Shared.Communications;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Timing;
 
-namespace Content.Server.Communications
+// TODO: admin logging
+// TODO: station specific announcements
+namespace Content.Server._Funkystation.Communications
 {
-    public sealed partial class CommunicationsConsoleSystem
+    /// <summary>
+    /// Contains methods for dispatching PA announcements.
+    /// </summary>
+    public sealed partial class PASystem : EntitySystem
     {
-        private void AnnounceMessageViaPASystem(EntityUid uid,
-            CommunicationsConsoleComponent comp,
-            CommunicationsConsoleAnnounceMessage message)
+        public void DispatchPAAnnouncement(
+            string message,
+            string? sender = null,
+            EntityUid? source = null,
+            bool preamble = false,
+            bool playSound = true,
+            SoundSpecifier? announcementSound = null)
         {
-            var msg = message.Message.Trim();
-            // add the PA system preamble to the start of the announcement
-            msg = Loc.GetString("pa-announcement-title")+'\n'+msg;
+            var msg = message.Trim();
 
-            var author = Loc.GetString("comms-console-announcement-unknown-sender");
+            // add the PA system preamble to the start of the announcement
+            if (preamble)
+                msg = Loc.GetString("pa-announcement-title")+'\n'+msg;
+
+            var author = sender ?? Loc.GetString("comms-console-announcement-unknown-sender");
 
             // split the announcement into multiple messages by newline, to be sent one after another
             var lines = msg.Split('\n');
 
-            if (message.Actor is { Valid: true } mob)
-            {
-                if (!CanAnnounce(comp))
-                    return;
-
-                if (!CanUse(mob, uid))
-                {
-                    _popupSystem.PopupEntity(Loc.GetString("comms-console-permission-denied"), uid, message.Actor);
-                    return;
-                }
-
-                author = _identity.GetIdentityShortInfo(mob, uid) ?? author;
-            }
-
-            comp.AnnouncementCooldownRemaining = comp.Delay;
-            UpdateCommsConsoleInterface(uid, comp);
-
-            var ev = new CommunicationConsoleAnnouncementEvent(uid, comp, msg, message.Actor);
-            RaiseLocalEvent(ref ev);
-
-            var announceEv = new PAAnnouncementEvent(lines, author, message.Actor, true);
+            var announceEv = new PAAnnouncementEvent(lines, author, source, preamble, playSound, announcementSound);
 
             // send the announcement to every PAAnnouncer
             var announcers = EntityQueryEnumerator<PAAnnouncerComponent>();
@@ -56,10 +46,11 @@ namespace Content.Server.Communications
             }
         }
     }
-}
 
-namespace Content.Server._Funkystation.Communications
-{
+    /// <summary>
+    /// Handles PA announcers, i.e. the things that actually
+    /// receive announcements, like speakers.
+    /// </summary>
     public sealed partial class PAAnnouncerSystem : EntitySystem
     {
         [Dependency] private ChatSystem _chat = null!;
@@ -82,8 +73,11 @@ namespace Content.Server._Funkystation.Communications
 
             // i'm not even sure if we have to do this, but whatever
             // TODO: figure out if we have to do this
-            var nameEv = new TransformSpeakerNameEvent(args.Sender, Name(args.Sender));
-            RaiseLocalEvent(args.Sender, nameEv);
+            if (args.Sender != null)
+            {
+                var nameEv = new TransformSpeakerNameEvent(args.Sender.Value, Name(args.Sender.Value));
+                RaiseLocalEvent(args.Sender.Value, nameEv);
+            }
 
             var name = Loc.GetString("pa-announcement-name", ("author", args.Author));
 
@@ -108,7 +102,7 @@ namespace Content.Server._Funkystation.Communications
 
             // note that if multiple announcements come in quick succession, the announcement sound will play without waiting
             // for the next announcement or anything like that.
-            if (!args.Quiet && !ent.Comp.Quiet)
+            if (args.PlaySound && !ent.Comp.Quiet)
             {
                 _audio.PlayPvs(args.CustomSound ?? ent.Comp.AnnouncementSound ?? SharedChatSystem.DefaultAnnouncementSound,
                     ent, AudioParams.Default.WithVolume(VolumeModifier));
@@ -141,14 +135,53 @@ namespace Content.Server._Funkystation.Communications
     /// <param name="Author">The name of the person making the announcement.</param>
     /// <param name="Sender">The EntityUid of the thing that made the announcement.</param>
     /// <param name="Preamble">Whether the PA system should make a preamble "Incoming announcement" statement.</param>
-    /// <param name="Quiet">Whether to silence the PA announcement sound.</param>
+    /// <param name="PlaySound">Whether the PA system should play an announcement sound.</param>
     /// <param name="CustomSound">A custom sound to play instead of whatever the speaker's default is.</param>
     [ByRefEvent]
     public readonly record struct PAAnnouncementEvent(
         string[] Messages,
         string Author,
-        EntityUid Sender,
+        EntityUid? Sender,
         bool Preamble = false,
-        bool Quiet = false,
+        bool PlaySound = true,
         SoundSpecifier? CustomSound = null);
+}
+
+namespace Content.Server.Communications
+{
+    public sealed partial class CommunicationsConsoleSystem
+    {
+        [Dependency] private PASystem _paSystem = null!;
+        private void AnnounceCommsConsoleViaPASystem(EntityUid uid,
+            CommunicationsConsoleComponent comp,
+            CommunicationsConsoleAnnounceMessage message)
+        {
+            var author = Loc.GetString("comms-console-announcement-unknown-sender");
+            if (message.Actor is { Valid: true } mob)
+            {
+                if (!CanAnnounce(comp))
+                    return;
+
+                if (!CanUse(mob, uid))
+                {
+                    _popupSystem.PopupEntity(Loc.GetString("comms-console-permission-denied"), uid, message.Actor);
+                    return;
+                }
+
+                author = _identity.GetIdentityShortInfo(mob, uid) ?? author;
+            }
+
+            comp.AnnouncementCooldownRemaining = comp.Delay;
+            UpdateCommsConsoleInterface(uid, comp);
+
+            // i don't know if CommunicationConsoleAnnouncementEvent is actually used for anything, so we'll do it identically
+            // to a normal announcement just to be safe
+            var maxLength = _cfg.GetCVar(CCVars.ChatMaxAnnouncementLength);
+            var msg = SharedChatSystem.SanitizeAnnouncement(message.Message, maxLength);
+            var ev = new CommunicationConsoleAnnouncementEvent(uid, comp, msg, message.Actor);
+            RaiseLocalEvent(ref ev);
+
+            _paSystem.DispatchPAAnnouncement(message.Message, author, message.Actor, true);
+        }
+    }
 }
