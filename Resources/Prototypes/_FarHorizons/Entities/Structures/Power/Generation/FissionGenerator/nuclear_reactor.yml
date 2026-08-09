@@ -119,6 +119,7 @@
           components:
             - ReactorPart
   - type: NuclearReactor
+    meltdownSound: /Audio/_FarHorizons/Machines/meltdown_siren_mono.ogg # funky - mono for PA sound effects
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice

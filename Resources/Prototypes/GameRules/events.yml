@@ -111,7 +111,7 @@
   - type: StationEvent
     startAnnouncementColor: "#18abf5"
     startAudio:
-      path: /Audio/Announcements/announce.ogg
+      path: /Audio/Announcements/announce_mono.ogg # funky - mono for PA sound effects
     weight: 8
     duration: 35
   - type: AnomalySpawnRule
@@ -127,7 +127,7 @@
   - type: StationEvent
     startAnnouncementColor: "#18abf5"
     startAudio:
-      path: /Audio/Announcements/announce.ogg
+      path: /Audio/Announcements/announce_mono.ogg # funky - mono for PA sound effects
     weight: 8
     duration: 35
   - type: BluespaceArtifactRule
@@ -314,7 +314,7 @@
   - type: StationEvent
     startAnnouncement: station-event-gas-leak-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
     endAnnouncement: station-event-gas-leak-end-announcement
     weight: 8
   - type: GasLeakRule
@@ -355,7 +355,7 @@
     startAnnouncement: station-event-solar-flare-start-announcement
     endAnnouncement: station-event-solar-flare-end-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
     duration: 120
     maxDuration: 240
   - type: SolarFlareRule
@@ -381,7 +381,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-clog-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
     earliestStart: 15
     minimumPlayers: 15
     weight: 5
@@ -397,7 +397,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-horde-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -418,7 +418,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-horde-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -439,7 +439,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-horde-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -458,7 +458,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-horde-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
     earliestStart: 20
     minimumPlayers: 20
     weight: 1.5
@@ -523,7 +523,7 @@
     maxOccurrences: 1 # can only happen once per round
     startAnnouncement: station-event-communication-interception
     startAudio:
-      path: /Audio/Announcements/intercept.ogg
+      path: /Audio/Announcements/intercept_mono.ogg # funky - mono for PA sound effects
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
@@ -567,7 +567,7 @@
   components:
   - type: StationEvent
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
     weight: 5
     minimumPlayers: 25
     reoccurrenceDelay: 20

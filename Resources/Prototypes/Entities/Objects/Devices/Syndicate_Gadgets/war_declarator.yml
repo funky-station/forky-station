@@ -22,5 +22,6 @@
           type: WarDeclaratorBoundUserInterface
     - type: WarDeclarator
       message: war-declarator-default-message
+      sound: /Audio/Announcements/war_mono.ogg # funky - mono sounds for pa speakers
     - type: AccessReader
       access: [["NuclearOperative"]]

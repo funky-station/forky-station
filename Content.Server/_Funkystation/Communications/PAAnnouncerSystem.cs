@@ -9,6 +9,7 @@ using Robust.Shared.Timing;
 
 // TODO: admin logging
 // TODO: station specific announcements
+// TODO: the monoification (done, i guess? :( )
 namespace Content.Server._Funkystation.Communications
 {
     /// <summary>
@@ -102,7 +103,7 @@ namespace Content.Server._Funkystation.Communications
             if (args.Preamble)
             {
                 ent.Comp.QueuedMessages.Enqueue((args.Messages[0], Loc.GetString("pa-system-name"), ent.Comp.NextAnnounceTime));
-                ent.Comp.NextAnnounceTime += TimeSpan.FromSeconds(LongMessageDelay);
+                ent.Comp.NextAnnounceTime += TimeSpan.FromSeconds(MessageDelay);
             }
 
             foreach (var line in args.Preamble ? args.Messages[1..] : args.Messages)

@@ -710,7 +710,7 @@
     canShuttle: false
     global: true #announce to everyone they're about to fuck shit up
     announceSentBy: false # The title already says who they are.
-    sound: /Audio/Announcements/war.ogg
+    sound: /Audio/Announcements/war_mono.ogg # funky - mono sounds for pa speakers
   - type: Computer
     board: SyndicateCommsComputerCircuitboard
   - type: PointLight
@@ -744,7 +744,7 @@
     canShuttle: false
     global: true #announce to everyone they're about to fuck shit up
     announceSentBy: false
-    sound: /Audio/Announcements/war.ogg
+    sound: /Audio/Announcements/war_mono.ogg # funky - mono sounds for pa speakers
   - type: Computer
     board: WizardCommsComputerCircuitboard
   - type: PointLight

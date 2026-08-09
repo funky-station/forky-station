@@ -212,7 +212,7 @@ namespace Content.Server.RoundEnd
                 ("units", Loc.GetString(units))),
                 Loc.GetString(name),
                 paAnnouncements, // funky
-                paAnnouncements ? new SoundPathSpecifier("/Audio/Announcements/shuttlecalled.ogg") : null, // funky
+                paAnnouncements ? new SoundPathSpecifier("/Audio/Announcements/shuttlecalled_mono.ogg") : null, // funky
                 Color.Gold);
 
             _audio.PlayGlobal("/Audio/Announcements/shuttlecalled.ogg", Filter.Broadcast(), true);
@@ -266,7 +266,7 @@ namespace Content.Server.RoundEnd
 
             _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("round-end-system-shuttle-recalled-announcement"),
                 Loc.GetString("round-end-system-shuttle-sender-announcement"),
-                paAnnouncements, paAnnouncements ? new SoundPathSpecifier("/Audio/Announcements/shuttlerecalled.ogg") : null, // funky
+                paAnnouncements, paAnnouncements ? new SoundPathSpecifier("/Audio/Announcements/shuttlerecalled_mono.ogg") : null, // funky
                 colorOverride: Color.Gold);
 
             _audio.PlayGlobal("/Audio/Announcements/shuttlerecalled.ogg", Filter.Broadcast(), true);

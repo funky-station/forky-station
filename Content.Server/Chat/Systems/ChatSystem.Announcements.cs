@@ -13,6 +13,11 @@ public sealed partial class ChatSystem
 {
     [Dependency] private PASystem _paSystem = null!; // funky - announcements via PA speakers
     /// <inheritdoc />
+    /// <funky>If you're developing content for
+    /// Funky Station or one of its downstreams
+    /// and passing an announcementSound, please
+    /// make sure it is in mono when cvar
+    /// funkystation.chat.pa_announcements = true.</funky>
     public override void DispatchGlobalAnnouncement(
         string message,
         string? sender = null,
@@ -40,6 +45,11 @@ public sealed partial class ChatSystem
     }
 
     /// <inheritdoc />
+    /// <funky>If you're developing content for
+    /// Funky Station or one of its downstreams
+    /// and passing an announcementSound, please
+    /// make sure it is in mono when cvar
+    /// funkystation.chat.pa_announcements = true.</funky>
     public override void DispatchFilteredAnnouncement(
         Filter filter,
         string message,
@@ -68,6 +78,11 @@ public sealed partial class ChatSystem
     }
 
     /// <inheritdoc />
+    /// <funky>If you're developing content for
+    /// Funky Station or one of its downstreams
+    /// and passing an announcementSound, please
+    /// make sure it is in mono when cvar
+    /// funkystation.chat.pa_announcements = true.</funky>
     public override void DispatchStationAnnouncement(
         EntityUid source,
         string message,

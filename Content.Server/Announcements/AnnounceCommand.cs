@@ -34,7 +34,7 @@ public sealed partial class AnnounceCommand : LocalizedEntityCommands
         var message = args[0];
         var sender = Loc.GetString("cmd-announce-sender");
         var color = Color.Gold;
-        var sound = new SoundPathSpecifier("/Audio/Announcements/announce.ogg");
+        var sound = new SoundPathSpecifier("/Audio/Announcements/announce_mono.ogg"); // funky - mono sounds for pa speakers
 
         // Optional sender argument
         if (args.Length >= 2)

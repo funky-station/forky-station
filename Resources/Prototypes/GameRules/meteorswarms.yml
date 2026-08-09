@@ -101,6 +101,7 @@
     earliestStart: 12
     minimumPlayers: 25
   - type: MeteorSwarm
+    announcementSound: /Audio/Announcements/meteors_mono.ogg # funky - mono for PA sound effects
 
 - type: entity
   parent: MeteorSwarm
@@ -132,7 +133,7 @@
     minimumPlayers: 0
   - type: MeteorSwarm
     announcement: station-event-space-dust-start-announcement
-    announcementSound: /Audio/Announcements/attention.ogg
+    announcementSound: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
     nonDirectional: true
     meteors:
       MeteorSpaceDust: 1
@@ -187,7 +188,7 @@
     weight: 0.05
   - type: MeteorSwarm
     announcement: station-event-meteor-urist-start-announcement
-    announcementSound: /Audio/Announcements/attention.ogg
+    announcementSound: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
     meteors:
       MeteorUrist: 1
     waves:
@@ -204,7 +205,7 @@
   - type: StationEvent
     startAnnouncement: station-event-immovable-rod-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
     weight: 3.5
     reoccurrenceDelay: 1
     duration: 1
@@ -248,7 +249,7 @@
     weight: 0.05
   - type: MeteorSwarm
     announcement: station-event-meteor-cow-start-announcement
-    announcementSound: /Audio/Announcements/attention.ogg
+    announcementSound: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
     meteors:
       MeteorCow: 1
     waves:
@@ -266,7 +267,7 @@
     weight: 0.05
   - type: MeteorSwarm
     announcement: station-event-meteor-clown-start-announcement
-    announcementSound: /Audio/Announcements/attention.ogg
+    announcementSound: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
     meteors:
       MeteorClown: 1
     waves:
@@ -284,7 +285,7 @@
     weight: 0.05
   - type: MeteorSwarm
     announcement: station-event-meteor-potato-start-announcement
-    announcementSound: /Audio/Announcements/attention.ogg
+    announcementSound: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
     meteors:
       MeteorPotato: 1
     waves:
@@ -302,7 +303,7 @@
     weight: 0.03
   - type: MeteorSwarm
     announcement: station-event-fun-swarm-start-announcement
-    announcementSound: /Audio/Announcements/attention.ogg
+    announcementSound: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
     meteors:
       MeteorClown: 1
       MeteorCow: 1

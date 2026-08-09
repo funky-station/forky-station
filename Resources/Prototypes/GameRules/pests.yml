@@ -118,7 +118,7 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-horde-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/Announcements/attention_mono.ogg # funky - mono for PA sound effects
     earliestStart: 15
     weight: 6 # Slightly more common than other hordes
     duration: 5

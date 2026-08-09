@@ -1,29 +1,29 @@
-- files: ["ion_storm.ogg"]
+- files: ["ion_storm.ogg", "ion_storm_mono.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from tgstation"
   source: "https://github.com/tgstation/tgstation/blob/b77fa8c2a2490b43bf9174271ebfad72c4782d98/sound/ai/default/ionstorm.ogg"
 
-- files: ["aliens.ogg"]
+- files: ["aliens.ogg", "aliens_mono.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from tgstation"
   source: "https://github.com/tgstation/tgstation/blob/95731342b97167d7883ff091d389f79c36442ee6/sound/ai/default/aliens.ogg"
 
-- files: ["attention.ogg"]
+- files: ["attention.ogg", "attention_mono.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from tgstation"
   source: "https://github.com/tgstation/tgstation/blob/40d89d11ea4a5cb81d61dc1018b46f4e7d32c62a/sound/ai/default/attention.ogg"
 
-- files: ["meteors.ogg"]
+- files: ["meteors.ogg", "meteors_mono.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from tgstation"
   source: "https://github.com/tgstation/tgstation/blob/95731342b97167d7883ff091d389f79c36442ee6/sound/ai/default/meteors.ogg"
 
-- files: ["outbreak7.ogg"]
+- files: ["outbreak7.ogg", "outbreak7_mono.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from tgstation"
   source: "https://github.com/tgstation/tgstation/blob/40d89d11ea4a5cb81d61dc1018b46f4e7d32c62a/sound/ai/default/outbreak7.ogg"
 
-- files: ["welcome.ogg"]
+- files: ["welcome.ogg", "welcome_mono.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from tgstation"
   source: "https://github.com/tgstation/tgstation/blob/40d89d11ea4a5cb81d61dc1018b46f4e7d32c62a/sound/ai/default/welcome.ogg"
@@ -33,17 +33,17 @@
   copyright: "Taken from tgstation, cut from the beginning"
   source: "https://github.com/tgstation/tgstation/blob/40d89d11ea4a5cb81d61dc1018b46f4e7d32c62a/sound/ai/default/shuttlerecalled.ogg"
 
-- files: ["shuttle_dock.ogg"]
+- files: ["shuttle_dock.ogg", "shuttle_dock_mono.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from tgstation"
   source: "https://github.com/tgstation/tgstation/blob/b327cb667c1ca5d1aa14e6368e66cbfa7b343b9c/sound/ai/default/shuttledock.ogg"
 
-- files: ["war.ogg"]
+- files: ["war.ogg", "war_mono.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Paradise, volume and pitch changed, merged with redalert.ogg"
   source: "https://github.com/ParadiseSS13/Paradise/blob/07b26ee6b4a11a0607986d322ee007020569feae/sound/effects/siren.ogg"
 
-- files: ["intercept.ogg"]
+- files: ["intercept.ogg", "intercept_mono.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from tgstation"
   source: "https://github.com/tgstation/tgstation/blob/95731342b97167d7883ff091d389f79c36442ee6/sound/ai/default/intercept.ogg"

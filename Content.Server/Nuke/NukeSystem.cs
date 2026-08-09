@@ -5,6 +5,7 @@ using Content.Server.Explosion.EntitySystems;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
 using Content.Server.Station.Systems;
+using Content.Shared._Funkystation.CCVar;
 using Content.Shared.Audio;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Coordinates.Helpers;
@@ -17,6 +18,7 @@ using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
@@ -45,6 +47,7 @@ public sealed partial class NukeSystem : EntitySystem
     [Dependency] private AppearanceSystem _appearance = default!;
     [Dependency] private TurfSystem _turf = default!;
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IConfigurationManager _cfg = null!; // funky - cvar for pa announcements
 
     /// <summary>
     ///     Used to calculate when the nuke song should start playing for maximum kino with the nuke sfx
@@ -499,14 +502,19 @@ public sealed partial class NukeSystem : EntitySystem
         // We are collapsing the randomness here, otherwise we would get separate random song picks for checking duration and when actually playing the song afterwards
         _selectedNukeSong = _audio.ResolveSound(component.ArmMusic);
 
+        var paAnnouncements = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements); // funky
+
         // warn a crew
         var announcement = Loc.GetString("nuke-component-announcement-armed",
             ("time", (int) component.RemainingTime),
             ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((uid, nukeXform)))));
         var sender = Loc.GetString("nuke-component-announcement-sender");
-        _chatSystem.DispatchStationAnnouncement(stationUid ?? uid, announcement, sender, false, null, Color.Red);
+        _chatSystem.DispatchStationAnnouncement(stationUid ?? uid, announcement, sender,
+            paAnnouncements, paAnnouncements ? component.ArmSound : null, // funky
+            Color.Red);
 
-        _sound.PlayGlobalOnStation(uid, _audio.ResolveSound(component.ArmSound));
+        if (!paAnnouncements) // funky
+            _sound.PlayGlobalOnStation(uid, _audio.ResolveSound(component.ArmSound));
         _nukeSongLength = (float) _audio.GetAudioLength(_selectedNukeSong).TotalSeconds;
 
         // turn on the spinny light
@@ -541,13 +549,17 @@ public sealed partial class NukeSystem : EntitySystem
         if (stationUid != null)
             _alertLevel.SetLevel(stationUid.Value, component.AlertLevelOnDeactivate, true, true, true);
 
+        var paAnnouncements = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements); // funky
+
         // warn a crew
         var announcement = Loc.GetString("nuke-component-announcement-unarmed");
         var sender = Loc.GetString("nuke-component-announcement-sender");
-        _chatSystem.DispatchStationAnnouncement(uid, announcement, sender, false);
+        _chatSystem.DispatchStationAnnouncement(uid, announcement, sender,
+            paAnnouncements, paAnnouncements ? component.DisarmSound : null); // funky
 
         component.PlayedNukeSong = false;
-        _sound.PlayGlobalOnStation(uid, _audio.ResolveSound(component.DisarmSound));
+        if (!paAnnouncements) // funky
+            _sound.PlayGlobalOnStation(uid, _audio.ResolveSound(component.DisarmSound));
         _sound.StopStationEventMusic(uid, StationEventMusicType.Nuke);
 
         // reset nuke remaining time to either itself or the minimum time, whichever is higher

@@ -27,7 +27,7 @@
   - type: StationEvent
     startColor: "#18abf5"
     startAudio:
-      path: /Audio/Announcements/announce.ogg
+      path: /Audio/Announcements/announce_mono.ogg # funky - mono for PA sound effects
   - type: CargoGiftsRule
     sender: cargo-gift-default-sender
 
