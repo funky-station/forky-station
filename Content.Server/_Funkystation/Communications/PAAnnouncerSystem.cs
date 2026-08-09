@@ -13,13 +13,13 @@ namespace Content.Server.Communications
             CommunicationsConsoleComponent comp,
             CommunicationsConsoleAnnounceMessage message)
         {
-            var maxLength = _cfg.GetCVar(CCVars.ChatMaxAnnouncementLength);
-            // var msg = SanitizePAAnnouncement(message.Message, maxLength);
             var msg = message.Message.Trim();
-
             var author = Loc.GetString("comms-console-announcement-unknown-sender");
-
             var lines = msg.Split('\n');
+
+            // // allow admemes with vv
+            // Loc.TryGetString(comp.Title, out var title);
+            // title ??= comp.Title;
 
             if (message.Actor is { Valid: true } mob)
             {
@@ -41,14 +41,12 @@ namespace Content.Server.Communications
             var ev = new CommunicationConsoleAnnouncementEvent(uid, comp, msg, message.Actor);
             RaiseLocalEvent(ref ev);
 
-            Log.Debug("raise announce");
-            var announce = new PAAnnouncementEvent(lines, author, message.Actor);
+            var announceEv = new PAAnnouncementEvent(lines, author, message.Actor);
 
             var announcers = EntityQueryEnumerator<PAAnnouncerComponent>();
             while (announcers.MoveNext(out var announcer, out var paComp))
             {
-                Log.Debug("send message");
-                RaiseLocalEvent(announcer, ref announce);
+                RaiseLocalEvent(announcer, ref announceEv);
             }
 
         }
@@ -73,8 +71,6 @@ namespace Content.Server._Funkystation.Communications
         [Dependency] private ChatSystem _chat = null!;
         [Dependency] private IGameTiming _timing = null!;
 
-        private readonly Queue<(string line, string author, TimeSpan announceTime)> _queuedMessages = new();
-
         public override void Initialize()
         {
             base.Initialize();
@@ -86,44 +82,38 @@ namespace Content.Server._Funkystation.Communications
             if (!_timing.IsFirstTimePredicted)
                 return;
 
-            if (_queuedMessages.Count > 0)
-                return;
-
-            Log.Debug("announcement raised");
             var nameEv = new TransformSpeakerNameEvent(args.Sender, Name(args.Sender));
             RaiseLocalEvent(args.Sender, nameEv);
 
             var name = Loc.GetString("pa-announcement-name", ("author", args.Author));
-            // taking inspiration from https://github.com/space-wizards/space-station-14/pull/42806
-            var totalChatCooldown = TimeSpan.Zero;
+
+            if (comp.QueuedMessages.Count == 0)
+                comp.NextAnnounceTime = _timing.CurTime;
+            else
+                comp.NextAnnounceTime += TimeSpan.FromSeconds(5);
+
             foreach (var line in args.Message)
             {
-                _queuedMessages.Enqueue((line, name, _timing.CurTime + totalChatCooldown));
-                totalChatCooldown += TimeSpan.FromSeconds(3); // TODO: put this in the component
+                comp.QueuedMessages.Enqueue((line, name, comp.NextAnnounceTime));
+                comp.NextAnnounceTime += TimeSpan.FromSeconds(3); // TODO: put this in the component
             }
         }
 
         public override void Update(float frameTime)
         {
-            // taking inspiration from https://github.com/space-wizards/space-station-14/pull/42806
             base.Update(frameTime);
 
-            var curTime =  _timing.CurTime;
-
-            if (_queuedMessages.Count < 1 || _queuedMessages.Peek().announceTime > curTime)
-                return;
-
-            Log.Debug("mesasage received");
-
-            var (line, author, _) = _queuedMessages.Dequeue();
-
             var announcers = EntityQueryEnumerator<PAAnnouncerComponent>();
+            // TODO: iterating through them all like this every update makes me very sad.
             while (announcers.MoveNext(out var uid, out var comp))
             {
-                Log.Debug("send message");
+                if (comp.QueuedMessages.Count < 1 || comp.QueuedMessages.Peek().announceTime > _timing.CurTime)
+                    continue;
+
+                var (line, author, _) = comp.QueuedMessages.Dequeue();
+
                 _chat.TrySendInGameICMessage(uid, line, InGameICChatType.Speak, ChatTransmitRange.GhostRangeLimit, nameOverride: author, checkRadioPrefix: false);
             }
-
         }
     }
 

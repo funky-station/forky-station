@@ -230,9 +230,9 @@ namespace Content.Server.Communications
         private void OnAnnounceMessage(EntityUid uid, CommunicationsConsoleComponent comp,
             CommunicationsConsoleAnnounceMessage message)
         {
+            // funky - redirect comms console announcements to PA speakers
             if (_cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements))
             {
-                Log.Debug("cvar true");
                 AnnounceMessageViaPASystem(uid, comp, message);
                 return;
             }
