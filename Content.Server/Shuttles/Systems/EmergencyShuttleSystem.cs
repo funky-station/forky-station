@@ -16,6 +16,7 @@ using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Station.Events;
 using Content.Server.Station.Systems;
+using Content.Shared._Funkystation.CCVar;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -30,6 +31,7 @@ using Content.Shared.Tag;
 using Content.Shared.Tiles;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
@@ -67,6 +69,7 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
     [Dependency] private StationSystem _station = default!;
     [Dependency] private TransformSystem _transformSystem = default!;
     [Dependency] private UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private IConfigurationManager _cfg = null!; // funky - pa announcements cvar
 
     private const float ShuttleSpawnBuffer = 1f;
 
@@ -330,15 +333,19 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
 
         DebugTools.Assert(shuttle != null);
 
+        var paAnnouncements = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements);
+
         if (result.ResultType == ShuttleDockResultType.GoodLuck)
         {
             _chatSystem.DispatchStationAnnouncement(
                 result.Station,
                 Loc.GetString(stationShuttleComp.FailureAnnouncement),
-                playDefaultSound: false);
+                playDefaultSound: paAnnouncements,
+                announcementSound: paAnnouncements ? stationShuttleComp.FailureAudio : null); // funky
 
             // TODO: Need filter extensions or something don't blame me.
-            _audio.PlayGlobal(stationShuttleComp.FailureAudio, Filter.Broadcast(), true);
+            if (!paAnnouncements) // funky
+                _audio.PlayGlobal(stationShuttleComp.FailureAudio, Filter.Broadcast(), true);
             return;
         }
 
@@ -362,6 +369,11 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
             ? stationShuttleComp.NearbyAnnouncement
             : stationShuttleComp.DockedAnnouncement;
 
+        // funky - moved this variable up here so i can use it for the announcement dispatch
+        var audioFile = result.ResultType == ShuttleDockResultType.NoDock
+            ? stationShuttleComp.NearbyAudio
+            : stationShuttleComp.DockedAudio;
+
         _chatSystem.DispatchStationAnnouncement(
             result.Station,
             Loc.GetString(
@@ -370,7 +382,8 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
                 ("direction", direction),
                 ("location", location),
                 ("extended", extendedText)),
-            playDefaultSound: false);
+            playDefaultSound: paAnnouncements,
+            announcementSound: audioFile);
 
         // Trigger shuttle timers on the shuttle.
 
@@ -392,12 +405,11 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
 
         // Play announcement audio.
 
-        var audioFile = result.ResultType == ShuttleDockResultType.NoDock
-            ? stationShuttleComp.NearbyAudio
-            : stationShuttleComp.DockedAudio;
+        // funky - moved the variable that was here up to an earlier point
 
         // TODO: Need filter extensions or something don't blame me.
-        _audio.PlayGlobal(audioFile, Filter.Broadcast(), true);
+        if (!paAnnouncements) // funky
+            _audio.PlayGlobal(audioFile, Filter.Broadcast(), true);
     }
 
     private void OnStationInit(EntityUid uid, StationCentcommComponent component, MapInitEvent args)

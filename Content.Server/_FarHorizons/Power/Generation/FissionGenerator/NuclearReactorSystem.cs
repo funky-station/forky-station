@@ -36,7 +36,9 @@ using Content.Shared.Throwing;
 using Content.Shared.Damage.Systems;
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Radiation.Systems;
+using Content.Shared._Funkystation.CCVar;
 using Content.Shared.Atmos.Components;
+using Robust.Shared.Configuration;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
@@ -71,6 +73,7 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
     [Dependency] private SharedPointLightSystem _lightSystem = default!;
     [Dependency] private AmbientSoundSystem _ambientSoundSystem = default!;
     [Dependency] private RadiationSystem _radiationSystem = default!;
+    [Dependency] private IConfigurationManager _cfg = null!; // funky - pa announcement cvar
 
     public override void Initialize()
     {
@@ -518,15 +521,19 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
         var comp = ent.Comp;
         var uid = ent.Owner;
 
+        var paAnnouncements = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements); //funky
+
         var stationUid = _station.GetStationInMap(Transform(uid).MapID);
         if (stationUid != null)
             _alertLevel.SetLevel(stationUid.Value, comp.MeltdownAlertLevel, true, true, true);
 
         var announcement = Loc.GetString("reactor-meltdown-announcement");
         var sender = Loc.GetString("reactor-meltdown-announcement-sender");
-        _chatSystem.DispatchStationAnnouncement(stationUid ?? uid, announcement, sender, false, null, Color.Orange);
+        _chatSystem.DispatchStationAnnouncement(stationUid ?? uid, announcement, sender,
+            paAnnouncements, paAnnouncements ? comp.MeltdownSound : null, Color.Orange); // funky
 
-        _soundSystem.PlayGlobalOnStation(uid, _audio.ResolveSound(comp.MeltdownSound));
+        if (!paAnnouncements) // funky
+            _soundSystem.PlayGlobalOnStation(uid, _audio.ResolveSound(comp.MeltdownSound));
 
         comp.Melted = true;
         var MeltdownBadness = 0f;
@@ -641,6 +648,8 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
         var comp = ent.Comp;
         var uid = ent.Owner;
 
+        var paAnnouncements = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements); // funky
+
         if (comp.Melted)
             return;
 
@@ -683,8 +692,10 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
             var stationUid = _station.GetStationInMap(Transform(uid).MapID);
             var announcement = Loc.GetString("reactor-melting-announcement");
             var sender = Loc.GetString("reactor-melting-announcement-sender");
-            _chatSystem.DispatchStationAnnouncement(stationUid ?? uid, announcement, sender, false, null, Color.Orange);
-            _soundSystem.PlayGlobalOnStation(uid, _audio.ResolveSound(new SoundPathSpecifier("/Audio/Misc/delta_alt.ogg")));
+            _chatSystem.DispatchStationAnnouncement(stationUid ?? uid, announcement, sender,
+                paAnnouncements, paAnnouncements ? new SoundPathSpecifier("/Audio/Misc/delta_alt.ogg") : null, Color.Orange); // funky
+            if (!paAnnouncements) // funky
+                _soundSystem.PlayGlobalOnStation(uid, _audio.ResolveSound(new SoundPathSpecifier("/Audio/Misc/delta_alt.ogg")));
             comp.HasSentWarning = true;
         }
 

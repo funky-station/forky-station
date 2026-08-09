@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.Chat.Systems;
 using Content.Server.Station.Systems;
+using Content.Shared._Funkystation.CCVar;
 using Content.Shared.CCVar;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -186,10 +187,12 @@ public sealed partial class AlertLevelSystem : EntitySystem
         // The full announcement to be spat out into chat.
         var announcementFull = Loc.GetString("alert-level-announcement", ("name", name), ("announcement", announcement));
 
+        var paAnnouncements = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements); // funky - play sound locally instead of globally
+
         var playDefault = false;
         if (playSound)
         {
-            if (detail.Sound != null)
+            if (detail.Sound != null && !paAnnouncements)
             {
                 var filter = _stationSystem.GetInOwningStation(station);
                 _audio.PlayGlobal(detail.Sound, filter, true, detail.Sound.Params);
@@ -203,7 +206,7 @@ public sealed partial class AlertLevelSystem : EntitySystem
         if (announce)
         {
             _chatSystem.DispatchStationAnnouncement(station, announcementFull, playDefaultSound: playDefault,
-                colorOverride: detail.Color, sender: stationName);
+                colorOverride: detail.Color, sender: stationName, announcementSound: paAnnouncements ? detail.Sound : null); // funky - play sound locally instead of globally
         }
 
         RaiseLocalEvent(new AlertLevelChangedEvent(station, level));

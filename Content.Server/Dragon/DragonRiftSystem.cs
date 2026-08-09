@@ -9,8 +9,11 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization.Manager;
 using System.Numerics;
+using Content.Shared._Funkystation.CCVar;
 using Content.Shared.Damage.Components;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 
@@ -27,6 +30,7 @@ public sealed partial class DragonRiftSystem : EntitySystem
     [Dependency] private NavMapSystem _navMap = default!;
     [Dependency] private NPCSystem _npc = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IConfigurationManager _cfg = null!; // funky - cvar for pa announcements
 
     public override void Initialize()
     {
@@ -49,6 +53,8 @@ public sealed partial class DragonRiftSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
+        var paAnnouncements = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements); // funky
 
         var query = EntityQueryEnumerator<DragonRiftComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var comp, out var xform))
@@ -80,8 +86,11 @@ public sealed partial class DragonRiftSystem : EntitySystem
 
                 var msg = Loc.GetString("carp-rift-warning",
                     ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((uid, xform)))));
-                _chat.DispatchGlobalAnnouncement(msg, playSound: false, colorOverride: Color.Red);
-                _audio.PlayGlobal("/Audio/Misc/notice1.ogg", Filter.Broadcast(), true);
+                _chat.DispatchGlobalAnnouncement(msg,
+                    playSound: paAnnouncements, announcementSound: paAnnouncements ? new SoundPathSpecifier("/Audio/Misc/notice1.ogg") : null, // funky
+                    colorOverride: Color.Red);
+                if (!paAnnouncements) // funky
+                    _audio.PlayGlobal("/Audio/Misc/notice1.ogg", Filter.Broadcast(), true);
                 _navMap.SetBeaconEnabled(uid, true);
             }
 

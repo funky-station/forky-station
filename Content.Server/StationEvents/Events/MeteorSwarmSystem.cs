@@ -3,9 +3,11 @@ using Content.Server.Chat.Systems;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Station.Systems;
 using Content.Server.StationEvents.Components;
+using Content.Shared._Funkystation.CCVar;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Random.Helpers;
 using Robust.Server.Audio;
+using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
@@ -20,10 +22,13 @@ public sealed partial class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmCompon
     [Dependency] private AudioSystem _audio = default!;
     [Dependency] private ChatSystem _chat = default!;
     [Dependency] private StationSystem _station = default!;
+    [Dependency] private IConfigurationManager _cfg = null!; // funky - pa announcement cvar
 
     protected override void Added(EntityUid uid, MeteorSwarmComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         base.Added(uid, component, gameRule, args);
+
+        var paAnnouncements = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements); // funky
 
         component.WaveCounter = component.Waves.Next(RobustRandom);
 
@@ -31,9 +36,12 @@ public sealed partial class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmCompon
         Filter allPlayersInGame = Filter.Empty().AddWhere(GameTicker.UserHasJoinedGame);
 
         if (component.Announcement is { } locId)
-            _chat.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(locId), playSound: false, colorOverride: Color.Gold);
+            _chat.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(locId),
+                playSound: paAnnouncements, announcementSound: paAnnouncements ? component.AnnouncementSound : null, // funky
+                colorOverride: Color.Gold);
 
-        _audio.PlayGlobal(component.AnnouncementSound, allPlayersInGame, true);
+        if (!paAnnouncements) // funky
+            _audio.PlayGlobal(component.AnnouncementSound, allPlayersInGame, true);
     }
 
     protected override void ActiveTick(EntityUid uid, MeteorSwarmComponent component, GameRuleComponent gameRule, float frameTime)
