@@ -1,0 +1,62 @@
+- type: job
+  id: Commandant
+  name: job-name-commandant
+  description: job-description-commandant
+  playTimeTracker: JobCommandant
+  requirements:
+  - !type:RoleTimeRequirement
+    role: JobWarden
+    time: 5h
+  - !type:RoleTimeRequirement
+    role: JobDetective
+    time: 5h
+  - !type:RoleTimeRequirement
+    role: JobLieutenant
+    time: 5h
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 30h
+  weight: 10
+  startingGear: CommandantGear
+  icon: "JobIconHeadOfSecurity"
+  joinNotifyCrew: true # Funky
+  supervisors: job-supervisors-cap-commandant
+  access:
+  - HeadOfSecurity
+  - Brig
+  - Security
+  - Armory
+  - Maintenance
+  - External
+  - Detective
+  - Cryogenics
+  - GenpopEnter
+  - GenpopLeave
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: CommandStaff
+
+- type: startingGear
+  id: CommandantGear
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+    id: CommandantPDA
+    gloves: ClothingHandsGlovesCombat
+    ears: ClothingHeadsetAltSecurity
+    pocket2: WeaponPistolMk58
+  storage:
+    back:
+    - Flash
+    - MagazinePistol
+
+- type: chameleonOutfit
+  id: CommandantChameleonOutfit
+  job: Commandant
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatBeretHoS
+    mask: ClothingMaskGasSecurity
+    neck: ClothingNeckCloakHos

@@ -50,7 +50,7 @@
     - 0,0,9,3
     maxItemSize: Normal
   - type: Sprite
-    sprite: Structures/Storage/cabinets.rsi
+    sprite: _Funkystation/Structures/Storage/cabinets.rsi # Funky
     noRot: true
   - type: Appearance
   - type: UserInterface

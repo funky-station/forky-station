@@ -6,7 +6,7 @@
   - type: Sprite
     layers:
     - state: red
-    - sprite: Structures/Storage/Crates/generic.rsi
+    - sprite: _Funkystation/Structures/Storage/Crates/generic.rsi # Funky
       state: icon
   - type: EntityTableSpawner
     table: !type:GroupSelector
@@ -166,7 +166,7 @@
   - type: Sprite
     layers:
     - state: red
-    - sprite: Structures/Storage/Crates/o2.rsi
+    - sprite: _Funkystation/Structures/Storage/Crates/o2.rsi # Funky
       state: icon
   - type: EntityTableSpawner
     table: !type:NestedSelector
@@ -182,7 +182,7 @@
   - type: Sprite
     layers:
     - state: red
-    - sprite: Structures/Storage/Crates/engineering.rsi
+    - sprite: _Funkystation/Structures/Storage/Crates/engineering.rsi # Funky
       state: icon
   - type: EntityTableSpawner
     table: !type:GroupSelector
@@ -230,7 +230,7 @@
   - type: Sprite
     layers:
     - state: red
-    - sprite: Structures/Storage/Crates/sec_gear.rsi
+    - sprite: _Funkystation/Structures/Storage/Crates/sec_gear.rsi # Funky
       state: icon
   - type: EntityTableSpawner
     table: !type:GroupSelector
@@ -277,7 +277,7 @@
   - type: Sprite
     layers:
     - state: red
-    - sprite: Structures/Storage/Crates/lockbox.rsi
+    - sprite: _Funkystation/Structures/Storage/Crates/lockbox.rsi # Funky
       state: icon
   - type: EntityTableSpawner
     table: !type:NestedSelector

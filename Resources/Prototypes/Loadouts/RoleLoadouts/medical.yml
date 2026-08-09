@@ -4,17 +4,18 @@
   id: JobChiefMedicalOfficer
   groups:
   - GroupTankHarness
-  - ChiefMedicalOfficerHead
+  - FuCmoHead # funky- previously ChiefMedicalOfficerHead
   - MedicalMask
-  - ChiefMedicalOfficerJumpsuit
+  - FuCmoUniform # funky - ChiefMedicalOfficerJumpsuit
   - MedicalBackpack
-  - ChiefMedicalOfficerOuterClothing
-  - ChiefMedicalOfficerNeck
+  - FuCmoOuterclothing # funky - previously ChiefMedicalOfficerOuterClothing
+#  - ChiefMedicalOfficerNeck funky - no more capes for non-militant command
   - ChiefMedicalOfficerShoes
+  - Pager
   - Glasses
   - SurvivalMedical
   - Trinkets
-#  - ChiefMedicalOfficerJobTrinkets
+  - ChiefMedicalOfficerJobTrinkets # Funky uncommented
   - GroupSpeciesBreathToolMedical
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
@@ -22,13 +23,14 @@
   id: JobMedicalDoctor
   groups:
   - GroupTankHarness
-  - MedicalDoctorHead
+  - FuMedicalDoctorHead # funky - previously MedicalDoctorHead
   - MedicalMask
-  - MedicalDoctorJumpsuit
+  - FuMedicalDoctorUniform # funky - previously MedicalDoctorJumpsuit
   - MedicalBackpack
-  - MedicalDoctorOuterClothing
+  - FuMedicalDoctorOuterclothing # funky - previously MedicalDoctorOuterClothing
   - MedicalShoes
   - MedicalDoctorPDA
+  - Pager
   - Glasses
   - SurvivalMedical
   - Trinkets
@@ -40,8 +42,10 @@
   id: JobMedicalIntern
   groups:
   - GroupTankHarness
-  - MedicalInternJumpsuit
+  - FuMedicalInternHead # funky - new
+  - FuMedInternUniform # funky - previously MedicalInternJumpsuit
   - MedicalBackpack
+  - Pager
   - Glasses
   - SurvivalMedical
   - Trinkets
@@ -54,10 +58,12 @@
   groups:
   - GroupTankHarness
   - MedicalMask
-  - ChemistJumpsuit
+  - FuChemistUniform # funky - previously ChemistJumpsuit
+  - FuChemistGloves # funky - new
   - ChemistBackpack
-  - ChemistOuterClothing
-  - MedicalShoes
+  - FuChemistOuterclothing # funky - previously ChemistOuterClothing
+  - FuChemistBoots # funky - previously MedicalShoes
+  - Pager
   - Glasses
   - SurvivalMedical
   - Trinkets
@@ -75,6 +81,7 @@
   - MedicalBackpack
   - ParamedicOuterClothing
   - ParamedicShoes
+  - Pager
   - Glasses
   - SurvivalMedical
   - Trinkets

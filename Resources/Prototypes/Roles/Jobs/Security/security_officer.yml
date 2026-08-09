@@ -10,7 +10,7 @@
       time: 5h # Funky
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
-  supervisors: job-supervisors-hos
+  supervisors: job-supervisors-lieutenant #funky
   access:
   - Security
   - Brig

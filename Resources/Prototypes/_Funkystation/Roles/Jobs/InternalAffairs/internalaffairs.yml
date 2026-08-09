@@ -1,0 +1,42 @@
+- type: job
+  id: InternalAffairsAgent
+  name: job-name-iaa
+  description: job-description-iaa
+  playTimeTracker: JobIAA
+  requirements:
+   - !type:RoleTimeRequirement
+     role: JobLawyer
+     time: 5h
+  startingGear: IAAGear
+  icon: "JobIconInternalAffairsAgent"
+  supervisors: job-supervisors-xo
+  access:
+  - InternalAffairs
+  - Brig
+  - Medical
+  - Research
+  - Engineering
+  - Cargo
+  - Bar
+  - Kitchen
+  - Service
+  - Maintenance
+
+- type: startingGear
+  id: IAAGear
+  equipment:
+    head: ClothingHeadHatFedoraBrown
+    shoes: ClothingShoesBootsLaceup
+    id: IAAPDA
+    eyes: ClothingEyesGlassesSunglasses
+    ears: ClothingHeadsetInternalAffairs
+    outerClothing: ClothingOuterCoatTrench
+
+- type: chameleonOutfit
+  id: IAAChameleonOutfit
+  job: InternalAffairsAgent
+  hasMindShield: true
+  equipment:
+    mask: ClothingMaskNeckGaiterRed
+    neck: ClothingNeckLawyerbadge
+

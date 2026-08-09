@@ -187,6 +187,11 @@
   - type: Sprite
     layers:
     - state: cornbread
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
   - type: ToolRefinable
     refineResult:
     - id: FoodBreadCornSlice
@@ -206,6 +211,11 @@
   - type: Sprite
     layers:
     - state: cornbread-slice
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
 
 - type: entity
   name: cream cheese bread
@@ -221,6 +231,11 @@
   - type: Sprite
     layers:
     - state: creamcheese
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
   - type: ToolRefinable
     refineResult:
     - id: FoodBreadCreamcheeseSlice
@@ -248,6 +263,11 @@
   - type: Sprite
     layers:
     - state: creamcheese-slice
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
   - type: Solution
     solution:
       reagents:
@@ -329,6 +349,11 @@
   - type: Sprite
     layers:
     - state: mimana
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
   - type: ToolRefinable
     refineResult:
     - id: FoodBreadMimanaSlice
@@ -357,6 +382,11 @@
   - type: Sprite
     layers:
     - state: mimana-slice
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
   - type: Solution
     solution:
       reagents:
@@ -376,6 +406,11 @@
   - type: Sprite
     layers:
     - state: plain
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
   - type: ToolRefinable
     refineResult:
     - id: FoodBreadPlainSlice
@@ -390,6 +425,11 @@
   - type: Sprite
     layers:
     - state: plain-slice
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
 
 - type: entity
   name: sausage bread
@@ -519,6 +559,11 @@
   - type: Sprite
     layers:
     - state: tofu
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
   - type: ToolRefinable
     refineResult:
     - id: FoodBreadTofuSlice
@@ -545,6 +590,11 @@
   - type: Sprite
     layers:
     - state: tofu-slice
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
   - type: Solution
     solution:
       reagents:
@@ -656,6 +706,11 @@
     damage:
       types:
         Blunt: 1 # bonk
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
 # Tastes like France.
 
 - type: entity
@@ -709,6 +764,11 @@
   components:
   - type: Sprite
     state: crostini
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
   - type: Solution
     solution:
       reagents:
@@ -762,6 +822,11 @@
       - bread
   - type: Sprite
     state: buttered-toast
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
   - type: Solution
     solution:
       reagents:
@@ -783,6 +848,11 @@
       - bread
   - type: Sprite
     state: french-toast
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
   - type: Solution
     solution:
       reagents:
@@ -809,6 +879,11 @@
   - type: Sprite
     layers:
     - state: garlic-slice
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
   - type: Solution
     solution:
       reagents:
@@ -835,6 +910,11 @@
   - type: Sprite
     layers:
     - state: jelly-toast
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
   - type: Solution
     solution:
       reagents:
@@ -855,6 +935,7 @@
     - state: moldy-slice
   - type: Tag
     tags:
+    - UnguFood # macro edit - allow ungu to eat
     - Trash
   - type: Solution
     solution:
@@ -874,6 +955,12 @@
   - type: Sprite
     layers:
     - state: two-slice
+  - type: SolutionContainerManager
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
   - type: Solution
     solution:
       reagents:

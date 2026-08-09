@@ -106,10 +106,7 @@
     speechVerb: Skeleton
   - type: ZombieImmune
   - type: Vocal
-    sounds:
-      Male: Skeleton
-      Female: Skeleton
-      Unsexed: Skeleton
+    emoteSounds: Skeleton
   - type: SkeletonAccent
   - type: Fixtures
     fixtures:
@@ -132,7 +129,7 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPie
-    - reagents: [ Milk, MilkGoat, MilkSoy, MilkSpoiled ]
+    - reagents: [ Milk, MilkGoat, MilkSoy, MilkSpoiled, MilkChocolate, MilkStrawberry, MilkBanana ]
       # add new types of milk to reagents as they appear, oat milk isn't on the list
       # because turns out oat milk has 1/30th the amount of calcium in it compared to the rest
       # even if it's a meme - I did research

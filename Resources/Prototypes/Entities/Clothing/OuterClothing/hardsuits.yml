@@ -36,6 +36,9 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.35
+    minDamageToRoll: 9.0
 
 #Engineering Hardsuit
 - type: entity
@@ -85,6 +88,9 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.35
+    minDamageToRoll: 9.0
 
 #Spationaut Hardsuit
 - type: entity
@@ -119,6 +125,9 @@
     - Hardsuit
     - WhitelistChameleon
     - HardsuitSpatio
+  - type: SuitBreachable # Funky
+    breachChance: 0.35
+    minDamageToRoll: 12.0
 
 #Salvage Hardsuit
 - type: entity
@@ -155,6 +164,9 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.3
+    minDamageToRoll: 11.0
 
 #Goliath Hardsuit
 - type: entity
@@ -194,6 +206,9 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.2
+    minDamageToRoll: 13.0
 
 #Maxim Hardsuit
 - type: entity
@@ -262,6 +277,9 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.1
+    minDamageToRoll: 10.0
 
 #Brigmedic Hardsuit
 - type: entity
@@ -320,6 +338,9 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitWarden
+  - type: SuitBreachable # Funky
+    breachChance: 0.1
+    minDamageToRoll: 10.0
 
 #Captain's Hardsuit
 - type: entity
@@ -356,6 +377,9 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.1
+    minDamageToRoll: 12.0
 
 #Chief Engineer's Hardsuit
 - type: entity
@@ -407,6 +431,9 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.2
+    minDamageToRoll: 10.0
 
 #Chief Medical Officer's Hardsuit
 - type: entity
@@ -438,6 +465,9 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.35
+    minDamageToRoll: 11.0
 
 #Research Director's Hardsuit
 - type: entity
@@ -483,6 +513,9 @@
     price: 750
   - type: StealTarget
     stealGroup: ClothingOuterHardsuitRd
+  - type: SuitBreachable # Funky
+    breachChance: 0.2
+    minDamageToRoll: 20.0 # it's an EOD suit
 
 #Head of Security's Hardsuit
 - type: entity
@@ -515,6 +548,9 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSecurityRed
+  - type: SuitBreachable # Funky
+    breachChance: 0.1
+    minDamageToRoll: 14.0
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -548,6 +584,9 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitLuxury
+  - type: SuitBreachable # Funky
+    breachChance: 0.35
+    minDamageToRoll: 11.0
 
 #ANTAG HARDSUITS
 #Blood-red Hardsuit
@@ -593,6 +632,9 @@
     - ScurretWearable
   - type: StaticPrice
     price: 5000
+  - type: SuitBreachable # Funky
+    breachChance: 0.1
+    minDamageToRoll: 13.0
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -611,6 +653,9 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.1
+    minDamageToRoll: 13.0
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -656,6 +701,9 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.1
+    minDamageToRoll: 13.0
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -694,6 +742,9 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.1
+    minDamageToRoll: 14.0
 
 
 #Cybersun Juggernaut Hardsuit
@@ -831,6 +882,9 @@
     clothingPrototype: ClothingHeadHelmetHardsuitPirateEVA
   - type: StaticPrice
     price: 0
+  - type: SuitBreachable # Funky
+    breachChance: 0.3
+    minDamageToRoll: 12.0
 
 #Pirate Captain Hardsuit
 - type: entity
@@ -866,6 +920,9 @@
     clothingPrototype: ClothingHeadHelmetHardsuitPirateCap
   - type: StaticPrice
     price: 0
+  - type: SuitBreachable # Funky
+    breachChance: 0.2
+    minDamageToRoll: 13.0
 
 #CENTCOMM / ERT HARDSUITS
 #ERT Leader Hardsuit
@@ -1069,6 +1126,9 @@
     node: clownHardsuit
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitClown
+  - type: SuitBreachable # Funky
+    breachChance: 0.5
+    minDamageToRoll: 9.0
 
 #Mime Hardsuit
 - type: entity
@@ -1086,6 +1146,9 @@
     node: mimeHardsuit
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMime
+  - type: SuitBreachable # Funky
+    breachChance: 0.5
+    minDamageToRoll: 9.0
 
 #Santa's Hardsuit
 - type: entity

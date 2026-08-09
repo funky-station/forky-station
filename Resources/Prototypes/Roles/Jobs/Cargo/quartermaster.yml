@@ -8,15 +8,13 @@
       role: JobCargoTechnician
       time: 5h
     - !type:RoleTimeRequirement
-      role: JobSalvageSpecialist
-      #time: 2.5h
-      time: 5h # Funky
+      role: JobBotanist #funky - replaces salvage
+      time: 2.5h
     - !type:DepartmentTimeRequirement
       department: Cargo
       time: 10h
     - !type:OverallPlaytimeRequirement
       time: 20h # Funky
-    # Funky - TODO: Add Botanist playtime requirement once that's moved to Cargo/Logistics
   #weight: 10 # Funky - Weighting all jobs equally now
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"

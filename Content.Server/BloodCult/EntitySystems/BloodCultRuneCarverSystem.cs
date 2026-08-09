@@ -1,38 +1,31 @@
-using System;
-using System.Linq;
-using Robust.Shared.Audio;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
-using Robust.Server.GameObjects;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Player;
-using Robust.Shared.Utility;
-
-using Content.Server.GameTicking.Rules;
+using Content.Server.Body.Systems;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Shared.GameTicking.Components;
-using Content.Shared.FixedPoint;
-using Content.Shared.Interaction;
-using Content.Shared.Interaction.Events;
-using Content.Shared.DoAfter;
-using Content.Shared.Hands;
-//using Content.Shared.Transform;
+using Content.Server.Popups;
+using Content.Shared.BloodCult;
+using Content.Shared.BloodCult.Components;
+using Content.Shared.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Verbs;
+using Content.Shared.DoAfter;
+using Content.Shared.FixedPoint;
+using Content.Shared.GameTicking.Components;
+using Content.Shared.Hands;
+using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
-using Content.Server.Popups;
-using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
-using Content.Shared.Body.Components;
-using Content.Shared.BloodCult;
-using Content.Shared.BloodCult.Components;
 using Content.Shared.UserInterface;
+using Content.Shared.Verbs;
+using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
+//using Content.Shared.Transform;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
@@ -45,8 +38,6 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 	[Dependency] private SharedDoAfterSystem _doAfter = default!;
 	[Dependency] private SharedTransformSystem _transform = default!;
 	[Dependency] private MapSystem _mapSystem = default!;
-	[Dependency] private IMapManager _mapManager = default!;
-	[Dependency] private IPrototypeManager _protoMan = default!;
 	[Dependency] private DamageableSystem _damageableSystem = default!;
 	[Dependency] private SharedAudioSystem _audioSystem = default!;
 	[Dependency] private PopupSystem _popupSystem = default!;
@@ -264,7 +255,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
             CancelDuplicate = false,
         };
 
-		if (_protoMan.TryIndex(ent.Comp.Rune, out var ritualPrototype))
+		if (ProtoMan.TryIndex(ent.Comp.Rune, out var ritualPrototype))
 			_popupSystem.PopupEntity(
 				Loc.GetString("cult-rune-drawing-vowel-first") +
 				("aeiou".Contains(ritualPrototype.Name.ToLower()[0]) ? "n" : "") +
@@ -365,7 +356,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 			CancelDuplicate = false,
 		};
 
-		if (_protoMan.TryIndex(ent.Comp.Rune, out var ritualPrototype))
+		if (ProtoMan.TryIndex(ent.Comp.Rune, out var ritualPrototype))
 			_popupSystem.PopupEntity(
 				Loc.GetString("cult-rune-drawing-vowel-first") +
 				("aeiou".Contains(ritualPrototype.Name.ToLower()[0]) ? "n" : "") +
@@ -444,9 +435,9 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 			}
 		}
 		else if (_damageableSystem.CanBeDamagedBy(ent.Owner,ShockDamageType.Id))
-			appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index(ShockDamageType), FixedPoint2.New(ev.BleedOnCarve));
+			appliedDamageSpecifier = new DamageSpecifier(ProtoMan.Index(ShockDamageType), FixedPoint2.New(ev.BleedOnCarve));
 		else
-			appliedDamageSpecifier = new DamageSpecifier(_protoMan.Index(SlashDamageType), FixedPoint2.New(ev.BleedOnCarve));
+			appliedDamageSpecifier = new DamageSpecifier(ProtoMan.Index(SlashDamageType), FixedPoint2.New(ev.BleedOnCarve));
 
         if (!ev.Cancelled)
 		{
@@ -525,7 +516,7 @@ public sealed partial class BloodCultRuneCarverSystem : EntitySystem
 
 	private bool CanPlaceRuneAt(EntityCoordinates clickedAt, out EntityCoordinates location)
 	{
-		location = clickedAt.AlignWithClosestGridTile(entityManager: EntityManager, mapManager: _mapManager);
+		location = clickedAt.AlignWithClosestGridTile(entityManager: EntityManager);
 		var gridUid = _transform.GetGrid(location);
 		if (!TryComp<MapGridComponent>(gridUid, out var grid))
         {

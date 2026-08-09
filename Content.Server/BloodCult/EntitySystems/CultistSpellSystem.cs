@@ -1,51 +1,36 @@
-using Robust.Shared.Random;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Timing;
-using Robust.Server.GameObjects;
-using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
-using Content.Server.Power.Components;
-using Content.Shared.FixedPoint;
-using Content.Server.Popups;
-using Content.Server.Hands.Systems;
-using Content.Shared.Actions;
-using Content.Shared.Actions.Components;
-using Content.Shared.Stacks;
-using Content.Shared.BloodCult;
-using Content.Shared.BloodCult.Prototypes;
 using Content.Server.BloodCult.Components;
+using Content.Server.Emp;
+using Content.Server.GameTicking.Rules;
+using Content.Server.Hands.Systems;
+using Content.Server.Mind;
+using Content.Server.Popups;
+using Content.Shared.Actions;
+using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
-using Content.Shared.DoAfter;
+using Content.Shared.BloodCult.Prototypes;
+using Content.Shared.Body.Components;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
-using Content.Server.GameTicking.Rules;
-using Content.Shared.StatusEffectNew;
-using Content.Shared.Speech.Muting;
-using Content.Shared.Stunnable;
-using Content.Shared.Emp;
-using Content.Server.Emp;
-using Content.Shared.Popups;
-using Content.Shared.Silicons.Borgs.Components;
-using Content.Shared.Weapons.Melee;
-using Content.Shared.Weapons.Melee.Events;
-using Content.Server.Construction;
-using Content.Server.Construction.Components;
-using Content.Server.Body.Systems;
-using Content.Server.Body.Components;
-using Content.Shared.Body.Components;
-using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry;
-using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Mindshield.Components;
+using Content.Shared.DoAfter;
+using Content.Shared.FixedPoint;
 using Content.Shared.Mind.Components;
-using Content.Server.Stack;
-using Content.Server.Mind;
-
+using Content.Shared.Mindshield.Components;
+using Content.Shared.Popups;
+using Content.Shared.Stacks;
+using Content.Shared.StatusEffectNew;
+using Content.Shared.Stunnable;
+using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
@@ -56,7 +41,6 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	private static readonly ProtoId<StackPrototype> RunedPlasteelStack = "RunedPlasteel";
 
 	[Dependency] private IRobustRandom _random = default!;
-	[Dependency] private IPrototypeManager _proto = default!;
 	[Dependency] private SharedActionsSystem _action = default!;
 	[Dependency] private ActionContainerSystem _actionContainer = default!;
 	[Dependency] private MindSystem _mind = default!;
@@ -71,7 +55,6 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	[Dependency] private SharedDoAfterSystem _doAfter = default!;
 	[Dependency] private SharedTransformSystem _transform = default!;
 	[Dependency] private MapSystem _mapSystem = default!;
-	[Dependency] private IMapManager _mapManager = default!;
 	//[Dependency] private IEntityManager _entMan = default!;
 	[Dependency] private SharedStunSystem _stun = default!;
 	//[Dependency] private ConstructionSystem _construction = default!;
@@ -131,11 +114,11 @@ public sealed partial class CultistSpellSystem : EntitySystem
 		{
 			DamageSpecifier appliedDamageSpecifier;
 			if (damageDict.ContainsKey("Bloodloss"))
-				appliedDamageSpecifier = new DamageSpecifier(_proto.Index(BloodlossDamageType), FixedPoint2.New(actionComp.HealthCost));
+				appliedDamageSpecifier = new DamageSpecifier(ProtoMan.Index(BloodlossDamageType), FixedPoint2.New(actionComp.HealthCost));
 			else if (damageDict.ContainsKey("Shock"))
-				appliedDamageSpecifier = new DamageSpecifier(_proto.Index(ShockDamageType), FixedPoint2.New(actionComp.HealthCost));
+				appliedDamageSpecifier = new DamageSpecifier(ProtoMan.Index(ShockDamageType), FixedPoint2.New(actionComp.HealthCost));
 			else
-				appliedDamageSpecifier = new DamageSpecifier(_proto.Index(SlashDamageType), FixedPoint2.New(actionComp.HealthCost));
+				appliedDamageSpecifier = new DamageSpecifier(ProtoMan.Index(SlashDamageType), FixedPoint2.New(actionComp.HealthCost));
 			_damageableSystem.TryChangeDamage((ent, damageable), appliedDamageSpecifier, true, origin: ent);
 		}
 
@@ -154,7 +137,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	}
 
 	public CultAbilityPrototype GetSpell(ProtoId<CultAbilityPrototype> id)
-		=> _proto.Index(id);
+		=> ProtoMan.Index(id);
 
 	public void AddSpell(EntityUid uid, BloodCultistComponent comp, ProtoId<CultAbilityPrototype> id, bool recordKnownSpell = true)
 	{
@@ -230,7 +213,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			return;
 
 		DamageSpecifier appliedDamageSpecifier = new DamageSpecifier(
-			_proto.Index(SlashDamageType),
+			ProtoMan.Index(SlashDamageType),
 			FixedPoint2.New(args.CultAbility.HealthDrain * (args.StandingOnRune ? 1 : 3))
 		);
 
@@ -282,7 +265,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 	private bool IsStandingOnEmpoweringRune(EntityUid uid)
 	{
 		var coords = new EntityCoordinates(uid, default);
-		var location = coords.AlignWithClosestGridTile(entityManager: EntityManager, mapManager: _mapManager);
+		var location = coords.AlignWithClosestGridTile(entityManager: EntityManager);
 		var gridUid = _transform.GetGrid(location);
 		if (!TryComp<MapGridComponent>(gridUid, out var grid))
 			return false;
@@ -520,7 +503,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			var targetCoords = Transform(args.Target).Coordinates;
 
 			// Spawn runed steel stacks manually (SpawnMultiple doesn't exist)
-			var runedSteelProto = _proto.Index(RunedSteelStack);
+			var runedSteelProto = ProtoMan.Index(RunedSteelStack);
 			var maxStackSize = _stack.GetMaxCount(RunedSteelStack);
 			var stacksToSpawn = count;
 			while (stacksToSpawn > 0)
@@ -549,7 +532,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			var targetCoords = Transform(args.Target).Coordinates;
 
 			// Spawn runed glass stacks manually (SpawnMultiple doesn't exist)
-			var runedGlassProto = _proto.Index(RunedGlassStack);
+			var runedGlassProto = ProtoMan.Index(RunedGlassStack);
 			var maxStackSize2 = _stack.GetMaxCount(RunedGlassStack);
 			var stacksToSpawn2 = count;
 			while (stacksToSpawn2 > 0)
@@ -578,7 +561,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			var targetCoords = Transform(args.Target).Coordinates;
 
 			// Spawn runed glass stacks manually (SpawnMultiple doesn't exist)
-			var runedGlassProto = _proto.Index(RunedGlassStack);
+			var runedGlassProto = ProtoMan.Index(RunedGlassStack);
 			var maxStackSize3 = _stack.GetMaxCount(RunedGlassStack);
 			var stacksToSpawn3 = count;
 			while (stacksToSpawn3 > 0)
@@ -607,7 +590,7 @@ public sealed partial class CultistSpellSystem : EntitySystem
 			var targetCoords = Transform(args.Target).Coordinates;
 
 			// Spawn runed plasteel stacks manually (SpawnMultiple doesn't exist)
-			var runedPlasteelProto = _proto.Index(RunedPlasteelStack);
+			var runedPlasteelProto = ProtoMan.Index(RunedPlasteelStack);
 			var maxStackSize4 = _stack.GetMaxCount(RunedPlasteelStack);
 			var stacksToSpawn4 = count;
 			while (stacksToSpawn4 > 0)

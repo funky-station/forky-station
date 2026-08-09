@@ -143,10 +143,7 @@
       types:
         Blunt: 0.1
   - type: Vocal
-    sounds:
-      Male: UnisexAnt
-      Female: UnisexAnt
-      Unsexed: UnisexAnt
+    emoteSounds: UnisexAnt
   - type: Damageable
     damageModifierSet: Ant
   - type: MobThresholds

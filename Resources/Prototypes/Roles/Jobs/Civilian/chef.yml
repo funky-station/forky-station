@@ -9,7 +9,7 @@
   #    time: 0.5h # Funky - Removing role timer for parity
   startingGear: ChefGear
   icon: "JobIconChef"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-hd # funky
   access:
   - Service
   - Maintenance

@@ -157,6 +157,7 @@
     - id: RPD
     - id: RCDAmmo
     - id: AirGrenade
+    - id: SuitSealantCanister # Funky
     - id: PlushieLizardJobAtmospherictechnician
       prob: 0.02
 
@@ -167,6 +168,7 @@
     - id: ClothingOuterHardsuitAtmos
     - id: OxygenTankFilled
     - id: ClothingMaskBreath
+    - id: SuitSealantCanister # Funky
 
 - type: entity
   id: LockerEngineerFilledHardsuit
@@ -215,6 +217,7 @@
     - id: OxygenTankFilled
     - id: ClothingShoesBootsMag
     - id: ClothingMaskBreath
+    - id: SuitSealantCanister # Funky
 
 - type: entity
   id: ClosetRadiationSuitFilled

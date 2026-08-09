@@ -1,0 +1,13 @@
+- type: entity
+  parent: ClothingHandsButcherable
+  id: FuClothingHandsGlovesRubberChemist
+  name: heavy-duty chemistry gloves
+  description: High-quality, heavy-duty rubber latex gloves. Expensive PPE that goes up all the way to the elbows to protect from dangerous chemicals.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/chemistry.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/chemistry.rsi
+  - type: Fiber
+    fiberMaterial: fibers-latex
+  - type: FingerprintMask
