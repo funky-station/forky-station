@@ -858,5 +858,10 @@ WeaponTaser: null
 # 2026-08-08 - xo & hd lockers
 LockerHeadOfPersonnelFilled: LockerExecutiveOfficerFilled
 
+# 2026-08-10 - removing mindshields
+CrateSecurityTrackingMindshieldImplants: CrateTrackingImplants
+CrateMindShieldImplants: CrateMedical
+MindshieldImplanter: null
+
 # TODO: When the RG-2 and its safe are ported over, uncomment the line below and add a timestamp.
 #GunSafeDisabler: GunSafePistolRg2

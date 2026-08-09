@@ -61,8 +61,8 @@
   - Newsroom
   - Library
   special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+  #- !type:AddImplantSpecial
+  #  implants: [ MindShieldImplant ] # Removed mindshields
   - !type:AddComponentSpecial
     components:
     - type: CommandStaff

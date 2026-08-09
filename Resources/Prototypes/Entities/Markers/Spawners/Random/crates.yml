@@ -244,7 +244,7 @@
         - id: CrateArmoryPistols
         - id: CrateTrainingBombs
         - id: CrateTrackingImplants
-        - id: CrateSecurityTrackingMindshieldImplants
+        #- id: CrateSecurityTrackingMindshieldImplants # Funky - Removing mindshieldsResources/Prototypes/_Funkystation/Catalog/Fills/Crates/security.yml
         - id: CrateSecurityHelmet
         - id: CrateSecurityArmor
         - id: CrateRestraints
