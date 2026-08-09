@@ -39,3 +39,6 @@ reagent-desc-tear-gas = A chemical that causes severe irritation and crying, com
 
 reagent-name-happiness = happiness
 reagent-desc-happiness = Fills you with ecstatic numbness and causes minor brain damage. Highly addictive. If overdosed causes sudden mood swings.
+
+reagent-name-panaceaum = panaceaum
+reagent-desc-panaceaum = A drug made for combat use in the pod wars, it stimulates the soldiers, numbs and mends the pain, and stops any chemical agent from working on the user. However, the users of panaceaum must always have more panaceaum in them, else the drug's aftereffects will wrack the user's body.

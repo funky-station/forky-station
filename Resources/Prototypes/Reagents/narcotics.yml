@@ -512,3 +512,163 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
+
+#funkstart
+#better hyperzine with a timer for your death
+#every pill's like 15u, so
+- type: reagent
+  id: Panaceaum
+  name: reagent-name-panaceaum
+  group: Narcotics
+  desc: reagent-desc-panaceaum
+  physicalDesc: reagent-physical-desc-decay
+  contrabandSeverity: Syndicate
+  flavor: impendingdoom
+  color: "#d68676"
+  boilingPoint: 212.0
+  meltingPoint: 170.0
+  worksOnTheDead: true #well if it doesn't, you could just die to cleanse yourself, and that's kinda lame. This chem will RR you now though, but then again... it's 17 minutes of hyperzine+half omni. glory or death. side effect this also works for dead people, but they won't get defibbed so... theoretically still fine. you still need a battlebuddy to get back up after death.
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.01 #should calculate to around 1000 secs per pill of stim time, note that at 500 secs you'd lose the regen for combat damages
+      effects:
+      # Main effects
+      - !type:MovementSpeedModifier #won't be as speedy once you're outta panaceaum, but you still won't get stunned
+        conditions:
+        - !type:ReagentCondition
+          reagent: Panaceaum
+          min: 5
+        walkSpeedModifier: 1.25
+        sprintSpeedModifier: 1.25
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStimulantsStamina
+        time: 3
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStunned
+        time: 3.5
+        type: Remove
+      - !type:ModifyKnockdown
+        time: 3.5
+        type: Remove
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectForcedSleeping
+        time: 3
+        type: Remove
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 3
+      # Side effects
+      - !type:Jitter
+      # OD/UD
+      - !type:ModifyBleed
+        conditions:
+        - !type:ReagentCondition
+          reagent: Panaceaum
+          max: 5 #your body can't hold blood anymore
+        amount: 3
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Panaceaum
+          max: 5 #your body deteriorates
+        damage:
+          groups:
+            Brute: 1
+            Burn: 1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Panaceaum
+          max: 10 #no more combat regen other than toxins and airloss
+        damage:
+          groups:
+            Brute: 1
+            Burn: 1
+      - !type:HealthChange #extra hard just so you REALLY don't want to OD on this
+        conditions:
+        - !type:ReagentCondition
+          reagent: Panaceaum
+          min: 45
+        damage:
+          groups:
+            Brute: 3
+            Burn: 3
+      # Warnings so you know if you need more panaceaum or you NEED more
+      # honestly woulda added some kinda like you're good indicator but that's probably gonna make when you need to eat more to be less clear soooo. not doing that.
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentCondition
+          reagent: Panaceaum
+          max: 10
+        type: Local
+        probability: 0.08
+        messages:
+        - panaceaum-effect-longing
+        - panaceaum-effect-lagging
+        - panaceaum-effect-lethargy
+        - panaceaum-effect-headache
+        - panaceaum-effect-suboptimal
+        - panaceaum-effect-itchy
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentCondition
+          reagent: Panaceaum
+          max: 5
+        type: Local
+        visualType: MediumCaution
+        probability: 0.03
+        messages:
+        - panaceaum-effect-need
+        - panaceaum-effect-bloodtaste
+        - panaceaum-effect-doom
+        - panaceaum-effect-panic
+        - panaceaum-effect-tearing
+      - !type:Emote
+        emote: Scream
+        probability: 0.08
+        conditions:
+        - !type:ReagentCondition
+          reagent: Panaceaum
+          max: 5
+      # Stopgaps to make sure pana doesn't leave your body
+      - !type:AdjustReagent #just in case you get hit with charcoal or something
+        conditions:
+        - !type:ReagentCondition
+          reagent: Panaceaum
+          max: 1
+        reagent: Panaceaum
+        amount: 3
+      - !type:AdjustReagent #this should hold for the natural body's processing
+        conditions:
+        - !type:ReagentCondition
+          reagent: Panaceaum
+          max: 4
+        reagent: Panaceaum
+        amount: 0.5
+      # Main effects
+      - !type:ModifyBleed #you do still bleed so.. you CAN eat and drink to heal your bloodloss, but don't expect saline to help you quick
+        amount: -1.5
+      - !type:EvenHealthChange # you WILL shrug off any damage given time
+        damage:
+          Burn: -1
+          Brute: -1
+          Toxin: -1
+          Airloss: -1
+      - !type:HealthChange
+        conditions:
+        - !type:TotalDamageCondition
+          min: 95
+        damage:
+          types:
+            Asphyxiation: -2 #get up!!!
+      # Side effects
+      - !type:ResetNarcolepsy
+      - !type:SatiateHunger
+        factor: 1
+      - !type:SatiateThirst
+        factor: 1
+      #no chems other than pana will save you now, also no god mixes with this
+      - !type:CleanBloodstream
+        excluded: Panaceaum
+        cleanseRate: 10

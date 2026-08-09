@@ -348,3 +348,4 @@ flavor-complex-forbidden = forbidden
 flavor-complex-artifact-glue = like crushed artifacts
 flavor-weh = like weh
 flavor-hew = like hew
+flavor-complex-impendingdoom = like your time will be up

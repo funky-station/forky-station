@@ -914,6 +914,32 @@
   - UplinkChemicals
 
 - type: listing
+  id: UplinkPanaceaum
+  name: uplink-panaceaum-name
+  description: uplink-panaceaum-desc
+  productEntity: PanaMedipen
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkChemicals
+
+- type: listing
+  id: UplinkPanaceaumKit
+  name: uplink-panaceaum-kit-name
+  description: uplink-panaceaum-kit-desc
+  productEntity: PanaMedipenKit
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 12
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkChemicals
+
+- type: listing
   id: UplinkCigarettes
   name: uplink-cigarettes-name
   description: uplink-cigarettes-desc

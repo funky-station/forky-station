@@ -616,6 +616,45 @@
   - type: StaticPrice
     price: 583 # 3500 for 6 as a freaky fraction
 
+- type: entity #taking the stimpack mini for panaceaum #funky
+  parent: [ChemicalMedipen, BaseSyndicateContraband]
+  id: PanaMedipen
+  name: panaceaum injector
+  description: A relic of the pod wars, a chemical microinjector containing a small shot of pure panaceaum. Effects last for about 15 minutes, with the effects slowly degrading your body, even after death. Are you sure you want to do this?
+  components:
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: base-needle-inhand-left
+      - state: base-colorA-inhand-left
+        color: "#9a040e"
+      - state: base-colorB-inhand-left
+        color: "#c62933"
+      right:
+      - state: base-needle-inhand-right
+      - state: base-colorA-inhand-right
+        color: "#9a040e"
+      - state: base-colorB-inhand-right
+        color: "#c62933"
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: microstimpen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Panaceaum
+          Quantity: 15
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: microstimpen_empty
+  - type: StaticPrice
+    price: 583 # 3500 for 6 as a freaky fraction
+
 - type: entity
   parent: SyndicateMedipen
   id: CombatMedipen

@@ -125,3 +125,14 @@
       storagebase:
         id: StimpackMini
         amount: 6
+
+- type: entity
+  id: PanaMedipenKit
+  suffix: Filled, Pana
+  parent: MedkitCombat
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PanaMedipen
+        amount: 4
