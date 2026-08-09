@@ -855,5 +855,8 @@ Stunbaton: Nightstick
 WeaponDisabler: null
 WeaponTaser: null
 
+# 2026-08-08 - xo & hd lockers
+LockerHeadOfPersonnelFilled: LockerExecutiveOfficerFilled
+
 # TODO: When the RG-2 and its safe are ported over, uncomment the line below and add a timestamp.
 #GunSafeDisabler: GunSafePistolRg2
