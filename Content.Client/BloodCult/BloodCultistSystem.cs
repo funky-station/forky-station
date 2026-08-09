@@ -7,7 +7,6 @@ namespace Content.Client.BloodCult;
 
 public sealed partial class BloodCultistSystem : SharedBloodCultistSystem
 {
-	[Dependency] private IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {
@@ -18,7 +17,7 @@ public sealed partial class BloodCultistSystem : SharedBloodCultistSystem
 
 	private void GetBloodCultistIcon(Entity<BloodCultistComponent> ent, ref GetStatusIconsEvent args)
     {
-        if (_prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
+        if (ProtoMan.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);
     }
 }

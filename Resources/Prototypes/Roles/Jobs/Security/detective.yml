@@ -9,7 +9,7 @@
     time: 5h
   startingGear: DetectiveGear
   icon: "JobIconDetective"
-  supervisors: job-supervisors-hos
+  supervisors: job-supervisors-commandant #funky
   access:
   - Security
   - Brig

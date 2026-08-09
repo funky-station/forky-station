@@ -7,10 +7,10 @@
   - type: Item
     size: Small
   - type: Sprite
-    sprite: Clothing/Neck/Misc/stethoscope.rsi
+    sprite: _Funkystation/Clothing/Neck/Misc/stethoscope.rsi
     state: icon
   - type: Clothing
-    sprite: Clothing/Neck/Misc/stethoscope.rsi
+    sprite: _Funkystation/Clothing/Neck/Misc/stethoscope.rsi
     quickEquip: true
     slots:
     - neck
@@ -23,7 +23,7 @@
   components:
   - type: Action
     icon:
-      sprite: Clothing/Neck/Misc/stethoscope.rsi
+      sprite: _Funkystation/Clothing/Neck/Misc/stethoscope.rsi
       state: icon
     priority: -1
     itemIconStyle: BigAction

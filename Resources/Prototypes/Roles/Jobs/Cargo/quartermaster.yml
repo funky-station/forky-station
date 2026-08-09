@@ -8,7 +8,7 @@
       role: JobCargoTechnician
       time: 5h
     - !type:RoleTimeRequirement
-      role: JobSalvageSpecialist
+      role: JobBotanist #funky - replaces salvage
       time: 2.5h
     - !type:DepartmentTimeRequirement
       department: Cargo

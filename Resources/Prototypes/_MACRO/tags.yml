@@ -4,8 +4,13 @@
   id: CostumeItem # Used for non-clothing items that should be allowed to fit in costume bundles.
 
 - type: Tag
+  id: UnguFood # Used to denote non-food items ungu are able to eat
+
+- type: Tag
   id: SGD # SpeechRequiresEquipment whitelist on MobDecapoid.
 
 - type: Tag
   id: Vaporizer # SpeechRequiresEquipment whitelist on MobDecapoid.
-  
+
+- type: Tag
+  id: OviniaEmotes # Used for Ovinia specific emotes

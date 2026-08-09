@@ -9,7 +9,7 @@
       time: 4h
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
-  supervisors: job-supervisors-hos
+  supervisors: job-supervisors-lieutenant #funky
   access:
   - Security
   - Brig

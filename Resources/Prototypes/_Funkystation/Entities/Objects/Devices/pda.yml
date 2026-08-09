@@ -1,0 +1,98 @@
+- type: entity
+  parent: LawyerPDA
+  id: IAAPDA
+  name: internal affairs PDA
+  description: A boring PDA for a boring paper-pusher.
+  components:
+  - type: Pda
+    id: IAAIDCard
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+
+- type: entity
+  parent: IAAPDA
+  id: MagistratePDA
+  name: magistrate PDA
+  components:
+  - type: Pda
+    id: MagistrateIDCard
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+
+- type: entity
+  parent: HoPPDA
+  id: XOPDA
+  name: executive officer PDA
+  components:
+  - type: Pda
+    id: XOIDCard
+    penSlot:
+      startingItem: PenHop
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+
+- type: entity
+  parent: ServiceWorkerPDA
+  id: HDPDA
+  name: hospitality director PDA
+  description: It seems stained with coffee.
+  components:
+  - type: Pda
+    id: HDIDCard
+    penSlot:
+      startingItem: Pen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+
+- type: entity
+  parent: ClearPDA
+  id: CLPDA
+  name: corporate liaison PDA
+  description: A boring PDA for a boring paper-pusher.
+  components:
+  - type: Pda
+    id: CLIDCard
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+
+- type: entity
+  parent: HoSPDA
+  id: CommandantPDA
+  name: commandant PDA
+  components:
+  - type: Pda
+    id: CommandantIDCard
+
+- type: entity
+  parent: SecurityPDA
+  id: LieutenantPDA
+  name: lieutenant PDA
+  description: Red, the color of middle management and blood.
+  components:
+  - type: Pda
+    id: LieutenantIDCard
+
+- type: entity
+  parent: SecurityPDA
+  id: DispatcherPDA
+  name: dispatcher PDA
+  description: Red, like the cross.
+  components:
+  - type: Pda
+    id: DispatcherIDCard

@@ -1,0 +1,66 @@
+- type: weightedRandom
+  id: Announcers
+  weights:
+    DefaultAnnouncer: 100
+
+- type: announcer
+  id: DefaultAnnouncer
+  sounds:
+    Attention:
+      path: /Audio/Announcements/attention.ogg
+    Announce:
+      path: /Audio/Announcements/announce.ogg
+    GridPowerOff:
+      path: /Audio/Announcements/power_off.ogg
+      params:
+        volume: -4
+    GridPowerOn:
+      collection: PowerOn
+      params:
+        volume: -4
+    Intercept:
+      path: /Audio/Announcements/intercept.ogg
+    Welcome:
+      path: /Audio/Announcements/welcome.ogg
+    Meteors:
+      path: /Audio/Announcements/meteors.ogg
+      params:
+        volume: -4
+    War:
+      path: /Audio/Announcements/war.ogg
+    ShuttleCalled:
+      path: /Audio/Announcements/shuttlecalled.ogg
+    ShuttleRecalled:
+      path: /Audio/Announcements/shuttlerecalled.ogg
+    ShuttleDock:
+      path: /Audio/Announcements/shuttle_dock.ogg
+    Notice1:
+      path: /Audio/Misc/notice1.ogg
+
+- type: announcer
+  id: BwoinkAnnouncer
+  sounds:
+    Attention:
+      path: /Audio/Effects/adminhelp.ogg
+    Announce:
+      path: /Audio/Effects/adminhelp.ogg
+    GridPowerOff:
+      path: /Audio/Effects/adminhelp.ogg
+    GridPowerOn:
+      path: /Audio/Effects/adminhelp.ogg
+    Intercept:
+      path: /Audio/Effects/adminhelp.ogg
+    Welcome:
+      path: /Audio/Effects/adminhelp.ogg
+    Meteors:
+      path: /Audio/Effects/adminhelp.ogg
+    War:
+      path: /Audio/Effects/adminhelp.ogg
+    ShuttleCalled:
+      path: /Audio/Effects/adminhelp.ogg
+    ShuttleRecalled:
+      path: /Audio/Effects/adminhelp.ogg
+    ShuttleDock:
+      path: /Audio/Effects/adminhelp.ogg
+    Notice1:
+      path: /Audio/Effects/adminhelp.ogg

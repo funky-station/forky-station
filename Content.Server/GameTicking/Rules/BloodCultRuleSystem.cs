@@ -186,7 +186,6 @@ public sealed partial class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleCo
 	//[Dependency] private SharedTransformSystem _transformSystem = default!;
 	[Dependency] private BloodCultMindShieldSystem _mindShield = default!;
 	[Dependency] private SleepingSystem _sleeping = default!;
-	[Dependency] private IPrototypeManager _proto = default!;
 	[Dependency] private ActionContainerSystem _actionContainer = default!;
 	[Dependency] private SharedPointLightSystem _pointLight = default!;
 	[Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
@@ -1507,7 +1506,7 @@ public sealed partial class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleCo
 			{
 				// Dynamically get the count of juggernaut accent words from the prototype
 				var juggernautWordCount = 1; // Default to 1 if prototype not found
-				if (_proto.TryIndex<ReplacementAccentPrototype>(JuggernautAccentPrototypeId, out var juggernautAccent) &&
+				if (ProtoMan.TryIndex<ReplacementAccentPrototype>(JuggernautAccentPrototypeId, out var juggernautAccent) &&
 				    juggernautAccent.FullReplacements != null && juggernautAccent.FullReplacements.Length > 0)
 				{
 					juggernautWordCount = juggernautAccent.FullReplacements.Length;

@@ -1,0 +1,92 @@
+- type: job
+  id: ExecutiveOfficer
+  name: job-name-xo # funkystation
+  description: job-description-xo # funkystation
+  playTimeTracker: JobExecutiveOfficer
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Engineering
+    time: 2.5h
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 2.5h
+  - !type:DepartmentTimeRequirement
+    department: Science
+    time: 2.5h
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 2.5h
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 2.5h
+  - !type:DepartmentTimeRequirement
+    department: InternalAffairs
+    time: 10h
+  - !type:RoleTimeRequirement
+    role: JobMagistrate
+    time: 2.5h
+  weight: 20
+  startingGear: XOGear
+  icon: "JobIconHeadOfPersonnel"
+  joinNotifyCrew: true
+  supervisors: job-supervisors-captain
+  access:
+  - Command
+  - ExecutiveOfficer
+  - Bar
+  - Service
+  - Maintenance
+  - Janitor
+  - Theatre
+  - Kitchen
+  - Chapel
+  - Hydroponics
+  - External
+  - Cryogenics
+  - Chemistry
+  - Engineering
+  - Research
+  - Detective
+  - Salvage
+  - Security
+  - Brig
+  - Lawyer
+  - Cargo
+  - Atmospherics
+  - Medical
+  - GenpopEnter
+  - GenpopLeave
+  - InternalAffairs
+  - Magistrate
+  - Newsroom
+  - Library
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+    - type: CommandStaff
+
+- type: startingGear
+  id: XOGear
+  equipment:
+    shoes: ClothingShoesColorBrown
+    id: XOPDA
+    gloves: ClothingHandsGlovesHop
+    ears: ClothingHeadsetAltCommand
+    belt: BoxFolderClipboardThreePapers
+    eyes: ClothingEyesHudCommand
+  storage:
+    back:
+    - Flash
+
+- type: chameleonOutfit
+  id: XOChameleonOutfit
+  job: ExecutiveOfficer
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatHopcap
+    eyes: ClothingEyesHudCommand
+    mask: ClothingMaskNeckGaiterRed
+    neck: ClothingNeckCloakHop
+    outerClothing: ClothingOuterWinterHoP

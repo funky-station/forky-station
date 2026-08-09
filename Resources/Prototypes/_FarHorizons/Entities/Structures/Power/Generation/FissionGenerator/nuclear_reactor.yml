@@ -143,6 +143,14 @@
     guides:
     - NuclearReactor
     - Power
+  - type: DirectionalArrowIndicator
+    arrows:
+    - rotation: 90
+      offset: 3, 0.5
+      arrowType: BlueDirectionalArrowIndicator
+    - rotation: 90
+      offset: -3, -1.5
+      arrowType: BlueDirectionalArrowIndicator
 
 # Crew nuclear reactors
 - type: entity
@@ -157,9 +165,6 @@
     unlockOnClick: false
   - type: WarpPoint
     location: Nuclear Reactor
-    blacklist:
-      tags:
-      - GhostOnlyWarp
 
 - type: entity
   id: NuclearReactorNormal
@@ -251,7 +256,6 @@
     inletRot: 180
     outletPos: 1, 1
     outletRot: 180
-    arrowPrototype: ReactorSmallFlowArrow
     gridbounds: [ 12, 11, 0, 0 ]
   - type: Destructible
     thresholds:
@@ -269,6 +273,14 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+  - type: DirectionalArrowIndicator
+    arrows:
+    - rotation: 0
+      offset: -1, 1
+      arrowType: BlueDirectionalArrowIndicator
+    - rotation: 180
+      offset: 1, 1
+      arrowType: BlueDirectionalArrowIndicator
 
 - type: entity
   id: NuclearReactorSmallRandom
@@ -373,8 +385,15 @@
     inletRot: 180
     outletPos: 1, 1
     outletRot: 180
-    arrowPrototype: ReactorSmallFlowArrow
     gridbounds: [ 12, 11, 0, 0 ]
+  - type: DirectionalArrowIndicator
+    arrows:
+    - rotation: 0
+      offset: -1, 1
+      arrowType: BlueDirectionalArrowIndicator
+    - rotation: 180
+      offset: 1, 1
+      arrowType: BlueDirectionalArrowIndicator
 
 - type: entity
   id: NuclearReactorSmallRandomSalvage
@@ -425,41 +444,6 @@
         graphite_damaged_4_mirrored: ""
   - type: RadiationSource
     intensity: 1.6
-
-# Arrows to indicate flow
-- type: entity
-  id: ReactorFlowArrow
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Sprite
-      sprite: Markers/teg_arrow.rsi
-      color: "#FFFFFFBB"
-      layers:
-        - state: arrow
-          rotation: 90
-          offset: 3, 1
-        - state: arrow
-          rotation: 90
-          offset: -3, -1
-    - type: TimedDespawn
-      lifetime: 2
-    - type: Tag
-      tags:
-        - HideContextMenu
-
-- type: entity
-  id: ReactorSmallFlowArrow
-  parent: ReactorFlowArrow
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Sprite
-      layers:
-        - state: arrow
-          rotation: 0
-          offset: -1, 2
-        - state: arrow
-          rotation: 180
-          offset: 1, 2
 
 # Pipes the reactor uses to connect to the pipe network
 - type: entity

@@ -14,6 +14,12 @@
   - Male
   - Female
   - Unsexed
+  defaultSoundsBySex:
+  - UnisexAllulalo
+  - UnisexAllulalo
+  - UnisexAllulalo
+  voices:
+  - UnisexAllulalo
 
 # Developer Notes
 #

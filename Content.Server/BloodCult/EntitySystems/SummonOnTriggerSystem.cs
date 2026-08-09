@@ -1,28 +1,24 @@
-using System;
 using System.Numerics;
-using Content.Server.Stack;
 using Content.Server.Popups;
-using Content.Shared.Popups;
-using Content.Shared.Trigger;
-using Content.Shared.Stacks;
+using Content.Server.Stack;
 using Content.Shared.BloodCult;
 using Content.Shared.BloodCult.Components;
-using Content.Shared.SubFloor;
-using Content.Shared.Fluids.Components;
 using Content.Shared.Clothing.Components;
-using Content.Shared.Inventory;
+using Content.Shared.Fluids.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
+using Content.Shared.Popups;
+using Content.Shared.Stacks;
+using Content.Shared.SubFloor;
+using Content.Shared.Trigger;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Prototypes;
-using Content.Server.BloodCult;
-using Content.Server.Explosion.EntitySystems;
 
 namespace Content.Server.BloodCult.EntitySystems;
 
@@ -35,8 +31,6 @@ public sealed partial class SummonOnTriggerSystem : EntitySystem
 	[Dependency] private MapSystem _mapSystem = default!;
 	[Dependency] private SharedAudioSystem _audioSystem = default!;
 	[Dependency] private SharedHandsSystem _handsSystem = default!;
-	//[Dependency] private IPrototypeManager _protoMan = default!;
-	[Dependency] private IMapManager _mapManager = default!;
 
 	private EntityQuery<PhysicsComponent> _physicsQuery = default!;
 
@@ -771,7 +765,7 @@ public sealed partial class SummonOnTriggerSystem : EntitySystem
 		foreach (var offset in offsets)
 		{
 			var candidateCoords = centerCoords.Offset(offset);
-			var candidateLocation = candidateCoords.AlignWithClosestGridTile(entityManager: EntityManager, mapManager: _mapManager);
+			var candidateLocation = candidateCoords.AlignWithClosestGridTile(entityManager: EntityManager);
 
 			// Check if this location is free (no anchored blocking structures)
 			// Use EntityUid.Invalid as the rune entity since we're checking a different location
