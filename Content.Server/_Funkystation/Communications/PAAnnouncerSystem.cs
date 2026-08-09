@@ -1,8 +1,11 @@
+using System.Linq;
 using Content.Server._Funkystation.Communications;
 using Content.Server.Chat.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Communications;
+using Robust.Server.Audio;
+using Robust.Shared.Audio;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Communications
@@ -14,12 +17,13 @@ namespace Content.Server.Communications
             CommunicationsConsoleAnnounceMessage message)
         {
             var msg = message.Message.Trim();
-            var author = Loc.GetString("comms-console-announcement-unknown-sender");
-            var lines = msg.Split('\n');
+            // add the PA system preamble to the start of the announcement
+            msg = Loc.GetString("pa-announcement-title")+'\n'+msg;
 
-            // // allow admemes with vv
-            // Loc.TryGetString(comp.Title, out var title);
-            // title ??= comp.Title;
+            var author = Loc.GetString("comms-console-announcement-unknown-sender");
+
+            // split the announcement into multiple messages by newline, to be sent one after another
+            var lines = msg.Split('\n');
 
             if (message.Actor is { Valid: true } mob)
             {
@@ -41,25 +45,15 @@ namespace Content.Server.Communications
             var ev = new CommunicationConsoleAnnouncementEvent(uid, comp, msg, message.Actor);
             RaiseLocalEvent(ref ev);
 
-            var announceEv = new PAAnnouncementEvent(lines, author, message.Actor);
+            var announceEv = new PAAnnouncementEvent(lines, author, message.Actor, true);
 
+            // send the announcement to every PAAnnouncer
             var announcers = EntityQueryEnumerator<PAAnnouncerComponent>();
             while (announcers.MoveNext(out var announcer, out var paComp))
             {
-                RaiseLocalEvent(announcer, ref announceEv);
+                if (paComp.Enabled)
+                    RaiseLocalEvent(announcer, ref announceEv);
             }
-
-        }
-
-        private string SanitizePAAnnouncement(string message, int maxLength = 0)
-        {
-            var trimmed = message.Trim();
-            if (maxLength > 0 && trimmed.Length > maxLength)
-            {
-                trimmed = $"{message[..maxLength]}...";
-            }
-
-            return trimmed;
         }
     }
 }
@@ -70,6 +64,10 @@ namespace Content.Server._Funkystation.Communications
     {
         [Dependency] private ChatSystem _chat = null!;
         [Dependency] private IGameTiming _timing = null!;
+        [Dependency] private AudioSystem _audio = null!;
+        private const double MessageDelay = 3;
+        private const double LongMessageDelay = 5;
+        private const float VolumeModifier = -4f;
 
         public override void Initialize()
         {
@@ -77,25 +75,43 @@ namespace Content.Server._Funkystation.Communications
             SubscribeLocalEvent<PAAnnouncerComponent, PAAnnouncementEvent>(OnAnnouncementReceived);
         }
 
-        private void OnAnnouncementReceived(EntityUid uid, PAAnnouncerComponent comp, ref PAAnnouncementEvent args)
+        private void OnAnnouncementReceived(Entity<PAAnnouncerComponent> ent, ref PAAnnouncementEvent args)
         {
             if (!_timing.IsFirstTimePredicted)
                 return;
 
+            // i'm not even sure if we have to do this, but whatever
+            // TODO: figure out if we have to do this
             var nameEv = new TransformSpeakerNameEvent(args.Sender, Name(args.Sender));
             RaiseLocalEvent(args.Sender, nameEv);
 
             var name = Loc.GetString("pa-announcement-name", ("author", args.Author));
 
-            if (comp.QueuedMessages.Count == 0)
-                comp.NextAnnounceTime = _timing.CurTime;
+            // space out multiple announcements coming simultaneously
+            if (ent.Comp.QueuedMessages.Count == 0)
+                ent.Comp.NextAnnounceTime = _timing.CurTime;
             else
-                comp.NextAnnounceTime += TimeSpan.FromSeconds(5);
+                ent.Comp.NextAnnounceTime += TimeSpan.FromSeconds(LongMessageDelay);
 
-            foreach (var line in args.Message)
+            // queue PA system preamble
+            if (args.Preamble)
             {
-                comp.QueuedMessages.Enqueue((line, name, comp.NextAnnounceTime));
-                comp.NextAnnounceTime += TimeSpan.FromSeconds(3); // TODO: put this in the component
+                ent.Comp.QueuedMessages.Enqueue((args.Messages[0], Loc.GetString("pa-system-name"), ent.Comp.NextAnnounceTime));
+                ent.Comp.NextAnnounceTime += TimeSpan.FromSeconds(LongMessageDelay);
+            }
+
+            foreach (var line in args.Preamble ? args.Messages[1..] : args.Messages)
+            {
+                ent.Comp.QueuedMessages.Enqueue((line, name, ent.Comp.NextAnnounceTime));
+                ent.Comp.NextAnnounceTime += TimeSpan.FromSeconds(MessageDelay);
+            }
+
+            // note that if multiple announcements come in quick succession, the announcement sound will play without waiting
+            // for the next announcement or anything like that.
+            if (!args.Quiet && !ent.Comp.Quiet)
+            {
+                _audio.PlayPvs(args.CustomSound ?? ent.Comp.AnnouncementSound ?? SharedChatSystem.DefaultAnnouncementSound,
+                    ent, AudioParams.Default.WithVolume(VolumeModifier));
             }
         }
 
@@ -117,6 +133,22 @@ namespace Content.Server._Funkystation.Communications
         }
     }
 
+    /// <summary>
+    /// Raised on all PAComponents when an announcement is made with
+    /// cvar "funkystation.chat.pa_announcements".
+    /// </summary>
+    /// <param name="Messages">An array of messages to be sent by PA speakers.</param>
+    /// <param name="Author">The name of the person making the announcement.</param>
+    /// <param name="Sender">The EntityUid of the thing that made the announcement.</param>
+    /// <param name="Preamble">Whether the PA system should make a preamble "Incoming announcement" statement.</param>
+    /// <param name="Quiet">Whether to silence the PA announcement sound.</param>
+    /// <param name="CustomSound">A custom sound to play instead of whatever the speaker's default is.</param>
     [ByRefEvent]
-    public readonly record struct PAAnnouncementEvent(string[] Message, string Author, EntityUid Sender);
+    public readonly record struct PAAnnouncementEvent(
+        string[] Messages,
+        string Author,
+        EntityUid Sender,
+        bool Preamble = false,
+        bool Quiet = false,
+        SoundSpecifier? CustomSound = null);
 }

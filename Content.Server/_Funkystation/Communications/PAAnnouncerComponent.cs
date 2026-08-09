@@ -1,8 +1,13 @@
+using Robust.Shared.Audio;
+
 namespace Content.Server._Funkystation.Communications;
 
 [RegisterComponent]
 public sealed partial class PAAnnouncerComponent : Component
 {
+    [DataField]
+    public bool Enabled = true;
+
     /// <summary>
     /// The queue of announcement messages to send.
     /// </summary>
@@ -14,4 +19,17 @@ public sealed partial class PAAnnouncerComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan NextAnnounceTime = TimeSpan.Zero;
+
+    /// <summary>
+    /// A custom announcement sound this PA speaker
+    /// should play.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public SoundSpecifier? AnnouncementSound;
+
+    /// <summary>
+    /// Disables playing an announcement sound.
+    /// </summary>
+    [DataField]
+    public bool Quiet = false;
 }
