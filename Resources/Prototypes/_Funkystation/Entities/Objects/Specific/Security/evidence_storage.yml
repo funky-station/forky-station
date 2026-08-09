@@ -65,9 +65,6 @@
         whitelist:
           components:
           - Paper
-        blacklist:
-          tags:
-          - Book
     sprite: _Funkystation/Objects/Specific/Security/evidence_bag.rsi
   - type: StaticPrice
     price: 1
