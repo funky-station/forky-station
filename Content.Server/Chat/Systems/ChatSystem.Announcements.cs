@@ -1,3 +1,5 @@
+using Content.Server._Funkystation.Communications;
+using Content.Shared._Funkystation.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Station.Components;
@@ -9,6 +11,7 @@ namespace Content.Server.Chat.Systems;
 
 public sealed partial class ChatSystem
 {
+    [Dependency] private PASystem _paSystem = null!; // funky - announcements via PA speakers
     /// <inheritdoc />
     public override void DispatchGlobalAnnouncement(
         string message,
@@ -19,6 +22,13 @@ public sealed partial class ChatSystem
         )
     {
         sender ??= Loc.GetString("chat-manager-sender-announcement");
+
+        // funky - redirect announcement to PA speakers
+        if (_configurationManager.GetCVar(PAAnnouncementCVars.PAAnnouncements))
+        {
+            _paSystem.DispatchPAAnnouncement(message, sender, null, false, playSound, null, announcementSound);
+            return;
+        }
 
         var wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message", ("sender", sender), ("message", FormattedMessage.EscapeText(message)));
         _chatManager.ChatMessageToAll(ChatChannel.Radio, message, wrappedMessage, default, false, true, colorOverride);
@@ -41,6 +51,13 @@ public sealed partial class ChatSystem
     {
         sender ??= Loc.GetString("chat-manager-sender-announcement");
 
+        // funky - redirect announcement to PA speakers
+        if (_configurationManager.GetCVar(PAAnnouncementCVars.PAAnnouncements))
+        {
+            _paSystem.DispatchPAAnnouncement(message, sender, null, false, playSound, null, announcementSound);
+            return;
+        }
+
         var wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message", ("sender", sender), ("message", FormattedMessage.EscapeText(message)));
         _chatManager.ChatMessageToManyFiltered(filter, ChatChannel.Radio, message, wrappedMessage, source ?? default, false, true, colorOverride);
         if (playSound)
@@ -60,6 +77,14 @@ public sealed partial class ChatSystem
         Color? colorOverride = null)
     {
         sender ??= Loc.GetString("chat-manager-sender-announcement");
+
+        // funky - redirect announcement to PA speakers
+        // TODO: station specific announcements
+        if (_configurationManager.GetCVar(PAAnnouncementCVars.PAAnnouncements))
+        {
+            _paSystem.DispatchPAAnnouncement(message, sender, null, false, playDefaultSound, null, announcementSound);
+            return;
+        }
 
         var wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message", ("sender", sender), ("message", FormattedMessage.EscapeText(message)));
         var station = _stationSystem.GetOwningStation(source);

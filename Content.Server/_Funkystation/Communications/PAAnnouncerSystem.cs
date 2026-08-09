@@ -16,26 +16,37 @@ namespace Content.Server._Funkystation.Communications
     /// </summary>
     public sealed partial class PASystem : EntitySystem
     {
+        /// <summary>
+        /// Dispatches a PA announcement to all receivers.
+        /// </summary>
+        /// <param name="message">The message being broadcast.</param>
+        /// <param name="sender">The name of the person making the announcement.</param>
+        /// <param name="source">The EntityUid of the thing that made the announcement.</param>
+        /// <param name="preamble">Whether the PA system should make a preamble "Incoming announcement" statement.</param>
+        /// <param name="playSound">Whether the PA system should play an announcement sound.</param>
+        /// <param name="customPreamble">A custom string of text to display instead of the default preamble.</param>
+        /// <param name="announcementSound">A custom sound to play instead of whatever the speaker's default is.</param>
         public void DispatchPAAnnouncement(
             string message,
             string? sender = null,
             EntityUid? source = null,
             bool preamble = false,
             bool playSound = true,
+            LocId? customPreamble = null,
             SoundSpecifier? announcementSound = null)
         {
             var msg = message.Trim();
 
             // add the PA system preamble to the start of the announcement
             if (preamble)
-                msg = Loc.GetString("pa-announcement-title")+'\n'+msg;
+                msg = Loc.GetString(customPreamble ?? "pa-announcement-title")+'\n'+msg;
 
             var author = sender ?? Loc.GetString("comms-console-announcement-unknown-sender");
 
             // split the announcement into multiple messages by newline, to be sent one after another
             var lines = msg.Split('\n');
 
-            var announceEv = new PAAnnouncementEvent(lines, author, source, preamble, playSound, announcementSound);
+            var announceEv = new PAAnnouncementEvent(lines, author, source, preamble, playSound, customPreamble, announcementSound);
 
             // send the announcement to every PAAnnouncer
             var announcers = EntityQueryEnumerator<PAAnnouncerComponent>();
@@ -73,13 +84,13 @@ namespace Content.Server._Funkystation.Communications
 
             // i'm not even sure if we have to do this, but whatever
             // TODO: figure out if we have to do this
-            if (args.Sender != null)
+            if (args.Source != null)
             {
-                var nameEv = new TransformSpeakerNameEvent(args.Sender.Value, Name(args.Sender.Value));
-                RaiseLocalEvent(args.Sender.Value, nameEv);
+                var nameEv = new TransformSpeakerNameEvent(args.Source.Value, Name(args.Source.Value));
+                RaiseLocalEvent(args.Source.Value, nameEv);
             }
 
-            var name = Loc.GetString("pa-announcement-name", ("author", args.Author));
+            var name = Loc.GetString("pa-announcement-name", ("author", args.Sender));
 
             // space out multiple announcements coming simultaneously
             if (ent.Comp.QueuedMessages.Count == 0)
@@ -104,7 +115,7 @@ namespace Content.Server._Funkystation.Communications
             // for the next announcement or anything like that.
             if (args.PlaySound && !ent.Comp.Quiet)
             {
-                _audio.PlayPvs(args.CustomSound ?? ent.Comp.AnnouncementSound ?? SharedChatSystem.DefaultAnnouncementSound,
+                _audio.PlayPvs(args.AnnouncementSound ?? ent.Comp.AnnouncementSound ?? SharedChatSystem.DefaultAnnouncementSound,
                     ent, AudioParams.Default.WithVolume(VolumeModifier));
             }
         }
@@ -132,19 +143,21 @@ namespace Content.Server._Funkystation.Communications
     /// cvar "funkystation.chat.pa_announcements".
     /// </summary>
     /// <param name="Messages">An array of messages to be sent by PA speakers.</param>
-    /// <param name="Author">The name of the person making the announcement.</param>
-    /// <param name="Sender">The EntityUid of the thing that made the announcement.</param>
+    /// <param name="Sender">The name of the person making the announcement.</param>
+    /// <param name="Source">The EntityUid of the thing that made the announcement.</param>
     /// <param name="Preamble">Whether the PA system should make a preamble "Incoming announcement" statement.</param>
     /// <param name="PlaySound">Whether the PA system should play an announcement sound.</param>
-    /// <param name="CustomSound">A custom sound to play instead of whatever the speaker's default is.</param>
+    /// <param name="CustomPreamble">A custom string of text to display instead of the default preamble.</param>
+    /// <param name="AnnouncementSound">A custom sound to play instead of whatever the speaker's default is.</param>
     [ByRefEvent]
     public readonly record struct PAAnnouncementEvent(
         string[] Messages,
-        string Author,
-        EntityUid? Sender,
+        string Sender,
+        EntityUid? Source,
         bool Preamble = false,
         bool PlaySound = true,
-        SoundSpecifier? CustomSound = null);
+        LocId? CustomPreamble = null,
+        SoundSpecifier? AnnouncementSound = null);
 }
 
 namespace Content.Server.Communications
@@ -156,7 +169,13 @@ namespace Content.Server.Communications
             CommunicationsConsoleComponent comp,
             CommunicationsConsoleAnnounceMessage message)
         {
-            var author = Loc.GetString("comms-console-announcement-unknown-sender");
+            Loc.TryGetString(comp.Title, out var title);
+            title ??= comp.Title;
+            title += " Announcement";
+
+            // if we're not going to include the name and ID of the sender, fall back to the "title" (i.e, Communications Console, Syndicate Nuclear Operative)
+            var author = comp.AnnounceSentBy ? Loc.GetString("comms-console-announcement-unknown-sender") : title;
+
             if (message.Actor is { Valid: true } mob)
             {
                 if (!CanAnnounce(comp))
@@ -168,7 +187,8 @@ namespace Content.Server.Communications
                     return;
                 }
 
-                author = _identity.GetIdentityShortInfo(mob, uid) ?? author;
+                if (comp.AnnounceSentBy)
+                    author = _identity.GetIdentityShortInfo(mob, uid) ?? author;
             }
 
             comp.AnnouncementCooldownRemaining = comp.Delay;
@@ -181,7 +201,7 @@ namespace Content.Server.Communications
             var ev = new CommunicationConsoleAnnouncementEvent(uid, comp, msg, message.Actor);
             RaiseLocalEvent(ref ev);
 
-            _paSystem.DispatchPAAnnouncement(message.Message, author, message.Actor, true);
+            _paSystem.DispatchPAAnnouncement(message.Message, author, message.Actor, true, true, null, comp.Sound);
         }
     }
 }
