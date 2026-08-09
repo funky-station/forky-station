@@ -21,3 +21,4 @@
   - type: ContainerContainer
     containers:
       hidden_slot: !type:ContainerSlot # funky end
+  - type: AmbientMusicMarkerMedical

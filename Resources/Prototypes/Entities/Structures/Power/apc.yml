@@ -153,6 +153,7 @@
         whitelist:
           tags:
           - SurveillanceDevices # funky end
+  - type: PowerGridCheckNotify
   - type: GuideHelp
     guides:
     - VoltageNetworks

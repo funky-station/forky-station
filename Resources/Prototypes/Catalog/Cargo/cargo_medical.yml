@@ -121,7 +121,7 @@
 - type: cargoProduct
   id: ChemistryP
   icon:
-    sprite: Structures/Storage/Crates/chemcrate_secure.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/chemcrate_secure.rsi # Funky
     state: icon
   product: CrateChemistryP
   cost: 850
@@ -131,7 +131,7 @@
 - type: cargoProduct
   id: ChemistryS
   icon:
-    sprite: Structures/Storage/Crates/chemcrate_secure.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/chemcrate_secure.rsi # Funky
     state: icon
   product: CrateChemistryS
   cost: 750
@@ -141,7 +141,7 @@
 - type: cargoProduct
   id: CrateChemistryD
   icon:
-    sprite: Structures/Storage/Crates/chemcrate_secure.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/chemcrate_secure.rsi # Funky
     state: icon
   product: CrateChemistryD
   cost: 750

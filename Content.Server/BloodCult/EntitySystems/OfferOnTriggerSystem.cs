@@ -1,58 +1,50 @@
-using System.Numerics;
 using System.Linq;
-using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
-using Robust.Shared.Prototypes;
-using Robust.Server.GameObjects;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Audio;
-using Robust.Shared.Containers;
-using Robust.Shared.Timing;
-using Content.Shared.Trigger;
-using Content.Shared.DoAfter;
-using Content.Server.Explosion.EntitySystems;
-using Content.Server.Popups;
-using Content.Shared.Popups;
-using Content.Server.BloodCult;
 using Content.Server.BloodCult.Components;
-using Content.Shared.BloodCult;
-using Content.Shared.BloodCult.Components;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Systems;
-using Content.Shared.Damage.Prototypes;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.FixedPoint;
-using Content.Shared.Mind;
-using Content.Shared.Mind.Components;
-using Content.Shared.Humanoid;
-using Content.Shared.Mindshield.Components;
-using Content.Shared.Body.Components;
-using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
-using Content.Shared.Body;
-using Content.Shared.Roles;
-using Content.Server.Roles;
-using Content.Server.Mind;
 using Content.Server.Chat.Systems;
-using Content.Shared.Chat;
 using Content.Server.GameTicking;
-using Content.Shared.Stunnable;
-using Content.Shared.StatusEffect;
 using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Shared.Silicons.Borgs.Components;
-using Content.Shared.Tag;
+using Content.Server.Mind;
+using Content.Server.Popups;
+using Content.Server.Speech.Components;
+using Content.Shared.BloodCult;
+using Content.Shared.BloodCult.Components;
+using Content.Shared.Body;
+using Content.Shared.Body.Components;
+using Content.Shared.Chat;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
+using Content.Shared.DoAfter;
+using Content.Shared.Emoting;
+using Content.Shared.FixedPoint;
+using Content.Shared.GameTicking.Components;
+using Content.Shared.Humanoid;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
-using Robust.Shared.Physics.Systems;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Random;
-using Content.Shared.GameTicking.Components;
-using Content.Shared.Speech;
-using Content.Server.Speech.Components;
-using Content.Shared.Emoting;
-using Content.Shared.NPC.Systems;
+using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
+using Content.Shared.Mindshield.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Components;
+using Content.Shared.NPC.Systems;
+using Content.Shared.Popups;
+using Content.Shared.Roles;
+using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Speech;
+using Content.Shared.Stunnable;
+using Content.Shared.Tag;
+using Content.Shared.Trigger;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
+using Robust.Shared.Map;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server.BloodCult.EntitySystems
 {
@@ -77,7 +69,6 @@ namespace Content.Server.BloodCult.EntitySystems
 		[Dependency] private ChatSystem _chat = default!;
 		[Dependency] private SharedTransformSystem _transform = default!;
 		[Dependency] private DamageableSystem _damageable = default!;
-		[Dependency] private IPrototypeManager _prototypeManager = default!;
 		[Dependency] private TagSystem _tag = default!;
 		[Dependency] private SharedSubdermalImplantSystem _implantSystem = default!;
 		[Dependency] private SharedPhysicsSystem _physics = default!;
@@ -888,7 +879,7 @@ namespace Content.Server.BloodCult.EntitySystems
 	foreach (EntityUid participant in validParticipants)
 	{
 		// Apply slash damage (20 points) - the ritual tears at their flesh
-		var damageSpec = new DamageSpecifier(_prototypeManager.Index(SlashDamageType), FixedPoint2.New(20));
+		var damageSpec = new DamageSpecifier(ProtoMan.Index(SlashDamageType), FixedPoint2.New(20));
 		_damageable.TryChangeDamage(participant, damageSpec, ignoreResistances: false);
 
 		// Apply heavy bleeding (5 units/second)

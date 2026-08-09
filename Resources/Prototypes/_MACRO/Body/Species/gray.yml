@@ -150,10 +150,7 @@
   - type: TypingIndicator
     proto: gray
   - type: Vocal
-    sounds:
-      Male: UnisexGray
-      Female: UnisexGray
-      Unsexed: UnisexGray
+    emoteSounds: UnisexGray
   - type: Speech
     speechSounds: PVC
   - type: Damageable

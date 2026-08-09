@@ -109,7 +109,7 @@
   id: Stamp
   name: steal-target-groups-stamps
   sprite:
-    sprite: Objects/Misc/stamps.rsi
+    sprite: _Funkystation/Objects/Misc/stamps.rsi # Funky
     state: stamp-cap
 
 - type: stealTargetGroup
