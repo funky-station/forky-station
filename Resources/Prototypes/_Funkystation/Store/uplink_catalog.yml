@@ -48,9 +48,9 @@
   productEntity: BriefcaseWeaponEstocFilled
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 35
+    Telecrystal: 25
   cost:
-    Telecrystal: 80
+    Telecrystal: 60
   categories:
   - UplinkWeaponry
   
