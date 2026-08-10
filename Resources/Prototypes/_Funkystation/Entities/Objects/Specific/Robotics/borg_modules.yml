@@ -70,16 +70,6 @@
           tags:
           - ConstructionMaterial
     - item: Wrench
-    - item: Pen
-    - item: Paper
-      hand:
-        emptyLabel: borg-slot-paperwork-empty
-        emptyRepresentative: Paper
-        whitelist:
-          tags:
-          - Document
-          - Paper
-    - item: HandLabeler
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-anomaly-module }
 
@@ -146,6 +136,7 @@
 
 - type: entity
   id: BorgModuleFoam
+  suffix: do not map
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
   name: foam warrior cyborg module
   description: For NT's strongest cyber warriors.

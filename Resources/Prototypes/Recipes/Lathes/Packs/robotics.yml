@@ -17,7 +17,6 @@
   - BorgModulePaperwork #Funky
   - BorgModuleMedicalBasic #Funky
   - BorgModuleChemicalBasic #Funky
-  - BorgModuleFoam #Funky
 
 - type: latheRecipePack
   id: BorgLimbsStatic

@@ -41,4 +41,4 @@
     - proto: AnomalousParticleSigmaStrong
       fireCost: 100
   - type: BatterySelfRecharger
-    autoRechargeRate: 50
+    autoRechargeRate: 10

@@ -79,9 +79,9 @@
   productEntity: BorgModuleSyndicateHacking
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 8
   cost:
-    Telecrystal: 4
+    Telecrystal: 20
   categories:
   - UplinkDisruption
   
