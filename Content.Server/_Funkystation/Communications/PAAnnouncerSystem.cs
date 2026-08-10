@@ -10,7 +10,6 @@ using Robust.Shared.Timing;
 
 // TODO: admin logging
 // TODO: disable PA announcements when they lose power
-// TODO: the monoification (done, i guess? :( )
 namespace Content.Server._Funkystation.Communications
 {
     /// <summary>
@@ -104,6 +103,7 @@ namespace Content.Server._Funkystation.Communications
         [Dependency] private ChatSystem _chat = null!;
         [Dependency] private IGameTiming _timing = null!;
         [Dependency] private AudioSystem _audio = null!;
+        [Dependency] private IConfigurationManager _cfg = null!;
         private const double MessageDelay = 3;
         private const double LongMessageDelay = 5;
         private const float VolumeModifier = -4f;
@@ -112,6 +112,7 @@ namespace Content.Server._Funkystation.Communications
         {
             base.Initialize();
             SubscribeLocalEvent<PAAnnouncerComponent, PAAnnouncementEvent>(OnAnnouncementReceived);
+            Subs.CVar(_cfg, PAAnnouncementCVars.PAAnnouncements, OnAnnouncementsCvarChanged, true);
         }
 
         private void OnAnnouncementReceived(Entity<PAAnnouncerComponent> ent, ref PAAnnouncementEvent args)
@@ -161,6 +162,9 @@ namespace Content.Server._Funkystation.Communications
         {
             base.Update(frameTime);
 
+            if (!_cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements))
+                return;
+
             var announcers = EntityQueryEnumerator<PAAnnouncerComponent>();
             // TODO: iterating through them all like this every update makes me very sad.
             while (announcers.MoveNext(out var uid, out var comp))
@@ -171,6 +175,20 @@ namespace Content.Server._Funkystation.Communications
                 var (line, author, _) = comp.QueuedMessages.Dequeue();
 
                 _chat.TrySendInGameICMessage(uid, line, InGameICChatType.Speak, ChatTransmitRange.GhostRangeLimit, nameOverride: author, checkRadioPrefix: false);
+            }
+        }
+
+        // if pa announcements get disabled in the middle of an announcement being broadcast, we don't want the unsent
+        // messages to remain banked up
+        private void OnAnnouncementsCvarChanged(bool value)
+        {
+            if (!value)
+            {
+                var announcers = EntityQueryEnumerator<PAAnnouncerComponent>();
+                while (announcers.MoveNext(out var comp))
+                {
+                    comp.QueuedMessages.Clear();
+                }
             }
         }
     }

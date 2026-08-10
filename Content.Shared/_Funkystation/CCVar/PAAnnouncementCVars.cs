@@ -6,8 +6,8 @@ namespace Content.Shared._Funkystation.CCVar;
 public sealed class PAAnnouncementCVars
 {
     public static readonly CVarDef<bool> PAAnnouncements =
-        CVarDef.Create("funkystation.chat.pa_announcements", true, CVar.SERVERONLY);
+        CVarDef.Create("funkystation.chat.pa_announcements", true, CVar.SERVER);
 
     public static readonly CVarDef<int> PAMaxAnnounceMessageLength =
-        CVarDef.Create("funkystation.chat.pa_max_announce_message_length", 128, CVar.SERVERONLY);
+        CVarDef.Create("funkystation.chat.pa_max_announce_message_length", 128, CVar.SERVER);
 }
