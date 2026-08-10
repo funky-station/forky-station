@@ -23,5 +23,6 @@
     - type: WarDeclarator
       message: war-declarator-default-message
       sound: /Audio/Announcements/war_mono.ogg # funky - mono sounds for pa speakers
+      senderTitle: comms-console-announcement-title-declaration-of-war # funky
     - type: AccessReader
       access: [["NuclearOperative"]]

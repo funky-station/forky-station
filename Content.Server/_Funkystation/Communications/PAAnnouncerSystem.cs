@@ -9,10 +9,8 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 
 // TODO: admin logging
-// TODO: station specific announcements
 // TODO: disable PA announcements when they lose power
 // TODO: the monoification (done, i guess? :( )
-// TODO: some announcements are long with no newlines. split long announcements by sentence (done?)
 namespace Content.Server._Funkystation.Communications
 {
     /// <summary>
@@ -88,7 +86,7 @@ namespace Content.Server._Funkystation.Communications
                 // assuming the message is using proper punctuation, put the periods back for all except the last sentence
                 for (var i = 0; i < lastMessageSplit.Length - 1; i++)
                 {
-                    lastMessageSplit[i] += '.'; // TODO: should probably be using loc strings for this instead
+                    lastMessageSplit[i] = Loc.GetString("pa-announcement-long-message-wrap", ("message", lastMessageSplit[i]));
                 }
                 lines = lines[..^1].Concat(lastMessageSplit).ToArray(); // messy IMO but whatever
             }
@@ -108,7 +106,7 @@ namespace Content.Server._Funkystation.Communications
         [Dependency] private AudioSystem _audio = null!;
         private const double MessageDelay = 3;
         private const double LongMessageDelay = 5;
-        private const float VolumeModifier = -3.5f;
+        private const float VolumeModifier = -4f;
 
         public override void Initialize()
         {
