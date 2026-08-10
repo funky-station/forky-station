@@ -31,7 +31,7 @@ public sealed partial class ChatSystem
         // funky - redirect announcement to PA speakers
         if (_configurationManager.GetCVar(PAAnnouncementCVars.PAAnnouncements))
         {
-            _paSystem.DispatchPAAnnouncement(message, sender, null, false, playSound, null, announcementSound);
+            _paSystem.DispatchPAAnnouncement(message, sender, null, false, playSound, true, null, announcementSound);
             return;
         }
 
@@ -45,6 +45,9 @@ public sealed partial class ChatSystem
     }
 
     /// <inheritdoc />
+    /// <note>Will function identically to
+    /// DispatchGlobalAnnouncement when cvar
+    /// funkystation.chat.pa_announcements = true.</note>
     /// <funky>If you're developing content for
     /// Funky Station or one of its downstreams
     /// and passing an announcementSound, please
@@ -64,7 +67,7 @@ public sealed partial class ChatSystem
         // funky - redirect announcement to PA speakers
         if (_configurationManager.GetCVar(PAAnnouncementCVars.PAAnnouncements))
         {
-            _paSystem.DispatchPAAnnouncement(message, sender, null, false, playSound, null, announcementSound);
+            _paSystem.DispatchPAAnnouncement(message, sender, source, false, playSound,  true, null, announcementSound);
             return;
         }
 
@@ -97,7 +100,7 @@ public sealed partial class ChatSystem
         // TODO: station specific announcements
         if (_configurationManager.GetCVar(PAAnnouncementCVars.PAAnnouncements))
         {
-            _paSystem.DispatchPAAnnouncement(message, sender, null, false, playDefaultSound, null, announcementSound);
+            _paSystem.DispatchPAAnnouncement(message, sender, source, false, playDefaultSound, false, null, announcementSound);
             return;
         }
 

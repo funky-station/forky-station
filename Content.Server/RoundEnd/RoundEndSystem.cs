@@ -215,7 +215,8 @@ namespace Content.Server.RoundEnd
                 paAnnouncements ? new SoundPathSpecifier("/Audio/Announcements/shuttlecalled_mono.ogg") : null, // funky
                 Color.Gold);
 
-            _audio.PlayGlobal("/Audio/Announcements/shuttlecalled.ogg", Filter.Broadcast(), true);
+            if (!paAnnouncements) // funky
+                _audio.PlayGlobal("/Audio/Announcements/shuttlecalled.ogg", Filter.Broadcast(), true);
 
             LastCountdownStart = _gameTiming.CurTime;
             ExpectedCountdownEnd = _gameTiming.CurTime + countdownTime;
@@ -269,7 +270,8 @@ namespace Content.Server.RoundEnd
                 paAnnouncements, paAnnouncements ? new SoundPathSpecifier("/Audio/Announcements/shuttlerecalled_mono.ogg") : null, // funky
                 colorOverride: Color.Gold);
 
-            _audio.PlayGlobal("/Audio/Announcements/shuttlerecalled.ogg", Filter.Broadcast(), true);
+            if (!paAnnouncements) // funky
+                _audio.PlayGlobal("/Audio/Announcements/shuttlerecalled.ogg", Filter.Broadcast(), true);
 
             LastCountdownStart = null;
             ExpectedCountdownEnd = null;

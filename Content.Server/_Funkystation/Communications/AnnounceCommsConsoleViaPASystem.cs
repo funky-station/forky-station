@@ -44,7 +44,7 @@ namespace Content.Server.Communications
             var ev = new CommunicationConsoleAnnouncementEvent(uid, comp, msg, message.Actor);
             RaiseLocalEvent(ref ev);
 
-            _paSystem.DispatchPAAnnouncement(message.Message, author, message.Actor, true, true, null, comp.Sound);
+            _paSystem.DispatchPAAnnouncement(message.Message, author, message.Actor, true, true, comp.Global, null, comp.Sound);
         }
     }
 }

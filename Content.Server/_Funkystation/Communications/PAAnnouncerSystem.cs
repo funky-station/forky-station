@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server.Chat.Systems;
+using Content.Server.Station.Systems;
 using Content.Shared._Funkystation.CCVar;
 using Content.Shared.Chat;
 using Robust.Server.Audio;
@@ -9,6 +10,7 @@ using Robust.Shared.Timing;
 
 // TODO: admin logging
 // TODO: station specific announcements
+// TODO: disable PA announcements when they lose power
 // TODO: the monoification (done, i guess? :( )
 // TODO: some announcements are long with no newlines. split long announcements by sentence (done?)
 namespace Content.Server._Funkystation.Communications
@@ -19,6 +21,7 @@ namespace Content.Server._Funkystation.Communications
     public sealed partial class PASystem : EntitySystem
     {
         [Dependency] private IConfigurationManager _cfg = null!;
+        [Dependency] private StationSystem _stationSystem = null!;
 
         /// <summary>
         /// Dispatches a PA announcement to all receivers.
@@ -28,6 +31,7 @@ namespace Content.Server._Funkystation.Communications
         /// <param name="source">The EntityUid of the thing that made the announcement.</param>
         /// <param name="preamble">Whether the PA system should make a preamble "Incoming announcement" statement.</param>
         /// <param name="playSound">Whether the PA system should play an announcement sound.</param>
+        /// <param name="global">Whether the announcement should broadcast to all grids or just the station of the sender.</param>
         /// <param name="customPreamble">A custom string of text to display instead of the default preamble.</param>
         /// <param name="announcementSound">A custom sound to play instead of whatever the speaker's default is.</param>
         public void DispatchPAAnnouncement(
@@ -36,20 +40,31 @@ namespace Content.Server._Funkystation.Communications
             EntityUid? source = null,
             bool preamble = false,
             bool playSound = true,
+            bool global = true,
             LocId? customPreamble = null,
             SoundSpecifier? announcementSound = null)
         {
-            var lines = FormatPAAnnouncement(message, preamble, customPreamble);
+            EntityUid? station = null;
+            if (!global)
+            {
+                station = _stationSystem.GetOwningStation(source);
 
+                if (station == null)
+                {
+                    // you can't make a station announcement without a station
+                    return;
+                }
+            }
+            var lines = FormatPAAnnouncement(message, preamble, customPreamble);
             var author = sender ?? Loc.GetString("comms-console-announcement-unknown-sender");
 
-
             var announceEv = new PAAnnouncementEvent(lines, author, source, preamble, playSound, announcementSound);
-
             // send the announcement to every PAAnnouncer
             var announcers = EntityQueryEnumerator<PAAnnouncerComponent>();
             while (announcers.MoveNext(out var announcer, out var paComp))
             {
+                if (!global && _stationSystem.GetOwningStation(announcer) != station)
+                    continue;
                 if (paComp.Enabled)
                     RaiseLocalEvent(announcer, ref announceEv);
             }
@@ -73,7 +88,7 @@ namespace Content.Server._Funkystation.Communications
                 // assuming the message is using proper punctuation, put the periods back for all except the last sentence
                 for (var i = 0; i < lastMessageSplit.Length - 1; i++)
                 {
-                    lastMessageSplit[i] += '.';
+                    lastMessageSplit[i] += '.'; // TODO: should probably be using loc strings for this instead
                 }
                 lines = lines[..^1].Concat(lastMessageSplit).ToArray(); // messy IMO but whatever
             }
@@ -169,7 +184,7 @@ namespace Content.Server._Funkystation.Communications
     /// <param name="Messages">An array of messages to be sent by PA speakers.</param>
     /// <param name="Sender">The name of the person making the announcement.</param>
     /// <param name="Source">The EntityUid of the thing that made the announcement.</param>
-    /// <param name="Preamble">Whether the PA system should make a preamble "Incoming announcement" statement.</param>
+    /// <param name="Preamble">Whether the first message of the announcement should be treated as a preamble "Incoming announcement" statement.</param>
     /// <param name="PlaySound">Whether the PA system should play an announcement sound.</param>
     /// <param name="AnnouncementSound">A custom sound to play instead of whatever the speaker's default is.</param>
     [ByRefEvent]
