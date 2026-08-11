@@ -8,6 +8,9 @@ public sealed partial class PAAnnouncerComponent : Component
     [DataField]
     public bool Enabled = true;
 
+    [DataField]
+    public bool PowerRequired = true;
+
     /// <summary>
     /// The queue of announcement messages to send.
     /// </summary>

@@ -6,13 +6,13 @@ using Content.Server.Station.Systems;
 using Content.Shared._Funkystation.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Database;
+using Content.Shared.Power;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-// TODO: disable PA announcements when they lose power
 // TODO: code pass
 namespace Content.Server._Funkystation.Communications
 {
@@ -122,12 +122,36 @@ namespace Content.Server._Funkystation.Communications
         {
             base.Initialize();
             SubscribeLocalEvent<PAAnnouncerComponent, PAAnnouncementEvent>(OnAnnouncementReceived);
+            SubscribeLocalEvent<PAAnnouncerComponent, PowerChangedEvent>(OnPowerChanged);
+
             Subs.CVar(_cfg, PAAnnouncementCVars.PAAnnouncements, OnAnnouncementsCvarChanged, true);
+        }
+
+        public override void Update(float frameTime)
+        {
+            base.Update(frameTime);
+
+            if (!_cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements))
+                return;
+
+            var announcers = EntityQueryEnumerator<PAAnnouncerComponent>();
+            // TODO: iterating through them all like this every update makes me very sad.
+            while (announcers.MoveNext(out var uid, out var comp))
+            {
+                if (!comp.Enabled)
+                    continue;
+                if (comp.QueuedMessages.Count < 1 || comp.QueuedMessages.Peek().announceTime > _timing.CurTime)
+                    continue;
+
+                var (line, author, _) = comp.QueuedMessages.Dequeue();
+
+                _chat.TrySendInGameICMessage(uid, line, InGameICChatType.Speak, ChatTransmitRange.GhostRangeLimit, nameOverride: author, checkRadioPrefix: false);
+            }
         }
 
         private void OnAnnouncementReceived(Entity<PAAnnouncerComponent> ent, ref PAAnnouncementEvent args)
         {
-            if (!_timing.IsFirstTimePredicted)
+            if (!_timing.IsFirstTimePredicted || !ent.Comp.Enabled)
                 return;
 
             // i'm not even sure if we have to do this, but whatever
@@ -168,26 +192,6 @@ namespace Content.Server._Funkystation.Communications
             }
         }
 
-        public override void Update(float frameTime)
-        {
-            base.Update(frameTime);
-
-            if (!_cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements))
-                return;
-
-            var announcers = EntityQueryEnumerator<PAAnnouncerComponent>();
-            // TODO: iterating through them all like this every update makes me very sad.
-            while (announcers.MoveNext(out var uid, out var comp))
-            {
-                if (comp.QueuedMessages.Count < 1 || comp.QueuedMessages.Peek().announceTime > _timing.CurTime)
-                    continue;
-
-                var (line, author, _) = comp.QueuedMessages.Dequeue();
-
-                _chat.TrySendInGameICMessage(uid, line, InGameICChatType.Speak, ChatTransmitRange.GhostRangeLimit, nameOverride: author, checkRadioPrefix: false);
-            }
-        }
-
         // if pa announcements get disabled in the middle of an announcement being broadcast, we don't want the unsent
         // messages to remain banked up
         private void OnAnnouncementsCvarChanged(bool value)
@@ -199,6 +203,15 @@ namespace Content.Server._Funkystation.Communications
                 {
                     comp.QueuedMessages.Clear();
                 }
+            }
+        }
+
+        private static void OnPowerChanged(Entity<PAAnnouncerComponent> ent, ref PowerChangedEvent args)
+        {
+            if (ent.Comp.PowerRequired)
+            {
+                ent.Comp.Enabled = args.Powered;
+                ent.Comp.QueuedMessages.Clear();
             }
         }
     }
