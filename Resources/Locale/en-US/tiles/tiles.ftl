@@ -158,6 +158,7 @@ tiles-xenoborg-floor = xenoborg tile
 tiles-dark-squiggly = dark steel squiggly tile
 tiles-white-marble = white marble tile
 tiles-dark-marble = dark marble tile
+# Funky - Replaced "plasmarble" with "phoron marble"
 tiles-plasma-marble = phoron marble tile
 tiles-uranium-marble = uranium marble tile
 tiles-ironsand-plating = ironsand plating

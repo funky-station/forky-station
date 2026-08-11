@@ -2,8 +2,10 @@ construction-recipe-diagonal-shuttle-wall = shuttle wall (diagonal)
 construction-window-diagonal = window (diagonal)
 construction-recipe-reinforced-window-diagonal = reinforced window (diagonal)
 construction-recipe-clockwork-window-diagonal = clockwork window (diagonal)
+# Funky start - Replaced "plasma" with "phoron"
 construction-recipe-plasma-window-diagonal = phoron window (diagonal)
 construction-recipe-reinforced-plasma-window-diagonal = reinforced phoron window (diagonal)
+# Funky end
 construction-recipe-uranium-window-diagonal = uranium window (diagonal)
 construction-recipe-reinforced-uranium-window-diagonal = reinforced uranium window (diagonal)
 construction-recipe-firelock-edge = directional firelock

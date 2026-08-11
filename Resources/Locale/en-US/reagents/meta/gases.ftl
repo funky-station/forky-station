@@ -1,6 +1,7 @@
 reagent-name-oxygen = oxygen
 reagent-desc-oxygen = An oxidizing, colorless gas.
 
+# Funky - Replaced "plasma" with "phoron"
 reagent-name-plasma = phoron
 reagent-desc-plasma = Funky, space-magic pixie dust. You probably shouldn't eat this, but we both know you will anyways.
 

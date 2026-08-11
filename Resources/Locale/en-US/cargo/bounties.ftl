@@ -26,6 +26,7 @@ bounty-item-monkey-cube = Monkey cube
 bounty-item-mouse = Dead mouse
 bounty-item-ore-bananium = Bananium ore
 bounty-item-ore-gold = Gold ore
+# Funky - Replaced "plasma" with "phoron"
 bounty-item-ore-plasma = Phoron ore
 bounty-item-ore-silver = Silver ore
 bounty-item-ore-uranium = Uranium ore

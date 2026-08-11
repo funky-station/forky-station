@@ -37,6 +37,7 @@ artifact-trigger-hint-death = Life essence
 artifact-trigger-hint-radiation = Radiation
 artifact-trigger-hint-pressure = Extreme pressure
 artifact-trigger-hint-regular-gases = Standard atmospheric gases
+# Funky - Replaced "gaseous plasma" with "plasmic phoron"
 artifact-trigger-hint-plasma = Plasmic phoron
 artifact-trigger-hint-land = Active deceleration
 artifact-trigger-hint-examine = Examination
@@ -48,6 +49,7 @@ xenoarch-trigger-tip-cold = Low temperature gas
 xenoarch-trigger-tip-no-oxygen = Oxygen-free environment
 xenoarch-trigger-tip-water = Water
 xenoarch-trigger-tip-co2 = Carbon dioxide
+# Funky - Replaced "plasma" with "phoron"
 xenoarch-trigger-tip-plasma = Non-solid phoron
 xenoarch-trigger-tip-tritium = Tritium
 xenoarch-trigger-tip-ammonia = Ammonia

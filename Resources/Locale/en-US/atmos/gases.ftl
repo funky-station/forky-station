@@ -4,6 +4,7 @@ gas-nitrogen = Nitrogen
 gas-nitrogen-abbreviation = N₂
 gas-carbon-dioxide = Carbon Dioxide
 gas-carbon-dioxide-abbreviation = CO₂
+# Funky - Replaced "plasma" with "phoron"
 gas-plasma = Phoron
 gas-plasma-abbreviation = P
 gas-tritium = Tritium

@@ -7,10 +7,12 @@ stack-plastic = plastic
 stack-silver = silver
 stack-gold = gold
 stack-reinforced-glass = reinforced glass
+# Funky - Replaced "plasma" with "phoron"
 stack-plasma-glass = phoron glass
 stack-uranium = uranium
 stack-uranium-glass = uranium glass
 stack-clockwork-glass = clockwork glass
+# Funky - Replaced "plasma" with "phoron"
 stack-reinforced-plasma-glass = reinforced phoron glass
 stack-reinforced-uranium-glass = reinforced uranium glass
 stack-runed-glass = runed glass
@@ -107,6 +109,7 @@ stack-rolling-paper = rolling {$amount ->
 
 stack-fulton = fulton
 stack-credit = speso
+# Funky - Replaced "plasma" with "phoron"
 stack-plasma = phoron
 stack-biomass = biomass
 stack-pyrotton = pyrotton
@@ -116,6 +119,7 @@ stack-telecrystal = telecrystal
 stack-gold-ore = gold ore
 stack-rough-diamond = rough diamond
 stack-iron-ore = iron ore
+# Funky - Replaced "plasma" with "phoron"
 stack-plasma-ore = phoron ore
 stack-silver-ore = silver ore
 stack-space-quartz = space quartz
@@ -265,6 +269,7 @@ stack-xeno-maint = xeno techmaint
 stack-dark-squiggly = dark steel squiggly tile
 stack-white-marble-floor = white marble floor
 stack-dark-marble-floor = dark marble floor
+# Funky - Replaced "plasmarble" with "phoron marble"
 stack-plasma-marble-floor = phoron marble floor
 stack-uranium-marble-floor = uranium marble floor
 stack-astro-ironsand-floor = astro-ironsand floor

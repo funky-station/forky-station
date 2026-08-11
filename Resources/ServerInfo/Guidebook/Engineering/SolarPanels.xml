@@ -104,9 +104,10 @@
     <GuideEntityEmbed Entity="SolarPanelPlasma" Caption=""/>
     <GuideEntityEmbed Entity="SolarPanelUranium" Caption=""/>
   </Box>
-
+  <!-- Funky start - Replaced "plasma" with "phoron" -->
   This can be done by replacing the glass sheets in the solar assembly with phoron or uranium glass sheets.
 
   Phoron and Uranium solar panels generate [color=orange][protodata="SolarPanelPlasma" comp="SolarPanel" member="MaxSupply" format="N0"] W[/color] and [color=orange][protodata="SolarPanelUranium" comp="SolarPanel" member="MaxSupply" format="N0"] W[/color] of power respectively.
+  <!-- Funky end -->
   They also are much tougher than regular solar panels.
 </Document>

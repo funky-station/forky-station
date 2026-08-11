@@ -36,6 +36,7 @@
 
   Reinforced quarter-size glass can withstand a ΔP of up to [color=orange][protodata="WindowReinforcedDirectional" comp="DeltaPressure" member="MinPressureDelta"/] kPa[/color] before starting to crack.
 
+  <!-- Funky start - Replaced "plasma" with "phoron" -->
   ## Phoron/Uranium Glass
   <Box>
     <GuideEntityEmbed Entity="PlasmaWindow" Caption=""/>
@@ -65,5 +66,5 @@
   Reinforced phoron glass and uranium glass can withstand a ΔP of up to [color=orange][protodata="ReinforcedPlasmaWindow" comp="DeltaPressure" member="MinPressureDelta"/] kPa[/color] before starting to crack.
 
   Reinforced phoron and uranium quarter-size glass can withstand a ΔP of up to [color=orange][protodata="PlasmaReinforcedWindowDirectional" comp="DeltaPressure" member="MinPressureDelta"/] kPa[/color] before starting to crack.
-
+  <!-- Funky end -->
 </Document>

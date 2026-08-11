@@ -176,6 +176,7 @@ spray-painter-style-cratesecure-command = Command
 spray-painter-style-cratesecure-engineering = Engineering
 spray-painter-style-cratesecure-hydroponics = Hydroponics
 spray-painter-style-cratesecure-medical = Medical
+# Funky - Replaced "plasma" with "phoron"
 spray-painter-style-cratesecure-plasma = Phoron
 spray-painter-style-cratesecure-private = Private
 spray-painter-style-cratesecure-science = Science
@@ -190,6 +191,7 @@ spray-painter-style-canisters-frezon = Frezon
 spray-painter-style-canisters-nitrogen = Nitrogen
 spray-painter-style-canisters-nitrous-oxide = Nitrous oxide
 spray-painter-style-canisters-oxygen = Oxygen
+# Funky - Replaced "plasma" with "plasmic phoron"
 spray-painter-style-canisters-plasma = Plasmic phoron
 spray-painter-style-canisters-storage = Storage
 spray-painter-style-canisters-tritium = Tritium

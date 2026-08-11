@@ -7,6 +7,7 @@ salvage-asteroid-name = Asteroid
 salvage-magnet-window-title = Salvage magnet
 salvage-expedition-window-progression = Progression
 
+# Funky - Replaced "plasma" with "phoron"
 salvage-magnet-resources = {$resource ->
     [OreIron] Iron
     [OreCoal] Coal

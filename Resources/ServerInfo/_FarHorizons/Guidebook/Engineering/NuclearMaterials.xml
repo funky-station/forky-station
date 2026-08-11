@@ -338,7 +338,7 @@
 
         <ColorBox Color="#7e009e">
             <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="2">
-                Phoron
+                Phoron <!-- Funky - Replaced "plasma" with "phoron" -->
             </Box>
         </ColorBox>
         <ColorBox>

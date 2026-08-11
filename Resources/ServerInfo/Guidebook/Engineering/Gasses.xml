@@ -58,10 +58,11 @@
   <Box>
     <GuideEntityEmbed Entity="WaterVaporCanister" Caption=""/>
   </Box>
-  A common gas, produced by the burning of plasmic phoron and other processes.
+  A common gas, produced by the burning of plasmic phoron and other processes. <!-- Funky - Replaced "plasma" with "plasmic phoron" -->
 
   Water vapor has a good specific heat capacity compared to other gasses, making it useful for moving heat around.
 
+  <!-- Funky start - Replaced all references to plasma with references to phoron -->
   ## Plasmic phoron
   <Box>
     <GuideEntityEmbed Entity="PlasmaCanister" Caption=""/>
@@ -73,6 +74,7 @@
   Burning it generates a lot of heat, as well as gas byproducts such as carbon dioxide, water vapor, and tritium, depending on the efficiency of the burn.
 
   Phoron also has a good specific heat capacity, making it useful for moving heat around.
+  <!-- Funky end -->
 
   ## Tritium
   <Box>
@@ -80,7 +82,7 @@
   </Box>
   An extremely flammable radioactive gas that is used in the creation of frezon.
 
-  Tritium is produced when burning plasmic phoron in a burn chamber, and can be used to create frezon gas in a complicated mixing process.
+  Tritium is produced when burning plasmic phoron in a burn chamber, and can be used to create frezon gas in a complicated mixing process. <!-- Funky - Replaced "plasma" with "plasmic phoron" -->
 
   The efficiency of tritium fusion depends on various factors such as burn richness and temperature.
 

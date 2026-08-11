@@ -7,7 +7,7 @@
     <GuideEntityEmbed Entity="Singularity"/>
   </Box>
 
-  It generates power by collecting the radiation emitted by the singularity using Radiation Collectors and plasmic phoron.
+  It generates power by collecting the radiation emitted by the singularity using Radiation Collectors and plasmic phoron. <!-- Funky - Replaced "gaseous plasma" with "plasmic phoron" -->
 
   ## Starting the Singularity Engine
   To start the Singularity Engine, engineers must follow these steps:
@@ -15,7 +15,7 @@
   - Turn on the four Containment Field Generators.
   - Turn on and lock the Emitters.
   - Confirm that the Containment Field Generators have created a Containment Field around the Singularity.
-  - Turn on the Radiation Collectors. These require plasmic phoron to produce power. They might not come fueled, so be sure to refill them.
+  - Turn on the Radiation Collectors. These require plasmic phoron to produce power. They might not come fueled, so be sure to refill them. <!-- Funky - Replaced "plasma" with "plasmic phoron" -->
   - Construct the Particle Accelerator.
   - Turn on the Particle Accelerator Control Computer and set the power level to the desired power level.
 
@@ -54,12 +54,12 @@
     <GuideEntityEmbed Entity="RadiationCollector"/>
     <GuideEntityEmbed Entity="PlasmaTank"/>
   </Box>
-  They require plasmic phoron to function. The plasma containers attached to the collectors must be filled with phoron to produce power.
+  They require plasmic phoron to function. The plasma containers attached to the collectors must be filled with phoron to produce power. <!-- Funky - Replaced "plasma" with "phoron" -->
 
   You can turn on the collectors by interacting with them using [color=yellow][bold][keybind="Use"][/bold][/color].
 
   You can also eject the tank by interacting with the collector using [color=yellow][bold][keybind="AltActivateItemInWorld"][/bold][/color].
-  From here, you can refill the tank with phoron using a plasmic phoron canister and reinsert it into the collector.
+  From here, you can refill the tank with phoron using a plasmic phoron canister and reinsert it into the collector. <!-- Funky - Replaced "plasma" with "plasmic phoron" -->
 
   The maximum power the radiation collector can produce is determined by:
   - The amount of radiation it is capturing (which is effectively the Singularity's power level)

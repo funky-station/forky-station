@@ -1,8 +1,10 @@
 # Glass
 materials-glass = glass
 materials-reinforced-glass = reinforced glass
+# Funky start - Replaced "plasma" with "phoron"
 materials-plasma-glass = phoron glass
 materials-reinforced-plasma-glass = reinforced phoron glass
+# Funky end
 materials-uranium-glass = uranium glass
 materials-reinforced-uranium-glass = reinforced uranium glass
 materials-runed-glass = runed glass
@@ -20,6 +22,7 @@ materials-biomass = biomass
 materials-cardboard = cardboard
 materials-cloth = cloth
 materials-durathread = durathread
+# Funky - Replaced "plasma" with "phoron"
 materials-plasma = phoron
 materials-plastic = plastic
 materials-wood = wood
@@ -39,6 +42,7 @@ materials-raw-iron = raw iron
 materials-raw-quartz = raw quartz
 materials-raw-gold = raw gold
 materials-raw-silver = raw silver
+# Funky - Replaced "plasma" with "phoron"
 materials-raw-plasma = raw phoron
 materials-raw-uranium = raw uranium
 materials-raw-bananium = raw bananium

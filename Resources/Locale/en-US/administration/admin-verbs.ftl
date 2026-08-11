@@ -30,6 +30,7 @@ admin-verbs-infinite-battery = Infinite Battery
 admin-verbs-block-unanchoring = Block Unanchoring
 admin-verbs-refill-internals-oxygen = Refill Internals Oxygen
 admin-verbs-refill-internals-nitrogen = Refill Internals Nitrogen
+# Funky - Replaced "plasma" with "phoron"
 admin-verbs-refill-internals-plasma = Refill Internals Phoron
 admin-verbs-send-to-test-arena = Send to test arena
 admin-verbs-grant-all-access = Grant All Access

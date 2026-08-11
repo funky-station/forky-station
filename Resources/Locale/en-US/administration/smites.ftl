@@ -127,6 +127,7 @@ admin-trick-refill-battery-description = Refills the internal battery of the giv
 admin-trick-drain-battery-description = Empties the internal battery of the given object.
 admin-trick-internals-refill-oxygen-description = Refills oxygen in the target tank or target's internals.
 admin-trick-internals-refill-nitrogen-description = Refills nitrogen in the target tank or target's internals.
+# Funky - Replaced "plasma" with "plasmic phoron"
 admin-trick-internals-refill-plasma-description = Refills plasmic phoron in the target tank or target's internals.
 admin-trick-send-to-test-arena-description = Sends an object to the admin testing arena. This arena is per-admin.
 admin-trick-grant-all-access-description = Grants the target all access.
