@@ -121,7 +121,8 @@
     - id: SpectralLocator
     - id: ChemistryBottleCognizine
       weight: 0.1
-    - id: LetterImplanter
+    - !type:NestedSelector
+      tableId: LetterImplanter
     - id: HandheldStationMapNukeops
       weight: 0.5
     - id: ClothingHeadHatCatEars
