@@ -27,6 +27,7 @@
     - BaseStationAllEventsEligible
     - BaseStationNanotrasen
     - BaseStationDeliveries
+    - BaseStationTrader #funky
   categories: [ HideSpawnMenu ]
   components:
     - type: Transform

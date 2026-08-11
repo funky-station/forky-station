@@ -6,16 +6,16 @@ namespace Content.Server._Funkystation.Shuttles.Components;
 public sealed partial class TraderShuttleComponent : Component
 {
     /// <summary>
-    ///  Size of the trader shuttle, 1 = small, 2 = medium, 3 = large
+    /// UID of the shuttle
     /// </summary>
-    [DataField("size", required: true)]
-    public int Size { get; set; } = 2;
+    [DataField("shuttle")]
+    public EntityUid Shuttle;
 
     /// <summary>
-    /// Company that owns the trader shuttle, determines decals, items sold, etc.
+    /// UID of the station that called this trader shuttle
     /// </summary>
-    [DataField("company", required: true)]
-    public string Company { get; set; } = "Nanotrasen";
+    [DataField("station")]
+    public EntityUid Station;
 
     /// <summary>
     /// Path to the trader shuttle's map file, used for spawning the shuttle. Depends on size and company

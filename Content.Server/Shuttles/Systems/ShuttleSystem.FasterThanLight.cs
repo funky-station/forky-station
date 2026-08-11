@@ -936,6 +936,66 @@ public sealed partial class ShuttleSystem
         return true;
     }
 
+    // funky
+    /// <summary>
+    /// Tries to arrive nearby without overlapping with other grids and enforces a configurable spawn offset.
+    /// </summary>
+    public bool TryFTLProximityOffset(
+        EntityUid shuttleUid,
+        EntityUid targetUid,
+        float minOffset,
+        float maxOffset,
+        TransformComponent? xform = null,
+        TransformComponent? targetXform = null)
+    {
+        if (!Resolve(targetUid, ref targetXform) ||
+            targetXform.MapUid == null ||
+            !targetXform.MapUid.Value.IsValid() ||
+            !Resolve(shuttleUid, ref xform))
+        {
+            return false;
+        }
+
+        if (!TryGetFTLProximity(
+                shuttleUid,
+                new EntityCoordinates(targetUid, Vector2.Zero),
+                out var coords,
+                out var angle,
+                minOffset,
+                maxOffset,
+                xform,
+                targetXform))
+            return false;
+
+        _transform.SetCoordinates(shuttleUid, xform, coords, rotation: angle);
+        return true;
+    }
+
+    // funky
+    /// <summary>
+    /// Tries to FTL to the target coordinates with a configurable proximity offset range.
+    /// </summary>
+    public bool TryFTLProximityOffset
+    (
+        Entity<TransformComponent?> shuttle,
+        EntityCoordinates targetCoordinates,
+        float minOffset,
+        float maxOffset
+    )
+    {
+        if (!Resolve(shuttle.Owner, ref shuttle.Comp) ||
+            _transform.GetMap(targetCoordinates)?.IsValid() != true)
+        {
+            return false;
+        }
+
+        if (!TryGetFTLProximity(shuttle, targetCoordinates, out var coords, out var angle, minOffset, maxOffset))
+            return false;
+
+        _transform.SetCoordinates(shuttle, shuttle.Comp, coords, rotation: angle);
+        return true;
+    }
+
     /// <summary>
     /// Flattens / deletes everything under the grid upon FTL.
     /// </summary>
