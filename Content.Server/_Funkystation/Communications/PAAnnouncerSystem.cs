@@ -114,6 +114,8 @@ namespace Content.Server._Funkystation.Communications
         private const double MessageDelay = 3;
         private const double LongMessageDelay = 5;
         private const float VolumeModifier = -4f;
+        // alert sounds can sound kinda weird when there are multiple playing in vicinity of each other and you're walking around
+        private const float MaxAudioDistance = SharedChatSystem.VoiceRange;
 
         public override void Initialize()
         {
@@ -161,7 +163,7 @@ namespace Content.Server._Funkystation.Communications
             if (args.PlaySound && !ent.Comp.Quiet)
             {
                 _audio.PlayPvs(args.AnnouncementSound ?? ent.Comp.AnnouncementSound ?? SharedChatSystem.DefaultAnnouncementSound,
-                    ent, AudioParams.Default.WithVolume(VolumeModifier));
+                    ent, AudioParams.Default.WithVolume(VolumeModifier).WithMaxDistance(MaxAudioDistance));
             }
         }
 
