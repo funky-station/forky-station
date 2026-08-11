@@ -83,7 +83,7 @@
         - id: ForensicPad
   - type: ItemSlots
     slots:
-      dropper_slot:
+      dropper:
         name: dropper
         startingItem: Dropper
         whitelist:
