@@ -97,7 +97,6 @@ public sealed partial class ChatSystem
         sender ??= Loc.GetString("chat-manager-sender-announcement");
 
         // funky - redirect announcement to PA speakers
-        // TODO: station specific announcements
         if (_configurationManager.GetCVar(PAAnnouncementCVars.PAAnnouncements))
         {
             _paSystem.DispatchPAAnnouncement(message, sender, source, false, playDefaultSound, false, null, announcementSound);

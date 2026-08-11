@@ -13,7 +13,6 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-// TODO: code pass
 namespace Content.Server._Funkystation.Communications
 {
     /// <summary>
@@ -154,8 +153,6 @@ namespace Content.Server._Funkystation.Communications
             if (!_timing.IsFirstTimePredicted || !ent.Comp.Enabled)
                 return;
 
-            // i'm not even sure if we have to do this, but whatever
-            // TODO: figure out if we have to do this
             if (args.Source != null)
             {
                 var nameEv = new TransformSpeakerNameEvent(args.Source.Value, Name(args.Source.Value));
@@ -170,7 +167,7 @@ namespace Content.Server._Funkystation.Communications
             else
                 ent.Comp.NextAnnounceTime += TimeSpan.FromSeconds(LongMessageDelay);
 
-            // queue PA system preamble
+            // queue PA system preamble (this is attributed to the PA system instead of the sender of the announcement)
             if (args.Preamble)
             {
                 ent.Comp.QueuedMessages.Enqueue((args.Messages[0], Loc.GetString("pa-system-name"), ent.Comp.NextAnnounceTime));
@@ -218,7 +215,8 @@ namespace Content.Server._Funkystation.Communications
 
     /// <summary>
     /// Raised on all PAComponents when an announcement is made with
-    /// cvar "funkystation.chat.pa_announcements".
+    /// cvar <see cref="PAAnnouncementCVars.PAAnnouncements"/> or by using
+    /// <see cref="PASystem.DispatchPAAnnouncement"/> directly.
     /// </summary>
     /// <param name="Messages">An array of messages to be sent by PA speakers.</param>
     /// <param name="Sender">The name of the person making the announcement.</param>
