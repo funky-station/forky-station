@@ -2,6 +2,7 @@ using Content.Server._Funkystation.Communications;
 using Content.Shared.Communications;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
+using Content.Shared.Database;
 
 namespace Content.Server.Communications
 {
@@ -45,6 +46,8 @@ namespace Content.Server.Communications
             RaiseLocalEvent(ref ev);
 
             _paSystem.DispatchPAAnnouncement(message.Message, author, message.Actor, true, true, comp.Global, null, comp.Sound);
+
+            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following station announcement: {msg}");
         }
     }
 }

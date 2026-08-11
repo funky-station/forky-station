@@ -23,7 +23,7 @@
       shuttleTime: 600
     yellow:
       announcement: alert-level-yellow-announcement
-      sound: /Audio/Misc/notice_mono.ogg # funky - mono for PA sound effects
+      sound: /Audio/Misc/notice1_mono.ogg # funky - mono for PA sound effects
       color: Yellow
       emergencyLightColor: Goldenrod
       forceEnableEmergencyLights: true
