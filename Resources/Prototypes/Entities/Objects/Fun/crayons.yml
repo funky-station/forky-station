@@ -109,7 +109,7 @@
     color: Red
     selectableColor: true
   - type: AutoRecharge
-    rechargeDuration: 1 #Funky
+    rechargeDuration: 2 #Funky
 
 # monocolor crayons
 
