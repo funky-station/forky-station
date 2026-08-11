@@ -1,14 +1,16 @@
 using System.Linq;
+using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared._Funkystation.CCVar;
 using Content.Shared.Chat;
+using Content.Shared.Database;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
-// TODO: admin logging
 // TODO: disable PA announcements when they lose power
 namespace Content.Server._Funkystation.Communications
 {
@@ -19,6 +21,7 @@ namespace Content.Server._Funkystation.Communications
     {
         [Dependency] private IConfigurationManager _cfg = null!;
         [Dependency] private StationSystem _stationSystem = null!;
+        [Dependency] private IAdminLogManager _adminLogger = null!;
 
         /// <summary>
         /// Dispatches a PA announcement to all receivers.
@@ -30,7 +33,7 @@ namespace Content.Server._Funkystation.Communications
         /// <param name="playSound">Whether the PA system should play an announcement sound.</param>
         /// <param name="global">Whether the announcement should broadcast to all grids or just the station of the sender.</param>
         /// <param name="customPreamble">A custom string of text to display instead of the default preamble.</param>
-        /// <param name="announcementSound">A custom sound to play instead of whatever the speaker's default is.</param>
+        /// <param name="announcementSound">A custom sound to play instead of whatever the speaker's default is. MAKE SURE IT IS IN MONO!</param>
         public void DispatchPAAnnouncement(
             string message,
             string? sender = null,
@@ -65,11 +68,16 @@ namespace Content.Server._Funkystation.Communications
                 if (paComp.Enabled)
                     RaiseLocalEvent(announcer, ref announceEv);
             }
+
+            if (global)
+                _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Global station announcement from {sender}: {message}");
+            else
+                _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement on {station} from {sender}: {message}");
         }
 
         private string[] FormatPAAnnouncement(string message, bool preamble = false, LocId? customPreamble = null)
         {
-            var msg = message.Trim();
+            var msg = FormattedMessage.EscapeText(message.Trim());
 
             // add the PA system preamble to the start of the announcement
             if (preamble)
@@ -79,6 +87,8 @@ namespace Content.Server._Funkystation.Communications
             var lines = msg.Split('\n');
 
             // if the last message of the announcement is too long, split the announcement further by sentence
+            // TODO: if the message doesn't contain periods (like, every sentence ends with an exclamation mark)
+            //  this doesn't do anything... in most cases this should be fine
             if (lines[^1].Length > _cfg.GetCVar(PAAnnouncementCVars.PAMaxAnnounceMessageLength))
             {
                 var lastMessageSplit = lines[^1].Split(". ");
