@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Text.RegularExpressions;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Station.Systems;
@@ -22,6 +23,9 @@ namespace Content.Server._Funkystation.Communications
         [Dependency] private IConfigurationManager _cfg = null!;
         [Dependency] private StationSystem _stationSystem = null!;
         [Dependency] private IAdminLogManager _adminLogger = null!;
+
+        [GeneratedRegex(@"(?<=[\.\!\?])\s")]
+        private static partial Regex SpaceAfterSentenceEnd();
 
         /// <summary>
         /// Dispatches a PA announcement to all receivers.
@@ -87,16 +91,9 @@ namespace Content.Server._Funkystation.Communications
             var lines = msg.Split('\n');
 
             // if the last message of the announcement is too long, split the announcement further by sentence
-            // TODO: if the message doesn't contain periods (like, every sentence ends with an exclamation mark)
-            //  this doesn't do anything... in most cases this should be fine
             if (lines[^1].Length > _cfg.GetCVar(PAAnnouncementCVars.PAMaxAnnounceMessageLength))
             {
-                var lastMessageSplit = lines[^1].Split(". ");
-                // assuming the message is using proper punctuation, put the periods back for all except the last sentence
-                for (var i = 0; i < lastMessageSplit.Length - 1; i++)
-                {
-                    lastMessageSplit[i] = Loc.GetString("pa-announcement-long-message-wrap", ("message", lastMessageSplit[i]));
-                }
+                var lastMessageSplit = SpaceAfterSentenceEnd().Split(lines[^1]);
                 lines = lines[..^1].Concat(lastMessageSplit).ToArray(); // messy IMO but whatever
             }
 
