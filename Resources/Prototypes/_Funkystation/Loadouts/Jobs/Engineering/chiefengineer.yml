@@ -1,0 +1,27 @@
+# Hats
+- type: loadout
+  id: FuChiefEngiConductorHat
+  equipment:
+    head: FuClothingHeadHatCEConductor
+
+# Uniforms
+- type: loadout
+  id: FuChiefEngiJumpsuit
+  equipment:
+    jumpsuit: FuClothingUniformJumpsuitCE
+
+- type: loadout
+  id: FuChiefEngiOveralls
+  equipment:
+    jumpsuit: FuClothingUniformOverallsCE
+
+- type: loadout
+  id: FuChiefEngiShirtPants
+  equipment:
+    jumpsuit: FuClothingUniformShirtPantsCE
+
+# Outer clothing
+- type: loadout
+  id: FuChiefEngiInsulatedCoat
+  equipment:
+    outerClothing: FuClothingOuterInsulatedCE

@@ -32,8 +32,7 @@
     - id: GasAnalyzer
     - id: ClothingHeadHatWeldingMaskFlameBlue
 
-# Security
-
+# security storage
 - type: entity
   parent: [ ClothingBeltStorageBase, BaseSecurityContraband ]
   id: FuClothingBeltSecurityWebbing
@@ -82,3 +81,5 @@
     containers:
       storagebase: !type:NestedSelector
         tableId: BeltSecurityEntityTable
+
+# med storage
