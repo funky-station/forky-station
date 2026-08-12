@@ -26,6 +26,7 @@ public sealed partial class PAAnnouncerSystem : EntitySystem
     private const double LongMessageDelay = 5;
     private const float VolumeModifier = -4f;
     // alert sounds can sound kinda weird when there are multiple playing in vicinity of each other and you're walking around
+    // this only really matters for the longer ones, like delta alert
     private const float MaxAudioDistance = SharedChatSystem.VoiceRange;
 
     public override void Initialize()
@@ -45,7 +46,6 @@ public sealed partial class PAAnnouncerSystem : EntitySystem
             return;
 
         var announcers = EntityQueryEnumerator<PAAnnouncerComponent>();
-        // TODO: iterating through them all like this every update makes me very sad.
         while (announcers.MoveNext(out var uid, out var comp))
         {
             if (!comp.Enabled)
