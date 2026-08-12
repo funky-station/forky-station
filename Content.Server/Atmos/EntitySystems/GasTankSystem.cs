@@ -2,6 +2,7 @@ using System.Numerics;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.EntitySystems;
+using Content.Shared.Buckle.Components;
 using Content.Shared.Cargo;
 using Content.Shared.Popups;
 using Content.Shared.Throwing;
@@ -48,9 +49,17 @@ public sealed partial class GasTankSystem : SharedGasTankSystem
         else if (entity.Comp.CheckUser)
         {
             entity.Comp.CheckUser = false;
-            if (Transform(entity).ParentUid != entity.Comp.User)
+            var parent = Transform(entity).ParentUid;
+            if (parent != entity.Comp.User)
             {
-                DisconnectFromInternals(entity, forced: true);
+                // _Funkystation: don't disconnect when the tank is inside a bed the user is buckled to.
+                var buckledToParent = entity.Comp.User != null
+                    && parent != EntityUid.Invalid
+                    && TryComp<BuckleComponent>(entity.Comp.User.Value, out var buckle)
+                    && buckle.BuckledTo == parent;
+
+                if (!buckledToParent)
+                    DisconnectFromInternals(entity, forced: true);
             }
         }
 

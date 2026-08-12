@@ -66,7 +66,21 @@
   description: A hospital bed for patients to recover in. Resting here provides fairly slow healing.
   components:
   - type: Sprite
-    state: bed-MED
+    sprite: Structures/Furniture/medical_bed.rsi
+    layers:
+      - state: bed-MED
+      - map: ["tank"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.BedInternalsVisuals.TankVisual:
+        tank:
+          None:   { visible: false }
+          Nitrogen:  { state: tank_1, visible: true }
+          Oxygen:  { state: tank_2, visible: true }
+          Generic:  { state: tank_3, visible: true }
+          Plasma:  { state: tank_4, visible: true }
+          Nitrous:  { state: tank_5, visible: true }
   - type: HealOnBuckle
     damage:
       types:
@@ -76,6 +90,23 @@
   - type: Construction
     graph: bed
     node: medicalbed
+  - type: ItemSlots
+    slots:
+      gasTankSlot:
+        name: comp-gas-canister-slot-name-gas-tank
+        whitelist:
+          components:
+            - GasTank
+        insertOnInteract: true
+  - type: ContainerContainer
+    containers:
+      gasTankSlot: !type:ContainerSlot {}
+  - type: BedInternals
+    slot: gasTankSlot
+    maskPrototype: ClothingMaskBreathMedicalBed
+  - type: FurnitureWheels
+  - type: PlaceableSurface
+    isPlaceable: False
   - type: GuideHelp
     guides:
     - MedicalDoctor
