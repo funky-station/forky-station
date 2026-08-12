@@ -8,6 +8,7 @@ using Content.Shared._Funkystation.CCVar;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Random.Helpers;
 using Robust.Server.Audio;
+using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
@@ -39,7 +40,9 @@ public sealed partial class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmCompon
         Filter allPlayersInGame = Filter.Empty().AddWhere(GameTicker.UserHasJoinedGame);
 
         // Macrocosm edit start - announcer variation
-        if (component.AnnouncementSound is { } soundId && _announcer.TryGetAnnouncerSound(soundId, out var sound))
+        SoundSpecifier? sound = null; // funky
+
+        if (component.AnnouncementSound is { } soundId && _announcer.TryGetAnnouncerSound(soundId, out sound))
         {
             if (!paAnnouncements)
                 _audio.PlayGlobal(sound, allPlayersInGame, true);

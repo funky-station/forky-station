@@ -8,6 +8,7 @@ using Content.Server.StationEvents.Components;
 using Content.Shared._Funkystation.CCVar;
 using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
@@ -55,7 +56,9 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
         Filter allPlayersInGame = Filter.Empty().AddWhere(GameTicker.UserHasJoinedGame);
 
         // Macrocosm edit start - announcer variation
-        if (stationEvent.StartAudio is { } startAudio && Announcer.TryGetAnnouncerSound(startAudio, out var soundSpecifier))
+        SoundSpecifier? soundSpecifier = null; // funky
+
+        if (stationEvent.StartAudio is { } startAudio && Announcer.TryGetAnnouncerSound(startAudio, out soundSpecifier))
         {
             if (!paAnnouncements)
                 Audio.PlayGlobal(soundSpecifier, allPlayersInGame, true);
@@ -104,8 +107,11 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
 
         // we don't want to send to players who aren't in game (i.e. in the lobby)
         Filter allPlayersInGame = Filter.Empty().AddWhere(GameTicker.UserHasJoinedGame);
+
         // Macrocosm edit start - announcer variation
-        if (stationEvent.EndAudio is { } endAudio && Announcer.TryGetAnnouncerSound(stationEvent.EndAudio.Value, out var soundSpecifier))
+        SoundSpecifier? soundSpecifier = null; // funky
+
+        if (stationEvent.EndAudio is { } endAudio && Announcer.TryGetAnnouncerSound(stationEvent.EndAudio.Value, out soundSpecifier))
         {
             if (!paAnnouncements)
                 Audio.PlayGlobal(soundSpecifier, allPlayersInGame, true);

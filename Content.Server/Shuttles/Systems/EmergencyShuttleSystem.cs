@@ -415,8 +415,6 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
 
         // Play announcement audio.
 
-
-
         // TODO: Need filter extensions or something don't blame me.
         if (!paAnnouncements) // funky
             _audio.PlayGlobal(audio, Filter.Broadcast(), true);

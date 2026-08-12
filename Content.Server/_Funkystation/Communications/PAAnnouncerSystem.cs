@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Server._MACRO.Announcements;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Station.Systems;
@@ -111,6 +112,8 @@ namespace Content.Server._Funkystation.Communications
         [Dependency] private IGameTiming _timing = null!;
         [Dependency] private AudioSystem _audio = null!;
         [Dependency] private IConfigurationManager _cfg = null!;
+        [Dependency] private AnnouncerManager _announcer = null!;
+
         private const double MessageDelay = 3;
         private const double LongMessageDelay = 5;
         private const float VolumeModifier = -4f;
@@ -184,7 +187,10 @@ namespace Content.Server._Funkystation.Communications
             // for the next announcement or anything like that.
             if (args.PlaySound && !ent.Comp.Quiet)
             {
-                _audio.PlayPvs(args.AnnouncementSound ?? ent.Comp.AnnouncementSound ?? SharedChatSystem.DefaultAnnouncementSound,
+                _announcer.TryGetAnnouncerSound(SharedChatSystem.DefaultAnnouncementSound, out var defaultSound);
+                _audio.PlayPvs(args.AnnouncementSound ??
+                               ent.Comp.AnnouncementSound ??
+                               defaultSound,
                     ent, AudioParams.Default.WithVolume(VolumeModifier).WithMaxDistance(MaxAudioDistance));
             }
         }

@@ -45,7 +45,9 @@ namespace Content.Server.Communications
             var ev = new CommunicationConsoleAnnouncementEvent(uid, comp, msg, message.Actor);
             RaiseLocalEvent(ref ev);
 
-            _paSystem.DispatchPAAnnouncement(message.Message, author, message.Actor, true, true, comp.Global, null, comp.Sound);
+            _announcer.TryGetAnnouncerSound(comp.Sound, out var sound);
+
+            _paSystem.DispatchPAAnnouncement(message.Message, author, message.Actor, true, true, comp.Global, null, sound);
 
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following station announcement: {msg}");
         }
