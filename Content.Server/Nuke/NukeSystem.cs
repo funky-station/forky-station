@@ -509,6 +509,7 @@ public sealed partial class NukeSystem : EntitySystem
             ("time", (int) component.RemainingTime),
             ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((uid, nukeXform)))));
         var sender = Loc.GetString("nuke-component-announcement-sender");
+
         _chatSystem.DispatchStationAnnouncement(stationUid ?? uid, announcement, sender,
             paAnnouncements, paAnnouncements ? component.ArmSound : null, // funky
             Color.Red);

@@ -1,5 +1,3 @@
-# tables
-
 - type: entityTable
   id: CalmPestEventsTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp

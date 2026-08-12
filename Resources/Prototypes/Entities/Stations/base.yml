@@ -124,9 +124,6 @@
   abstract: true
   components:
     - type: StationEmergencyShuttle
-      failureAudio: /Audio/Misc/notice1_mono.ogg # funky - mono sounds for PA speakers
-      nearbyAudio: /Audio/Misc/notice1_mono.ogg # funky - mono sounds for PA speakers
-      dockedAudio: /Audio/Announcements/shuttle_dock_mono.ogg # funky - mono sounds for PA speakers
 
 
 - type: entity

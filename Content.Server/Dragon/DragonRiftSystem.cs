@@ -9,12 +9,15 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization.Manager;
 using System.Numerics;
+using Content.Server._MACRO.Announcements;
 using Content.Shared._Funkystation.CCVar;
+using Content.Shared._MACRO.Announcements;
 using Content.Shared.Damage.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Dragon;
@@ -31,6 +34,8 @@ public sealed partial class DragonRiftSystem : EntitySystem
     [Dependency] private NPCSystem _npc = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private IConfigurationManager _cfg = null!; // funky - cvar for pa announcements
+    [Dependency] private AnnouncerManager _announcer = null!; // funky - use announcement sound prototypes
+    private ProtoId<AnnouncementSoundPrototype> AnnounceSound = "Notice1"; // funky - use announcement sound prototypes
 
     public override void Initialize()
     {
@@ -86,11 +91,16 @@ public sealed partial class DragonRiftSystem : EntitySystem
 
                 var msg = Loc.GetString("carp-rift-warning",
                     ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((uid, xform)))));
+
+                // BEGIN Funky
+                _announcer.TryGetAnnouncerSound(AnnounceSound, out var sound); // funky - use announcement sound prototypes
                 _chat.DispatchGlobalAnnouncement(msg,
-                    playSound: paAnnouncements, announcementSound: paAnnouncements ? new SoundPathSpecifier("/Audio/Misc/notice1_mono.ogg") : null, // funky
+                    playSound: paAnnouncements, announcementSound: paAnnouncements ? sound : null, // funky
                     colorOverride: Color.Red);
                 if (!paAnnouncements) // funky
-                    _audio.PlayGlobal("/Audio/Misc/notice1.ogg", Filter.Broadcast(), true);
+                    _audio.PlayGlobal(sound, Filter.Broadcast(), true);
+                // END Funky
+
                 _navMap.SetBeaconEnabled(uid, true);
             }
 

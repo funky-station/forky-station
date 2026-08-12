@@ -691,10 +691,13 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
             var stationUid = _station.GetStationInMap(Transform(uid).MapID);
             var announcement = Loc.GetString("reactor-melting-announcement");
             var sender = Loc.GetString("reactor-melting-announcement-sender");
-            _chatSystem.DispatchStationAnnouncement(stationUid ?? uid, announcement, sender,
-                paAnnouncements, paAnnouncements ? new SoundPathSpecifier("/Audio/Misc/delta_alt.ogg") : null, Color.Orange); // funky
-            if (!paAnnouncements) // funky
-                _soundSystem.PlayGlobalOnStation(uid, _audio.ResolveSound(new SoundPathSpecifier("/Audio/Misc/delta_alt.ogg")));
+
+            // funky - delta_alt.ogg was removed!!! https://github.com/funky-station/forky-station/commit/fd9212c73a68ec23f6668ed1cb8d35b434941de8
+            // not sure if there's a suitable replacement available so we just won't play a sound for now
+            _chatSystem.DispatchStationAnnouncement(stationUid ?? uid, announcement, sender, colorOverride: Color.Orange);
+            // if (!paAnnouncements) // funky
+            //     _soundSystem.PlayGlobalOnStation(uid, _audio.ResolveSound(new SoundPathSpecifier("/Audio/Misc/delta_alt.ogg")));
+
             comp.HasSentWarning = true;
         }
 

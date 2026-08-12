@@ -1,240 +1,127 @@
-using System.Linq;
-using System.Text.RegularExpressions;
 using Content.Server._MACRO.Announcements;
-using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
-using Content.Server.Station.Systems;
 using Content.Shared._Funkystation.CCVar;
 using Content.Shared.Chat;
-using Content.Shared.Database;
 using Content.Shared.Power;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
-namespace Content.Server._Funkystation.Communications
+namespace Content.Server._Funkystation.Communications;
+
+/// <summary>
+/// Handles PA announcers, i.e. the things that actually
+/// receive announcements, like speakers.
+/// </summary>
+public sealed partial class PAAnnouncerSystem : EntitySystem
 {
-    /// <summary>
-    /// Contains methods for dispatching PA announcements.
-    /// </summary>
-    public sealed partial class PASystem : EntitySystem
+    [Dependency] private ChatSystem _chat = null!;
+    [Dependency] private IGameTiming _timing = null!;
+    [Dependency] private AudioSystem _audio = null!;
+    [Dependency] private IConfigurationManager _cfg = null!;
+    [Dependency] private AnnouncerManager _announcer = null!;
+
+    private const double MessageDelay = 3;
+    private const double LongMessageDelay = 5;
+    private const float VolumeModifier = -4f;
+    // alert sounds can sound kinda weird when there are multiple playing in vicinity of each other and you're walking around
+    private const float MaxAudioDistance = SharedChatSystem.VoiceRange;
+
+    public override void Initialize()
     {
-        [Dependency] private IConfigurationManager _cfg = null!;
-        [Dependency] private StationSystem _stationSystem = null!;
-        [Dependency] private IAdminLogManager _adminLogger = null!;
+        base.Initialize();
+        SubscribeLocalEvent<PAAnnouncerComponent, PAAnnouncementEvent>(OnAnnouncementReceived);
+        SubscribeLocalEvent<PAAnnouncerComponent, PowerChangedEvent>(OnPowerChanged);
 
-        [GeneratedRegex(@"(?<=[\.\!\?])\s")]
-        private static partial Regex SpaceAfterSentenceEnd();
+        Subs.CVar(_cfg, PAAnnouncementCVars.PAAnnouncements, OnAnnouncementsCvarChanged, true);
+    }
 
-        /// <summary>
-        /// Dispatches a PA announcement to all receivers.
-        /// </summary>
-        /// <param name="message">The message being broadcast.</param>
-        /// <param name="sender">The name of the person making the announcement.</param>
-        /// <param name="source">The EntityUid of the thing that made the announcement.</param>
-        /// <param name="preamble">Whether the PA system should make a preamble "Incoming announcement" statement.</param>
-        /// <param name="playSound">Whether the PA system should play an announcement sound.</param>
-        /// <param name="global">Whether the announcement should broadcast to all grids or just the station of the sender.</param>
-        /// <param name="customPreamble">A custom string of text to display instead of the default preamble.</param>
-        /// <param name="announcementSound">A custom sound to play instead of whatever the speaker's default is. MAKE SURE IT IS IN MONO!</param>
-        public void DispatchPAAnnouncement(
-            string message,
-            string? sender = null,
-            EntityUid? source = null,
-            bool preamble = false,
-            bool playSound = true,
-            bool global = true,
-            LocId? customPreamble = null,
-            SoundSpecifier? announcementSound = null)
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        if (!_cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements))
+            return;
+
+        var announcers = EntityQueryEnumerator<PAAnnouncerComponent>();
+        // TODO: iterating through them all like this every update makes me very sad.
+        while (announcers.MoveNext(out var uid, out var comp))
         {
-            EntityUid? station = null;
-            if (!global)
-            {
-                station = _stationSystem.GetOwningStation(source);
+            if (!comp.Enabled)
+                continue;
+            if (comp.QueuedMessages.Count < 1 || comp.QueuedMessages.Peek().announceTime > _timing.CurTime)
+                continue;
 
-                if (station == null)
-                {
-                    // you can't make a station announcement without a station
-                    return;
-                }
-            }
-            var lines = FormatPAAnnouncement(message, preamble, customPreamble);
-            var author = sender ?? Loc.GetString("comms-console-announcement-unknown-sender");
+            var (line, author, _) = comp.QueuedMessages.Dequeue();
 
-            var announceEv = new PAAnnouncementEvent(lines, author, source, preamble, playSound, announcementSound);
-            // send the announcement to every PAAnnouncer
-            var announcers = EntityQueryEnumerator<PAAnnouncerComponent>();
-            while (announcers.MoveNext(out var announcer, out var paComp))
-            {
-                if (!global && _stationSystem.GetOwningStation(announcer) != station)
-                    continue;
-                if (paComp.Enabled)
-                    RaiseLocalEvent(announcer, ref announceEv);
-            }
-
-            if (global)
-                _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Global station announcement from {sender}: {message}");
-            else
-                _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement on {station} from {sender}: {message}");
-        }
-
-        private string[] FormatPAAnnouncement(string message, bool preamble = false, LocId? customPreamble = null)
-        {
-            var msg = FormattedMessage.EscapeText(message.Trim());
-
-            // add the PA system preamble to the start of the announcement
-            if (preamble)
-                msg = Loc.GetString(customPreamble ?? "pa-announcement-title")+'\n'+msg;
-
-            // split the announcement into multiple messages by newline, to be sent one after another
-            var lines = msg.Split('\n');
-
-            // if the last message of the announcement is too long, split the announcement further by sentence
-            if (lines[^1].Length > _cfg.GetCVar(PAAnnouncementCVars.PAMaxAnnounceMessageLength))
-            {
-                var lastMessageSplit = SpaceAfterSentenceEnd().Split(lines[^1]);
-                lines = lines[..^1].Concat(lastMessageSplit).ToArray(); // messy IMO but whatever
-            }
-
-            return lines;
+            _chat.TrySendInGameICMessage(uid, line, InGameICChatType.Speak, ChatTransmitRange.GhostRangeLimit, nameOverride: author, checkRadioPrefix: false);
         }
     }
 
-    /// <summary>
-    /// Handles PA announcers, i.e. the things that actually
-    /// receive announcements, like speakers.
-    /// </summary>
-    public sealed partial class PAAnnouncerSystem : EntitySystem
+    private void OnAnnouncementReceived(Entity<PAAnnouncerComponent> ent, ref PAAnnouncementEvent args)
     {
-        [Dependency] private ChatSystem _chat = null!;
-        [Dependency] private IGameTiming _timing = null!;
-        [Dependency] private AudioSystem _audio = null!;
-        [Dependency] private IConfigurationManager _cfg = null!;
-        [Dependency] private AnnouncerManager _announcer = null!;
+        if (!_timing.IsFirstTimePredicted || !ent.Comp.Enabled)
+            return;
 
-        private const double MessageDelay = 3;
-        private const double LongMessageDelay = 5;
-        private const float VolumeModifier = -4f;
-        // alert sounds can sound kinda weird when there are multiple playing in vicinity of each other and you're walking around
-        private const float MaxAudioDistance = SharedChatSystem.VoiceRange;
-
-        public override void Initialize()
+        if (args.Source != null)
         {
-            base.Initialize();
-            SubscribeLocalEvent<PAAnnouncerComponent, PAAnnouncementEvent>(OnAnnouncementReceived);
-            SubscribeLocalEvent<PAAnnouncerComponent, PowerChangedEvent>(OnPowerChanged);
-
-            Subs.CVar(_cfg, PAAnnouncementCVars.PAAnnouncements, OnAnnouncementsCvarChanged, true);
+            var nameEv = new TransformSpeakerNameEvent(args.Source.Value, Name(args.Source.Value));
+            RaiseLocalEvent(args.Source.Value, nameEv);
         }
 
-        public override void Update(float frameTime)
+        var name = Loc.GetString("pa-announcement-name", ("author", args.Sender));
+
+        // space out multiple announcements coming simultaneously
+        if (ent.Comp.QueuedMessages.Count == 0)
+            ent.Comp.NextAnnounceTime = _timing.CurTime;
+        else
+            ent.Comp.NextAnnounceTime += TimeSpan.FromSeconds(LongMessageDelay);
+
+        // queue PA system preamble (this is attributed to the PA system instead of the sender of the announcement)
+        if (args.Preamble)
         {
-            base.Update(frameTime);
+            ent.Comp.QueuedMessages.Enqueue((args.Messages[0], Loc.GetString("pa-system-name"), ent.Comp.NextAnnounceTime));
+            ent.Comp.NextAnnounceTime += TimeSpan.FromSeconds(MessageDelay);
+        }
 
-            if (!_cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements))
-                return;
+        foreach (var line in args.Preamble ? args.Messages[1..] : args.Messages)
+        {
+            ent.Comp.QueuedMessages.Enqueue((line, name, ent.Comp.NextAnnounceTime));
+            ent.Comp.NextAnnounceTime += TimeSpan.FromSeconds(MessageDelay);
+        }
 
+        // note that if multiple announcements come in quick succession, the announcement sound will play without waiting
+        // for the next announcement or anything like that.
+        if (args.PlaySound && !ent.Comp.Quiet)
+        {
+            var sound = args.AnnouncementSound ?? ent.Comp.AnnouncementSound;
+            if (sound == null)
+                _announcer.TryGetAnnouncerSound(SharedChatSystem.DefaultAnnouncementSound, out sound);
+            _audio.PlayPvs(sound, ent, AudioParams.Default.WithVolume(VolumeModifier).WithMaxDistance(MaxAudioDistance));
+        }
+    }
+
+    // if pa announcements get disabled in the middle of an announcement being broadcast, we don't want the unsent
+    // messages to remain banked up
+    private void OnAnnouncementsCvarChanged(bool value)
+    {
+        if (!value)
+        {
             var announcers = EntityQueryEnumerator<PAAnnouncerComponent>();
-            // TODO: iterating through them all like this every update makes me very sad.
-            while (announcers.MoveNext(out var uid, out var comp))
+            while (announcers.MoveNext(out var comp))
             {
-                if (!comp.Enabled)
-                    continue;
-                if (comp.QueuedMessages.Count < 1 || comp.QueuedMessages.Peek().announceTime > _timing.CurTime)
-                    continue;
-
-                var (line, author, _) = comp.QueuedMessages.Dequeue();
-
-                _chat.TrySendInGameICMessage(uid, line, InGameICChatType.Speak, ChatTransmitRange.GhostRangeLimit, nameOverride: author, checkRadioPrefix: false);
-            }
-        }
-
-        private void OnAnnouncementReceived(Entity<PAAnnouncerComponent> ent, ref PAAnnouncementEvent args)
-        {
-            if (!_timing.IsFirstTimePredicted || !ent.Comp.Enabled)
-                return;
-
-            if (args.Source != null)
-            {
-                var nameEv = new TransformSpeakerNameEvent(args.Source.Value, Name(args.Source.Value));
-                RaiseLocalEvent(args.Source.Value, nameEv);
-            }
-
-            var name = Loc.GetString("pa-announcement-name", ("author", args.Sender));
-
-            // space out multiple announcements coming simultaneously
-            if (ent.Comp.QueuedMessages.Count == 0)
-                ent.Comp.NextAnnounceTime = _timing.CurTime;
-            else
-                ent.Comp.NextAnnounceTime += TimeSpan.FromSeconds(LongMessageDelay);
-
-            // queue PA system preamble (this is attributed to the PA system instead of the sender of the announcement)
-            if (args.Preamble)
-            {
-                ent.Comp.QueuedMessages.Enqueue((args.Messages[0], Loc.GetString("pa-system-name"), ent.Comp.NextAnnounceTime));
-                ent.Comp.NextAnnounceTime += TimeSpan.FromSeconds(MessageDelay);
-            }
-
-            foreach (var line in args.Preamble ? args.Messages[1..] : args.Messages)
-            {
-                ent.Comp.QueuedMessages.Enqueue((line, name, ent.Comp.NextAnnounceTime));
-                ent.Comp.NextAnnounceTime += TimeSpan.FromSeconds(MessageDelay);
-            }
-
-            // note that if multiple announcements come in quick succession, the announcement sound will play without waiting
-            // for the next announcement or anything like that.
-            if (args.PlaySound && !ent.Comp.Quiet)
-            {
-                var sound = args.AnnouncementSound ?? ent.Comp.AnnouncementSound;
-                if (sound == null)
-                    _announcer.TryGetAnnouncerSound(SharedChatSystem.DefaultAnnouncementSound, out sound);
-                _audio.PlayPvs(sound, ent, AudioParams.Default.WithVolume(VolumeModifier).WithMaxDistance(MaxAudioDistance));
-            }
-        }
-
-        // if pa announcements get disabled in the middle of an announcement being broadcast, we don't want the unsent
-        // messages to remain banked up
-        private void OnAnnouncementsCvarChanged(bool value)
-        {
-            if (!value)
-            {
-                var announcers = EntityQueryEnumerator<PAAnnouncerComponent>();
-                while (announcers.MoveNext(out var comp))
-                {
-                    comp.QueuedMessages.Clear();
-                }
-            }
-        }
-
-        private static void OnPowerChanged(Entity<PAAnnouncerComponent> ent, ref PowerChangedEvent args)
-        {
-            if (ent.Comp.PowerRequired)
-            {
-                ent.Comp.Enabled = args.Powered;
-                ent.Comp.QueuedMessages.Clear();
+                comp.QueuedMessages.Clear();
             }
         }
     }
 
-    /// <summary>
-    /// Raised on all PAComponents when an announcement is made with
-    /// cvar <see cref="PAAnnouncementCVars.PAAnnouncements"/> or by using
-    /// <see cref="PASystem.DispatchPAAnnouncement"/> directly.
-    /// </summary>
-    /// <param name="Messages">An array of messages to be sent by PA speakers.</param>
-    /// <param name="Sender">The name of the person making the announcement.</param>
-    /// <param name="Source">The EntityUid of the thing that made the announcement.</param>
-    /// <param name="Preamble">Whether the first message of the announcement should be treated as a preamble "Incoming announcement" statement.</param>
-    /// <param name="PlaySound">Whether the PA system should play an announcement sound.</param>
-    /// <param name="AnnouncementSound">A custom sound to play instead of whatever the speaker's default is.</param>
-    [ByRefEvent]
-    public readonly record struct PAAnnouncementEvent(
-        string[] Messages,
-        string Sender,
-        EntityUid? Source,
-        bool Preamble = false,
-        bool PlaySound = true,
-        SoundSpecifier? AnnouncementSound = null);
+    private static void OnPowerChanged(Entity<PAAnnouncerComponent> ent, ref PowerChangedEvent args)
+    {
+        if (ent.Comp.PowerRequired)
+        {
+            ent.Comp.Enabled = args.Powered;
+            ent.Comp.QueuedMessages.Clear();
+        }
+    }
 }
