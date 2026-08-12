@@ -74,6 +74,7 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyAquatic # MACRO: Decapoids
   - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
+  - EmergencyWheat # MACRO: Ungu
 
 # nitrogen or oxygen tank, depending on what your species needs
 - type: loadoutGroup
@@ -83,6 +84,7 @@
   loadouts:
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
+  - LoadoutSpeciesEVAUngu # macro
 
 # vox get a nitrogen tank, other species get nothing
 - type: loadoutGroup
@@ -99,6 +101,7 @@
   loadouts:
   - LoadoutSpeciesPocketDoubleNitrogen
   - LoadoutSpeciesPocketDoubleOxygen
+  - LoadoutSpeciesPocketDoubleOxygenUngu # macro
 
 # Command
 - type: loadoutGroup
@@ -142,11 +145,13 @@
   - CaptainOuterClothing
   - CaptainWintercoat
 
-#- type: loadoutGroup
-#  id: CaptainJobTrinkets
-#  name: loadout-group-jobtrinkets
-#  minLimit: 0
-#  loadouts: []
+# Funky uncommented, added whistle
+- type: loadoutGroup
+  id: CaptainJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - CommandWhistle
 
 - type: loadoutGroup
   id: HoPHead
@@ -186,11 +191,13 @@
   loadouts:
   - HoPWintercoat
 
-#- type: loadoutGroup
-#  id: HoPJobTrinkets
-#  name: loadout-group-jobtrinkets
-#  minLimit: 0
-#  loadouts: []
+# Funky uncommented, added whistle
+- type: loadoutGroup
+  id: HoPJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - CommandWhistle
 
 # Civilian
 - type: loadoutGroup
@@ -572,6 +579,7 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyAquaticClown # MACRO: Decapoids
   - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
+  - EmergencyWheatClown # MACRO: Ungu
 
 - type: loadoutGroup
   id: ClownJobTrinkets
@@ -638,6 +646,7 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyAquaticMime # MACRO: Decapoids
   - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
+  - EmergencyWheatMime # MACRO: Ungu
 
 #- type: loadoutGroup
 #  id: MimeJobTrinkets
@@ -741,11 +750,13 @@
   - BrownShoes
   - CargoWinterBoots
 
-#- type: loadoutGroup
-#  id: QuartermasterJobTrinkets
-#  name: loadout-group-jobtrinkets
-#  minLimit: 0
-#  loadouts:
+# Funky uncommented, added whistle
+- type: loadoutGroup
+  id: QuartermasterJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - CommandWhistle
 
 - type: loadoutGroup
   id: CargoTechnicianHead
@@ -864,11 +875,13 @@
   - BrownShoes
   - EngineeringWinterBoots
 
-#- type: loadoutGroup
-#  id: ChiefEngineerJobTrinkets
-#  name: loadout-group-jobtrinkets
-#  minLimit: 0
-#  loadouts:
+# Funky uncommented, added whistle
+- type: loadoutGroup
+  id: ChiefEngineerJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - CommandWhistle
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit
@@ -986,6 +999,7 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyAquaticExtended # MACRO: Decapoids
   - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
+  - EmergencyWheatExtended # MACRO: Ungu
 
 # Science
 - type: loadoutGroup
@@ -1025,11 +1039,13 @@
   - BrownShoes
   - ScienceWinterBoots
 
-#- type: loadoutGroup
-#  id: ResearchDirectorJobTrinkets
-#  name: loadout-group-jobtrinkets
-#  minLimit: 0
-#  loadouts:
+# Funky uncommented, added whistle
+- type: loadoutGroup
+  id: ResearchDirectorJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - CommandWhistle
 
 - type: loadoutGroup
   id: ScientistHead
@@ -1038,6 +1054,7 @@
   loadouts:
   - RoboticistCap
   - SkullBandana
+  - ScientistHardhatWhite # Funky
   - ScientificBeret
 
 - type: loadoutGroup
@@ -1169,6 +1186,7 @@
   minLimit: 0
   loadouts:
   - SecStar
+  - SecurityWhistle # Funky
 
 - type: loadoutGroup
   id: WardenHead
@@ -1378,6 +1396,7 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyAquaticSecurity # MACRO: Decapoids
   - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
+  - EmergencyWheatSecurity # MACRO: Ungu
 
 # Wildcards
 - type: loadoutGroup
@@ -1432,6 +1451,7 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyAquaticSyndicate # MACRO: Decapoids
   - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
+  - EmergencyWheatSyndicate # MACRO: Ungu
 
 - type: loadoutGroup
   id: SurvivalMilitaryDouble

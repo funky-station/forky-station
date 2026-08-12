@@ -1,4 +1,5 @@
-﻿- type: entity
+﻿# Washing Machine
+- type: entity
   id: CrateServiceWashingMachineSet
   parent: CratePlastic
   name: DIY washing machine kit
@@ -11,3 +12,35 @@
     - id: CableApcStack10
     - id: MicroManipulatorStockPart
     - id: WashingMachineCircuitboard
+
+# Document Printer
+- type: entity
+  id: CrateServiceDocumentPrinterSet
+  parent: CratePlastic
+  name: DIY document printer kit
+  description: A Model XF-880 document printer, disassembled and ready for shipping. Does not contain ink refills.
+  components:
+  - type: StorageFill
+    contents:
+    - id: SheetSteel1
+      amount: 6
+    - id: CableApcStack10
+    - id: MicroManipulatorStockPart
+      amount: 2
+    - id: DocumentPrinterBridgeCircuitboard
+
+# Paper Shredder
+- type: entity
+  id: CrateServicePaperShredderSet
+  parent: CratePlastic
+  name: DIY paper shredder kit
+  description: A Model IPC-84 paper shredder, disassembled and ready for shipping. Includes a spare bin.
+  components:
+  - type: StorageFill
+    contents:
+    - id: SheetSteel1
+      amount: 6
+    - id: CableApcStack10
+    - id: MicroManipulatorStockPart
+    - id: PaperShredderCircuitboard
+    - id: ShredderBin

@@ -4,18 +4,19 @@
   description: job-description-ce
   playTimeTracker: JobChiefEngineer
   requirements:
-    - !type:RoleTimeRequirement
-      role: JobAtmosphericTechnician
-      time: 2.5h
-    - !type:RoleTimeRequirement
-      role: JobStationEngineer
-      time: 5h
+#    - !type:RoleTimeRequirement
+#     role: JobAtmosphericTechnician
+#     time: 2.5h
+#   - !type:RoleTimeRequirement
+#     role: JobStationEngineer
+#     time: 5h
     - !type:DepartmentTimeRequirement
       department: Engineering
       time: 10h
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
+  joinNotifyCrew: true # Funky
   supervisors: job-supervisors-captain
   access:
   - Maintenance
@@ -27,8 +28,8 @@
   - Brig
   - Cryogenics
   special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+  #- !type:AddImplantSpecial
+  #  implants: [ MindShieldImplant ] # Funky - Removed mindshields
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff

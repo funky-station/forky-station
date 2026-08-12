@@ -31,6 +31,9 @@
   - EmergencyNitrogenMedical
   - EmergencyOxygenMedical
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyAquaticMedical # MACRO: Decapoids
+  - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
+  - EmergencyWheatMedical # MACRO: Ungu
 
 # Chief Medical Officer
 
@@ -39,7 +42,7 @@
   name: loadout-group-chief-medical-officer-head
   minLimit: 0
   loadouts:
-  - ChiefMedicalOfficerBeret
+#  - ChiefMedicalOfficerBeret funky - fuck non-military berets
   - CMOMedicalHeadMirror
 
 - type: loadoutGroup
@@ -74,11 +77,13 @@
   - BrownShoes
   - MedicalWinterBoots
 
-#- type: loadoutGroup
-#  id: ChiefMedicalOfficerJobTrinkets
-#  name: loadout-group-jobtrinkets
-#  minLimit: 0
-#  loadouts:
+# Funky uncommented, added whistle
+- type: loadoutGroup
+  id: ChiefMedicalOfficerJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - CommandWhistle
 
 # Medical Doctor
 
@@ -114,7 +119,7 @@
   loadouts:
   - RegularLabCoat
   - MedicalDoctorWintercoat
-  - SeniorPhysicianLabCoat
+#  - SeniorPhysicianLabCoat Funky - no senior items
 
 - type: loadoutGroup
   id: MedicalDoctorPDA

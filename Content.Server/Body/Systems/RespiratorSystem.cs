@@ -32,7 +32,6 @@ public sealed partial class RespiratorSystem : EntitySystem
 {
     [Dependency] private IAdminLogManager _adminLogger = default!;
     [Dependency] private IGameTiming _gameTiming = default!;
-    [Dependency] private IPrototypeManager _protoMan = default!;
     [Dependency] private AlertsSystem _alertsSystem = default!;
     [Dependency] private AtmosphereSystem _atmosSys = default!;
     [Dependency] private BodySystem _body = default!;
@@ -117,16 +116,6 @@ public sealed partial class RespiratorSystem : EntitySystem
                 }
 
                 TakeSuffocationDamage((uid, respirator));
-                respirator.SuffocationCycles += 1;
-                continue;
-            }
-
-            if (respirator.Saturation > 4)
-            {
-                // todo make respirator.HyperoxiaThreshold variable real, gotta learn more about actual C code before I can continue with this
-                // this could definitely be something cooler than normal suffocation
-                TakeSuffocationDamage((uid, respirator));
-                TakeSuffocationDamage((uid, respirator)); //hope this overpowers oxygen/nitrogen, so there's real issue in well, hyperoxia
                 respirator.SuffocationCycles += 1;
                 continue;
             }
@@ -293,7 +282,7 @@ public sealed partial class RespiratorSystem : EntitySystem
         float saturation = 0;
         foreach (var (id, quantity) in solution.Contents)
         {
-            var reagent = _protoMan.Index<ReagentPrototype>(id.Prototype);
+            var reagent = ProtoMan.Index<ReagentPrototype>(id.Prototype);
             if (reagent.Metabolisms == null)
                 continue;
 

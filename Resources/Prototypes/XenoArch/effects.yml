@@ -6,105 +6,219 @@
     #- id: XenoArtifactEffectUniversalIntercom
     #  weight: 10.0
     - id: XenoArtifactSolutionStorage
-      weight: 10.0
+      weight: 1.0
     - id: XenoArtifactPhasing
-      weight: 2.0
+      weight: 1.0
     - id: XenoArtifactWandering
-      weight: 4.0
+      weight: 1.0
     - id: XenoArtifactSpeedUp
-      weight: 4.0
+      weight: 1.0
     - id: XenoArtifactGhost
-      weight: 2.0
+      weight: 0.5
     - id: XenoArtifactEffectBadFeeling
-      weight: 10.0
+      weight: 1.0
     - id: XenoArtifactEffectGoodFeeling
-      weight: 10.0
+      weight: 1.0
     - id: XenoArtifactEffectJunkSpawn
-      weight: 10.0
+      weight: 1.0
     - id: XenoArtifactEffectLightFlicker
-      weight: 10.0
+      weight: 1.0
     - id: XenoArtifactPotassiumWave
-      weight: 7.0
+      weight: 1.0
     - id: XenoArtifactFloraSpawn
-      weight: 10.0
-    - id: XenoArtifactChemicalPuddle
-      weight: 10.0
+      weight: 1.0
+    - id: XenoArtifactChemicalAluminiumPuddle #Funky changes start, splitting up the table for repeatability
+      weight: 1.0
+    - id: XenoArtifactChemicalCarbonPuddle
+      weight: 1.0
+    - id: XenoArtifactChemicalChlorinePuddle
+      weight: 1.0
+    - id: XenoArtifactChemicalCopperPuddle
+      weight: 1.0
+    - id: XenoArtifactChemicalEthanolPuddle
+      weight: 1.0
+    - id: XenoArtifactChemicalFluorinePuddle
+      weight: 1.0
+    - id: XenoArtifactChemicalSugarPuddle
+      weight: 1.0
+    - id: XenoArtifactChemicalHydrogenPuddle
+      weight: 1.0
+    - id: XenoArtifactChemicalIodinePuddle
+      weight: 1.0
+    - id: XenoArtifactChemicalIronPuddle
+      weight: 1.0
+    - id: XenoArtifactChemicalLithiumPuddle
+      weight: 1.0
+    - id: XenoArtifactChemicalMercuryPuddle
+      weight: 1.0
+    - id: XenoArtifactChemicalNitrogenPuddle
+      weight: 1.0
+    - id: XenoArtifactChemicalOxygenPuddle
+      weight: 1.0
+    - id: XenoArtifactChemicalPhosphorusPuddle
+      weight: 1.0
+    - id: XenoArtifactChemicalRadiumPuddle
+      weight: 1.0
+    - id: XenoArtifactChemicalSiliconPuddle
+      weight: 1.0
+    - id: XenoArtifactChemicalSodiumPuddle
+      weight: 1.0
+    - id: XenoArtifactChemicalWaterPuddle
+      weight: 1.0
+    - id: XenoArtifactChemicalSulfurPuddle
+      weight: 1.0 #Funky changes end
     - id: XenoArtifactThrowThingsAround
-      weight: 10.0
+      weight: 1.0
     - id: XenoArtifactColdWave
-      weight: 10.0
+      weight: 1.0
     - id: XenoArtifactHeatWave
-      weight: 4.0
-    - id: XenoArtifactFoamMild
-      weight: 8.0
+      weight: 1.0
+    - id: XenoArtifactFoamOxygen #Funky Changes Start, splitting up the table for repeatability
+      weight: 1.0
+    - id: XenoArtifactFoamSpaceCleaner
+      weight: 1.0
+    - id: XenoArtifactFoamNutriment
+      weight: 1.0
+    - id: XenoArtifactFoamSpaceLube
+      weight: 1.0
+    - id: XenoArtifactFoamEthanol
+      weight: 1.0
+    - id: XenoArtifactFoamMercury
+      weight: 1.0
+    - id: XenoArtifactFoamVentCrud
+      weight: 1.0
+    - id: XenoArtifactFoamWeldingFuel
+      weight: 1.0
+    - id: XenoArtifactFoamJuiceThatMakesYouWeh
+      weight: 1.0 #Funky Edit End
     - id: XenoArtifactRandomInstrumentSpawn
-      weight: 10.0
+      weight: 1.0
     - id: XenoArtifactMonkeySpawn
-      weight: 10.0
+      weight: 0.7
     - id: XenoArtifactRadioactive
-      weight: 8.0
+      weight: 2.0
     - id: XenoArtifactChargeBattery
-      weight: 10.0
+      weight: 1.0
     - id: XenoArtifactKnock
-      weight: 4.0
+      weight: 2.0
     - id: XenoArtifactMagnet
-      weight: 2.0
+      weight: 1.0
     - id: XenoArtifactMagnetNegative
-      weight: 2.0
+      weight: 1.0
     - id: XenoArtifactStealth
       weight: 1.0
     - id: XenoArtifactRareMaterialSpawnSilver
-      weight: 1.8 # amount is laughable
+      weight: 1.0 # amount is laughable
     - id: XenoArtifactRareMaterialSpawnPlasma
-      weight: 2.0 # amount is laughable
+      weight: 1.0 # amount is laughable
     - id: XenoArtifactRareMaterialSpawnGold
-      weight: 1.8 # amount is laughable
+      weight: 1.0 # amount is laughable
     - id: XenoArtifactRareMaterialSpawnUranium
       weight: 1.0 # amount is laughable
     - id: XenoArtifactAngryCarpSpawn
-      weight: 4.0
+      weight: 1.0
     - id: XenoArtifactFaunaSpawn
-      weight: 10.0
+      weight: 1.0
     - id: XenoArtifactHostileFaunaSpawn
-      weight: 10.0
+      weight: 1.0
     - id: XenoArtifactCashSpawn
-      weight: 10.0
+      weight: 1.0
     - id: XenoArtifactShatterWindows
-      weight: 8.0
-    - id: XenoArtifactFoamGood
-      weight: 4.0
-    - id: XenoArtifactFoamDangerous
-      weight: 2.0
-    - id: XenoArtifactPuddleRare
-      weight: 2.0
+      weight: 1.0
+    - id: XenoArtifactFoamDermaline #Funky changes start, splitting up the table for repeatability
+      weight: 0.7
+    - id: XenoArtifactFoamArithrazine
+      weight: 0.7
+    - id: XenoArtifactFoamBicaridine
+      weight: 0.7
+    - id: XenoArtifactFoamInaprovaline
+      weight: 0.7
+    - id: XenoArtifactFoamKelotane
+      weight: 0.7
+    - id: XenoArtifactFoamDexalin
+      weight: 0.7
+    - id: XenoArtifactFoamOmnizine
+      weight: 0.5
+    - id: XenoArtifactFoamTritium
+      weight: 0.7
+    - id: XenoArtifactFoamPlasma
+      weight: 0.7
+    - id: XenoArtifactFoamSulfuricAcid
+      weight: 0.7
+    - id: XenoArtifactFoamSpaceDrugs
+      weight: 0.7
+    - id: XenoArtifactFoamNocturine
+      weight: 0.7
+    - id: XenoArtifactFoamMuteToxin
+      weight: 0.7
+    - id: XenoArtifactFoamNapalm
+      weight: 0.7
+    - id: XenoArtifactFoamCarpoToxin
+      weight: 0.7
+    - id: XenoArtifactFoamChloralHydrate
+      weight: 0.7
+    - id: XenoArtifactFoamMold
+      weight: 0.7
+    - id: XenoArtifactFoamAmatoxin
+      weight: 0.7
+    - id: XenoArtifactPuddleDermaline
+      weight: 0.7
+    - id: XenoArtifactPuddleArithrazine
+      weight: 0.7
+    - id: XenoArtifactPuddleBicaridine
+      weight: 0.7
+    - id: XenoArtifactPuddleInaprovaline
+      weight: 0.7
+    - id: XenoArtifactPuddleKelotane
+      weight: 0.7
+    - id: XenoArtifactPuddleDexalin
+      weight: 0.7
+    - id: XenoArtifactPuddleOmnizine
+      weight: 0.5
+    - id: XenoArtifactPuddleNapalm
+      weight: 0.7
+    - id: XenoArtifactPuddleToxin
+      weight: 0.7
+    - id: XenoArtifactPuddleEpinephrine
+      weight: 0.7
+#    - id: XenoArtifactPuddleCognizine     Nuked by headmins decree
+#      weight: 0.5
+    - id: XenoArtifactPuddleUltravasculine
+      weight: 0.5
+    - id: XenoArtifactPuddleDesoxyephedrine
+      weight: 0.5
+    - id: XenoArtifactPuddlePax
+      weight: 0.7
+    - id: XenoArtifactPuddleSiderlac
+      weight: 0.7 #Funky changes end
     - id: XenoArtifactAnomalySpawn
-      weight: 10.0
+      weight: 1.0
     - id: XenoArtifactIgnite
-      weight: 2.0
+      weight: 1.0
     - id: XenoArtifactTeleport
-      weight: 2.0
+      weight: 1.0
     - id: XenoArtifactEmp
-      weight: 2.0
+      weight: 1.0
     - id: XenoArtifactPolyMonkey
-      weight: 2.0
+      weight: 0.7
     - id: XenoArtifactPolyLuminous
-      weight: 2.0
+      weight: 0.7
     - id: XenoArtifactPolyLizard
-      weight: 2.0
+      weight: 0.7
     - id: XenoArtifactRadioactiveStrong
-      weight: 3.0
+      weight: 1.0
     - id: XenoArtifactMaterialSpawnGlass
-      weight: 3.3
+      weight: 1.0
     - id: XenoArtifactMaterialSpawnSteel
-      weight: 3.3
+      weight: 1.0
     - id: XenoArtifactMaterialSpawnPlastic
-      weight: 3.3
+      weight: 1.0
     - id: XenoArtifactPortal
-      weight: 2.0
+      weight: 1.0
     - id: XenoArtifactArtifactSpawn
       weight: 0.5
     - id: XenoArtifactShuffle
-      weight: 3.0
+      weight: 1.0
     - id: XenoArtifactHealAll
       weight: 1.0
     #- id: XenoArtifactTesla
@@ -114,19 +228,111 @@
     - id: XenoArtifactExplosionScary
       weight: 1.0
     - id: XenoArtifactBoom
-      weight: 5.0
-    - id: XenoArtifactEffectCreationGasPlasma
-      weight: 2.0
-    - id: XenoArtifactEffectCreationGasTritium
-      weight: 2.0
-    - id: XenoArtifactEffectCreationGasAmmonia
-      weight: 3.0
-    - id: XenoArtifactEffectCreationGasFrezon
       weight: 1.0
+    - id: XenoArtifactEffectCreationGasPlasma
+      weight: 1.0
+    - id: XenoArtifactEffectCreationGasTritium
+      weight: 0.5
+    - id: XenoArtifactEffectCreationGasAmmonia
+      weight: 1.0
+    - id: XenoArtifactEffectCreationGasFrezon
+      weight: 0.5
     - id: XenoArtifactEffectCreationGasNitrousOxide
-      weight: 4.0
+      weight: 1.0
     - id: XenoArtifactEffectCreationGasCarbonDioxide
-      weight: 4.0
+      weight: 1.0
+    - id: XenoArtifactMilkPuddle #Funky Changes Start
+      weight: 1.0
+    - id: XenoArtifactMilkSoyPuddle
+      weight: 1.0
+    - id: XenoArtifactMilkChocolatePuddle
+      weight: 0.3 #Rare milk version
+    - id: XenoArtifactMilkStrawberryPuddle
+      weight: 0.3 #Rare milk version
+    - id: XenoArtifactMilkBananaPuddle
+      weight: 0.3 #Rare milk version
+    - id: XenoArtifactEggPuddle
+      weight: 1.0
+    - id: XenoArtifactEnzymePuddle
+      weight: 1.0
+    - id: XenoArtifactSoysaucePuddle
+      weight: 1.0
+    - id: XenoArtifactMustardPuddle
+      weight: 1.0
+    - id: XenoArtifactKetchupPuddle
+      weight: 1.0
+    - id: XenoArtifactHotsaucePuddle
+      weight: 1.0
+    - id: XenoArtifactOilOlivePuddle
+      weight: 1.0
+    - id: XenoArtifactEffectGooseSpawn
+      weight: 1.0
+    - id: XenoArtifactEffectSkeletonGhostRoleSpawn
+      weight: 0.3
+    - id: XenoArtifactEffectMiniTeslaSpawn
+      weight: 0.5
+    - id: XenoArtifactEffectFrenchFoodSpawn
+      weight: 0.7
+    - id: XenoArtifactEffectItalianFoodSpawn
+      weight: 0.7
+    - id: XenoArtifactEffectFoodIngredientSpawn
+      weight: 0.7
+    - id: XenoArtifactEffectBurgerSpawn
+      weight: 0.7
+    - id: XenoArtifactEffectBreakfastSpawn
+      weight: 0.7
+    - id: XenoArtifactInsectSpawn
+      weight: 1.0
+    - id: XenoArtifactEffectRainbowMiceSpawn
+      weight: 1.0
+    - id: XenoArtifactSkeletonization
+      weight: 0.2
+    - id: XenoArtifactEffectSpaceTimeParadoxSpawn
+      weight: 0.2
+    - id: XenoArtifactEffectOrganSpawn
+      weight: 1.0
+    - id: XenoArtifactEffectCorpseSpawn
+      weight: 0.5
+    - id: XenoArtifactEffectAbominationSpawn
+      weight: 0.3
+    - id: XenoArtifactPetLikeSpawn
+      weight: 0.7
+    - id: XenoArtifactEffectXenoSpawn
+      weight: 0.5
+    - id: XenoArtifactEffectCorgiGhostRoleSpawn
+      weight: 0.05
+    - id: XenoArtifactEffectWeirdEggsSpawn
+      weight: 1.0
+    - id: XenoArtifactEffectCowSpawn
+      weight: 0.7
+    - id: XenoArtifactEffectFleshMonsterSpawn
+      weight: 0.5
+    - id: XenoArtifactEffectGameItems
+      weight: 0.7
+    - id: XenoArtifactEffectVampireItems
+      weight: 0.7
+    - id: XenoArtifactEffectReagentSlimeSpawn
+      weight: 0.5
+    - id: XenoArtifactEffectGlowingOrbSpawn
+      weight: 0.5
+    - id: XenoArtifactEffectAtmosStoneSpawn
+      weight: 0.5
+    - id: XenoArtifactEffectEndlessPitcherSpawn
+      weight: 0.5
+    - id: XenoArtifactEffectToolboxOfHoldingSpawn
+      weight: 0.5
+    - id: XenoArtifactEffectGravityItemsSpawn
+      weight: 0.5
+    - id: XenoArtifactEffectTransmutationGlassSpawn #30 so far
+      weight: 0.5
+    - id: XenoArtifactEffectUristMcStoneSpawn
+      weight: 0.2
+    - id: XenoArtifactEffectTotallyNormalHorseSpawn
+      weight: 0.1
+    - id: XenoArtifactEffectStargazerSpawn
+      weight: 0.2
+    - id: XenoArtifactEffectZleebSpawn
+      weight: 0.05
 
 - type: entityTable
   id: XenoArtifactEffectsHandheldOnlyTable
@@ -145,7 +351,6 @@
   id: BaseXenoArtifactEffect
   name: effect
   description: Unknown
-  categories: [ HideSpawnMenu ]
   abstract: true
   components:
   - type: XenoArtifactNode
@@ -153,11 +358,10 @@
     group: XenoArtifactNode
 
 - type: entity
-  id: BaseOneTimeXenoArtifactEffect
   parent: BaseXenoArtifactEffect
+  id: BaseOneTimeXenoArtifactEffect
   name: one-time-effect
   description: Unknown
-  categories: [ HideSpawnMenu ]
   abstract: true
   components:
   - type: XenoArtifactNode
@@ -169,9 +373,9 @@
     group: XenoArtifactNode
 
 - type: entity
-  id: XenoArtifactEffectUniversalIntercom
   parent: BaseOneTimeXenoArtifactEffect
-  description: Obtains ability of long-distance communication device
+  id: XenoArtifactEffectUniversalIntercom
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     components:
@@ -198,9 +402,9 @@
       - Supply
 
 - type: entity
-  id: XenoArtifactBecomeRandomInstrument
   parent: BaseOneTimeXenoArtifactEffect
-  description: Obtains ability of musical instrument
+  id: XenoArtifactBecomeRandomInstrument
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     components:
@@ -211,9 +415,9 @@
       key: enum.InstrumentUiKey.Key
 
 - type: entity
-  id: XenoArtifactStorage
   parent: BaseOneTimeXenoArtifactEffect
-  description: Obtains ability of hidden storage
+  id: XenoArtifactStorage
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     components:
@@ -225,16 +429,16 @@
       - 0,0,10,5
 
 - type: entity
-  id: XenoArtifactPhasing
   parent: BaseOneTimeXenoArtifactEffect
-  description: Becomes phased
+  id: XenoArtifactPhasing
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAERemoveCollision
 
 - type: entity
-  id: XenoArtifactWandering
   parent: BaseOneTimeXenoArtifactEffect
-  description: Starts to move sporadically
+  id: XenoArtifactWandering
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     components:
@@ -245,9 +449,9 @@
       maxStepCooldown: 3
 
 - type: entity
-  id: XenoArtifactSolutionStorage
   parent: BaseOneTimeXenoArtifactEffect
-  description: Obtains ability of container for chemical solutions
+  id: XenoArtifactSolutionStorage
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     components:
@@ -276,9 +480,9 @@
       utensil: None
 
 - type: entity
-  id: XenoArtifactSpeedUp
   parent: BaseOneTimeXenoArtifactEffect
-  description: Improves holder movement speed
+  id: XenoArtifactSpeedUp
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     components:
@@ -287,9 +491,9 @@
       sprintModifier: 1.3
 
 - type: entity
-  id: XenoArtifactDrill
   parent: BaseOneTimeXenoArtifactEffect
-  description: Obtains ability of drill
+  id: XenoArtifactDrill
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     components:
@@ -305,9 +509,9 @@
       - Slicing
 
 - type: entity
-  id: XenoArtifactGenerateEnergy
   parent: BaseOneTimeXenoArtifactEffect # todo - increment power, but only once per node
-  description: Produces power
+  id: XenoArtifactGenerateEnergy
+  description: Electromagnetic disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     components:
@@ -321,9 +525,9 @@
           nodeGroupID: HVPower
 
 - type: entity
-  id: XenoArtifactGun
   parent: BaseOneTimeXenoArtifactEffect
-  description: Obtains ability of firearm
+  id: XenoArtifactGun
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -352,9 +556,9 @@
         path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
 
 - type: entity
-  id: XenoArtifactGhost
   parent: BaseOneTimeXenoArtifactEffect
-  description: Becomes sentient
+  id: XenoArtifactGhost
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     components:
@@ -372,9 +576,9 @@
     - type: GhostTakeoverAvailable
 
 - type: entity
-  id: XenoArtifactOmnitool
   parent: BaseOneTimeXenoArtifactEffect
-  description: Obtains ability of omnitool
+  id: XenoArtifactOmnitool
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     components:
@@ -419,9 +623,9 @@
           path: /Audio/Items/change_drill.ogg
 
 - type: entity
-  id: XenoArtifactEffectBadFeeling
   parent: BaseXenoArtifactEffect
-  description: Broadcasts sublime message
+  id: XenoArtifactEffectBadFeeling
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAETelepathic
     messages:
@@ -449,9 +653,9 @@
     - badfeeling-artifact-drastic-6
 
 - type: entity
-  id: XenoArtifactEffectGoodFeeling
   parent: BaseXenoArtifactEffect
-  description: Broadcasts sublime message
+  id: XenoArtifactEffectGoodFeeling
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAETelepathic
     messages:
@@ -478,9 +682,9 @@
     - goodfeeling-artifact-drastic-6
 
 - type: entity
-  id: XenoArtifactEffectJunkSpawn
   parent: BaseXenoArtifactEffect
-  description: Create recyclable junk
+  id: XenoArtifactEffectJunkSpawn
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -500,16 +704,16 @@
           weight: 1
 
 - type: entity
-  id: XenoArtifactEffectLightFlicker
   parent: BaseXenoArtifactEffect
-  description: Minor electromagnetic interference
+  id: XenoArtifactEffectLightFlicker
+  description: Electromagnetic disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAELightFlicker
 
 - type: entity
-  id: XenoArtifactPotassiumWave
   parent: BaseXenoArtifactEffect
-  description: Produces potassium
+  id: XenoArtifactPotassiumWave
+  description: Spontaneous organic creation #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -523,6 +727,8 @@
           rolls: !type:ConstantNumberSelector
             value: 6
           prob: 0.5
+        - id: MobClownSpider
+          prob: 0.1
   - type: XAECreatePuddle
     chemAmount:
       min: 1
@@ -534,9 +740,9 @@
     - Potassium
 
 - type: entity
-  id: XenoArtifactFloraSpawn
   parent: BaseXenoArtifactEffect
-  description: Produces flora
+  id: XenoArtifactFloraSpawn
+  description: Spontaneous organic creation #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -544,93 +750,429 @@
     components:
     - type: EntityTableSpawner
       deleteSpawnerAfterSpawn: false
-      table: !type:AllSelector
+      table: !type:GroupSelector
         children:
         - id: RandomFloraTree
+          weight: 5
+        - id: PottedPlant2 #Funky changes
+          weight: 1
+
+#Funky changes start. Splitting chems into their own prototypes for consistency in nodes
 
 - type: entity
-  id: XenoArtifactChemicalPuddle
   parent: BaseXenoArtifactEffect
-  description: Produces puddle of chemical mixture # todo: make description say what exact chemical is produced, maybe add mixes into possible chemicals
+  id: XenoArtifactChemicalAluminiumPuddle
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XAECreatePuddle
     chemAmount:
       min: 1
       max: 3
-    replaceDescription: true
     chemicalSolution:
       maxVol: 500
       canReact: false
     possibleChemicals:
     - Aluminium
-    - Carbon
-    - Chlorine
-    - Copper
-    - Ethanol
-    - Fluorine
-    - Sugar
-    - Hydrogen
-    - Iodine
-    - Iron
-    - Lithium
-    - Mercury
-    - Nitrogen
-    - Oxygen
-    - Phosphorus
-    - Potassium
-    - Radium
-    - Silicon
-    - Sodium
-    - Water
-    - Sulfur
 
 - type: entity
-  id: XenoArtifactThrowThingsAround
+  id: XenoArtifactChemicalCarbonPuddle
   parent: BaseXenoArtifactEffect
-  description: Minor implosion
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 500
+      canReact: false
+    possibleChemicals:
+    - Carbon
+
+- type: entity
+  id: XenoArtifactChemicalChlorinePuddle
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 500
+      canReact: false
+    possibleChemicals:
+    - Chlorine
+
+- type: entity
+  id: XenoArtifactChemicalCopperPuddle
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 500
+      canReact: false
+    possibleChemicals:
+    - Copper
+
+- type: entity
+  id: XenoArtifactChemicalEthanolPuddle
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 500
+      canReact: false
+    possibleChemicals:
+    - Ethanol
+
+- type: entity
+  id: XenoArtifactChemicalFluorinePuddle
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 500
+      canReact: false
+    possibleChemicals:
+    - Fluorine
+
+- type: entity
+  id: XenoArtifactChemicalSugarPuddle
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 500
+      canReact: false
+    possibleChemicals:
+    - Sugar
+
+- type: entity
+  id: XenoArtifactChemicalHydrogenPuddle
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 500
+      canReact: false
+    possibleChemicals:
+    - Hydrogen
+
+- type: entity
+  id: XenoArtifactChemicalIodinePuddle
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 500
+      canReact: false
+    possibleChemicals:
+    - Iodine
+
+- type: entity
+  id: XenoArtifactChemicalIronPuddle
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 500
+      canReact: false
+    possibleChemicals:
+    - Iron
+
+- type: entity
+  id: XenoArtifactChemicalLithiumPuddle
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 500
+      canReact: false
+    possibleChemicals:
+    - Lithium
+
+- type: entity
+  id: XenoArtifactChemicalMercuryPuddle
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 500
+      canReact: false
+    possibleChemicals:
+    - Mercury
+
+- type: entity
+  id: XenoArtifactChemicalNitrogenPuddle
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 500
+      canReact: false
+    possibleChemicals:
+    - Nitrogen
+
+- type: entity
+  id: XenoArtifactChemicalOxygenPuddle
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 500
+      canReact: false
+    possibleChemicals:
+    - Oxygen
+
+- type: entity
+  id: XenoArtifactChemicalPhosphorusPuddle
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 500
+      canReact: false
+    possibleChemicals:
+    - Phosphorus
+
+- type: entity
+  id: XenoArtifactChemicalRadiumPuddle
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 500
+      canReact: false
+    possibleChemicals:
+    - Radium
+
+- type: entity
+  id: XenoArtifactChemicalSiliconPuddle
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 500
+      canReact: false
+    possibleChemicals:
+    - Silicon
+
+- type: entity
+  id: XenoArtifactChemicalSodiumPuddle
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 500
+      canReact: false
+    possibleChemicals:
+    - Sodium
+
+- type: entity
+  id: XenoArtifactChemicalWaterPuddle
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 500
+      canReact: false
+    possibleChemicals:
+    - Water
+
+- type: entity
+  id: XenoArtifactChemicalSulfurPuddle
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    chemicalSolution:
+      maxVol: 500
+      canReact: false
+    possibleChemicals:
+    - Sulfur
+
+#Funky changes end
+
+- type: entity
+  parent: BaseXenoArtifactEffect
+  id: XenoArtifactThrowThingsAround
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEThrowThingsAround
 
 - type: entity
-  id: XenoArtifactColdWave
   parent: BaseXenoArtifactEffect
-  description: Cools down surrounding gas
+  id: XenoArtifactColdWave
+  description: Temperature disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAETemperature
     targetTemp: 50
 
 - type: entity
-  id: XenoArtifactHeatWave
   parent: BaseXenoArtifactEffect
-  description: Heats up surrounding gas greatly
+  id: XenoArtifactHeatWave
+  description: Temperature disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAETemperature
     targetTemp: 500
 
-- type: entity
-  id: XenoArtifactFoamMild
-  parent: BaseXenoArtifactEffect
-  description: Produces chemical foam # todo: separate in 1 for each chemical for description? actually sounds like a very good idea
-  components:
-  - type: XAEFoam
-    replaceDescription: true
-    reagents:
-    - Oxygen
-    - Plasma
-    - Blood
-    - SpaceCleaner
-    - Nutriment
-    - SpaceLube
-    - Ethanol
-    - Mercury
-    - VentCrud
-    - WeldingFuel
-    - JuiceThatMakesYouWeh
+#Funky changes start. Splitting the list into individual listings
 
 - type: entity
-  id: XenoArtifactRandomInstrumentSpawn
   parent: BaseXenoArtifactEffect
-  description: Creates musical instrument
+  id: XenoArtifactFoamOxygen
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAEFoam
+    reagents:
+    - Oxygen
+
+- type: entity
+  id: XenoArtifactFoamSpaceCleaner
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAEFoam
+    reagents:
+    - SpaceCleaner
+
+- type: entity
+  id: XenoArtifactFoamNutriment
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAEFoam
+    reagents:
+    - Nutriment
+
+- type: entity
+  id: XenoArtifactFoamSpaceLube
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAEFoam
+    reagents:
+    - SpaceLube
+
+- type: entity
+  id: XenoArtifactFoamEthanol
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAEFoam
+    reagents:
+    - Ethanol
+
+- type: entity
+  id: XenoArtifactFoamMercury
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAEFoam
+    reagents:
+    - Mercury
+
+- type: entity
+  id: XenoArtifactFoamVentCrud
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAEFoam
+    reagents:
+    - VentCrud
+
+- type: entity
+  id: XenoArtifactFoamWeldingFuel
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAEFoam
+    reagents:
+    - WeldingFuel
+
+- type: entity
+  id: XenoArtifactFoamJuiceThatMakesYouWeh
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAEFoam
+    reagents:
+    - JuiceThatMakesYouWeh
+
+#Funky changes end
+
+- type: entity
+  parent: BaseXenoArtifactEffect
+  id: XenoArtifactRandomInstrumentSpawn
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
     maxDurability: 2
@@ -648,9 +1190,9 @@
         - id: RandomInstruments
 
 - type: entity
-  id: XenoArtifactMonkeySpawn
   parent: BaseXenoArtifactEffect
-  description: Creates primate
+  id: XenoArtifactMonkeySpawn
+  description: Spontaneous organic creation #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
     maxDurability: 3
@@ -671,9 +1213,9 @@
           weight: 5.0
 
 - type: entity
-  id: XenoArtifactRadioactive
   parent: BaseOneTimeXenoArtifactEffect
-  description: Becomes mildly radioactive
+  id: XenoArtifactRadioactive
+  description: Radiological disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -684,9 +1226,9 @@
       slope: 0.3
 
 - type: entity
-  id: XenoArtifactChargeBattery
   parent: BaseXenoArtifactEffect
-  description: Charges up batteries
+  id: XenoArtifactChargeBattery
+  description: Electromagnetic interference #Funky Edit add more mystery to sci
   components:
   - type: XAEChargeBattery
   - type: XAETelepathic
@@ -694,17 +1236,17 @@
     - charge-artifact-popup
 
 - type: entity
-  id: XenoArtifactKnock
   parent: BaseXenoArtifactEffect
-  description: Mild electromagnetic interference
+  id: XenoArtifactKnock
+  description: Electromagnetic interference #Funky Edit add more mystery to sci
   components:
   - type: XAEKnock
   - type: XAELightFlicker
 
 - type: entity
-  id: XenoArtifactMagnet
   parent: BaseOneTimeXenoArtifactEffect
-  description: Create small gravity well
+  id: XenoArtifactMagnet
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -716,9 +1258,9 @@
       baseTangentialAcceleration: 3
 
 - type: entity
-  id: XenoArtifactMagnetNegative
   parent: BaseOneTimeXenoArtifactEffect
-  description: Create small gravity well
+  id: XenoArtifactMagnetNegative
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -730,9 +1272,9 @@
       baseTangentialAcceleration: -3
 
 - type: entity
-  id: XenoArtifactStealth
   parent: BaseOneTimeXenoArtifactEffect
-  description: Create light interference
+  id: XenoArtifactStealth
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     components:
@@ -743,9 +1285,9 @@
       movementVisibilityRate: 0.10
 
 - type: entity
-  id: XenoArtifactRareMaterialSpawn
   parent: BaseXenoArtifactEffect # todo: splice into different well-named effects, amounts should reflect how rare material is
-  description: Create rare materials
+  id: XenoArtifactRareMaterialSpawn
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -773,9 +1315,9 @@
           prob: 0.3
 
 - type: entity
-  id: XenoArtifactRareMaterialSpawnSilver
   parent: BaseXenoArtifactEffect
-  description: Create rare materials
+  id: XenoArtifactRareMaterialSpawnSilver
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
     maxDurability: 4
@@ -796,9 +1338,9 @@
           prob: 0.3
 
 - type: entity
-  id: XenoArtifactRareMaterialSpawnPlasma
   parent: BaseXenoArtifactEffect
-  description: Create plasma
+  id: XenoArtifactRareMaterialSpawnPlasma
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
     maxDurability: 4
@@ -819,9 +1361,9 @@
           prob: 0.3
 
 - type: entity
-  id: XenoArtifactRareMaterialSpawnGold
   parent: BaseXenoArtifactEffect
-  description: Create gold
+  id: XenoArtifactRareMaterialSpawnGold
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
     maxDurability: 3
@@ -842,9 +1384,9 @@
           prob: 0.3
 
 - type: entity
-  id: XenoArtifactRareMaterialSpawnUranium
   parent: BaseXenoArtifactEffect
-  description: Create uranium
+  id: XenoArtifactRareMaterialSpawnUranium
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
     maxDurability: 4
@@ -865,9 +1407,9 @@
           prob: 0.3
 
 - type: entity
-  id: XenoArtifactAngryCarpSpawn
   parent: BaseXenoArtifactEffect
-  description: Create hostile fish
+  id: XenoArtifactAngryCarpSpawn
+  description: Spontaneous organic creation #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
     maxDurability: 3
@@ -888,9 +1430,9 @@
           weight: 1.0
 
 - type: entity
-  id: XenoArtifactFaunaSpawn
   parent: BaseXenoArtifactEffect
-  description: Create friendly fauna
+  id: XenoArtifactFaunaSpawn
+  description: Spontaneous organic creation #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
     maxDurability: 4
@@ -905,39 +1447,57 @@
       deleteSpawnerAfterSpawn: false
       table: !type:GroupSelector
         children:
-        - id: MobMouse
         - id: MobPig
         - id: MobParrot
         - id: MobKangaroo
         - id: MobFox
+        - id: MobRaccoon
+        - id: MobGiantSpiderAngry
+          prob: 0.5
+        - id: MobGorilla
+          prob: 0.1
         - id: MobPenguin
           amount: !type:RangeNumberSelector
             range: 1, 2
-        - id: MobMothroach
+        - id: MobLizard
           amount: !type:RangeNumberSelector
             range: 1, 2
-        - id: MobCorgiPuppy
+        - id: MobCrab
           amount: !type:RangeNumberSelector
             range: 1, 2
-        - id: MobCatKitten
-          amount: !type:RangeNumberSelector
-            range: 1, 2
-        - id: MobCat
-          amount: !type:RangeNumberSelector
-            range: 1, 2
-        - id: MobBee
-          amount: !type:RangeNumberSelector
-            range: 2, 5
         - id: MobGoat
           amount: !type:RangeNumberSelector
             range: 1, 3
+        - id: MobReindeerBuck
+          amount: !type:RangeNumberSelector
+            range: 1, 2
+        - id: MobReindeerDoe
+          amount: !type:RangeNumberSelector
+            range: 1, 2
+        - id: MobDuckMallard
+          amount: !type:RangeNumberSelector
+            range: 1, 2
+        - id: MobFrog
+          amount: !type:RangeNumberSelector
+            range: 2, 3
+        - id: MobBat
+          amount: !type:RangeNumberSelector
+            range: 2, 3
+        - id: MobTomatoKiller
+          amount: !type:RangeNumberSelector
+            range: 2, 3
+          prob: 0.1
         - id: MobMonkeySyndicateAgent #so lucky
           prob: 0.03
+        - id: ImmortalRoach #Funky Edit
+          prob: 0.1
+          amount: !type:RangeNumberSelector
+            range: 2, 3
 
 - type: entity
-  id: XenoArtifactHostileFaunaSpawn
   parent: BaseXenoArtifactEffect
-  description: Create hostile fauna
+  id: XenoArtifactHostileFaunaSpawn
+  description: Spontaneous organic creation #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
     maxDurability: 4
@@ -962,9 +1522,9 @@
         - id: MobKangarooSpace
 
 - type: entity
-  id: XenoArtifactCashSpawn
   parent: BaseXenoArtifactEffect
-  description: Create money
+  id: XenoArtifactCashSpawn
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
     maxDurability: 2
@@ -991,9 +1551,9 @@
           weight: 0.1
 
 - type: entity
-  id: XenoArtifactShatterWindows
   parent: BaseXenoArtifactEffect
-  description: Break windows
+  id: XenoArtifactShatterWindows
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
     maxDurability: 3
@@ -1009,10 +1569,11 @@
       types:
         Structural: 200
 
+# Funky changes start. Breaking chems into individual effects
 - type: entity
-  id: XenoArtifactFoamGood
   parent: BaseXenoArtifactEffect
-  description: Creates wave of helpful foam
+  id: XenoArtifactFoamDermaline
+  description: Creates wave of foam #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
     maxDurability: 7
@@ -1023,17 +1584,101 @@
     replaceDescription: true
     reagents:
     - Dermaline
+
+- type: entity
+  id: XenoArtifactFoamArithrazine
+  parent: BaseXenoArtifactEffect
+  description: Creates wave of foam #Funky Edit add more mystery to sci
+  components:
+  - type: XenoArtifactNode
+    maxDurability: 7
+    maxDurabilityCanDecreaseBy:
+      min: 0
+      max: 5
+  - type: XAEFoam
+    replaceDescription: true
+    reagents:
     - Arithrazine
+
+- type: entity
+  id: XenoArtifactFoamBicaridine
+  parent: BaseXenoArtifactEffect
+  description: Creates wave of foam #Funky Edit add more mystery to sci
+  components:
+  - type: XenoArtifactNode
+    maxDurability: 7
+    maxDurabilityCanDecreaseBy:
+      min: 0
+      max: 5
+  - type: XAEFoam
+    replaceDescription: true
+    reagents:
     - Bicaridine
+
+- type: entity
+  id: XenoArtifactFoamInaprovaline
+  parent: BaseXenoArtifactEffect
+  description: Creates wave of foam #Funky Edit add more mystery to sci
+  components:
+  - type: XenoArtifactNode
+    maxDurability: 7
+    maxDurabilityCanDecreaseBy:
+      min: 0
+      max: 5
+  - type: XAEFoam
+    replaceDescription: true
+    reagents:
     - Inaprovaline
+
+- type: entity
+  id: XenoArtifactFoamKelotane
+  parent: BaseXenoArtifactEffect
+  description: Creates wave of foam #Funky Edit add more mystery to sci
+  components:
+  - type: XenoArtifactNode
+    maxDurability: 7
+    maxDurabilityCanDecreaseBy:
+      min: 0
+      max: 5
+  - type: XAEFoam
+    replaceDescription: true
+    reagents:
     - Kelotane
+
+- type: entity
+  id: XenoArtifactFoamDexalin
+  parent: BaseXenoArtifactEffect
+  description: Creates wave of foam #Funky Edit add more mystery to sci
+  components:
+  - type: XenoArtifactNode
+    maxDurability: 7
+    maxDurabilityCanDecreaseBy:
+      min: 0
+      max: 5
+  - type: XAEFoam
+    replaceDescription: true
+    reagents:
     - Dexalin
+
+- type: entity
+  id: XenoArtifactFoamOmnizine
+  parent: BaseXenoArtifactEffect
+  description: Creates wave of foam #Funky Edit add more mystery to sci
+  components:
+  - type: XenoArtifactNode
+    maxDurability: 7
+    maxDurabilityCanDecreaseBy:
+      min: 0
+      max: 5
+  - type: XAEFoam
+    replaceDescription: true
+    reagents:
     - Omnizine
 
 - type: entity
-  id: XenoArtifactFoamDangerous
   parent: BaseXenoArtifactEffect
-  description: Creates wave of harmful foam
+  id: XenoArtifactFoamTritium
+  description: Creates wave of foam #Funky Edit add more mystery to sci
   components:
   - type: XAEFoam
     minFoamAmount: 20
@@ -1041,21 +1686,131 @@
     replaceDescription: true
     reagents:
     - Tritium
+
+- type: entity
+  id: XenoArtifactFoamPlasma
+  parent: BaseXenoArtifactEffect
+  description: Creates wave of foam #Funky Edit add more mystery to sci
+  components:
+  - type: XAEFoam
+    minFoamAmount: 20
+    maxFoamAmount: 30
+    replaceDescription: true
+    reagents:
     - Plasma
+
+- type: entity
+  id: XenoArtifactFoamSulfuricAcid
+  parent: BaseXenoArtifactEffect
+  description: Creates wave of foam #Funky Edit add more mystery to sci
+  components:
+  - type: XAEFoam
+    minFoamAmount: 20
+    maxFoamAmount: 30
+    replaceDescription: true
+    reagents:
     - SulfuricAcid
+
+- type: entity
+  id: XenoArtifactFoamSpaceDrugs
+  parent: BaseXenoArtifactEffect
+  description: Creates wave of foam #Funky Edit add more mystery to sci
+  components:
+  - type: XAEFoam
+    minFoamAmount: 20
+    maxFoamAmount: 30
+    replaceDescription: true
+    reagents:
     - SpaceDrugs
+
+- type: entity
+  id: XenoArtifactFoamNocturine
+  parent: BaseXenoArtifactEffect
+  description: Creates wave of foam #Funky Edit add more mystery to sci
+  components:
+  - type: XAEFoam
+    minFoamAmount: 20
+    maxFoamAmount: 30
+    replaceDescription: true
+    reagents:
     - Nocturine
+
+- type: entity
+  id: XenoArtifactFoamMuteToxin
+  parent: BaseXenoArtifactEffect
+  description: Creates wave of foam #Funky Edit add more mystery to sci
+  components:
+  - type: XAEFoam
+    minFoamAmount: 20
+    maxFoamAmount: 30
+    replaceDescription: true
+    reagents:
     - MuteToxin
+
+- type: entity
+  id: XenoArtifactFoamNapalm
+  parent: BaseXenoArtifactEffect
+  description: Creates wave of foam #Funky Edit add more mystery to sci
+  components:
+  - type: XAEFoam
+    minFoamAmount: 20
+    maxFoamAmount: 30
+    replaceDescription: true
+    reagents:
     - Napalm
+
+- type: entity
+  id: XenoArtifactFoamCarpoToxin
+  parent: BaseXenoArtifactEffect
+  description: Creates wave of foam #Funky Edit add more mystery to sci
+  components:
+  - type: XAEFoam
+    minFoamAmount: 20
+    maxFoamAmount: 30
+    replaceDescription: true
+    reagents:
     - CarpoToxin
+
+- type: entity
+  id: XenoArtifactFoamChloralHydrate
+  parent: BaseXenoArtifactEffect
+  description: Creates wave of foam #Funky Edit add more mystery to sci
+  components:
+  - type: XAEFoam
+    minFoamAmount: 20
+    maxFoamAmount: 30
+    replaceDescription: true
+    reagents:
     - ChloralHydrate
+
+- type: entity
+  id: XenoArtifactFoamMold
+  parent: BaseXenoArtifactEffect
+  description: Creates wave of foam #Funky Edit add more mystery to sci
+  components:
+  - type: XAEFoam
+    minFoamAmount: 20
+    maxFoamAmount: 30
+    replaceDescription: true
+    reagents:
     - Mold
+
+- type: entity
+  id: XenoArtifactFoamAmatoxin
+  parent: BaseXenoArtifactEffect
+  description: Creates wave of foam #Funky Edit add more mystery to sci
+  components:
+  - type: XAEFoam
+    minFoamAmount: 20
+    maxFoamAmount: 30
+    replaceDescription: true
+    reagents:
     - Amatoxin
 
 - type: entity
-  id: XenoArtifactPuddleRare
   parent: BaseXenoArtifactEffect
-  description: Creates puddle of helpful chemicals
+  id: XenoArtifactPuddleDermaline
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XAECreatePuddle
     chemAmount:
@@ -1063,29 +1818,241 @@
       max: 3
     replaceDescription: true
     chemicalSolution:
-      maxVol: 500
+      maxVol: 300
       canReact: false
     possibleChemicals:
     - Dermaline
-    - Arithrazine
-    - Bicaridine
-    - Inaprovaline
-    - Kelotane
-    - Dexalin
-    - Omnizine
-    - Napalm
-    - Toxin
-    - Epinephrine
-    - Cognizine
-    - Ultravasculine
-    - Desoxyephedrine
-    - Pax
-    - Siderlac
 
 - type: entity
-  id: XenoArtifactAnomalySpawn
+  id: XenoArtifactPuddleArithrazine
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    replaceDescription: true
+    chemicalSolution:
+      maxVol: 300
+      canReact: false
+    possibleChemicals:
+    - Arithrazine
+
+- type: entity
+  id: XenoArtifactPuddleBicaridine
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    replaceDescription: true
+    chemicalSolution:
+      maxVol: 300
+      canReact: false
+    possibleChemicals:
+    - Bicaridine
+
+- type: entity
+  id: XenoArtifactPuddleInaprovaline
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    replaceDescription: true
+    chemicalSolution:
+      maxVol: 300
+      canReact: false
+    possibleChemicals:
+    - Inaprovaline
+
+- type: entity
+  id: XenoArtifactPuddleKelotane
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    replaceDescription: true
+    chemicalSolution:
+      maxVol: 300
+      canReact: false
+    possibleChemicals:
+    - Kelotane
+
+- type: entity
+  id: XenoArtifactPuddleDexalin
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    replaceDescription: true
+    chemicalSolution:
+      maxVol: 300
+      canReact: false
+    possibleChemicals:
+    - Dexalin
+
+- type: entity
+  id: XenoArtifactPuddleOmnizine
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    replaceDescription: true
+    chemicalSolution:
+      maxVol: 300
+      canReact: false
+    possibleChemicals:
+    - Omnizine
+
+- type: entity
+  id: XenoArtifactPuddleNapalm
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    replaceDescription: true
+    chemicalSolution:
+      maxVol: 300
+      canReact: false
+    possibleChemicals:
+    - Napalm
+
+- type: entity
+  id: XenoArtifactPuddleToxin
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    replaceDescription: true
+    chemicalSolution:
+      maxVol: 300
+      canReact: false
+    possibleChemicals:
+    - Toxin
+
+- type: entity
+  id: XenoArtifactPuddleEpinephrine
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    replaceDescription: true
+    chemicalSolution:
+      maxVol: 300
+      canReact: false
+    possibleChemicals:
+    - Epinephrine
+
+# Nuked by headmins decree
+#- type: entity
+#  id: XenoArtifactPuddleCognizine
+#  parent: BaseXenoArtifactEffect
+#  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+#  components:
+#  - type: XAECreatePuddle
+#    chemAmount:
+#      min: 1
+#      max: 3
+#    replaceDescription: true
+#    chemicalSolution:
+#      maxVol: 300
+#      canReact: false
+#    possibleChemicals:
+#    - Cognizine
+
+- type: entity
+  id: XenoArtifactPuddleUltravasculine
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    replaceDescription: true
+    chemicalSolution:
+      maxVol: 300
+      canReact: false
+    possibleChemicals:
+    - Ultravasculine
+
+- type: entity
+  id: XenoArtifactPuddleDesoxyephedrine
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    replaceDescription: true
+    chemicalSolution:
+      maxVol: 300
+      canReact: false
+    possibleChemicals:
+    - Desoxyephedrine
+
+- type: entity
+  id: XenoArtifactPuddlePax
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    replaceDescription: true
+    chemicalSolution:
+      maxVol: 300
+      canReact: false
+    possibleChemicals:
+    - Pax
+
+- type: entity
+  id: XenoArtifactPuddleSiderlac
+  parent: BaseXenoArtifactEffect
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
+  components:
+  - type: XAECreatePuddle
+    chemAmount:
+      min: 1
+      max: 3
+    replaceDescription: true
+    chemicalSolution:
+      maxVol: 300
+      canReact: false
+    possibleChemicals:
+    - Siderlac
+#Funky changes end
+
+- type: entity
   parent: BaseOneTimeXenoArtifactEffect
-  description: Creates anomaly
+  id: XenoArtifactAnomalySpawn
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1098,9 +2065,9 @@
         - id: RandomAnomalySpawner
 
 - type: entity
-  id: XenoArtifactIgnite
   parent: BaseXenoArtifactEffect
-  description: Pyrokinesis
+  id: XenoArtifactIgnite
+  description: Pyrotechnic disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEIgnite
     range: 7
@@ -1109,16 +2076,16 @@
       max: 6
 
 - type: entity
-  id: XenoArtifactTeleport
   parent: BaseXenoArtifactEffect
-  description: Teleportation
+  id: XenoArtifactTeleport
+  description: Bluespace disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAERandomTeleportInvoker
 
 - type: entity
-  id: XenoArtifactEmp
   parent: BaseXenoArtifactEffect
-  description: Dangerous electromagnetic interference
+  id: XenoArtifactEmp
+  description: Electromagnetic interference #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
     maxDurability: 5
@@ -1128,32 +2095,32 @@
   - type: XAEEmpInArea
 
 - type: entity
-  id: XenoArtifactPolyMonkey
   parent: BaseXenoArtifactEffect
-  description: Temporarily reshape flesh to fur
+  id: XenoArtifactPolyMonkey
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEPolymorph
 
 - type: entity
-  id: XenoArtifactPolyLizard
   parent: BaseXenoArtifactEffect
-  description: Temporarily reshape flesh to scale
+  id: XenoArtifactPolyLizard
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEPolymorph
     polymorphPrototypeName: ArtifactLizard
 
 - type: entity
-  id: XenoArtifactPolyLuminous
   parent: BaseXenoArtifactEffect
-  description: Temporarily reshape flesh to light
+  id: XenoArtifactPolyLuminous
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEPolymorph
     polymorphPrototypeName: ArtifactLuminous
 
 - type: entity
-  id: XenoArtifactRadioactiveStrong
   parent: BaseOneTimeXenoArtifactEffect
-  description: Becomes highly radioactive
+  id: XenoArtifactRadioactiveStrong
+  description: Radiological disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1164,9 +2131,9 @@
       slope: 0.3
 
 - type: entity
-  id: XenoArtifactMaterialSpawnGlass
   parent: BaseXenoArtifactEffect
-  description: Create glass
+  id: XenoArtifactMaterialSpawnGlass
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1179,9 +2146,9 @@
         - id: SheetGlass
 
 - type: entity
-  id: XenoArtifactMaterialSpawnSteel
   parent: BaseXenoArtifactEffect
-  description: Create steel
+  id: XenoArtifactMaterialSpawnSteel
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1194,9 +2161,9 @@
         - id: SheetSteel
 
 - type: entity
-  id: XenoArtifactMaterialSpawnPlastic
   parent: BaseXenoArtifactEffect
-  description: Create plastic
+  id: XenoArtifactMaterialSpawnPlastic
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1209,16 +2176,16 @@
         - id: SheetPlastic
 
 - type: entity
-  id: XenoArtifactPortal
   parent: BaseXenoArtifactEffect
-  description: Create short-living bluespace portal
+  id: XenoArtifactPortal
+  description: Bluespace disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEPortal
 
 - type: entity
-  id: XenoArtifactArtifactSpawn
   parent: BaseXenoArtifactEffect
-  description: Create artifact
+  id: XenoArtifactArtifactSpawn
+  description: Spontaneous inorganic creation #Funky Edit add more mystery to sci
   components:
   - type: XenoArtifactNode
     maxDurability: 2
@@ -1236,9 +2203,9 @@
         - id: RandomArtifactSpawner
 
 - type: entity
-  id: XenoArtifactShuffle
   parent: BaseXenoArtifactEffect
-  description: Switch places of sentient beings #not ALL beings, but oh well...
+  id: XenoArtifactShuffle
+  description: Bluespace disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEShuffle
   - type: XAETelepathic
@@ -1247,9 +2214,9 @@
     - shuffle-artifact-popup
 
 - type: entity
-  id: XenoArtifactHealAll
   parent: BaseXenoArtifactEffect
-  description: Miraclous healing
+  id: XenoArtifactHealAll
+  description: Metaphysical disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEDamageInArea
     damageChance: 1
@@ -1267,9 +2234,9 @@
         Shock: -100
 
 - type: entity
-  id: XenoArtifactTesla
   parent: BaseOneTimeXenoArtifactEffect
-  description: Mass destruction
+  id: XenoArtifactTesla
+  description: Pyrotechnic disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1282,9 +2249,9 @@
         - id: Singularity
 
 - type: entity
-  id: XenoArtifactSingularity
   parent: BaseOneTimeXenoArtifactEffect
-  description: Imminent doom
+  id: XenoArtifactSingularity
+  description: Electrostatic disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1297,9 +2264,9 @@
         - id: TeslaEnergyBall
 
 - type: entity
-  id: XenoArtifactExplosionScary
   parent: BaseOneTimeXenoArtifactEffect
-  description: Small scale high-speed nuclear reaction
+  id: XenoArtifactExplosionScary
+  description: Radiological disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAETriggerExplosives
   - type: Explosive
@@ -1313,9 +2280,9 @@
   - type: ExplosionEffect # Funky RMC Explosions
 
 - type: entity
-  id: XenoArtifactBoom
   parent: BaseOneTimeXenoArtifactEffect
-  description: Explosion
+  id: XenoArtifactBoom
+  description: Pyrotechnic disturbance #Funky Edit add more mystery to sci
   components:
   - type: XAETriggerExplosives
   - type: Explosive
@@ -1328,54 +2295,54 @@
   - type: ExplosionEffect # Funky RMC Explosions
 
 - type: entity
-  id: XenoArtifactEffectCreationGasPlasma
   parent: BaseXenoArtifactEffect
-  description: Expels plasma
+  id: XenoArtifactEffectCreationGasPlasma
+  description: Expels a mystery gas #Funky Edit add more mystery to sci
   components:
   - type: XAECreateGas
     gases:
       Plasma: 300
 
 - type: entity
-  id: XenoArtifactEffectCreationGasTritium
   parent: BaseXenoArtifactEffect
-  description: Expels tritium
+  id: XenoArtifactEffectCreationGasTritium
+  description: Expels a mystery gas #Funky Edit add more mystery to sci
   components:
   - type: XAECreateGas
     gases:
       Tritium: 300
 
 - type: entity
-  id: XenoArtifactEffectCreationGasAmmonia
   parent: BaseXenoArtifactEffect
-  description: Expels ammonia
+  id: XenoArtifactEffectCreationGasAmmonia
+  description: Expels a mystery gas #Funky Edit add more mystery to sci
   components:
   - type: XAECreateGas
     gases:
       Ammonia: 300
 
 - type: entity
-  id: XenoArtifactEffectCreationGasFrezon
   parent: BaseXenoArtifactEffect
-  description: Expels frezon
+  id: XenoArtifactEffectCreationGasFrezon
+  description: Expels a mystery gas #Funky Edit add more mystery to sci
   components:
   - type: XAECreateGas
     gases:
       Frezon: 300
 
 - type: entity
-  id: XenoArtifactEffectCreationGasNitrousOxide
   parent: BaseXenoArtifactEffect
-  description: Expels nitrous oxide
+  id: XenoArtifactEffectCreationGasNitrousOxide
+  description: Expels a mystery gas #Funky Edit add more mystery to sci
   components:
   - type: XAECreateGas
     gases:
       NitrousOxide: 300
 
 - type: entity
-  id: XenoArtifactEffectCreationGasCarbonDioxide
   parent: BaseXenoArtifactEffect
-  description: Expels carbon dioxide
+  id: XenoArtifactEffectCreationGasCarbonDioxide
+  description: Expels a mystery gas #Funky Edit add more mystery to sci
   components:
   - type: XAECreateGas
     gases:

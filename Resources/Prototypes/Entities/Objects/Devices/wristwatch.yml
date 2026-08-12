@@ -10,7 +10,12 @@
     - state: wristwatch
     - map: [ "enum.ClockVisualLayers.MinuteHand"]
     - map: [ "enum.ClockVisualLayers.HourHand"]
-  - type: Clock
+  - type: StationClock # funky change
+    showSeconds: false
+    showDate: false
+    showTemperature: false
+    toggleSound:
+      path: /Audio/Machines/lightswitch.ogg
   - type: Item
     sprite: Objects/Devices/wristwatch.rsi
     size: Small

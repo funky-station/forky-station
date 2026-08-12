@@ -77,12 +77,13 @@
   - type: Appearance
   - type: WiresVisuals
   - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: _Funkystation/Structures/Wallmounts/air_monitors.rsi
     layers:
     - state: alarmp
       map: ["airAlarmBase"]
     - state: alarm0
       map: ["airAlarmState"] # TODO: fire alarm enum
+      shader: unshaded # funkystation
     - state: alarmx
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Construction
@@ -117,7 +118,7 @@
   description: An air alarm. Doesn't look like it'll be alarming air any time soon.
   components:
   - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: _Funkystation/Structures/Wallmounts/air_monitors.rsi
     layers:
     - state: alarm_b1
       map: [ "enum.ConstructionVisuals.Layer" ]

@@ -13,6 +13,7 @@
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
+  joinNotifyCrew: true # Funky
   supervisors: job-supervisors-captain
   access:
   - Research
@@ -22,8 +23,8 @@
   - Brig
   - Cryogenics
   special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+  #- !type:AddImplantSpecial
+  #  implants: [ MindShieldImplant ] # Funky - Removed mindshields
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff

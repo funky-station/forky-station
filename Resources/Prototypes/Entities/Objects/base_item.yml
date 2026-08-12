@@ -46,6 +46,9 @@
   - type: DamageExaminable
   - type: Rotatable
     increment: 30
+  # ES START
+  - type: ESViewconeOccludable
+  # ES END
 
 - type: entity
   name: "storage item"

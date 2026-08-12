@@ -20,6 +20,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared._RMC14.Sound; // Funky
 
 namespace Content.Shared.Sound;
 
@@ -55,6 +56,7 @@ public abstract partial class SharedEmitSoundSystem : EntitySystem
         SubscribeLocalEvent<EmitSoundOnCollideComponent, StartCollideEvent>(OnEmitSoundOnCollide);
 
         SubscribeLocalEvent<SoundWhileAliveComponent, MobStateChangedEvent>(OnMobState);
+        SubscribeLocalEvent<EmitSoundOnActionComponent, SoundActionEvent>(OnEmitSoundOnAction); // Funky
     }
 
     private void HandleEmitSoundOnUIOpen(EntityUid uid, EmitSoundOnUIOpenComponent component, AfterActivatableUIOpenEvent args)
@@ -62,6 +64,7 @@ public abstract partial class SharedEmitSoundSystem : EntitySystem
         if (_whitelistSystem.IsWhitelistFail(component.Blacklist, args.User))
         {
             TryEmitSound(uid, component, args.User);
+            args.InteractionParticle = true; // Stellar - interaction particles
         }
     }
 
@@ -110,6 +113,16 @@ public abstract partial class SharedEmitSoundSystem : EntitySystem
             args.Handled = true;
     }
 
+    // Funky start
+    private void OnEmitSoundOnAction(Entity<EmitSoundOnActionComponent> ent, ref SoundActionEvent args)
+    {
+        TryEmitSound(ent, ent.Comp, args.Performer);
+
+        if (ent.Comp.Handle)
+            args.Handled = true;
+    }
+    // Funky end
+
     private void OnEmitSoundOnThrown(EntityUid uid, BaseEmitSoundComponent component, ref ThrownEvent args)
     {
         TryEmitSound(uid, component, args.User, false);
@@ -141,7 +154,7 @@ public abstract partial class SharedEmitSoundSystem : EntitySystem
             TryEmitSound(ent, ent.Comp, args.User);
         }
     }
-    protected void TryEmitSound(EntityUid uid, BaseEmitSoundComponent component, EntityUid? user=null, bool predict=true)
+    public void TryEmitSound(EntityUid uid, BaseEmitSoundComponent component, EntityUid? user=null, bool predict=true) // Funky changed to public
     {
         if (component.Sound == null)
             return;

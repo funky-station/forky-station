@@ -8,7 +8,7 @@
       role: JobCargoTechnician
       time: 5h
     - !type:RoleTimeRequirement
-      role: JobSalvageSpecialist
+      role: JobBotanist #funky - replaces salvage
       time: 2.5h
     - !type:DepartmentTimeRequirement
       department: Cargo
@@ -16,9 +16,11 @@
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
+  joinNotifyCrew: true # Funky
   supervisors: job-supervisors-captain
   access:
   - Cargo
+  - Hydroponics # Funky - Botanist is now in Logistics
   - Salvage
   - Quartermaster
   - Maintenance
@@ -27,8 +29,8 @@
   - Brig
   - Cryogenics
   special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+  #- !type:AddImplantSpecial
+  #  implants: [ MindShieldImplant ] # Funky - Removed mindshields
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff

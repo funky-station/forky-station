@@ -17,6 +17,15 @@
       department: Security
       time: 4h
     - !type:DepartmentTimeRequirement
+      department: InternalAffairs
+      time: 4h
+    - !type:DepartmentTimeRequirement
+      department: Cargo
+      time: 4h
+    - !type:DepartmentTimeRequirement
+      department: Service
+      time: 4h
+    - !type:DepartmentTimeRequirement
       department: Command
       time: 4h
   weight: 20
@@ -27,8 +36,8 @@
   accessGroups:
   - AllAccess
   special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+  #- !type:AddImplantSpecial
+  #  implants: [ MindShieldImplant ] # Funky - Removed mindshields
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff

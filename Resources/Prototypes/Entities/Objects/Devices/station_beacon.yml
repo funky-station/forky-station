@@ -1,11 +1,11 @@
 - type: entity
   parent: BaseItem
-  id: DefaultStationBeacon
+  id: BaseStationBeacon 
   name: station beacon
   description: A small device that transmits information to station maps. Can be configured.
   placement:
     mode: SnapgridCenter
-  suffix: General
+  suffix: Not teleport point, Ninja bombing target blacklist
   components:
   - type: Sprite
     sprite: Objects/Devices/station_beacon.rsi
@@ -38,9 +38,6 @@
     layer: 1
   - type: SubFloorHide
   - type: Anchorable
-  - type: Construction
-    graph: StationBeaconPart
-    node: complete
   - type: CollideOnAnchor
   - type: Physics
     canCollide: false
@@ -80,9 +77,31 @@
     price: 25
 
 - type: entity
+  parent: BaseStationBeacon
+  id: TeleportStationBeacon # You can teleport to this Beacon using a teleport scroll
+  suffix: Ninja bombing target blacklist
+  components:
+  - type: Tag
+    tags:
+    - TeleportScrollWarp
+
+- type: entity
+  parent: BaseStationBeacon
+  id: DefaultStationBeacon  # the ninja's objective is to bomb this location.
+  suffix: General
+  components:
+  - type: Tag
+    tags:
+    - NinjaBombingTarget
+    - TeleportScrollWarp
+  - type: Construction
+    graph: StationBeaconPart
+    node: complete
+
+- type: entity
   parent: DefaultStationBeacon
   id: DefaultStationBeaconUnanchored
-  suffix: General, Unanchored
+  suffix: Unanchored
   placement:
     mode: PlaceFree
   components:
@@ -236,6 +255,7 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-courtroom
+    color: "#BDA499" # funky - alignment with IA over sec
 
 - type: entity
   parent: DefaultStationBeaconSecurity
@@ -244,6 +264,7 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-law
+    color: "#D4D4D496" # funky - not sec aligned, now civilian
 
 - type: entity
   parent: DefaultStationBeaconSecurity
@@ -389,7 +410,7 @@
   suffix: Supply
   components:
   - type: NavMapBeacon
-    defaultText: station-beacon-supply
+    defaultText: station-beacon-logistics # Funky - Logistics rename
     color: "#A46106"
 
 - type: entity
@@ -450,18 +471,16 @@
     defaultText: station-beacon-ame
 
 - type: entity
-  parent: DefaultStationBeaconEngineering
+  parent: TeleportStationBeacon
   id: DefaultStationBeaconSolars
   suffix: Solars
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-solars
-  - type: Tag
-    tags:
-    - NinjaBombingTargetBlocker
+    color: "#EFB341"
 
 - type: entity
-  parent: DefaultStationBeaconEngineering
+  parent: DefaultStationBeaconSolars
   id: DefaultStationBeaconSolarsN
   suffix: Solars, North
   components:
@@ -469,7 +488,7 @@
     defaultText: station-beacon-solars-N
 
 - type: entity
-  parent: DefaultStationBeaconEngineering
+  parent: DefaultStationBeaconSolars
   id: DefaultStationBeaconSolarsNE
   suffix: Solars, Northeast
   components:
@@ -477,7 +496,7 @@
     defaultText: station-beacon-solars-NE
 
 - type: entity
-  parent: DefaultStationBeaconEngineering
+  parent: DefaultStationBeaconSolars
   id: DefaultStationBeaconSolarsE
   suffix: Solars, East
   components:
@@ -485,7 +504,7 @@
     defaultText: station-beacon-solars-E
 
 - type: entity
-  parent: DefaultStationBeaconEngineering
+  parent: DefaultStationBeaconSolars
   id: DefaultStationBeaconSolarsSE
   suffix: Solars, Southeast
   components:
@@ -493,7 +512,7 @@
     defaultText: station-beacon-solars-SE
 
 - type: entity
-  parent: DefaultStationBeaconEngineering
+  parent: DefaultStationBeaconSolars
   id: DefaultStationBeaconSolarsS
   suffix: Solars, South
   components:
@@ -501,7 +520,7 @@
     defaultText: station-beacon-solars-S
 
 - type: entity
-  parent: DefaultStationBeaconEngineering
+  parent: DefaultStationBeaconSolars
   id: DefaultStationBeaconSolarsSW
   suffix: Solars, Southwest
   components:
@@ -509,7 +528,7 @@
     defaultText: station-beacon-solars-SW
 
 - type: entity
-  parent: DefaultStationBeaconEngineering
+  parent: DefaultStationBeaconSolars
   id: DefaultStationBeaconSolarsW
   suffix: Solars, West
   components:
@@ -517,7 +536,7 @@
     defaultText: station-beacon-solars-W
 
 - type: entity
-  parent: DefaultStationBeaconEngineering
+  parent: DefaultStationBeaconSolars
   id: DefaultStationBeaconSolarsNW
   suffix: Solars, Northwest
   components:
@@ -620,6 +639,7 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-botany
+    color: "#A46106" # funky - under logistics now
 
 - type: entity
   parent: DefaultStationBeaconService
@@ -671,15 +691,12 @@
     defaultText: station-beacon-ai-power
 
 - type: entity
-  parent: DefaultStationBeacon
+  parent: TeleportStationBeacon
   id: DefaultStationBeaconArrivals
   suffix: Arrivals
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-arrivals
-  - type: Tag
-    tags:
-    - NinjaBombingTargetBlocker
 
 - type: entity
   parent: DefaultStationBeacon
@@ -712,6 +729,7 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-chapel
+    color: "#9FED58" # funky - officially service
 
 - type: entity
   parent: DefaultStationBeacon
@@ -720,6 +738,7 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-library
+    color: "#9FED58" # funky - officially service
 
 - type: entity
   parent: DefaultStationBeacon
@@ -736,6 +755,7 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-theater
+    color: "#9FED58" # funky - oficially service
 
 - type: entity
   parent: DefaultStationBeacon
@@ -768,9 +788,6 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-cryosleep
-  - type: Tag
-    tags:
-    - NinjaBombingTargetBlocker
 
 - type: entity
   parent: DefaultStationBeacon
@@ -852,49 +869,35 @@
   - type: NavMapBeacon
     defaultText: station-beacon-vox
 
-# Ghost Only Beacons
-- type: entity
-  parent: DefaultStationBeacon
-  id: DefaultStationBeaconGhost
-  suffix: Boo
-  components:
-  - type: Tag
-    tags:
-    - GhostOnlyWarp
-  - type: WarpPoint
-    blacklist:
-      tags:
-      - GhostOnlyWarp
-
 # CentComm Beacons
 - type: entity
-  parent: DefaultStationBeaconGhost
+  parent: BaseStationBeacon
   id: DefaultStationBeaconCentComm
-  suffix: CentComm
+  suffix: Not teleport point, CentComm
   components:
   - type: NavMapBeacon
     text: CentComm
 
 - type: entity
-  parent: DefaultStationBeaconGhost
+  parent: DefaultStationBeaconCentComm
   id: DefaultStationBeaconCentCommAfterhours
-  suffix: CentComm Afterhours
+  suffix: Not teleport point, CentComm Afterhours
   components:
   - type: NavMapBeacon
     text: Afterhours
 
 - type: entity
-  parent: DefaultStationBeaconGhost
+  parent: DefaultStationBeaconCentComm
   id: DefaultStationBeaconCentCommThunderdome
-  suffix: CentComm Thunder Dome
+  suffix: Not teleport point, CentComm Thunder Dome
   components:
   - type: NavMapBeacon
     text: Thunderdome
 
 - type: entity
-  parent: DefaultStationBeaconGhost
+  parent: DefaultStationBeaconCentComm
   id: DefaultStationBeaconCentCommERT
-  suffix: CentComm ERT
+  suffix: Not teleport point, CentComm ERT
   components:
   - type: NavMapBeacon
     text: ERT

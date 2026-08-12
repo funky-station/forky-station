@@ -9,12 +9,57 @@
 
 - type: Tag # Funky atmos - /tg/ gases
   id: PlasmaSheet
+  
+- type: Tag # Funky weapon - ammo
+  id: CartridgePistolLarge
+
+- type: Tag # Funky weapon - magazine
+  id: MagazinePistolLarge
+
+- type: Tag # Funky weapon - magazine
+  id: MagazineRifle50
+
+- type: Tag
+  id: StargazerShellTag # Funky - ConstructionGraphs for stargazer lollipop
 
 - type: Tag # Funky Wall Stains
   id: DirectionalWindow
-  
+
 - type: Tag # Funky - Making plastic lighters whitelisted for cig packs
   id: PlasticLighter
 
 - type: Tag # Funky - Rag fits in janibelt
   id: Rag
+
+- type: Tag # Funky, for shredder
+  id: ShredderBin
+  
+- type: Tag
+  id: GasTank
+
+- type: Tag
+  id: DefibrillatorCompact
+
+- type: Tag
+  id: OxygenTank
+
+- type: Tag
+  id: NitrogenTank
+
+- type: Tag
+  id: NitrousOxideTank
+
+- type: Tag
+  id: PlasmaTank
+
+- type: Tag
+  id: AirTank
+
+- type: Tag
+  id: ExtendedEmergencyNitrogenTank
+
+- type: Tag
+  id: ClownEmergencyOxygenTank
+  
+- type: Tag
+  id: CardboardboxLarge

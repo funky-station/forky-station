@@ -78,7 +78,7 @@
   components:
   - type: Store
     balance:
-      Telecrystal: 20
+      Telecrystal: 100 #Funky rework to make it 100 tc base
 
 - type: entity
   parent: BaseUplinkRadio
@@ -87,7 +87,7 @@
   components:
   - type: Store
     balance:
-      Telecrystal: 25
+      Telecrystal: 125 #Funky rework to make it 100 tc base
 
 #this uplink MUST be used for nukeops, as it has the tag for filtering the listing.
 - type: entity
@@ -97,7 +97,7 @@
   components:
   - type: Store
     balance:
-      Telecrystal: 40
+      Telecrystal: 200 #Funky rework to make it 100 tc base(200 for nukies)
   - type: Tag
     tags:
     - NukeOpsUplink
@@ -109,7 +109,7 @@
   components:
   - type: Store
     balance:
-      Telecrystal: 60
+      Telecrystal: 300 #Funky rework to make it 100tc base(300 for lone op)
   - type: Tag
     tags:
     - NukeOpsUplink

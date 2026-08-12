@@ -9,11 +9,11 @@
   - type: Transform
     noRot: true
   - type: Icon
-    sprite: Structures/Storage/Crates/generic.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/generic.rsi # Funky
     state: icon
   - type: Sprite
     noRot: true
-    sprite: Structures/Storage/Crates/generic.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/generic.rsi # Funky
     layers:
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
@@ -23,7 +23,7 @@
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Funkystation/Structures/Storage/Crates/labels.rsi # Funky
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: InteractionOutline
   - type: Physics
@@ -89,10 +89,10 @@
   - type: LockVisuals
   - type: AccessReader
   - type: Icon
-    sprite: Structures/Storage/Crates/secure.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/secure.rsi # Funky
     state: icon
   - type: Sprite
-    sprite: Structures/Storage/Crates/secure.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/secure.rsi # Funky
     layers:
     - state: base
     - state: closed
@@ -104,7 +104,7 @@
       map: ["enum.LockVisualLayers.Lock"]
       shader: unshaded
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Funkystation/Structures/Storage/Crates/labels.rsi # Funky
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: Damageable

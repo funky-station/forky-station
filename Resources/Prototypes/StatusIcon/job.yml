@@ -11,7 +11,7 @@
   parent: JobIcon
   id: JobIconCargoTechnician
   icon:
-    sprite: &icon-rsi /Textures/Interface/Misc/job_icons.rsi
+    sprite: &icon-rsi /Textures/_Funkystation/Interface/Misc/job_icons.rsi # Funky
     state: CargoTechnician
   jobName: job-name-cargotech
 
@@ -20,7 +20,7 @@
   id: JobIconShaftMiner
   icon:
     sprite: *icon-rsi
-    state: ShaftMiner
+    state: SalvageSpecialist # Funky - Formerly "ShaftMiner"
   jobName: job-name-salvagespec
 
 # Command
@@ -53,9 +53,10 @@
   parent: JobIcon
   id: JobIconHeadOfPersonnel
   icon:
-    sprite: *icon-rsi
+    sprite: &old-icon-rsi /Textures/Interface/Misc/job_icons.rsi # Funky - Fallback RSI for jobs without new icons
     state: HeadOfPersonnel
   jobName: job-name-hop
+  allowSelection: false # Funky - Job deprecated
 
 - type: jobIcon
   parent: JobIcon
@@ -78,7 +79,7 @@
   id: JobIconQuarterMaster
   icon:
     sprite: *icon-rsi
-    state: QuarterMaster
+    state: Quartermaster # Funky - Formerly "QuarterMaster"
   jobName: job-name-qm
 
 # Engineering
@@ -229,9 +230,10 @@
   parent: JobIcon
   id: JobIconWarden
   icon:
-    sprite: *icon-rsi
+    sprite: *old-icon-rsi # Funky - Fallback RSI
     state: Warden
   jobName: job-name-warden
+  allowSelection: false # Funky - Job deprecated
 
 # Service
 
@@ -255,9 +257,10 @@
   parent: JobIcon
   id: JobIconBoxer
   icon:
-    sprite: *icon-rsi
+    sprite: *old-icon-rsi # Funky - Fallback RSI
     state: Boxer
   jobName: job-name-boxer
+  allowSelection: false # Funky - Job deprecated
 
 - type: jobIcon
   parent: JobIcon
@@ -356,7 +359,7 @@
   id: JobIconPassenger
   icon:
     sprite: *icon-rsi
-    state: Passenger
+    state: Assistant # Funky - Formerly "Passenger"
   jobName: job-name-passenger
 
 - type: jobIcon
@@ -549,9 +552,10 @@
   parent: JobIcon
   id: JobIconNanotrasen
   icon:
-    sprite: *icon-rsi
+    sprite: *old-icon-rsi # Funky - Fallback RSI
     state: Nanotrasen
   jobName: job-name-centcommoff
+  allowSelection: false # Funky - Job deprecated
 
 - type: jobIcon
   parent: JobIcon

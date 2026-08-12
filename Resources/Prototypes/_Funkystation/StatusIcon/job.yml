@@ -1,0 +1,124 @@
+# Central Command
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCentralCommandIntern
+  icon:
+    sprite: &icon-rsi /Textures/_Funkystation/Interface/Misc/job_icons.rsi
+    state: CentralCommandIntern
+  jobName: job-name-cci
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCentralCommandOfficial
+  icon:
+    sprite: *icon-rsi
+    state: CentralCommandOfficial
+  jobName: job-name-cco
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconNanotrasenCareerTrainer
+  icon:
+    sprite: *icon-rsi
+    state: NanotrasenCareerTrainer
+  jobName: job-name-nct
+
+# Command
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCorporateLiaison
+  icon:
+    sprite: *icon-rsi
+    state: CorporateLiaison
+  jobName: job-name-cl
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconExecutiveOfficer
+  icon:
+    sprite: *icon-rsi
+    state: ExecutiveOfficer
+  jobName: job-name-xo
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconHospitalityDirector
+  icon:
+    sprite: *icon-rsi
+    state: HospitalityDirector
+  jobName: job-name-hd
+
+# Internal Affairs
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconInternalAffairsAgent
+  icon:
+    sprite: *icon-rsi
+    state: InternalAffairsAgent
+  jobName: job-name-iaa
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMagistrate
+  icon:
+    sprite: *icon-rsi
+    state: Magistrate
+  jobName: job-name-magistrate
+
+
+# Security
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconDeputy
+  icon:
+    sprite: *icon-rsi
+    state: Deputy
+  jobName: job-name-deputy
+
+# Service
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconFitnessInstructor
+  icon:
+    sprite: *icon-rsi
+    state: FitnessInstructor
+  jobName: job-name-fitness-instructor
+
+# Visitors etc.
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCommandMaid
+  icon:
+    sprite: *icon-rsi
+    state: CommandMaid
+  jobName: job-name-command-maid
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCowboy
+  icon:
+    sprite: *icon-rsi
+    state: Cowboy
+  jobName: job-name-cowboy
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPartyMaker
+  icon:
+    sprite: *icon-rsi
+    state: PartyMaker
+  jobName: job-name-party-maker
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSecurityClown
+  icon:
+    sprite: *icon-rsi
+    state: SecurityClown
+  jobName: job-name-security-clown

@@ -91,8 +91,8 @@
       storagebase: !type:AllSelector
         children:
         - id: WeaponRifleEstoc
-        - id: MagazineRifle
-          amount: 2
+        - id: MagazineRifle50 # Funky
+          amount: 3
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -171,7 +171,7 @@
           amount: 4
         - id: MagazineShotgun
           amount: 4
-        - id: MagazineRifle
+        - id: MagazineRifle50Incendiary # Funky
           amount: 3
         - id: MagazineShotgunSlug
         - id: MagazineLightRifleBox
@@ -307,6 +307,7 @@
         - id: ClothingHandsGlovesColorYellowBudget
         - id: DoubleEmergencyOxygenTankFilled
         - id: DoubleEmergencyNitrogenTankFilled
+        - id: SuitSealantCanister # Funky
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -355,6 +356,7 @@
     - id: ClothingHandsGlovesCombat
     - id: DoubleEmergencyOxygenTankFilled
     - id: DoubleEmergencyNitrogenTankFilled
+    - id: SuitSealantCanister # Funky
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle

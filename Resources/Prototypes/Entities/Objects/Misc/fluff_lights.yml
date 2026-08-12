@@ -61,7 +61,7 @@
   description: A light emitting device.
   components:
   - type: Sprite
-    sprite: Objects/Misc/Lights/lamp.rsi
+    sprite: _Funkystation/Objects/Misc/Lights/lamp.rsi # Funky
     layers:
       - state: lamp
         map: [ "base" ]
@@ -70,7 +70,7 @@
         visible: false
         map: [ "light" ]
   - type: Item
-    sprite: Objects/Misc/Lights/lamp.rsi
+    sprite: _Funkystation/Objects/Misc/Lights/lamp.rsi # Funky
   - type: HolidayVisuals
     holidays:
       festive:
@@ -104,7 +104,7 @@
   description: A light emitting device that would look great on a desk.
   components:
   - type: Sprite
-    sprite: Objects/Misc/Lights/lampgreen.rsi
+    sprite: _Funkystation/Objects/Misc/Lights/lampgreen.rsi # Funky
     layers:
       - state: lampgreen
         map: [ "base" ]
@@ -113,7 +113,7 @@
         visible: false
         map: [ "light" ]
   - type: Item
-    sprite: Objects/Misc/Lights/lampgreen.rsi
+    sprite: _Funkystation/Objects/Misc/Lights/lampgreen.rsi # Funky
   - type: HolidayVisuals
     holidays:
       festive:
@@ -196,7 +196,7 @@
   - type: Item
     size: Normal
   - type: Sprite
-    sprite: Objects/Misc/Lights/lights.rsi
+    sprite: _Funkystation/Objects/Misc/Lights/lights.rsi # Funky
     layers:
       - state: floodlight
         map: [ "base" ]
@@ -219,6 +219,7 @@
     enabled: false
     radius: 8
     energy: 5
+    color: '#ffe0b7' # Funky
   - type: ItemSlots
     slots:
       cell_slot:
@@ -258,10 +259,10 @@
   components:
   - type: Item
     size: Normal
-    sprite: Objects/Misc/Lights/lights.rsi
+    sprite: _Funkystation/Objects/Misc/Lights/lights.rsi # Funky
     heldPrefix: floodlight-broken
   - type: Sprite
-    sprite: Objects/Misc/Lights/lights.rsi
+    sprite: _Funkystation/Objects/Misc/Lights/lights.rsi # Funky
     state: floodlight-broken
   - type: Anchorable
   - type: Damageable

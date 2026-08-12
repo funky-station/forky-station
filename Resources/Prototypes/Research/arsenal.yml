@@ -27,12 +27,15 @@
   - MagazinePistolIncendiary
   - MagazinePistolSubMachineGunIncendiary
   - MagazineLightRifleIncendiary
+  - MagazinePistolLargeIncendiary # Funky
   - SpeedLoaderMagnumIncendiary
   - MagazineShotgunIncendiary
   - MagazineBoxPistolIncendiary
   - MagazineBoxMagnumIncendiary
   - MagazineBoxLightRifleIncendiary
   - MagazineBoxRifleIncendiary
+  - MagazineBoxPistolLargeIncendiary # Funky
+  - MagazineRifle50Incendiary # Funky
 
 - type: technology
   id: WeaponizedLaserManipulation
@@ -64,7 +67,7 @@
   id: UraniumMunitions
   name: research-technology-uranium-munitions
   icon:
-    sprite: Objects/Materials/Sheets/other.rsi
+    sprite: _Funkystation/Objects/Materials/Sheets/other.rsi #Funky station
     state: uranium
   discipline: Arsenal
   tier: 1
@@ -74,11 +77,14 @@
   - MagazinePistolUranium
   - MagazinePistolSubMachineGunUranium
   - MagazineLightRifleUranium
+  - MagazinePistolLargeUranium # Funky
+  - MagazineRifle50Uranium # Funky
   - SpeedLoaderMagnumUranium
   - MagazineBoxPistolUranium
   - MagazineBoxMagnumUranium
   - MagazineBoxLightRifleUranium
   - MagazineBoxRifleUranium
+  - MagazineBoxPistolLargeUranium # Funky
   - BoxShotgunUranium
 
 - type: technology

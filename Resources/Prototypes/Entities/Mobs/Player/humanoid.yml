@@ -6,13 +6,16 @@
     - type: GhostTakeoverAvailable
     - type: IdBind
 
+# Funky - Ideally this should be called something like EventHumanoidAntagImmune or something now
+# However that would mean changing every single thing that uses this and that is not really ideal
+# Plus to my knowledge this is just used for admemes given that visitor shuttles have been removed
 - type: randomHumanoidSettings
   id: EventHumanoidMindShielded
   parent: EventHumanoid
   components:
-    - type: AutoImplant
-      implants:
-      - MindShieldImplant
+    #- type: AutoImplant # Funky - Removing mindshields
+    #  implants:
+    #  - MindShieldImplant
     - type: AntagImmune
 
 - type: randomHumanoidSettings
@@ -22,7 +25,7 @@
   components:
   - type: AutoImplant
     implants:
-    - MindShieldImplant
+    #- MindShieldImplant # Funky - Removing mindshields
     - DeathRattleImplantCentcomm
 
 ## Death Squad
