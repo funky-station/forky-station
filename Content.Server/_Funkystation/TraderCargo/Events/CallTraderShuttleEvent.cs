@@ -1,4 +1,4 @@
-namespace Content.Server._Funkystation.Shuttles.Events;
+namespace Content.Server._Funkystation.TraderCargo.Events;
 
 /// <summary>
 /// Raised when a station calls a trader shuttle with the FTL comms computer.

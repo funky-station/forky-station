@@ -1,5 +1,5 @@
 
-namespace Content.Server._Funkystation.Shuttles.Components;
+namespace Content.Server._Funkystation.TraderCargo.Components;
 
 /// <summary>
 /// Added to a station that is available for trader shuttles.

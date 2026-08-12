@@ -940,13 +940,18 @@ public sealed partial class ShuttleSystem
     /// <summary>
     /// Tries to arrive nearby without overlapping with other grids and enforces a configurable spawn offset.
     /// </summary>
-    public bool TryFTLProximityOffset(
+    public bool TryFTLProximityOffset
+    (
         EntityUid shuttleUid,
         EntityUid targetUid,
         float minOffset,
         float maxOffset,
         TransformComponent? xform = null,
-        TransformComponent? targetXform = null)
+        TransformComponent? targetXform = null,
+        float? startupTime = null,
+        float? hyperspaceTime = null,
+        string? priorityTag = null
+    )
     {
         if (!Resolve(targetUid, ref targetXform) ||
             targetXform.MapUid == null ||
@@ -967,7 +972,10 @@ public sealed partial class ShuttleSystem
                 targetXform))
             return false;
 
-        _transform.SetCoordinates(shuttleUid, xform, coords, rotation: angle);
+        if (!TryComp(shuttleUid, out ShuttleComponent? shuttleComp))
+            return false;
+
+        FTLToCoordinates(shuttleUid, shuttleComp, coords, angle, startupTime, hyperspaceTime, priorityTag);
         return true;
     }
 
@@ -980,7 +988,10 @@ public sealed partial class ShuttleSystem
         Entity<TransformComponent?> shuttle,
         EntityCoordinates targetCoordinates,
         float minOffset,
-        float maxOffset
+        float maxOffset,
+        float? startupTime = null,
+        float? hyperspaceTime = null,
+        string? priorityTag = null
     )
     {
         if (!Resolve(shuttle.Owner, ref shuttle.Comp) ||
@@ -992,7 +1003,10 @@ public sealed partial class ShuttleSystem
         if (!TryGetFTLProximity(shuttle, targetCoordinates, out var coords, out var angle, minOffset, maxOffset))
             return false;
 
-        _transform.SetCoordinates(shuttle, shuttle.Comp, coords, rotation: angle);
+        if (!TryComp(shuttle.Owner, out ShuttleComponent? shuttleComp))
+            return false;
+
+        FTLToCoordinates(shuttle.Owner, shuttleComp, coords, angle, startupTime, hyperspaceTime, priorityTag);
         return true;
     }
 

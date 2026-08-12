@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseComputerAiAccess
+  id: ComputerFTLComms
+  name: "FTL Communications Computer"
+  description: "A console that can be used to contact traders in deep space. Must be linked to a powered deep space antenna to function."
+  components:
+  - type: AccessReader
+    access: [["Cargo"]]
+  - type: FTLCommsComputer
+  - type: ActivatableUI

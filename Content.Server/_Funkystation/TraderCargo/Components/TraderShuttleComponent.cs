@@ -1,8 +1,9 @@
 using Robust.Shared.Utility;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Server._Funkystation.Shuttles.Components;
+namespace Content.Server._Funkystation.TraderCargo.Components;
 
-[RegisterComponent]
+[RegisterComponent, AutoGenerateComponentPause]
 public sealed partial class TraderShuttleComponent : Component
 {
     /// <summary>
@@ -10,6 +11,10 @@ public sealed partial class TraderShuttleComponent : Component
     /// </summary>
     [DataField("shuttle")]
     public EntityUid Shuttle;
+
+    [DataField("traderLeaveTime", customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [AutoPausedField]
+    public TimeSpan TraderLeaveTime = TimeSpan.FromSeconds(60f);
 
     /// <summary>
     /// UID of the station that called this trader shuttle
