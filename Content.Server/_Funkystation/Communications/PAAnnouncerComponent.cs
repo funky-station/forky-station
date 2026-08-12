@@ -27,7 +27,6 @@ public sealed partial class PAAnnouncerComponent : Component
     /// A custom announcement sound this PA speaker
     /// should default to.
     /// </summary>
-    // TODO: use announcement sound prototypes?
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public SoundSpecifier? AnnouncementSound;
 

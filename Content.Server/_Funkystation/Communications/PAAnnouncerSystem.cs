@@ -187,11 +187,10 @@ namespace Content.Server._Funkystation.Communications
             // for the next announcement or anything like that.
             if (args.PlaySound && !ent.Comp.Quiet)
             {
-                _announcer.TryGetAnnouncerSound(SharedChatSystem.DefaultAnnouncementSound, out var defaultSound);
-                _audio.PlayPvs(args.AnnouncementSound ??
-                               ent.Comp.AnnouncementSound ??
-                               defaultSound,
-                    ent, AudioParams.Default.WithVolume(VolumeModifier).WithMaxDistance(MaxAudioDistance));
+                var sound = args.AnnouncementSound ?? ent.Comp.AnnouncementSound;
+                if (sound == null)
+                    _announcer.TryGetAnnouncerSound(SharedChatSystem.DefaultAnnouncementSound, out sound);
+                _audio.PlayPvs(sound, ent, AudioParams.Default.WithVolume(VolumeModifier).WithMaxDistance(MaxAudioDistance));
             }
         }
 

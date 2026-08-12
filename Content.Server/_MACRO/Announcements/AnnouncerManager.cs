@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._Funkystation.CCVar;
 using Content.Shared._MACRO.Announcements;
 using Content.Shared._MACRO.CCVars;
 using Content.Shared.Random;
@@ -34,12 +35,21 @@ public sealed partial class AnnouncerManager : IPostInjectInit
         [NotNullWhen(true)] out SoundSpecifier? soundSpecifier)
     {
         var announcer = _prototypeManager.Index(_announcerId);
-        if (announcer.Sounds.TryGetValue(announcementId, out soundSpecifier))
+        // BEGIN Funky
+        var paAnnouncements = _configurationManager.GetCVar(PAAnnouncementCVars.PAAnnouncements);
+        if (announcer.Sounds.TryGetValue(announcementId, out var announcerSound))
+        {
+            soundSpecifier = paAnnouncements ? announcerSound.MonoSound : announcerSound.StereoSound; //funky - mono sounds for in-world announcements
             return true;
+        }
 
         if (!_prototypeManager.TryIndex(announcementId, out var announcement))
+        {
+            soundSpecifier = null;
             return false;
-        soundSpecifier = announcement.DefaultSound;
+        }
+        soundSpecifier = paAnnouncements ? announcement.MonoDefaultSound : announcement.DefaultSound; //funky - mono sounds for in-world announcements
+        // END Funky
         return true;
     }
 

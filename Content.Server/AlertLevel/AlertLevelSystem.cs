@@ -195,7 +195,7 @@ public sealed partial class AlertLevelSystem : EntitySystem
             if (detail.Sound != null && !paAnnouncements)
             {
                 var filter = _stationSystem.GetInOwningStation(station);
-                _audio.PlayGlobal(detail.Sound, filter, true, detail.Sound.Params);
+                _audio.PlayGlobal(detail.Sound.StereoSound, filter, true, detail.Sound.StereoSound.Params); // funky
             }
             else
             {
@@ -206,7 +206,7 @@ public sealed partial class AlertLevelSystem : EntitySystem
         if (announce)
         {
             _chatSystem.DispatchStationAnnouncement(station, announcementFull, playDefaultSound: playDefault,
-                colorOverride: detail.Color, sender: stationName, announcementSound: paAnnouncements ? detail.Sound : null); // funky - play sound locally instead of globally
+                colorOverride: detail.Color, sender: stationName, announcementSound: paAnnouncements ? detail.Sound?.MonoSound : null); // funky - play sound locally instead of globally
         }
 
         RaiseLocalEvent(new AlertLevelChangedEvent(station, level));

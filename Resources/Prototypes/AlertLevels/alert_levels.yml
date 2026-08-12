@@ -9,28 +9,36 @@
       shuttleTime: 600
     blue:
       announcement: alert-level-blue-announcement
-      sound: /Audio/Misc/bluealert_mono.ogg # funky - mono for PA sound effects
+      sound: # funky - switch to mono sounds when using PA announcements
+        stereoSound: /Audio/Misc/bluealert.ogg
+        monoSound: /Audio/Misc/bluealert_mono.ogg # funky - mono for PA sound effects
       color: DodgerBlue
       forceEnableEmergencyLights: true
       emergencyLightColor: DodgerBlue
       shuttleTime: 600
     violet:
       announcement: alert-level-violet-announcement
-      sound: /Audio/Misc/notice1_mono.ogg # funky - mono for PA sound effects
+      sound: # funky - switch to mono sounds when using PA announcements
+        stereoSound: /Audio/Misc/notice1.ogg
+        monoSound: /Audio/Misc/notice1_mono.ogg # funky - mono for PA sound effects
       color: Violet
       emergencyLightColor: Violet
       forceEnableEmergencyLights: true
       shuttleTime: 600
     yellow:
       announcement: alert-level-yellow-announcement
-      sound: /Audio/Misc/notice1_mono.ogg # funky - mono for PA sound effects
+      sound: # funky - switch to mono sounds when using PA announcements
+        stereoSound: /Audio/Misc/notice1.ogg
+        monoSound: /Audio/Misc/notice1_mono.ogg # funky - mono for PA sound effects
       color: Yellow
       emergencyLightColor: Goldenrod
       forceEnableEmergencyLights: true
       shuttleTime: 600
     red:
       announcement: alert-level-red-announcement
-      sound: /Audio/Misc/redalert_mono.ogg # funky - mono for PA sound effects
+      sound: # funky - switch to mono sounds when using PA announcements
+        stereoSound: /Audio/Misc/redalert.ogg
+        monoSound: /Audio/Misc/redalert_mono.ogg # funky - mono for PA sound effects
       color: Red
       emergencyLightColor: Red
       forceEnableEmergencyLights: true
@@ -38,10 +46,15 @@
     gamma:
       announcement: alert-level-gamma-announcement
       selectable: false
-      sound:
-        path: /Audio/Misc/gamma_mono.ogg # funky - mono for PA sound effects
-        params:
-          volume: -2
+      sound: # funky - switch to mono sounds when using PA announcements
+        stereoSound:
+          path: /Audio/Misc/gamma.ogg
+          params:
+            volume: -2
+        monoSound:
+          path: /Audio/Misc/gamma_mono.ogg # funky - mono for PA sound effects
+          params:
+            volume: -2
       disableSelection: true
       color: PaleVioletRed
       emergencyLightColor: PaleVioletRed
@@ -49,10 +62,15 @@
     delta:
       announcement: alert-level-delta-announcement
       selectable: false
-      sound:
-        path: /Audio/Misc/delta_mono.ogg # funky - mono for PA sound effects
-        params:
-          volume: -3
+      sound: # funky - switch to mono sounds when using PA announcements
+        stereoSound:
+          path: /Audio/Misc/delta.ogg
+          params:
+            volume: -3
+        monoSound:
+          path: /Audio/Misc/delta_mono.ogg # funky - mono for PA sound effects
+          params:
+            volume: -3
       disableSelection: true
       color: DarkRed
       emergencyLightColor: Orange
@@ -62,9 +80,14 @@
       announcement: alert-level-epsilon-announcement
       selectable: false
       sound:
-        path: /Audio/Misc/epsilon_mono.ogg # funky - mono for PA sound effects
-        params:
-          volume: -2
+        stereoSound:
+          path: /Audio/Misc/epsilon.ogg
+          params:
+            volume: -2
+        monoSound:
+          path: /Audio/Misc/epsilon_mono.ogg # funky - mono for PA sound effects
+          params:
+            volume: -2
       disableSelection: true
       color: DarkViolet
       emergencyLightColor: DarkViolet
