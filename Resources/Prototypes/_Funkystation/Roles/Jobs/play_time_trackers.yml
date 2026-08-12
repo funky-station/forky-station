@@ -12,3 +12,12 @@
 
 - type: playTimeTracker
   id: JobExecutiveOfficer
+
+- type: playTimeTracker
+  id: JobCommandant
+
+- type: playTimeTracker
+  id: JobLieutenant
+
+- type: playTimeTracker
+  id: JobDispatcher

@@ -56,7 +56,6 @@ namespace Content.Shared.Interaction
     public abstract partial class SharedInteractionSystem : EntitySystem
     {
         [Dependency] private IGameTiming _gameTiming = default!;
-        [Dependency] private IMapManager _mapManager = default!;
         [Dependency] private ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private ISharedChatManager _chat = default!;
         [Dependency] private ActionBlockerSystem _actionBlockerSystem = default!;
@@ -921,7 +920,7 @@ namespace Content.Shared.Interaction
                     ignoreAnchored = angleDelta < wallMount.Arc / 2 || Math.Tau - angleDelta < wallMount.Arc / 2;
                 }
 
-                if (ignoreAnchored && _mapManager.TryFindGridAt(targetCoords, out var gridUid, out var grid))
+                if (ignoreAnchored && _map.TryFindGridAt(targetCoords, out var gridUid, out var grid))
                     ignored.UnionWith(_map.GetAnchoredEntities((gridUid, grid), targetCoords));
             }
 
@@ -1287,9 +1286,6 @@ namespace Content.Shared.Interaction
             if (IsDeleted(user) || IsDeleted(item))
                 return;
 
-            var dropMsg = new DroppedEvent(user);
-            RaiseLocalEvent(item, dropMsg, true);
-
             // If the dropper is rotated then use their targetrelativerotation as the drop rotation
             var rotation = Angle.Zero;
 
@@ -1299,6 +1295,9 @@ namespace Content.Shared.Interaction
             }
 
             Transform(item).LocalRotation = rotation;
+
+            var dropMsg = new DroppedEvent(user);
+            RaiseLocalEvent(item, dropMsg, true);
         }
         #endregion
 

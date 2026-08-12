@@ -44,7 +44,7 @@ public sealed partial class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmCompon
 
         if (component.AnnouncementSound is { } soundId && _announcer.TryGetAnnouncerSound(soundId, out sound))
         {
-            if (!paAnnouncements)
+            if (!paAnnouncements) // funky
                 _audio.PlayGlobal(sound, allPlayersInGame, true);
         }
         // Macrocosm edit end

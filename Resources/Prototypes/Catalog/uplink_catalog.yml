@@ -185,7 +185,7 @@
   id: UplinkEnergyDagger
   name: uplink-edagger-name
   description: uplink-edagger-desc
-  icon: { sprite: /Textures/Objects/Weapons/Melee/e_dagger.rsi, state: icon }
+  icon: { sprite: /Textures/_Funkystation/Objects/Weapons/Melee/e_dagger.rsi, state: icon } # Funky
   productEntity: EnergyDaggerBox
   discountCategory: rareDiscounts
   discountDownTo:
@@ -592,7 +592,7 @@
   id: UplinkExplodingPen
   name: uplink-exploding-pen-name
   description: uplink-exploding-pen-desc
-  icon: { sprite: /Textures/Objects/Misc/pens.rsi, state: pen }
+  icon: { sprite: /Textures/_Funkystation/Objects/Misc/pens.rsi, state: pen } # Funky
   productEntity: PenExplodingBox
   discountCategory: usualDiscounts
   discountDownTo:
@@ -790,7 +790,7 @@
   id: UplinkHypopen
   name: uplink-hypopen-name
   description: uplink-hypopen-desc
-  icon: { sprite: /Textures/Objects/Misc/pens.rsi, state: pen }
+  icon: { sprite: /Textures/_Funkystation/Objects/Misc/pens.rsi, state: pen } # Funky
   productEntity: HypopenBox
   discountCategory: rareDiscounts
   discountDownTo:
@@ -1715,18 +1715,18 @@
         components:
           - SurplusBundle
 
-- type: listing
-  id: UplinkFakeMindshield
-  name: uplink-fake-mindshield-name
-  description: uplink-fake-mindshield-desc
-  icon: { sprite: Interface/Actions/actions_fakemindshield.rsi, state: icon-on }
-  productEntity: FakeMindShieldImplanter
-  discountDownTo:
-    Telecrystal: 10
-  cost:
-    Telecrystal: 15
-  categories:
-  - UplinkImplants
+#- type: listing # Funky - Removing mindshields
+#  id: UplinkFakeMindshield
+#  name: uplink-fake-mindshield-name
+#  description: uplink-fake-mindshield-desc
+#  icon: { sprite: Interface/Actions/actions_fakemindshield.rsi, state: icon-on }
+#  productEntity: FakeMindShieldImplanter
+#  discountDownTo:
+#    Telecrystal: 10
+#  cost:
+#    Telecrystal: 15
+#  categories:
+#  - UplinkImplants
 
 - type: listing
   id: UplinkVoiceMaskImplant
@@ -1890,7 +1890,7 @@
   id: UplinkClothingOuterHardsuitJuggernaut
   name: uplink-clothing-outer-hardsuit-juggernaut-name
   description: uplink-clothing-outer-hardsuit-juggernaut-desc
-  icon: { sprite: /Textures/Structures/Storage/Crates/syndicate.rsi, state: icon }
+  icon: { sprite: /Textures/_Funkystation/Structures/Storage/Crates/syndicate.rsi, state: icon } # Funky
   productEntity: CrateCybersunJuggernautBundle
   cost:
     Telecrystal: 80

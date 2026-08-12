@@ -12,8 +12,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 
 namespace Content.Server.StationEvents.Events;
 
@@ -23,7 +21,6 @@ namespace Content.Server.StationEvents.Events;
 public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T : IComponent
 {
     [Dependency] protected IAdminLogManager AdminLogManager = default!;
-    [Dependency] protected IPrototypeManager PrototypeManager = default!;
     [Dependency] protected ChatSystem ChatSystem = default!;
     [Dependency] protected SharedAudioSystem Audio = default!;
     [Dependency] protected StationSystem StationSystem = default!;
@@ -60,7 +57,7 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
 
         if (stationEvent.StartAudio is { } startAudio && Announcer.TryGetAnnouncerSound(startAudio, out soundSpecifier))
         {
-            if (!paAnnouncements)
+            if (!paAnnouncements) // funky
                 Audio.PlayGlobal(soundSpecifier, allPlayersInGame, true);
         }
         // Macrocosm edit end
@@ -113,7 +110,7 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
 
         if (stationEvent.EndAudio is { } endAudio && Announcer.TryGetAnnouncerSound(stationEvent.EndAudio.Value, out soundSpecifier))
         {
-            if (!paAnnouncements)
+            if (!paAnnouncements) // funky
                 Audio.PlayGlobal(soundSpecifier, allPlayersInGame, true);
         }
         // Macrocosm edit end

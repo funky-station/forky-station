@@ -89,7 +89,7 @@
   id: AtmosphericTech
   name: research-technology-atmospheric-tech
   icon:
-    sprite: Structures/Piping/Atmospherics/thermomachine.rsi
+    sprite: _Funkystation/Structures/Piping/Atmospherics/thermomachine.rsi # Funky
     state: freezerOff
   discipline: Industrial
   tier: 1
@@ -138,7 +138,7 @@
   id: AdvancedAtmospherics
   name: research-technology-advanced-atmospherics
   icon:
-    sprite: Objects/Devices/Holoprojectors/atmos.rsi
+    sprite: Structures/Piping/Atmospherics/Portable/portable_scrubber.rsi # funky-station
     state: icon
   discipline: Industrial
   tier: 2
@@ -146,7 +146,7 @@
   recipeUnlocks:
   - HellfireFreezerMachineCircuitBoard
   - PortableScrubberMachineCircuitBoard
-  - HolofanProjector
+  # - HolofanProjector    moved to holofan research in tier 2 experimental    funky-station
   - ElectrolyzerMachineCircuitboard # Funky atmos = /tg/ gases
   technologyPrerequisites:
   - AtmosphericTech
@@ -213,3 +213,4 @@
   - PowerCellHyper
   technologyPrerequisites:
   - AdvancedPowercells
+

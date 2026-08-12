@@ -63,7 +63,7 @@
   description: A piece of white paper.
   components:
   - type: Sprite
-    sprite: Objects/Misc/bureaucracy.rsi
+    sprite: _Funkystation/Objects/Misc/bureaucracy.rsi # Funky
     layers:
     - state: paper
     - state: paper_words
@@ -216,7 +216,7 @@
     price: 0
   - type: NanoTaskPrinted
   - type: Sprite
-    sprite: Objects/Misc/bureaucracy.rsi
+    sprite: _Funkystation/Objects/Misc/bureaucracy.rsi # Funky
     layers:
     - state: paper_receipt
     - state: paper_receipt_words
@@ -392,7 +392,7 @@
   description: 'A small envelope for keeping prying eyes off of your sensitive documents.'
   components:
   - type: Sprite
-    sprite: Objects/Misc/bureaucracy.rsi
+    sprite: _Funkystation/Objects/Misc/bureaucracy.rsi # Funky
     layers:
     - state: envelope_open
       map: ["enum.EnvelopeVisualLayers.Open"]

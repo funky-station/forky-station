@@ -113,7 +113,7 @@
   id: BiochemicalStasis
   name: research-technology-biochemical-stasis
   icon:
-    sprite: Structures/Machines/stasis_bed.rsi
+    sprite: _Funkystation/Structures/Machines/stasis_bed.rsi # Funky
     state: icon
   discipline: CivilianServices
   tier: 2

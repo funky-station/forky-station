@@ -6,13 +6,13 @@
   suffix: Empty
   components:
   - type: Sprite
-    sprite: Objects/Misc/bureaucracy.rsi
+    sprite: _Funkystation/Objects/Misc/bureaucracy.rsi # Funky
     state: paper_bin0
     drawdepth: SmallObjects
     noRot: true
   - type: Appearance
   - type: ItemMapper
-    sprite: Objects/Misc/bureaucracy.rsi
+    sprite: _Funkystation/Objects/Misc/bureaucracy.rsi # Funky
     mapLayers:
       paper_bin1:
         whitelist:

@@ -109,11 +109,14 @@
   color: "#DE3A3A"
   weight: 20
   roles:
-  - HeadOfSecurity
+#  - HeadOfSecurity - funky
+  - Commandant # funky
+  - Lieutenant # funky
   - SecurityCadet
   - SecurityOfficer
   - Detective
   - Warden
+  - Dispatcher # funky
 
 - type: department
   id: Science
@@ -141,6 +144,7 @@
   color: "#9FED58"
   weight: 10
   roles:
-  - Reporter
-  - Psychologist
+#  - Reporter - funky
+#  - Psychologist - funky
+  - Dispatcher # funky
   primary: false

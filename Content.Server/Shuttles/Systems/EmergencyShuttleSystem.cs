@@ -335,10 +335,12 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
 
         DebugTools.Assert(shuttle != null);
 
-        var paAnnouncements = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements);
+        // BEGIN Funky
+        var paAnnouncements = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements); // funky
 
         if (result.ResultType == ShuttleDockResultType.GoodLuck)
         {
+            // funky - getting this earlier so it can be passed into the announcement
             _announcer.TryGetAnnouncerSound(stationShuttleComp.FailureAudio, out var sound);
 
             _chatSystem.DispatchStationAnnouncement(
@@ -352,6 +354,7 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
             if (!paAnnouncements) // funky
                 _audio.PlayGlobal(sound, Filter.Broadcast(), true);
             // Macrocosm edit end
+            // END Funky
             return;
         }
 
@@ -376,6 +379,7 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
             : stationShuttleComp.DockedAnnouncement;
 
         // Macrocosm edit start - announcer variation
+        // Funky - getting this earlier so it can be passed into the announcement
         var audioId = result.ResultType == ShuttleDockResultType.NoDock
             ? stationShuttleComp.NearbyAudio
             : stationShuttleComp.DockedAudio;

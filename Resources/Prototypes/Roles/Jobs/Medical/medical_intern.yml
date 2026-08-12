@@ -27,7 +27,7 @@
   id: MedicalInternChameleonOutfit
   job: MedicalIntern
   equipment:
-    head: ClothingHeadHatBeretMedic
+    head: FuClothingHeadHatInternMedical # ClothingHeadHatBeretMedic  funky - fuck department berets
     eyes: ClothingEyesHudMedical
     mask: ClothingMaskSterile
     neck: ClothingNeckStethoscope
