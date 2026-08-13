@@ -1,4 +1,5 @@
 using Content.Server._MACRO.Announcements;
+using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Shared._Funkystation.CCVar;
 using Content.Shared.Chat;
@@ -6,10 +7,14 @@ using Content.Shared.Power;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
+using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Funkystation.Communications;
 
+// TODO: sanitize and format ChatMessageToManyFiltered
+// TODO: try to figure out a way to prevent multiple nearby PA systems
+//  from all outputting to chat?
 /// <summary>
 /// Handles PA announcers, i.e. the things that actually
 /// receive announcements, like speakers.
@@ -17,6 +22,7 @@ namespace Content.Server._Funkystation.Communications;
 public sealed partial class PAAnnouncerSystem : EntitySystem
 {
     [Dependency] private ChatSystem _chat = null!;
+    [Dependency] private IChatManager _chatManager = null!;
     [Dependency] private IGameTiming _timing = null!;
     [Dependency] private AudioSystem _audio = null!;
     [Dependency] private IConfigurationManager _cfg = null!;
@@ -53,9 +59,11 @@ public sealed partial class PAAnnouncerSystem : EntitySystem
             if (comp.QueuedMessages.Count < 1 || comp.QueuedMessages.Peek().announceTime > _timing.CurTime)
                 continue;
 
-            var (line, author, _) = comp.QueuedMessages.Dequeue();
+            var (line, author, color, _) = comp.QueuedMessages.Dequeue();
+            var wrappedLine = Loc.GetString("pa-announcement-message-wrap", ("message", line), ("author", author));
 
-            _chat.TrySendInGameICMessage(uid, line, InGameICChatType.Speak, ChatTransmitRange.GhostRangeLimit, nameOverride: author, checkRadioPrefix: false);
+            _chat.TrySendInGameICMessage(uid, line, InGameICChatType.Speak, ChatTransmitRange.HideChat, nameOverride: author, checkRadioPrefix: false);
+            _chatManager.ChatMessageToManyFiltered(Filter.Pvs(uid, 1f), ChatChannel.Radio, line, wrappedLine, uid, false, true, color);
         }
     }
 
@@ -81,13 +89,13 @@ public sealed partial class PAAnnouncerSystem : EntitySystem
         // queue PA system preamble (this is attributed to the PA system instead of the sender of the announcement)
         if (args.Preamble)
         {
-            ent.Comp.QueuedMessages.Enqueue((args.Messages[0], Loc.GetString("pa-system-name"), ent.Comp.NextAnnounceTime));
+            ent.Comp.QueuedMessages.Enqueue((args.Messages[0], Loc.GetString("pa-system-name"), args.ColorOverride, ent.Comp.NextAnnounceTime));
             ent.Comp.NextAnnounceTime += TimeSpan.FromSeconds(MessageDelay);
         }
 
         foreach (var line in args.Preamble ? args.Messages[1..] : args.Messages)
         {
-            ent.Comp.QueuedMessages.Enqueue((line, name, ent.Comp.NextAnnounceTime));
+            ent.Comp.QueuedMessages.Enqueue((line, name, args.ColorOverride, ent.Comp.NextAnnounceTime));
             ent.Comp.NextAnnounceTime += TimeSpan.FromSeconds(MessageDelay);
         }
 

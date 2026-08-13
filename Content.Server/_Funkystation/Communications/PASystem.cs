@@ -33,6 +33,7 @@ public sealed partial class PASystem : EntitySystem
     /// <param name="global">Whether the announcement should broadcast to all grids or just the station of the sender.</param>
     /// <param name="customPreamble">A custom string of text to display instead of the default preamble.</param>
     /// <param name="announcementSound">A custom sound to play instead of whatever the speaker's default is. MAKE SURE IT IS IN MONO!</param>
+    /// <param name="colorOverride"></param>
     public void DispatchPAAnnouncement(
         string message,
         string? sender = null,
@@ -41,7 +42,8 @@ public sealed partial class PASystem : EntitySystem
         bool playSound = true,
         bool global = true,
         LocId? customPreamble = null,
-        SoundSpecifier? announcementSound = null)
+        SoundSpecifier? announcementSound = null,
+        Color? colorOverride = null)
     {
         EntityUid? station = null;
         if (!global)
@@ -57,7 +59,7 @@ public sealed partial class PASystem : EntitySystem
         var lines = FormatPAAnnouncement(message, preamble, customPreamble);
         var author = sender ?? Loc.GetString("comms-console-announcement-unknown-sender");
 
-        var announceEv = new PAAnnouncementEvent(lines, author, source, preamble, playSound, announcementSound);
+        var announceEv = new PAAnnouncementEvent(lines, author, source, preamble, playSound, announcementSound, colorOverride);
         // send the announcement to every PAAnnouncer
         var announcers = EntityQueryEnumerator<PAAnnouncerComponent>();
         while (announcers.MoveNext(out var announcer, out var paComp))
@@ -80,7 +82,7 @@ public sealed partial class PASystem : EntitySystem
 
         // add the PA system preamble to the start of the announcement
         if (preamble)
-            msg = Loc.GetString(customPreamble ?? "pa-announcement-title")+'\n'+msg;
+            msg = Loc.GetString(customPreamble ?? "pa-announcement-preamble")+'\n'+msg;
 
         // split the announcement into multiple messages by newline, to be sent one after another
         var lines = msg.Split('\n');
@@ -107,6 +109,7 @@ public sealed partial class PASystem : EntitySystem
 /// <param name="Preamble">Whether the first message of the announcement should be treated as a preamble "Incoming announcement" statement.</param>
 /// <param name="PlaySound">Whether the PA system should play an announcement sound.</param>
 /// <param name="AnnouncementSound">A custom sound to play instead of whatever the speaker's default is.</param>
+/// <param name="ColorOverride"></param>
 [ByRefEvent]
 public readonly record struct PAAnnouncementEvent(
     string[] Messages,
@@ -114,4 +117,5 @@ public readonly record struct PAAnnouncementEvent(
     EntityUid? Source,
     bool Preamble = false,
     bool PlaySound = true,
-    SoundSpecifier? AnnouncementSound = null);
+    SoundSpecifier? AnnouncementSound = null,
+    Color? ColorOverride = null);

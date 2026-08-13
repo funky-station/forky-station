@@ -15,7 +15,7 @@ public sealed partial class PAAnnouncerComponent : Component
     /// The queue of announcement messages to send.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public Queue<(string line, string author, TimeSpan announceTime)> QueuedMessages = new();
+    public Queue<(string line, string author, Color? colorOverride, TimeSpan announceTime)> QueuedMessages = new();
 
     /// <summary>
     /// Used to enqueue announcement messages.

@@ -67,6 +67,7 @@
   - type: CommunicationsConsole
     canShuttle: false
     title: comms-console-announcement-title-station-ai
+    preamble: station-ai-pa-preamble # funky
     color: "#5ed7aa"
   - type: ShowJobIcons
   - type: ShowCrewIcons

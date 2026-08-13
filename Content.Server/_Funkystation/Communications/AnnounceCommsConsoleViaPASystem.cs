@@ -17,6 +17,8 @@ namespace Content.Server.Communications
             title ??= comp.Title;
             title += " Announcement";
 
+            Loc.TryGetString(comp.Preamble, out var preamble);
+
             // if we're not going to include the name and ID of the sender, fall back to the "title" (i.e, Communications Console, Syndicate Nuclear Operative)
             var author = comp.AnnounceSentBy ? Loc.GetString("comms-console-announcement-unknown-sender") : title;
 
@@ -47,7 +49,7 @@ namespace Content.Server.Communications
 
             _announcer.TryGetAnnouncerSound(comp.Sound, out var sound);
 
-            _paSystem.DispatchPAAnnouncement(message.Message, author, message.Actor, true, true, comp.Global, null, sound);
+            _paSystem.DispatchPAAnnouncement(message.Message, author, message.Actor, true, true, comp.Global, preamble, sound, comp.Color);
 
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following station announcement: {msg}");
         }

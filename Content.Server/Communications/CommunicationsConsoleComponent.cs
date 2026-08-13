@@ -31,6 +31,13 @@ namespace Content.Server.Communications
         public LocId Title = "comms-console-announcement-title-station";
 
         /// <summary>
+        /// Funky - Fluent ID for the preamble "Incoming announcement" statement.
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
+        public LocId Preamble = "pa-announcement-preamble";
+
+        /// <summary>
         /// Announcement color
         /// </summary>
         [ViewVariables]
