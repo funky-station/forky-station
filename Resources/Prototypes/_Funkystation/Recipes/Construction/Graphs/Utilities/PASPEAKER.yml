@@ -36,9 +36,16 @@
         doAfter: 2
 
   - node: paSpeaker
-    entity: PARadioSpeaker
+    entity: PARadioSpeakerConstructed
+    doNotReplaceInheritingEntities: true
+    actions:
+    - !type:SetWiresPanelSecurity
+      wiresAccessible: true
     edges:
     - to: paspeakerFrame
+      conditions:
+      - !type:AllWiresCut { }
+      - !type:WirePanel { }
       completed:
       - !type:GivePrototype
         prototype: PASpeakerElectronics
@@ -46,3 +53,28 @@
       steps:
       - tool: Prying
         doAfter: 4
+    - to: paSpeakerReinforced
+      conditions:
+      - !type:WirePanel
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+      - tool: Welding
+        doAfter: 1
+
+  - node: paSpeakerReinforced
+    actions:
+    - !type:SetWiresPanelSecurity
+      examine: wires-panel-component-on-examine-security-level2
+      wiresAccessible: false
+    edges:
+    - to: paSpeaker
+      conditions:
+      - !type:WirePanel
+      completed:
+      - !type:GivePrototype
+        prototype: SheetSteel1
+      steps:
+      - tool: Welding
+        doAfter: 5

@@ -4,6 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Funkystation.Communications;
 
+// TODO: you could probably turn this into something more generic
 public sealed class PAKeyHolderSystem : EntitySystem
 {
     public override void Initialize()

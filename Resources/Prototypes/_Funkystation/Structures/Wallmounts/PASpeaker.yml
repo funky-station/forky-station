@@ -43,6 +43,29 @@
     graph: PASPEAKER
     node: paspeakerFrame
 
+# end point of construction
+- type: entity
+  parent: PARadioSpeaker
+  id: PARadioSpeakerConstructed
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WiresPanel
+    open: true
+
+# variant with steel welded inside maintenance panel
+- type: entity
+  parent: PARadioSpeaker
+  id: PARadioSpeakerReinforced
+  abstract: true
+  components:
+  - type: WiresPanel
+    openDelay: 5
+  - type: WiresPanelSecurity
+    examine: wires-panel-component-on-examine-security-level2
+    wiresAccessible: false
+  - type: Construction
+    node: paSpeakerReinforced
+
 # Speaker varieties
 
 - type: entity
@@ -95,6 +118,16 @@
   - type: Construction
     graph: PASPEAKER
     node: paSpeaker
+    containers:
+    - key_slots
+  - type: WiresPanel
+  - type: Wires
+    layoutId: PASpeaker
+  - type: WiresPanelSecurity
+  - type: UserInterface
+    interfaces:
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
 
 - type: entity
   id: PASpeakerCommon
@@ -157,7 +190,7 @@
 
 - type: entity
   id: PASpeakerSecurity
-  parent: PARadioSpeaker
+  parent: PARadioSpeakerReinforced
   suffix: Sec
   components:
   - type: RadioSpeaker
