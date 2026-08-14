@@ -46,6 +46,7 @@
   - CellRechargerCircuitboard
   - WeaponCapacitorRechargerCircuitboard
   - FreezerElectronics
+  - PASpeakerElectronics #funky
 
 - type: latheRecipePack
   id: EngineeringBoardsStatic

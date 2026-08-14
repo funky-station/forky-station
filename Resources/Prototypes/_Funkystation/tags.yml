@@ -9,7 +9,7 @@
 
 - type: Tag # Funky atmos - /tg/ gases
   id: PlasmaSheet
-  
+
 - type: Tag # Funky weapon - ammo
   id: CartridgePistolLarge
 
@@ -33,7 +33,7 @@
 
 - type: Tag # Funky, for shredder
   id: ShredderBin
-  
+
 - type: Tag
   id: GasTank
 
@@ -60,6 +60,9 @@
 
 - type: Tag
   id: ClownEmergencyOxygenTank
-  
+
 - type: Tag
   id: CardboardboxLarge
+
+- type: Tag
+  id: PASpeakerElectronics
