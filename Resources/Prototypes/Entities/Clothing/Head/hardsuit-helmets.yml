@@ -600,7 +600,6 @@
     energy: 3
 
 #ANTAG HARDSUITS
-# Funky Amped the radius and energy of syndicate suit headlights.
 #Blood-red Hardsuit
 - type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
@@ -612,7 +611,7 @@
     sprite: Clothing/Head/Hardsuits/syndicate.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/syndicate.rsi
-  - type: PointLight
+  - type: PointLight # Funky Station - Increased the radius of syndicate suit headlights 3>5. Energy is specified but unchanged from ClothingHeadSuitWithLightBase.
     radius: 5
     energy: 2
     color: green
@@ -641,7 +640,7 @@
     sprite: Clothing/Head/Hardsuits/syndiemedic.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/syndiemedic.rsi
-  - type: PointLight
+  - type: PointLight # Funky Station - Increased the radius of syndicate suit headlights 3>5. Energy is specified but unchanged from ClothingHeadSuitWithLightBase.
     radius: 5
     energy: 2
     color: green
@@ -667,7 +666,7 @@
     sprite: Clothing/Head/Hardsuits/syndieelite.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/syndieelite.rsi
-  - type: PointLight
+  - type: PointLight # Funky Station - Increased the radius of syndicate suit headlights 3>5. Energy is specified but unchanged from ClothingHeadSuitWithLightBase.
     radius: 5
     energy: 2
     color: red
@@ -701,8 +700,8 @@
     sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
-  - type: PointLight
-    radius: 5
+  - type: PointLight # Funky Station - Increased the radius of syndicate suit headlights 3>5. Energy is specified but unchanged from ClothingHeadSuitWithLightBase.
+    radius: 5 
     energy: 2
     color: green
   - type: PressureProtection
