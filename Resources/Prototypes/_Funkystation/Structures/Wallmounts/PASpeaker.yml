@@ -73,9 +73,9 @@
       visible: false
 
 - type: entity
-  id: PARadioSpeaker
   parent: PASpeaker
-  abstract: true
+  id: PARadioSpeaker
+  suffix: Radio, no keys
   components:
   - type: RadioSpeaker
     toggleOnInteract: false
@@ -89,6 +89,7 @@
   - type: ContainerContainer
     containers:
       key_slots: !type:Container
+  - type: PAKeyHolder
 
 - type: entity
   id: PASpeakerCommon
@@ -98,6 +99,10 @@
   - type: RadioSpeaker
     channels:
     - Common
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
   - type: Construction
     graph: PASPEAKER
     node: paSpeaker
@@ -114,6 +119,7 @@
   - type: ContainerFill
     containers:
       key_slots:
+      - EncryptionKeyCommon
       - EncryptionKeyEngineering
 
 - type: entity
@@ -128,6 +134,7 @@
   - type: ContainerFill
     containers:
       key_slots:
+      - EncryptionKeyCommon
       - EncryptionKeyMedical
 
 - type: entity
@@ -142,6 +149,7 @@
   - type: ContainerFill
     containers:
       key_slots:
+      - EncryptionKeyCommon
       - EncryptionKeyScience
 
 - type: entity
@@ -156,6 +164,7 @@
   - type: ContainerFill
     containers:
       key_slots:
+      - EncryptionKeyCommon
       - EncryptionKeySecurity
 
 - type: entity
@@ -170,6 +179,7 @@
   - type: ContainerFill
     containers:
       key_slots:
+      - EncryptionKeyCommon
       - EncryptionKeyService
 
 - type: entity
@@ -184,6 +194,7 @@
   - type: ContainerFill
     containers:
       key_slots:
+      - EncryptionKeyCommon
       - EncryptionKeyCargo
 
 - type: entity
@@ -198,6 +209,7 @@
   - type: ContainerFill
     containers:
       key_slots:
+      - EncryptionKeyCommon
       - EncryptionKeyFreelance
 
 - type: entity
@@ -208,7 +220,8 @@
   - type: RadioSpeaker
     channels:
     - Hailing
-#  - type: ContainerFill
-#    containers:
-#      key_slots:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
 #      - EncryptionKeyHailing
