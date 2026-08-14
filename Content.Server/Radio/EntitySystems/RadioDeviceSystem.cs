@@ -151,9 +151,9 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
             args.PushMarkup(Loc.GetString("handheld-radio-component-speaker-examine",
                 ("speakerState", state),
                 ("color", color)));
-            if (HasComp<IntercomComponent>(uid))
+            if (HasComp<EncryptionKeyHolderComponent>(uid))
                 return;
-            // some extra markup we dont want to display on intercoms, since they have encryption key markup
+            // some extra markup we dont want to overlap with encryption key markup
             if (component.Channels.Count > 1)
             {
                 args.PushMarkup(Loc.GetString("handheld-radio-component-speaker-freq-multiple"));
