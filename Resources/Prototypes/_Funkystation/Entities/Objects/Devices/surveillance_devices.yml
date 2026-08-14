@@ -18,7 +18,13 @@
     layers:
     - state: icon
     - state: icon-ON
-    state: icon
+      map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
   - type: Item
     size: Tiny
   - type: Appearance
@@ -46,7 +52,13 @@
     layers:
     - state: icon
     - state: icon-ON
-    state: icon
+      map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
   - type: Item
     size: Tiny
 
@@ -114,9 +126,16 @@
   - type: Sprite
     sprite: _Funkystation/Objects/Devices/syndicate_hidden_camera_router.rsi
     layers:
-    - state: icon
-    - state: icon-ON
-    state: icon
+      - state: icon
+      - state: icon-ON
+        visible: false
+        map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
   - type: Item
     sprite: _Funkystation/Objects/Devices/syndicate_hidden_camera_router.rsi
     size: Normal
@@ -135,12 +154,16 @@
     transmitFrequencyId: SurveillanceCameraHiddenRouted
   - type: SurveillanceCameraRouter
     subnetFrequency: SurveillanceCameraHidden
-  - type: WirelessNetworkConnection
-    range: 2000
   - type: UserInterface
     interfaces:
       enum.SurveillanceCameraSetupUiKey.Router:
         type: SurveillanceCameraSetupBoundUi
+  - type: Electrified
+    enabled: false
+    usesApcPower: true
+  - type: ApcPowerReceiver
+  - type: ExtensionCableReceiver
+  - type: DeviceNetworkRequiresPower
 
 - type: entity
   id: HiddenCameraViewer
