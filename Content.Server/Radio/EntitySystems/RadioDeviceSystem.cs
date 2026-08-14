@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server._Funkystation.Communications;
 using Content.Server.Chat.Systems;
 using Content.Server.Interaction;
 using Content.Server.Popups;
@@ -152,6 +153,9 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
     {
         if (HasComp<RadioSpeakerComponent>(args.Source))
             return; // no feedback loops please.
+
+        if (HasComp<PAAnnouncerComponent>(args.Source)) // funky TODO: any better fix?
+            return;
 
         var channel = ProtoMan.Index<RadioChannelPrototype>(component.BroadcastChannel)!;
         if (_recentlySent.Add((args.Message, args.Source, channel)))
