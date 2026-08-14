@@ -186,6 +186,7 @@
     channels:
     - Common
     - Supply
+    - Hailing
 
 - type: entity
   id: PASpeakerFreelance
