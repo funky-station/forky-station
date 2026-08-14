@@ -36,7 +36,7 @@
         doAfter: 2
 
   - node: paSpeaker
-    entity: PASpeakerCommon
+    entity: PARadioSpeaker
     edges:
     - to: paspeakerFrame
       completed:

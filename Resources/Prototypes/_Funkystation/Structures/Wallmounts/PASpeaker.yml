@@ -49,7 +49,7 @@
   parent: BasePASpeaker
   id: PASpeaker
   name: PA speaker
-  description: A PA speaker. For when you really need to know whats happening.
+  description: A PA speaker. For when you really need to know whats happening. This one can't hear radio channels.
   suffix: Announce only
   components:
   - type: PAAnnouncer
@@ -75,7 +75,9 @@
 - type: entity
   parent: PASpeaker
   id: PARadioSpeaker
+  description: A PA speaker. For when you really need to know whats happening.
   suffix: Radio, no keys
+  categories: [ HideSpawnMenu ]
   components:
   - type: RadioSpeaker
     toggleOnInteract: false
@@ -90,6 +92,9 @@
     containers:
       key_slots: !type:Container
   - type: PAKeyHolder
+  - type: Construction
+    graph: PASPEAKER
+    node: paSpeaker
 
 - type: entity
   id: PASpeakerCommon
@@ -103,9 +108,7 @@
     containers:
       key_slots:
       - EncryptionKeyCommon
-  - type: Construction
-    graph: PASPEAKER
-    node: paSpeaker
+
 
 - type: entity
   id: PASpeakerEngineering
