@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseWallmountMachine
+  parent: BaseWallmount
   id: BasePASpeaker
   name: PA speaker
   description: A PA speaker. For when you really need to know whats happening.
@@ -22,6 +22,28 @@
           collection: MetalGlassBreak
           params:
             volume: -4
+
+# Construction stuff
+
+- type: entity
+  parent: BaseWallmountMetallic
+  id: PASpeakerFrame
+  name: PA speaker frame
+  description: A husk of a PA speaker.
+  suffix: Frame
+  components:
+  - type: Appearance
+  - type: Sprite
+    noRot: false
+    drawdepth: SmallObjects
+    sprite: Structures/Wallmounts/intercom.rsi
+    layers:
+    - state: base
+  - type: Construction
+    graph: PASPEAKER
+    node: paspeakerFrame
+
+# Speaker varieties
 
 - type: entity
   parent: BasePASpeaker
@@ -70,6 +92,9 @@
   - type: RadioSpeaker
     channels:
     - Common
+  - type: Construction
+    graph: PASPEAKER
+    node: paSpeaker
 
 - type: entity
   id: PASpeakerEngineering
