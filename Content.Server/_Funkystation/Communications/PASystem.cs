@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Server.Administration.Logs;
+using Content.Server.Chat.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared._Funkystation.CCVar;
 using Content.Shared.Database;
@@ -18,6 +19,7 @@ public sealed partial class PASystem : EntitySystem
     [Dependency] private IConfigurationManager _cfg = null!;
     [Dependency] private StationSystem _stationSystem = null!;
     [Dependency] private IAdminLogManager _adminLogger = null!;
+    [Dependency] private ChatSystem _chat = null!;
 
     [GeneratedRegex(@"(?<=[\.\!\?])\s")]
     private static partial Regex SpaceAfterSentenceEnd();
@@ -92,6 +94,11 @@ public sealed partial class PASystem : EntitySystem
         {
             var lastMessageSplit = SpaceAfterSentenceEnd().Split(lines[^1]);
             lines = lines[..^1].Concat(lastMessageSplit).ToArray(); // messy IMO but whatever
+        }
+
+        for (var i = 0; i < lines.Length; i++)
+        {
+            lines[i] = _chat.SanitizeMessageCapital(_chat.SanitizeMessageCapitalizeTheWordI(lines[i]));
         }
 
         return lines;

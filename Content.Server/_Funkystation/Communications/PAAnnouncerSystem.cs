@@ -1,10 +1,13 @@
+using System.Linq;
 using Content.Server._MACRO.Announcements;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Shared._Funkystation.CCVar;
 using Content.Shared.Chat;
+using Content.Shared.Ghost;
 using Content.Shared.Power;
 using Robust.Server.Audio;
+using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
@@ -12,9 +15,6 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Funkystation.Communications;
 
-// TODO: sanitize and format ChatMessageToManyFiltered
-// TODO: try to figure out a way to prevent multiple nearby PA systems
-//  from all outputting to chat?
 /// <summary>
 /// Handles PA announcers, i.e. the things that actually
 /// receive announcements, like speakers.
@@ -27,6 +27,7 @@ public sealed partial class PAAnnouncerSystem : EntitySystem
     [Dependency] private AudioSystem _audio = null!;
     [Dependency] private IConfigurationManager _cfg = null!;
     [Dependency] private AnnouncerManager _announcer = null!;
+    [Dependency] private TransformSystem _xform = null!;
 
     private const double MessageDelay = 3;
     private const double LongMessageDelay = 5;
@@ -34,6 +35,7 @@ public sealed partial class PAAnnouncerSystem : EntitySystem
     // alert sounds can sound kinda weird when there are multiple playing in vicinity of each other and you're walking around
     // this only really matters for the longer ones, like delta alert
     private const float MaxAudioDistance = SharedChatSystem.VoiceRange;
+    private const float ChatMessageRange = SharedChatSystem.VoiceRange;
 
     public override void Initialize()
     {
@@ -51,6 +53,10 @@ public sealed partial class PAAnnouncerSystem : EntitySystem
         if (!_cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements))
             return;
 
+        var alreadyReceived = Filter.Empty();
+        // make sure all ghosts hear the announcement (only once, though)
+        var recipients = Filter.Broadcast().RemoveWhereAttachedEntity(uid => !HasComp<GhostHearingComponent>(uid));
+
         var announcers = EntityQueryEnumerator<PAAnnouncerComponent>();
         while (announcers.MoveNext(out var uid, out var comp))
         {
@@ -60,10 +66,22 @@ public sealed partial class PAAnnouncerSystem : EntitySystem
                 continue;
 
             var (line, author, color, _) = comp.QueuedMessages.Dequeue();
+            if (string.IsNullOrWhiteSpace(line))
+                continue;
+
             var wrappedLine = Loc.GetString("pa-announcement-message-wrap", ("message", line), ("author", author));
 
+            // we wanna make sure that if someone hears multiple PA speakers, the chat window only displays one message
+            // so we get recipients near the PA and then remove any that have already heard the message
+            var coords = _xform.GetMapCoordinates(Transform(uid));
+            recipients = recipients.AddInRange(coords, ChatMessageRange)
+                .RemoveWhere(session => alreadyReceived.Recipients.Contains(session));
+            alreadyReceived.Merge(recipients);
+
+
+            // the lengths we have to go to for custom message formatting!!
             _chat.TrySendInGameICMessage(uid, line, InGameICChatType.Speak, ChatTransmitRange.HideChat, nameOverride: author, checkRadioPrefix: false);
-            _chatManager.ChatMessageToManyFiltered(Filter.Pvs(uid, 1f), ChatChannel.Radio, line, wrappedLine, uid, false, true, color);
+            _chatManager.ChatMessageToManyFiltered(recipients, ChatChannel.Radio, line, wrappedLine, uid, false, true, color);
         }
     }
 
