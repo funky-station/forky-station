@@ -17,9 +17,9 @@
   - Detective
   - Cryogenics
   - External
-  special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+  #special:
+  #- !type:AddImplantSpecial
+  #  implants: [ MindShieldImplant ] # Funky - Removed mindshields
 
 - type: startingGear
   id: DetectiveGear

@@ -1,3 +1,4 @@
+using Content.Server._RMC14.Mentor;
 using Content.Server._MACRO.Announcements;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
@@ -81,6 +82,7 @@ internal static class ServerContentIoC
         deps.Register<DiscordChatLink>();
         deps.Register<ServerFeedbackManager>();
         deps.Register<ISharedFeedbackManager, ServerFeedbackManager>();
+        deps.Register<MentorManager>(); // Funky Mentor Help
         deps.Register<AnnouncerManager>(); // Macrocosm edit
     }
 }

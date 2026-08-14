@@ -477,22 +477,3 @@
     - id: BasicDecalDirtMonospaceVariationPass
       prob: 0.50
       orGroup: monospaceDecals
-
-# Disabling until reworked after antag refactor
-#- type: entity
-#  id: BloodCult
-#  parent: BaseRoundstartAntagRule
-#  components:
-#  - type: GameRule
-#    minPlayers: 20
-#  - type: BloodCultRule
-#  - type: AntagSelection
-#    agentName: blood-cult-round-end-agent-name
-#    lateJoinAdditional: false
-#    antags:
-#    - !type:LinearAntagCount
-#      proto: BloodCultist
-#      playerRatio: 10
-#      range:
-#        min: 3
-#        max: 5

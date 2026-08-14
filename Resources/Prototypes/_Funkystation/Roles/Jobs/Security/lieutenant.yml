@@ -16,9 +16,9 @@
   - Maintenance
   - External
   - Cryogenics
-  special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+  #special:
+  #- !type:AddImplantSpecial
+  #  implants: [ MindShieldImplant ] # Removed mindshields
 
 - type: startingGear
   id: LieutenantGear

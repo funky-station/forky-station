@@ -32,6 +32,7 @@ public abstract partial class SharedChatSystem : EntitySystem
     public const char EmotesAltPrefix = '*';
     public const char AdminPrefix = ']';
     public const char WhisperPrefix = ',';
+    public const char MentorPrefix = '}'; // RMC Mentor Chat Funky Port
     public const char DefaultChannelKey = 'h';
 
     public const int VoiceRange = 10; // how far voice goes in world units

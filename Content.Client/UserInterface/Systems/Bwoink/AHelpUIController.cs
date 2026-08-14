@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Client._RMC14.Mentor;
 using Content.Client.Administration.Managers;
 using Content.Client.Administration.Systems;
 using Content.Client.Administration.UI.Bwoink;
@@ -39,11 +40,12 @@ public sealed partial class AHelpUIController: UIController, IOnSystemChanged<Bw
     [Dependency] private IClyde _clyde = default!;
     [Dependency] private IUserInterfaceManager _uiManager = default!;
     [Dependency] private IInputManager _input = default!;
+    [Dependency] private StaffHelpUIController _staffHelp = default!;
     [UISystemDependency] private readonly AudioSystem _audio = default!;
 
     private BwoinkSystem? _bwoinkSystem;
-    private MenuButton? GameAHelpButton => UIManager.GetActiveUIWidgetOrNull<GameTopMenuBar>()?.AHelpButton;
-    private Button? LobbyAHelpButton => (UIManager.ActiveScreen as LobbyGui)?.AHelpButton;
+    public MenuButton? GameAHelpButton => UIManager.GetActiveUIWidgetOrNull<GameTopMenuBar>()?.AHelpButton;
+    public Button? LobbyAHelpButton => (UIManager.ActiveScreen as LobbyGui)?.AHelpButton;
     public IAHelpUIHandler? UIHelper;
     private bool _discordRelayActive;
     private bool _hasUnreadAHelp;
@@ -91,8 +93,9 @@ public sealed partial class AHelpUIController: UIController, IOnSystemChanged<Bw
 
     private void AHelpButtonPressed(BaseButton.ButtonEventArgs obj)
     {
-        EnsureUIHelper();
-        UIHelper!.ToggleWindow();
+        _staffHelp.ToggleWindow();
+        // EnsureUIHelper();
+        // UIHelper!.ToggleWindow();
     }
 
     public void OnSystemLoaded(BwoinkSystem system)
@@ -248,7 +251,7 @@ public sealed partial class AHelpUIController: UIController, IOnSystemChanged<Bw
         helper.Control.PopOut.Visible = false;
     }
 
-    private void UnreadAHelpReceived()
+    public void UnreadAHelpReceived()
     {
         GameAHelpButton?.StyleClasses.Add(StyleClass.Negative);
         LobbyAHelpButton?.StyleClasses.Add(StyleClass.Negative);

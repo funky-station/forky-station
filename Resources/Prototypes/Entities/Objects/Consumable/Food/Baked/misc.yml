@@ -868,3 +868,10 @@
     - id: FoodCakeSpaceman
     - id: FoodCakeVanilla
     - id: FoodCakeLemoon
+    #funky changes start from here
+    - id: FoodCakeSuppermatter
+      weight: 0.5
+    - id: MobCatCake
+      weight: 0.2
+    - id: MobBreadDog
+      weight: 0.2

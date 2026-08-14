@@ -485,9 +485,6 @@
     blackboard:
       NavSmash: !type:Bool
         true
-  - type: NpcFactionMember
-    factions:
-    - BloodCultist
 
 - type: entity
   parent: BaseStructure

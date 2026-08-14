@@ -39,9 +39,9 @@
     - id: RadioJammer
     - id: BorgModuleMartyr
     - id: ScramImplant
-    - id: FakeMindShieldImplanter
-      amount: !type:RangeNumberSelector
-        range: 1, 3
+    #- id: FakeMindShieldImplanter # Funky - Removing mindshields
+    #  amount: !type:RangeNumberSelector
+    #    range: 1, 3
     - id: EmpImplanter
     - id: MicroBombImplanter
     - id: SlipocalypseClusterSoap

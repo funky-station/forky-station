@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Client._RMC14.Mentor; // funky mhelp
 using Content.Client.Administration.UI.Bwoink;
 using Content.Client.Administration.UI.CustomControls;
 using Content.Client.Administration.UI.Notes;
@@ -22,6 +23,10 @@ public sealed class NotesControlTest : InteractionTest
     {
         // Click the ahelp button in the menu bar
         await ClickWidgetControl<GameTopMenuBar, MenuButton>(nameof(GameTopMenuBar.AHelpButton));
+        var staffHelp = GetWindow<StaffHelpWindow>();
+
+        // funky mhelp, pick Admin Help from the staff help menu to get to the actual ahelp window
+        await ClickControl(staffHelp.AdminHelpButton); // funky mhelp
         var bwoink = GetWindow<BwoinkWindow>();
 
         // Damn, if only I had an excuse to use bwoink.Bwoink.BwoinkArea
