@@ -83,6 +83,12 @@
     onWhenPowered: true
     powerRequired: true
     volume: 4
+  - type: EncryptionKeyHolder
+    keySlots: 3
+    keysExtractionMethod: Prying
+  - type: ContainerContainer
+    containers:
+      key_slots: !type:Container
 
 - type: entity
   id: PASpeakerCommon
@@ -105,6 +111,10 @@
     channels:
     - Common
     - Engineering
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyEngineering
 
 - type: entity
   id: PASpeakerMedical
@@ -115,6 +125,10 @@
     channels:
     - Common
     - Medical
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyMedical
 
 - type: entity
   id: PASpeakerScience
@@ -125,6 +139,10 @@
     channels:
     - Common
     - Science
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyScience
 
 - type: entity
   id: PASpeakerSecurity
@@ -135,6 +153,10 @@
     channels:
     - Common
     - Security
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeySecurity
 
 - type: entity
   id: PASpeakerService
@@ -145,6 +167,10 @@
     channels:
     - Common
     - Service
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyService
 
 - type: entity
   id: PASpeakerSupply
@@ -155,6 +181,10 @@
     channels:
     - Common
     - Supply
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCargo
 
 - type: entity
   id: PASpeakerFreelance
@@ -165,6 +195,10 @@
     channels:
     - Common
     - Freelance
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyFreelance
 
 - type: entity
   id: PASpeakerHailing
@@ -174,3 +208,7 @@
   - type: RadioSpeaker
     channels:
     - Hailing
+#  - type: ContainerFill
+#    containers:
+#      key_slots:
+#      - EncryptionKeyHailing
