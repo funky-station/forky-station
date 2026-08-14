@@ -2,7 +2,7 @@ pa-system-name = PA system
 pa-announcement-name = (PA) {$author}
 pa-announcement-preamble = Incoming announcement.
 
-pa-announcement-message-wrap = [font size=12][bold]{$author}[/bold]:[/font][font size=14] {$message}[/font]
+pa-announcement-message-wrap = [font size=12][bold]{$author}[/bold]:[/font][font size=15] {$message}[/font]
 
 station-ai-pa-preamble = Incoming Station AI announcement.
 foreign-pa-preamble = Incoming foreign communications.
