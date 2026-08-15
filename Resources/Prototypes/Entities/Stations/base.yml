@@ -125,7 +125,6 @@
   components:
     - type: StationEmergencyShuttle
 
-
 - type: entity
   id: BaseStationAlertLevels
   abstract: true

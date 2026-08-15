@@ -9,7 +9,6 @@
 
 - type: Tag # Funky atmos - /tg/ gases
   id: PlasmaSheet
-
 - type: Tag # Funky weapon - ammo
   id: CartridgePistolLarge
 
@@ -21,7 +20,7 @@
 
 - type: Tag # Funky borgs - for the foam module
   id: FoamGrenade
-  
+
 - type: Tag
   id: StargazerShellTag # Funky - ConstructionGraphs for stargazer lollipop
 
@@ -36,7 +35,6 @@
 
 - type: Tag # Funky, for shredder
   id: ShredderBin
-
 - type: Tag
   id: GasTank
 
@@ -63,7 +61,6 @@
 
 - type: Tag
   id: ClownEmergencyOxygenTank
-
 - type: Tag
   id: CardboardboxLarge
 

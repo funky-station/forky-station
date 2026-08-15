@@ -283,4 +283,4 @@
     containers:
       key_slots:
       - EncryptionKeyCommon
-#      - EncryptionKeyHailing
+      - EncryptionKeyHailing
