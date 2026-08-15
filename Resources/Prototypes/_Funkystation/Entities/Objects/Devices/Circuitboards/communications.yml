@@ -1,0 +1,19 @@
+- type: entity
+  id: PASpeakerElectronics
+  parent: BaseElectronics
+  name: PA speaker electronics
+  description: Circuit used in PA speaker construction.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: charger_APC
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 50
+    chemicalComposition:
+      Silicon: 20
+  - type: StaticPrice
+    price: 10
+  - type: Tag
+    tags:
+    - PASpeakerElectronics

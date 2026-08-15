@@ -13,3 +13,17 @@
     - state: crypt_gray
     - state: common_label
 
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyHailing
+  name: hailing encryption key
+  description: An encryption key used for hailing passing ships.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Hailing
+    defaultChannel: Hailing
+  - type: Sprite
+    layers:
+    - state: crypt_silver
+    - state: com_label

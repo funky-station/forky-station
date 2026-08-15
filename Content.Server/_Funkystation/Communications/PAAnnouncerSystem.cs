@@ -15,6 +15,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Funkystation.Communications;
 
+// TODO: in future, add radio tuning, for the PA speaker radios
 /// <summary>
 /// Handles PA announcers, i.e. the things that actually
 /// receive announcements, like speakers.
