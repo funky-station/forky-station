@@ -22,6 +22,15 @@
           collection: MetalGlassBreak
           params:
             volume: -4
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Wires
+    layoutId: PASpeaker
+  - type: WiresPanelSecurity
+  - type: UserInterface
+    interfaces:
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
 
 # Construction stuff
 
@@ -29,7 +38,7 @@
   parent: BaseWallmountMetallic
   id: PASpeakerFrame
   name: PA speaker frame
-  description: A husk of a PA speaker.
+  description: The husk of a PA speaker.
   suffix: Frame
   components:
   - type: Appearance
@@ -103,10 +112,17 @@
     - state: icon_ON
       map: ["enum.PowerDeviceVisualLayers.Powered"]
       shader: unshaded
+    - state: unfinished
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      visible: false
   - type: GenericVisualizer
     visuals:
       enum.PowerDeviceVisuals.Powered:
         enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+      enum.WiresVisualLayers.MaintenancePanel:
+        enum.WiresVisualLayers.MaintenancePanel:
           True: { visible: true }
           False: { visible: false }
 
@@ -135,14 +151,6 @@
     node: paSpeaker
     containers:
     - key_slots
-  - type: WiresPanel
-  - type: Wires
-    layoutId: PASpeaker
-  - type: WiresPanelSecurity
-  - type: UserInterface
-    interfaces:
-      enum.WiresUiKey.Key:
-        type: WiresBoundUserInterface
 
 - type: entity
   id: PASpeakerCommon
@@ -150,10 +158,6 @@
   suffix: Common
   components:
   - type: RadioSpeaker
-    toggleOnInteract: false
-    enabled: true
-    onWhenPowered: true
-    powerRequired: true
     channels:
     - Common
   - type: ContainerFill
