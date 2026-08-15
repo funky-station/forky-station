@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseWallmount
+  parent: BaseWallmountMachine
   id: BasePASpeaker
   name: PA speaker
   description: A PA speaker. For when you really need to know whats happening.
@@ -36,12 +36,29 @@
   - type: Sprite
     noRot: false
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/intercom.rsi
+    sprite: _Funkystation/Structures/Wallmounts/pa_speaker.rsi
     layers:
-    - state: base
+    - state: icon
+    - state: unfinished
   - type: Construction
     graph: PASPEAKER
     node: paspeakerFrame
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 # end point of construction
 - type: entity
@@ -80,20 +97,18 @@
   - type: Sprite
     noRot: false
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/intercom.rsi
+    sprite: _Funkystation/Structures/Wallmounts/pa_speaker.rsi
     layers:
-    - state: base
-    - state: unshaded
+    - state: icon
+    - state: icon_ON
       map: ["enum.PowerDeviceVisualLayers.Powered"]
       shader: unshaded
-    - state: broadcasting
-      map: ["enum.RadioDeviceVisualLayers.Broadcasting"]
-      shader: unshaded
-      visible: false
-    - state: speaker
-      map: ["enum.RadioDeviceVisualLayers.Speaker"]
-      shader: unshaded
-      visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
 
 - type: entity
   parent: PASpeaker
@@ -135,13 +150,16 @@
   suffix: Common
   components:
   - type: RadioSpeaker
+    toggleOnInteract: false
+    enabled: true
+    onWhenPowered: true
+    powerRequired: true
     channels:
     - Common
   - type: ContainerFill
     containers:
       key_slots:
       - EncryptionKeyCommon
-
 
 - type: entity
   id: PASpeakerEngineering
@@ -227,6 +245,7 @@
     channels:
     - Common
     - Supply
+    - Hailing
   - type: ContainerFill
     containers:
       key_slots:
