@@ -29,6 +29,7 @@
     size: Tiny
   - type: Appearance
   - type: Visibility
+  - type: ItemToggle
   - type: SubFloorHide
   - type: Anchorable
   - type: CollideOnAnchor
@@ -128,7 +129,6 @@
     layers:
       - state: icon
       - state: icon-ON
-        visible: false
         map: [ "enum.PowerDeviceVisualLayers.Powered" ]
   - type: GenericVisualizer
     visuals:
@@ -158,9 +158,6 @@
     interfaces:
       enum.SurveillanceCameraSetupUiKey.Router:
         type: SurveillanceCameraSetupBoundUi
-  - type: Electrified
-    enabled: false
-    usesApcPower: true
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
   - type: DeviceNetworkRequiresPower
