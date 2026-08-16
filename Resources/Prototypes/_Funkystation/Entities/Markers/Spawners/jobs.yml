@@ -42,9 +42,10 @@
   - type: SpawnPoint
     job_id: HospitalityDirector
   - type: Sprite
+    sprite: _Funkystation/Markers/jobs.rsi
     layers:
     - state: green
-    - state: hop
+    - state: hd
 
 - type: entity
   id: SpawnPointExecutiveOfficer
