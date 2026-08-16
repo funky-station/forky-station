@@ -12,6 +12,8 @@
       collection: lighterOnSounds
     soundDeactivate:
       collection: lighterOffSounds
+    soundFailToActivate: # funky station
+      collection: lighterFailSounds
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
@@ -100,12 +102,16 @@
         shader: unshaded
   - type: Item
     sprite: Objects/Tools/Lighters/lighters.rsi
+  - type: ItemToggleRandomFail # funky station
+    failChance: 0.4
+    popupText: lighter-activate-attempt-failure
 
 - type: entity
   parent: Lighter
   id: CheapLighter
   name: cheap lighter
   description: "A dangerously inexpensive plastic lighter. Don't burn your thumb!"
+  categories: [ DoNotMap, HideSpawnMenu ] # funky station
   components:
   - type: Sprite
     sprite: Objects/Tools/Lighters/lighters.rsi
@@ -166,6 +172,9 @@
       damage:
         types:
           Heat: 2
+  - type: ItemToggleRandomFail # funkystation
+    failChance: 0.5
+    popupText: lighter-activate-attempt-failure
 
 ## Flippos
 

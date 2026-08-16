@@ -866,5 +866,7 @@ MindshieldImplanter: null
 # TODO: When the RG-2 and its safe are ported over, uncomment the line below and add a timestamp.
 #GunSafeDisabler: GunSafePistolRg2
 
+# 2026-07-18
+CheapLighter: Lighter
 #  2026-06-14
 HolofanProjector: null
