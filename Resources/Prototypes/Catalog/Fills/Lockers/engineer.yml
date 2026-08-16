@@ -153,10 +153,11 @@
     - id: ClothingHeadHelmetAtmosFire
     - id: GasAnalyzer
     - id: MedkitOxygenFilled
-    - id: HolofanProjector
+    # - id: HoloFanProjecter   removed in funky-station
     - id: RPD
     - id: RCDAmmo
     - id: AirGrenade
+    - id: SuitSealantCanister # Funky
     - id: PlushieLizardJobAtmospherictechnician
       prob: 0.02
 
@@ -167,6 +168,7 @@
     - id: ClothingOuterHardsuitAtmos
     - id: OxygenTankFilled
     - id: ClothingMaskBreath
+    - id: SuitSealantCanister # Funky
 
 - type: entity
   id: LockerEngineerFilledHardsuit
@@ -215,6 +217,7 @@
     - id: OxygenTankFilled
     - id: ClothingShoesBootsMag
     - id: ClothingMaskBreath
+    - id: SuitSealantCanister # Funky
 
 - type: entity
   id: ClosetRadiationSuitFilled
@@ -265,7 +268,7 @@
   table: !type:AllSelector
     children:
     - id: BoxInflatable
-    - id: HolofanProjector
+    # - id: HoloFanProjecter   removed in funky-station
     - id: MetalFoamGrenade
       amount: 3
     - id: AirGrenade

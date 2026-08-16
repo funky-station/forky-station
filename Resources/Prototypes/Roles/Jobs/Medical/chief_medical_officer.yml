@@ -27,8 +27,8 @@
   - Brig
   - Cryogenics
   special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+  #- !type:AddImplantSpecial
+  #  implants: [ MindShieldImplant ] # Funky - Removed mindshields
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
@@ -47,7 +47,7 @@
   job: ChiefMedicalOfficer
   hasMindShield: true
   equipment:
-    head: ClothingHeadHatBeretCmo
+    head: FuClothingHeadHatScrubcapTeal # ClothingHeadHatBeretCmo funky - fuck department berets
     eyes: ClothingEyesHudMedical
     mask: ClothingMaskSterile
     neck: ClothingCloakCmo

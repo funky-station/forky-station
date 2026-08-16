@@ -182,6 +182,10 @@
       - ConstructionMaterial
   - type: Item
     heldPrefix: durathread
+  - type: SuitPatch
+    selfApplyDelay: 20
+    otherApplyDelay: 12
+    breakOnMove: true
 
 - type: entity
   parent: MaterialDurathread

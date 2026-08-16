@@ -69,6 +69,12 @@
   - type: Sprite
     layers:
     - state: margherita
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - Pizza
+    - UnguFood
+  # macro edit end
   - type: ToolRefinable
     refineResult:
     - id: FoodPizzaMargheritaSlice
@@ -90,6 +96,12 @@
     - state: margherita-slice
   - type: Item
     heldPrefix: margherita-slice
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - Pizza
+    - UnguFood
+  # macro edit end
 
 - type: entity
   name: meat pizza
@@ -153,6 +165,12 @@
   - type: Sprite
     layers:
     - state: mushroom
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - Pizza
+    - UnguFood
+  # macro edit end
   - type: ToolRefinable
     refineResult:
     - id: FoodPizzaMushroomSlice
@@ -174,6 +192,12 @@
     - state: mushroom-slice
   - type: Item
     heldPrefix: mushroom-slice
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - Pizza
+    - UnguFood
+  # macro edit end
 # Tastes like crust, tomato, cheese, mushroom.
 
 - type: entity
@@ -193,6 +217,12 @@
   - type: Sprite
     layers:
     - state: vegetable
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - Pizza
+    - UnguFood
+  # macro edit end
   - type: ToolRefinable
     refineResult:
     - id: FoodPizzaVegetableSlice
@@ -218,6 +248,12 @@
     - state: vegetable-slice
   - type: Item
     heldPrefix: vegetable-slice
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - Pizza
+    - UnguFood
+  # macro edit end
 
 # Tastes like crust, tomato, cheese, carrot.
 
@@ -296,6 +332,12 @@
   - type: Sprite
     layers:
     - state: dank
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - Pizza
+    - UnguFood
+  # macro edit end
   - type: ToolRefinable
     refineResult:
     - id: FoodPizzaDankSlice
@@ -327,6 +369,12 @@
     - state: dank-slice
   - type: Item
     heldPrefix: dank-slice
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - Pizza
+    - UnguFood
+  # macro edit end
   - type: Solution
     solution:
       reagents:
@@ -701,6 +749,12 @@
   - type: Sprite
     layers:
     - state: worldpeas
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - Pizza
+    - UnguFood
+  # macro edit end
   - type: ToolRefinable
     refineResult:
     - id: FoodPizzaWorldpeasSlice
@@ -730,6 +784,12 @@
     - state: worldpeas-slice
   - type: Item
     heldPrefix: worldpeas-slice
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - Pizza
+    - UnguFood
+  # macro edit end
   - type: Solution
     solution:
       reagents:

@@ -1,0 +1,66 @@
+# hats
+
+## scrub caps
+- type: loadout
+  id: FuMedScrubcapBlack
+  equipment:
+    head: FuClothingHeadHatScrubcapBlack
+  groupBy: "scrubcap"
+
+- type: loadout
+  id: FuMedScrubcapBlue
+  equipment:
+    head: FuClothingHeadHatScrubcapBlue
+  groupBy: "scrubcap"
+
+- type: loadout
+  id: FuMedScrubcapTeal
+  equipment:
+    head: FuClothingHeadHatScrubcapTeal
+  groupBy: "scrubcap"
+
+## faceshield
+- type: loadout
+  id: FuMedFaceshield
+  equipment:
+    head: FuClothingHeadFaceshield
+  groupBy: "misc"
+
+# uniforms
+
+## scrubs
+- type: loadout
+  id: FuMedScrubsBlack
+  equipment:
+    jumpsuit: FuClothingUniformScrubsBlack
+  groupBy: "scrubs"
+
+- type: loadout
+  id: FuMedScrubsBlackSleeveless
+  equipment:
+    jumpsuit: FuClothingUniformScrubsBlackSleeveless
+  groupBy: "scrubs"
+
+- type: loadout
+  id: FuMedScrubsBlue
+  equipment:
+    jumpsuit: FuClothingUniformScrubsBlue
+  groupBy: "scrubs"
+
+- type: loadout
+  id: FuMedScrubsBlueSleeveless
+  equipment:
+    jumpsuit: FuClothingUniformScrubsBlueSleeveless
+  groupBy: "scrubs"
+
+- type: loadout
+  id: FuMedScrubsTeal
+  equipment:
+    jumpsuit: FuClothingUniformScrubsTeal
+  groupBy: "scrubs"
+
+- type: loadout
+  id: FuMedScrubsTealSleeveless
+  equipment:
+    jumpsuit: FuClothingUniformScrubsTealSleeveless
+  groupBy: "scrubs"

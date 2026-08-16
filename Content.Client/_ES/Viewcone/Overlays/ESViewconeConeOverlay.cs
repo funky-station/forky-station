@@ -56,7 +56,7 @@ public sealed partial class ESViewconeConeOverlay : Overlay
             // but its not really like its a huge inefficiency (this only has to happen twice per frame and its like a trivial event relay with no logic)
             // and i really dont want to make it stateful
             _coneAngle = _angle.GetModifiedViewconeAngle((uid, viewcone));
-            _coneFeather = viewcone.ConeFeather;
+            _coneFeather = _coneAngle <= 0f ? 0.01f : viewcone.ConeFeather; // semi-hack to make 0-angle viewcone look correct
             _coneIgnoreRadius = (viewcone.ConeIgnoreRadius - viewcone.ConeIgnoreFeather) * 50f;
             _coneIgnoreFeather = Math.Max(viewcone.ConeIgnoreFeather * 200f, 8f);
             _eyeEntity = (uid, eye, viewcone, xform);

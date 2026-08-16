@@ -9,16 +9,16 @@
       time: 4h
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
-  supervisors: job-supervisors-hos
+  supervisors: job-supervisors-lieutenant #funky
   access:
   - Security
   - Brig
   - Maintenance
   - External
   - Cryogenics
-  special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+  #special:
+  #- !type:AddImplantSpecial
+  #  implants: [ MindShieldImplant ] # Funky - Removed mindshields
 
 - type: startingGear
   id: SecurityOfficerGear

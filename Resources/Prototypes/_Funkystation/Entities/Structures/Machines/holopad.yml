@@ -1,0 +1,135 @@
+- type: entity
+  parent: Holopad
+  id: HolopadCommandCL
+  suffix: Tools
+  components:
+  - type: Label
+    currentLabel: holopad-command-cl
+
+- type: entity
+  parent: Holopad
+  id: HolopadScienceTelescience
+  suffix: Telescience
+  components:
+  - type: Label
+    currentLabel: holopad-science-telesci
+
+- type: entity
+  parent: Holopad
+  id: HolopadScienceXenobio
+  suffix: Xenobiology
+  components:
+  - type: Label
+    currentLabel: holopad-science-xenobio
+
+- type: entity
+  parent: Holopad
+  id: HolopadScienceOrdnance
+  suffix: Ordnance
+  components:
+  - type: Label
+    currentLabel: holopad-science-ordnance
+
+- type: entity
+  parent: Holopad
+  id: HolopadMedicalGenetics
+  suffix: Genetics
+  components:
+  - type: Label
+    currentLabel: holopad-medical-genetics
+
+- type: entity
+  parent: Holopad
+  id: HolopadEngineeringSupermatter
+  suffix: Supermatter
+  components:
+  - type: Label
+    currentLabel: holopad-engineering-supermatter
+
+- type: entity
+  parent: Holopad
+  id: HolopadEngineeringReactor
+  suffix: Reactor Chamber
+  components:
+  - type: Label
+    currentLabel: holopad-engineering-reactor
+
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityCommandant
+  suffix: Commandant
+  components:
+  - type: Label
+    currentLabel: holopad-security-commandant
+
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityDispatch
+  suffix: Dispatch
+  components:
+  - type: Label
+    currentLabel: holopad-security-dispatch
+
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityEvidence
+  suffix: Evidence Room
+  components:
+  - type: Label
+    currentLabel: holopad-security-evidence
+
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityBriefing
+  suffix: Briefing Room
+  components:
+  - type: Label
+    currentLabel: holopad-security-briefing
+
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityFiringRange
+  suffix: Firing Range
+  components:
+  - type: Label
+    currentLabel: holopad-security-firing
+
+- type: entity
+  parent: Holopad
+  id: HolopadSecurityMining
+  suffix: Mining Bay
+  components:
+  - type: Label
+    currentLabel: holopad-security-mining
+
+- type: entity
+  parent: Holopad
+  id: HolopadCommandHD
+  suffix: Hospitality Director
+  components:
+  - type: Label
+    currentLabel: holopad-command-hd
+
+- type: entity
+  parent: Holopad
+  id: HolopadCommandXO
+  suffix: Executive Officer
+  components:
+  - type: Label
+    currentLabel: holopad-command-xo
+
+- type: entity
+  parent: Holopad
+  id: HolopadIAMagistrate
+  suffix: Magistrate
+  components:
+  - type: Label
+    currentLabel: holopad-ia-magistrate
+
+- type: entity
+  parent: Holopad
+  id: HolopadIAAgent
+  suffix: IAA
+  components:
+  - type: Label
+    currentLabel: holopad-ia-agent

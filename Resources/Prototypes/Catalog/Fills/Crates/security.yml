@@ -95,6 +95,8 @@
   id: CrateSecurityTrackingMindshieldImplants
   name: implanter crate
   description: Contains 4 MindShield implants and 4 tracking implant. Requires Security access to open.
+  suffix: DO NOT MAP # Funky - Removing mindshields
+  categories: [ DoNotMap ] # Funky
   components:
   - type: EntityTableContainerFill
     containers:

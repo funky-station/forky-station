@@ -1,3 +1,4 @@
+using Content.Shared._MACRO.Announcements;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -12,7 +13,7 @@ public sealed partial class RoundAnnouncementPrototype : IPrototype
     [IdDataField]
     public string ID { get; private set; } = default!;
 
-    [DataField("sound")] public SoundSpecifier? Sound;
+    [DataField("sound")] public ProtoId<AnnouncementSoundPrototype>? Sound; // Macrocosm edit - announcement sound prototypes
 
     [DataField("message")] public string? Message;
 }

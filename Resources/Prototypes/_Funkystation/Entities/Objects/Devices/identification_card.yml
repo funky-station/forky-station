@@ -37,3 +37,27 @@
   components:
   - type: PresetIdCard
     job: CorporateLiaison
+
+- type: entity
+  parent: HoSIDCard
+  id: CommandantIDCard
+  name: commandant ID card
+  components:
+  - type: PresetIdCard
+    job: Commandant
+
+- type: entity
+  parent: SecurityIDCard
+  id: LieutenantIDCard
+  name: lieutenant ID card
+  components:
+  - type: PresetIdCard
+    job: Lieutenant
+
+- type: entity
+  parent: SecurityIDCard
+  id: DispatcherIDCard
+  name: dispatcher ID card
+  components:
+  - type: PresetIdCard
+    job: Dispatcher

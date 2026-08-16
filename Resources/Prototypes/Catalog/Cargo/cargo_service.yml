@@ -94,7 +94,7 @@
 - type: cargoProduct
   id: ServiceBureaucracy
   icon:
-    sprite: Objects/Misc/pens.rsi
+    sprite: _Funkystation/Objects/Misc/pens.rsi # Funky
     state: pen
   product: CrateServiceBureaucracy
   cost: 1000
