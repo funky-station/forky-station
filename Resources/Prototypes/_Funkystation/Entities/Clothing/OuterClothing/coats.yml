@@ -46,3 +46,16 @@
         Slash: 0.95
         Heat: 0.90
         Caustic: 0.75
+
+# HD coat - non-toggleable
+
+- type: entity
+  parent: [ClothingOuterStorageBase, BaseCommandContraband]
+  id: FuClothingOuterCoatHd
+  name: hospitality director's coat
+  description: A red coat with gold buttons and embroidery. Unfortunately, the cufflinks are missing.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/hd.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/hd.rsi

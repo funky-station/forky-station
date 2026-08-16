@@ -33,8 +33,6 @@
 - type: startingGear
   id: HDGear
   equipment:
-    head: ClothingHeadHatTophat
-    shoes: ClothingShoesColorBlack
     id: HDPDA
     ears: ClothingHeadsetHD
 
