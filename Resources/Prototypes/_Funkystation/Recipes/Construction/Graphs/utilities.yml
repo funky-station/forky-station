@@ -117,3 +117,5 @@
   category: construction-category-utilities
   placementMode: SnapgridCenter
   canBuildInImpassable: true
+  conditions:
+  - !type:WallmountCondition { }
