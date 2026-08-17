@@ -1,0 +1,45 @@
+# Uniforms
+
+## HD
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: FuClothingUniformShirtPantsHd
+  result: FuClothingUniformShirtPantsHd
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: FuClothingUniformShirtSkirtHd
+  result: FuClothingUniformShirtSkirtHd
+
+# Outer Clothing
+
+## (Non-Winter) Coats
+
+- type: latheRecipe
+  parent: BaseCommandCoatRecipe
+  id: FuClothingOuterCoatHd
+  result: FuClothingOuterCoatHd
+
+## Insulated/Winter Coats
+
+- type: latheRecipe
+  parent: BaseCommandCoatRecipe
+  id: FuClothingOuterWinterHd
+  result: FuClothingOuterWinterHd
+
+## Other
+
+- type: latheRecipe
+  parent: BaseCommandCoatRecipe # Technically this should use a bit less material but who actually cares?
+  id: FuClothingOuterVestHd
+  result: FuClothingOuterVestHd
+
+# Hats
+
+## HD
+
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: FuClothingHeadHatHd
+  result: FuClothingHeadHatHd
