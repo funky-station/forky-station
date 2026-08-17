@@ -6,7 +6,13 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Service
-    time: 10h
+    time: 15h
+  - !type:RoleTimeRequirement
+    role: JobBartender
+    time: 5h
+  - !type:RoleTimeRequirement
+    role: JobChef
+    time: 5h
   weight: 20
   startingGear: HDGear
   icon: "JobIconHospitalityDirector"
@@ -39,9 +45,11 @@
 - type: chameleonOutfit
   id: HDChameleonOutfit
   job: HospitalityDirector
-  hasMindShield: true
+  #hasMindShield: true # Removed mindshields
   equipment:
-    eyes: ClothingEyesHudBeer
+    head: FuClothingHeadHatHd
+    eyes: ClothingEyesGlasses
     mask: ClothingMaskNeckGaiter
     neck: ClothingNeckScarfStripedGreen
-    outerClothing: ClothingOuterWinterColorGreen
+    outerClothing: FuClothingOuterVestHd
+    gloves: ClothingHandsGlovesColorWhite
