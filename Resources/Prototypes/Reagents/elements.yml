@@ -64,7 +64,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Arachnid ]
+          type: [ Arachnid, Gastropoid, Decapoid ] #Macrocosm, added Gastropoid and Deceapoid
           inverted: true
         damage:
           types:
@@ -72,7 +72,7 @@
       - !type:ModifyBloodLevel
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Arachnid ]
+          type: [ Arachnid, Gastropoid, Decapoid ] #Macrocosm, added Gastropoid and Deceapoid
         amount: 0.4
 
 - type: reagent
@@ -121,6 +121,7 @@
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
   color: "#cccccc"
+  flammability: 3 # Funky change
   boilingPoint: -253.0
   meltingPoint: -259.2
 
@@ -152,14 +153,14 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Arachnid ]
+          type: [ Arachnid, Gastropoid, Decapoid ] #Macrocosm, added Gastropoid and Deceapoid
         damage:
           types:
             Poison: 0.1
       - !type:ModifyBloodLevel
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Arachnid ]
+          type: [ Arachnid, Gastropoid, Decapoid ] #Macrocosm, added Gastropoid and Deceapoid
           inverted: true
         amount: 0.4
 

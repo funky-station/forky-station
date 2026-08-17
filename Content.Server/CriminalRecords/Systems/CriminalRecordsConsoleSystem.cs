@@ -3,6 +3,8 @@ using Content.Server.Radio.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords;
 using Content.Server.StationRecords.Systems;
+using Content.Server._Funkystation.StationRecords.Components; // Funky
+using Content.Server._Funkystation.StationRecords.Systems; // Funky
 using Content.Shared.Access.Systems;
 using Content.Shared.CriminalRecords;
 using Content.Shared.CriminalRecords.Components;
@@ -23,21 +25,23 @@ namespace Content.Server.CriminalRecords.Systems;
 /// <summary>
 /// Handles all UI for criminal records console
 /// </summary>
-public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleSystem
+public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleSystem
 {
-    [Dependency] private readonly AccessReaderSystem _access = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly CriminalRecordsSystem _criminalRecords = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly StationRecordsSystem _records = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private AccessReaderSystem _access = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private CriminalRecordsSystem _criminalRecords = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private RadioSystem _radio = default!;
+    [Dependency] private StationRecordsSystem _records = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private IdentitySystem _identity = default!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<CriminalRecordsConsoleComponent, RecordModifiedEvent>(UpdateUserInterface);
         SubscribeLocalEvent<CriminalRecordsConsoleComponent, AfterGeneralRecordCreatedEvent>(UpdateUserInterface);
+        SubscribeLocalEvent<XoRecordManifestSystem.XoRecordManifestUpdatedEvent>(OnManifestUpdated); // Funky
 
         Subs.BuiEvents<CriminalRecordsConsoleComponent>(CriminalRecordsConsoleKey.Key, subs =>
         {
@@ -55,6 +59,17 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
     {
         // TODO: this is probably wasteful, maybe better to send a message to modify the exact state?
         UpdateUserInterface(ent);
+    }
+
+    // Funky, update when XO publishes
+    private void OnManifestUpdated(XoRecordManifestSystem.XoRecordManifestUpdatedEvent args)
+    {
+        var query = EntityQueryEnumerator<CriminalRecordsConsoleComponent>();
+        while (query.MoveNext(out var uid, out var console))
+        {
+            if (_station.GetOwningStation(uid) == args.Station)
+                UpdateUserInterface((uid, console));
+        }
     }
 
     private void OnKeySelected(Entity<CriminalRecordsConsoleComponent> ent, ref SelectStationRecord msg)
@@ -77,13 +92,6 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
             ent.Comp.Filter = new StationRecordsFilter(msg.Type, msg.Value);
             UpdateUserInterface(ent);
         }
-    }
-
-    private void GetOfficer(EntityUid uid, out string officer)
-    {
-        var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(null, uid);
-        RaiseLocalEvent(tryGetIdentityShortInfoEvent);
-        officer = tryGetIdentityShortInfoEvent.Title ?? Loc.GetString("criminal-records-console-unknown-officer");
     }
 
     private void OnChangeStatus(Entity<CriminalRecordsConsoleComponent> ent, ref CriminalRecordChangeStatus msg)
@@ -111,8 +119,8 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
 
         var oldStatus = record.Status;
 
-        var name = _records.RecordName(key.Value);
-        GetOfficer(mob.Value, out var officer);
+        var officer = _identity.GetIdentityShortInfo(mob.Value, ent)
+                      ?? Loc.GetString("criminal-records-console-unknown-officer");
 
         // when arresting someone add it to history automatically
         // fallback exists if the player was not set to wanted beforehand
@@ -123,19 +131,16 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
             _criminalRecords.TryAddHistory(key.Value, history, officer);
         }
 
-        // will probably never fail given the checks above
-        name = _records.RecordName(key.Value);
-        officer = Loc.GetString("criminal-records-console-unknown-officer");
+        // Funky start, name and job come from xo's records
+        var name = "Unknown";
         var jobName = "Unknown";
-
-        _records.TryGetRecord<GeneralStationRecord>(key.Value, out var entry);
-        if (entry != null)
-            jobName = entry.JobTitle;
-
-        var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(null, mob.Value);
-        RaiseLocalEvent(tryGetIdentityShortInfoEvent);
-        if (tryGetIdentityShortInfoEvent.Title != null)
-            officer = tryGetIdentityShortInfoEvent.Title;
+        if (TryComp<XoRecordManifestComponent>(key.Value.OriginStation, out var manifest) &&
+            manifest.Published.TryGetValue(key.Value.Id, out var published))
+        {
+            name = published.Name;
+            jobName = published.JobTitle;
+        }
+        // Funky end
 
         _criminalRecords.TryChangeStatus(key.Value, msg.Status, msg.Reason, officer);
 
@@ -192,7 +197,8 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
         if (line.Length < 1 || line.Length > ent.Comp.MaxStringLength)
             return;
 
-        GetOfficer(mob.Value, out var officer);
+        var officer = _identity.GetIdentityShortInfo(mob.Value, ent)
+                      ?? Loc.GetString("criminal-records-console-unknown-officer");
 
         if (!_criminalRecords.TryAddHistory(key.Value, line, officer))
             return;
@@ -220,32 +226,47 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
         var (uid, console) = ent;
         var owningStation = _station.GetOwningStation(uid);
 
-        if (!TryComp<StationRecordsComponent>(owningStation, out var stationRecords))
+        // funky start
+        if (owningStation is not { } station || !HasComp<StationRecordsComponent>(station))
         {
             _ui.SetUiState(uid, CriminalRecordsConsoleKey.Key, new CriminalRecordsConsoleState());
             return;
         }
 
-        // get the listing of records to display
-        var listing = _records.BuildListing((owningStation.Value, stationRecords), console.Filter);
+        if (!TryComp<XoRecordManifestComponent>(station, out var manifest))
+        {
+            _ui.SetUiState(uid, CriminalRecordsConsoleKey.Key, new CriminalRecordsConsoleState());
+            return;
+        }
+        var listing = new Dictionary<uint, string>();
+        foreach (var (recordId, record) in manifest.Published)
+        {
+            if (_records.IsSkipped(console.Filter, record))
+                continue;
+
+            listing.Add(recordId, record.Name);
+        }
+        // Funky end
 
         // filter the listing by the selected criminal record status
         //if NONE, dont filter by status, just show all crew
         if (console.FilterStatus != SecurityStatus.None)
         {
             listing = listing
-                .Where(x => _records.TryGetRecord<CriminalRecord>(new StationRecordKey(x.Key, owningStation.Value), out var record) && record.Status == console.FilterStatus)
+                .Where(x => _records.TryGetRecord<CriminalRecord>(new StationRecordKey(x.Key, station), out var record) && record.Status == console.FilterStatus) // Funky
                 .ToDictionary(x => x.Key, x => x.Value);
         }
 
         var state = new CriminalRecordsConsoleState(listing, console.Filter);
-        if (console.ActiveKey is { } id)
+        if (console.ActiveKey is { } activeId) // Funky
         {
             // get records to display when a crewmember is selected
-            var key = new StationRecordKey(id, owningStation.Value);
-            _records.TryGetRecord(key, out state.StationRecord, stationRecords);
-            _records.TryGetRecord(key, out state.CriminalRecord, stationRecords);
-            state.SelectedKey = id;
+            var key = new StationRecordKey(activeId, station); // Funky
+
+            manifest.Published.TryGetValue(activeId, out state.StationRecord); // Funky
+            _records.TryGetRecord(key, out state.CriminalRecord); // Funky
+
+            state.SelectedKey = activeId; // Funky
         }
 
         // Set the Current Tab aka the filter status type for the records list

@@ -10,30 +10,28 @@ using Content.Shared.Tools.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared._MACRO.Tools.Components; // macro
 
 namespace Content.Shared.Tools.Systems;
 
 public abstract partial class SharedToolSystem : EntitySystem
 {
-    [Dependency] private   readonly IGameTiming _timing = default!;
-    [Dependency] private   readonly IMapManager _mapManager = default!;
-    [Dependency] private   readonly IPrototypeManager _protoMan = default!;
-    [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!;
-    [Dependency] private   readonly ITileDefinitionManager _tileDefManager = default!;
-    [Dependency] private   readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private   readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] protected readonly SharedInteractionSystem InteractionSystem = default!;
-    [Dependency] protected readonly ItemToggleSystem ItemToggle = default!;
-    [Dependency] private   readonly SharedMapSystem _maps = default!;
-    [Dependency] private   readonly SharedPopupSystem _popup = default!;
-    [Dependency] protected readonly SharedSolutionContainerSystem SolutionContainerSystem = default!;
-    [Dependency] private   readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private   readonly TileSystem _tiles = default!;
-    [Dependency] private   readonly TurfSystem _turfs = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] protected ISharedAdminLogManager AdminLogger = default!;
+    [Dependency] private ITileDefinitionManager _tileDefManager = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] protected SharedInteractionSystem InteractionSystem = default!;
+    [Dependency] protected ItemToggleSystem ItemToggle = default!;
+    [Dependency] private SharedMapSystem _maps = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] protected SharedSolutionContainerSystem SolutionContainerSystem = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private TileSystem _tiles = default!;
+    [Dependency] private TurfSystem _turfs = default!;
 
     public const string CutQuality = "Cutting";
     public const string PulseQuality = "Pulsing";
@@ -75,7 +73,7 @@ public abstract partial class SharedToolSystem : EntitySystem
         // Loop through tool qualities and add localized names to the list
         foreach (var toolQuality in ent.Comp.Qualities)
         {
-            if (_protoMan.TryIndex<ToolQualityPrototype>(toolQuality ?? string.Empty, out var protoToolQuality))
+            if (ProtoMan.TryIndex<ToolQualityPrototype>(toolQuality ?? string.Empty, out var protoToolQuality))
             {
                 toolQualities.Add(Loc.GetString(protoToolQuality.Name));
             }
@@ -169,7 +167,17 @@ public abstract partial class SharedToolSystem : EntitySystem
             return false;
 
         var toolEvent = new ToolDoAfterEvent(fuel, doAfterEv, GetNetEntity(target));
-        var doAfterArgs = new DoAfterArgs(EntityManager, user, delay / toolComponent.SpeedModifier, toolEvent, tool, target: target, used: tool)
+
+        // macro edit start, if a tool has CowTool and the user has CowToolProficiency, use speed modifier from CowToolComponent
+        // else, use speed modifier from ToolComponent, as normal
+        TimeSpan doAfterDuration; //delay parameter moved to its own variable from DoAfterArgs call below to allow it to be set to different durations
+        if (TryComp<CowToolComponent>(tool, out var cowToolComponent) && TryComp<CowToolProficiencyComponent>(user, out _))
+            doAfterDuration = delay / cowToolComponent.ProficiencySpeedModifier;
+        else
+            doAfterDuration = delay / toolComponent.SpeedModifier;
+        // macro edit end
+
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, doAfterDuration, toolEvent, tool, target: target, used: tool)// macro edit, doAfterDuration was previously delay / toolComponent.SpeedModifier
         {
             BreakOnDamage = true,
             BreakOnMove = true,

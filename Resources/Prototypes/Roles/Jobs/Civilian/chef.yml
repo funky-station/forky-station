@@ -5,17 +5,17 @@
   playTimeTracker: JobChef
   requirements:
     - !type:DepartmentTimeRequirement
-      department: Civilian
+      department: Service # Funky - Service is now a separate department
       time: 0.5h
   startingGear: ChefGear
   icon: "JobIconChef"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-hd # funky
   access:
   - Service
   - Maintenance
   - Kitchen
   extendedAccess:
-  - Hydroponics
+  #- Hydroponics # Funky - Botanist is now in Logistics
   - Bar
 
 - type: startingGear

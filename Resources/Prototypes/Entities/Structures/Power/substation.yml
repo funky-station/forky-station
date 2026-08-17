@@ -51,8 +51,9 @@
 
   # Damage
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: PacifismDangerousAttack
 
   # Guidebook
@@ -79,7 +80,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite # TODO: add sprite for maintenance panel open
-    sprite: Structures/Power/substation.rsi
+    sprite: _Funkystation/Structures/Power/substation.rsi # Funky
     snapCardinals: true
     layers:
     - state: substation
@@ -96,16 +97,10 @@
     color: "#ff6900"
     castShadows: false
   - type: PowerMonitoringDevice
-    sprite: Structures/Power/substation.rsi
+    sprite: _Funkystation/Structures/Power/substation.rsi # Funky
     state: substation_static
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 100
@@ -127,8 +122,9 @@
           moles:
             CarbonDioxide: 340.5701689 # carbon dioxide
           temperature: 373.15
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: Explosive
-    explosionType: Default
+    explosionType: Transparent # Funky RMC Explosions
     maxIntensity: 100
     intensitySlope: 2
     totalIntensity: 200
@@ -180,7 +176,7 @@
     anchored: true
   - type: Sprite # TODO: add sprite for maintenance panel open
     drawdepth: WallMountedItems
-    sprite: Structures/Power/substation.rsi
+    sprite: _Funkystation/Structures/Power/substation.rsi # Funky
     layers:
     - state: substation_wall
     - state: screen_wall
@@ -189,16 +185,10 @@
     maxCharge: 2000000
     startingCharge: 0
   - type: PowerMonitoringDevice
-    sprite: Structures/Power/substation.rsi
+    sprite: _Funkystation/Structures/Power/substation.rsi # Funky
     state: substation_wall_static
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 100
@@ -276,7 +266,7 @@
     anchored: true
   - type: Sprite
     drawdepth: WallMountedItems
-    sprite: Structures/Power/substation.rsi
+    sprite: _Funkystation/Structures/Power/substation.rsi # Funky
     layers:
     - state: substation_wall
   - type: Construction

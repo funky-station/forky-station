@@ -1,3 +1,4 @@
+using Content.Shared._MACRO.Interaction;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Components;
@@ -5,6 +6,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -14,15 +16,16 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Interaction;
 
-public sealed class InteractionPopupSystem : EntitySystem
+public sealed partial class InteractionPopupSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly INetManager _netMan = default!;
+    [Dependency] private EntityWhitelistSystem _entityWhitelist = null!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private INetManager _netMan = default!;
 
     public override void Initialize()
     {
@@ -91,7 +94,17 @@ public sealed class InteractionPopupSystem : EntitySystem
         if (_netMan.IsClient && !predict)
             return;
 
-        if (_random.Prob(component.SuccessChance))
+        // MACRO ADD: PettingModifier
+        // TODO: this is a very generic system. we probably need a whitelist of some kind
+        var successChance = component.SuccessChance;
+
+        if (TryComp<PettingChanceModifierComponent>(uid, out var pettingChance)
+            && _entityWhitelist.IsWhitelistPassOrNull(pettingChance.TargetWhitelist, target)
+            && _entityWhitelist.IsWhitelistFailOrNull(pettingChance.TargetBlacklist, target))
+            successChance *= pettingChance.Modifier;
+        // MACRO END
+
+        if (_random.Prob(successChance)) // MACRO: component.SuccessChance -> successChance
         {
             if (component.InteractSuccessString != null)
                 msg = Loc.GetString(component.InteractSuccessString, ("target", Identity.Entity(uid, EntityManager))); // Success message (localized).

@@ -5,10 +5,11 @@
   playTimeTracker: JobLibrarian
   startingGear: LibrarianGear
   icon: "JobIconLibrarian"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-hd # funky
   access:
   - Service
   - Maintenance
+  - Library # funky
 
 - type: startingGear
   id: LibrarianGear

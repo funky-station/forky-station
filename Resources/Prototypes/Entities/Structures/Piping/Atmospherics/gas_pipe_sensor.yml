@@ -7,10 +7,10 @@
     mode: AlignAtmosPipeLayers
   components:
   - type: Sprite
-    sprite: Structures/Piping/Atmospherics/gas_pipe_sensor.rsi
+    sprite: _Funkystation/Structures/Piping/Atmospherics/gas_pipe_sensor.rsi # Funky
     drawdepth: BelowFloor
     layers:
-    - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
       map: [ "enum.PipeVisualLayers.Pipe" ]
       state: pipeStraight
     - map: ["base"]
@@ -20,9 +20,9 @@
       shader: unshaded
   - type: AtmosPipeLayers
     spriteRsiPaths:
-      Primary: Structures/Piping/Atmospherics/gas_pipe_sensor.rsi
-      Secondary: Structures/Piping/Atmospherics/gas_pipe_sensor_alt1.rsi
-      Tertiary: Structures/Piping/Atmospherics/gas_pipe_sensor_alt2.rsi
+      Primary: _Funkystation/Structures/Piping/Atmospherics/gas_pipe_sensor.rsi # Funky
+      Secondary: _Funkystation/Structures/Piping/Atmospherics/gas_pipe_sensor_alt1.rsi # Funky
+      Tertiary: _Funkystation/Structures/Piping/Atmospherics/gas_pipe_sensor_alt2.rsi # Funky
     alternativePrototypes:
       Primary: GasPipeSensor
       Secondary: GasPipeSensorAlt1

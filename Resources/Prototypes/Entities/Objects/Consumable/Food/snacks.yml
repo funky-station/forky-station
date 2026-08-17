@@ -1,5 +1,5 @@
 - type: entity
-  parent: FoodBase
+  parent: [SolutionTiny, FoodBaseTrash]
   id: FoodSnackBase
   abstract: true
   components:
@@ -8,13 +8,11 @@
       - FoodSnack
   - type: Sprite
     sprite: Objects/Consumable/Food/snacks.rsi
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30 # Room for extra condiments
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
   - type: Item
     sprite: Objects/Consumable/Food/snacks.rsi
     heldPrefix: packet
@@ -111,6 +109,7 @@
   - type: Tag
     tags:
       - FoodSnack
+      - UnguFood # macro edit - allow ungu to eat
   - type: SpawnItemsOnUse
     items:
       - id: FoodPacketChocolateTrash
@@ -136,17 +135,16 @@
     tags:
       - FoodSnack
       - ReptilianFood
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Theobromine
-          Quantity: 3
-        - ReagentId: CocoaPowder
-          Quantity: 1
+      - UnguFood # macro edit - allow ungu to eat
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: Theobromine
+        Quantity: 3
+      - ReagentId: CocoaPowder
+        Quantity: 2
 
 - type: entity
   parent: FoodSnackBase
@@ -216,7 +214,7 @@
   - type: FlavorProfile
     flavors:
       - corn
-      - salt
+      - salty
       - butter
   - type: Sprite
     state: popcorn
@@ -225,6 +223,11 @@
   - type: Edible
     trash:
     - FoodPacketPopcornTrash
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
 
 - type: entity
   name: 4no raisins
@@ -263,6 +266,11 @@
   - type: Edible
     trash:
     - FoodPacketSemkiTrash
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
 
 - type: entity
   name: sus jerky
@@ -300,6 +308,11 @@
   - type: Edible
     trash:
     - FoodPacketSyndiTrash
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
 
 - type: entity
   parent: FoodSnackBase
@@ -311,15 +324,13 @@
     solution: food
   - type: InjectableSolution
     solution: food
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50 #big cup
-        reagents:
-        - ReagentId: DryRamen
-          Quantity: 30
-        - ReagentId: Soysauce
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: DryRamen
+        Quantity: 20
+      - ReagentId: Soysauce
+        Quantity: 5
   - type: Sprite
     state: ramen
   - type: Edible
@@ -335,15 +346,13 @@
   name: hell ramen
   description: Super spicy flavor!
   components:
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50
-        reagents:
-        - ReagentId: DryRamen
-          Quantity: 30
-        - ReagentId: CapsaicinOil
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: DryRamen
+        Quantity: 20
+      - ReagentId: CapsaicinOil
+        Quantity: 5
 
 - type: entity
   parent: FoodSnackBase
@@ -361,18 +370,21 @@
   - type: Item
     heldPrefix: chinese1
     storedOffset: 1,-2
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30 # Room for extra condiments
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Soysauce
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Soysauce
+        Quantity: 2
   - type: Edible
     trash:
     - FoodPacketChowMeinTrash
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
 
 - type: entity
   parent: FoodSnackBase
@@ -390,20 +402,23 @@
   - type: Item
     heldPrefix: chinese2
     storedOffset: 0,-2
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30 # Room for extra condiments
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: CapsaicinOil
-          Quantity: 2
-        - ReagentId: Soysauce
-          Quantity: 2
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: CapsaicinOil
+        Quantity: 2
+      - ReagentId: Soysauce
+        Quantity: 2
   - type: Edible
     trash:
     - FoodPacketDanDanTrash
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
 
 - type: entity
   parent: FoodSnackBase
@@ -416,13 +431,12 @@
       - fortunecookie
   - type: Sprite
     state: cookie_fortune
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 1
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1
+  - type: Solution
+    solution:
+      maxVol: 2.5
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 1
   - type: Item
     sprite: Objects/Consumable/Food/snacks.rsi
     heldPrefix: cookie_fortune
@@ -431,6 +445,11 @@
   - type: Edible
     trash:
     - FoodCookieFortune
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
 
 - type: entity
   parent: BaseItem
@@ -473,13 +492,6 @@
       - ReptilianFood
   - type: Sprite
     state: nutribrick-open
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 20
 
 - type: entity
   parent: BaseItem
@@ -505,7 +517,7 @@
       path: /Audio/Effects/unwrap.ogg
 
 - type: entity
-  parent: FoodSnackBase
+  parent: [SolutionVeryTiny, FoodSnackBase]
   id: FoodSnackMREBrownieOpen
   name: brownie
   suffix: MRE
@@ -519,15 +531,13 @@
   - type: Item
     heldPrefix: mre-brownie-open
     storedOffset: -1,-1
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Theobromine
-          Quantity: 3
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: Theobromine
+        Quantity: 1
 
 - type: entity
   parent: FoodSnackBase
@@ -548,13 +558,12 @@
     tags:
     - FoodSnack
     - ReptilianFood
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20 # Room for extra condiments
-        reagents:
-        - ReagentId: Sugar
-          Quantity: 15
+    - UnguFood # macro edit - allow ungu to eat
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Sugar
+        Quantity: 15
   - type: FlavorProfile
     flavors:
     - sweet
@@ -570,7 +579,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu ]
-  parent: BaseItem
+  parent: [SolutionFood, SolutionVeryTiny, BaseItem]
   id: FoodPacketTrash
   description: This is rubbish.
   abstract: true
@@ -589,13 +598,12 @@
   - type: SpaceGarbage
   - type: StaticPrice
     price: 0
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: ToxinTrash
-          Quantity: 5
+  - type: Solution
+    solution:
+      maxVol: 7.5
+      reagents:
+      - ReagentId: ToxinTrash
+        Quantity: 7.5
   - type: Edible
     requiresSpecialDigestion: true
 
@@ -858,13 +866,11 @@
   components:
   - type: Edible
     requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 20
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 10
   - type: Tag
     tags:
     - ClothMade

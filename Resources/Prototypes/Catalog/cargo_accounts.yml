@@ -1,7 +1,7 @@
 - type: cargoAccount
   id: Cargo
-  name: cargo-account-cargo-name
-  code: cargo-account-cargo-code
+  name: cargo-account-logistics-name # Funky - Logistics rename
+  code: cargo-account-logistics-code # Funky - Logistics rename
   color: "#b48b57"
   radioChannel: Supply
   acquisitionSlip: PaperAcquisitionSlipCargo

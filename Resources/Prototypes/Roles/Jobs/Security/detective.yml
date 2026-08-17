@@ -9,8 +9,7 @@
     time: 5h
   startingGear: DetectiveGear
   icon: "JobIconDetective"
-  supervisors: job-supervisors-hos
-  canBeAntag: false
+  supervisors: job-supervisors-commandant #funky
   access:
   - Security
   - Brig
@@ -18,9 +17,9 @@
   - Detective
   - Cryogenics
   - External
-  special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+  #special:
+  #- !type:AddImplantSpecial
+  #  implants: [ MindShieldImplant ] # Funky - Removed mindshields
 
 - type: startingGear
   id: DetectiveGear

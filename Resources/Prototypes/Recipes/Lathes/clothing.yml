@@ -759,8 +759,8 @@
 
 - type: latheRecipe
   parent: BaseCoatRecipe
-  id: ClothingOuterWinterSec
-  result: ClothingOuterWinterSec
+  id: FuClothingOuterWinterSec
+  result: FuClothingOuterWinterSec
 
 - type: latheRecipe
   parent: BaseCoatRecipe

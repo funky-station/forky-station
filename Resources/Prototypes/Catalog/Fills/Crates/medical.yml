@@ -52,6 +52,8 @@
   id: CrateMindShieldImplants
   name: MindShield implant crate
   description: Crate filled with 3 MindShield implants.
+  suffix: DO NOT MAP # Funky - Removing mindshields
+  categories: [ DoNotMap ] # Funky
   components:
   - type: EntityTableContainerFill
     containers:

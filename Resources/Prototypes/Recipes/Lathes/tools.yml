@@ -222,3 +222,12 @@
     Steel: 750
     Plasma: 150
     Uranium: 150
+
+#pens are technically tools ig #funk
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: Pen
+  result: Pen
+  completetime: 1
+  materials:
+    Plastic: 10

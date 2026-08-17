@@ -6,6 +6,12 @@
       tableId: PackageRareMedicalBundlesTable
     - !type:NestedSelector
       tableId: PackageRareEngineeringBundlesTable
+    - !type:NestedSelector
+    #funkstart
+      tableId: PackageRareSecurityBundlesTable
+    - !type:NestedSelector
+      tableId: PackageRareScienceBundlesTable
+      #funkend
 
 # Package Bundles
 ## Basically items that should always spawn together, specific to packages
@@ -176,7 +182,377 @@
       children:
       - id: ClothingBeltUtility
       - id: ClothingBeltUtilityEngineering
+      - id: ClothingBeltChiefEngineerFilled
+        prob: 0.1 #funky change I LOVE GAMBLING!!!
     - id: ClothingShoesBootsMag
       prob: 0.5
     - id: ClothingHandsGlovesColorYellow
     - id: ClothingShoesColorYellow
+
+#funkstart
+### Security
+
+# General table that contains all security packages
+- type: entityTable
+  id: PackageRareSecurityBundlesTable
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: PackageSecurityClothingBundle #idk what else to add other than clothes cause genuine good armor/guns feels wrong to get mailed
+
+# Security clothing
+- type: entityTable
+  id: PackageSecurityClothingBundle
+  table: !type:AllSelector
+    children:
+    - !type:GroupSelector
+      children:
+      - id: ClothingUniformJumpskirtSec
+      - id: ClothingUniformJumpsuitSec
+      - id: ClothingUniformJumpskirtSecGrey
+      - id: ClothingUniformJumpsuitSecGrey
+      - id: ClothingUniformJumpsuitSecBlue
+    - !type:GroupSelector
+      children:
+      - id: ClothingBackpackSecurity
+      - id: ClothingBackpackDuffelSecurity
+      - id: ClothingBackpackSatchelSecurity
+    - !type:AllSelector
+      prob: 0.5
+      children:
+      - id: ClothingShoesBootsWinterSec
+      - id: ClothingNeckScarfStripedRed
+    - !type:GroupSelector
+      children:
+      - id: ClothingBeltUtility
+      - id: ClothingBeltUtilityEngineering
+    - !type:GroupSelector
+      children:
+      - id: ClothingShoesBootsJack
+      - id: ClothingShoesBootsCombat
+    - !type:GroupSelector
+      children:
+      - id: ClothingHandsGlovesColorBlack
+      - id: ClothingHandsGlovesFingerless
+    - id: ClothingMaskNeckGaiterRed
+    - !type:GroupSelector
+      children:
+      - id: ClothingHeadHelmetBasic
+      - id: ClothingHeadHelmetJustice
+      - id: ClothingHeadBandRed
+      - id: ClothingHeadHatBeretSecurity
+      - id: ClothingHeadHatSecsoft
+
+### Science
+
+# General table that contains all science packages
+- type: entityTable
+  id: PackageRareScienceBundlesTable
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: PackageScienceClothingBundle
+    - !type:NestedSelector
+      tableId: PackageScienceItemsBundle
+
+# Science clothing
+- type: entityTable
+  id: PackageScienceClothingBundle
+  table: !type:AllSelector
+    children:
+    - !type:GroupSelector
+      children:
+      - id: ClothingUniformJumpskirtScientist
+      - id: ClothingUniformJumpsuitScientist
+      - id: ClothingUniformJumpsuitScientistFormal
+    - !type:GroupSelector
+      children:
+      - id: ClothingBackpackScience
+      - id: ClothingBackpackDuffelScience
+      - id: ClothingBackpackSatchelScience
+    - !type:AllSelector
+      prob: 0.5
+      children:
+      - id: ClothingShoesBootsWinterSci
+      - id: ClothingOuterWinterSci
+      - id: ClothingNeckScarfStripedPurple
+    - !type:GroupSelector
+      children:
+      - id: ClothingBeltUtility
+      - id: ClothingBeltUtilityEngineering
+    - id: ClothingHandsGlovesLatex
+    - id: ClothingShoesColorWhite
+    - id: ClothingMaskGas
+    - id: ClothingOuterCoatRnd
+    - id: ClothingNeckTieSci
+
+# Science items
+- type: entityTable
+  id: PackageScienceItemsBundle
+  table: !type:AllSelector
+    children:
+    - !type:AllSelector
+      prob: 0.8
+      children:
+      - !type:GroupSelector
+        children:
+        - id: ClothingShoesBootsMagSci
+        - id: ClothingShoesBootsMoon
+    - !type:AllSelector
+      prob: 0.8
+      children:
+      - !type:GroupSelector
+        children:
+        - id: TechDiskComputerCircuitboard
+        - id: AnalysisComputerCircuitboard
+    - !type:AllSelector
+      prob: 0.8
+      children:
+      - !type:GroupSelector
+        children:
+        - id: APECircuitboard
+        - id: AnomalyVesselCircuitboard
+        - id: ArtifactAnalyzerMachineCircuitboard
+    - !type:AllSelector
+      prob: 0.8
+      children:
+      - !type:GroupSelector
+        children:
+        - id: AnomalyLocator
+        - id: AnomalyScanner
+        - id: NodeScanner
+    - !type:AllSelector
+      prob: 0.4
+      children:
+      - !type:GroupSelector
+        children:
+        - id: ComplexXenoArtifact
+        - id: ComplexXenoArtifactItem
+    - !type:AllSelector
+      prob: 0.4
+      children:
+      - !type:GroupSelector
+        children:
+        - id: AnomalySynchronizerCircuitboard
+        - id: ArtifactCrusherMachineCircuitboard
+        - id: AnomalyVesselExperimentalCircuitboard
+    - id: WeaponPistolCHIMP
+      prob: 0.4
+    - id: ResearchAndDevelopmentServerMachineCircuitboard
+      prob: 0.01
+
+# Syndicate stuff
+- type: entityTable
+  id: PackageSyndieStructureStuff
+  table: !type:AllSelector
+    children:
+    - !type:GroupSelector
+      children:
+      - id: CrateSyndicate
+      - id: CrateSyndicateSecure
+      - id: SyndicateMicrowave
+      - id: VendingMachineSyndieDrobe
+      - id: VendingMachineBoozeSyndicate
+      - id: VendingMachineChemicalsSyndicate
+
+#bombs
+- type: entityTable
+  id: PackageHardbomb
+  table: !type:AllSelector
+    children:
+    - !type:GroupSelector
+      children:
+      - id: TrainingBomb
+      - id: SyndicateBombFake
+        prob: 0.1
+
+#presents
+- type: entityTable
+  id: PackagePresents
+  table: !type:AllSelector
+    children:
+    - !type:GroupSelector
+      children:
+      - id: Present
+      - id: PresentRandom
+      - id: PresentRandomCoal
+      - id: PresentRandomCash
+
+#box of hugs
+- type: entityTable
+  id: PackageBoxHug
+  table: !type:AllSelector
+    children:
+    - !type:GroupSelector
+      children:
+      - id: BoxHug
+      - id: BoxHugNitrogen
+      - id: BoxHugHealing
+        prob: 0.1
+
+#bots
+- type: entityTable
+  id: PackageBots
+  table: !type:AllSelector
+    children:
+    - !type:GroupSelector
+      children:
+      - id: MobCleanBot
+      - id: MobFireBot
+      - id: MobHonkBot
+      - id: MobHugBot
+      - id: MobMedibot
+      - id: MobMimeBot
+      - id: MobSupplyBot
+      - id: MobJonkBot
+        prob: 0.1
+
+# weh!
+- type: entityTable
+  id: PackageWehBundle
+  table: !type:AllSelector
+    children:
+    - id: PlushieLizardJobMultiweh
+    - id: ClothingNeckCloakAdmin
+    - id: WehMedipen
+    - id: ClothingHeadWehcellentCap
+
+#syndicate duffles with a side of real bundles
+- type: entityTable
+  id: PackageSyndicateDuffles
+  table: !type:AllSelector
+    children:
+    - !type:GroupSelector
+      children:
+      - id: ClothingBackpackDuffelSyndicate
+      - id: ClothingBackpackDuffelSyndicateMedical
+      - id: ClothingBackpackDuffelSyndicateAmmo
+      - id: ClothingBackpackDuffelSyndicateCarpSuit
+        prob: 0.1
+      - id: ClothingBackpackDuffelSyndicatePyjamaBundle
+        prob: 0.1
+
+#outfits!
+- type: entityTable
+  id: PackageOutfits
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      tableId: PackageMercOutfit
+      prob: 0.5
+    - !type:NestedSelector
+      tableId: PackageNukieOutfit
+      prob: 0.5
+    - !type:NestedSelector
+      tableId: PackageNinjaOutfit
+      prob: 0.5
+    - !type:NestedSelector
+      tableId: PackageShrineMaidenOutfit
+    - !type:NestedSelector
+      tableId: PackageSamuraiOutfit
+      prob: 0.5
+
+#merc
+- type: entityTable
+  id: PackageMercOutfit
+  table: !type:AllSelector
+    children:
+    - !type:AllSelector
+      prob: 0.5
+      children:
+      - id: ClothingMaskGasMerc
+    - !type:GroupSelector
+      children:
+      - id: ClothingHeadHelmetMerc
+      - id: ClothingHeadHatBeretMerc
+    - id: ClothingUniformJumpsuitMercenary
+    - id: ClothingHandsGlovesMercFingerless
+    - id: ClothingShoesBootsMercFilled
+    - id: ClothingBeltMercWebbing
+    - id: ClothingBackpackMerc
+
+#nukie
+- type: entityTable
+  id: PackageNukieOutfit
+  table: !type:AllSelector
+    children:
+    - id: ClothingUniformJumpsuitOperative
+    - id: ClothingHandsGlovesColorBlack
+    - id: ClothingShoesBootsSyndieFilled
+    - id: ClothingBeltMilitaryWebbing
+    - id: ClothingBackpackSyndicate
+    - id: ClothingMaskNeckGaiter
+    - id: ClothingHeadHatSyndie
+
+#ninja
+- type: entityTable
+  id: PackageNinjaOutfit
+  table: !type:AllSelector
+    children:
+    - id: Katana
+    - id: ClothingHeadsetNinja
+    - id: ClothingMaskNinja
+    - id: ClothingUniformJumpsuitNinja
+    - id: ClothingHeadHelmetSpaceNinja
+    - id: ClothingBackpackSatchelNinja
+
+#shrine maiden
+- type: entityTable
+  id: PackageShrineMaidenOutfit
+  table: !type:AllSelector
+    children:
+    - id: Gohei
+    - id: ClothingOuterSuitShrineMaiden
+    - id: ClothingShoesTourist
+    - id: ClothingHeadHatShrineMaidenWig
+
+#samurai
+- type: entityTable
+  id: PackageSamuraiOutfit
+  table: !type:AllSelector
+    children:
+    - id: ClothingOuterDogi
+
+#foam stuff
+- type: entityTable
+  id: PackageFoamFun
+  table: !type:AllSelector
+    children:
+      - !type:NestedSelector
+        tableId: RandomFoamGunTable
+      - !type:NestedSelector
+        tableId: RandomFoamGunTable
+      - !type:AllSelector
+        prob: 0.5
+        children:
+        - id: GrenadeFoamDart
+          amount: 2
+      - !type:GroupSelector
+        children:
+        - id: ToyHammer
+        - id: ToySword
+        - id: FoamBlade
+        - id: FoamCutlass
+        - id: CardSword
+      - !type:GroupSelector
+        children:
+        - id: ToyHammer
+        - id: ToySword
+        - id: FoamBlade
+        - id: FoamCutlass
+        - id: CardSword
+
+#practice stuff
+- type: entityTable
+  id: PackagePracticeLasers
+  table: !type:AllSelector
+    children:
+      - !type:GroupSelector
+        children:
+        - id: WeaponDisablerPractice
+        - id: WeaponLaserCarbinePractice
+      - !type:GroupSelector
+        children:
+        - id: WeaponDisablerPractice
+        - id: WeaponLaserCarbinePractice
+#funkend

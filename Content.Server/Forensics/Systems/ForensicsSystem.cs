@@ -5,7 +5,6 @@ using Content.Server.Forensics.Components;
 using Content.Server.Popups;
 using Content.Shared.Body.Events;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.BloodCult.Components;
 using Content.Shared.Popups;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
@@ -15,6 +14,7 @@ using Content.Shared.Forensics;
 using Content.Shared.Forensics.Components;
 using Content.Shared.Forensics.Systems;
 using Content.Shared.Gibbing;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
@@ -26,13 +26,13 @@ using Content.Shared.Hands.Components;
 
 namespace Content.Server.Forensics
 {
-    public sealed class ForensicsSystem : SharedForensicsSystem
+    public sealed partial class ForensicsSystem : SharedForensicsSystem
     {
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly InventorySystem _inventory = default!;
-        [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private InventorySystem _inventory = default!;
+        [Dependency] private DoAfterSystem _doAfterSystem = default!;
+        [Dependency] private PopupSystem _popupSystem = default!;
+        [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
 
         public override void Initialize()
         {
@@ -46,13 +46,12 @@ namespace Content.Server.Forensics
             SubscribeLocalEvent<ForensicsComponent, GotRehydratedEvent>(OnRehydrated);
             SubscribeLocalEvent<CleansForensicsComponent, AfterInteractEvent>(OnAfterInteract, after: new[] { typeof(AbsorbentSystem) });
             SubscribeLocalEvent<ForensicsComponent, CleanForensicsDoAfterEvent>(OnCleanForensicsDoAfter);
-            SubscribeLocalEvent<CleanableRuneComponent, CleanForensicsDoAfterEvent>(OnCleanRuneDoAfter);
             SubscribeLocalEvent<DnaComponent, TransferDnaEvent>(OnTransferDnaEvent);
-            SubscribeLocalEvent<DnaSubstanceTraceComponent, SolutionContainerChangedEvent>(OnSolutionChanged);
+            SubscribeLocalEvent<DnaSubstanceTraceComponent, SolutionChangedEvent>(OnSolutionChanged);
             SubscribeLocalEvent<CleansForensicsComponent, GetVerbsEvent<UtilityVerb>>(OnUtilityVerb);
         }
 
-        private void OnSolutionChanged(Entity<DnaSubstanceTraceComponent> ent, ref SolutionContainerChangedEvent ev)
+        private void OnSolutionChanged(Entity<DnaSubstanceTraceComponent> ent, ref SolutionChangedEvent ev)
         {
             var soln = GetSolutionsDNA(ev.Solution);
             if (soln.Count > 0)
@@ -153,12 +152,9 @@ namespace Content.Server.Forensics
         public List<string> GetSolutionsDNA(EntityUid uid)
         {
             List<string> list = new();
-            if (TryComp<SolutionContainerManagerComponent>(uid, out var comp))
+            foreach (var (_, soln) in _solutionContainerSystem.EnumerateSolutions(uid))
             {
-                foreach (var (_, soln) in _solutionContainerSystem.EnumerateSolutions((uid, comp)))
-                {
-                    list.AddRange(GetSolutionsDNA(soln.Comp.Solution));
-                }
+                list.AddRange(GetSolutionsDNA(soln.Comp.Solution));
             }
             return list;
         }
@@ -191,15 +187,6 @@ namespace Content.Server.Forensics
             if (!args.CanInteract || !args.CanAccess)
                 return;
 
-            // begin funkystation
-            // Check if target is a cleanable rune or has forensics
-            var isRune = HasComp<CleanableRuneComponent>(args.Target);
-            var hasForensics = HasComp<ForensicsComponent>(args.Target);
-
-            if (!isRune && !hasForensics)
-                return;
-            // end funkystation
-
             // These need to be set outside for the anonymous method!
             var user = args.User;
             var target = args.Target;
@@ -208,8 +195,8 @@ namespace Content.Server.Forensics
             {
                 Act = () => TryStartCleaning(entity, user, target),
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/bubbles.svg.192dpi.png")),
-				Text = isRune ? Loc.GetString("cult-rune-clean-verb-text") : Loc.GetString("forensics-verb-text"), // funkystation
-                Message = isRune ? Loc.GetString("cult-rune-clean-verb-message") : Loc.GetString("forensics-verb-message"), // funkystation
+                Text = Loc.GetString(Loc.GetString("forensics-verb-text")),
+                Message = Loc.GetString(Loc.GetString("forensics-verb-message")),
                 // This is important because if its true using the cleaning device will count as touching the object.
                 DoContactInteraction = false
             };
@@ -218,7 +205,7 @@ namespace Content.Server.Forensics
         }
 
         /// <summary>
-        ///     Attempts to clean the given item with the given CleansForensics entity or CleanableRuneComponent (blood cult runes).
+        ///     Attempts to clean the given item with the given CleansForensics entity.
         /// </summary>
         /// <param name="cleanForensicsEntity">The entity that is being used to clean the target.</param>
         /// <param name="user">The user that is using the cleanForensicsEntity.</param>
@@ -226,28 +213,9 @@ namespace Content.Server.Forensics
         /// <returns>True if the target can be cleaned and has some sort of DNA or fingerprints / fibers and false otherwise.</returns>
         public bool TryStartCleaning(Entity<CleansForensicsComponent> cleanForensicsEntity, EntityUid user, EntityUid target)
         {
-			// Check if target is a cleanable rune
-            if (TryComp<CleanableRuneComponent>(target, out _))
-            {
-                var cleanDelay = cleanForensicsEntity.Comp.CleanDelay;
-                var doAfterArgs = new DoAfterArgs(EntityManager, user, cleanDelay, new CleanForensicsDoAfterEvent(), target, target: target, used: cleanForensicsEntity)
-                {
-                    NeedHand = true,
-                    BreakOnDamage = true,
-                    BreakOnMove = true,
-                    MovementThreshold = 0.01f,
-                    // DistanceThreshold is null by default, which uses the standard interaction range
-                };
-
-                if (!_doAfterSystem.TryStartDoAfter(doAfterArgs))
-                    return false;
-
-                _popupSystem.PopupEntity(Loc.GetString("cult-rune-cleaning", ("target", target)), user, user);
-                return true;
-            }
             if (!TryComp<ForensicsComponent>(target, out var forensicsComp))
             {
-                _popupSystem.PopupEntity(Loc.GetString("forensics-cleaning-cannot-clean", ("target", target)), user, user, PopupType.MediumCaution);
+                _popupSystem.PopupEntity(Loc.GetString("forensics-cleaning-cannot-clean", ("target", Identity.Entity(target, EntityManager))), user, user, PopupType.MediumCaution);
                 return false;
             }
 
@@ -268,13 +236,13 @@ namespace Content.Server.Forensics
 
                 _doAfterSystem.TryStartDoAfter(doAfterArgs);
 
-                _popupSystem.PopupEntity(Loc.GetString("forensics-cleaning", ("target", target)), user, user);
+                _popupSystem.PopupEntity(Loc.GetString("forensics-cleaning", ("target", Identity.Entity(target, EntityManager))), user, user);
 
                 return true;
             }
             else
             {
-                _popupSystem.PopupEntity(Loc.GetString("forensics-cleaning-cannot-clean", ("target", target)), user, user, PopupType.MediumCaution);
+                _popupSystem.PopupEntity(Loc.GetString("forensics-cleaning-cannot-clean", ("target", Identity.Entity(target, EntityManager))), user, user, PopupType.MediumCaution);
                 return false;
             }
 
@@ -320,24 +288,6 @@ namespace Content.Server.Forensics
             }
 
             return DNA;
-        }
-
-		private void OnCleanRuneDoAfter(EntityUid uid, CleanableRuneComponent component, CleanForensicsDoAfterEvent args)
-        {
-            if (args.Handled || args.Cancelled || args.Args.Target == null)
-                return;
-
-            var target = args.Args.Target.Value;
-
-            // Double-check it's still a cleanable rune
-            if (!TryComp<CleanableRuneComponent>(target, out _))
-                return;
-
-            // Delete the rune
-            QueueDel(target);
-
-            _popupSystem.PopupEntity(Loc.GetString("cult-rune-cleaned", ("target", target)), args.Args.User, args.Args.User, PopupType.Medium);
-            args.Handled = true;
         }
 
         private void ApplyEvidence(EntityUid user, EntityUid target)

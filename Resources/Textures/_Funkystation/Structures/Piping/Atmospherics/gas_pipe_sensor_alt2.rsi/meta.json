@@ -1,0 +1,109 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "By AraiMaia for Funky Station.",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "base",
+            "directions": 4
+        },
+        {
+            "name": "blank"
+        },
+        {
+            "name": "lights",
+            "directions": 4,
+            "delays": [
+                [
+                    1.0,
+                    0.25
+                ],
+                [
+                    1.0,
+                    0.25
+                ],
+                [
+                    1.0,
+                    0.25
+                ],
+                [
+                    1.0,
+                    0.25
+                ]
+            ]
+        },
+        {
+            "name": "lights_normalpressure",
+            "directions": 4,
+            "delays": [
+                [
+                    1.0,
+                    0.25
+                ],
+                [
+                    1.0,
+                    0.25
+                ],
+                [
+                    1.0,
+                    0.25
+                ],
+                [
+                    1.0,
+                    0.25
+                ]
+            ]
+        },
+        {
+            "name": "lights_overpressure",
+            "directions": 4,
+            "delays": [
+                [
+                    1.0,
+                    0.25
+                ],
+                [
+                    1.0,
+                    0.25
+                ],
+                [
+                    1.0,
+                    0.25
+                ],
+                [
+                    1.0,
+                    0.25
+                ]
+            ]
+        },
+        {
+            "name": "lights_extremepressure",
+            "directions": 4,
+            "delays": [
+                [
+                    1.0,
+                    0.25
+                ],
+                [
+                    1.0,
+                    0.25
+                ],
+                [
+                    1.0,
+                    0.25
+                ],
+                [
+                    1.0,
+                    0.25
+                ]
+            ]
+        }
+    ]
+}

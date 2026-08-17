@@ -5,18 +5,18 @@
   playTimeTracker: JobBartender
   requirements:
     - !type:DepartmentTimeRequirement
-      department: Civilian
+      department: Service # Funky - Service is now a separate department
       time: 0.5h
   startingGear: BartenderGear
   icon: "JobIconBartender"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-hd # funky
   access:
   - Service
   - Maintenance
   - Bar
   extendedAccess:
   - Kitchen
-  - Hydroponics
+  #- Hydroponics # Funky - Botanist is now in Logistics
 
 - type: startingGear
   id: BartenderGear

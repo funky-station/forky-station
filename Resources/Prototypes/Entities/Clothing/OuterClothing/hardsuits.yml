@@ -34,9 +34,11 @@
     clothingPrototype: ClothingHeadHelmetHardsuitAtmos
   - type: Tag
     tags:
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.35
+    minDamageToRoll: 9.0
 
 #Engineering Hardsuit
 - type: entity
@@ -46,9 +48,22 @@
   description: A special suit that protects against hazardous, low pressure environments. Has radiation shielding.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/engineering.rsi # Funky change
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/engineering.rsi # Funky change
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-vox
+      - state: equipped-OUTERCLOTHING-unshaded-vox
+        shader: unshaded
   - type: PressureProtection
     highPressureMultiplier: 0.04
     lowPressureMultiplier: 1000
@@ -71,9 +86,11 @@
     clothingPrototype: ClothingHeadHelmetHardsuitEngineering
   - type: Tag
     tags:
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.35
+    minDamageToRoll: 9.0
 
 #Spationaut Hardsuit
 - type: entity
@@ -83,9 +100,9 @@
   description: A lightweight hardsuit designed for industrial EVA in zero gravity.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/spatio.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/spatio.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/spatio.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/spatio.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.7
     lowPressureMultiplier: 1000
@@ -108,7 +125,9 @@
     - Hardsuit
     - WhitelistChameleon
     - HardsuitSpatio
-    - CorgiWearable
+  - type: SuitBreachable # Funky
+    breachChance: 0.35
+    minDamageToRoll: 12.0
 
 #Salvage Hardsuit
 - type: entity
@@ -118,9 +137,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has reinforced plating for wildlife encounters.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/salvage.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/salvage.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/salvage.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/salvage.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -143,9 +162,11 @@
     clothingPrototype: ClothingHeadHelmetHardsuitSalvage
   - type: Tag
     tags:
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.3
+    minDamageToRoll: 11.0
 
 #Goliath Hardsuit
 - type: entity
@@ -162,7 +183,7 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.3
+    damageCoefficient: 0.5
   - type: Armor
     modifiers:
       coefficients:
@@ -183,9 +204,11 @@
     node: hardsuitGoliath
   - type: Tag
     tags:
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.2
+    minDamageToRoll: 13.0
 
 #Maxim Hardsuit
 - type: entity
@@ -235,7 +258,7 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.4
+    damageCoefficient: 0.5
   - type: Armor
     modifiers:
       coefficients:
@@ -252,9 +275,11 @@
     clothingPrototype: ClothingHeadHelmetHardsuitSecurity
   - type: Tag
     tags:
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.1
+    minDamageToRoll: 10.0
 
 #Brigmedic Hardsuit
 - type: entity
@@ -298,7 +323,7 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.4
+    damageCoefficient: 0.5
   - type: Armor
     modifiers:
       coefficients:
@@ -313,6 +338,9 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitWarden
+  - type: SuitBreachable # Funky
+    breachChance: 0.1
+    minDamageToRoll: 10.0
 
 #Captain's Hardsuit
 - type: entity
@@ -329,7 +357,7 @@
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.7
   - type: Armor
     modifiers:
       coefficients:
@@ -347,9 +375,11 @@
     clothingPrototype: ClothingHeadHelmetHardsuitCap
   - type: Tag
     tags:
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.1
+    minDamageToRoll: 12.0
 
 #Chief Engineer's Hardsuit
 - type: entity
@@ -359,9 +389,22 @@
   description: A special hardsuit that protects against hazardous, low pressure environments, made for the chief engineer of the station.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/engineering-white.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/engineering-white.rsi # Funky changes
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/engineering-white.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/engineering-white.rsi # Funky changes
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded
+      outerClothing-reptilian:
+      - state: equipped-OUTERCLOTHING-reptilian
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-vox
+      - state: equipped-OUTERCLOTHING-unshaded-vox
+        shader: unshaded
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -386,9 +429,11 @@
     clothingPrototype: ClothingHeadHelmetHardsuitEngineeringWhite
   - type: Tag
     tags:
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.2
+    minDamageToRoll: 10.0
 
 #Chief Medical Officer's Hardsuit
 - type: entity
@@ -418,9 +463,11 @@
     clothingPrototype: ClothingHeadHelmetHardsuitMedical
   - type: Tag
     tags:
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.35
+    minDamageToRoll: 11.0
 
 #Research Director's Hardsuit
 - type: entity
@@ -459,7 +506,6 @@
     tags:
     - WhitelistChameleon
     - HighRiskItem
-    - CorgiWearable
     - Hardsuit
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitRd
@@ -467,6 +513,9 @@
     price: 750
   - type: StealTarget
     stealGroup: ClothingOuterHardsuitRd
+  - type: SuitBreachable # Funky
+    breachChance: 0.2
+    minDamageToRoll: 20.0 # it's an EOD suit
 
 #Head of Security's Hardsuit
 - type: entity
@@ -499,6 +548,9 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSecurityRed
+  - type: SuitBreachable # Funky
+    breachChance: 0.1
+    minDamageToRoll: 14.0
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -509,9 +561,9 @@
   categories: [ DoNotMap ]
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/luxury.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/luxury.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/luxury.rsi
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/luxury.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -532,6 +584,9 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitLuxury
+  - type: SuitBreachable # Funky
+    breachChance: 0.35
+    minDamageToRoll: 11.0
 
 #ANTAG HARDSUITS
 #Blood-red Hardsuit
@@ -574,10 +629,12 @@
     - MonkeyWearable
     - Hardsuit
     - WhitelistChameleon
-    - CorgiWearable
     - ScurretWearable
   - type: StaticPrice
     price: 5000
+  - type: SuitBreachable # Funky
+    breachChance: 0.1
+    minDamageToRoll: 13.0
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -596,6 +653,9 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.1
+    minDamageToRoll: 13.0
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -615,7 +675,7 @@
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
   - type: ExplosionResistance
-    damageCoefficient: 0.2
+    damageCoefficient: 0.3
   - type: FireProtection
     reduction: 0.8
   - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
@@ -639,9 +699,11 @@
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieElite
   - type: Tag
     tags:
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.1
+    minDamageToRoll: 13.0
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -678,9 +740,11 @@
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieCommander
   - type: Tag
     tags:
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.1
+    minDamageToRoll: 14.0
 
 
 #Cybersun Juggernaut Hardsuit
@@ -697,8 +761,6 @@
   - type: PressureProtection
     highPressureMultiplier: 0.2
     lowPressureMultiplier: 1000
-  - type: ExplosionResistance
-    damageCoefficient: 0.3
   # - type: StaminaResistance # Should not have stamina resistance, this is purely so people know it was not forgotten.
   - type: Armor
     modifiers:
@@ -718,7 +780,6 @@
   - type: Tag
     tags:
     - MonkeyWearable
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
 
@@ -755,7 +816,6 @@
     clothingPrototype: ClothingHeadHelmetHardsuitWizard
   - type: Tag
     tags:
-    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
 
@@ -822,6 +882,9 @@
     clothingPrototype: ClothingHeadHelmetHardsuitPirateEVA
   - type: StaticPrice
     price: 0
+  - type: SuitBreachable # Funky
+    breachChance: 0.3
+    minDamageToRoll: 12.0
 
 #Pirate Captain Hardsuit
 - type: entity
@@ -857,6 +920,9 @@
     clothingPrototype: ClothingHeadHelmetHardsuitPirateCap
   - type: StaticPrice
     price: 0
+  - type: SuitBreachable # Funky
+    breachChance: 0.2
+    minDamageToRoll: 13.0
 
 #CENTCOMM / ERT HARDSUITS
 #ERT Leader Hardsuit
@@ -1060,6 +1126,9 @@
     node: clownHardsuit
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitClown
+  - type: SuitBreachable # Funky
+    breachChance: 0.5
+    minDamageToRoll: 9.0
 
 #Mime Hardsuit
 - type: entity
@@ -1077,6 +1146,9 @@
     node: mimeHardsuit
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMime
+  - type: SuitBreachable # Funky
+    breachChance: 0.5
+    minDamageToRoll: 9.0
 
 #Santa's Hardsuit
 - type: entity
