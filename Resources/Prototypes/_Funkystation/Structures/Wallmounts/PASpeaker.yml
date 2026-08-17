@@ -101,7 +101,6 @@
   description: A PA speaker. For when you really need to know whats happening. This one can't hear radio channels.
   suffix: Announce only
   components:
-  - type: PAAnnouncer
   - type: Appearance
   - type: Sprite
     noRot: false
@@ -125,6 +124,8 @@
         enum.WiresVisualLayers.MaintenancePanel:
           True: { visible: true }
           False: { visible: false }
+  - type: DoNotOccludeSpeechBubbles
+  - type: PAAnnouncer
 
 - type: entity
   parent: PASpeaker

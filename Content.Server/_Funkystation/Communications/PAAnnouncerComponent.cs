@@ -12,6 +12,19 @@ public sealed partial class PAAnnouncerComponent : Component
     public bool PowerRequired = true;
 
     /// <summary>
+    /// A different, unique default announcement sound
+    /// for this PA speaker.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public SoundSpecifier? AnnouncementSound;
+
+    /// <summary>
+    /// Disables playing an announcement sound.
+    /// </summary>
+    [DataField]
+    public bool Quiet = false;
+
+    /// <summary>
     /// The queue of announcement messages to send.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
@@ -22,17 +35,4 @@ public sealed partial class PAAnnouncerComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan NextAnnounceTime = TimeSpan.Zero;
-
-    /// <summary>
-    /// A custom announcement sound this PA speaker
-    /// should default to.
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public SoundSpecifier? AnnouncementSound;
-
-    /// <summary>
-    /// Disables playing an announcement sound.
-    /// </summary>
-    [DataField]
-    public bool Quiet = false;
 }
