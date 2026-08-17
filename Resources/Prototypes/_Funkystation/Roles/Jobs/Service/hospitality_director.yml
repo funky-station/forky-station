@@ -6,7 +6,7 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Service
-    time: 15h
+    time: 20h
   - !type:RoleTimeRequirement
     role: JobBartender
     time: 5h
