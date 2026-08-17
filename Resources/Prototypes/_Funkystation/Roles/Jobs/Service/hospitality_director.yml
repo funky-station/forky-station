@@ -41,6 +41,9 @@
   equipment:
     id: HDPDA
     ears: ClothingHeadsetHD
+  storage:
+    back:
+    - Flash
 
 - type: chameleonOutfit
   id: HDChameleonOutfit
