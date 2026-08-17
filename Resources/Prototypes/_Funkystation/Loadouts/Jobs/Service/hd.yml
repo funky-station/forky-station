@@ -30,14 +30,14 @@
     outerClothing: FuClothingOuterCoatHd
 
 - type: loadout
-  id: FuHdWinterCoat
-  equipment:
-    outerClothing: FuClothingOuterWinterHd
-
-- type: loadout
   id: FuHdVest
   equipment:
     outerClothing: FuClothingOuterVestHd
+
+- type: loadout
+  id: FuHdWinterCoat
+  equipment:
+    outerClothing: FuClothingOuterWinterHd
 
 # shoes
 

@@ -9,10 +9,10 @@
 - type: loadoutGroup
   id: FuHdOuterclothing
   name: fu-loadout-group-hd-outerclothing
-  # (minLimit at default of 1 because they just look kind of boring without one of these)
+  minLimit: 0
   loadouts:
-  - FuHdVest # putting this first so it's the default
   - FuHdCoat
+  - FuHdVest
   - FuHdWinterCoat
 
 - type: loadoutGroup
