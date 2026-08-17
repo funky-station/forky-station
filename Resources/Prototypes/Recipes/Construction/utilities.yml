@@ -41,8 +41,8 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
-  conditions:
-  - !type:WallmountCondition { }
+  conditions: #funky start requires wall now, sorry shittles
+  - !type:WallmountCondition { } #funky end
 
 - type: construction
   id: CableTerminal
