@@ -16,7 +16,6 @@ using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Screens;
 using Content.Client.UserInterface.Systems.Chat.Widgets;
 using Content.Client.UserInterface.Systems.Gameplay;
-using Content.Shared._Funkystation.Chat; // funky - basic fix for wallmount speakers getting occluded by neighbouring walls
 using Content.Shared._RMC14.Mentor; // RMC Mentor Chat Funky Port
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -674,7 +673,7 @@ public sealed partial class ChatUIController : UIController
 
             var otherPos = _transform?.GetMapCoordinates(ent) ?? MapCoordinates.Nullspace;
 
-            if (occluded && !_ent.HasComponent<DoNotOccludeSpeechBubblesComponent>(ent) && !_examine.InRangeUnOccluded( // funky - basic fix for wallmount speakers getting occluded by neighbouring walls
+            if (occluded && !_examine.InRangeUnOccluded(
                     playerPos,
                     otherPos, 0f,
                     (ent, player), predicate))
