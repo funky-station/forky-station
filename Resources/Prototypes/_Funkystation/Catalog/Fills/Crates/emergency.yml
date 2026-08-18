@@ -1,0 +1,12 @@
+- type: entity
+  parent: CratePlastic
+  id: CrateInflatables
+  name: inflatables crate
+  description: Sleeves of inflatable walls and floors conveniently packed for quick repairs. Just twist and pull the ripvalve on each to deploy.
+  components:
+  - type: StorageFill
+    contents:
+    - id: SlideboxInflatableWall
+      amount: 2
+    - id: SlideboxInflatableFloor
+      amount: 2

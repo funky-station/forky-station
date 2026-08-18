@@ -208,6 +208,7 @@
       prob: 0.02
     - id: PlushieLizardJobStationengineer
       prob: 0.02
+    - id: SlideboxInflatableWall # Funky Change
 
 - type: entityTable
   id: FillEngineerHardsuit

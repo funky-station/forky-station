@@ -1,0 +1,26 @@
+- type: entity
+  abstract: true
+  parent: [ BaseStorageItem, BaseBagOpenClose ]
+  id: SlideboxBase
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Storage/slidebox.rsi
+    layers:
+    - state: icon
+    - state: icon_open
+      map: ["openLayer"]
+  - type: Item
+    sprite: _Funkystation/Objects/Storage/slidebox.rsi
+    size: Large
+    shape:
+    - 0,0,2,0
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,3,0
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+  - type: StaticPrice
+    price: 10
+  - type: Appearance

@@ -142,6 +142,7 @@
     - ServiceStatic
     - PowerCellsStatic
     - ElectronicsStatic
+    - InflatablesStatic # Funky Change
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic

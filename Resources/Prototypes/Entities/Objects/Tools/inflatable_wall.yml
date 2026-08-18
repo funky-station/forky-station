@@ -3,7 +3,7 @@
   parent: BaseItem
   name: inflatable barricade
   description: A folded membrane which rapidly expands into a large cubical shape on activation.
-  suffix: Full
+  suffix: Depreciated, Full # Funky change, new inflatables
   components:
   - type: Stack
     stackType: InflatableWall
@@ -31,7 +31,7 @@
   parent: BaseItem
   name: inflatable door
   description: A folded membrane which rapidly expands into a large cubical shape on activation.
-  suffix: Full
+  suffix: Depreciated, Full # Funky change, new inflatables
   components:
   - type: Stack
     stackType: InflatableDoor
@@ -57,7 +57,7 @@
 - type: entity
   parent: InflatableWallStack
   id: InflatableWallStack5
-  suffix: 5
+  suffix: Depreciated, 5 # Funky change, new inflatables
   components:
   - type: Sprite
     state: item_wall
@@ -67,7 +67,7 @@
 - type: entity
   parent: InflatableWallStack
   id: InflatableWallStack1
-  suffix: 1
+  suffix: Depreciated, 1 # Funky change, new inflatables
   components:
   - type: Sprite
     state: item_wall
@@ -77,7 +77,7 @@
 - type: entity
   parent: InflatableDoorStack
   id: InflatableDoorStack1
-  suffix: 1
+  suffix: Depreciated, 1 # Funky change, new inflatables
   components:
   - type: Sprite
     state: item_door

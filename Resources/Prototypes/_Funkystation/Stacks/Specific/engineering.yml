@@ -1,0 +1,20 @@
+- type: stack
+  id: FunkyInflatableWall
+  name: funky-stack-inflatable-wall
+  icon: { sprite: "/Textures/_Funkystation/Objects/Misc/inflatables.rsi", state: item_wall }  
+  spawn: FunkyInflatableWallStack1
+  maxCount: 5
+
+- type: stack
+  id: FunkyInflatableDoor
+  name: funky-stack-inflatable-door
+  icon: { sprite: "/Textures/_Funkystation/Objects/Misc/inflatables.rsi", state: item_door }
+  spawn: FunkyInflatableDoorStack1
+  maxCount: 5
+
+- type: stack
+  id: FunkyInflatableFloor
+  name: funky-stack-inflatable-floor
+  icon: { sprite: "/Textures/_Funkystation/Objects/Misc/inflatables.rsi", state: item_floor }
+  spawn: FunkyInflatableFloorStack1
+  maxCount: 8

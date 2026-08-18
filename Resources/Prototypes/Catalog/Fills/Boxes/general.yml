@@ -242,6 +242,7 @@
   name: inflatable wall box
   parent: BoxCardboard
   id: BoxInflatable
+  suffix: Depreciated # Funky change, new inflatables
   description: Inflatable walls are not to be used as floatation devices.
   components:
   - type: EntityTableContainerFill

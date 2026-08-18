@@ -1,0 +1,15 @@
+- type: tile
+  id: FunkyInflatablePlating
+  name: funky-tiles-inflatable-plating
+  sprite: /Textures/_Funkystation/Tiles/inflatable_floor.png
+  baseTurf: Space
+  isSubfloor: true
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepClown
+    params:
+      volume: -10
+      variation: 0.17
+  itemDrop: FunkyInflatableFloorStack1
+  friction: 1.5
+  heatCapacity: 2500

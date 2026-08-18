@@ -1,14 +1,13 @@
 - type: entity
   parent: BaseDeltaPressureGlass
-  id: InflatableWall
+  id: FunkyInflatableWall
   name: inflatable barricade
-  suffix: Depreciated # Funky change, new inflatables
-  description: An inflated membrane. Activate to deflate. Do not puncture.
+  description: An inflated membrane. Release rip-valve to deflate. Do not puncture.
   components:
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
-    sprite: Objects/Misc/inflatable_wall.rsi
+    sprite: _Funkystation/Objects/Misc/inflatables.rsi
     state: inflatable_wall
   - type: Physics
     bodyType: Static
@@ -29,13 +28,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 20
+        damage: 25
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: DisassembleOnAltVerb
-    prototypeToSpawn: InflatableWallStack1
-    disassembleTime: 3
+    prototypeToSpawn: FunkyInflatableWallStack1
+    disassembleTime: 1
   - type: InflatableSafeDisassembly
   - type: Airtight
   - type: Transform
@@ -44,16 +43,15 @@
     mode: SnapgridCenter
 
 - type: entity
-  id: InflatableDoor
+  id: FunkyInflatableDoor
   name: inflatable door
-  suffix: Depreciated # Funky change, new inflatables
   parent: [BaseMaterialDoor, BaseDeltaPressureGlass]
-  description: An inflated membrane. Activate to deflate. Now with a door. Do not puncture.
+  description: An inflated, semi-traversable membrane, otherwise known as a door. Release rip-valve to deflate. Do not puncture.
   components:
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
-    sprite: Objects/Misc/inflatable_door.rsi
+    sprite: _Funkystation/Objects/Misc/inflatables.rsi
     state: closed
   - type: Physics
     bodyType: Static
@@ -85,8 +83,8 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: DisassembleOnAltVerb
-    prototypeToSpawn: InflatableDoorStack1
-    disassembleTime: 3
+    prototypeToSpawn: FunkyInflatableDoorStack1
+    disassembleTime: 1
   - type: InflatableSafeDisassembly
   - type: Occluder
     enabled: false
