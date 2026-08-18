@@ -35,4 +35,7 @@ public sealed partial class RadioChannelPrototype : IPrototype
     /// </summary>
     [DataField("longRange"), ViewVariables]
     public bool LongRange = false;
+
+    [DataField("intercomOnly"), ViewVariables]
+    public bool IntercomOnly = false;
 }
