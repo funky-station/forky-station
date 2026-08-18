@@ -4,27 +4,23 @@
   description: job-description-hos
   playTimeTracker: JobHeadOfSecurity
   requirements:
-    #- !type:RoleTimeRequirement
-    #  role: JobWarden
-    #  time: 3h
     - !type:RoleTimeRequirement
-      role: JobWarden # Funky - TODO: Replace with JobDeputy when that gets added
-      time: 10h # Funky
-    #- !type:RoleTimeRequirement
-    #  role: JobDetective
-    #  time: 1h # knowing how to use the tools is important # Funky
+      role: JobWarden
+      time: 3h
+    - !type:RoleTimeRequirement
+      role: JobDetective
+      time: 1h # knowing how to use the tools is important
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
       time: 5h
     - !type:DepartmentTimeRequirement
       department: Security
-      #time: 10h
-      time: 30h # Funky
-  #weight: 10 # Funky - Weighting all jobs equally now
+      time: 10h
+  weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
-  joinNotifyCrew: true # Funky
   supervisors: job-supervisors-captain
+  canBeAntag: false
   access:
   - HeadOfSecurity
   - Command
