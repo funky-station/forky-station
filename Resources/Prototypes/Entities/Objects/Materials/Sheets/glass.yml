@@ -15,7 +15,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 5 # funky
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -29,6 +29,15 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: DamageOnLand #funky start
+    ignoreResistances: true
+    damage:
+      types:
+        Blunt: 5 # so fragile it smashes when thrown
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 5 #funky end
 
 - type: entity
   parent: SheetGlassBase
