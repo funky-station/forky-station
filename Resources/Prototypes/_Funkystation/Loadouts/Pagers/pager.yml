@@ -1,0 +1,29 @@
+﻿- type: loadout
+  id: PagerGray
+  equipment:
+    pocket1: PagerGray
+
+- type: loadout
+  id: PagerBeige
+  equipment:
+    pocket1: PagerBeige
+
+- type: loadout
+  id: PagerBlue
+  equipment:
+    pocket1: PagerBlue
+
+- type: loadout
+  id: PagerTransCyan
+  equipment:
+    pocket1: PagerTransCyan
+
+- type: loadout
+  id: PagerTransPink
+  equipment:
+    pocket1: PagerTransPink
+
+- type: loadout
+  id: PagerTransYellow
+  equipment:
+    pocket1: PagerTransYellow

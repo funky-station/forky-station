@@ -68,12 +68,13 @@
     boardName: wires-board-name-firealarm
     layoutId: FireAlarm
   - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: _Funkystation/Structures/Wallmounts/air_monitors.rsi
     layers:
     - state: fire0
       map: ["fireAlarmBase"]
     - state: fire_off
       map: ["fireAlarmState"]
+      shader: unshaded # funkystation
     - state: fire_b2
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
@@ -110,7 +111,7 @@
   description: A fire alarm assembly. Very mild.
   components:
   - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: _Funkystation/Structures/Wallmounts/air_monitors.rsi
     layers:
     - state: fire_b1
       map: [ "enum.ConstructionVisuals.Layer" ]

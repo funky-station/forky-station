@@ -1,0 +1,122 @@
+- type: roleLoadout
+  id: JobHospitalityDirector
+  groups:
+  - GroupTankHarness
+  - GroupTankHarness
+  - BartenderJumpsuit
+  - CommonBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  #- ServiceWorkerJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobMagistrate
+  groups:
+  - GroupTankHarness
+  - LawyerJumpsuit
+  - CommonBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  #- LawyerJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobInternalAffairsAgent
+  groups:
+  - GroupTankHarness
+  - LawyerNeck
+  - LawyerJumpsuit
+  - CommonBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  #- LawyerJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobCorporateLiaison
+  groups:
+  - GroupTankHarness
+  - LawyerJumpsuit
+  - CommonBackpack
+  - Glasses
+  - Survival
+  - Trinkets
+  #- LawyerJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobExecutiveOfficer
+  groups:
+  - GroupTankHarness
+  - HoPHead
+  - HoPNeck
+  - HoPJumpsuit
+  - HoPBackpack
+  - HoPOuterClothing
+  - Glasses
+  - Survival
+  - Trinkets
+  #- HoPJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobCommandant
+  groups:
+  - HeadofSecurityHead
+  - HeadofSecurityNeck
+  - HeadofSecurityJumpsuit
+  - SecurityBackpack
+  - SecurityBelt
+  - HeadofSecurityOuterClothing
+  - SecurityShoes
+  - Pager
+  - SurvivalSecurity
+  - Trinkets
+  - HeadofSecurityJobTrinkets
+  - GroupSpeciesBreathToolSecurity
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobDispatcher
+  groups:
+  - SecurityHead
+  - SecurityNeck
+  - SecurityJumpsuit
+  - SecurityGloves
+  - SecurityBackpack
+  - SecurityOuterClothing
+  - SecurityShoes
+  - SecurityBelt
+  - Pager
+  - SurvivalSecurity
+  - Trinkets
+  - SecurityJobTrinkets
+  - GroupSpeciesBreathToolSecurity
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobLieutenant
+  groups:
+  - SecurityHead
+  - SecurityNeck
+  - SecurityJumpsuit
+  - SecurityGloves
+  - SecurityBackpack
+  - SecurityOuterClothing
+  - SecurityShoes
+  - SecurityBelt
+  - Pager
+  - SurvivalSecurity
+  - Trinkets
+  - SecurityJobTrinkets
+  - GroupSpeciesBreathToolSecurity
+  - GroupBreathToolDecapoid # MACRO: Decapoid

@@ -22,6 +22,7 @@
     - Gray
     - Apid
     - Gastropoid
+    - Ovinia
 
 - type: loadoutEffectGroup
   id: EffectSpeciesVox
@@ -84,6 +85,7 @@
     - Gray
     - Apid
     - Gastropoid
+    - Ovinia
 
 - type: loadoutEffectGroup
   id: OxygenBreatherMimeMoth

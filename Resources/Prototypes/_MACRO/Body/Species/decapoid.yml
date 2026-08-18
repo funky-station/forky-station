@@ -234,10 +234,7 @@
     footstepSoundCollection:
       collection: FootstepDecapoid
   - type: Vocal
-    sounds:
-      Male: UnisexDecapoid
-      Female: UnisexDecapoid
-      Unsexed: UnisexDecapoid # male and female sounds have to 1) exist and 2) come first, otherwise urists will spawn without emote sounds 66% of the time, because this game is poorly programmed
+    emoteSounds: UnisexDecapoid
   - type: SpeechRequiresEquipment
     whitelist:
       tags:

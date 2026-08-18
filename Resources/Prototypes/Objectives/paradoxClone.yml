@@ -22,7 +22,7 @@
   components:
   - type: Objective
     icon:
-      sprite: Structures/Furniture/chairs.rsi
+      sprite: _Funkystation/Structures/Furniture/chairs.rsi # Funky
       state: shuttle
   - type: EscapeShuttleCondition
 

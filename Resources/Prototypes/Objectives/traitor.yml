@@ -16,7 +16,7 @@
   components:
   - type: Objective
     icon:
-      sprite: Objects/Misc/folders.rsi
+      sprite: _Funkystation/Objects/Misc/folders.rsi # Funky
       state: folder-colormap
   - type: MultipleTraitorsRequirement
 
@@ -43,7 +43,7 @@
   - type: Objective
     difficulty: 1.3
     icon:
-      sprite: Structures/Furniture/chairs.rsi
+      sprite: _Funkystation/Structures/Furniture/chairs.rsi # Funky
       state: shuttle
   - type: EscapeShuttleCondition
 

@@ -41,9 +41,9 @@
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: Structures/Piping/Atmospherics/vent.rsi
+      sprite: _Funkystation/Structures/Piping/Atmospherics/vent.rsi # Funky
       layers:
-        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+        - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
           state: pipeUnaryConnectors
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: vent_off
@@ -96,9 +96,9 @@
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: Structures/Piping/Atmospherics/vent.rsi
+      sprite: _Funkystation/Structures/Piping/Atmospherics/vent.rsi # Funky
       layers:
-        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+        - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
           state: pipeUnaryConnectors
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: vent_passive
@@ -141,9 +141,9 @@
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: Structures/Piping/Atmospherics/scrubber.rsi
+      sprite: _Funkystation/Structures/Piping/Atmospherics/scrubber.rsi # Funky
       layers:
-        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+        - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
           state: pipeUnaryConnectors
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: scrub_off
@@ -193,10 +193,10 @@
   components:
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: Structures/Piping/Atmospherics/outletinjector.rsi
+      sprite: _Funkystation/Structures/Piping/Atmospherics/outletinjector.rsi # Funky
       layers:
         - state: pipeUnaryConnectors
-          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: injector
           map: [ "enum.SubfloorLayers.FirstLayer" ]
@@ -241,7 +241,7 @@
     mode: SnapgridCenter
   components:
     - type: Sprite
-      sprite: Structures/Piping/Atmospherics/thermomachine.rsi
+      sprite: _Funkystation/Structures/Piping/Atmospherics/thermomachine.rsi # Funky
       snapCardinals: true
     - type: Appearance
     - type: PipeColorVisuals
@@ -251,9 +251,9 @@
     - type: AtmosPipeLayers
       spriteLayersRsiPaths:
         enum.PipeVisualLayers.Pipe:
-          Primary: Structures/Piping/Atmospherics/thermomachine.rsi
-          Secondary: Structures/Piping/Atmospherics/thermomachine_alt1.rsi
-          Tertiary: Structures/Piping/Atmospherics/thermomachine_alt2.rsi
+          Primary: _Funkystation/Structures/Piping/Atmospherics/thermomachine.rsi # Funky
+          Secondary: _Funkystation/Structures/Piping/Atmospherics/thermomachine_alt1.rsi # Funky
+          Tertiary: _Funkystation/Structures/Piping/Atmospherics/thermomachine_alt2.rsi # Funky
     - type: AtmosDevice
     - type: UserInterface
       interfaces:

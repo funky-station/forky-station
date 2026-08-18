@@ -7,7 +7,7 @@
   - Botanist # Funky - Moved from Civilian
   - CargoTechnician
   - Quartermaster
-  - SalvageSpecialist
+  # - SalvageSpecialist - funky
 
 - type: department
   id: Civilian
@@ -59,10 +59,13 @@
   - Captain
   - ChiefEngineer
   - ChiefMedicalOfficer
-  - HeadOfPersonnel
-  - HeadOfSecurity
+#  - HeadOfPersonnel - funky
+#  - HeadOfSecurity - funky
   - ResearchDirector
   - Quartermaster
+  - HospitalityDirector # funky
+  - CorporateLiaison # funky
+  - ExecutiveOfficer # funky
   - CentralCommandOfficial
   - CBURN
   - ERTLeader
@@ -81,7 +84,7 @@
   description: department-Engineering-description
   color: "#EFB341"
   roles:
-  - AtmosphericTechnician
+  #- AtmosphericTechnician - funky
   - ChiefEngineer
   - StationEngineer
   - TechnicalAssistant
@@ -106,11 +109,14 @@
   color: "#DE3A3A"
   weight: 20
   roles:
-  - HeadOfSecurity
+#  - HeadOfSecurity - funky
+  - Commandant # funky
+  - Lieutenant # funky
   - SecurityCadet
   - SecurityOfficer
   - Detective
   - Warden
+  - Dispatcher # funky
 
 - type: department
   id: Science
@@ -129,7 +135,7 @@
   color: "#D381C9"
   roles:
   - Borg
-  - StationAi
+  #- StationAi - funky
 
 - type: department
   id: Specific
@@ -138,6 +144,7 @@
   color: "#9FED58"
   weight: 10
   roles:
-  - Reporter
-  - Psychologist
+#  - Reporter - funky
+#  - Psychologist - funky
+  - Dispatcher # funky
   primary: false

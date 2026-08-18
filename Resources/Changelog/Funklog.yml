@@ -1,0 +1,15 @@
+﻿Entries:
+- author: funkystationbot
+  changes:
+  - message: then it go fart fart fart
+    type: Add
+  id: 1
+  time: '2026-08-16T00:00:00.0000000+00:00'
+- author: AraiMaia
+  changes:
+  - message: Hitting a turn in a disposal pipe now hurts you.
+    type: Add
+  id: 2
+  time: '2026-08-17T06:08:22Z'
+  url: https://github.com/funky-station/forky-station/pull/248
+Order: -1

@@ -1,8 +1,0 @@
-#parent: [BaseWeaponRevolver, BaseSyndicateContraband]
-- type: entity
-  id: BaseBloodCultContraband
-  abstract: true
-  components:
-  - type: Contraband
-    severity: BloodCult
-    

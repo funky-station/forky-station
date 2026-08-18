@@ -146,7 +146,8 @@ public sealed partial class XoRecordManifestSystem : EntitySystem
             || published.Species != live.Species
             || published.Gender != live.Gender
             || published.Fingerprint != live.Fingerprint
-            || published.DNA != live.DNA;
+            || published.DNA != live.DNA
+            || published.PagerNumber != live.PagerNumber;
     }
 
     public bool IsFlagged(EntityUid station, uint id, XoRecordManifestComponent? manifest = null)
@@ -220,6 +221,7 @@ public sealed partial class XoRecordManifestSystem : EntitySystem
         Gender gender,
         string? fingerprint,
         string? dna,
+        int? pagerNumber,
         XoRecordManifestComponent? manifest = null)
     {
         if (!_manualEnabled || !Resolve(station, ref manifest))
@@ -242,6 +244,7 @@ public sealed partial class XoRecordManifestSystem : EntitySystem
             Gender = gender,
             Fingerprint = fingerprint,
             DNA = dna,
+            PagerNumber = pagerNumber,
         };
 
         foreach (var job in _prototypeManager.EnumeratePrototypes<JobPrototype>())
