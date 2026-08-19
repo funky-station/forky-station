@@ -35,6 +35,7 @@
       - DoorRemote
       - Whistle
       - BalloonPopper
+      - TapeRoll
 
 - type: entity
   parent: FuClothingBeltSecurityWebbing
