@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 268.0.0
+  engineVersion: 280.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/16/2026 17:51:39
-  entityCount: 1304
+  time: 08/19/2026 18:57:19
+  entityCount: 1325
 maps: []
 grids:
 - 1
@@ -90,6 +90,7 @@ entities:
     - type: OccluderTree
     - type: SpreaderGrid
     - type: Shuttle
+      dampingModifier: 0.25
     - type: ImplicitRoof
     - type: GridPathfinding
     - type: Gravity
@@ -176,6 +177,22 @@ entities:
           decals:
             581: 29,-1
         - node:
+            color: '#334E6DC8'
+            id: CheckerNESW
+          decals:
+            1060: 45,-2
+            1061: 45,-1
+            1062: 45,0
+            1063: 46,0
+            1064: 46,-1
+            1065: 46,-2
+            1066: 47,-2
+            1067: 47,-1
+            1068: 47,0
+            1069: 48,0
+            1070: 48,-1
+            1071: 48,-2
+        - node:
             color: '#EFB34196'
             id: CheckerNESW
           decals:
@@ -197,18 +214,6 @@ entities:
             723: 48,-21
             724: 48,-22
             725: 47,-22
-            756: 45,0
-            757: 45,-1
-            758: 45,-2
-            759: 46,-2
-            760: 46,-1
-            761: 46,0
-            762: 47,0
-            763: 47,-1
-            764: 47,-2
-            765: 48,-2
-            766: 48,-1
-            767: 48,0
         - node:
             color: '#3EB38896'
             id: CheckerNWSE
@@ -217,22 +222,6 @@ entities:
             741: 47,-22
             742: 48,-22
             743: 48,-21
-        - node:
-            color: '#43990996'
-            id: CheckerNWSE
-          decals:
-            744: 45,0
-            745: 46,0
-            746: 47,0
-            747: 48,0
-            748: 48,-1
-            749: 47,-1
-            750: 46,-1
-            751: 45,-1
-            752: 45,-2
-            753: 46,-2
-            754: 47,-2
-            755: 48,-2
         - node:
             color: '#52B4E996'
             id: CheckerNWSE
@@ -251,6 +240,22 @@ entities:
             737: 45,-20
             738: 45,-21
             739: 45,-22
+        - node:
+            color: '#EFB34196'
+            id: CheckerNWSE
+          decals:
+            1072: 48,-2
+            1073: 47,-2
+            1074: 46,-2
+            1075: 45,-2
+            1076: 45,-1
+            1077: 46,-1
+            1078: 48,-1
+            1079: 47,-1
+            1080: 47,0
+            1081: 48,0
+            1082: 46,0
+            1083: 45,0
         - node:
             color: '#FFFFFFFF'
             id: Delivery
@@ -329,12 +334,7 @@ entities:
             830: 42,-1
             831: 43,0
             832: 42,1
-            833: 45,0
             834: 44,0
-            835: 45,-1
-            836: 47,-1
-            837: 47,-2
-            838: 48,-2
             839: 40,1
             840: 39,2
             841: 38,2
@@ -529,8 +529,6 @@ entities:
             998: 28,-1
             999: 45,-6
             1000: 42,0
-            1001: 47,0
-            1002: 46,0
             1003: 28,-8
             1004: 44,-12
             1005: 46,-12
@@ -672,8 +670,7 @@ entities:
           7,-4:
             0: 65520
           7,-3:
-            0: 53503
-            2: 8192
+            0: 61695
           7,-2:
             0: 30719
           7,-5:
@@ -781,75 +778,17 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-          - 21.824879
-          - 82.10312
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+            Oxygen: 21.824879
+            Nitrogen: 82.10312
         - volume: 2500
           immutable: True
-          moles:
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-        - volume: 2500
-          temperature: 293.14975
-          moles:
-          - 20.078888
-          - 75.53487
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+          moles: {}
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: TileHistory
+      chunkHistory: {}
+    - type: ExplosionAirtightGrid
 - proto: ActionToggleLight
   entities:
   - uid: 1045
@@ -858,9 +797,6 @@ entities:
     components:
     - type: Transform
       parent: 1044
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 1044
 - proto: AirCanister
   entities:
   - uid: 507
@@ -877,13 +813,6 @@ entities:
     components:
     - type: Transform
       pos: 48.5,-20.5
-      parent: 1
-- proto: AirlockCentralCommandLocked
-  entities:
-  - uid: 931
-    components:
-    - type: Transform
-      pos: 44.5,0.5
       parent: 1
 - proto: AirlockCommandGlassLocked
   entities:
@@ -949,6 +878,13 @@ entities:
     components:
     - type: Transform
       pos: 31.5,0.5
+      parent: 1
+- proto: AirlockCorporateLocked
+  entities:
+  - uid: 1325
+    components:
+    - type: Transform
+      pos: 44.5,0.5
       parent: 1
 - proto: AirlockEngineeringLocked
   entities:
@@ -3988,9 +3924,9 @@ entities:
     - type: Physics
       angularDamping: 0
       linearDamping: 0
-- proto: CurtainsGreenOpen
+- proto: CurtainsBlueOpen
   entities:
-  - uid: 6
+  - uid: 519
     components:
     - type: Transform
       pos: 44.5,-0.5
@@ -4217,6 +4153,118 @@ entities:
     components:
     - type: Transform
       pos: 48.5,-1.5
+      parent: 1
+- proto: FirelockGlass
+  entities:
+  - uid: 6
+    components:
+    - type: Transform
+      pos: 34.5,1.5
+      parent: 1
+  - uid: 522
+    components:
+    - type: Transform
+      pos: 34.5,0.5
+      parent: 1
+  - uid: 523
+    components:
+    - type: Transform
+      pos: 41.5,0.5
+      parent: 1
+  - uid: 666
+    components:
+    - type: Transform
+      pos: 41.5,1.5
+      parent: 1
+  - uid: 667
+    components:
+    - type: Transform
+      pos: 42.5,-1.5
+      parent: 1
+  - uid: 668
+    components:
+    - type: Transform
+      pos: 43.5,-1.5
+      parent: 1
+  - uid: 670
+    components:
+    - type: Transform
+      pos: 44.5,0.5
+      parent: 1
+  - uid: 672
+    components:
+    - type: Transform
+      pos: 33.5,-1.5
+      parent: 1
+  - uid: 679
+    components:
+    - type: Transform
+      pos: 32.5,-1.5
+      parent: 1
+  - uid: 680
+    components:
+    - type: Transform
+      pos: 31.5,0.5
+      parent: 1
+  - uid: 742
+    components:
+    - type: Transform
+      pos: 31.5,-3.5
+      parent: 1
+  - uid: 743
+    components:
+    - type: Transform
+      pos: 31.5,-20.5
+      parent: 1
+  - uid: 822
+    components:
+    - type: Transform
+      pos: 44.5,-20.5
+      parent: 1
+  - uid: 931
+    components:
+    - type: Transform
+      pos: 40.5,-16.5
+      parent: 1
+  - uid: 1291
+    components:
+    - type: Transform
+      pos: 35.5,-16.5
+      parent: 1
+  - uid: 1292
+    components:
+    - type: Transform
+      pos: 36.5,-12.5
+      parent: 1
+  - uid: 1319
+    components:
+    - type: Transform
+      pos: 37.5,-12.5
+      parent: 1
+  - uid: 1320
+    components:
+    - type: Transform
+      pos: 38.5,-12.5
+      parent: 1
+  - uid: 1321
+    components:
+    - type: Transform
+      pos: 39.5,-12.5
+      parent: 1
+  - uid: 1322
+    components:
+    - type: Transform
+      pos: 44.5,-3.5
+      parent: 1
+  - uid: 1323
+    components:
+    - type: Transform
+      pos: 41.5,-3.5
+      parent: 1
+  - uid: 1324
+    components:
+    - type: Transform
+      pos: 34.5,-3.5
       parent: 1
 - proto: FlippoLighter
   entities:
@@ -5368,61 +5416,51 @@ entities:
   - uid: 34
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 34.5,4.5
       parent: 1
   - uid: 35
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 34.5,5.5
       parent: 1
   - uid: 36
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 35.5,5.5
       parent: 1
   - uid: 37
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 36.5,5.5
       parent: 1
   - uid: 38
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 37.5,5.5
       parent: 1
   - uid: 39
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 38.5,5.5
       parent: 1
   - uid: 40
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 39.5,5.5
       parent: 1
   - uid: 41
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 40.5,5.5
       parent: 1
   - uid: 42
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 41.5,5.5
       parent: 1
   - uid: 43
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 41.5,4.5
       parent: 1
   - uid: 75
@@ -5739,26 +5777,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -7608,7 +7628,6 @@ entities:
   - uid: 820
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 47.5,-8.5
       parent: 1
 - proto: VendingMachineSec
@@ -7616,7 +7635,6 @@ entities:
   - uid: 276
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 30.5,-21.5
       parent: 1
 - proto: VendingMachineTankDispenserEVA
@@ -7739,11 +7757,31 @@ entities:
       rot: 3.141592653589793 rad
       pos: 28.5,-2.5
       parent: 1
+  - uid: 101
+    components:
+    - type: Transform
+      pos: 31.5,-1.5
+      parent: 1
   - uid: 102
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 27.5,-2.5
+      parent: 1
+  - uid: 103
+    components:
+    - type: Transform
+      pos: 31.5,-2.5
+      parent: 1
+  - uid: 104
+    components:
+    - type: Transform
+      pos: 30.5,-2.5
+      parent: 1
+  - uid: 105
+    components:
+    - type: Transform
+      pos: 29.5,-2.5
       parent: 1
   - uid: 137
     components:
@@ -7824,6 +7862,42 @@ entities:
     components:
     - type: Transform
       pos: 26.5,-24.5
+      parent: 1
+  - uid: 163
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 28.5,-9.5
+      parent: 1
+  - uid: 164
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 29.5,-9.5
+      parent: 1
+  - uid: 165
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 30.5,-9.5
+      parent: 1
+  - uid: 166
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 31.5,-9.5
+      parent: 1
+  - uid: 167
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 31.5,-4.5
+      parent: 1
+  - uid: 168
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 31.5,-5.5
       parent: 1
   - uid: 173
     components:
@@ -8045,64 +8119,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 47.5,1.5
-      parent: 1
-- proto: WallShuttleInterior
-  entities:
-  - uid: 101
-    components:
-    - type: Transform
-      pos: 31.5,-1.5
-      parent: 1
-  - uid: 103
-    components:
-    - type: Transform
-      pos: 31.5,-2.5
-      parent: 1
-  - uid: 104
-    components:
-    - type: Transform
-      pos: 30.5,-2.5
-      parent: 1
-  - uid: 105
-    components:
-    - type: Transform
-      pos: 29.5,-2.5
-      parent: 1
-  - uid: 163
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 28.5,-9.5
-      parent: 1
-  - uid: 164
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 29.5,-9.5
-      parent: 1
-  - uid: 165
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 30.5,-9.5
-      parent: 1
-  - uid: 166
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 31.5,-9.5
-      parent: 1
-  - uid: 167
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 31.5,-4.5
-      parent: 1
-  - uid: 168
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 31.5,-5.5
       parent: 1
   - uid: 277
     components:
