@@ -70073,6 +70073,33 @@ entities:
     - type: Transform
       pos: 23.5,-7.5
       parent: 8364
+- proto: CheapLighter
+  entities:
+  - uid: 6936
+    components:
+    - type: Transform
+      pos: 28.5,-4.5
+      parent: 8364
+  - uid: 14509
+    components:
+    - type: Transform
+      pos: -61.04908,-2.3450234
+      parent: 8364
+  - uid: 15345
+    components:
+    - type: Transform
+      pos: 86.32974,-42.329636
+      parent: 8364
+  - uid: 16746
+    components:
+    - type: Transform
+      pos: 6.6430073,-55.03105
+      parent: 8364
+  - uid: 26126
+    components:
+    - type: Transform
+      pos: 31.641079,-23.335308
+      parent: 8364
 - proto: CheapRollerBed
   entities:
   - uid: 18689

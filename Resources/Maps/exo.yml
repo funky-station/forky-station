@@ -43168,6 +43168,13 @@ entities:
     - type: Transform
       pos: -21.5,-26.5
       parent: 2
+- proto: CheapLighter
+  entities:
+  - uid: 3613
+    components:
+    - type: Transform
+      pos: 45.30708,-27.668627
+      parent: 2
 - proto: CheapRollerBed
   entities:
   - uid: 2888
