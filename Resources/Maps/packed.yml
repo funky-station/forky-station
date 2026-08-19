@@ -42225,14 +42225,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 24.375238,30.481497
       parent: 2
-- proto: CheapLighter
-  entities:
-  - uid: 15678
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 58.62216,47.50274
-      parent: 2
 - proto: CheapRollerBed
   entities:
   - uid: 8145
