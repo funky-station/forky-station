@@ -51731,6 +51731,18 @@ entities:
     - type: Transform
       pos: -19.447176,-20.641504
       parent: 2
+- proto: CheapLighter
+  entities:
+  - uid: 15363
+    components:
+    - type: Transform
+      pos: 23.159512,-15.37759
+      parent: 2
+  - uid: 18078
+    components:
+    - type: Transform
+      pos: -12.829975,-37.238377
+      parent: 2
 - proto: CheapRollerBedSpawnFolded
   entities:
   - uid: 4101

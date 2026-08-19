@@ -81022,6 +81022,13 @@ entities:
       rot: 3.141592653589793 rad
       pos: 12.534056,-57.44371
       parent: 2
+- proto: CheapLighter
+  entities:
+  - uid: 24161
+    components:
+    - type: Transform
+      pos: -37.014343,-64.43346
+      parent: 2
 - proto: CheckerBoard
   entities:
   - uid: 2738

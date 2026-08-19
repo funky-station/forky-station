@@ -69774,6 +69774,13 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -20.498386,-3.4685512
       parent: 2
+- proto: CheapLighter
+  entities:
+  - uid: 7424
+    components:
+    - type: Transform
+      pos: -21.3761,-57.242935
+      parent: 2
 - proto: ChemDispenser
   entities:
   - uid: 595
@@ -133595,7 +133602,7 @@ entities:
       parent: 2
     - type: Paper
       content: >-
-        Captain, this is yet another reminder to keep your men in line, let me remind you that our contract can be revoked at any time, and you are allowed both on this station and in this sector at our behest.
+        Captain, this is yet another reminder to keep your men in line, let me remind you that our contract can be revoked at any time, and you are allowed both on this station and in this sector at our behest. 
 
 
         also, have your ship ready to deploy at any time, we expect the enemy will arrive any day now.
