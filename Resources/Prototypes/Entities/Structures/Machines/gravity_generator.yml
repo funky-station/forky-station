@@ -79,6 +79,11 @@
     color: "#a8ffd9"
   - type: StaticPrice
     price: 5000
+  # Start funky changes
+  - type: ScoreThiefPriceModifier
+    reason: "scorethief-modifier-critical-infrastructure"
+    multiplier: 0
+  # End funky changes
 
 - type: entity
   parent: [ GravityGenerator, ConstructibleMachine ]

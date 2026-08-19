@@ -332,3 +332,8 @@
   - type: GuideHelp
     guides:
     - AnomalousResearch
+  # Start funky changes
+  - type: ScoreThiefPriceModifier
+    reason: "scorethief-modifier-critical-infrastructure"
+    multiplier: 0
+  # End funky changes

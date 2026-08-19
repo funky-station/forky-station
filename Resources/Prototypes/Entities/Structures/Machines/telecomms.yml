@@ -191,7 +191,11 @@
         name: computer_slot_accessory
         whitelist:
           tags:
-          - SurveillanceDevices # funky end
+          - SurveillanceDevices
+  - type: ScoreThiefPriceModifier
+    reason: "scorethief-modifier-critical-infrastructure"
+    multiplier: 0 # funky end
+  
 
 - type: entity
   parent: TelecomServer

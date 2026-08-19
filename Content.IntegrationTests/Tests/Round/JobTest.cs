@@ -131,6 +131,7 @@ public sealed class JobTest : GameTest
         await pair.Server.WaitPost(() => ticker.RestartRound());
     }
 
+    /* Funky begin - Jobs no longer have different priorities
     /// <summary>
     /// Check high priority jobs (e.g., captain) are selected before other roles, even if it means a player does not
     /// get their preferred job.
@@ -160,6 +161,7 @@ public sealed class JobTest : GameTest
 
         await pair.Server.WaitPost(() => ticker.RestartRound());
     }
+    Funky end */
 
     /// <summary>
     /// Check that jobs are preferentially given to players that have marked those jobs as higher priority.

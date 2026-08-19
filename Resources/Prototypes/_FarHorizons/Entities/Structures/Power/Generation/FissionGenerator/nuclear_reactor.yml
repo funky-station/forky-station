@@ -151,6 +151,11 @@
     - rotation: 90
       offset: -3, -1.5
       arrowType: BlueDirectionalArrowIndicator
+  # Funky changes begin
+  - type: ScoreThiefPriceModifier
+    reason: "scorethief-modifier-critical-infrastructure"
+    multiplier: 0
+  # Funky changes end
 
 # Crew nuclear reactors
 - type: entity

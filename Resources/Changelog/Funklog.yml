@@ -1,0 +1,70 @@
+﻿Entries:
+- author: funkystationbot
+  changes:
+  - message: then it go fart fart fart
+    type: Add
+  id: 1
+  time: '2026-08-16T00:00:00.0000000+00:00'
+- author: AraiMaia
+  changes:
+  - message: Hitting a turn in a disposal pipe now hurts you.
+    type: Add
+  id: 2
+  time: '2026-08-17T06:08:22Z'
+  url: https://github.com/funky-station/forky-station/pull/248
+- author: ClocksAreWorthy
+  changes:
+  - message: Added a Lectern!
+    type: Add
+  id: 3
+  time: '2026-08-18T19:46:14Z'
+  url: https://github.com/funky-station/forky-station/pull/223
+- author: Xcybitt
+  changes:
+  - message: Added radioactivity to uranium.
+    type: Add
+  id: 4
+  time: '2026-08-18T20:42:53Z'
+  url: https://github.com/funky-station/forky-station/pull/97
+- author: Miguel4387
+  changes:
+  - message: Changed base airlock and firelock open and close sound as well as bolting
+      and unbolting sounds to sound like funky
+    type: Tweak
+  id: 5
+  time: '2026-08-19T02:04:06Z'
+  url: https://github.com/funky-station/forky-station/pull/200
+- author: AraiMaia
+  changes:
+  - message: Added a slider to define the intensity of the red pain flashes.
+    type: Add
+  id: 6
+  time: '2026-08-19T02:43:03Z'
+  url: https://github.com/funky-station/forky-station/pull/253
+- author: Zergologist, AraiMaia
+  changes:
+  - message: Added Caution tape for Engineering and Security
+    type: Add
+  - message: Warning cones now stack.
+    type: Add
+  - message: Added floodlights to EngiVend.
+    type: Tweak
+  id: 7
+  time: '2026-08-19T04:43:38Z'
+  url: https://github.com/funky-station/forky-station/pull/327
+- author: Pop-Up Pup
+  changes:
+  - message: Completely rework the thief antagonist to be score based instead of hunting
+      for specific items
+    type: Tweak
+  id: 8
+  time: '2026-08-19T10:34:05Z'
+  url: https://github.com/funky-station/forky-station/pull/227
+- author: AraiMaia
+  changes:
+  - message: Changed color of radio channels.
+    type: Tweak
+  id: 9
+  time: '2026-08-19T13:19:08Z'
+  url: https://github.com/funky-station/forky-station/pull/242
+Order: -1

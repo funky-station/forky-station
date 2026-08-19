@@ -175,6 +175,8 @@
       amount: 3
     - id: EncryptionKeyDetective #Funky Change
       amount: 2
+    - id: WarningTapeRollSecurity # funky
+
 
 - type: entity
   id: ClosetBombFilled

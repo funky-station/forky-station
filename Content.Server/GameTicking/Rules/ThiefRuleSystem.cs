@@ -40,11 +40,11 @@ public sealed partial class ThiefRuleSystem : GameRuleSystem<ThiefRuleComponent>
     {
         var isHuman = HasComp<HumanoidProfileComponent>(ent);
         var briefing = isHuman
-            ? Loc.GetString("thief-role-greeting-human")
-            : Loc.GetString("thief-role-greeting-animal");
+            ? Loc.GetString("scorethief-role-greeting-human") // Funky change
+            : Loc.GetString("scorethief-role-greeting-animal"); // Funky change
 
         if (isHuman)
-            briefing += "\n \n" + Loc.GetString("thief-role-greeting-equipment") + "\n";
+            briefing += "\n \n" + Loc.GetString("scorethief-role-greeting-equipment") + "\n"; // Funky change
 
         return briefing;
     }

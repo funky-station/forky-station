@@ -102,6 +102,11 @@
       - PowerStorage
       - VoltageNetworks
       - Power
+    # Start funky changes
+    - type: ScoreThiefPriceModifier
+      reason: "scorethief-modifier-critical-infrastructure"
+      multiplier: 0
+    # End funky changes
 
     # Interface
     - type: BatteryInterface
@@ -115,6 +120,7 @@
           type: BatteryBoundUserInterface
     - type: ActivatableUI
       key: enum.BatteryUiKey.Key
+
 
 # SMES' in use
 

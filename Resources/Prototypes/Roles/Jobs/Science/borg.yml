@@ -20,8 +20,9 @@
   description: job-description-borg
   playTimeTracker: JobBorg
   requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 10h
+  - !type:OverallPlaytimeRequirement
+    #time: 10h
+    time: 20h
   icon: JobIconBorg
   supervisors: job-supervisors-rd
   jobEntity: PlayerBorgBattery

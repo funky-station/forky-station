@@ -6,7 +6,8 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 4h
+      #time: 4h
+      time: 5h # Funky
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-lieutenant #funky

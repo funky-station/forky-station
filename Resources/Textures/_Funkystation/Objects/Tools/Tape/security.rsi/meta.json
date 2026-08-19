@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "tape sproten by AraiMaia, icon and inhands sproten by zergologist (Discord) for Funky Station based on the Arai's tape",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "tape"
+    },
+    {
+      "name": "icon"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

@@ -6,14 +6,19 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobChemist
-      time: 2.5h
+      #time: 2.5h
+      time: 10h # Funky
     - !type:RoleTimeRequirement
       role: JobMedicalDoctor
-      time: 5h
+      #time: 5h
+      time: 10h # Funky
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 10h
-  weight: 10
+      #time: 10h
+      time: 20h # Funky
+    - !type:OverallPlaytimeRequirement
+      time: 25h # Funky
+  #weight: 10 # Funky - Weighting all jobs equally now
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
   joinNotifyCrew: true # Funky
