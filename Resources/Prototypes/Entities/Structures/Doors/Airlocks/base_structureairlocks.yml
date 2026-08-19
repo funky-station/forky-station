@@ -75,7 +75,7 @@
       types:
         Blunt: 15
     openSound:
-      path: /Audio/Machines/airlock_open.ogg
+      path: /Audio/_Funkystation/Machines/airlock_open.ogg #funky
     closeSound:
       path: /Audio/Machines/airlock_close.ogg
     denySound:
@@ -104,6 +104,7 @@
   - type: Electrified
     enabled: false
     usesApcPower: true
+    onActivateInWorld: true
   - type: WiresPanel
   - type: WiresPanelSecurity
   - type: Wires

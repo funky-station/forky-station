@@ -39,9 +39,9 @@
       visibleLayers:
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
-      sprite: Structures/Piping/Atmospherics/gasfilter.rsi
+      sprite: _Funkystation/Structures/Piping/Atmospherics/gasfilter.rsi # Funky
       layers:
-        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+        - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
           state: pipeTrinaryConnectors
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: gasFilter
@@ -91,9 +91,9 @@
     visibleLayers:
     - enum.SubfloorLayers.FirstLayer
   - type: Sprite
-    sprite: Structures/Piping/Atmospherics/gasfilter.rsi
+    sprite: _Funkystation/Structures/Piping/Atmospherics/gasfilter.rsi # Funky
     layers:
-    - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
       state: pipeTrinaryConnectors
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: gasFilterF
@@ -138,9 +138,9 @@
       visibleLayers:
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
-      sprite: Structures/Piping/Atmospherics/gasmixer.rsi
+      sprite: _Funkystation/Structures/Piping/Atmospherics/gasmixer.rsi # Funky
       layers:
-        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+        - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
           state: pipeTrinaryConnectors
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: gasMixer
@@ -187,9 +187,9 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: Structures/Piping/Atmospherics/gasmixer.rsi
+    sprite: _Funkystation/Structures/Piping/Atmospherics/gasmixer.rsi # Funky
     layers:
-    - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
       state: pipeTrinaryConnectors
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: gasMixerF
@@ -253,9 +253,9 @@
           nodeGroupID: Pipe
           pipeDirection: South
     - type: Sprite
-      sprite: Structures/Piping/Atmospherics/pneumaticvalve.rsi
+      sprite: _Funkystation/Structures/Piping/Atmospherics/pneumaticvalve.rsi # Funky
       layers:
-        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+        - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
           state: pipeTrinaryConnectors
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: off

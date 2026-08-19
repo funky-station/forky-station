@@ -22,7 +22,6 @@ public sealed partial class GreytideVirusRule : StationEventSystem<GreytideVirus
     [Dependency] private AccessReaderSystem _access = default!;
     [Dependency] private SharedDoorSystem _door = default!;
     [Dependency] private LockSystem _lock = default!;
-    [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private IRobustRandom _random = default!;
 
     [Dependency] private EntityQuery<FirelockComponent> _firelockQuery = default!;
@@ -57,7 +56,7 @@ public sealed partial class GreytideVirusRule : StationEventSystem<GreytideVirus
         var accessIds = new HashSet<ProtoId<AccessLevelPrototype>>();
         foreach (var group in chosen)
         {
-            if (_prototype.Resolve(group, out var proto))
+            if (ProtoMan.Resolve(group, out var proto))
                 accessIds.UnionWith(proto.Tags);
         }
 

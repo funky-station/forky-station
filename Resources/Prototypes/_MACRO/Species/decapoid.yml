@@ -13,6 +13,12 @@
   - Unsexed
   youngAge: 40
   oldAge: 80
+  defaultSoundsBySex:
+  - UnisexDecapoid
+  - UnisexDecapoid
+  - UnisexDecapoid
+  voices:
+  - UnisexDecapoid
 
 # Developer Notes
 #

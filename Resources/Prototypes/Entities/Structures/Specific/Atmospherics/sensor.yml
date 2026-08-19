@@ -88,7 +88,7 @@
   - type: Appearance
   - type: Sprite
     drawdepth: FloorObjects
-    sprite: Structures/Specific/Atmospherics/sensor.rsi
+    sprite: _Funkystation/Structures/Specific/Atmospherics/sensor.rsi # Funky
     layers:
     - state: gsensor1
       map: [ "enum.PowerDeviceVisualLayers.Powered" ]
@@ -117,6 +117,6 @@
     node: assembly
   - type: Sprite
     drawdepth: FloorObjects
-    sprite: Structures/Specific/Atmospherics/sensor.rsi
+    sprite: _Funkystation/Structures/Specific/Atmospherics/sensor.rsi # Funky
     layers:
     - state: gsensor0

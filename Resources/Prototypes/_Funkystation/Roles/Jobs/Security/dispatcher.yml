@@ -15,9 +15,9 @@
   - Brig
   - Maintenance
   - External
-  special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+  #special:
+  #- !type:AddImplantSpecial
+  #  implants: [ MindShieldImplant ] # Removed mindshields
 
 - type: startingGear
   id: DispatcherGear

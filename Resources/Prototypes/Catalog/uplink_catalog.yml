@@ -1715,18 +1715,18 @@
         components:
           - SurplusBundle
 
-- type: listing
-  id: UplinkFakeMindshield
-  name: uplink-fake-mindshield-name
-  description: uplink-fake-mindshield-desc
-  icon: { sprite: Interface/Actions/actions_fakemindshield.rsi, state: icon-on }
-  productEntity: FakeMindShieldImplanter
-  discountDownTo:
-    Telecrystal: 10
-  cost:
-    Telecrystal: 15
-  categories:
-  - UplinkImplants
+#- type: listing # Funky - Removing mindshields
+#  id: UplinkFakeMindshield
+#  name: uplink-fake-mindshield-name
+#  description: uplink-fake-mindshield-desc
+#  icon: { sprite: Interface/Actions/actions_fakemindshield.rsi, state: icon-on }
+#  productEntity: FakeMindShieldImplanter
+#  discountDownTo:
+#    Telecrystal: 10
+#  cost:
+#    Telecrystal: 15
+#  categories:
+#  - UplinkImplants
 
 - type: listing
   id: UplinkVoiceMaskImplant

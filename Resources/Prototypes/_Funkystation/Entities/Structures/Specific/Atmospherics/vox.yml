@@ -6,10 +6,10 @@
   components:
   - type: Sprite
     drawdepth: ThinPipeAlt1
-    sprite: Structures/Piping/Atmospherics/vent.rsi
+    sprite: _Funkystation/Structures/Piping/Atmospherics/vent.rsi # Funky
     noRot: true
     layers:
-    - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe_alt1.rsi # Funky
       state: pipeUnaryConnectors
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: vent_off
@@ -24,10 +24,10 @@
   components:
   - type: Sprite
     drawdepth: ThinPipeAlt2
-    sprite: Structures/Piping/Atmospherics/vent.rsi
+    sprite: _Funkystation/Structures/Piping/Atmospherics/vent.rsi # Funky
     noRot: true
     layers:
-    - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+    - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe_alt2.rsi # Funky
       state: pipeUnaryConnectors
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: vent_off
@@ -43,10 +43,10 @@
   components:
   - type: Sprite
     drawdepth: ThinPipeAlt1
-    sprite: Structures/Piping/Atmospherics/scrubber.rsi
+    sprite: _Funkystation/Structures/Piping/Atmospherics/scrubber.rsi # Funky
     noRot: true
     layers:
-    - sprite: Structures/Piping/Atmospherics/pipe_alt1.rsi
+    - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe_alt1.rsi # Funky
       state: pipeUnaryConnectors
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: scrub_off
@@ -61,10 +61,10 @@
   components:
   - type: Sprite
     drawdepth: ThinPipeAlt2
-    sprite: Structures/Piping/Atmospherics/scrubber.rsi
+    sprite: _Funkystation/Structures/Piping/Atmospherics/scrubber.rsi # Funky
     noRot: true
     layers:
-    - sprite: Structures/Piping/Atmospherics/pipe_alt2.rsi
+    - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe_alt2.rsi # Funky
       state: pipeUnaryConnectors
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: scrub_off

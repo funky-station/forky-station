@@ -22,6 +22,7 @@
     RadioHandheldSecurity: 5
     Bola: 6
     BoxForensicPad: 2 #funky, for processing the old fashioned way
+    WarningTapeRollSecurity: 6 # funky
   # security officers need to follow a diet regimen!
   contrabandInventory:
     WeaponMeleeNeedle: 2

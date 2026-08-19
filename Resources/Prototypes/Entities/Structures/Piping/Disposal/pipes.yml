@@ -69,6 +69,10 @@
     traversalSpeed: 10
     exitDistanceMultiplier: 1.5
     exitSpeedMultiplier: 1
+    damageOnTurn: # Funky
+      types:
+        Blunt: 12 # Like getting whacked with a toolbox.
+    maxAllowedDamage: 100 # Funky
     container:
       occludes: true
       showEnts: false

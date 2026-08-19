@@ -110,8 +110,7 @@
   components:
   - type: StationEvent
     startAnnouncementColor: "#18abf5"
-    startAudio:
-      path: /Audio/Announcements/announce.ogg
+    startAudio: Announce # Macrocosm edit - sound prototypes
     weight: 8
     duration: 35
   - type: AnomalySpawnRule
@@ -126,8 +125,7 @@
       max:  30
   - type: StationEvent
     startAnnouncementColor: "#18abf5"
-    startAudio:
-      path: /Audio/Announcements/announce.ogg
+    startAudio: Announce # Macrocosm edit - sound prototypes
     weight: 8
     duration: 35
   - type: BluespaceArtifactRule
@@ -313,8 +311,7 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-gas-leak-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    startAudio: Attention # Macrocosm edit - sound prototypes
     endAnnouncement: station-event-gas-leak-end-announcement
     weight: 8
   - type: GasLeakRule
@@ -338,10 +335,7 @@
     weight: 5
     startAnnouncement: station-event-power-grid-check-start-announcement
     endAnnouncement: station-event-power-grid-check-end-announcement
-    startAudio:
-      path: /Audio/Announcements/power_off.ogg
-      params:
-        volume: -4
+    startAudio: GridPowerOff # Macrocosm edit - sound prototypes
     duration: 60
     maxDuration: 120
   - type: PowerGridCheckRule
@@ -354,8 +348,7 @@
     weight: 8
     startAnnouncement: station-event-solar-flare-start-announcement
     endAnnouncement: station-event-solar-flare-end-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    startAudio: Attention # Macrocosm edit - sound prototypes
     duration: 120
     maxDuration: 240
   - type: SolarFlareRule
@@ -380,8 +373,7 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-vent-clog-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    startAudio: Attention # Macrocosm edit - sound prototypes
     earliestStart: 15
     minimumPlayers: 15
     weight: 5
@@ -396,8 +388,7 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-horde-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    startAudio: Attention # Macrocosm edit - sound prototypes
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -417,8 +408,7 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-horde-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    startAudio: Attention # Macrocosm edit - sound prototypes
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -438,8 +428,7 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-horde-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    startAudio: Attention # Macrocosm edit - sound prototypes
     earliestStart: 20
     minimumPlayers: 15
     weight: 5
@@ -457,8 +446,7 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-horde-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    startAudio: Attention # Macrocosm edit - sound prototypes
     earliestStart: 20
     minimumPlayers: 20
     weight: 1.5
@@ -522,8 +510,7 @@
     minimumPlayers: 15
     maxOccurrences: 1 # can only happen once per round
     startAnnouncement: station-event-communication-interception
-    startAudio:
-      path: /Audio/Announcements/intercept.ogg
+    startAudio: Intercept # Macrocosm edit - sound prototypes
     duration: null # the rule has to last the whole round not 1 second
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
@@ -566,8 +553,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    startAudio: Intercept # Macrocosm edit - sound prototypes
     weight: 5
     minimumPlayers: 25
     reoccurrenceDelay: 20

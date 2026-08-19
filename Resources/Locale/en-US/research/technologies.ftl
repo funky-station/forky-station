@@ -21,6 +21,9 @@ research-technology-bluespace-storage = Bluespace Storage
 research-technology-optimized-microgalvanism = Optimized Microgalvanism
 research-technology-space-scanning = Space Scanning
 research-technology-excavation = Mass Excavation
+# funky-station start
+research-technology-HoloFanResearch = Hard-Light Gas Filter
+# funky-station end
 
 research-technology-salvage-weapons = Salvage Weapons
 research-technology-draconic-munitions = Draconic Munitions

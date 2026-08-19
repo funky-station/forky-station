@@ -177,9 +177,9 @@
   description: This cone is trying to warn you of something!
   components:
   - type: Sprite
-    sprite: Clothing/Head/Misc/cone.rsi
+    sprite: _Funkystation/Clothing/Head/Misc/cone.rsi # funky
   - type: Clothing
-    sprite: Clothing/Head/Misc/cone.rsi
+    sprite: _Funkystation/Clothing/Head/Misc/cone.rsi # funky
   - type: Item
     storedRotation: 0
   - type: PhysicalComposition #you can't just pass up some free plastic!
@@ -187,6 +187,32 @@
       Plastic: 100
   - type: StaticPrice
     price: 25
+# funky stacks start
+  - type: Stack
+    stackType: WarningCone
+    count: 1
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.StackVisuals.Actual:
+        sprite:
+          1: { state: icon }
+          2: { state: icon-2 }
+          3: { state: icon-3 }
+          4: { state: icon-4 }
+          5: { state: icon-5 }
+          6: { state: icon-6 }
+          7: { state: icon-7 }
+          8: { state: icon-8 }
+
+- type: entity
+  parent: ClothingHeadHatCone
+  id: ClothingHeadHatConeFull
+  suffix: Full
+  components:
+  - type: Stack
+    count: 8
+# funky stacks end
 
 - type: entity
   parent: ClothingHeadBase

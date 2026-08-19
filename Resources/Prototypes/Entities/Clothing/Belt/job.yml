@@ -41,6 +41,7 @@
       - TrayScanner
       - GasAnalyzer
       - HandLabeler
+      - TapeRoll # Funky
   - type: ItemMapper
     sprite: &BeltOverlay Clothing/Belt/belt_overlay.rsi
     mapLayers:
@@ -435,6 +436,7 @@
       - DoorRemote
       - Whistle
       - BalloonPopper
+      - TapeRoll # Funky
   - type: ItemMapper
     sprite: *BeltOverlay
     mapLayers:

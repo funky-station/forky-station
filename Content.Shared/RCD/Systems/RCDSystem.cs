@@ -49,7 +49,6 @@ public sealed partial class RCDSystem : EntitySystem
     [Dependency] private TurfSystem _turf = default!;
     [Dependency] private TileSystem _tile = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
-    [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private SharedMapSystem _mapSystem = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private TagSystem _tags = default!;
@@ -121,7 +120,7 @@ public sealed partial class RCDSystem : EntitySystem
         if (!component.AvailablePrototypes.Contains(args.ProtoId))
             return;
 
-        if (!_protoManager.Resolve<RCDPrototype>(args.ProtoId, out var prototype))
+        if (!ProtoMan.Resolve<RCDPrototype>(args.ProtoId, out var prototype))
             return;
 
         // Set the current RCD prototype to the one supplied
@@ -148,7 +147,7 @@ public sealed partial class RCDSystem : EntitySystem
             var name = Loc.GetString(prototype.SetName);
 
             if (prototype.Prototype != null &&
-                _protoManager.TryIndex(prototype.Prototype, out var proto)) // don't use Resolve because this can be a tile
+                ProtoMan.TryIndex(prototype.Prototype, out var proto)) // don't use Resolve because this can be a tile
                 name = proto.Name;
 
             msg = Loc.GetString("rcd-component-examine-build-details", ("name", name));
@@ -330,7 +329,7 @@ public sealed partial class RCDSystem : EntitySystem
                     var deconstructedTile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, location);
                     var protoName = !_turf.IsSpace(deconstructedTile) ? _deconstructTileProto : _deconstructLatticeProto;
 
-                    if (_protoManager.Resolve(protoName, out var deconProto))
+                    if (ProtoMan.Resolve(protoName, out var deconProto))
                     {
                         cost = deconProto.Cost;
                         delay = deconProto.Delay;
@@ -817,7 +816,7 @@ public sealed partial class RCDSystem : EntitySystem
 
                 if (component.IsRpd && prototype.HasLayers)
                 {
-                    if (_protoManager.TryIndex<EntityPrototype>(proto, out var entityProto) &&
+                    if (ProtoMan.TryIndex<EntityPrototype>(proto, out var entityProto) &&
                         entityProto.TryGetComponent<AtmosPipeLayersComponent>(out var atmosPipeLayers, _entityManager.ComponentFactory) &&
                         _pipeLayersSystem.TryGetAlternativePrototype(atmosPipeLayers, _currentLayer, out var newProtoId))
                     {
@@ -838,7 +837,7 @@ public sealed partial class RCDSystem : EntitySystem
                 if (component.IsRpd)
                 {
                     // We need to know what the pipe *would* look like to check for overlaps
-                    if (_protoManager.TryIndex<EntityPrototype>(proto, out var pipeProto) &&
+                    if (ProtoMan.TryIndex<EntityPrototype>(proto, out var pipeProto) &&
                         pipeProto.TryGetComponent<NodeContainerComponent>(out var nodeContainer, _entityManager.ComponentFactory))
                     {
                         // Check every node in the prototype to see if it overlaps something on the grid
@@ -926,7 +925,7 @@ public sealed partial class RCDSystem : EntitySystem
             (component.CachedPrototype?.MirrorPrototype != null &&
              component.ProtoId.Id != component.CachedPrototype?.MirrorPrototype))
         {
-            component.CachedPrototype = _protoManager.Index(component.ProtoId);
+            component.CachedPrototype = ProtoMan.Index(component.ProtoId);
         }
     }
 

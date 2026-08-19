@@ -8,6 +8,11 @@
     sprite: Objects/Consumable/Food/burger.rsi
     layers:
     - state: bun
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
   - type: ToolRefinable
     refineResult:
     - id: FoodBreadBunTop

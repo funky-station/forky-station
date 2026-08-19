@@ -9,3 +9,15 @@
   canBuildInImpassable: false
   conditions:
   - !type:TileNotBlocked
+  
+- type: construction
+  id: Lectern
+  graph: Lectern
+  startNode: start
+  targetNode: lectern
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

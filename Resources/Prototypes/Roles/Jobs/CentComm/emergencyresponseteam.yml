@@ -13,7 +13,8 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    #implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ DeathRattleImplantCentcomm ] # Funky - Removed mindshields
 
 - type: startingGear
   parent: ERTLeaderGearEVA
@@ -112,7 +113,8 @@
     components:
     - type: BibleUser #Lets them heal with bibles
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    #implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ DeathRattleImplantCentcomm ] # Funky - Removed mindshields
 
 - type: startingGear
   parent: ERTChaplainGearEVA
@@ -185,7 +187,8 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    #implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ DeathRattleImplantCentcomm ] # Funky - Removed mindshields
 
 - type: startingGear
   parent: ERTEngineerGearEVA
@@ -278,7 +281,8 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    #implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ DeathRattleImplantCentcomm ] # Funky - Removed mindshields
 
 - type: startingGear
   parent: ERTSecurityGearEVA
@@ -460,7 +464,8 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    #implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ DeathRattleImplantCentcomm ] # Funky - Removed mindshields
 
 - type: startingGear
   parent: ERTMedicalGearEVA
@@ -556,9 +561,12 @@
   - AllAccess
   access:
   - CentralCommand
+  #special:
+  #- !type:AddImplantSpecial
+  #  implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ DeathRattleImplantCentcomm ] # Funky - Removed mindshields
 
 - type: startingGear
   parent: ERTJanitorGearEVA

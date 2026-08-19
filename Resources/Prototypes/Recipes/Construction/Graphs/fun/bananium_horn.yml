@@ -9,7 +9,7 @@
             - tag: Pipe
               name: construction-graph-tag-pipe
               icon:
-                sprite: Structures/Piping/Atmospherics/pipe.rsi
+                sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
                 state: pipeStraight
               doAfter: 2
             - material: Bananium

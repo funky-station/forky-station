@@ -242,7 +242,7 @@
     startingCharge: 720
   - type: BatterySelfRecharger
     autoRechargeRate: 12 # takes 1 minute to charge itself back to full
-
+  
 - type: entity
   parent: PowerCellMicroreactor
   id: PowerCellMicroreactorPrinted
