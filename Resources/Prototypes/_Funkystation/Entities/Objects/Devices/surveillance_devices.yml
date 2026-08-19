@@ -29,7 +29,6 @@
     size: Tiny
   - type: Appearance
   - type: Visibility
-  - type: ItemToggle
   - type: SubFloorHide
   - type: Anchorable
   - type: CollideOnAnchor
@@ -45,6 +44,7 @@
   id: RadioListeningBugDetective
   suffix: Detective
   components:
+  - type: TelecomExempt
   - type: RadioMicrophone
     broadcastChannel: Detective
     listenRange: 6
@@ -119,7 +119,7 @@
 
 - type: entity
   name: hidden camera router
-  description: A routing system for a hidden camera network.
+  description: A routing system for a hidden camera network. Must be anchored and powered for the network to function.
   parent: [ BaseItem, BaseSyndicateContraband ]
   id: HiddenCameraRouterSyndicate
   suffix: Syndicate
