@@ -5746,24 +5746,6 @@ entities:
     - type: Transform
       pos: 46.35357,0.0022118092
       parent: 1
-    - type: HandheldLight
-      toggleActionEntity: 1045
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 1045
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: True
-    - type: ActionsContainer
 - proto: LockerFreezer
   entities:
   - uid: 708
