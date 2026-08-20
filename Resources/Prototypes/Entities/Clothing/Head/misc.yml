@@ -186,8 +186,10 @@
     materialComposition:
       Plastic: 100
   - type: StaticPrice
-    price: 25
+    price: 0 # funky
 # funky stacks start
+  - type: StackPrice
+    price: 25
   - type: Stack
     stackType: WarningCone
     count: 1

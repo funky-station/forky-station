@@ -60,4 +60,11 @@
   id: 8
   time: '2026-08-19T10:34:05Z'
   url: https://github.com/funky-station/forky-station/pull/227
+- author: AraiMaia
+  changes:
+  - message: Changed color of radio channels.
+    type: Tweak
+  id: 9
+  time: '2026-08-19T13:19:08Z'
+  url: https://github.com/funky-station/forky-station/pull/242
 Order: -1
