@@ -19,10 +19,10 @@
     - !type:DepartmentTimeRequirement
       department: Security
       #time: 4h
-      time: 10h # Funky
+      time: 5h # Funky
     - !type:DepartmentTimeRequirement
       department: InternalAffairs # Funky
-      time: 5h
+      time: 10h
     - !type:DepartmentTimeRequirement
       department: Cargo # Funky
       time: 5h
