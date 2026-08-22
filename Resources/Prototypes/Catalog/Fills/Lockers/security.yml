@@ -171,6 +171,7 @@
     - id: CrayonBox #funky, for sketches of crime sites
     - id: PlushieLizardJobDetective
       prob: 0.02
+    - id: WarningTapeRollSecurity # funky
 
 - type: entity
   id: ClosetBombFilled

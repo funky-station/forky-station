@@ -4,11 +4,12 @@
   description: job-description-technical-assistant
   playTimeTracker: JobTechnicalAssistant
   requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 1h
+    #- !type:OverallPlaytimeRequirement
+    #  time: 1h # Funky
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 10h
+      #time: 10h
+      time: 35h # Funky
       inverted: true # stop playing intern if you're good at engineering!
   startingGear: TechnicalAssistantGear
   icon: "JobIconTechnicalAssistant"

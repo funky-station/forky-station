@@ -237,6 +237,11 @@
     board: CargoShuttleConsoleCircuitboard
   - type: StealTarget
     stealGroup: CargoShuttleConsoleCircuitboard
+  # Start funky changes
+  - type: ScoreThiefPriceModifier
+    reason: "scorethief-modifier-critical-infrastructure"
+    multiplier: 0
+  # End funky changes
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -688,6 +693,11 @@
     damageModifierSet: StructuralMetallicStrong
   - type: Injurable
     damageContainer: StructuralInorganic
+  # Start funky changes
+  - type: ScoreThiefPriceModifier
+    reason: "scorethief-modifier-critical-infrastructure"
+    multiplier: 0
+  # End funky changes
 
 - type: entity
   parent: ComputerComms

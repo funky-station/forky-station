@@ -184,6 +184,11 @@
       key_slots: !type:Container
       machine_board: !type:Container
       machine_parts: !type:Container
+      # Start funky changes
+  - type: ScoreThiefPriceModifier
+    reason: "scorethief-modifier-critical-infrastructure"
+    multiplier: 0
+  # End funky changes
 
 - type: entity
   parent: TelecomServer
