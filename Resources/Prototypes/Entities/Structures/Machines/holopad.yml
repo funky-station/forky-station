@@ -504,7 +504,7 @@
   suffix: Cargo Front
   components:
   - type: Label
-    currentLabel: holopad-cargo-front
+    currentLabel: holopad-logistics-front # funky
 
 - type: entity
   parent: Holopad
@@ -512,7 +512,7 @@
   suffix: Cargo Bay
   components:
   - type: Label
-    currentLabel: holopad-cargo-bay
+    currentLabel: holopad-logistics-cargo-bay # funky
 
 - type: entity
   parent: Holopad
@@ -528,15 +528,15 @@
   suffix: Cargo Breakroom
   components:
   - type: Label
-    currentLabel: holopad-cargo-breakroom
+    currentLabel: holopad-logistics-breakroom # funky
 
 - type: entity
   parent: Holopad
   id: HolopadCargoMailroom
-  suffix: Cargo Mailroom
+  suffix: Mailroom # funky
   components:
   - type: Label
-    currentLabel: holopad-cargo-mailroom
+    currentLabel: holopad-logistics-mailroom # funky
 
 # Engineering
 - type: entity
@@ -690,7 +690,7 @@
   suffix: Courtroom
   components:
   - type: Label
-    currentLabel: holopad-security-courtroom
+    currentLabel: holopad-ia-courtroom # funky
 
 - type: entity
   parent: Holopad
@@ -698,7 +698,7 @@
   suffix: Lawyer
   components:
   - type: Label
-    currentLabel: holopad-security-lawyer
+    currentLabel: holopad-civilian-lawyer # funky
 
 - type: entity
   parent: Holopad
@@ -771,7 +771,7 @@
   suffix: Botany
   components:
   - type: Label
-    currentLabel: holopad-service-botany
+    currentLabel: holopad-logistics-botany # funky
 
 - type: entity
   parent: Holopad
@@ -803,7 +803,7 @@
   suffix: Newsroom
   components:
   - type: Label
-    currentLabel: holopad-service-newsroom
+    currentLabel: holopad-civilian-newsroom # funky
 
 - type: entity
   parent: Holopad
@@ -901,7 +901,7 @@
   suffix: ATS
   components:
   - type: Label
-    currentLabel: holopad-cargo-ats
+    currentLabel: holopad-logistics-ats # funky
 
 - type: entity
   parent: HolopadLongRange
@@ -925,7 +925,7 @@
   suffix: Cargo Shuttle
   components:
   - type: Label
-    currentLabel: holopad-cargo-shuttle
+    currentLabel: holopad-logistics-cargo-shuttle
 
 - type: entity
   parent: HolopadLongRange

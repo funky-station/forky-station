@@ -12,7 +12,7 @@
     - type: ResistLocker
     - type: Sprite
       drawdepth: Objects
-      sprite: Structures/Storage/Crates/artifact.rsi
+      sprite: _Funkystation/Structures/Storage/Crates/artifact.rsi # Funky
       layers:
       - state: artifact_container
         map: ["enum.StorageVisualLayers.Base"]
@@ -40,7 +40,7 @@
           layer:
           - MachineLayer
     - type: Icon
-      sprite: Structures/Storage/Crates/artifact.rsi
+      sprite: _Funkystation/Structures/Storage/Crates/artifact.rsi # Funky
       state: artifact_container_icon
     - type: EntityStorage
       capacity: 1

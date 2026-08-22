@@ -8,7 +8,7 @@
   - type: BorgTransponder
     name: engi xenoborg
     sprite:
-      sprite: Mobs/Silicon/chassis.rsi
+      sprite: _Funkystation/Mobs/Silicon/chassis.rsi # Funky
       state: xenoborg_engi
   - type: Sprite
     layers:
@@ -64,7 +64,7 @@
   - type: BorgTransponder
     name: heavy xenoborg
     sprite:
-      sprite: Mobs/Silicon/chassis.rsi
+      sprite: _Funkystation/Mobs/Silicon/chassis.rsi # Funky
       state: xenoborg_heavy
   - type: Sprite
     layers:
@@ -157,7 +157,7 @@
   - type: BorgTransponder
     name: scout xenoborg
     sprite:
-      sprite: Mobs/Silicon/chassis.rsi
+      sprite: _Funkystation/Mobs/Silicon/chassis.rsi # Funky
       state: xenoborg_scout
   - type: Sprite
     layers:
@@ -212,7 +212,7 @@
   - type: BorgTransponder
     name: stealth xenoborg
     sprite:
-      sprite: Mobs/Silicon/chassis.rsi
+      sprite: _Funkystation/Mobs/Silicon/chassis.rsi # Funky
       state: xenoborg_stealth
   - type: Sprite
     layers:

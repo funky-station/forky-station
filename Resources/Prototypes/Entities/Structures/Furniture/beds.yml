@@ -70,15 +70,23 @@
   - type: HealOnBuckle
     damage:
       types:
-        Poison: -0.2
-        Cold: -0.4
-        Blunt: -0.2
+#        Poison: -0.2  #previous stats if you want to unimplement this
+#        Cold: -0.4
+#        Blunt: -0.2
+        Poison: -0.2   #funky #should make heals more consistent, also incentivises medbed usage which is always a plus
+        Heat: -0.1
+        Shock: -0.1
+        Cold: -0.1
+        Blunt: -0.1
+        Piercing: -0.1
+        Slash: -0.1
   - type: Construction
     graph: bed
     node: medicalbed
   - type: GuideHelp
     guides:
     - MedicalDoctor
+  - type: AmbientMusicMarkerMedical
 
 - type: entity
   parent: Bed

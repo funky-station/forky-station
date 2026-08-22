@@ -1,0 +1,8 @@
+﻿- type: stack
+  id: WarningCone
+  name: stack-cone
+  spawn: ClothingHeadHatCone
+  maxCount: 8
+  icon:
+    sprite: Clothing/Head/Misc/cone.rsi
+    state: icon

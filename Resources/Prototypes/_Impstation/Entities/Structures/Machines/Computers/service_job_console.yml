@@ -1,0 +1,74 @@
+- type: entity
+  parent: BaseComputerAiAccess
+  id: ComputerServiceJobBoard
+  name: service event console # Funky - Renamed job board
+  description: Console for assigning stationwide events to the Service department.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+      sprite: Structures/Machines/computers.rsi #Funky - sprite change
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+      sprite: Structures/Machines/computers.rsi #Funky - sprite change
+    - map: ["computerLayerScreen"]
+      state: telesci # TODO: Change to servicecomputer once funky computer sprites are added
+      sprite: Structures/Machines/computers.rsi #Funky - sprite change
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+      sprite: Structures/Machines/computers.rsi #Funky - sprite change
+  - type: ServiceJobBoardConsole
+  - type: ActivatableUI
+    key: enum.ServiceJobBoardUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ServiceJobBoardUiKey.Key:
+        type: ServiceJobBoardBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: ActiveRadio
+    channels: [ Service ]
+  - type: Computer
+    board: ServiceJobBoardComputerCircuitboard
+  - type: PointLight
+    radius: 2.4
+    energy: 1.6
+    color: "#b89f25"
+
+#Funky - No tabletop computer
+#- type: entity
+#  parent: [BaseStructureComputerTabletop, ComputerServiceJobBoard]
+#  id: ComputerTabletopServiceJobBoard
+#  components:
+#  - type: Sprite
+#    drawdepth: SmallObjects
+#    layers:
+#    - map: ["computerLayerBody"]
+#      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi
+#      state: computer_tabletop
+#    - map: ["computerLayerKeyboard"]
+#      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi
+#      state: generic_keyboard_tabletop
+#    - map: ["computerLayerScreen"]
+#      state: servicejob
+#      sprite: _Impstation/Structures/Machines/computers.rsi
+#    - map: ["computerLayerKeys"]
+#      state: generic_keys
+#    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+#      state: generic_panel_open
+#      sprite: _Impstation/Structures/Machines/computers.rsi
+
+- type: entity
+  #Funky - Civilian instead of service contraband
+  parent: [ BaseComputerCircuitboard, BaseCivilianContraband ]
+  id: ServiceJobBoardComputerCircuitboard
+  name: service event console computer board # Funky - Renamed job board
+  description: A computer printed circuit board for a service job board computer.
+  components:
+  - type: Sprite
+    state: cpu_service
+  - type: ComputerBoard
+    prototype: ComputerServiceJobBoard

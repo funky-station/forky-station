@@ -658,7 +658,7 @@
   id: FloorLino
   parent: BaseStationTile
   name: tiles-linoleum-floor
-  sprite: /Textures/Tiles/lino.png
+  sprite: /Textures/_Funkystation/Tiles/lino.png # Funky
   footstepSounds:
     collection: FootstepTile
   itemDrop: FloorTileItemLino

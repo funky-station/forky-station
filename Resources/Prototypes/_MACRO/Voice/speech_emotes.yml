@@ -4,8 +4,56 @@
   whitelist:
     components:
     - Vocal
+  category: Vocal
+  available: false
   chatMessages: ["chat-emote-msg-hiss"]
   chatTriggers:
   - hiss
   - hisses
   - hissed
+
+# Ovinia
+- type: emote
+  id: Baa
+  name: chat-emote-name-baa
+  category: Vocal
+  available: false
+  icon: _MACRO/Interface/Emotes/baa.png
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - OviniaEmotes
+  chatMessages: [ chat-emote-msg-baa ]
+  chatTriggers:
+    - baas
+    - baa
+    - baahs
+    - baah
+    - baahed
+    - baah'd
+    - baahing
+    - bah
+    - bahs
+    - bahed
+    - bah'd
+
+
+- type: emote
+  id: Moo
+  name: chat-emote-name-moo
+  category: Vocal
+  icon: _MACRO/Interface/Emotes/moo.png
+  available: false
+  whitelist:
+    components:
+    - Vocal
+    tags:
+    - OviniaEmotes
+  chatMessages: [ chat-emote-msg-moo ]
+  chatTriggers:
+    - moos
+    - moo
+    - mooed
+    - moo'd

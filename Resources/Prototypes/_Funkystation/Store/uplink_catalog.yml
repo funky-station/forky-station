@@ -70,3 +70,18 @@
     Telecrystal: 4
   categories:
   - UplinkAmmo
+
+# Borgs hacking borgs hacking borgs hacking borgs hacking borgs hacking borgs hacking borgs hacking borgs hacking borgs hacking borgs hacking borgs...
+- type: listing
+  id: UplinkSyndicateHackingModule
+  name: uplink-syndicate-hacking-module-name
+  description: uplink-syndicate-hacking-module-desc
+  productEntity: BorgModuleSyndicateHacking
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 8
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkDisruption
+  

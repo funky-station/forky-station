@@ -57,3 +57,39 @@
     layers:
     - state: green
     - state: hop
+
+- type: entity
+  id: SpawnPointCommandant
+  parent: SpawnPointJobBase
+  name: commandant
+  components:
+  - type: SpawnPoint
+    job_id: Commandant
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ertsecurity
+
+- type: entity
+  id: SpawnPointLieutenant
+  parent: SpawnPointJobBase
+  name: lieutenant
+  components:
+  - type: SpawnPoint
+    job_id: Lieutenant
+  - type: Sprite
+    layers:
+    - state: green
+    - state: hos
+
+- type: entity
+  id: SpawnPointDispatcher
+  parent: SpawnPointJobBase
+  name: dispatcher
+  components:
+  - type: SpawnPoint
+    job_id: Dispatcher
+  - type: Sprite
+    layers:
+    - state: green
+    - state: brigmedic

@@ -275,6 +275,7 @@
       - id: ModularReceiver
       - id: WeaponFlareGun
       - id: BarberScissors
+      - id: SuitSealantCanister # Funky
       - !type:GroupSelector
         children:
         - id: DrinkSpaceGlue
@@ -296,6 +297,8 @@
       - id: DrinkMopwataBottleRandom
       - id: SpectralLocator
       - id: LidSalami
+        weight: 0.05
+      - id: CommemorativeFlippoLighter # funkystation
         weight: 0.05
 
 - type: entity
