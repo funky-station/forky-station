@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 266.0.0
+  engineVersion: 280.0.0
   forkId: ""
   forkVersion: ""
-  time: 08/18/2025 00:22:49
+  time: 08/22/2026 19:18:09
   entityCount: 232
 maps: []
 grids:
@@ -282,37 +282,18 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-          - 21.824879
-          - 82.10312
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+            Oxygen: 21.824879
+            Nitrogen: 82.10312
         - volume: 2500
           immutable: True
-          moles:
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+          moles: {}
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ImplicitRoof
+    - type: TileHistory
+      chunkHistory: {}
+    - type: ExplosionAirtightGrid
 - proto: AirCanister
   entities:
   - uid: 98
@@ -328,7 +309,6 @@ entities:
   - uid: 64
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -0.49999997,0.5
       parent: 1
 - proto: AirlockExternalGlass
@@ -356,7 +336,6 @@ entities:
   - uid: 65
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 0.5,2.5
       parent: 1
 - proto: AntiPoisonMedipen
@@ -373,8 +352,6 @@ entities:
     - type: Transform
       pos: 1.5,-0.49999997
       parent: 1
-    - type: Fixtures
-      fixtures: {}
 - proto: AtmosDeviceFanDirectional
   entities:
   - uid: 104
@@ -774,18 +751,8 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -802,8 +769,6 @@ entities:
           - 212
           - 213
           - 215
-    - type: Fixtures
-      fixtures: {}
 - proto: ClothingEyesHudMedical
   entities:
   - uid: 233
@@ -910,8 +875,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -1.5,-1.5
       parent: 1
-    - type: Fixtures
-      fixtures: {}
 - proto: DoubleEmergencyOxygenTankFilled
   entities:
   - uid: 209
@@ -946,8 +909,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 2.5,-2.5
       parent: 1
-    - type: Fixtures
-      fixtures: {}
 - proto: FloorDrain
   entities:
   - uid: 198
@@ -1182,43 +1143,36 @@ entities:
   - uid: 19
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -2.5,4.5
       parent: 1
   - uid: 35
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -2.5,3.5
       parent: 1
   - uid: 38
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -0.49999997,5.5
       parent: 1
   - uid: 39
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -1.5,5.5
       parent: 1
   - uid: 40
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 0.5,4.5
       parent: 1
   - uid: 62
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -2.5,-3.5
       parent: 1
   - uid: 63
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 3.5,-3.5
       parent: 1
   - uid: 69
@@ -1254,7 +1208,7 @@ entities:
     - type: Transform
       pos: -1.6892544,3.6903079
       parent: 1
-- proto: HandheldHealthAnalyzerUnpowered
+- proto: HandheldHealthAnalyzer
   entities:
   - uid: 112
     components:
@@ -1270,8 +1224,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 0.5,-0.49999997
       parent: 1
-    - type: Fixtures
-      fixtures: {}
 - proto: LightBulb
   entities:
   - uid: 217
@@ -1568,13 +1520,11 @@ entities:
   - uid: 29
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 3.5,-3.5
       parent: 1
   - uid: 60
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -2.5,-3.5
       parent: 1
   - uid: 68
@@ -1628,8 +1578,6 @@ entities:
         220:
         - - Pressed
           - Toggle
-    - type: Fixtures
-      fixtures: {}
 - proto: SMESBasic
   entities:
   - uid: 43
@@ -1691,7 +1639,6 @@ entities:
   - uid: 103
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -1.5,-3.5
       parent: 1
   - uid: 109
@@ -1760,16 +1707,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -1.5,-4.5
       parent: 1
-    - type: Fixtures
-      fixtures: {}
   - uid: 123
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 2.5,-4.5
       parent: 1
-    - type: Fixtures
-      fixtures: {}
 - proto: VisitorParamedicSpawner
   entities:
   - uid: 214
@@ -1797,7 +1740,6 @@ entities:
   - uid: 14
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -1.5,-1.5
       parent: 1
   - uid: 16
@@ -1808,7 +1750,6 @@ entities:
   - uid: 17
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -1.5,0.5
       parent: 1
   - uid: 20
@@ -1854,55 +1795,46 @@ entities:
   - uid: 30
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 0.5,0.5
       parent: 1
   - uid: 32
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 2.5,-0.49999997
       parent: 1
   - uid: 46
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -1.5,-5.5
       parent: 1
   - uid: 47
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 2.5,-5.5
       parent: 1
   - uid: 49
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 1.5,-0.49999997
       parent: 1
   - uid: 51
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -1.5,-4.5
       parent: 1
   - uid: 52
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 2.5,-4.5
       parent: 1
   - uid: 56
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 2.5,-1.5
       parent: 1
   - uid: 59
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 2.5,-2.5
       parent: 1
 - proto: WallShuttleDiagonal
