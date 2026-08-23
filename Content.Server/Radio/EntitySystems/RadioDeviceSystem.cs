@@ -158,7 +158,7 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
                 args.PushMarkup(Loc.GetString("handheld-radio-component-speaker-freq-multiple"));
                 foreach (var channel in component.Channels)
                 {
-                    var proto = _protoMan.Index(channel);
+                    var proto = ProtoMan.Index(channel);
                     // visually mimicking intercoms / encryption key holders
                     args.PushMarkup(Loc.GetString("handheld-radio-component-freq",
                         ("color", proto.Color),
@@ -169,7 +169,7 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
             // display the singular received channel if there isnt a mic (reduces clutter)
             else if (!HasComp<RadioMicrophoneComponent>(uid))
             {
-                var proto = _protoMan.Index(component.Channels.FirstOrDefault());
+                var proto = ProtoMan.Index(component.Channels.FirstOrDefault());
                 args.PushMarkup(Loc.GetString("handheld-radio-component-speaker-freq", ("freq", proto.Frequency)));
             }
         }
