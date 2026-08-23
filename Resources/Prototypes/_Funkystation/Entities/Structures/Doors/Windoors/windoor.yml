@@ -1,0 +1,62 @@
+- type: entity
+  parent: WindoorSecure
+  id: WindoorNewsroomLocked
+  suffix: Newsroom, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNewsroom ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorLibrarianLocked
+  suffix: Library, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsLibrary ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorInternalAffairsLocked
+  suffix: InternalAffairs, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsInternalAffairs ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorMagistrateLocked
+  suffix: Magistrate, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMagistrate ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorExecutiveOfficerLocked
+  suffix: ExecutiveOfficer, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsExecutiveOfficer ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorHospitalityDirectorLocked
+  suffix: HospitalityDirector, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsHospitalityDirector ]
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorCorporateDirectorLocked
+  suffix: Corporate, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCorporate ]
