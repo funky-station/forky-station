@@ -7,7 +7,7 @@
   - type: Item
     size: Huge
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/laser_retro.rsi
+    sprite: _Funkystation/Objects/Weapons/Guns/Battery/laser_retro.rsi
     quickEquip: false
     slots:
     - Back
@@ -169,10 +169,10 @@
   name: retro laser blaster
   parent: [BaseWeaponBatterySmall, BaseMajorContraband]
   id: WeaponLaserGun
-  description: A weapon using light amplified by the stimulated emission of radiation.
+  description: An older model of the now defunct line of the SecTech™ laser blaster. Rumors say it went defunct after a incident when a cadet misfired and melted a centcomm offical's brain. # Funky
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/laser_retro.rsi
+    sprite: _Funkystation/Objects/Weapons/Guns/Battery/laser_retro.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -184,6 +184,8 @@
   - type: BatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 62.5
+  - type: StaticPrice
+    price: 250
   - type: MagazineVisuals
     magState: mag
     steps: 5

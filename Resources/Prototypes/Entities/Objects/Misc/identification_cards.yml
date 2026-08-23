@@ -25,6 +25,11 @@
     - WhitelistChameleonIdCard
   - type: StealTarget
     stealGroup: IDCard
+  # Start funky changes
+  - type: ScoreThiefPriceModifier
+    reason: "scorethief-modifier-id"
+    multiplier: 0
+  # End funky changes
 
 #IDs with layers
 
@@ -71,6 +76,11 @@
     - HighRiskItem
   - type: StealTarget
     stealGroup: CaptainIDCard
+  # Funky changes start
+  - type: ScoreThiefPriceModifier
+    reason: "scorethief-modifier-cap-id"
+    multiplier: 500
+  # Funky changes end
 
 - type: entity
   parent: IDCardStandard
@@ -91,6 +101,11 @@
     heldPrefix: silver
   - type: PresetIdCard
     job: HeadOfPersonnel
+  # Funky changes start
+  - type: ScoreThiefPriceModifier
+    reason: "scorethief-modifier-hop-id"
+    multiplier: 400
+  # Funky changes end
 
 - type: entity
   parent: IDCardStandard
@@ -1295,7 +1310,7 @@
   parent: IDCardStandard
   id: UniversalIDCard
   name: universal ID card
-  suffix: Admin
+  suffix: AdminA
   description: An ID card that gives you access beyond your wildest dreams.
   components:
   - type: Sprite

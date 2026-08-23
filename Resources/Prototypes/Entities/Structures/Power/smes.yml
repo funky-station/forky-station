@@ -13,7 +13,7 @@
       sound:
         path: /Audio/Ambience/Objects/periodic_beep.ogg
     - type: Sprite
-      sprite: Structures/Power/smes.rsi
+      sprite: _Funkystation/Structures/Power/smes.rsi # Funky
       snapCardinals: true
       layers:
         - state: smes
@@ -54,7 +54,7 @@
       sourceNode: input
       loadNode: output
       collectionName: smes
-      sprite: Structures/Power/smes.rsi
+      sprite: _Funkystation/Structures/Power/smes.rsi # Funky
       state: static
     - type: BatteryDischarger
       voltage: High
@@ -102,6 +102,11 @@
       - PowerStorage
       - VoltageNetworks
       - Power
+    # Start funky changes
+    - type: ScoreThiefPriceModifier
+      reason: "scorethief-modifier-critical-infrastructure"
+      multiplier: 0
+    # End funky changes
 
     # Interface
     - type: BatteryInterface
@@ -115,6 +120,7 @@
           type: BatteryBoundUserInterface
     - type: ActivatableUI
       key: enum.BatteryUiKey.Key
+
 
 # SMES' in use
 
@@ -143,7 +149,7 @@
   description: An even-higher-capacity superconducting magnetic energy storage (SMES) unit.
   components:
   - type: Sprite
-    sprite: Structures/Power/smes.rsi
+    sprite: _Funkystation/Structures/Power/smes.rsi # Funky
     snapCardinals: true
     layers:
     - state: advancedsmes
@@ -169,7 +175,7 @@
     sourceNode: input
     loadNode: output
     collectionName: smes
-    sprite: Structures/Power/smes.rsi
+    sprite: _Funkystation/Structures/Power/smes.rsi # Funky
     state: advancedsmes-static
 
 - type: entity

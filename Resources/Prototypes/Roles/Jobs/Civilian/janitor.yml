@@ -5,7 +5,7 @@
   playTimeTracker: JobJanitor
   startingGear: JanitorGear
   icon: "JobIconJanitor"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-hd # funky
   access:
   - Service
   - Janitor

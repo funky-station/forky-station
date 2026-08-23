@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "By AraiMaia for Funky Station",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "advancedsmes"
+    },
+    {
+      "name": "advancedsmes-static"
+    },
+    {
+      "name": "advancedsmes-open"
+    },
+    {
+      "name": "smes"
+    },
+    {
+      "name": "static"
+    },
+    {
+      "name": "smes-open"
+    },
+    {
+      "name": "smes-oc0"
+    },
+    {
+      "name": "smes-oc1"
+    },
+    {
+      "name": "smes-oc2"
+    },
+    {
+      "name": "smes-og1"
+    },
+    {
+      "name": "smes-og2"
+    },
+    {
+      "name": "smes-og3"
+    },
+    {
+      "name": "smes-og4"
+    },
+    {
+      "name": "smes-og5"
+    },
+    {
+      "name": "smes-op0"
+    },
+    {
+      "name": "smes-op1"
+    },
+    {
+      "name": "smes-op2"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetInternalAffairs
+  name: internal affairs headset
+  components:
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/mining.rsi
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyIA
+      - EncryptionKeyCommon
+
+- type: entity
+  parent: ClothingHeadsetInternalAffairs
+  id: ClothingHeadsetMagistrate
+  name: magistrate's headset
+  components:
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/mining.rsi
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyIA
+      - EncryptionKeyCommon
+      - EncryptionKeySecurity
+
+- type: entity
+  parent: ClothingHeadsetService
+  id: ClothingHeadsetHD
+  name: hospitality director's headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommand
+      - EncryptionKeyService
+
+- type: entity
+  parent: ClothingHeadsetCentCom
+  id: ClothingHeadsetCL
+  name: corporate liaison's headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommand
+      - EncryptionKeyCentCom
+
+- type: entity
+  parent: ClothingHeadsetSecurity
+  id: ClothingHeadsetDispatcher
+  name: dispatch headset
+  description: One of the many links to the beating heart of the station.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeySecurity
+      - EncryptionKeyMedical
+      - EncryptionKeyCommon

@@ -5,14 +5,16 @@
   description: What secrets lie at the bottom of its endless stack?
   suffix: Empty
   components:
+  - type: Item #funky
+    size: Normal
   - type: Sprite
-    sprite: Objects/Misc/bureaucracy.rsi
+    sprite: _Funkystation/Objects/Misc/bureaucracy.rsi # Funky
     state: paper_bin0
     drawdepth: SmallObjects
     noRot: true
   - type: Appearance
   - type: ItemMapper
-    sprite: Objects/Misc/bureaucracy.rsi
+    sprite: _Funkystation/Objects/Misc/bureaucracy.rsi # Funky
     mapLayers:
       paper_bin1:
         whitelist:

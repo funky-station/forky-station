@@ -1,0 +1,82 @@
+﻿# tape itself
+- type: entity
+  id: BaseWarningTape
+  abstract: true
+  components:
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Fixtures
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Tape
+  - type: Damageable
+  - type: Injurable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 6
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/poster_broken.ogg
+
+- type: entity
+  parent: BaseWarningTape
+  id: WarningTapeEngineering
+  categories: [ HideSpawnMenu ]
+  name: caution tape
+  description: A strip of hazard tape, warning you to keep out.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Tools/Tape/caution.rsi
+    state: tape
+  - type: TapeVisuals
+    sprite:
+      sprite: _Funkystation/Objects/Tools/Tape/caution.rsi
+      state: tape
+
+- type: entity
+  parent: BaseWarningTape
+  id: WarningTapeSecurity
+  categories: [ HideSpawnMenu ]
+  name: security tape
+  description: A strip of red tape, branded AEGIS Security Consolidated. Move along.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Tools/Tape/security.rsi
+    state: tape
+  - type: TapeVisuals
+    sprite:
+      sprite: _Funkystation/Objects/Tools/Tape/security.rsi
+      state: tape
+
+# actual tape rolls
+- type: entity
+  parent: BaseItem
+  id: WarningTapeRollEngineering
+  name: caution tape roll
+  description: A roll of yellow and black hazard tape.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Tools/Tape/caution.rsi
+    state: icon
+  - type: Item
+  - type: TapeRoll
+    tapePrototype: WarningTapeEngineering
+
+- type: entity
+  parent: WarningTapeRollEngineering
+  id: WarningTapeRollSecurity
+  name: security tape roll
+  description: A roll of red tape, branded AEGIS Security Consolidated.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Tools/Tape/security.rsi
+    state: icon
+  - type: TapeRoll
+    tapePrototype: WarningTapeSecurity

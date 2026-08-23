@@ -40,7 +40,7 @@
   - type: Sprite
     noRot: false
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/intercom.rsi
+    sprite: _Funkystation/Structures/Wallmounts/intercom.rsi # Funky
     layers:
     - state: base
     - state: unshaded
@@ -117,7 +117,7 @@
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: Structures/Wallmounts/intercom.rsi
+    sprite: _Funkystation/Structures/Wallmounts/intercom.rsi # Funky
     layers:
     - state: build
     - state: panel

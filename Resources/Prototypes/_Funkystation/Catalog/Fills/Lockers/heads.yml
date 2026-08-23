@@ -1,0 +1,50 @@
+- type: entityTable
+  id: LockerFillExecutiveOfficer
+  table: !type:AllSelector
+    children:
+    - id: AccessConfigurator
+    - id: BoxHeadset
+    - id: BoxHoPCircuitboards
+    - id: BoxHoPStamps
+    - id: BoxID
+    - id: BoxPDA
+    - id: ClothingHeadsetCommand
+    - id: ClothingNeckGoldmedal
+    - id: XOIDCard
+    - id: ClothingEyesHudCommand
+
+- type: entity
+  id: LockerExecutiveOfficerFilled
+  name: executive officer's locker
+  suffix: Filled
+  parent: LockerHeadOfPersonnel
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillExecutiveOfficer
+  - type: AccessReader
+    access: [ [ "ExecutiveOfficer" ] ]
+
+
+- type: entityTable
+  id: LockerFillHospitalityDirector
+  table: !type:AllSelector
+    children:
+    - id: BoxEncryptionKeyService
+    - id: ClothingHeadsetHD
+    - id: DoorRemoteService
+    - id: BoxFolderCateringDigiboard
+
+- type: entity
+  id: LockerHospitalityDirectorFilled
+  name: hospitality director's locker
+  suffix: Filled
+  parent: LockerHeadOfPersonnel
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillHospitalityDirector
+  - type: AccessReader
+    access: [["HospitalityDirector"]]

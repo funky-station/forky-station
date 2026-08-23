@@ -38,7 +38,7 @@
       damageContainer: Box
     - type: Sprite
       noRot: true
-      sprite: Structures/Storage/closet.rsi
+      sprite: _Funkystation/Structures/Storage/closet.rsi # Funky
       layers:
       - state: cardboard
         map: ["enum.StorageVisualLayers.Base"]

@@ -42,9 +42,3 @@
   id: Magical
   examineText: contraband-examine-text-Magical
   color: "#b337b3"
-
-# This is an evil cult thingy and is illegal to own IC.
-- type: contrabandSeverity
-  id: BloodCult
-  examineText: contraband-examine-text-BloodCult
-  color: red

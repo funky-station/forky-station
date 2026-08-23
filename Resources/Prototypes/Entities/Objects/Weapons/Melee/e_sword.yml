@@ -136,7 +136,7 @@
     - type: Execution
       doAfterDuration: 4.0
   - type: Sprite
-    sprite: Objects/Weapons/Melee/e_dagger_loud.rsi
+    sprite: _Funkystation/Objects/Weapons/Melee/e_dagger_loud.rsi # Funky
     layers:
       - state: e_sword
       - state: e_sword_blade
@@ -153,7 +153,7 @@
         Blunt: 1
   - type: Item
     size: Tiny
-    sprite: Objects/Weapons/Melee/e_dagger_loud.rsi
+    sprite: _Funkystation/Objects/Weapons/Melee/e_dagger_loud.rsi # Funky
   - type: PointLight
     enabled: false
     radius: 1.5
@@ -205,7 +205,7 @@
     - type: Contraband
       severity: Syndicate
   - type: Sprite
-    sprite: Objects/Weapons/Melee/e_dagger.rsi
+    sprite: _Funkystation/Objects/Weapons/Melee/e_dagger.rsi # Funky
     layers:
       - state: e_sword
       - state: e_sword_blade
@@ -215,7 +215,7 @@
         map: [ "blade" ]
   - type: Item
     size: Tiny
-    sprite: Objects/Weapons/Melee/e_dagger.rsi
+    sprite: _Funkystation/Objects/Weapons/Melee/e_dagger.rsi # Funky
   - type: PointLight
     enabled: false
     radius: 1.5
