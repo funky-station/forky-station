@@ -18,8 +18,9 @@ namespace Content.Shared.Communications
         public List<string>? AlertLevels;
         public string CurrentAlert;
         public float CurrentAlertDelay;
+        public bool CanBypassPA; // funky
 
-        public CommunicationsConsoleInterfaceState(bool canAnnounce, bool canCall, List<string>? alertLevels, string currentAlert, float currentAlertDelay, TimeSpan? expectedCountdownEnd = null)
+        public CommunicationsConsoleInterfaceState(bool canAnnounce, bool canCall, List<string>? alertLevels, string currentAlert, float currentAlertDelay, TimeSpan? expectedCountdownEnd = null, bool canBypassPA = false) // funky - add pa bypass option
         {
             CanAnnounce = canAnnounce;
             CanCall = canCall;
@@ -28,6 +29,7 @@ namespace Content.Shared.Communications
             AlertLevels = alertLevels;
             CurrentAlert = currentAlert;
             CurrentAlertDelay = currentAlertDelay;
+            CanBypassPA = canBypassPA; // funky
         }
     }
 
@@ -46,10 +48,12 @@ namespace Content.Shared.Communications
     public sealed class CommunicationsConsoleAnnounceMessage : BoundUserInterfaceMessage
     {
         public readonly string Message;
+        public readonly bool BypassPA; // funky
 
-        public CommunicationsConsoleAnnounceMessage(string message)
+        public CommunicationsConsoleAnnounceMessage(string message, bool bypassPA = false)  // funky - add pa bypass option
         {
             Message = message;
+            BypassPA = bypassPA; // funky
         }
     }
 

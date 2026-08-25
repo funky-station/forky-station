@@ -170,7 +170,8 @@ namespace Content.Server.Communications
                 levels,
                 currentLevel,
                 currentDelay,
-                _roundEndSystem.ExpectedCountdownEnd
+                _roundEndSystem.ExpectedCountdownEnd,
+                comp.CanBypassPA // funky
             ));
         }
 
@@ -235,7 +236,7 @@ namespace Content.Server.Communications
             CommunicationsConsoleAnnounceMessage message)
         {
             // funky - redirect comms console announcements to PA speakers
-            if (_cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements))
+            if (!message.BypassPA && _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements))
             {
                 AnnounceCommsConsoleViaPASystem(uid, comp, message);
                 return;
@@ -276,14 +277,14 @@ namespace Content.Server.Communications
             {
                 // Macrocosm start - Announcer overrides
                 _announcer.TryGetAnnouncerSound(comp.Sound, out var sound);
-                _chatSystem.DispatchGlobalAnnouncement(msg, title, announcementSound: sound, colorOverride: comp.Color);
+                _chatSystem.DispatchGlobalAnnouncement(msg, title, announcementSound: sound, colorOverride: comp.Color, paSystemBypass: true); // funky - add pa system bypass option
                 // Macrocosm end
 
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following global announcement: {msg}");
                 return;
             }
 
-            _chatSystem.DispatchStationAnnouncement(uid, msg, title, colorOverride: comp.Color);
+            _chatSystem.DispatchStationAnnouncement(uid, msg, title, colorOverride: comp.Color, paSystemBypass: true); // funky - add pa system bypass option
 
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following station announcement: {msg}");
 

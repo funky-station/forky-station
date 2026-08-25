@@ -1,3 +1,4 @@
+using Content.Shared._Funkystation.CCVar;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Communications;
@@ -50,7 +51,7 @@ namespace Content.Client.Communications.UI
         {
             var maxLength = _cfg.GetCVar(CCVars.ChatMaxAnnouncementLength);
             var msg = SharedChatSystem.SanitizeAnnouncement(message, maxLength);
-            SendMessage(new CommunicationsConsoleAnnounceMessage(msg));
+            SendMessage(new CommunicationsConsoleAnnounceMessage(msg, _menu!.AnnounceTelepathically.Pressed)); // funky - add pa bypass option
         }
 
         public void BroadcastButtonPressed(string message)
@@ -84,6 +85,7 @@ namespace Content.Client.Communications.UI
                 _menu.AlertLevelSelectable = commsState.AlertLevels != null && !float.IsNaN(commsState.CurrentAlertDelay) && commsState.CurrentAlertDelay <= 0;
                 _menu.CurrentLevel = commsState.CurrentAlert;
                 _menu.CountdownEnd = commsState.ExpectedCountdownEnd;
+                _menu.CanBypassPA = commsState.CanBypassPA; // funky
 
                 _menu.UpdateCountdown();
                 _menu.UpdateAlertLevels(commsState.AlertLevels, _menu.CurrentLevel);
@@ -91,6 +93,7 @@ namespace Content.Client.Communications.UI
                 _menu.EmergencyShuttleButton.Disabled = !_menu.CanCall;
                 _menu.AnnounceButton.Disabled = !_menu.CanAnnounce;
                 _menu.BroadcastButton.Disabled = !_menu.CanBroadcast;
+                _menu.AnnounceTelepathically.Visible = (_menu.CanBypassPA && _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements)); // funky
             }
         }
     }

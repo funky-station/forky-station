@@ -33,9 +33,15 @@ namespace Content.Server.Communications
         /// <summary>
         /// Funky - Fluent ID for the preamble "Incoming announcement" statement.
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
         [DataField]
         public LocId Preamble = "pa-announcement-preamble";
+
+        /// <summary>
+        /// Funky - whether this comms console can "announce telepathcially", AKA bypass PA speakers
+        /// and be received directly by players.
+        /// </summary>
+        [DataField]
+        public bool CanBypassPA = false;
 
         /// <summary>
         /// Announcement color

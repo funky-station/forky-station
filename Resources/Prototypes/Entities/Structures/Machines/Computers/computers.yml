@@ -782,6 +782,7 @@
   - type: CommunicationsConsole
     title: comms-console-announcement-title-centcom
     preamble: centcom-pa-preamble # funky
+    canBypassPA: true # funky
     color: "#1d8bad"
     canShuttle: false
     global: true

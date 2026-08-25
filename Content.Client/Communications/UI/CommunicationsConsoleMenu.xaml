@@ -24,6 +24,16 @@
             <!-- AnnouncePart -->
             <BoxContainer Orientation="Vertical"
                 Margin="0 2">
+                <!-- funky start -->
+                <CheckBox Name="AnnounceTelepathically"
+                    Access="Public"
+                    Text="{Loc 'comms-console-announcement-bypass-pa'}"
+                    ToolTip="{Loc 'comms-console-announcement-bypass-pa-tooltip'}"
+                    Visible="False"
+                    Margin="10 5 0 0"
+                    LeftAlign="False"
+                    HorizontalAlignment="Right"/>
+                <!-- funky end -->
 
                 <Button Name="AnnounceButton"
                     Access="Public"
@@ -53,7 +63,7 @@
                 <RichTextLabel Name="CountdownLabel"/>
 
                 <Button Name="EmergencyShuttleButton"
-                    Access="Public" 
+                    Access="Public"
                     Text="Placeholder Text"
                     ToolTip="{Loc 'comms-console-menu-emergency-shuttle-button-tooltip'}"/>
             </BoxContainer>
