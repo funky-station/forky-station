@@ -21,13 +21,14 @@ public sealed partial class ChatSystem
         string? sender = null,
         bool playSound = true,
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null
+        Color? colorOverride = null,
+        bool paSystemBypass = false // funky
         )
     {
         sender ??= Loc.GetString("chat-manager-sender-announcement");
 
         // funky - redirect announcement to PA speakers
-        if (_configurationManager.GetCVar(PAAnnouncementCVars.PAAnnouncements))
+        if (!paSystemBypass && _configurationManager.GetCVar(PAAnnouncementCVars.PAAnnouncements))
         {
             _paSystem.DispatchPAAnnouncement(message, sender, null, false, playSound, true, null, announcementSound, colorOverride);
             return;
@@ -56,12 +57,13 @@ public sealed partial class ChatSystem
         string? sender = null,
         bool playSound = true,
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null)
+        Color? colorOverride = null,
+        bool paSystemBypass = false) //funky
     {
         sender ??= Loc.GetString("chat-manager-sender-announcement");
 
         // funky - redirect announcement to PA speakers
-        if (_configurationManager.GetCVar(PAAnnouncementCVars.PAAnnouncements))
+        if (!paSystemBypass && _configurationManager.GetCVar(PAAnnouncementCVars.PAAnnouncements))
         {
             _paSystem.DispatchPAAnnouncement(message, sender, source, false, playSound,  true, null, announcementSound, colorOverride);
             return;
@@ -89,12 +91,13 @@ public sealed partial class ChatSystem
         string? sender = null,
         bool playDefaultSound = true,
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null)
+        Color? colorOverride = null,
+        bool paSystemBypass = false) // funky
     {
         sender ??= Loc.GetString("chat-manager-sender-announcement");
 
         // funky - redirect announcement to PA speakers
-        if (_configurationManager.GetCVar(PAAnnouncementCVars.PAAnnouncements))
+        if (!paSystemBypass && _configurationManager.GetCVar(PAAnnouncementCVars.PAAnnouncements))
         {
             _paSystem.DispatchPAAnnouncement(message, sender, source, false, playDefaultSound, false, null, announcementSound, colorOverride);
             return;

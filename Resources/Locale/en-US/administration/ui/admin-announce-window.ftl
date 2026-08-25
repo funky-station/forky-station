@@ -9,3 +9,7 @@ admin-announce-keep-open = Keep open
 
 cmd-announceui-desc = Opens the announcement UI.
 cmd-announceui-help = Usage: announceui
+
+# Funky
+admin-announce-bypass-pa = Broadcast telepathically
+admin-announce-bypass-pa-tooltip = Bypasses PA speakers and broadcasts the message directly to the minds of players.
