@@ -12,6 +12,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.Announcements;
 
 [AdminCommand(AdminFlags.Moderator)]
+[Access(typeof(PAAnnounceCommand))] // funky - restrict access to our PA announce "subcommand"
 public sealed partial class AnnounceCommand : LocalizedEntityCommands
 {
     private static readonly ProtoId<AnnouncementSoundPrototype> AnnounceId = "Announce";
