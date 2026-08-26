@@ -30,6 +30,10 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private AudioSystem _audio = null!; // funky - sound effects for radios
 
+    // funky - colors for examine markup
+    private Color EnabledColor = Color.FromHex("#31843E");
+    private Color DisabledColor = Color.FromHex("#BB3232");
+
     // Used to prevent a shitter from using a bunch of radios to spam chat.
     private HashSet<(string, EntityUid, RadioChannelPrototype)> _recentlySent = new();
 
@@ -142,8 +146,8 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
             : "handheld-radio-component-off-state");
 
         var color = component.Enabled
-            ? Color.LightBlue
-            : Color.Red;
+            ? EnabledColor
+            : DisabledColor;
 
         using (args.PushGroup(nameof(RadioSpeakerComponent), priority: 1))
         {
@@ -187,8 +191,8 @@ public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
             : "handheld-radio-component-off-state");
 
         var color = component.Enabled //funky
-            ? Color.LightBlue
-            : Color.Red;
+            ? EnabledColor
+            : DisabledColor;
 
         using (args.PushGroup(nameof(RadioMicrophoneComponent), priority: 0))
         {
