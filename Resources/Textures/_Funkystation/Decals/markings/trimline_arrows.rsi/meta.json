@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "sprites taken from BeeStation",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+	{
+      "name": "trimline_arrow_1"
+    },
+    {
+      "name": "trimline_arrow_2"
+    },
+    {
+      "name": "trimline_arrow_3"
+    },
+    {
+      "name": "trimline_arrow_4"
+    },
+    {
+      "name": "trimline_arrow_5"
+    },
+    {
+      "name": "trimline_arrow_6"
+    },
+    {
+      "name": "trimline_arrow_7"
+    },
+    {
+      "name": "trimline_arrow_8"
+    },
+    {
+      "name": "trimline_arrowalt_1"
+    },
+    {
+      "name": "trimline_arrowalt_2"
+    },
+    {
+      "name": "trimline_arrowalt_3"
+    },
+    {
+      "name": "trimline_arrowalt_4"
+    },
+    {
+      "name": "trimline_arrowalt_5"
+    },
+    {
+      "name": "trimline_arrowalt_6"
+    },
+    {
+      "name": "trimline_arrowalt_7"
+    },
+    {
+      "name": "trimline_arrowalt_8"
+    }
+  ]
+}

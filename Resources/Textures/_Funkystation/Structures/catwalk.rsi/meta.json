@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "BeeStation at f5029797ec3c6d58f9a806b68427ca44de310008",
+  "size": {
+    "x": 32,
+    "y": 32
+    },
+  "states": [
+    {
+      "name": "dark_open"
+    },
+    {
+      "name": "dark"
+    },
+    {
+      "name": "dark_warning_open"
+    },
+    {
+      "name": "dark_warning"
+    },
+    {
+      "name": "gray_open"
+    },
+    {
+      "name": "gray"
+    },
+    {
+      "name": "smooth"
+    },
+    {
+      "name": "titanium"
+    },
+    {
+      "name": "white_open"
+    },
+    {
+      "name": "white"
+    },
+    {
+      "name": "glas"
+    },
+    {
+      "name": "lattice"
+    }
+  ]
+}

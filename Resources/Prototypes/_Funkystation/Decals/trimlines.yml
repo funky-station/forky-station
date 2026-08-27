@@ -1,0 +1,263 @@
+- type: decal
+  id: TrimLineArrow1
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline_arrows.rsi
+    state: trimline_arrow_1
+
+- type: decal
+  id: TrimLineArrow2
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline_arrows.rsi
+    state: trimline_arrow_2
+
+- type: decal
+  id: TrimLineArrow3
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline_arrows.rsi
+    state: trimline_arrow_3
+
+- type: decal
+  id: TrimLineArrow4
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline_arrows.rsi
+    state: trimline_arrow_4
+
+- type: decal
+  id: TrimLineArrow5
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline_arrows.rsi
+    state: trimline_arrow_5
+
+- type: decal
+  id: TrimLineArrow6
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline_arrows.rsi
+    state: trimline_arrow_6
+
+- type: decal
+  id: TrimLineArrow7
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline_arrows.rsi
+    state: trimline_arrow_7
+
+- type: decal
+  id: TrimLineArrow8
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline_arrows.rsi
+    state: trimline_arrow_8
+
+- type: decal
+  id: TrimLineArrowAlt1
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline_arrows.rsi
+    state: trimline_arrowalt_1
+
+- type: decal
+  id: TrimLineArrowAlt2
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline_arrows.rsi
+    state: trimline_arrowalt_2
+
+- type: decal
+  id: TrimLineArrowAlt3
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline_arrows.rsi
+    state: trimline_arrowalt_3
+
+- type: decal
+  id: TrimLineArrowAlt4
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline_arrows.rsi
+    state: trimline_arrowalt_4
+
+- type: decal
+  id: TrimLineArrowAlt5
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline_arrows.rsi
+    state: trimline_arrowalt_5
+
+- type: decal
+  id: TrimLineArrowAlt6
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline_arrows.rsi
+    state: trimline_arrowalt_6
+
+- type: decal
+  id: TrimLineArrowAlt7
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline_arrows.rsi
+    state: trimline_arrowalt_7
+
+- type: decal
+  id: TrimLineArrowAlt8
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline_arrows.rsi
+    state: trimline_arrowalt_8
+
+- type: decal
+  id: TrimLineBox
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline.rsi
+    state: trimline_box
+
+- type: decal
+  id: TrimLineCorner1
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline.rsi
+    state: trimline_corner_1
+
+- type: decal
+  id: TrimLineCorner2
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline.rsi
+    state: trimline_corner_2
+
+- type: decal
+  id: TrimLineCorner3
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline.rsi
+    state: trimline_corner_3
+
+- type: decal
+  id: TrimLineCorner4
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline.rsi
+    state: trimline_corner_4
+
+- type: decal
+  id: TrimLineCornerAlt1
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline.rsi
+    state: trimline_corneralt_1
+
+- type: decal
+  id: TrimLineCornerAlt2
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline.rsi
+    state: trimline_corneralt_2
+
+- type: decal
+  id: TrimLineCornerAlt3
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline.rsi
+    state: trimline_corneralt_3
+
+- type: decal
+  id: TrimLineCornerAlt4
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline.rsi
+    state: trimline_corneralt_4
+
+- type: decal
+  id: TrimLineEdge1
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline.rsi
+    state: trimline_edges_1
+
+- type: decal
+  id: TrimLineEdge2
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline.rsi
+    state: trimline_edges_2
+
+- type: decal
+  id: TrimLineEdge3
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline.rsi
+    state: trimline_edges_3
+
+- type: decal
+  id: TrimLineEdge4
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline.rsi
+    state: trimline_edges_4
+
+- type: decal
+  id: TrimLineEnd1
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline.rsi
+    state: trimline_end_1
+
+- type: decal
+  id: TrimLineEnd2
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline.rsi
+    state: trimline_end_2
+
+- type: decal
+  id: TrimLineEnd3
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline.rsi
+    state: trimline_end_3
+
+- type: decal
+  id: TrimLineEnd4
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/trimline.rsi
+    state: trimline_end_4
