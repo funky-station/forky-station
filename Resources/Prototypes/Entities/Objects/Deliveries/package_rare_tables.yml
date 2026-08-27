@@ -386,7 +386,7 @@
     - !type:GroupSelector
       children:
       - id: BoxHug
-      - id: BoxHugNitrogen
+      - id: BoxSurvivalHugNitrogen
       - id: BoxHugHealing
         prob: 0.1
 

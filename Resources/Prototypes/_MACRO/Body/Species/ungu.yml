@@ -194,15 +194,12 @@
       200: Dead
   - type: StaminaDamageOnHit
     damage: 18
-  - type: Hunger
-    thresholds:
-      Overfed: 150
-      Okay: 100
-      Peckish: 50
-      Starving: 25
-      Dead: 0
-    baseDecayRate: 0.0124 # 3/4 as fast as a human
-  - type: Thirst
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: UnguSatiationHunger
+      Thirst:
+        prototype: NormalSatiationThirst
   - type: Icon
     sprite: _MACRO/Mobs/Species/Ungu/parts.rsi
     state: full
@@ -228,6 +225,8 @@
     soundsId: UnguBodyEmotes
   - type: Damageable
     damageModifierSet: Ungu
+  - type: Temperature
+    specificHeat: 2500 # 42 -> 2500 (default: 3000)
   - type: TemperatureDamage
     heatDamageThreshold: 320
     coldDamageThreshold: 200
@@ -237,9 +236,6 @@
     heatDamage:
       types:
         Heat: 3.0 #per second, scales with temperature & other constants
-  - type: Temperature
-    currentTemperature: 310.15
-    specificHeat: 42
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:

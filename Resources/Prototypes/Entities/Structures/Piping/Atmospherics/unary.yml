@@ -41,7 +41,7 @@
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: _Funkystation/Structures/Piping/Atmospherics/vent.rsi # Funky
+      sprite: Structures/Piping/Atmospherics/vent.rsi # Funky
       layers:
         - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
           state: pipeUnaryConnectors
@@ -96,7 +96,7 @@
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: _Funkystation/Structures/Piping/Atmospherics/vent.rsi # Funky
+      sprite: Structures/Piping/Atmospherics/vent.rsi # Funky
       layers:
         - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
           state: pipeUnaryConnectors
@@ -233,7 +233,7 @@
         Tertiary: GasOutletInjectorAlt2
 
 - type: entity
-  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  parent: [ BaseMachinePowered, ConstructibleMachine, BaseConstructibleMachineDestructible ]
   id: BaseGasThermoMachine
   name: thermomachine
   abstract: true
@@ -408,7 +408,7 @@
     board: HellfireHeaterMachineCircuitBoard
 
 - type: entity
-  parent: [ SolutionTank, SolutionHuge, BaseMachinePowered, SmallConstructibleMachine ]
+  parent: [ SolutionTank, SolutionHuge, BaseMachinePowered, SmallConstructibleMachine, BaseSmallConstructibleMachineDestructible ]
   id: BaseGasCondenser
   name: condenser
   description: Condenses gases into liquids. Now we just need some plumbing.
@@ -465,8 +465,6 @@
         !type:DamageTrigger
         damage: 100
       behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
       - !type:SpillBehavior
         solution: tank
       - !type:PlaySoundBehavior

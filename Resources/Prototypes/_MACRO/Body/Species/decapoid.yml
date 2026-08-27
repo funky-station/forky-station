@@ -181,9 +181,12 @@
     damage:
       types:
         Blunt: 0 # immune to space
-  - type: Hunger
-  - type: Thirst
-    baseDecayRate: -1 # Make it so they never get thirsty. We can't just remove the component
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: NormalSatiationHunger
+      Thirst:
+        prototype: NormalSatiationThirst
   - type: TemperatureDamage
     heatDamageThreshold: 380 # slightly more vulnerable to heat
     coldDamageThreshold: 0 # immune to space
@@ -194,19 +197,14 @@
       types:
         Heat : 1.5
   - type: Temperature
-    currentTemperature: 310
-    specificHeat: 42
+    specificHeat: 2500 # 42 -> 2500 (default: 3000)
   - type: TemperatureSpeed
     thresholds:
       293: 1.0
       280: 1.0
       260: 1.0
-  - type: Clumsy
-    clumsyVaulting: false
-    clumsyHypo: false
-    clumsyDefib: false
-    clumsyCatching: false
-    gunShootFailDamage:
+  - type: ClumsyGunStatusEffect
+    failDamage:
       types:
         Blunt: 5
     clumsySound:
@@ -215,7 +213,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: CopperBlood # real life crustaceans are in the same clade as spiders and share a blood type
-        Quantity: 300
+        Quantity: 600
   - type: Puller #TODO: port pull speed modifier
     needsHands: false # they drag with the claw, or their back legs
   - type: Fixtures

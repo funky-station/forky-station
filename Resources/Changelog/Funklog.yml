@@ -81,4 +81,24 @@
   id: 11
   time: '2026-08-21T04:19:19Z'
   url: https://github.com/funky-station/forky-station/pull/304
+- author: taydeo
+  changes:
+  - message: A content warning now pops up.
+    type: Add
+  id: 12
+  time: '2026-08-27T17:09:32Z'
+  url: https://github.com/funky-station/forky-station/pull/375
+- author: ReconPangolin, PopupPup
+  changes:
+  - message: Updated to the latest wizden stable
+    type: Tweak
+  - message: Removed gun execution system clown toy gun component due to clumsy becoming
+      a status effect
+    type: Remove
+  - message: Removed a couple of hardsuits, vent and hardhat sprites due to not matching
+      the latest refactors to lighting and direction
+    type: Remove
+  id: 13
+  time: '2026-08-27T18:56:44Z'
+  url: https://github.com/funky-station/forky-station/pull/357
 Order: -1

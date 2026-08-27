@@ -4,9 +4,6 @@
   name: trimmed debug wall
   suffix: DEBUG
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: _Funkystation/Structures/Walls/test/edgetrim.rsi
   - type: Icon
@@ -37,9 +34,6 @@
   name: second trimmed debug wall
   suffix: DEBUG
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: _Funkystation/Structures/Walls/test/edgetrim.rsi
   - type: Icon
@@ -70,9 +64,6 @@
   name: trimless debug wall
   suffix: DEBUG
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: _Funkystation/Structures/Walls/test/trimless.rsi
   - type: Icon
@@ -101,12 +92,9 @@
   parent: BaseWall
   id: DebugSlantedTrimWall
   name: slanted trimmed wall
-  description: Either something commonplace or completely out of the ordinary.  
+  description: Either something commonplace or completely out of the ordinary.
   suffix: DEBUG
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: _Funkystation/Structures/Walls/test/normwall.rsi
   - type: Icon
@@ -137,12 +125,9 @@
   parent: BaseWall
   id: DebugPurpleSlantedTrimWall
   name: purple slanted trimmed wall
-  description: Something considerably more out of the ordinary.  
+  description: Something considerably more out of the ordinary.
   suffix: DEBUG
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: _Funkystation/Structures/Walls/test/purpwall.rsi
   - type: Icon
@@ -175,7 +160,7 @@
   suffix: DEBUG
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+    sprite: Structures/Doors/Airlocks/Standard/airlock-maints.rsi
   - type: EdgeTrim
     smoothKey: evildoor
     mode: NoSprite
