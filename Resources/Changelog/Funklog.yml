@@ -81,4 +81,11 @@
   id: 11
   time: '2026-08-21T04:19:19Z'
   url: https://github.com/funky-station/forky-station/pull/304
+- author: taydeo
+  changes:
+  - message: A content warning now pops up.
+    type: Add
+  id: 12
+  time: '2026-08-27T17:09:32Z'
+  url: https://github.com/funky-station/forky-station/pull/375
 Order: -1
