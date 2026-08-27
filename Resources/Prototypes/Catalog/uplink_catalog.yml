@@ -634,6 +634,37 @@
       - NukeOpsUplink
 
 - type: listing
+  id: UplinkSyndicateBombModerate
+  name: uplink-exploding-syndicate-moderate-bomb-name
+  description: uplink-exploding-syndicate-moderate-bomb-desc
+  productEntity: SyndicateBombModerate
+  cost:
+    Telecrystal: 25
+  categories:
+    - UplinkExplosives
+  restockTime: 1800
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkSyndicateBombModerateNukie
+  name: uplink-exploding-syndicate-moderate-bomb-name
+  description: uplink-exploding-syndicate-moderate-bomb-desc
+  productEntity: SyndicateBombModerate
+  cost:
+    Telecrystal: 25
+  categories:
+    - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
   id: UplinkGrenadeShrapnel
   name: uplink-shrapnel-grenade-name
   description: uplink-shrapnel-grenade-desc

@@ -149,6 +149,17 @@
 
 - type: entity
   parent: SyndicateBomb
+  id: SyndicateBombModerate
+  suffix: moderate
+  components:
+    - type: Explosive
+      explosionType: HardBomb
+      totalIntensity: 1000.0
+      intensitySlope: 10
+      maxIntensity: 75
+
+- type: entity
+  parent: SyndicateBomb
   id: DebugHardBomb
   name: debug bomb
   suffix: DEBUG
