@@ -34,7 +34,7 @@
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4.5
   - type: Sprite
-    sprite: Mobs/Silicon/chassis.rsi
+    sprite: _Funkystation/Mobs/Silicon/chassis.rsi # Funky
   - type: RotationVisuals
     horizontalRotation: 90
   - type: MobState
@@ -453,7 +453,7 @@
   - type: NameIdentifier
     group: Xenoborg
   - type: Sprite
-    sprite: Mobs/Silicon/chassis.rsi
+    sprite: _Funkystation/Mobs/Silicon/chassis.rsi # Funky
   - type: MobThresholds
     thresholds: # slightly tankier than a normal borg
       0: Alive

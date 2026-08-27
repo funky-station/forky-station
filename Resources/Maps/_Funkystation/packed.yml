@@ -47213,19 +47213,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 84.5,-18.5
       parent: 2
-- proto: CheapLighter
-  entities:
-  - uid: 6631
-    components:
-    - type: Transform
-      pos: 37.66267,-3.4032297
-      parent: 2
-  - uid: 15272
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 58.70409,47.634327
-      parent: 2
 - proto: CheapRollerBed
   entities:
   - uid: 14801
@@ -49668,13 +49655,6 @@ entities:
     components:
     - type: Transform
       pos: 64.5,-3.5
-      parent: 2
-- proto: CrateMindShieldImplants
-  entities:
-  - uid: 9285
-    components:
-    - type: Transform
-      pos: 40.5,36.5
       parent: 2
 - proto: CrateMousetrapBoxes
   entities:
@@ -84900,7 +84880,7 @@ entities:
 
             To Whom It May Concern:
 
-        This Salvage Magnet is placed in your office for the sake of making use of your prisoners. 
+        This Salvage Magnet is placed in your office for the sake of making use of your prisoners.
 
 
         If we find that you intentionally or by accident call the salvage magnet's salvage on top of the station or otherwise misuse this machine, your pay will be deducted in proportion to the damages you cause to the station in addition to an undisclosed penalty which you will be informed of in greater detail on your next paystub.

@@ -128,7 +128,7 @@
   id: MechanizedTreatment
   name: research-technology-mechanized-treatment
   icon:
-    sprite: Mobs/Silicon/chassis.rsi
+    sprite: _Funkystation/Mobs/Silicon/chassis.rsi # Funky
     state: medical
   discipline: CivilianServices
   tier: 2
