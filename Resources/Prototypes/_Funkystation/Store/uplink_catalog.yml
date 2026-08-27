@@ -5,7 +5,7 @@
   description: uplink-pistol-wyvern-desc
   productEntity: WeaponPistolWyvern
   cost:
-    Telecrystal: 8
+    Telecrystal: 30 # Funky Change 8 -> 30. Fixed for new budget and buffed to 30 rather than 40 because this thing seemed to never get used.
   categories:
   - UplinkWeaponry
 
@@ -17,7 +17,7 @@
   icon: { sprite: /Textures/_Funkystation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag_50.rsi, state: green-icon }
   productEntity: MagazinePistolLargeUranium
   cost:
-    Telecrystal: 2
+    Telecrystal: 6 # Funky Change 2 -> 6. Budget fix. Changed to match the (new price of) .25 caseless mags +1.
   categories:
   - UplinkAmmo
   conditions:
@@ -33,7 +33,7 @@
   icon: { sprite: /Textures/_Funkystation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag_50.rsi, state: base }
   productEntity: MagazinePistolLarge
   cost:
-    Telecrystal: 2
+    Telecrystal: 5 # Funky Change 2 -> 5. Budget Fix. Changed to match the (new price of) .25 caseless mags.
   categories:
   - UplinkAmmo
 
@@ -43,11 +43,19 @@
   name: uplink-estoc-bundle-name
   description: uplink-estoc-bundle-desc
   productEntity: BriefcaseWeaponEstocFilled
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 45 # Funky. I manually added this discount, same price as C-20r.
   cost:
-    Telecrystal: 15
+    Telecrystal: 70 # Funky Change 15 -> 70. Budget Fix. LOWER THIS TO 60 WHEN ITS SPARE MAGS GET REMOVED TO MATCH OTHER GUNS!
   categories:
   - UplinkWeaponry
-  
+  conditions:
+  - !type:StoreWhitelistCondition # Funky Change. So that there isn't two different estocs in the nukie uplink.
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
 # For the Estoc
 - type: listing
   id: UplinkRifle50Magazine
@@ -56,10 +64,10 @@
   icon: { sprite: /Textures/_Funkystation/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag_50.rsi, state: base }
   productEntity: MagazineRifle50
   cost:
-    Telecrystal: 3
+    Telecrystal: 5 # Funky Change 3 -> 5. Budget Fix. Changed to match the (new price of) .35 auto SMG mags.
   categories:
   - UplinkAmmo
-  
+
 - type: listing
   id: UplinkRifle50MagazineIncendiary
   name: uplink-rifle-magazine-50-incendiary-name
@@ -67,7 +75,7 @@
   icon: { sprite: /Textures/_Funkystation/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag_50.rsi, state: red-icon }
   productEntity: MagazineRifle50Incendiary
   cost:
-    Telecrystal: 4
+    Telecrystal: 6 # Funky Change 4 -> 6. Budget Fix. Changed to match the (new price of) .35 auto SMG mags, +1.
   categories:
   - UplinkAmmo
 
@@ -84,4 +92,3 @@
     Telecrystal: 20
   categories:
   - UplinkDisruption
-  

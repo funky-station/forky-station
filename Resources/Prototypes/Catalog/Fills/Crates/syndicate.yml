@@ -2,10 +2,10 @@
   parent: [ CrateSyndicate, StorePresetUplink, BaseSyndicateContraband ]
   id: CrateSyndicateSurplusBundle
   name: Syndicate surplus crate
-  description: Contains 50 telecrystals worth of completely random Syndicate items. It can be useless junk or really good.
+  description: Contains 225 telecrystals worth of completely random Syndicate items. It can be useless junk or really good.
   components:
     - type: SurplusBundle
-      totalPrice: 50
+      totalPrice: 225 # Funky Change 50 - 225. Changed to match the new 100TC traitor budget.
 
 - type: entity
   parent: CrateSyndicate
