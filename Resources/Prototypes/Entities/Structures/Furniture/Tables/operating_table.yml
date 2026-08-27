@@ -11,4 +11,14 @@
   - type: Icon
     sprite: Structures/Furniture/Tables/optable.rsi
     state: operating_table
+  - type: ItemSlots # funky start
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices
+  - type: ContainerContainer
+    containers:
+      hidden_slot: !type:ContainerSlot # funky end
   - type: AmbientMusicMarkerMedical

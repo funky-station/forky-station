@@ -168,10 +168,10 @@
     - id: HoloprojectorSecurity
     - id: BoxEvidenceMarkers
     - id: HandLabeler
-    - id: CrayonBox #funky, for sketches of crime sites
     - id: PlushieLizardJobDetective
       prob: 0.02
-    - id: WarningTapeRollSecurity # funky
+    - id: CardboardBoxLargeDetectiveFilled #funky
+
 
 - type: entity
   id: ClosetBombFilled

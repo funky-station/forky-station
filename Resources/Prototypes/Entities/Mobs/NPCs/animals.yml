@@ -3143,6 +3143,16 @@
   - type: MobPrice
     price: 200
   - type: MessyDrinker
+  - type: ContainerContainer # funky start
+    containers:
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end
   # TODO: Fix the sprite offset
   #- type: CreamPied
   #  sprite:

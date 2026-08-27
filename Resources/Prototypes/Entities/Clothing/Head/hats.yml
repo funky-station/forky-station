@@ -335,6 +335,14 @@
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
+      hidden_slot: !type:ContainerSlot # funky change
+  - type: ItemSlots # funky start
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end
   - type: PilotedClothing
     pilotWhitelist:
       tags:
@@ -1162,6 +1170,14 @@
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
+      hidden_slot: !type:ContainerSlot # funky start
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end
   - type: Tag
     tags:
     - PetWearable

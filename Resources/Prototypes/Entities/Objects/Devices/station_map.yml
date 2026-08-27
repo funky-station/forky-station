@@ -31,6 +31,16 @@
       interfaces:
         enum.StationMapUiKey.Key:
           type: StationMapBoundUserInterface
+    - type: ContainerContainer # funky start
+      containers:
+        hidden_slot: !type:ContainerSlot
+    - type: ItemSlots
+      slots:
+        hidden_slot:
+          name: computer_slot_accessory
+          whitelist:
+            tags:
+            - SurveillanceDevices # funky end
 
 - type: entity
   id: HandheldStationMap
@@ -38,16 +48,36 @@
   - BaseHandheldStationMap
   - BaseHandheldComputer
   suffix: Handheld
+  components:
+  - type: ContainerContainer # funky start
+    containers:
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end
 
 - type: entity
   id: HandheldStationMapEmpty
   parent: HandheldStationMap
   suffix: Handheld, Empty
   components:
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+      hidden_slot: !type:ContainerSlot # funky change
   - type: ItemSlots
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
+      hidden_slot: # funky start
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky End
 
 - type: entity
   id: HandheldStationMapUnpowered

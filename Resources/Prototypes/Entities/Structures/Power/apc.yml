@@ -143,6 +143,16 @@
     priority: 1
   - type: StaticPrice
     price: 500
+  - type: ContainerContainer # funky start
+    containers:
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end
   - type: PowerGridCheckNotify
   - type: GuideHelp
     guides:

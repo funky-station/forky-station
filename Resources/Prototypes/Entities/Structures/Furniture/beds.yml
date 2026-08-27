@@ -57,6 +57,16 @@
     noRot: true
   - type: Anchorable
   - type: Pullable
+  - type: ItemSlots # funky start
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices
+  - type: ContainerContainer
+    containers:
+      hidden_slot: !type:ContainerSlot # funky end
 
 
 - type: entity
