@@ -13,14 +13,14 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Funkystation.Unions;
 
-public sealed class UnionSelectorSystem : EntitySystem
+public sealed partial class UnionSelectorSystem : EntitySystem
 {
-    [Dependency] private readonly ILogManager _logManager = default!;
-    [Dependency] private readonly StorageSystem _storageSystem = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private ILogManager _logManager = default!;
+    [Dependency] private StorageSystem _storageSystem = default!;
+    [Dependency] private InventorySystem _inventorySystem = default!;
+    [Dependency] private SharedHandsSystem _handsSystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -133,30 +133,76 @@ public sealed class UnionSelectorSystem : EntitySystem
         if (!TryGetStationUnionsComponent(out var unionsComp))
             return;
 
+        var leaderless = new List<StationUnion>();
+
         foreach (var union in unionsComp.Unions)
         {
-            var chosen = union.Leader;
-            if (chosen == EntityUid.Invalid)
-            {
-                var eligible = new List<EntityUid>();
-                foreach (var (memberUid, info) in union.Members)
-                {
-                    if (info.EligibleForLeader)
-                        eligible.Add(memberUid);
-                }
+            if (union.Leader != EntityUid.Invalid)
+                continue;
 
-                if (eligible.Count > 0)
-                {
-                    chosen = _random.Pick(eligible);
-                    union.Leader = chosen;
-                    GiveUnionLeaderItems(chosen, union.Members[chosen].GroupingId);
-                }
+            var eligible = new List<EntityUid>();
+            foreach (var (memberUid, info) in union.Members)
+            {
+                if (info.EligibleForLeader)
+                    eligible.Add(memberUid);
             }
 
+            if (eligible.Count > 0)
+            {
+                var chosen = _random.Pick(eligible);
+                union.Leader = chosen;
+                GiveUnionLeaderItems(chosen, union.Members[chosen].GroupingId);
+            }
+            else
+            {
+                leaderless.Add(union);
+            }
+        }
+
+        if (leaderless.Count > 0)
+            AssignFallbackLeaders(unionsComp, leaderless);
+
+        foreach (var union in unionsComp.Unions)
+        {
             foreach (var memberUid in union.Members.Keys)
             {
                 EnsureCorrectMemberComponent(memberUid, union);
             }
+        }
+    }
+    
+    // take a scenario like, ok, theres a union thats both sci and engi, but no one became the leader. right?
+    // this essentially picks one over the other, to be the head of the new combined union, or force someone LOL
+    private void AssignFallbackLeaders(StationUnionsComponent unionsComp, List<StationUnion> leaderless)
+    {
+        var standInLeaders = unionsComp.Unions
+            .Where(u => u.Leader != EntityUid.Invalid)
+            .Select(u => u.Leader)
+            .Distinct()
+            .ToList();
+
+        foreach (var union in leaderless)
+        {
+            var pool = standInLeaders.Count > 0 ? standInLeaders : union.Members.Keys.ToList();
+            if (pool.Count == 0)
+                continue;
+
+            var chosen = _random.Pick(pool);
+            union.Leader = chosen;
+            standInLeaders.Add(chosen);
+
+            if (!union.Members.TryGetValue(chosen, out var value))
+            {
+                value = new UnionMemberInfo
+                {
+                    EligibleForLeader = true,
+                    GroupingId = union.GroupingIds.FirstOrDefault() ?? string.Empty,
+                };
+                
+                union.Members[chosen] = value;
+            }
+
+            GiveUnionLeaderItems(chosen, value.GroupingId);
         }
     }
 
