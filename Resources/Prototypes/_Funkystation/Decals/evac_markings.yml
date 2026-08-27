@@ -1,0 +1,95 @@
+- type: decal
+  id: Evac1
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/evac.rsi
+    state: evac_1
+
+- type: decal
+  id: Evac2
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/evac.rsi
+    state: evac_2
+
+- type: decal
+  id: Evac3
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/evac.rsi
+    state: evac_3
+
+- type: decal
+  id: Evac4
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/evac.rsi
+    state: evac_4
+
+- type: decal
+  id: Evac5
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/evac.rsi
+    state: evac_5
+
+- type: decal
+  id: Evac6
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/evac.rsi
+    state: evac_6
+
+- type: decal
+  id: Evac7
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/evac.rsi
+    state: evac_7
+
+- type: decal
+  id: Evac8
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/evac.rsi
+    state: evac_8
+
+- type: decal
+  id: EvacAlt1
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/evac.rsi
+    state: evacalt_1
+
+- type: decal
+  id: EvacAlt2
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/evac.rsi
+    state: evacalt_2
+
+- type: decal
+  id: EvacAlt3
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/evac.rsi
+    state: evacalt_3
+
+- type: decal
+  id: EvacAlt4
+  tags: ["station", "overlay"]
+  defaultCustomColor: true
+  sprite:
+    sprite: _Funkystation/Decals/markings/evac.rsi
+    state: evacalt_4
