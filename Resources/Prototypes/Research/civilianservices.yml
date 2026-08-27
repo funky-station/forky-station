@@ -50,6 +50,7 @@
   - SurveillanceWirelessCameraMonitorCircuitboard
   - TelecomServerCircuitboard
   - HolopadMachineCircuitboard
+  - PagerServerCircuitboard # Funky
 
 - type: technology
   id: AdvancedEntertainment
@@ -66,6 +67,8 @@
     - DawInstrumentMachineCircuitboard
     - MassMediaCircuitboard
     - JukeboxCircuitBoard
+    - DocumentPrinterCircuitboard # Funky - close enough I guess
+    - PaperShredderCircuitboard # Funky - close enough I guess
 
 - type: technology
   id: MeatManipulation
@@ -101,6 +104,7 @@
   - FauxTileAstroIce
   - FauxTileAstroSnow
   - FauxTileAstroAsteroidSand
+  - FauxTileAstroAsteroidSandBorderless
   - FauxTileDesertAstroSand
   - FauxTileAstroIronsand
   - FauxTileAstroIronsandBorderless
@@ -109,7 +113,7 @@
   id: BiochemicalStasis
   name: research-technology-biochemical-stasis
   icon:
-    sprite: Structures/Machines/stasis_bed.rsi
+    sprite: _Funkystation/Structures/Machines/stasis_bed.rsi # Funky
     state: icon
   discipline: CivilianServices
   tier: 2
@@ -124,7 +128,7 @@
   id: MechanizedTreatment
   name: research-technology-mechanized-treatment
   icon:
-    sprite: Mobs/Silicon/chassis.rsi
+    sprite: _Funkystation/Mobs/Silicon/chassis.rsi # Funky
     state: medical
   discipline: CivilianServices
   tier: 2
@@ -146,6 +150,7 @@
   - AdvMopItem
   - MegaSprayBottle
   - BorgModuleAdvancedCleaning
+  - WashingMachineCircuitboard
 
 - type: technology
   id: HONKMech

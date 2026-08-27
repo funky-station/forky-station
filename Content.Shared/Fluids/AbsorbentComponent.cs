@@ -30,7 +30,7 @@ public sealed partial class AbsorbentComponent : Component
     /// How much solution we can transfer in one interaction.
     /// </summary>
     [DataField]
-    public FixedPoint2 PickupAmount = FixedPoint2.New(100);
+    public FixedPoint2 PickupAmount = FixedPoint2.New(120);
 
     /// <summary>
     /// The effect spawned when the puddle fully evaporates.
@@ -56,4 +56,13 @@ public sealed partial class AbsorbentComponent : Component
     /// </summary>
     [DataField]
     public bool UseAbsorberSolution = true;
+
+    [DataField]
+    public float FootprintCleaningRange = 0.2f;
+
+    /// <summary>
+    /// How many footprints within FootprintCleaningRange can be cleaned at once.
+    /// </summary>
+    [DataField]
+    public int MaxCleanedFootprints = 9;
 }

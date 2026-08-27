@@ -8,7 +8,7 @@
   - type: BorgTransponder
     name: engi xenoborg
     sprite:
-      sprite: Mobs/Silicon/chassis.rsi
+      sprite: _Funkystation/Mobs/Silicon/chassis.rsi # Funky
       state: xenoborg_engi
   - type: Sprite
     layers:
@@ -64,7 +64,7 @@
   - type: BorgTransponder
     name: heavy xenoborg
     sprite:
-      sprite: Mobs/Silicon/chassis.rsi
+      sprite: _Funkystation/Mobs/Silicon/chassis.rsi # Funky
       state: xenoborg_heavy
   - type: Sprite
     layers:
@@ -90,6 +90,7 @@
     baseSprintSpeed : 2.2
   - type: MovementAlwaysTouching # it flies in space by pure will power
   - type: FlashImmunity
+    showInExamine: false
   - type: MobThresholds # tankier
     thresholds:
       0: Alive
@@ -156,7 +157,7 @@
   - type: BorgTransponder
     name: scout xenoborg
     sprite:
-      sprite: Mobs/Silicon/chassis.rsi
+      sprite: _Funkystation/Mobs/Silicon/chassis.rsi # Funky
       state: xenoborg_scout
   - type: Sprite
     layers:
@@ -174,6 +175,7 @@
       collection: FootstepHoverXenoborg
   - type: MovementAlwaysTouching # it flies in space with tiny thrusters
   - type: FlashImmunity
+    showInExamine: false
   - type: BorgChassis
     maxModules: 4
     hasMindState: xenoborg_scout_e
@@ -210,7 +212,7 @@
   - type: BorgTransponder
     name: stealth xenoborg
     sprite:
-      sprite: Mobs/Silicon/chassis.rsi
+      sprite: _Funkystation/Mobs/Silicon/chassis.rsi # Funky
       state: xenoborg_stealth
   - type: Sprite
     layers:

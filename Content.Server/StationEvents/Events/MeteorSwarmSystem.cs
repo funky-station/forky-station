@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Server._MACRO.Announcements;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Station.Systems;
@@ -14,12 +15,14 @@ using Robust.Shared.Random;
 
 namespace Content.Server.StationEvents.Events;
 
-public sealed class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmComponent>
+public sealed partial class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmComponent>
 {
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private StationSystem _station = default!;
+
+    [Dependency] private AnnouncerManager _announcer = default!; // Macrocosm edit
 
     protected override void Added(EntityUid uid, MeteorSwarmComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
@@ -33,7 +36,10 @@ public sealed class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmComponent>
         if (component.Announcement is { } locId)
             _chat.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(locId), playSound: false, colorOverride: Color.Gold);
 
-        _audio.PlayGlobal(component.AnnouncementSound, allPlayersInGame, true);
+        // Macrocosm edit start - announcer variation
+        if (component.AnnouncementSound is { } soundId && _announcer.TryGetAnnouncerSound(soundId, out var sound))
+            _audio.PlayGlobal(sound, allPlayersInGame, true);
+        // Macrocosm edit end
     }
 
     protected override void ActiveTick(EntityUid uid, MeteorSwarmComponent component, GameRuleComponent gameRule, float frameTime)
@@ -59,14 +65,23 @@ public sealed class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmComponent>
 
         var center = playableArea.Center;
 
+        IRobustRandom random;
+        if (component.NonDirectional)
+        {
+            random = RobustRandom;
+        }
+        else
+        {
+            random = new RobustRandom();
+            random.SetSeed(uid.Id);
+        }
+
         var meteorsToSpawn = component.MeteorsPerWave.Next(RobustRandom);
         for (var i = 0; i < meteorsToSpawn; i++)
         {
             var spawnProto = RobustRandom.Pick(component.Meteors);
 
-            var angle = component.NonDirectional
-                ? RobustRandom.NextAngle()
-                : new Random(uid.Id).NextAngle();
+            var angle = random.NextAngle();
 
             var offset = angle.RotateVec(new Vector2((maximumDistance - minimumDistance) * RobustRandom.NextFloat() + minimumDistance, 0));
 

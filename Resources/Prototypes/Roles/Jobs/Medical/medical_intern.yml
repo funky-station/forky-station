@@ -6,12 +6,12 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 10h
+      #time: 10h
+      time: 35h # Funky
       inverted: true # stop playing intern if you're good at med!
   startingGear: MedicalInternGear
   icon: "JobIconMedicalIntern"
   supervisors: job-supervisors-medicine
-  canBeAntag: false
   access:
   - Medical
   - Maintenance
@@ -28,7 +28,7 @@
   id: MedicalInternChameleonOutfit
   job: MedicalIntern
   equipment:
-    head: ClothingHeadHatBeretMedic
+    head: FuClothingHeadHatInternMedical # ClothingHeadHatBeretMedic  funky - fuck department berets
     eyes: ClothingEyesHudMedical
     mask: ClothingMaskSterile
     neck: ClothingNeckStethoscope

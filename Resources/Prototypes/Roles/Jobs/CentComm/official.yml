@@ -7,14 +7,14 @@
   startingGear: CentcommGear
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-hos
-  canBeAntag: false
   accessGroups:
   - AllAccess
   access:
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    #implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ DeathRattleImplantCentcomm ] # Funky - Removed mindshields
 
 - type: startingGear
   id: CentcommGear

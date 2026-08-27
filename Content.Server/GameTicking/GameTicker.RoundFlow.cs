@@ -29,9 +29,9 @@ namespace Content.Server.GameTicking
 {
     public sealed partial class GameTicker
     {
-        [Dependency] private readonly DiscordWebhook _discord = default!;
-        [Dependency] private readonly RoleSystem _role = default!;
-        [Dependency] private readonly ITaskManager _taskManager = default!;
+        [Dependency] private DiscordWebhook _discord = default!;
+        [Dependency] private RoleSystem _role = default!;
+        [Dependency] private ITaskManager _taskManager = default!;
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -119,7 +119,7 @@ namespace Content.Server.GameTicking
             }
 
             if (CurrentPreset?.MapPool != null &&
-                _prototypeManager.TryIndex<GameMapPoolPrototype>(CurrentPreset.MapPool, out var pool) &&
+                ProtoMan.TryIndex<GameMapPoolPrototype>(CurrentPreset.MapPool, out var pool) &&
                 !pool.Maps.Contains(mainStationMap.ID))
             {
                 var msg = Loc.GetString("game-ticker-start-round-invalid-map",
@@ -437,6 +437,7 @@ namespace Content.Server.GameTicking
             SendStatusToAll();
             ReqWindowAttentionAll();
             UpdateLateJoinStatus();
+            _announcer.RandomizeAnnouncer(); // Macrocosm edit
             AnnounceRound();
             UpdateInfoText();
             SendRoundStartedDiscordMessage();
@@ -724,8 +725,6 @@ namespace Content.Server.GameTicking
 
             EntityManager.FlushEntities();
 
-            _mapManager.Restart();
-
             _banManager.Restart();
 
             _gameMapManager.ClearSelectedMap();
@@ -791,7 +790,7 @@ namespace Content.Server.GameTicking
         {
             if (CurrentPreset == null) return;
 
-            var options = _prototypeManager.EnumeratePrototypes<RoundAnnouncementPrototype>().ToList();
+            var options = ProtoMan.EnumeratePrototypes<RoundAnnouncementPrototype>().ToList();
 
             if (options.Count == 0)
                 return;
@@ -801,8 +800,10 @@ namespace Content.Server.GameTicking
             if (proto.Message != null)
                 _chatSystem.DispatchGlobalAnnouncement(Loc.GetString(proto.Message), playSound: true);
 
-            if (proto.Sound != null)
-                _audio.PlayGlobal(proto.Sound, Filter.Broadcast(), true);
+            // Macrocosm edit start - announcer overrides
+            if (proto.Sound != null && _announcer.TryGetAnnouncerSound(proto.Sound.Value, out var sound))
+                _audio.PlayGlobal(sound, Filter.Broadcast(), true);
+            // Macrocosm edit end - announcer overrides
         }
 
         private async void SendRoundStartedDiscordMessage()

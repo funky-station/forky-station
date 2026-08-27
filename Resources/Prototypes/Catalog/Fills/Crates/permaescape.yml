@@ -221,8 +221,8 @@
             weight: 0.20
           - id: SyndicateSponge
             weight: 0.20
-        - id: MindShieldImplanter
-          prob: 0.20
+        #- id: MindShieldImplanter # Funky - Removing mindshields
+        #  prob: 0.20
         - id: ClothingHandsGlovesConducting # funny
           prob: 0.30
         - id: CigPackSyndicate

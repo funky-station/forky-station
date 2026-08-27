@@ -1,6 +1,6 @@
-- type: entity
-  id: GravityGenerator
+﻿- type: entity
   parent: BaseMachinePowered
+  id: GravityGenerator
   name: gravity generator
   description: It's what keeps you to the floor.
   placement:
@@ -79,11 +79,17 @@
     color: "#a8ffd9"
   - type: StaticPrice
     price: 5000
+  # Start funky changes
+  - type: ScoreThiefPriceModifier
+    reason: "scorethief-modifier-critical-infrastructure"
+    multiplier: 0
+  # End funky changes
 
 - type: entity
-  id: GravityGeneratorMini
   parent: [ GravityGenerator, ConstructibleMachine ]
+  id: GravityGeneratorMini
   name: mini gravity generator
+  suffix: Charged
   description: It's what keeps you to the floor, now in fun size.
   components:
   - type: StationAiWhitelist
@@ -139,3 +145,11 @@
     lightRadiusMax: 2.5
   - type: StaticPrice
     price: 2000
+
+- type: entity
+  id: GravityGeneratorMiniUncharged
+  parent: GravityGeneratorMini
+  suffix: Uncharged
+  components:
+  - type: PowerCharge
+    charge: 0

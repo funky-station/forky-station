@@ -12,7 +12,7 @@
         Poison: -0.001
         Blunt: -0.001
   - type: Sprite
-    sprite: Structures/Machines/stasis_bed.rsi
+    sprite: _Funkystation/Structures/Machines/stasis_bed.rsi # Funky
     noRot: true
     layers:
     - state: icon
@@ -30,8 +30,9 @@
     powerLoad: 1000
   - type: ExtensionCableReceiver
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -65,3 +66,4 @@
     guides:
     - MedicalDoctor
   - type: PowerSwitch
+  - type: AmbientMusicMarkerMedical

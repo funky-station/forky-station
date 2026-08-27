@@ -1,0 +1,17 @@
+﻿- type: entity
+  parent: BaseFlatpack
+  id: FlatpackWashingMachine
+  name: Nanotrasen Commercial Model-C washing machine flatpack
+  description: An industrial-grade washing machine, mechanically compressed into a small flatpack.
+  components:
+  - type: Flatpack
+    entity: WashingMachine
+
+- type: entity
+  parent: BaseFlatpack
+  id: FlatpackDocumentPrinter
+  name: Model XF-880 document printer flatpack
+  description: A robust piece of bureaucratic equipment, mechanically compressed into a small flatpack.
+  components:
+  - type: Flatpack
+    entity: DocumentPrinterPublic

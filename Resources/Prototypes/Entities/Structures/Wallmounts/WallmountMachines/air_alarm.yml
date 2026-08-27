@@ -77,39 +77,35 @@
   - type: Appearance
   - type: WiresVisuals
   - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: _Funkystation/Structures/Wallmounts/air_monitors.rsi
     layers:
     - state: alarmp
       map: ["airAlarmBase"]
     - state: alarm0
       map: ["airAlarmState"] # TODO: fire alarm enum
+      shader: unshaded # funkystation
     - state: alarmx
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Construction
     graph: AirAlarm
     node: air_alarm
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 200
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 100
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalGlassBreak
-              params:
-                volume: -4
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+          params:
+            volume: -4
   - type: GuideHelp
     guides:
     - AirAlarms
@@ -122,7 +118,7 @@
   description: An air alarm. Doesn't look like it'll be alarming air any time soon.
   components:
   - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: _Funkystation/Structures/Wallmounts/air_monitors.rsi
     layers:
     - state: alarm_b1
       map: [ "enum.ConstructionVisuals.Layer" ]
@@ -140,23 +136,17 @@
     anchored: true
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 20
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 15
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalGlassBreak
-              params:
-                volume: -4
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+          params:
+            volume: -4
 
 - type: entity
   id: AirAlarmXeno

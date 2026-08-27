@@ -97,6 +97,7 @@
     intensitySlope: 5
     canCreateVacuum: false
     deleteAfterExplosion: false
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: ApcPowerReceiver
     powerLoad: 5
   - type: PowerState

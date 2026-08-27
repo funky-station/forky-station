@@ -107,16 +107,15 @@
       Nuke: !type:ContainerSlot
   - type: StealTarget
     stealGroup: NuclearBomb
-  - type: Tag
-    tags:
-    - GhostOnlyWarp
   - type: WarpPoint
     follow: true
     location: nuclear bomb
-    blacklist:
-      tags:
-      - GhostOnlyWarp
   - type: FTLSmashImmune
+  # Start funky changes
+  - type: ScoreThiefPriceModifier
+    reason: "scorethief-modifier-critical-infrastructure"
+    multiplier: 0
+  # End funky changes
 
 - type: entity
   parent: NuclearBomb
@@ -129,7 +128,7 @@
     bodyType: Dynamic
 
 - type: entity
-  parent: StorageTank
+  parent: StorageTankBig
   id: NuclearBombKeg
   name: nuclear fission explosive
   suffix: keg
@@ -175,12 +174,11 @@
         - MachineMask
         layer:
         - WallLayer
-  - type: SolutionContainerManager
-    solutions:
-      tank:
-        reagents:
-        - ReagentId: NuclearCola
-          Quantity: 3000
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: NuclearCola
+        Quantity: 3840
   - type: ReagentTank
     transferAmount: 100
   - type: StaticPrice

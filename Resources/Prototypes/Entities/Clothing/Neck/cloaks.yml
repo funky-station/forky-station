@@ -27,7 +27,7 @@
   description: An exquisite dark and red cloak fitting for those who can assert dominance over wrongdoers. Take a stab at being civil in prosecution!
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Cloaks/hos.rsi
+    sprite: _Funkystation/Clothing/Neck/Cloaks/hos.rsi
   - type: StealTarget
     stealGroup: HeadCloak
 
@@ -68,10 +68,10 @@
   parent: [ClothingNeckBase, BaseCommandContraband]
   id: ClothingNeckCloakQm
   name: quartermaster's cloak
-  description: A strong brown cloak with a reflective stripe, while not as fancy as others, it does show your managing skills.
+  description: A decadent brown and gold cape, with a hood for space rain.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Cloaks/qm.rsi
+    sprite: _Funkystation/Clothing/Neck/qm.rsi
   - type: StealTarget
     stealGroup: HeadCloak
 

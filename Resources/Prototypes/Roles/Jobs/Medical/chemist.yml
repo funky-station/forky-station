@@ -25,7 +25,7 @@
   id: ChemistChameleonOutfit
   job: Chemist
   equipment:
-    head: ClothingHeadHatBeretMedic
+    head: FuClothingHeadHatScrubcapBlack #ClothingHeadHatBeretMedic funky - fuck department berets
     mask: ClothingMaskSterile
     neck: ClothingNeckStethoscope
     outerClothing: ClothingOuterCoatLabChem

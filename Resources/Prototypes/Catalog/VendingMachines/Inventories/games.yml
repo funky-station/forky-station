@@ -4,6 +4,7 @@
     DiceBag: 6
     Paper: 8
     d6Dice: 8
+    PokerChip10000: 10 #Funky Change - I have a gambling addiction
     ChessBoard: 1
     BackgammonBoard: 1
     ParchisBoard: 1
@@ -18,6 +19,7 @@
     BooksBag: 3
     Magic9Ball: 2
   contrabandInventory:
+    LuxuryPen: 1
     Basketball: 1
     FoodSnackBoritos: 3
     DrinkSpaceMountainWindCan: 3

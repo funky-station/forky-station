@@ -274,12 +274,6 @@ public sealed partial class NuclearReactorComponent : Component
     public float OutletRot = 90;
 
     /// <summary>
-    /// Name of the prototype of the arrows that indicate flow on inspect
-    /// </summary>
-    [DataField]
-    public EntProtoId ArrowPrototype = "ReactorFlowArrow";
-
-    /// <summary>
     /// Name of the prototype of the pipes the reactor uses to connect to the pipe network
     /// </summary>
     [DataField]

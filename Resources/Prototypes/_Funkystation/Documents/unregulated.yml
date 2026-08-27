@@ -1,0 +1,17 @@
+﻿# Revealed only while the manager wire is cut
+
+- type: document
+  id: DocXOMurder
+  name: doc-xo-murder-name
+  description: doc-xo-murder-desc
+  category: DocCatUnregulatedForms
+  paperPrototype: Paper
+  content: doc-xo-murder-content
+
+- type: document
+  id: DocClownAAForm
+  name: doc-clown-aa-form-name
+  description: doc-clown-aa-form-desc
+  category: DocCatUnregulatedForms
+  paperPrototype: Paper
+  content: doc-clown-aa-form-content

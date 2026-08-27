@@ -1314,11 +1314,6 @@
   description: flavor-complex-punishment
 
 - type: flavor
-  id: forbidden
-  flavorType: Complex
-  description: flavor-complex-forbidden
-
-- type: flavor
   id: holy
   flavorType: Base
   description: flavor-base-holy
@@ -1412,6 +1407,11 @@
   id: paper
   flavorType: Complex
   description: flavor-complex-paper
+
+- type: flavor
+  id: cotton
+  flavorType: Complex
+  description: flavor-complex-cotton
 
 - type: flavor
   id: compressed-meat

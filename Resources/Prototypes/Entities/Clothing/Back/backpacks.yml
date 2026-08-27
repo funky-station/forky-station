@@ -147,7 +147,7 @@
   description: It's a backpack made of all-natural fibers.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Backpacks/hydroponics.rsi
+    sprite: _Funkystation/Clothing/Back/Backpacks/hydroponics.rsi
 
 - type: entity
   parent: ClothingBackpack

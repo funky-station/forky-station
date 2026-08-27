@@ -55,9 +55,9 @@
   description: A beret with the security department's insignia. For officers that are more inclined towards style than safety.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/beret_security.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/security_beret.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/beret_security.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/security_beret.rsi
   - type: Tag
     tags:
     - ClothMade
@@ -74,9 +74,9 @@
   description: A campaign hat for the Nanotrasen Troopers. It's supposed to come with a case, too...
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/security_trooper_hat.rsi
+    sprite:  _Funkystation/Clothing/Head/Hats/security.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/security_trooper_hat.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/security.rsi
   - type: Tag
     tags:
     - ClothMade
@@ -161,9 +161,9 @@
   description: A black beret with a commander's rank emblem. For officers that are more inclined towards style than safety.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/beret_hos.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/hos_beret.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/beret_hos.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/hos_beret.rsi
   - type: Tag
     tags:
     - PetWearable
@@ -180,9 +180,9 @@
   description: A corporate-blue beret with a warden's rank emblem. For officers that are more inclined towards style than safety.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/beret_warden.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/warden_beret.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/beret_warden.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/warden_beret.rsi
   - type: Tag
     tags:
     - PetWearable
@@ -368,7 +368,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadHatFedoraBrown
   id: ClothingHeadHatFedoraGrey
   name: grey fedora
   description: A grey fedora.
@@ -377,10 +377,17 @@
     sprite: Clothing/Head/Hats/greyfedora.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/greyfedora.rsi
-  - type: Tag
-    tags:
-    - PetWearable
-    - CorgiWearable
+
+- type: entity
+  parent: ClothingHeadHatFedoraBrown
+  id: ClothingHeadHatFedoraPress
+  name: press fedora
+  description: It has a little note stuck in the band saying "PRESS". Practically an all-access pass!
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/presshat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/presshat.rsi
 
 - type: entity
   parent: ClothingHeadBase
@@ -423,9 +430,9 @@
   description: A stylish cap worn by the Head of Security. Shows the officers who's in charge.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/hoshat.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/hos.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/hoshat.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/hos.rsi
   - type: Tag
     tags:
     - PetWearable
@@ -496,6 +503,9 @@
     tags:
     - PetWearable
     - CorgiWearable
+  - type: AddAccentClothing
+    accent: ReplacementAccent
+    replacement: pirate
 
 - type: entity
   parent: ClothingHeadBase
@@ -531,7 +541,6 @@
   - type: Tag
     tags:
     - PetWearable
-    - CorgiWearable
     - ClothMade
     - WhitelistChameleon
 
@@ -736,7 +745,6 @@
   - type: Tag
     tags:
     - PetWearable
-    - CorgiWearable
     - ClothMade
     - WhitelistChameleon
 
@@ -747,9 +755,9 @@
   description: This hat emphasizes that you are THE LAW.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/warden.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/warden.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/warden.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/warden.rsi
   - type: StealTarget
     stealGroup: ClothingHeadHatWarden
   - type: Tag
@@ -771,7 +779,6 @@
   - type: Tag
     tags:
     - PetWearable
-    - CorgiWearable
     - WhitelistChameleon
     - ClothMade
     - Recyclable
@@ -836,7 +843,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatTrucker
   name: trucker hat
-  description: Formerly Chuck's, this hat is yours now.
+  description: Formerly Chuck's, this hat is yours now. Not really, these hats are mass produced.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/truckershat.rsi
@@ -1045,6 +1052,9 @@
     sprite: Clothing/Head/Hats/piratetricord.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/piratetricord.rsi
+  - type: AddAccentClothing
+    accent: ReplacementAccent
+    replacement: pirate
 
 - type: entity
   parent: ClothingHeadBase
@@ -1441,6 +1451,7 @@
         Heat: 1
   - type: Damageable
     damageModifierSet: Wood
+  - type: Injurable
   - type: Appearance
   - type: FireVisuals
     sprite: Effects/fire.rsi
@@ -1453,9 +1464,9 @@
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
-            Ash:
-              min: 1
-              max: 1
+          Ash:
+            min: 1
+            max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
 
@@ -1525,3 +1536,14 @@
     tags:
     - PetWearable
     - CorgiWearable
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatMitreClown
+  name: honkmother mitre
+  description: It's hard for parishoners to see a banana peel on the floor when they're looking up at your glorious chapeau.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/mitre_clown.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/mitre_clown.rsi

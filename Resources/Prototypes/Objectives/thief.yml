@@ -4,7 +4,7 @@
   id: BaseThiefObjective
   components:
   - type: Objective
-    issuer: objective-issuer-thief
+    issuer: Thief
   - type: RoleRequirement
     roles:
     - ThiefRole
@@ -176,7 +176,6 @@
     minCollectionSize: 7
     maxCollectionSize: 12
     verifyMapExistence: false
-    checkStealAreas: false
   - type: Objective
     difficulty: 0.3
 
@@ -563,6 +562,6 @@
   - type: Objective
     difficulty: 1.3
     icon:
-      sprite: Structures/Furniture/chairs.rsi
+      sprite: _Funkystation/Structures/Furniture/chairs.rsi # Funky
       state: shuttle
   - type: EscapeShuttleCondition

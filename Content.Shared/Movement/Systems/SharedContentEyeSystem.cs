@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._ES.Camera;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Managers;
 using Content.Shared.Camera;
@@ -14,9 +15,9 @@ namespace Content.Shared.Movement.Systems;
 /// <summary>
 /// Lets specific sessions scroll and set their zoom directly.
 /// </summary>
-public abstract class SharedContentEyeSystem : EntitySystem
+public abstract partial class SharedContentEyeSystem : EntitySystem
 {
-    [Dependency] private readonly ISharedAdminManager _admin = default!;
+    [Dependency] private ISharedAdminManager _admin = default!;
 
     // Admin flags required to ignore normal eye restrictions.
     public const AdminFlags EyeFlag = AdminFlags.Debug;
@@ -25,7 +26,7 @@ public abstract class SharedContentEyeSystem : EntitySystem
     public static readonly Vector2 DefaultZoom = Vector2.One;
     public static readonly Vector2 MinZoom = DefaultZoom * (float)Math.Pow(ZoomMod, -3);
 
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
 
     public override void Initialize()
     {
@@ -159,6 +160,20 @@ public abstract class SharedContentEyeSystem : EntitySystem
 
         _eye.SetOffset(eye, ev.Offset + evRelayed.Offset, eye);
     }
+
+    // ES START
+    public void UpdateEyeRotation(Entity<EyeComponent> eye)
+    {
+        var baseAngle = Angle.Zero;
+        if (TryComp<ContentEyeComponent>(eye, out var contentEye))
+            baseAngle = contentEye.BaseRotation;
+
+        var ev = new ESGetEyeRotationEvent();
+        RaiseLocalEvent(eye, ref ev);
+
+        _eye.SetRotation(eye, baseAngle + ev.Rotation, eye);
+    }
+    // ES END
 
     public void UpdatePvsScale(EntityUid uid, ContentEyeComponent? contentEye = null, EyeComponent? eye = null)
     {
