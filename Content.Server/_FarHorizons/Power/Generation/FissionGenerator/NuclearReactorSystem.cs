@@ -526,10 +526,10 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
         var announcement = Loc.GetString("reactor-meltdown-announcement");
         var sender = Loc.GetString("reactor-meltdown-announcement-sender");
         _chatSystem.DispatchStationAnnouncement(stationUid ?? uid, announcement, sender,
-            paAnnouncements, paAnnouncements ? comp.MeltdownSound : null, Color.Orange); // funky
+            paAnnouncements, paAnnouncements ? comp.MeltdownSound.MonoSound : null, Color.Orange); // funky
 
         if (!paAnnouncements) // funky
-            _soundSystem.PlayGlobalOnStation(uid, _audio.ResolveSound(comp.MeltdownSound));
+            _soundSystem.PlayGlobalOnStation(uid, _audio.ResolveSound(comp.MeltdownSound.StereoSound));
 
         comp.Melted = true;
         var MeltdownBadness = 0f;

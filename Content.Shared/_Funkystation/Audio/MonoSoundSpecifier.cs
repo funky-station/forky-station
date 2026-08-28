@@ -21,4 +21,10 @@ public sealed partial class MonoSoundSpecifier
 
     [DataField(required: true)]
     public SoundSpecifier MonoSound { get; set; }
+
+    public MonoSoundSpecifier(SoundSpecifier stereoSound, SoundSpecifier monoSound)
+    {
+        StereoSound = stereoSound;
+        MonoSound = monoSound;
+    }
 }
