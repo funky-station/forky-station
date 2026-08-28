@@ -42,9 +42,9 @@
   productEntity: ClothingShoesChameleonNoSlips
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 1
+    Telecrystal: 5
   cost:
-    Telecrystal: 2
+    Telecrystal: 10
   categories:
   - UplinkWearables
 
