@@ -4,11 +4,12 @@ using Content.Shared.Interaction;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Content.Shared.Tools.Components;
+using Content.Shared._MACRO.Tools.Components; // macro
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Utility;
-using Content.Shared._MACRO.Tools.Components; // macro
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Tools.Systems;
 
@@ -75,7 +76,7 @@ public abstract partial class SharedToolSystem
         var tileRef = _maps.GetTileRef(gridUid, mapGrid, clickLocation);
         var tileDef = (ContentTileDefinition) _tileDefManager[tileRef.Tile.TypeId];
 
-        if (!tool.Qualities.ContainsAny(tileDef.DeconstructTools))
+        if (!tool.Qualities.Overlaps(tileDef.DeconstructTools))
             return false;
 
         if (string.IsNullOrWhiteSpace(tileDef.BaseTurf))
@@ -103,10 +104,10 @@ public abstract partial class SharedToolSystem
         return true;
     }
 
-    public bool TryDeconstructWithToolQualities(TileRef tileRef, PrototypeFlags<ToolQualityPrototype> withToolQualities)
+    public bool TryDeconstructWithToolQualities(TileRef tileRef, HashSet<ProtoId<ToolQualityPrototype>> withToolQualities)
     {
         var tileDef = (ContentTileDefinition) _tileDefManager[tileRef.Tile.TypeId];
-        if (withToolQualities.ContainsAny(tileDef.DeconstructTools))
+        if (withToolQualities.Overlaps(tileDef.DeconstructTools))
         {
             // don't do this on the client or else the tile entity spawn mispredicts and looks horrible
             return _net.IsClient || _tiles.DeconstructTile(tileRef);

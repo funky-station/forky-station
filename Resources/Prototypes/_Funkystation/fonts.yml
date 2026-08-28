@@ -1,0 +1,11 @@
+﻿- type: font
+  id: HandwritingCasual
+  path: /Fonts/_Funkystation/ReenieBeanie/ReenieBeanie-Regular.ttf
+
+- type: font
+  id: HandwritingNeat
+  path: /Fonts/_Funkystation/Tangerine/Tangerine_Regular.ttf
+
+- type: font
+  id: HandwritingMessy
+  path: /Fonts/_Funkystation/Lacquer/Lacquer-Regular.ttf

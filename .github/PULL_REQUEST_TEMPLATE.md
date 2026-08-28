@@ -3,6 +3,15 @@
 ## About the PR
 <!-- What did you change? -->
 
+### How to enable / disable
+<!--
+    According to our Conventions, all new content added should be easy for a downstream to disable or opt-out of.
+    Content can be opt-out (or opt-in) through the use of CVars, simple YML changes, or simply by not using a feature (if it is made optional in some way, like a mapped entity or an admin-only commmand).
+
+    Explain below how to enable or disable this content. If this is a bugfix, tweak, or a "non-content" change,
+    this section can be omitted.
+-->
+
 ## Why / Balance
 <!-- Discuss how this would affect game balance or explain why it was changed. Link any relevant discussions or issues. -->
 

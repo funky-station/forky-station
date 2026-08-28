@@ -1,0 +1,22 @@
+﻿- type: job
+  id: Prisoner
+  name: job-name-prisoner
+  description: job-description-prisoner
+  playTimeTracker: JobPrisoner
+  startingGear: PrisonerGear
+  icon: "JobIconPrisoner"
+  supervisors: job-supervisors-nobody
+
+- type: startingGear
+  id: PrisonerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPrisoner
+    shoes: ClothingShoesColorBlack
+    id: PrisonerIDCard
+
+- type: chameleonOutfit
+  id: PrisonerChameleonOutfit
+  job: Prisoner
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPrisoner
+    shoes: ClothingShoesColorBlack

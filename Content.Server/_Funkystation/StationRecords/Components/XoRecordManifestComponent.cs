@@ -2,7 +2,7 @@
 using Content.Server._Funkystation.StationRecords.Systems;
 using Content.Server.CrewManifest;
 using Content.Server.CriminalRecords.Systems;
-using Content.Server.StationRecords.Systems;
+using Content.Server.StationRecords;
 using Content.Shared.StationRecords;
 
 namespace Content.Server._Funkystation.StationRecords.Components;

@@ -124,7 +124,7 @@
   description: service-job-fire-drill-description
   startAnnounce: service-job-fire-drill-start
   sprite:
-    sprite: Structures/Doors/Airlocks/Standard/firelock.rsi
+    sprite: Structures/Doors/Airlocks/Standard/firelock-base.rsi # Funky - Respritening
     state: closed
 
 - type: serviceJob

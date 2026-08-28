@@ -3,6 +3,7 @@ using Content.Client.Eye;
 using Content.Shared._ES.Viewcone;
 using Content.Shared._ES.Viewcone.Components;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.SubFloor; // funky
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
@@ -103,7 +104,7 @@ public sealed partial class ESViewconeSetAlphaOverlay : Overlay
             if (comp.Source == ent)
                 continue;
 
-            if (!comp.OccludeIfAnchored && xform.Anchored)
+            if (!comp.OccludeIfAnchored && xform.Anchored && !_ent.HasComponent<SubFloorHideComponent>(uid)) // Funky, added check to occlude subfloor items
                 continue;
 
             var entPos = _xform.GetWorldPosition(xform);
