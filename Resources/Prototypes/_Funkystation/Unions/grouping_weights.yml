@@ -13,29 +13,35 @@
   id: MedicalUnion
   department: Medical
   minMembers: 3
-  mergesWith: [ ScienceUnion, EngineeringUnion, CargoUnion, ServiceUnion ]
+  mergesWith: [ ScienceUnion, EngineeringUnion, CargoUnion, ServiceUnion, CivilianUnion ]
 
 - type: unionGrouping
   id: ScienceUnion
   department: Science
   minMembers: 3
-  mergesWith: [ MedicalUnion, EngineeringUnion, CargoUnion, ServiceUnion ]
+  mergesWith: [ MedicalUnion, EngineeringUnion, CargoUnion, ServiceUnion, CivilianUnion ]
 
 - type: unionGrouping
   id: EngineeringUnion
   department: Engineering
   minMembers: 3
-  mergesWith: [ CargoUnion, MedicalUnion, ScienceUnion, ServiceUnion ]
+  mergesWith: [ CargoUnion, MedicalUnion, ScienceUnion, ServiceUnion, CivilianUnion ]
 
 - type: unionGrouping
   id: CargoUnion
   department: Cargo
   minMembers: 3
-  mergesWith: [ ServiceUnion, EngineeringUnion, MedicalUnion, ScienceUnion ]
+  mergesWith: [ ServiceUnion, EngineeringUnion, MedicalUnion, ScienceUnion, CivilianUnion ]
 
 - type: unionGrouping
   id: ServiceUnion
-  department: Civilian
+  department: Service
   displayInitial: S
   minMembers: 3
-  mergesWith: [ CargoUnion, EngineeringUnion, MedicalUnion, ScienceUnion ]
+  mergesWith: [ CargoUnion, EngineeringUnion, MedicalUnion, ScienceUnion, CivilianUnion ]
+
+- type: unionGrouping
+  id: CivilianUnion
+  department: Civilian
+  minMembers: 3
+  mergesWith: [ ServiceUnion, CargoUnion, EngineeringUnion, MedicalUnion, ScienceUnion ]

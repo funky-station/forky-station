@@ -160,7 +160,7 @@ public sealed partial class UnionSelectorSystem : EntitySystem
         }
 
         if (leaderless.Count > 0)
-            AssignFallbackLeaders(unionsComp, leaderless);
+            AssignFallbackLeaders(leaderless);
 
         foreach (var union in unionsComp.Unions)
         {
@@ -173,36 +173,16 @@ public sealed partial class UnionSelectorSystem : EntitySystem
     
     // take a scenario like, ok, theres a union thats both sci and engi, but no one became the leader. right?
     // this essentially picks one over the other, to be the head of the new combined union, or force someone LOL
-    private void AssignFallbackLeaders(StationUnionsComponent unionsComp, List<StationUnion> leaderless)
+    private void AssignFallbackLeaders(List<StationUnion> leaderless)
     {
-        var standInLeaders = unionsComp.Unions
-            .Where(u => u.Leader != EntityUid.Invalid)
-            .Select(u => u.Leader)
-            .Distinct()
-            .ToList();
-
         foreach (var union in leaderless)
         {
-            var pool = standInLeaders.Count > 0 ? standInLeaders : union.Members.Keys.ToList();
-            if (pool.Count == 0)
+            if (union.Members.Count == 0)
                 continue;
 
-            var chosen = _random.Pick(pool);
+            var chosen = _random.Pick(union.Members.Keys.ToList());
             union.Leader = chosen;
-            standInLeaders.Add(chosen);
-
-            if (!union.Members.TryGetValue(chosen, out var value))
-            {
-                value = new UnionMemberInfo
-                {
-                    EligibleForLeader = true,
-                    GroupingId = union.GroupingIds.FirstOrDefault() ?? string.Empty,
-                };
-                
-                union.Members[chosen] = value;
-            }
-
-            GiveUnionLeaderItems(chosen, value.GroupingId);
+            GiveUnionLeaderItems(chosen, union.Members[chosen].GroupingId);
         }
     }
 
@@ -372,6 +352,48 @@ public sealed partial class UnionSelectorSystem : EntitySystem
         return true;
     }
 
+    public bool TryGetUnionForGrouping(string groupingId, out StationUnion? union)
+    {
+        union = null;
+        if (string.IsNullOrEmpty(groupingId) || !TryGetStationUnionsComponent(out var unionsComp))
+            return false;
+
+        union = unionsComp.Unions.FirstOrDefault(u => u.GroupingIds.Contains(groupingId));
+        return union != null;
+    }
+
+    public bool TrySetUnionLeader(StationUnion union, EntityUid newLeader)
+    {
+        if (!union.Members.ContainsKey(newLeader))
+            return false;
+
+        var previousLeader = union.Leader;
+        union.Leader = newLeader;
+
+        RefreshLeaderStatus(newLeader);
+        if (previousLeader != EntityUid.Invalid && previousLeader != newLeader)
+            RefreshLeaderStatus(previousLeader);
+
+        return true;
+    }
+
+    private void RefreshLeaderStatus(EntityUid member)
+    {
+        if (!TryGetStationUnionsComponent(out var unionsComp))
+            return;
+
+        if (unionsComp.Unions.Any(u => u.Leader == member))
+        {
+            EnsureComp<UnionLeaderComponent>(member);
+            RemComp<UnionMemberComponent>(member);
+        }
+        else
+        {
+            RemComp<UnionLeaderComponent>(member);
+            EnsureComp<UnionMemberComponent>(member);
+        }
+    }
+
     private void GiveUnionLeaderItems(EntityUid playerMobUid, string groupingId)
     {
         UnionRoleItemSetPrototype? itemSet = null;
@@ -392,13 +414,17 @@ public sealed partial class UnionSelectorSystem : EntitySystem
 
         foreach (var itemSetId in itemSet.Items)
         {
-            AddItemsToStorage(playerMobUid, itemSetId);
+            AddItemsToStorage(playerMobUid, itemSetId, groupingId);
         }
     }
 
-    private void AddItemsToStorage(EntityUid playerMobUid, EntProtoId item)
+    private void AddItemsToStorage(EntityUid playerMobUid, EntProtoId item, string groupingId)
     {
         var spawned = Spawn(item, Transform(playerMobUid).Coordinates);
+
+        if (TryComp<MegaphoneComponent>(spawned, out var megaphone))
+            megaphone.GroupingId = groupingId;
+
         // try to stash in the player's backpack; falls back to dropping at feet
         // if anyone knows a better way lmk..
         if (_inventorySystem.TryGetSlotEntity(playerMobUid, "back", out var backpack)
