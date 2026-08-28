@@ -142,7 +142,8 @@ namespace Content.Server.Communications
             _uiSystem.SetUiState(uid, CommunicationsConsoleUiKey.Key, new CommunicationsConsoleInterfaceState(
                 CanAnnounce(comp),
                 CanCallOrRecall(comp),
-                _roundEndSystem.ExpectedCountdownEnd
+                _roundEndSystem.ExpectedCountdownEnd,
+                comp.CanBypassPA && _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements) // funky
             ));
         }
 
@@ -207,8 +208,7 @@ namespace Content.Server.Communications
             CommunicationsConsoleAnnounceMessage message)
         {
             // funky - redirect comms console announcements to PA speakers
-            // TODO: if (!message.BypassPA && _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements))
-            if (_cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements))
+            if (!message.BypassPA && _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements))
             {
                 AnnounceCommsConsoleViaPASystem(uid, comp, message);
                 return;

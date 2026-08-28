@@ -51,11 +51,11 @@ public sealed partial class CommunicationsConsoleBoundUserInterface(EntityUid ow
         SendMessage(new CommunicationsConsoleSelectAlertLevelMessage(level));
     }
 
-    public void RadioAnnounceButtonPressed(string message)
+    public void RadioAnnounceButtonPressed(string message, bool bypassPA = false) // funky - add pa bypass option
     {
         var maxLength = _cfg.GetCVar(CCVars.ChatMaxAnnouncementLength);
         var msg = SharedChatSystem.SanitizeAnnouncement(message, maxLength);
-        SendMessage(new CommunicationsConsoleAnnounceMessage(msg));
+        SendMessage(new CommunicationsConsoleAnnounceMessage(msg, bypassPA: bypassPA)); // funky - add pa bypass option
     }
 
     public void ScreenBroadcastButtonPressed(string message)

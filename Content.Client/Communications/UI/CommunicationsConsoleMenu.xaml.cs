@@ -19,7 +19,7 @@ public sealed partial class CommunicationsConsoleMenu : FancyWindow
     public event Action? OnShuttleCalled;
     public event Action? OnShuttleRecalled;
     public event Action<ProtoId<AlertLevelPrototype>>? OnAlertLevelChanged;
-    public event Action<string>? OnRadioAnnounce;
+    public event Action<string, bool>? OnRadioAnnounce; // funky - add pa bypass option
     public event Action<string>? OnScreenBroadcast;
 
     public CommunicationsConsoleMenu()
@@ -27,7 +27,7 @@ public sealed partial class CommunicationsConsoleMenu : FancyWindow
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
 
-        MessagingControls.OnRadioAnnounce += message => OnRadioAnnounce?.Invoke(message);
+        MessagingControls.OnRadioAnnounce += (message, bypass) => OnRadioAnnounce?.Invoke(message, bypass);
         MessagingControls.OnScreenBroadcast += message => OnScreenBroadcast?.Invoke(message);
 
         AlertLevelControls.OnAlertLevelChanged += newLevel => OnAlertLevelChanged?.Invoke(newLevel);
@@ -55,6 +55,8 @@ public sealed partial class CommunicationsConsoleMenu : FancyWindow
     {
         MessagingControls.CanRadioAnnounce = commsState.CanAnnounce;
         MessagingControls.CanScreenBroadcast = commsState.CanBroadcast;
+
+        MessagingControls.BypassPA.Visible = commsState.CanBypassPA; // funky
 
         var alertLevelSelectable = selectableAlertLevels != null && canChangeAlertLevel;
         AlertLevelControls.UpdateAlertLevels(selectableAlertLevels, currentAlertLevel, alertLevelSelectable);

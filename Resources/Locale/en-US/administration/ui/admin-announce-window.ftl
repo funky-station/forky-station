@@ -11,5 +11,5 @@ cmd-announceui-desc = Opens the announcement UI.
 cmd-announceui-help = Usage: announceui
 
 # Funky
-admin-announce-bypass-pa = Broadcast telepathically
-admin-announce-bypass-pa-tooltip = Bypasses PA speakers and broadcasts the message directly to the minds of players.
+admin-announce-bypass-pa = Bypass PA system
+admin-announce-bypass-pa-tooltip = Bypasses PA speakers and broadcasts the announcement directly to the chatboxes of players.

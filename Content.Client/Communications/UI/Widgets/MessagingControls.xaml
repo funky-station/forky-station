@@ -16,6 +16,16 @@
             <Button Name="AnnounceButton" HorizontalExpand="True" Margin="6 6 6 6"
                 Text="{Loc 'comms-console-menu-announcement-button'}"
                 ToolTip="{Loc 'comms-console-menu-announcement-button-tooltip'}" />
+            <!-- funky start -->
+            <CheckBox Name="BypassPA"
+                      Access="Public"
+                      Text="{Loc 'comms-console-announcement-bypass-pa'}"
+                      ToolTip="{Loc 'comms-console-announcement-bypass-pa-tooltip'}"
+                      Visible="False"
+                      Margin="6 0 10 0"
+                      LeftAlign="False"
+                      HorizontalAlignment="Right"/>
+            <!-- funky end -->
         </BoxContainer>
     </BoxContainer>
 

@@ -17,17 +17,20 @@ namespace Content.Shared.Communications
         public readonly bool CanCall;
         public readonly TimeSpan? ExpectedCountdownEnd;
         public readonly bool CountdownStarted;
+        public readonly bool CanBypassPA; // funky
 
 
         public CommunicationsConsoleInterfaceState(
             bool canAnnounce,
             bool canCall,
-            TimeSpan? expectedCountdownEnd = null)
+            TimeSpan? expectedCountdownEnd = null,
+            bool canBypassPA = false) // funky
         {
             CanAnnounce = canAnnounce;
             CanCall = canCall;
             ExpectedCountdownEnd = expectedCountdownEnd;
             CountdownStarted = expectedCountdownEnd != null;
+            CanBypassPA = canBypassPA; // funky
         }
     }
 
@@ -41,10 +44,12 @@ namespace Content.Shared.Communications
     public sealed class CommunicationsConsoleAnnounceMessage : BoundUserInterfaceMessage
     {
         public readonly string Message;
+        public readonly bool BypassPA; //funky
 
-        public CommunicationsConsoleAnnounceMessage(string message)
+        public CommunicationsConsoleAnnounceMessage(string message, bool bypassPA = false) // funky - add pa bypass option
         {
             Message = message;
+            BypassPA = bypassPA; // funky
         }
     }
 

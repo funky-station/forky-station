@@ -37,8 +37,8 @@ namespace Content.Server.Communications
         public LocId Preamble = "pa-announcement-preamble";
 
         /// <summary>
-        /// Funky - whether this comms console can "announce telepathcially", AKA bypass PA speakers
-        /// and be received directly by players.
+        /// Funky - whether this comms console can bypass PA speakers
+        /// and be received directly by players, AKA "announce telepathically".
         /// </summary>
         [DataField]
         public bool CanBypassPA = false;
