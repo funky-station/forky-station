@@ -6,7 +6,10 @@
   components:
   - type: Action
     useDelay: 1 # can be overridden by radio component
-    icon: {sprite: /Textures/Clothing/Ears/Headsets/base.rsi, state: icon}
+  - type: Sprite
+    sprite: /Textures/Clothing/Ears/Headsets/base.rsi
+    layers:
+    - state: icon
   - type: InstantAction
     event: !type:ToggleRadioSpeakerEvent
 
@@ -18,7 +21,10 @@
   components:
   - type: Action
     useDelay: 1 # can be overridden by radio component
-    icon: {sprite: /Textures/Interface/Actions/voice-mask.rsi, state: icon}
+  - type: Sprite
+    sprite: /Textures/Interface/Actions/voice-mask.rsi
+    layers:
+    - state: icon
   - type: InstantAction
     event: !type:ToggleRadioMicrophoneEvent
 

@@ -4,17 +4,16 @@ using System.Linq;
 using Content.Shared._Funkystation.Radio;
 using Content.Shared.Chat;
 using Content.Shared.Examine;
-using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Radio.Components;
-using Content.Shared.Power.EntitySystems;
 using Content.Shared.Timing;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 using Content.Shared.Speech;
 using Content.Shared.Speech.Components;
+using Robust.Shared.Audio.Systems;
 
 using Robust.Shared.Prototypes;
 
@@ -33,6 +32,7 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
     [Dependency] private SharedInteractionSystem _interaction = default!;
     [Dependency] private SharedActionsSystem _actions = null!; // Funky - add speaker/mic toggle actions
     [Dependency] private UseDelaySystem _delays = null!; // Funky - toggle cooldown
+    [Dependency] private SharedAudioSystem _audio = null!; // funky - sound effects for radios
 
     // funky - colors for examine markup
     private Color EnabledColor = Color.FromHex("#31843E");
@@ -142,10 +142,11 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
 
         if (!quiet && user != null)
         {
+            _audio.PlayPredicted(enabled ? ent.Comp.ToggleOnSound : ent.Comp.ToggleOffSound, ent, user); // funky - radio sfx
             var state = Loc.GetString(ent.Comp.Enabled
                 ? "handheld-radio-component-on-state"
                 : "handheld-radio-component-off-state");
-            var message = Loc.GetString("handheld-radio-component-on-use", ("radioState", state));
+            var message = Loc.GetString("handheld-radio-component-mic-toggle", ("radioState", state)); // funky
             _popup.PopupEntity(message, user.Value, user.Value);
         }
 
@@ -290,7 +291,7 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
             Text = Loc.GetString("handheld-radio-component-power-verb"),
             Priority = 1,
             Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png")), // TODO: unhardcode
-            Message =  Loc.GetString("handheld-radio-component-speaker-desc"),
+            Message = Loc.GetString("handheld-radio-component-speaker-desc"),
         };
         args.Verbs.Add(verb);
     }
@@ -413,14 +414,17 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
                     args.PushMarkup(Loc.GetString("handheld-radio-component-freq",
                         ("color", proto.Color),
                         ("id", proto.LocalizedName),
-                        ("freq", proto.Frequency/10f)));
+                        ("freq", proto.Frequency)));
                 }
             }
             // display the singular received channel only if there isnt a mic (reduces clutter)
             else if (!HasComp<RadioMicrophoneComponent>(ent))
             {
                 var proto = ProtoMan.Index(ent.Comp.Channels.FirstOrDefault());
-                args.PushMarkup(Loc.GetString("handheld-radio-component-speaker-freq", ("freq", proto.Frequency)));
+                args.PushMarkup(Loc.GetString("handheld-radio-component-speaker-freq",
+                    ("color", proto.Color),
+                    ("id", proto.LocalizedName),
+                    ("freq", proto.Frequency)));
             }
         }
     }
@@ -448,9 +452,10 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
             args.PushMarkup(Loc.GetString("handheld-radio-component-mic-examine", //funky
                 ("micState", state),
                 ("color", color)));
-            args.PushMarkup(Loc.GetString("handheld-radio-component-on-examine", ("frequency", proto.Frequency)));
-            args.PushMarkup(Loc.GetString("handheld-radio-component-chennel-examine",
-                ("channel", proto.LocalizedName)));
+            args.PushMarkup(Loc.GetString("handheld-radio-component-mic-freq-examine",
+                ("color", proto.Color),
+                ("id", proto.LocalizedName),
+                ("freq", proto.Frequency)));
         }
         // funky edits end
     }
