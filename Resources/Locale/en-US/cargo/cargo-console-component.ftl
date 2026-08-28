@@ -65,6 +65,9 @@ cargo-console-paper-print-text = [head=2]Order #{$orderNumber}[/head]
     {"[bold]Approved by:[/bold]"} {$approver}
     {"[bold]Reason:[/bold]"} {$reason}
 
+# Funky, signature field
+cargo-console-paper-recipient-signature = [bold]Recipient Signature:[/bold] [signature]
+
 # Cargo shuttle console
 cargo-shuttle-console-menu-title = Cargo shuttle console
 cargo-shuttle-console-station-unknown = Unknown

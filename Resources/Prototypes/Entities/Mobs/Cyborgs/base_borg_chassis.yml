@@ -229,6 +229,9 @@
     - Critical
     - Dead
   - type: ESViewconeOccludable # Funky
+  - type: HandwritingFont # Funky
+    fontId: BoxRound # this is sysfont, looks nice and pixelated for borgs
+    fontSize: 16
 
 - type: entity
   abstract: true

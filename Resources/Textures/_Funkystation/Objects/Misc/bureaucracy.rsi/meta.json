@@ -135,6 +135,12 @@
     },
     {
       "name": "syndicate_card"
+    },
+    {
+      "name": "paper-inhand-left"
+    },
+    {
+      "name": "paper-inhand-right"
     }
   ]
 }

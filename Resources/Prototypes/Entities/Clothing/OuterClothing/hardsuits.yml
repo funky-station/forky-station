@@ -45,22 +45,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has radiation shielding.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi # Funky change
+    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi # Funky change
-    clothingVisuals:
-      outerClothing:
-      - state: equipped-OUTERCLOTHING
-      - state: equipped-OUTERCLOTHING-unshaded
-        shader: unshaded
-      outerClothing-reptilian:
-      - state: equipped-OUTERCLOTHING-reptilian
-      - state: equipped-OUTERCLOTHING-unshaded
-        shader: unshaded
-      outerClothing-vox:
-      - state: equipped-OUTERCLOTHING-vox
-      - state: equipped-OUTERCLOTHING-unshaded-vox
-        shader: unshaded
+    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.04
     lowPressureMultiplier: 1000

@@ -399,8 +399,13 @@ ui-options-disable-singulo-warp = Singularity
 ui-options-disable-singulo-warp-tooltip = Disables the screen warping effect on the singularity.
 
 ui-options-screen-shake-intensity = Screen shake intensity
+
 # Funky, ES pain flash
 ui-options-es-pain-flash-intensity = Pain flash intensity
+
+# funky viewcone options
+ui-options-disable-viewcone-grain = Disable the grain effect on the viewcone occlusion overlay
+ui-options-viewcone-occlusion-opacity = Viewcone occlusion strength
 
 ui-options-chat-window-opacity = Chat window opacity
 ui-options-speech-bubble-text-opacity = Speech bubble text opacity
