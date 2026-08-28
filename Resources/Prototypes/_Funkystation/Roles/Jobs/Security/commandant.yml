@@ -16,7 +16,7 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 30h
-  weight: 10
+  #weight: 10 # Funky - Weighting all jobs equally now
   startingGear: CommandantGear
   icon: "JobIconHeadOfSecurity"
   joinNotifyCrew: true # Funky

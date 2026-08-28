@@ -10,6 +10,10 @@
     sprite: Objects/Devices/encryption_keys.rsi
   - type: Sprite
     sprite: Objects/Devices/encryption_keys.rsi
+  # Funky changes start
+  - type: StaticPrice
+    price: 10
+  # Funky changes end
 
 - type: entity
   parent: EncryptionKey
@@ -61,6 +65,11 @@
     layers:
     - state: crypt_blue
     - state: nano_label
+  # Funky changes start
+  - type: ScoreThiefPriceModifier
+    reason: "scorethief-modifier-centcomm-comms"
+    multiplier: 1500
+  # Funky changes end
 
 - type: entity
   parent: [ EncryptionKey, BaseCentcommCommandContraband ]
@@ -84,6 +93,11 @@
     layers:
     - state: crypt_gold
     - state: cap_label
+  # Funky changes start
+  - type: ScoreThiefPriceModifier
+    reason: "scorethief-modifier-command-comms"
+    multiplier: 400
+  # Funky changes end
 
 - type: entity
   parent: [ EncryptionKey, BaseCommandContraband ]
@@ -102,6 +116,11 @@
   - type: Tag
     tags:
     - EncryptionCommand
+  # Funky changes start
+  - type: ScoreThiefPriceModifier
+    reason: "scorethief-modifier-command-comms"
+    multiplier: 200
+  # Funky changes end
 
 - type: entity
   parent: [ EncryptionKey, BaseEngineeringContraband ]
@@ -205,6 +224,11 @@
   - type: Tag
     tags:
     - EncryptionSecurity
+  # Funky changes start
+  - type: ScoreThiefPriceModifier
+    reason: "scorethief-modifier-sec-comms"
+    multiplier: 100
+  # Funky changes end
 
 - type: entity
   parent: [ EncryptionKey, BaseCivilianContraband ]

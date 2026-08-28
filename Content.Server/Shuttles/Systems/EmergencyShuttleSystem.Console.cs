@@ -19,18 +19,18 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Timer = Robust.Shared.Timing.Timer;
-using Robust.Shared.Random;
+using Robust.Shared.Audio;
 
 namespace Content.Server.Shuttles.Systems;
 
 // TODO full game saves
 // Move state data into the emergency shuttle component
+
+/// <summary>
+/// Handles the emergency shuttle's console and early launching.
+/// </summary>
 public sealed partial class EmergencyShuttleSystem
 {
-    /*
-     * Handles the emergency shuttle's console and early launching.
-     */
-
     /// <summary>
     /// Has the emergency shuttle arrived?
     /// </summary>

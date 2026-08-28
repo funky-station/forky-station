@@ -3,7 +3,6 @@ using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
-using Content.Server.Speech.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration;
@@ -11,8 +10,10 @@ using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Players.RateLimiting;
+using Content.Shared.Speech.EntitySystems;
 using Robust.Server.Player;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
@@ -20,6 +21,8 @@ using Robust.Shared.Console;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
+using Content.Shared.Mobs; // funky
+using Content.Shared.Mobs.Components; // funky
 
 namespace Content.Server.Chat.Systems;
 
@@ -178,6 +181,15 @@ public sealed partial class ChatSystem : SharedChatSystem
         // and i dont feel like vibe checking 50 code paths
         // so we set this here
         // todo free me from chat code
+
+        // funky start
+        if (!ignoreActionBlocker && TryComp<MobStateComponent>(source, out var mobState) && mobState.CurrentState == MobState.SoftCritical)
+        {
+            if (desiredType == InGameICChatType.Speak)
+                desiredType = InGameICChatType.Whisper;
+        }
+        // funky end
+
         if (player != null)
         {
             _chatManager.EnsurePlayer(player.UserId).AddEntity(GetNetEntity(source));

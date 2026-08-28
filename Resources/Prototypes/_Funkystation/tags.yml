@@ -68,4 +68,7 @@
   id: CardboardboxLarge
 
 - type: Tag
+  id: LaundryBag
+
+- type: Tag
   id: PASpeakerElectronics
