@@ -5,7 +5,7 @@
   description: Contains 250 telecrystals worth of completely random Syndicate items. It can be useless junk or really good.
   components:
     - type: SurplusBundle
-      totalPrice: 250
+      totalPrice: 250 # funky fix for parity with tc amounts
 
 - type: entity
   parent: CrateSyndicate
@@ -29,4 +29,4 @@
   description: Contains 625 telecrystals worth of completely random Syndicate items.
   components:
     - type: SurplusBundle
-      totalPrice: 625
+      totalPrice: 625 # funky fix for parity with tc amounts
