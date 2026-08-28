@@ -5,9 +5,9 @@ using Content.Server.Chat.Systems;
 using Content.Shared._Funkystation.CCVar;
 using Content.Shared._Funkystation.Communications;
 using Content.Shared.Chat;
-using Content.Shared.Ghost;
 using Content.Shared.Ghost.Components;
 using Content.Shared.Power;
+using Content.Shared.Power.EntitySystems;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -17,7 +17,6 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Funkystation.Communications;
 
-// TODO: in future, add radio tuning, for the PA speaker radios
 /// <summary>
 /// Handles PA announcers, i.e. the things that actually
 /// receive announcements, like speakers.
@@ -31,6 +30,7 @@ public sealed partial class PAAnnouncerSystem : EntitySystem
     [Dependency] private IConfigurationManager _cfg = null!;
     [Dependency] private AnnouncerManager _announcer = null!;
     [Dependency] private TransformSystem _xform = null!;
+    [Dependency] private SharedPowerReceiverSystem _power = null!;
 
     private const double MessageDelay = 3;
     private const double LongMessageDelay = 5;
@@ -45,6 +45,7 @@ public sealed partial class PAAnnouncerSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<PAAnnouncerComponent, PAAnnouncementEvent>(OnAnnouncementReceived);
         SubscribeLocalEvent<PAAnnouncerComponent, PowerChangedEvent>(OnPowerChanged);
+        SubscribeLocalEvent<PAAnnouncerComponent, ComponentStartup>(OnComponentStartup);
 
         Subs.CVar(_cfg, PAAnnouncementCVars.PAAnnouncements, OnAnnouncementsCvarChanged, true);
     }
@@ -151,6 +152,14 @@ public sealed partial class PAAnnouncerSystem : EntitySystem
         {
             ent.Comp.Enabled = args.Powered;
             ent.Comp.QueuedMessages.Clear();
+        }
+    }
+
+    private void OnComponentStartup(Entity<PAAnnouncerComponent> ent, ref ComponentStartup args)
+    {
+        if (ent.Comp.PowerRequired)
+        {
+            ent.Comp.Enabled = _power.IsPowered(ent.Owner);
         }
     }
 }
