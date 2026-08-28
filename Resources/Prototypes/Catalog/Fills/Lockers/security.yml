@@ -74,6 +74,8 @@
       prob: 0.8
     - id: FuClothingUniformSecService
       prob: 0.3
+    - id: SecurityBola
+      amount: 2
     - id: ClothingHeadHelmetBasic
     - id: ClothingOuterArmorBasic
     - id: ClothingBeltSecurityFilled
@@ -171,6 +173,7 @@
     - id: CrayonBox #funky, for sketches of crime sites
     - id: PlushieLizardJobDetective
       prob: 0.02
+    - id: WarningTapeRollSecurity # funky
 
 - type: entity
   id: ClosetBombFilled

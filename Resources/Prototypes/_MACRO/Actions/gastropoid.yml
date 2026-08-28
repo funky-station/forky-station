@@ -4,7 +4,8 @@
   name: Slime Trail
   description: Leave a trail of mucin.
   components:
-  - type: Action
-    icon: _MACRO/Interface/Actions/slime.png
+  - type: Sprite
+    layers:
+    - texture: _MACRO/Interface/Actions/slime.png
   - type: InstantAction
     event: !type:SnailSprintActionEvent

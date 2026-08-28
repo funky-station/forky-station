@@ -13,7 +13,9 @@
     - !type:DepartmentTimeRequirement
       department: Cargo
       time: 10h
-  weight: 10
+    - !type:OverallPlaytimeRequirement
+      time: 20h # Funky
+  #weight: 10 # Funky - Weighting all jobs equally now
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
   joinNotifyCrew: true # Funky

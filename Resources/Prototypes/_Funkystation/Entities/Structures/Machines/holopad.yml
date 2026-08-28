@@ -4,7 +4,7 @@
   suffix: Tools
   components:
   - type: Label
-    currentLabel: holopad-command-cl
+    localizedLabel: holopad-command-cl
 
 - type: entity
   parent: Holopad
@@ -12,7 +12,7 @@
   suffix: Telescience
   components:
   - type: Label
-    currentLabel: holopad-science-telesci
+    localizedLabel: holopad-science-telesci
 
 - type: entity
   parent: Holopad
@@ -20,7 +20,7 @@
   suffix: Xenobiology
   components:
   - type: Label
-    currentLabel: holopad-science-xenobio
+    localizedLabel: holopad-science-xenobio
 
 - type: entity
   parent: Holopad
@@ -28,7 +28,7 @@
   suffix: Ordnance
   components:
   - type: Label
-    currentLabel: holopad-science-ordnance
+    localizedLabel: holopad-science-ordnance
 
 - type: entity
   parent: Holopad
@@ -36,7 +36,7 @@
   suffix: Genetics
   components:
   - type: Label
-    currentLabel: holopad-medical-genetics
+    localizedLabel: holopad-medical-genetics
 
 - type: entity
   parent: Holopad
@@ -44,7 +44,7 @@
   suffix: Supermatter
   components:
   - type: Label
-    currentLabel: holopad-engineering-supermatter
+    localizedLabel: holopad-engineering-supermatter
 
 - type: entity
   parent: Holopad
@@ -52,7 +52,7 @@
   suffix: Reactor Chamber
   components:
   - type: Label
-    currentLabel: holopad-engineering-reactor
+    localizedLabel: holopad-engineering-reactor
 
 - type: entity
   parent: Holopad
@@ -60,7 +60,7 @@
   suffix: Commandant
   components:
   - type: Label
-    currentLabel: holopad-security-commandant
+    localizedLabel: holopad-security-commandant
 
 - type: entity
   parent: Holopad
@@ -68,7 +68,7 @@
   suffix: Dispatch
   components:
   - type: Label
-    currentLabel: holopad-security-dispatch
+    localizedLabel: holopad-security-dispatch
 
 - type: entity
   parent: Holopad
@@ -76,7 +76,7 @@
   suffix: Evidence Room
   components:
   - type: Label
-    currentLabel: holopad-security-evidence
+    localizedLabel: holopad-security-evidence
 
 - type: entity
   parent: Holopad
@@ -84,7 +84,7 @@
   suffix: Briefing Room
   components:
   - type: Label
-    currentLabel: holopad-security-briefing
+    localizedLabel: holopad-security-briefing
 
 - type: entity
   parent: Holopad
@@ -92,7 +92,7 @@
   suffix: Firing Range
   components:
   - type: Label
-    currentLabel: holopad-security-firing
+    localizedLabel: holopad-security-firing
 
 - type: entity
   parent: Holopad
@@ -100,7 +100,7 @@
   suffix: Mining Bay
   components:
   - type: Label
-    currentLabel: holopad-security-mining
+    localizedLabel: holopad-security-mining
 
 - type: entity
   parent: Holopad
@@ -108,7 +108,7 @@
   suffix: Hospitality Director
   components:
   - type: Label
-    currentLabel: holopad-command-hd
+    localizedLabel: holopad-command-hd
 
 - type: entity
   parent: Holopad
@@ -116,7 +116,7 @@
   suffix: Executive Officer
   components:
   - type: Label
-    currentLabel: holopad-command-xo
+    localizedLabel: holopad-command-xo
 
 - type: entity
   parent: Holopad
@@ -124,7 +124,7 @@
   suffix: Magistrate
   components:
   - type: Label
-    currentLabel: holopad-ia-magistrate
+    localizedLabel: holopad-ia-magistrate
 
 - type: entity
   parent: Holopad
@@ -132,4 +132,4 @@
   suffix: IAA
   components:
   - type: Label
-    currentLabel: holopad-ia-agent
+    localizedLabel: holopad-ia-agent

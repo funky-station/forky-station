@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.DisplacementMap;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid;
 using Robust.Shared.Containers;
@@ -26,6 +27,7 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
 
         InitializeModifiers();
         InitializeInitial();
+        InitializeMacrocosm(); // MACROCOSM add
     }
 
     private List<Marking> ResolveMarkings(List<Marking> markings, Color? skinColor, Color? eyeColor, Dictionary<Enum, MarkingsAppearance> appearances)
@@ -74,15 +76,17 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
         Dirty(ent);
     }
 
-    protected virtual void SetOrganAppearance(Entity<VisualOrganComponent> ent, PrototypeLayerData data)
+    protected virtual void SetOrganAppearance(Entity<VisualOrganComponent> ent, PrototypeLayerData data, ProtoId<DisplacementDataPrototype>? displacement)
     {
         ent.Comp.Data = data;
+        ent.Comp.Displacement = displacement;
         Dirty(ent);
     }
 
-    protected virtual void SetOrganMarkings(Entity<VisualOrganMarkingsComponent> ent, Dictionary<HumanoidVisualLayers, List<Marking>> markings)
+    protected virtual void SetOrganMarkings(Entity<VisualOrganMarkingsComponent> ent, Dictionary<HumanoidVisualLayers, List<Marking>> markings, Dictionary<HumanoidVisualLayers, DisplacementData> displacement)
     {
         ent.Comp.Markings = markings;
+        ent.Comp.MarkingsDisplacement = displacement.ShallowClone();
         Dirty(ent);
     }
 
@@ -94,7 +98,7 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
         if (!other.Layer.Equals(ent.Comp.Layer))
             return;
 
-        SetOrganAppearance(ent, other.Data);
+        SetOrganAppearance(ent, other.Data, other.Displacement);
     }
 
     private void OnMarkingsOrganCopyAppearance(Entity<VisualOrganMarkingsComponent> ent, ref BodyRelayedEvent<OrganCopyAppearanceEvent> args)
@@ -105,7 +109,7 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
         if (!other.MarkingData.Layers.SetEquals(ent.Comp.MarkingData.Layers))
             return;
 
-        SetOrganMarkings(ent, other.Markings);
+        SetOrganMarkings(ent, other.Markings, other.MarkingsDisplacement);
     }
 
     private void OnVisualOrganApplyProfile(Entity<VisualOrganComponent> ent, ref BodyRelayedEvent<ApplyOrganProfileDataEvent> args)
@@ -130,10 +134,11 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
         if (ent.Comp.SexStateOverrides is { } overrides && overrides.TryGetValue(data.Sex, out var state))
         {
             ent.Comp.Data.State = state;
-            SetOrganAppearance(ent, ent.Comp.Data);
+            SetOrganAppearance(ent, ent.Comp.Data, ent.Comp.Displacement);
         }
     }
 
+    // Begin MACROCOSM - move this function out of the callback so it can be called elsewhere
     private void OnMarkingsOrganApplyMarkings(Entity<VisualOrganMarkingsComponent> ent, ref BodyRelayedEvent<ApplyOrganMarkingsEvent> args)
     {
         if (Comp<OrganComponent>(ent).Category is not { } category)
@@ -142,7 +147,14 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
         if (!args.Args.Markings.TryGetValue(category, out var markingSet))
             return;
 
+        ApplyVisualOrganMarkings(ent, markingSet);
+    }
+
+    private void ApplyVisualOrganMarkings(Entity<VisualOrganMarkingsComponent> ent,
+        Dictionary<HumanoidVisualLayers, List<Marking>> markingSet)
+    {
         var groupProto = ProtoMan.Index(ent.Comp.MarkingData.Group);
+        
         var organMarkings = ent.Comp.Markings.ShallowClone();
 
         foreach (var layer in ent.Comp.MarkingData.Layers)
@@ -168,8 +180,9 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
             kvp => kvp.Key,
             kvp => ResolveMarkings(kvp.Value, profile.SkinColor, profile.EyeColor, groupProto.Appearances));
 
-        SetOrganMarkings(ent, resolved);
+        SetOrganMarkings(ent, resolved, ent.Comp.MarkingsDisplacement);
     }
+    // End MACROCOSM
 }
 
 /// <summary>

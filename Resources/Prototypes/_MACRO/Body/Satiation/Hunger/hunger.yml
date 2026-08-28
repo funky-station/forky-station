@@ -1,0 +1,19 @@
+- type: satiation
+  parent: NormalSatiationHunger
+  id: UnguSatiationHunger
+  thresholds:
+    Overfed: 150
+    Okay: 100
+    Peckish: 50
+    Starving: 25
+  baseChangeRate: -0.0124 # 3/4 as fast as a human
+
+- type: satiation
+  parent: NormalSatiationHunger
+  id: OviniaSatiationHunger
+  baseChangeRate: -0.0083 # 1/2 as fast as a human
+
+- type: satiation
+  parent: NormalSatiationHunger
+  id: KodepiiaSatiationHunger
+  baseChangeRate: -0.15 

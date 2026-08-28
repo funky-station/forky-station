@@ -4,16 +4,20 @@
   description: job-description-ce
   playTimeTracker: JobChiefEngineer
   requirements:
-#    - !type:RoleTimeRequirement
-#     role: JobAtmosphericTechnician
-#     time: 2.5h
-#   - !type:RoleTimeRequirement
-#     role: JobStationEngineer
-#     time: 5h
+    #- !type:RoleTimeRequirement
+    #  role: JobAtmosphericTechnician
+    #  time: 2.5h # Funky
+    - !type:RoleTimeRequirement
+      role: JobStationEngineer
+      #time: 5h
+      time: 10h # Funky
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 10h
-  weight: 10
+      #time: 10h
+      time: 20h # Funky
+    - !type:OverallPlaytimeRequirement
+      time: 25h # Funky
+  #weight: 10 # Funky - Weighting all jobs equally now
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
   joinNotifyCrew: true # Funky

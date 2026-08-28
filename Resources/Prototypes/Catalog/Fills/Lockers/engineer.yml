@@ -51,6 +51,10 @@
         value: 3
     - id: SprayPainter
       prob: 0.7
+    - id: WarningTapeRollEngineering # funky
+      prob: 0.7
+    - id: ClothingHeadHatConeFull # funky
+      prob: 0.4
 
 - type: entity
   id: LockerElectricalSuppliesFilled
@@ -72,6 +76,10 @@
       prob: 0.05
     - id: APCElectronics
       prob: 0.1
+    - id: WarningTapeRollEngineering # funky
+      prob: 0.5
+    - id: ClothingHeadHatConeFull # funky
+      prob: 0.4
     - !type:GroupSelector
       prob: 0.5
       children:
