@@ -2,5 +2,5 @@
   id: InternalAffairs
   name: chat-radio-ia
   keycode: "i"
-  frequency: 1375
+  frequency: 137.5
   color: "#bda499"
