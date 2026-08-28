@@ -4,6 +4,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared._Funkystation.CCVar;
+using Content.Shared._Funkystation.Communications;
 using Content.Shared.Database;
 using Robust.Shared.Audio;
 using Robust.Shared.Configuration;

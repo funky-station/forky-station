@@ -207,7 +207,8 @@ namespace Content.Server.Communications
             CommunicationsConsoleAnnounceMessage message)
         {
             // funky - redirect comms console announcements to PA speakers
-            if (!message.BypassPA && _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements))
+            // TODO: if (!message.BypassPA && _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements))
+            if (_cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements))
             {
                 AnnounceCommsConsoleViaPASystem(uid, comp, message);
                 return;
