@@ -1,0 +1,63 @@
+- type: entity
+  parent: LawyerIDCard
+  id: IAAIDCard
+  name: internal affairs ID card
+  components:
+  - type: PresetIdCard
+    job: InternalAffairsAgent
+
+- type: entity
+  parent: LawyerIDCard
+  id: MagistrateIDCard
+  name: magistrate ID card
+  components:
+  - type: PresetIdCard
+    job: Magistrate
+
+- type: entity
+  parent: HoPIDCard
+  id: XOIDCard
+  name: executive officer ID card
+  components:
+  - type: PresetIdCard
+    job: ExecutiveOfficer
+
+- type: entity
+  parent: HoPIDCard
+  id: HDIDCard
+  name: hospitality director ID card
+  components:
+  - type: PresetIdCard
+    job: HospitalityDirector
+
+- type: entity
+  parent: LawyerIDCard
+  id: CLIDCard
+  name: corporate liaison ID card
+  components:
+  - type: PresetIdCard
+    job: CorporateLiaison
+
+- type: entity
+  parent: HoSIDCard
+  id: CommandantIDCard
+  name: commandant ID card
+  components:
+  - type: PresetIdCard
+    job: Commandant
+
+- type: entity
+  parent: SecurityIDCard
+  id: LieutenantIDCard
+  name: lieutenant ID card
+  components:
+  - type: PresetIdCard
+    job: Lieutenant
+
+- type: entity
+  parent: SecurityIDCard
+  id: DispatcherIDCard
+  name: dispatcher ID card
+  components:
+  - type: PresetIdCard
+    job: Dispatcher

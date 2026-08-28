@@ -112,6 +112,8 @@ public sealed partial class XoRecordsConsoleWindow : FancyWindow
             var parsedGender = (Gender)GenderButton.SelectedId;
             var speciesId = _speciesIds.Count > 0 ? _speciesIds[SpeciesButton.SelectedId] : "Human";
 
+            int? pagerNumber = TryParse(PagerField.Text.Trim(), out var pVal) ? pVal : null;
+
             var fields = new XoRecordFields(
                 NameField.Text,
                 age,
@@ -119,7 +121,8 @@ public sealed partial class XoRecordsConsoleWindow : FancyWindow
                 speciesId,
                 parsedGender,
                 string.IsNullOrWhiteSpace(FingerprintField.Text) ? null : FingerprintField.Text,
-                string.IsNullOrWhiteSpace(DnaField.Text) ? null : DnaField.Text);
+                string.IsNullOrWhiteSpace(DnaField.Text) ? null : DnaField.Text,
+                pagerNumber);
 
             OnSubmitted?.Invoke(key, fields);
         };
@@ -152,6 +155,7 @@ public sealed partial class XoRecordsConsoleWindow : FancyWindow
         NameField.Editable = editable;
         AgeField.Editable = editable;
         JobField.Editable = editable;
+        PagerField.Editable = editable;
         SpeciesButton.Disabled = !editable;
         GenderButton.Disabled = !editable;
         FingerprintField.Editable = editable;
@@ -171,6 +175,7 @@ public sealed partial class XoRecordsConsoleWindow : FancyWindow
         NameField.Text = state.Published?.Name ?? string.Empty;
         AgeField.Text = state.Published?.Age.ToString() ?? string.Empty;
         JobField.Text = state.Published?.JobTitle ?? string.Empty;
+        PagerField.Text = state.Published?.PagerNumber?.ToString() ?? string.Empty;
         FingerprintField.Text = state.Published?.Fingerprint ?? string.Empty;
         DnaField.Text = state.Published?.Dna ?? string.Empty;
 

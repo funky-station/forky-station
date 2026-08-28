@@ -240,7 +240,7 @@
     sprite: Markers/jobs.rsi
     layers:
     - state: green
-    - sprite: Mobs/Silicon/chassis.rsi
+    - sprite: _Funkystation/Mobs/Silicon/chassis.rsi # Funky
       state: derelict_icon
 
 - type: entity
@@ -284,7 +284,7 @@
     sprite: Markers/jobs.rsi
     layers:
     - state: green
-    - sprite: Mobs/Silicon/chassis.rsi
+    - sprite: _Funkystation/Mobs/Silicon/chassis.rsi # Funky
       state: xenoborg_engi
 
 - type: entity

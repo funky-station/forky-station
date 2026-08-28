@@ -4,10 +4,12 @@ using Content.Shared.Interaction;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Content.Shared.Tools.Components;
+using Content.Shared._MACRO.Tools.Components; // macro
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Utility;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Tools.Systems;
 
@@ -68,13 +70,13 @@ public abstract partial class SharedToolSystem
         var comp = ent.Comp1!;
         var tool = ent.Comp2!;
 
-        if (!_mapManager.TryFindGridAt(_transformSystem.ToMapCoordinates(clickLocation), out var gridUid, out var mapGrid))
+        if (!_maps.TryFindGridAt(_transformSystem.ToMapCoordinates(clickLocation), out var gridUid, out var mapGrid))
             return false;
 
         var tileRef = _maps.GetTileRef(gridUid, mapGrid, clickLocation);
         var tileDef = (ContentTileDefinition) _tileDefManager[tileRef.Tile.TypeId];
 
-        if (!tool.Qualities.ContainsAny(tileDef.DeconstructTools))
+        if (!tool.Qualities.Overlaps(tileDef.DeconstructTools))
             return false;
 
         if (string.IsNullOrWhiteSpace(tileDef.BaseTurf))
@@ -87,15 +89,25 @@ public abstract partial class SharedToolSystem
         if (!InteractionSystem.InRangeUnobstructed(user, coordinates, popup: false))
             return false;
 
+        // macro edit start, if the tool has CowToolTileCompatible and user has CowToolProficiency, use delay from CowToolTileCompatible
+        // else, use delay from ToolTileCompatible as normal
+        TimeSpan delay; // delay parameter moved to its own variable from UseTool call below to allow it to be set to different durations
+        if (TryComp<CowToolTileCompatibleComponent>(ent, out var cowToolTileCompatibleComp) &&
+            TryComp<CowToolProficiencyComponent>(user, out _))
+            delay = cowToolTileCompatibleComp.Delay;
+        else
+            delay = comp.Delay;
+        // macro edit end
+
         var args = new TileToolDoAfterEvent(GetNetEntity(gridUid), tileRef.GridIndices);
-        UseTool(ent, user, ent, comp.Delay, tool.Qualities, args, out _, toolComponent: tool);
+        UseTool(ent, user, ent, delay /* MACRO: was comp.Delay */, tool.Qualities, args, out _, toolComponent: tool);
         return true;
     }
 
-    public bool TryDeconstructWithToolQualities(TileRef tileRef, PrototypeFlags<ToolQualityPrototype> withToolQualities)
+    public bool TryDeconstructWithToolQualities(TileRef tileRef, HashSet<ProtoId<ToolQualityPrototype>> withToolQualities)
     {
         var tileDef = (ContentTileDefinition) _tileDefManager[tileRef.Tile.TypeId];
-        if (withToolQualities.ContainsAny(tileDef.DeconstructTools))
+        if (withToolQualities.Overlaps(tileDef.DeconstructTools))
         {
             // don't do this on the client or else the tile entity spawn mispredicts and looks horrible
             return _net.IsClient || _tiles.DeconstructTile(tileRef);

@@ -12,6 +12,7 @@
         - id: ClothingMaskBreath
         - id: OxygenTankFilled
         - id: NitrogenTankFilled
+        - id: SuitSealantCanister # Funky
 
 - type: entity
   parent: CrateGenericSteel
@@ -111,6 +112,8 @@
       weight: 0.01
     - id: WeaponLauncherPirateCannon
       weight: 0.1
+    - id: Throngler
+      weight: 0.0001
     - id: WeaponPistolCHIMP
       weight: 0.1
     - id: WeaponSniperMosin

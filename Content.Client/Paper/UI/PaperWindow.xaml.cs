@@ -19,6 +19,8 @@ using Robust.Client.Player;
 using Content.Shared.Tag;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
+using Content.Shared._Funkystation.Handwriting; // funky
+using Content.Client._FunkyStation.Handwriting; // funky
 
 namespace Content.Client.Paper.UI
 {
@@ -33,6 +35,9 @@ namespace Content.Client.Paper.UI
         [Dependency] private IEntityManager _entityManager = default!;
 
         private static Color DefaultTextColor = new(25, 25, 25);
+
+        // Default color for text which hasn't been changed using markup
+        private Color _writtenTextColor = DefaultTextColor;
 
         // Size of resize handles around the paper
         private const int DRAG_MARGIN_SIZE = 16;
@@ -60,6 +65,7 @@ namespace Content.Client.Paper.UI
             typeof(HeadingTag),
             typeof(ItalicTag),
             typeof(MonoTag),
+            typeof(HandwritingFontTagHandler), // funky, allows [signature] and [form] to use a different font
             typeof(FormTagHandler),
             typeof(SignatureTagHandler),
             typeof(CheckTagHandler)
@@ -176,7 +182,7 @@ namespace Content.Client.Paper.UI
                     visuals.FooterMargin.Right, visuals.FooterMargin.Bottom);
 
             PaperContent.ModulateSelfOverride = visuals.ContentImageModulate;
-            FillStatus.ModulateSelfOverride = visuals.FontAccentColor;
+            _writtenTextColor = visuals.DefaultTextColor ?? DefaultTextColor;
 
             var contentImage = visuals.ContentImagePath != null ? _resCache.GetResource<TextureResource>(visuals.ContentImagePath) : null;
             if (contentImage != null)
@@ -316,7 +322,7 @@ namespace Content.Client.Paper.UI
             // The markup system converts [form] and [signature] tags into interactive buttons
             var fm = new FormattedMessage();
             fm.AddMarkupPermissive(state.Text);
-            WrittenTextLabel.SetMessage(fm, _allowedTags, DefaultTextColor);
+            WrittenTextLabel.SetMessage(fm, _allowedTags, _writtenTextColor);
 
             // Add extra bottom margin based on tag count to prevent cutoff (only in read mode)
             var tagCount = CountTags(state.Text);
@@ -466,7 +472,10 @@ namespace Content.Client.Paper.UI
 
                 if (!string.IsNullOrEmpty(edit.Text))
                 {
-                    var newText = ReplaceNthFormTag(_currentRawText, formIndex, edit.Text);
+                    // funky, use player's handwriting font
+                    var writer = _playerManager.LocalEntity ?? EntityUid.Invalid;
+                    var filled = HandwritingFontHelper.WrapIfHandwritten(_entityManager, writer, edit.Text);
+                    var newText = ReplaceNthFormTag(_currentRawText, formIndex, filled);
                     OnSaved?.Invoke(newText);
                 }
                 if (formButton != null)
@@ -494,7 +503,9 @@ namespace Content.Client.Paper.UI
 
                 if (!string.IsNullOrEmpty(edit.Text))
                 {
-                    var newText = ReplaceNthFormTag(_currentRawText, formIndex, edit.Text);
+                    var writer = _playerManager.LocalEntity ?? EntityUid.Invalid; // funky
+                    var filled = HandwritingFontHelper.WrapIfHandwritten(_entityManager, writer, edit.Text); // funky
+                    var newText = ReplaceNthFormTag(_currentRawText, formIndex, filled); // funky
                     OnSaved?.Invoke(newText);
                 }
                 popup.Close();

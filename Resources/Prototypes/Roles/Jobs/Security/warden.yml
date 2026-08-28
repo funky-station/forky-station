@@ -10,10 +10,9 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 10h
-  weight: 5
   startingGear: WardenGear
   icon: "JobIconWarden"
-  supervisors: job-supervisors-hos
+  supervisors: job-supervisors-commandant #funky
   access:
   - Security
   - Brig
@@ -24,9 +23,9 @@
   - Cryogenics
   - GenpopEnter
   - GenpopLeave
-  special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+  #special:
+  #- !type:AddImplantSpecial
+  #  implants: [ MindShieldImplant ] # Funky - Removed mindshields
 
 - type: startingGear
   id: WardenGear

@@ -13,11 +13,15 @@
   # - Gastropoid # macro - uncomment to enable
   # - Gray # macro - uncomment to enable
   - Human
+  # - Kodepiia # macro - uncomment to enable
   - Moth
+  # - Ovinia # macro - uncomment to enable
   - Reptilian
   - SlimePerson
+  # - Ungu # macro - uncomment to enable
   - Vox
   - Vulpkanin
+
 
 - type: guideEntry
   id: Arachnid

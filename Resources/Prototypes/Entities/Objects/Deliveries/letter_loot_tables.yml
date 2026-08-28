@@ -30,3 +30,28 @@
     children:
     - id: Paper
     - id: Pen
+
+#funkstart
+#implanters
+- type: entityTable
+  id: LetterImplanter
+  table: !type:AllSelector
+    children:
+    - id: BikeHornImplanter
+    - id: LightImplanter
+    - id: SadTromboneImplanter
+
+#knives
+- type: entityTable
+  id: LetterKnives
+  table: !type:AllSelector
+    children:
+    - !type:GroupSelector
+      children:
+      - id: UtilityKnife
+      - id: KitchenKnife
+      - id: SurvivalKnife
+      - id: KukriKnife
+      - id: CombatKnife
+      - id: ThrowingKnife
+        prob: 0.1

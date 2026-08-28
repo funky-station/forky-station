@@ -64,17 +64,24 @@
   - type: Sprite
     sprite: Clothing/Head/Misc/pumpkin.rsi
   - type: Clothing
-    sprite: Clothing/Head/Misc/pumpkin.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-helmet
   - type: IngestionBlocker
   - type: IdentityBlocker
   - type: PointLight
     enabled: false
     radius: 3
     energy: 1
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
     color: "#cc6600"
     netsync: false
+  - type: ToggleableVisuals
+    clothingVisuals:
+      head:
+      - state: equipped-helmet-light
+        shader: unshaded
   - type: ItemSlots
     slots:
       cell_slot:
@@ -85,6 +92,12 @@
     - HeadTop
     - HeadSide
     - FacialHair
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
 
 - type: entity
   parent: ClothingHeadBase
@@ -177,16 +190,44 @@
   description: This cone is trying to warn you of something!
   components:
   - type: Sprite
-    sprite: Clothing/Head/Misc/cone.rsi
+    sprite: _Funkystation/Clothing/Head/Misc/cone.rsi # funky
   - type: Clothing
-    sprite: Clothing/Head/Misc/cone.rsi
+    sprite: _Funkystation/Clothing/Head/Misc/cone.rsi # funky
   - type: Item
     storedRotation: 0
   - type: PhysicalComposition #you can't just pass up some free plastic!
     materialComposition:
       Plastic: 100
   - type: StaticPrice
+    price: 0 # funky
+# funky stacks start
+  - type: StackPrice
     price: 25
+  - type: Stack
+    stackType: WarningCone
+    count: 1
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.StackVisuals.Actual:
+        sprite:
+          1: { state: icon }
+          2: { state: icon-2 }
+          3: { state: icon-3 }
+          4: { state: icon-4 }
+          5: { state: icon-5 }
+          6: { state: icon-6 }
+          7: { state: icon-7 }
+          8: { state: icon-8 }
+
+- type: entity
+  parent: ClothingHeadHatCone
+  id: ClothingHeadHatConeFull
+  suffix: Full
+  components:
+  - type: Stack
+    count: 8
+# funky stacks end
 
 - type: entity
   parent: ClothingHeadBase
@@ -202,8 +243,8 @@
     proto: regal
   - type: StaticPrice
     price: 3000
-  - type: AddAccentClothing
-    accent: MobsterAccent
+  - type: MobsterAccent
+    relayAccent: true
 
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]
@@ -218,8 +259,8 @@
     sprite: Clothing/Head/Hats/catears.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/catears.rsi
-  - type: AddAccentClothing
-    accent: OwOAccent
+  - type: OwOAccent
+    relayAccent: true
   - type: StaticPrice
     price: 15000
 
@@ -242,8 +283,8 @@
     sprite: Clothing/Head/Hats/catears.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/catears.rsi
-  - type: AddAccentClothing
-    accent: OwOAccent
+  - type: OwOAccent
+    relayAccent: true
 
 - type: entity
   parent: BaseToggleAction
@@ -262,8 +303,8 @@
     sprite: Clothing/Head/Hats/dogears.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/dogears.rsi
-  - type: AddAccentClothing
-    accent: BarkAccent
+  - type: BarkAccent
+    relayAccent: true
 
 - type: entity
   parent: ClothingHeadBase

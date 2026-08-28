@@ -58,7 +58,7 @@
   - Science
 
   # Visual
-  inventoryTemplateId: borgShort
+  inventoryTemplateId: borg # Funked up
   spriteBodyState: engineer
   spriteHasMindState: engineer_e
   spriteNoMindState: engineer_e_r
@@ -94,10 +94,19 @@
   - Supply
   - Science
 
+  # Funky start
+  addComponents:
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.9
+    baseSprintSpeed: 3.9
+  footstepCollection:
+    path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  # Funky end
+
   # Visual
   inventoryTemplateId: borgTall
   spriteBodyState: miner
-  spriteBodyMovementState: miner_moving
+# spriteBodyMovementState: miner_moving # Funky commented
   spriteHasMindState: miner_e
   spriteNoMindState: miner_e_r
   spriteToggleLightState: miner_l
@@ -131,7 +140,7 @@
   - Service
 
   # Visual
-  inventoryTemplateId: borgShort
+  inventoryTemplateId: borgExtraShort
   spriteBodyState: janitor
   spriteBodyMovementState: janitor_moving
   spriteHasMindState: janitor_e
@@ -175,9 +184,27 @@
   - type: ShowHealthIcons
     damageContainers:
     - Biological
+  # Funky start
+  - type: Physics
+    bodyStatus: InAir
+    bodyType: KinematicController
+  - type: MovementAlwaysTouching
+  - type: CanMoveInAir
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 155
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  # Funky end
 
   # Visual
-  inventoryTemplateId: borgDutch
+  inventoryTemplateId: borg # Funked up
   spriteBodyState: medical
   spriteBodyMovementState: medical_moving
   spriteHasMindState: medical_e
@@ -219,7 +246,7 @@
   - Service
 
   # Visual
-  inventoryTemplateId: borgTall
+  inventoryTemplateId: borgShort # funky short
   spriteBodyState: service
   spriteHasMindState: service_e
   spriteNoMindState: service_e_r

@@ -19,7 +19,6 @@
           availableJobs: # 49 roundstart jobs without interns,  75 total jobs including interns
             #command (7)
             Captain: [ 1, 1 ]
-            HeadOfPersonnel: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
             ChiefMedicalOfficer: [ 1, 1 ]
             ChiefEngineer: [ 1, 1 ]
@@ -34,7 +33,6 @@
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
             #engineering (5 - 7)
-            AtmosphericTechnician: [ 2, 2 ]
             StationEngineer: [ 3, 5 ]
             TechnicalAssistant: [ 3, 3 ] #intern, not counted
             #medical (6 - 8)
@@ -52,7 +50,6 @@
             SecurityCadet: [ 4, 4 ] #intern, not counted
             Lawyer: [ 1, 1 ]
             #supply (6-8)
-            SalvageSpecialist: [ 3, 3 ]
             CargoTechnician: [ 3, 5 ]
             #civilian (3+)
             Passenger: [ -1, -1 ] #infinite, not counted
@@ -60,5 +57,4 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             #silicon (3)
-            StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]

@@ -12,10 +12,13 @@ uniform highp float ConeIgnoreFeather;
 
 uniform highp float ViewAngle;
 
-const highp float grainMult = 0.35;
+uniform highp float GrainMult;
 const highp float grainBase = 0.6;
 
 const highp float grayscaleFactor = 0.82;
+
+// viewcone_occlusion_opacity. 1 is pitch black
+uniform highp float DarkenAmount;
 
 void fragment(){
     highp vec2 pixelSize = vec2(1.0/SCREEN_PIXEL_SIZE.x, 1.0/SCREEN_PIXEL_SIZE.y);
@@ -47,7 +50,11 @@ void fragment(){
     highp float grain = zRandom(FRAGCOORD.xy * SCREEN_PIXEL_SIZE + vec2(fract(TIME))).x;
 
     // Lil bit of grayscale for good measure, too
-    highp float grayscale = zGrayscale(color.rgb) * (grain * grainMult + grainBase);
+    highp float grayscale = zGrayscale(color.rgb) * (grain * GrainMult + grainBase);
 
-    COLOR = vec4(mix(color.rgb, vec3(grayscale), mask * grayscaleFactor), color.a);
+    highp vec3 desaturated = mix(color.rgb, vec3(grayscale), mask * grayscaleFactor);
+
+    highp vec3 darkened = mix(desaturated, vec3(0.0), mask * DarkenAmount);
+
+    COLOR = vec4(darkened, color.a);
 }

@@ -51,6 +51,11 @@ namespace Content.Shared.Chat
         /// </summary>
         Admin = ChatChannel.AdminChat,
 
+        /// <summary>
+        ///     RMC Mentor chat Funky Port
+        /// </summary>
+        Mentor = ChatChannel.MentorChat,
+
         Console = ChatChannel.Unspecified
     }
 }
