@@ -46,6 +46,7 @@
     noRot: false
     drawdepth: SmallObjects
     sprite: _Funkystation/Structures/Wallmounts/pa_speaker.rsi
+    offset: 0, -0.15
     layers:
     - state: icon
     - state: unfinished
@@ -104,6 +105,7 @@
   - type: PAAnnouncer
   - type: Appearance
   - type: Sprite
+    offset: 0, -0.15
     noRot: false
     drawdepth: SmallObjects
     sprite: _Funkystation/Structures/Wallmounts/pa_speaker.rsi
