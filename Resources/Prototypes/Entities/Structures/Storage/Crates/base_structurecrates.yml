@@ -1,7 +1,7 @@
 - type: entity
+  abstract: true
   parent: [ BaseStructureDynamic, BasePaperLabelableVisualized ]
-  id: CrateGeneric
-  categories: [ HideSpawnMenu ]
+  id: BaseCrate
   name: crate
   description: A large container for items.
   components:
@@ -9,11 +9,11 @@
   - type: Transform
     noRot: true
   - type: Icon
-    sprite: Structures/Storage/Crates/generic.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/generic.rsi # Funky
     state: icon
   - type: Sprite
     noRot: true
-    sprite: Structures/Storage/Crates/generic.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/generic.rsi # Funky
     layers:
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
@@ -23,7 +23,7 @@
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Funkystation/Structures/Storage/Crates/labels.rsi # Funky
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: InteractionOutline
   - type: Physics
@@ -41,21 +41,6 @@
   - type: EntityStorage
   - type: PlaceableSurface
     isPlaceable: false # defaults to closed.
-  - type: Damageable
-    damageModifierSet: Metallic
-  - type: Injurable
-    damageContainer: StructuralInorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
   - type: EntityStorageVisuals
     stateDoorOpen: open
     stateDoorClosed: closed
@@ -65,12 +50,29 @@
       paper_label: !type:ContainerSlot
   - type: StaticPrice
     price: 75
+  - type: RequireProjectileTarget
+
+- type: entity
+  parent: [ BaseCrate, StructureHealthContainerWeak ]
+  id: CrateGeneric
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Damageable
+    damageModifierSet: SteelMod
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
   - type: Construction
     graph: CrateGenericSteel
     node: crategenericsteel
     containers:
-      - entity_storage
-  - type: RequireProjectileTarget
+    - entity_storage
 
 - type: entity
   parent: CrateGeneric
@@ -89,10 +91,10 @@
   - type: LockVisuals
   - type: AccessReader
   - type: Icon
-    sprite: Structures/Storage/Crates/secure.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/secure.rsi # Funky
     state: icon
   - type: Sprite
-    sprite: Structures/Storage/Crates/secure.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/secure.rsi # Funky
     layers:
     - state: base
     - state: closed
@@ -104,24 +106,11 @@
       map: ["enum.LockVisualLayers.Lock"]
       shader: unshaded
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Funkystation/Structures/Storage/Crates/labels.rsi # Funky
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: Damageable
-    damageModifierSet: StructuralMetallic
-  - type: Injurable
-    damageContainer: StructuralInorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 75
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
+    damageModifierSet: PlasteelMod
   - type: Construction
     graph: CrateSecure
     node: cratesecure
@@ -134,3 +123,5 @@
     spread: 90
   - type: Paintable
     group: CrateSecure
+  - type: StaticPrice
+    price: 300

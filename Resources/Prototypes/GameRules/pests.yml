@@ -44,6 +44,7 @@
     earliestStart: 15
     weight: 6
     duration: 50
+    occursDuringRoundEnd: false
     minimumPlayers: 30 # Hopefully this is enough for the Rat King's potential Army (it was not, raised from 15 -> 30)
   - type: VentCrittersRule # We don't use Horde here to make RK spawns less predictable.
     entries:
@@ -117,8 +118,7 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-horde-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    startAudio: Attention # Macrocosm edit - sound prototypes
     earliestStart: 15
     weight: 6 # Slightly more common than other hordes
     duration: 5

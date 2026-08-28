@@ -10,6 +10,7 @@ using Content.Shared.Execution;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
+using Content.Shared.Suicide;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Ranged;
@@ -41,7 +42,6 @@ public sealed partial class GunExecutionSystem : EntitySystem
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
-    [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private IComponentFactory _compFactory = default!;
     [Dependency] private INetManager _net = default!;
     [Dependency] private EntityWhitelistSystem _whitelist = default!;
@@ -261,7 +261,7 @@ public sealed partial class GunExecutionSystem : EntitySystem
         {
             case CartridgeAmmoComponent cartridge:
             {
-                if (!_proto.TryIndex<EntityPrototype>(cartridge.Prototype, out var projectilePrototype))
+                if (!ProtoMan.TryIndex<EntityPrototype>(cartridge.Prototype, out var projectilePrototype))
                 {
                     return null;
                 }
@@ -321,12 +321,11 @@ public sealed partial class GunExecutionSystem : EntitySystem
 
     private void ShowInternal(LocId key, EntityUid attacker, EntityUid victim, EntityUid weapon)
     {
-        _popup.PopupClient(
+        _popup.PopupEntity(
             Loc.GetString(key,
                 ("attacker", Identity.Entity(attacker, EntityManager)),
                 ("victim", Identity.Entity(victim, EntityManager)),
                 ("weapon", weapon)),
-            attacker,
             attacker,
             PopupType.MediumCaution);
     }

@@ -54,6 +54,7 @@
     - id: ClothingOuterHardsuitWarden
     - id: OxygenTankFilled
     - id: ClothingMaskBreath
+    - id: SuitSealantCanister # Funky
 
 - type: entity
   id: LockerSecurityFilled
@@ -73,6 +74,8 @@
       prob: 0.8
     - id: FuClothingUniformSecService
       prob: 0.3
+    - id: SecurityBola
+      amount: 2
     - id: ClothingHeadHelmetBasic
     - id: ClothingOuterArmorBasic
     - id: ClothingBeltSecurityFilled
@@ -108,7 +111,6 @@
   table: !type:AllSelector
     children:
     - id: ClothingEyesGlassesSecurity
-    - id: WeaponTaser # Funky - We're 100% getting rid of brigmed anyway, so I'm not even going to bother touching this
     - id: WeaponDisabler
     - id: TrackingImplanter
       amount: 2
@@ -168,8 +170,10 @@
     - id: HoloprojectorSecurity
     - id: BoxEvidenceMarkers
     - id: HandLabeler
+    - id: CrayonBox #funky, for sketches of crime sites
     - id: PlushieLizardJobDetective
       prob: 0.02
+    - id: WarningTapeRollSecurity # funky
 
 - type: entity
   id: ClosetBombFilled

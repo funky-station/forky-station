@@ -1,0 +1,16 @@
+﻿- type: entity
+  parent: BaseItem
+  id: SuitSealantCanister
+  name: PX-33 suit sealant canister
+  description: A pressurized canister of quick-setting PX-33 suit sealant foam.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Tools/sealant_canister.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: SuitSealantCanister
+  - type: Tag
+    tags:
+    - Recyclable
+    - Trash

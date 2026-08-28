@@ -5,15 +5,18 @@
   - type: ThiefRule
   - type: AntagObjectives
     objectives:
+    - ScoreThiefObjective # Funky change
     - EscapeThiefShuttleObjective
-  - type: AntagRandomObjectives
-    sets:
-    - groups: ThiefBigObjectiveGroups
-      prob: 0.7
-      maxPicks: 1
-    - groups: ThiefObjectiveGroups
-      maxPicks: 10
-    maxDifficulty: 2.5
+  # Funky changes start
+  #- type: AntagRandomObjectives
+  #  sets:
+  #  - groups: ThiefBigObjectiveGroups
+  #    prob: 0.7
+  #    maxPicks: 1
+  #  - groups: ThiefObjectiveGroups
+  #    maxPicks: 10
+  #  maxDifficulty: 2.5
+  # Funky changes end
   - type: AntagSelection
     agentName: thief-round-end-agent-name
     selectionTime: PrePlayerSpawn

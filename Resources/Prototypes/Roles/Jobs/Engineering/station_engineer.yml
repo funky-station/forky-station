@@ -6,7 +6,8 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 2.5h
+      #time: 2.5h
+      time: 4h # Funky
   startingGear: StationEngineerGear
   icon: "JobIconStationEngineer"
   supervisors: job-supervisors-ce
@@ -14,7 +15,6 @@
   - Maintenance
   - Engineering
   - External
-  extendedAccess:
   - Atmospherics
 
 - type: startingGear

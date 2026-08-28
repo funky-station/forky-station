@@ -24,9 +24,9 @@
         pipeDirection: South
   - type: AtmosPipeLayers
     spriteRsiPaths:
-      Primary: Structures/Piping/Atmospherics/pump.rsi
-      Secondary: Structures/Piping/Atmospherics/pump_alt1.rsi
-      Tertiary: Structures/Piping/Atmospherics/pump_alt2.rsi
+      Primary: _Funkystation/Structures/Piping/Atmospherics/pump.rsi # Funky
+      Secondary: _Funkystation/Structures/Piping/Atmospherics/pump_alt1.rsi # Funky
+      Tertiary: _Funkystation/Structures/Piping/Atmospherics/pump_alt2.rsi # Funky
 
 - type: entity
   parent: GasBinaryBase
@@ -47,9 +47,9 @@
     visibleLayers:
     - enum.SubfloorLayers.FirstLayer
   - type: Sprite
-    sprite: Structures/Piping/Atmospherics/pump.rsi
+    sprite: _Funkystation/Structures/Piping/Atmospherics/pump.rsi # Funky
     layers:
-    - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
       state: pipeStraight
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: pumpPressure
@@ -110,9 +110,9 @@
       visibleLayers:
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
-      sprite: Structures/Piping/Atmospherics/pump.rsi
+      sprite: _Funkystation/Structures/Piping/Atmospherics/pump.rsi # Funky
       layers:
-        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+        - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
           state: pipeStraight
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: pumpVolume
@@ -177,9 +177,9 @@
     visibleLayers:
     - enum.SubfloorLayers.FirstLayer
   - type: Sprite
-    sprite: Structures/Piping/Atmospherics/pump.rsi
+    sprite: _Funkystation/Structures/Piping/Atmospherics/pump.rsi # Funky
     layers:
-    - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
       state: pipeStraight
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: pumpPressureRegulator
@@ -235,9 +235,9 @@
       visibleLayers:
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
-      sprite: Structures/Piping/Atmospherics/pump.rsi
+      sprite: _Funkystation/Structures/Piping/Atmospherics/pump.rsi # Funky
       layers:
-        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+        - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
           state: pipeStraight
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: pumpPassiveGate
@@ -278,9 +278,9 @@
       visibleLayers:
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
-      sprite: Structures/Piping/Atmospherics/pump.rsi
+      sprite: _Funkystation/Structures/Piping/Atmospherics/pump.rsi # Funky
       layers:
-        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+        - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
           state: pipeStraight
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: pumpManualValve
@@ -339,9 +339,9 @@
     visibleLayers:
     - enum.SubfloorLayers.FirstLayer
   - type: Sprite
-    sprite: Structures/Piping/Atmospherics/pump.rsi
+    sprite: _Funkystation/Structures/Piping/Atmospherics/pump.rsi # Funky
     layers:
-    - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
       state: pipeStraight
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: pumpSignalValve
@@ -410,9 +410,9 @@
       visibleLayers:
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
-      sprite: Structures/Piping/Atmospherics/gascanisterport.rsi
+      sprite: _Funkystation/Structures/Piping/Atmospherics/gascanisterport.rsi # Funky
       layers:
-        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+        - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
           state: pipeUnaryConnectors
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: gasCanisterPort
@@ -450,11 +450,12 @@
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: Structures/Piping/Atmospherics/vent.rsi
+      sprite: Structures/Piping/Atmospherics/vent.rsi # Funky
       layers:
-        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+        - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
           state: pipeBinaryConnectors
           map: [ "enum.PipeVisualLayers.Pipe" ]
+        - state: vent_direction
         - state: vent_off
           map: [ "enabled", "enum.SubfloorLayers.FirstLayer" ]
     - type: AtmosPipeLayers
@@ -472,16 +473,7 @@
     - type: GasVentPump
       inlet: inlet
       outlet: outlet
-      canLink: true
-    - type: DeviceNetwork
-      deviceNetId: Wireless
-      receiveFrequencyId: BasicDevice
-    - type: WirelessNetworkConnection
-      range: 200
-    - type: DeviceLinkSink
-      ports:
-        - Pressurize
-        - Depressurize
+      canLink: false
     - type: Construction
       graph: GasBinary
       node: dualportventpump
@@ -504,7 +496,7 @@
       - AirVent
 
 - type: entity
-  parent: [ BaseMachine, ConstructibleMachine ]
+  parent: [ BaseMachine, ConstructibleMachine, BaseConstructibleMachineDestructible ]
   id: GasRecycler
   name: gas recycler
   description: Recycles carbon dioxide and nitrous oxide. Heater and compressor not included.
@@ -516,7 +508,7 @@
     snapCardinals: true
     granularLayersRendering: true
     layers:
-    - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
       state: pipeBinaryConnectors
       map: [ "enum.PipeVisualLayers.Pipe" ]
       renderingStrategy: Default
@@ -526,9 +518,9 @@
   - type: AtmosPipeLayers
     spriteLayersRsiPaths:
       enum.PipeVisualLayers.Pipe:
-        Primary: Structures/Piping/Atmospherics/pipe.rsi
-        Secondary: Structures/Piping/Atmospherics/pipe_alt1.rsi
-        Tertiary: Structures/Piping/Atmospherics/pipe_alt2.rsi
+        Primary: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
+        Secondary: _Funkystation/Structures/Piping/Atmospherics/pipe_alt1.rsi # Funky
+        Tertiary: _Funkystation/Structures/Piping/Atmospherics/pipe_alt2.rsi # Funky
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -561,15 +553,11 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 175
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak
-      - !type:ChangeConstructionNodeBehavior
-        node: machineFrame
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
   - type: Machine
     board: GasRecyclerMachineCircuitboard
   - type: AtmosMonitoringConsoleDevice
@@ -592,9 +580,9 @@
   - type: Transform
     noRot: false
   - type: Sprite
-    sprite: Structures/Piping/Atmospherics/heatexchanger.rsi
+    sprite: _Funkystation/Structures/Piping/Atmospherics/heatexchanger.rsi # Funky
     layers:
-    - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
       state: pipeStraight
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: heStraight
@@ -638,7 +626,7 @@
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       layers:
-      - sprite: Structures/Piping/Atmospherics/pipe.rsi
+      - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
         state: pipeBend
         map: [ "enum.PipeVisualLayers.Pipe" ]
       - state: heBend

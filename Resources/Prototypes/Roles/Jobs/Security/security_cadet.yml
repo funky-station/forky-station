@@ -8,20 +8,21 @@
       time: 10h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 10h
+      #time: 10h
+      time: 40h # Funky
       inverted: true # stop playing intern if you're good at security!
   startingGear: SecurityCadetGear
   icon: "JobIconSecurityCadet"
-  supervisors: job-supervisors-security
+  supervisors: job-supervisors-lieutenant #funky
   access:
   - Security
   - Brig
   - Maintenance
   - External
   - Cryogenics
-  special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+  #special:
+  #- !type:AddImplantSpecial
+  #  implants: [ MindShieldImplant ] # Funky - Removed mindshields
 
 - type: startingGear
   id: SecurityCadetGear

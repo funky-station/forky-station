@@ -109,7 +109,7 @@
   id: Stamp
   name: steal-target-groups-stamps
   sprite:
-    sprite: Objects/Misc/stamps.rsi
+    sprite: _Funkystation/Objects/Misc/stamps.rsi # Funky
     state: stamp-cap
 
 - type: stealTargetGroup
@@ -330,7 +330,7 @@
   id: FreezerHeater
   name: steal-target-groups-freezer-heater
   sprite:
-    sprite: Structures/Piping/Atmospherics/thermomachine.rsi
+    sprite: _Funkystation/Structures/Piping/Atmospherics/thermomachine.rsi # Funky
     state: heaterOff
 
 - type: stealTargetGroup

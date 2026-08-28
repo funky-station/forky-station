@@ -1,0 +1,9 @@
+- type: entity
+  parent: TelecomServer
+  id: TelecomServerFilledIA
+  suffix: Internal Affairs
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyIA

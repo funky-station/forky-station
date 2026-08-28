@@ -20,7 +20,7 @@
   - type: FitsInDispenser
     solution: drink
   - type: Label
-    currentLabel: reagent-name-water
+    localizedLabel: reagent-name-water
 
 - type: entity
   parent: [DrinkVisualsAllFilled, DrinkBottlePlasticBaseFull]
@@ -44,7 +44,7 @@
   - type: FitsInDispenser
     solution: drink
   - type: Label
-    currentLabel: reagent-name-water
+    localizedLabel: reagent-name-water
 
 - type: entity
   parent: DrinkWaterBottleLargeFull
@@ -61,4 +61,4 @@
   - type: FitsInDispenser
     solution: drink
   - type: Label
-    currentLabel: funny water
+    localizedLabel: emergency-bottle-funny-water-label
