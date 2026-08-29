@@ -1,8 +1,4 @@
-// SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
-namespace Content.Server.OOCAuthorship.Components;
+namespace Content.Shared._Funkystation.OOCAuthorship;
 
 [RegisterComponent]
 public sealed partial class OocAuthorshipComponent : Component

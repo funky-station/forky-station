@@ -1,19 +1,13 @@
-// SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
-//
-// SPDX-License-Identifier: MIT
-
-using Content.Server.Examine;
 using Content.Shared.Examine;
-using Content.Server.OOCAuthorship.Components;
 using Robust.Shared.Utility;
 
 
-namespace Content.Server.OOCAuthorship
+namespace Content.Shared._Funkystation.OOCAuthorship
 {
     // <summary>
     //This component exists to display an OOC Author in the examine window for things that require it such as with in game books
     // </summary>
-    public sealed class OOCAuthorshipSystem : EntitySystem
+    public sealed class OocAuthorshipSystem : EntitySystem
     {
         public override void Initialize()
         {
