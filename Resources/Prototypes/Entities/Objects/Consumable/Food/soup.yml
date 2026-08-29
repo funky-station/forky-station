@@ -414,6 +414,11 @@
     layers:
     - state: bowl
     - state: rice
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
 
 - type: entity
   name: egg-fried rice
@@ -446,6 +451,7 @@
     tags:
     - Meat
     - Soup
+    - UnguFood # macro edit - allow ungu to eat
 
 - type: entity
   name: rice and pork
@@ -491,6 +497,11 @@
     layers:
     - state: bowl
     - state: rice-pudding
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
   - type: Solution
     solution:
       reagents:
@@ -553,6 +564,11 @@
     layers:
     - state: bowl
     - state: oatmeal
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
 
 - type: entity
   name: space liberty duff
@@ -585,6 +601,11 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/meals.rsi
     state: amanita-jelly
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
   - type: Solution
     solution:
       reagents:
@@ -1002,6 +1023,11 @@
     layers:
     - state: bowl
     - state: mushroom
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
   - type: Solution
     solution:
       reagents:

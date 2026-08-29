@@ -1,7 +1,7 @@
 - type: species
   id: Gray
   name: species-name-gray
-  roundStart: false
+  roundStart: true
   #randomViable: false
   prototype: MobGray
   dollPrototype: AppearanceGray
@@ -10,6 +10,12 @@
   femaleFirstNames: NamesGrayFirst
   lastNames: NamesGrayLast
   youngAge: 999
+  defaultSoundsBySex:
+  - UnisexGray
+  - UnisexGray
+  - UnisexGray
+  voices:
+  - UnisexGray
 
 # Developer Notes
 #

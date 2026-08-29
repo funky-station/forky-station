@@ -1,5 +1,5 @@
-﻿using Content.Server.Atmos.Components;
-using Content.Server.Forensics;
+﻿using System.Numerics;
+using Content.Server.Atmos.Components;
 using Content.Shared._Funkystation.WallStains;
 using Content.Shared._Funkystation.WallStains.Components;
 using Content.Shared.Chemistry;
@@ -11,9 +11,12 @@ using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.Fluids;
 using Content.Shared.Fluids.Components;
+using Content.Shared.Forensics.Components;
+using Content.Shared.Forensics.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
+using Content.Shared.Wall;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -25,7 +28,6 @@ namespace Content.Server._Funkystation.WallStains.Systems;
 
 public sealed partial class WallStainSystem : EntitySystem
 {
-    private static readonly ProtoId<TagPrototype> WallTag = "Wall";
     private static readonly ProtoId<TagPrototype> WindowTag = "Window";
     private static readonly ProtoId<TagPrototype> SoapTag = "Soap";
 
@@ -40,7 +42,6 @@ public sealed partial class WallStainSystem : EntitySystem
     [Dependency] private SharedPopupSystem _popup = null!;
     [Dependency] private TagSystem _tag = null!;
     [Dependency] private IRobustRandom _random = null!;
-    [Dependency] private IPrototypeManager _prototype = null!;
     [Dependency] private SharedPuddleSystem _puddle = null!;
     [Dependency] private SharedAudioSystem _audio = null!;
 
@@ -94,7 +95,7 @@ public sealed partial class WallStainSystem : EntitySystem
         foreach (var offset in checkOffsets)
         {
             var targetTile = tilePos + offset;
-            var anchored = _map.GetAnchoredEntitiesEnumerator(gridUid.Value, grid, targetTile);
+            var anchored = _map.GetAnchoredEntities(gridUid.Value, grid, targetTile);
             while (anchored.MoveNext(out var ent))
             {
                 if (!IsWall(ent.Value))
@@ -107,7 +108,7 @@ public sealed partial class WallStainSystem : EntitySystem
 
     private bool IsWall(EntityUid uid)
     {
-        return HasComp<AirtightComponent>(uid) || _tag.HasTag(uid, WallTag) || _tag.HasTag(uid, WindowTag);
+        return HasComp<AirtightComponent>(uid) || HasComp<WallComponent>(uid)|| _tag.HasTag(uid, WindowTag);
     }
 
     private FixedPoint2 ApplyStainToWall(EntityUid wallUid, Solution solution, Vector2i direction, float fraction = 1.0f)
@@ -137,13 +138,13 @@ public sealed partial class WallStainSystem : EntitySystem
             stainUid = Spawn("WallStain", Transform(wallUid).Coordinates);
             _transform.SetParent(stainUid, wallUid);
 
-            var baseOffset = new System.Numerics.Vector2(direction.X * 0.48f, direction.Y * 0.48f);
+            var baseOffset = new Vector2(direction.X * 0.48f, direction.Y * 0.48f);
             if (direction.X != 0)
                 baseOffset.Y += _random.NextFloat(-0.35f, 0.35f);
             if (direction.Y != 0)
                 baseOffset.X += _random.NextFloat(-0.35f, 0.35f);
             if (direction == Vector2i.Zero)
-                baseOffset = new System.Numerics.Vector2(_random.NextFloat(-0.4f, 0.4f), _random.NextFloat(-0.4f, 0.4f));
+                baseOffset = new Vector2(_random.NextFloat(-0.4f, 0.4f), _random.NextFloat(-0.4f, 0.4f));
 
             _transform.SetLocalPosition(stainUid, baseOffset);
             _transform.SetLocalRotation(stainUid, direction != Vector2i.Zero ? Angle.Zero : _random.NextAngle());
@@ -345,7 +346,7 @@ public sealed partial class WallStainSystem : EntitySystem
         if (!_solution.TryGetSolution(uid, comp.SolutionName, out _, out var solution))
             return;
 
-        var color = solution.GetColor(_prototype);
+        var color = solution.GetColor(ProtoMan);
         comp.Color = color.WithAlpha(color.A * 0.6f);
         comp.StainState = solution.ContainsPrototype(WaterReagent) || solution.ContainsPrototype(SpaceCleanerReagent) ? "drip" : "splatter";
         Dirty(uid, comp);

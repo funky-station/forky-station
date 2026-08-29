@@ -91,8 +91,8 @@
       storagebase: !type:AllSelector
         children:
         - id: WeaponRifleEstoc
-        - id: MagazineRifle
-          amount: 2
+        - id: MagazineRifle50 # Funky
+          amount: 3
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -138,26 +138,6 @@
           amount: 4
 
 - type: entity
-  parent: ClothingBackpackDuffelSyndicateBundle
-  id: ClothingBackpackDuffelSyndicateFilledCarbine
-  name: M-90gl bundle
-  description: "A versatile battle rifle with an attached grenade launcher, bundled with 3 magazines and 6 grenades of various capabilities."
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: WeaponRifleM90GrenadeLauncher
-        - id: MagazineRifle
-          amount: 2
-        - id: GrenadeBlast
-          amount: 2
-        - id: GrenadeFlash
-          amount: 2
-        - id: GrenadeFrag
-          amount: 2
-
-- type: entity
   parent: ClothingBackpackDuffelSyndicateAmmo
   id: ClothingBackpackDuffelSyndicateAmmoFilled
   name: ammo bundle
@@ -171,7 +151,7 @@
           amount: 4
         - id: MagazineShotgun
           amount: 4
-        - id: MagazineRifle
+        - id: MagazineRifle50Incendiary # Funky
           amount: 3
         - id: MagazineShotgunSlug
         - id: MagazineLightRifleBox
@@ -307,6 +287,7 @@
         - id: ClothingHandsGlovesColorYellowBudget
         - id: DoubleEmergencyOxygenTankFilled
         - id: DoubleEmergencyNitrogenTankFilled
+        - id: SuitSealantCanister # Funky
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -355,6 +336,7 @@
     - id: ClothingHandsGlovesCombat
     - id: DoubleEmergencyOxygenTankFilled
     - id: DoubleEmergencyNitrogenTankFilled
+    - id: SuitSealantCanister # Funky
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -369,9 +351,8 @@
         - id: SyringeRomerol
         - id: WeaponRevolverPython
         - id: MagazineBoxMagnumIncendiary
-        - id: PillAmbuzolPlus
-        - id: PillAmbuzol
-          amount: 3
+        - id: PillCanisterAmbuzol
+          amount: 5
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle

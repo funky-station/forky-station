@@ -6,20 +6,37 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 4h
+      #time: 4h
+      time: 5h # Funky
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 4h
+      #time: 4h
+      time: 5h # Funky
     - !type:DepartmentTimeRequirement
       department: Science
-      time: 4h
+      #time: 4h
+      time: 5h # Funky
     - !type:DepartmentTimeRequirement
       department: Security
+      #time: 4h
+      time: 10h # Funky
+    - !type:DepartmentTimeRequirement
+      department: InternalAffairs
+      time: 4h
+    - !type:DepartmentTimeRequirement
+      department: Cargo
+      time: 4h
+    - !type:DepartmentTimeRequirement
+      department: Service
       time: 4h
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 4h
-  weight: 20
+      #time: 4h
+      time: 20h # Funky
+    - !type:OverallPlaytimeRequirement
+      time: 40h # Funky
+    # TODO: Add a time requirement for Internal Affairs when that gets added
+  #weight: 20 # Funky - Weighting all jobs equally now
   startingGear: CaptainGear
   icon: "JobIconCaptain"
   joinNotifyCrew: true
@@ -27,8 +44,8 @@
   accessGroups:
   - AllAccess
   special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+  #- !type:AddImplantSpecial
+  #  implants: [ MindShieldImplant ] # Funky - Removed mindshields
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff

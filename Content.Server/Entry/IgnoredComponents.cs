@@ -20,7 +20,9 @@ namespace Content.Server.Entry
             "HolidayRsiSwap",
             "OptionsVisualizer",
             "AnomalyScannerScreen",
-            "MultipartMachineGhost"
+            "MultipartMachineGhost",
+            "DirectionalArrowIndicator",
+            "EdgeTrim" // Funky Change
         };
     }
 }

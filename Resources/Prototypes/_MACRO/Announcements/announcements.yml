@@ -1,0 +1,65 @@
+- type: announcementSound
+  id: Attention
+  defaultSound:
+    path: /Audio/Announcements/attention.ogg
+
+- type: announcementSound
+  id: Announce
+  defaultSound:
+    path: /Audio/Announcements/announce.ogg
+
+- type: announcementSound
+  id: GridPowerOff
+  defaultSound:
+    path: /Audio/Announcements/power_off.ogg
+    params:
+      volume: -4
+
+- type: announcementSound
+  id: GridPowerOn
+  defaultSound:
+    collection: PowerOn
+    params:
+      volume: -4
+
+- type: announcementSound
+  id: Intercept
+  defaultSound:
+    path: /Audio/Announcements/intercept.ogg
+
+- type: announcementSound
+  id: Welcome
+  defaultSound:
+    path: /Audio/Announcements/welcome.ogg
+
+- type: announcementSound
+  id: Meteors
+  defaultSound:
+    path: /Audio/Announcements/meteors.ogg
+    params:
+      volume: -4
+
+- type: announcementSound
+  id: War
+  defaultSound:
+    path: /Audio/Announcements/war.ogg
+
+- type: announcementSound
+  id: ShuttleCalled
+  defaultSound:
+    path: /Audio/Announcements/shuttlecalled.ogg
+
+- type: announcementSound
+  id: ShuttleRecalled
+  defaultSound:
+    path: /Audio/Announcements/shuttlerecalled.ogg
+
+- type: announcementSound
+  id: ShuttleDock
+  defaultSound:
+    path: /Audio/Announcements/shuttle_dock.ogg
+
+- type: announcementSound
+  id: Notice1
+  defaultSound:
+    path: /Audio/Misc/notice1.ogg

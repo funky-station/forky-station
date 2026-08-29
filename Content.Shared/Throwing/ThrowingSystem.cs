@@ -6,6 +6,7 @@ using Content.Shared.Construction.Components;
 using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Database;
 using Content.Shared.Friction;
+using Content.Shared.Interaction;
 using Content.Shared.Projectiles;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
@@ -37,7 +38,9 @@ public sealed partial class ThrowingSystem : EntitySystem
     [Dependency] private SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private IConfigurationManager _configManager = default!;
-
+    // ES START
+    [Dependency] private RotateToFaceSystem _rotate = default!;
+    // ES END
     [Dependency] private EntityQuery<AnchorableComponent> _anchorableQuery = default!;
     [Dependency] private EntityQuery<PhysicsComponent> _physicsQuery = default!;
     [Dependency] private EntityQuery<ProjectileComponent> _projectileQuery = default!;
@@ -50,7 +53,7 @@ public sealed partial class ThrowingSystem : EntitySystem
         Subs.CVar(_configManager, CCVars.AirFriction, value => _airDamping = value, true);
     }
 
-    public void TryThrow(
+    public bool TryThrow(
         EntityUid uid,
         EntityCoordinates coordinates,
         float baseThrowSpeed = 10.0f,
@@ -68,9 +71,9 @@ public sealed partial class ThrowingSystem : EntitySystem
         var mapPos = _transform.ToMapCoordinates(coordinates);
 
         if (mapPos.MapId != thrownPos.MapId)
-            return;
+            return false;
 
-        TryThrow(uid, mapPos.Position - thrownPos.Position, baseThrowSpeed, user, pushbackRatio, friction, compensateFriction: compensateFriction, recoil: recoil, animated: animated, playSound: playSound, doSpin: doSpin, unanchor: unanchor);
+        return TryThrow(uid, mapPos.Position - thrownPos.Position, baseThrowSpeed, user, pushbackRatio, friction, compensateFriction: compensateFriction, recoil: recoil, animated: animated, playSound: playSound, doSpin: doSpin, unanchor: unanchor);
     }
 
     /// <summary>
@@ -84,7 +87,7 @@ public sealed partial class ThrowingSystem : EntitySystem
     /// <param name="compensateFriction">True will adjust the throw so the item stops at the target coordinates. False means it will land at the target and keep sliding.</param>
     /// <param name="doSpin">Whether spin will be applied to the thrown entity.</param>
     /// <param name="unanchor">If set to Unanchorable, if the entity has <see cref="AnchorableComponent"/> and is unanchorable, it will unanchor the thrown entity. If set to All, it will unanchor the entity regardless.</param>
-    public void TryThrow(EntityUid uid,
+    public bool TryThrow(EntityUid uid,
         Vector2 direction,
         float baseThrowSpeed = 10.0f,
         EntityUid? user = null,
@@ -98,9 +101,9 @@ public sealed partial class ThrowingSystem : EntitySystem
         ThrowingUnanchorStrength unanchor = ThrowingUnanchorStrength.None)
     {
         if (!_physicsQuery.TryComp(uid, out var physics))
-            return;
+            return false;
 
-        TryThrow(
+        return TryThrow(
             uid,
             direction,
             physics,
@@ -122,7 +125,7 @@ public sealed partial class ThrowingSystem : EntitySystem
     /// <param name="compensateFriction">True will adjust the throw so the item stops at the target coordinates. False means it will land at the target and keep sliding.</param>
     /// <param name="doSpin">Whether spin will be applied to the thrown entity.</param>
     /// <param name="unanchor">If set to Unanchorable, if the entity has <see cref="AnchorableComponent"/> and is unanchorable, it will unanchor the thrown entity. If set to All, it will unanchor the entity regardless.</param>
-    public void TryThrow(EntityUid uid,
+    public bool TryThrow(EntityUid uid,
         Vector2 direction,
         PhysicsComponent physics,
         TransformComponent transform,
@@ -138,7 +141,7 @@ public sealed partial class ThrowingSystem : EntitySystem
         ThrowingUnanchorStrength unanchor = ThrowingUnanchorStrength.None)
     {
         if (baseThrowSpeed <= 0 || direction == Vector2Helpers.Infinity || direction == Vector2Helpers.NaN || direction == Vector2.Zero || friction < 0)
-            return;
+            return false;
 
         // Unanchor the entity if applicable
         if (unanchor == ThrowingUnanchorStrength.All ||
@@ -148,11 +151,11 @@ public sealed partial class ThrowingSystem : EntitySystem
             _transform.Unanchor(uid);
 
         if ((physics.BodyType & (BodyType.Dynamic | BodyType.KinematicController)) == 0x0)
-            return;
+            return false;
 
         // Allow throwing if this projectile only acts as a projectile when shot, otherwise disallow
         if (_projectileQuery.TryComp(uid, out var proj) && !proj.OnlyCollideWhenShot)
-            return;
+            return false;
 
         var comp = new ThrownItemComponent
         {
@@ -225,7 +228,7 @@ public sealed partial class ThrowingSystem : EntitySystem
         }
 
         if (user == null)
-            return;
+            return true;
 
         if (recoil)
             _recoil.KickCamera(user.Value, -direction * 0.04f);
@@ -234,12 +237,18 @@ public sealed partial class ThrowingSystem : EntitySystem
         if (pushbackRatio == 0.0f ||
             physics.Mass == 0f ||
             !TryComp(user.Value, out PhysicsComponent? userPhysics))
-            return;
+            return true;
         var msg = new ThrowPushbackAttemptEvent();
         RaiseLocalEvent(uid, msg);
 
+        // ES START
+        // rotate them in the direction of the thrown thing
+        if (user.Value.Valid)
+            _rotate.TryFaceAngle(user.Value, direction.ToWorldAngle());
+        // ES END
+
         if (msg.Cancelled)
-            return;
+            return true;
 
         var pushEv = new ThrowerImpulseEvent();
         RaiseLocalEvent(user.Value, ref pushEv);
@@ -247,6 +256,8 @@ public sealed partial class ThrowingSystem : EntitySystem
 
         if (pushEv.Push)
             _physics.ApplyLinearImpulse(user.Value, -impulseVector / physics.Mass * pushbackRatio * MathF.Min(massLimit, physics.Mass), body: userPhysics);
+
+        return true;
     }
 
 

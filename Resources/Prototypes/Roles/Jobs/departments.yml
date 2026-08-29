@@ -1,35 +1,39 @@
 - type: department
   id: Cargo
-  name: department-Cargo
-  description: department-Cargo-description
+  name: department-Logistics
+  description: department-Logistics-description
   color: "#A46106"
   roles:
+  - Botanist # Funky - Moved from Civilian
   - CargoTechnician
   - Quartermaster
-  - SalvageSpecialist
+  # - SalvageSpecialist - funky
 
 - type: department
   id: Civilian
   name: department-Civilian
   description: department-Civilian-description
-  color: "#9FED58"
+  color: "#808080" # Funky - Changed color to gray, like the icons. Service is now green
   weight: -10
+  ignoreForDepartmentFallback: true
   roles:
-  - Bartender
-  - Botanist
-  - Chaplain
-  - Chef
-  - Clown
-  - HeadOfPersonnel
-  - Janitor
+  #- Bartender # Funky - All the commented out jobs are moving to Service
+  #- Botanist # Except Botanist which is moving to Logistics
+  #- Chaplain
+  #- Chef
+  #- Clown
+  #- HeadOfPersonnel
+  #- Janitor
   - Lawyer
-  - Librarian
-  - Mime
-  - Musician
+  #- Librarian
+  #- Mime
+  #- Musician
   - Passenger
   - Reporter
   - Visitor
-  - ServiceWorker
+  - Prisoner # funky
+  #- ServiceWorker
+  - TramDriver
 
 - type: department
   id: CentralCommand
@@ -58,10 +62,13 @@
   - Captain
   - ChiefEngineer
   - ChiefMedicalOfficer
-  - HeadOfPersonnel
-  - HeadOfSecurity
+#  - HeadOfPersonnel - funky
+#  - HeadOfSecurity - funky
   - ResearchDirector
   - Quartermaster
+  - HospitalityDirector # funky
+  - CorporateLiaison # funky
+  - ExecutiveOfficer # funky
   - CentralCommandOfficial
   - CBURN
   - ERTLeader
@@ -80,7 +87,7 @@
   description: department-Engineering-description
   color: "#EFB341"
   roles:
-  - AtmosphericTechnician
+  #- AtmosphericTechnician - funky
   - ChiefEngineer
   - StationEngineer
   - TechnicalAssistant
@@ -105,11 +112,14 @@
   color: "#DE3A3A"
   weight: 20
   roles:
-  - HeadOfSecurity
+#  - HeadOfSecurity - funky
+  - Commandant # funky
+  - Lieutenant # funky
   - SecurityCadet
   - SecurityOfficer
   - Detective
   - Warden
+  - Dispatcher # funky
 
 - type: department
   id: Science
@@ -128,7 +138,7 @@
   color: "#D381C9"
   roles:
   - Borg
-  - StationAi
+  #- StationAi - funky
 
 - type: department
   id: Specific
@@ -136,7 +146,10 @@
   description: department-Specific-description
   color: "#9FED58"
   weight: 10
+  ignoreForDepartmentFallback: true
   roles:
-  - Reporter
-  - Psychologist
+#  - Reporter - funky
+#  - Psychologist - funky
+  - Dispatcher # funky
+  - TramDriver
   primary: false

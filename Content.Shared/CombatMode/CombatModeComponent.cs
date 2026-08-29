@@ -1,9 +1,9 @@
+using Content.Shared._Funkystation.Viewcone; // Funky
 using Content.Shared.MouseRotator;
 using Content.Shared.Movement.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.CombatMode
 {
@@ -33,8 +33,8 @@ namespace Content.Shared.CombatMode
 
         #endregion
 
-        [DataField("combatToggleAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-        public string CombatToggleAction = "ActionCombatModeToggle";
+        [DataField]
+        public EntProtoId CombatToggleAction = "ActionCombatModeToggle";
 
         [DataField, AutoNetworkedField]
         public EntityUid? CombatToggleActionEntity;
@@ -47,6 +47,8 @@ namespace Content.Shared.CombatMode
         ///     to entities with this flag enabled that enter combat mode, and vice versa for removal.
         /// </summary>
         [DataField, AutoNetworkedField]
+        // Funky, added access
+        [Access(typeof(SharedCombatModeSystem), typeof(ViewconeAlwaysFaceCursorSystem))]
         public bool ToggleMouseRotator = true;
     }
 }

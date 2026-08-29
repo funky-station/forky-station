@@ -24,6 +24,7 @@ using Content.Shared.Mobs.Systems;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared._Funkystation.Cpr; // funky
 
 namespace Content.Server.Body.Systems;
 
@@ -32,7 +33,6 @@ public sealed partial class RespiratorSystem : EntitySystem
 {
     [Dependency] private IAdminLogManager _adminLogger = default!;
     [Dependency] private IGameTiming _gameTiming = default!;
-    [Dependency] private IPrototypeManager _protoMan = default!;
     [Dependency] private AlertsSystem _alertsSystem = default!;
     [Dependency] private AtmosphereSystem _atmosSys = default!;
     [Dependency] private BodySystem _body = default!;
@@ -90,7 +90,21 @@ public sealed partial class RespiratorSystem : EntitySystem
 
             UpdateSaturation(uid, -(float)respirator.UpdateInterval.TotalSeconds, respirator);
 
-            if (!_mobState.IsIncapacitated(uid)) // cannot breathe in crit.
+            // funky start, assisted respiration from cpr allows breathing in crit
+            var canBreathe = !_mobState.IsIncapacitated(uid);
+            if (!canBreathe && TryComp<AssistedRespirationComponent>(uid, out var assist))
+            {
+                if (_gameTiming.CurTime <= assist.AssistedUntil)
+                {
+                    canBreathe = true;
+                }
+                else
+                {
+                    RemCompDeferred<AssistedRespirationComponent>(uid);
+                }
+            }
+
+            if (canBreathe) // funky end
             {
                 switch (respirator.Status)
                 {
@@ -103,7 +117,19 @@ public sealed partial class RespiratorSystem : EntitySystem
                         respirator.Status = RespiratorStatus.Inhaling;
                         break;
                 }
-            }
+            }else{ // Funky Station - made critical state multiply breathing by a low amount rather than completely remove it
+            switch (respirator.Status)
+                {
+                    case RespiratorStatus.Inhaling:
+                        Inhale((uid, respirator), 0.20f);
+                        respirator.Status = RespiratorStatus.Exhaling;
+                        break;
+                    case RespiratorStatus.Exhaling:
+                        Exhale((uid, respirator));
+                        respirator.Status = RespiratorStatus.Inhaling;
+                        break;
+                }
+		}
 
             if (respirator.Saturation < respirator.SuffocationThreshold)
             {
@@ -121,22 +147,12 @@ public sealed partial class RespiratorSystem : EntitySystem
                 continue;
             }
 
-            if (respirator.Saturation > 4)
-            {
-                // todo make respirator.HyperoxiaThreshold variable real, gotta learn more about actual C code before I can continue with this
-                // this could definitely be something cooler than normal suffocation
-                TakeSuffocationDamage((uid, respirator));
-                TakeSuffocationDamage((uid, respirator)); //hope this overpowers oxygen/nitrogen, so there's real issue in well, hyperoxia
-                respirator.SuffocationCycles += 1;
-                continue;
-            }
-
             StopSuffocation((uid, respirator));
             respirator.SuffocationCycles = 0;
         }
     }
 
-    public void Inhale(Entity<RespiratorComponent?> entity)
+    public void Inhale(Entity<RespiratorComponent?> entity, float multiplier = 1f) //Funky Station - added multiplier parameter
     {
         if (!Resolve(entity, ref entity.Comp, logMissing: false))
             return;
@@ -153,7 +169,7 @@ public sealed partial class RespiratorSystem : EntitySystem
         if (ev.Gas is null)
             return;
 
-        var gas = ev.Gas.RemoveVolume(entity.Comp.BreathVolume);
+        var gas = ev.Gas.RemoveVolume(entity.Comp.BreathVolume*multiplier); //Funky Station - made inhale based on multiplier value
 
         var inhaleEv = new InhaledGasEvent(gas);
         RaiseLocalEvent(entity, ref inhaleEv);
@@ -198,8 +214,10 @@ public sealed partial class RespiratorSystem : EntitySystem
     /// </summary>
     public bool IsBreathing(Entity<RespiratorComponent?> ent)
     {
-        if (_mobState.IsIncapacitated(ent))
+        // funky start, assisted respiration allows breathing in crit
+        if (_mobState.IsIncapacitated(ent) && (!TryComp<AssistedRespirationComponent>(ent, out var assist) || _gameTiming.CurTime > assist.AssistedUntil))
             return false;
+        // funky end
 
         if (!Resolve(ent, ref ent.Comp))
             return false;
@@ -293,7 +311,7 @@ public sealed partial class RespiratorSystem : EntitySystem
         float saturation = 0;
         foreach (var (id, quantity) in solution.Contents)
         {
-            var reagent = _protoMan.Index<ReagentPrototype>(id.Prototype);
+            var reagent = ProtoMan.Index<ReagentPrototype>(id.Prototype);
             if (reagent.Metabolisms == null)
                 continue;
 

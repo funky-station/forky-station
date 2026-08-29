@@ -25,7 +25,7 @@
         - id: HandheldGPSBasic
       - !type:GroupSelector
         children:
-        - id: CheapLighter
+        #- id: CheapLighter
         - id: Pen
         - id: Cigar
         - id: CigarSpent

@@ -52,6 +52,9 @@ namespace Content.Client.ContextMenu.UI
         [UISystemDependency] private readonly TransformSystem _xform = default!;
         [UISystemDependency] private readonly CombatModeSystem _combatMode = default!;
 
+        private EntityQuery<TransformComponent> _xformQuery;
+        private EntityQuery<SpriteComponent> _spriteQuery;
+
         private bool _updating;
 
         /// <summary>
@@ -71,6 +74,9 @@ namespace Content.Client.ContextMenu.UI
             CommandBinds.Builder
                 .Bind(EngineKeyFunctions.UseSecondary,  new PointerInputCmdHandler(HandleOpenEntityMenu, outsidePrediction: true))
                 .Register<EntityMenuUIController>();
+
+            _xformQuery = _entityManager.GetEntityQuery<TransformComponent>();
+            _spriteQuery = _entityManager.GetEntityQuery<SpriteComponent>();
         }
 
         public void OnStateExited(GameplayState state)
@@ -160,24 +166,35 @@ namespace Content.Client.ContextMenu.UI
             }
         }
 
+        // ES START
+        // reverse returns they were incorrect before
         private bool HandleOpenEntityMenu(in PointerInputCmdHandler.PointerInputCmdArgs args)
         {
+            // ES START
+            // despite what you may infer from outsidePrediction, that doesnt actually mean this doesnt get predicted,
+            // it appears to just mean this is a clientside/local bind that can prevent server binds from running?
+            // so we still have to check. this was papered over in earlier impls, because of the bad return values, afaict.
+            if (!_gameTiming.IsFirstTimePredicted)
+                return true;
+            // ES END
+
             if (args.State != BoundKeyState.Down)
-                return false;
+                return true;
 
             if (_stateManager.CurrentState is not GameplayStateBase)
-                return false;
+                return true;
 
             if (_combatMode.IsInCombatMode(args.Session?.AttachedEntity))
-                return false;
+                return true;
 
             var coords = _xform.ToMapCoordinates(args.Coordinates);
 
             if (_verbSystem.TryGetEntityMenuEntities(coords, out var entities))
                 OpenRootMenu(entities);
 
-            return true;
+            return false;
         }
+        // ES END
 
         /// <summary>
         ///     Check that entities in the context menu are still visible. If not, remove them from the context menu.
@@ -211,13 +228,20 @@ namespace Content.Client.ContextMenu.UI
             visibility = ev.Visibility;
 
             _entityManager.TryGetComponent(player, out ExaminerComponent? examiner);
-            var xformQuery = _entityManager.GetEntityQuery<TransformComponent>();
 
             foreach (var entity in Elements.Keys.ToList())
             {
-                if (!xformQuery.TryGetComponent(entity, out var xform))
+                if (!_xformQuery.TryGetComponent(entity, out var xform))
                 {
                     // entity was deleted
+                    RemoveEntity(entity);
+                    continue;
+                }
+
+                if ((visibility & MenuVisibility.Invisible) == 0
+                    && _spriteQuery.TryGetComponent(entity, out var sprite)
+                    && !sprite.Visible)
+                {
                     RemoveEntity(entity);
                     continue;
                 }
@@ -225,7 +249,7 @@ namespace Content.Client.ContextMenu.UI
                 if ((visibility & MenuVisibility.NoFov) == MenuVisibility.NoFov)
                     continue;
 
-                var pos = new MapCoordinates(_xform.GetWorldPosition(xform, xformQuery), xform.MapID);
+                var pos = new MapCoordinates(_xform.GetWorldPosition(xform, _xformQuery), xform.MapID);
 
                 if (!_examineSystem.CanExamine(player, pos, e => e == player || e == entity, entity, examiner))
                     RemoveEntity(entity);
@@ -312,7 +336,7 @@ namespace Content.Client.ContextMenu.UI
 
             // remove the element
             var parent = element.ParentMenu?.ParentElement;
-            element.Dispose();
+            element.Orphan();
             Elements.Remove(entity);
 
             // update any parent elements
@@ -340,7 +364,7 @@ namespace Content.Client.ContextMenu.UI
             if (entity == null)
             {
                 // This whole element has no associated entities. We should remove it
-                element.Dispose();
+                element.Orphan();
                 return;
             }
 
@@ -352,7 +376,7 @@ namespace Content.Client.ContextMenu.UI
                 // There was only one entity in the sub-menu. So we will just remove the sub-menu and point directly to
                 // that entity.
                 element.Entity = entity;
-                element.SubMenu.Dispose();
+                element.SubMenu.Orphan();
                 element.SubMenu = null;
                 Elements[entity.Value] = element;
             }

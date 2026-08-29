@@ -25,6 +25,10 @@
       Snout: HEAD
       HeadTop: HEAD
       HeadSide: HEAD
+  - type: ESViewconeModifier # Funky
+    angleModifier: -90
+  - type: StainBlocker # Funky
+    slots: [ MASK ]
 
 - type: entity
   parent: ClothingHeadHatHoodBioGeneral
@@ -173,6 +177,10 @@
     - Snout
     - HeadTop
     - HeadSide
+  - type: ESViewconeModifier # Funky
+    angleModifier: -90
+  - type: StainBlocker # Funky
+    slots: [ MASK ]
 
 - type: entity
   parent: ClothingHeadBase
@@ -226,16 +234,13 @@
     - Hair
 
 - type: entity
-  parent: ClothingHeadHatHoodCarp
+  parent: [ ClothingHeadHatHoodCarp, TemperatureProtection ]
   id: ClothingHeadHelmetHardsuitCarp
   categories: [ HideSpawnMenu ]
   components:
   - type: PressureProtection
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
-  - type: TemperatureProtection
-    heatingCoefficient: 0.2
-    coolingCoefficient: 0.2
   - type: BreathMask
   # this is on the hood so you only fool the fish if you wear the whole set
   # wear carp suit and security helmet, they'll know you are fake

@@ -1,0 +1,189 @@
+﻿Entries:
+- author: funkystationbot
+  changes:
+  - message: then it go fart fart fart
+    type: Add
+  id: 1
+  time: '2026-08-16T00:00:00.0000000+00:00'
+- author: AraiMaia
+  changes:
+  - message: Hitting a turn in a disposal pipe now hurts you.
+    type: Add
+  id: 2
+  time: '2026-08-17T06:08:22Z'
+  url: https://github.com/funky-station/forky-station/pull/248
+- author: ClocksAreWorthy
+  changes:
+  - message: Added a Lectern!
+    type: Add
+  id: 3
+  time: '2026-08-18T19:46:14Z'
+  url: https://github.com/funky-station/forky-station/pull/223
+- author: Xcybitt
+  changes:
+  - message: Added radioactivity to uranium.
+    type: Add
+  id: 4
+  time: '2026-08-18T20:42:53Z'
+  url: https://github.com/funky-station/forky-station/pull/97
+- author: Miguel4387
+  changes:
+  - message: Changed base airlock and firelock open and close sound as well as bolting
+      and unbolting sounds to sound like funky
+    type: Tweak
+  id: 5
+  time: '2026-08-19T02:04:06Z'
+  url: https://github.com/funky-station/forky-station/pull/200
+- author: AraiMaia
+  changes:
+  - message: Added a slider to define the intensity of the red pain flashes.
+    type: Add
+  id: 6
+  time: '2026-08-19T02:43:03Z'
+  url: https://github.com/funky-station/forky-station/pull/253
+- author: Zergologist, AraiMaia
+  changes:
+  - message: Added Caution tape for Engineering and Security
+    type: Add
+  - message: Warning cones now stack.
+    type: Add
+  - message: Added floodlights to EngiVend.
+    type: Tweak
+  id: 7
+  time: '2026-08-19T04:43:38Z'
+  url: https://github.com/funky-station/forky-station/pull/327
+- author: Pop-Up Pup
+  changes:
+  - message: Completely rework the thief antagonist to be score based instead of hunting
+      for specific items
+    type: Tweak
+  id: 8
+  time: '2026-08-19T10:34:05Z'
+  url: https://github.com/funky-station/forky-station/pull/227
+- author: AraiMaia
+  changes:
+  - message: Changed color of radio channels.
+    type: Tweak
+  id: 9
+  time: '2026-08-19T13:19:08Z'
+  url: https://github.com/funky-station/forky-station/pull/242
+- author: Rainbeon, AraiMaia
+  changes:
+  - message: Funky borg sprites and behaviour are here again.
+    type: Add
+  id: 10
+  time: '2026-08-21T01:52:49Z'
+  url: https://github.com/funky-station/forky-station/pull/254
+- author: battlecruiser12
+  changes:
+  - message: Ported the Retro Laser Gun resprite from Funky.
+    type: Add
+  id: 11
+  time: '2026-08-21T04:19:19Z'
+  url: https://github.com/funky-station/forky-station/pull/304
+- author: taydeo
+  changes:
+  - message: A content warning now pops up.
+    type: Add
+  id: 12
+  time: '2026-08-27T17:09:32Z'
+  url: https://github.com/funky-station/forky-station/pull/375
+- author: ReconPangolin, PopupPup
+  changes:
+  - message: Updated to the latest wizden stable
+    type: Tweak
+  - message: Removed gun execution system clown toy gun component due to clumsy becoming
+      a status effect
+    type: Remove
+  - message: Removed a couple of hardsuits, vent and hardhat sprites due to not matching
+      the latest refactors to lighting and direction
+    type: Remove
+  id: 13
+  time: '2026-08-27T18:56:44Z'
+  url: https://github.com/funky-station/forky-station/pull/357
+- author: ReconPangolin, PopupPup
+  changes:
+  - message: Updated to the latest wizden stable
+    type: Tweak
+  - message: Removed gun execution system clown toy gun component due to clumsy becoming
+      a status effect
+    type: Remove
+  - message: Removed a couple of hardsuits, vent and hardhat sprites due to not matching
+      the latest refactors to lighting and direction
+    type: Remove
+  id: 14
+  time: '2026-08-27T23:46:05Z'
+  url: https://github.com/funky-station/forky-station/pull/377
+- author: AraiMaia
+  changes:
+  - message: added the roundstart Prisoner role.
+    type: Add
+  - message: added a Prisoner Mining Hardsuit, with an integrated plastic explosive.
+    type: Add
+  id: 15
+  time: '2026-08-27T23:49:23Z'
+  url: https://github.com/funky-station/forky-station/pull/336
+- author: 8tv
+  changes:
+  - message: Adjusted Packed station for feedback and maintenance. Enjoy a new medical,
+      supermatter setup, and further expanded maintenance.
+    type: Tweak
+  id: 16
+  time: '2026-08-28T00:17:27Z'
+  url: https://github.com/funky-station/forky-station/pull/316
+- author: AraiMaia
+  changes:
+  - message: Signatures and form fills now use a handwriting font, defined by a character
+      trait.
+    type: Add
+  - message: Signatures no longer sign your job, only your name.
+    type: Tweak
+  id: 17
+  time: '2026-08-28T01:08:12Z'
+  url: https://github.com/funky-station/forky-station/pull/320
+- author: AraiMaia
+  changes:
+  - message: Added two accessibility options pertaining to viewcones.
+    type: Add
+  id: 18
+  time: '2026-08-28T01:11:19Z'
+  url: https://github.com/funky-station/forky-station/pull/331
+- author: AraiMaia
+  changes:
+  - message: Added laundry carts and bags.
+    type: Add
+  id: 19
+  time: '2026-08-28T03:06:46Z'
+  url: https://github.com/funky-station/forky-station/pull/309
+- author: AraiMaia, gusxyz, QuietlyWhisper, DrSmugleaf, BrightNibbleston
+  changes:
+  - message: Added IV bags and stands.
+    type: Add
+  id: 20
+  time: '2026-08-28T03:08:34Z'
+  url: https://github.com/funky-station/forky-station/pull/302
+- author: Orsoniks, ciaran, AraiMaia
+  changes:
+  - message: Added CPR.
+    type: Add
+  - message: Added Softcrit.
+    type: Add
+  id: 21
+  time: '2026-08-28T05:57:05Z'
+  url: https://github.com/funky-station/forky-station/pull/325
+- author: Scissors
+  changes:
+  - message: made critical state weaken breathing instead of completely preventing
+      it
+    type: Tweak
+  id: 22
+  time: '2026-08-29T08:59:39Z'
+  url: https://github.com/funky-station/forky-station/pull/115
+- author: battlecruiser12
+  changes:
+  - message: Ported the Departmental Communications Computers originally by Icepicked
+    type: Add
+  id: 23
+  time: '2026-08-29T09:01:05Z'
+  url: https://github.com/funky-station/forky-station/pull/252
+Order: -1

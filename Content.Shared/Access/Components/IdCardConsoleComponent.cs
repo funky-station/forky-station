@@ -38,7 +38,8 @@ public sealed partial class IdCardConsoleComponent : Component
     }
 
     // Put this on shared so we just send the state once in PVS range rather than every time the UI updates.
-
+    // TODO: Move these to the YAML prototype or something because holy shit
+    // edited to include funky accesses
     [DataField, AutoNetworkedField]
     public List<ProtoId<AccessLevelPrototype>> AccessLevels = new()
     {
@@ -54,19 +55,25 @@ public sealed partial class IdCardConsoleComponent : Component
         "ChiefEngineer",
         "ChiefMedicalOfficer",
         "Command",
+        "Corporate",
         "Cryogenics",
         "Engineering",
+        "ExecutiveOfficer",
         "External",
         "GenpopEnter",
         "GenpopLeave",
-        "HeadOfPersonnel",
         "HeadOfSecurity",
+        "HospitalityDirector",
         "Hydroponics",
+        "InternalAffairs",
         "Janitor",
         "Kitchen",
         "Lawyer",
+        "Library",
+        "Magistrate",
         "Maintenance",
         "Medical",
+        "Newsroom",
         "Quartermaster",
         "Research",
         "ResearchDirector",

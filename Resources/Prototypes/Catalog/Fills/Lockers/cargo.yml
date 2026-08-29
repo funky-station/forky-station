@@ -6,6 +6,7 @@
     - id: ClothingShoesBootsMag
     - id: ClothingOuterHardsuitSpatio
     - id: ClothingMaskGasExplorer
+    - id: SuitSealantCanister # Funky
 
 - type: entityTable
   id: LockerFillSalvageSpecialist

@@ -2,6 +2,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Destructible;
 using Content.Server.Effects;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._ES.Camera;
 using Content.Shared.Camera;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -16,6 +17,9 @@ namespace Content.Server.Projectiles;
 
 public sealed partial class ProjectileSystem : SharedProjectileSystem
 {
+    // ES START
+    [Dependency] private ESScreenshakeSystem _shake = default!;
+    // ES END
     [Dependency] private IAdminLogManager _adminLogger = default!;
     [Dependency] private ColorFlashEffectSystem _color = default!;
     [Dependency] private DamageableSystem _damageableSystem = default!;
@@ -46,7 +50,9 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
             return;
         }
 
-        var ev = new ProjectileHitEvent(component.Damage * _damageableSystem.UniversalProjectileDamageModifier, target, component.Shooter);
+        var damageEv = new BeforeProjectileHitEvent(component.Damage, target, component.Shooter);
+        RaiseLocalEvent(uid, ref damageEv);
+        var ev = new ProjectileHitEvent(damageEv.Damage * _damageableSystem.UniversalProjectileDamageModifier, target, component.Shooter);
         RaiseLocalEvent(uid, ref ev);
 
         var otherName = ToPrettyString(target);
@@ -56,11 +62,11 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
             damageRequired -= _damageableSystem.GetTotalDamage((target, damageableComponent));
             damageRequired = FixedPoint2.Max(damageRequired, FixedPoint2.Zero);
         }
-        var deleted = Deleted(target);
 
-        if (_damageableSystem.TryChangeDamage((target, damageableComponent), ev.Damage, out var damage, component.IgnoreResistances, origin: component.Shooter) && Exists(component.Shooter))
+        if (_damageableSystem.TryChangeDamage((target, damageableComponent), ev.Damage, out var damage, component.IgnoreResistances, origin: component.Shooter)
+            && Exists(component.Shooter))
         {
-            if (!deleted)
+            if (!Deleted(target))
             {
                 _color.RaiseEffect(Color.Red, new List<EntityUid> { target }, Filter.Pvs(target, entityManager: EntityManager));
             }
@@ -76,12 +82,17 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
             component.ProjectileSpent = true;
         }
 
-        if (!deleted)
+        if (!Deleted(target))
         {
             _guns.PlayImpactSound(target, damage, component.SoundHit, component.ForceSound);
 
+            // ES START
+            // shake + lower recoil
+            var otherShakeTranslation = new ESScreenshakeParameters() { Trauma = 0.45f, DecayRate = 1.1f, Frequency = 0.04f };
             if (!args.OurBody.LinearVelocity.IsLengthZero())
-                _sharedCameraRecoil.KickCamera(target, args.OurBody.LinearVelocity.Normalized());
+                _sharedCameraRecoil.KickCamera(target, args.OurBody.LinearVelocity.Normalized() * 0.08f);
+            _shake.Screenshake(target, otherShakeTranslation, null);
+            // ES END
         }
 
         if (component.DeleteOnCollide && component.ProjectileSpent)

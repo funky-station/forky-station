@@ -27,7 +27,7 @@ namespace Content.Shared.GameTicking
         //TODO: Move these, they really belong in StationJobsSystem or a cvar.
         public static readonly ProtoId<JobPrototype> FallbackOverflowJob = "Passenger";
 
-        public const string FallbackOverflowJobName = "job-name-passenger";
+        public const string FallbackOverflowJobName = "job-name-assistant"; // Funky - Now points to the new job name
 
         // TODO network.
         // Probably most useful for replays, round end info, and probably things like lobby menus.
@@ -148,7 +148,8 @@ namespace Content.Shared.GameTicking
     [Serializable, NetSerializable]
     public sealed class TickerJobsAvailableEvent(
         Dictionary<NetEntity, string> stationNames,
-        Dictionary<NetEntity, Dictionary<ProtoId<JobPrototype>, int?>> jobsAvailableByStation)
+        Dictionary<NetEntity, Dictionary<ProtoId<JobPrototype>, int?>> jobsAvailableByStation,
+        Dictionary<NetEntity, ProtoId<JobWeightPrototype>?> jobWeightsByStation)
         : EntityEventArgs
     {
         /// <summary>
@@ -157,6 +158,8 @@ namespace Content.Shared.GameTicking
         public Dictionary<NetEntity, Dictionary<ProtoId<JobPrototype>, int?>> JobsAvailableByStation { get; } = jobsAvailableByStation;
 
         public Dictionary<NetEntity, string> StationNames { get; } = stationNames;
+
+        public Dictionary<NetEntity, ProtoId<JobWeightPrototype>?> JobWeightsByStation { get; } = jobWeightsByStation;
     }
 
     [Serializable, NetSerializable, DataDefinition]

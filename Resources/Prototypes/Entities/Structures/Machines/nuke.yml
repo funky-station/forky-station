@@ -66,7 +66,7 @@
     radius: 4
     energy: 2.0
     color: "#FF4020"
-    mask: /Textures/Effects/LightMasks/double_cone.png
+    lightMask: ConeDouble
   - type: RotatingLight
     speed: 120
   - type: NavMapBeacon
@@ -88,8 +88,8 @@
       whitelist:
         components:
         - NukeDisk
-    alertLevelOnActivate: delta
-    alertLevelOnDeactivate: green
+    alertLevelOnActivate: DeltaNuke
+    alertLevelOnDeactivate: Green
   - type: InteractionOutline
   - type: ActivatableUI
     key: enum.NukeUiKey.Key
@@ -107,16 +107,15 @@
       Nuke: !type:ContainerSlot
   - type: StealTarget
     stealGroup: NuclearBomb
-  - type: Tag
-    tags:
-    - GhostOnlyWarp
   - type: WarpPoint
     follow: true
-    location: nuclear bomb
-    blacklist:
-      tags:
-      - GhostOnlyWarp
+    location: location-nuclear-bomb
   - type: FTLSmashImmune
+  # Start funky changes
+  - type: ScoreThiefPriceModifier
+    reason: "scorethief-modifier-critical-infrastructure"
+    multiplier: 0
+  # End funky changes
 
 - type: entity
   parent: NuclearBomb
