@@ -108,7 +108,7 @@
     - WeaponPistolViper
     - Syringe
     - Syringe
-    
+
 - type: startingGear
   id: SyndicateReinforcementSpy
   equipment:
@@ -140,5 +140,5 @@
   equipment:
     ears: ClothingHeadsetAltSyndicate
     gloves: ClothingHandsGlovesCombat
-    pocket1: BaseUplinkRadio200TC
+    pocket1: BaseUplinkRadio200TC #funky change to fix the ID names so they are actually reflective of 100tc baseline
     id: SyndiPDA
