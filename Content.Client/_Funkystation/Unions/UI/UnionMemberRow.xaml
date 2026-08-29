@@ -1,0 +1,10 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              Orientation="Horizontal"
+              HorizontalExpand="True"
+              Margin="0 2 0 2">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+        <Label Name="NameLabel" />
+        <Label Name="JobLabel" FontColorOverride="#A0A0A0" />
+    </BoxContainer>
+    <Button Name="RemoveButton" Text="X" VerticalAlignment="Center" />
+</BoxContainer>

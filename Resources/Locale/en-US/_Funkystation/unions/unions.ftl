@@ -12,3 +12,4 @@ megaphone-strike-started = { $union } IS NOW ON STRIKE. Members are expected to 
 megaphone-strike-ended = The { $union } strike has ended. Members may now return to work.
 
 union-clipboard-menu-title = Union Roster
+union-clipboard-leader-name = { $name } (Leader)

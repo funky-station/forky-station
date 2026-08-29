@@ -1,0 +1,16 @@
+- type: entity
+  parent: BoxFolderClipboardEmpty
+  id: UnionClipboard
+  name: union clipboard
+  description: A clipboard used by union leaders to track their roster.
+  components:
+  - type: UnionClipboard
+  - type: ActivatableUI
+    inHandsOnly: true
+    singleUser: true
+    requireActiveHand: false
+    key: enum.UnionClipboardUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.UnionClipboardUiKey.Key:
+        type: UnionClipboardBoundUserInterface

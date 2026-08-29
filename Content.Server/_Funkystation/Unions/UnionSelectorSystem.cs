@@ -362,6 +362,29 @@ public sealed partial class UnionSelectorSystem : EntitySystem
         return union != null;
     }
 
+    public bool TryGetUnionForMember(EntityUid member, out StationUnion? union)
+    {
+        union = null;
+        if (!TryGetStationUnionsComponent(out var unionsComp))
+            return false;
+
+        union = unionsComp.Unions.FirstOrDefault(u => u.Members.ContainsKey(member));
+        return union != null;
+    }
+
+    public bool RemoveMember(StationUnion union, EntityUid member)
+    {
+        if (member == union.Leader)
+            return false;
+
+        if (!union.Members.Remove(member))
+            return false;
+
+        RemComp<UnionLeaderComponent>(member);
+        RemComp<UnionMemberComponent>(member);
+        return true;
+    }
+
     public bool TrySetUnionLeader(StationUnion union, EntityUid newLeader)
     {
         if (!union.Members.ContainsKey(newLeader))
@@ -424,6 +447,9 @@ public sealed partial class UnionSelectorSystem : EntitySystem
 
         if (TryComp<MegaphoneComponent>(spawned, out var megaphone))
             megaphone.GroupingId = groupingId;
+
+        if (TryComp<UnionClipboardComponent>(spawned, out var clipboard))
+            clipboard.GroupingId = groupingId;
 
         // try to stash in the player's backpack; falls back to dropping at feet
         // if anyone knows a better way lmk..
