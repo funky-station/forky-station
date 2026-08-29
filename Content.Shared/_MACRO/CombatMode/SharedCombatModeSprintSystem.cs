@@ -37,7 +37,7 @@ public abstract partial class SharedCombatModeSprintSystem : EntitySystem
 
     private void OnCombatToggle(Entity<CombatModeSprintComponent> ent, ref ToggleCombatActionEvent args)
     {
-        _movementSpeed.RefreshMovementSpeedModifiers(ent);
+        _movementSpeed.RefreshMovementSpeedModifiers(ent.Owner);
         if (ent.Comp.BeginCombatMessage != null && _combatMode.IsInCombatMode(ent))
             _popup.PopupEntity(Loc.GetString(ent.Comp.BeginCombatMessage, ("name", Identity.Entity(ent, EntityManager))), ent, Filter.PvsExcept(ent), true);
         if (ent.Comp.EndCombatMessage != null && !_combatMode.IsInCombatMode(ent))

@@ -7,6 +7,7 @@
   - CaptainBackpack
   - CaptainOuterClothing
   - Pager
+  - AssistiveItems
   - Survival
   - Trinkets
   - CaptainJobTrinkets # Funky uncommented
@@ -24,6 +25,7 @@
   - HoPOuterClothing
   - Pager
   - Glasses
+  - AssistiveItems
   - Survival
   - Trinkets
   - HoPJobTrinkets # Funky uncommented
@@ -55,6 +57,7 @@
   - PassengerShoes
   - Pager
   - Glasses
+  - AssistiveItems
   - Survival
   - Trinkets
   #- PassengerJobTrinkets
@@ -71,6 +74,7 @@
   - BartenderOuterClothing
   - Pager
   - Glasses
+  - AssistiveItems
   - Survival
   - Trinkets
   - BartenderJobTrinkets
@@ -85,6 +89,7 @@
   - CommonBackpack
   - Pager
   - Glasses
+  - AssistiveItems
   - Survival
   - Trinkets
   #- ServiceWorkerJobTrinkets
@@ -102,6 +107,7 @@
   - ChefOuterClothing
   - Pager
   - Glasses
+  - AssistiveItems
   - Survival
   - Trinkets
   #- ChefJobTrinkets
@@ -116,6 +122,7 @@
   - CommonBackpack
   - Pager
   - Glasses
+  - AssistiveItems
   - Survival
   - Trinkets
   #- LibrarianJobTrinkets
@@ -131,6 +138,7 @@
   - CommonBackpack
   - Pager
   - Glasses
+  - AssistiveItems
   - Survival
   - Trinkets
   #- LawyerJobTrinkets
@@ -151,6 +159,7 @@
   - ChaplainBible
   - Pager
   - Glasses
+  - AssistiveItems
   - Survival
   - Trinkets
   #- ChaplainJobTrinkets
@@ -168,6 +177,7 @@
   - JanitorOuterClothing
   - Pager
   - Glasses
+  - AssistiveItems
   - Survival
   - Trinkets
   - JanitorJobTrinkets
@@ -184,6 +194,7 @@
   - BotanistOuterClothing
   - Pager
   - Glasses
+  - AssistiveItems
   - Survival
   - Trinkets
   #- BotanistJobTrinkets
@@ -202,6 +213,7 @@
   - ClownShoes
   - Pager
   - Glasses
+  - AssistiveItems
   - SurvivalClown
   - Trinkets
   - ClownJobTrinkets
@@ -220,7 +232,8 @@
   - MimeBelt
   - Pager
   - Glasses
-  - SurvivalMime
+  - AssistiveItems
+  - Survival
   - Trinkets
   #- MimeJobTrinkets
   - GroupBreathToolDecapoidInventoryMime # MACRO: Decapoid
@@ -233,12 +246,13 @@
   - MusicianJumpsuit
   - CommonBackpack
   - MusicianOuterClothing
+  - Instruments
   - Pager
   - Glasses
+  - AssistiveItems
   - Survival
   - Trinkets
   #- MusicianJobTrinkets
-  - Instruments
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
@@ -255,6 +269,7 @@
   - QuartermasterShoes
   - Pager
   - Glasses
+  - AssistiveItems
   - Survival
   - Trinkets
   - QuartermasterJobTrinkets # Funky uncommented
@@ -273,6 +288,7 @@
   - CargoTechnicianID
   - Pager
   - Glasses
+  - AssistiveItems
   - Survival
   - Trinkets
   #- CargoTechnicianJobTrinkets
@@ -288,6 +304,7 @@
   - SalvageSpecialistShoes
   - Pager
   - Glasses
+  - AssistiveItems
   - Survival
   - Trinkets
   #- SalvageSpecialistJobTrinkets
@@ -306,6 +323,7 @@
   - ChiefEngineerOuterClothing
   - ChiefEngineerShoes
   - Pager
+  - AssistiveItems
   - SurvivalExtended
   - Trinkets
   - ChiefEngineerJobTrinkets
@@ -320,6 +338,7 @@
   - FuTechnicalAssistantUniform
   - StationEngineerBackpack
   - Pager
+  - AssistiveItems
   - SurvivalExtended
   - Trinkets
   #- TechnicalAssistantJobTrinkets
@@ -337,6 +356,7 @@
   - StationEngineerShoes
   - StationEngineerID
   - Pager
+  - AssistiveItems
   - SurvivalExtended
   - Trinkets
   #- StationEngineerJobTrinkets
@@ -352,6 +372,7 @@
   - AtmosphericTechnicianOuterClothing
   - AtmosphericTechnicianShoes
   - Pager
+  - AssistiveItems
   - SurvivalExtended
   - Trinkets
   #- AtmosphericTechnicianJobTrinkets
@@ -372,6 +393,7 @@
   - ResearchDirectorShoes
   - Pager
   - Glasses
+  - AssistiveItems
   - Survival
   - Trinkets
   - ResearchDirectorJobTrinkets # Funky uncommented
@@ -392,6 +414,7 @@
   - ScientistPDA
   - Pager
   - Glasses
+  - AssistiveItems
   - Survival
   - Trinkets
   #- ScientistJobTrinkets
@@ -406,6 +429,7 @@
   - ScientistBackpack
   - Pager
   - Glasses
+  - AssistiveItems
   - Survival
   - Trinkets
   #- ResearchAssistantJobTrinkets
@@ -423,6 +447,7 @@
   - SecurityBelt
   - HeadofSecurityOuterClothing
   - SecurityShoes
+  - AssistiveItems
   - Pager
   - SurvivalSecurity
   - Trinkets
@@ -441,6 +466,7 @@
   - WardenOuterClothing
   - SecurityShoes
   - Pager
+  - AssistiveItems
   - SurvivalSecurity
   - Trinkets
   - WardenJobTrinkets
@@ -459,6 +485,7 @@
   - SecurityShoes
   - SecurityPDA
   - SecurityBelt
+  - AssistiveItems
   - Pager
   - SurvivalSecurity
   - Trinkets
@@ -476,6 +503,7 @@
   - DetectiveOuterClothing
   - SecurityShoes
   - Pager
+  - AssistiveItems
   - SurvivalSecurity
   - Trinkets
   - DetectiveJobTrinkets
@@ -488,6 +516,7 @@
   - SecurityCadetHat
   - SecurityCadetJumpsuit
   - SecurityBackpack
+  - AssistiveItems
   - Pager
   - SurvivalSecurity
   - Trinkets
@@ -506,6 +535,7 @@
   - ReporterOuterClothing
   - CommonBackpack
   - Glasses
+  - AssistiveItems
   - Survival
   - Trinkets
   #- ReporterJobTrinkets
@@ -520,11 +550,27 @@
   - MedicalBackpack
   - Pager
   - Glasses
+  - AssistiveItems
   - Survival
   - Trinkets
   #- PsychologistJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobTramDriver
+  groups:
+  - GroupTankHarness
+  - CommonBackpack
+  - TramDriverJumpsuit
+  - TramDriverOuterClothing #Vest and such
+  - TramDriverHat
+  - TramDriverGloves
+  - Glasses
+  - Survival
+  - Trinkets
+  #- TramDriverJobTrinkets
+  - GroupSpeciesBreathTool
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
@@ -567,6 +613,13 @@
   - GroupSpeciesBreathTool
   - GroupTankHarness
   - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: RoleSurvivalExtendedAntag # Used by antagonists that spawn off-station (e.g wizards)
+  groups:
+  - SurvivalExtendedAntag
+  - GroupSpeciesBreathTool
+  - GroupTankHarness
 
 - type: roleLoadout
   id: RoleSurvivalMedical
@@ -612,6 +665,12 @@
   - GroupEVATank
   - SurvivalExtended
   - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: RoleSurvivalEVAAntag # Used by antagonists that spawn off-station AND in space (e.g ninjas)
+  groups:
+  - GroupEVATank
+  - SurvivalExtendedAntag
 
 - type: roleLoadout
   id: RoleSurvivalSpaceNinja

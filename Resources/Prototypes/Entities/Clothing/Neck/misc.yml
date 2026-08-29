@@ -21,10 +21,11 @@
   id: ActionStethoscope
   name: Listen with stethoscope
   components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Neck/Misc/stethoscope.rsi #Funkystation
+    layers:
+    - state: icon
   - type: Action
-    icon:
-      sprite: _Funkystation/Clothing/Neck/Misc/stethoscope.rsi
-      state: icon
     priority: -1
     itemIconStyle: BigAction
     checkCanInteract: false

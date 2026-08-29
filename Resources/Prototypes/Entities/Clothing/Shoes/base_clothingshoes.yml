@@ -27,10 +27,10 @@
   - type: Stainable
     clothingVisuals:
       shoes:
-      - sprite: _Funkystation/Effects/blood.rsi
+      - sprite: /Textures/_Funkystation/Effects/blood.rsi
         state: shoeblood
     iconVisuals:
-    - sprite: _Funkystation/Effects/blood.rsi
+    - sprite: /Textures/_Funkystation/Effects/blood.rsi
       state: shoebloodicon
   - type: SolutionManager
     solutions:
@@ -61,6 +61,7 @@
       item:
         name: clothing-boots-sidearm
         priority: 4
+        ejectOnBreak: true
         whitelist:
           tags:
           - Knife
@@ -78,10 +79,6 @@
 
 - type: entity
   abstract: true
-  parent: ClothingShoesBaseButcherable
+  parent: [ ClothingShoesBaseButcherable, TemperatureProtectionMinimal ]
   id: ClothingShoesBaseWinterBoots
   description: Fluffy boots to help survive even the coldest of winters.
-  components:
-  - type: TemperatureProtection
-    heatingCoefficient: 1.025
-    coolingCoefficient: 0.5

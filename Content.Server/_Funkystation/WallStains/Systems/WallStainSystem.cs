@@ -1,6 +1,5 @@
 ﻿using System.Numerics;
 using Content.Server.Atmos.Components;
-using Content.Server.Forensics;
 using Content.Shared._Funkystation.WallStains;
 using Content.Shared._Funkystation.WallStains.Components;
 using Content.Shared.Chemistry;
@@ -12,9 +11,12 @@ using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.Fluids;
 using Content.Shared.Fluids.Components;
+using Content.Shared.Forensics.Components;
+using Content.Shared.Forensics.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
+using Content.Shared.Wall;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -26,7 +28,6 @@ namespace Content.Server._Funkystation.WallStains.Systems;
 
 public sealed partial class WallStainSystem : EntitySystem
 {
-    private static readonly ProtoId<TagPrototype> WallTag = "Wall";
     private static readonly ProtoId<TagPrototype> WindowTag = "Window";
     private static readonly ProtoId<TagPrototype> SoapTag = "Soap";
 
@@ -94,7 +95,7 @@ public sealed partial class WallStainSystem : EntitySystem
         foreach (var offset in checkOffsets)
         {
             var targetTile = tilePos + offset;
-            var anchored = _map.GetAnchoredEntitiesEnumerator(gridUid.Value, grid, targetTile);
+            var anchored = _map.GetAnchoredEntities(gridUid.Value, grid, targetTile);
             while (anchored.MoveNext(out var ent))
             {
                 if (!IsWall(ent.Value))
@@ -107,7 +108,7 @@ public sealed partial class WallStainSystem : EntitySystem
 
     private bool IsWall(EntityUid uid)
     {
-        return HasComp<AirtightComponent>(uid) || _tag.HasTag(uid, WallTag) || _tag.HasTag(uid, WindowTag);
+        return HasComp<AirtightComponent>(uid) || HasComp<WallComponent>(uid)|| _tag.HasTag(uid, WindowTag);
     }
 
     private FixedPoint2 ApplyStainToWall(EntityUid wallUid, Solution solution, Vector2i direction, float fraction = 1.0f)

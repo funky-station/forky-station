@@ -1,7 +1,7 @@
 - type: entity
+  abstract: true
   parent: [ BaseStructureDynamic, BasePaperLabelableVisualized ]
-  id: CrateGeneric
-  categories: [ HideSpawnMenu ]
+  id: BaseCrate
   name: crate
   description: A large container for items.
   components:
@@ -41,21 +41,6 @@
   - type: EntityStorage
   - type: PlaceableSurface
     isPlaceable: false # defaults to closed.
-  - type: Damageable
-    damageModifierSet: Metallic
-  - type: Injurable
-    damageContainer: StructuralInorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
   - type: EntityStorageVisuals
     stateDoorOpen: open
     stateDoorClosed: closed
@@ -65,12 +50,29 @@
       paper_label: !type:ContainerSlot
   - type: StaticPrice
     price: 75
+  - type: RequireProjectileTarget
+
+- type: entity
+  parent: [ BaseCrate, StructureHealthContainerWeak ]
+  id: CrateGeneric
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Damageable
+    damageModifierSet: SteelMod
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
   - type: Construction
     graph: CrateGenericSteel
     node: crategenericsteel
     containers:
-      - entity_storage
-  - type: RequireProjectileTarget
+    - entity_storage
 
 - type: entity
   parent: CrateGeneric
@@ -108,20 +110,7 @@
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: Damageable
-    damageModifierSet: StructuralMetallic
-  - type: Injurable
-    damageContainer: StructuralInorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 75
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
+    damageModifierSet: PlasteelMod
   - type: Construction
     graph: CrateSecure
     node: cratesecure
@@ -134,3 +123,5 @@
     spread: 90
   - type: Paintable
     group: CrateSecure
+  - type: StaticPrice
+    price: 300

@@ -132,13 +132,11 @@
   # all below are for egg cooking/exploding
   - type: AtmosExposed
   - type: Temperature
+    thermalConductivity: 1
+    temperature: 293.15
+    heatCapacity: 15000
   - type: TemperatureDamage
   - type: InternalTemperature
-    # ~1mm shell and ~1cm of albumen
-    thickness: 0.011
-    area: 0.04
-    # conductivity of egg shell based on a paper from Romanoff and Romanoff (1949)
-    conductivity: 0.456
 
 - type: entity
   parent: ReagentEggBase

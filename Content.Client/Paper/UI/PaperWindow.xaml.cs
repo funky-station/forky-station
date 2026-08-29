@@ -19,6 +19,8 @@ using Robust.Client.Player;
 using Content.Shared.Tag;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
+using Content.Shared._Funkystation.Handwriting; // funky
+using Content.Client._FunkyStation.Handwriting; // funky
 
 namespace Content.Client.Paper.UI
 {
@@ -63,6 +65,7 @@ namespace Content.Client.Paper.UI
             typeof(HeadingTag),
             typeof(ItalicTag),
             typeof(MonoTag),
+            typeof(HandwritingFontTagHandler), // funky, allows [signature] and [form] to use a different font
             typeof(FormTagHandler),
             typeof(SignatureTagHandler),
             typeof(CheckTagHandler)
@@ -469,7 +472,10 @@ namespace Content.Client.Paper.UI
 
                 if (!string.IsNullOrEmpty(edit.Text))
                 {
-                    var newText = ReplaceNthFormTag(_currentRawText, formIndex, edit.Text);
+                    // funky, use player's handwriting font
+                    var writer = _playerManager.LocalEntity ?? EntityUid.Invalid;
+                    var filled = HandwritingFontHelper.WrapIfHandwritten(_entityManager, writer, edit.Text);
+                    var newText = ReplaceNthFormTag(_currentRawText, formIndex, filled);
                     OnSaved?.Invoke(newText);
                 }
                 if (formButton != null)
@@ -497,7 +503,9 @@ namespace Content.Client.Paper.UI
 
                 if (!string.IsNullOrEmpty(edit.Text))
                 {
-                    var newText = ReplaceNthFormTag(_currentRawText, formIndex, edit.Text);
+                    var writer = _playerManager.LocalEntity ?? EntityUid.Invalid; // funky
+                    var filled = HandwritingFontHelper.WrapIfHandwritten(_entityManager, writer, edit.Text); // funky
+                    var newText = ReplaceNthFormTag(_currentRawText, formIndex, filled); // funky
                     OnSaved?.Invoke(newText);
                 }
                 popup.Close();
