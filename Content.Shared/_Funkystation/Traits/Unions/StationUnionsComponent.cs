@@ -24,6 +24,7 @@ public sealed class UnionMemberInfo
     // original grouping the person joined under. i.e, Engineer -> Engineering, and if it gets merged, we preserve that.
     public string GroupingId = string.Empty;
     public List<UnionMemberNote> Notes = new();
+    public bool IsSteward;
 }
 
 public sealed class UnionMemberNote

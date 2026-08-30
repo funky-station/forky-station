@@ -35,6 +35,8 @@ public sealed partial class UnionClipboardSystem : EntitySystem
             {
                 subs.Event<UnionClipboardRemoveMemberMessage>(OnRemoveMember);
                 subs.Event<UnionClipboardAddNoteMessage>(OnAddNote);
+                subs.Event<UnionClipboardBeginStewardMessage>(OnBeginSteward);
+                subs.Event<UnionClipboardCancelStewardMessage>(OnCancelSteward);
             });
     }
 
@@ -51,7 +53,14 @@ public sealed partial class UnionClipboardSystem : EntitySystem
 
         if (union.Leader != args.User)
             return;
-        
+
+        if (component.PendingStewardCandidate is { } pending)
+        {
+            VerifySteward((uid, component), union, pending, cardName, args.User);
+            args.Handled = true;
+            return;
+        }
+
         // look at comment for this func to see why we do this in the first place
         var target = FindNearbyMatch(args.User, cardName);
         if (target == null)
@@ -69,6 +78,56 @@ public sealed partial class UnionClipboardSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("union-clipboard-registered", ("name", cardName)), args.User, args.User);
         UpdateUi((uid, component));
         args.Handled = true;
+    }
+
+    private void VerifySteward(Entity<UnionClipboardComponent> ent, StationUnion union, EntityUid pending, string cardName, EntityUid leader)
+    {
+        if (!string.Equals(Name(pending), cardName, StringComparison.OrdinalIgnoreCase))
+        {
+            _popup.PopupEntity(Loc.GetString("union-clipboard-steward-mismatch"), leader, leader);
+            return;
+        }
+
+        if (!union.Members.TryGetValue(pending, out var info))
+        {
+            ent.Comp.PendingStewardCandidate = null;
+            UpdateUi(ent);
+            return;
+        }
+
+        info.IsSteward = true;
+        ent.Comp.PendingStewardCandidate = null;
+
+        _popup.PopupEntity(Loc.GetString("union-clipboard-steward-confirmed", ("name", cardName)), leader, leader);
+        UpdateUi(ent);
+    }
+
+    private void OnBeginSteward(Entity<UnionClipboardComponent> ent, ref UnionClipboardBeginStewardMessage args)
+    {
+        if (!_unionSelector.TryGetUnionForGrouping(ent.Comp.GroupingId, out var union) || union == null)
+            return;
+
+        if (union.Leader != args.Actor)
+            return;
+
+        var target = GetEntity(args.Target);
+        if (target == union.Leader || !union.Members.TryGetValue(target, out var info) || info.IsSteward)
+            return;
+
+        ent.Comp.PendingStewardCandidate = target;
+        UpdateUi(ent);
+    }
+
+    private void OnCancelSteward(Entity<UnionClipboardComponent> ent, ref UnionClipboardCancelStewardMessage args)
+    {
+        if (!_unionSelector.TryGetUnionForGrouping(ent.Comp.GroupingId, out var union) || union == null)
+            return;
+
+        if (union.Leader != args.Actor)
+            return;
+
+        ent.Comp.PendingStewardCandidate = null;
+        UpdateUi(ent);
     }
     
     // we do this because we need to store the right entity uid, since thats how we keep track of them
@@ -163,9 +222,13 @@ public sealed partial class UnionClipboardSystem : EntitySystem
                 notes.Add(new UnionClipboardNoteEntry(note.Title, note.Text, note.Author, note.Time.ToString(@"hh\:mm\:ss")));
             }
 
-            members.Add(new UnionClipboardMemberEntry(GetNetEntity(memberUid), name, jobTitle!, memberUid == union.Leader, notes));
+            members.Add(new UnionClipboardMemberEntry(GetNetEntity(memberUid), name, jobTitle!, memberUid == union.Leader, info.IsSteward, notes));
         }
 
-        _ui.SetUiState(ent.Owner, UnionClipboardUiKey.Key, new UnionClipboardBoundUserInterfaceState(union.Name, members));
+        string? lockedForName = null;
+        if (ent.Comp.PendingStewardCandidate is { } pendingUid)
+            lockedForName = Name(pendingUid);
+
+        _ui.SetUiState(ent.Owner, UnionClipboardUiKey.Key, new UnionClipboardBoundUserInterfaceState(union.Name, members, lockedForName));
     }
 }

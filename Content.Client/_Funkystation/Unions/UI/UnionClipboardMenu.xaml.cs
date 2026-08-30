@@ -11,6 +11,8 @@ public sealed partial class UnionClipboardMenu : DefaultWindow
 {
     public event Action<NetEntity>? OnRemoveMember;
     public event Action<NetEntity, string, string>? OnAddNote;
+    public event Action<NetEntity>? OnBeginSteward;
+    public event Action? OnCancelSteward;
 
     private UnionMemberNotesMenu? _notesMenu;
     private NetEntity _notesMenuTarget;
@@ -18,18 +20,33 @@ public sealed partial class UnionClipboardMenu : DefaultWindow
     public UnionClipboardMenu()
     {
         RobustXamlLoader.Load(this);
+
+        LockedCancelButton.OnPressed += _ => OnCancelSteward?.Invoke();
     }
 
     public void UpdateState(UnionClipboardBoundUserInterfaceState state)
     {
         Title = state.UnionName;
+
+        if (state.LockedForName is { } lockedName)
+        {
+            MemberListScroll.Visible = false;
+            LockedContainer.Visible = true;
+            LockedLabel.SetMessage(Loc.GetString("union-clipboard-locked-message", ("name", lockedName)));
+            return;
+        }
+
+        MemberListScroll.Visible = true;
+        LockedContainer.Visible = false;
+
         MemberList.RemoveAllChildren();
 
         foreach (var member in state.Members)
         {
-            var row = new UnionMemberRow(member.Name, member.JobTitle, member.IsLeader);
+            var row = new UnionMemberRow(member.Name, member.JobTitle, member.IsLeader, member.IsSteward);
             row.OnRemovePressed += () => OnRemoveMember?.Invoke(member.Entity);
             row.OnNotesPressed += () => OpenNotes(member);
+            row.OnMakeStewardPressed += () => OnBeginSteward?.Invoke(member.Entity);
             MemberList.AddChild(row);
 
             if (_notesMenu != null && _notesMenuTarget == member.Entity)

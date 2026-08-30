@@ -16,6 +16,8 @@ public sealed class UnionClipboardBoundUserInterface(EntityUid owner, Enum uiKey
         _menu = this.CreateWindow<UnionClipboardMenu>();
         _menu.OnRemoveMember += target => SendMessage(new UnionClipboardRemoveMemberMessage(target));
         _menu.OnAddNote += (target, title, text) => SendMessage(new UnionClipboardAddNoteMessage(target, title, text));
+        _menu.OnBeginSteward += target => SendMessage(new UnionClipboardBeginStewardMessage(target));
+        _menu.OnCancelSteward += () => SendMessage(new UnionClipboardCancelStewardMessage());
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

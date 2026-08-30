@@ -9,16 +9,23 @@ public sealed partial class UnionMemberRow : BoxContainer
 {
     public event Action? OnRemovePressed;
     public event Action? OnNotesPressed;
+    public event Action? OnMakeStewardPressed;
 
-    public UnionMemberRow(string name, string jobTitle, bool isLeader)
+    public UnionMemberRow(string name, string jobTitle, bool isLeader, bool isSteward)
     {
         RobustXamlLoader.Load(this);
 
-        NameLabel.Text = isLeader ? Loc.GetString("union-clipboard-leader-name", ("name", name)) : name;
+        NameLabel.Text = isLeader
+            ? Loc.GetString("union-clipboard-leader-name", ("name", name))
+            : isSteward
+                ? Loc.GetString("union-clipboard-steward-name", ("name", name))
+                : name;
         JobLabel.Text = jobTitle;
         RemoveButton.Disabled = isLeader;
+        StewardButton.Disabled = isLeader || isSteward;
 
         RemoveButton.OnPressed += _ => OnRemovePressed?.Invoke();
         NotesButton.OnPressed += _ => OnNotesPressed?.Invoke();
+        StewardButton.OnPressed += _ => OnMakeStewardPressed?.Invoke();
     }
 }
