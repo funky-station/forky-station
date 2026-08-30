@@ -23,6 +23,7 @@
   - LedLightBulb
   - DimLightBulb
   - WarmLightBulb
+  - JanitorialLightBulb #funky
 
 - type: latheRecipePack
   id: PowerCellsStatic
