@@ -1,6 +1,9 @@
+using Content.Server.Popups;
 using Content.Shared._Funkystation.Traits.Unions;
 using Content.Shared._Funkystation.Unions;
 using Content.Shared.Access.Systems;
+using Content.Shared.Humanoid;
+using Content.Shared.Interaction;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
 
@@ -12,21 +15,75 @@ public sealed partial class UnionClipboardSystem : EntitySystem
     [Dependency] private SharedIdCardSystem _idCard = default!;
     [Dependency] private UserInterfaceSystem _ui = default!;
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     private const int MaxNoteTitleLength = 64;
     private const int MaxNoteTextLength = 512;
+    // how close a prospective member needs to be to a leader to be registered
+    private const float RegisterLookupRange = 3f;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<UnionClipboardComponent, BoundUIOpenedEvent>(OnBoundUiOpened);
+        SubscribeLocalEvent<UnionClipboardComponent, InteractUsingEvent>(OnInteractUsing);
         Subs.BuiEvents<UnionClipboardComponent>(UnionClipboardUiKey.Key,
             subs =>
             {
                 subs.Event<UnionClipboardRemoveMemberMessage>(OnRemoveMember);
                 subs.Event<UnionClipboardAddNoteMessage>(OnAddNote);
             });
+    }
+
+    private void OnInteractUsing(EntityUid uid, UnionClipboardComponent component, InteractUsingEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!_idCard.TryGetIdCard(args.Used, out var idCard) || idCard.Comp.FullName is not { } cardName)
+            return;
+
+        if (!_unionSelector.TryGetUnionForGrouping(component.GroupingId, out var union) || union == null)
+            return;
+
+        if (union.Leader != args.User)
+            return;
+        
+        // look at comment for this func to see why we do this in the first place
+        var target = FindNearbyMatch(args.User, cardName);
+        if (target == null)
+        {
+            _popup.PopupEntity(Loc.GetString("union-clipboard-no-match"), args.User, args.User);
+            return;
+        }
+
+        if (!_unionSelector.TryRegisterMember(union, target.Value))
+        {
+            _popup.PopupEntity(Loc.GetString("union-clipboard-already-registered"), args.User, args.User);
+            return;
+        }
+
+        _popup.PopupEntity(Loc.GetString("union-clipboard-registered", ("name", cardName)), args.User, args.User);
+        UpdateUi((uid, component));
+        args.Handled = true;
+    }
+    
+    // we do this because we need to store the right entity uid, since thats how we keep track of them
+    // in a single union unit
+    // IM FAIRLY CERTAIN THIS WILL WORK FINE?
+    private EntityUid? FindNearbyMatch(EntityUid user, string cardName)
+    {
+        var coords = _transform.GetMapCoordinates(user);
+        foreach (var candidate in _lookup.GetEntitiesInRange<HumanoidProfileComponent>(coords, RegisterLookupRange))
+        {
+            if (string.Equals(Name(candidate), cardName, StringComparison.OrdinalIgnoreCase))
+                return candidate;
+        }
+
+        return null;
     }
 
     private void OnBoundUiOpened(Entity<UnionClipboardComponent> ent, ref BoundUIOpenedEvent args)

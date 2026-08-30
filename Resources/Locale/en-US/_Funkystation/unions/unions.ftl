@@ -21,3 +21,6 @@ union-clipboard-add-note-window-title = Add Note
 union-clipboard-add-note-title-placeholder = Title
 union-clipboard-add-note-text-placeholder = Say something kind!
 union-clipboard-add-note-submit = Save
+union-clipboard-no-match = You do not see anyone nearby matching that ID.
+union-clipboard-already-registered = They already belong to another union.
+union-clipboard-registered = { $name } has been added to the union roster.

@@ -372,6 +372,24 @@ public sealed partial class UnionSelectorSystem : EntitySystem
         return union != null;
     }
 
+    public bool TryRegisterMember(StationUnion union, EntityUid target)
+    {
+        if (union.Members.ContainsKey(target))
+            return false;
+
+        if (TryGetUnionForMember(target, out var existingUnion) && existingUnion != null && existingUnion != union)
+            return false;
+
+        union.Members[target] = new UnionMemberInfo
+        {
+            EligibleForLeader = true,
+            GroupingId = union.GroupingIds.FirstOrDefault() ?? string.Empty,
+        };
+
+        EnsureCorrectMemberComponent(target, union);
+        return true;
+    }
+
     public bool RemoveMember(StationUnion union, EntityUid member)
     {
         if (member == union.Leader)
