@@ -16,14 +16,14 @@ public sealed class RadioVolumeSheetlet : Sheetlet<NanotrasenStylesheet>
     {
         var sliderKnob = new StyleBoxTexture
         {
-            Texture = ResCache.GetTexture("/Textures/_Funkystation/Interface/slider-knob.png"),
+            Texture = ResCache.GetTexture("/Textures/_Funkystation/Interface/Radio/slider-knob.png"),
         };
         sliderKnob.SetPatchMargin(StyleBox.Margin.All, 8);
         sliderKnob.TextureScale = 2*Vector2.One;
 
         var sliderBackground = new StyleBoxTexture
         {
-            Texture = ResCache.GetTexture("/Textures/_Funkystation/Interface/slider-back.png"),
+            Texture = ResCache.GetTexture("/Textures/_Funkystation/Interface/Radio/slider-back.png"),
         };
         sliderBackground.SetPatchMargin(StyleBox.Margin.All, 7);
         sliderBackground.TextureScale = 2*Vector2.One;
