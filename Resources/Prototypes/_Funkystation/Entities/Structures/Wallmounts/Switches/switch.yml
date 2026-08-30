@@ -1,0 +1,171 @@
+# Alt offsets for switches/buttons
+- type: entity
+  parent: SignalSwitch
+  id: SignalSwitchAlt1
+  name: signal switch
+  description: It's a switch for toggling power to things.
+  components:
+  - type: Sprite
+    offset: 0, -0.25
+    drawdepth: WallMountedItems
+    sprite: _Funkystation/Structures/Wallmounts/switch_alt1.rsi
+    layers:
+    - state: base
+    - map: [ "shaded" ]
+      state: off
+    - map: [ "unshaded" ]
+      state: off-unshaded
+      shader: unshaded
+
+- type: entity
+  parent: SignalButton
+  id: SignalButtonAlt1
+  name: signal button
+  description: It's a button for activating something.
+  components:
+  - type: Sprite
+    offset: 0, -0.25
+    drawdepth: WallMountedItems
+    sprite: _Funkystation/Structures/Wallmounts/switch_alt1.rsi
+    layers:
+    - state: base
+    - state: button
+    - state: button-unshaded
+      shader: unshaded
+
+- type: entity
+  parent: SignalSwitch
+  id: SignalSwitchAlt2
+  name: signal switch
+  description: It's a switch for toggling power to things.
+  components:
+  - type: Sprite
+    offset: 0, -0.25
+    drawdepth: WallMountedItems
+    sprite: _Funkystation/Structures/Wallmounts/switch_alt2.rsi
+    layers:
+    - state: base
+    - map: [ "shaded" ]
+      state: off
+    - map: [ "unshaded" ]
+      state: off-unshaded
+      shader: unshaded
+
+- type: entity
+  parent: SignalButton
+  id: SignalButtonAlt2
+  name: signal button
+  description: It's a button for activating something.
+  components:
+  - type: Sprite
+    offset: 0, -0.25
+    drawdepth: WallMountedItems
+    sprite: _Funkystation/Structures/Wallmounts/switch_alt2.rsi
+    layers:
+    - state: base
+    - state: button
+    - state: button-unshaded
+      shader: unshaded
+
+# switch frames alt offset
+- type: entity
+  parent: StructureHealthFurnitureWeak
+  id: ButtonFrameGreyAlt1
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    offset: 0, -0.25
+    drawdepth: SmallObjects
+    sprite: _Funkystation/Structures/Wallmounts/switch_frame_atl1.rsi
+    state: grey
+  - type: Clickable
+  - type: WallMount
+    arc: 175
+  - type: Physics
+    canCollide: false
+  - type: Rotatable
+  - type: Fixtures
+
+- type: entity
+  id: ButtonFrameCautionAlt1
+  parent: ButtonFrameGreyAlt1
+  suffix: caution
+  components:
+  - type: Sprite
+    state: caution
+
+- type: entity
+  id: ButtonFrameCautionSecurityAlt1
+  parent: ButtonFrameGreyAlt1
+  suffix: caution
+  components:
+  - type: Sprite
+    state: caution-security
+
+- type: entity
+  id: ButtonFrameWhiteAlt1
+  parent: ButtonFrameGreyAlt1
+  suffix: white
+  components:
+  - type: Sprite
+    state: white
+
+- type: entity
+  id: ButtonFrameJanitorAlt1
+  parent: ButtonFrameGreyAlt1
+  suffix: janitor
+  components:
+  - type: Sprite
+    state: janitor
+
+- type: entity
+  parent: StructureHealthFurnitureWeak
+  id: ButtonFrameGreyAlt2
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    offset: 0, -0.25
+    drawdepth: SmallObjects
+    sprite: _Funkystation/Structures/Wallmounts/switch_frame_atl2.rsi
+    state: grey
+  - type: Clickable
+  - type: WallMount
+    arc: 175
+  - type: Physics
+    canCollide: false
+  - type: Rotatable
+  - type: Fixtures
+
+- type: entity
+  id: ButtonFrameCautionAlt2
+  parent: ButtonFrameGreyAlt2
+  suffix: caution
+  components:
+  - type: Sprite
+    state: caution
+
+- type: entity
+  id: ButtonFrameCautionSecurityAlt2
+  parent: ButtonFrameGreyAlt2
+  suffix: caution
+  components:
+  - type: Sprite
+    state: caution-security
+
+- type: entity
+  id: ButtonFrameWhiteAlt2
+  parent: ButtonFrameGreyAlt2
+  suffix: white
+  components:
+  - type: Sprite
+    state: white
+
+- type: entity
+  id: ButtonFrameJanitorAlt2
+  parent: ButtonFrameGreyAlt2
+  suffix: janitor
+  components:
+  - type: Sprite
+    state: janitor
