@@ -11,6 +11,25 @@
       - state: base
       - state: book-0
       - map: ["enum.StorageFillLayers.Fill"]
+      - state: paper #Funky changes start
+        sprite: Structures/Furniture/bookshelf.rsi
+        map: [ "enum.PaperLabelVisuals.Layer" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.PaperLabelVisuals.HasLabel:
+        enum.PaperLabelVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+      enum.PaperLabelVisuals.LabelType:
+        enum.PaperLabelVisuals.Layer:
+          Paper: { state: paper }
+          PaperOrange: { state: PaperOrange }
+          PaperYellow: { state: PaperYellow }
+          PaperGreen: { state: PaperGreen }
+          PaperRed: { state: PaperRed }
+          PaperPurple: { state: PaperPurple }
+          PaperBlue: { state: PaperBlue }
+          PaperBrown: { state: PaperBrown } #funky changes end
   - type: Appearance
   - type: StorageFillVisualizer
     maxFillLevels: 21
@@ -42,9 +61,11 @@
   - type: Anchorable
   - type: Pullable
   - type: Occluder
-  - type: Storage
+  - type: Storage #funky changes start
     grid:
-    - 0,0,9,3
+    - 0,0,6,1
+    - 0,3,6,4
+    - 0,6,6,7 #funky changes end
     maxItemSize: Normal
     whitelist:
       tags:
@@ -61,7 +82,19 @@
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
+      paper_label: !type:ContainerSlot #funky change
   - type: Construction
     graph: Bookshelf
     node: bookshelf
   - type: BlockWeather
+  - type: ItemSlots
+  - type: PaperLabel #funky changes start
+    labelSlot:
+      insertVerbText: comp-paper-label-insert
+      ejectVerbText: comp-paper-label-eject
+      whitelist:
+        components:
+        - Paper
+      blacklist:
+        tags:
+        - Book #funky changes end

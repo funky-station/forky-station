@@ -171,4 +171,62 @@
   id: 21
   time: '2026-08-28T05:57:05Z'
   url: https://github.com/funky-station/forky-station/pull/325
+- author: Scissors
+  changes:
+  - message: made critical state weaken breathing instead of completely preventing
+      it
+    type: Tweak
+  id: 22
+  time: '2026-08-29T08:59:39Z'
+  url: https://github.com/funky-station/forky-station/pull/115
+- author: battlecruiser12
+  changes:
+  - message: Ported the Departmental Communications Computers originally by Icepicked
+    type: Add
+  id: 23
+  time: '2026-08-29T09:01:05Z'
+  url: https://github.com/funky-station/forky-station/pull/252
+- author: mkanke-real
+  changes:
+  - message: Ported over book and library content from old Funky
+    type: Add
+  id: 24
+  time: '2026-08-29T19:36:31Z'
+  url: https://github.com/funky-station/forky-station/pull/61
+- author: battlecruiser12
+  changes:
+  - message: Added the Hay Fever trait, which periodically causes itchy nose, eyes,
+      and sneezing.
+    type: Add
+  id: 25
+  time: '2026-08-29T19:39:04Z'
+  url: https://github.com/funky-station/forky-station/pull/266
+- author: mkanke
+  changes:
+  - message: Added departmental windoors
+    type: Add
+  id: 26
+  time: '2026-08-29T23:42:06Z'
+  url: https://github.com/funky-station/forky-station/pull/362
+- author: pepsimint
+  changes:
+  - message: Updated the hand sprite which appears when interacting with things. Credits
+      to @s_qn for the sprite.
+    type: Add
+  id: 27
+  time: '2026-08-30T00:44:01Z'
+  url: https://github.com/funky-station/forky-station/pull/305
+- author: 8tv
+  changes:
+  - message: Added the Prisoner role to Packed
+    type: Add
+  - message: Added a prisoner mining dock to Packed
+    type: Add
+  - message: Added a mailroom to Packed
+    type: Add
+  - message: Removed the salvage docking bay in Packed
+    type: Remove
+  id: 28
+  time: '2026-08-30T02:04:44Z'
+  url: https://github.com/funky-station/forky-station/pull/385
 Order: -1

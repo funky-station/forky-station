@@ -1,0 +1,9 @@
+﻿- type: trait
+  id: HayFever
+  name: trait-hayfever-name
+  description: trait-hayfever-description
+  category: Quirks
+  components:
+  - type: HayFever
+    ReactionInterval: 45
+

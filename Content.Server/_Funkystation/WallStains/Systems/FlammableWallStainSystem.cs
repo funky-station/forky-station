@@ -29,6 +29,20 @@ public sealed partial class FlammableWallStainSystem : EntitySystem
     [Dependency] private SharedAppearanceSystem _appearance = null!;
     [Dependency] private SharedMapSystem _map = null!;
 
+    private static readonly Vector2i[] AdjacentTileOffsets =
+    {
+        Vector2i.Zero,
+        new(0, 1),
+        new(0, -1),
+        new(1, 0),
+        new(-1, 0)
+    };
+
+    private readonly List<(EntityUid Stain, FlammableWallStainComponent Comp)> _igniteBuffer = new();
+    private readonly List<(EntityUid Uid, FlammableWallStainComponent FireComp, WallStainComponent Stain, TransformComponent Xform)> _activeStainsBuffer = new();
+    private readonly List<(EntityUid, FlammableWallStainComponent)> _adjacentIgniteBuffer = new();
+    private readonly HashSet<EntityUid> _tileEntityBuffer = new();
+
     public override void Initialize()
     {
         base.Initialize();
@@ -50,10 +64,9 @@ public sealed partial class FlammableWallStainSystem : EntitySystem
         if (!TryComp<MapGridComponent>(gridUid, out var grid))
             return;
 
-        var toIgnite = new List<(EntityUid Stain, FlammableWallStainComponent Comp)>();
+        _igniteBuffer.Clear();
 
-        var offsets = new[] { Vector2i.Zero, new Vector2i(0, 1), new Vector2i(0, -1), new Vector2i(1, 0), new Vector2i(-1, 0) };
-        foreach (var offset in offsets)
+        foreach (var offset in AdjacentTileOffsets)
         {
             var wallTile = fireTile + offset;
             var enumerator = _map.GetAnchoredEntitiesEnumerator(gridUid, grid, wallTile);
@@ -78,14 +91,14 @@ public sealed partial class FlammableWallStainSystem : EntitySystem
 
                             var ignitionTemp = 573.15f - (50f * fireComp.Flammability);
                             if (args.Temperature >= ignitionTemp)
-                                toIgnite.Add((child, fireComp));
+                                _igniteBuffer.Add((child, fireComp));
                         }
                     }
                 }
             }
         }
 
-        foreach (var (stainUid, fireComp) in toIgnite)
+        foreach (var (stainUid, fireComp) in _igniteBuffer)
         {
             Ignite(stainUid, fireComp);
         }
@@ -199,15 +212,15 @@ public sealed partial class FlammableWallStainSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var activeStains = new List<(EntityUid Uid, FlammableWallStainComponent FireComp, WallStainComponent Stain, TransformComponent Xform)>();
+        _activeStainsBuffer.Clear();
 
         var query = EntityQueryEnumerator<ActiveFlammableWallStainComponent, FlammableWallStainComponent, WallStainComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out _, out var fireComp, out var stain, out var xform))
         {
-            activeStains.Add((uid, fireComp, stain, xform));
+            _activeStainsBuffer.Add((uid, fireComp, stain, xform));
         }
 
-        foreach (var (uid, currentFireComp, currentStain, currentXform) in activeStains)
+        foreach (var (uid, currentFireComp, currentStain, currentXform) in _activeStainsBuffer)
         {
             if (Deleted(uid))
                 continue;
@@ -302,9 +315,9 @@ public sealed partial class FlammableWallStainSystem : EntitySystem
                 }
             }
 
-            var entities = new HashSet<EntityUid>();
-            _lookup.GetLocalEntitiesIntersecting(gridId.Value, atmosTilePos, entities, 0f);
-            foreach (var ent in entities)
+            _tileEntityBuffer.Clear();
+            _lookup.GetLocalEntitiesIntersecting(gridId.Value, atmosTilePos, _tileEntityBuffer, 0f);
+            foreach (var ent in _tileEntityBuffer)
             {
                 if (HasComp<PuddleComponent>(ent))
                 {
@@ -313,12 +326,11 @@ public sealed partial class FlammableWallStainSystem : EntitySystem
                 }
             }
 
-            var spreadOffsets = new[] { Vector2i.Zero, new Vector2i(0, 1), new Vector2i(0, -1), new Vector2i(1, 0), new Vector2i(-1, 0) };
             if (TryComp<MapGridComponent>(gridId.Value, out var grid))
             {
-                var adjacentStainsToIgnite = new List<(EntityUid, FlammableWallStainComponent)>();
+                _adjacentIgniteBuffer.Clear();
 
-                foreach (var offset in spreadOffsets)
+                foreach (var offset in AdjacentTileOffsets)
                 {
                     var checkWallTile = wallPos + offset;
                     var enumerator = _map.GetAnchoredEntitiesEnumerator(gridId.Value, grid, checkWallTile);
@@ -343,13 +355,13 @@ public sealed partial class FlammableWallStainSystem : EntitySystem
                                 }
 
                                 if (adjacentFire.Flammability > 0)
-                                    adjacentStainsToIgnite.Add((child, adjacentFire));
+                                    _adjacentIgniteBuffer.Add((child, adjacentFire));
                             }
                         }
                     }
                 }
 
-                foreach (var (stainUid, fireCompAdjacent) in adjacentStainsToIgnite)
+                foreach (var (stainUid, fireCompAdjacent) in _adjacentIgniteBuffer)
                 {
                     Ignite(stainUid, fireCompAdjacent);
                 }

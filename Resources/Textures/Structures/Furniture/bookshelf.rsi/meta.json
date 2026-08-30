@@ -79,6 +79,30 @@
     },
     {
       "name": "book-20"
-    }
+    },
+    {
+      "name": "paper"
+    },
+      {
+          "name": "PaperOrange"
+      },
+      {
+          "name": "PaperYellow"
+      },
+      {
+          "name": "PaperGreen"
+      },
+      {
+          "name": "PaperRed"
+      },
+      {
+          "name": "PaperPurple"
+      },
+      {
+          "name": "PaperBlue"
+      },
+      {
+          "name": "PaperBrown"
+      }
   ]
 }
