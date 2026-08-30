@@ -97,6 +97,8 @@ public sealed partial class UnionClipboardSystem : EntitySystem
         }
 
         info.IsSteward = true;
+        EnsureComp<UnionStewardComponent>(pending);
+        _unionSelector.DirtyUnionVision();
         ent.Comp.PendingStewardCandidate = null;
 
         _popup.PopupEntity(Loc.GetString("union-clipboard-steward-confirmed", ("name", cardName)), leader, leader);

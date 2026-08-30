@@ -8,6 +8,8 @@ using Content.Shared.GameTicking;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Roles;
+using Robust.Shared.GameStates;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -35,7 +37,63 @@ public sealed partial class UnionSelectorSystem : EntitySystem
         SubscribeLocalEvent<StationPostInitEvent>(StationCreatedEvent);
         SubscribeLocalEvent<GameRunLevelChangedEvent>(OnRunLevelChanged);
 
+        SubscribeLocalEvent<UnionLeaderComponent, ComponentGetStateAttemptEvent>(OnLeaderGetStateAttempt);
+        SubscribeLocalEvent<UnionStewardComponent, ComponentGetStateAttemptEvent>(OnStewardGetStateAttempt);
+
         _sawmill = _logManager.GetSawmill("unions");
+    }
+
+    private void OnLeaderGetStateAttempt(EntityUid uid, UnionLeaderComponent comp, ref ComponentGetStateAttemptEvent args)
+    {
+        args.Cancelled = !CanSeeUnionVision(uid, args.Player);
+    }
+
+    private void OnStewardGetStateAttempt(EntityUid uid, UnionStewardComponent comp, ref ComponentGetStateAttemptEvent args)
+    {
+        args.Cancelled = !CanSeeUnionVision(uid, args.Player);
+    }
+    
+    // this works the same as legacy funkys revs gamemode.
+    // a steward and leader can see eachother, but members cannot see eachother
+    // this allows scabs and plants from NT to infiltrate the union
+    private bool CanSeeUnionVision(EntityUid target, ICommonSession? viewerSession)
+    {
+        if (viewerSession?.AttachedEntity is not { } viewer)
+            return true;
+
+        if (!TryGetUnionForMember(target, out var targetUnion) || targetUnion == null)
+            return false;
+
+        if (!TryGetUnionForMember(viewer, out var viewerUnion) || viewerUnion == null || viewerUnion != targetUnion)
+            return false;
+        
+        if (IsLeaderOrSteward(targetUnion, target))
+            return true;
+
+        return IsLeaderOrSteward(viewerUnion, viewer);
+    }
+
+    private bool IsLeaderOrSteward(StationUnion union, EntityUid uid)
+    {
+        if (union.Leader == uid)
+            return true;
+
+        return union.Members.TryGetValue(uid, out var info) && info.IsSteward;
+    }
+
+    public void DirtyUnionVision()
+    {
+        var leaderQuery = AllEntityQuery<UnionLeaderComponent>();
+        while (leaderQuery.MoveNext(out var uid, out var comp))
+        {
+            Dirty(uid, comp);
+        }
+
+        var stewardQuery = AllEntityQuery<UnionStewardComponent>();
+        while (stewardQuery.MoveNext(out var uid, out var comp))
+        {
+            Dirty(uid, comp);
+        }
     }
 
     private void StationCreatedEvent(ref StationPostInitEvent ev)
@@ -169,8 +227,10 @@ public sealed partial class UnionSelectorSystem : EntitySystem
                 EnsureCorrectMemberComponent(memberUid, union);
             }
         }
+
+        DirtyUnionVision();
     }
-    
+
     // take a scenario like, ok, theres a union thats both sci and engi, but no one became the leader. right?
     // this essentially picks one over the other, to be the head of the new combined union, or force someone LOL
     private void AssignFallbackLeaders(List<StationUnion> leaderless)
@@ -387,6 +447,7 @@ public sealed partial class UnionSelectorSystem : EntitySystem
         };
 
         EnsureCorrectMemberComponent(target, union);
+        DirtyUnionVision();
         return true;
     }
 
@@ -406,6 +467,7 @@ public sealed partial class UnionSelectorSystem : EntitySystem
 
         RemComp<UnionLeaderComponent>(member);
         RemComp<UnionMemberComponent>(member);
+        RemComp<UnionStewardComponent>(member);
         return true;
     }
 
@@ -429,6 +491,7 @@ public sealed partial class UnionSelectorSystem : EntitySystem
             }
         }
 
+        DirtyUnionVision();
         return true;
     }
 
