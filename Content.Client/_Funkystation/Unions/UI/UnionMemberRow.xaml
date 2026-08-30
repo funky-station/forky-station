@@ -6,5 +6,6 @@
         <Label Name="NameLabel" />
         <Label Name="JobLabel" FontColorOverride="#A0A0A0" />
     </BoxContainer>
+    <Button Name="NotesButton" Text="{Loc 'union-clipboard-notes-button'}" VerticalAlignment="Center" Margin="0 0 4 0" />
     <Button Name="RemoveButton" Text="X" VerticalAlignment="Center" />
 </BoxContainer>

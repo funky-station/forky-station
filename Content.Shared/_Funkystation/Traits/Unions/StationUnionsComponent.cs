@@ -23,4 +23,13 @@ public sealed class UnionMemberInfo
     public bool EligibleForLeader;
     // original grouping the person joined under. i.e, Engineer -> Engineering, and if it gets merged, we preserve that.
     public string GroupingId = string.Empty;
+    public List<UnionMemberNote> Notes = new();
+}
+
+public sealed class UnionMemberNote
+{
+    public string Title = string.Empty;
+    public string Text = string.Empty;
+    public string Author = string.Empty;
+    public TimeSpan Time;
 }

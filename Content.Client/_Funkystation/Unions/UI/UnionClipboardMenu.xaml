@@ -1,7 +1,7 @@
 <DefaultWindow xmlns="https://spacestation14.io"
                xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
-               MinSize="270 480"
-               SetSize="320 560"
+               MinSize="380 480"
+               SetSize="420 560"
                Title="{Loc 'union-clipboard-menu-title'}">
     <PanelContainer HorizontalExpand="True" VerticalExpand="True">
         <PanelContainer.PanelOverride>

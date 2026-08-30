@@ -10,6 +10,10 @@ namespace Content.Client._Funkystation.Unions.UI;
 public sealed partial class UnionClipboardMenu : DefaultWindow
 {
     public event Action<NetEntity>? OnRemoveMember;
+    public event Action<NetEntity, string, string>? OnAddNote;
+
+    private UnionMemberNotesMenu? _notesMenu;
+    private NetEntity _notesMenuTarget;
 
     public UnionClipboardMenu()
     {
@@ -25,7 +29,34 @@ public sealed partial class UnionClipboardMenu : DefaultWindow
         {
             var row = new UnionMemberRow(member.Name, member.JobTitle, member.IsLeader);
             row.OnRemovePressed += () => OnRemoveMember?.Invoke(member.Entity);
+            row.OnNotesPressed += () => OpenNotes(member);
             MemberList.AddChild(row);
+
+            if (_notesMenu != null && _notesMenuTarget == member.Entity)
+                _notesMenu.Populate(member.Notes);
         }
+    }
+
+    private void OpenNotes(UnionClipboardMemberEntry member)
+    {
+        if (_notesMenu != null && _notesMenuTarget == member.Entity)
+        {
+            _notesMenu.MoveToFront();
+            return;
+        }
+
+        _notesMenu?.Close();
+
+        _notesMenuTarget = member.Entity;
+        _notesMenu = new UnionMemberNotesMenu(member.Name, member.Notes);
+        _notesMenu.OnClose += () => _notesMenu = null;
+        _notesMenu.OnAddNoteRequested += () =>
+        {
+            var addNote = new UnionAddNoteMenu();
+            addNote.OnSubmit += (title, text) => OnAddNote?.Invoke(member.Entity, title, text);
+            addNote.OpenCentered();
+        };
+
+        _notesMenu.OpenCentered();
     }
 }

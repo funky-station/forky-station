@@ -13,3 +13,11 @@ megaphone-strike-ended = The { $union } strike has ended. Members may now return
 
 union-clipboard-menu-title = Union Roster
 union-clipboard-leader-name = { $name } (Leader)
+union-clipboard-notes-button = Notes
+union-clipboard-notes-window-title = Notes: { $name }
+union-clipboard-no-notes = No notes yet.
+union-clipboard-add-note-button = + Add Note
+union-clipboard-add-note-window-title = Add Note
+union-clipboard-add-note-title-placeholder = Title
+union-clipboard-add-note-text-placeholder = Say something kind!
+union-clipboard-add-note-submit = Save

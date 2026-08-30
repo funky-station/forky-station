@@ -8,6 +8,7 @@ namespace Content.Client._Funkystation.Unions.UI;
 public sealed partial class UnionMemberRow : BoxContainer
 {
     public event Action? OnRemovePressed;
+    public event Action? OnNotesPressed;
 
     public UnionMemberRow(string name, string jobTitle, bool isLeader)
     {
@@ -18,5 +19,6 @@ public sealed partial class UnionMemberRow : BoxContainer
         RemoveButton.Disabled = isLeader;
 
         RemoveButton.OnPressed += _ => OnRemovePressed?.Invoke();
+        NotesButton.OnPressed += _ => OnNotesPressed?.Invoke();
     }
 }
