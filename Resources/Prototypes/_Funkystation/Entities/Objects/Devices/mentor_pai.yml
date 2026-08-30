@@ -1,0 +1,244 @@
+# CARGO
+- type: entity
+  parent: PersonalAI
+  id: MentorPAILogistics
+  name: personal logistics mentor ai
+  description: It's a personal AI trained on petabytes of botanical lectures, market manipulation tactics, and videos of logistic workers doing their job.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/MentorpAIs/cargo.rsi
+    layers:
+    - state: icon
+    - state: off-overlay
+      shader: unshaded
+      map: ["screen"]
+  - type: ToggleableGhostRole
+    roleName: logi-mentor-pai-role-name
+    roleDescription: logi-mentor-pai-role-description
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Cargo #double check the encryption channels later
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        screen:
+          Off: { state: off-overlay }
+          Searching: { state: searching-overlay }
+          On: { state: on-overlay }
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: cargo-inhand-left
+      right:
+      - state: cargo-inhand-right
+
+# COMMAND
+- type: entity
+  parent: PersonalAI
+  id: MentorPAICommand
+  name: personal command mentor ai
+  description: It's a personal AI trained on petabytes of command training tapes and incident reports.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/MentorpAIs/command.rsi
+    layers:
+    - state: icon
+    - state: off-overlay
+      shader: unshaded
+      map: ["screen"]
+  - type: ToggleableGhostRole
+    roleName: command-mentor-pai-role-name
+    roleDescription: command-mentor-pai-role-description
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Command #double check the encryption channels later
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        screen:
+          Off: { state: off-overlay }
+          Searching: { state: searching-overlay }
+          On: { state: on-overlay }
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: command-inhand-left
+      right:
+      - state: command-inhand-right
+
+#ENGINEERING
+- type: entity
+  parent: PersonalAI
+  id: MentorPAIEngineering
+  name: personal engineering mentor ai
+  description: It's a personal AI trained on petabytes of engineering lectures and demonstrations.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/MentorpAIs/engi.rsi
+    layers:
+    - state: icon
+    - state: off-overlay
+      shader: unshaded
+      map: ["screen"]
+  - type: ToggleableGhostRole
+    roleName: engi-mentor-pai-role-name
+    roleDescription: engi-mentor-pai-role-description
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Engineering #double check the encryption channels later
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        screen:
+          Off: { state: off-overlay }
+          Searching: { state: searching-overlay }
+          On: { state: on-overlay }
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: engi-inhand-left
+      right:
+      - state: engi-inhand-right
+
+# MEDICAL
+- type: entity
+  parent: PersonalAI
+  id: MentorPAIMedical
+  name: personal medical mentor ai
+  description: It's a personal AI trained on petabytes of surgical videos, chemistry lectures, and videos of various medical procedures.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/MentorpAIs/med.rsi
+    layers:
+    - state: icon
+    - state: off-overlay
+      shader: unshaded
+      map: ["screen"]
+  - type: ToggleableGhostRole
+    roleName: med-mentor-pai-role-name
+    roleDescription: med-mentor-pai-role-description
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Medical #double check the encryption channels later
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        screen:
+          Off: { state: off-overlay }
+          Searching: { state: searching-overlay }
+          On: { state: on-overlay }
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: med-inhand-left
+      right:
+      - state: med-inhand-right
+
+#SCIENCE
+- type: entity
+  parent: PersonalAI
+  id: MentorPAIScience
+  name: personal science mentor ai
+  description: It's a personal AI trained on petabytes of scientific papers, lab reports, and public NT patents.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/MentorpAIs/sci.rsi
+    layers:
+    - state: icon
+    - state: off-overlay
+      shader: unshaded
+      map: ["screen"]
+  - type: ToggleableGhostRole
+    roleName: sci-mentor-pai-role-name
+    roleDescription: sci-mentor-pai-role-description
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Medical #double check the encryption channels later
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        screen:
+          Off: { state: off-overlay }
+          Searching: { state: searching-overlay }
+          On: { state: on-overlay }
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: sci-inhand-left
+      right:
+      - state: sci-inhand-right
+
+#SECURITY
+- type: entity
+  parent: PersonalAI
+  id: MentorPAISecurity
+  name: personal security mentor ai
+  description: It's a personal AI trained on petabytes of bodycam footage, court cases, and crime dramas.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/MentorpAIs/sec.rsi
+    layers:
+    - state: icon
+    - state: off-overlay
+      shader: unshaded
+      map: ["screen"]
+  - type: ToggleableGhostRole
+    roleName: sec-mentor-pai-role-name
+    roleDescription: sec-mentor-pai-role-description
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Security #double check the encryption channels later
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        screen:
+          Off: { state: off-overlay }
+          Searching: { state: searching-overlay }
+          On: { state: on-overlay }
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: sec-inhand-left
+      right:
+      - state: sec-inhand-right
+
+#SERVICE
+- type: entity
+  parent: PersonalAI
+  id: MentorPAIService
+  name: personal service mentor ai
+  description: It's a personal AI trained on petabytes of everything you need to know to throw a fucking PARTYYY!!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/MentorpAIs/service.rsi
+    layers:
+    - state: icon
+    - state: off-overlay
+      shader: unshaded
+      map: ["screen"]
+  - type: ToggleableGhostRole
+    roleName: service-mentor-pai-role-name
+    roleDescription: service-mentor-pai-role-description
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Service #double check the encryption channels later
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        screen:
+          Off: { state: off-overlay }
+          Searching: { state: searching-overlay }
+          On: { state: on-overlay }
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: service-inhand-left
+      right:
+      - state: service-inhand-right
