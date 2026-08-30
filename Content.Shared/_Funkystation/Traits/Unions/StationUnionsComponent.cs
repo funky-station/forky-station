@@ -25,6 +25,7 @@ public sealed class UnionMemberInfo
     public string GroupingId = string.Empty;
     public List<UnionMemberNote> Notes = new();
     public bool IsSteward;
+    public EntityUid? AssignedSteward;
 }
 
 public sealed class UnionMemberNote

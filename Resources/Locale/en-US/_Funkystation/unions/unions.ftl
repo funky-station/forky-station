@@ -30,3 +30,5 @@ union-clipboard-locked-cancel = Cancel
 union-clipboard-steward-mismatch = This is not the correct ID.
 union-clipboard-steward-confirmed = { $name } is now a Steward.
 union-clipboard-steward-name = { $name } (Steward)
+union-clipboard-assign-steward-label = Steward:
+union-clipboard-assign-steward-none = None

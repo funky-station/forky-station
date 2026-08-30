@@ -18,13 +18,14 @@ public sealed class UnionClipboardNoteEntry(string title, string text, string au
 }
 
 [Serializable, NetSerializable]
-public sealed class UnionClipboardMemberEntry(NetEntity entity, string name, string jobTitle, bool isLeader, bool isSteward, List<UnionClipboardNoteEntry> notes)
+public sealed class UnionClipboardMemberEntry(NetEntity entity, string name, string jobTitle, bool isLeader, bool isSteward, NetEntity? assignedSteward, List<UnionClipboardNoteEntry> notes)
 {
     public NetEntity Entity = entity;
     public string Name = name;
     public string JobTitle = jobTitle;
     public bool IsLeader = isLeader;
     public bool IsSteward = isSteward;
+    public NetEntity? AssignedSteward = assignedSteward;
     public List<UnionClipboardNoteEntry> Notes = notes;
 }
 
@@ -59,4 +60,11 @@ public sealed class UnionClipboardBeginStewardMessage(NetEntity target) : BoundU
 [Serializable, NetSerializable]
 public sealed class UnionClipboardCancelStewardMessage : BoundUserInterfaceMessage
 {
+}
+
+[Serializable, NetSerializable]
+public sealed class UnionClipboardAssignStewardMessage(NetEntity target, NetEntity? steward) : BoundUserInterfaceMessage
+{
+    public NetEntity Target = target;
+    public NetEntity? Steward = steward;
 }

@@ -13,6 +13,7 @@ public sealed partial class UnionClipboardMenu : DefaultWindow
     public event Action<NetEntity, string, string>? OnAddNote;
     public event Action<NetEntity>? OnBeginSteward;
     public event Action? OnCancelSteward;
+    public event Action<NetEntity, NetEntity?>? OnAssignSteward;
 
     private UnionMemberNotesMenu? _notesMenu;
     private NetEntity _notesMenuTarget;
@@ -41,12 +42,20 @@ public sealed partial class UnionClipboardMenu : DefaultWindow
 
         MemberList.RemoveAllChildren();
 
+        var stewards = new List<(NetEntity Entity, string Name)>();
         foreach (var member in state.Members)
         {
-            var row = new UnionMemberRow(member.Name, member.JobTitle, member.IsLeader, member.IsSteward);
+            if (member.IsSteward || member.IsLeader)
+                stewards.Add((member.Entity, member.Name));
+        }
+
+        foreach (var member in state.Members)
+        {
+            var row = new UnionMemberRow(member.Name, member.JobTitle, member.IsLeader, member.IsSteward, stewards, member.AssignedSteward);
             row.OnRemovePressed += () => OnRemoveMember?.Invoke(member.Entity);
             row.OnNotesPressed += () => OpenNotes(member);
             row.OnMakeStewardPressed += () => OnBeginSteward?.Invoke(member.Entity);
+            row.OnStewardAssigned += steward => OnAssignSteward?.Invoke(member.Entity, steward);
             MemberList.AddChild(row);
 
             if (_notesMenu != null && _notesMenuTarget == member.Entity)

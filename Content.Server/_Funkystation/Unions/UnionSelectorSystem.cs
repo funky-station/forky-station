@@ -398,6 +398,12 @@ public sealed partial class UnionSelectorSystem : EntitySystem
         if (!union.Members.Remove(member))
             return false;
 
+        foreach (var info in union.Members.Values)
+        {
+            if (info.AssignedSteward == member)
+                info.AssignedSteward = null;
+        }
+
         RemComp<UnionLeaderComponent>(member);
         RemComp<UnionMemberComponent>(member);
         return true;
@@ -413,7 +419,15 @@ public sealed partial class UnionSelectorSystem : EntitySystem
 
         RefreshLeaderStatus(newLeader);
         if (previousLeader != EntityUid.Invalid && previousLeader != newLeader)
+        {
             RefreshLeaderStatus(previousLeader);
+
+            foreach (var info in union.Members.Values)
+            {
+                if (info.AssignedSteward == previousLeader)
+                    info.AssignedSteward = null;
+            }
+        }
 
         return true;
     }

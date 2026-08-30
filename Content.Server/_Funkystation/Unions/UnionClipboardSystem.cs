@@ -37,6 +37,7 @@ public sealed partial class UnionClipboardSystem : EntitySystem
                 subs.Event<UnionClipboardAddNoteMessage>(OnAddNote);
                 subs.Event<UnionClipboardBeginStewardMessage>(OnBeginSteward);
                 subs.Event<UnionClipboardCancelStewardMessage>(OnCancelSteward);
+                subs.Event<UnionClipboardAssignStewardMessage>(OnAssignSteward);
             });
     }
 
@@ -127,6 +128,33 @@ public sealed partial class UnionClipboardSystem : EntitySystem
             return;
 
         ent.Comp.PendingStewardCandidate = null;
+        UpdateUi(ent);
+    }
+
+    private void OnAssignSteward(Entity<UnionClipboardComponent> ent, ref UnionClipboardAssignStewardMessage args)
+    {
+        if (!_unionSelector.TryGetUnionForGrouping(ent.Comp.GroupingId, out var union) || union == null)
+            return;
+
+        if (union.Leader != args.Actor)
+            return;
+
+        var target = GetEntity(args.Target);
+        if (target == union.Leader || !union.Members.TryGetValue(target, out var info) || info.IsSteward)
+            return;
+
+        if (args.Steward is not { } stewardNet)
+        {
+            info.AssignedSteward = null;
+            UpdateUi(ent);
+            return;
+        }
+
+        var steward = GetEntity(stewardNet);
+        if (steward != union.Leader && (!union.Members.TryGetValue(steward, out var stewardInfo) || !stewardInfo.IsSteward))
+            return;
+
+        info.AssignedSteward = steward;
         UpdateUi(ent);
     }
     
@@ -222,7 +250,8 @@ public sealed partial class UnionClipboardSystem : EntitySystem
                 notes.Add(new UnionClipboardNoteEntry(note.Title, note.Text, note.Author, note.Time.ToString(@"hh\:mm\:ss")));
             }
 
-            members.Add(new UnionClipboardMemberEntry(GetNetEntity(memberUid), name, jobTitle!, memberUid == union.Leader, info.IsSteward, notes));
+            NetEntity? assignedSteward = info.AssignedSteward is { } stewardUid ? GetNetEntity(stewardUid) : null;
+            members.Add(new UnionClipboardMemberEntry(GetNetEntity(memberUid), name, jobTitle!, memberUid == union.Leader, info.IsSteward, assignedSteward, notes));
         }
 
         string? lockedForName = null;
