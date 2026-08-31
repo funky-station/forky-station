@@ -16,6 +16,9 @@
     - map: [ "unshaded" ]
       state: off-unshaded
       shader: unshaded
+  - type: Construction
+    graph: SignalButtonGraphAlt1
+    node: SignalButtonNode
 
 - type: entity
   parent: SignalButton
@@ -32,6 +35,9 @@
     - state: button
     - state: button-unshaded
       shader: unshaded
+  - type: Construction
+    graph: SignalButtonGraphAlt1
+    node: SignalButtonNode
 
 - type: entity
   parent: SignalSwitch
@@ -50,6 +56,9 @@
     - map: [ "unshaded" ]
       state: off-unshaded
       shader: unshaded
+  - type: Construction
+    graph: SignalButtonGraphAlt2
+    node: SignalButtonNode
 
 - type: entity
   parent: SignalButton
@@ -66,6 +75,213 @@
     - state: button
     - state: button-unshaded
       shader: unshaded
+  - type: Construction
+    graph: SignalButtonGraphAlt2
+    node: SignalButtonNode
+
+# special named version
+- type: entity
+  parent: SignalSwitch
+  id: GenericLightSwitch
+  name: light switch
+  description: Save a watt, turn them off!
+
+- type: entity
+  parent: SignalSwitch
+  id: GenericLightAlt1
+  name: light switch
+  description: Save a watt, turn them off!
+  components:
+    - type: Sprite
+      offset: 0, -0.25
+      drawdepth: WallMountedItems
+      sprite: _Funkystation/Structures/Wallmounts/switch_alt1.rsi
+      layers:
+        - state: base
+        - map: [ "shaded" ]
+          state: off
+        - map: [ "unshaded" ]
+          state: off-unshaded
+          shader: unshaded
+
+- type: entity
+  parent: SignalSwitch
+  id: GenericLightAlt2
+  name: light switch
+  description: Save a watt, turn them off!
+  components:
+    - type: Sprite
+      offset: 0, -0.25
+      drawdepth: WallMountedItems
+      sprite: _Funkystation/Structures/Wallmounts/switch_alt2.rsi
+      layers:
+        - state: base
+        - state: button
+        - state: button-unshaded
+          shader: unshaded
+
+- type: entity
+  parent: SignalSwitch
+  id: BedroomLightSwitch
+  name: light switch
+  description: Time for some shut eye.
+  suffix: Bedroom
+
+- type: entity
+  parent: SignalSwitch
+  id: BedroomLightAlt1
+  name: light switch
+  description: Time for some shut eye.
+  suffix: Bedroom
+  components:
+    - type: Sprite
+      offset: 0, -0.25
+      drawdepth: WallMountedItems
+      sprite: _Funkystation/Structures/Wallmounts/switch_alt1.rsi
+      layers:
+        - state: base
+        - map: [ "shaded" ]
+          state: off
+        - map: [ "unshaded" ]
+          state: off-unshaded
+          shader: unshaded
+
+- type: entity
+  parent: SignalSwitch
+  id: BedroomLightAlt2
+  name: light switch
+  description: Time for some shut eye.
+  suffix: Bedroom
+  components:
+    - type: Sprite
+      offset: 0, -0.25
+      drawdepth: WallMountedItems
+      sprite: _Funkystation/Structures/Wallmounts/switch_alt2.rsi
+      layers:
+        - state: base
+        - state: button
+        - state: button-unshaded
+          shader: unshaded
+
+- type: entity
+  parent: SignalSwitch
+  id: JaniLightSwitch
+  name: janitorial light switch
+  description: Switch to alert the janitor to messes in your department.
+
+- type: entity
+  parent: SignalSwitch
+  id: JaniLightAlt1
+  name: janitorial light switch
+  description: Switch to alert the janitor to messes in your department.
+  components:
+    - type: Sprite
+      offset: 0, -0.25
+      drawdepth: WallMountedItems
+      sprite: _Funkystation/Structures/Wallmounts/switch_alt1.rsi
+      layers:
+        - state: base
+        - map: [ "shaded" ]
+          state: off
+        - map: [ "unshaded" ]
+          state: off-unshaded
+          shader: unshaded
+
+- type: entity
+  parent: SignalSwitch
+  id: JaniLightAlt2
+  name: janitorial light switch
+  description: Switch to alert the janitor to messes in your department.
+  components:
+    - type: Sprite
+      offset: 0, -0.25
+      drawdepth: WallMountedItems
+      sprite: _Funkystation/Structures/Wallmounts/switch_alt2.rsi
+      layers:
+        - state: base
+        - state: button
+        - state: button-unshaded
+          shader: unshaded
+
+- type: entity
+  parent: SignalSwitch
+  id: BlastDoorSwitch
+  name: blast door switch
+  description: Whatever is in there, you want nothing to do with it.
+
+- type: entity
+  parent: SignalSwitch
+  id: BlastDoorAlt1
+  name: blast door switch
+  description: Whatever is in there, you want nothing to do with it.
+  components:
+    - type: Sprite
+      offset: 0, -0.25
+      drawdepth: WallMountedItems
+      sprite: _Funkystation/Structures/Wallmounts/switch_alt1.rsi
+      layers:
+        - state: base
+        - map: [ "shaded" ]
+          state: off
+        - map: [ "unshaded" ]
+          state: off-unshaded
+          shader: unshaded
+
+- type: entity
+  parent: SignalSwitch
+  id: BlastDoorAlt2
+  name: blast door switch
+  description: Whatever is in there, you want nothing to do with it.
+  components:
+    - type: Sprite
+      offset: 0, -0.25
+      drawdepth: WallMountedItems
+      sprite: _Funkystation/Structures/Wallmounts/switch_alt2.rsi
+      layers:
+        - state: base
+        - state: button
+        - state: button-unshaded
+          shader: unshaded
+
+- type: entity
+  parent: SignalSwitch
+  id: ShutterSwitch
+  name: shutter switch
+  description: Keep the air in and the tide out.
+
+- type: entity
+  parent: SignalSwitch
+  id: ShutterAlt1
+  name: shutter switch
+  description: Keep the air in and the tide out.
+  components:
+    - type: Sprite
+      offset: 0, -0.25
+      drawdepth: WallMountedItems
+      sprite: _Funkystation/Structures/Wallmounts/switch_alt1.rsi
+      layers:
+        - state: base
+        - map: [ "shaded" ]
+          state: off
+        - map: [ "unshaded" ]
+          state: off-unshaded
+          shader: unshaded
+
+- type: entity
+  parent: SignalSwitch
+  id: ShutterAlt2
+  name: shutter switch
+  description: Keep the air in and the tide out.
+  components:
+    - type: Sprite
+      offset: 0, -0.25
+      drawdepth: WallMountedItems
+      sprite: _Funkystation/Structures/Wallmounts/switch_alt2.rsi
+      layers:
+        - state: base
+        - state: button
+        - state: button-unshaded
+          shader: unshaded
 
 # lockable buttons alt offset
 - type: entity
