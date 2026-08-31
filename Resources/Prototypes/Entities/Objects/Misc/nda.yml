@@ -2,7 +2,7 @@
   id: PaperNdaCommand
   name: non-disclosure agreement
   parent: Paper
-  description: A standard Nanorasen non-disclosure agreement for command staff.
+  description: A standard Nanotrasen non-disclosure agreement for command staff.
   components:
   - type: Paper
   - type: TextFilePaperContent
