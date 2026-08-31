@@ -26,6 +26,7 @@ using Content.Client.Stylesheets;
 using Content.Client.UserInterface;
 using Content.Client.Viewport;
 using Content.Client.Voting;
+using Content.Shared._Starlight.DocumentManager;
 using Content.Shared.Ame.Components;
 using Content.Shared.FeedbackSystem;
 using Content.Shared.Gravity;
@@ -80,6 +81,7 @@ namespace Content.Client.Entry
         [Dependency] private TitleWindowManager _titleWindowManager = default!;
         [Dependency] private IEntitySystemManager _entitySystemManager = default!;
         [Dependency] private ClientsidePlaytimeTrackingManager _clientsidePlaytimeManager = default!;
+        [Dependency] private PreWrittenDocumentManager _documentManager = default!; // Starlight
         [Dependency] private ClientFeedbackManager _feedbackManager = null!;
 
         public override void PreInit()
@@ -143,6 +145,7 @@ namespace Content.Client.Entry
             _jobRequirements.Initialize();
             _playbackMan.Initialize();
             _clientsidePlaytimeManager.Initialize();
+            _documentManager.Initialize(); // Starlight
 
             //AUTOSCALING default Setup!
             _configManager.SetCVar("interface.resolutionAutoScaleUpperCutoffX", 1080);
