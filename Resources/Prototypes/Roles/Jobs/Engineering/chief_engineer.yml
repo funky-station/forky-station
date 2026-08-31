@@ -3,6 +3,7 @@
   name: job-name-ce
   description: job-description-ce
   playTimeTracker: JobChiefEngineer
+  requiresNda: Command # Funky
   requirements:
     #- !type:RoleTimeRequirement
     #  role: JobAtmosphericTechnician

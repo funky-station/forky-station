@@ -3,6 +3,7 @@
   name: job-name-warden
   description: job-description-warden
   playTimeTracker: JobWarden
+  requiresNda: Security # Funky
   requirements:
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
