@@ -1,19 +1,19 @@
 # Pen receptacle
+
+## Abstract prototype
+
 - type: entity
-  id: PenReceptacle
+  id: BasePenReceptacle
+  abstract: true
   parent: BaseItem
   name: pen receptacle
-  description: A metal container distributed by Nanotrasen in a futile attempt to limit loss of stationery.
+  description: A plastic container distributed by NanoTrasen in a futile attempt to limit loss of stationery.
   components:
-  - type: Sprite
-    sprite: _Funkystation/Objects/Decoration/pen_receptacle.rsi
-    layers:
-    - state: icon
   - type: Item
     size: Small
   - type: PhysicalComposition
     materialComposition:
-      Steel: 10
+      Plastic: 10
   - type: ItemSlots
     slots:
       pen_slot8:
@@ -115,11 +115,68 @@
     sprite: _Funkystation/Objects/Decoration/pen_receptacle.rsi
   - type: Appearance
 
-# Pen receptacle - mapping variants
+## Empty colored prototypes
+
 - type: entity
-  id: PenReceptacleHalfFull
-  parent: PenReceptacle
-  suffix: 4 Pens
+  id: PenReceptacleBeige
+  parent: BasePenReceptacle
+  suffix: Beige
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Decoration/pen_receptacle.rsi
+    layers:
+    - state: icon-beige
+
+- type: entity
+  id: PenReceptacleBlue
+  parent: BasePenReceptacle
+  suffix: Blue
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Decoration/pen_receptacle.rsi
+    layers:
+    - state: icon-blue
+
+- type: entity
+  id: PenReceptacleGray
+  parent: BasePenReceptacle
+  suffix: Gray
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Decoration/pen_receptacle.rsi
+    layers:
+    - state: icon-gray
+
+- type: entity
+  id: PenReceptacleGreen
+  parent: BasePenReceptacle
+  suffix: Green
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Decoration/pen_receptacle.rsi
+    layers:
+    - state: icon-green
+
+- type: entity
+  id: PenReceptacleRed
+  parent: BasePenReceptacle
+  suffix: Red
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Decoration/pen_receptacle.rsi
+    layers:
+    - state: icon-red
+
+## Half- and fully-filled variants for mappers
+
+# I tried using parenting stuff to make it to avoid having to type out this ItemSlots stuff a million times but it didn't work. Sorry!
+
+### Half full
+
+- type: entity
+  id: PenReceptacleBeigeHalfFull
+  parent: PenReceptacleBeige
+  suffix: Beige, 4 pens
   components:
   - type: ItemSlots
     slots:
@@ -133,9 +190,171 @@
         startingItem: Pen
 
 - type: entity
-  id: PenReceptacleFull
-  parent: PenReceptacle
-  suffix: 8 Pens
+  id: PenReceptacleBlueHalfFull
+  parent: PenReceptacleBlue
+  suffix: Blue, 4 pens
+  components:
+  - type: ItemSlots
+    slots:
+      pen_slot4:
+        startingItem: Pen
+      pen_slot3:
+        startingItem: Pen
+      pen_slot2:
+        startingItem: Pen
+      pen_slot1:
+        startingItem: Pen
+
+- type: entity
+  id: PenReceptacleGrayHalfFull
+  parent: PenReceptacleGray
+  suffix: Gray, 4 pens
+  components:
+  - type: ItemSlots
+    slots:
+      pen_slot4:
+        startingItem: Pen
+      pen_slot3:
+        startingItem: Pen
+      pen_slot2:
+        startingItem: Pen
+      pen_slot1:
+        startingItem: Pen
+
+- type: entity
+  id: PenReceptacleGreenHalfFull
+  parent: PenReceptacleGreen
+  suffix: Green, 4 pens
+  components:
+  - type: ItemSlots
+    slots:
+      pen_slot4:
+        startingItem: Pen
+      pen_slot3:
+        startingItem: Pen
+      pen_slot2:
+        startingItem: Pen
+      pen_slot1:
+        startingItem: Pen
+
+- type: entity
+  id: PenReceptacleRedHalfFull
+  parent: PenReceptacleRed
+  suffix: Red, 4 pens
+  components:
+  - type: ItemSlots
+    slots:
+      pen_slot4:
+        startingItem: Pen
+      pen_slot3:
+        startingItem: Pen
+      pen_slot2:
+        startingItem: Pen
+      pen_slot1:
+        startingItem: Pen
+
+### Full
+
+- type: entity
+  id: PenReceptacleBeigeFull
+  parent: PenReceptacleBeige
+  suffix: Beige, 8 pens
+  components:
+  - type: ItemSlots
+    slots:
+      pen_slot8:
+        startingItem: Pen
+      pen_slot7:
+        startingItem: Pen
+      pen_slot6:
+        startingItem: Pen
+      pen_slot5:
+        startingItem: Pen
+      pen_slot4:
+        startingItem: Pen
+      pen_slot3:
+        startingItem: Pen
+      pen_slot2:
+        startingItem: Pen
+      pen_slot1:
+        startingItem: Pen
+
+- type: entity
+  id: PenReceptacleBlueFull
+  parent: PenReceptacleBlue
+  suffix: Blue, 8 pens
+  components:
+  - type: ItemSlots
+    slots:
+      pen_slot8:
+        startingItem: Pen
+      pen_slot7:
+        startingItem: Pen
+      pen_slot6:
+        startingItem: Pen
+      pen_slot5:
+        startingItem: Pen
+      pen_slot4:
+        startingItem: Pen
+      pen_slot3:
+        startingItem: Pen
+      pen_slot2:
+        startingItem: Pen
+      pen_slot1:
+        startingItem: Pen
+
+- type: entity
+  id: PenReceptacleGrayFull
+  parent: PenReceptacleGray
+  suffix: Gray, 8 pens
+  components:
+  - type: ItemSlots
+    slots:
+      pen_slot8:
+        startingItem: Pen
+      pen_slot7:
+        startingItem: Pen
+      pen_slot6:
+        startingItem: Pen
+      pen_slot5:
+        startingItem: Pen
+      pen_slot4:
+        startingItem: Pen
+      pen_slot3:
+        startingItem: Pen
+      pen_slot2:
+        startingItem: Pen
+      pen_slot1:
+        startingItem: Pen
+
+- type: entity
+  id: PenReceptacleGreenFull
+  parent: PenReceptacleGreen
+  suffix: Green, 8 pens
+  components:
+  - type: ItemSlots
+    slots:
+      pen_slot8:
+        startingItem: Pen
+      pen_slot7:
+        startingItem: Pen
+      pen_slot6:
+        startingItem: Pen
+      pen_slot5:
+        startingItem: Pen
+      pen_slot4:
+        startingItem: Pen
+      pen_slot3:
+        startingItem: Pen
+      pen_slot2:
+        startingItem: Pen
+      pen_slot1:
+        startingItem: Pen
+
+- type: entity
+  id: PenReceptacleRedFull
+  parent: PenReceptacleRed
+  suffix: Red, 8 pens
   components:
   - type: ItemSlots
     slots:

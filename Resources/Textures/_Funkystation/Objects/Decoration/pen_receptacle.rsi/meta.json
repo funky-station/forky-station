@@ -1,14 +1,26 @@
 {
   "version": 1,
   "license": "CC-BY-NC-SA-4.0",
-  "copyright": "Sprites by @Dogman20801 (GitHub)",
+  "copyright": "Icon sprites by @vectorassembly and @pirakaplant (both GitHub) | Pen sprites by @Dogman20801 (GitHub)",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "icon"
+      "name": "icon-beige"
+    },
+    {
+      "name": "icon-blue"
+    },
+    {
+      "name": "icon-gray"
+    },
+    {
+      "name": "icon-green"
+    },
+    {
+      "name": "icon-red"
     },
     {
       "name": "pen1"
