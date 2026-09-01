@@ -602,6 +602,7 @@
     - MindRoleGhostRoleFreeAgentHarmless
   - type: GhostTakeoverAvailable
 
+# ported from funkystation to forky
 - type: entity
   name: roingus
   description: Bounce!
