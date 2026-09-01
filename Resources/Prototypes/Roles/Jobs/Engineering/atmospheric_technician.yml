@@ -39,4 +39,4 @@
     mask: ClothingMaskGasAtmos
     neck: ClothingNeckScarfStripedLightBlue
     outerClothing: ClothingOuterSuitAtmosFire
-    gloves: ClothingHandsGlovesColorYellow
+    gloves: FuClothingHandsGlovesInsuls #Funky

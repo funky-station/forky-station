@@ -1,3 +1,4 @@
+using Content.Shared._RMC14.Input;
 using Content.Shared.Input;
 using Robust.Shared.Input;
 
@@ -91,7 +92,8 @@ namespace Content.Client.Input
             human.AddFunction(ContentKeyFunctions.Arcade1);
             human.AddFunction(ContentKeyFunctions.Arcade2);
             human.AddFunction(ContentKeyFunctions.Arcade3);
-
+            //RMC Port
+            human.AddFunction(CMKeyFunctions.CMUniqueAction);
             // actions should be common (for ghosts, mobs, etc)
             common.AddFunction(ContentKeyFunctions.OpenActionsMenu);
 

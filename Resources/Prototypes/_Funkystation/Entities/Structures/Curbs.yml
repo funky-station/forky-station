@@ -44,6 +44,41 @@
     fx: EffectRCDDeconstruct2
 
 - type: entity
+  id: InsideCornerCurbFixture
+  abstract: true
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,0.25,-0.25,0.49"
+        density: 1000
+        mask:
+        - CrateMask
+
+- type: entity
+  id: CornerCurbFixture
+  abstract: true
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,-0.25"
+        density: 1000
+        mask:
+        - CrateMask
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.25,-0.49,0.49,0.49"
+        density: 1000
+        mask:
+        - CrateMask
+
+- type: entity
   parent: BaseCurb
   id: SteelCurb
   name: steel curb
@@ -90,7 +125,7 @@
     node: steelCurb
 
 - type: entity
-  parent: SteelCurb
+  parent: [SteelCurb, CornerCurbFixture]
   id: SteelCurbCorner
   name: steel curb corner
   components:
@@ -99,27 +134,11 @@
     drawdepth: FloorTiles
   - type: Icon
     state: steel_curb_corner
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.49,-0.49,0.49,-0.25"
-        density: 1000
-        mask:
-        - CrateMask
-      fix2:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "0.49,0.49,0.25,-0.49"
-        density: 1000
-        mask:
-        - CrateMask
   - type: Construction
     node: steelCurbCorner
 
 - type: entity
-  parent: SteelCurb
+  parent: [SteelCurb, InsideCornerCurbFixture]
   id: SteelCurbCornerInside
   name: steel curb inside corner
   components:
@@ -128,15 +147,6 @@
     drawdepth: FloorTiles
   - type: Icon
     state: steel_curb_inside_corner
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.49,0.49,-0.25,0.25"
-        density: 1000
-        mask:
-        - CrateMask
   - type: Construction
     node: steelCurbCornerInside
 
@@ -260,7 +270,7 @@
     node: brassCurb
 
 - type: entity
-  parent: BrassCurb
+  parent: [BrassCurb, CornerCurbFixture]
   id: BrassCurbCorner
   name: brass curb corner
   components:
@@ -269,27 +279,11 @@
     drawdepth: FloorTiles
   - type: Icon
     state: brass_curb_corner
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.49,-0.49,0.49,-0.25"
-        density: 1000
-        mask:
-        - CrateMask
-      fix2:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "0.49,0.49,0.25,-0.49"
-        density: 1000
-        mask:
-        - CrateMask
   - type: Construction
     node: brassCurbCorner
 
 - type: entity
-  parent: BrassCurb
+  parent: [BrassCurb, InsideCornerCurbFixture]
   id: BrassCurbCornerInside
   name: brass curb inside corner
   components:
@@ -298,15 +292,6 @@
     drawdepth: FloorTiles
   - type: Icon
     state: brass_curb_inside_corner
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.49,0.49,-0.25,0.25"
-        density: 1000
-        mask:
-        - CrateMask
   - type: Construction
     node: brassCurbCornerInside
 
@@ -430,7 +415,7 @@
       node: goldCurb
 
 - type: entity
-  parent: GoldCurb
+  parent: [GoldCurb, CornerCurbFixture]
   id: GoldCurbCorner
   name: gold curb corner
   components:
@@ -439,27 +424,11 @@
       drawdepth: FloorTiles
     - type: Icon
       state: gold_curb_corner
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape:
-            !type:PhysShapeAabb
-            bounds: "-0.49,-0.49,0.49,-0.25"
-          density: 1000
-          mask:
-            - CrateMask
-        fix2:
-          shape:
-            !type:PhysShapeAabb
-            bounds: "0.49,0.49,0.25,-0.49"
-          density: 1000
-          mask:
-            - CrateMask
     - type: Construction
       node: goldCurbCorner
 
 - type: entity
-  parent: GoldCurb
+  parent: [GoldCurb, InsideCornerCurbFixture]
   id: GoldCurbCornerInside
   name: gold curb inside corner
   components:
@@ -468,15 +437,6 @@
       drawdepth: FloorTiles
     - type: Icon
       state: gold_curb_inside_corner
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape:
-            !type:PhysShapeAabb
-            bounds: "-0.49,0.49,-0.25,0.25"
-          density: 1000
-          mask:
-            - CrateMask
     - type: Construction
       node: goldCurbCornerInside
 
@@ -600,7 +560,7 @@
       node: hydrogenCurb
 
 - type: entity
-  parent: HydrogenCurb
+  parent: [HydrogenCurb, CornerCurbFixture]
   id: HydrogenCurbCorner
   name: hydrogen curb corner
   components:
@@ -609,27 +569,11 @@
       drawdepth: FloorTiles
     - type: Icon
       state: hydrogen_curb_corner
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape:
-            !type:PhysShapeAabb
-            bounds: "-0.49,-0.49,0.49,-0.25"
-          density: 1000
-          mask:
-            - CrateMask
-        fix2:
-          shape:
-            !type:PhysShapeAabb
-            bounds: "0.49,0.49,0.25,-0.49"
-          density: 1000
-          mask:
-            - CrateMask
     - type: Construction
       node: hydrogenCurbCorner
 
 - type: entity
-  parent: HydrogenCurb
+  parent: [HydrogenCurb, InsideCornerCurbFixture]
   id: HydrogenCurbCornerInside
   name: hydrogen curb inside corner
   components:
@@ -638,15 +582,6 @@
       drawdepth: FloorTiles
     - type: Icon
       state: hydrogen_curb_inside_corner
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape:
-            !type:PhysShapeAabb
-            bounds: "-0.49,0.49,-0.25,0.25"
-          density: 1000
-          mask:
-            - CrateMask
     - type: Construction
       node: hydrogenCurbCornerInside
 

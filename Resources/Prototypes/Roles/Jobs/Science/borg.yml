@@ -7,7 +7,6 @@
   - !type:RoleTimeRequirement
     role: JobBorg
     time: 5h
-  weight: 10
   icon: JobIconStationAi
   supervisors: job-supervisors-rd
   jobEntity: StationAiBrain

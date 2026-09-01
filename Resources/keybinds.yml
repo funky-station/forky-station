@@ -651,3 +651,7 @@ binds:
   type: State
   key: MouseRight
   canFocus: true
+# RMC Port
+- function: CMUniqueAction
+  type: State
+  key: Space

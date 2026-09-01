@@ -3,11 +3,12 @@
   name: job-name-hd
   description: job-description-hd
   playTimeTracker: JobHospitalityDirector
+  requiresNda: Command # Funky
   requirements:
   - !type:DepartmentTimeRequirement
     department: Service
     time: 10h
-  weight: 20
+  #weight: 20 # Funky - Weighting all jobs equally now
   startingGear: HDGear
   icon: "JobIconHospitalityDirector"
   joinNotifyCrew: true

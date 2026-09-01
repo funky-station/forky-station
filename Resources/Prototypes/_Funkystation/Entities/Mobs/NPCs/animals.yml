@@ -254,6 +254,95 @@
 #Special Cows
 
 - type: entity
+  parent: SolutionLarge
+  id: SolutionUdderChocolate
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: udder # TODO This should really use a different id...
+    solution:
+      reagents:
+      - ReagentId: MilkChocolate
+        Quantity: 30
+  - type: SatiationProduction
+    producer: Parent
+    delay: 30
+    minimumSatiationThreshold: Peckish
+  # TODO: toxins from bloodstream !?
+  - type: SolutionProducer
+    generated:
+      reagents:
+      - ReagentId: MilkChocolate
+        Quantity: 25
+
+- type: entity
+  parent: SolutionLarge
+  id: SolutionUdderStrawberry
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: udder # TODO This should really use a different id...
+    solution:
+      reagents:
+      - ReagentId: MilkChocolate
+        Quantity: 30
+  - type: SatiationProduction
+    producer: Parent
+    delay: 30
+    minimumSatiationThreshold: Peckish
+  # TODO: toxins from bloodstream !?
+  - type: SolutionProducer
+    generated:
+      reagents:
+      - ReagentId: MilkChocolate
+        Quantity: 25
+
+- type: entity
+  parent: SolutionLarge
+  id: SolutionUdderBanana
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: udder # TODO This should really use a different id...
+    solution:
+      reagents:
+      - ReagentId: MilkBanana
+        Quantity: 30
+  - type: SatiationProduction
+    producer: Parent
+    delay: 30
+    minimumSatiationThreshold: Peckish
+  # TODO: toxins from bloodstream !?
+  - type: SolutionProducer
+    generated:
+      reagents:
+      - ReagentId: MilkBanana
+        Quantity: 25
+
+
+- type: entity
+  parent: SolutionLarge
+  id: SolutionUdderPilk
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: udder # TODO This should really use a different id...
+    solution:
+      reagents:
+      - ReagentId: Pilk
+        Quantity: 30
+  - type: SatiationProduction
+    producer: Parent
+    delay: 30
+    minimumSatiationThreshold: Peckish
+  # TODO: toxins from bloodstream !?
+  - type: SolutionProducer
+    generated:
+      reagents:
+      - ReagentId: Pilk
+        Quantity: 25
+
+- type: entity
   name: chocolate cow
   parent: MobCow
   id: MobCowChocolate
@@ -268,26 +357,10 @@
   - type: SolutionManager
     solutions:
     - SolutionUdderChocolate
-  - type: Udder
-    reagentId: MilkChocolate
-    quantityPerUpdate: 25
-    growthDelay: 30
   - type: Butcherable
     spawned:
     - id: FoodSnackChocolateBar
       amount: 5
-
-- type: entity
-  parent: SolutionLarge
-  id: SolutionUdderChocolate
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Solution
-    id: udder
-    solution:
-      reagents:
-      - ReagentId: MilkChocolate
-        Quantity: 30
 
 - type: entity
   name: strawberry cow
@@ -304,26 +377,10 @@
   - type: SolutionManager
     solutions:
     - SolutionUdderStrawberry
-  - type: Udder
-    reagentId: MilkStrawberry
-    quantityPerUpdate: 25
-    growthDelay: 30
   - type: Butcherable
     spawned:
     - id: FoodFrozenSandwichStrawberry #Change to actual strawberries if someone implments them
       amount: 2
-
-- type: entity
-  parent: SolutionLarge
-  id: SolutionUdderStrawberry
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Solution
-    id: udder
-    solution:
-      reagents:
-      - ReagentId: MilkStrawberry
-        Quantity: 30
 
 - type: entity
   name: banana cow
@@ -340,28 +397,12 @@
   - type: SolutionManager
     solutions:
     - SolutionUdderBanana
-  - type: Udder
-    reagentId: MilkBanana
-    quantityPerUpdate: 25
-    growthDelay: 30
   - type: Butcherable
     spawned:
     - id: FoodBanana
       amount: 5
     - id: TrashBananaPeel
       amount: 5
-
-- type: entity
-  parent: SolutionLarge
-  id: SolutionUdderBanana
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Solution
-    id: udder
-    solution:
-      reagents:
-      - ReagentId: MilkBanana
-        Quantity: 30
 
 - type: entity
   parent: MobCow
@@ -378,60 +419,42 @@
   - type: SolutionManager
     solutions:
     - SolutionUdderPilk
-  - type: Udder
-    reagentId: Pilk
-    quantityPerUpdate: 25
-    growthDelay: 30
 
-- type: entity
-  parent: SolutionLarge
-  id: SolutionUdderPilk
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Solution
-    id: udder
-    solution:
-      reagents:
-      - ReagentId: Pilk
-        Quantity: 30
 
 #Devil Birds
 
 - type: entity
   name: goose
-  parent: MobGoose
+  parent: [MobGoose, BaseExaminableHunger]
   id: MobGooseGolden
   description: Its stomach and mind are an enigma beyond human comprehension.
   suffix: GOLD
   components:
-  - type: ExaminableHunger
-  - type: EggLayer
-    eggSpawn:
-    - id: WeirdEggGold
+  - type: EntityProducer
+    table:
+      id: WeirdEggGold
 
 - type: entity
   name: goose
-  parent: MobGoose
+  parent: [MobGoose, BaseExaminableHunger]
   id: MobGooseUranium
   description: Its stomach and mind are an enigma beyond human comprehension.
   suffix: URANIUM
   components:
-  - type: ExaminableHunger
-  - type: EggLayer
-    eggSpawn:
-    - id: WeirdEggUranium
+  - type: EntityProducer
+    table:
+      id: WeirdEggUranium
 
 - type: entity
   name: goose
-  parent: MobGoose
+  parent: [MobGoose, BaseExaminableHunger]
   id: MobGoosePlasma
   description: Its stomach and mind are an enigma beyond human comprehension.
   suffix: PLASMA
   components:
-  - type: ExaminableHunger
-  - type: EggLayer
-    eggSpawn:
-    - id: WeirdEggPlasma
+  - type: EntityProducer
+    table:
+      id: WeirdEggPlasma
 
 - type: entity
   name: servant of Nar'sie

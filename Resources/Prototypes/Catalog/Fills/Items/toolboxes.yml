@@ -60,7 +60,7 @@
       prob: 0.9
     - !type:GroupSelector
       children:
-      - id: ClothingHandsGlovesColorYellow
+      - id: FuClothingHandsGlovesInsuls #Funky
         weight: 0.05
       - id: CableHVStack10
 

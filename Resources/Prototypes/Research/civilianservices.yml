@@ -1,3 +1,5 @@
+# Tier 1
+
 - type: technology
   id: Hydroponics
   name: research-technology-basic-hydroponics
@@ -100,7 +102,6 @@
   - FauxTileMowedAstroGrass
   - FauxTileJungleAstroGrass
   - FauxTileDarkAstroGrass
-  - FauxTileLightAstroGrass
   - FauxTileAstroIce
   - FauxTileAstroSnow
   - FauxTileAstroAsteroidSand
@@ -150,6 +151,7 @@
   - AdvMopItem
   - MegaSprayBottle
   - BorgModuleAdvancedCleaning
+  - TrashBagHolding
   - WashingMachineCircuitboard
 
 - type: technology

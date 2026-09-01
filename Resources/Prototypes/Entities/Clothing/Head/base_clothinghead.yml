@@ -26,10 +26,10 @@
   - type: Stainable
     clothingVisuals:
       head:
-      - sprite: _Funkystation/Effects/blood.rsi
+      - sprite: /Textures/_Funkystation/Effects/blood.rsi
         state: helmetblood
     iconVisuals:
-    - sprite: _Funkystation/Effects/blood.rsi
+    - sprite: /Textures/_Funkystation/Effects/blood.rsi
       state: helmetbloodicon
   - type: SolutionManager
     solutions:
@@ -64,6 +64,7 @@
     - state: icon
     - state: icon-flash
       visible: false
+      shader: unshaded
       map: [ "light" ]
   - type: Clothing
     equippedPrefix: off
@@ -72,12 +73,19 @@
     size: Normal # I'm not updating the solution because these probably shouldn't be edible...
   - type: ToggleableVisuals
     spriteLayer: light
+    inhandVisuals:
+      left:
+      - state: inhand-left-light
+        shader: unshaded
+      right:
+      - state: inhand-right-light
+        shader: unshaded
   - type: ItemTogglePointLight
   - type: PointLight
     enabled: false
     radius: 3
     energy: 1
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
     netsync: false
   - type: Appearance
@@ -115,7 +123,7 @@
 
 - type: entity
   abstract: true
-  parent: ClothingHeadBase
+  parent: [ ClothingHeadBase, TemperatureProtection ]
   id: ClothingHeadEVAHelmetBase
   name: base space helmet
   components:
@@ -128,9 +136,6 @@
   - type: PressureProtection
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
-  - type: TemperatureProtection
-    heatingCoefficient: 0.2
-    coolingCoefficient: 0.2
   - type: IngestionBlocker
   - type: Clothing
     #Copies ClothingHeadHardsuitBase behavior
@@ -157,7 +162,7 @@
 
 - type: entity
   abstract: true
-  # No parent since we aren't actually an item.
+  parent: TemperatureProtection
   id: ClothingHeadHardsuitBase
   name: base hardsuit helmet
   categories: [ HideSpawnMenu ]
@@ -176,12 +181,14 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     quickEquip: false
     slots: [ HEAD ]
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
-  - type: TemperatureProtection
-    heatingCoefficient: 0.1
-    coolingCoefficient: 0.1
   - type: Armor
     modifiers:
       coefficients:
@@ -207,15 +214,20 @@
   - type: Stainable
     clothingVisuals:
       head:
-      - sprite: _Funkystation/Effects/blood.rsi
+      - sprite: /Textures/_Funkystation/Effects/blood.rsi
         state: helmetblood
     iconVisuals:
-    - sprite: _Funkystation/Effects/blood.rsi
+    - sprite: /Textures/_Funkystation/Effects/blood.rsi
       state: helmetbloodicon
   - type: ESViewconeModifier # Funky
     angleModifier: -60
   - type: StainBlocker # Funky
     slots: [MASK]
+
+- type: entity
+  abstract: true
+  parent: [ TemperatureProtection, ClothingHeadHardsuitBase ]
+  id: ClothingHeadHardsuitInsulatedBase
 
 - type: entity
   abstract: true
@@ -231,19 +243,26 @@
   - type: Sprite
     layers:
     - state: icon
-    - state: icon-flash
+    - state: icon-unshaded
+      shader: unshaded
+    - state: light-overlay
       visible: false
+      shader: unshaded
       map: [ "light" ]
   - type: Clothing
     equippedPrefix: off
   - type: ToggleableVisuals
     spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: equipped-head-light
+        shader: unshaded
   - type: ItemTogglePointLight
   - type: PointLight
     enabled: false
     radius: 3
     energy: 2
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
     netsync: false
   - type: Appearance
@@ -276,6 +295,7 @@
 
 - type: entity
   abstract: true
+  parent: TemperatureProtectionMinimal
   id: ClothingHeadHatHoodWinterBase
   name: base winter coat hood
   description: A hood, made to keep your head warm.
@@ -289,9 +309,6 @@
     unequipSound: /Audio/Effects/rustle2.ogg
     quickEquip: false
     slots: [ HEAD ]
-  - type: TemperatureProtection
-    heatingCoefficient: 1.05
-    coolingCoefficient: 0.7
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.90
   - type: Armor # so zombification resistance shows up
@@ -307,8 +324,8 @@
   - type: Stainable
     clothingVisuals:
       head:
-      - sprite: _Funkystation/Effects/blood.rsi
+      - sprite: /Textures/_Funkystation/Effects/blood.rsi
         state: helmetblood
     iconVisuals:
-    - sprite: _Funkystation/Effects/blood.rsi
+    - sprite: /Textures/_Funkystation/Effects/blood.rsi
       state: helmetbloodicon
