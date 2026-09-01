@@ -57,6 +57,9 @@
         {
             "name": "roingus-inhand-right",
             "directions": 4
+        },
+        {
+        "name": "skewer-roingus"
         }
     ]
 }

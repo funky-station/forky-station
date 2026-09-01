@@ -34,8 +34,8 @@
       prob: 0.02
     - id: MobMouseCancer
       prob: 0.001
-    - id: MobRoingus
-      prob: 0.01
+    - id: MobRoingus # Yay roingus
+      prob: 0.005
 # Events always spawn a critter regardless of Probability https://github.com/space-wizards/space-station-14/issues/28480 I added the Rat King to their own event with a player cap.
 
 - type: entity
