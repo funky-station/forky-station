@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Sprites by UnicornOnLSD (GitHub), bases by Tea",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "off-overlay"
+    },
+    {
+      "name": "on-overlay",
+      "delays": [
+        [
+          6.0,
+          0.2,
+          0.2,
+          0.4,
+          3.0,
+          0.2,
+          0.2,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "searching-overlay",
+      "delays": [
+        [
+          0.8,
+          0.8,
+          0.8
+        ]
+      ]
+    },
+    {
+      "name": "engi-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "engi-inhand-left",
+      "directions": 4
+    }
+  ]
+}

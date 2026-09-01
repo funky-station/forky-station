@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Sprites by floret, bases by Tea",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "off-overlay"
+    },
+    {
+      "name": "on-overlay"
+    },
+    {
+      "name": "searching-overlay",
+      "delays": [
+        [
+          0.6, 0.2, 0.2, 0.2,
+          0.2, 0.2, 0.8, 0.4,
+          0.4, 0.4, 0.4, 0.4,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "cargo-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "cargo-inhand-left",
+      "directions": 4
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Sprites by Spleebis, bases by Tea",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "off-overlay"
+    },
+    {
+      "name": "on-overlay"
+    },
+    {
+      "name": "searching-overlay",
+      "delays": [
+        [
+          0.8,
+          0.8,
+          0.8
+        ]
+      ]
+    },
+    {
+      "name": "command-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "command-inhand-left",
+      "directions": 4
+    }
+  ]
+}

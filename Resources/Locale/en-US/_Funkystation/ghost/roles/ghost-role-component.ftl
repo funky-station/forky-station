@@ -14,3 +14,24 @@ ghost-role-information-zleeb-zlorb-rules = You are a small alien SPACE COP. You 
 
 ghost-role-information-meowl-name = Meowl
 ghost-role-information-meowl-description = A highly invasive apex predator. The sole cause of the rapid decline of mothroaches.
+
+command-mentor-pai-role-name = Command Mentor pAI
+command-mentor-pai-role-description = Help an inexperienced command member navigate the fresh hell that is beurocracy and running a station.
+
+engi-mentor-pai-role-name = Engineering Mentor pAI
+engi-mentor-pai-role-description = Help an inexperienced engineer power and repair the station. Keep them safe from their own creations too.
+
+sci-mentor-pai-role-name = Science Mentor pAI
+sci-mentor-pai-role-description = Help an inexperienced scientist do research. Keep them from blowing themself up like scientists usually do.
+
+logi-mentor-pai-role-name = Logistics Mentor pAI
+logi-mentor-pai-role-description = Help an inexperienced cargo tech or botanist provide the station with goods. Maybe do a little stock trading while you're at it.
+
+med-mentor-pai-role-name = Medical Mentor pAI
+med-mentor-pai-role-description = Help an inexperienced doctor or chemist keep the station alive. Don't let them make razorium in the patient.
+
+sec-mentor-pai-role-name = Security Mentor pAI
+sec-mentor-pai-role-description = Help an inexperienced cadet face up against the station's dangers. Don't let them run into maintence alone.
+
+service-mentor-pai-role-name = Service Mentor pAI
+service-mentor-pai-role-description = Help an inexperienced service worker through their dayjob. Make sure the janitor doesn't mop up potassium, keep the bartenders and chefs from poisoning their food and drinks, help the clown actually be funny for once, and maybe throw a party!!
