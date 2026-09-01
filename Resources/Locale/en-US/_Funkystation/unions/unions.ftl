@@ -32,3 +32,8 @@ union-clipboard-steward-confirmed = { $name } is now a Steward.
 union-clipboard-steward-name = { $name } (Steward)
 union-clipboard-assign-steward-label = Steward:
 union-clipboard-assign-steward-none = None
+
+union-card-examine = Certifies that { $name } is a { $position } of the { $union }.
+union-card-position-leader = Leader
+union-card-position-steward = Steward
+union-card-position-member = Member

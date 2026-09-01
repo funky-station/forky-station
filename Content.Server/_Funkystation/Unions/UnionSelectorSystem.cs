@@ -4,6 +4,7 @@ using Content.Server.Station.Events;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.Traits;
 using Content.Shared._Funkystation.Traits.Unions;
+using Content.Shared.Examine;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
@@ -27,6 +28,7 @@ public sealed partial class UnionSelectorSystem : EntitySystem
     private ISawmill _sawmill = default!;
 
     private static readonly ProtoId<UnionRoleItemSetPrototype> UnionLeaderItemSetProto = "unionItemSet";
+    private static readonly EntProtoId UnionCardProto = "UnionCard";
 
     public override void Initialize()
     {
@@ -39,8 +41,20 @@ public sealed partial class UnionSelectorSystem : EntitySystem
 
         SubscribeLocalEvent<UnionLeaderComponent, ComponentGetStateAttemptEvent>(OnLeaderGetStateAttempt);
         SubscribeLocalEvent<UnionStewardComponent, ComponentGetStateAttemptEvent>(OnStewardGetStateAttempt);
+        SubscribeLocalEvent<UnionCardComponent, ExaminedEvent>(OnCardExamined);
 
         _sawmill = _logManager.GetSawmill("unions");
+    }
+
+    private void OnCardExamined(EntityUid uid, UnionCardComponent comp, ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+
+        args.PushText(Loc.GetString("union-card-examine",
+            ("name", comp.OwnerName),
+            ("union", comp.UnionName),
+            ("position", comp.Position)));
     }
 
     private void OnLeaderGetStateAttempt(EntityUid uid, UnionLeaderComponent comp, ref ComponentGetStateAttemptEvent args)
@@ -79,6 +93,17 @@ public sealed partial class UnionSelectorSystem : EntitySystem
             return true;
 
         return union.Members.TryGetValue(uid, out var info) && info.IsSteward;
+    }
+
+    private string GetPositionLoc(StationUnion union, EntityUid member)
+    {
+        if (union.Leader == member)
+            return "union-card-position-leader";
+
+        if (union.Members.TryGetValue(member, out var info) && info.IsSteward)
+            return "union-card-position-steward";
+
+        return "union-card-position-member";
     }
 
     public void DirtyUnionVision()
@@ -152,6 +177,10 @@ public sealed partial class UnionSelectorSystem : EntitySystem
         {
             existing.Members[ev.Mob] = info;
             EnsureCorrectMemberComponent(ev.Mob, existing);
+
+            if (ev.LateJoin)
+                GiveUnionCard(ev.Mob, existing);
+
             return;
         }
 
@@ -166,6 +195,9 @@ public sealed partial class UnionSelectorSystem : EntitySystem
         newUnion.Name = GenerateUnionName(newUnion.Departments);
         unionsComp.Unions.Add(newUnion);
         EnsureCorrectMemberComponent(ev.Mob, newUnion);
+
+        if (ev.LateJoin)
+            GiveUnionCard(ev.Mob, newUnion);
     }
 
     // make sure the player has the correct components when they join a union
@@ -225,6 +257,7 @@ public sealed partial class UnionSelectorSystem : EntitySystem
             foreach (var memberUid in union.Members.Keys)
             {
                 EnsureCorrectMemberComponent(memberUid, union);
+                GiveUnionCard(memberUid, union);
             }
         }
 
@@ -555,5 +588,22 @@ public sealed partial class UnionSelectorSystem : EntitySystem
         }
 
         _handsSystem.TryPickupAnyHand(playerMobUid, spawned);
+    }
+
+    private void GiveUnionCard(EntityUid member, StationUnion union)
+    {
+        var card = Spawn(UnionCardProto, Transform(member).Coordinates);
+        var cardComp = EnsureComp<UnionCardComponent>(card);
+        cardComp.OwnerName = Name(member);
+        cardComp.UnionName = union.Name;
+        cardComp.Position = Loc.GetString(GetPositionLoc(union, member));
+
+        if (_inventorySystem.TryGetSlotEntity(member, "back", out var backpack)
+            && _storageSystem.Insert(backpack.Value, card, out _))
+        {
+            return;
+        }
+
+        _handsSystem.TryPickupAnyHand(member, card);
     }
 }
