@@ -46,9 +46,10 @@
   mergesWith: [ CargoUnion, EngineeringUnion, MedicalUnion, ScienceUnion, CivilianUnion ]
   leaderItemSet: unionItemSetService
 
-- type: unionGrouping
-  id: CivilianUnion
-  department: Civilian
-  minMembers: 3
-  mergesWith: [ ServiceUnion, CargoUnion, EngineeringUnion, MedicalUnion, ScienceUnion ]
-  leaderItemSet: unionItemSetCivilian
+# dont think we need this but im keeping just incase
+#- type: unionGrouping
+#  id: CivilianUnion
+#  department: Civilian
+#  minMembers: 3
+#  mergesWith: [ ServiceUnion, CargoUnion, EngineeringUnion, MedicalUnion, ScienceUnion ]
+#  leaderItemSet: unionItemSetCivilian
