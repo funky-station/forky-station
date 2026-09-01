@@ -50,6 +50,7 @@ food-sequence-content-penguin = penguin meat
 food-sequence-content-corgi = corgi meat
 food-sequence-content-goliath = goliath meat
 food-sequence-content-rat = rat
+food-sequence-content-roingus = roingus
 food-sequence-content-lizard = lizard meat
 food-sequence-content-plant = plant meat
 food-sequence-content-rotten = rotten meat

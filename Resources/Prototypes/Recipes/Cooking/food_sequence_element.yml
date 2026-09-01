@@ -34,6 +34,29 @@
   - sprite: Objects/Consumable/Food/skewer.rsi
     state: skewer-rat
 
+# Roingus
+
+- type: foodSequenceElement
+  id: RoingusBurger
+  name: food-sequence-content-roingus
+  sprites:
+  - sprite: _Funkystation/Mobs/Animals/roingus.rsi
+    state: dead
+
+- type: foodSequenceElement
+  id: RoingusTaco
+  name: food-sequence-content-roingus
+  sprites:
+  - sprite: _Funkystation/Mobs/Animals/roingus.rsi
+    state: dead
+
+- type: foodSequenceElement
+  id: RoingusSkewer
+  name: food-sequence-content-roingus
+  sprites:
+  - sprite: Objects/Consumable/Food/skewer.rsi
+    state: skewer-roingus
+
 # Cheese
 
 - type: foodSequenceElement
