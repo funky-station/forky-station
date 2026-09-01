@@ -8,30 +8,35 @@
   id: SecurityUnion
   department: Security
   canMerge: false
+  leaderItemSet: unionItemSetSecurity
 
 - type: unionGrouping
   id: MedicalUnion
   department: Medical
   minMembers: 3
   mergesWith: [ ScienceUnion, EngineeringUnion, CargoUnion, ServiceUnion, CivilianUnion ]
+  leaderItemSet: unionItemSetMedical
 
 - type: unionGrouping
   id: ScienceUnion
   department: Science
   minMembers: 3
   mergesWith: [ MedicalUnion, EngineeringUnion, CargoUnion, ServiceUnion, CivilianUnion ]
+  leaderItemSet: unionItemSetScience
 
 - type: unionGrouping
   id: EngineeringUnion
   department: Engineering
   minMembers: 3
   mergesWith: [ CargoUnion, MedicalUnion, ScienceUnion, ServiceUnion, CivilianUnion ]
+  leaderItemSet: unionItemSetEngineering
 
 - type: unionGrouping
   id: CargoUnion
   department: Cargo
   minMembers: 3
   mergesWith: [ ServiceUnion, EngineeringUnion, MedicalUnion, ScienceUnion, CivilianUnion ]
+  leaderItemSet: unionItemSetCargo
 
 - type: unionGrouping
   id: ServiceUnion
@@ -39,9 +44,11 @@
   displayInitial: S
   minMembers: 3
   mergesWith: [ CargoUnion, EngineeringUnion, MedicalUnion, ScienceUnion, CivilianUnion ]
+  leaderItemSet: unionItemSetService
 
 - type: unionGrouping
   id: CivilianUnion
   department: Civilian
   minMembers: 3
   mergesWith: [ ServiceUnion, CargoUnion, EngineeringUnion, MedicalUnion, ScienceUnion ]
+  leaderItemSet: unionItemSetCivilian
