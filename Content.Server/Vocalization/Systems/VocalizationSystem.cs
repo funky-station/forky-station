@@ -3,6 +3,7 @@ using Content.Server.Power.Components;
 using Content.Server.Vocalization.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Chat;
+using Content.Shared.Mind.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -85,6 +86,14 @@ public sealed partial class VocalizationSystem : EntitySystem
         // first check if the entity can speak
         if (!_actionBlocker.CanSpeak(entity))
             return;
+
+        // begin Funkystation: do not vocalize when controlled by player
+        if (TryComp<MindContainerComponent>(entity.Owner, out var mindContainer))
+        {
+            if (mindContainer.Mind != null)
+                return;
+        }
+        // end Funkystation
 
         // send the message
         _chat.TrySendInGameICMessage(entity, message, InGameICChatType.Speak, entity.Comp.HideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal);
