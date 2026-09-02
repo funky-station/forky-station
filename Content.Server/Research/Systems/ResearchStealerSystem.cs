@@ -47,11 +47,11 @@ public sealed partial class ResearchStealerSystem : SharedResearchStealerSystem
                 ev.Techs.Add(toRemove);
         }
 
-        // funky change, alerts science after ninja hack is complete
+        // funky change, warns security when ninja attempts to hack comms console
         if (_timing.CurTime >= comp.NextWarningTime) // prevents spam
         {
             var message = Loc.GetString("ninja-steal-research-warning");
-            _radio.SendRadioMessage(target, message, _proto.Index<RadioChannelPrototype>(comp.ScienceChannel), target, true);
+            _radio.SendRadioMessage(target, message, _proto.Index<RadioChannelPrototype>(comp.ScienceChannel), target, true, "Research Server");
             comp.NextWarningTime = _timing.CurTime + comp.WarningCooldown;
         }
         RaiseLocalEvent(uid, ref ev);

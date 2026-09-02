@@ -58,7 +58,7 @@ public sealed partial class CommsHackerSystem : SharedCommsHackerSystem
         if (_timing.CurTime >= comp.NextWarningTime) // prevents spam
         {
             var message = Loc.GetString("ninja-hack-comms-warning");
-            _radio.SendRadioMessage(args.Target, message, ProtoMan.Index<RadioChannelPrototype>(comp.SecurityChannel), args.Target, true);
+            _radio.SendRadioMessage(args.Target, message, ProtoMan.Index<RadioChannelPrototype>(comp.SecurityChannel), args.Target, true, "Communications Console");
             comp.NextWarningTime = _timing.CurTime + comp.WarningCooldown;
         }
 

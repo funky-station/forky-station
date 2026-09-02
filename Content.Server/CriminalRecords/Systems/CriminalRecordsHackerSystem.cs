@@ -65,7 +65,7 @@ public sealed partial class CriminalRecordsHackerSystem : SharedCriminalRecordsH
         if (_timing.CurTime >= ent.Comp.NextWarningTime) // prevents spam
         {
             var message = Loc.GetString("ninja-hack-wanted-warning");
-            _radio.SendRadioMessage(args.Target, message, ProtoMan.Index<RadioChannelPrototype>(ent.Comp.SecurityChannel), args.Target, true);
+            _radio.SendRadioMessage(args.Target, message, ProtoMan.Index<RadioChannelPrototype>(ent.Comp.SecurityChannel), args.Target, true, "Criminal Records Computer");
             ent.Comp.NextWarningTime = _timing.CurTime + ent.Comp.WarningCooldown;
         }
     }

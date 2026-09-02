@@ -72,8 +72,13 @@ public sealed partial class RadioSystem : SharedRadioSystem
         _netMan.ServerSendMessage(msg, actor.PlayerSession.Channel);
     }
 
-    /// <inheritdoc/>
-    public override void SendRadioMessage(EntityUid messageSource, string message, RadioChannelPrototype channel, EntityUid radioSource, bool escapeMarkup = true)
+    /// <summary>
+    /// Send radio message to all active radio listeners
+    /// </summary>
+    /// <param name="messageSource">Entity that spoke the message</param>
+    /// <param name="radioSource">Entity that picked up the message and will send it, e.g. headset</param>
+    /// <param name="overrideName">Name to use instead of the entity's name</param> //funky addition
+    public void SendRadioMessage(EntityUid messageSource, string message, RadioChannelPrototype channel, EntityUid radioSource, bool escapeMarkup = true, string? overrideName = null)
     {
         // TODO if radios ever garble / modify messages, feedback-prevention needs to be handled better than this.
         if (!_messages.Add(message))
@@ -82,7 +87,7 @@ public sealed partial class RadioSystem : SharedRadioSystem
         var evt = new TransformSpeakerNameEvent(messageSource, MetaData(messageSource).EntityName);
         RaiseLocalEvent(messageSource, evt);
 
-        var name = evt.VoiceName;
+        var name = overrideName ?? evt.VoiceName; // funky change for overrideName
         name = FormattedMessage.EscapeText(name);
 
         SpeechVerbPrototype speech;
