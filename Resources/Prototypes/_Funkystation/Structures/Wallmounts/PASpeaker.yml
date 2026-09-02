@@ -2,7 +2,7 @@
   parent: BaseWallmountMachine
   id: BasePASpeaker
   name: PA speaker
-  description: A PA speaker. For when you really need to know whats happening.
+  description: A PA speaker. For when you really need to know what's happening.
   abstract: true
   components:
   - type: TelecomExempt
@@ -99,7 +99,7 @@
   parent: BasePASpeaker
   id: PASpeaker
   name: PA speaker
-  description: A PA speaker. For when you really need to know whats happening. This one can't hear radio channels.
+  description: A PA speaker. For when you really need to know what's happening. This one can't hear radio channels.
   suffix: Announce only
   components:
   - type: PAAnnouncer
@@ -131,7 +131,7 @@
 - type: entity
   parent: PASpeaker
   id: PARadioSpeaker
-  description: A PA speaker. For when you really need to know whats happening.
+  description: A PA speaker. For when you really need to know what's happening.
   suffix: Radio, no keys
   categories: [ HideSpawnMenu ]
   components:
