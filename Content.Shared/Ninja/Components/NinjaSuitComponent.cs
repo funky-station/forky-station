@@ -31,11 +31,21 @@ public sealed partial class NinjaSuitComponent : Component
     [DataField]
     public EntProtoId RecallKatanaAction = "ActionRecallKatana";
 
+    // funky
+    /// <summary>
+    /// The action id for recalling a bound spider charge
+    /// </summary>
+    [DataField]
+    public EntProtoId RecallSpiderAction = "ActionRecallSpiderCharge";
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? RecallSpiderActionEntity;
+
     [DataField, AutoNetworkedField]
     public EntityUid? RecallKatanaActionEntity;
 
     /// <summary>
-    /// Battery charge used per tile the katana teleported.
+    /// Battery charge used per tile the katana or spider charge teleported.
     /// Uses 1% of a default battery per tile.
     /// </summary>
     [DataField]
@@ -77,5 +87,7 @@ public sealed partial class NinjaSuitComponent : Component
 }
 
 public sealed partial class RecallKatanaEvent : InstantActionEvent;
+
+public sealed partial class RecallSpiderChargeEvent : InstantActionEvent; //funky
 
 public sealed partial class NinjaEmpEvent : InstantActionEvent;

@@ -86,10 +86,20 @@
         color: "#555555AA"
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
+  # funky start, softcrit
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Dead
+      100: SoftCritical
+      150: HardCritical
+      200: Dead
+  - type: MobState
+    allowedStates:
+    - Alive
+    - SoftCritical
+    - HardCritical
+    - Dead
+  # funky end
   - type: TransferMindOnGib
   - type: Destructible
     thresholds:

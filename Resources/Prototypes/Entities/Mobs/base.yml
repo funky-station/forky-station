@@ -88,6 +88,14 @@
       - ActionCritLastWords
   - type: StoreDamageTakenOnMind
   - type: Deathgasp
+  # funky start, cpr
+  - type: Cpr
+    bonusHeal:
+      types:
+        Asphyxiation: -5
+    sound:
+      path: "/Audio/_Funkystation/Effects/cprpulse.ogg"
+  # funky end
   - type: HealthExaminable
     examinableTypes:
     - Blunt

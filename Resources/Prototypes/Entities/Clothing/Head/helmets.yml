@@ -247,6 +247,8 @@
     layers:
       Hair: HEAD
       Snout: HEAD
+  - type: ESViewconeModifier # Funky
+    angleModifier: 0
 
 #Knight Helmet
 - type: entity

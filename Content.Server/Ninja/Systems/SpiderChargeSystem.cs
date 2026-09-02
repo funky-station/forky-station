@@ -7,6 +7,8 @@ using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
 using Content.Shared.Sticky;
 using Content.Shared.Trigger;
+//funky
+using Content.Shared.Trigger.Systems;
 
 namespace Content.Server.Ninja.Systems;
 
@@ -20,6 +22,8 @@ public sealed partial class SpiderChargeSystem : SharedSpiderChargeSystem
     [Dependency] private SharedRoleSystem _role = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private SpaceNinjaSystem _ninja = default!;
+    //funky
+    [Dependency] private TriggerSystem _trigger = default!;
 
     public override void Initialize()
     {
@@ -27,6 +31,7 @@ public sealed partial class SpiderChargeSystem : SharedSpiderChargeSystem
 
         SubscribeLocalEvent<SpiderChargeComponent, AttemptEntityStickEvent>(OnAttemptStick);
         SubscribeLocalEvent<SpiderChargeComponent, EntityStuckEvent>(OnStuck);
+        SubscribeLocalEvent<SpiderChargeComponent, EntityUnstuckEvent>(OnUnstuck); //funky
         SubscribeLocalEvent<SpiderChargeComponent, TriggerEvent>(OnExplode);
     }
 
@@ -72,6 +77,19 @@ public sealed partial class SpiderChargeSystem : SharedSpiderChargeSystem
     private void OnStuck(EntityUid uid, SpiderChargeComponent comp, ref EntityStuckEvent args)
     {
         comp.Planter = args.User;
+        comp.Armed = true; // funky
+    }
+
+    //funky
+    /// <summary>
+    /// Defuses the bomb if unstuck
+    /// </summary>
+    private void OnUnstuck(EntityUid uid, SpiderChargeComponent comp, ref EntityUnstuckEvent args)
+    {
+        comp.Planter = null;            //stops greentext
+        comp.Armed = false;             //marks the bomb as unarmed
+        _trigger.StopTimerTrigger(uid); //stops timer
+
     }
 
     /// <summary>

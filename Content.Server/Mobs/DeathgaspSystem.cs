@@ -18,8 +18,10 @@ public sealed partial class DeathgaspSystem : SharedDeathgaspSystem
     private void OnMobStateChanged(Entity<DeathgaspComponent> ent, ref MobStateChangedEvent args)
     {
         // don't deathgasp if they arent going straight from crit to dead
-        if (args.NewMobState != MobState.Dead || args.OldMobState != MobState.Critical)
+        // funky start, allow soft and hard crit
+        if (args.NewMobState != MobState.Dead || args.OldMobState is not (MobState.Critical or MobState.SoftCritical or MobState.HardCritical))
             return;
+        // funky end
 
         Deathgasp(ent, ent.Comp);
     }

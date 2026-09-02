@@ -145,6 +145,31 @@
     deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
   - type: RandomPrice
     maxRandomPrice: 20000
+  # funky start, soft/hard crit split
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: SoftCritical
+      150: HardCritical
+      200: Dead
+    stateAlertDict:
+      Alive: HumanHealth
+      SoftCritical: HumanCrit
+      HardCritical: HumanCrit
+      Dead: HumanDead
+  - type: MobState
+    allowedStates:
+    - Alive
+    - SoftCritical
+    - HardCritical
+    - Dead
+  - type: MobStateActions
+    actions:
+      HardCritical:
+      - ActionCritSuccumb
+      - ActionCritFakeDeath
+      - ActionCritLastWords
+  # funky end
   - type: Tag
     tags:
     - CanPilot

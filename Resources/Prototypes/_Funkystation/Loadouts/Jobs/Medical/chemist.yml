@@ -36,7 +36,7 @@
 - type: loadout
   id: FuChemrubberGloves
   equipment:
-    gloves: FuClothingHandsGlovesRubberChemist
+    gloves: FuClothingHandsGlovesChemist
 
 # shoes
 

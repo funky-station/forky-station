@@ -17,6 +17,21 @@ using Content.Shared.Timing;
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
+// funky start
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using System.Linq;
+using Robust.Shared.Configuration;
+using Robust.Shared.Network;
+using Content.Shared.Inventory;
+using Content.Shared.FixedPoint;
+using Content.Shared.EntityEffects.Effects.StatusEffects;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Body.Components;
+using Content.Shared._Funkystation.CCVar;
+using Content.Shared.Damage;
+// funky end
 
 namespace Content.Shared.Medical;
 
@@ -40,10 +55,26 @@ public abstract partial class SharedDefibrillatorSystem : EntitySystem
     [Dependency] private SharedMindSystem _mind = default!;
     [Dependency] private UseDelaySystem _useDelay = default!;
     [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private InventorySystem _inventory = default!; // funky
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!; // funky
+    [Dependency] private IRobustRandom _random = default!; // funky
+    [Dependency] private IPrototypeManager _prototypeManager = default!; // funky
+    [Dependency] private IConfigurationManager _config = default!; // funky
+    [Dependency] private INetManager _net = default!; // funky
 
     private readonly HashSet<EntityUid> _interactors = new();
+    private float _reviveChance; // funky
+    private float _adrenalineCostPerShock; // funky
 
-    [SubscribeLocalEvent]
+    public override void Initialize()
+    {
+        base.Initialize(); // funky
+        _config.OnValueChanged(DefibrillatorCVars.ReviveChance, value => _reviveChance = value, true); // funky
+        _config.OnValueChanged(DefibrillatorCVars.AdrenalineCost, value => _adrenalineCostPerShock = value, true); // funky
+
+        SubscribeLocalEvent<DefibrillatorComponent, AfterInteractEvent>(OnAfterInteract);
+    }
+
     private void OnAfterInteract(Entity<DefibrillatorComponent> ent, ref AfterInteractEvent args)
     {
         if (args.Handled || args.Target is not { } target)
@@ -94,7 +125,13 @@ public abstract partial class SharedDefibrillatorSystem : EntitySystem
         if (!_powerCell.HasActivatableCharge(ent.Owner, user: user, predicted: true))
             return false;
 
-        return true;
+        // funky, gotta take off their hardsuit or coat
+        if (!_inventory.TryGetSlotEntity(target, "outerClothing", out _))
+            return true;
+
+        _popup.PopupClient(Loc.GetString("defibrillator-clothing-blocking"), user);
+        return false;
+
     }
 
     /// <summary>
@@ -203,8 +240,74 @@ public abstract partial class SharedDefibrillatorSystem : EntitySystem
 
             _damageable.TryChangeDamage(target, ent.Comp.ZapHeal, true, origin: user);
 
-            if (_mobState.IsDead(target, targetMobState) && // is the target currently dead
-                TryComp<MobThresholdsComponent>(target, out var targetThresholds) && //do they have a threshold
+            // funky start, need an adrenaline reagent in their system to kick the heart back on
+            var hasAdrenaline = false;
+            if (TryComp<BloodstreamComponent>(target, out var bloodstream))
+            {
+                var bloodSolution = bloodstream.BloodSolution;
+
+                if (_solutionContainer.ResolveSolution(target, bloodstream.BloodSolutionName, ref bloodSolution))
+                {
+                    var contents = bloodSolution.Value.Comp.Solution.Contents;
+
+                    // check reagents in bloodstream
+                    foreach (var (reagentId, quantity) in contents)
+                    {
+                        if (quantity <= FixedPoint2.Zero)
+                            continue;
+
+                        // check effects
+                        if (!_prototypeManager.TryIndex<ReagentPrototype>(reagentId.Prototype, out var reagentProto))
+                            continue;
+
+                        if (reagentProto.Metabolisms == null || !reagentProto.Metabolisms.Metabolisms.TryGetValue("Bloodstream", out var metabolism))
+                            continue;
+
+                        var isAdrenaline = metabolism.Effects.Any(effect => effect is ModifyStatusEffect modify &&
+                            modify.EffectProto.Id == "StatusEffectAdrenaline");
+
+                        // if this reagent grants adrenaline, consume it and roll for revival
+                        if (!isAdrenaline)
+                            continue;
+
+                        hasAdrenaline = true;
+
+                        // removes the adrenaline cost amount
+                        _solutionContainer.RemoveReagent(bloodSolution.Value, reagentId, FixedPoint2.New(_adrenalineCostPerShock));
+
+                        break;
+                    }
+                }
+            }
+
+            var canRevive = true;
+            if (_mobState.IsDead(target, targetMobState))
+            {
+                canRevive = false;
+
+                if (hasAdrenaline)
+                {
+                    // server-only roll to prevent client mispredicting a successful revival
+                    canRevive = _net.IsServer && _random.Prob(_reviveChance);
+                }
+                else
+                {
+                    // if they have no adrenaline reagent, popup
+                    _popup.PopupClient(Loc.GetString("defibrillator-no-adrenaline"), target, user);
+                }
+            }
+
+            // adrenaline zap heals 25 asphyx
+            if (hasAdrenaline)
+            {
+                var asphyxHeal = new DamageSpecifier();
+                asphyxHeal.DamageDict.Add("Asphyxiation", FixedPoint2.New(-25));
+                _damageable.TryChangeDamage(target, asphyxHeal, true, origin: user);
+            }
+            // funky end
+
+            if (canRevive && // funky
+                TryComp<MobThresholdsComponent>(target, out var targetThresholds) &&
                 _mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var threshold, targetThresholds) &&
                 _damageable.GetTotalDamage(target) < threshold) //is their current health above their death threshold
             {

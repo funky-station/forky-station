@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Actions.Events;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Buckle.Components;
@@ -20,8 +21,7 @@ using Content.Shared.Standing;
 using Content.Shared.Strip.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Tools.Systems;
-using System.Linq;
-using Content.Shared.Popups;
+using Content.Shared.Movement.Pulling.Components; // funky
 
 namespace Content.Shared.Mobs.Systems;
 
@@ -66,6 +66,8 @@ public partial class MobStateSystem
         {
             case MobState.Dead:
             case MobState.Critical:
+            case MobState.SoftCritical: // funky
+            case MobState.HardCritical: // funky
                 args.Cancelled = true;
                 break;
         }
@@ -79,11 +81,13 @@ public partial class MobStateSystem
                 //unused
                 break;
             case MobState.Critical:
+            case MobState.SoftCritical: // funky
                 _standing.Stand(target);
+                break; // funky
+            case MobState.HardCritical: // funky
                 break;
             case MobState.Dead:
                 RemComp<CollisionWakeComponent>(target);
-                _standing.Stand(target);
                 break;
             case MobState.Invalid:
                 //unused
@@ -110,6 +114,8 @@ public partial class MobStateSystem
                 break;
             }
             case MobState.Critical:
+            case MobState.SoftCritical: // funky
+            case MobState.HardCritical: // funky
             {
                 Down(target);
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Critical);
@@ -180,9 +186,16 @@ public partial class MobStateSystem
         {
             case MobState.Dead:
             case MobState.Critical:
+            case MobState.HardCritical: // funky
                 args.Cancel();
                 break;
         }
+
+        // funky, can't crawl away if someone's got hold of you
+        if (args is UpdateCanMoveEvent && component.CurrentState == MobState.SoftCritical &&
+            TryComp<PullableComponent>(target, out var pullable) && pullable.BeingPulled)
+            args.Cancel();
+        // funky end
     }
 
     [SubscribeLocalEvent]

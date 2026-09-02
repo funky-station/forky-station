@@ -3,6 +3,7 @@
   name: job-name-security
   description: job-description-security
   playTimeTracker: JobSecurityOfficer
+  requiresNda: Security # Funky
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security

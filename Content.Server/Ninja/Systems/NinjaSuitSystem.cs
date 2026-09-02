@@ -32,6 +32,7 @@ public sealed partial class NinjaSuitSystem : SharedNinjaSuitSystem
         SubscribeLocalEvent<NinjaSuitComponent, ContainerIsInsertingAttemptEvent>(OnSuitInsertAttempt);
         SubscribeLocalEvent<NinjaSuitComponent, RecallKatanaEvent>(OnRecallKatana);
         SubscribeLocalEvent<NinjaSuitComponent, NinjaEmpEvent>(OnEmp);
+        SubscribeLocalEvent<NinjaSuitComponent, RecallSpiderChargeEvent>(OnRecallSpider);
     }
 
     protected override void NinjaEquipped(Entity<NinjaSuitComponent> ent, Entity<SpaceNinjaComponent> user)
@@ -130,6 +131,46 @@ public sealed partial class NinjaSuitSystem : SharedNinjaSuitSystem
         // TODO: teleporting into belt slot
         var message = _hands.TryPickupAnyHand(user, katana)
             ? "ninja-katana-recalled"
+            : "ninja-hands-full";
+        Popup.PopupEntity(Loc.GetString(message), user, user);
+    }
+
+    //funky
+    private void OnRecallSpider(Entity<NinjaSuitComponent> ent, ref RecallSpiderChargeEvent args)
+    {
+        var (uid, comp) = ent;
+        var user = args.Performer;
+        if (!_ninja.NinjaQuery.TryComp(user, out var ninja) || ninja.SpiderCharge == null)
+            return;
+
+        args.Handled = true;
+
+        var spider = ninja.SpiderCharge.Value;
+        if (TerminatingOrDeleted(spider))
+        {
+            Popup.PopupEntity(Loc.GetString("ninja-spider-exploded"), user, user);
+            return;
+        }
+        var coords = _transform.GetWorldPosition(spider);
+        var distance = (_transform.GetWorldPosition(user) - coords).Length();
+        var chargeNeeded = distance * comp.RecallCharge;
+        if (!_ninja.TryUseCharge(user, chargeNeeded))
+        {
+            Popup.PopupEntity(Loc.GetString("ninja-no-power"), user, user);
+            return;
+        }
+
+        if (CheckDisabled(ent, user))
+            return;
+
+        if (TryComp<SpiderChargeComponent>(spider, out var spiderComp) && spiderComp.Armed)
+        {
+            Popup.PopupEntity(Loc.GetString("ninja-spider-armed"), user, user);
+            return;
+        }
+
+        var message = _hands.TryPickupAnyHand(user, spider)
+            ? "ninja-spider-recalled"
             : "ninja-hands-full";
         Popup.PopupEntity(Loc.GetString(message), user, user);
     }

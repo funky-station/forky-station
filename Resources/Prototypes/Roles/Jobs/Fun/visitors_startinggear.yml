@@ -439,7 +439,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitAtmosCasual
     shoes: ClothingShoesColorWhite
-    gloves: ClothingHandsGlovesColorYellow
+    gloves: FuClothingHandsGlovesInsuls #Funky
     head: ClothingHeadHatHardhatYellow
     neck: ClothingNeckScarfStripedLightBlue
     id: VisitorPDA
@@ -458,7 +458,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorYellow
     shoes: ClothingShoesBootsWork
-    gloves: ClothingHandsGlovesColorYellowBudget
+    gloves: FuClothingHandsGlovesInsulsBudget #Funky
     head: ClothingHeadHatWelding
     id: VisitorPDA
     back: ClothingBackpackEngineering
@@ -474,7 +474,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitEngineeringHazard
     shoes: ClothingShoesColorBlack
-    gloves: ClothingHandsGlovesColorYellowBudget
+    gloves: FuClothingHandsGlovesInsulsBudget #Funky
     head: ClothingHeadHatCone
     id: VisitorPDA
     belt: ClothingBeltUtility
@@ -492,7 +492,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitEngineering
     shoes: ClothingShoesBootsWork
-    gloves: ClothingHandsGlovesColorYellow
+    gloves: FuClothingHandsGlovesInsuls #Funky
     head: ClothingHeadHatHardhatYellow
     id: VisitorPDA
     belt: ClothingBeltUtilityEngineering
@@ -511,7 +511,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorEngineer
     shoes: ClothingShoesBootsWork
-    gloves: ClothingHandsGlovesColorYellow
+    gloves: FuClothingHandsGlovesInsuls #Funky
     head: ClothingHeadHatBeretEngineering
     id: VisitorPDA
     belt: ClothingBeltUtilityEngineering

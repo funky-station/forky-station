@@ -15,7 +15,7 @@
     - id: ClothingBeltUtilityFilled
     - id: SurvivalKnife
     - id: HandheldGPSBasic
-    - id: RadioHandheld
+    - id: RadioHandheldCargo #funkystation
     - id: AppraisalTool
     - id: FireExtinguisher
     - id: Flare

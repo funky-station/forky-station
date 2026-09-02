@@ -56,6 +56,20 @@ public abstract partial class SharedSpaceNinjaSystem : EntitySystem
         Dirty(ent);
     }
 
+    // funky
+    /// <summary>
+    /// Bind a spider charge entity to a ninja, letting it be recalled.
+    /// Does nothing if the player is not a ninja or already has a spider charge bound.
+    /// </summary>
+    public void BindSpiderCharge(Entity<SpaceNinjaComponent?> ent, EntityUid spiderCharge)
+    {
+        if (!NinjaQuery.Resolve(ent, ref ent.Comp, false) || ent.Comp.SpiderCharge != null)
+            return;
+
+        ent.Comp.SpiderCharge = spiderCharge;
+        Dirty(ent, ent.Comp);
+    }
+
     /// <summary>
     /// Gets the user's battery and tries to use some charge from it, returning true if successful.
     /// Serverside only.
