@@ -1,3 +1,7 @@
+# Utility
+uplink-syndicate-hacking-module-name = Hacker Cyborg Module
+uplink-syndicate-hacking-module-desc = For when you need a borg commander for your borg squad.
+
 # Weapons
 uplink-pistol-wyvern-name = Wyvern
 uplink-pistol-wyvern-desc = A heavy pistol sold in few numbers to both NT and the Syndicate, chambered in .50 AE. Comes loaded with uranium rounds.

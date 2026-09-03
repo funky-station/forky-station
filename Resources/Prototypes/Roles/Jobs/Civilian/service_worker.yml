@@ -4,12 +4,12 @@
   description: job-description-serviceworker
   playTimeTracker: JobServiceWorker
   requirements:
-  - !type:DepartmentTimeRequirement
-    department: Service # Funky - Service is now a separate department
-    time: 0.5h
+  #- !type:DepartmentTimeRequirement
+  #  department: Civilian # Funky - Service is now a separate department
+  #  time: 0.5h # Funky - Removed role timer for parity
   startingGear: ServiceWorkerGear
   icon: "JobIconServiceWorker"
-  supervisors: job-supervisors-service
+  supervisors: job-supervisors-hd # funky
   access:
   - Service
   - Maintenance

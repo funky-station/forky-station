@@ -20,7 +20,7 @@ public sealed partial class ESPainFlashSystem : ESSharedPainFlashSystem
 
     private ESPainFlashOverlay _overlay = default!;
 
-    private bool _reducedMotion;
+    private float _painFlashIntensity = 1f;
 
     private readonly List<ESPainFlashInstance> _painInstances = new();
 
@@ -36,9 +36,15 @@ public sealed partial class ESPainFlashSystem : ESSharedPainFlashSystem
 
         SubscribeNetworkEvent<ESPainFlashMessage>(OnPainFlashMessage);
 
-        _config.OnValueChanged(CCVars.ReducedMotion, b => { _reducedMotion = b; }, invokeImmediately: true);
-
         _overlay = new();
+
+        _config.OnValueChanged(CCVars.FunkyPainFlashIntensity,
+            f =>
+            {
+                _painFlashIntensity = f;
+                _overlay.Intensity = f;
+            },
+            invokeImmediately: true);
     }
 
     private void OnPlayerAttached(Entity<ESPainFlashComponent> ent, ref LocalPlayerAttachedEvent args)
@@ -71,7 +77,7 @@ public sealed partial class ESPainFlashSystem : ESSharedPainFlashSystem
 
     private void OnPainFlashMessage(ESPainFlashMessage ev)
     {
-        if (_reducedMotion)
+        if (_painFlashIntensity <= 0)
             return;
 
         // Track if we've already had a matching pain flash play on the client.
@@ -85,7 +91,7 @@ public sealed partial class ESPainFlashSystem : ESSharedPainFlashSystem
 
     protected override void OnDamageChanged(Entity<ESPainFlashComponent> ent, ref DamageChangedEvent args)
     {
-        if (_reducedMotion)
+        if (_painFlashIntensity <= 0)
             return;
 
         if (_player.LocalEntity != ent)

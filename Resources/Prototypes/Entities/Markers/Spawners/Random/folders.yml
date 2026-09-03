@@ -8,7 +8,7 @@
   - type: Transform
     anchored: false
   - type: Sprite
-    sprite: Objects/Misc/folders.rsi
+    sprite: _Funkystation/Objects/Misc/folders.rsi # Funky
     layers:
     - state: folder-base
     - state: folder-colormap

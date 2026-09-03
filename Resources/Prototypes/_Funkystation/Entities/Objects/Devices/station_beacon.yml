@@ -1,0 +1,166 @@
+# command
+- type: entity
+  parent: DefaultStationBeaconCommand
+  id: DefaultStationBeaconCL
+  suffix: Liaison's Office
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-cl
+
+# security
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconCommandant
+  suffix: Commandant's Office
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-commandant
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconDispatch
+  suffix: Dispatch Desk
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-dispatch
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconEvidence
+  suffix: Evidence Room
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-evidence
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconBriefing
+  suffix: Briefing Hall
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-briefing
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconFiringRange
+  suffix: Firing Range
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-firing
+
+- type: entity
+  parent: DefaultStationBeaconSecurity
+  id: DefaultStationBeaconMining
+  suffix: Mining Bay
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-mining
+
+# internal affairs
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconIA
+  suffix: Internal Affairs
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-ia
+    color: "#BDA499"
+
+- type: entity
+  parent: DefaultStationBeaconIA
+  id: DefaultStationBeaconXO
+  suffix: XO's Office
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-xo
+
+- type: entity
+  parent: DefaultStationBeaconIA
+  id: DefaultStationBeaconMagistrate
+  suffix: Magistrate's Office
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-magistrate
+
+# medical
+
+- type: entity
+  parent: DefaultStationBeaconMedical
+  id: DefaultStationBeaconVirology
+  suffix: Virology
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-virology
+
+- type: entity
+  parent: DefaultStationBeaconMedical
+  id: DefaultStationBeaconParamedic
+  suffix: Paramedic Station
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-paramedic
+
+- type: entity
+  parent: DefaultStationBeaconMedical
+  id: DefaultStationBeaconGenetics
+  suffix: Genetics Lab
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-genetics
+
+# science
+
+- type: entity
+  parent: DefaultStationBeaconScience
+  id: DefaultStationBeaconTelescience
+  suffix: Telescience Lab
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-telescience
+
+- type: entity
+  parent: DefaultStationBeaconScience
+  id: DefaultStationBeaconXenobio # future-proofing is good
+  suffix: Xenobiology Lab
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-xenobio
+
+- type: entity
+  parent: DefaultStationBeaconScience
+  id: DefaultStationBeaconOrdnance # future-proofing is good
+  suffix: Ordnance Lab
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-ordnance
+
+# logistics
+
+- type: entity
+  parent: DefaultStationBeaconSupply
+  id: DefaultStationBeaconMailroom
+  suffix: Mailroom
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-mailroom
+
+# engineering
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconReactor
+  suffix: Reactor Chamber
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-reactor
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSM
+  suffix: Supermatter
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-sm
+

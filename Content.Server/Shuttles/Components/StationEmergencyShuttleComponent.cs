@@ -1,5 +1,7 @@
 using Content.Server.Shuttles.Systems;
+using Content.Shared._MACRO.Announcements;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
 using Robust.Shared.Utility;
 
@@ -33,7 +35,7 @@ public sealed partial class StationEmergencyShuttleComponent : Component
     /// Sound played when the shuttle has successfully docked with the station.
     /// </summary>
     [DataField]
-    public SoundSpecifier DockedAudio = new SoundPathSpecifier("/Audio/Announcements/shuttle_dock.ogg");
+    public ProtoId<AnnouncementSoundPrototype> DockedAudio = "ShuttleDock"; // Macrocosm - announcement prototypes
 
     /// <summary>
     /// The announcement made when the shuttle is unable to dock and instead parks in nearby space.
@@ -45,7 +47,7 @@ public sealed partial class StationEmergencyShuttleComponent : Component
     /// Sound played when the shuttle is unable to dock and instead parks in nearby space.
     /// </summary>
     [DataField]
-    public SoundSpecifier NearbyAudio = new SoundPathSpecifier("/Audio/Misc/notice1.ogg");
+    public ProtoId<AnnouncementSoundPrototype> NearbyAudio = "Notice1"; // Macrocosm - announcement prototypes
 
     /// <summary>
     /// The announcement made when the shuttle is unable to find a station.
@@ -57,7 +59,7 @@ public sealed partial class StationEmergencyShuttleComponent : Component
     /// Sound played when the shuttle is unable to find a station.
     /// </summary>
     [DataField]
-    public SoundSpecifier FailureAudio = new SoundPathSpecifier("/Audio/Misc/notice1.ogg");
+    public ProtoId<AnnouncementSoundPrototype> FailureAudio = "Notice1"; // Macrocosm - announcement prototypes
 
     /// <summary>
     /// Text appended to the docking announcement if the launch time has been extended.

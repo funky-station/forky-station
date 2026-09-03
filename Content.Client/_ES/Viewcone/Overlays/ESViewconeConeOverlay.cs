@@ -4,6 +4,8 @@ using Content.Shared._ES.Viewcone.Components;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Configuration;
+using Content.Shared._Funkystation.CCVar;
 
 namespace Content.Client._ES.Viewcone.Overlays;
 
@@ -13,6 +15,7 @@ namespace Content.Client._ES.Viewcone.Overlays;
 public sealed partial class ESViewconeConeOverlay : Overlay
 {
     [Dependency] private IEntityManager _ent = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IPrototypeManager _proto = default!;
     private readonly ESViewconeAngleSystem _angle;
 
@@ -21,6 +24,13 @@ public sealed partial class ESViewconeConeOverlay : Overlay
 
     public static ProtoId<ShaderPrototype> ShaderPrototype = "Viewcone";
     private readonly ShaderInstance _viewconeShader;
+
+    private const float BaselineGrainMult = 0.35f;
+    private const float MaxDarkenAmount = 0.5f;
+
+    // disable_viewcone_grain / viewcone_occlusion_opacity, cached
+    private float _grainMult = BaselineGrainMult;
+    private float _darkenAmount;
 
     private Entity<EyeComponent, ESViewconeComponent, TransformComponent>? _eyeEntity;
     private float _coneAngle;
@@ -36,6 +46,19 @@ public sealed partial class ESViewconeConeOverlay : Overlay
 
         _viewconeShader = _proto.Index(ShaderPrototype).InstanceUnique();
         ZIndex = -6;
+
+        _cfg.OnValueChanged(ViewconeCCVars.DisableViewconeGrain, OnGrainSettingChanged, invokeImmediately: true);
+        _cfg.OnValueChanged(ViewconeCCVars.ViewconeOcclusionOpacity, OnOcclusionOpacityChanged, invokeImmediately: true);
+    }
+
+    private void OnGrainSettingChanged(bool disabled)
+    {
+        _grainMult = disabled ? 0f : BaselineGrainMult;
+    }
+
+    private void OnOcclusionOpacityChanged(float opacity)
+    {
+        _darkenAmount = opacity * MaxDarkenAmount;
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
@@ -56,7 +79,7 @@ public sealed partial class ESViewconeConeOverlay : Overlay
             // but its not really like its a huge inefficiency (this only has to happen twice per frame and its like a trivial event relay with no logic)
             // and i really dont want to make it stateful
             _coneAngle = _angle.GetModifiedViewconeAngle((uid, viewcone));
-            _coneFeather = viewcone.ConeFeather;
+            _coneFeather = _coneAngle <= 0f ? 0.01f : viewcone.ConeFeather; // semi-hack to make 0-angle viewcone look correct
             _coneIgnoreRadius = (viewcone.ConeIgnoreRadius - viewcone.ConeIgnoreFeather) * 50f;
             _coneIgnoreFeather = Math.Max(viewcone.ConeIgnoreFeather * 200f, 8f);
             _eyeEntity = (uid, eye, viewcone, xform);
@@ -81,6 +104,8 @@ public sealed partial class ESViewconeConeOverlay : Overlay
         _viewconeShader.SetParameter("ConeFeather", _coneFeather);
         _viewconeShader.SetParameter("ConeIgnoreRadius", _coneIgnoreRadius);
         _viewconeShader.SetParameter("ConeIgnoreFeather", _coneIgnoreFeather);
+        _viewconeShader.SetParameter("GrainMult", _grainMult);
+        _viewconeShader.SetParameter("DarkenAmount", _darkenAmount);
 
         worldHandle.UseShader(_viewconeShader);
         worldHandle.DrawRect(viewport, Color.White);

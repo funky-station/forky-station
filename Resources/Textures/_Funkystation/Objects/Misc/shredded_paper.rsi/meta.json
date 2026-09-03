@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "sproten by zergologist (Discord) for Funky station",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "pile-0"
+    },
+    {
+      "name": "pile-1"
+    },
+    {
+      "name": "pile-2"
+    },
+    {
+      "name": "pile-3"
+    },
+    {
+      "name": "pile-big"
+    }
+  ]
+}

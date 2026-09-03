@@ -12,15 +12,16 @@
   parent: BaseAction
   id: ActionCreateThrowingStar
   name: Create throwing star
-  description: Channels suit power into creating a throwing star that deals extra stamina damage.
+  description: Channels suit power into creating a throwing star laced with a sleeping agent. #funky change
   components:
   - type: Action
-    useDelay: 0.5
-    icon:
-      sprite: Objects/Weapons/Throwable/throwing_star.rsi
-      state: icon
+    useDelay: 5 # funky change from 0.5
     itemIconStyle: NoItem
     priority: -10
+  - type: Sprite
+    sprite: Objects/Weapons/Throwable/throwing_star.rsi
+    layers:
+    - state: icon
   - type: InstantAction
     event: !type:CreateItemEvent {}
 
@@ -32,13 +33,27 @@
   components:
   - type: Action
     useDelay: 1
-    icon:
-      sprite: Objects/Weapons/Melee/energykatana.rsi
-      state: icon
     itemIconStyle: NoItem
     priority: -11
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/energykatana.rsi
+    layers:
+    - state: icon
   - type: InstantAction
     event: !type:RecallKatanaEvent {}
+
+- type: entity # funky
+  parent: ActionRecallKatana
+  id: ActionRecallSpiderCharge
+  name: Recover Spider Charge
+  description: Teleports the Spider Charge linked to this suit to its wearer in case its lost, cost based on distance.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Bombs/spidercharge.rsi
+    layers:
+    - state: icon
+  - type: InstantAction
+    event: !type:RecallSpiderChargeEvent {}
 
 - type: entity
   parent: BaseAction
@@ -47,11 +62,12 @@
   description: Disable any nearby technology with an electro-magnetic pulse.
   components:
   - type: Action
-    icon:
-      sprite: Objects/Weapons/Grenades/empgrenade.rsi
-      state: icon
     itemIconStyle: BigAction
     priority: -13
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/empgrenade.rsi
+    layers:
+    - state: icon
   - type: InstantAction
     event: !type:NinjaEmpEvent {}
 
@@ -76,17 +92,31 @@
   description: Teleport to anywhere you can see, if your Energy Katana is in your hand.
   components:
   - type: Action
-    icon:
-      sprite: Objects/Magic/magicactions.rsi
-      state: blink
     itemIconStyle: NoItem
     sound:
       path: /Audio/Magic/blink.ogg
       params:
         volume: 5
     priority: -12
+  - type: Sprite
+    sprite: Objects/Magic/magicactions.rsi
+    layers:
+    - state: blink
   - type: TargetAction
     checkCanAccess: false
     range: 0
   - type: WorldTargetAction
-    event: !type:DashEvent
+    event: !type:TeleportActionEvent
+      stopBeingPulled: true
+      stopPulling: true
+  - type: ActionUserWhitelist
+    whitelist:
+      components:
+      - SpaceNinja
+  - type: ActionProviderHeld
+    onFailPopup: dash-ability-not-held
+  - type: LimitedCharges
+    maxCharges: 3
+    onFailPopup: limited-charges-no-charges
+  - type: AutoRecharge
+    rechargeDuration: 20

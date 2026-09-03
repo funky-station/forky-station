@@ -142,4 +142,13 @@ public sealed partial class SpaceNinjaSystem : SharedSpaceNinjaSystem
     {
         _codeCondition.SetCompleted(ent.Owner, ent.Comp.SpiderChargeObjective);
     }
+
+    // funky
+    /// <summary>
+    /// Called by <see cref="NinjaPagerSystem"/> when the pager is used successfully.
+    /// </summary>
+    public void PagerUsed(Entity<SpaceNinjaComponent> ent)
+    {
+        _codeCondition.SetCompleted(ent.Owner, ent.Comp.SurviveObjective);
+    }
 }

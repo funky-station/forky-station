@@ -23,7 +23,6 @@ public sealed partial class ReactorPartSystem : SharedReactorPartSystem
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private EntityManager _entityManager = default!;
     [Dependency] private SharedPointLightSystem _lightSystem = default!;
-    [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private RadiationSystem _radiationSystem = default!;
 
@@ -332,7 +331,7 @@ public sealed partial class ReactorPartSystem : SharedReactorPartSystem
         {
             var DeltaT = reactorPart.Temperature - reactor.Temperature;
 
-            var k = MaterialSystem.CalculateHeatTransferCoefficient(reactorPart.Properties, _proto.Index(reactor.Material).Properties);
+            var k = MaterialSystem.CalculateHeatTransferCoefficient(reactorPart.Properties, ProtoMan.Index(reactor.Material).Properties);
             var A = reactorPart.ThermalCrossSection;
 
             reactorPart.Temperature = (float)(reactorPart.Temperature - (k * A * (0.5 * 8) / reactorPart.ThermalMass * DeltaT));

@@ -14,17 +14,7 @@
     sprite: Objects/Specific/Chemistry/beaker.rsi
     state: beaker
   product: CrateChemistrySupplies
-  cost: 750
-  category: cargoproduct-category-name-medical
-  group: market
-
-- type: cargoProduct
-  id: MedicalChemistryVials
-  icon:
-    sprite: Objects/Specific/Chemistry/vial.rsi
-    state: vial
-  product: CrateChemistryVials
-  cost: 1100
+  cost: 1750
   category: cargoproduct-category-name-medical
   group: market
 
@@ -108,30 +98,30 @@
   category: cargoproduct-category-name-medical
   group: market
 
-- type: cargoProduct
-  id: MedicalMindShieldImplants
-  icon:
-    sprite: Objects/Specific/Medical/implanter.rsi
-    state: implanter0
-  product: CrateMindShieldImplants
-  cost: 3000
-  category: cargoproduct-category-name-medical
-  group: market
+#- type: cargoProduct # Funky - Removing mindshields
+#  id: MedicalMindShieldImplants
+#  icon:
+#    sprite: Objects/Specific/Medical/implanter.rsi
+#    state: implanter0
+#  product: CrateMindShieldImplants
+#  cost: 3000
+#  category: cargoproduct-category-name-medical
+#  group: market
 
 - type: cargoProduct
   id: ChemistryP
   icon:
-    sprite: Structures/Storage/Crates/chemcrate_secure.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/chemcrate_secure.rsi # Funky
     state: icon
   product: CrateChemistryP
-  cost: 850
+  cost: 950
   category: cargoproduct-category-name-medical
   group: market
 
 - type: cargoProduct
   id: ChemistryS
   icon:
-    sprite: Structures/Storage/Crates/chemcrate_secure.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/chemcrate_secure.rsi # Funky
     state: icon
   product: CrateChemistryS
   cost: 750
@@ -141,7 +131,7 @@
 - type: cargoProduct
   id: CrateChemistryD
   icon:
-    sprite: Structures/Storage/Crates/chemcrate_secure.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/chemcrate_secure.rsi # Funky
     state: icon
   product: CrateChemistryD
   cost: 750

@@ -1,3 +1,6 @@
+# https://github.com/space-wizards/space-station-14/pull/41664
+# Decapoid
+
 - type: entity
   parent: BoxSurvival
   id: BoxSurvivalAquatic
@@ -9,16 +12,13 @@
         children:
         - id: ClothingMaskBreath
         - id: PillEmergency
-        - id: Flare
-        - id: FoodSnackNutribrick
-        - id: DrinkWaterBottleLargeFull
   - type: Sprite
     sprite: _MACRO/Objects/Storage/boxes.rsi
     layers:
     - state: internals
     - state: vaportank
   - type: Label
-    currentLabel: H2O
+    localizedLabel: emergency-box-aquatic-label
 
 - type: entity
   parent: BoxSurvivalAquatic
@@ -31,11 +31,8 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: DrinkWaterBottleTallFull
         - id: ClothingMaskBreath
         - id: PillEmergency
-        - id: Flare
-        - id: FoodSnackNutribrick
   - type: Sprite
     sprite: _MACRO/Objects/Storage/boxes.rsi
     layers:
@@ -61,9 +58,6 @@
         children:
         - id: ClothingMaskBreath
         - id: PillEmergency
-        - id: Flare
-        - id: FoodSnackNutribrick
-        - id: DrinkWaterBottleLargeFunnyFull
   - type: Tag
     tags:
     - BoxHug
@@ -79,9 +73,6 @@
         children:
         - id: ClothingMaskBreath
         - id: PillEmergency
-        - id: Flare
-        - id: FoodBreadNutriBatard
-        - id: DrinkWaterBottleLargeFull
 
 - type: entity
   parent: BoxSurvivalAquatic
@@ -94,9 +85,6 @@
         children:
         - id: ClothingMaskBreathMedical
         - id: PillEmergency
-        - id: Flare
-        - id: FoodSnackNutribrick
-        - id: DrinkWaterBottleLargeFull
 
 
 - type: entity
@@ -110,9 +98,6 @@
         children:
         - id: ClothingMaskGasSecurity
         - id: PillEmergency
-        - id: Flare
-        - id: FoodSnackNutribrick
-        - id: DrinkWaterBottleLargeFull
 
 - type: entity
   parent: BoxSurvivalEngineeringAquatic
@@ -123,8 +108,5 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: DrinkWaterBottleTallFull
         - id: ClothingMaskGasSyndicate
         - id: PillEmergency
-        - id: Flare
-        - id: FoodSnackNutribrick

@@ -28,3 +28,31 @@
     - id: MicroManipulatorStockPart
       amount: 2
     - id: DocumentPrinterBridgeCircuitboard
+
+# Paper Shredder
+- type: entity
+  id: CrateServicePaperShredderSet
+  parent: CratePlastic
+  name: DIY paper shredder kit
+  description: A Model IPC-84 paper shredder, disassembled and ready for shipping. Includes a spare bin.
+  components:
+  - type: StorageFill
+    contents:
+    - id: SheetSteel1
+      amount: 6
+    - id: CableApcStack10
+    - id: MicroManipulatorStockPart
+    - id: PaperShredderCircuitboard
+    - id: ShredderBin
+
+# Laundry Bags
+- type: entity
+  id: BoxServiceLaundryBag
+  parent: CardboardBoxLarge
+  name: box of laundry bags
+  description: A cardboard box containing a handful of laundry bags.
+  components:
+  - type: StorageFill
+    contents:
+    - id: LaundryBag
+      amount: 7

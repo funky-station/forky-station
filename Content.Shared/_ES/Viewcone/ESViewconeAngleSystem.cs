@@ -1,4 +1,6 @@
 using Content.Shared._ES.Viewcone.Components;
+using Content.Shared._Funkystation.Viewcone;
+using Content.Shared.Disposal.Unit;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.StatusEffectNew;
@@ -18,6 +20,9 @@ public sealed class ESViewconeAngleSystem : EntitySystem
         SubscribeLocalEvent<ESViewconeModifierComponent, ESViewconeGetAngleModifierEvent>(OnAngleModify);
         SubscribeLocalEvent<ESViewconeModifierComponent, InventoryRelayedEvent<ESViewconeGetAngleModifierEvent>>(OnAngleInventoryModify);
         SubscribeLocalEvent<ESViewconeModifierComponent, StatusEffectRelayedEvent<ESViewconeGetAngleModifierEvent>>(OnAngleStatusEffectModify);
+
+        SubscribeLocalEvent<ViewconeStorageBlindComponent, ESViewconeGetAngleModifierEvent>(OnConcealedAngle); // Funky
+        SubscribeLocalEvent<BeingDisposedComponent, ESViewconeGetAngleModifierEvent>(OnBeingDisposedAngle);
     }
 
     private void OnExamined(Entity<ESViewconeModifierComponent> ent, ref ExaminedEvent args)
@@ -43,6 +48,18 @@ public sealed class ESViewconeAngleSystem : EntitySystem
     private void OnAngleStatusEffectModify(Entity<ESViewconeModifierComponent> ent, ref StatusEffectRelayedEvent<ESViewconeGetAngleModifierEvent> args)
     {
         args.Args.ModifyAngle(ent.Comp.AngleModifier);
+    }
+
+    // Funky start
+    private void OnConcealedAngle(Entity<ViewconeStorageBlindComponent> ent, ref ESViewconeGetAngleModifierEvent args)
+    {
+        args.ModifyAngle(-360f);
+    }
+    // Funky end
+
+    private void OnBeingDisposedAngle(Entity<BeingDisposedComponent> ent, ref ESViewconeGetAngleModifierEvent args)
+    {
+        args.ModifyAngle(-360f);
     }
 
     /// <summary>

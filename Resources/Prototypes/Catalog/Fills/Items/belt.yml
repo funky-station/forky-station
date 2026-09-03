@@ -29,6 +29,7 @@
         - id: Wirecutter
         - id: Welder
         - id: Multitool
+        - id: WarningTapeRollEngineering # Funky
 
 - type: entity
   id: ClothingBeltChiefEngineerFilled
@@ -46,6 +47,7 @@
         - id: HolofanProjector
         - id: GasAnalyzer
         - id: trayScanner
+        - id: WarningTapeRollEngineering # Funky
 
 - type: entityTable
   id: BeltSecurityEntityTable
@@ -56,6 +58,7 @@
       amount: 2
     - id: HoloprojectorSecurity
     - id: RadioHandheldSecurity
+    - id: WarningTapeRollSecurity # Funky
 
 - type: entity
   id: ClothingBeltSecurityFilled
@@ -92,7 +95,7 @@
         - id: CleanerGrenade
           amount: 2
         - id: FlashlightLantern
-        - id: LightReplacer
+        - id: LightReplacerFilled
         - id: WireBrush
 
 - type: entity
@@ -126,8 +129,8 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: Bloodpack
-          amount: 2
+        #- id: Bloodpack Funky commented
+        #  amount: 2 Funky commented
         - id: Gauze
         # Reagents focused on emergency response rather than outright healing
         - id: ChemistryBottleInaprovaline

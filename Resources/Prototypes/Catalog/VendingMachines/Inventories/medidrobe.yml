@@ -5,26 +5,43 @@
     ClothingEyesHudMedical: 2
     ClothingEyesEyepatchHudMedical: 2
     # Optional Clothing
-    ClothingHeadHatBeretMedic: 2
+#    ClothingHeadHatBeretMedic: 2 fuck non-military berets
     ClothingHeadNurseHat: 2
     ClothingHeadHatParamedicsoft: 1
-    ClothingHeadHatSurgcapGreen: 2
-    ClothingHeadHatSurgcapBlue: 2
-    ClothingHeadHatSurgcapPurple: 2
+    # Funky hats
+    FuClothingHeadHatScrubcapBlack: 2
+    FuClothingHeadHatScrubcapBlue: 2
+    FuClothingHeadHatScrubcapTeal: 2
+    FuClothingHeadFaceshield: 4
+    ###
+#    ClothingHeadHatSurgcapGreen: 2
+#    ClothingHeadHatSurgcapBlue: 2
+#    ClothingHeadHatSurgcapPurple: 2
     ClothingMaskSterile: 2
     ClothingHeadsetMedical: 2
     ClothingBackpackMedical: 2
     ClothingBackpackDuffelMedical: 2
     ClothingBackpackSatchelMedical: 2
-    ClothingUniformJumpsuitMedicalDoctor: 2
-    ClothingUniformJumpskirtMedicalDoctor: 2
-    UniformScrubsColorGreen: 2
-    UniformScrubsColorBlue: 2
-    UniformScrubsColorPurple: 2
+    # Funky uniforms
+    FuClothingUniformMedDress: 2
+    FuClothingUniformMedJumpsuit: 2
+    FuClothingUniformScrubsBlack: 2
+    FuClothingUniformScrubsBlue: 2
+    FuClothingUniformScrubsTeal: 2
+    ###
+#    ClothingUniformJumpsuitMedicalDoctor: 2
+#    ClothingUniformJumpskirtMedicalDoctor: 2
+#    UniformScrubsColorGreen: 2
+#    UniformScrubsColorBlue: 2
+#    UniformScrubsColorPurple: 2
     ClothingUniformJumpsuitParamedic: 1
     ClothingUniformJumpskirtParamedic: 1
-    ClothingOuterCoatLab: 2
-    ClothingOuterWinterMed: 2
+    # Funky outerclothing
+    FuClothingOuterCoatLabMed: 2
+    FuClothingOuterWinterMed: 2
+    ###
+#    ClothingOuterCoatLab: 2
+#    ClothingOuterWinterMed: 2
     ClothingOuterCoatParamedicWB: 1
     ClothingOuterWinterPara: 1
     ClothingHandsGlovesLatex: 2

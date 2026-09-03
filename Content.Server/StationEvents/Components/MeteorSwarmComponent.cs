@@ -1,4 +1,5 @@
 using Content.Server.StationEvents.Events;
+using Content.Shared._MACRO.Announcements;
 using Content.Shared.Destructible.Thresholds;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -33,13 +34,7 @@ public sealed partial class MeteorSwarmComponent : Component
     public LocId? Announcement = "station-event-meteor-swarm-start-announcement";
 
     [DataField]
-    public SoundSpecifier? AnnouncementSound = new SoundPathSpecifier("/Audio/Announcements/meteors.ogg")
-    {
-        Params = new()
-        {
-            Volume = -4
-        }
-    };
+    public ProtoId<AnnouncementSoundPrototype>? AnnouncementSound = "Meteors"; // Macrocosm edit - Announcer sound prototypes
 
     /// <summary>
     /// Each meteor entity prototype and their corresponding weight in being picked.

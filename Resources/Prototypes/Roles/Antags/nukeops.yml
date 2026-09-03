@@ -6,7 +6,8 @@
   objective: roles-antag-nuclear-operative-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 5h
+    #time: 5h
+    time: 10h
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -17,10 +18,12 @@
   objective: roles-antag-nuclear-operative-agent-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 5h
+    #time: 5h
+    time: 10h # Funky
   - !type:RoleTimeRequirement
     role: JobChemist
-    time: 3h
+    #time: 3h
+    time: 5h # Funky
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -31,7 +34,8 @@
   objective: roles-antag-nuclear-operative-commander-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 5h
+    #time: 5h
+    time: 50h # Funky
   - !type:DepartmentTimeRequirement
     department: Security
     time: 5h

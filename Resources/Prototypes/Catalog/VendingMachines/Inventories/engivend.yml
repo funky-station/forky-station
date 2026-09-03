@@ -9,9 +9,11 @@
     Multitool: 4
     NetworkConfigurator: 5
     PowerCellMedium: 5
-    ClothingHandsGlovesColorYellow: 6
+    FuClothingHandsGlovesInsuls: 6 #funky
     BoxInflatable: 2
-    ClothingHeadHatCone: 4
+    WarningTapeRollEngineering: 6 # funky
+    ClothingHeadHatConeFull: 6 # funky
+    Floodlight: 8 # funky
   contrabandInventory:
     CowToolboxFilled: 1
     DrinkBeerCan: 3

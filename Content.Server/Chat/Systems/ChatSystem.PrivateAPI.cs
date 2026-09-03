@@ -7,6 +7,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Shared.Mobs; // funky
+using Content.Shared.Mobs.Components; // funky
 
 namespace Content.Server.Chat.Systems;
 
@@ -22,6 +24,9 @@ public sealed partial class ChatSystem
         )
     {
         if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
+            return;
+
+        if (TryComp<MobStateComponent>(source, out var mobState) && mobState.CurrentState == MobState.SoftCritical) // funky
             return;
 
         var message = TransformSpeech(source, originalMessage);
@@ -43,7 +48,7 @@ public sealed partial class ChatSystem
             RaiseLocalEvent(source, nameEv);
             name = nameEv.VoiceName;
             // Check for a speech verb override
-            if (nameEv.SpeechVerb != null && _prototypeManager.Resolve(nameEv.SpeechVerb, out var proto))
+            if (nameEv.SpeechVerb != null && ProtoMan.Resolve(nameEv.SpeechVerb, out var proto))
                 speech = proto;
         }
 
@@ -96,6 +101,11 @@ public sealed partial class ChatSystem
     {
         if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
             return;
+
+        // funky start
+        if (channel != null && TryComp<MobStateComponent>(source, out var mobState) && mobState.CurrentState == MobState.SoftCritical)
+            channel = null;
+        // funky end
 
         var message = TransformSpeech(source, FormattedMessage.RemoveMarkupOrThrow(originalMessage));
         if (message.Length == 0)
@@ -234,6 +244,9 @@ public sealed partial class ChatSystem
 
     private void SendDeadChat(EntityUid source, ICommonSession player, string message, bool hideChat)
     {
+        if (!_adminManager.IsAdmin(player) && !_deadChatEnabled)
+            return;
+
         var clients = GetDeadChatClients();
         var playerName = Name(source);
         string wrappedMessage;

@@ -69,7 +69,7 @@ public sealed partial class DuoEmoteSystem : SharedDuoEmoteSystem
     private void UpdateVisuals(Entity<DuoEmoteVisualsComponent> ent)
     {
         // Sprite component and prototype
-        if (TryComp<SpriteComponent>(ent.Owner, out var spriteComp) && _prototype.TryIndex(ent.Comp.EmoteId, out var proto))
+        if (TryComp<SpriteComponent>(ent.Owner, out var spriteComp) && ProtoMan.TryIndex(ent.Comp.EmoteId, out var proto))
         {
             var entity = (ent.Owner, spriteComp);
             const string layerKey = "emote";

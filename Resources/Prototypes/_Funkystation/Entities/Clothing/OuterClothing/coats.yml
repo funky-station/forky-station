@@ -1,0 +1,48 @@
+# medical toggleable labcoats
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: FuClothingOuterCoatLabMed
+  name: medical lab coat
+  description: A medical-grade labcoat that protects against minor chemical spills. On the arms are anti-gas detection armbands, although newer coats no longer come with functional ones.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/Labcoats/med.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/Labcoats/med.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.85
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: FuClothingOuterCoatLabChem
+  name: chemistry lab coat
+  description: A medical-grade labcoat that protects against minor chemical spills. On the arms are anti-gas detection armbands, although newer coats no longer come with functional ones.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/Labcoats/chem.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/Labcoats/chem.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: FuClothingOuterCoatLabCmo
+  name: chief medical officer's lab coat
+  description: A high quality medical-grade labcoat that protects against chemical spills. On the arms are anti-gas detection armbands, although newer coats no longer come with functional ones.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/Labcoats/cmo.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/Labcoats/cmo.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+        Heat: 0.90
+        Caustic: 0.75

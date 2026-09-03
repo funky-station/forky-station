@@ -13,7 +13,6 @@ public abstract partial class SharedNuclearReactorSystem : EntitySystem
     [Dependency] private ItemSlotsSystem _slotsSystem = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedPopupSystem _popupSystem = default!;
-    [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private EntityManager _entityManager = default!;
 
     public override void Initialize()
@@ -55,7 +54,7 @@ public abstract partial class SharedNuclearReactorSystem : EntitySystem
                 }
                 else
                 {
-                    var data = new ReactorCapVisualData { cap = gridComp.IconStateCap, color = _proto.Index(gridComp.Material).Color };
+                    var data = new ReactorCapVisualData { cap = gridComp.IconStateCap, color = ProtoMan.Index(gridComp.Material).Color };
                     if (!comp.VisualData.TryAdd(vector, data))
                         comp.VisualData[vector] = data;
                 }

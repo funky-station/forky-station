@@ -9,6 +9,7 @@
 
 - type: emoteSounds
   id: UnisexGray
+  voiceSelectorName: humanoid-profile-editor-voice-neutral
   params:
     variation: 0.125
   sounds:

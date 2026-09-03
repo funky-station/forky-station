@@ -1,7 +1,5 @@
 using Content.Server.Administration.Logs;
-using Content.Server.AlertLevel;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Atmos.Piping.Components;
 using Content.Server.Audio;
 using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
@@ -18,9 +16,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using System.Linq;
 using Content.Shared._FarHorizons.Materials.Systems;
 using Content.Server.NodeContainer.Nodes;
 using Content.Shared.DeviceLinking.Events;
@@ -36,6 +32,7 @@ using Content.Shared.Throwing;
 using Content.Shared.Damage.Systems;
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Radiation.Systems;
+using Content.Shared.AlertLevel;
 using Content.Shared.Atmos.Components;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
@@ -53,7 +50,6 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
     [Dependency] private EntityManager _entityManager = default!;
     [Dependency] private ExplosionSystem _explosionSystem = default!;
     [Dependency] private IAdminLogManager _adminLog = default!;
-    [Dependency] private IPrototypeManager _prototypes = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private NodeContainerSystem _nodeContainer = default!;
     [Dependency] private RadioSystem _radioSystem = default!;
@@ -154,8 +150,8 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
     {
         var compName = Factory.GetComponentName<ReactorPartComponent>();
         var source = "NuclearReactorRandomParts";
-        var protoID = _prototypes.Index<WeightedRandomPrototype>(source).Pick(_random);
-        if (!_prototypes.TryIndex(protoID, out var entProto)
+        var protoID = ProtoMan.Index<WeightedRandomPrototype>(source).Pick(_random);
+        if (!ProtoMan.TryIndex(protoID, out var entProto)
                 || !entProto.TryGetComponent<ReactorPartComponent>(compName, out var comp))
             return new();
         comp.ProtoId = protoID;
@@ -166,14 +162,14 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
     {
         var exportDict = new Dictionary<Vector2i, ReactorPartComponent>();
 
-        if (!_prototypes.TryIndex<NuclearReactorPrefabPrototype>(comp.Prefab, out var proto) || proto.ReactorComponents == null)
+        if (!ProtoMan.TryIndex<NuclearReactorPrefabPrototype>(comp.Prefab, out var proto) || proto.ReactorComponents == null)
             return exportDict;
 
         var compName = Factory.GetComponentName<ReactorPartComponent>();
 
         foreach (var pair in proto.ReactorComponents)
         {
-            if (!_prototypes.TryIndex(pair.Value, out var entProto)
+            if (!ProtoMan.TryIndex(pair.Value, out var entProto)
                 || !entProto.TryGetComponent<ReactorPartComponent>(compName, out var reactorPart))
                 continue;
 
@@ -458,7 +454,7 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
             var DeltaT = reactor.Temperature - reactor.AirContents.Temperature;
             var DeltaTr = Math.Pow(reactor.Temperature, 4) - Math.Pow(reactor.AirContents.Temperature, 4);
 
-            var k = MaterialSystem.CalculateHeatTransferCoefficient(_prototypes.Index(reactor.Material).Properties, null);
+            var k = MaterialSystem.CalculateHeatTransferCoefficient(ProtoMan.Index(reactor.Material).Properties, null);
             var A = 1 * (0.4 * 8);
 
             var ThermalEnergy = _atmosphereSystem.GetThermalEnergy(reactor.AirContents);
@@ -644,7 +640,7 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
         if (comp.Melted)
             return;
 
-        var engi = _prototypes.Index<RadioChannelPrototype>(ent.Comp.EngineeringChannel);
+        var engi = ProtoMan.Index<RadioChannelPrototype>(ent.Comp.EngineeringChannel);
 
         if (comp.Temperature >= comp.ReactorOverheatTemp)
         {
@@ -750,7 +746,7 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
                     Temperature = reactor.TemperatureGrid[x, y],
                     NeutronCount = reactor.NeutronGrid[x, y],
                     IconName = reactorPart.IconStateInserted,
-                    PartName = _prototypes.Index(reactorPart.ProtoId).Name,
+                    PartName = ProtoMan.Index(reactorPart.ProtoId).Name,
                     NeutronRadioactivity = reactorPart.Properties.NeutronRadioactivity,
                     Radioactivity = reactorPart.Properties.Radioactivity,
                     SpentFuel = reactorPart.Properties.FissileIsotopes

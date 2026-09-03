@@ -41,8 +41,8 @@
     - MacroBombImplant
     - DeathAcidifierImplant
     - DeathRattleImplant
-    - MindShieldImplant
-    - FakeMindShieldImplant
+    #- MindShieldImplant # Funky - Removing mindshields
+    #- FakeMindShieldImplant # Funky
     - RadioImplant
     - ChameleonControllerImplant
     - VoiceMaskImplant
@@ -311,6 +311,8 @@
   id: MindShieldImplanter
   name: mindshield implanter
   parent: BaseImplantOnlyImplanter
+  suffix: DO NOT MAP # Funky - Removing mindshields
+  categories: [ DoNotMap ] # Funky
   components:
   - type: Implanter
     implant: MindShieldImplant

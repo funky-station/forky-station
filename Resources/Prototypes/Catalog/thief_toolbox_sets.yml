@@ -8,7 +8,7 @@
   content:
   - ClothingBackpackChameleonFillAgent
   - ChameleonProjector
-  - FakeMindShieldImplanter
+  #- FakeMindShieldImplanter # Funky - Removing mindshields
 
 - type: thiefBackpackSet
   id: ToolsSet
@@ -20,7 +20,7 @@
   content:
   - WelderIndustrialAdvanced
   - ClothingEyesGlassesMeson
-  - ClothingHandsGlovesColorYellow
+  - FuClothingHandsGlovesInsuls #Funky
   - JawsOfLife
   - RemoteSignaller
   - Multitool

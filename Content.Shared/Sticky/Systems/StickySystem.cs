@@ -6,6 +6,10 @@ using Content.Shared.Sticky.Components;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
+//<funky>
+using Content.Shared.Tag;
+using Robust.Shared.Prototypes;
+//</funky>
 
 namespace Content.Shared.Sticky.Systems;
 
@@ -18,7 +22,10 @@ public sealed partial class StickySystem : EntitySystem
     [Dependency] private SharedHandsSystem _hands = default!;
     [Dependency] private SharedInteractionSystem _interaction = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
-
+    //<funky>
+    [Dependency] private TagSystem _tagSystem = default!;
+    private static readonly ProtoId<TagPrototype> GrilleTag = "Grille";
+    //</funky>
     private const string StickerSlotId = "stickers_container";
 
     public override void Initialize()
@@ -49,7 +56,8 @@ public sealed partial class StickySystem : EntitySystem
         // we also need to ignore entity that it stuck to
         var user = args.User;
         var inRange = _interaction.InRangeUnobstructed(uid, user,
-            predicate: entity => comp.StuckTo == entity);
+            predicate: entity => comp.StuckTo == entity || _tagSystem.HasTag(entity, GrilleTag)); // funky additon of grilletag
+        // this fix is kinda shitty since it just ignores ALL grilles always which could cause issues but I dont know what else to do
         if (!inRange)
             return;
 
@@ -87,7 +95,7 @@ public sealed partial class StickySystem : EntitySystem
         if (comp.StickPopupStart != null)
         {
             var msg = Loc.GetString(comp.StickPopupStart);
-            _popup.PopupClient(msg, user, user);
+            _popup.PopupEntity(msg, user, user);
         }
 
         // start sticking object to target
@@ -137,7 +145,7 @@ public sealed partial class StickySystem : EntitySystem
         if (comp.UnstickPopupStart != null)
         {
             var msg = Loc.GetString(comp.UnstickPopupStart);
-            _popup.PopupClient(msg, user, user);
+            _popup.PopupEntity(msg, user, user);
         }
 
         // start unsticking object
@@ -166,7 +174,7 @@ public sealed partial class StickySystem : EntitySystem
         if (comp.StickPopupSuccess != null)
         {
             var msg = Loc.GetString(comp.StickPopupSuccess);
-            _popup.PopupClient(msg, user, user);
+            _popup.PopupEntity(msg, user, user);
         }
 
         // send information to appearance that entity is stuck
@@ -208,7 +216,7 @@ public sealed partial class StickySystem : EntitySystem
         if (comp.UnstickPopupSuccess != null)
         {
             var msg = Loc.GetString(comp.UnstickPopupSuccess);
-            _popup.PopupClient(msg, user, user);
+            _popup.PopupEntity(msg, user, user);
         }
 
         comp.StuckTo = null;

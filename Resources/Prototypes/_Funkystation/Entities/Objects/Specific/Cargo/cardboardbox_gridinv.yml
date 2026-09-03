@@ -10,7 +10,7 @@
     layers:
     - state: bigbox
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Funkystation/Structures/Storage/Crates/labels.rsi # Funky
       map: [ "enum.PaperLabelVisuals.Layer" ]
       offset: -0.1, 0.2
   - type: GenericVisualizer
@@ -100,7 +100,7 @@
     layers:
     - state: bigboxrestock
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Funkystation/Structures/Storage/Crates/labels.rsi # Funky
       map: [ "enum.PaperLabelVisuals.Layer" ]
       offset: -0.1, 0.2
 
@@ -116,7 +116,7 @@
     layers:
     - state: bigboxhazard
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Funkystation/Structures/Storage/Crates/labels.rsi # Funky
       map: [ "enum.PaperLabelVisuals.Layer" ]
       offset: -0.1, 0.2
 
@@ -132,7 +132,7 @@
     layers:
     - state: bigboxweh
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Funkystation/Structures/Storage/Crates/labels.rsi # Funky
       map: [ "enum.PaperLabelVisuals.Layer" ]
       offset: -0.1, 0.2
 
@@ -148,7 +148,7 @@
     layers:
     - state: bigboxinternals
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Funkystation/Structures/Storage/Crates/labels.rsi # Funky
       map: [ "enum.PaperLabelVisuals.Layer" ]
       offset: -0.1, 0.2
 
@@ -164,7 +164,7 @@
     layers:
       - state: bigboxbotany
       - state: paper
-        sprite: Structures/Storage/Crates/labels.rsi
+        sprite: _Funkystation/Structures/Storage/Crates/labels.rsi # Funky
         map: [ "enum.PaperLabelVisuals.Layer" ]
         offset: -0.1, 0.2
 
@@ -180,7 +180,7 @@
       layers:
         - state: bigboxcargo
         - state: paper
-          sprite: Structures/Storage/Crates/labels.rsi
+          sprite: _Funkystation/Structures/Storage/Crates/labels.rsi # Funky
           map: [ "enum.PaperLabelVisuals.Layer" ]
           offset: -0.1, 0.2
 
@@ -196,7 +196,7 @@
       layers:
         - state: bigboxchemisty
         - state: paper
-          sprite: Structures/Storage/Crates/labels.rsi
+          sprite: _Funkystation/Structures/Storage/Crates/labels.rsi # Funky
           map: [ "enum.PaperLabelVisuals.Layer" ]
           offset: -0.1, 0.2
 
@@ -212,7 +212,7 @@
       layers:
         - state: bigboxcommand
         - state: paper
-          sprite: Structures/Storage/Crates/labels.rsi
+          sprite: _Funkystation/Structures/Storage/Crates/labels.rsi # Funky
           map: [ "enum.PaperLabelVisuals.Layer" ]
           offset: -0.1, 0.2
 
@@ -228,7 +228,7 @@
       layers:
         - state: bigboxengi
         - state: paper
-          sprite: Structures/Storage/Crates/labels.rsi
+          sprite: _Funkystation/Structures/Storage/Crates/labels.rsi # Funky
           map: [ "enum.PaperLabelVisuals.Layer" ]
           offset: -0.1, 0.2
 
@@ -244,7 +244,7 @@
       layers:
         - state: bigboxevidence
         - state: paper
-          sprite: Structures/Storage/Crates/labels.rsi
+          sprite: _Funkystation/Structures/Storage/Crates/labels.rsi # Funky
           map: [ "enum.PaperLabelVisuals.Layer" ]
           offset: -0.1, 0.2
 
@@ -260,7 +260,7 @@
       layers:
         - state: bigboxmedical
         - state: paper
-          sprite: Structures/Storage/Crates/labels.rsi
+          sprite: _Funkystation/Structures/Storage/Crates/labels.rsi # Funky
           map: [ "enum.PaperLabelVisuals.Layer" ]
           offset: -0.1, 0.2
 
@@ -276,7 +276,7 @@
       layers:
         - state: bigboxscience
         - state: paper
-          sprite: Structures/Storage/Crates/labels.rsi
+          sprite: _Funkystation/Structures/Storage/Crates/labels.rsi # Funky
           map: [ "enum.PaperLabelVisuals.Layer" ]
           offset: -0.1, 0.2
 
@@ -292,7 +292,7 @@
       layers:
         - state: bigboxsecurity
         - state: paper
-          sprite: Structures/Storage/Crates/labels.rsi
+          sprite: _Funkystation/Structures/Storage/Crates/labels.rsi # Funky
           map: [ "enum.PaperLabelVisuals.Layer" ]
           offset: -0.1, 0.2
 
@@ -308,6 +308,6 @@
       layers:
         - state: bigboxservice
         - state: paper
-          sprite: Structures/Storage/Crates/labels.rsi
+          sprite: _Funkystation/Structures/Storage/Crates/labels.rsi # Funky
           map: [ "enum.PaperLabelVisuals.Layer" ]
           offset: -0.1, 0.2

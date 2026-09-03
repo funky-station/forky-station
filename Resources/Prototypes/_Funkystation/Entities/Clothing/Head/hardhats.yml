@@ -6,8 +6,6 @@
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Head/Hardhats/offwhite.rsi
-  - type: Clothing
-    sprite: _Funkystation/Clothing/Head/Hardhats/offwhite.rsi
 
 - type: entity
   parent: ClothingHeadHatHardhatBase
@@ -16,6 +14,4 @@
   description: A hard hat, painted in black, used in dangerous working conditions to protect the head. Comes with a built-in flashlight.
   components:
   - type: Sprite
-    sprite: _Funkystation/Clothing/Head/Hardhats/black.rsi
-  - type: Clothing
     sprite: _Funkystation/Clothing/Head/Hardhats/black.rsi

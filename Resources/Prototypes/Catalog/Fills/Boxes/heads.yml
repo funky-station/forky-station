@@ -49,6 +49,7 @@
         - id: IDComputerCircuitboard
         - id: FundingAllocationComputerCircuitboard
         - id: CargoRequestServiceComputerCircuitboard
+        - id: XoRecordsComputerCircuitboard # Funky
 
 - type: entity
   parent: BoxStamps

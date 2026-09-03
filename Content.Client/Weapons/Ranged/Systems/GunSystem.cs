@@ -299,14 +299,6 @@ public sealed partial class GunSystem : SharedGunSystem
         // ES END
     }
 
-    protected override void Popup(string message, EntityUid? uid, EntityUid? user)
-    {
-        if (uid == null || user == null || !Timing.IsFirstTimePredicted)
-            return;
-
-        PopupSystem.PopupEntity(message, uid.Value, user.Value);
-    }
-
     protected override void CreateEffect(EntityUid gunUid, MuzzleFlashEvent message, EntityUid? tracked = null)
     {
         if (!Timing.IsFirstTimePredicted)
@@ -486,14 +478,14 @@ public sealed partial class GunSystem : SharedGunSystem
         public int Compare((EntityUid clicked, bool alive, bool occluded, int depth, uint renderOrder, float bottom, float distance) x,
             (EntityUid clicked, bool alive, bool occluded, int depth, uint renderOrder, float bottom, float distance) y)
         {
-            var cmp = y.alive.CompareTo(x.alive);
+            var cmp = y.occluded.CompareTo(x.occluded);
+
             if (cmp != 0)
             {
                 return cmp;
             }
 
-            cmp = y.occluded.CompareTo(x.occluded);
-
+            cmp = y.alive.CompareTo(x.alive);
             if (cmp != 0)
             {
                 return cmp;
@@ -532,9 +524,10 @@ public sealed partial class GunSystem : SharedGunSystem
 
     private bool CheckFixtures(Entity<FixturesComponent?> entity)
     {
-        if (!Resolve(entity, ref entity.Comp))
+        if (!Resolve(entity, ref entity.Comp, false))
             return false;
 
+        // TODO: Maybe also check that our cursor is intersecting a valid fixture?
         foreach (var fix in entity.Comp.Fixtures)
         {
             if (!fix.Value.Hard || (fix.Value.CollisionLayer & (int)CollisionGroup.BulletImpassable) == 0)

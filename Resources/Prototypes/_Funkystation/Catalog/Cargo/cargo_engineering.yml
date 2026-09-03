@@ -1,0 +1,9 @@
+﻿- type: cargoProduct
+  id: EngineeringSuitSealantBox
+  icon:
+    sprite: _Funkystation/Objects/Tools/sealant_canister.rsi
+    state: icon
+  product: BoxEngineeringSuitSealant
+  cost: 800
+  category: cargoproduct-category-name-engineering
+  group: market

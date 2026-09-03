@@ -21,6 +21,7 @@ namespace Content.Server.Entry
             "OptionsVisualizer",
             "AnomalyScannerScreen",
             "MultipartMachineGhost",
+            "DirectionalArrowIndicator",
             "EdgeTrim" // Funky Change
         };
     }

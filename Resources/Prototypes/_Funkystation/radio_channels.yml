@@ -1,0 +1,14 @@
+- type: radioChannel
+  id: Emergency
+  name: chat-radio-emergency
+  frequency: 1501
+  keycode: "r"
+  color: "#db4373"
+  longRange: true
+  
+- type: radioChannel
+  id: InternalAffairs
+  name: chat-radio-ia
+  keycode: "i"
+  frequency: 1375
+  color: "#bda499"

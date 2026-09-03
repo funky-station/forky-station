@@ -3,7 +3,6 @@ using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Gibbing;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server._Starfall.Particles;
 
@@ -21,7 +20,6 @@ namespace Content.Server._Starfall.Particles;
 /// TODO: KILL WHEN GIBBING IS PREDICTED/SHARED I BEG
 public sealed partial class GibMistParticleSystem : EntitySystem
 {
-    [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
@@ -34,7 +32,7 @@ public sealed partial class GibMistParticleSystem : EntitySystem
     {
         var color = Color.Red;
         var contents = ent.Comp.BloodReferenceSolution.Contents;
-        if (contents.Count > 0 && _proto.TryIndex(contents[0].Reagent.Prototype, out ReagentPrototype? reagentProto))
+        if (contents.Count > 0 && ProtoMan.TryIndex(contents[0].Reagent.Prototype, out ReagentPrototype? reagentProto))
             color = reagentProto.SubstanceColor;
 
         RaiseNetworkEvent(new GibMistParticleEvent(_transform.GetMapCoordinates(ent), color), Filter.Pvs(ent.Owner));

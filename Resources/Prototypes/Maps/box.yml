@@ -18,7 +18,6 @@
           availableJobs: # 63 jobs total w/o latejoins & interns, 82 jobs total w/ latejoins & interns
             #Command (7)
             Captain: [ 1, 1 ]
-            HeadOfPersonnel: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
             ChiefMedicalOfficer: [ 1, 1 ]
             ChiefEngineer: [ 1, 1 ]
@@ -34,7 +33,6 @@
             Reporter: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
             #Engineering (8)
-            AtmosphericTechnician: [ 3, 3 ]
             StationEngineer: [ 5, 5 ]
             TechnicalAssistant: [ 4, 4 ] #intern, exclude from dept count
             #Medical (8)
@@ -53,7 +51,6 @@
             SecurityCadet: [ 2, 4 ] #intern, exclude from dept count
             Lawyer: [ 2, 2 ]
             #Supply (6)
-            SalvageSpecialist: [ 3, 3 ]
             CargoTechnician: [ 3, 3 ]
             #Civilian (3+)
             Passenger: [ -1, -1 ] #infinite, not counted
@@ -61,5 +58,4 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             #Silicon (3)
-            StationAi: [ 1, 1 ]
             Borg: [ 2, 3 ]
