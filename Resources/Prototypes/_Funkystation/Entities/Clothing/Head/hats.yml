@@ -117,3 +117,19 @@
   - type: Tag
     tags:
     - ClothMade
+
+# Hospitality Director's hat
+- type: entity
+  parent: [ClothingHeadBase, BaseCommandContraband]
+  id: FuClothingHeadHatHd
+  name: hospitality director's pillbox hat
+  description: A simple yet elegant red hat with gold trim.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/hd.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/hd.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon

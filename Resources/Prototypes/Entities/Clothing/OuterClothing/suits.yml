@@ -169,7 +169,7 @@
   # throwing star ability
   - type: ItemCreator
     action: ActionCreateThrowingStar
-    charge: 14.4
+    charge: 20 # funky change from 14.4
     spawnedPrototype: ThrowingStarNinja
     noPowerPopup: ninja-no-power
   # core ninja suit stuff

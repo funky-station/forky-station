@@ -313,4 +313,87 @@
   id: 38
   time: '2026-09-01T18:23:10Z'
   url: https://github.com/funky-station/forky-station/pull/311
+- author: feymild
+  changes:
+  - message: Ported Roingus from Funky
+    type: Add
+  - message: Added Roingus skewers
+    type: Add
+  id: 39
+  time: '2026-09-02T01:11:33Z'
+  url: https://github.com/funky-station/forky-station/pull/404
+- author: pirakaplant
+  changes:
+  - message: Captain's time requirements are now a consistent five hours on each department
+      (except for IA, which is 10h, and Command, which is still 20h). Removed the
+      40 hour overall requirement as it is redundant.
+    type: Tweak
+  id: 40
+  time: '2026-09-02T05:03:29Z'
+  url: https://github.com/funky-station/forky-station/pull/355
+- author: mycobiota
+  changes:
+  - message: Port encryption key resprites by Catazeus
+    type: Add
+  - message: Port department handheld radios by willowzeta and vectorassembly
+    type: Add
+  - message: Port the emergency radio channel, reserved for emergency handhelds, the
+      warden, and paramedics, by willowzeta
+    type: Add
+  - message: The new departmental and emergency radios are now part of various inventories,
+      such as the lockers of department heads
+    type: Add
+  id: 41
+  time: '2026-09-02T05:19:49Z'
+  url: https://github.com/funky-station/forky-station/pull/262
+- author: Miguel4387
+  changes:
+  - message: Added the ninja pager which can be used to extract if you're far away
+      from the station and have done all your objectives
+    type: Add
+  - message: Ninja beggining the comms or criminal records hack notifies security
+      on the radio
+    type: Tweak
+  - message: RD server notifies sci upon research being stolen
+    type: Tweak
+  - message: Spider Charge can be defused, has a much longer countdown and larger
+      explosion
+    type: Tweak
+  - message: Ninja spawns with voice changer implant
+    type: Tweak
+  - message: Ninja throwing stars have nocturine but are unable to inject people with
+      >=30% piercing armor
+    type: Tweak
+  - message: Replaced survive objective with "survive and extract" as well as adding
+      a method for the ninja to return to the clan
+    type: Tweak
+  - message: Edited ninja guidebook entry
+    type: Tweak
+  - message: ninja door emag glove functionality and objective
+    type: Remove
+  id: 42
+  time: '2026-09-02T05:22:11Z'
+  url: https://github.com/funky-station/forky-station/pull/258
+- author: pirakaplant, zergologist
+  changes:
+  - message: Added the hospitality director's pillbox hat, two hospitality director's
+      uniforms, plus a hospitality director's vest, coat, and winter coat (sprites
+      by zergologist). They can all be made in a uniform printer.
+    type: Add
+  - message: Changed the Hospitality Director's loadout options to fit the new clothing
+      items.
+    type: Tweak
+  - message: Updated the Hospitality Director chameleon outfit to better fit their
+      new loadout.
+    type: Tweak
+  - message: Increased the Hospitality Director's hour requirements to 15 Service
+      hours, 5 Bartender hours, and 5 Chef hours.
+    type: Tweak
+  - message: The Hospitality Director now starts with a flash.
+    type: Tweak
+  - message: Updated the Hospitality Director job spawn icon.
+    type: Tweak
+  id: 43
+  time: '2026-09-03T04:01:46Z'
+  url: https://github.com/funky-station/forky-station/pull/329
 Order: -1

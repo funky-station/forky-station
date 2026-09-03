@@ -83,3 +83,14 @@
   parent: [ClothingOuterStorageFoldableBaseOpened, FuClothingOuterWinterCmo]
   id: FuClothingOuterWinterCmoOpened
   name: chief medical officer's insulated labcoat
+
+- type: entity
+  parent: [ClothingOuterWinterCoat, BaseCommandContraband]
+  id: FuClothingOuterWinterHd
+  name: hospitality director's winter coat
+  description: A stylish, gold-trimmed coat for when the distro becomes a bit chilly. Comes with a superfluous belt.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Wintercoats/NoHood/hd.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Wintercoats/NoHood/hd.rsi

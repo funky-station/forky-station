@@ -286,10 +286,11 @@
         whitelist:
           components:
           - Stamina
-      - type: EmagProvider
-        whitelist:
-          components:
-          - Airlock
+      #- type: EmagProvider
+      #  whitelist:
+      #    components:
+      #    - Airlock
+      # funky
     - objective: StealResearchObjective
       components:
       - type: ResearchStealer

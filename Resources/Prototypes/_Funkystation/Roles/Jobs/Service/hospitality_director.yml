@@ -7,7 +7,13 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Service
-    time: 10h
+    time: 20h
+  - !type:RoleTimeRequirement
+    role: JobBartender
+    time: 5h
+  - !type:RoleTimeRequirement
+    role: JobChef
+    time: 5h
   #weight: 20 # Funky - Weighting all jobs equally now
   startingGear: HDGear
   icon: "JobIconHospitalityDirector"
@@ -34,17 +40,20 @@
 - type: startingGear
   id: HDGear
   equipment:
-    head: ClothingHeadHatTophat
-    shoes: ClothingShoesColorBlack
     id: HDPDA
     ears: ClothingHeadsetHD
+  storage:
+    back:
+    - Flash
 
 - type: chameleonOutfit
   id: HDChameleonOutfit
   job: HospitalityDirector
-  hasMindShield: true
+  #hasMindShield: true # Removed mindshields
   equipment:
-    eyes: ClothingEyesHudBeer
+    head: FuClothingHeadHatHd
+    eyes: ClothingEyesGlasses
     mask: ClothingMaskNeckGaiter
     neck: ClothingNeckScarfStripedGreen
-    outerClothing: ClothingOuterWinterColorGreen
+    outerClothing: FuClothingOuterVestHd
+    gloves: ClothingHandsGlovesColorWhite

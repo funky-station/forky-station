@@ -400,6 +400,9 @@
   - type: GuideHelp
     guides:
     - CriminalRecords
+  - type: ActiveRadio #Funky change for Ninja warning
+    channels:
+    - Security
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -784,10 +787,14 @@
     energy: 4.0
     color: "#3c5eb5"
   # Start funky changes
+  - type: ActiveRadio
+    channels:
+    - Security
   - type: ScoreThiefPriceModifier
     reason: "scorethief-modifier-critical-infrastructure"
     multiplier: 0
   # End funky changes
+
 
 - type: entity
   parent: ComputerComms

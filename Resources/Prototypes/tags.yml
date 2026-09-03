@@ -667,6 +667,9 @@
 - type: Tag
   id: GrenadeFlashBang # Storage whitelist: ClusterBang
 
+- type: Tag # Funky | Used for a shitty fix to stickySystem not allowing unsticking in windows with grilles
+  id: Grille # Grille, brokenGrille
+
 - type: Tag
   id: GuideEmbeded # Applied by GuideEntityEmbed and used by GuidebookSystem. This tag hides the guidebook link when examining an entity inside a guide book.
 

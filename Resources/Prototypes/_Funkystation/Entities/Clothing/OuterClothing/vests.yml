@@ -1,0 +1,12 @@
+# HD's vest
+
+- type: entity
+  parent: [ClothingOuterBase, BaseCommandContraband]
+  id: FuClothingOuterVestHd
+  name: hospitality director's vest
+  description: A lovely red vest for yelling at waitstaff in.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Vests/hd.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Vests/hd.rsi
