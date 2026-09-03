@@ -10,6 +10,11 @@ megaphone-claimed-leadership = Using the megaphone, you now declare yourself hea
 megaphone-on-cooldown = The megaphone needs a moment to rest before another use.
 megaphone-strike-started = { $union } IS NOW ON STRIKE. Members are expected to rally around their union head.
 megaphone-strike-ended = The { $union } strike has ended. Members may now return to work.
+megaphone-window-title = Megaphone
+megaphone-call-strike-button = Call Strike
+megaphone-end-strike-button = End Strike
+megaphone-message-too-long = Message is too long.
+megaphone-message-placeholder = Write your reasons for the strike here.
 
 union-clipboard-menu-title = Union Roster
 union-clipboard-leader-name = { $name } (Leader)

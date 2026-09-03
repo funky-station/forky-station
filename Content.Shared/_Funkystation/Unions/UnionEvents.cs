@@ -68,3 +68,21 @@ public sealed class UnionClipboardAssignStewardMessage(NetEntity target, NetEnti
     public NetEntity Target = target;
     public NetEntity? Steward = steward;
 }
+
+[Serializable, NetSerializable]
+public enum MegaphoneUiKey : byte
+{
+    Key,
+}
+
+[Serializable, NetSerializable]
+public sealed class MegaphoneBoundUserInterfaceState(bool onStrike) : BoundUserInterfaceState
+{
+    public bool OnStrike = onStrike;
+}
+
+[Serializable, NetSerializable]
+public sealed class MegaphoneCallStrikeMessage(string text) : BoundUserInterfaceMessage
+{
+    public string Text = text;
+}

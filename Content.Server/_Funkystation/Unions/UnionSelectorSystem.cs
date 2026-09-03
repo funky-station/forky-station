@@ -380,6 +380,11 @@ public sealed partial class UnionSelectorSystem : EntitySystem
         unionsComp.Unions.Remove(source);
     }
 
+    public string GetUnionDisplayName(StationUnion union)
+    {
+        return string.Join(", ", union.Departments) + " Union";
+    }
+
     private string GenerateUnionName(List<string> departments)
     {
         if (departments.Count == 1 && string.Equals(departments[0], "Security", StringComparison.OrdinalIgnoreCase))

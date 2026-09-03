@@ -10,9 +10,11 @@
   - type: Item
     sprite: _Funkystation/Objects/Tools/megaphone.rsi
     size: Small
-  - type: UseDelay
-    delay: 900
   - type: Megaphone
+  - type: UserInterface
+    interfaces:
+      enum.MegaphoneUiKey.Key:
+        type: MegaphoneBoundUserInterface
 
 - type: unionLeaderItemSet
   id: unionItemSet
