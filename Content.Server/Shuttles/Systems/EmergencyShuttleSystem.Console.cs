@@ -294,16 +294,16 @@ public sealed partial class EmergencyShuttleSystem
         _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle early launch AUTH by {args.Actor:user}");
         var remaining = component.AuthorizationsRequired - component.AuthorizedEntities.Count;
 
-        var paAnnouncements = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements); // funky
+        var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
         _announcer.TryGetAnnouncerSound(NoticeSound, out var sound); // funky - use announcement sound prototypes
 
         if (remaining > 0)
             _chatSystem.DispatchGlobalAnnouncement(
                 Loc.GetString("emergency-shuttle-console-auth-left", ("remaining", remaining)),
-                playSound: paAnnouncements, announcementSound: paAnnouncements ? sound : null, // funky
+                playSound: paExclusive, announcementSound: paExclusive ? sound : null, // funky
                 colorOverride: DangerColor);
 
-        if (!CheckForLaunch(component) && !paAnnouncements) // funky
+        if (!CheckForLaunch(component) && !paExclusive) // funky
             _audio.PlayGlobal(sound, Filter.Broadcast(), recordReplay: true); // funky - use announcement sound prototypes
 
         UpdateAllEmergencyConsoles();
@@ -402,16 +402,16 @@ public sealed partial class EmergencyShuttleSystem
     {
         if (_announced) return;
 
-        var paAnnouncements = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements); // funky
+        var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
         _announcer.TryGetAnnouncerSound(NoticeSound, out var sound); // funky - use announcement sound prototypes
 
         _announced = true;
         _chatSystem.DispatchGlobalAnnouncement(
             Loc.GetString("emergency-shuttle-launch-time", ("consoleAccumulator", $"{_consoleAccumulator:0}")),
-            playSound: paAnnouncements, announcementSound: paAnnouncements ? sound : null, // funky
+            playSound: paExclusive, announcementSound: paExclusive ? sound : null, // funky
             colorOverride: DangerColor);
 
-        if (!paAnnouncements) // funky
+        if (!paExclusive) // funky
             _audio.PlayGlobal(sound, Filter.Broadcast(), recordReplay: true); // funky - use announcement sound prototypes
     }
 

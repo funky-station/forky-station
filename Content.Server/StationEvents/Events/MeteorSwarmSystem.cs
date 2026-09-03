@@ -32,8 +32,6 @@ public sealed partial class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmCompon
     {
         base.Added(uid, component, gameRule, args);
 
-        var paAnnouncements = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements); // funky
-
         component.WaveCounter = component.Waves.Next(RobustRandom);
 
         // we don't want to send to players who aren't in game (i.e. in the lobby)
@@ -42,16 +40,18 @@ public sealed partial class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmCompon
         // Macrocosm edit start - announcer variation
         SoundSpecifier? sound = null; // funky
 
+        var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
+
         if (component.AnnouncementSound is { } soundId && _announcer.TryGetAnnouncerSound(soundId, out sound))
         {
-            if (!paAnnouncements) // funky
+            if (!paExclusive) // funky
                 _audio.PlayGlobal(sound, allPlayersInGame, true);
         }
         // Macrocosm edit end
 
         if (component.Announcement is { } locId)
             _chat.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(locId),
-                playSound: paAnnouncements, announcementSound: paAnnouncements ? sound : null, // funky
+                playSound: paExclusive, announcementSound: paExclusive ? sound : null, // funky
                 colorOverride: Color.Gold);
 
 

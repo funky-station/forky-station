@@ -22,15 +22,15 @@ public sealed partial class AnnounceOnSpawnSystem : EntitySystem
 
     private void OnInit(EntityUid uid, AnnounceOnSpawnComponent comp, MapInitEvent args)
     {
-        var paAnnouncements = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements); // funky
+        var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
         var message = Loc.GetString(comp.Message);
         var sender = comp.Sender != null ? Loc.GetString(comp.Sender) : Loc.GetString("chat-manager-sender-announcement");
         // funky - because i see this component being used for nar'sie and rat'var, let's preserve the default global sound behaviour
         _chat.DispatchGlobalAnnouncement(message, sender, playSound: true,
-            paAnnouncements ? null : comp.Sound, // funky
+            paExclusive ? null : comp.Sound, // funky
             comp.Color);
         // funky
-        if (paAnnouncements)
+        if (paExclusive)
             _audio.PlayGlobal(comp.Sound, Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
     }
 }

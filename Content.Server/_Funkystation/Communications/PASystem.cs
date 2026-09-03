@@ -108,7 +108,7 @@ public sealed partial class PASystem : EntitySystem
 
 /// <summary>
 /// Raised on all PA announcers when an announcement is made with
-/// cvar <see cref="PAAnnouncementCVars.PAAnnouncements"/> or by using
+/// cvar <see cref="PAAnnouncementCVars.PAEnabled"/> or by using
 /// <see cref="PASystem.DispatchPAAnnouncement"/> directly.
 /// </summary>
 /// <param name="Messages">An array of messages to be sent by PA speakers.</param>

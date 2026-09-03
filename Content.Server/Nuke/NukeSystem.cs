@@ -502,7 +502,7 @@ public sealed partial class NukeSystem : EntitySystem
         // We are collapsing the randomness here, otherwise we would get separate random song picks for checking duration and when actually playing the song afterwards
         _selectedNukeSong = _audio.ResolveSound(component.ArmMusic);
 
-        var paAnnouncements = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements); // funky
+        var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
 
         // warn a crew
         var announcement = Loc.GetString("nuke-component-announcement-armed",
@@ -511,10 +511,10 @@ public sealed partial class NukeSystem : EntitySystem
         var sender = Loc.GetString("nuke-component-announcement-sender");
 
         _chatSystem.DispatchStationAnnouncement(stationUid ?? uid, announcement, sender,
-            paAnnouncements, paAnnouncements ? component.ArmSound : null, // funky
+            paExclusive, paExclusive ? component.ArmSound : null, // funky
             Color.Red);
 
-        if (!paAnnouncements) // funky
+        if (!paExclusive) // funky
             _sound.PlayGlobalOnStation(uid, _audio.ResolveSound(component.ArmSound));
         _nukeSongLength = (float) _audio.GetAudioLength(_selectedNukeSong).TotalSeconds;
 
@@ -550,16 +550,16 @@ public sealed partial class NukeSystem : EntitySystem
         if (stationUid != null)
             _alertLevel.SetLevel(stationUid.Value, component.AlertLevelOnDeactivate, true, true, true);
 
-        var paAnnouncements = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements); // funky
+        var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
 
         // warn a crew
         var announcement = Loc.GetString("nuke-component-announcement-unarmed");
         var sender = Loc.GetString("nuke-component-announcement-sender");
         _chatSystem.DispatchStationAnnouncement(uid, announcement, sender,
-            paAnnouncements, paAnnouncements ? component.DisarmSound : null); // funky
+            paExclusive, paExclusive ? component.DisarmSound : null); // funky
 
         component.PlayedNukeSong = false;
-        if (!paAnnouncements) // funky
+        if (!paExclusive) // funky
             _sound.PlayGlobalOnStation(uid, _audio.ResolveSound(component.DisarmSound));
         _sound.StopStationEventMusic(uid, StationEventMusicType.Nuke);
 

@@ -47,19 +47,24 @@ public sealed partial class PAAnnouncerSystem : EntitySystem
         SubscribeLocalEvent<PAAnnouncerComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<PAAnnouncerComponent, ComponentStartup>(OnComponentStartup);
 
-        Subs.CVar(_cfg, PAAnnouncementCVars.PAAnnouncements, OnAnnouncementsCvarChanged, true);
+        Subs.CVar(_cfg, PAAnnouncementCVars.PAEnabled, OnAnnouncementsCvarChanged, true);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        if (!_cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements))
+        if (!_cfg.GetCVar(PAAnnouncementCVars.PAEnabled))
             return;
 
+        var paExclusive = _cfg.GetCVar(PAAnnouncementCVars.PAExclusiveAnnouncements);
+
         var alreadyReceived = Filter.Empty();
+        var recipients = Filter.Empty();
+
         // make sure all ghosts hear the announcement (only once, though)
-        var recipients = Filter.Broadcast().RemoveWhereAttachedEntity(uid => !HasComp<GhostHearingComponent>(uid));
+        if (paExclusive)
+            recipients = Filter.Broadcast().RemoveWhereAttachedEntity(uid => !HasComp<GhostHearingComponent>(uid));
 
         var announcers = EntityQueryEnumerator<PAAnnouncerComponent>();
         while (announcers.MoveNext(out var uid, out var comp))
@@ -77,15 +82,20 @@ public sealed partial class PAAnnouncerSystem : EntitySystem
 
             // we wanna make sure that if someone hears multiple PA speakers, the chat window only displays one message
             // so we get recipients near the PA and then remove any that have already heard the message
-            var coords = _xform.GetMapCoordinates(Transform(uid));
-            recipients = recipients.AddInRange(coords, ChatMessageRange)
-                .RemoveWhere(session => alreadyReceived.Recipients.Contains(session));
-            alreadyReceived.Merge(recipients);
+            if (paExclusive)
+            {
+                var coords = _xform.GetMapCoordinates(Transform(uid));
+                recipients = recipients.AddInRange(coords, ChatMessageRange)
+                    .RemoveWhere(session => alreadyReceived.Recipients.Contains(session));
+                alreadyReceived.Merge(recipients);
+            }
 
 
             // the lengths we have to go to for custom message formatting!!
             _chat.TrySendInGameICMessage(uid, line, InGameICChatType.Speak, ChatTransmitRange.HideChat, nameOverride: author, checkRadioPrefix: false);
-            _chatManager.ChatMessageToManyFiltered(recipients, ChatChannel.Radio, line, wrappedLine, uid, false, true, color);
+
+            if (paExclusive)
+                _chatManager.ChatMessageToManyFiltered(recipients, ChatChannel.Radio, line, wrappedLine, uid, false, true, color);
         }
     }
 

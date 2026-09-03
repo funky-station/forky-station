@@ -164,7 +164,7 @@ public sealed partial class AlertLevelSystem : EntitySystem
             ("name", prototype.LocalizedName),
             ("announcement", AlertLevelAnnouncement(prototype)));
 
-        var paAnnouncements = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements); // funky - play sound locally instead of globally
+        var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky - play sound locally instead of globally
 
         var ev = new AlertLevelChangedEvent(station, level);
         RaiseLocalEvent(ref ev);
@@ -175,7 +175,7 @@ public sealed partial class AlertLevelSystem : EntitySystem
         var playDefault = false;
         if (playSound)
         {
-            if (prototype.Sound != null && !paAnnouncements)
+            if (prototype.Sound != null && !paExclusive)
             {
                 var filter = _station.GetInOwningStation(station);
                 _audio.PlayGlobal(prototype.Sound.StereoSound, filter, true);
@@ -195,7 +195,7 @@ public sealed partial class AlertLevelSystem : EntitySystem
                 playDefaultSound: playDefault,
                 colorOverride: prototype.Color,
                 sender: stationName,
-                announcementSound: paAnnouncements ? prototype.Sound?.MonoSound : null); // funky - play sound locally instead of globally);
+                announcementSound: paExclusive ? prototype.Sound?.MonoSound : null); // funky - play sound locally instead of globally);
         }
 
     }

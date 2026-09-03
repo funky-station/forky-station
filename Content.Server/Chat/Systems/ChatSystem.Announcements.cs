@@ -28,10 +28,11 @@ public sealed partial class ChatSystem
         sender ??= Loc.GetString("chat-manager-sender-announcement");
 
         // funky - redirect announcement to PA speakers
-        if (!paSystemBypass && _configurationManager.GetCVar(PAAnnouncementCVars.PAAnnouncements))
+        if (!paSystemBypass && _configurationManager.GetCVar(PAAnnouncementCVars.PAEnabled))
         {
             _paSystem.DispatchPAAnnouncement(message, sender, null, false, playSound, true, null, announcementSound, colorOverride);
-            return;
+            if (_configurationManager.GetCVar(PAAnnouncementCVars.PAExclusiveAnnouncements))
+                return;
         }
 
         var wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message", ("sender", sender), ("message", FormattedMessage.EscapeText(message)));
@@ -63,10 +64,11 @@ public sealed partial class ChatSystem
         sender ??= Loc.GetString("chat-manager-sender-announcement");
 
         // funky - redirect announcement to PA speakers
-        if (!paSystemBypass && _configurationManager.GetCVar(PAAnnouncementCVars.PAAnnouncements))
+        if (!paSystemBypass && _configurationManager.GetCVar(PAAnnouncementCVars.PAEnabled))
         {
             _paSystem.DispatchPAAnnouncement(message, sender, source, false, playSound,  true, null, announcementSound, colorOverride);
-            return;
+            if (_configurationManager.GetCVar(PAAnnouncementCVars.PAExclusiveAnnouncements))
+                return;
         }
 
         var wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message", ("sender", sender), ("message", FormattedMessage.EscapeText(message)));
@@ -97,10 +99,11 @@ public sealed partial class ChatSystem
         sender ??= Loc.GetString("chat-manager-sender-announcement");
 
         // funky - redirect announcement to PA speakers
-        if (!paSystemBypass && _configurationManager.GetCVar(PAAnnouncementCVars.PAAnnouncements))
+        if (!paSystemBypass && _configurationManager.GetCVar(PAAnnouncementCVars.PAEnabled))
         {
             _paSystem.DispatchPAAnnouncement(message, sender, source, false, playDefaultSound, false, null, announcementSound, colorOverride);
-            return;
+            if (_configurationManager.GetCVar(PAAnnouncementCVars.PAExclusiveAnnouncements))
+                return;
         }
 
         var wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message", ("sender", sender), ("message", FormattedMessage.EscapeText(message)));

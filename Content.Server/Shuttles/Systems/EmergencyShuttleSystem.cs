@@ -336,7 +336,7 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
         DebugTools.Assert(shuttle != null);
 
         // BEGIN Funky
-        var paAnnouncements = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements); // funky
+        var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
 
         if (result.ResultType == ShuttleDockResultType.GoodLuck)
         {
@@ -346,12 +346,12 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
             _chatSystem.DispatchStationAnnouncement(
                 result.Station,
                 Loc.GetString(stationShuttleComp.FailureAnnouncement),
-                playDefaultSound: paAnnouncements,
-                announcementSound: paAnnouncements ? sound : null); // funky
+                playDefaultSound: paExclusive,
+                announcementSound: paExclusive ? sound : null); // funky
 
             // TODO: Need filter extensions or something don't blame me.
             // Macrocosm edit start - announcer variation
-            if (!paAnnouncements) // funky
+            if (!paExclusive) // funky
                 _audio.PlayGlobal(sound, Filter.Broadcast(), true);
             // Macrocosm edit end
             // END Funky
@@ -395,7 +395,7 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
                 ("direction", direction),
                 ("location", location),
                 ("extended", extendedText)),
-            playDefaultSound: paAnnouncements, // funky
+            playDefaultSound: paExclusive, // funky
             announcementSound: audio); // funky
         // Macrocosm edit end
 
@@ -420,7 +420,7 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
         // Play announcement audio.
 
         // TODO: Need filter extensions or something don't blame me.
-        if (!paAnnouncements) // funky
+        if (!paExclusive) // funky
             _audio.PlayGlobal(audio, Filter.Broadcast(), true);
     }
 

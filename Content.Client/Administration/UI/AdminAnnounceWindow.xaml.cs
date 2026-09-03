@@ -30,7 +30,7 @@ namespace Content.Client.Administration.UI
             AnnounceMethod.OnItemSelected += AnnounceMethodOnOnItemSelected;
             Announcement.OnKeyBindUp += AnnouncementOnOnTextChanged;
 
-            BroadcastTelepathically.Visible = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements);
+            BroadcastTelepathically.Visible = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg);
         }
 
         private void AnnouncementOnOnTextChanged(GUIBoundKeyEventArgs args)

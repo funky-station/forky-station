@@ -59,8 +59,6 @@ public sealed partial class DragonRiftSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var paAnnouncements = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements); // funky
-
         var query = EntityQueryEnumerator<DragonRiftComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var comp, out var xform))
         {
@@ -92,12 +90,14 @@ public sealed partial class DragonRiftSystem : EntitySystem
                 var msg = Loc.GetString("carp-rift-warning",
                     ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((uid, xform)))));
 
+                var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
+
                 // BEGIN Funky
                 _announcer.TryGetAnnouncerSound(AnnounceSound, out var sound); // funky - use announcement sound prototypes
                 _chat.DispatchGlobalAnnouncement(msg,
-                    playSound: paAnnouncements, announcementSound: paAnnouncements ? sound : null, // funky
+                    playSound: paExclusive, announcementSound: paExclusive ? sound : null, // funky
                     colorOverride: Color.Red);
-                if (!paAnnouncements) // funky
+                if (!paExclusive) // funky
                     _audio.PlayGlobal(sound, Filter.Broadcast(), true);
                 // END Funky
 

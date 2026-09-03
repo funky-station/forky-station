@@ -45,7 +45,7 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
         if (!TryComp<StationEventComponent>(uid, out var stationEvent))
             return;
 
-        var paAnnouncements = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements); // funky
+        var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
 
         AdminLogManager.Add(LogType.EventAnnounced, $"Event added / announced: {ToPrettyString(uid)}");
 
@@ -57,14 +57,14 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
 
         if (stationEvent.StartAudio is { } startAudio && Announcer.TryGetAnnouncerSound(startAudio, out soundSpecifier))
         {
-            if (!paAnnouncements) // funky
+            if (!paExclusive) // funky
                 Audio.PlayGlobal(soundSpecifier, allPlayersInGame, true);
         }
         // Macrocosm edit end
 
         if (stationEvent.StartAnnouncement != null)
             ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.StartAnnouncement),
-                playSound: paAnnouncements, announcementSound: paAnnouncements ? soundSpecifier : null, // funky
+                playSound: paExclusive, announcementSound: paExclusive ? soundSpecifier : null, // funky
                 colorOverride: stationEvent.StartAnnouncementColor);
 
 
@@ -98,7 +98,7 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
         if (!TryComp<StationEventComponent>(uid, out var stationEvent))
             return;
 
-        var paAnnouncements = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements); // funky
+        var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
 
         AdminLogManager.Add(LogType.EventStopped, $"Event ended: {ToPrettyString(uid)}");
 
@@ -110,13 +110,13 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
 
         if (stationEvent.EndAudio is { } endAudio && Announcer.TryGetAnnouncerSound(stationEvent.EndAudio.Value, out soundSpecifier))
         {
-            if (!paAnnouncements) // funky
+            if (!paExclusive) // funky
                 Audio.PlayGlobal(soundSpecifier, allPlayersInGame, true);
         }
         // Macrocosm edit end
         if (stationEvent.EndAnnouncement != null)
             ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.EndAnnouncement),
-                playSound: paAnnouncements, announcementSound: paAnnouncements ? soundSpecifier : null, // funky
+                playSound: paExclusive, announcementSound: paExclusive ? soundSpecifier : null, // funky
                 colorOverride: stationEvent.EndAnnouncementColor);
 
 

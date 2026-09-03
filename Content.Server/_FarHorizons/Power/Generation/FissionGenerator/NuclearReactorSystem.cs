@@ -517,7 +517,7 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
         var comp = ent.Comp;
         var uid = ent.Owner;
 
-        var paAnnouncements = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements); //funky
+        var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); //funky
 
         var stationUid = _station.GetStationInMap(Transform(uid).MapID);
         if (stationUid != null)
@@ -526,9 +526,9 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
         var announcement = Loc.GetString("reactor-meltdown-announcement");
         var sender = Loc.GetString("reactor-meltdown-announcement-sender");
         _chatSystem.DispatchStationAnnouncement(stationUid ?? uid, announcement, sender,
-            paAnnouncements, paAnnouncements ? comp.MeltdownSound.MonoSound : null, Color.Orange); // funky
+            paExclusive, paExclusive ? comp.MeltdownSound.MonoSound : null, Color.Orange); // funky
 
-        if (!paAnnouncements) // funky
+        if (!paExclusive) // funky
             _soundSystem.PlayGlobalOnStation(uid, _audio.ResolveSound(comp.MeltdownSound.StereoSound));
 
         comp.Melted = true;
@@ -644,8 +644,6 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
         var comp = ent.Comp;
         var uid = ent.Owner;
 
-        var paAnnouncements = _cfg.GetCVar(PAAnnouncementCVars.PAAnnouncements); // funky
-
         if (comp.Melted)
             return;
 
@@ -689,10 +687,12 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
             var announcement = Loc.GetString("reactor-melting-announcement");
             var sender = Loc.GetString("reactor-melting-announcement-sender");
 
+            //var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
+
             // funky - delta_alt.ogg was removed!!! https://github.com/funky-station/forky-station/commit/fd9212c73a68ec23f6668ed1cb8d35b434941de8
             // not sure if there's a suitable replacement available so we just won't play a sound for now
             _chatSystem.DispatchStationAnnouncement(stationUid ?? uid, announcement, sender, colorOverride: Color.Orange);
-            // if (!paAnnouncements) // funky
+            // if (!paExclusive) // funky
             //     _soundSystem.PlayGlobalOnStation(uid, _audio.ResolveSound(new SoundPathSpecifier("/Audio/Misc/delta_alt.ogg")));
 
             comp.HasSentWarning = true;

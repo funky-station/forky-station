@@ -36,10 +36,10 @@ public sealed partial class AnnouncerManager : IPostInjectInit
     {
         var announcer = _prototypeManager.Index(_announcerId);
         // BEGIN Funky
-        var paAnnouncements = _configurationManager.GetCVar(PAAnnouncementCVars.PAAnnouncements);
+        var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_configurationManager);
         if (announcer.Sounds.TryGetValue(announcementId, out var announcerSound))
         {
-            soundSpecifier = paAnnouncements ? announcerSound.MonoSound : announcerSound.StereoSound; //funky - mono sounds for in-world announcements
+            soundSpecifier = paExclusive ? announcerSound.MonoSound : announcerSound.StereoSound; //funky - mono sounds for in-world announcements
             return true;
         }
 
@@ -48,7 +48,7 @@ public sealed partial class AnnouncerManager : IPostInjectInit
             soundSpecifier = null;
             return false;
         }
-        soundSpecifier = paAnnouncements ? announcement.MonoDefaultSound : announcement.DefaultSound; //funky - mono sounds for in-world announcements
+        soundSpecifier = paExclusive ? announcement.MonoDefaultSound : announcement.DefaultSound; //funky - mono sounds for in-world announcements
         // END Funky
         return true;
     }
