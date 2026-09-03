@@ -1,10 +1,15 @@
+using System.Linq;
 using Content.Server.Popups;
 using Content.Shared._Funkystation.Traits.Unions;
 using Content.Shared._Funkystation.Unions;
 using Content.Shared.Access.Systems;
+using Content.Shared.DoAfter;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Roles;
 using Robust.Server.GameObjects;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Funkystation.Unions;
@@ -18,11 +23,13 @@ public sealed partial class UnionClipboardSystem : EntitySystem
     [Dependency] private PopupSystem _popup = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
 
     private const int MaxNoteTitleLength = 64;
     private const int MaxNoteTextLength = 512;
     // how close a prospective member needs to be to a leader to be registered
     private const float RegisterLookupRange = 3f;
+    private static readonly ProtoId<DepartmentPrototype> CommandDepartment = "Command";
 
     public override void Initialize()
     {
@@ -30,6 +37,8 @@ public sealed partial class UnionClipboardSystem : EntitySystem
 
         SubscribeLocalEvent<UnionClipboardComponent, BoundUIOpenedEvent>(OnBoundUiOpened);
         SubscribeLocalEvent<UnionClipboardComponent, InteractUsingEvent>(OnInteractUsing);
+        SubscribeLocalEvent<UnionClipboardComponent, UseInHandEvent>(OnUseInHand);
+        SubscribeLocalEvent<UnionClipboardComponent, UnionClipboardClaimLeadershipDoAfterEvent>(OnClaimLeadershipDoAfter);
         Subs.BuiEvents<UnionClipboardComponent>(UnionClipboardUiKey.Key,
             subs =>
             {
@@ -39,6 +48,67 @@ public sealed partial class UnionClipboardSystem : EntitySystem
                 subs.Event<UnionClipboardCancelStewardMessage>(OnCancelSteward);
                 subs.Event<UnionClipboardAssignStewardMessage>(OnAssignSteward);
             });
+        Subs.BuiEvents<UnionClipboardComponent>(UnionClipboardClaimUiKey.Key,
+            subs => subs.Event<UnionClipboardClaimLeadershipConfirmMessage>(OnConfirmClaimLeadership));
+    }
+
+    private void OnUseInHand(Entity<UnionClipboardComponent> ent, ref UseInHandEvent args)
+    {
+        if (args.Handled)
+            return;
+        args.Handled = true;
+
+        if (!_unionSelector.TryGetUnionForGrouping(ent.Comp.GroupingId, out var union) || union == null)
+            return;
+
+        if (union.Leader == args.User)
+        {
+            _ui.TryToggleUi(ent.Owner, UnionClipboardUiKey.Key, args.User);
+            return;
+        }
+
+        if (!union.Members.ContainsKey(args.User))
+        {
+            _popup.PopupEntity(Loc.GetString("union-clipboard-not-a-member"), args.User, args.User);
+            return;
+        }
+
+        _ui.OpenUi(ent.Owner, UnionClipboardClaimUiKey.Key, args.User);
+    }
+
+    private void OnConfirmClaimLeadership(Entity<UnionClipboardComponent> ent, ref UnionClipboardClaimLeadershipConfirmMessage args)
+    {
+        if (!_unionSelector.TryGetUnionForGrouping(ent.Comp.GroupingId, out var union) || union == null)
+            return;
+
+        if (union.Leader == args.Actor || !union.Members.ContainsKey(args.Actor))
+            return;
+
+        _ui.CloseUi(ent.Owner, UnionClipboardClaimUiKey.Key, args.Actor);
+
+        _popup.PopupEntity(Loc.GetString("union-clipboard-claim-leadership-prompt"), args.Actor, args.Actor);
+
+        var doAfterArgs = new DoAfterArgs(EntityManager, args.Actor, ent.Comp.ClaimLeadershipDelay, new UnionClipboardClaimLeadershipDoAfterEvent(), ent.Owner, used: ent.Owner)
+        {
+            BreakOnMove = true,
+            NeedHand = true,
+        };
+        _doAfter.TryStartDoAfter(doAfterArgs);
+    }
+
+    private void OnClaimLeadershipDoAfter(Entity<UnionClipboardComponent> ent, ref UnionClipboardClaimLeadershipDoAfterEvent args)
+    {
+        if (args.Cancelled || args.Handled)
+            return;
+
+        if (!_unionSelector.TryGetUnionForGrouping(ent.Comp.GroupingId, out var union) || union!.Leader == args.Args.User)
+            return;
+
+        if (!_unionSelector.TrySetUnionLeader(union, args.Args.User))
+            return;
+
+        _popup.PopupEntity(Loc.GetString("union-clipboard-claimed-leadership", ("union", union.Name)), args.Args.User, args.Args.User);
+        args.Handled = true;
     }
 
     private void OnInteractUsing(EntityUid uid, UnionClipboardComponent component, InteractUsingEvent args)
@@ -67,6 +137,12 @@ public sealed partial class UnionClipboardSystem : EntitySystem
         if (target == null)
         {
             _popup.PopupEntity(Loc.GetString("union-clipboard-no-match"), args.User, args.User);
+            return;
+        }
+
+        if (idCard.Comp.JobDepartments.Any(dept => dept == CommandDepartment))
+        {
+            _popup.PopupEntity(Loc.GetString("union-clipboard-command-member", ("name", cardName)), args.User, args.User);
             return;
         }
 

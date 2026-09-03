@@ -3,7 +3,6 @@ using Content.Server.Popups;
 using Content.Shared._Funkystation.Traits.Unions;
 using Content.Shared._Funkystation.Unions;
 using Content.Shared.CCVar;
-using Content.Shared.DoAfter;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Timing;
 using Robust.Server.GameObjects;
@@ -17,7 +16,6 @@ public sealed partial class MegaphoneSystem : EntitySystem
     [Dependency] private UseDelaySystem _useDelay = default!;
     [Dependency] private ChatSystem _chatSystem = default!;
     [Dependency] private PopupSystem _popup = default!;
-    [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private UserInterfaceSystem _ui = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
 
@@ -26,7 +24,6 @@ public sealed partial class MegaphoneSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<MegaphoneComponent, UseInHandEvent>(OnUseInHand);
-        SubscribeLocalEvent<MegaphoneComponent, MegaphoneClaimLeadershipDoAfterEvent>(OnClaimLeadershipDoAfter);
         SubscribeLocalEvent<MegaphoneComponent, BoundUIOpenedEvent>(OnBoundUiOpened);
 
         Subs.BuiEvents<MegaphoneComponent>(MegaphoneUiKey.Key,
@@ -54,29 +51,7 @@ public sealed partial class MegaphoneSystem : EntitySystem
             return;
         }
 
-        _popup.PopupEntity(Loc.GetString("megaphone-claim-leadership-prompt"), args.User, args.User);
-
-        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, component.ClaimLeadershipDelay, new MegaphoneClaimLeadershipDoAfterEvent(), uid, used: uid)
-        {
-            BreakOnMove = true,
-            NeedHand = true,
-        };
-        _doAfter.TryStartDoAfter(doAfterArgs);
-    }
-
-    private void OnClaimLeadershipDoAfter(EntityUid uid, MegaphoneComponent component, MegaphoneClaimLeadershipDoAfterEvent args)
-    {
-        if (args.Cancelled || args.Handled)
-            return;
-
-        if (!_unionSelector.TryGetUnionForGrouping(component.GroupingId, out var union) || union!.Leader == args.Args.User)
-            return;
-
-        if (!_unionSelector.TrySetUnionLeader(union, args.Args.User))
-            return;
-
-        _popup.PopupEntity(Loc.GetString("megaphone-claimed-leadership", ("union", union.Name)), args.Args.User, args.Args.User);
-        args.Handled = true;
+        _popup.PopupEntity(Loc.GetString("megaphone-not-leader"), args.User, args.User);
     }
 
     private void OnBoundUiOpened(Entity<MegaphoneComponent> ent, ref BoundUIOpenedEvent args)

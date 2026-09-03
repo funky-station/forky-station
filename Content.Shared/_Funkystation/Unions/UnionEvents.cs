@@ -70,6 +70,17 @@ public sealed class UnionClipboardAssignStewardMessage(NetEntity target, NetEnti
 }
 
 [Serializable, NetSerializable]
+public enum UnionClipboardClaimUiKey : byte
+{
+    Key,
+}
+
+[Serializable, NetSerializable]
+public sealed class UnionClipboardClaimLeadershipConfirmMessage : BoundUserInterfaceMessage
+{
+}
+
+[Serializable, NetSerializable]
 public enum MegaphoneUiKey : byte
 {
     Key,

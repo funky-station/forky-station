@@ -5,8 +5,7 @@ trait-union-member-name = Union Member
 trait-union-member-desc = Be a part of your local union!
 
 megaphone-not-a-member = You do not belong to this union.
-megaphone-claim-leadership-prompt = You begin to fiddle with the megaphone, attempting to take charge...
-megaphone-claimed-leadership = Using the megaphone, you now declare yourself head of the { $union }!
+megaphone-not-leader = Only the union leader may use this.
 megaphone-on-cooldown = The megaphone needs a moment to rest before another use.
 megaphone-strike-started = { $union } IS NOW ON STRIKE. Members are expected to rally around their union head.
 megaphone-strike-ended = The { $union } strike has ended. Members may now return to work.
@@ -15,6 +14,14 @@ megaphone-call-strike-button = Call Strike
 megaphone-end-strike-button = End Strike
 megaphone-message-too-long = Message is too long.
 megaphone-message-placeholder = Write your reasons for the strike here.
+
+union-clipboard-not-a-member = You do not belong to this union.
+union-clipboard-claim-window-title = Claim Leadership
+union-clipboard-claim-prompt = You are not the current leader for this union, would you like to claim the title?
+union-clipboard-claim-yes = Yes
+union-clipboard-claim-no = No
+union-clipboard-claim-leadership-prompt = You begin to fiddle with the clipboard, attempting to take charge...
+union-clipboard-claimed-leadership = Using the clipboard, you now declare yourself head of the { $union }!
 
 union-clipboard-menu-title = Union Roster
 union-clipboard-leader-name = { $name } (Leader)
@@ -27,6 +34,7 @@ union-clipboard-add-note-title-placeholder = Title
 union-clipboard-add-note-text-placeholder = Say something kind!
 union-clipboard-add-note-submit = Save
 union-clipboard-no-match = You do not see anyone nearby matching that ID.
+union-clipboard-command-member = { $name } is a member of command and cannot join the union.
 union-clipboard-already-registered = They already belong to another union.
 union-clipboard-registered = { $name } has been added to the union roster.
 union-clipboard-make-steward-button = Make Steward
