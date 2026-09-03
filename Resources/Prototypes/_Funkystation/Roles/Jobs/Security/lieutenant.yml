@@ -3,6 +3,7 @@
   name: job-name-lieutenant
   description: job-description-lieutenant
   playTimeTracker: JobLieutenant
+  requiresNda: Security # Funky
   requirements:
   - !type:RoleTimeRequirement
     role: JobSecurityOfficer

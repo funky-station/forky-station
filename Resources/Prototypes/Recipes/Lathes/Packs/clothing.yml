@@ -136,6 +136,7 @@
   - ClothingUniformJumpsuitMime
   - ClothingUniformJumpskirtMime
   - ClothingUniformJumpsuitMusician
+  - ClothingUniformJumpsuitTramDriver
   # Funky start
   - FuClothingUniformShirtPantsHd
   - FuClothingUniformShirtSkirtHd
@@ -183,6 +184,7 @@
   - ClothingNeckTieRed
   - ClothingNeckTieDet
   - ClothingNeckTieSci
+  - ClothingNeckTieSerious
 
 - type: latheRecipePack
   id: Scarves

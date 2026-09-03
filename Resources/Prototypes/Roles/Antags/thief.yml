@@ -22,6 +22,10 @@
   - type: Thieving
     stripTimeReduction: 2
     stealthy: true
+  # Funky changes start
+  - type: InnateAppraisal
+    blackMarket: True
+  # Funky changes end
   mindRoles:
   - MindRoleThief
   briefing:

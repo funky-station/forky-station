@@ -25,7 +25,7 @@
         - id: HandheldGPSBasic
       - !type:GroupSelector
         children:
-        - id: CheapLighter
+        #- id: CheapLighter
         - id: Pen
         - id: Cigar
         - id: CigarSpent
@@ -89,5 +89,5 @@
         - id: WelderIndustrial
         - id: PowerCellHigh
         - id: PowerCellSmall
-        - id: ClothingHandsGlovesColorYellowBudget
+        - id: FuClothingHandsGlovesInsulsBudget #Funky
     offset: 0.0

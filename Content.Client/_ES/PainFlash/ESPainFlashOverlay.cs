@@ -12,6 +12,9 @@ public sealed class ESPainFlashOverlay : Overlay
 
     private const float MaxPain = 100;
 
+    // options set intensity multiplier, funkystation.pain_flash_intensity
+    public float Intensity = 1f;
+
     private float _painAccumulator;
 
     public void ResetPainAccumulator()
@@ -41,7 +44,10 @@ public sealed class ESPainFlashOverlay : Overlay
 
         var handle = args.WorldHandle;
 
-        var alpha = Math.Clamp(_painAccumulator / MaxPain, 0, 1);
+        if (Intensity <= 0)
+            return;
+
+        var alpha = Math.Clamp(_painAccumulator / MaxPain, 0, 1) * Intensity;
         var color = Color.Red.WithAlpha(alpha);
 
         handle.DrawRect(args.WorldBounds, color);

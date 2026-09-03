@@ -26,10 +26,17 @@ public sealed partial class SpaceNinjaComponent : Component
     public EntityUid? Gloves;
 
     /// <summary>
-    /// Bound katana, set once picked up and never removed
+    /// Bound katana, set once equipped and never removed.
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? Katana;
+
+    // funky
+    /// <summary>
+    /// Bound spider charge, set once picked up and never removed
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntityUid? SpiderCharge;
 
     /// <summary>
     /// Objective to complete after calling in a threat.
@@ -48,6 +55,13 @@ public sealed partial class SpaceNinjaComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId SpiderChargeObjective = "SpiderChargeObjective";
+
+    // funky
+    /// <summary>
+    /// Objective to complete after the ninja extracts.
+    /// </summary>
+    [DataField]
+    public EntProtoId SurviveObjective = "NinjaSurviveObjective";
 
     /// <summary>
     /// Alert to show for suit power.

@@ -1,9 +1,25 @@
 - type: entity
   name: hardened roach
-  parent: SimpleMobBase
+  parent: [ BaseMobMothroach, BaseCockroach, BaseSlicingRefinable ]
   id: ImmortalRoach
   description: With an extremely robust carapace this foul creature is considered neigh invulnerable. Spacing is recommended.
   components:
+  - type: Speech
+    speechVerb: Moth
+    speechSounds: Squeak
+    allowedEmotes: ['Chitter', 'Squeak', 'Flap']
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 120
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: MothAccent
   - type: Sprite
     drawdepth: SmallMobs
     sprite: _Funkystation/Mobs/XenoArch/immortal_roach.rsi
@@ -13,36 +29,54 @@
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
       state: immortal_roach_eyes
       shader: unshaded
-  - type: Item
-    size: Tiny
-  - type: HTN
-    constantlyReplan: false
-    rootTask:
-      task: MouseCompound
-  - type: Physics
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.2
-        density: 100
-        mask:
-        - SmallMobMask
-        layer:
-        - SmallMobLayer
-  - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: InsectBlood
-        Quantity: 20
-  - type: Hunger
-    baseDecayRate: 0.25
-  - type: MobState
   - type: MobThresholds
     thresholds:
       0: Alive
       10000000: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 0.7
-    baseSprintSpeed : 1
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4
+    weightlessAcceleration: 1.5
+    weightlessFriction: 1
+    baseWeightlessModifier: 1
+  - type: NameIdentifier
+    group: AdjectivePrefix
+  - type: Damageable
+    damageModifierSet: Moth
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 20
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.5
+    damageRecovery:
+      types:
+        Asphyxiation: -0.5
+  - type: ReplacementAccent
+    accent: mothroach
+  - type: ZombieAccentOverride
+    accent: zombieMoth
+  - type: Vocal
+    emoteSounds: UnisexMoth
+    wilhelmProbability: 0.001
+  - type: BodyEmotes
+    soundsId: MothBodyEmotes
+  - type: MobPrice
+    price: 150
+  - type: Tag
+    tags:
+    - Trash
+    - CannotSuicide
+    - VimPilot
+  - type: CanEscapeInventory
+  - type: NpcFactionMember
+    factions:
+    - Mouse
+  - type: TypingIndicator
+    proto: moth
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Mouse_burning

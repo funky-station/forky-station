@@ -191,6 +191,9 @@
         Quantity: 8
       - ReagentId: Radium
         Quantity: 2
+  - type: RadiationSource #funky
+    intensity: 0.1
+    slope: 3
 
 - type: entity
   parent: SheetUranium

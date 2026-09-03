@@ -1,140 +1,4 @@
-# Ungu
-
-- type: entity
-  parent: BoxCardboard
-  id: BoxSurvivalUngu
-  name: survival box
-  description: It's a box with basic internals inside. Smells like grass?
-  suffix: Wheat
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: ClothingMaskBreath
-        - id: EmergencyOxygenTankFilled
-        - id: EmergencyMedipen
-        - id: Flare
-        - id: WheatBushel
-        - id: DrinkWaterBottleFull
-  - type: Sprite
-    sprite: _MACRO/Objects/Storage/boxes.rsi
-    layers:
-    - state: internals
-    - state: emergencytankcommand
-
-- type: entity
-  parent: BoxSurvivalUngu
-  id: BoxHugUngu
-  name: box of hugs
-  components:
-  - type: Sprite
-    sprite: Objects/Storage/boxes.rsi
-    layers:
-    - state: box_hug
-    - state: heart
-  - type: Item
-    heldPrefix: hug
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: ClothingMaskBreath
-        - id: EmergencyFunnyOxygenTankFilled
-        - id: EmergencyMedipen
-        - id: Flare
-        - id: WheatBushel
-        - id: DrinkWaterBottleFull
-  - type: Tag
-    tags:
-    - BoxHug
-
-- type: entity
-  parent: BoxSurvivalUngu
-  id: BoxMimeUngu
-  suffix: Mime, Wheat
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: ClothingMaskBreath
-        - id: EmergencyOxygenTankFilled
-        - id: EmergencyMedipen
-        - id: Flare
-        - id: WheatBushel
-        - id: DrinkWaterBottleFull
-
-- type: entity
-  parent: BoxSurvivalUngu
-  id: BoxSurvivalSyndicateUngu
-  name: extended-capacity survival box
-  description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank. Smells like grass?
-  suffix: Syndicate, Wheat
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: ClothingMaskGasSyndicate
-        - id: ExtendedEmergencyOxygenTankFilled
-        - id: EmergencyMedipen
-        - id: Flare
-        - id: WheatBushel
-
-- type: entity
-  parent: BoxSurvivalUngu
-  id: BoxSurvivalEngineeringUngu
-  name: extended-capacity survival box
-  description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank. Smells like grass?
-  suffix: Extended, Wheat
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: ClothingMaskBreath
-        - id: ExtendedEmergencyOxygenTankFilled
-        - id: EmergencyMedipen
-        - id: Flare
-        - id: WheatBushel
-        - id: DrinkWaterBottleFull
-
-- type: entity
-  parent: BoxSurvivalUngu
-  id: BoxSurvivalSecurityUngu
-  name: survival box
-  suffix: Security, Wheat
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: ClothingMaskGasSecurity
-        - id: EmergencyOxygenTankFilled
-        - id: EmergencyMedipen
-        - id: Flare
-        - id: WheatBushel
-        - id: DrinkWaterBottleFull
-
-- type: entity
-  parent: BoxSurvivalUngu
-  id: BoxSurvivalMedicalUngu
-  name: survival box
-  suffix: Medical, Wheat
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:AllSelector
-        children:
-        - id: ClothingMaskBreathMedical
-        - id: EmergencyOxygenTankFilled
-        - id: EmergencyMedipen
-        - id: Flare
-        - id: WheatBushel
-        - id: DrinkWaterBottleFull
-
-
+# https://github.com/space-wizards/space-station-14/pull/41664
 # Decapoid
 
 - type: entity
@@ -148,16 +12,13 @@
         children:
         - id: ClothingMaskBreath
         - id: PillEmergency
-        - id: Flare
-        - id: FoodSnackNutribrick
-        - id: DrinkWaterBottleLargeFull
   - type: Sprite
     sprite: _MACRO/Objects/Storage/boxes.rsi
     layers:
     - state: internals
     - state: vaportank
   - type: Label
-    currentLabel: H2O
+    localizedLabel: emergency-box-aquatic-label
 
 - type: entity
   parent: BoxSurvivalAquatic
@@ -170,11 +31,8 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: DrinkWaterBottleTallFull
         - id: ClothingMaskBreath
         - id: PillEmergency
-        - id: Flare
-        - id: FoodSnackNutribrick
   - type: Sprite
     sprite: _MACRO/Objects/Storage/boxes.rsi
     layers:
@@ -200,9 +58,6 @@
         children:
         - id: ClothingMaskBreath
         - id: PillEmergency
-        - id: Flare
-        - id: FoodSnackNutribrick
-        - id: DrinkWaterBottleLargeFunnyFull
   - type: Tag
     tags:
     - BoxHug
@@ -218,9 +73,6 @@
         children:
         - id: ClothingMaskBreath
         - id: PillEmergency
-        - id: Flare
-        - id: FoodBreadNutriBatard
-        - id: DrinkWaterBottleLargeFull
 
 - type: entity
   parent: BoxSurvivalAquatic
@@ -233,9 +85,6 @@
         children:
         - id: ClothingMaskBreathMedical
         - id: PillEmergency
-        - id: Flare
-        - id: FoodSnackNutribrick
-        - id: DrinkWaterBottleLargeFull
 
 
 - type: entity
@@ -249,9 +98,6 @@
         children:
         - id: ClothingMaskGasSecurity
         - id: PillEmergency
-        - id: Flare
-        - id: FoodSnackNutribrick
-        - id: DrinkWaterBottleLargeFull
 
 - type: entity
   parent: BoxSurvivalEngineeringAquatic
@@ -262,8 +108,5 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: DrinkWaterBottleTallFull
         - id: ClothingMaskGasSyndicate
         - id: PillEmergency
-        - id: Flare
-        - id: FoodSnackNutribrick

@@ -17,6 +17,8 @@ using Content.Shared.NameIdentifier;
 using Content.Shared.PDA;
 using Content.Shared.Station; // Funky Change
 using Content.Shared.StationRecords;
+using Content.Shared.StationRecords.Components;
+using Content.Shared.StationRecords.Systems;
 using Content.Shared.Tag;
 using Robust.Shared.Containers;
 using Robust.Shared.Collections;
@@ -35,7 +37,7 @@ public sealed partial class AccessReaderSystem : EntitySystem
     [Dependency] private SharedGameTicker _gameTicker = default!;
     [Dependency] private SharedHandsSystem _handsSystem = default!;
     [Dependency] private SharedContainerSystem _containerSystem = default!;
-    [Dependency] private SharedStationRecordsSystem _recordsSystem = default!;
+    [Dependency] private StationRecordsSystem _recordsSystem = default!;
     [Dependency] private IdentitySystem _identity = default!;
     [Dependency] private StationTimeSystem _stationTime = default!; // Funky Change
     [Dependency] private SharedStationSystem _station = default!; // Funky Change

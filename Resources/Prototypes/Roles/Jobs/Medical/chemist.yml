@@ -26,6 +26,7 @@
   job: Chemist
   equipment:
     head: FuClothingHeadHatScrubcapBlack #ClothingHeadHatBeretMedic funky - fuck department berets
+    eyes: ClothingEyesGlassesChemical
     mask: ClothingMaskSterile
     neck: ClothingNeckStethoscope
     outerClothing: ClothingOuterCoatLabChem

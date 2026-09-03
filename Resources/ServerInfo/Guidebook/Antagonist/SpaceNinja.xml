@@ -1,6 +1,6 @@
 <Document>
   # Space Ninja
-  
+
   <Box>
     [color=#999999][italic]"Spider of the night, silent is my bite."[/italic][/color]
   </Box>
@@ -18,9 +18,9 @@
     <GuideEntityEmbed Entity="JetpackBlack"/>
     <GuideEntityEmbed Entity="PinpointerStation"/>
   </Box>
-  
+
   ## Your Suit
-  
+
   <Box>
     <GuideEntityEmbed Entity="ClothingEyesVisorNinja" Caption="your visor"/>
     <GuideEntityEmbed Entity="ClothingOuterSuitSpaceNinja" Caption="your suit"/>
@@ -45,7 +45,6 @@
   You have an action to toggle gloves. When the gloves are turned on, they allow you to use [bold]special abilities[/bold], which are triggered by interacting with things with an empty hand and with combat mode disabled.
 
   Your glove abilities include:
-  - Emagging doors and airlocks.
   - Draining power from [bold]transformers[/bold] such as APCs, substations, or SMESes (higher voltage transformers drain more efficiently).
   - Applying an electrical shock to a mob, stunning and slightly damaging them.
   - Tampering with [bold]station equipment[/bold] to complete [color=#66FF00]objectives[/color].
@@ -62,23 +61,35 @@
 
   While in hand you may also [color=cyan]teleport[/color] to anywhere that you can see, [bold]including through windows[/bold]. The charges required to do this regenerate slowly, so keep a charge or two spare in case you need a quick getaway.
 
+  ## Throwing Stars
+  <Box>
+    <GuideEntityEmbed Entity="ThrowingStarNinja"/>
+  </Box>
+  Your suit can generate special [color=cyan]throwing stars[/color] at the cost of energy. These disappear on their own and are coated with a [bold]sleeping agent[/bold] that will temporarily knock out any unarmored foe so you can steal their ID or radio.
+
+  Even still, they deal hefty [color=cyan]stamina[/color] damage, so even if your target is armored, 2 of them will still stun them.
+
+  Use them sparingly however, as they consume power to generate.
+
+
   ## Spider Clan Charge
-  
+
   <Box>
     <GuideEntityEmbed Entity="SpiderCharge"/>
   </Box>
-  
-  This is a [color=cyan]modified C-4 explosive[/color] which can be found in your pocket. Creates a large explosion but [bold]must be armed in your target area[/bold] as it is one of your objectives.
 
-  It can't be activated manually, so simply plant it on a wall near your assigned target. Choose wisely, it can't be unstuck once planted.
+  This is a [color=cyan]modified C-4 explosive[/color] which can be found in your pocket. Creates a large explosion but it has a lengthy 90 second timer and [bold]must be armed near your target area[/bold] as it is one of your objectives.
+
+  It can't be activated manually, so simply plant it on a wall near your assigned target. It can be disarmed if unstuck, so make sure it isn't! If you ever lose it, you can recall it same as your katana.
 
   ## Objectives
 
   - Download \[9-13\] research nodes: Use your gloves on an R&D server with a number of unlocked technologies. You may have to unlock technologies yourself if there aren't enough to steal already.
-  - Doorjack \[15-40\] doors on the station: Use your gloves to emag a number of doors.
   - Detonate the spider clan charge: Plant your spider clan charge at the specified location and watch it go boom!
   - Call in a [textlink="threat" link="MinorAntagonists"]: Use your gloves on a communications console.
   - Set everyone to wanted: Use your gloves on a criminal records console.
-  - Survive: Don't die.
-
+  - Survive and extract: After achieving all your objectives, escape into space and use your [color=#66FF00]pager[/color] to extract.
+  <Box>
+    <GuideEntityEmbed Entity="NinjaPager"/>
+  </Box>
 </Document>

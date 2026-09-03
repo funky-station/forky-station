@@ -925,7 +925,7 @@ entities:
     - type: Transform
       pos: 6.1178246,-1.5593455
       parent: 1
-- proto: CrateSecurityTrackingMindshieldImplants
+- proto: CrateTrackingImplants
   entities:
   - uid: 155
     components:

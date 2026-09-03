@@ -1,0 +1,19 @@
+- type: entity
+  id: PaperNdaCommand
+  name: non-disclosure agreement
+  parent: Paper
+  description: A standard Nanotrasen non-disclosure agreement for command staff.
+  components:
+  - type: Paper
+  - type: TextFilePaperContent
+    fileName: nda_command.txt
+
+- type: entity
+  id: PaperNdaSecurity
+  name: non-disclosure agreement
+  parent: Paper
+  description: A standard Nanotrasen non-disclosure agreement for security personnel.
+  components:
+  - type: Paper
+  - type: TextFilePaperContent
+    fileName: nda_security.txt
