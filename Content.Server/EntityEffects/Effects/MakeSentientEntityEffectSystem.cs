@@ -5,6 +5,7 @@ using Content.Shared.EntityEffects.Effects;
 using Content.Shared.Mind.Components;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
+using Content.Shared.Speech.Components;
 
 namespace Content.Server.EntityEffects.Effects;
 
