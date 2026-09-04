@@ -1,5 +1,4 @@
-﻿
-- files:
+﻿- files:
     - large_stamp-cap.png
     - large_stamp-ce.png
     - large_stamp-centcom.png
@@ -30,3 +29,9 @@
   license: "CC-BY-SA-3.0"
   copyright: "Stamp icons by stabithar for FunkyStation"
   source: "https://funkystation.org/"
+- files:
+  - large_stamp-borg.png
+  license: "CC-BY-NC-3.0"
+  copyright: "Stamp icons by empty0set for Funkystation"
+  source: "https://funkystation.org/"
+

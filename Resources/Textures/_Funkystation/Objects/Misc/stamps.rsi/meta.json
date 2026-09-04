@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "By AraiMaia for Funky Station, inhands by TiniestShark (Github)",
+    "copyright": "By AraiMaia for Funky Station, inhands by TiniestShark (Github), borg stamp by empty0set for Funkystation",
     "size": {
         "x": 32,
         "y": 32
@@ -85,6 +85,15 @@
         {
             "name": "stamp-inhand-right",
             "directions": 4
+        },
+        {
+            "name": "stamp-iaa"
+        },
+        {
+            "name": "stamp-borg"
+        },
+        {
+            "name": "stamp-iaa"
         }
     ]
 }
