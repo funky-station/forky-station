@@ -3,12 +3,16 @@ using Content.Server.GameTicking;
 using Content.Server.Station.Events;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.Traits;
+using Content.Server.Popups;
 using Content.Shared._Funkystation.Traits.Unions;
+using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Roles;
+using Content.Shared.Temperature;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
@@ -25,11 +29,14 @@ public sealed partial class UnionSelectorSystem : EntitySystem
     [Dependency] private SharedHandsSystem _handsSystem = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
 
     private ISawmill _sawmill = default!;
 
     private static readonly ProtoId<UnionRoleItemSetPrototype> UnionLeaderItemSetProto = "unionItemSet";
     private static readonly EntProtoId UnionCardProto = "UnionCard";
+    private static readonly TimeSpan CardBurnDelay = TimeSpan.FromSeconds(3);
 
     public override void Initialize()
     {
@@ -43,6 +50,8 @@ public sealed partial class UnionSelectorSystem : EntitySystem
         SubscribeLocalEvent<UnionLeaderComponent, ComponentGetStateAttemptEvent>(OnLeaderGetStateAttempt);
         SubscribeLocalEvent<UnionStewardComponent, ComponentGetStateAttemptEvent>(OnStewardGetStateAttempt);
         SubscribeLocalEvent<UnionCardComponent, ExaminedEvent>(OnCardExamined);
+        SubscribeLocalEvent<UnionCardComponent, InteractUsingEvent>(OnCardInteractUsing);
+        SubscribeLocalEvent<UnionCardComponent, UnionCardBurnDoAfterEvent>(OnCardBurnDoAfter);
 
         _sawmill = _logManager.GetSawmill("unions");
     }
@@ -56,6 +65,45 @@ public sealed partial class UnionSelectorSystem : EntitySystem
             ("name", comp.OwnerName),
             ("union", comp.UnionName),
             ("position", comp.Position)));
+    }
+
+    private void OnCardInteractUsing(Entity<UnionCardComponent> ent, ref InteractUsingEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        var isHotEvent = new IsHotEvent();
+        RaiseLocalEvent(args.Used, isHotEvent);
+        if (!isHotEvent.IsHot)
+            return;
+
+        args.Handled = true;
+
+        var beginKey = ent.Comp.OwnerUid == args.User ? "union-card-burn-begin-self" : "union-card-burn-begin-other";
+        _popup.PopupEntity(Loc.GetString(beginKey, ("name", ent.Comp.OwnerName)), args.User, args.User);
+
+        var doAfterArgs = new DoAfterArgs(EntityManager, args.User, CardBurnDelay, new UnionCardBurnDoAfterEvent(), ent.Owner, used: args.Used)
+        {
+            BreakOnMove = true,
+            NeedHand = true,
+        };
+        _doAfter.TryStartDoAfter(doAfterArgs);
+    }
+
+    private void OnCardBurnDoAfter(Entity<UnionCardComponent> ent, ref UnionCardBurnDoAfterEvent args)
+    {
+        if (args.Cancelled || args.Handled)
+            return;
+
+        args.Handled = true;
+
+        if (ent.Comp.OwnerUid is { } owner && TryResignFromUnion(owner))
+        {
+            var doneKey = owner == args.Args.User ? "union-card-burned-self" : "union-card-burned-other";
+            _popup.PopupEntity(Loc.GetString(doneKey, ("name", ent.Comp.OwnerName)), args.Args.User, args.Args.User);
+        }
+
+        QueueDel(ent.Owner);
     }
 
     private void OnLeaderGetStateAttempt(EntityUid uid, UnionLeaderComponent comp, ref ComponentGetStateAttemptEvent args)
@@ -490,6 +538,21 @@ public sealed partial class UnionSelectorSystem : EntitySystem
         return true;
     }
 
+    public bool TryResignFromUnion(EntityUid member)
+    {
+        if (!TryGetUnionForMember(member, out var union) || union == null)
+            return false;
+
+        if (union.Leader == member)
+            union.Leader = EntityUid.Invalid;
+
+        if (!RemoveMember(union, member))
+            return false;
+
+        DirtyUnionVision();
+        return true;
+    }
+
     public bool RemoveMember(StationUnion union, EntityUid member)
     {
         if (member == union.Leader)
@@ -600,6 +663,7 @@ public sealed partial class UnionSelectorSystem : EntitySystem
     {
         var card = Spawn(UnionCardProto, coords);
         var cardComp = EnsureComp<UnionCardComponent>(card);
+        cardComp.OwnerUid = member;
         cardComp.OwnerName = Name(member);
         cardComp.UnionName = union.Name;
         cardComp.Position = Loc.GetString(GetPositionLoc(union, member));

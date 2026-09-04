@@ -50,3 +50,7 @@ union-card-examine = Certifies that { $name } is a { $position } of the { $union
 union-card-position-leader = Leader
 union-card-position-steward = Steward
 union-card-position-member = Member
+union-card-burn-begin-self = You hold your union card to the flame, renouncing your membership...
+union-card-burn-begin-other = You hold { $name }'s union card to the flame...
+union-card-burned-self = Your union card is no more. You have resigned from the union.
+union-card-burned-other = { $name }'s union card is no more. They are no longer a member of their union.
