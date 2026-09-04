@@ -9,6 +9,7 @@ public sealed partial class CrewMonitoringWindow
 {
     private List<SuitSensorStatus> _uniqueSensors = [];
 
+    // Gets called each time the search bar changes
     private void OnSearchLineTextChanged(LineEdit.LineEditEventArgs args)
     {
         RebuildSensorsTable();
@@ -34,37 +35,22 @@ public sealed partial class CrewMonitoringWindow
                 .Where(sensor => sensor.JobDepartments.Contains(department))
                 .ToList();
 
-            // Checks if the department has at least one sensor matching the search filter
-            // if not, don't add the department label
-            if (departmentSensors.Count == 0 || !departmentSensors.Any(MatchesSearchFilter))
-                continue;
-
-            if (SensorsTable.ChildCount > 0)
-            {
-                SensorsTable.AddChild(new Control
-                {
-                    SetHeight = 20,
-                });
-            }
-
-            var departmentLabel = new RichTextLabel
-            {
-                Margin = new Thickness(10, 0),
-                HorizontalExpand = true,
-            };
-
-            departmentLabel.SetMessage(department);
-            departmentLabel.StyleClasses.Add("font-large");
-
-            SensorsTable.AddChild(departmentLabel);
-            PopulateDepartmentList(departmentSensors);
+            AddDepartmentToSensorsTable(department, departmentSensors);
         }
 
         var remainingSensors = orderedSensors
             .Where(sensor => sensor.JobDepartments.Count == 0)
             .ToList();
 
-        if (remainingSensors.Count == 0 || !remainingSensors.Any(MatchesSearchFilter))
+        AddDepartmentToSensorsTable(Loc.GetString("crew-monitoring-ui-no-department-label"), remainingSensors);
+    }
+
+    // Appends the department and its sensors to the sensors table
+    private void AddDepartmentToSensorsTable(string departmentName, List<SuitSensorStatus> departmentSensors)
+    {
+
+        // Checks if at least one sensor inside the department matches the filter on the search bar
+        if (departmentSensors.Count == 0 || !departmentSensors.Any(MatchesSearchFilter))
             return;
 
         if (SensorsTable.ChildCount > 0)
@@ -75,17 +61,17 @@ public sealed partial class CrewMonitoringWindow
             });
         }
 
-        var noDepartmentLabel = new RichTextLabel
+        var departmentLabel = new RichTextLabel
         {
             Margin = new Thickness(10, 0),
             HorizontalExpand = true,
         };
 
-        noDepartmentLabel.SetMessage(Loc.GetString("crew-monitoring-ui-no-department-label"));
-        noDepartmentLabel.StyleClasses.Add("font-large");
+        departmentLabel.SetMessage(departmentName);
+        departmentLabel.StyleClasses.Add("font-large");
 
-        SensorsTable.AddChild(noDepartmentLabel);
-        PopulateDepartmentList(remainingSensors);
+        SensorsTable.AddChild(departmentLabel);
+        PopulateDepartmentList(departmentSensors);
     }
 
     private static List<SuitSensorStatus> GetUniqueSensorsList(List<SuitSensorStatus> allSensors)
@@ -95,7 +81,7 @@ public sealed partial class CrewMonitoringWindow
         {
             if (uniqueSensorsMap.TryGetValue(sensor.OwnerUid, out var existingSensor))
             {
-                // Skip if we already have a sensor with more data for this mob.
+                // Skip if we already have a sensor with more data for this entity
                 if (existingSensor.Coordinates != null && sensor.Coordinates == null)
                     continue;
 
@@ -109,6 +95,8 @@ public sealed partial class CrewMonitoringWindow
         return uniqueSensorsMap.Values.ToList();
     }
 
+    // Search filter for the search bar
+    // Matches the filtering logic used upstream, extracted in its own method
     private bool MatchesSearchFilter(SuitSensorStatus sensor)
     {
         return string.IsNullOrEmpty(SearchLineEdit.Text)
