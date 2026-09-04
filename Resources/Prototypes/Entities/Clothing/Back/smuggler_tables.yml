@@ -464,7 +464,7 @@
     children:
     - id: Crowbar
     - id: Multitool
-    - id: ClothingHandsGlovesColorYellow
+    - id: FuClothingHandsGlovesInsuls #Funky
     - id: Screwdriver
     - id: ClothingHeadHatWeldingMaskFlame
     - id: WelderExperimental

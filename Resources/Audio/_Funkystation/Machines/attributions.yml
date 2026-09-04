@@ -1,3 +1,12 @@
+# SPDX-FileCopyrightText: 2026 Miguel4387 <mveramontoto@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- files: ["airlock_open.ogg", "boltsup.ogg", "boltsdown.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "ParadiseSS13"
+  source: "https://github.com/ParadiseSS13/Paradise/tree/275677675bf34c94e9dd2e5e4e257e76a960db94/sound/machines"
+  
 - files: ["clock_ticking.ogg"]
   license: "CC-BY-4.0"
   copyright: "By InspectorJ, taken from freesound.org. Mono'd by AraiMaia"

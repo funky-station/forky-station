@@ -1,10 +1,12 @@
 ﻿using Content.Server._Funkystation.StationRecords.Components;
 using Content.Server.GameTicking;
-using Content.Server.StationRecords.Systems;
+using Content.Shared.StationRecords.Systems;
 using Content.Shared._Funkystation.CCVar;
 using Content.Shared.StationRecords;
 using Content.Shared.CriminalRecords;
 using Content.Shared.Roles;
+using Content.Shared.StationRecords.Components;
+using Content.Shared.StationRecords.Events;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
@@ -31,7 +33,7 @@ public sealed partial class XoRecordManifestSystem : EntitySystem
         Subs.CVar(_cfg, XoRecordsCVars.ManualRecordsEnabled, OnCVarChanged, true);
 
         SubscribeLocalEvent<GameRunLevelChangedEvent>(OnRunLevelChanged);
-        SubscribeLocalEvent<AfterGeneralRecordCreatedEvent>(OnRecordCreated);
+        SubscribeLocalEvent<GeneralRecordCreatedEvent>(OnRecordCreated);
         SubscribeLocalEvent<RecordModifiedEvent>(OnRecordModified);
         SubscribeLocalEvent<RecordRemovedEvent>(OnRecordRemoved);
     }
@@ -47,7 +49,7 @@ public sealed partial class XoRecordManifestSystem : EntitySystem
         while (query.MoveNext(out var uid, out var manifest, out var records))
         {
             manifest.Published.Clear();
-            foreach (var (id, record) in _stationRecords.GetRecordsOfType<GeneralStationRecord>(uid, records))
+            foreach (var (id, record) in _stationRecords.GetRecordsOfType<GeneralStationRecord>(uid))
             {
                 manifest.Published[id] = record with { };
             }
@@ -67,7 +69,7 @@ public sealed partial class XoRecordManifestSystem : EntitySystem
         {
             var manifest = EnsureComp<XoRecordManifestComponent>(station);
 
-            foreach (var (id, record) in _stationRecords.GetRecordsOfType<GeneralStationRecord>(station, records))
+            foreach (var (id, record) in _stationRecords.GetRecordsOfType<GeneralStationRecord>(station))
             {
                 manifest.Published[id] = record with { };
             }
@@ -77,7 +79,7 @@ public sealed partial class XoRecordManifestSystem : EntitySystem
         }
     }
 
-    private void OnRecordCreated(AfterGeneralRecordCreatedEvent ev)
+    private void OnRecordCreated(ref GeneralRecordCreatedEvent ev)
     {
         var manifest = EnsureComp<XoRecordManifestComponent>(ev.Key.OriginStation);
 
@@ -88,7 +90,7 @@ public sealed partial class XoRecordManifestSystem : EntitySystem
         RaiseLocalEvent(new XoRecordManifestUpdatedEvent(ev.Key.OriginStation));
     }
 
-    private void OnRecordModified(RecordModifiedEvent ev)
+    private void OnRecordModified(ref RecordModifiedEvent ev)
     {
         if (_manualEnabled)
             return;
@@ -101,7 +103,7 @@ public sealed partial class XoRecordManifestSystem : EntitySystem
         RaiseLocalEvent(new XoRecordManifestUpdatedEvent(ev.Key.OriginStation));
     }
 
-    private void OnRecordRemoved(RecordRemovedEvent ev)
+    private void OnRecordRemoved(ref RecordRemovedEvent ev)
     {
         if (!TryComp<XoRecordManifestComponent>(ev.Station, out var manifest))
             return;

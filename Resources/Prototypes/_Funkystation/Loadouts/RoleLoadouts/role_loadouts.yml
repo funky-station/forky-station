@@ -2,13 +2,16 @@
   id: JobHospitalityDirector
   groups:
   - GroupTankHarness
-  - GroupTankHarness
-  - BartenderJumpsuit
+  - FuHdHead
+  - FuHdUniform
+  - FuHdGloves
   - CommonBackpack
+  - FuHdOuterclothing
+  - FuHdShoes
   - Glasses
   - Survival
   - Trinkets
-  #- ServiceWorkerJobTrinkets
+  #- HDJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
@@ -119,4 +122,12 @@
   - Trinkets
   - SecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobPrisoner
+  groups:
+  - Glasses
+  - Trinkets
+  - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # MACRO: Decapoid

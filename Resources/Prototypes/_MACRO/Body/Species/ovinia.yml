@@ -145,10 +145,12 @@
     modifier: 0.75 # less fire stacks!
   - type: EatTimeModifier
     modifier: 1.2 # quite slow eaters
-  - type: Hunger
-    baseDecayRate: 0.0083 # slower than normal (chewin they cud)
-  - type: Thirst
-    baseDecayRate: 0.0083 # slower than normal
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: OviniaSatiationHunger
+      Thirst:
+        prototype: OviniaSatiationThirst
   - type: SleepTimeModifier
     modifier: 2
   - type: PettingChanceModifier

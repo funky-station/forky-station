@@ -23,3 +23,10 @@ fu-loadout-group-cmo-uniform = Chief Medical Officer's uniform
 
 fu-loadout-group-medical-intern-head = Medical Intern head
 fu-loadout-group-medical-intern-uniform = Medical Intern uniform
+
+# Service
+fu-loadout-group-hd-head = Hospitality Director's head
+fu-loadout-group-hd-outerclothing = Hospitality Director's outer clothing
+fu-loadout-group-hd-uniform = Hospitality Director's uniform
+fu-loadout-group-hd-gloves = Hospitality Director's gloves
+fu-loadout-group-hd-shoes = Hospitality Director's shoes

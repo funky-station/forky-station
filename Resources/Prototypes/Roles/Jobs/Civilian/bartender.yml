@@ -3,10 +3,10 @@
   name: job-name-bartender
   description: job-description-bartender
   playTimeTracker: JobBartender
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Service # Funky - Service is now a separate department
-      time: 0.5h
+  #requirements:
+  #  - !type:DepartmentTimeRequirement
+  #    department: Service # Funky - Service is now a separate department
+  #    time: 0.5h # Funky - Removing role timer for parity
   startingGear: BartenderGear
   icon: "JobIconBartender"
   supervisors: job-supervisors-hd # funky

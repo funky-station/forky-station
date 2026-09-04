@@ -186,7 +186,7 @@
         prob: 0.1 #funky change I LOVE GAMBLING!!!
     - id: ClothingShoesBootsMag
       prob: 0.5
-    - id: ClothingHandsGlovesColorYellow
+    - id: FuClothingHandsGlovesInsuls #Funky
     - id: ClothingShoesColorYellow
 
 #funkstart
@@ -386,7 +386,7 @@
     - !type:GroupSelector
       children:
       - id: BoxHug
-      - id: BoxHugNitrogen
+      - id: BoxSurvivalHugNitrogen
       - id: BoxHugHealing
         prob: 0.1
 

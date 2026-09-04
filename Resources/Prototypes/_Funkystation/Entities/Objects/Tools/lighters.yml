@@ -1,0 +1,34 @@
+- type: entity
+  name: commemorative flippo lighter
+  parent: FlippoLighter
+  id: CommemorativeFlippoLighter
+  description: "A cheap looking flippo lighter, still lasts quite a while. A bizarre image is stamped on the front."
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Tools/Lighters/help4_lighter.rsi
+    layers:
+    - state: zippo_help4_icon_base
+      map: ["base"]
+    - state: zippo_top
+      map: ["top"]
+      visible: false
+    - state: zippo_help4_open
+      map: ["open"]
+      visible: false
+    - state: zippo_help4_flame
+      map: ["flame"]
+      visible: false
+      shader: unshaded
+  - type: ItemToggle
+    predictable: false
+    soundDeactivate:
+      path: /Audio/_Funkystation/Items/Lighters/zippo_help4_close.ogg
+  - type: ItemToggleInterruptibleSound
+    soundActivate:
+      path: /Audio/_Funkystation/Items/Lighters/zippo_help4_open.ogg
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 9
+      maxVol: 11

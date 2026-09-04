@@ -1,0 +1,74 @@
+
+# SPDX-License-Identifier: MIT
+
+- type: gameMap
+  id: Bramble
+  mapName: 'Bramble Midway'
+  mapPath: /Maps/_Funkystation/bramble.yml
+  minPlayers: 70
+  stations:
+    Bramble:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Bramble {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: '14'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/_Funkystation/Shuttles/emergency_bramble.yml
+        - type: StationJobs
+          availableJobs:
+            #corporate
+            CorporateLiaison: [ 1, 1 ]
+            InternalAffairsAgent: [ 2, 2 ]
+            #command
+            Captain: [ 1, 1 ]
+            ExecutiveOfficer: [ 1, 1 ]
+            Quartermaster: [ 1, 1 ]
+            ResearchDirector: [ 1, 1 ]
+            ChiefEngineer: [ 1, 1 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            HospitalityDirector: [ 1, 1 ]
+            #service
+            Bartender: [ 1, 2 ]
+            Chef: [ 2, 2 ]
+            Janitor: [ 2, 3 ]
+            Chaplain: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
+            ServiceWorker: [ 4, 5 ]
+            #engineering
+            StationEngineer: [ 7, 9 ]
+            TechnicalAssistant: [ 4, 5 ]
+            #medical
+            Chemist: [ 2, 3 ]
+            MedicalDoctor: [ 4, 4 ]
+            Paramedic: [ 2, 2 ]
+            MedicalIntern: [ 4, 4 ]
+            Psychologist: [ 1, 1 ]
+            #science
+            Scientist: [ 5, 6 ]
+            ResearchAssistant: [ 4, 5 ]
+            #security
+            Commandant: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+            Lieutenant: [ 3, 3 ]
+            Dispatcher: [ 1, 1 ]
+            SecurityOfficer: [ 3, 4 ]
+            Detective: [ 1, 1 ]
+            SecurityCadet: [ 3, 3 ]
+            #legal
+            Magistrate: [ 1, 1 ]
+            Lawyer: [ 2, 2 ]
+            #supply
+            Botanist: [ 2, 3 ]
+            CargoTechnician: [ 4, 4 ]
+            Prisoner: [ 1, 1 ]
+            #civilian
+            Passenger: [ -1, -1 ]
+            Clown: [ 1, 1 ]
+            Mime: [ 1, 2 ]
+            Musician: [ 1, 1 ]
+            Reporter: [ 1, 2 ]
+            #silicon
+            Borg: [ 2, 2 ]

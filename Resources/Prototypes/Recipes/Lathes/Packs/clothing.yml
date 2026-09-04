@@ -136,6 +136,15 @@
   - ClothingUniformJumpsuitMime
   - ClothingUniformJumpskirtMime
   - ClothingUniformJumpsuitMusician
+  - ClothingUniformJumpsuitTramDriver
+  # Funky start
+  - FuClothingUniformShirtPantsHd
+  - FuClothingUniformShirtSkirtHd
+  - FuClothingOuterCoatHd
+  - FuClothingOuterVestHd
+  - FuClothingOuterWinterHd
+  - FuClothingHeadHatHd
+  # Funky end
 
 - type: latheRecipePack
   id: WinterCoats
@@ -175,6 +184,7 @@
   - ClothingNeckTieRed
   - ClothingNeckTieDet
   - ClothingNeckTieSci
+  - ClothingNeckTieSerious
 
 - type: latheRecipePack
   id: Scarves

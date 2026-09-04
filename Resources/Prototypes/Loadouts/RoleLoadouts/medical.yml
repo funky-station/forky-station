@@ -13,6 +13,7 @@
   - ChiefMedicalOfficerShoes
   - Pager
   - Glasses
+  - AssistiveItems
   - SurvivalMedical
   - Trinkets
   - ChiefMedicalOfficerJobTrinkets # Funky uncommented
@@ -32,6 +33,7 @@
   - MedicalDoctorPDA
   - Pager
   - Glasses
+  - AssistiveItems
   - SurvivalMedical
   - Trinkets
 #  - MedicalDoctorJobTrinkets
@@ -47,6 +49,7 @@
   - MedicalBackpack
   - Pager
   - Glasses
+  - AssistiveItems
   - SurvivalMedical
   - Trinkets
 #  - MedicalInternJobTrinkets
@@ -65,6 +68,7 @@
   - FuChemistBoots # funky - previously MedicalShoes
   - Pager
   - Glasses
+  - AssistiveItems
   - SurvivalMedical
   - Trinkets
 #  - ChemistJobTrinkets
@@ -83,6 +87,7 @@
   - ParamedicShoes
   - Pager
   - Glasses
+  - AssistiveItems
   - SurvivalMedical
   - Trinkets
 #  - ParamedicJobTrinkets

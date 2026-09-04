@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseItem, BaseMinorContraband ]
+  parent: [ BaseItem, BaseItemDestructible, BaseMinorContraband ]
   id: FireBomb
   name: fire bomb
   description: A weak, improvised incendiary device.
@@ -39,17 +39,12 @@
   - type: AnimationPlayer
   - type: TimerTriggerVisuals
     unprimedSprite: base
-  - type: Damageable
-  - type: Injurable
-    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
         damage: 50
       behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
       - !type:ExplodeBehavior
   - type: Construction
     graph: FireBomb

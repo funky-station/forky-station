@@ -13,11 +13,19 @@
   - type: Speech
     speechVerb: Robotic
   - type: Sprite
-    sprite: Objects/Devices/communication.rsi
+    sprite: _Funkystation/Objects/Devices/radio.rsi #funky start
     layers:
-    - state: walkietalkie
-    - state: walkietalkie-on
-    state: walkietalkie
+    - state: base
+    - state: active
+      visible: false
+      shader: unshaded
+      map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false } #funky end
   - type: Item
     sprite: Objects/Devices/communication.rsi
     heldPrefix: walkietalkie
@@ -37,8 +45,21 @@
   - type: RadioSpeaker
     channels:
     - Security
-  - type: Sprite
-    sprite: Objects/Devices/securityhandy.rsi
+  - type: Sprite #funky start
+    sprite: _Funkystation/Objects/Devices/radio.rsi
+    layers:
+    - state: base
+    - state: cap-security
+    - state: active
+      visible: false
+      shader: unshaded
+      map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false } #funky end
   - type: Item
     sprite: Objects/Devices/securityhandy.rsi
     heldPrefix: walkietalkie

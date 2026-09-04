@@ -1,0 +1,71 @@
+- type: entity
+  id: Lectern
+  parent: BaseStructure
+  name: lectern
+  description: A sturdy piece of wood crafted for the greatest of speeches.
+  components:
+  - type: Icon
+    sprite: _Funkystation/Structures/Furniture/lectern.rsi
+    state: base
+  - type: Sprite
+    sprite: _Funkystation/Structures/Furniture/lectern.rsi
+    layers:
+    - state: base
+      map: [ "base" ]
+      visible: true
+    - state: fill
+      map: [ "fill" ]
+      visible: false
+  - type: ItemSlots
+    slots:
+        slot1:
+          whitelist:
+            tags:
+            - Paper
+            - Book
+          insertOnInteract: true
+          insertSound:
+            path: /Audio/_Funkystation/Effects/Lectern/bookplace.ogg
+          ejectSound:
+            path: /Audio/_Funkystation/Effects/Lectern/bookpickup.ogg
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      slot1: !type:ContainerSlot {}
+  - type: ItemMapper
+    mapLayers:
+      fill:
+        minCount: 1
+        whitelist:
+          tags:
+            - Book
+            - Paper
+    sprite: _Funkystation/Structures/Furniture/lectern.rsi
+  - type: Appearance
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank1:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Anchorable
+  - type: Pullable
+  - type: InteractionOutline
+  - type: Construction
+    graph: Lectern
+    node: lectern

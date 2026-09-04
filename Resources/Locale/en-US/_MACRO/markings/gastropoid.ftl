@@ -192,9 +192,6 @@ marking-GlowInTheDarkStars-prostheticsimpleglowinthedarkstars = Glow in the Dark
 marking-ProstheticInnerLight = Prosthetic Inner Light
 marking-ProstheticInnerLight-prostheticinnerlight = Prosthetic Inner Light
 
-marking-ProstheticPulse = Prosthetic Pulse
-marking-ProstheticPulse-prostheticpulse = Prosthetic Pulse
-
 marking-SimpleBow = Cute Bow
 marking-SimpleBow-prostheticsimplebow = Cute Bow
 
@@ -316,6 +313,7 @@ marking-BigRibbon-bigribbon2 = Ribbon Pins
 marking-ProstheticMulticolor = Prosthetic Plating
 marking-ProstheticMulticolor-prostheticmulticolor1 = Plating 1
 marking-ProstheticMulticolor-prostheticmulticolor2 = Plating 2
+marking-ProstheticMulticolor-prostheticpulse = Pulse
 
 marking-SmallFlowers = Flowers
 marking-SmallFlowers-smallflowers1 = Flowers 1

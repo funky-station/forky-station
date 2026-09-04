@@ -10,6 +10,7 @@ using Content.Shared.Execution;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
+using Content.Shared.Suicide;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Ranged;
@@ -320,12 +321,11 @@ public sealed partial class GunExecutionSystem : EntitySystem
 
     private void ShowInternal(LocId key, EntityUid attacker, EntityUid victim, EntityUid weapon)
     {
-        _popup.PopupClient(
+        _popup.PopupEntity(
             Loc.GetString(key,
                 ("attacker", Identity.Entity(attacker, EntityManager)),
                 ("victim", Identity.Entity(victim, EntityManager)),
                 ("weapon", weapon)),
-            attacker,
             attacker,
             PopupType.MediumCaution);
     }

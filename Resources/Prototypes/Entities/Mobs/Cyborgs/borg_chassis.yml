@@ -21,7 +21,7 @@
     noMindState: robot_e_r
   - type: BorgTransponder
     sprite:
-      sprite: Mobs/Silicon/chassis.rsi
+      sprite: _Funkystation/Mobs/Silicon/chassis.rsi # Funky
       state: robot
     name: cyborg
   - type: InteractionPopup
