@@ -106,7 +106,7 @@ public sealed partial class SlipperySystem : EntitySystem
         if (attemptEv.SlowOverSlippery)
             _speedModifier.AddModifiedEntity(other);
 
-        if (attemptEv.NoSlip)
+        if (attemptEv.NoSlip && !component.IgnoreNoSlip) // Funky - IgnoreNoSlip - tripwires
             return;
 
         var attemptCausingEv = new SlipCausingAttemptEvent();
@@ -166,6 +166,8 @@ public sealed class SlipAttemptEvent : EntityEventArgs, IInventoryRelayEvent
     public bool SlowOverSlippery;
 
     public EntityUid? SlipCausingEntity;
+
+    public bool IgnoreNoSlip; // Funky - Tripwire
 
     public SlotFlags TargetSlots { get; } = SlotFlags.FEET;
 

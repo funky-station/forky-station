@@ -45,6 +45,12 @@ namespace Content.Shared.Slippery
         /// </summary>
         [DataField, AutoNetworkedField]
         public SlipperyEffectEntry SlipData = new();
+
+        /// <summary>
+        /// FUNKYSTATION - Whether or not this entity respects NoSlipComponent.
+        /// </summary>
+        [DataField, AutoNetworkedField]
+        public bool IgnoreNoSlip = false;
     }
     /// <summary>
     /// Stores the data for slipperiness that way reagents and this component can use it.
