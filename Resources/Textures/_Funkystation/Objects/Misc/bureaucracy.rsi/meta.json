@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "By AraiMaia for Funky Station",
+  "copyright": "By AraiMaia for Funky Station, paper_stamp-cci by TheHolyAegis",
   "size": {
     "x": 32,
     "y": 32
@@ -141,6 +141,15 @@
     },
     {
       "name": "paper-inhand-right"
+    },
+    {
+      "name": "paper_stamp-iaa"
+    },
+    {
+      "name": "paper_stamp-borg"
+    },
+    {
+       "name": "paper_stamp-cci"
     }
   ]
 }
