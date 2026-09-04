@@ -152,6 +152,8 @@ public sealed partial class UnionClipboardSystem : EntitySystem
             return;
         }
 
+        _unionSelector.GiveUnionCardToStorage(target.Value, union, uid);
+
         _popup.PopupEntity(Loc.GetString("union-clipboard-registered", ("name", cardName)), args.User, args.User);
         UpdateUi((uid, component));
         args.Handled = true;

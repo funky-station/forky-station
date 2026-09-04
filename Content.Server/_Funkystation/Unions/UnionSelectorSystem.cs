@@ -10,6 +10,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Roles;
 using Robust.Shared.GameStates;
+using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -595,13 +596,19 @@ public sealed partial class UnionSelectorSystem : EntitySystem
         _handsSystem.TryPickupAnyHand(playerMobUid, spawned);
     }
 
-    private void GiveUnionCard(EntityUid member, StationUnion union)
+    private EntityUid SpawnUnionCard(EntityUid member, StationUnion union, EntityCoordinates coords)
     {
-        var card = Spawn(UnionCardProto, Transform(member).Coordinates);
+        var card = Spawn(UnionCardProto, coords);
         var cardComp = EnsureComp<UnionCardComponent>(card);
         cardComp.OwnerName = Name(member);
         cardComp.UnionName = union.Name;
         cardComp.Position = Loc.GetString(GetPositionLoc(union, member));
+        return card;
+    }
+
+    private void GiveUnionCard(EntityUid member, StationUnion union)
+    {
+        var card = SpawnUnionCard(member, union, Transform(member).Coordinates);
 
         if (_inventorySystem.TryGetSlotEntity(member, "back", out var backpack)
             && _storageSystem.Insert(backpack.Value, card, out _))
@@ -610,5 +617,11 @@ public sealed partial class UnionSelectorSystem : EntitySystem
         }
 
         _handsSystem.TryPickupAnyHand(member, card);
+    }
+
+    public void GiveUnionCardToStorage(EntityUid member, StationUnion union, EntityUid storage)
+    {
+        var card = SpawnUnionCard(member, union, Transform(storage).Coordinates);
+        _storageSystem.Insert(storage, card, out _);
     }
 }
