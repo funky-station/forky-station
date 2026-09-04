@@ -22,6 +22,9 @@ public partial struct StampDisplayInfo
 
     [DataField("stampedColor")]
     public Color StampedColor;
+    
+    [DataField("stampLargeIcon")]
+    public string? StampLargeIcon;
 };
 
 [RegisterComponent]
@@ -38,12 +41,19 @@ public sealed partial class StampComponent : Component
     /// </summary>
     [DataField("stampState")]
     public string StampState { get; set; } = "paper_stamp-generic";
+    
+    /// <summary>
+    ///     The sprite state of the stamp to display on the paper when read from stamp Sprite path.
+    /// </summary>
+    [DataField("stampLargeIcon")]
+    public string? StampLargeIcon = null;
 
     /// <summary>
     /// The color of the ink used by the stamp in UIs
     /// </summary>
     [DataField("stampedColor")]
     public Color StampedColor = Color.FromHex("#BB3232"); // StyleNano.DangerousRedFore
+    
 
     /// <summary>
     /// The sound when stamp stamped

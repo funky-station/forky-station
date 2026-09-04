@@ -14,7 +14,7 @@ public sealed partial class StampWidget : PanelContainer
 {
     private static readonly ProtoId<ShaderPrototype> PaperStamp = "PaperStamp";
 
-    private StyleBoxTexture _borderTexture;
+    private StyleBoxTexture? _borderTexture;
     private ShaderInstance? _stampShader;
 
     public float Orientation
@@ -24,27 +24,46 @@ public sealed partial class StampWidget : PanelContainer
     }
 
     public StampDisplayInfo StampInfo {
-        set {
-            StampedByLabel.Text = Loc.GetString(value.StampedName);
-            StampedByLabel.FontColorOverride = value.StampedColor;
-            ModulateSelfOverride = value.StampedColor;
+        set
+        {
+            var icon = value.StampLargeIcon;
+            if (icon != null)
+            {
+                var resCache = IoCManager.Resolve<IResourceCache>();
+                var borderImage = resCache.GetResource<TextureResource>(
+                    "/Textures/_Funkystation/Interface/Paper/Stamps/" + icon + ".png");
+
+                _borderTexture = new StyleBoxTexture { Texture = borderImage };
+                PanelOverride = _borderTexture;
+
+                // make stamps 50% larger to better match the original stamp sizes
+                var width = (int)(borderImage.Texture.Width * 1.5);
+                var height = (int)(borderImage.Texture.Height * 1.5);
+                SetSize = new Vector2(width, height);
+            }
+
+            else
+            {
+                StampedByLabel.Text = Loc.GetString(value.StampedName);
+                StampedByLabel.FontColorOverride = value.StampedColor;
+                ModulateSelfOverride = value.StampedColor;
+            }
         }
     }
 
     public StampWidget()
     {
         RobustXamlLoader.Load(this);
+        var prototypes = IoCManager.Resolve<IPrototypeManager>();
+        _stampShader = prototypes.Index<ShaderPrototype>("PaperStamp").InstanceUnique();
+
+        if (PanelOverride != null)
+             return;
+    
         var resCache = IoCManager.Resolve<IResourceCache>();
         var borderImage = resCache.GetResource<TextureResource>(
                 "/Textures/Interface/Paper/paper_stamp_border.svg.96dpi.png");
-        _borderTexture = new StyleBoxTexture {
-            Texture = borderImage,
-        };
-        _borderTexture.SetPatchMargin(StyleBoxTexture.Margin.All, 7.0f);
-        PanelOverride = _borderTexture;
-
-        var prototypes = IoCManager.Resolve<IPrototypeManager>();
-        _stampShader = prototypes.Index(PaperStamp).InstanceUnique();
+        _borderTexture = new StyleBoxTexture { Texture = borderImage };
     }
 
     protected override void Draw(DrawingHandleScreen handle)
