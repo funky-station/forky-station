@@ -17,7 +17,7 @@
   id: Hailing
   name: chat-radio-hailing
   keycode: "^"
-  frequency: 5767
+  frequency: 576.7
   color: "#f6ce64"
   # long range since otherwise it'd defeat the point of a hailing frequency
   longRange: true
