@@ -167,8 +167,6 @@ public sealed class SlipAttemptEvent : EntityEventArgs, IInventoryRelayEvent
 
     public EntityUid? SlipCausingEntity;
 
-    public bool IgnoreNoSlip; // Funky - Tripwire
-
     public SlotFlags TargetSlots { get; } = SlotFlags.FEET;
 
     public SlipAttemptEvent(EntityUid? slipCausingEntity)
