@@ -3,6 +3,7 @@
   name: job-name-warden
   description: job-description-warden
   playTimeTracker: JobWarden
+  requiresNda: Security # Funky
   requirements:
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
@@ -32,7 +33,7 @@
   equipment:
     eyes: ClothingEyesGlassesSecurity
     id: WardenPDA
-    ears: ClothingHeadsetSecurity
+    ears: ClothingHeadsetWarden # funkystation
     pocket1: WeaponPistolMk58
   storage:
     back:

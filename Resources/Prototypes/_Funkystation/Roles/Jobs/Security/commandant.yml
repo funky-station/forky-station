@@ -3,6 +3,7 @@
   name: job-name-commandant
   description: job-description-commandant
   playTimeTracker: JobCommandant
+  requiresNda: Command # Funky
   requirements:
   - !type:RoleTimeRequirement
     role: JobWarden

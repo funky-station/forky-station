@@ -40,4 +40,4 @@
     mask: ClothingMaskBreath
     neck: ClothingNeckScarfStripedOrange
     outerClothing: ClothingOuterVestHazard
-    gloves: ClothingHandsGlovesColorYellow
+    gloves: FuClothingHandsGlovesInsuls #Funky

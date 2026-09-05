@@ -27,4 +27,4 @@
     mask: ClothingMaskGas
     neck: ClothingNeckMantle
     outerClothing: ClothingOuterWinterCoat
-    gloves: ClothingHandsGlovesColorYellowBudget
+    gloves: FuClothingHandsGlovesInsulsBudget #Funky

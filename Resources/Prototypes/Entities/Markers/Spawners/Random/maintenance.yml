@@ -244,11 +244,11 @@
       - id: CableApcStack10
       - !type:GroupSelector
         children:
-        - id: ClothingHandsGlovesColorYellowBudget
+        - id: FuClothingHandsGlovesInsulsBudget #Funky
           weight: 5
         - id: ClothingHandsGlovesFingerlessInsulated
           weight: 0.5
-        - id: ClothingHandsGlovesColorYellow
+        - id: FuClothingHandsGlovesInsuls #Funky
           weight: 1
         - id: ClothingHandsGlovesConducting
           weight: 0.1
@@ -401,9 +401,9 @@
   id: InsulsTable
   table: !type:GroupSelector
     children:
-    - id: ClothingHandsGlovesColorYellowBudget # budget insuls
+    - id: FuClothingHandsGlovesInsulsBudget # budget insuls
       weight: 85
-    - id: ClothingHandsGlovesColorYellow # true insuls
+    - id: FuClothingHandsGlovesInsuls # true insuls
       weight: 10
     - id: ClothingHandsGlovesFingerlessInsulated # fingerless
       weight: 4

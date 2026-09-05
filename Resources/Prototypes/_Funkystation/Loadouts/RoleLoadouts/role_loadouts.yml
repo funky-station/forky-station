@@ -2,13 +2,16 @@
   id: JobHospitalityDirector
   groups:
   - GroupTankHarness
-  - GroupTankHarness
-  - BartenderJumpsuit
+  - FuHdHead
+  - FuHdUniform
+  - FuHdGloves
   - CommonBackpack
+  - FuHdOuterclothing
+  - FuHdShoes
   - Glasses
   - Survival
   - Trinkets
-  #- ServiceWorkerJobTrinkets
+  #- HDJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
