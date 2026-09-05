@@ -712,6 +712,7 @@
   name: hospitality director's bell stamp # Meant as a soft joke item, maybe map loot?
   parent: RubberStampBase
   id: RubberStampHospitalityDirectorBell
+  categories: [ DoNotMap ]
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-hd-bell
@@ -740,6 +741,7 @@
   name: executive officer's rubber stamp
   parent: RubberStampBase
   id: RubberStampExecutiveOfficer
+  categories: [ DoNotMap ]
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-xo
@@ -760,17 +762,17 @@
         color: "#17326f"
 
 - type: entity
-  name: DISPATCHED rubber stamp
+  name: DISCHARGED rubber stamp
   parent: RubberStampBase
-  id: RubberStampDispatched
+  id: RubberStampDischarged
   components:
   - type: Stamp
-    stampedName: stamp-component-stamped-name-dispatched
+    stampedName: stamp-component-stamped-name-discharged
     stampedColor: "#51b0d5"
-    stampState: "paper_stamp-cmo"
-    stampLargeIcon: "large_stamp-dispatched"
+    stampState: "paper_stamp-discharged"
+    stampLargeIcon: "large_stamp-discharged"
   - type: Sprite
-    state: stamp-cmo
+    state: stamp-discharged
   - type: Item
     inhandVisuals:
       left:

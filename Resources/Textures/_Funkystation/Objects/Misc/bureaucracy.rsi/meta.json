@@ -159,6 +159,9 @@
     },
     {
        "name": "paper_stamp-xo"
+    },
+    {
+        "name": "paper_stamp-discharged"
     }
   ]
 }

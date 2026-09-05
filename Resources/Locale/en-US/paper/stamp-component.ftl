@@ -27,4 +27,4 @@ stamp-component-stamped-name-magistrate = Magistrate
 stamp-component-stamped-name-hd = Hospitality Director
 stamp-component-stamped-name-hd-bell = Hospitality Director
 stamp-component-stamped-name-xo = Executive Officer
-stamp-component-stamped-name-dispatched = DISPATCHED
+stamp-component-stamped-name-disparged = DISCHARGED
