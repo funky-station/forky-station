@@ -569,13 +569,35 @@
       left:
       - state: stamp-inhand-left
       - state: handle-inhand-left
-        color: "#515961"
+        color: "#BDA499"
       right:
       - state: stamp-inhand-right
       - state: handle-inhand-right
-        color: "#515961"
+        color: "#BDA499"
 
-
+- type: entity
+  name: magistrate's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampMagistrate
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-magistrate
+    stampedColor: "#BDA499"
+    stampState: "paper_stamp-magi"
+    stampLargeIcon: "large_stamp-magi"
+  - type: Sprite
+    state: stamp-magi
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: stamp-inhand-left
+      - state: handle-inhand-left
+        color: "#BDA499"
+      right:
+      - state: stamp-inhand-right
+      - state: handle-inhand-right
+        color: "#BDA499"
 
 - type: entity
   name: borg rubber stamp
@@ -595,7 +617,7 @@
   name: CentComm intern rubber stamp
   parent: RubberStampBase
   id: RubberStampCentComIntern
-  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-cci
@@ -615,3 +637,147 @@
       - state: handle-inhand-right
         color: "#515961"
 
+- type: entity
+  name: Top Secret Test Stamp
+  parent: RubberStampBase
+  id: RubberStampTopSecret
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-topsecret
+    stampedColor: "#496600"
+    stampState: "paper_stamp-deny"
+    stampLargeIcon: "large_stamp-topsecret-2"
+  - type: Sprite
+    state: stamp-deny
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: stamp-inhand-left
+      - state: handle-inhand-left
+        color: "#515961"
+      right:
+      - state: stamp-inhand-right
+      - state: handle-inhand-right
+        color: "#515961"
+
+- type: entity
+  name: Classified Test Stamp
+  parent: RubberStampBase
+  id: RubberStampClassified
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-cci
+    stampedColor: "#496600"
+    stampState: "paper_stamp-deny"
+    stampLargeIcon: "large_stamp-classified-2"
+  - type: Sprite
+    state: stamp-deny
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: stamp-inhand-left
+      - state: handle-inhand-left
+        color: "#515961"
+      right:
+      - state: stamp-inhand-right
+      - state: handle-inhand-right
+        color: "#515961"
+
+- type: entity
+  name: hospitality director's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampHospitalityDirector
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-hd
+    stampedColor: "#477238"
+    stampState: "paper_stamp-hd"
+    stampLargeIcon: "large_stamp-hd"
+  - type: Sprite
+    state: stamp-hd
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: stamp-inhand-left
+      - state: handle-inhand-left
+        color: "#477238"
+      right:
+      - state: stamp-inhand-right
+      - state: handle-inhand-right
+        color: "#477238"
+
+- type: entity
+  name: hospitality director's bell stamp # Meant as a soft joke item, maybe map loot?
+  parent: RubberStampBase
+  id: RubberStampHospitalityDirectorBell
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-hd-bell
+    stampedColor: "#477238"
+    sound:
+      path: /Audio/Items/stamp/hospitality_director_bell_stamp.ogg # Funky
+      params:
+        volume: -2
+        maxDistance: 5
+    stampState: "paper_stamp-hd"
+    stampLargeIcon: "large_stamp-hd"
+  - type: Sprite
+    state: stamp-hd-bell
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: stamp-inhand-left
+      - state: handle-inhand-left
+        color: "#477238"
+      right:
+      - state: stamp-inhand-right
+      - state: handle-inhand-right
+        color: "#477238"
+
+- type: entity
+  name: executive officer's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampExecutiveOfficer
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-xo
+    stampedColor: "#17326f"
+    stampState: "paper_stamp-xo"
+    stampLargeIcon: "large_stamp-xo"
+  - type: Sprite
+    state: stamp-xo
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: stamp-inhand-left
+      - state: handle-inhand-left
+        color: "#17326f"
+      right:
+      - state: stamp-inhand-right
+      - state: handle-inhand-right
+        color: "#17326f"
+
+- type: entity
+  name: DISPATCHED rubber stamp
+  parent: RubberStampBase
+  id: RubberStampDispatched
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-dispatched
+    stampedColor: "#51b0d5"
+    stampState: "paper_stamp-cmo"
+    stampLargeIcon: "large_stamp-dispatched"
+  - type: Sprite
+    state: stamp-cmo
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: stamp-inhand-left
+      - state: handle-inhand-left
+        color: "#51b0d5"
+      right:
+      - state: stamp-inhand-right
+      - state: handle-inhand-right
+        color: "#51b0d5"

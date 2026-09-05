@@ -146,10 +146,19 @@
       "name": "paper_stamp-iaa"
     },
     {
+       "name": "paper_stamp-magi"
+    },
+    {
       "name": "paper_stamp-borg"
     },
     {
        "name": "paper_stamp-cci"
+    },
+    {
+       "name": "paper_stamp-hd"
+    },
+    {
+       "name": "paper_stamp-xo"
     }
   ]
 }
