@@ -1,0 +1,7 @@
+﻿- type: entity
+  id: FuStationMagnet
+  abstract: true
+  components:
+  - type: SalvageMagnetData
+    offerCooldown: 1m
+    activeTime: 10m

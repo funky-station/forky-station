@@ -611,6 +611,11 @@
       staticPacks:
       - OreSmelting
       - RGlassSmelting
+      #Funky start - Prisoner salvage magnet
+    - type: ActivatableUIRequiresAccess
+    - type: AccessReader
+      access: [["Security"]]
+      #Funky end - Prisoner salvage magnet
 
 - type: entity
   parent: OreProcessor

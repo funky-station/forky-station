@@ -444,7 +444,8 @@ public sealed partial class SalvageSystem
             if (grids.Count > 0)
             {
                 // Bump it further and further just in case.
-                fraction += 0.1f;
+                //Funky - Exponential instead of linear scaling for smaller magnet distance
+                fraction *= 1.1f;
                 continue;
             }
 
