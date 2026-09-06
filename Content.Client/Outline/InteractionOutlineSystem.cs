@@ -35,6 +35,8 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private SpriteSystem _sprite = default!;
 
+    private ISawmill? _interactionOutlineSawmill; // funky
+
     /// <summary>
     ///     Whether to currently draw the outline. The outline may be temporarily disabled by other systems
     /// </summary>
@@ -65,6 +67,8 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
         Subs.CVar(_configManager, CCVars.OutlineEnabled, SetCvarEnabled);
         SubscribeLocalEvent<InteractionOutlineComponent, ComponentShutdown>(OnShutdown);
         UpdatesAfter.Add(typeof(SharedEyeSystem));
+
+        _interactionOutlineSawmill = LogManager.GetSawmill("interaction_outline"); // funky
     }
 
     private void OnShutdown(Entity<InteractionOutlineComponent> ent, ref ComponentShutdown args)
@@ -238,6 +242,13 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
         {
             return;
         }
+
+        // funky start
+        if (OutlineColor.TryGetOutlineColor(inRange, out var outlineColor, _configManager, _interactionOutlineSawmill))
+        {
+            shader.SetParameter("outline_color", outlineColor);
+        }
+        // funky end
 
         _sprite.SetPostShader(sprite, new SpriteComponent.PostShaderArgs(ContentPostShaderIds.InteractionOutline, shader)
         {
