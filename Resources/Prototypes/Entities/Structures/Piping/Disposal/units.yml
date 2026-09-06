@@ -122,6 +122,10 @@
   - type: StaticPrice
     price: 70
   - type: PowerSwitch
+  - type: Bonkable #funky #MAYBE comment this out, this sounds silly as hell for antags but also kinda is mega gameplay changing, leaving this up to someone to pr out #okay it just makes you stunned if you leave
+    bonkDamage:
+      types:
+        Blunt: 4
   - type: ApcPowerReceiver
     powerLoad: 5
   - type: PowerState

@@ -17,6 +17,12 @@
   - type: Appearance
   - type: Machine
     board: DiagnoserMachineCircuitboard
+  - type: Climbable #funky
+    delay: 5.0
+  - type: Bonkable #funky
+    bonkDamage:
+      types:
+        Blunt: 4
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger

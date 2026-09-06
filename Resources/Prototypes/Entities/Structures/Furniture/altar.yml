@@ -33,6 +33,10 @@
   - type: Sprite
     snapCardinals: true
   - type: Climbable
+  - type: Bonkable #funky
+    bonkDamage:
+      types:
+        Blunt: 4
   - type: Clickable
 
 - type: entity

@@ -51,6 +51,8 @@
           collection: MetalBreak
   - type: StaticPrice
     price: 30
+  - type: Climbable #funky
+    delay: 10.0 #will argue that a perforated/breached/what have you wall is climbable given some time
 
 - type: entity
   parent: [ BaseGirder, StructureHealthBarrierWeak ]

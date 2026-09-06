@@ -100,6 +100,12 @@
     price: 100
   - type: Appearance
   - type: WiresVisuals
+  - type: Climbable #funky #whenever someone codes vending machines falling on spessmen if unlucky, PLEASE make vaulting it have a chance to proc it
+    delay: 5.0
+  - type: Bonkable #funky
+    bonkDamage:
+      types:
+        Blunt: 4
   - type: VendingMachineEject
   - type: VendingMachineDispenseOnHit
     chance: 0.25
