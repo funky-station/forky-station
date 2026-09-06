@@ -50,6 +50,8 @@ public sealed partial class DragDropSystem : SharedDragDropSystem
     [Dependency] private SpriteSystem _sprite = default!;
     [Dependency] private EntityQuery<SpriteComponent> _spriteQuery = default!;
 
+    private ISawmill? _dragDropSawmill; // funky
+
     // how often to recheck possible targets (prevents calling expensive
     // check logic each update)
     private const float TargetRecheckInterval = 0.25f;
@@ -119,6 +121,8 @@ public sealed partial class DragDropSystem : SharedDragDropSystem
         CommandBinds.Builder
             .BindBefore(EngineKeyFunctions.Use, new PointerInputCmdHandler(OnUse, false, true), new[] { typeof(SharedInteractionSystem) })
             .Register<DragDropSystem>();
+
+        _dragDropSawmill = LogManager.GetSawmill("drag_drop"); // funky
     }
 
     private void SetDeadZone(float deadZone)
@@ -456,6 +460,14 @@ public sealed partial class DragDropSystem : SharedDragDropSystem
                         && _interactionSystem.InRangeUnobstructed(user.Value, entity);
             }
 
+            // funky start
+            if (OutlineColor.TryGetOutlineColor(true, out var validColor, _cfgMan, _dragDropSawmill))
+                _dropTargetInRangeShader?.SetParameter("outline_color", validColor);
+
+            if (OutlineColor.TryGetOutlineColor(false, out var invalidColor, _cfgMan, _dragDropSawmill))
+                _dropTargetOutOfRangeShader?.SetParameter("outline_color", invalidColor);
+            // funky end
+
             // highlight depending on whether its in or out of range
             SetDragDropPostShader((entity, inRangeSprite), valid.Value ? _dropTargetInRangeShader! : _dropTargetOutOfRangeShader!);
             inRangeSprite.RenderOrder = EntityManager.CurrentTick.Value;
@@ -550,14 +562,6 @@ public sealed partial class DragDropSystem : SharedDragDropSystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-
-        // funky start
-        if (OutlineColor.TryGetOutlineColor(true, out var validColor, _cfgMan))
-            _dropTargetInRangeShader?.SetParameter("outline_color", validColor);
-
-        if (OutlineColor.TryGetOutlineColor(false, out var invalidColor, _cfgMan))
-            _dropTargetOutOfRangeShader?.SetParameter("outline_color", invalidColor);
-        // funky end
 
         switch (_state)
         {

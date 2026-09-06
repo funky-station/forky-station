@@ -13,7 +13,7 @@ public static class OutlineColor
     public static bool TryGetOutlineColor(bool inRange, out Color outlineColor, IConfigurationManager? configManager = null, ISawmill? sawmill = null)
     {
         configManager ??= IoCManager.Resolve<IConfigurationManager>();
-        sawmill ??= IoCManager.Resolve<ILogManager>().GetSawmill("outlinecolor");
+        sawmill ??= IoCManager.Resolve<ILogManager>().GetSawmill("outline_color");
 
         var colorCvar = inRange
         ? InteractionOutlineCVars.ValidInteractionOutlineColor

@@ -91,7 +91,7 @@ public sealed partial class TargetOutlineSystem : EntitySystem
         _shaderTargetValid = ProtoMan.Index(ShaderTargetValid).InstanceUnique();
         _shaderTargetInvalid = ProtoMan.Index(ShaderTargetInvalid).InstanceUnique();
 
-        _targetOutlineSawmill = LogManager.GetSawmill("targetoutline"); // funky
+        _targetOutlineSawmill = LogManager.GetSawmill("target_outline"); // funky
     }
 
     public void Disable()
@@ -121,14 +121,6 @@ public sealed partial class TargetOutlineSystem : EntitySystem
 
         if (!_enabled || !_timing.IsFirstTimePredicted)
             return;
-
-        // funky start
-        if (OutlineColor.TryGetOutlineColor(true, out var validColor, _cfg, _targetOutlineSawmill))
-            _shaderTargetValid?.SetParameter("outline_color", validColor);
-
-        if (OutlineColor.TryGetOutlineColor(false, out var invalidColor, _cfg, _targetOutlineSawmill))
-            _shaderTargetInvalid?.SetParameter("outline_color", invalidColor);
-        // funky end
 
         HighlightTargets();
     }
@@ -188,6 +180,14 @@ public sealed partial class TargetOutlineSystem : EntitySystem
                 var target = _transformSystem.GetWorldPosition(entity);
                 valid = (origin - target).LengthSquared() <= Range;
             }
+
+            // funky start
+            if (OutlineColor.TryGetOutlineColor(true, out var validColor, _cfg, _targetOutlineSawmill))
+                _shaderTargetValid?.SetParameter("outline_color", validColor);
+
+            if (OutlineColor.TryGetOutlineColor(false, out var invalidColor, _cfg, _targetOutlineSawmill))
+                _shaderTargetInvalid?.SetParameter("outline_color", invalidColor);
+            // funky end
 
             // highlight depending on whether its in or out of range
             _sprite.SetPostShader(sprite, new SpriteComponent.PostShaderArgs(ContentPostShaderIds.TargetOutline, valid ? _shaderTargetValid! : _shaderTargetInvalid!)

@@ -68,7 +68,7 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
         SubscribeLocalEvent<InteractionOutlineComponent, ComponentShutdown>(OnShutdown);
         UpdatesAfter.Add(typeof(SharedEyeSystem));
 
-        _interactionOutlineSawmill = LogManager.GetSawmill("interactionoutline");
+        _interactionOutlineSawmill = LogManager.GetSawmill("interaction_outline"); // funky
     }
 
     private void OnShutdown(Entity<InteractionOutlineComponent> ent, ref ComponentShutdown args)
