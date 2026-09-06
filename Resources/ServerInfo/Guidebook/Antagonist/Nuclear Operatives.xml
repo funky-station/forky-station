@@ -41,7 +41,7 @@
   Each member in your squad has been given an [color=cyan]uplink[/color] to purchase everything you will need for the mission, similar to [textlink="traitors." link="Traitors"]
 
   <Box>
-    <GuideEntityEmbed Entity="BaseUplinkRadio40TC" Caption="your uplink"/>
+    <GuideEntityEmbed Entity="BaseUplinkRadio200TC" Caption="your uplink"/>
   </Box>
 
   You can purchase the same kinds of gear traitors can, but you have higher quality gear available to you and more telecrystals to spend.
