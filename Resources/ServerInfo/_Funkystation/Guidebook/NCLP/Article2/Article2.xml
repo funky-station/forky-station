@@ -200,29 +200,743 @@
     * **Capital Offense**
 
     * Crimes that cause irreversible harm or asset loss, and/or majorly disrupt the station’s operational safety.
-    
+
 
     ### NanoTrasen defines the following Infractions and Criminal Offenses:
 
-    | Infractions |  | Misdemeanors |  |  | Felonies |  |  | Capital Offenses |  |
-    | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-    | \- | Class C | Class B | Class A | Class C | Class B | Class A | Class C | Class B | Class A |
-    | Ticket \+ Warning | 8 Minutes | 10 Minutes | 12 Minutes | 16 Minutes | 20 Minutes | 24 Minutes | Perma | Perma w/o Parole | Execution |
-    | Loitering (A) | Trespass (A) |  |  | Secure Trespass (A) |  |  |  |  |  |
-    | Possession of Minor Contraband (C) | Possession of Moderate Contraband (C) |  |  | Possession of Major Contraband (C) |  |  |  |  |  |
-    | Vandalism (D) |  | Destruction of Property (D) |  |  | Mass Destruction (D) |  |  | Station Sabotage (D) |  |
-    | Refusal to Identify (F) | Slander (F) | Impersonation (F) |  | Libel (F) | Fraud (F) |  | Impersonation of Central Command (F) |  |  |
-    |  |  | Contempt of Court (J) |  | Perjury (J) |  | Subversion of Court (J) |  |  |  |
-    | Harassment (M) |  |  |  | Extortion (M) |  | Sedition (M) |  |  | Terrorism (M) |
-    | Negligence (N) |  | Endangerment (N) |  |  | Manslaughter (N) |  | Capital Negligence (N) |  |  |
-    | Operation without Permit (O) |  | Smuggling (O) |  | Black Marketeering (O) |  |  |  |  |  |
-    | Disturbance (R) |  | Unlawful Assembly (R) |  |  | Rioting (R) |  |  |  |  |
-    | Failure to Comply (S) |  | Breach of Arrest (S) |  | Breach of Custody (S) |  |  |  |  |  |
-    | Petty Theft (T) | Theft (T) |  |  | Grand Theft (T) |  |  |  |  |  |
-    |  |  | Assault (V) | Battery (V) |  | Mutilation (V) |  | Murder (V) | Prevention of Revival (V) |  |
-    |  |  |  |  |  | Kidnapping (W) |  |  | Suppression of Free Will (W) |  |
-    | Cannibalism |  | Failure to Pay | Animal Cruelty |  | Bribery | Tax Evasion |  | Refusal of Lawful Implantation | Breach of NT Contract |
-    | Substance Abuse |  |  |  |  |  |  |  |  |  |
+
+    <Table Columns="10">
+        <ColorBox>
+            <Box>
+                Infractions
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Misdemeanors
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Felonies
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Capital Offenses
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                \-
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Class C
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Class B
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Class A
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Class C
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Class B
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Class A
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Class C
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Class B
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Class A
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Ticket \+ Warning
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                8 Minutes
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                10 Minutes
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                12 Minutes
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                16 Minutes
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                20 Minutes
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                24 Minutes
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Perma
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Perma w/o Parole
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Execution
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Loitering (A)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Trespass (A)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Trespass (A)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Possession of Minor Contraband (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Possession of Moderate Contraband (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Possession of Major Contraband (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Vandalism (D)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Destruction of Property (D)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Mass Destruction (D)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Station Sabotage (D)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Refusal to Identify (F)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Slander (F)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Impersonation (F)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Libel (F)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Fraud (F)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Impersonation of Central Command (F)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Contempt of Court (J)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Perjury (J)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Subversion of Court (J)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Harassment (M)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Extortion (M)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Sedition (M)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Terrorism (M)
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Negligence (N)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Endangerment (N)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Manslaughter (N)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Capital Negligence (N)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Operation without Permit (O)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Smuggling (O)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Black Marketeering (O)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Disturbance (R)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Unlawful Assembly (R)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Rioting (R)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Failure to Comply (S)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Breach of Arrest (S)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Breach of Custody (S)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Petty Theft (T)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Theft (T)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Grand Theft (T)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Assault (V)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Battery (V)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Mutilation (V)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Murder (V)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Prevention of Revival (V)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Kidnapping (W)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Suppression of Free Will (W)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Cannibalism
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Failure to Pay
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Animal Cruelty
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Bribery
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Tax Evasion
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Refusal of Lawful Implantation
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Breach of NT Contract
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Substance Abuse
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+    </Table>
 
     ### 2\. Crime Specifications:
 
