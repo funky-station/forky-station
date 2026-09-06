@@ -89,7 +89,7 @@
     solution:
       maxVol: 10 # Miserably small
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/water_cup.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/water_cup.rsi # Funky
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     inHandsFillBaseName: null

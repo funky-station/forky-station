@@ -13,13 +13,13 @@
   - type: Item
     size: Small
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/glass_clear.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/glass_clear.rsi # Funky
   - type: TransformableContainer
   - type: SolutionContainerVisuals
     maxFillLevels: 9
     metamorphic: true
     metamorphicDefaultSprite:
-      sprite: Objects/Consumable/Drinks/glass_clear.rsi
+      sprite: _Funkystation/Objects/Consumable/Drinks/glass_clear.rsi # Funky
       state: icon
   - type: Destructible
     thresholds:
@@ -1619,7 +1619,7 @@
         - ReagentId: Moonshine
           Quantity: 30
   - type: Icon
-    sprite: Objects/Consumable/Drinks/glass_clear.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/glass_clear.rsi # Funky
     state: icon
 
 - type: entity

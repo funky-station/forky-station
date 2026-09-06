@@ -53,7 +53,7 @@
   id: Shake
   verbText: mixing-verb-shake
   icon:
-    sprite: Objects/Consumable/Drinks/shaker.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/shaker.rsi # Funky
     state: icon
 
 - type: mixingCategory

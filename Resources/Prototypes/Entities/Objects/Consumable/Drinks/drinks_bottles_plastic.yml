@@ -13,7 +13,7 @@
     closeSound:
       collection: bottleCloseSounds
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/generic_jug.rsi # fallback to generic plastic jug
+    sprite: _Funkystation/Objects/Consumable/Drinks/generic_jug.rsi # Funky # fallback to generic plastic jug
   - type: TrashOnSolutionEmpty
     solution: drink
   - type: Tag
