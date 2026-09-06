@@ -102,7 +102,7 @@
   id: HeadBedsheet
   name: steal-target-groups-heads-bedsheets
   sprite:
-    sprite: Objects/Misc/bedsheets.rsi
+    sprite: _Funkystation/Objects/Misc/bedsheets.rsi # Funky
     state: sheetNT
 
 - type: stealTargetGroup

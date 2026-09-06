@@ -10,13 +10,13 @@
   description: A horn off of a bicycle.
   components:
   - type: Sprite
-    sprite: Objects/Fun/bikehorn.rsi
+    sprite: _Funkystation/Objects/Fun/bikehorn.rsi # Funky
     state: icon
   - type: Item
-    sprite: Objects/Fun/bikehorn.rsi
+    sprite: _Funkystation/Objects/Fun/bikehorn.rsi # Funky
     size: Tiny
   - type: Clothing
-    sprite: Objects/Fun/bikehorn.rsi
+    sprite: _Funkystation/Objects/Fun/bikehorn.rsi # Funky
     slots: [Belt]
     quickEquip: false
   - type: UseDelay
