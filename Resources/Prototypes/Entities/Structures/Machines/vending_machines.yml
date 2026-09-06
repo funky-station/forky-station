@@ -326,7 +326,7 @@
     energy: 2.0
     color: "#ffb0b0"
   - type: AccessReader
-    access: [["HeadOfPersonnel"]]
+    access: [["ExecutiveOfficer"]] # funky
 
 - type: entity
   parent: VendingMachine

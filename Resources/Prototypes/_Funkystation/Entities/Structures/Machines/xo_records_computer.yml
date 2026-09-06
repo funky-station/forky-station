@@ -9,7 +9,7 @@
     key: enum.XoRecordsConsoleKey.Key
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
-    access: [["HeadOfPersonnel"]]
+    access: [["ExecutiveOfficer"]]
   - type: UserInterface
     interfaces:
       enum.XoRecordsConsoleKey.Key:
