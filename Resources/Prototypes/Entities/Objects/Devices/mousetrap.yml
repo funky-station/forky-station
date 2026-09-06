@@ -5,7 +5,7 @@
   description: Useful for catching rodents sneaking into your kitchen.
   components:
     - type: Sprite
-      sprite: Objects/Devices/mousetrap.rsi
+      sprite: _Funkystation/Objects/Devices/mousetrap.rsi # Funky
       drawdepth: SmallMobs # if mice can hide under tables, so can mousetraps
       layers:
       - state: mousetrap
@@ -35,7 +35,7 @@
         types:
           Blunt: 2 # base damage, scales based on mass
     - type: Item
-      sprite: Objects/Devices/mousetrap.rsi
+      sprite: _Funkystation/Objects/Devices/mousetrap.rsi # Funky
     - type: Appearance
     - type: GenericVisualizer
       visuals:

@@ -11,7 +11,7 @@
 - type: cargoProduct
   id: EmergencyFire
   icon:
-    sprite: Objects/Misc/fire_extinguisher.rsi
+    sprite: _Funkystation/Objects/Misc/fire_extinguisher.rsi # Funky
     state: fire_extinguisher_closed
   product: CrateEmergencyFire
   cost: 1500
