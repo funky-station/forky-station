@@ -28,3 +28,5 @@ stamp-component-stamped-name-hd = Hospitality Director
 stamp-component-stamped-name-hd-bell = Hospitality Director
 stamp-component-stamped-name-xo = Executive Officer
 stamp-component-stamped-name-disparged = DISCHARGED
+stamp-component-stamped-name-commandant = Commandant
+stamp-component-stamped-name-lieutenant = Lieutenant

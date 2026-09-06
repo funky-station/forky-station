@@ -783,3 +783,49 @@
       - state: stamp-inhand-right
       - state: handle-inhand-right
         color: "#51b0d5"
+
+- type: entity
+  name: commandant's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampCommandant
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-commandant
+    stampedColor: "#71111f"
+    stampState: "paper_stamp-hos"
+    stampLargeIcon: "large_stamp-commandant"
+  - type: Sprite
+    state: stamp-hos
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: stamp-inhand-left
+      - state: handle-inhand-left
+        color: "#71111f"
+      right:
+      - state: stamp-inhand-right
+      - state: handle-inhand-right
+        color: "#71111f"
+
+- type: entity
+  name: lieutenant's rubber stamp
+  parent: RubberStampBase
+  id: RubberStamplieutenant
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-lieutenant
+    stampedColor: "#b12023"
+    stampState: "paper_stamp-hos"
+    stampLargeIcon: "large_stamp-lieutenant"
+  - type: Sprite
+    state: stamp-hos
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: stamp-inhand-left
+      - state: handle-inhand-left
+        color: "#b12023"
+      right:
+      - state: stamp-inhand-right
+      - state: handle-inhand-right
+        color: "#b12023"
