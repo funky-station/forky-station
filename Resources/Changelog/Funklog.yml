@@ -396,4 +396,11 @@
   id: 43
   time: '2026-09-03T04:01:46Z'
   url: https://github.com/funky-station/forky-station/pull/329
+- author: AraiMaia
+  changes:
+  - message: Changed the color of interaction outlines.
+    type: Tweak
+  id: 44
+  time: '2026-09-06T17:47:56Z'
+  url: https://github.com/funky-station/forky-station/pull/424
 Order: -1
