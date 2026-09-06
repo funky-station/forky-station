@@ -411,6 +411,7 @@ ui-options-viewcone-occlusion-opacity = Viewcone occlusion strength
 ui-options-interaction-outline-valid = Outline color for objects inside of interaction range
 ui-options-interaction-outline-invalid = Outline color for objects outside of interaction range
 ui-options-interaction-color-example = This is the outline color.
+ui-options-color-slider-default-button = Reset to default
 
 ui-options-chat-window-opacity = Chat window opacity
 ui-options-speech-bubble-text-opacity = Speech bubble text opacity
