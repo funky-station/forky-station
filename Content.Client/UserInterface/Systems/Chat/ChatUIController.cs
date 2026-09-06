@@ -25,6 +25,7 @@ using Content.Shared.Decals;
 using Content.Shared.Input;
 using Content.Shared.Radio;
 using Content.Shared.Roles.RoleCodeword;
+using Content.Shared.Wall; // funky wallmount occlusion checks
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -125,6 +126,12 @@ public sealed partial class ChatUIController : UIController
     ///     The max amount of speech bubbles over a single entity at once.
     /// </summary>
     private const int SpeechBubbleCap = 4;
+
+    /// <summary>
+    ///     Funky - The max range that occluders such as walls will be ignored
+    ///     for speech bubbles created by wallmount objects.
+    /// </summary>
+    private const float WallmountExclusionRange = 4f;
 
     private LayoutContainer _speechBubbleRoot = default!;
 
@@ -651,6 +658,12 @@ public sealed partial class ChatUIController : UIController
         var player = _player.LocalEntity;
         var predicate = static (EntityUid uid, (EntityUid compOwner, EntityUid? attachedEntity) data)
             => uid == data.compOwner || uid == data.attachedEntity;
+
+        // funky - we need a different predicate for wallmount objects that checks that the occluding object isn't too close,
+        // so that the chat bubble won't be blocked at certain angles
+        var wallmountPredicate = (EntityUid uid, (EntityUid compOwner, EntityUid? attachedEntity) data) =>
+            uid == data.compOwner || uid == data.attachedEntity || (_transform?.InRange(uid, data.compOwner, WallmountExclusionRange) ?? false);
+
         var playerPos = player != null
             ? _eye.CurrentEye.Position
             : MapCoordinates.Nullspace;
@@ -676,7 +689,10 @@ public sealed partial class ChatUIController : UIController
             if (occluded && !_examine.InRangeUnOccluded(
                     playerPos,
                     otherPos, 0f,
-                    (ent, player), predicate))
+                    (ent, player), // funky start
+                    !_ent.HasComponent<WallMountComponent>(ent) ? predicate // funky change
+                        : wallmountPredicate))
+                    // funky end
             {
                 SetBubbles(bubs, false);
                 continue;

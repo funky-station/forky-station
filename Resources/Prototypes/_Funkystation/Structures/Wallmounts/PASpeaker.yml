@@ -1,0 +1,288 @@
+- type: entity
+  parent: BaseWallmountMachine
+  id: BasePASpeaker
+  name: PA speaker
+  description: A PA speaker. For when you really need to know what's happening.
+  abstract: true
+  components:
+  - type: TelecomExempt
+  - type: Speech
+    speechVerb: Robotic
+    speechBubbleOffset: -0.5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+          params:
+            volume: -4
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Wires
+    layoutId: PASpeaker
+  - type: WiresPanelSecurity
+  - type: UserInterface
+    interfaces:
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+
+# Construction stuff
+
+- type: entity
+  parent: BaseWallmountMetallic
+  id: PASpeakerFrame
+  name: PA speaker frame
+  description: The husk of a PA speaker.
+  suffix: Frame
+  components:
+  - type: Appearance
+  - type: Sprite
+    noRot: false
+    drawdepth: SmallObjects
+    sprite: _Funkystation/Structures/Wallmounts/pa_speaker.rsi
+    offset: 0, -0.15
+    layers:
+    - state: icon
+    - state: unfinished
+  - type: Construction
+    graph: PASPEAKER
+    node: paspeakerFrame
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+# end point of construction
+- type: entity
+  parent: PARadioSpeaker
+  id: PARadioSpeakerConstructed
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WiresPanel
+    open: true
+
+# variant with steel welded inside maintenance panel
+- type: entity
+  parent: PARadioSpeaker
+  id: PARadioSpeakerReinforced
+  abstract: true
+  components:
+  - type: WiresPanel
+    openDelay: 5
+  - type: WiresPanelSecurity
+    examine: wires-panel-component-on-examine-security-level2
+    wiresAccessible: false
+  - type: Construction
+    node: paSpeakerReinforced
+
+# Speaker varieties
+
+- type: entity
+  parent: BasePASpeaker
+  id: PASpeaker
+  name: PA speaker
+  description: A PA speaker. For when you really need to know what's happening. This one can't hear radio channels.
+  suffix: Announce only
+  components:
+  - type: PAAnnouncer
+  - type: Appearance
+  - type: Sprite
+    offset: 0, -0.15
+    noRot: false
+    drawdepth: SmallObjects
+    sprite: _Funkystation/Structures/Wallmounts/pa_speaker.rsi
+    layers:
+    - state: icon
+    - state: icon_ON
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      shader: unshaded
+    - state: unfinished
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+      enum.WiresVisualLayers.MaintenancePanel:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: true }
+          False: { visible: false }
+
+- type: entity
+  parent: PASpeaker
+  id: PARadioSpeaker
+  description: A PA speaker. For when you really need to know what's happening.
+  suffix: Radio, no keys
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadioSpeaker
+    toggleOnInteract: false
+    enabled: true
+    onWhenPowered: true
+    powerRequired: true
+    volume: 4
+  - type: EncryptionKeyHolder
+    keySlots: 3
+    keysExtractionMethod: Prying
+  - type: ContainerContainer
+    containers:
+      key_slots: !type:Container
+  - type: PAKeyHolder
+  - type: Construction
+    graph: PASPEAKER
+    node: paSpeaker
+    containers:
+    - key_slots
+
+- type: entity
+  id: PASpeakerCommon
+  parent: PARadioSpeaker
+  suffix: Common
+  components:
+  - type: RadioSpeaker
+    channels:
+    - Common
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+
+- type: entity
+  id: PASpeakerEngineering
+  parent: PARadioSpeaker
+  suffix: Engi
+  components:
+  - type: RadioSpeaker
+    channels:
+    - Common
+    - Engineering
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyEngineering
+
+- type: entity
+  id: PASpeakerMedical
+  parent: PARadioSpeaker
+  suffix: Med
+  components:
+  - type: RadioSpeaker
+    channels:
+    - Common
+    - Medical
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyMedical
+
+- type: entity
+  id: PASpeakerScience
+  parent: PARadioSpeaker
+  suffix: Sci
+  components:
+  - type: RadioSpeaker
+    channels:
+    - Common
+    - Science
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyScience
+
+- type: entity
+  id: PASpeakerSecurity
+  parent: PARadioSpeakerReinforced
+  suffix: Sec
+  components:
+  - type: RadioSpeaker
+    channels:
+    - Common
+    - Security
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeySecurity
+
+- type: entity
+  id: PASpeakerService
+  parent: PARadioSpeaker
+  suffix: Service
+  components:
+  - type: RadioSpeaker
+    channels:
+    - Common
+    - Service
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyService
+
+- type: entity
+  id: PASpeakerSupply
+  parent: PARadioSpeaker
+  suffix: Supply
+  components:
+  - type: RadioSpeaker
+    channels:
+    - Common
+    - Supply
+    - Hailing
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyCargo
+
+- type: entity
+  id: PASpeakerFreelance
+  parent: PARadioSpeaker
+  suffix: Freelance
+  components:
+  - type: RadioSpeaker
+    channels:
+    - Common
+    - Freelance
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyFreelance
+
+- type: entity
+  id: PASpeakerHailing
+  parent: PARadioSpeaker
+  suffix: Hailing
+  components:
+  - type: RadioSpeaker
+    channels:
+    - Hailing
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyHailing

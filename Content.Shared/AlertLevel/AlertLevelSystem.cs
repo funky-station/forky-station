@@ -7,6 +7,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared._Funkystation.CCVar;
 
 namespace Content.Shared.AlertLevel;
 
@@ -163,6 +164,8 @@ public sealed partial class AlertLevelSystem : EntitySystem
             ("name", prototype.LocalizedName),
             ("announcement", AlertLevelAnnouncement(prototype)));
 
+        var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky - play sound locally instead of globally
+
         var ev = new AlertLevelChangedEvent(station, level);
         RaiseLocalEvent(ref ev);
 
@@ -172,13 +175,14 @@ public sealed partial class AlertLevelSystem : EntitySystem
         var playDefault = false;
         if (playSound)
         {
-            if (prototype.Sound != null)
+            if (prototype.Sound != null && !paExclusive)
             {
                 var filter = _station.GetInOwningStation(station);
-                _audio.PlayGlobal(prototype.Sound, filter, true);
+                _audio.PlayGlobal(prototype.Sound.StereoSound, filter, true);
             }
             else
             {
+                // note this gets set true if pa announcements are enabled
                 playDefault = true;
             }
         }
@@ -190,7 +194,8 @@ public sealed partial class AlertLevelSystem : EntitySystem
                 announcementFull,
                 playDefaultSound: playDefault,
                 colorOverride: prototype.Color,
-                sender: stationName);
+                sender: stationName,
+                announcementSound: paExclusive ? prototype.Sound?.MonoSound : null); // funky - play sound locally instead of globally);
         }
 
     }

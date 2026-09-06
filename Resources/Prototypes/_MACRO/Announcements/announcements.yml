@@ -2,15 +2,23 @@
   id: Attention
   defaultSound:
     path: /Audio/Announcements/attention.ogg
+  monoDefaultSound: # funky
+    path: /Audio/Announcements/attention_mono.ogg
 
 - type: announcementSound
   id: Announce
   defaultSound:
     path: /Audio/Announcements/announce.ogg
+  monoDefaultSound: # funky
+    path: /Audio/Announcements/announce.ogg
 
 - type: announcementSound
   id: GridPowerOff
   defaultSound:
+    path: /Audio/Announcements/power_off.ogg
+    params:
+      volume: -4
+  monoDefaultSound: # funky
     path: /Audio/Announcements/power_off.ogg
     params:
       volume: -4
@@ -21,16 +29,24 @@
     collection: PowerOn
     params:
       volume: -4
+  monoDefaultSound: # funky
+    collection: PowerOn
+    params:
+      volume: -4
 
 - type: announcementSound
   id: Intercept
   defaultSound:
     path: /Audio/Announcements/intercept.ogg
+  monoDefaultSound: # funky
+    path: /Audio/Announcements/intercept_mono.ogg
 
 - type: announcementSound
   id: Welcome
   defaultSound:
     path: /Audio/Announcements/welcome.ogg
+  monoDefaultSound: # funky
+    path: /Audio/Announcements/welcome_mono.ogg
 
 - type: announcementSound
   id: Meteors
@@ -38,28 +54,40 @@
     path: /Audio/Announcements/meteors.ogg
     params:
       volume: -4
+  monoDefaultSound: # funky
+    path: /Audio/Announcements/meteors_mono.ogg
 
 - type: announcementSound
   id: War
   defaultSound:
     path: /Audio/Announcements/war.ogg
+  monoDefaultSound: # funky
+    path: /Audio/Announcements/war_mono.ogg
 
 - type: announcementSound
   id: ShuttleCalled
   defaultSound:
     path: /Audio/Announcements/shuttlecalled.ogg
+  monoDefaultSound: # funky
+    path: /Audio/Announcements/shuttlecalled_mono.ogg
 
 - type: announcementSound
   id: ShuttleRecalled
   defaultSound:
     path: /Audio/Announcements/shuttlerecalled.ogg
+  monoDefaultSound: # funky
+    path: /Audio/Announcements/shuttlerecalled_mono.ogg
 
 - type: announcementSound
   id: ShuttleDock
   defaultSound:
     path: /Audio/Announcements/shuttle_dock.ogg
+  monoDefaultSound: # funky
+    path: /Audio/Announcements/shuttle_dock_mono.ogg
 
 - type: announcementSound
   id: Notice1
   defaultSound:
     path: /Audio/Misc/notice1.ogg
+  monoDefaultSound: # funky
+    path: /Audio/Misc/notice1_mono.ogg

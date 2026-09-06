@@ -1,0 +1,11 @@
+- type: entity
+  id: IntercomHailing
+  parent: Intercom
+  suffix: Hailing
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyHailing

@@ -11,6 +11,7 @@ using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.AlertLevel;
 using Content.Shared.CCVar;
+using Content.Shared._Funkystation.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Communications;
 using Content.Shared.Database;
@@ -141,7 +142,8 @@ namespace Content.Server.Communications
             _uiSystem.SetUiState(uid, CommunicationsConsoleUiKey.Key, new CommunicationsConsoleInterfaceState(
                 CanAnnounce(comp),
                 CanCallOrRecall(comp),
-                _roundEndSystem.ExpectedCountdownEnd
+                _roundEndSystem.ExpectedCountdownEnd,
+                comp.CanBypassPA && PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg) // funky
             ));
         }
 
@@ -205,6 +207,13 @@ namespace Content.Server.Communications
         private void OnAnnounceMessage(EntityUid uid, CommunicationsConsoleComponent comp,
             CommunicationsConsoleAnnounceMessage message)
         {
+            // funky - redirect comms console announcements to PA speakers
+            // TODO: comms console behaviour when pa exclusivity is disabled still needs some work
+            if (!message.BypassPA && PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg))
+            {
+                AnnounceCommsConsoleViaPASystem(uid, comp, message);
+                return;
+            }
             var maxLength = _cfg.GetCVar(CCVars.ChatMaxAnnouncementLength);
             var msg = SharedChatSystem.SanitizeAnnouncement(message.Message, maxLength);
             var author = Loc.GetString("comms-console-announcement-unknown-sender");
@@ -241,14 +250,14 @@ namespace Content.Server.Communications
             {
                 // Macrocosm start - Announcer overrides
                 _announcer.TryGetAnnouncerSound(comp.Sound, out var sound);
-                _chatSystem.DispatchGlobalAnnouncement(msg, title, announcementSound: sound, colorOverride: comp.Color);
+                _chatSystem.DispatchGlobalAnnouncement(msg, title, announcementSound: sound, colorOverride: comp.Color, paSystemBypass: true); // funky - add pa system bypass option
                 // Macrocosm end
 
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following global announcement: {msg}");
                 return;
             }
 
-            _chatSystem.DispatchStationAnnouncement(uid, msg, title, colorOverride: comp.Color);
+            _chatSystem.DispatchStationAnnouncement(uid, msg, title, colorOverride: comp.Color, paSystemBypass: message.BypassPA); // funky - add pa system bypass option
 
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following station announcement: {msg}");
 

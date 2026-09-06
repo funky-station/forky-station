@@ -1,4 +1,6 @@
 using Content.Server._MACRO.Announcements;
+using Content.Server._Funkystation.Communications;
+using Content.Shared._Funkystation.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Station.Components;
@@ -12,16 +14,26 @@ public sealed partial class ChatSystem
 {
     [Dependency] private AnnouncerManager _announcer = default!; // macrocosm
 
+    [Dependency] private PASystem _paSystem = null!; // funky - announcements via PA speakers
     /// <inheritdoc />
     public override void DispatchGlobalAnnouncement(
         string message,
         string? sender = null,
         bool playSound = true,
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null
+        Color? colorOverride = null,
+        bool paSystemBypass = false // funky
         )
     {
         sender ??= Loc.GetString("chat-manager-sender-announcement");
+
+        // funky - redirect announcement to PA speakers
+        if (!paSystemBypass && _configurationManager.GetCVar(PAAnnouncementCVars.PAEnabled))
+        {
+            _paSystem.DispatchPAAnnouncement(message, sender, null, false, playSound, true, null, announcementSound, colorOverride);
+            if (_configurationManager.GetCVar(PAAnnouncementCVars.PAExclusiveAnnouncements))
+                return;
+        }
 
         var wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message", ("sender", sender), ("message", FormattedMessage.EscapeText(message)));
         _chatManager.ChatMessageToAll(ChatChannel.Radio, message, wrappedMessage, default, false, true, colorOverride);
@@ -46,9 +58,18 @@ public sealed partial class ChatSystem
         string? sender = null,
         bool playSound = true,
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null)
+        Color? colorOverride = null,
+        bool paSystemBypass = false) //funky
     {
         sender ??= Loc.GetString("chat-manager-sender-announcement");
+
+        // funky - redirect announcement to PA speakers
+        if (!paSystemBypass && _configurationManager.GetCVar(PAAnnouncementCVars.PAEnabled))
+        {
+            _paSystem.DispatchPAAnnouncement(message, sender, source, false, playSound,  true, null, announcementSound, colorOverride);
+            if (_configurationManager.GetCVar(PAAnnouncementCVars.PAExclusiveAnnouncements))
+                return;
+        }
 
         var wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message", ("sender", sender), ("message", FormattedMessage.EscapeText(message)));
         _chatManager.ChatMessageToManyFiltered(filter, ChatChannel.Radio, message, wrappedMessage, source ?? default, false, true, colorOverride);
@@ -72,9 +93,18 @@ public sealed partial class ChatSystem
         string? sender = null,
         bool playDefaultSound = true,
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null)
+        Color? colorOverride = null,
+        bool paSystemBypass = false) // funky
     {
         sender ??= Loc.GetString("chat-manager-sender-announcement");
+
+        // funky - redirect announcement to PA speakers
+        if (!paSystemBypass && _configurationManager.GetCVar(PAAnnouncementCVars.PAEnabled))
+        {
+            _paSystem.DispatchPAAnnouncement(message, sender, source, false, playDefaultSound, false, null, announcementSound, colorOverride);
+            if (_configurationManager.GetCVar(PAAnnouncementCVars.PAExclusiveAnnouncements))
+                return;
+        }
 
         var wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message", ("sender", sender), ("message", FormattedMessage.EscapeText(message)));
         var station = _stationSystem.GetOwningStation(source);
