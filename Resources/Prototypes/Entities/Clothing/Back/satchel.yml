@@ -194,13 +194,18 @@
     - state: icon-unshaded
       shader: unshaded
 
-- type: entity
-  parent: ClothingBackpackSatchelHolding
+- type: entity 
+# Funky commented out: "parent: ClothingBackpackSatchelHolding"
   id: ClothingBackpackSatchelAdmin
   name: satchel of administration
   suffix: Admin
   description: If you are somehow seeing this, no you're not.
   components:
+  # Funky changes start here
+  - type: Sprite
+    sprite: Mobs/Animals/bee.rsi
+    state: icon
+    # Funky changes end here
   - type: ExplosionResistance
     damageCoefficient: 0
   - type: Storage
