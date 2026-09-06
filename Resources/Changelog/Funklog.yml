@@ -403,4 +403,11 @@
   id: 44
   time: '2026-09-06T17:47:56Z'
   url: https://github.com/funky-station/forky-station/pull/424
+- author: adamsong
+  changes:
+  - message: Fixed vending machines not showing labels.
+    type: Fix
+  id: 45
+  time: '2026-09-06T21:02:55Z'
+  url: https://github.com/funky-station/forky-station/pull/423
 Order: -1
