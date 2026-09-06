@@ -4,6 +4,7 @@ using Content.Shared.Beam.Components;
 using Content.Server.Lightning.Components;
 using Content.Shared.Lightning;
 using Robust.Server.GameObjects;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server.Lightning;
@@ -22,6 +23,8 @@ public sealed partial class LightningSystem : SharedLightningSystem
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IComponentFactory _factory = default!;
 
     public override void Initialize()
     {
@@ -47,14 +50,32 @@ public sealed partial class LightningSystem : SharedLightningSystem
     /// <param name="target">Where the lightning fires to</param>
     /// <param name="lightningPrototype">The prototype for the lightning to be created</param>
     /// <param name="triggerLightningEvents">if the lightnings being fired should trigger lightning events.</param>
-    public void ShootLightning(EntityUid user, EntityUid target, string lightningPrototype = "Lightning", bool triggerLightningEvents = true)
+    /// <param name="overrideEnergy">override the amount of energy in the lightning bolt</param>
+    public void ShootLightning(EntityUid user, EntityUid target, string lightningPrototype = "Lightning", bool triggerLightningEvents = true, float? overrideEnergy = null)
     {
+        float energy;
+
+        if (overrideEnergy != null)
+        {
+            energy = overrideEnergy.Value;
+        }
+        else
+        {
+            // Pull LightningEnergy from the prototype
+            var proto = _proto.Index<EntityPrototype>(lightningPrototype);
+
+            var compName = _factory.GetComponentName(typeof(LightningComponent));
+            energy = !proto.TryGetComponent(compName, out LightningComponent? lightningComp)
+                ? 50000f // fallback
+                : lightningComp.LightningEnergy;
+
+        }
         var spriteState = LightningRandomizer();
         _beam.TryCreateBeam(user, target, lightningPrototype, spriteState);
 
         if (triggerLightningEvents) // we don't want certain prototypes to trigger lightning level events
         {
-            var ev = new HitByLightningEvent(user, target);
+            var ev = new HitByLightningEvent(user, target, energy);
             RaiseLocalEvent(target, ref ev);
         }
     }
@@ -69,7 +90,8 @@ public sealed partial class LightningSystem : SharedLightningSystem
     /// <param name="lightningPrototype">The prototype for the lightning to be created</param>
     /// <param name="arcDepth">how many times to recursively fire lightning bolts from the target points of the first shot.</param>
     /// <param name="triggerLightningEvents">if the lightnings being fired should trigger lightning events.</param>
-    public void ShootRandomLightnings(EntityUid user, float range, int boltCount, string lightningPrototype = "Lightning", int arcDepth = 0, bool triggerLightningEvents = true)
+    /// <param name="overrideEnergy">override the amount of energy in the lightning bolt</param>
+    public void ShootRandomLightnings(EntityUid user, float range, int boltCount, string lightningPrototype = "Lightning", int arcDepth = 0, bool triggerLightningEvents = true, float? overrideEnergy = null)
     {
         //TODO: add support to different priority target tablem for different lightning types
         //TODO: Remove Hardcode LightningTargetComponent (this should be a parameter of the SharedLightningComponent)
@@ -92,7 +114,7 @@ public sealed partial class LightningSystem : SharedLightningSystem
             if (!_random.Prob(curTarget.Comp.HitProbability)) //Chance to ignore target
                 continue;
 
-            ShootLightning(user, targets[count].Owner, lightningPrototype, triggerLightningEvents);
+            ShootLightning(user, targets[count].Owner, lightningPrototype, triggerLightningEvents, overrideEnergy: overrideEnergy);
             if (arcDepth - targets[count].Comp.LightningResistance > 0)
             {
                 ShootRandomLightnings(targets[count].Owner, range, 1, lightningPrototype, arcDepth - targets[count].Comp.LightningResistance, triggerLightningEvents);
@@ -107,5 +129,6 @@ public sealed partial class LightningSystem : SharedLightningSystem
 /// </summary>
 /// <param name="Source">The entity that created the lightning</param>
 /// <param name="Target">The entity that was struck by lightning.</param>
+/// <param name="Energy">The amount of energy in the lightning bolt</param>
 [ByRefEvent]
-public readonly record struct HitByLightningEvent(EntityUid Source, EntityUid Target);
+public readonly record struct HitByLightningEvent(EntityUid Source, EntityUid Target, float Energy);

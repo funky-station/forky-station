@@ -72,6 +72,8 @@
   id: MobDiona
   name: Urist McPlants
   components:
+  - type: MobSize
+    size: Medium
   - type: Respirator
     damage:
       types:

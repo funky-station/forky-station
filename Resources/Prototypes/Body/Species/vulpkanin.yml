@@ -146,6 +146,8 @@
   id: MobVulpkanin
   name: Urist McArfArf
   components:
+  - type: MobSize
+    size: Medium
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:

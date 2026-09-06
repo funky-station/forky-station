@@ -1,3 +1,5 @@
+
+using Content.Server._Funkystation.SM.EntitySystems;
 using Content.Server.Tesla.EntitySystems;
 using Content.Shared.Explosion;
 using Content.Shared.FixedPoint;
@@ -9,7 +11,7 @@ namespace Content.Server.Lightning.Components;
 /// This component allows the lightning system to select a given entity as the target of a lightning strike.
 /// It also determines the priority of selecting this target, and the behavior of the explosion. Used for tesla.
 /// </summary>
-[RegisterComponent, Access(typeof(LightningSystem), typeof(LightningTargetSystem))]
+[RegisterComponent, Access(typeof(LightningSystem), typeof(LightningTargetSystem), typeof(SupermatterLightningSystem))]
 public sealed partial class LightningTargetComponent : Component
 {
     /// <summary>
@@ -19,7 +21,7 @@ public sealed partial class LightningTargetComponent : Component
     public float HitProbability = 1f;
 
     /// <summary>
-    /// Priority level for selecting a lightning target. 
+    /// Priority level for selecting a lightning target.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public int Priority;

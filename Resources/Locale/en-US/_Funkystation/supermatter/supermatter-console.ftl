@@ -1,0 +1,12 @@
+supermatter-console-ui-title = Supermatter monitor
+supermatter-console-linked = Monitoring active supermatter on this grid.
+supermatter-console-no-crystal = No active supermatter detected on this grid.
+supermatter-console-integrity = Integrity: { $percent }% ({ $current } / { $max })
+supermatter-console-internal-energy = Internal energy: { $mev } MeV
+supermatter-console-absorbed-moles = Absorbed moles (last tick): { $moles }
+supermatter-console-predicted-delam = Predicted delamination: { $type }
+supermatter-console-delam-type-Singulo = Singularity
+supermatter-console-delam-type-Tesla = Tesla
+supermatter-console-delam-type-Explosion = Explosive
+supermatter-console-delam-type-Cascade = Resonance cascade
+supermatter-console-delamming-countdown = WARNING: Delamination in progress — { $seconds } s remaining.
