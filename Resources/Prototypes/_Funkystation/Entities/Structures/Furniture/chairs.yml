@@ -1,0 +1,155 @@
+- type: entity
+  parent: [ ChairBase, StructureHealthFurniture ]
+  id: ComfyChairBlack
+  name: comfy chair black
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: ComfyBlack
+  - type: Construction
+    graph: ComfySeat
+    node: chairComfyBlack
+  - type: Damageable
+    damageModifierSet: SteelMod
+  - type: Destructible
+    thresholds: &ThresholdsFurnitureNormalSteel
+    - trigger: &DamageFurnitureNormal
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - &SoundMetalBreak !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - &SpawnSteel01 !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1: &Min0Max1
+            min: 0
+            max: 1
+
+- type: entity
+  parent: [ ChairBase, StructureHealthFurniture ]
+  id: ComfyChairGrey
+  name: comfy chair grey
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: ComfyGrey
+  - type: Construction
+    graph: Seat
+    node: chairComfy
+  - type: Damageable
+    damageModifierSet: SteelMod
+  - type: Destructible
+    thresholds: *ThresholdsFurnitureNormalSteel
+
+- type: entity
+  parent: [ ChairBase, StructureHealthFurniture ]
+  id: ComfyChairBrown
+  name: comfy chair brown
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: ComfyBrown
+  - type: Construction
+    graph: Seat
+    node: chairComfy
+  - type: Damageable
+    damageModifierSet: SteelMod
+  - type: Destructible
+    thresholds: *ThresholdsFurnitureNormalSteel
+
+- type: entity
+  parent: [ ChairBase, StructureHealthFurniture ]
+  id: ComfyChairGreen
+  name: comfy chair green
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: ComfyGreen
+  - type: Construction
+    graph: Seat
+    node: chairComfy
+  - type: Damageable
+    damageModifierSet: SteelMod
+  - type: Destructible
+    thresholds: *ThresholdsFurnitureNormalSteel
+
+- type: entity
+  parent: [ ChairBase, StructureHealthFurniture ]
+  id: ComfyChairBlue
+  name: comfy chair blue
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: ComfyBlue
+  - type: Construction
+    graph: Seat
+    node: chairComfy
+  - type: Damageable
+    damageModifierSet: SteelMod
+  - type: Destructible
+    thresholds: *ThresholdsFurnitureNormalSteel
+
+- type: entity
+  parent: [ ChairBase, StructureHealthFurniture ]
+  id: ComfyChairLightBlue
+  name: comfy chair light blue
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: ComfyLightBlue
+  - type: Construction
+    graph: Seat
+    node: chairComfy
+  - type: Damageable
+    damageModifierSet: SteelMod
+  - type: Destructible
+    thresholds: *ThresholdsFurnitureNormalSteel
+
+- type: entity
+  parent: [ ChairBase, StructureHealthFurniture ]
+  id: ComfyChairPink
+  name: comfy chair pink
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: ComfyPink
+  - type: Construction
+    graph: Seat
+    node: chairComfy
+  - type: Damageable
+    damageModifierSet: SteelMod
+  - type: Destructible
+    thresholds: *ThresholdsFurnitureNormalSteel
+
+- type: entity
+  parent: [ ChairBase, StructureHealthFurniture ]
+  id: ComfyChairRed
+  name: comfy chair red
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: ComfyRed
+  - type: Construction
+    graph: Seat
+    node: chairComfy
+  - type: Damageable
+    damageModifierSet: SteelMod
+  - type: Destructible
+    thresholds: *ThresholdsFurnitureNormalSteel
+
+- type: entity
+  parent: [ ChairBase, StructureHealthFurniture ]
+  id: ComfyChairPurple
+  name: comfy chair purple
+  description: It looks comfy.
+  components:
+  - type: Sprite
+    state: ComfyPurple
+  - type: Construction
+    graph: Seat
+    node: chairComfy
+  - type: Damageable
+    damageModifierSet: SteelMod
+  - type: Destructible
+    thresholds: *ThresholdsFurnitureNormalSteel
