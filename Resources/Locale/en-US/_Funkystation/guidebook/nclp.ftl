@@ -1,1 +1,1 @@
-guide-entry-nclp = Nanotrasen Colonial Law and Procedure
+guide-entry-nclp = Law and Procedure
