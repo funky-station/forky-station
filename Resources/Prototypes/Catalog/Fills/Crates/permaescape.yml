@@ -153,37 +153,45 @@
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:AllSelector
-        children:
-        - id: GlowstickBlue
+        children: # Funky change start
+        - id: FuGlowstickBlue
           prob: 0.50
-        - id: GlowstickBlue
+        - id: FuGlowstickBlue
           prob: 0.20
-        - id: GlowstickBlue
-          prob: 0.05
-        - id: GlowstickGreen
+        # - id: GlowstickBlue
+        #   prob: 0.05
+        - id: FuGlowstickGreen
           prob: 0.50
-        - id: GlowstickGreen
+        - id: FuGlowstickGreen
           prob: 0.20
-        - id: GlowstickGreen
-          prob: 0.05
-        - id: GlowstickPurple
+        # - id: GlowstickGreen
+        #   prob: 0.05
+        - id: FuGlowstickPurple
           prob: 0.50
-        - id: GlowstickPurple
+        - id: FuGlowstickPurple
           prob: 0.20
-        - id: GlowstickPurple
-          prob: 0.05
-        - id: GlowstickRed
+        # - id: GlowstickPurple
+        #   prob: 0.05
+        - id: FuGlowstickRed
           prob: 0.50
-        - id: GlowstickRed
+        - id: FuGlowstickRed
           prob: 0.20
-        - id: GlowstickRed
-          prob: 0.05
-        - id: GlowstickYellow
+        # - id: GlowstickRed
+        #   prob: 0.05
+        - id: FuGlowstickYellow
           prob: 0.50
-        - id: GlowstickYellow
+        - id: FuGlowstickYellow
           prob: 0.20
-        - id: GlowstickYellow
+        # - id: GlowstickYellow
+        #   prob: 0.05
+        - id: FuGlowstickWhite
+          prob: 0.20
+        - id: FuGlowstickWhite
           prob: 0.05
+        - id: FuGlowstickPackTrash
+          prob: 0.50
+        - id: FuGlowstickPack
+          prob: 0.05 # Funky change end
 
 - type: entity
   parent: CrateGenericSteel

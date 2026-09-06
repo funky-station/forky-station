@@ -166,19 +166,19 @@
     children:
     - id: SpaceCash100
       weight: 2
-    - id: GlowstickGreen
+    - id: FuGlowstickGreen # Funky change
       amount: !type:RangeNumberSelector
         range: 1, 5
-    - id: GlowstickRed
+    - id: FuGlowstickRed # Funky change
       amount: !type:RangeNumberSelector
         range: 1, 5
-    - id: GlowstickPurple
+    - id: FuGlowstickPurple # Funky change
       amount: !type:RangeNumberSelector
         range: 1, 5
-    - id: GlowstickYellow
+    - id: FuGlowstickYellow # Funky change
       amount: !type:RangeNumberSelector
         range: 1, 5
-    - id: GlowstickBlue
+    - id: FuGlowstickBlue # Funky change
       amount: !type:RangeNumberSelector
         range: 1, 5
 
