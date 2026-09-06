@@ -351,590 +351,590 @@
         
         
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Loitering (A)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Trespass (A)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Trespass (A)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         
         
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Possession of Minor Contraband (C)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Possession of Moderate Contraband (C)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Possession of Major Contraband (C)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         
         
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Vandalism (D)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Destruction of Property (D)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Mass Destruction (D)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Station Sabotage (D)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         
         
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Refusal to Identify (F)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Slander (F)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Impersonation (F)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Libel (F)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Fraud (F)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Impersonation of Central Command (F)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         
         
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Contempt of Court (J)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Perjury (J)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Subversion of Court (J)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         
 
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Harassment (M)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Extortion (M)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Sedition (M)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Terrorism (M)
             </Box>
         </ColorBox>
         
         
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Negligence (N)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Endangerment (N)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Manslaughter (N)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Capital Negligence (N)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         
         
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Operation without Permit (O)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Smuggling (O)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Black Marketeering (O)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         
         
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Disturbance (R)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Unlawful Assembly (R)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Rioting (R)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         
         
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Failure to Comply (S)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Breach of Arrest (S)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Breach of Custody (S)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         
         
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Petty Theft (T)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Theft (T)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Grand Theft (T)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         
         
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Assault (V)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Battery (V)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Mutilation (V)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Murder (V)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Prevention of Revival (V)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         
         
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Kidnapping (W)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Suppression of Free Will (W)
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         
         
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Cannibalism
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Failure to Pay
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Animal Cruelty
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Bribery
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Tax Evasion
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Refusal of Lawful Implantation
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Breach of NT Contract
             </Box>
         </ColorBox>
         
         
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Substance Abuse
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
         <ColorBox>
-            <Box></Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
     </Table>
 
