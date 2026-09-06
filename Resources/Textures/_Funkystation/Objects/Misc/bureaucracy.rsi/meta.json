@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "By AraiMaia for Funky Station",
+  "copyright": "By AraiMaia for Funky Station,by empty0set for Funkystation, paper_stamp-cci by TheHolyAegis, By Tomlolo for Funky station, ",
   "size": {
     "x": 32,
     "y": 32
@@ -141,6 +141,42 @@
     },
     {
       "name": "paper-inhand-right"
+    },
+    {
+      "name": "paper_stamp-iaa"
+    },
+    {
+       "name": "paper_stamp-magi"
+    },
+    {
+      "name": "paper_stamp-borg"
+    },
+    {
+       "name": "paper_stamp-cci"
+    },
+    {
+        "name": "paper_stamp-topsecret"
+    },
+    {
+        "name": "paper_stamp-classified"
+    },
+    {
+       "name": "paper_stamp-hd"
+    },
+    {
+       "name": "paper_stamp-xo"
+    },
+    {
+        "name": "paper_stamp-discharged"
+    },
+    {
+        "name": "paper_stamp-commandant"
+    },
+    {
+        "name": "paper_stamp-lieutenant"
+    },
+    {
+        "name": "paper_stamp-cl"
     }
   ]
 }
