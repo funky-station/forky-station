@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: CrateCopsNRobbers
+  icon:
+    sprite: Clothing/Head/Hats/cowboyhatbrown.rsi
+    state: icon
+  product: CrateCopsNRobbers
+  cost: 2000
+  category: cargoproduct-category-name-fun
+  group: market
