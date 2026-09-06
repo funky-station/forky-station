@@ -1,0 +1,400 @@
+<Document>
+    # NanoTrasen Corporate Law
+    ## 1. Definitions:
+    NT: NanoTrasen
+    
+    Charge: The combination of all crimes an individual is accused of.
+
+    Sentence: A judge's decision concerning the validity, in whole or part, of a charge in addition to its accompanying punishment.
+    
+    Arrest: Under restraint by Security, in order to press charges before a judge.
+    
+    Custody: Under restraint by Security, during or after receiving a sentence.
+    
+    Detainee: Any being who is being temporarily held for searches, interrogation, issuing a fine, etc.
+    
+    Arrestee: Any being either arrested or in custody.
+    
+    Criminal Offense: An act that violates Corporate Law, with penalties including fines or imprisonment.
+    
+    Sentient Being: A living entity who perceives or responds to sensations of whatever kind.
+    
+    Sapient Being: A living entity that is capable of fully comprehending itself, its surroundings, and other sapient beings.
+    
+    Privileged Individuals: A member of Command or Central Command.
+    
+    Operational Safety: The ability for the station, departments, and crew as a whole to perform work unimpeded.
+    
+    Reasonable Suspicion: Security personnel either directly witnessing or receiving credible information about potential illegal activity. Valid Reasonable Suspicion is more than a simple hunch or instinct, and must be based on clear facts.
+    
+    Probable Cause: Security personnel either directly witnessing or receiving credible information about an actual crime committed.
+    
+
+    ## 2. Searches
+
+    ### Personnel Searches
+    Security personnel are allowed to search personnel under any of the following conditions:
+    - There is reasonable suspicion of a crime.
+    - There is a search warrant for the being.
+    - The station’s alert level allows for random searches.
+
+    The search allows the seizure of any illegal possessions. This includes any bags, boxes or other containers the person has in the immediate vicinity.
+
+    A crewmate may legally decline any search conducted without reasonable suspicion while the alert level is Green.
+
+    If any contraband is found during a search, the officer may choose to further the search into an arrest, or confiscate the restricted items and issue a fine. After the search is conducted, all legal items are to be returned to the person.
+
+    #### Invasive confiscation
+    Sometimes crewmembers may have contraband that requires surgery to remove.
+
+    Removal of body augmentation contraband should be done by medical personnel and not cause excessive harm or leave the person's body nonfunctional.
+
+    ### Department searches
+    Security personnel are allowed to search a department under any of the following conditions:
+    - There is a search warrant signed by the corresponding Department Head, Executive Officer or Captain.
+    - The station’s alert level allows for the departmental search.
+
+    Anything, excluding personnel, within the areas defined on the searched warrant can be searched.
+
+    Security personnel should make reasonable accommodations to reduce the interruption in the department
+    - Personnel should be able to work
+    - Search time should be kept to a minimum
+
+    Secure Areas are not be searched unless otherwise explicitly authorized by the Head of that department, or higher
+
+    The Executive Officer may issue ID cards with temporary access for the purposes of fulfilling a search warrant.
+
+    ## 3. Detainment & Arrests
+    Security personnel are allowed to temporarily detain anyone with only a reasonable suspicion of a crime.
+    
+    Procedures that necessitate detainment:
+    - Performing a search.
+    - Investigating a crime.
+    - Handing out a fine.
+
+    Security Personnel are allowed to arrest only with probable cause of a crime.
+
+    Arrest reasons include, but are not limited to:
+    - Directly witnessing a crime.
+    - Having suitable forensic evidence of a crime.
+    - Eyewitness report from a trustworthy individual.
+
+    Detained and arrested individuals should not be handcuffed, provided they are cooperating.
+
+    Cuffing of a detainee or arrestee should only happen if either:
+    - The subject poses a clear threat towards privileged individuals, Security personnel, and/or station assets
+    - The subject is non-cooperative, or resisting enforcement authority.
+
+    ## 4. Chain of Custody
+    All Security personnel are held to a high standard when interacting with the public.
+
+    Proper protocol is to be followed in order to ensure that subjects of legal enforcement are given due process and retain any and all rights they may hold.
+
+    Security personnel are to follow the following procedure with any arrest.
+    
+    Failure to follow this procedure may result in formal Disciplinary Actions by the onboard IA staff, or in extreme cases, charges of negligence and/or endangerment.
+
+    1. Given Probable Cause, the officer must state their intent to arrest, and for what crimes, before taking any forceful action.
+
+        * Proper intent includes using a security voice mask, calling their name or job, and/or pointing at them and telling them to stop.
+
+        * This step may be waived if the target is the subject of a Red Alert, or if they are declared “Arrest on Sight” by the Commandant.
+
+    2. If the subject fails to stop when asked or attempts to evade lawful arrest, forceful action and restraints may be used to take them in.
+
+        * Nightsticks, flashes, and handcuffs should be prioritized first, but if all less-lethal options are disabled, stolen, or otherwise ineffective, lethal force is authorized and encouraged.
+        
+        * Heavy weaponry is only permitted to perform an arrest if the subject is the target of a Red Alert, or is a clear militarized danger to the station.
+    
+    3. After successful detainment, the officer is to alert the Commandant and Magistrate as soon as possible, so that all involved parties may prepare for a hearing or trial.
+    
+    4. The arrestee must be brought to security to remove and confiscate any contraband.
+        
+        * All contraband should be properly stored on the evidence storage.
+    
+    5. Recovery of the arrestee’s bodily health is to be ensured before moving on to the hearing or trial.
+    
+    6. In the case of a formal hearing or trial, the arrestee must be informed of their right to a lawyer, and be provided one upon request.
+        
+        * For summary hearings, the arrestee does not have to be offered a lawyer, but still must be provided one upon request.
+    
+    7. The arrestee is to be brought to court, before the Magistrate, where they receive their official sentence via hearing or trial.
+    
+    8. Should their sentence result in brig time, the officer is to transport and hand the prisoner off to the Warden.
+    
+    9. The Warden removes all of the prisoner’s belongings, and ensures they are properly stored in their locker before handing them their prisoner ID and transporting them to the brig.
+
+    Any time evidence is removed from the evidence storage, form SEC-11 needs to be filed for proper chain of custody validation.
+
+    At any point during a prisoner’s arrest or confinement, the Detective is permitted to bring them into interrogation and question them.
+    - The prisoner’s sentence timer may be paused during interrogation.
+    - The prisoner may ask for consultation with a lawyer, during which their sentence is to be paused.
+
+    ## 5. Treatment of Arrestees and Prisoners
+    Personnel in custody are to be ensured the following rights:
+
+    ### Arrestees
+    Arrestees must be provided with:
+
+    1. Adequate medical care.
+
+    2. Access to communications equipment so long as they are not abused.
+
+    3. Access to a lawyer, should they request it.
+
+        * This includes during interrogations and the subsequent hearing.
+
+    ### Prisoners
+    On top of the arrestee’s protections, prisoners must be provided with:
+
+    1. Clothing, food, water, and shelter.
+
+        * Should the Brig be rendered unsafe, confinement must be established in another location.
+
+    2. Psychiatric and spiritual counselling if requested.
+
+    3. Prisoners should not be restrained with handcuffs or other devices after incarceration unless there is an undue risk to life and limb.
+
+    ## 6. Implantation
+    Any crew member can be implanted if they give their clear permission.
+
+    Any prisoner in custody can be subjected to implantation or implant removal procedures, so long as it's within reason. The process of adding an implant should not prolong the arrestee's sentence.
+
+    ### Implantation
+    If a suspect or prisoner represents a flight risk, or is a recurring offender, a tracking implant can be administered to them.
+
+    ### Removal
+    A suspect can be forced to receive implant removal if there is probable cause that they have an illegal implant, such as an officer witnessing them use an implantation device or their biological information being found on a discarded injector.
+
+    Unlike the implantation procedure, a prisoner can have their sentence entirely delayed or extended until they comply with the removal, as long as Security are actively making attempts to perform it. Akin to implanting, if an inmate gives their clear permission, implant removal can proceed without proof.
+
+    ## 7. List of Crimes
+
+    ### Crime Tiers:
+
+    * **Infraction**
+
+    * Minor, non-criminal offenses.
+
+    * An offense is especially considered only an Infraction if it causes minimal damage, and is easily reversible.
+
+    * Possible Punishments:
+
+        * A financial penalty ticket and/or a formal warning.
+
+        * Explicitly do not result in brig time.
+
+    * Punishments for Infractions aren’t supposed to majorly interrupt the offender’s workplace productivity.
+
+
+    * **Misdemeanor**
+
+    * Crimes that cause harm to others or some level of asset loss, and aren’t as easily reversible.
+
+
+    * **Felony**
+
+    * Crimes that cause major harm, major asset loss, and/or are a major threat to the station’s operational safety.
+
+
+    * **Capital Offense**
+
+    * Crimes that cause irreversible harm or asset loss, and/or majorly disrupt the station’s operational safety.
+    
+
+    ### NanoTrasen defines the following Infractions and Criminal Offenses:
+
+    | Infractions |  | Misdemeanors |  |  | Felonies |  |  | Capital Offenses |  |
+    | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
+    | \- | Class C | Class B | Class A | Class C | Class B | Class A | Class C | Class B | Class A |
+    | Ticket \+ Warning | 8 Minutes | 10 Minutes | 12 Minutes | 16 Minutes | 20 Minutes | 24 Minutes | Perma | Perma w/o Parole | Execution |
+    | Loitering (A) | Trespass (A) |  |  | Secure Trespass (A) |  |  |  |  |  |
+    | Possession of Minor Contraband (C) | Possession of Moderate Contraband (C) |  |  | Possession of Major Contraband (C) |  |  |  |  |  |
+    | Vandalism (D) |  | Destruction of Property (D) |  |  | Mass Destruction (D) |  |  | Station Sabotage (D) |  |
+    | Refusal to Identify (F) | Slander (F) | Impersonation (F) |  | Libel (F) | Fraud (F) |  | Impersonation of Central Command (F) |  |  |
+    |  |  | Contempt of Court (J) |  | Perjury (J) |  | Subversion of Court (J) |  |  |  |
+    | Harassment (M) |  |  |  | Extortion (M) |  | Sedition (M) |  |  | Terrorism (M) |
+    | Negligence (N) |  | Endangerment (N) |  |  | Manslaughter (N) |  | Capital Negligence (N) |  |  |
+    | Operation without Permit (O) |  | Smuggling (O) |  | Black Marketeering (O) |  |  |  |  |  |
+    | Disturbance (R) |  | Unlawful Assembly (R) |  |  | Rioting (R) |  |  |  |  |
+    | Failure to Comply (S) |  | Breach of Arrest (S) |  | Breach of Custody (S) |  |  |  |  |  |
+    | Petty Theft (T) | Theft (T) |  |  | Grand Theft (T) |  |  |  |  |  |
+    |  |  | Assault (V) | Battery (V) |  | Mutilation (V) |  | Murder (V) | Prevention of Revival (V) |  |
+    |  |  |  |  |  | Kidnapping (W) |  |  | Suppression of Free Will (W) |  |
+    | Cannibalism |  | Failure to Pay | Animal Cruelty |  | Bribery | Tax Evasion |  | Refusal of Lawful Implantation | Breach of NT Contract |
+    | Substance Abuse |  |  |  |  |  |  |  |  |  |
+
+    ### 2\. Crime Specifications:
+
+    | A | Access | Existing where you are not allowed. |
+    | :---- | :---- | :---- |
+    | Infraction | Loitering | Existing near a restricted area for an extended time, with no reasonable purpose. |
+    | Misdemeanor (C) | Trespass | Entering a restricted area without express permission. |
+    | Felony (C) | Secure Trespass | Entering a station-critical restricted area without express permission. |
+
+    | C | Contraband | Possession or use of controlled, restricted, or illegal contraband. |
+    | :---- | :---- | :---- |
+    | Infraction | Possession of Minor Contraband | See Contraband Classifications. |
+    | Misdemeanor (C) | Possession of Moderate Contraband | See Contraband Classifications. |
+    | Felony (C) | Possession of Major Contraband | See Contraband Classifications. |
+
+    | D | Destruction | Causing intentional damage to station functions. |
+    | :---- | :---- | :---- |
+    | Infraction | Vandalism | Superficially damaging or defacing station property. |
+    | Misdemeanor (B) | Destruction of Property | Causing substantial structural damage, requiring repairs. |
+    | Felony (B) | Mass Destruction | Causing substantial structural damage to a large area of the station. |
+    | Capital Offense (B) | Station Sabotage | Intentionally rendering critical station infrastructure inoperable. |
+
+    | F | Fraud | Lying about yourself or your actions for personal gain. |
+    | :---- | :---- | :---- |
+    | Infraction | Refusal to Identify | Not wearing your shift-assigned ID, and/or hiding your identity with facial coverings and refusing to present your identity when asked by an authority. |
+    | Misdemeanor (C) | Slander | Speaking false and harmful statements about NanoTrasen, its subsidiaries, or contractees. |
+    | Misdemeanor (B) | Impersonation | Hiding your true identity and posing as someone you are not for personal gain. |
+    | Felony (C) | Libel | Publishing false and harmful written statements about NanoTrasen, its subsidiaries, or contractees. |
+    | Felony (B) | Fraud | Intentionally lying about promised actions for personal gain, or not following through with non-NT contracts. |
+    | Capital Offense (C) | Impersonation of Central Command | Hiding your true identity and posing as Central Command. |
+
+    | J | Obstruction of Legal Justice | Impeding or abusing the legal justice system. |
+    | :---- | :---- | :---- |
+    | Misdemeanor (B) | Contempt of Court | Needlessly interrupting or delaying official court proceedings. |
+    | Felony (C) | Perjury | Lying under oath of court, or delivering false reports to Security. |
+    | Felony (A) | Subversion of Court | Obstructing court to the point where official court proceedings have to pause or stop altogether. |
+
+    | M | Manipulation | Manipulating a sapient being through tactics of fear and/or aggression. |
+    | :---- | :---- | :---- |
+    | Infraction | Harassment | Unwelcome, knowing, and repeated negative conduct toward a sapient being, causing them to feel seriously uncomfortable, annoyed, or afraid. |
+    | Felony (C) | Extortion | Unlawfully forcing another sapient being to do something unwillingly, by means of threats, force or aggression. |
+    | Felony (A) | Sedition | Conspiring to overthrow or otherwise dismantle NanoTrasen public trust and authority. |
+    | Capital Offense (A) | Terrorism | Causing mass station panic, or completely disrupting station operations by means of fear and/or lethal force. |
+
+    | N | Negligence | Causing harm to the station or its crew through vocational incompetence. |
+    | :---- | :---- | :---- |
+    | Infraction | Negligence | Unintentionally performing an action in a way that creates unnecessary harm. |
+    | Misdemeanor (B) | Endangerment | Willfully performing an action in a way that creates unnecessary harm. |
+    | Felony (B) | Manslaughter | Killing another sapient being without intent. |
+    | Capital Offense (C) | Capital Negligence | Performing an action in a way that causes unnecessary harm, to the point of causing mass station destruction, or rendering a department mostly inoperable, even temporarily. |
+
+    | O | Operation | Performing works or transactions not sanctioned by NanoTrasen. |
+    | :---- | :---- | :---- |
+    | Infraction | Operation without Permit | Performing another department’s duties, or some other business venture without a legal permit of operation. |
+    | Misdemeanor (B) | Smuggling | Illegaly distributing or selling items outside of the NT ecosystem |
+    | Felony (C) | Black Marketeering | Engaging in the buying and/or selling of contraband. |
+
+    | R | Rowdiness | Causing public disturbances and general unrest. |
+    | :---- | :---- | :---- |
+    | Infraction | Disturbance | Catch-all for public disruptive or obnoxious behavior. |
+    | Misdemeanor (B) | Unlawful Assembly | Refusing to disperse a protest or gathering after an official and legal declaration to do so has been issued. |
+    | Felony (B) | Rioting | Participating in unlawful protests, in the case where violence or station damages occur. |
+
+    | S | Obstruction of Security | Going against or obstructing lawful Security actions. |
+    | :---- | :---- | :---- |
+    | Infraction | Failure to Comply | Refusing to comply with lawful demands of Security personnel. |
+    | Misdemeanor (B) | Breach of Arrest | Escaping from or evading a lawful and justified arrest or detainment. |
+    | Felony (C) | Breach of Custody | Escaping from custody during or after receiving a legal sentence. |
+
+    | T | Theft | Taking that which belongs to others. |
+    | :---- | :---- | :---- |
+    | Infraction | Petty Theft | Taking something that is mostly worthless or easily replaceable. |
+    | Misdemeanor (C) | Theft | Taking something of meaningful value. |
+    | Felony (C) | Grand Theft | Taking something that is critical to the person’s job or role. |
+
+    | V | Intentional Violence | Causing intentional bodily harm to another sapient being. |
+    | :---- | :---- | :---- |
+    | Misdemeanor (B) | Assault | Threatening or attempting to cause bodily harm to another sapient being. |
+    | Misdemeanor (A) | Battery | Causing superficial bodily harm to another sapient being. |
+    | Felony (B) | Mutilation | Causing permanent or otherwise long-lasting damage to another sapient being’s body parts, organs, or appendages. |
+    | Capital Offense (C) | Murder | Intentionally killing another sapient being. |
+    | Capital Offense (B) | Prevention of Revival | Rendering a dead body unrevivable by common medical practice. |
+
+    | W | Free Will | Depriving another sapient being of their free will and autonomy. |
+    | :---- | :---- | :---- |
+    | Felony (B) | Kidnapping | To unlawfully restrain or transport another sapient being against their will. |
+    | Capital Offense (B) | Suppression of Free Will | Permanently depriving another sapient being of their free will and autonomy. |
+
+    | \- | Other | Independent crimes with no classification. |
+    | :---- | :---- | :---- |
+    | Infraction | Cannibalism | To consume a portion of another sapient being, without express consent. |
+    | Infraction | Substance Abuse | Consumption or usage of contraband substances. |
+    | Misdemeanor (B) | Failure to Pay | Failure to pay a legally imposed fine within the required timeframe. |
+    | Misdemeanor (A) | Animal Cruelty | Inflicting excessive harm on a living being, except when required for medical treatment, scientific research, or the preparation of food. |
+    | Felony (B) | Bribery | Offering, giving or accepting gifts, money, or favors to influence someone to act outside of their allowed duties. |
+    | Felony (A) | Tax Evasion | Not paying NanoTrasen-mandated scrip taxes, or using non-scrip currencies to avoid paying taxes. |
+    | Capital Offense (B) | Refusal of Lawful Implantation | Refusing to accept a lawful implant from Security personnel while in custody. |
+    | Capital Offense (A) | Breach of NT Contract | Violating the terms of an NT-issued, signed contract. |
+
+    ## 8. Contraband Classifications
+
+    ### Contraband Confiscation Procedures
+    Contraband Classifications follow broad categorizations based on object purpose, rather than a strict, specific list. Higher ranking personnel can override or specify contraband with the following chain of authority:
+    * Central Command.
+    * Captain.
+    * Executive Officer.
+    * Magistrate.
+
+    Security personnel are to avoid unreasonable confiscation of items in order to maintain positive public relations between Security, privileged individuals, and the rest of the station's crew.
+
+    ### Contraband Classifications
+    A single item may have more than one contraband classification, but only the highest charge is applied per item.
+
+    **Weapon**  
+    Objects with a heightened effectiveness for violence or killing.  
+    Minor: Improvised item used as a weapon.  
+    Moderate: Items that are purpose-made to be a weapon.  
+    Major: Highly lethal weapon.  
+
+    **Unsanctioned Equipment**  
+    Equipment that is restricted to a certain department or job.  
+    Minor: Common, departmental equipment.  
+    Moderate: Equipment that is critical to the department’s function.  
+    Major: Command-exclusive, unique equipment.  
+
+    **Operational Hazards**  
+    Objects that pose a heightened threat to the operational safety of the station, that are not explicitly issued by a department to do one’s job.  
+    Minor: Common, mostly harmless equipment.  
+    Moderate: Local scale threat to operational safety.  
+    Major: Large scale threat to operational safety.  
+
+    **Chemical**  
+    Substances capable of influencing the mind or harming the body when metabolized or used in a reaction.  
+    Minor: Restricted recreational drugs & medicines with low-risk ODs.  
+    Moderate: Exploitable stimulants, medicines with high-risk ODs, & minorly dangerous reactive substances.  
+    Major: Lethal poisons, highly inhibiting chemicals, & highly dangerous reactive substances.  
+
+    **Propaganda**
+    Objects that support non-NT-approved entities, or paints NT, its subsidiaries, or it's partners in a false light.
+    Minor: Items that carry branding from Non-NT organizations, with low-risk of exposure to other crew.
+    Moderate: Items that carry branding from enemies of NT, paint NT as an organization in a false light, or lesser items with wide exposure to other crew.
+    Major: Items that carry branding from terrorist organizations, paint NT Command in a false light, or lesser items with station-wide exposure to other crew.
+
+    **Classified Media**  
+    Media containing information from above the carrier’s clearance level.  
+    Any classified media is Major Contraband.  
+
+    ## 9. Legal Exemptions
+    Indicates the legal exemptions certain roles have from crimes or crime categories, so long as the proper protocol is being followed
+
+    ### Security Exemptions
+    Security personnel are explicitly exempt from the following crime categories, so long as the action is following standard protocol and taken to perform enforcement duties:  
+    Access: For the case of legal, necessary searches of a department.  
+    Contraband: For their standard-issue service weapons and security equipment.  
+    Theft: For legal confiscations of contraband.  
+    Violence: For necessary force to carry out arrests.  
+    Free Will: For restraining detainees and holding prisoners in custody.  
+
+    ### Medical Exemptions
+    The Paramedic is explicitly exempt from the following crime categories, so long as the action is done following standard protocol and taken to perform life saving operations:  
+    Access: For the case of medical emergency  
+
+    ### Engineering Exemptions
+    Engineering personnel are explicitly exempt from the following crime categories, so long as the action is following standard protocol and taken to perform emergency repairs:  
+    Access: For the case of effecting emergency repairs  
+
+    ### Clown Exception
+    The clown gets a privilege to be able to commit Infraction level crimes for pranks, as long that:
+    - The pranks do not cause bodily harm.
+    - Damages caused are reversed at the end of the bit.
+    - In case the clown gets taken to court, the presiding judge determines if the bit was funny and if the clown exception holds.
+
+    ### Loss of Free Will
+    In the event that a sapient being is under the influence of effects that completely suppress or control the being’s free will, any charges should be dropped upon the removal of said influence.
+</Document>
