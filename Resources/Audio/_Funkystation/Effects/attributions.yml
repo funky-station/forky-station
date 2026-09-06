@@ -13,6 +13,11 @@
   copyright: "Mixed by AraiMaia with sources by SoundsofTheMachine, taken via freesound.org"
   source: "https://freesound.org/people/SoundsofTheMachine/sounds/843093/"
 
+- files: ["wheelbrake.ogg"]
+  license: "CC0-1.0"
+  copyright: "Satisfying Plastic Handle Unlock by LordForklift."
+  source: "https://freesound.org/s/448393/"
+
 - files: ["cprpulse.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Created by mixing some Effects sounds together by Orsoniks (uses thudwoosh and weak_hit1)"
