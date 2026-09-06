@@ -48,10 +48,9 @@
         sound:
           collection: MetalBreak
   - type: Sprite
-    sprite: Structures/Machines/grinder.rsi
+    sprite: _Funkystation/Structures/Machines/grinder.rsi # Funky
     drawdepth: LargeObjects
-    snapCardinals: true
-    offset: "0.0,0.4"
+    offset: "0.0,0.15" # funky
     layers:
     - map: [ "grinder" ]
       state: "grinder_empty"
