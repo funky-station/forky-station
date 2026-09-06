@@ -1,0 +1,5 @@
+- type: flavor
+  id: fresh
+  flavorType: Base
+  description: flavor-base-fresh
+  
