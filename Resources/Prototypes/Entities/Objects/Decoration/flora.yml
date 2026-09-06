@@ -303,6 +303,7 @@
   name: christmas tree
   components:
   - type: Sprite
+    sprite: _Funkystation/Objects/Decoration/Flora/flora_treesconifer.rsi
     state: treechristmas01
 
 - type: entity
@@ -312,6 +313,7 @@
   name: christmas tree
   components:
   - type: Sprite
+    sprite: _Funkystation/Objects/Decoration/Flora/flora_treesconifer.rsi
     state: treechristmas02
   - type: Fixtures
     fixtures:
