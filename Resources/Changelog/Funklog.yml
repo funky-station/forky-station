@@ -417,4 +417,17 @@
   id: 46
   time: '2026-09-06T21:22:58Z'
   url: https://github.com/funky-station/forky-station/pull/422
+- author: 8tv
+  changes:
+  - message: Added departmental communications computers to Packed.
+    type: Add
+  - message: Added locked windoors to the IAA, HD, and XO rooms on Packed.
+    type: Add
+  - message: Added NDA cabinets to the Commandant and Captain's rooms on Packed.
+    type: Add
+  - message: Added a HD dresser to the HD room on Packed.
+    type: Add
+  id: 47
+  time: '2026-09-06T22:27:03Z'
+  url: https://github.com/funky-station/forky-station/pull/430
 Order: -1
