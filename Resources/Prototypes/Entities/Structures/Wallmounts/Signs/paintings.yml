@@ -141,6 +141,15 @@
   - type: Sprite
     state: painting14
 
+#- type: entity
+# parent: PaintingBase
+#  id: PaintingSleepingGypsy
+#  name: The Sleeping Gypsy
+#  description: This painting depicts a gypsy sleeping among their belongings in the desert. A lion stands behind them.
+#  components:
+#  - type: Sprite
+#    state: painting15
+
 - type: entity
   parent: PaintingBase
   id: PaintingRedBlueYellow
