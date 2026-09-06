@@ -574,6 +574,48 @@
     event: !type:GravityJumpEvent {}
 
 - type: entity
+  parent: BaseAction
+  id: ActionBadTackleGravityJump
+  name: Tackle
+  description: Exerting yourself, you launch yourself with a weak force in the direction of your gaze. #with shitty tider gloves
+  components:
+  - type: Action
+    useDelay: 12
+    icon:
+      sprite: Interface/Actions/jump.rsi
+      state: icon
+  - type: InstantAction
+    event: !type:GravityJumpEvent {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionBasicTackleGravityJump
+  name: Tackle
+  description: Exerting yourself, you launch yourself with a moderate force in the direction of your gaze. #with actual sec gloves
+  components:
+  - type: Action
+    useDelay: 12
+    icon:
+      sprite: Interface/Actions/jump.rsi
+      state: icon
+  - type: InstantAction
+    event: !type:GravityJumpEvent {}
+
+- type: entity
+  parent: BaseAction
+  id: ActionAdvancedTackleGravityJump
+  name: Leap
+  description: Exerting yourself, you launch yourself with a strong force in the direction of your gaze. #with hos/ward/antag gloves
+  components:
+  - type: Action
+    useDelay: 12
+    icon:
+      sprite: Interface/Actions/jump.rsi
+      state: icon
+  - type: InstantAction
+    event: !type:GravityJumpEvent {}
+
+- type: entity
   parent: BaseToggleAction
   id: ActionToggleRootable
   name: Rootable
