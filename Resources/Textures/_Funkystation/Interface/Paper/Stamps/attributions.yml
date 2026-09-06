@@ -19,13 +19,11 @@
   copyright: "Stamp icons taken from tgstation"
   source: "https://github.com/tgstation/tgstation/commit/9a9b428b61f388a0f6d7a20bbba05147e61023d0"
 - files:
-    - large_stamp-iaa.png
     - large_stamp-ntr.png
     - large_stamp-greytide.png
     - large_stamp-det.png
     - large_stamp-psych.png
     - large_stamp-wiz.png
-    - large_stamp-warden.png
     - large_stamp-centcomintern.png
   license: "CC-BY-SA-3.0"
   copyright: "Stamp icons by stabithar for FunkyStation"
@@ -38,18 +36,20 @@
 - files:
   - large_stamp-magi.png
   license: "CC-BY-NC-3.0"
-  copyright: "Stamp icons by vectorassembly for Funkystation"
+  copyright: "Stamp icon by vectorassembly, resprited by Tomlolo for Funkystation"
+
   source: "https://funkystation.org/"
   files:
   - large_stamp-iaa.png
   - large_stamp-cl.png
   - large_stamp-det.png
-  - large_stamp-warden.png
   - large_stamp-commandant
   - large_stamp-lieutenant
+  - large_stamp-warden
   - large_stamp-hd
   - large_stamp-topsecret
   - large_stamp-classified
+  - large_stamp-discharged
   license: "CC-BY-SA-3.0"
   copyright: "Stamp icons by tomlolo for FunkyStation"
   source: "https://funkystation.org/"
