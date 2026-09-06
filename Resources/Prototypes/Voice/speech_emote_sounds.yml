@@ -140,6 +140,16 @@
   sounds:
     Squish:
       collection: Squishes
+    Bubble:
+      collection: Bubbles
+    Pop:
+      collection: Pops
+    Slosh:
+      collection: Sloshes
+    Fizz:
+      collection: Fizzes
+    Wobble:
+      collection: Wobbles
     Scream:
       collection: MaleScreams
     Laugh:
@@ -185,6 +195,16 @@
   sounds:
     Squish:
       collection: Squishes
+    Bubble:
+      collection: Bubbles
+    Pop:
+      collection: Pops
+    Slosh:
+      collection: Sloshes
+    Fizz:
+      collection: Fizzes
+    Wobble:
+      collection: Wobbles
     Scream:
       collection: FemaleScreams
     Laugh:
