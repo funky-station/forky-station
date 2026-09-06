@@ -1,0 +1,80 @@
+﻿- type: guideEntry
+  id: FuCoreRules
+  name: guide-entry-rules-core
+  ruleEntry: true
+  priority: 10
+  text: "/ServerInfo/_Funkystation/Guidebook/ServerRules/ForkyRules.xml"
+  children:
+  - FuRuleC0
+  - FuRuleC1
+  - FuRuleC2
+  - FuRuleC3
+  - FuRuleC4
+  - FuRuleC5
+  - FuRuleC6
+  - FuRuleC7
+  - FuRuleC8
+  - FuMetashield
+
+- type: guideEntry
+  id: FuRuleC0
+  name: guide-entry-rules-c0
+  ruleEntry: true
+  text: "/ServerInfo/_Funkystation/Guidebook/ServerRules/CoreRules/RuleC0AdminRulings.xml"
+
+- type: guideEntry
+  id: FuRuleC1
+  name: guide-entry-rules-c1
+  ruleEntry: true
+  text: "/ServerInfo/_Funkystation/Guidebook/ServerRules/CoreRules/RuleC1PlayYourCharacter.xml"
+
+- type: guideEntry
+  id: FuRuleC2
+  name: guide-entry-rules-c2
+  ruleEntry: true
+  text: "/ServerInfo/_Funkystation/Guidebook/ServerRules/CoreRules/RuleC2Antag.xml"
+
+- type: guideEntry
+  id: FuRuleC3
+  name: guide-entry-rules-c3
+  ruleEntry: true
+  text: "/ServerInfo/_Funkystation/Guidebook/ServerRules/CoreRules/RuleC3DBAA.xml"
+
+- type: guideEntry
+  id: FuRuleC4
+  name: guide-entry-rules-c4
+  ruleEntry: true
+  text: "/ServerInfo/_Funkystation/Guidebook/ServerRules/CoreRules/RuleC4Age.xml"
+
+- type: guideEntry
+  id: FuRuleC5
+  name: guide-entry-rules-c5
+  ruleEntry: true
+  text: "/ServerInfo/_Funkystation/Guidebook/ServerRules/CoreRules/RuleC5English.xml"
+
+- type: guideEntry
+  id: FuRuleC6
+  name: guide-entry-rules-c6
+  ruleEntry: true
+  text: "/ServerInfo/_Funkystation/Guidebook/ServerRules/CoreRules/RuleC6ERP.xml"
+
+- type: guideEntry
+  id: FuRuleC7
+  name: guide-entry-rules-c7
+  ruleEntry: true
+  text: "/ServerInfo/_Funkystation/Guidebook/ServerRules/CoreRules/RuleC7Metagaming.xml"
+  children:
+  - FuMetashield
+
+- type: guideEntry
+  id: FuRuleC8
+  name: guide-entry-rules-c8
+  ruleEntry: true
+  text: "/ServerInfo/_Funkystation/Guidebook/ServerRules/CoreRules/RuleC8LOOC.xml"
+
+
+- type: guideEntry
+  id: FuMetashield
+  name: guide-entry-rules-metashield
+  ruleEntry: true
+  text: "/ServerInfo/_Funkystation/Guidebook/ServerRules/Metashield.xml"
