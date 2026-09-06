@@ -44,6 +44,18 @@
   - type: TetherGun
     frequency: 5
     dampingRatio: 4
+  - type: MeleeWeapon #funky
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee #funky
+    attackType: Light
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 6
 
 - type: entity
   parent: WeaponTetherGun
@@ -80,6 +92,18 @@
       path: /Audio/Weapons/soup.ogg
       params:
         volume: 2
+  - type: MeleeWeapon #funky
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee #funky
+    attackType: Light
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 6
 
 - type: entity
   parent: WeaponForceGun

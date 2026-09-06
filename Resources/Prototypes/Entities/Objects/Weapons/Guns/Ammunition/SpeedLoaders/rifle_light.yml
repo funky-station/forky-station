@@ -28,3 +28,7 @@
     containers:
       ballistic-ammo: !type:Container
         ents: []
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 2
