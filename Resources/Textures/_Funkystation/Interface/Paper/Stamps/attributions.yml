@@ -40,4 +40,16 @@
   license: "CC-BY-NC-3.0"
   copyright: "Stamp icons by vectorassembly for Funkystation"
   source: "https://funkystation.org/"
-
+  files:
+  - large_stamp-iaa.png
+  - large_stamp-cl.png
+  - large_stamp-det.png
+  - large_stamp-warden.png
+  - large_stamp-commandant
+  - large_stamp-lieutenant
+  - large_stamp-hd
+  - large_stamp-topsecret
+  - large_stamp-classified
+  license: "CC-BY-SA-3.0"
+  copyright: "Stamp icons by tomlolo for FunkyStation"
+  source: "https://funkystation.org/"

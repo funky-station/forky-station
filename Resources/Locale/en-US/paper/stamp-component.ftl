@@ -23,6 +23,8 @@ stamp-component-stamped-name-wizard = Wizard
 stamp-component-stamped-name-iaa = Internal Affairs
 stamp-component-stamped-name-borg = Cyborg
 stamp-component-stamped-name-cci = Central Command Intern
+stamp-component-stamped-name-topsecret = Top Secret
+stamp-component-stamped-name-classified = Classified
 stamp-component-stamped-name-magistrate = Magistrate
 stamp-component-stamped-name-hd = Hospitality Director
 stamp-component-stamped-name-hd-bell = Hospitality Director
@@ -30,3 +32,4 @@ stamp-component-stamped-name-xo = Executive Officer
 stamp-component-stamped-name-disparged = DISCHARGED
 stamp-component-stamped-name-commandant = Commandant
 stamp-component-stamped-name-lieutenant = Lieutenant
+stamp-component-stamped-name-cl

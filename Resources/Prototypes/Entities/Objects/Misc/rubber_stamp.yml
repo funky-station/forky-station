@@ -631,11 +631,11 @@
       left:
       - state: stamp-inhand-left
       - state: handle-inhand-left
-        color: "#515961"
+        color: "#496600"
       right:
       - state: stamp-inhand-right
       - state: handle-inhand-right
-        color: "#515961"
+        color: "#496600"
 
 - type: entity
   name: Top Secret Test Stamp
@@ -645,21 +645,21 @@
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-topsecret
-    stampedColor: "#496600"
-    stampState: "paper_stamp-deny"
-    stampLargeIcon: "large_stamp-topsecret-2"
+    stampedColor: "#4d1236"
+    stampState: "paper_stamp-topsecret"
+    stampLargeIcon: "large_stamp-topsecret"
   - type: Sprite
-    state: stamp-deny
+    state: stamp-topsecret
   - type: Item
     inhandVisuals:
       left:
       - state: stamp-inhand-left
       - state: handle-inhand-left
-        color: "#515961"
+        color: "#4d1236"
       right:
       - state: stamp-inhand-right
       - state: handle-inhand-right
-        color: "#515961"
+        color: "#4d1236"
 
 - type: entity
   name: Classified Test Stamp
@@ -668,22 +668,22 @@
   categories: [ DoNotMap ]
   components:
   - type: Stamp
-    stampedName: stamp-component-stamped-name-cci
-    stampedColor: "#496600"
-    stampState: "paper_stamp-deny"
-    stampLargeIcon: "large_stamp-classified-2"
+    stampedName: stamp-component-stamped-name-classified
+    stampedColor: "#381730"
+    stampState: "paper_stamp-classified"
+    stampLargeIcon: "large_stamp-classified"
   - type: Sprite
-    state: stamp-deny
+    state: stamp-classified
   - type: Item
     inhandVisuals:
       left:
       - state: stamp-inhand-left
       - state: handle-inhand-left
-        color: "#515961"
+        color: "#381730"
       right:
       - state: stamp-inhand-right
       - state: handle-inhand-right
-        color: "#515961"
+        color: "#381730"
 
 - type: entity
   name: hospitality director's rubber stamp
@@ -709,7 +709,7 @@
         color: "#477238"
 
 - type: entity
-  name: hospitality director's bell stamp # Meant as a soft joke item, maybe map loot?
+  name: hospitality director's bell stamp # Meant as a specialty item, maybe map loot?
   parent: RubberStampBase
   id: RubberStampHospitalityDirectorBell
   categories: [ DoNotMap ]
@@ -792,10 +792,10 @@
   - type: Stamp
     stampedName: stamp-component-stamped-name-commandant
     stampedColor: "#71111f"
-    stampState: "paper_stamp-hos"
+    stampState: "paper_stamp-commandant"
     stampLargeIcon: "large_stamp-commandant"
   - type: Sprite
-    state: stamp-hos
+    state: stamp-commandant
   - type: Item
     inhandVisuals:
       left:
@@ -815,10 +815,10 @@
   - type: Stamp
     stampedName: stamp-component-stamped-name-lieutenant
     stampedColor: "#b12023"
-    stampState: "paper_stamp-hos"
+    stampState: "paper_stamp-lieutenant"
     stampLargeIcon: "large_stamp-lieutenant"
   - type: Sprite
-    state: stamp-hos
+    state: stamp-lieutenant
   - type: Item
     inhandVisuals:
       left:
@@ -829,3 +829,26 @@
       - state: stamp-inhand-right
       - state: handle-inhand-right
         color: "#b12023"
+
+- type: entity
+  name: corporate liason's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampCl
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-cl
+    stampedColor: "#4572e3"
+    stampState: "paper_stamp-cl"
+    stampLargeIcon: "large_stamp-cl"
+  - type: Sprite
+    state: stamp-cl
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: stamp-inhand-left
+      - state: handle-inhand-left
+        color: "#4572e3"
+      right:
+      - state: stamp-inhand-right
+      - state: handle-inhand-right
+        color: "#4572e3"

@@ -99,6 +99,12 @@
             "name": "stamp-centcomintern"
         },
         {
+            "name": "stamp-topsecret"
+        },
+        {
+            "name": "stamp-classified"
+        },
+        {
             "name": "stamp-hd"
         },
         {
@@ -109,6 +115,15 @@
         },
         {
             "name": "stamp-discharged"
+        },
+        {
+            "name": "stamp-commandant"
+        },
+        {
+            "name": "stamp-lieutenant"
+        },
+        {
+            "name": "stamp-cl"
         }
     ]
 }
