@@ -144,7 +144,7 @@
   id: Mail
   name: steal-target-groups-mail
   sprite:
-    sprite: Objects/Specific/Cargo/mail.rsi
+    sprite: _Funkystation/Objects/Specific/Cargo/mail.rsi # Funky
     state: icon
 
 - type: stealTargetGroup

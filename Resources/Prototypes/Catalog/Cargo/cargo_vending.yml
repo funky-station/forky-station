@@ -1,7 +1,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockBooze
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: VendingMachineRestockBooze
   container:
@@ -14,7 +14,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockChefvend
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: VendingMachineRestockChefvend
   container:
@@ -27,7 +27,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockClothes
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: VendingMachineRestockClothes
   container:
@@ -40,7 +40,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockAutoDrobe
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: VendingMachineRestockCostumes
   container:
@@ -53,7 +53,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockDinnerware
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: VendingMachineRestockDinnerware
   container:
@@ -66,7 +66,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockCondimentStation
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: VendingMachineRestockCondimentStation
   container:
@@ -79,7 +79,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockEngineering
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: CrateVendingMachineRestockEngineeringFilled
   cost: 3200
@@ -89,7 +89,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockGames
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: VendingMachineRestockGames
   container:
@@ -102,7 +102,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockHotDrinks
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: VendingMachineRestockHotDrinks
   container:
@@ -115,7 +115,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockMedical
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: CrateVendingMachineRestockMedicalFilled
   cost: 1850
@@ -125,7 +125,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockChemVend
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: CrateVendingMachineRestockChemVendFilled
   cost: 3820
@@ -135,7 +135,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockNutriMax
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: CrateVendingMachineRestockNutriMaxFilled
   cost: 2400
@@ -145,7 +145,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockPTech
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: VendingMachineRestockPTech
   container:
@@ -158,7 +158,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockRobustSoftdrinks
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: VendingMachineRestockRobustSoftdrinks
   container:
@@ -171,7 +171,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockSalvageEquipment
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: VendingMachineRestockSalvageEquipment
   container:
@@ -184,7 +184,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockSecTech
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: CrateVendingMachineRestockSecTechFilled
   cost: 2200
@@ -194,7 +194,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockSeeds
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: CrateVendingMachineRestockSeedsFilled
   cost: 3750
@@ -204,7 +204,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockSmokes
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: VendingMachineRestockSmokes
   container:
@@ -217,7 +217,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockVendomat
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: VendingMachineRestockVendomat
   container:
@@ -230,7 +230,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockRobotics
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: CrateVendingMachineRestockRoboticsFilled
   cost: 1600
@@ -240,7 +240,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockTankDispenser
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: VendingMachineRestockTankDispenser
   container:
@@ -253,7 +253,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockHappyHonk
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: VendingMachineRestockHappyHonk
   container:
@@ -266,7 +266,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockGetmoreChocolateCorp
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: VendingMachineRestockGetmoreChocolateCorp
   container:
@@ -279,7 +279,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockChang
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: VendingMachineRestockChang
   container:
@@ -292,7 +292,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockDiscountDans
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: VendingMachineRestockDiscountDans
   container:
@@ -305,7 +305,7 @@
 - type: cargoProduct
   id: CrateVendingMachineRestockDonut
   icon:
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     state: base
   product: VendingMachineRestockDonut
   container:

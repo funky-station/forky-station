@@ -8,7 +8,7 @@
       steps:
       - tag: BoxHug
         icon:
-          sprite: Objects/Storage/boxes.rsi
+          sprite: _Funkystation/Objects/Storage/boxes.rsi # Funky
           state: box_hug
         name: construction-graph-tag-boxhug
       - tag: ProximitySensor

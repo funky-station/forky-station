@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "copyright": "By AraiMaia for Funky Station",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "base"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "green_bit"
+    },
+    {
+      "name": "refill_booze"
+    },
+    {
+      "name": "refill_chef"
+    },
+    {
+      "name": "refill_chinese"
+    },
+    {
+      "name": "refill_clothes"
+    },
+    {
+      "name": "refill_cola"
+    },
+    {
+      "name": "refill_condiment"
+    },
+    {
+      "name": "refill_costume"
+    },
+    {
+      "name": "refill_custom"
+    },
+    {
+      "name": "refill_dinner"
+    },
+    {
+      "name": "refill_discount"
+    },
+    {
+      "name": "refill_donksoft"
+    },
+    {
+      "name": "refill_donuts"
+    },
+    {
+      "name": "refill_engi"
+    },
+    {
+      "name": "refill_games"
+    },
+    {
+      "name": "refill_joe"
+    },
+    {
+      "name": "refill_medical"
+    },
+    {
+      "name": "refill_parts"
+    },
+    {
+      "name": "refill_plant"
+    },
+    {
+      "name": "refill_ptech"
+    },
+    {
+      "name": "refill_robotics"
+    },
+    {
+      "name": "refill_salvage"
+    },
+    {
+      "name": "refill_sec"
+    },
+    {
+      "name": "refill_smoke"
+    },
+    {
+      "name": "refill_snack"
+    },
+	{
+      "name": "refill_honk"
+    },
+    {
+      "name": "refill_tanks"
+    }
+  ]
+}

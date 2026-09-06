@@ -4,9 +4,9 @@
   id: BoxBase
   components:
   - type: Sprite
-    sprite: Objects/Storage/boxes.rsi
+    sprite: _Funkystation/Objects/Storage/boxes.rsi # Funky
   - type: Item
-    sprite: Objects/Storage/boxes.rsi
+    sprite: _Funkystation/Objects/Storage/boxes.rsi # Funky
     size: Large
     shape:
     - 0,0,2,2

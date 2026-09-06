@@ -13,7 +13,7 @@
         - id: ClothingMaskBreath
         - id: PillEmergency
   - type: Sprite
-    sprite: _MACRO/Objects/Storage/boxes.rsi
+    sprite: _Funkystation/Objects/Storage/boxes.rsi # Funky
     layers:
     - state: internals
     - state: vaportank
@@ -34,7 +34,7 @@
         - id: ClothingMaskBreath
         - id: PillEmergency
   - type: Sprite
-    sprite: _MACRO/Objects/Storage/boxes.rsi
+    sprite: _Funkystation/Objects/Storage/boxes.rsi # Funky
     layers:
     - state: internals
     - state: extendedtankvapor
@@ -46,7 +46,7 @@
   suffix: Emergency H2O
   components:
   - type: Sprite
-    sprite: Objects/Storage/boxes.rsi
+    sprite: _Funkystation/Objects/Storage/boxes.rsi # Funky
     layers:
     - state: box_hug
     - state: heart
