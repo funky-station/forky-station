@@ -718,7 +718,7 @@
     stampedName: stamp-component-stamped-name-hd-bell
     stampedColor: "#477238"
     sound:
-      path: /Audio/Items/stamp/hospitality_director_bell_stamp.ogg # Funky
+      path: /Audio/_Funkystation/Items/stamp/hospitality_director_bell_stamp.ogg # Funky
       params:
         volume: -2
         maxDistance: 5

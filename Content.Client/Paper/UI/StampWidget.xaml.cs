@@ -59,7 +59,7 @@ public sealed partial class StampWidget : PanelContainer
 
         if (PanelOverride != null)
              return;
-    
+
         var resCache = IoCManager.Resolve<IResourceCache>();
         var borderImage = resCache.GetResource<TextureResource>(
                 "/Textures/Interface/Paper/paper_stamp_border.svg.96dpi.png");
