@@ -940,101 +940,1173 @@
 
     ### 2\. Crime Specifications:
 
-    | A | Access | Existing where you are not allowed. |
-    | :---- | :---- | :---- |
-    | Infraction | Loitering | Existing near a restricted area for an extended time, with no reasonable purpose. |
-    | Misdemeanor (C) | Trespass | Entering a restricted area without express permission. |
-    | Felony (C) | Secure Trespass | Entering a station-critical restricted area without express permission. |
+    <Table Columns="3">
+        <ColorBox>
+            <Box>
+                A
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Access
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Existing where you are not allowed.
+            </Box>
+        </ColorBox>
+        
 
-    | C | Contraband | Possession or use of controlled, restricted, or illegal contraband. |
-    | :---- | :---- | :---- |
-    | Infraction | Possession of Minor Contraband | See Contraband Classifications. |
-    | Misdemeanor (C) | Possession of Moderate Contraband | See Contraband Classifications. |
-    | Felony (C) | Possession of Major Contraband | See Contraband Classifications. |
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Loitering
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Existing near a restricted area for an extended time, with no reasonable purpose.
+            </Box>
+        </ColorBox>
 
-    | D | Destruction | Causing intentional damage to station functions. |
-    | :---- | :---- | :---- |
-    | Infraction | Vandalism | Superficially damaging or defacing station property. |
-    | Misdemeanor (B) | Destruction of Property | Causing substantial structural damage, requiring repairs. |
-    | Felony (B) | Mass Destruction | Causing substantial structural damage to a large area of the station. |
-    | Capital Offense (B) | Station Sabotage | Intentionally rendering critical station infrastructure inoperable. |
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Trespass
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Entering a restricted area without express permission.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Secure Trespass
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Entering a station-critical restricted area without express permission.
+            </Box>
+        </ColorBox>
+    </Table>
 
-    | F | Fraud | Lying about yourself or your actions for personal gain. |
-    | :---- | :---- | :---- |
-    | Infraction | Refusal to Identify | Not wearing your shift-assigned ID, and/or hiding your identity with facial coverings and refusing to present your identity when asked by an authority. |
-    | Misdemeanor (C) | Slander | Speaking false and harmful statements about NanoTrasen, its subsidiaries, or contractees. |
-    | Misdemeanor (B) | Impersonation | Hiding your true identity and posing as someone you are not for personal gain. |
-    | Felony (C) | Libel | Publishing false and harmful written statements about NanoTrasen, its subsidiaries, or contractees. |
-    | Felony (B) | Fraud | Intentionally lying about promised actions for personal gain, or not following through with non-NT contracts. |
-    | Capital Offense (C) | Impersonation of Central Command | Hiding your true identity and posing as Central Command. |
+    <Table Columns="3">
+        <ColorBox>
+            <Box>
+                C
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Contraband
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Possession or use of controlled, restricted, or illegal contraband.
+            </Box>
+        </ColorBox>
+        
 
-    | J | Obstruction of Legal Justice | Impeding or abusing the legal justice system. |
-    | :---- | :---- | :---- |
-    | Misdemeanor (B) | Contempt of Court | Needlessly interrupting or delaying official court proceedings. |
-    | Felony (C) | Perjury | Lying under oath of court, or delivering false reports to Security. |
-    | Felony (A) | Subversion of Court | Obstructing court to the point where official court proceedings have to pause or stop altogether. |
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Possession of Minor Contraband
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                See Contraband Classifications.
+            </Box>
+        </ColorBox>
 
-    | M | Manipulation | Manipulating a sapient being through tactics of fear and/or aggression. |
-    | :---- | :---- | :---- |
-    | Infraction | Harassment | Unwelcome, knowing, and repeated negative conduct toward a sapient being, causing them to feel seriously uncomfortable, annoyed, or afraid. |
-    | Felony (C) | Extortion | Unlawfully forcing another sapient being to do something unwillingly, by means of threats, force or aggression. |
-    | Felony (A) | Sedition | Conspiring to overthrow or otherwise dismantle NanoTrasen public trust and authority. |
-    | Capital Offense (A) | Terrorism | Causing mass station panic, or completely disrupting station operations by means of fear and/or lethal force. |
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Possession of Moderate Contraband
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                See Contraband Classifications.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Possession of Major Contraband
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                See Contraband Classifications.
+            </Box>
+        </ColorBox>
+    </Table>
 
-    | N | Negligence | Causing harm to the station or its crew through vocational incompetence. |
-    | :---- | :---- | :---- |
-    | Infraction | Negligence | Unintentionally performing an action in a way that creates unnecessary harm. |
-    | Misdemeanor (B) | Endangerment | Willfully performing an action in a way that creates unnecessary harm. |
-    | Felony (B) | Manslaughter | Killing another sapient being without intent. |
-    | Capital Offense (C) | Capital Negligence | Performing an action in a way that causes unnecessary harm, to the point of causing mass station destruction, or rendering a department mostly inoperable, even temporarily. |
+    <Table Columns="3">
+        <ColorBox>
+            <Box>
+                D
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Destruction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Causing intentional damage to station functions.
+            </Box>
+        </ColorBox>
+        
 
-    | O | Operation | Performing works or transactions not sanctioned by NanoTrasen. |
-    | :---- | :---- | :---- |
-    | Infraction | Operation without Permit | Performing another department’s duties, or some other business venture without a legal permit of operation. |
-    | Misdemeanor (B) | Smuggling | Illegaly distributing or selling items outside of the NT ecosystem |
-    | Felony (C) | Black Marketeering | Engaging in the buying and/or selling of contraband. |
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Vandalism
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Superficially damaging or defacing station property.
+            </Box>
+        </ColorBox>
 
-    | R | Rowdiness | Causing public disturbances and general unrest. |
-    | :---- | :---- | :---- |
-    | Infraction | Disturbance | Catch-all for public disruptive or obnoxious behavior. |
-    | Misdemeanor (B) | Unlawful Assembly | Refusing to disperse a protest or gathering after an official and legal declaration to do so has been issued. |
-    | Felony (B) | Rioting | Participating in unlawful protests, in the case where violence or station damages occur. |
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Destruction of Property
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Causing substantial structural damage, requiring repairs.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Mass Destruction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Causing substantial structural damage to a large area of the station.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Capital Offense (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Station Sabotage
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Intentionally rendering critical station infrastructure inoperable.
+            </Box>
+        </ColorBox>
+    </Table>
 
-    | S | Obstruction of Security | Going against or obstructing lawful Security actions. |
-    | :---- | :---- | :---- |
-    | Infraction | Failure to Comply | Refusing to comply with lawful demands of Security personnel. |
-    | Misdemeanor (B) | Breach of Arrest | Escaping from or evading a lawful and justified arrest or detainment. |
-    | Felony (C) | Breach of Custody | Escaping from custody during or after receiving a legal sentence. |
+    <Table Columns="3">
+        <ColorBox>
+            <Box>
+                F
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Fraud
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Lying about yourself or your actions for personal gain.
+            </Box>
+        </ColorBox>
+        
 
-    | T | Theft | Taking that which belongs to others. |
-    | :---- | :---- | :---- |
-    | Infraction | Petty Theft | Taking something that is mostly worthless or easily replaceable. |
-    | Misdemeanor (C) | Theft | Taking something of meaningful value. |
-    | Felony (C) | Grand Theft | Taking something that is critical to the person’s job or role. |
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Refusal to Identify
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Not wearing your shift-assigned ID, and/or hiding your identity with facial coverings and refusing to present your identity when asked by an authority.
+            </Box>
+        </ColorBox>
 
-    | V | Intentional Violence | Causing intentional bodily harm to another sapient being. |
-    | :---- | :---- | :---- |
-    | Misdemeanor (B) | Assault | Threatening or attempting to cause bodily harm to another sapient being. |
-    | Misdemeanor (A) | Battery | Causing superficial bodily harm to another sapient being. |
-    | Felony (B) | Mutilation | Causing permanent or otherwise long-lasting damage to another sapient being’s body parts, organs, or appendages. |
-    | Capital Offense (C) | Murder | Intentionally killing another sapient being. |
-    | Capital Offense (B) | Prevention of Revival | Rendering a dead body unrevivable by common medical practice. |
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Slander
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Speaking false and harmful statements about NanoTrasen, its subsidiaries, or contractees.
+            </Box>
+        </ColorBox>
 
-    | W | Free Will | Depriving another sapient being of their free will and autonomy. |
-    | :---- | :---- | :---- |
-    | Felony (B) | Kidnapping | To unlawfully restrain or transport another sapient being against their will. |
-    | Capital Offense (B) | Suppression of Free Will | Permanently depriving another sapient being of their free will and autonomy. |
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Impersonation
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Hiding your true identity and posing as someone you are not for personal gain.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Libel
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Publishing false and harmful written statements about NanoTrasen, its subsidiaries, or contractees.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Fraud
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Intentionally lying about promised actions for personal gain, or not following through with non-NT contracts.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Capital Offense (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Impersonation of Central Command
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Hiding your true identity and posing as Central Command.
+            </Box>
+        </ColorBox>
+    </Table>
 
-    | \- | Other | Independent crimes with no classification. |
-    | :---- | :---- | :---- |
-    | Infraction | Cannibalism | To consume a portion of another sapient being, without express consent. |
-    | Infraction | Substance Abuse | Consumption or usage of contraband substances. |
-    | Misdemeanor (B) | Failure to Pay | Failure to pay a legally imposed fine within the required timeframe. |
-    | Misdemeanor (A) | Animal Cruelty | Inflicting excessive harm on a living being, except when required for medical treatment, scientific research, or the preparation of food. |
-    | Felony (B) | Bribery | Offering, giving or accepting gifts, money, or favors to influence someone to act outside of their allowed duties. |
-    | Felony (A) | Tax Evasion | Not paying NanoTrasen-mandated scrip taxes, or using non-scrip currencies to avoid paying taxes. |
-    | Capital Offense (B) | Refusal of Lawful Implantation | Refusing to accept a lawful implant from Security personnel while in custody. |
-    | Capital Offense (A) | Breach of NT Contract | Violating the terms of an NT-issued, signed contract. |
+    <Table Columns="3">
+        <ColorBox>
+            <Box>
+                J
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Obstruction of Legal Justice
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Impeding or abusing the legal justice system.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Misdemeanor (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Contempt of Court
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Needlessly interrupting or delaying official court proceedings.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Felony (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Perjury
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Lying under oath of court, or delivering false reports to Security.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (A)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Subversion of Court
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Obstructing court to the point where official court proceedings have to pause or stop altogether.
+            </Box>
+        </ColorBox>
+    </Table>
+
+    <Table Columns="3">
+        <ColorBox>
+            <Box>
+                M
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Manipulation
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Manipulating a sapient being through tactics of fear and/or aggression.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Harassment
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Unwelcome, knowing, and repeated negative conduct toward a sapient being, causing them to feel seriously uncomfortable, annoyed, or afraid.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Felony (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Extortion
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Unlawfully forcing another sapient being to do something unwillingly, by means of threats, force or aggression.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Felony (A)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Sedition
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Conspiring to overthrow or otherwise dismantle NanoTrasen public trust and authority.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Capital Offense (A)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Terrorism
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Causing mass station panic, or completely disrupting station operations by means of fear and/or lethal force.
+            </Box>
+        </ColorBox>
+    </Table>
+
+    <Table Columns="3">
+        <ColorBox>
+            <Box>
+                N
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Negligence
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Causing harm to the station or its crew through vocational incompetence.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Negligence
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Unintentionally performing an action in a way that creates unnecessary harm.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Endangerment
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Willfully performing an action in a way that creates unnecessary harm.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Felony (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Manslaughter
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Killing another sapient being without intent.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Capital Offense (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Capital Negligence
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Performing an action in a way that causes unnecessary harm, to the point of causing mass station destruction, or rendering a department mostly inoperable, even temporarily.
+            </Box>
+        </ColorBox>
+    </Table>
+
+    <Table Columns="3">
+        <ColorBox>
+            <Box>
+                O
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Operation
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Performing works or transactions not sanctioned by NanoTrasen.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Operation without Permit
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Performing another department’s duties, or some other business venture without a legal permit of operation.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Smuggling
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Illegaly distributing or selling items outside of the NT ecosystem.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Black Marketeering
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Engaging in the buying and/or selling of contraband.
+            </Box>
+        </ColorBox>
+    </Table>
+
+    <Table Columns="3">
+        <ColorBox>
+            <Box>
+                R
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Rowdiness
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Causing public disturbances and general unrest.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Disturbance
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Catch-all for public disruptive or obnoxious behavior.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Unlawful Assembly
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Refusing to disperse a protest or gathering after an official and legal declaration to do so has been issued.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Rioting
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Participating in unlawful protests, in the case where violence or station damages occur.
+            </Box>
+        </ColorBox>
+    </Table>
+
+    <Table Columns="3">
+        <ColorBox>
+            <Box>
+                S
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Obstruction of Security
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Going against or obstructing lawful Security actions.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Failure to Comply
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Refusing to comply with lawful demands of Security personnel.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Breach of Arrest
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Escaping from or evading a lawful and justified arrest or detainment.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Breach of Custody
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Escaping from custody during or after receiving a legal sentence.
+            </Box>
+        </ColorBox>
+    </Table>
+
+    <Table Columns="3">
+        <ColorBox>
+            <Box>
+                T
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Theft
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Taking that which belongs to others.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Petty Theft
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Taking something that is mostly worthless or easily replaceable.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Theft
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Taking something of meaningful value.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Grand Theft
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Taking something that is critical to the person’s job or role.
+            </Box>
+        </ColorBox>
+    </Table>
+
+    <Table Columns="3">
+        <ColorBox>
+            <Box>
+                V
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Intentional Violence
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Causing intentional bodily harm to another sapient being.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Misdemeanor (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Assault
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Threatening or attempting to cause bodily harm to another sapient being.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (A)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Battery
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Causing superficial bodily harm to another sapient being.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Mutilation
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Causing permanent or otherwise long-lasting damage to another sapient being’s body parts, organs, or appendages.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Capital Offense (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Murder
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Intentionally killing another sapient being.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Capital Offense (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Prevention of Revival
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Rendering a dead body unrevivable by common medical practice.
+            </Box>
+        </ColorBox>
+    </Table>
+
+    <Table Columns="3">
+        <ColorBox>
+            <Box>
+                W
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Free Will
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Depriving another sapient being of their free will and autonomy.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Felony (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Kidnapping
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                To unlawfully restrain or transport another sapient being against their will.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Capital Offense (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Suppression of Free Will
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Permanently depriving another sapient being of their free will and autonomy.
+            </Box>
+        </ColorBox>
+    </Table>
+
+    <Table Columns="3">
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Other
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Independent crimes with no classification.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Cannibalism
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                To consume a portion of another sapient being, without express consent.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Substance Abuse
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Consumption or usage of contraband substances.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Failure to Pay
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Failure to pay a legally imposed fine within the required timeframe.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (A)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Animal Cruelty
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Inflicting excessive harm on a living being, except when required for medical treatment, scientific research, or the preparation of food.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Bribery
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Offering, giving or accepting gifts, money, or favors to influence someone to act outside of their allowed duties.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (A)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Tax Evasion
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Not paying NanoTrasen-mandated scrip taxes, or using non-scrip currencies to avoid paying taxes.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Capital Offense (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Refusal of Lawful Implantation
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Refusing to accept a lawful implant from Security personnel while in custody.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Capital Offense (A)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Breach of NT Contract
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Violating the terms of an NT-issued, signed contract. 
+            </Box>
+        </ColorBox>
+    </Table>
 
     ## 8. Contraband Classifications
 
