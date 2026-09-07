@@ -11,7 +11,6 @@ using Content.Shared.Tag;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Collections;
 using Robust.Shared.Prototypes;
-using Content.Shared.Armor; // funky
 using Content.Shared.IdentityManagement;
 
 namespace Content.Server.Chemistry.EntitySystems;
@@ -130,22 +129,6 @@ public sealed partial class SolutionInjectOnCollideSystem : EntitySystem
                 if (blocked)
                     continue;
             }
-            //<funky>
-            if (injector.Comp.PierceArmorThreshold < 1f)
-            {
-                var query = new CoefficientQueryEvent(SlotFlags.OUTERCLOTHING);
-                RaiseLocalEvent(target, query);
-
-                if (query.DamageModifiers.Coefficients.TryGetValue("Piercing", out var pierceCoefficient))
-                {
-
-                    if (1f - pierceCoefficient >= injector.Comp.PierceArmorThreshold) //yes I know the math's weird but it works
-                    {
-                        continue;
-                    }
-                }
-            }
-            //</funky>
 
             // Make sure the target has a bloodstream
             if (!TryComp<BloodstreamComponent>(target, out var bloodstream))

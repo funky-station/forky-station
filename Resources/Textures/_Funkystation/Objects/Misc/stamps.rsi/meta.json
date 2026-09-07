@@ -83,8 +83,8 @@
         "directions": 4
         },
         {
-            "name": "stamp-inhand-right",
-            "directions": 4
+         "name": "stamp-inhand-right",
+         "directions": 4
         },
         {
             "name": "stamp-iaa"

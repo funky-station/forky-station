@@ -11,7 +11,6 @@
     roles:
     - NinjaRole
 
-# funky: currently unused
 - type: entity
   parent: [BaseNinjaObjective, BaseCounterObjective]
   id: DoorjackObjective
@@ -59,22 +58,11 @@
       tags:
       - NinjaBombingTargetBlacklist
 
-#- type: entity
-#  parent: [BaseNinjaObjective, BaseSurviveObjective]
-#  id: NinjaSurviveObjective
-#  name: Survive
-#  description: You wouldn't be a very good ninja if you died, now would you?
-#  components:
-#  - type: Objective
-#    icon:
-#      sprite: Clothing/Mask/ninja.rsi
-#      state: icon
-# funky
 - type: entity
-  parent: [BaseNinjaObjective, BaseCodeObjective]
+  parent: [BaseNinjaObjective, BaseSurviveObjective]
   id: NinjaSurviveObjective
-  name: Survive and Extract
-  description: Survive and return to the clan after achieving the rest of your objectives.
+  name: Survive
+  description: You wouldn't be a very good ninja if you died, now would you?
   components:
   - type: Objective
     icon:

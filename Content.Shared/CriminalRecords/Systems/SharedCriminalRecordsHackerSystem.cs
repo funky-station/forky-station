@@ -10,6 +10,7 @@ public abstract partial class SharedCriminalRecordsHackerSystem : EntitySystem
 {
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private SharedNinjaGlovesSystem _gloves = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -33,10 +34,6 @@ public abstract partial class SharedCriminalRecordsHackerSystem : EntitySystem
             MovementThreshold = 0.5f
         };
 
-        //<funkystation>
-        var ev = new CriminalRecordHackStartEvent(ent, target);
-        RaiseLocalEvent(ent, ref ev);
-        //</funkystation>
         _doAfter.TryStartDoAfter(doAfterArgs);
         args.Handled = true;
     }
@@ -49,7 +46,3 @@ public abstract partial class SharedCriminalRecordsHackerSystem : EntitySystem
 public sealed partial class CriminalRecordsHackDoAfterEvent : SimpleDoAfterEvent
 {
 }
-
-//funky
-[ByRefEvent]
-public record struct CriminalRecordHackStartEvent(EntityUid User, EntityUid Target);
