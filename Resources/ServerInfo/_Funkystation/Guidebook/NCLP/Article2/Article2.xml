@@ -937,7 +937,7 @@
         </ColorBox>
     </Table>
 
-    ### 2\. Crime Specifications:
+    ### 2. Crime Specifications:
 
 
     <Table Columns="3">
@@ -1984,7 +1984,9 @@
 
     <Table Columns="3">
         <ColorBox>
-            <Box></Box>
+            <Box>
+                \-
+            </Box>
         </ColorBox>
         <ColorBox>
             <Box>
