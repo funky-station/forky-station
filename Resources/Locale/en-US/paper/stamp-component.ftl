@@ -32,4 +32,4 @@ stamp-component-stamped-name-xo = Executive Officer
 stamp-component-stamped-name-disparged = DISCHARGED
 stamp-component-stamped-name-commandant = Commandant
 stamp-component-stamped-name-lieutenant = Lieutenant
-stamp-component-stamped-name-cl
+stamp-component-stamped-name-cl = Corporate Liason
