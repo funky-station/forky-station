@@ -30,3 +30,9 @@ fu-loadout-group-hd-outerclothing = Hospitality Director's outer clothing
 fu-loadout-group-hd-uniform = Hospitality Director's uniform
 fu-loadout-group-hd-gloves = Hospitality Director's gloves
 fu-loadout-group-hd-shoes = Hospitality Director's shoes
+
+fu-loadout-group-jani-head = Janitor head
+fu-loadout-group-jani-outerclothing = Janitor outer clothing
+fu-loadout-group-jani-uniform = janitor uniform
+fu-loadout-group-jani-gloves = janitor gloves
+fu-loadout-group-jani-shoes = janitor galoshes
