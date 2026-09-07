@@ -32,6 +32,12 @@
       "name": "envelope_torn_overlay"
     },
     {
+       "name": "envelope_inhand-left"
+    },
+    {
+       "name": "envelope_inhand-right"
+    },
+    {
       "name": "paper"
     },
     {
