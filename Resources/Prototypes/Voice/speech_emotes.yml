@@ -131,7 +131,7 @@
   name: chat-emote-name-squish
   category: Vocal
   available: false
-  icon: _Funkystation/Interface/Emotes/squish.png
+  icon: _Funkystation/Interface/Emotes/Slime/squish.png # Funky change
   whitelist:
     components:
     - Vocal
@@ -144,12 +144,13 @@
     - squishing
     - squishes
 
-- type: emote #Funky!
+# Funky start
+- type: emote
   id: Bubble
   name: chat-emote-name-bubble
   category: Vocal
   available: false
-  icon: _Funkystation/Interface/Emotes/bubble.png
+  icon: _Funkystation/Interface/Emotes/Slime/bubble.png
   whitelist:
     components:
     - Vocal
@@ -162,12 +163,12 @@
     - bubbling
     - bubbles
 
-- type: emote #Funky!
+- type: emote
   id: Pop
   name: chat-emote-name-pop
   category: Vocal
   available: false
-  icon: _Funkystation/Interface/Emotes/pop.png
+  icon: _Funkystation/Interface/Emotes/Slime/pop.png
   whitelist:
     components:
     - Vocal
@@ -180,12 +181,12 @@
     - poping
     - pops
 
-- type: emote #Funky!
+- type: emote
   id: Slosh
   name: chat-emote-name-slosh
   category: Vocal
   available: false
-  icon: _Funkystation/Interface/Emotes/slosh.png
+  icon: _Funkystation/Interface/Emotes/Slime/slosh.png
   whitelist:
     components:
     - Vocal
@@ -198,12 +199,12 @@
     - sloshing
     - sloshes
 
-- type: emote #Funky!
+- type: emote
   id: Fizz
   name: chat-emote-name-fizz
   category: Vocal
   available: false
-  icon: _Funkystation/Interface/Emotes/fizz.png
+  icon: _Funkystation/Interface/Emotes/Slime/fizz.png
   whitelist:
     components:
     - Vocal
@@ -219,12 +220,12 @@
     - carbonating
     - carbonates
 
-- type: emote #RMC
+- type: emote # RMC port
   id: Wobble
   name: chat-emote-name-wobble
   category: Vocal
   available: false
-  icon: _Funkystation/Interface/Emotes/wobble.png #Funky!
+  icon: _Funkystation/Interface/Emotes/Slime/wobble.png
   whitelist:
     components:
     - Vocal
@@ -236,7 +237,7 @@
     - wobble
     - wobbling
     - wobbles
-
+# Funky end
 
 - type: emote
   id: Chitter

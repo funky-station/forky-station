@@ -92,7 +92,8 @@
   id: Squishes
   files:
     - /Audio/Voice/Slime/slime_squish.ogg
-    - /Audio/Voice/Slime/slime_squish_2.ogg
+  # Funky start
+    - /Audio/_Funkystation/Voice/Slime/slime_squish_2.ogg
 
 - type: soundCollection
   id: Bubbles
@@ -107,20 +108,21 @@
 - type: soundCollection
   id: Pops
   files:
-    - /Audio/Voice/Slime/slime_pop_1.ogg
-    - /Audio/Voice/Slime/slime_pop_2.ogg
+    - /Audio/_Funkystation/Voice/Slime/slime_pop_1.ogg
+    - /Audio/_Funkystation/Voice/Slime/slime_pop_2.ogg
 
 - type: soundCollection
   id: Fizzes
   files:
-    - /Audio/Voice/Slime/slime_fizz_1.ogg
-    - /Audio/Voice/Slime/slime_fizz_2.ogg
-    - /Audio/Voice/Slime/slime_fizz_3.ogg
+    - /Audio/_Funkystation/Voice/Slime/slime_fizz_1.ogg
+    - /Audio/_Funkystation/Voice/Slime/slime_fizz_2.ogg
+    - /Audio/_Funkystation/Voice/Slime/slime_fizz_3.ogg
 
 - type: soundCollection
   id: Wobbles
   files:
     - /Audio/_RMC14/Voice/Slime/slime_wobble.ogg #RMC
+# Funky end
 
 - type: soundCollection
   id: Weh

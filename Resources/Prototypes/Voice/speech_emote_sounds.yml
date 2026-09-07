@@ -189,6 +189,7 @@
   sounds:
     Squish:
       collection: Squishes
+# Funky start
     Bubble:
       collection: Bubbles
     Pop:
@@ -199,6 +200,7 @@
       collection: Fizzes
     Wobble:
       collection: Wobbles
+# Funky end
     Scream:
       collection: FemaleScreams
     Laugh:
