@@ -23,7 +23,7 @@
   parent: BasePASpeaker
   id: PASpeaker
   name: PA speaker
-  description: A PA speaker. For when you really need to know what's happening. This one can't hear radio channels.
+  description: A very sturdy-looking PA speaker. For when you really need to know what's happening. This one can't hear radio channels.
   suffix: Announce only, indestructible
   components:
   - type: PAAnnouncer
@@ -126,6 +126,7 @@
 - type: entity
   parent: PARadioSpeaker # parent off of PARadioSpeaker instead of PARadioSpeakerDestructible because of how destructible inheritance works
   id: PARadioSpeakerDestructibleReinforced
+  description: A sturdy-looking PA speaker. For when you really need to know what's happening.
   abstract: true
   components:
   - type: WiresPanel
