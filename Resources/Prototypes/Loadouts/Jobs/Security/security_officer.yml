@@ -205,7 +205,7 @@
 - type: loadout
   id: SecurityPDA
   equipment:
-    id: SecurityPDA
+    id: SecurityWallet # Funky: the wallet-ening
 
 - type: loadout
   id: SeniorOfficerPDA
@@ -213,4 +213,4 @@
   - !type:GroupLoadoutEffect
     proto: SeniorOfficer
   equipment:
-    id: SeniorOfficerPDA
+    id: SeniorOfficerWallet # Funky: the wallet-ening

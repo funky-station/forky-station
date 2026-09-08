@@ -122,7 +122,7 @@
 - type: loadout
   id: MedicalDoctorPDA
   equipment:
-    id: MedicalPDA
+    id: MedicalWallet # Funky: the wallet-ening
 
 - type: loadout
   id: SeniorPhysicianPDA
@@ -130,7 +130,7 @@
   - !type:GroupLoadoutEffect
     proto: SeniorPhysician
   equipment:
-    id: SeniorPhysicianPDA
+    id: SeniorPhysicianWallet # Funky: the wallet-ening
 
 #Masks
 - type: loadout

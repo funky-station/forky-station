@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Server.GameTicking;
 using Content.Server.Station.Events;
 using Content.Server.Storage.EntitySystems;
+using Content.Shared.Storage;
 using Content.Server.Traits;
 using Content.Server.Popups;
 using Content.Shared._Funkystation.Traits.Unions;
@@ -673,6 +674,14 @@ public sealed partial class UnionSelectorSystem : EntitySystem
     private void GiveUnionCard(EntityUid member, StationUnion union)
     {
         var card = SpawnUnionCard(member, union, Transform(member).Coordinates);
+        
+        // driving myself mad
+        if (_inventorySystem.TryGetSlotEntity(member, "id", out var wallet)
+            && HasComp<StorageComponent>(wallet)
+            && _storageSystem.Insert(wallet.Value, card, out _))
+        {
+            return;
+        }
 
         if (_inventorySystem.TryGetSlotEntity(member, "back", out var backpack)
             && _storageSystem.Insert(backpack.Value, card, out _))
