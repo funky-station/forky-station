@@ -34,7 +34,7 @@
       prob: 0.7
     - id: ClothingBeltUtility
       prob: 0.2
-    - id: ClothingHandsGlovesColorYellow
+    - id: FuClothingHandsGlovesInsuls #Funky
       prob: 0.05
     - !type:GroupSelector
       prob: 0.4
@@ -206,7 +206,7 @@
   id: FillLockerEngineer
   table: !type:AllSelector
     children:
-    - id: ClothingHandsGlovesColorYellow
+    - id: FuClothingHandsGlovesInsuls #Funky
     - id: ClothingMaskGas
     - id: trayScanner
     - id: RCD

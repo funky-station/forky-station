@@ -16,7 +16,7 @@
   id: PsychologistGear
   equipment:
     shoes: ClothingShoesLeather
-    id: PsychologistPDA
+    id: PsychologistWallet # Funky: the wallet-ening
     ears: ClothingHeadsetMedical
   storage:
     back:

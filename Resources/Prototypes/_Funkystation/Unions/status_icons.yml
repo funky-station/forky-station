@@ -1,0 +1,13 @@
+- type: factionIcon
+  id: UnionLeadershipFaction
+  priority: 11
+  icon:
+    sprite: /Textures/_Funkystation/Interface/Misc/union_icons.rsi
+    state: Leader
+
+- type: factionIcon
+  id: UnionStewardFaction
+  priority: 11
+  icon:
+    sprite: /Textures/_Funkystation/Interface/Misc/union_icons.rsi
+    state: Steward

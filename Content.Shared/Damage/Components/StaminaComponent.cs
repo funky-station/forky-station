@@ -96,6 +96,10 @@ public sealed partial class StaminaComponent : Component
     [DataField]
     public Dictionary<FixedPoint2, float> StunModifierThresholds = new() { {0, 1f }, { 0.6, 0.7f }, { 0.8, 0.5f } };
 
+    // _Stardrift: How much stamina is drained per second while sprinting (default).
+    [DataField, AutoNetworkedField]
+    public float SprintDrainPerSecond = 3.33f;
+
     #region Animation Data
 
     /// <summary>

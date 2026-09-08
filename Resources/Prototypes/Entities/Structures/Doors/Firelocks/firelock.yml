@@ -160,6 +160,12 @@
   - type: SyncSprite
   - type: PlacementReplacement
     key: firelocks
+  - type: StructureAligner
+    alignerType:
+    - Firelock
+  - type: StructureAlignerPylon
+    pylons:
+    - Firelock
 
 - type: entity
   id: Firelock
@@ -270,3 +276,6 @@
     - type: Construction
       graph: Firelock
       node: FirelockEdge
+    - type: StructureAligner
+      alignerType:
+      - DoNotAlign

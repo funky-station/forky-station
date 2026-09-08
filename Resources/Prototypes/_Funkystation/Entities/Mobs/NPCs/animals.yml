@@ -624,3 +624,51 @@
     mindRoles:
     - MindRoleGhostRoleFreeAgentHarmless
   - type: GhostTakeoverAvailable
+
+# ported from funkystation to forky
+- type: entity
+  name: roingus
+  description: Bounce!
+  parent: MobMouse
+  id: MobRoingus
+  components:
+  - type: Sprite
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", movement]
+      state: roingus
+      sprite: _Funkystation/Mobs/Animals/roingus.rsi
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: roingus-moving
+    noMovementLayers:
+      movement:
+        state: roingus
+  - type: Tag
+    tags:
+    - FootstepSound
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepBounce
+      params:
+        pitch: 1.15
+  - type: Clothing
+    sprite: _Funkystation/Mobs/Animals/roingus.rsi
+    equippedPrefix: roingus
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: roingus
+      Critical:
+        Base: dead
+      Dead:
+        Base: splat
+  - type: Item
+    size: Tiny
+    sprite: _Funkystation/Mobs/Animals/roingus.rsi
+    heldPrefix: roingus
+  - type: FoodSequenceElement
+    entries:
+      Burger: RoingusBurger
+      Taco: RoingusTaco
+      Skewer: RoingusSkewer
