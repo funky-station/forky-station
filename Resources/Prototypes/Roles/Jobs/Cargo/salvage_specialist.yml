@@ -20,7 +20,7 @@
   id: SalvageSpecialistGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
-    id: SalvagePDA
+    id: SalvageWallet # Funky: the wallet-ening
     ears: ClothingHeadsetCargo
   #storage:
     #back:

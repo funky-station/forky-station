@@ -81,3 +81,23 @@
   background: /Textures/LobbyScreens/stationisafuck.webp
   title: lobby-state-background-stationisafuck-title
   artist: lobby-state-background-stationisafuck-artist
+
+# Funky changes start here
+- type: lobbyBackground
+  id: CultoftheStation
+  background: /Textures/_Funkystation/LobbyScreens/cultofthestation.webp
+  title: lobby-state-background-cultofstation-title
+  artist: lobby-state-background-cultofstation-artist
+
+- type: lobbyBackground
+  id: EvilAghosts
+  background: /Textures/_Funkystation/LobbyScreens/evilaghosts.webp
+  title: lobby-state-background-evilaghosts-title
+  artist: lobby-state-background-evilaghosts-artist
+
+- type: lobbyBackground
+  id: Fiestaparty
+  background: /Textures/_Funkystation/LobbyScreens/fiestaparty.webp
+  title: lobby-state-background-fiestaparty-title
+  artist: lobby-state-background-fiestaparty-artist
+# Funky changes end here

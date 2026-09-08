@@ -122,10 +122,9 @@
   id: FloorSteelDamaged
   parent: BaseStationTile
   name: tiles-steel-floor
-  sprite: /Textures/_Funkystation/Tiles/steel_damaged.png # Funky
-  variants: 5
+  sprite: /Textures/_Funkystation/Tiles/steel-damaged.png # Funky
+  variants: 4
   placementVariants:
-  - 1.0
   - 1.0
   - 1.0
   - 1.0

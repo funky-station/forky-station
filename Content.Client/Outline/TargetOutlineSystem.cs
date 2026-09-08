@@ -6,6 +6,7 @@ using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
+using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -29,6 +30,9 @@ public sealed partial class TargetOutlineSystem : EntitySystem
     [Dependency] private SharedTransformSystem _transformSystem = default!;
     [Dependency] private EntityQuery<SpriteComponent> _spriteQuery = default!;
     [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private IConfigurationManager _cfg = null!; // funky
+
+    private ISawmill? _targetOutlineSawmill; // funky
 
     private bool _enabled = false;
 
@@ -86,6 +90,8 @@ public sealed partial class TargetOutlineSystem : EntitySystem
 
         _shaderTargetValid = ProtoMan.Index(ShaderTargetValid).InstanceUnique();
         _shaderTargetInvalid = ProtoMan.Index(ShaderTargetInvalid).InstanceUnique();
+
+        _targetOutlineSawmill = LogManager.GetSawmill("target_outline"); // funky
     }
 
     public void Disable()
@@ -174,6 +180,14 @@ public sealed partial class TargetOutlineSystem : EntitySystem
                 var target = _transformSystem.GetWorldPosition(entity);
                 valid = (origin - target).LengthSquared() <= Range;
             }
+
+            // funky start
+            if (OutlineColor.TryGetOutlineColor(true, out var validColor, _cfg, _targetOutlineSawmill))
+                _shaderTargetValid?.SetParameter("outline_color", validColor);
+
+            if (OutlineColor.TryGetOutlineColor(false, out var invalidColor, _cfg, _targetOutlineSawmill))
+                _shaderTargetInvalid?.SetParameter("outline_color", invalidColor);
+            // funky end
 
             // highlight depending on whether its in or out of range
             _sprite.SetPostShader(sprite, new SpriteComponent.PostShaderArgs(ContentPostShaderIds.TargetOutline, valid ? _shaderTargetValid! : _shaderTargetInvalid!)

@@ -23,5 +23,6 @@
 #    ClothingOuterWinterChem: 1
 #    ClothingHandsGlovesLatex: 1 funky - chemists aren't doctors
     ClothingShoesColorWhite: 1
+    RadioHandheldMedical: 2 #funkystation
   contrabandInventory:
     ToyFigurineChemist: 1

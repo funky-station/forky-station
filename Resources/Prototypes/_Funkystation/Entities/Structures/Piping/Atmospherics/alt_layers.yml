@@ -6,7 +6,7 @@
   components:
   - type: Sprite
     drawdepth: ThinPipeAlt1
-    sprite: Structures/Piping/Atmospherics/vent.rsi # Funky
+    sprite: _Funkystation/Structures/Piping/Atmospherics/vent.rsi # Funky
     noRot: true
     layers:
     - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe_alt1.rsi # Funky
@@ -24,7 +24,7 @@
   components:
   - type: Sprite
     drawdepth: ThinPipeAlt2
-    sprite: Structures/Piping/Atmospherics/vent.rsi # Funky
+    sprite: _Funkystation/Structures/Piping/Atmospherics/vent.rsi # Funky
     noRot: true
     layers:
     - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe_alt2.rsi # Funky
@@ -42,7 +42,7 @@
   components:
   - type: Sprite
     drawdepth: ThinPipeAlt1
-    sprite: Structures/Piping/Atmospherics/vent.rsi # Funky
+    sprite: _Funkystation/Structures/Piping/Atmospherics/vent.rsi # Funky
     noRot: true
     layers:
     - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe_alt1.rsi # Funky
@@ -60,7 +60,7 @@
   components:
   - type: Sprite
     drawdepth: ThinPipeAlt2
-    sprite: Structures/Piping/Atmospherics/vent.rsi # Funky
+    sprite: _Funkystation/Structures/Piping/Atmospherics/vent.rsi # Funky
     noRot: true
     layers:
     - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe_alt2.rsi # Funky

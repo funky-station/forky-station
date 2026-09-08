@@ -16,7 +16,7 @@
       - type: StationEmergencyShuttle
         emergencyShuttlePath: /Maps/Shuttles/emergency_crimson.yml
       - type: StationJobs
-        availableJobs: # 56 jobs total w/o latejoins & interns, 71 jobs total w/ latejoins & interns
+        availableJobs: # 58 jobs total w/o latejoins & interns, 73 jobs total w/ latejoins & interns
           #command (7)
           Captain: [ 1, 1 ]
           Commandant: [ 1, 1 ]
@@ -67,3 +67,5 @@
           Reporter: [ 1, 1 ]
           #silicon (3)
           Borg: [ 2, 2 ]
+          #prisoner (2)
+          Prisoner: [ 2, 2 ]

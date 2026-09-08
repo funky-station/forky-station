@@ -10,6 +10,8 @@
         children:
         - id: CrowbarRed
         - id: RadioHandheld
+        - id: RadioHandheldEmergency #funkystation
+          prob: 0.5
         - id: WelderMini
         - id: FireExtinguisherMini
         - id: SuitSealantCanister # Funky
@@ -60,7 +62,7 @@
       prob: 0.9
     - !type:GroupSelector
       children:
-      - id: ClothingHandsGlovesColorYellow
+      - id: FuClothingHandsGlovesInsuls #Funky
         weight: 0.05
       - id: CableHVStack10
 

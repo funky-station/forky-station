@@ -208,4 +208,317 @@
   id: 26
   time: '2026-08-29T23:42:06Z'
   url: https://github.com/funky-station/forky-station/pull/362
+- author: pepsimint
+  changes:
+  - message: Updated the hand sprite which appears when interacting with things. Credits
+      to @s_qn for the sprite.
+    type: Add
+  id: 27
+  time: '2026-08-30T00:44:01Z'
+  url: https://github.com/funky-station/forky-station/pull/305
+- author: 8tv
+  changes:
+  - message: Added the Prisoner role to Packed
+    type: Add
+  - message: Added a prisoner mining dock to Packed
+    type: Add
+  - message: Added a mailroom to Packed
+    type: Add
+  - message: Removed the salvage docking bay in Packed
+    type: Remove
+  id: 28
+  time: '2026-08-30T02:04:44Z'
+  url: https://github.com/funky-station/forky-station/pull/385
+- author: Tea
+  changes:
+  - message: plating tiles have new sprites
+    type: Tweak
+  id: 29
+  time: '2026-08-30T16:36:31Z'
+  url: https://github.com/funky-station/forky-station/pull/391
+- author: battlecruiser12
+  changes:
+  - message: Ported the Disposal and Mailing Units resprite.
+    type: Add
+  id: 30
+  time: '2026-08-31T01:15:27Z'
+  url: https://github.com/funky-station/forky-station/pull/300
+- author: dogone
+  changes:
+  - message: Yellow Glove
+    type: Add
+  - message: Lot of new glove texture
+    type: Add
+  id: 31
+  time: '2026-08-31T01:19:36Z'
+  url: https://github.com/funky-station/forky-station/pull/221
+- author: Idem778
+  changes:
+  - message: Added three new lobby arts
+    type: Add
+  id: 32
+  time: '2026-08-31T05:30:38Z'
+  url: https://github.com/funky-station/forky-station/pull/386
+- author: taydeo
+  changes:
+  - message: There are now special cabinets that spawn appropriate NDAs for command
+      and security employees.
+    type: Add
+  id: 33
+  time: '2026-08-31T07:28:30Z'
+  url: https://github.com/funky-station/forky-station/pull/402
+- author: Dusty_Plant
+  changes:
+  - message: Added Bramble station and its shuttle to the maps folder
+    type: Add
+  id: 34
+  time: '2026-08-31T14:42:19Z'
+  url: https://github.com/funky-station/forky-station/pull/395
+- author: mkanke-real
+  changes:
+  - message: Updates and adds new content to Roid!
+    type: Add
+  id: 35
+  time: '2026-08-31T14:42:28Z'
+  url: https://github.com/funky-station/forky-station/pull/390
+- author: Sere
+  changes:
+  - message: RMC's pump action and breechloaded/break-action systems
+    type: Add
+  - message: New sprites for mosin, double-barrelled and sawn-off by Dogman
+    type: Add
+  - message: Marked original wizden prototypes for China-Lake, Mosin, Double-barreled,
+      sawn-off and Kammerer as Deprecated
+    type: Tweak
+  - message: Duplicate entities for the above in _Funkystation namespace.
+    type: Add
+  - message: Bug in breechloading that caused ammo to be deleted if breech was closed
+    type: Fix
+  - message: Edit migration.yml to reflect new prototypes
+    type: Tweak
+  id: 36
+  time: '2026-09-01T03:59:02Z'
+  url: https://github.com/funky-station/forky-station/pull/206
+- author: AraiMaia
+  changes:
+  - message: Resprited mugs and cafe latte.
+    type: Add
+  id: 37
+  time: '2026-09-01T18:22:59Z'
+  url: https://github.com/funky-station/forky-station/pull/306
+- author: AraiMaia
+  changes:
+  - message: Resprited every soup, stew and salad.
+    type: Add
+  id: 38
+  time: '2026-09-01T18:23:10Z'
+  url: https://github.com/funky-station/forky-station/pull/311
+- author: feymild
+  changes:
+  - message: Ported Roingus from Funky
+    type: Add
+  - message: Added Roingus skewers
+    type: Add
+  id: 39
+  time: '2026-09-02T01:11:33Z'
+  url: https://github.com/funky-station/forky-station/pull/404
+- author: pirakaplant
+  changes:
+  - message: Captain's time requirements are now a consistent five hours on each department
+      (except for IA, which is 10h, and Command, which is still 20h). Removed the
+      40 hour overall requirement as it is redundant.
+    type: Tweak
+  id: 40
+  time: '2026-09-02T05:03:29Z'
+  url: https://github.com/funky-station/forky-station/pull/355
+- author: mycobiota
+  changes:
+  - message: Port encryption key resprites by Catazeus
+    type: Add
+  - message: Port department handheld radios by willowzeta and vectorassembly
+    type: Add
+  - message: Port the emergency radio channel, reserved for emergency handhelds, the
+      warden, and paramedics, by willowzeta
+    type: Add
+  - message: The new departmental and emergency radios are now part of various inventories,
+      such as the lockers of department heads
+    type: Add
+  id: 41
+  time: '2026-09-02T05:19:49Z'
+  url: https://github.com/funky-station/forky-station/pull/262
+- author: Miguel4387
+  changes:
+  - message: Added the ninja pager which can be used to extract if you're far away
+      from the station and have done all your objectives
+    type: Add
+  - message: Ninja beggining the comms or criminal records hack notifies security
+      on the radio
+    type: Tweak
+  - message: RD server notifies sci upon research being stolen
+    type: Tweak
+  - message: Spider Charge can be defused, has a much longer countdown and larger
+      explosion
+    type: Tweak
+  - message: Ninja spawns with voice changer implant
+    type: Tweak
+  - message: Ninja throwing stars have nocturine but are unable to inject people with
+      >=30% piercing armor
+    type: Tweak
+  - message: Replaced survive objective with "survive and extract" as well as adding
+      a method for the ninja to return to the clan
+    type: Tweak
+  - message: Edited ninja guidebook entry
+    type: Tweak
+  - message: ninja door emag glove functionality and objective
+    type: Remove
+  id: 42
+  time: '2026-09-02T05:22:11Z'
+  url: https://github.com/funky-station/forky-station/pull/258
+- author: pirakaplant, zergologist
+  changes:
+  - message: Added the hospitality director's pillbox hat, two hospitality director's
+      uniforms, plus a hospitality director's vest, coat, and winter coat (sprites
+      by zergologist). They can all be made in a uniform printer.
+    type: Add
+  - message: Changed the Hospitality Director's loadout options to fit the new clothing
+      items.
+    type: Tweak
+  - message: Updated the Hospitality Director chameleon outfit to better fit their
+      new loadout.
+    type: Tweak
+  - message: Increased the Hospitality Director's hour requirements to 15 Service
+      hours, 5 Bartender hours, and 5 Chef hours.
+    type: Tweak
+  - message: The Hospitality Director now starts with a flash.
+    type: Tweak
+  - message: Updated the Hospitality Director job spawn icon.
+    type: Tweak
+  id: 43
+  time: '2026-09-03T04:01:46Z'
+  url: https://github.com/funky-station/forky-station/pull/329
+- author: AraiMaia
+  changes:
+  - message: Changed the color of interaction outlines.
+    type: Tweak
+  id: 44
+  time: '2026-09-06T17:47:56Z'
+  url: https://github.com/funky-station/forky-station/pull/424
+- author: adamsong
+  changes:
+  - message: Fixed vending machines not showing labels.
+    type: Fix
+  id: 45
+  time: '2026-09-06T21:02:55Z'
+  url: https://github.com/funky-station/forky-station/pull/423
+- author: ClocksAreWorthy
+  changes:
+  - message: Removed a bad painting.
+    type: Remove
+  id: 46
+  time: '2026-09-06T21:22:58Z'
+  url: https://github.com/funky-station/forky-station/pull/422
+- author: 8tv
+  changes:
+  - message: Added departmental communications computers to Packed.
+    type: Add
+  - message: Added locked windoors to the IAA, HD, and XO rooms on Packed.
+    type: Add
+  - message: Added NDA cabinets to the Commandant and Captain's rooms on Packed.
+    type: Add
+  - message: Added a HD dresser to the HD room on Packed.
+    type: Add
+  id: 47
+  time: '2026-09-06T22:27:03Z'
+  url: https://github.com/funky-station/forky-station/pull/430
+- author: salpphie, ReconPangolin
+  changes:
+  - message: Server rules
+    type: Add
+  id: 48
+  time: '2026-09-07T12:04:52Z'
+  url: https://github.com/funky-station/forky-station/pull/343
+- author: battlecruiser12
+  changes:
+  - message: Ported the Christmas tree resprite from Funky
+    type: Add
+  id: 49
+  time: '2026-09-07T13:24:30Z'
+  url: https://github.com/funky-station/forky-station/pull/310
+- author: VectorAssembly, AraiMaia
+  changes:
+  - message: Ported & added new sprites for tables and air vents.
+    type: Add
+  id: 50
+  time: '2026-09-07T13:27:08Z'
+  url: https://github.com/funky-station/forky-station/pull/425
+- author: not-macaw
+  changes:
+  - message: Taco resprite
+    type: Tweak
+  id: 51
+  time: '2026-09-07T13:29:24Z'
+  url: https://github.com/funky-station/forky-station/pull/419
+- author: AraiMaia
+  changes:
+  - message: Resprote the paper inhands to be more in line with our style.
+    type: Tweak
+  - message: Added the missing inhands sprites for envelopes, and folders.
+    type: Fix
+  id: 52
+  time: '2026-09-07T13:31:44Z'
+  url: https://github.com/funky-station/forky-station/pull/426
+- author: Tomlolo
+  changes:
+  - message: Rubber stamps now have inhand textures again
+    type: Fix
+  id: 53
+  time: '2026-09-07T13:37:52Z'
+  url: https://github.com/funky-station/forky-station/pull/413
+- author: mycobiota
+  changes:
+  - message: Handheld radios now have toggleable mics, sound effects, and an adjustable
+      volume and mic sensitivity.
+    type: Add
+  - message: Intercoms properly switch their speaker off when unpowered.
+    type: Fix
+  id: 54
+  time: '2026-09-07T19:54:58Z'
+  url: https://github.com/funky-station/forky-station/pull/269
+- author: taydeo, Teasq, pirakaplant
+  changes:
+  - message: Added wallets. (Sprites by Teasq!)
+    type: Add
+  - message: Senior IDs are no longer obtainable.
+    type: Remove
+  - message: Wallets replace PDAs for all non-Command personnel, except the Commandant.
+    type: Tweak
+  id: 55
+  time: '2026-09-08T16:17:07Z'
+  url: https://github.com/funky-station/forky-station/pull/437
+- author: mycobiota
+  changes:
+  - message: Made the color of interaction outlines on objects customizable via the
+      accessibility tab in the player's options.
+    type: Add
+  - message: Added a "Reset to default" button to color sliders in the player's options.
+    type: Add
+  id: 56
+  time: '2026-09-08T16:42:55Z'
+  url: https://github.com/funky-station/forky-station/pull/427
+- author: TrixxedHeart, AraiMaia
+  changes:
+  - message: Added sprinting.
+    type: Add
+  - message: Default movement is now walking.
+    type: Tweak
+  id: 57
+  time: '2026-09-08T16:46:33Z'
+  url: https://github.com/funky-station/forky-station/pull/414
+- author: battlecruiser12
+  changes:
+  - message: Added spawners for ducks and chickens
+    type: Add
+  id: 58
+  time: '2026-09-08T16:48:34Z'
+  url: https://github.com/funky-station/forky-station/pull/381
 Order: -1
