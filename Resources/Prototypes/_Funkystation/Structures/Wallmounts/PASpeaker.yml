@@ -9,19 +9,6 @@
   - type: Speech
     speechVerb: Robotic
     speechBubbleOffset: -0.5
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalGlassBreak
-          params:
-            volume: -4
   - type: WiresPanel
   - type: WiresVisuals
   - type: Wires
@@ -31,6 +18,59 @@
     interfaces:
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
+
+- type: entity
+  parent: BasePASpeaker
+  id: PASpeaker
+  name: PA speaker
+  description: A PA speaker. For when you really need to know what's happening. This one can't hear radio channels.
+  suffix: Announce only, indestructible
+  components:
+  - type: PAAnnouncer
+  - type: Appearance
+  - type: Sprite
+    offset: 0, -0.15
+    noRot: false
+    drawdepth: SmallObjects
+    sprite: _Funkystation/Structures/Wallmounts/pa_speaker.rsi
+    layers:
+    - state: icon
+    - state: icon_ON
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+      shader: unshaded
+    - state: unfinished
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+      enum.WiresVisualLayers.MaintenancePanel:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: true }
+          False: { visible: false }
+
+- type: entity
+  parent: PASpeaker
+  id: PARadioSpeaker
+  description: A PA speaker. For when you really need to know what's happening.
+  abstract: true
+  components:
+  - type: RadioSpeaker
+    toggleOnInteract: false
+    enabled: true
+    onWhenPowered: true
+    powerRequired: true
+    volume: 4
+  - type: EncryptionKeyHolder
+    keySlots: 3
+    keysExtractionMethod: Prying
+  - type: ContainerContainer
+    containers:
+      key_slots: !type:Container
+  - type: PAKeyHolder
 
 # Construction stuff
 
@@ -69,10 +109,13 @@
           collection: MetalBreak
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Damageable
+  - type: Injurable
+    damageContainer: StructuralInorganic
 
 # end point of construction
 - type: entity
-  parent: PARadioSpeaker
+  parent: PARadioSpeakerDestructible
   id: PARadioSpeakerConstructed
   categories: [ HideSpawnMenu ]
   components:
@@ -81,8 +124,8 @@
 
 # variant with steel welded inside maintenance panel
 - type: entity
-  parent: PARadioSpeaker
-  id: PARadioSpeakerReinforced
+  parent: PARadioSpeaker # parent off of PARadioSpeaker instead of PARadioSpeakerDestructible because of how destructible inheritance works
+  id: PARadioSpeakerDestructibleReinforced
   abstract: true
   components:
   - type: WiresPanel
@@ -91,72 +134,64 @@
     examine: wires-panel-component-on-examine-security-level2
     wiresAccessible: false
   - type: Construction
+    graph: PASPEAKER
     node: paSpeakerReinforced
-
-# Speaker varieties
-
-- type: entity
-  parent: BasePASpeaker
-  id: PASpeaker
-  name: PA speaker
-  description: A PA speaker. For when you really need to know what's happening. This one can't hear radio channels.
-  suffix: Announce only
-  components:
-  - type: PAAnnouncer
-  - type: Appearance
-  - type: Sprite
-    offset: 0, -0.15
-    noRot: false
-    drawdepth: SmallObjects
-    sprite: _Funkystation/Structures/Wallmounts/pa_speaker.rsi
-    layers:
-    - state: icon
-    - state: icon_ON
-      map: ["enum.PowerDeviceVisualLayers.Powered"]
-      shader: unshaded
-    - state: unfinished
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-      visible: false
-  - type: GenericVisualizer
-    visuals:
-      enum.PowerDeviceVisuals.Powered:
-        enum.PowerDeviceVisualLayers.Powered:
-          True: { visible: true }
-          False: { visible: false }
-      enum.WiresVisualLayers.MaintenancePanel:
-        enum.WiresVisualLayers.MaintenancePanel:
-          True: { visible: true }
-          False: { visible: false }
-
-- type: entity
-  parent: PASpeaker
-  id: PARadioSpeaker
-  description: A PA speaker. For when you really need to know what's happening.
-  suffix: Radio, no keys
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: RadioSpeaker
-    toggleOnInteract: false
-    enabled: true
-    onWhenPowered: true
-    powerRequired: true
-    volume: 4
-  - type: EncryptionKeyHolder
-    keySlots: 3
-    keysExtractionMethod: Prying
-  - type: ContainerContainer
     containers:
-      key_slots: !type:Container
-  - type: PAKeyHolder
+    - key_slots
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 100 # a little bit tankier than normal
+      behaviors:
+      - !type:EmptyContainersBehaviour
+        containers:
+        - key_slots
+      - !type:DoActsBehavior
+        acts: [ "Breakage" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: paspeakerFrame
+  - type: Damageable
+  - type: Injurable
+    damageContainer: StructuralInorganic
+
+# destructible nonsense just so that reinforced speakers can be sturdier than normal
+- type: entity
+  parent: PARadioSpeaker
+  id: PARadioSpeakerDestructible
+  suffix: Radio, no keys
+  components:
   - type: Construction
     graph: PASPEAKER
     node: paSpeaker
     containers:
     - key_slots
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:EmptyContainersBehaviour
+        containers:
+        - key_slots
+      - !type:DoActsBehavior
+        acts: [ "Breakage" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: paspeakerFrame
+  - type: Damageable
+  - type: Injurable
+    damageContainer: StructuralInorganic
+
+# Speaker varieties
 
 - type: entity
   id: PASpeakerCommon
-  parent: PARadioSpeaker
+  parent: PARadioSpeakerDestructible
   suffix: Common
   components:
   - type: RadioSpeaker
@@ -169,7 +204,7 @@
 
 - type: entity
   id: PASpeakerEngineering
-  parent: PARadioSpeaker
+  parent: PARadioSpeakerDestructible
   suffix: Engi
   components:
   - type: RadioSpeaker
@@ -184,7 +219,7 @@
 
 - type: entity
   id: PASpeakerMedical
-  parent: PARadioSpeaker
+  parent: PARadioSpeakerDestructible
   suffix: Med
   components:
   - type: RadioSpeaker
@@ -199,7 +234,7 @@
 
 - type: entity
   id: PASpeakerScience
-  parent: PARadioSpeaker
+  parent: PARadioSpeakerDestructible
   suffix: Sci
   components:
   - type: RadioSpeaker
@@ -214,7 +249,7 @@
 
 - type: entity
   id: PASpeakerSecurity
-  parent: PARadioSpeakerReinforced
+  parent: PARadioSpeakerDestructibleReinforced
   suffix: Sec
   components:
   - type: RadioSpeaker
@@ -229,7 +264,7 @@
 
 - type: entity
   id: PASpeakerService
-  parent: PARadioSpeaker
+  parent: PARadioSpeakerDestructible
   suffix: Service
   components:
   - type: RadioSpeaker
@@ -244,7 +279,7 @@
 
 - type: entity
   id: PASpeakerSupply
-  parent: PARadioSpeaker
+  parent: PARadioSpeakerDestructible
   suffix: Supply
   components:
   - type: RadioSpeaker
@@ -260,7 +295,7 @@
 
 - type: entity
   id: PASpeakerFreelance
-  parent: PARadioSpeaker
+  parent: PARadioSpeakerDestructible
   suffix: Freelance
   components:
   - type: RadioSpeaker
@@ -275,7 +310,7 @@
 
 - type: entity
   id: PASpeakerHailing
-  parent: PARadioSpeaker
+  parent: PARadioSpeakerDestructible
   suffix: Hailing
   components:
   - type: RadioSpeaker
