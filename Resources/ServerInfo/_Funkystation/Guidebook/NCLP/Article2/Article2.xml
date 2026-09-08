@@ -349,12 +349,12 @@
         </ColorBox>
         
         
-        <ColorBox>
+        <ColorBox Color="#59563a">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Loitering (A)
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#59563a">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Trespass (A)
             </Box>
@@ -365,9 +365,9 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#59563a">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-                Trespass (A)
+                Secure Trespass (A)
             </Box>
         </ColorBox>
         <ColorBox>
@@ -387,12 +387,12 @@
         </ColorBox>
         
         
-        <ColorBox>
+        <ColorBox Color="#7d1616">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Possession of Minor Contraband (C)
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#7d1616">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Possession of Moderate Contraband (C)
             </Box>
@@ -403,7 +403,7 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#7d1616">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Possession of Major Contraband (C)
             </Box>
@@ -425,7 +425,7 @@
         </ColorBox>
         
         
-        <ColorBox>
+        <ColorBox Color="#453a59">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Vandalism (D)
             </Box>
@@ -433,7 +433,7 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#453a59">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Destruction of Property (D)
             </Box>
@@ -444,7 +444,7 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#453a59">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Mass Destruction (D)
             </Box>
@@ -455,7 +455,7 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#453a59">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Station Sabotage (D)
             </Box>
@@ -465,17 +465,17 @@
         </ColorBox>
         
         
-        <ColorBox>
+        <ColorBox Color="#32615f">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Refusal to Identify (F)
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#32615f">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Slander (F)
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#32615f">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Impersonation (F)
             </Box>
@@ -483,12 +483,12 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#32615f">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Libel (F)
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#32615f">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Fraud (F)
             </Box>
@@ -496,7 +496,7 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#32615f">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Impersonation of Central Command (F)
             </Box>
@@ -515,7 +515,7 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#3f5a39">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Contempt of Court (J)
             </Box>
@@ -523,7 +523,7 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#3f5a39">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Perjury (J)
             </Box>
@@ -531,7 +531,7 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#3f5a39">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Subversion of Court (J)
             </Box>
@@ -547,7 +547,7 @@
         </ColorBox>
         
 
-        <ColorBox>
+        <ColorBox Color="#392e65">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Harassment (M)
             </Box>
@@ -561,7 +561,7 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#392e65">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Extortion (M)
             </Box>
@@ -569,7 +569,7 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#392e65">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Sedition (M)
             </Box>
@@ -580,14 +580,14 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#392e65">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Terrorism (M)
             </Box>
         </ColorBox>
         
         
-        <ColorBox>
+        <ColorBox Color="#6d6d26">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Negligence (N)
             </Box>
@@ -595,7 +595,7 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#6d6d26">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Endangerment (N)
             </Box>
@@ -606,7 +606,7 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#6d6d26">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Manslaughter (N)
             </Box>
@@ -614,7 +614,7 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#6d6d26">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Capital Negligence (N)
             </Box>
@@ -627,7 +627,7 @@
         </ColorBox>
         
         
-        <ColorBox>
+        <ColorBox Color="#2b5e68">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Operation without Permit (O)
             </Box>
@@ -635,7 +635,7 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#2b5e68">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Smuggling (O)
             </Box>
@@ -643,7 +643,7 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#2b5e68">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Black Marketeering (O)
             </Box>
@@ -665,7 +665,7 @@
         </ColorBox>
         
         
-        <ColorBox>
+        <ColorBox Color="#7b3f18">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Disturbance (R)
             </Box>
@@ -673,7 +673,7 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#7b3f18">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Unlawful Assembly (R)
             </Box>
@@ -684,7 +684,7 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#7b3f18">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Rioting (R)
             </Box>
@@ -703,7 +703,7 @@
         </ColorBox>
         
         
-        <ColorBox>
+        <ColorBox Color="#593a4e">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Failure to Comply (S)
             </Box>
@@ -711,7 +711,7 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#593a4e">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Breach of Arrest (S)
             </Box>
@@ -719,7 +719,7 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#593a4e">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Breach of Custody (S)
             </Box>
@@ -741,12 +741,12 @@
         </ColorBox>
         
         
-        <ColorBox>
+        <ColorBox Color="#395a39">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Petty Theft (T)
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#395a39">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Theft (T)
             </Box>
@@ -757,7 +757,7 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#395a39">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Grand Theft (T)
             </Box>
@@ -785,12 +785,12 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#4d2e2e">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Assault (V)
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#4d2e2e">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Battery (V)
             </Box>
@@ -798,7 +798,7 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#4d2e2e">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Mutilation (V)
             </Box>
@@ -806,12 +806,12 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#4d2e2e">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Murder (V)
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#4d2e2e">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Prevention of Revival (V)
             </Box>
@@ -836,7 +836,7 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#67276c">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Kidnapping (W)
             </Box>
@@ -847,7 +847,7 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#67276c">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Suppression of Free Will (W)
             </Box>
@@ -857,7 +857,7 @@
         </ColorBox>
         
         
-        <ColorBox>
+        <ColorBox Color="#3b4354">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Cannibalism
             </Box>
@@ -865,12 +865,12 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#3b4354">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Failure to Pay
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#3b4354">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Animal Cruelty
             </Box>
@@ -878,12 +878,12 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#3b4354">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Bribery
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#3b4354">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Tax Evasion
             </Box>
@@ -891,19 +891,19 @@
         <ColorBox>
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#3b4354">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Refusal of Lawful Implantation
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#3b4354">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Breach of NT Contract
             </Box>
         </ColorBox>
         
         
-        <ColorBox>
+        <ColorBox Color="#3b4354">
             <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Substance Abuse
             </Box>
@@ -941,17 +941,17 @@
 
 
     <Table Columns="3">
-        <ColorBox>
+        <ColorBox Color="#59563a">
             <Box>
                 A
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#59563a">
             <Box>
                 Access
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#59563a">
             <Box>
                 Existing where you are not allowed.
             </Box>
@@ -964,12 +964,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Loitering
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Existing near a restricted area for an extended time, with no reasonable purpose.
             </Box>
         </ColorBox>
@@ -981,12 +981,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Trespass
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Entering a restricted area without express permission.
             </Box>
         </ColorBox>
@@ -998,12 +998,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Secure Trespass
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Entering a station-critical restricted area without express permission.
             </Box>
         </ColorBox>
@@ -1012,17 +1012,17 @@
     <!---->
 
     <Table Columns="3">
-        <ColorBox>
+        <ColorBox Color="#7d1616">
             <Box>
                 C
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#7d1616">
             <Box>
                 Contraband
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#7d1616">
             <Box>
                 Possession or use of controlled, restricted, or illegal contraband.
             </Box>
@@ -1035,12 +1035,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Possession of Minor Contraband
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 See Contraband Classifications.
             </Box>
         </ColorBox>
@@ -1052,12 +1052,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Possession of Moderate Contraband
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 See Contraband Classifications.
             </Box>
         </ColorBox>
@@ -1069,12 +1069,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Possession of Major Contraband
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 See Contraband Classifications.
             </Box>
         </ColorBox>
@@ -1083,17 +1083,17 @@
     <!---->
 
     <Table Columns="3">
-        <ColorBox>
+        <ColorBox Color="#453a59">
             <Box>
                 D
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#453a59">
             <Box>
                 Destruction
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#453a59">
             <Box>
                 Causing intentional damage to station functions.
             </Box>
@@ -1106,12 +1106,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Vandalism
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Superficially damaging or defacing station property.
             </Box>
         </ColorBox>
@@ -1123,12 +1123,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Destruction of Property
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Causing substantial structural damage, requiring repairs.
             </Box>
         </ColorBox>
@@ -1140,12 +1140,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Mass Destruction
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Causing substantial structural damage to a large area of the station.
             </Box>
         </ColorBox>
@@ -1157,12 +1157,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Station Sabotage
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Intentionally rendering critical station infrastructure inoperable.
             </Box>
         </ColorBox>
@@ -1171,17 +1171,17 @@
     <!---->
 
     <Table Columns="3">
-        <ColorBox>
+        <ColorBox Color="#32615f">
             <Box>
                 F
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#32615f">
             <Box>
                 Fraud
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#32615f">
             <Box>
                 Lying about yourself or your actions for personal gain.
             </Box>
@@ -1194,12 +1194,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Refusal to Identify
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Not wearing your shift-assigned ID, and/or hiding your identity with facial coverings and refusing to present your identity when asked by an authority.
             </Box>
         </ColorBox>
@@ -1211,12 +1211,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Slander
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Speaking false and harmful statements about NanoTrasen, its subsidiaries, or contractees.
             </Box>
         </ColorBox>
@@ -1228,12 +1228,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Impersonation
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Hiding your true identity and posing as someone you are not for personal gain.
             </Box>
         </ColorBox>
@@ -1245,12 +1245,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Libel
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Publishing false and harmful written statements about NanoTrasen, its subsidiaries, or contractees.
             </Box>
         </ColorBox>
@@ -1262,12 +1262,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Fraud
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Intentionally lying about promised actions for personal gain, or not following through with non-NT contracts.
             </Box>
         </ColorBox>
@@ -1279,12 +1279,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Impersonation of Central Command
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Hiding your true identity and posing as Central Command.
             </Box>
         </ColorBox>
@@ -1293,17 +1293,17 @@
     <!---->
 
     <Table Columns="3">
-        <ColorBox>
+        <ColorBox Color="#3f5a39">
             <Box>
                 J
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#3f5a39">
             <Box>
                 Obstruction of Legal Justice
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#3f5a39">
             <Box>
                 Impeding or abusing the legal justice system.
             </Box>
@@ -1316,12 +1316,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Contempt of Court
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Needlessly interrupting or delaying official court proceedings.
             </Box>
         </ColorBox>
@@ -1333,12 +1333,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Perjury
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Lying under oath of court, or delivering false reports to Security.
             </Box>
         </ColorBox>
@@ -1350,12 +1350,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Subversion of Court
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Obstructing court to the point where official court proceedings have to pause or stop altogether.
             </Box>
         </ColorBox>
@@ -1364,17 +1364,17 @@
     <!---->
 
     <Table Columns="3">
-        <ColorBox>
+        <ColorBox Color="#392e65">
             <Box>
                 M
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#392e65">
             <Box>
                 Manipulation
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#392e65">
             <Box>
                 Manipulating a sapient being through tactics of fear and/or aggression.
             </Box>
@@ -1387,12 +1387,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Harassment
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Unwelcome, knowing, and repeated negative conduct toward a sapient being, causing them to feel seriously uncomfortable, annoyed, or afraid.
             </Box>
         </ColorBox>
@@ -1404,12 +1404,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Extortion
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Unlawfully forcing another sapient being to do something unwillingly, by means of threats, force or aggression.
             </Box>
         </ColorBox>
@@ -1421,12 +1421,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Sedition
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Conspiring to overthrow or otherwise dismantle NanoTrasen public trust and authority.
             </Box>
         </ColorBox>
@@ -1438,12 +1438,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Terrorism
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Causing mass station panic, or completely disrupting station operations by means of fear and/or lethal force.
             </Box>
         </ColorBox>
@@ -1452,17 +1452,17 @@
     <!---->
 
     <Table Columns="3">
-        <ColorBox>
+        <ColorBox Color="#6d6d26">
             <Box>
                 N
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#6d6d26">
             <Box>
                 Negligence
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#6d6d26">
             <Box>
                 Causing harm to the station or its crew through vocational incompetence.
             </Box>
@@ -1475,12 +1475,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Negligence
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Unintentionally performing an action in a way that creates unnecessary harm.
             </Box>
         </ColorBox>
@@ -1492,12 +1492,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Endangerment
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Willfully performing an action in a way that creates unnecessary harm.
             </Box>
         </ColorBox>
@@ -1509,12 +1509,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Manslaughter
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Killing another sapient being without intent.
             </Box>
         </ColorBox>
@@ -1526,12 +1526,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Capital Negligence
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Performing an action in a way that causes unnecessary harm, to the point of causing mass station destruction, or rendering a department mostly inoperable, even temporarily.
             </Box>
         </ColorBox>
@@ -1540,17 +1540,17 @@
     <!---->
 
     <Table Columns="3">
-        <ColorBox>
+        <ColorBox Color="#2b5e68">
             <Box>
                 O
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#2b5e68">
             <Box>
                 Operation
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#2b5e68">
             <Box>
                 Performing works or transactions not sanctioned by NanoTrasen.
             </Box>
@@ -1563,12 +1563,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Operation without Permit
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Performing another department’s duties, or some other business venture without a legal permit of operation.
             </Box>
         </ColorBox>
@@ -1580,12 +1580,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Smuggling
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Illegaly distributing or selling items outside of the NT ecosystem.
             </Box>
         </ColorBox>
@@ -1597,12 +1597,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Black Marketeering
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Engaging in the buying and/or selling of contraband.
             </Box>
         </ColorBox>
@@ -1611,17 +1611,17 @@
     <!---->
 
     <Table Columns="3">
-        <ColorBox>
+        <ColorBox Color="#7b3f18">
             <Box>
                 R
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#7b3f18">
             <Box>
                 Rowdiness
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#7b3f18">
             <Box>
                 Causing public disturbances and general unrest.
             </Box>
@@ -1634,12 +1634,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Disturbance
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Catch-all for public disruptive or obnoxious behavior.
             </Box>
         </ColorBox>
@@ -1651,12 +1651,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Unlawful Assembly
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Refusing to disperse a protest or gathering after an official and legal declaration to do so has been issued.
             </Box>
         </ColorBox>
@@ -1668,12 +1668,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Rioting
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Participating in unlawful protests, in the case where violence or station damages occur.
             </Box>
         </ColorBox>
@@ -1682,17 +1682,17 @@
     <!---->
 
     <Table Columns="3">
-        <ColorBox>
+        <ColorBox Color="#593a4e">
             <Box>
                 S
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#593a4e">
             <Box>
                 Obstruction of Security
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#593a4e">
             <Box>
                 Going against or obstructing lawful Security actions.
             </Box>
@@ -1705,12 +1705,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Failure to Comply
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Refusing to comply with lawful demands of Security personnel.
             </Box>
         </ColorBox>
@@ -1722,12 +1722,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Breach of Arrest
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Escaping from or evading a lawful and justified arrest or detainment.
             </Box>
         </ColorBox>
@@ -1739,12 +1739,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Breach of Custody
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Escaping from custody during or after receiving a legal sentence.
             </Box>
         </ColorBox>
@@ -1753,17 +1753,17 @@
     <!---->
 
     <Table Columns="3">
-        <ColorBox>
+        <ColorBox Color="#395a39">
             <Box>
                 T
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#395a39">
             <Box>
                 Theft
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#395a39">
             <Box>
                 Taking that which belongs to others.
             </Box>
@@ -1776,12 +1776,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Petty Theft
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Taking something that is mostly worthless or easily replaceable.
             </Box>
         </ColorBox>
@@ -1793,12 +1793,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Theft
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Taking something of meaningful value.
             </Box>
         </ColorBox>
@@ -1810,12 +1810,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Grand Theft
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Taking something that is critical to the person’s job or role.
             </Box>
         </ColorBox>
@@ -1824,17 +1824,17 @@
     <!---->
 
     <Table Columns="3">
-        <ColorBox>
+        <ColorBox Color="#4d2e2e">
             <Box>
                 V
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#4d2e2e">
             <Box>
                 Intentional Violence
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#4d2e2e">
             <Box>
                 Causing intentional bodily harm to another sapient being.
             </Box>
@@ -1847,12 +1847,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Assault
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Threatening or attempting to cause bodily harm to another sapient being.
             </Box>
         </ColorBox>
@@ -1864,12 +1864,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Battery
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Causing superficial bodily harm to another sapient being.
             </Box>
         </ColorBox>
@@ -1881,12 +1881,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Mutilation
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Causing permanent or otherwise long-lasting damage to another sapient being’s body parts, organs, or appendages.
             </Box>
         </ColorBox>
@@ -1898,12 +1898,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Murder
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Intentionally killing another sapient being.
             </Box>
         </ColorBox>
@@ -1915,12 +1915,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Prevention of Revival
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Rendering a dead body unrevivable by common medical practice.
             </Box>
         </ColorBox>
@@ -1929,17 +1929,17 @@
     <!---->
 
     <Table Columns="3">
-        <ColorBox>
+        <ColorBox Color="#67276c">
             <Box>
                 W
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#67276c">
             <Box>
                 Free Will
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#67276c">
             <Box>
                 Depriving another sapient being of their free will and autonomy.
             </Box>
@@ -1952,12 +1952,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Kidnapping
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 To unlawfully restrain or transport another sapient being against their will.
             </Box>
         </ColorBox>
@@ -1969,12 +1969,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Suppression of Free Will
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Permanently depriving another sapient being of their free will and autonomy.
             </Box>
         </ColorBox>
@@ -1983,17 +1983,17 @@
     <!---->
 
     <Table Columns="3">
-        <ColorBox>
+        <ColorBox Color="#3b4354">
             <Box>
                 \-
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#3b4354">
             <Box>
                 Other
             </Box>
         </ColorBox>
-        <ColorBox>
+        <ColorBox Color="#3b4354">
             <Box>
                 Independent crimes with no classification.
             </Box>
@@ -2006,12 +2006,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Cannibalism
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 To consume a portion of another sapient being, without express consent.
             </Box>
         </ColorBox>
@@ -2023,12 +2023,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Substance Abuse
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Consumption or usage of contraband substances.
             </Box>
         </ColorBox>
@@ -2040,12 +2040,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Failure to Pay
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Failure to pay a legally imposed fine within the required timeframe.
             </Box>
         </ColorBox>
@@ -2057,12 +2057,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Animal Cruelty
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Inflicting excessive harm on a living being, except when required for medical treatment, scientific research, or the preparation of food.
             </Box>
         </ColorBox>
@@ -2074,12 +2074,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Bribery
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Offering, giving or accepting gifts, money, or favors to influence someone to act outside of their allowed duties.
             </Box>
         </ColorBox>
@@ -2091,12 +2091,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Tax Evasion
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Not paying NanoTrasen-mandated scrip taxes, or using non-scrip currencies to avoid paying taxes.
             </Box>
         </ColorBox>
@@ -2108,12 +2108,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Refusal of Lawful Implantation
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Refusing to accept a lawful implant from Security personnel while in custody.
             </Box>
         </ColorBox>
@@ -2125,12 +2125,12 @@
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Breach of NT Contract
             </Box>
         </ColorBox>
         <ColorBox>
-            <Box>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
                 Violating the terms of an NT-issued, signed contract. 
             </Box>
         </ColorBox>
