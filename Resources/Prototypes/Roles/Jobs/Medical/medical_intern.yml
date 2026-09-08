@@ -20,7 +20,7 @@
   id: MedicalInternGear
   equipment:
     shoes: ClothingShoesColorWhite
-    id: MedicalInternPDA
+    id: MedicalInternWallet # Funky: the wallet-ening
     ears: ClothingHeadsetMedical
     pocket2: BookMedicalReferenceBook
 

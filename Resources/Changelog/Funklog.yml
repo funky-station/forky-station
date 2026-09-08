@@ -484,4 +484,41 @@
   id: 54
   time: '2026-09-07T19:54:58Z'
   url: https://github.com/funky-station/forky-station/pull/269
+- author: taydeo, Teasq, pirakaplant
+  changes:
+  - message: Added wallets. (Sprites by Teasq!)
+    type: Add
+  - message: Senior IDs are no longer obtainable.
+    type: Remove
+  - message: Wallets replace PDAs for all non-Command personnel, except the Commandant.
+    type: Tweak
+  id: 55
+  time: '2026-09-08T16:17:07Z'
+  url: https://github.com/funky-station/forky-station/pull/437
+- author: mycobiota
+  changes:
+  - message: Made the color of interaction outlines on objects customizable via the
+      accessibility tab in the player's options.
+    type: Add
+  - message: Added a "Reset to default" button to color sliders in the player's options.
+    type: Add
+  id: 56
+  time: '2026-09-08T16:42:55Z'
+  url: https://github.com/funky-station/forky-station/pull/427
+- author: TrixxedHeart, AraiMaia
+  changes:
+  - message: Added sprinting.
+    type: Add
+  - message: Default movement is now walking.
+    type: Tweak
+  id: 57
+  time: '2026-09-08T16:46:33Z'
+  url: https://github.com/funky-station/forky-station/pull/414
+- author: battlecruiser12
+  changes:
+  - message: Added spawners for ducks and chickens
+    type: Add
+  id: 58
+  time: '2026-09-08T16:48:34Z'
+  url: https://github.com/funky-station/forky-station/pull/381
 Order: -1

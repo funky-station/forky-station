@@ -15,7 +15,7 @@
   id: LibrarianGear
   equipment:
     shoes: ClothingShoesBootsLaceup
-    id: LibrarianPDA
+    id: LibrarianWallet # Funky: the wallet-ening
     ears: ClothingHeadsetService
     pocket1: d20Dice
     pocket2: HandLabeler # for making named bestsellers

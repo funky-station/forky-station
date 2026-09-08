@@ -22,7 +22,7 @@
   id: ServiceWorkerGear
   equipment:
     shoes: ClothingShoesColorBlack
-    id: ServiceWorkerPDA
+    id: ServiceWorkerWallet # Funky: the wallet-ening
     ears: ClothingHeadsetService
   #storage:
     #back:
