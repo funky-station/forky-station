@@ -21,6 +21,10 @@ namespace Content.Server._Funkystation.Communications;
 /// Handles PA announcers, i.e. the things that actually
 /// receive announcements, like speakers.
 /// </summary>
+/// <remarks>
+/// This is for the actual PA speaker entities.
+/// For dispatching PA announcements, use <see cref="PASystem"/>.
+/// </remarks>
 public sealed partial class PAAnnouncerSystem : EntitySystem
 {
     [Dependency] private ChatSystem _chat = null!;
@@ -43,10 +47,6 @@ public sealed partial class PAAnnouncerSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<PAAnnouncerComponent, PAAnnouncementEvent>(OnAnnouncementReceived);
-        SubscribeLocalEvent<PAAnnouncerComponent, PowerChangedEvent>(OnPowerChanged);
-        SubscribeLocalEvent<PAAnnouncerComponent, ComponentStartup>(OnComponentStartup);
-
         Subs.CVar(_cfg, PAAnnouncementCVars.PAEnabled, OnAnnouncementsCvarChanged, true);
     }
 
@@ -99,6 +99,7 @@ public sealed partial class PAAnnouncerSystem : EntitySystem
         }
     }
 
+    [SubscribeLocalEvent]
     private void OnAnnouncementReceived(Entity<PAAnnouncerComponent> ent, ref PAAnnouncementEvent args)
     {
         if (!_timing.IsFirstTimePredicted || !ent.Comp.Enabled)
@@ -156,6 +157,7 @@ public sealed partial class PAAnnouncerSystem : EntitySystem
         }
     }
 
+    [SubscribeLocalEvent]
     private static void OnPowerChanged(Entity<PAAnnouncerComponent> ent, ref PowerChangedEvent args)
     {
         if (ent.Comp.PowerRequired)
@@ -165,6 +167,7 @@ public sealed partial class PAAnnouncerSystem : EntitySystem
         }
     }
 
+    [SubscribeLocalEvent]
     private void OnComponentStartup(Entity<PAAnnouncerComponent> ent, ref ComponentStartup args)
     {
         if (ent.Comp.PowerRequired)
