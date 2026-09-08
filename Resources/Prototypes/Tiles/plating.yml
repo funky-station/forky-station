@@ -18,7 +18,7 @@
   id: PlatingDamaged
   parent: BasePlating
   name: tiles-plating
-  sprite: /Textures/Tiles/plating-damaged.png
+  sprite: /Textures/_Funkystation/Tiles/plating-damaged.png
   variants: 4
 
 - type: tile
@@ -41,7 +41,7 @@
   id: FloorHullReinforced
   parent: BasePlating
   name: tiles-hull-reinforced
-  sprite: /Textures/Tiles/debug-indestructible.png
+  sprite: /Textures/_Funkystation/Tiles/plating-debug-indestructible.png
   footstepSounds:
     collection: FootstepHull
   itemDrop: FloorTileItemSteel
@@ -52,13 +52,13 @@
   id: PlatingAsteroid
   parent: BasePlating
   name: tiles-asteroid-plating
-  sprite: /Textures/Tiles/Asteroid/asteroid-plating.png
+  sprite: /Textures/_Funkystation/Tiles/plating-asteroid.png
 
 - type: tile
   id: PlatingSnow
   name: tiles-snow-plating
   parent: BasePlating
-  sprite: /Textures/Tiles/Snow/snow-plating.png #Not in the snow planet RSI because it doesn't have any metadata. Should probably be moved to its own folder later.
+  sprite: /Textures/_Funkystation/Tiles/plating-snow.png #Not in the snow planet RSI because it doesn't have any metadata. Should probably be moved to its own folder later.
   friction: 0.75 #a little less then actual snow
 
 - type: tile

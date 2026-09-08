@@ -23,7 +23,7 @@
   id: BotanistGear
   equipment:
     shoes: ClothingShoesColorBrown
-    id: BotanistPDA
+    id: BotanistWallet # Funky: the wallet-ening
     #ears: ClothingHeadsetService # Funky - No longer part of Service
     ears: ClothingHeadsetCargo # Funky - Now part of Logistics
     belt: ClothingBeltPlantFilled

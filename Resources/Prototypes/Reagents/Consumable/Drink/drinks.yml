@@ -94,7 +94,7 @@
   flavor: creamy
   color: "#664300"
   metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/cafe_latte.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/cafe_latte.rsi # Funky
     state: icon
   metamorphicMaxFillLevels: 1
   metamorphicFillBaseName: fill-

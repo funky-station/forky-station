@@ -95,9 +95,11 @@
     ClothingHandsGlovesColorTeal: 2
     ClothingHandsGlovesColorGreen: 2
     ClothingHandsGlovesColorOrange: 2
+    FuClothingHandsGlovesColorYellow: 2 #add funky Yellow Yello add Yellow
     ClothingHandsGlovesColorPurple: 2
     ClothingEyesGlassesCheapSunglasses: 3
     # DO NOT ADD MORE, USE UNIFORM DYING
+    # Fuck is uniform dying
   contrabandInventory:
     ClothingMaskNeckGaiter: 2
     ClothingUniformJumpsuitTacticool: 1
