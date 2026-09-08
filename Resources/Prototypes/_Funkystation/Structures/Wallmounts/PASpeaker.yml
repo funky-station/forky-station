@@ -8,7 +8,7 @@
   - type: TelecomExempt
   - type: Speech
     speechVerb: Robotic
-    speechBubbleOffset: -0.5
+    speechBubbleOffset: 0.5
   - type: WiresPanel
   - type: WiresVisuals
   - type: Wires
@@ -29,7 +29,7 @@
   - type: PAAnnouncer
   - type: Appearance
   - type: Sprite
-    offset: 0, -0.15
+    offset: 0, 0.85
     noRot: false
     drawdepth: SmallObjects
     sprite: _Funkystation/Structures/Wallmounts/pa_speaker.rsi
@@ -86,7 +86,7 @@
     noRot: false
     drawdepth: SmallObjects
     sprite: _Funkystation/Structures/Wallmounts/pa_speaker.rsi
-    offset: 0, -0.15
+    offset: 0, 0.85
     layers:
     - state: icon
     - state: unfinished

@@ -118,4 +118,4 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: true
   conditions:
-  - !type:WallmountCondition { }
+  - !type:AgainstWall
