@@ -1,0 +1,116 @@
+using Content.Shared._RMC14.Weapons.Common;
+using Content.Shared.Examine;
+using Content.Shared.Interaction;
+using Content.Shared.Popups;
+using Content.Shared.Tag;
+using Content.Shared.Timing;
+using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Weapons.Ranged.Systems;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.GameObjects;
+
+namespace Content.Shared._RMC14.Weapons.Ranged;
+
+public sealed partial class BreechLoadedSystem : EntitySystem
+{
+    [Dependency] private SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    // [Dependency] private SharedGunSystem _gunSystem = default!; // Funky Commented out for now.
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    // [Dependency] private TagSystem _tagSystem = default!; // Funky Commented out for now.
+    [Dependency] private UseDelaySystem _useDelay = default!;
+
+    public override void Initialize()
+    {
+        SubscribeLocalEvent<BreechLoadedComponent, AttemptShootEvent>(OnAttemptShoot);
+        SubscribeLocalEvent<BreechLoadedComponent, GunShotEvent>(OnGunShot);
+        SubscribeLocalEvent<BreechLoadedComponent, RMCTryAmmoEjectEvent>(OnTryAmmoEject);
+        SubscribeLocalEvent<BreechLoadedComponent, UniqueActionEvent>(OnUniqueAction);
+        SubscribeLocalEvent<BreechLoadedComponent, InteractUsingEvent>(OnInteractUsing,
+            before: new[] { typeof(SharedGunSystem) });
+    }
+
+    private void OnAttemptShoot(Entity<BreechLoadedComponent> gun, ref AttemptShootEvent args)
+    {
+        if (args.Cancelled || !gun.Comp.Open && (!gun.Comp.NeedOpenClose || gun.Comp.Ready))
+            return;
+
+        args.Cancelled = true;
+        if (gun.Comp.Open)
+            _popupSystem.PopupClient(Loc.GetString("rmc-breech-loaded-open-shoot-attempt"), args.User, args.User);
+        else
+            _popupSystem.PopupClient(Loc.GetString("rmc-breech-loaded-not-ready-to-shoot"), args.User, args.User);
+    }
+
+    private void OnGunShot(Entity<BreechLoadedComponent> gun, ref GunShotEvent args)
+    {
+        if (!gun.Comp.NeedOpenClose)
+            return;
+
+        gun.Comp.Ready = false;
+        Dirty(gun);
+    }
+
+    private void OnTryAmmoEject(Entity<BreechLoadedComponent> gun, ref RMCTryAmmoEjectEvent args)
+    {
+        if (gun.Comp.Open)
+            return;
+
+        _popupSystem.PopupClient(Loc.GetString("rmc-breech-loaded-closed-extract-attempt"), args.User, args.User);
+        args.Cancelled = true;
+    }
+
+    private void OnUniqueAction(Entity<BreechLoadedComponent> gun, ref UniqueActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
+
+        if (TryComp<UseDelayComponent>(gun, out var useDelay) && _useDelay.IsDelayed((gun, useDelay), gun.Comp.DelayId))
+        {
+            var actionLocale = gun.Comp.Open ? Loc.GetString("rmc-breech-loaded-close") : Loc.GetString("rmc-breech-loaded-open");
+            var popup = Loc.GetString("rmc-breech-loaded-toggle-attempt-cooldown", ("action", actionLocale));
+            _popupSystem.PopupClient(popup, args.UserUid, args.UserUid, PopupType.Small);
+            return;
+        }
+
+        gun.Comp.Open = !gun.Comp.Open;
+
+        if (!gun.Comp.Open)
+            gun.Comp.Ready = true;
+
+        if (gun.Comp.ShowBreechOpen && TryComp(gun.Owner, out AppearanceComponent? appearanceComponent))
+            _appearanceSystem.SetData(gun, BreechVisuals.Open, gun.Comp.Open, appearanceComponent);
+
+        if (useDelay != null)
+        {
+            _useDelay.SetLength((gun, useDelay), gun.Comp.ToggleDelay, gun.Comp.DelayId);
+            _useDelay.TryResetDelay((gun, useDelay), id: gun.Comp.DelayId);
+        }
+
+        Dirty(gun);
+        var sound = gun.Comp.Open ? gun.Comp.OpenSound : gun.Comp.CloseSound;
+        //_audioSystem.PlayPredicted(sound, gun, args.UserUid, sound.Params);
+        _audioSystem.PlayPredicted(sound, gun, args.UserUid);
+    }
+
+    private void OnInteractUsing(Entity<BreechLoadedComponent> gun, ref InteractUsingEvent args)
+    {
+        // Funky Commenting this out as its not needed right now (lack of other RMC code) and causes ammo deletion upon reload attempts.
+        // if (gun.Comp.Open ||
+        //     !TryComp(gun.Owner, out BallisticAmmoProviderComponent? ammoProviderComponent) ||
+        //     ammoProviderComponent.Whitelist == null ||
+        //     ammoProviderComponent.Whitelist.Tags == null ||
+        //     !_tagSystem.HasAnyTag(args.Used, ammoProviderComponent.Whitelist.Tags))
+        //     return;
+
+        // Funky Moved popup code here with a simple breech closed = send popup function.
+        // This prevents the ammo deletion since it just halts the loading attempt altogether.
+        if (gun.Comp.Open)
+            return;
+        _popupSystem.PopupClient(Loc.GetString("rmc-breech-loaded-closed-load-attempt"), args.User, args.User);
+        args.Handled = true;
+    }
+}

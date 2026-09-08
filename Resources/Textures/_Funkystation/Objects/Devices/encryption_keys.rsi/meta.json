@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Encryption key sprites for Funky Station by @Catazeus (GitHub). | emergecy label sprite by willowzeta (github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+        {
+            "name": "crypt_gray"
+        },
+        {
+            "name": "crypt_silver"
+        },
+        {
+            "name": "crypt_gold"
+        },
+        {
+            "name": "crypt_blue"
+        },
+        {
+            "name": "nt"
+        },
+        {
+            "name": "crypt_rusted"
+        },
+        {
+            "name": "crypt_red"
+        },
+        {
+            "name": "future"
+        },
+        {
+            "name": "common_label"
+        },
+        {
+            "name": "service_label"
+        },
+        {
+            "name": "cargo_label"
+        },
+        {
+            "name": "eng_label"
+        },
+        {
+            "name": "med_label"
+        },
+        {
+            "name": "label-emergency"
+        },
+        {
+            "name": "medsci_label"
+        },
+        {
+            "name": "sci_label"
+        },
+        {
+            "name": "robotics_label"
+        },
+        {
+            "name": "sec_label"
+        },
+        {
+            "name": "com_label"
+        },
+        {
+            "name": "cap_label"
+        },
+        {
+            "name": "nano_label"
+        },
+        {
+            "name": "label-nt"
+        },
+        {
+            "name": "ai_label"
+        },
+        {
+            "name": "label-sinary"
+        },
+        {
+            "name": "synd_label"
+        },
+        {
+            "name": "pirate_label"
+        },
+        {
+            "name": "label-future",
+            "delays": [
+                [ 0.2, 0.2, 0.2, 0.2 ]
+            ]
+        }
+
+    ]
+}

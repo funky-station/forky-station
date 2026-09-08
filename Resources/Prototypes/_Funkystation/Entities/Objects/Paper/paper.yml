@@ -19,7 +19,7 @@
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
   - type: PaperLabelType
-    paperType: Invoice
+    paperType: PaperOrange
   - type: Tag
     tags:
     - Document
@@ -48,7 +48,7 @@
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
   - type: PaperLabelType
-    paperType: Invoice
+    paperType: PaperOrange
   - type: Tag
     tags:
     - Document
@@ -82,7 +82,7 @@
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
   - type: PaperLabelType
-    paperType: Invoice
+    paperType: PaperYellow
   - type: Tag
     tags:
     - Document
@@ -112,7 +112,7 @@
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
   - type: PaperLabelType
-    paperType: Invoice
+    paperType: PaperYellow
   - type: Tag
     tags:
     - Document
@@ -146,7 +146,7 @@
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
   - type: PaperLabelType
-    paperType: Invoice
+    paperType: PaperGreen
   - type: Tag
     tags:
     - Document
@@ -176,7 +176,7 @@
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
   - type: PaperLabelType
-    paperType: Invoice
+    paperType: PaperGreen
   - type: Tag
     tags:
     - Document
@@ -210,7 +210,7 @@
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
   - type: PaperLabelType
-    paperType: Invoice
+    paperType: PaperRed
   - type: Tag
     tags:
     - Document
@@ -239,7 +239,7 @@
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
   - type: PaperLabelType
-    paperType: Invoice
+    paperType: PaperRed
   - type: Tag
     tags:
     - Document
@@ -273,7 +273,7 @@
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
   - type: PaperLabelType
-    paperType: Invoice
+    paperType: PaperPurple
   - type: Tag
     tags:
     - Document
@@ -302,7 +302,7 @@
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
   - type: PaperLabelType
-    paperType: Invoice
+    paperType: PaperPurple
   - type: Tag
     tags:
     - Document
@@ -319,7 +319,7 @@
 
 
 - type: entity
-  name: plue Paper
+  name: blue Paper
   parent: Paper
   id: PaperBlue
   description:  'A piece of blue paper.'
@@ -336,7 +336,7 @@
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
   - type: PaperLabelType
-    paperType: Invoice
+    paperType: PaperBlue
   - type: Tag
     tags:
     - Document
@@ -365,7 +365,7 @@
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
   - type: PaperLabelType
-    paperType: Invoice
+    paperType: PaperBlue
   - type: Tag
     tags:
     - Document
@@ -399,7 +399,7 @@
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
   - type: PaperLabelType
-    paperType: Invoice
+    paperType: PaperBrown
   - type: Tag
     tags:
     - Document
@@ -428,7 +428,7 @@
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
   - type: PaperLabelType
-    paperType: Invoice
+    paperType: PaperBrown
   - type: Tag
     tags:
     - Document

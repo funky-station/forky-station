@@ -144,13 +144,15 @@ ui-options-header-text-chat = Chat
 ui-options-header-text-other = Text input other
 
 ui-options-hotkey-keymap = Use US QWERTY Keys
-ui-options-hotkey-toggle-walk = Toggle Walk
+# funky, changed walk to sprint
+ui-options-hotkey-toggle-walk = Toggle Sprint
 
 ui-options-function-move-up = Move Up
 ui-options-function-move-left = Move Left
 ui-options-function-move-down = Move Down
 ui-options-function-move-right = Move Right
-ui-options-function-walk = Walk
+# funky, changed walk to sprint
+ui-options-function-walk = Sprint
 ui-options-function-toggle-knockdown = Toggle Crawling
 
 ui-options-function-camera-rotate-left = Rotate left
@@ -406,6 +408,12 @@ ui-options-es-pain-flash-intensity = Pain flash intensity
 # funky viewcone options
 ui-options-disable-viewcone-grain = Disable the grain effect on the viewcone occlusion overlay
 ui-options-viewcone-occlusion-opacity = Viewcone occlusion strength
+
+# funky custom interaction outlines
+ui-options-interaction-outline-valid = Outline color for objects inside of interaction range
+ui-options-interaction-outline-invalid = Outline color for objects outside of interaction range
+ui-options-interaction-color-example = This is the outline color.
+ui-options-color-slider-default-button = Reset to default
 
 ui-options-chat-window-opacity = Chat window opacity
 ui-options-speech-bubble-text-opacity = Speech bubble text opacity

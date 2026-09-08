@@ -876,10 +876,15 @@ HolofanProjector: null
 # 2026-08-08 - xo & hd lockers
 LockerHeadOfPersonnelFilled: LockerExecutiveOfficerFilled
 
+# 2026-08-11 - BigGlove Resprite
+ClothingHandsGlovesColorYellow: FuClothingHandsGlovesInsuls
+ClothingHandsGlovesColorYellowBudget: FuClothingHandsGlovesInsulsBudget
+
 # 2026-08-10 - removing mindshields
 CrateSecurityTrackingMindshieldImplants: CrateTrackingImplants
 CrateMindShieldImplants: CrateMedical
 MindshieldImplanter: null
+
 
 # TODO: When the RG-2 and its safe are ported over, uncomment the line below and add a timestamp.
 #GunSafeDisabler: GunSafePistolRg2
@@ -1172,3 +1177,9 @@ DrinkNeurotoxinGlass: null
 #2026-08-19
 JanitorServiceLight: null
 
+# 2026-08-31 RMC Pump/Breech Ports
+WeaponSniperMosin: FuWeaponSniperMosin
+WeaponShotgunKammerer: FuWeaponShotgunKammerer
+WeaponShotgunDoubleBarreled: FuWeaponShotgunDoubleBarreled
+WeaponShotgunSawn: FuWeaponShotgunSawn
+WeaponLauncherChinaLake: FuWeaponLauncherChinaLake

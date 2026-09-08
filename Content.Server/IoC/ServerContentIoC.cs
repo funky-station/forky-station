@@ -26,6 +26,7 @@ using Content.Server.Preferences.Managers;
 using Content.Server.ServerInfo;
 using Content.Server.ServerUpdates;
 using Content.Server.Voting.Managers;
+using Content.Shared._Starlight.DocumentManager;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Administration.Managers;
 using Content.Shared.Chat;
@@ -80,6 +81,7 @@ internal static class ServerContentIoC
         deps.Register<ConnectionManager>();
         deps.Register<MultiServerKickManager>();
         deps.Register<CVarControlManager>();
+        deps.Register<PreWrittenDocumentManager>(); // Starlight
         deps.Register<DiscordLink>();
         deps.Register<DiscordChatLink>();
         deps.Register<ServerFeedbackManager>();

@@ -7,9 +7,9 @@
   components:
   - type: EncryptionKey
   - type: Item
-    sprite: Objects/Devices/encryption_keys.rsi
+    sprite: _Funkystation/Objects/Devices/encryption_keys.rsi #funkystation
   - type: Sprite
-    sprite: Objects/Devices/encryption_keys.rsi
+    sprite: _Funkystation/Objects/Devices/encryption_keys.rsi #funkystation
   # Funky changes start
   - type: StaticPrice
     price: 10
@@ -36,8 +36,8 @@
 - type: entity
   parent: [ EncryptionKey, BaseCargoContraband ]
   id: EncryptionKeyCargo
-  name: cargo encryption key
-  description: An encryption key used by supply employees.
+  name: logistics encryption key #funky supply -> logistics rename
+  description: An encryption key used by logistics employees. #funky supply -> logistics rename
   components:
   - type: EncryptionKey
     channels:
@@ -87,6 +87,7 @@
     - Security
     - Service
     - Supply
+    - Emergency #funkystation
     - InternalAffairs #funky
     defaultChannel: Command
   - type: Sprite
@@ -293,7 +294,7 @@
   - type: Sprite
     layers:
     - state: crypt_red
-    - state: ai_label
+    - state: label-sinary #funkystation
   - type: StaticPrice
     price: 1000
 

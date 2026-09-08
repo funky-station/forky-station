@@ -1,13 +1,19 @@
+using Content.Shared.Actions;
+using Content.Shared.Interaction;
 using System.Linq;
+using Content.Shared._Funkystation.Radio;
 using Content.Shared.Chat;
 using Content.Shared.Examine;
-using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Radio.Components;
+using Content.Shared.Timing;
+using Content.Shared.Verbs;
+using Robust.Shared.Utility;
 using Content.Shared.Speech;
 using Content.Shared.Speech.Components;
+using Robust.Shared.Audio.Systems;
 
 using Robust.Shared.Prototypes;
 
@@ -24,6 +30,13 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
     [Dependency] private SharedRadioSystem _radio = default!;
     [Dependency] private SharedPowerReceiverSystem _power = default!;
     [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedActionsSystem _actions = null!; // Funky - add speaker/mic toggle actions
+    [Dependency] private UseDelaySystem _delays = null!; // Funky - toggle cooldown
+    [Dependency] private SharedAudioSystem _audio = null!; // funky - sound effects for radios
+
+    // funky - colors for examine markup
+    private Color EnabledColor = Color.FromHex("#31843E");
+    private Color DisabledColor = Color.FromHex("#BB3232");
 
     // Used to prevent a shitter from using a bunch of radios to spam chat.
     private readonly HashSet<(string, EntityUid, RadioChannelPrototype)> _recentlySent = [];
@@ -59,13 +72,20 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
 
     #region Toggling
 
+    // funky - toggling the microphone with Z if the speaker is turned on
     [SubscribeLocalEvent]
     private void OnActivateMicrophone(Entity<RadioMicrophoneComponent> ent, ref ActivateInWorldEvent args)
     {
+        if (args.Handled) // we dont want the mic to turn on at the same time as the speaker (does this actually ensure that?)
+            return;
+
         if (!args.Complex)
             return;
 
         if (!ent.Comp.ToggleOnInteract)
+            return;
+        // fail if this radio requires that the speaker be switched on and there is no speaker / its switched off
+        if (ent.Comp.SpeakerRequired && (!TryComp<RadioSpeakerComponent>(ent, out var speaker) || !speaker.Enabled))
             return;
 
         ToggleRadioMicrophone(ent.AsNullable(), args.User, args.Handled);
@@ -79,6 +99,9 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
             return;
 
         if (!ent.Comp.ToggleOnInteract)
+            return;
+        // funky - if the speaker is on, interacting should toggle the mic instead (if its present)
+        if (ent.Comp.Enabled && HasComp<RadioMicrophoneComponent>(ent))
             return;
 
         ToggleRadioSpeaker(ent.AsNullable(), args.User, args.Handled);
@@ -119,10 +142,11 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
 
         if (!quiet && user != null)
         {
+            _audio.PlayPredicted(enabled ? ent.Comp.ToggleOnSound : ent.Comp.ToggleOffSound, ent, user); // funky - radio sfx
             var state = Loc.GetString(ent.Comp.Enabled
                 ? "handheld-radio-component-on-state"
                 : "handheld-radio-component-off-state");
-            var message = Loc.GetString("handheld-radio-component-on-use", ("radioState", state));
+            var message = Loc.GetString("handheld-radio-component-mic-toggle", ("radioState", state)); // funky
             _popup.PopupEntity(message, user.Value, user.Value);
         }
 
@@ -132,10 +156,6 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
         else
             RemCompDeferred<ActiveListenerComponent>(ent);
     }
-
-    #endregion
-
-    #region Toggling
 
     /// <summary>
     /// Toggles a radio microphone.
@@ -152,6 +172,18 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp, false))
             return;
 
+        // no matter how the component is toggled, we want the cooldown to be enforced (funky station)
+        if (TryComp<UseDelayComponent>(ent, out var delayComp) && ent.Comp.Cooldown.HasValue)
+        {
+            if (_delays.IsDelayed((ent, delayComp)))
+                return;
+
+            _delays.SetLength((ent, delayComp), ent.Comp.Cooldown.Value);
+            _delays.TryResetDelay((ent, delayComp));
+
+        }
+
+        _actions.SetToggled(ent.Comp.ActionEntity, !ent.Comp.Enabled); // funky
         SetMicrophoneEnabled(ent, user, !ent.Comp.Enabled, quiet);
     }
 
@@ -170,6 +202,17 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp, false))
             return;
 
+        // no matter how the component is toggled, we want the cooldown to be enforced (funky station)
+        if (TryComp<UseDelayComponent>(ent, out var delayComp) && ent.Comp.Cooldown.HasValue)
+        {
+            if (_delays.IsDelayed((ent, delayComp)))
+                return;
+
+            _delays.SetLength((ent, delayComp), ent.Comp.Cooldown.Value);
+            _delays.TryResetDelay((ent, delayComp));
+        }
+
+        _actions.SetToggled(ent.Comp.ActionEntity, !ent.Comp.Enabled); // funky
         SetSpeakerEnabled(ent, user, !ent.Comp.Enabled, quiet);
     }
 
@@ -190,6 +233,20 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp, false))
             return;
 
+        // if we're switching the speaker on, make sure we don't need power first (funky)
+        if (enabled && ent.Comp.PowerRequired && !_power.IsPowered(ent.Owner))
+            return;
+
+        // If the mic is on when the speaker is turned off, turn the mic off (Funkystation)
+        if (!enabled &&
+            TryComp<RadioMicrophoneComponent>(ent, out var mic)
+            && mic.SpeakerRequired
+            && mic.Enabled)
+        {
+            _actions.SetToggled(mic.ActionEntity, false);
+            SetMicrophoneEnabled((ent, mic), user, false, true);
+        }
+
         ent.Comp.Enabled = enabled;
         Dirty(ent);
 
@@ -199,7 +256,7 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
                 ? "handheld-radio-component-on-state"
                 : "handheld-radio-component-off-state");
             var message = Loc.GetString("handheld-radio-component-on-use", ("radioState", state));
-            _popup.PopupEntity(message, user.Value, user.Value);
+            _popup.PopupEntity(message, ent, user.Value); // funky - show the popup over the radio, not the player
         }
 
         _appearance.SetData(ent, RadioDeviceVisuals.Speaker, ent.Comp.Enabled);
@@ -211,6 +268,168 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
 
     #endregion
 
+    // this entire region is funky additions
+    #region Funky - Verbs and actions
+
+    [SubscribeLocalEvent]
+    private void AddSpeakerToggleVerb(Entity<RadioSpeakerComponent> ent, ref GetVerbsEvent<AlternativeVerb> args) // Funkystation
+    {
+        if(!args.CanAccess || !args.CanInteract)
+            return;
+
+        if (!ent.Comp.ToggleOnInteract)
+            return;
+
+        var user = args.User;
+
+        AlternativeVerb verb = new()
+        {
+            Act = () =>
+            {
+                ToggleRadioSpeaker(ent.AsNullable(), user, false);
+            },
+            Text = Loc.GetString("handheld-radio-component-power-verb"),
+            Priority = 1,
+            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png")), // TODO: unhardcode
+            Message = Loc.GetString("handheld-radio-component-speaker-desc"),
+        };
+        args.Verbs.Add(verb);
+    }
+
+    [SubscribeLocalEvent]
+    private void AddMicToggleVerb(Entity<RadioMicrophoneComponent> ent, ref GetVerbsEvent<AlternativeVerb> args) // Funkystation
+    {
+        if(!args.CanAccess || !args.CanInteract)
+            return;
+
+        if (!ent.Comp.ToggleOnInteract)
+            return;
+
+        var disabled = false;
+        var message = Loc.GetString("handheld-radio-component-mic-desc");
+        if (ent.Comp.SpeakerRequired && (!TryComp<RadioSpeakerComponent>(ent, out var speaker) || !speaker.Enabled))
+        {
+            disabled = true;
+            message = Loc.GetString("handheld-radio-component-mic-desc-disabled");
+        }
+
+        var user = args.User;
+
+        AlternativeVerb verb = new()
+        {
+            Act = () =>
+            {
+                ToggleRadioMicrophone(ent.AsNullable(), user, false);
+            },
+            Text = Loc.GetString("handheld-radio-component-mic-verb"),
+            Priority = 0,
+            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/signal.svg.192dpi.png")), // TODO: unhardcode this
+            Disabled = disabled,
+            Message = message,
+        };
+        args.Verbs.Add(verb);
+    }
+
+    [SubscribeLocalEvent]
+    private void OnSpeakerToggleAction(Entity<RadioSpeakerComponent> ent, ref ToggleRadioSpeakerEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!ent.Comp.ToggleOnInteract)
+            return;
+
+        ToggleRadioSpeaker(ent.AsNullable(), args.Performer, false);
+        args.Handled = true;
+    }
+
+    [SubscribeLocalEvent]
+    private void OnMicrophoneToggleAction(Entity<RadioMicrophoneComponent> ent, ref ToggleRadioMicrophoneEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!ent.Comp.ToggleOnInteract)
+            return;
+
+        if (ent.Comp.SpeakerRequired && (!TryComp<RadioSpeakerComponent>(ent, out var speaker) || !speaker.Enabled))
+        {
+            _popup.PopupEntity(Loc.GetString("handheld-radio-component-mic-desc-disabled"), ent, args.Performer);
+            return;
+        }
+
+        ToggleRadioMicrophone(ent.AsNullable(), args.Performer, false);
+        args.Handled = true;
+    }
+
+    [SubscribeLocalEvent]
+    private void OnGetActions(Entity<RadioSpeakerComponent> ent, ref GetItemActionsEvent args)
+    {
+        _actions.AddAction(args.User, ref ent.Comp.ActionEntity, ent.Comp.ActionId, ent);
+        if (ent.Comp.Cooldown.HasValue)
+            _actions.SetUseDelay(ent.Comp.ActionEntity, ent.Comp.Cooldown.Value); // overrides whatever cooldown the base action has
+    }
+
+    [SubscribeLocalEvent]
+    private void OnGetActions(Entity<RadioMicrophoneComponent> ent, ref GetItemActionsEvent args)
+    {
+        _actions.AddAction(args.User, ref ent.Comp.ActionEntity, ent.Comp.ActionId, ent);
+        if (ent.Comp.Cooldown.HasValue)
+            _actions.SetUseDelay(ent.Comp.ActionEntity, ent.Comp.Cooldown.Value); // overrides whatever cooldown the base action has
+    }
+    #endregion
+
+    #region Examining
+
+    // funky addition - showing the speaker's state when examined separately from the microphone
+    [SubscribeLocalEvent]
+    private void OnExamine(Entity<RadioSpeakerComponent> ent, ref ExaminedEvent args)
+    {
+        if (!args.IsInDetailsRange)
+            return;
+
+        var state = Loc.GetString(ent.Comp.Enabled
+            ? "handheld-radio-component-on-state"
+            : "handheld-radio-component-off-state");
+
+        var color = ent.Comp.Enabled
+            ? EnabledColor
+            : DisabledColor;
+
+        using (args.PushGroup(nameof(RadioSpeakerComponent), priority: 1))
+        {
+            args.PushMarkup(Loc.GetString("handheld-radio-component-speaker-examine",
+                ("speakerState", state),
+                ("color", color)));
+            if (HasComp<EncryptionKeyHolderComponent>(ent))
+                return;
+            // some extra markup we dont want to overlap with encryption key markup
+            if (ent.Comp.Channels.Count > 1)
+            {
+                args.PushMarkup(Loc.GetString("handheld-radio-component-speaker-freq-multiple"));
+                foreach (var channel in ent.Comp.Channels)
+                {
+                    var proto = ProtoMan.Index(channel);
+                    // visually mimicking intercoms / encryption key holders
+                    args.PushMarkup(Loc.GetString("handheld-radio-component-freq",
+                        ("color", proto.Color),
+                        ("id", proto.LocalizedName),
+                        ("freq", proto.Frequency)));
+                }
+            }
+            // display the singular received channel only if there isnt a mic (reduces clutter)
+            else if (!HasComp<RadioMicrophoneComponent>(ent))
+            {
+                var proto = ProtoMan.Index(ent.Comp.Channels.FirstOrDefault());
+                args.PushMarkup(Loc.GetString("handheld-radio-component-speaker-freq",
+                    ("color", proto.Color),
+                    ("id", proto.LocalizedName),
+                    ("freq", proto.Frequency)));
+            }
+        }
+    }
+
+    // showing the microphone's state when examined
     [SubscribeLocalEvent]
     private void OnExamine(Entity<RadioMicrophoneComponent> ent, ref ExaminedEvent args)
     {
@@ -219,14 +438,30 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
 
         var proto = ProtoMan.Index(ent.Comp.BroadcastChannel);
 
-        using (args.PushGroup(nameof(RadioMicrophoneComponent)))
+        // funky edits start
+        var state = Loc.GetString(ent.Comp.Enabled
+            ? "handheld-radio-component-on-state"
+            : "handheld-radio-component-off-state");
+
+        var color = ent.Comp.Enabled
+            ? EnabledColor
+            : DisabledColor;
+
+        using (args.PushGroup(nameof(RadioMicrophoneComponent), priority: 0))
         {
-            args.PushMarkup(Loc.GetString("radio-microphone-component-examine",
+            args.PushMarkup(Loc.GetString("handheld-radio-component-mic-examine", //funky
+                ("micState", state),
+                ("color", color)));
+            args.PushMarkup(Loc.GetString("handheld-radio-component-mic-freq-examine",
                 ("color", proto.Color),
-                ("channel", proto.LocalizedName),
-                ("frequency", proto.Frequency)));
+                ("id", proto.LocalizedName),
+                ("freq", proto.Frequency)));
         }
+        // funky edits end
     }
+    #endregion
+
+    #region Chat
 
     [SubscribeLocalEvent]
     private void OnListen(Entity<RadioMicrophoneComponent> ent, ref ListenEvent args)
@@ -249,10 +484,17 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
         }
     }
 
+    // TODO: im glad ghosts dont get their chat clogged, but what about lots of adjacent radios?
+    //  if there are many radios near each other, is it possible to prevent all but one from logging to chat?
+    //  i gave it a shot, chat system straight up just discards whispers that arent logged. fixing this is out of scope
     [SubscribeLocalEvent]
     private void OnReceiveRadio(Entity<RadioSpeakerComponent> ent, ref RadioReceiveEvent args)
     {
         if (ent.Owner == args.RadioSource)
+            return;
+
+        // funky
+        if (ent.Comp.PowerRequired && !_power.IsPowered(ent.Owner))
             return;
 
         var nameEv = new TransformSpeakerNameEvent(args.MessageSource, Name(args.MessageSource));
@@ -265,11 +507,41 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
         // log to chat so people can identity the speaker/source, but avoid clogging ghost chat if there are many radios
         _chat.TrySendInGameICMessage(ent.Owner,
             args.Message,
-            InGameICChatType.Whisper,
+            ent.Comp.Volume <= 2 ? InGameICChatType.Whisper : InGameICChatType.Speak, // funky change - adjustable volume
             ChatTransmitRange.GhostRangeLimit,
             nameOverride: name,
             checkRadioPrefix: false);
     }
+
+    #endregion
+
+    #region Funky - radio volume UI events
+
+    [SubscribeLocalEvent]
+    // Funky - radio volume UI events
+    private void OnRadioVolumeChanged(Entity<RadioSpeakerComponent> ent, ref RadioVolumeSliderMessage args)
+    {
+        ent.Comp.Volume = Math.Clamp(args.Value, ent.Comp.MinVolume, ent.Comp.MaxVolume);
+        Dirty(ent);
+    }
+
+    [SubscribeLocalEvent]
+    private void OnRadioSensitivityChanged(Entity<RadioMicrophoneComponent> ent, ref RadioVolumeSliderMessage args)
+    {
+        // if a max range is specified, clamp to it
+        if (ent.Comp.MaxRange != null)
+            ent.Comp.ListenRange = Math.Clamp(args.Value, ent.Comp.MinRange ?? 1, ent.Comp.MaxRange.Value);
+        else
+            ent.Comp.ListenRange = args.Value;
+        Dirty(ent);
+        // update the range on the active listener if its present
+        if (TryComp<ActiveListenerComponent>(ent, out var listener))
+            listener.Range = ent.Comp.ListenRange;
+    }
+
+    #endregion
+
+    #region Intercoms
 
     [SubscribeLocalEvent]
     private void OnIntercomEncryptionChannelsChanged(
@@ -356,5 +628,6 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
 
         Dirty(ent);
     }
+    #endregion
 }
 

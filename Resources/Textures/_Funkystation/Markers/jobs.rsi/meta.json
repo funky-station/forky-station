@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-4.0",
+    "copyright": "Green 'X' made by /vg/station (https://github.com/vgstation-coders/vgstation13) | HD made by @pirakaplant (GitHub), derivative of the human sprite from /tg/station (https://github.com/tgstation/tgstation) and various sprites by @zergologist (Discord) | Due to containing content from both CC-BY-SA 3.0 and CC-BY-SA 4.0 sources, this RSI is distributed under CC-BY-SA 4.0 as permitted under section 4(b)(ii) of the Creative Commons Attribution-ShareAlike 3.0 Unported Legal Code (https://creativecommons.org/licenses/by-sa/3.0/)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "green"
+        },
+        {
+            "name": "hd"
+        }
+    ]
+}
