@@ -1,0 +1,787 @@
+##i did markings for a lot of different species so for now theyre are all here##
+##if no one else does it ill do a cleanup of all marking coding in a few months##
+##-carousel##
+
+#- type: marking
+#  id: FullID
+#  bodyPart: Part
+#  groupWhitelist: [Species, Species]
+#  youre on your own for figuring out the coloring system, my friend
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/filelocation.rsi
+#    state: filename
+#  shaded: unshaded //use for markings that ignore shader
+
+
+- type: marking
+  id: DionaLivingNymph
+  bodyPart: Chest
+  groupWhitelist: [ Diona ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dionalivingnymph
+
+- type: marking
+  id: DionaMossChest
+  bodyPart: Chest
+  groupWhitelist: [ Diona ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: dionamosschest
+
+- type: marking
+  id: DionaMoonBloom
+  bodyPart: HeadTop
+  groupWhitelist: [ Diona ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: dionamoonbloom
+  shader: unshaded
+
+- type: marking
+  id: DionaBigFirefly
+  bodyPart: Head
+  groupWhitelist: [ Diona ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dionabigfirefly
+  shader: unshaded
+
+- type: marking
+  id: DionaFirefly
+  bodyPart: Chest
+  groupWhitelist: [ Diona ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dionafirefly
+  shader: unshaded
+
+- type: marking
+  id: DionaPollenDust
+  bodyPart: Head
+  groupWhitelist: [ Diona ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dionapollendust
+
+- type: marking
+  id: DwarfBearCheeks
+  bodyPart: Head
+  groupWhitelist: [ Human ] # Aurora's Song Dwarf>Human
+  forcedColoring: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: dwarfbearcheeks
+  shader: unshaded
+
+- type: marking
+  id: DwarfHeadGlow
+  bodyPart: Head
+  groupWhitelist: [ Human ] # Aurora's Song Dwarf>Human
+  forcedColoring: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dwarfheadglow
+  shader: unshaded
+
+- type: marking
+  id: DwarfConstellationHead
+  bodyPart: Head
+  groupWhitelist: [ Human ] # Aurora's Song Dwarf>Human
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dwarfconstellationhead
+  shader: unshaded
+
+- type: marking
+  id: DwarfConstellationChest
+  bodyPart: Chest
+  groupWhitelist: [ Human ] # Aurora's Song Dwarf>Human
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dwarfconstellationchest
+  shader: unshaded
+
+- type: marking
+  id: DwarfConstellationLArm
+  bodyPart: LArm
+  groupWhitelist: [ Human ] # Aurora's Song Dwarf>Human
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dwarfconstellationlarm
+  shader: unshaded
+
+- type: marking
+  id: DwarfConstellationLHand
+  bodyPart: LHand
+  groupWhitelist: [ Human ] # Aurora's Song Dwarf>Human
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dwarfconstellationlhand
+  shader: unshaded
+
+- type: marking
+  id: DwarfConstellationRArm
+  bodyPart: RArm
+  groupWhitelist: [ Human ] # Aurora's Song Dwarf>Human
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dwarfconstellationrarm
+  shader: unshaded
+
+- type: marking
+  id: DwarfConstellationRHand
+  bodyPart: RHand
+  groupWhitelist: [ Human ] # Aurora's Song Dwarf>Human
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dwarfconstellationrhand
+  shader: unshaded
+
+- type: marking
+  id: DwarfConstellationLLeg
+  bodyPart: LLeg
+  groupWhitelist: [ Human ] # Aurora's Song Dwarf>Human
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dwarfconstellationlleg
+  shader: unshaded
+
+- type: marking
+  id: DwarfConstellationLFoot
+  bodyPart: LFoot
+  groupWhitelist: [ Human ] # Aurora's Song Dwarf>Human
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dwarfconstellationlfoot
+  shader: unshaded
+
+- type: marking
+  id: DwarfConstellationRLeg
+  bodyPart: RLeg
+  groupWhitelist: [ Human ] # Aurora's Song Dwarf>Human
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dwarfconstellationrleg
+  shader: unshaded
+
+- type: marking
+  id: DwarfConstellationRFoot
+  bodyPart: RFoot
+  groupWhitelist: [ Human ] # Aurora's Song Dwarf>Human
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dwarfconstellationrfoot
+  shader: unshaded
+
+- type: marking
+  id: DwarfChestHair
+  bodyPart: Chest
+  groupWhitelist: [ Human ] # Aurora's Song Dwarf>Human
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: dwarfchesthair
+
+- type: marking
+  id: DwarfArmHair
+  bodyPart: LArm
+  groupWhitelist: [ Human ] # Aurora's Song Dwarf>Human
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: dwarfarmhair
+
+- type: marking
+  id: DwarfLegHair
+  bodyPart: LLeg
+  groupWhitelist: [ Human ] # Aurora's Song Dwarf>Human
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: dwarfleghair
+
+- type: marking
+  id: DwarfTattooShootingStar
+  bodyPart: Chest
+  groupWhitelist: [ Human ] # Aurora's Song Dwarf>Human
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: dwarftattooshootingstar
+  shader: unshaded
+
+- type: marking
+  id: DwarfMarkBear
+  bodyPart: Chest
+  groupWhitelist: [ Human ] # Aurora's Song Dwarf>Human
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dwarfmarkbear
+  shader: unshaded
+
+- type: marking
+  id: DwarfMarkKangarooLHand
+  bodyPart: LHand
+  groupWhitelist: [ Human ] # Aurora's Song Dwarf>Human
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dwarfmarkkangaroolhand
+  shader: unshaded
+
+- type: marking
+  id: DwarfMarkKangarooRHand
+  bodyPart: RHand
+  groupWhitelist: [ Human ] # Aurora's Song Dwarf>Human
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dwarfmarkkangaroo
+  shader: unshaded
+
+- type: marking
+  id: DwarfMarkCobra
+  bodyPart: Chest
+  groupWhitelist: [ Human ] # Aurora's Song Dwarf>Human
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dwarfmarkcobra
+  shader: unshaded
+
+- type: marking
+  id: DwarfMarkSpider
+  bodyPart: Chest
+  groupWhitelist: [ Human ] # Aurora's Song Dwarf>Human
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dwarfmarkspider
+  shader: unshaded
+
+- type: marking
+  id: VoxCocktail
+  bodyPart: Tail
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi # Aurora's Song: Use newer RSI
+    state: cocktail1
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi # Aurora's Song: Use newer RSI
+    state: cocktail2
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi # Aurora's Song: Use newer RSI
+    state: cocktail3
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi # Aurora's Song: Use newer RSI
+    state: cocktail4
+
+- type: marking
+  id: VoxTailBalled
+  bodyPart: Tail
+  groupWhitelist: [ Vox ]
+  forcedColoring: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi # Aurora's Song: Use newer RSI
+    state: balled
+
+- type: marking
+  id: VoxTailSplit
+  bodyPart: Tail
+  groupWhitelist: [ Vox ]
+  forcedColoring: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi # Aurora's Song: Use newer RSI
+    state: split
+
+- type: marking
+  id: VoxTailStripes
+  bodyPart: TailOverlay
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/chest.rsi # Aurora's Song: Use newer RSI
+    state: tailstripes
+
+- type: marking
+  id: VoxLArmProsthetic
+  bodyPart: LHand
+  groupWhitelist: [ Vox ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#E4E4E4"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/lhand.rsi # Aurora's Song: Use newer RSI
+    state: prosthetic
+
+- type: marking
+  id: VoxRArmProsthetic
+  bodyPart: RHand
+  groupWhitelist: [ Vox ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#E4E4E4"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/rhand.rsi # Aurora's Song: Use newer RSI
+    state: prosthetic
+
+- type: marking
+  id: VoxBeakColor
+  bodyPart: Snout
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/snout.rsi # Aurora's Song: Use newer RSI
+    state: color
+
+- type: marking
+  id: VoxBeakSplit
+  bodyPart: Snout
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/snout.rsi # Aurora's Song: Use newer RSI
+    state: split1
+  - sprite: _Impstation/Mobs/Customization/Vox/snout.rsi # Aurora's Song: Use newer RSI
+    state: split2
+
+- type: marking
+  id: VoxBeakTipped
+  bodyPart: Snout
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/snout.rsi # Aurora's Song: Use newer RSI
+    state: tipped
+
+- type: marking
+  id: VoxChestPlumage
+  bodyPart: Chest
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/chest.rsi # Aurora's Song: Use newer RSI
+    state: plumage
+
+- type: marking
+  id: VoxFootSpinesLFoot
+  bodyPart: LFoot
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/lfoot.rsi # Aurora's Song: Use newer RSI
+    state: voxfootspines
+
+- type: marking
+  id: VoxFootSpinesRFoot
+  bodyPart: RFoot
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/rfoot.rsi # Aurora's Song: Use newer RSI
+    state: voxfootspines
+
+- type: marking
+  id: VoxFootGradientLFoot
+  bodyPart: LFoot
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/lfoot.rsi # Aurora's Song: Use newer RSI
+    state: gradient
+
+- type: marking
+  id: VoxFootGradientRFoot
+  bodyPart: RFoot
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/rfoot.rsi # Aurora's Song: Use newer RSI
+    state: gradient
+
+- type: marking
+  id: VoxLegGradientLLeg
+  bodyPart: LLeg
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/lleg.rsi # Aurora's Song: Use newer RSI
+    state: gradient
+
+- type: marking
+  id: VoxLegGradientRLeg
+  bodyPart: RLeg    # Aurora's Song -- RFoot > RLeg
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/rleg.rsi # Aurora's Song: Use newer RSI
+    state: gradient
+
+- type: marking
+  id: VoxHandGradientRHand
+  bodyPart: RHand
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/rhand.rsi # Aurora's Song: Use newer RSI
+    state: gradient1
+  - sprite: _Impstation/Mobs/Customization/Vox/rhand.rsi # Aurora's Song: Use newer RSI
+    state: gradient2
+  - sprite: _Impstation/Mobs/Customization/Vox/rhand.rsi # Aurora's Song: Use newer RSI
+    state: gradient3
+
+- type: marking
+  id: VoxHandGradientLHand
+  bodyPart: LHand
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/lhand.rsi # Aurora's Song: Use newer RSI
+    state: gradient1
+  - sprite: _Impstation/Mobs/Customization/Vox/lhand.rsi # Aurora's Song: Use newer RSI
+    state: gradient2
+  - sprite: _Impstation/Mobs/Customization/Vox/lhand.rsi # Aurora's Song: Use newer RSI
+    state: gradient3
+
+- type: marking
+  id: VoxHeadGradient
+  bodyPart: Head
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/head.rsi # Aurora's Song: Use newer RSI
+    state: gradient1
+  - sprite: _Impstation/Mobs/Customization/Vox/head.rsi # Aurora's Song: Use newer RSI
+    state: gradient2
+  - sprite: _Impstation/Mobs/Customization/Vox/head.rsi # Aurora's Song: Use newer RSI
+    state: gradient3
+
+- type: marking
+  id: VoxTailBell
+  bodyPart: TailOverlay
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi # Aurora's Song: Use newer RSI
+    state: bell1
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi # Aurora's Song: Use newer RSI
+    state: bell2
+
+- type: marking
+  id: VoxTailBack
+  bodyPart: Tail
+  groupWhitelist: [ Vox ]
+  forcedColoring: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi # Aurora's Song: Use newer RSI
+    state: colorable
+
+- type: marking
+  id: VoxTailLantern
+  bodyPart: TailOverlay
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi # Aurora's Song: Use newer RSI
+    state: lantern
+  shader: unshaded
+
+- type: marking
+  id: VoxTailSingleStripe
+  bodyPart: TailOverlay
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/chest.rsi # Aurora's Song: Use newer RSI
+    state: tailsinglestripe
+
+- type: marking
+  id: VoxTailSmallPlume
+  bodyPart: TailOverlay
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi # Aurora's Song: Use newer RSI
+    state: smallplume
+
+- type: marking
+  id: VoxTailSpines
+  bodyPart: TailOverlay
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi # Aurora's Song: Use newer RSI
+    state: spines
+
+- type: marking
+  id: VoxArmsStripesLHand
+  bodyPart: LArm
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/larm.rsi # Aurora's Song: Use newer RSI
+    state: stripes
+
+- type: marking
+  id: VoxArmsStripesRHand
+  bodyPart: RArm
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/rarm.rsi # Aurora's Song: Use newer RSI
+    state: stripes
+
+- type: marking
+  id: VoxLegsStripesLLeg
+  bodyPart: LLeg
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/lleg.rsi # Aurora's Song: Use newer RSI
+    state: stripes
+
+- type: marking
+  id: VoxLegsStripesRLeg
+  bodyPart: RLeg    # Aurora's Song -- RFoot > RLeg
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/rleg.rsi # Aurora's Song: Use newer RSI
+    state: stripes
+
+- type: marking
+  id: VoxChains
+  bodyPart: TailOverlay
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi # Aurora's Song: Use newer RSI
+    state: chains
+
+- type: marking
+  id: VoxSunAndMoon
+  bodyPart: TailOverlay
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/tail.rsi # Aurora's Song: Use newer RSI
+    state: sunandmoon
+
+- type: marking
+  id: VoxCheeks
+  bodyPart: Head
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/head.rsi # Aurora's Song: Use newer RSI
+    state: cheeks
+
+- type: marking
+  id: VoxBelly
+  bodyPart: Chest
+  groupWhitelist: [ Vox ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/chest.rsi # Aurora's Song: Use newer RSI
+    state: belly
+
+- type: marking
+  id: VitiligoHeadL
+  bodyPart: Head
+  groupWhitelist: [ Human, Oni, Goblin, Felinid] # Frontier: add Oni, Goblin, Felinid
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: vitiligoheadl
+
+- type: marking
+  id: VitiligoHeadR
+  bodyPart: Head
+  groupWhitelist: [ Human, Oni, Goblin, Felinid] # Frontier: add Oni, Goblin, Felinid
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: vitiligoheadr
+
+- type: marking
+  id: VitiligoHeadJaw
+  bodyPart: Head
+  groupWhitelist: [ Human, Oni, Goblin, Felinid] # Frontier: add Oni, Goblin, Felinid
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: vitiligoheadjaw
+
+- type: marking
+  id: VitiligoChestF
+  bodyPart: Chest
+  groupWhitelist: [ Human, Oni, Goblin, Felinid] # Frontier: add Oni, Goblin, Felinid
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: vitiligochestf
+
+- type: marking
+  id: VitiligoChestSpots
+  bodyPart: Chest
+  groupWhitelist: [ Human, Oni, Goblin, Felinid] # Frontier: add Oni, Goblin, Felinid
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: vitiligochestspots
+
+- type: marking
+  id: VitiligoArmR
+  bodyPart: RArm
+  groupWhitelist: [ Human, Oni, Goblin, Felinid] # Frontier: add  Oni, Felinid
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: vitiligoarmr
+
+- type: marking
+  id: VitiligoArmL
+  bodyPart: LArm
+  groupWhitelist: [ Human, Oni, Goblin, Felinid] # Frontier: add  Oni, Felinid
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: vitiligoarml
+
+- type: marking
+  id: VitiligoHandR
+  bodyPart: RHand
+  groupWhitelist: [ Human, Oni, Goblin, Felinid] # Frontier: add  Oni, Felinid
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: vitiligohandr
+
+- type: marking
+  id: VitiligoHandL
+  bodyPart: LHand
+  groupWhitelist: [ Human, Oni, Goblin, Felinid] # Frontier: add  Oni, Felinid
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: vitiligohandl
+
+- type: marking
+  id: VitiligoLegR
+  bodyPart: RFoot
+  groupWhitelist: [ Human, Oni, Goblin, Felinid] # Frontier: add  Oni, Felinid
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: vitiligolegr
+
+- type: marking
+  id: VitiligoLegL
+  bodyPart: LLeg
+  groupWhitelist: [ Human, Oni, Goblin, Felinid] # Frontier: add  Oni, Felinid
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFE5D6"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: vitiligolegl
