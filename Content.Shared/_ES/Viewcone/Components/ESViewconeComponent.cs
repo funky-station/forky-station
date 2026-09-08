@@ -45,7 +45,6 @@ public sealed partial class ESViewconeComponent : Component
     [DataField, AutoNetworkedField]
     public float ConeFeather = 10f;
 
-
     [DataField, AutoNetworkedField]
     public float ConeIgnoreRadius = 1f; //Funky 0.5f -> 1f
 
