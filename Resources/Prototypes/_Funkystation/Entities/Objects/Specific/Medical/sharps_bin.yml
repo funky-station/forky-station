@@ -1,16 +1,8 @@
 - type: entity
-  id: SharpsBin
+  id: WallmountBin
   parent: [ BaseWallmount ,BaseStorageItem, BaseBagOpenClose ]
-  name: sharps bin
-  description: Dispose of those needles in their appropriate place. Safely mounted to a wall.
+  abstract: true
   components:
-  - type: Sprite
-    sprite: _Funkystation/Objects/Specific/Medical/sharpsbin.rsi
-    layers:
-    - state: closed
-      map: [ "closeLayer" ]
-    - state: open
-      map: [ "openLayer" ]
   - type: Appearance
   - type: InteractionOutline
   - type: Fixtures
@@ -32,9 +24,6 @@
     maxItemSize: Small
     grid:
     - 0,0,3,4
-    whitelist:
-      tags:
-      - SharpsTrash
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -56,6 +45,54 @@
   - type: StaticPrice
     price: 500
   - type: DnaSubstanceTrace
+
+- type: entity
+  id: WallmountBinLockable
+  parent: WallmountBin
+  abstract: true
+  components:
+  - type: GenericVisualizer
+    visuals:
+      enum.LockVisuals.Locked:
+        lock-shaded:
+          True: { state: lock-locked }
+          False: { state: lock-unlocked }
+      enum.SharedBagOpenVisuals.BagState:
+        closeLayer:
+          Open: { visible: false }
+          Closed: { visible: true }
+        openLayer:
+          Open: { visible: true }
+          Closed: { visible: false }
+  - type: Lock
+  - type: AccessReader
+
+- type: entity
+  id: SharpsBin
+  parent: WallmountBinLockable
+  name: sharps bin
+  description: Dispose of those needles in their appropriate place. Safely mounted to a wall.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Specific/Medical/sharpsbin.rsi
+    drawdepth: WallMountedItems
+    offset: 0, 0.5
+    layers:
+    - state: closed
+      map: [ "closeLayer" ]
+    - state: open
+      map: [ "openLayer" ]
+    - state: lock-locked
+      map: [ "lock-shaded" ]
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,3,4
+    whitelist:
+      tags:
+      - SharpsTrash
   - type: Construction
     graph: SharpsBinGraph
     node: bin
+  - type: AccessReader
+    access: [ [ "Medical" ] ]
