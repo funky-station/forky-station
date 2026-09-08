@@ -396,4 +396,129 @@
   id: 43
   time: '2026-09-03T04:01:46Z'
   url: https://github.com/funky-station/forky-station/pull/329
+- author: AraiMaia
+  changes:
+  - message: Changed the color of interaction outlines.
+    type: Tweak
+  id: 44
+  time: '2026-09-06T17:47:56Z'
+  url: https://github.com/funky-station/forky-station/pull/424
+- author: adamsong
+  changes:
+  - message: Fixed vending machines not showing labels.
+    type: Fix
+  id: 45
+  time: '2026-09-06T21:02:55Z'
+  url: https://github.com/funky-station/forky-station/pull/423
+- author: ClocksAreWorthy
+  changes:
+  - message: Removed a bad painting.
+    type: Remove
+  id: 46
+  time: '2026-09-06T21:22:58Z'
+  url: https://github.com/funky-station/forky-station/pull/422
+- author: 8tv
+  changes:
+  - message: Added departmental communications computers to Packed.
+    type: Add
+  - message: Added locked windoors to the IAA, HD, and XO rooms on Packed.
+    type: Add
+  - message: Added NDA cabinets to the Commandant and Captain's rooms on Packed.
+    type: Add
+  - message: Added a HD dresser to the HD room on Packed.
+    type: Add
+  id: 47
+  time: '2026-09-06T22:27:03Z'
+  url: https://github.com/funky-station/forky-station/pull/430
+- author: salpphie, ReconPangolin
+  changes:
+  - message: Server rules
+    type: Add
+  id: 48
+  time: '2026-09-07T12:04:52Z'
+  url: https://github.com/funky-station/forky-station/pull/343
+- author: battlecruiser12
+  changes:
+  - message: Ported the Christmas tree resprite from Funky
+    type: Add
+  id: 49
+  time: '2026-09-07T13:24:30Z'
+  url: https://github.com/funky-station/forky-station/pull/310
+- author: VectorAssembly, AraiMaia
+  changes:
+  - message: Ported & added new sprites for tables and air vents.
+    type: Add
+  id: 50
+  time: '2026-09-07T13:27:08Z'
+  url: https://github.com/funky-station/forky-station/pull/425
+- author: not-macaw
+  changes:
+  - message: Taco resprite
+    type: Tweak
+  id: 51
+  time: '2026-09-07T13:29:24Z'
+  url: https://github.com/funky-station/forky-station/pull/419
+- author: AraiMaia
+  changes:
+  - message: Resprote the paper inhands to be more in line with our style.
+    type: Tweak
+  - message: Added the missing inhands sprites for envelopes, and folders.
+    type: Fix
+  id: 52
+  time: '2026-09-07T13:31:44Z'
+  url: https://github.com/funky-station/forky-station/pull/426
+- author: Tomlolo
+  changes:
+  - message: Rubber stamps now have inhand textures again
+    type: Fix
+  id: 53
+  time: '2026-09-07T13:37:52Z'
+  url: https://github.com/funky-station/forky-station/pull/413
+- author: mycobiota
+  changes:
+  - message: Handheld radios now have toggleable mics, sound effects, and an adjustable
+      volume and mic sensitivity.
+    type: Add
+  - message: Intercoms properly switch their speaker off when unpowered.
+    type: Fix
+  id: 54
+  time: '2026-09-07T19:54:58Z'
+  url: https://github.com/funky-station/forky-station/pull/269
+- author: taydeo, Teasq, pirakaplant
+  changes:
+  - message: Added wallets. (Sprites by Teasq!)
+    type: Add
+  - message: Senior IDs are no longer obtainable.
+    type: Remove
+  - message: Wallets replace PDAs for all non-Command personnel, except the Commandant.
+    type: Tweak
+  id: 55
+  time: '2026-09-08T16:17:07Z'
+  url: https://github.com/funky-station/forky-station/pull/437
+- author: mycobiota
+  changes:
+  - message: Made the color of interaction outlines on objects customizable via the
+      accessibility tab in the player's options.
+    type: Add
+  - message: Added a "Reset to default" button to color sliders in the player's options.
+    type: Add
+  id: 56
+  time: '2026-09-08T16:42:55Z'
+  url: https://github.com/funky-station/forky-station/pull/427
+- author: TrixxedHeart, AraiMaia
+  changes:
+  - message: Added sprinting.
+    type: Add
+  - message: Default movement is now walking.
+    type: Tweak
+  id: 57
+  time: '2026-09-08T16:46:33Z'
+  url: https://github.com/funky-station/forky-station/pull/414
+- author: battlecruiser12
+  changes:
+  - message: Added spawners for ducks and chickens
+    type: Add
+  id: 58
+  time: '2026-09-08T16:48:34Z'
+  url: https://github.com/funky-station/forky-station/pull/381
 Order: -1

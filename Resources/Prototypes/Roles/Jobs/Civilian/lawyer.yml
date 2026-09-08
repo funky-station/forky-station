@@ -20,7 +20,7 @@
   id: LawyerGear
   equipment:
     shoes: ClothingShoesBootsLaceup
-    id: LawyerPDA
+    id: LawyerWallet # Funky: the wallet-ening
     #ears: ClothingHeadsetSecurity # Funky
     ears: ClothingHeadsetGrey # Funky
   inhand:

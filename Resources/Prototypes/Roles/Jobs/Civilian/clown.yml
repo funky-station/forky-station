@@ -27,7 +27,7 @@
     mask: ClothingMaskClown
     pocket1: BikeHorn
     pocket2: ClownRecorder
-    id: ClownPDA
+    id: ClownWallet # Funky: the wallet-ening
     ears: ClothingHeadsetService
   inhand:
   - FoolboxFilled

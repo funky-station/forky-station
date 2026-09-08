@@ -21,6 +21,7 @@
   id: StationEngineerGear
   equipment:
     eyes: ClothingEyesGlassesMeson
+    id: EngineerWallet # Funky: the wallet-ening, also removing the loadout choice for senior stuff
     belt: ClothingBeltUtilityEngineering
     ears: ClothingHeadsetEngineering
   #storage:
