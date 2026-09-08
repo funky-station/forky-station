@@ -29,7 +29,6 @@
         components:
         - IdCard
     penSlot:
-      startingItem: Pen
       priority: -1
       whitelist:
         tags:
@@ -82,7 +81,7 @@
 - type: entity
   parent: BaseWallet
   id: PassengerWallet
-  suffix: Passenger
+  suffix: Assistant # That's what we're calling it now. Keeping the internal stuff the same to avoid breaking shit.
   components:
   - type: Pda
     id: PassengerIDCard

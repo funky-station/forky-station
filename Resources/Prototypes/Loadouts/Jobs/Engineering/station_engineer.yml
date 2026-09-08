@@ -121,7 +121,7 @@
 - type: loadout
   id: StationEngineerPDA
   equipment:
-    id: EngineerWallet # Funky: the wallet-ening
+    id: EngineerPDA
 
 - type: loadout
   id: SeniorEngineerPDA
@@ -129,4 +129,4 @@
   - !type:GroupLoadoutEffect
     proto: SeniorEngineering
   equipment:
-    id: SeniorEngineerWallet # Funky: the wallet-ening
+    id: SeniorEngineerPDA
