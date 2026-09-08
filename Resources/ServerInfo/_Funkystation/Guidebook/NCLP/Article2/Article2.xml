@@ -941,17 +941,17 @@
 
 
     <Table Columns="3">
-        <ColorBox Color="#59563a">
+        <ColorBox Color="#6d6d26">
             <Box>
                 A
             </Box>
         </ColorBox>
-        <ColorBox Color="#59563a">
+        <ColorBox Color="#6d6d26">
             <Box>
                 Access
             </Box>
         </ColorBox>
-        <ColorBox Color="#59563a">
+        <ColorBox Color="#6d6d26">
             <Box>
                 Existing where you are not allowed.
             </Box>
@@ -1452,17 +1452,17 @@
     <!---->
 
     <Table Columns="3">
-        <ColorBox Color="#6d6d26">
+        <ColorBox Color="#59563a">
             <Box>
                 N
             </Box>
         </ColorBox>
-        <ColorBox Color="#6d6d26">
+        <ColorBox Color="#59563a">
             <Box>
                 Negligence
             </Box>
         </ColorBox>
-        <ColorBox Color="#6d6d26">
+        <ColorBox Color="#59563a">
             <Box>
                 Causing harm to the station or its crew through vocational incompetence.
             </Box>
