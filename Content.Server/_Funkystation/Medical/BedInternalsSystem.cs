@@ -14,13 +14,13 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._Funkystation.Medical;
 
-public sealed class BedInternalsSystem : EntitySystem
+public sealed partial class BedInternalsSystem : EntitySystem
 {
-    [Dependency] private readonly InternalsSystem _internals = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly GasTankSystem _gasTank = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private InternalsSystem _internals = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private GasTankSystem _gasTank = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
@@ -205,7 +205,7 @@ public sealed class BedInternalsSystem : EntitySystem
         }
         else
         {
-            maskEnt = EntityManager.Spawn(comp.MaskPrototype);
+            maskEnt = Spawn(comp.MaskPrototype);
             Transform(maskEnt).Coordinates = Transform(bedUid).Coordinates;
             comp.TempMasks[patient] = maskEnt;
         }
@@ -307,10 +307,10 @@ public sealed class BedInternalsSystem : EntitySystem
         {
             _inventory.TryUnequip(patient, "mask", out _, silent: true, force: true);
 
-            if (EntityManager.EntityExists(tempMask))
+            if (Exists(tempMask))
             {
                 _internals.DisconnectBreathTool((patient, internals), tempMask);
-                EntityManager.DeleteEntity(tempMask);
+                Del(tempMask);
             }
 
             comp.TempMasks.Remove(patient);
