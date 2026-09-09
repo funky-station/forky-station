@@ -7,4 +7,5 @@ job-description-cl = Advise the heads of staff on company policy and expected pr
 job-description-commandant = Command the security forces aboard the station.
 job-description-lieutenant = Lead the officers and cadets assigned to you.
 job-description-dispatcher = Provide overwatch for security, and coordinate emergency relief efforts.
+job-description-courier = Deliver mail, either from the mail teleporter or between crew on station.
 job-description-prisoner = Wither away in the Brig, slave away mining for the Station, and be the first one to be experimented with.

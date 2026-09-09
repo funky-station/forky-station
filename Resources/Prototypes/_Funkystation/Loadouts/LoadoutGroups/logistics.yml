@@ -1,0 +1,57 @@
+- type: loadoutGroup
+  id: FuCourierHead
+  name: fu-loadout-group-courier-head
+  minLimit: 0
+  loadouts:
+  - FuCourierHat
+
+- type: loadoutGroup
+  id: FuCargoNeck
+  name: fu-loadout-group-cargo-neck
+  minLimit: 0
+  loadouts:
+  - FuCargoLiftBelt
+
+- type: loadoutGroup
+  id: FuCargoTechnicianOuterClothing
+  name: fu-loadout-group-cargo-technician-outer-clothing
+  minLimit: 0
+  loadouts:
+  - FuCtWindbreaker
+
+- type: loadoutGroup
+  id: FuCourierOuterClothing
+  name: fu-loadout-group-courier-outer-clothing
+  minLimit: 0
+  loadouts:
+  - FuCourierWindbreaker
+    
+- type: loadoutGroup
+  id: FuQuartermasterOuterClothing
+  name: fu-loadout-group-quartermaster-outer-clothing
+  minLimit: 0
+  loadouts:
+  - FuQmWindbreaker
+
+- type: loadoutGroup
+  id: FuCargoTechnicianUniform
+  name: fu-loadout-group-cargo-technician-uniform
+  loadouts:
+  - FuCtJumpsuit
+  - FuCtTwoPiecePants
+  - FuCtTwoPieceSkirt
+
+- type: loadoutGroup
+  id: FuCourierUniform
+  name: fu-loadout-group-courier-uniform
+  loadouts:
+  - FuCourierJumpsuit
+  - FuCourierTwoPiecePants
+  - FuCourierTwoPieceSkirt
+
+- type: loadoutGroup
+  id: FuCourierShoes
+  name: fu-loadout-group-courier-shoes
+  loadouts:
+  - BlackShoes
+  - FuCourierRollerskates
