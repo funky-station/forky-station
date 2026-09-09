@@ -53,6 +53,12 @@
   - type: GuideHelp
     guides:
     - SolarPanels
+  - type: Climbable #funky
+    delay: 5.0
+  - type: Bonkable #funky
+    bonkDamage:
+      types:
+        Blunt: 4
 
 - type: entity
   parent: [ SolarPanelBasePhysSprite, StructureHealthMachine ]

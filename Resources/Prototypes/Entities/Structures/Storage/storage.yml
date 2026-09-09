@@ -50,3 +50,7 @@
   - type: Climbable
   - type: StaticPrice
     price: 30
+  - type: Bonkable #funky
+    bonkDamage:
+      types:
+        Blunt: 4

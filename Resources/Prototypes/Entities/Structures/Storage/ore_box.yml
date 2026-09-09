@@ -23,6 +23,10 @@
             min: 3
             max: 5
   - type: Climbable
+  - type: Bonkable #funky
+    bonkDamage:
+      types:
+        Blunt: 4
 
   # orebox-specific
   - type: Sprite

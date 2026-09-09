@@ -74,6 +74,8 @@
       containers:
         - entity_storage
     - type: GravityAffected
+    - type: Climbable #funky
+      delay: 5.0
     - type: MovementSpeedModifier
       weightlessModifier: 0
       acceleration: 2

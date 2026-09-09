@@ -75,6 +75,8 @@
     stateDoorClosed: generic_door
   - type: StaticPrice
     price: 75
+  - type: Climbable #funky
+    delay: 5.0
 
 # steel closet base (that can be constructed/deconstructed)
 - type: entity
@@ -279,3 +281,9 @@
     stateDoorOpen: base
     stateDoorClosed: door
   - type: LockVisuals
+  - type: Climbable #funky
+    delay: 5.0
+  - type: Bonkable #funky
+    bonkDamage:
+      types:
+        Blunt: 4
