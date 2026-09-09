@@ -208,7 +208,6 @@ namespace Content.Server.Communications
             CommunicationsConsoleAnnounceMessage message)
         {
             // funky - redirect comms console announcements to PA speakers
-            // TODO: comms console behaviour when pa exclusivity is disabled still needs some work
             if (!message.BypassPA && _cfg.GetCVar(PAAnnouncementCVars.PAEnabled))
             {
                 var paExclusive = _cfg.GetCVar(PAAnnouncementCVars.PAExclusiveAnnouncements);

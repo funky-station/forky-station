@@ -40,7 +40,7 @@ namespace Content.Server.Communications
 
             if (paExclusive)
             {
-                // only set the cooldown if announcements are exclusively handled by the PA system, otherwise we'll prevent the normal announcer from working
+                // only set the cooldown if announcements are exclusively handled by the PA system, otherwise we'll accidentally block the normal announcement
                 comp.AnnouncementCooldownRemaining = comp.Delay;
                 UpdateCommsConsoleInterface(uid, comp);
 
@@ -54,7 +54,16 @@ namespace Content.Server.Communications
 
             _announcer.TryGetAnnouncerSound(comp.Sound, out var sound);
 
-            _paSystem.DispatchPAAnnouncement(message.Message, author, message.Actor, true, true, comp.Global, preamble, sound, comp.Color);
+            _paSystem.DispatchPAAnnouncement(
+                message: message.Message,
+                sender: author,
+                source: message.Actor,
+                preamble: true,
+                playSound: paExclusive, // we don't want to double up on announcement sounds being played globally and through the PA speakers
+                global: comp.Global,
+                customPreamble: preamble,
+                announcementSound: sound,
+                colorOverride: comp.Color);
 
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following station announcement: {message.Message}");
         }

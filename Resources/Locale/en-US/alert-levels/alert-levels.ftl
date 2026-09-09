@@ -38,9 +38,10 @@ alert-level-gamma-announcement = Central Command has ordered the Gamma security 
                                  All civilians are to immediately seek their nearest head for transportation to a secure location.
 alert-level-gamma-instructions = All civilians are to immediately seek their nearest head for transportation to a secure location.
 
+# funky - the first sentence of this announcement, in combination with the beginning of the announcement,
+# is the perfect length to get chopped off in a chat bubble, so i've left it as is as a compromise
 alert-level-delta = Delta
-alert-level-delta-nuke-announcement = The station is currently under threat of imminent destruction.
-                                 Crewmembers are advised to listen to heads of staff for more information.
+alert-level-delta-nuke-announcement = The station is currently under threat of imminent destruction. Crewmembers are advised to listen to heads of staff for more information.
 alert-level-delta-instructions = Crewmembers are advised to listen to heads of staff for more information.
 
 alert-level-epsilon = Epsilon

@@ -30,8 +30,18 @@ public sealed partial class ChatSystem
         // funky - redirect announcement to PA speakers
         if (!paSystemBypass && _configurationManager.GetCVar(PAAnnouncementCVars.PAEnabled))
         {
-            _paSystem.DispatchPAAnnouncement(message, sender, null, false, playSound, true, null, announcementSound, colorOverride);
-            if (_configurationManager.GetCVar(PAAnnouncementCVars.PAExclusiveAnnouncements))
+            var paExclusive = _configurationManager.GetCVar(PAAnnouncementCVars.PAExclusiveAnnouncements);
+            _paSystem.DispatchPAAnnouncement(
+                message,
+                sender,
+                source: null,
+                preamble: false,
+                playSound: playSound && paExclusive, // we don't want to double up on announcement sounds being played globally and through the PA speakers
+                global: true,
+                customPreamble: null,
+                announcementSound,
+                colorOverride);
+            if (paExclusive)
                 return;
         }
 
@@ -66,8 +76,18 @@ public sealed partial class ChatSystem
         // funky - redirect announcement to PA speakers
         if (!paSystemBypass && _configurationManager.GetCVar(PAAnnouncementCVars.PAEnabled))
         {
-            _paSystem.DispatchPAAnnouncement(message, sender, source, false, playSound,  true, null, announcementSound, colorOverride);
-            if (_configurationManager.GetCVar(PAAnnouncementCVars.PAExclusiveAnnouncements))
+            var paExclusive = _configurationManager.GetCVar(PAAnnouncementCVars.PAExclusiveAnnouncements);
+            _paSystem.DispatchPAAnnouncement(
+                message,
+                sender,
+                source,
+                preamble: false,
+                playSound: playSound && paExclusive, // we don't want to double up on announcement sounds being played globally and through the PA speakers
+                global: true,
+                customPreamble: null,
+                announcementSound,
+                colorOverride);
+            if (paExclusive)
                 return;
         }
 
@@ -101,8 +121,18 @@ public sealed partial class ChatSystem
         // funky - redirect announcement to PA speakers
         if (!paSystemBypass && _configurationManager.GetCVar(PAAnnouncementCVars.PAEnabled))
         {
-            _paSystem.DispatchPAAnnouncement(message, sender, source, false, playDefaultSound, false, null, announcementSound, colorOverride);
-            if (_configurationManager.GetCVar(PAAnnouncementCVars.PAExclusiveAnnouncements))
+            var paExclusive = _configurationManager.GetCVar(PAAnnouncementCVars.PAExclusiveAnnouncements);
+            _paSystem.DispatchPAAnnouncement(
+                message,
+                sender,
+                source,
+                preamble: false,
+                playSound: playDefaultSound && paExclusive, // we don't want to double up on announcement sounds being played globally and through the PA speakers
+                global: false,
+                customPreamble: null,
+                announcementSound,
+                colorOverride);
+            if (paExclusive)
                 return;
         }
 
