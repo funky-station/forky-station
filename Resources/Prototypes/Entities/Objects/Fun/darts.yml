@@ -1,21 +1,5 @@
-# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ThatGuyUSA <thatguyusa123@gmail.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 I.K <45953835+notquitehadouken@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2026 āda <ss.adasts@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
-  parent: BaseItem
+  parent: [BaseItem, SolutionDart]
   id: Dart
   name: dart
   description: Light throwing dart for playing darts. Don't get in the eye!
@@ -60,10 +44,6 @@
   - type: Item
     size: Tiny
     sprite: Objects/Fun/Darts/dart_red.rsi
-  - type: SolutionContainerManager
-    solutions:
-      melee:
-        maxVol: 2
   - type: MeleeChemicalInjector
     solution: melee
   - type: RefillableSolution
@@ -77,15 +57,10 @@
   - type: SolutionTransfer
     maxTransferAmount: 2
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50 #excess damage avoids cost of spawning entities.
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 20
@@ -101,6 +76,16 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: BalloonPopper
+
+- type: entity
+  parent: Solution
+  id: SolutionDart
+  categories: [ HideSpawnMenu ] # Not abstract so weapons with multiple solutions can exist
+  components:
+  - type: Solution
+    id: melee
+    solution:
+      maxVol: 2
 
 - type: entity
   parent: Dart
@@ -134,10 +119,9 @@
   id: HypoDart
   suffix: HypoDart
   components:
-  - type: SolutionContainerManager
-    solutions:
-      melee:
-        maxVol: 10
+  - type: Solution
+    solution:
+      maxVol: 10
   - type: SolutionInjectOnEmbed
     transferAmount: 10
     blockSlots: NONE
@@ -169,6 +153,7 @@
   - type: InteractionOutline
   - type: Physics
   - type: Damageable
+  - type: Injurable
   - type: DamageRandomPopup
     popups:
       - darts-popup-bullseye
@@ -185,12 +170,6 @@
       - darts-popup-miss
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 500
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 300

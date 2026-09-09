@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: soundCollection
   id: BulletMiss
   files:
@@ -13,3 +10,15 @@
   id: EnergyMiss
   files:
     - /Audio/Weapons/Guns/Miss/energy_miss1.ogg
+
+- type: soundCollection
+  id: CasingEject
+  files:
+  - /Audio/Weapons/Guns/Casings/casing_fall_1.ogg
+  - /Audio/Weapons/Guns/Casings/casing_fall_2.ogg
+  - /Audio/Weapons/Guns/Casings/casing_fall_3.ogg
+
+- type: soundCollection
+  id: ShellEject
+  files:
+  - /Audio/Weapons/Guns/Casings/shotgun_fall.ogg

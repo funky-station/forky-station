@@ -1,11 +1,5 @@
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Ertanic <36124833+Ertanic@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: construction
+  parent: BaseItemMisc
   id: Artifact
   graph: Artifact
-  startNode: start
   targetNode: done
-  category: construction-category-misc
-  objectType: Item

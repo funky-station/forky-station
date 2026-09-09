@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TomaszKawalec <40093912+TK-A369@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Hebi <spiritbreakz@gmail.com>
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Flesh <62557990+PolterTzi@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 KrasnoshchekovPavel <119816022+KrasnoshchekovPavel@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Ciarán Walsh <github@ciaranwal.sh>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Client.Chemistry.EntitySystems;
@@ -39,10 +28,10 @@ namespace Content.Client.Guidebook.Controls;
 [UsedImplicitly, GenerateTypedNameReferences]
 public sealed partial class GuideReagentEmbed : BoxContainer, IDocumentTag, ISearchableControl, IPrototypeRepresentationControl
 {
-    [Dependency] private readonly IEntitySystemManager _systemManager = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!;
+    [Dependency] private IEntitySystemManager _systemManager = default!;
+    [Dependency] private ILogManager _logManager = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IConfigurationManager _config = default!;
 
     private readonly ChemistryGuideDataSystem _chemistryGuideData;
     private readonly ContrabandSystem _contraband;
@@ -242,14 +231,14 @@ public sealed partial class GuideReagentEmbed : BoxContainer, IDocumentTag, ISea
             {
                 description.PushNewline();
                 description.AddMarkupPermissive(
-                    _contraband.GenerateDepartmentExamineMessage(reagent.AllowedDepartments, reagent.AllowedJobs, ContrabandItemType.Reagent));
+                    _contraband.GenerateDepartmentExamineMessage(reagent.AllowedDepartments, reagent.AllowedJobs, Color.Yellow, ContrabandItemType.Reagent));
             }
             // Other contraband text
             else if (reagent.ContrabandSeverity != null &&
                      _prototype.Resolve(reagent.ContrabandSeverity.Value, out var severity))
             {
                 description.PushNewline();
-                description.AddMarkupPermissive(Loc.GetString(severity.ExamineText, ("type", ContrabandItemType.Reagent)));
+                description.AddMarkupPermissive(Loc.GetString(severity.ExamineText, ("type", ContrabandItemType.Reagent), ("color", severity.Color)));
             }
         }
 

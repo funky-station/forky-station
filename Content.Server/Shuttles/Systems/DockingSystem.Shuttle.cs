@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Crude Oil <124208219+CroilBird@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Numerics;
 using Content.Server.Shuttles.Components;
@@ -46,10 +37,10 @@ public sealed partial class DockingSystem
     /// Checks if 2 docks can be connected by moving the shuttle directly onto docks.
     /// </summary>
     private bool CanDock(
+        EntityUid shuttleDockUid,
         DockingComponent shuttleDock,
-        TransformComponent shuttleDockXform,
+        EntityUid gridDockUid,
         DockingComponent gridDock,
-        TransformComponent gridDockXform,
         Box2 shuttleAABB,
         Angle targetGridRotation,
         FixturesComponent shuttleFixtures,
@@ -62,6 +53,9 @@ public sealed partial class DockingSystem
         shuttleDockedAABB = Box2.UnitCentered;
         gridRotation = Angle.Zero;
         matty = Matrix3x2.Identity;
+
+        var shuttleDockXform = Transform(shuttleDockUid);
+        var gridDockXform = Transform(gridDockUid);
 
         if (shuttleDock.Docked ||
             gridDock.Docked ||
@@ -173,7 +167,7 @@ public sealed partial class DockingSystem
             return validDockConfigs;
 
         var targetGridGrid = _gridQuery.GetComponent(targetGrid);
-        var targetGridXform = _xformQuery.GetComponent(targetGrid);
+        var targetGridXform = Transform(targetGrid);
         var targetGridAngle = _transform.GetWorldRotation(targetGridXform).Reduced();
         var shuttleFixturesComp = Comp<FixturesComponent>(shuttleUid);
         var shuttleAABB = _gridQuery.GetComponent(shuttleUid).LocalAABB;
@@ -186,15 +180,13 @@ public sealed partial class DockingSystem
             // We'll try all combinations of shuttle docks and see which one is most suitable
             foreach (var (dockUid, shuttleDock) in shuttleDocks)
             {
-                var shuttleDockXform = _xformQuery.GetComponent(dockUid);
-
                 foreach (var (gridDockUid, gridDock) in gridDocks)
                 {
-                    var gridXform = _xformQuery.GetComponent(gridDockUid);
-
                     if (!CanDock(
-                            shuttleDock, shuttleDockXform,
-                            gridDock, gridXform,
+                            dockUid,
+                            shuttleDock,
+                            gridDockUid,
+                            gridDock,
                             shuttleAABB,
                             targetGridAngle,
                             shuttleFixturesComp,
@@ -217,7 +209,7 @@ public sealed partial class DockingSystem
 
                     // Check if there's no intersecting grids (AKA oh god it's docking at cargo).
                     grids.Clear();
-                    _mapManager.FindGridsIntersecting(targetGridXform.MapID, dockedBounds, ref grids, includeMap: false);
+                    _mapSystem.FindGridsIntersecting(targetGridXform.MapID, dockedBounds, ref grids, includeMap: false);
                     if (grids.Any(o => o.Owner != targetGrid && o.Owner != targetGridXform.MapUid))
                     {
                         continue;
@@ -245,10 +237,10 @@ public sealed partial class DockingSystem
                                 continue;
 
                             if (!CanDock(
+                                    otherUid,
                                     other,
-                                    _xformQuery.GetComponent(otherUid),
+                                    otherGridUid,
                                     otherGrid,
-                                    _xformQuery.GetComponent(otherGridUid),
                                     shuttleAABB,
                                     targetGridAngle,
                                     shuttleFixturesComp,
@@ -339,11 +331,11 @@ public sealed partial class DockingSystem
             // If it's a map check no hard collidable anchored entities overlap
             if (isMap)
             {
-                var localTiles = _mapSystem.GetLocalTilesEnumerator(gridEntity.Owner, gridEntity.Comp, aabb);
+                var localTiles = _mapSystem.GetLocalTilesIntersecting(gridEntity.Owner, gridEntity.Comp, aabb);
 
                 while (localTiles.MoveNext(out var tile))
                 {
-                    var anchoredEnumerator = _mapSystem.GetAnchoredEntitiesEnumerator(gridEntity.Owner, gridEntity.Comp, tile.GridIndices);
+                    var anchoredEnumerator = _mapSystem.GetAnchoredEntities(gridEntity.Owner, gridEntity.Comp, tile.GridIndices);
 
                     while (anchoredEnumerator.MoveNext(out var anc))
                     {

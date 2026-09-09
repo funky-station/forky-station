@@ -1,14 +1,9 @@
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Power.Components;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.PowerCell;
 
-public sealed class PowerChargerVisualizerSystem : VisualizerSystem<PowerChargerVisualsComponent>
+public sealed partial class PowerChargerVisualizerSystem : VisualizerSystem<PowerChargerVisualsComponent>
 {
     protected override void OnAppearanceChange(EntityUid uid, PowerChargerVisualsComponent comp, ref AppearanceChangeEvent args)
     {

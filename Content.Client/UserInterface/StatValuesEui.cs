@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Pok <113675512+Pok27@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Eui;
 using Content.Shared.Eui;
 using Content.Shared.UserInterface;

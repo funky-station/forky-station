@@ -1,14 +1,10 @@
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Power;
 using Content.Shared.SMES;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.Power.SMES;
 
-public sealed class SmesVisualizerSystem : VisualizerSystem<SmesComponent>
+public sealed partial class SmesVisualizerSystem : VisualizerSystem<SmesComponent>
 {
     protected override void OnAppearanceChange(EntityUid uid, SmesComponent comp, ref AppearanceChangeEvent args)
     {

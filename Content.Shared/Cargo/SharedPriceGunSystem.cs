@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Dylan Hunter Whittingham <45404433+DylanWhittingham@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Cargo.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;

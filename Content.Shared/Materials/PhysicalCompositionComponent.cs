@@ -1,11 +1,6 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Materials;
 
@@ -24,13 +19,13 @@ public sealed partial class PhysicalCompositionComponent : Component
     /// <summary>
     /// The materials that "make up" this entity
     /// </summary>
-    [DataField("materialComposition", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<int, MaterialPrototype>))]
-    public Dictionary<string, int> MaterialComposition = new();
+    [DataField]
+    public Dictionary<ProtoId<MaterialPrototype>, int> MaterialComposition = new();
 
     /// <summary>
     /// The chemicals that "make up" this entity
     /// </summary>
-    [DataField("chemicalComposition", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<FixedPoint2, ReagentPrototype>))]
-    public Dictionary<string, FixedPoint2> ChemicalComposition = new();
+    [DataField]
+    public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> ChemicalComposition = new();
     // TODO use ReagentQuantity[]
 }

@@ -1,38 +1,3 @@
-# SPDX-FileCopyrightText: 2021, 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021-2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022-2023 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Nairod <110078045+Nairodian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2022 areit <77842470+areitpog@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 router <messagebus@vk.com>
-# SPDX-FileCopyrightText: 2022 Sam Weaver <weaversam8@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Feluk6174 <77207907+Feluk6174@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Alekshhh <44923899+Alekshhh@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Interrobang01 <113810873+Interrobang01@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 GoodWheatley <109803540+GoodWheatley@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Stomf <5dorkydorks@gmail.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 takemysoult <143123247+takemysoult@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Red <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Nikovnik <116634167+nkokic@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: reagent
   id: Desoxyephedrine
   name: reagent-name-desoxyephedrine
@@ -52,7 +17,7 @@
         damage:
           types:
             Poison: 0.55
-            Blunt: 0.5
+            Blunt: 1.1 # meant to be slightly more than tricordrazine heals
       # OD
       - !type:HealthChange
         conditions:
@@ -71,9 +36,8 @@
       - !type:ModifyStatusEffect
         effectProto: StatusEffectDesoxyStamina # You are on meth. You keep going.
         time: 3
-      - !type:GenericStatusEffect
-        key: Adrenaline
-        component: IgnoreSlowOnDamage
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectAdrenaline
         time: 3
       # Side effects
       - !type:Jitter
@@ -158,6 +122,24 @@
           min: 15
 
 - type: reagent
+  id: Pax
+  name: reagent-name-pax
+  group: Narcotics
+  desc: reagent-desc-pax
+  physicalDesc: reagent-physical-desc-soothing
+  allowedDepartments:
+  - Security
+  - Medical
+  color: "#AAAAAA"
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:GenericStatusEffect
+        key: Pacified
+        component: Pacified
+        time: 4
+
+- type: reagent
   id: Stimulants
   name: reagent-name-stimulants
   group: Narcotics
@@ -189,9 +171,8 @@
         effectProto: StatusEffectForcedSleeping
         time: 3
         type: Remove
-      - !type:GenericStatusEffect
-        key: Adrenaline
-        component: IgnoreSlowOnDamage
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectAdrenaline
         time: 3
       # Side effects
       - !type:Jitter
@@ -225,23 +206,25 @@
         amount: -1.5
       - !type:EvenHealthChange
         conditions:
-        - !type:TotalDamageCondition
-          min: 70 # only heals when you're more dead than alive
+        - !type:MobStateCondition
+          mobstate: Critical
         damage: # Doesn't heal poison because if you OD'd I'm not giving you a safety net
           Burn: -0.5
           Brute: -0.5
       - !type:HealthChange
         conditions:
-        - !type:TotalDamageCondition
-          min: 95 # Just to bring you back from the brink of death
+        - !type:MobStateCondition
+          mobstate: Critical
         damage:
           types:
             Asphyxiation: -2
       # Side effects
       - !type:ResetNarcolepsy
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         factor: 1
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 1
 
 - type: reagent
@@ -378,11 +361,28 @@
   metabolisms:
     Bloodstream:
       effects:
-      - !type:GenericStatusEffect
-        key: Muted
-        component: Muted
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectMuted
         type: Add
         time: 10
+
+- type: reagent
+  id: TaciticAcid
+  name: reagent-name-tacitic-acid
+  group: Special
+  desc: reagent-desc-tacitic-acid
+  physicalDesc: reagent-physical-desc-syrupy
+  contrabandSeverity: Major
+  color: "#000000"
+  boilingPoint: 255.0
+  meltingPoint: 36.0
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectChangelingMuted
+        type: Add
+        time: 5
 
 - type: reagent
   id: NorepinephricAcid
@@ -423,9 +423,9 @@
           min: 20
         probability: 0.03
         #If anyone wants to add a light dimming or grayscale effect when under 20u, be my guest
-      - !type:GenericStatusEffect
-        key: TemporaryBlindness
-        component: TemporaryBlindness
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectBlindness
+        type: Add
         conditions:
         - !type:ReagentCondition
           reagent: NorepinephricAcid
@@ -476,9 +476,9 @@
       - !type:Emote
         emote: Cough
         probability: 0.08
-      - !type:GenericStatusEffect
-        key: TemporaryBlindness
-        component: TemporaryBlindness
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectBlindness
+        type: Add
         conditions:
         - !type:ReagentCondition
           reagent: TearGas
@@ -491,6 +491,117 @@
         - !type:ReagentCondition
           reagent: TearGas
           min: 4
+      - !type:HealthChange
+        damage:
+          types:
+            Asphyxiation: 1
+
+- type: reagent
+  id: StrawberryIce
+  name: reagent-name-StrawberryIce
+  group: Narcotics
+  desc: reagent-desc-StrawberryIce
+  physicalDesc: reagent-physical-desc-fizzy
+  contrabandSeverity: Minor
+  flavor: fizzy
+  color: "#FF36AE"
+  metabolisms:
+    Digestion:
+      metabolismRate: 1.0
+      effects:
+      # OD
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: StrawberryIce
+          min: 20
+        damage:
+          types:
+            Cellular: 1.5
+            Poison: 1.5
+      # Bad effect
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 0.05
+      - !type:AdjustReagent # TODO: MAKE THIS USE METABOLITES INSTEAD!!!
+        reagent: Hydroxysomnolene
+        amount: 1
+
+      # Main effects
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 1.50
+        sprintSpeedModifier: 1.50
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDesoxyStamina # You are on Ice. You keep going.
+        time: 10
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectAdrenaline
+        time: 10
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectPainNumbness
+        time: 10
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: null
+        type: Remove
+      - !type:ResetNarcolepsy
+        conditions:
+        - !type:ReagentCondition
+          reagent: StrawberryIce
+          min: 10
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        time: 10
+      # Side effects
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+      - !type:Jitter
+
+- type: reagent
+  id: Hydroxysomnolene
+  name: reagent-name-Hydroxysomnolene
+  group: Toxins
+  desc: reagent-desc-Hydroxysomnolene
+  physicalDesc: reagent-physical-desc-gloopy
+  flavor: bitter
+  color: "#b51472"
+  metabolisms:
+    Digestion: # TODO: Make this metabolize as a metabolite!
+      effects:
+      # Slow
+      - !type:MovementSpeedModifier
+        conditions:
+        - !type:ReagentCondition
+          reagent: StrawberryIce
+          max: 0.1
+        walkSpeedModifier: 0.65
+        sprintSpeedModifier: 0.65
+
+      # Sleepy
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:ReagentCondition
+          reagent: StrawberryIce
+          max: 0.1
+        effectProto: StatusEffectDrowsiness
+        time: 2
+        type: Add
+
+      # Needs more strawberry Ice!
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentCondition
+          reagent: StrawberryIce
+          max: 0.1
+        type: Local
+        visualType: MediumCaution
+        messages:
+        - hydroxysomnolene-effect-flavor
+        - hydroxysomnolene-effect-another-hit
+        - hydroxysomnolene-effect-sluggish
+        probability: 0.15
 
 - type: reagent
   id: Happiness
@@ -505,7 +616,7 @@
       effects:
       - !type:Emote
         emote: Laugh
-        showInChat: true
+        showInChat: false
         probability: 0.1
         conditions:
         - !type:ReagentCondition
@@ -513,7 +624,7 @@
           max: 20
       - !type:Emote
         emote: Whistle
-        showInChat: true
+        showInChat: false
         probability: 0.1
         conditions:
         - !type:ReagentCondition
@@ -521,7 +632,7 @@
           max: 20
       - !type:Emote
         emote: Crying
-        showInChat: true
+        showInChat: false
         probability: 0.1
         conditions:
         - !type:ReagentCondition

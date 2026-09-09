@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Kirus59 <145689588+Kirus59@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Examine;
@@ -42,11 +33,11 @@ public abstract partial class SharedGunSystem
 
     private void OnBatteryDamageExamine(Entity<BatteryAmmoProviderComponent> ent, ref DamageExamineEvent args)
     {
-        var proto = ProtoManager.Index<EntityPrototype>(ent.Comp.Prototype);
+        var proto = ProtoMan.Index<EntityPrototype>(ent.Comp.Prototype);
         DamageSpecifier? damageSpec = null;
         var damageType = string.Empty;
 
-        if (proto.TryGetComponent<ProjectileComponent>(out var projectileComp, Factory))
+        if (proto.TryComp<ProjectileComponent>(out var projectileComp, Factory))
         {
             if (!projectileComp.Damage.Empty)
             {
@@ -54,7 +45,7 @@ public abstract partial class SharedGunSystem
                 damageSpec = projectileComp.Damage * Damageable.UniversalProjectileDamageModifier;
             }
         }
-        else if (proto.TryGetComponent<HitscanBasicDamageComponent>(out var hitscanComp, Factory))
+        else if (proto.TryComp<HitscanBasicDamageComponent>(out var hitscanComp, Factory))
         {
             if (!hitscanComp.Damage.Empty)
             {
@@ -102,8 +93,7 @@ public abstract partial class SharedGunSystem
 
     private (EntityUid? Entity, IShootable) GetShootable(BatteryAmmoProviderComponent component, EntityCoordinates coordinates)
     {
-
-        var ent = Spawn(component.Prototype, coordinates);
+        var ent = SpawnAtPosition(component.Prototype, coordinates);
         return (ent, EnsureShootable(ent));
     }
 
@@ -131,6 +121,7 @@ public abstract partial class SharedGunSystem
 
         // Update the visuals.
         Appearance.SetData(ent.Owner, AmmoVisuals.HasAmmo, newShots != 0, appearance);
+        Appearance.SetData(ent.Owner, AmmoVisuals.IsFull, newShots == newCapacity, appearance);
         Appearance.SetData(ent.Owner, AmmoVisuals.AmmoCount, newShots, appearance);
         if (newCapacity > 0) // Don't make the capacity 0 when removing a power cell as this will make it be visualized as full instead of empty.
             Appearance.SetData(ent.Owner, AmmoVisuals.AmmoMax, newCapacity, appearance);

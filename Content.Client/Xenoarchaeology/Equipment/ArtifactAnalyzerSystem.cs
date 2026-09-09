@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Xenoarchaeology.Ui;
 using Content.Shared.Xenoarchaeology.Equipment;
 using Content.Shared.Xenoarchaeology.Equipment.Components;
@@ -9,9 +6,9 @@ using Robust.Client.GameObjects;
 namespace Content.Client.Xenoarchaeology.Equipment;
 
 /// <inheritdoc />
-public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
+public sealed partial class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
 {
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

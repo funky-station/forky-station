@@ -1,16 +1,5 @@
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Kara D <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
@@ -19,9 +8,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.HealthExaminable;
 
-public sealed class HealthExaminableSystem : EntitySystem
+public sealed partial class HealthExaminableSystem : EntitySystem
 {
-    [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
+    [Dependency] private ExamineSystemShared _examineSystem = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
 
     public override void Initialize()
     {
@@ -59,9 +49,10 @@ public sealed class HealthExaminableSystem : EntitySystem
         var msg = new FormattedMessage();
 
         var first = true;
+        var damageSpecifier = _damageable.GetAllDamage((uid, damage));
         foreach (var type in component.ExaminableTypes)
         {
-            if (!damage.Damage.DamageDict.TryGetValue(type, out var dmg))
+            if (!damageSpecifier.DamageDict.TryGetValue(type, out var dmg))
                 continue;
 
             if (dmg == FixedPoint2.Zero)

@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 PilgrimViis <PilgrimViis@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
@@ -56,7 +49,7 @@ public sealed partial class DevourerComponent : Component
     [DataField, AutoNetworkedField]
     public SoundSpecifier? SoundDevour = new SoundPathSpecifier("/Audio/Effects/demon_consume.ogg")
     {
-        Params = AudioParams.Default.WithVolume(-3f),
+        Params = AudioParams.Default.AddVolume(-3f),
     };
 
     /// <summary>
@@ -65,7 +58,7 @@ public sealed partial class DevourerComponent : Component
     [DataField, AutoNetworkedField]
     public SoundSpecifier? SoundStructureDevour = new SoundPathSpecifier("/Audio/Machines/airlock_creaking.ogg")
     {
-        Params = AudioParams.Default.WithVolume(-3f),
+        Params = AudioParams.Default.AddVolume(-3f),
     };
 
     /// <summary>

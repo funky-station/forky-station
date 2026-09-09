@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Gravity;
@@ -17,4 +14,11 @@ public sealed partial class GravityAffectedComponent : Component
     /// </summary>
     [ViewVariables, AutoNetworkedField]
     public bool Weightless = true;
+
+    /// <summary>
+    /// If true, the <see cref="Weightless"/> value is currently being provided via the grid through <see cref="SharedGravitySystem.EntityGridOrMapHaveGravity"/>.
+    /// If false, the value is provided by the <see cref="IsWeightlessEvent"/>.
+    /// </summary>
+    [ViewVariables, AutoNetworkedField]
+    public bool GridWeightlessStatus = false;
 }

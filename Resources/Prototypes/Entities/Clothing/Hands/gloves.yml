@@ -1,53 +1,3 @@
-# SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 zlodo <zlodo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-# SPDX-FileCopyrightText: 2022, 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022, 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022, 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2022 Martin Petkovski <63034378+martin69420@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 ike709 <ike709@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Lamrr <96937466+Lamrr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023, 2025 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Jackal298 <129199891+Jackal298@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 KingFroozy <140668342+KingFroozy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 JoeHammad1844 <130668733+JoeHammad1844@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 HerCoyote23 <131214189+HerCoyote23@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 SpaceCat <99134830+Verslebas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Sailor <109166122+Equivocateur@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Puro <103608145+PuroSlavKing@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 GoodWheatley <109803540+GoodWheatley@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kit0vras <123590995+Kit0vras@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 MWKane <96324339+MWKane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 RedBookcase <crazykid1590@gmail.com>
-# SPDX-FileCopyrightText: 2024 ArZarLordOfMango <96249677+ArZarLordOfMango@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 OnsenCapy <101037138+LGRuthes@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ninruB <38016303+asperger-sind@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Hitlinemoss <209321380+Hitlinemoss@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Admiral-Obvious-001 <89495925+Admiral-Obvious-001@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
-# SPDX-FileCopyrightText: 2025 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
-# SPDX-FileCopyrightText: 2025 James <40279265+ViceEmargo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Coolsurf6 <coolsurf24@yahoo.com.au>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   abstract: true
   parent: ClothingHandsBase
@@ -190,9 +140,9 @@
   description: Regal blue gloves, with a nice gold trim. Swanky.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/captain.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/captain.rsi #Funky
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/captain.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/captain.rsi #Funky
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-durathread
@@ -206,9 +156,9 @@
   description: Perfect for dealing with paperwork and matters with bureaucracy.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/hop.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/hop.rsi #Funky
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/hop.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/hop.rsi #Funky
   - type: Fiber
     fiberMaterial: fibers-durathread
     fiberColor: fibers-black
@@ -226,9 +176,9 @@
   description: Thin sterile latex gloves. Basic PPE for any doctor.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/latex.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/latex.rsi #Funky
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/latex.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/latex.rsi #Funky
   - type: Fiber
     fiberMaterial: fibers-latex
   - type: FingerprintMask
@@ -240,9 +190,9 @@
   description: High-quality nitrile gloves. Expensive medical PPE.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/nitrile.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/nitrile.rsi #Funky
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/nitrile.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/nitrile.rsi #Funky
   - type: Fiber
     fiberMaterial: fibers-nitrile
   - type: FingerprintMask
@@ -254,9 +204,9 @@
   description: These leather gloves protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin. They're also quite warm.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/leather.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/leather.rsi #Funky
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/leather.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/leather.rsi #Funky
   - type: Fiber
     fiberMaterial: fibers-leather
     fiberColor: fibers-brown
@@ -288,9 +238,9 @@
   description: Beep boop borp!
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/robohands.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/robohands.rsi #Funky
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/robohands.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/robohands.rsi #Funky
   - type: Fiber
     fiberMaterial: fibers-leather
     fiberColor: fibers-black
@@ -303,12 +253,12 @@
   description: These black nano-enhanced gloves insulate from electricity and provide fire resistance.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/spaceninja.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/spaceninja.rsi #Funky
     layers:
     - state: icon
       map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/spaceninja.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/spaceninja.rsi #Funky
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -352,18 +302,21 @@
       - type: CriminalRecordsHacker
 
 - type: entity
-  parent: [ ClothingHandsGlovesColorBlack, BaseSecurityEngineeringContraband ]
+  parent: [ ClothingHandsBase, BaseSecurityEngineeringContraband, BaseSlicingRefinable ] #funky change so gloves do not get discolored
   id: ClothingHandsGlovesCombat
   name: combat gloves
   description: These tactical gloves are fireproof and shock resistant.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/combat.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/combat.rsi #Funky
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/combat.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/combat.rsi #Funky
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
+  - type: ToolRefinable #funky
+    refineResult:
+    - id: ClothingHandsGlovesFingerless
 
 # can't parent combat gloves since they are butcherable
 - type: entity
@@ -381,18 +334,17 @@
     fiberColor: fibers-black
 
 - type: entity
-  parent: [ BaseSecurityCargoContraband, ClothingHandsGlovesCombat ]
+  parent: [ BaseSecurityCargoContraband, ClothingHandsGlovesCombat, BaseSlicingRefinable ]
   id: ClothingHandsMercGlovesCombat
   name: mercenary combat gloves
   description: High-quality combat gloves to protect hands from mechanical damage during combat.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/mercbattle.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/mercbattle.rsi #Funky
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/mercbattle.rsi
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
+    sprite: _Funkystation/Clothing/Hands/Gloves/mercbattle.rsi #Funky
+  - type: ToolRefinable
+    refineResult:
     - id: ClothingHandsGlovesMercFingerless
   - type: Fiber
     fiberMaterial: fibers-insulative
@@ -405,9 +357,9 @@
   description: Plain black gloves without fingertips for the hard working.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/fingerless.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/fingerless.rsi #Funky
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/fingerless.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/fingerless.rsi #Funky
   - type: Fiber
     fiberMaterial: fibers-synthetic
     fiberColor: fibers-black
@@ -423,9 +375,9 @@
   description: Insulated gloves resistant to shocks, or at least they used to.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/fingerlessinsuls.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/fingerlessinsuls.rsi #Funky
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/fingerlessinsuls.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/fingerlessinsuls.rsi #Funky
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-yellow
@@ -441,9 +393,9 @@
   description: Gloves that may not protect you from finger burns, but will make you cooler.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/mercfingerless.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/mercfingerless.rsi #Funky
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/mercfingerless.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/mercfingerless.rsi #Funky
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-olive
@@ -521,9 +473,9 @@
   description: Do not leave fibers or fingerprints. If you work without them, you're A TERRIBLE DETECTIVE.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/forensic.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/forensic.rsi #Funky
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/forensic.rsi
+    sprite: _Funkystation/Clothing/Hands/Gloves/forensic.rsi #Funky
   - type: FingerprintMask
   - type: GuideHelp
     guides:
@@ -672,6 +624,9 @@
           False: {state: knuckleduster_off}
   - type: ToggleClothing
     action: ActionToggleKnuckleDustersStun
+  - type: ItemToggleExaminableStatus
+  - type: ItemToggleRequiresCharge
+    requiredCharge: 50
   - type: ItemToggle
     predictable: false
     soundActivate:
@@ -689,8 +644,6 @@
       params:
         variation: 0.250
         volume: 5
-  - type: Stunbaton
-    energyPerUse: 50
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
@@ -702,6 +655,10 @@
         Blunt: 8
     bluntStaminaDamageFactor: 2.0
     animation: WeaponArcFist
+  - type: MeleeBatteryHitsLeft
+  - type: StaminaDamageOnHitRequiresToggle
+  - type: StaminaDamageOnHitRequiresCharge
+    requiredCharge: 50
   - type: StaminaDamageOnHit
     damage: 35
     sound: /Audio/Weapons/egloves.ogg
@@ -716,6 +673,10 @@
     guides:
     - Security
     - Antagonists
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - Stunbaton
 
 - type: entity #Admeme
   parent: ClothingHandsKnuckleDusters

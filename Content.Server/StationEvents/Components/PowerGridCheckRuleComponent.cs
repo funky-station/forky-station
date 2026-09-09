@@ -1,12 +1,6 @@
-// SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Threading;
 using Content.Server.StationEvents.Events;
+using Content.Shared._MACRO.Announcements;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -15,16 +9,12 @@ namespace Content.Server.StationEvents.Components;
 [RegisterComponent, Access(typeof(PowerGridCheckRule))]
 public sealed partial class PowerGridCheckRuleComponent : Component
 {
-    /// <summary>
-    /// Default sound for power restoration announcement.
-    /// </summary>
-    private static readonly ProtoId<SoundCollectionPrototype> DefaultPowerOn = new("PowerOn");
 
     /// <summary>
     /// Sound to play when power is restored.
     /// </summary>
     [DataField]
-    public SoundSpecifier PowerOnSound = new SoundCollectionSpecifier(DefaultPowerOn, AudioParams.Default.WithVolume(-4f));
+    public ProtoId<AnnouncementSoundPrototype> PowerOnSound = "GridPowerOn"; // Macrocosm edit - Announcement Sound Prototypes
 
     /// <summary>
     /// Token source for cancelling the power restoration announcement.
@@ -71,4 +61,13 @@ public sealed partial class PowerGridCheckRuleComponent : Component
     /// </summary>
     [DataField]
     public float FrameTimeAccumulator = 0.0f;
+}
+
+/// <summary>
+/// This component is used to detect when APCs are constructed
+/// while the PowerGridCheckRule is active.
+/// </summary>
+[RegisterComponent]
+public sealed partial class PowerGridCheckNotifyComponent : Component
+{
 }

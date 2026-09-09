@@ -1,22 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2023-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Numerics;
 using Content.Client.Actions;
@@ -58,17 +39,16 @@ using static Robust.Shared.Input.Binding.PointerInputCmdHandler;
 
 namespace Content.Client.UserInterface.Systems.Actions;
 
-public sealed class ActionUIController : UIController, IOnStateChanged<GameplayState>, IOnSystemChanged<ActionsSystem>
+public sealed partial class ActionUIController : UIController, IOnStateChanged<GameplayState>, IOnSystemChanged<ActionsSystem>
 {
-    [Dependency] private readonly IOverlayManager _overlays = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IInputManager _input = default!;
+    [Dependency] private IOverlayManager _overlays = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IInputManager _input = default!;
 
     [UISystemDependency] private readonly ActionsSystem? _actionsSystem = default;
     [UISystemDependency] private readonly InteractionOutlineSystem? _interactionOutline = default;
     [UISystemDependency] private readonly TargetOutlineSystem? _targetOutline = default;
-    [UISystemDependency] private readonly SpriteSystem _spriteSystem = default!;
 
     private ActionButtonContainer? _container;
     private readonly List<EntityUid?> _actions = new();
@@ -382,7 +362,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
                 continue;
             }
 
-            var button = new ActionButton(EntityManager, _spriteSystem, this) {Locked = true};
+            var button = new ActionButton(EntityManager, this) {Locked = true};
             button.ActionPressed += OnWindowActionPressed;
             button.ActionUnpressed += OnWindowActionUnPressed;
             button.ActionFocusExited += OnWindowActionFocusExisted;
@@ -622,14 +602,15 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         // and a small item/provider sprite, then the dragged icon should be the big texture, not the provider.
         if (_menuDragHelper.Dragged?.Action is {} action)
         {
-            if (EntityManager.TryGetComponent(action.Comp.EntityIcon, out SpriteComponent? sprite)
-                && sprite.Icon?.GetFrame(RsiDirection.South, 0) is {} frame)
+            if (EntityManager.TryGetComponent(action.Comp.EntityIcon, out SpriteComponent? itemSprite)
+                && itemSprite.Icon?.GetFrame(RsiDirection.South, 0) is {} itemFrame)
             {
-                _dragShadow.Texture = frame;
+                _dragShadow.Texture = itemFrame;
             }
-            else if (action.Comp.Icon is {} icon)
+            else if (EntityManager.TryGetComponent(action.Owner, out SpriteComponent? actionSprite)
+                && actionSprite.Icon?.GetFrame(RsiDirection.South, 0) is {} actionFrame)
             {
-                _dragShadow.Texture = _spriteSystem.Frame0(icon);
+                _dragShadow.Texture = actionFrame;
             }
             else
             {
@@ -652,6 +633,18 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     {
         _dragShadow.Texture = null;
         _dragShadow.Visible = false;
+        UpdateActionBarBackgrounds();
+    }
+
+    private void UpdateActionBarBackgrounds()
+    {
+        if (_container == null)
+            return;
+
+        foreach (var button in _container.GetButtons())
+        {
+            button.UpdateBackground();
+        }
     }
 
     private void UnloadGui()
@@ -753,7 +746,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
     public override void FrameUpdate(FrameEventArgs args)
     {
+        var wasDragging = IsDragging;
         _menuDragHelper.Update(args.DeltaSeconds);
+
+        if (wasDragging != IsDragging)
+            UpdateActionBarBackgrounds();
         if (_window is {UpdateNeeded: true})
             SearchAndDisplay();
     }
@@ -830,10 +827,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             {
                 handOverlay.EntityOverride = provider;
             }
-            else if (action.Toggled && action.IconOn != null)
-                handOverlay.IconOverride = _spriteSystem.Frame0(action.IconOn);
-            else if (action.Icon != null)
-                handOverlay.IconOverride = _spriteSystem.Frame0(action.Icon);
+            else if (EntityManager.TryGetComponent(uid, out SpriteComponent? actionSprite)
+                && actionSprite.Icon?.GetFrame(RsiDirection.South, 0) is {} frame)
+            {
+                handOverlay.IconOverride = frame;
+            }
         }
 
         if (_container != null)

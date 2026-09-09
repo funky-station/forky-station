@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Content.Shared.Cargo.Prototypes;

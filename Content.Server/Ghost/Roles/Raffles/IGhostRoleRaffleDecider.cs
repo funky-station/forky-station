@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Player;
 
 namespace Content.Server.Ghost.Roles.Raffles;

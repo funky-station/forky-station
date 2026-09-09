@@ -1,6 +1,4 @@
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
+using Robust.Shared.Random;
 
 namespace Content.Shared.EntityTable.ValueSelector;
 
@@ -9,6 +7,9 @@ namespace Content.Shared.EntityTable.ValueSelector;
 /// </summary>
 public sealed partial class ConstantNumberSelector : NumberSelector
 {
+    /// <summary>
+    /// The constant value of this selector.
+    /// </summary>
     [DataField]
     public int Value = 1;
 
@@ -17,7 +18,18 @@ public sealed partial class ConstantNumberSelector : NumberSelector
         Value = value;
     }
 
-    public override int Get(System.Random rand)
+    public override int Get(IRobustRandom rand)
+    {
+        return Value;
+    }
+
+    public override float Odds()
+    {
+        // You really shouldn't have a constant value of 0 ever.
+        return 1;
+    }
+
+    public override float Average()
     {
         return Value;
     }

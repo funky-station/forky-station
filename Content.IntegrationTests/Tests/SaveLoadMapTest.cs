@@ -1,22 +1,6 @@
-// SPDX-FileCopyrightText: 2020-2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021-2023, 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
+using Content.IntegrationTests.Fixtures;
+using Content.IntegrationTests.Fixtures.Attributes;
 using Content.Shared.CCVar;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
@@ -30,23 +14,21 @@ using Robust.Shared.Utility;
 namespace Content.IntegrationTests.Tests
 {
     [TestFixture]
-    public sealed class SaveLoadMapTest
+    public sealed class SaveLoadMapTest : GameTest
     {
         [Test]
+        [EnsureCVar(Side.Server, typeof(CCVars), nameof(CCVars.GridFill), false)]
         public async Task SaveLoadMultiGridMap()
         {
             var mapPath = new ResPath("/Maps/Test/TestMap.yml");
 
-            await using var pair = await PoolManager.GetServerClient();
+            var pair = Pair;
             var server = pair.Server;
-            var mapManager = server.ResolveDependency<IMapManager>();
             var sEntities = server.ResolveDependency<IEntityManager>();
             var mapLoader = sEntities.System<MapLoaderSystem>();
             var mapSystem = sEntities.System<SharedMapSystem>();
             var xformSystem = sEntities.EntitySysManager.GetEntitySystem<SharedTransformSystem>();
             var resManager = server.ResolveDependency<IResourceManager>();
-            var cfg = server.ResolveDependency<IConfigurationManager>();
-            Assert.That(cfg.GetCVar(CCVars.GridFill), Is.False);
 
             await server.WaitAssertion(() =>
             {
@@ -56,12 +38,12 @@ namespace Content.IntegrationTests.Tests
                 mapSystem.CreateMap(out var mapId);
 
                 {
-                    var mapGrid = mapManager.CreateGridEntity(mapId);
+                    var mapGrid = mapSystem.CreateGridEntity(mapId);
                     xformSystem.SetWorldPosition(mapGrid, new Vector2(10, 10));
                     mapSystem.SetTile(mapGrid, new Vector2i(0, 0), new Tile(typeId: 1, flags: 1, variant: 255));
                 }
                 {
-                    var mapGrid = mapManager.CreateGridEntity(mapId);
+                    var mapGrid = mapSystem.CreateGridEntity(mapId);
                     xformSystem.SetWorldPosition(mapGrid, new Vector2(-8, -8));
                     mapSystem.SetTile(mapGrid, new Vector2i(0, 0), new Tile(typeId: 2, flags: 1, variant: 254));
                 }
@@ -84,7 +66,7 @@ namespace Content.IntegrationTests.Tests
             await server.WaitAssertion(() =>
             {
                 {
-                    if (!mapManager.TryFindGridAt(newMap, new Vector2(10, 10), out var gridUid, out var mapGrid) ||
+                    if (!mapSystem.TryFindGridAt(newMap, new Vector2(10, 10), out var gridUid, out var mapGrid) ||
                         !sEntities.TryGetComponent<TransformComponent>(gridUid, out var gridXform))
                     {
                         Assert.Fail();
@@ -98,7 +80,7 @@ namespace Content.IntegrationTests.Tests
                     });
                 }
                 {
-                    if (!mapManager.TryFindGridAt(newMap, new Vector2(-8, -8), out var gridUid, out var mapGrid) ||
+                    if (!mapSystem.TryFindGridAt(newMap, new Vector2(-8, -8), out var gridUid, out var mapGrid) ||
                         !sEntities.TryGetComponent<TransformComponent>(gridUid, out var gridXform))
                     {
                         Assert.Fail();
@@ -112,8 +94,6 @@ namespace Content.IntegrationTests.Tests
                     });
                 }
             });
-
-            await pair.CleanReturnAsync();
         }
     }
 }

@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Access;
 using Content.Shared.Access.Systems;
 using JetBrains.Annotations;
@@ -15,7 +12,7 @@ namespace Content.Shared.Turrets;
 /// </summary>
 public sealed partial class TurretTargetSettingsSystem : EntitySystem
 {
-    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
+    [Dependency] private AccessReaderSystem _accessReader = default!;
 
     private ProtoId<AccessLevelPrototype> _accessLevelBorg = "Borg";
     private ProtoId<AccessLevelPrototype> _accessLevelBasicSilicon = "BasicSilicon";

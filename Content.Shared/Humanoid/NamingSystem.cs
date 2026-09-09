@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Dataset;
 using Content.Shared.Random.Helpers;
@@ -18,20 +10,19 @@ namespace Content.Shared.Humanoid
     /// <summary>
     /// Figure out how to name a humanoid with these extensions.
     /// </summary>
-    public sealed class NamingSystem : EntitySystem
+    public sealed partial class NamingSystem : EntitySystem
     {
         private static readonly ProtoId<SpeciesPrototype> FallbackSpecies = "Human";
 
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IRobustRandom _random = default!;
 
         public string GetName(string species, Gender? gender = null)
         {
             // if they have an old species or whatever just fall back to human I guess?
             // Some downstream is probably gonna have this eventually but then they can deal with fallbacks.
-            if (!_prototypeManager.TryIndex(species, out SpeciesPrototype? speciesProto))
+            if (!ProtoMan.TryIndex(species, out SpeciesPrototype? speciesProto))
             {
-                speciesProto = _prototypeManager.Index(FallbackSpecies);
+                speciesProto = ProtoMan.Index(FallbackSpecies);
                 Log.Warning($"Unable to find species {species} for name, falling back to {FallbackSpecies}");
             }
 
@@ -58,20 +49,20 @@ namespace Content.Shared.Humanoid
             switch (gender)
             {
                 case Gender.Male:
-                    return _random.Pick(_prototypeManager.Index(speciesProto.MaleFirstNames));
+                    return _random.Pick(ProtoMan.Index(speciesProto.MaleFirstNames));
                 case Gender.Female:
-                    return _random.Pick(_prototypeManager.Index(speciesProto.FemaleFirstNames));
+                    return _random.Pick(ProtoMan.Index(speciesProto.FemaleFirstNames));
                 default:
                     if (_random.Prob(0.5f))
-                        return _random.Pick(_prototypeManager.Index(speciesProto.MaleFirstNames));
+                        return _random.Pick(ProtoMan.Index(speciesProto.MaleFirstNames));
                     else
-                        return _random.Pick(_prototypeManager.Index(speciesProto.FemaleFirstNames));
+                        return _random.Pick(ProtoMan.Index(speciesProto.FemaleFirstNames));
             }
         }
 
         public string GetLastName(SpeciesPrototype speciesProto)
         {
-            return _random.Pick(_prototypeManager.Index(speciesProto.LastNames));
+            return _random.Pick(ProtoMan.Index(speciesProto.LastNames));
         }
     }
 }

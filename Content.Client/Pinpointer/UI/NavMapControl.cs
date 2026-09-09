@@ -1,17 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ahion <58528255+Ahion@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Wrexbe (Josh) <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Brandon Li <48413902+aspiringLich@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Input;
@@ -95,7 +81,7 @@ public partial class NavMapControl : MapGridControl
     // Components
     private NavMapComponent? _navMap;
     private MapGridComponent? _grid;
-    private TransformComponent? _xform;
+    protected TransformComponent? Xform;
     private PhysicsComponent? _physics;
     private FixturesComponent? _fixtures;
 
@@ -192,7 +178,7 @@ public partial class NavMapControl : MapGridControl
     {
         EntManager.TryGetComponent(MapUid, out _navMap);
         EntManager.TryGetComponent(MapUid, out _grid);
-        EntManager.TryGetComponent(MapUid, out _xform);
+        EntManager.TryGetComponent(MapUid, out Xform);
         EntManager.TryGetComponent(MapUid, out _physics);
         EntManager.TryGetComponent(MapUid, out _fixtures);
 
@@ -207,6 +193,12 @@ public partial class NavMapControl : MapGridControl
         _recenter.Disabled = false;
     }
 
+    public void ClearTrackedData()
+    {
+        TrackedCoordinates.Clear();
+        TrackedEntities.Clear();
+    }
+
     protected override void KeyBindUp(GUIBoundKeyEventArgs args)
     {
         base.KeyBindUp(args);
@@ -216,7 +208,7 @@ public partial class NavMapControl : MapGridControl
             if (TrackedEntitySelectedAction == null)
                 return;
 
-            if (_xform == null || _physics == null || TrackedEntities.Count == 0)
+            if (Xform == null || _physics == null || TrackedEntities.Count == 0)
                 return;
 
             // If the cursor has moved a significant distance, exit
@@ -229,7 +221,7 @@ public partial class NavMapControl : MapGridControl
 
             // Convert to a world position
             var unscaledPosition = (localPosition - MidPointVector) / MinimapScale;
-            var worldPosition = Vector2.Transform(new Vector2(unscaledPosition.X, -unscaledPosition.Y) + offset, _transformSystem.GetWorldMatrix(_xform));
+            var worldPosition = Vector2.Transform(new Vector2(unscaledPosition.X, -unscaledPosition.Y) + offset, _transformSystem.GetWorldMatrix(Xform));
 
             // Find closest tracked entity in range
             var closestEntity = NetEntity.Invalid;
@@ -285,11 +277,11 @@ public partial class NavMapControl : MapGridControl
         // Get the components necessary for drawing the navmap
         EntManager.TryGetComponent(MapUid, out _navMap);
         EntManager.TryGetComponent(MapUid, out _grid);
-        EntManager.TryGetComponent(MapUid, out _xform);
+        EntManager.TryGetComponent(MapUid, out Xform);
         EntManager.TryGetComponent(MapUid, out _physics);
         EntManager.TryGetComponent(MapUid, out _fixtures);
 
-        if (_navMap == null || _grid == null || _xform == null)
+        if (_navMap == null || _grid == null || Xform == null)
             return;
 
         // Map re-centering
@@ -337,8 +329,8 @@ public partial class NavMapControl : MapGridControl
             {
                 foreach (var gridCoords in regionOverlay.GridCoords)
                 {
-                    var positionTopLeft = ScalePosition(new Vector2(gridCoords.Item1.X, -gridCoords.Item1.Y) - new Vector2(offset.X, -offset.Y));
-                    var positionBottomRight = ScalePosition(new Vector2(gridCoords.Item2.X + _grid.TileSize, -gridCoords.Item2.Y - _grid.TileSize) - new Vector2(offset.X, -offset.Y));
+                    var positionTopLeft = ScalePosition(new Vector2(gridCoords.Item1.X, -gridCoords.Item2.Y - _grid.TileSize) - new Vector2(offset.X, -offset.Y));
+                    var positionBottomRight = ScalePosition(new Vector2(gridCoords.Item2.X + _grid.TileSize, -gridCoords.Item1.Y) - new Vector2(offset.X, -offset.Y));
 
                     var box = new UIBox2(positionTopLeft, positionBottomRight);
                     handle.DrawRect(box, regionOverlay.Color);
@@ -408,7 +400,7 @@ public partial class NavMapControl : MapGridControl
 
                 if (mapPos.MapId != MapId.Nullspace)
                 {
-                    var position = Vector2.Transform(mapPos.Position, _transformSystem.GetInvWorldMatrix(_xform)) - offset;
+                    var position = Vector2.Transform(mapPos.Position, _transformSystem.GetInvWorldMatrix(Xform)) - offset;
                     position = ScalePosition(new Vector2(position.X, -position.Y));
 
                     handle.DrawCircle(position, float.Sqrt(MinimapScale) * 2f, value.Color);
@@ -429,7 +421,7 @@ public partial class NavMapControl : MapGridControl
 
             if (mapPos.MapId != MapId.Nullspace)
             {
-                var position = Vector2.Transform(mapPos.Position, _transformSystem.GetInvWorldMatrix(_xform)) - offset;
+                var position = Vector2.Transform(mapPos.Position, _transformSystem.GetInvWorldMatrix(Xform)) - offset;
                 position = ScalePosition(new Vector2(position.X, -position.Y));
 
                 var scalingCoefficient = MinmapScaleModifier * float.Sqrt(MinimapScale);

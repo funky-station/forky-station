@@ -1,15 +1,12 @@
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Atmos.UI;
 using Content.Shared.Atmos.Piping.Unary.Components;
 using Content.Shared.Atmos.Piping.Unary.Systems;
 
 namespace Content.Client.Atmos.Piping.Unary.Systems;
 
-public sealed class GasThermoMachineSystem : SharedGasThermoMachineSystem
+public sealed partial class GasThermoMachineSystem : SharedGasThermoMachineSystem
 {
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {

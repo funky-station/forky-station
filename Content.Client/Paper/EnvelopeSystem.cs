@@ -1,13 +1,9 @@
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Paper;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.Paper;
 
-public sealed class EnvelopeSystem : VisualizerSystem<EnvelopeComponent>
+public sealed partial class EnvelopeSystem : VisualizerSystem<EnvelopeComponent>
 {
     public override void Initialize()
     {

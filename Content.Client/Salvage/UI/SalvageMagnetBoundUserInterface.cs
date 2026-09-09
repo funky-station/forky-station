@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <shadowjjt@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Client.Message;
 using Content.Shared.Salvage;
@@ -12,9 +7,9 @@ using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client.Salvage.UI;
 
-public sealed class SalvageMagnetBoundUserInterface : BoundUserInterface
+public sealed partial class SalvageMagnetBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     private OfferingWindow? _window;
 

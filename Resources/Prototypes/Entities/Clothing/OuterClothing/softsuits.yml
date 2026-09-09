@@ -1,33 +1,8 @@
-# SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Tony <73495699+carteblanche4me@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Sailor <109166122+Equivocateur@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 S1rFl0 <49481675+S1rFl0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 degradka <69397649+degradka@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Connor Huffine <chuffine@gmail.com>
-# SPDX-FileCopyrightText: 2025 YoungThug <ramialanbagy@gmail.com>
-# SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-# SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
-# SPDX-FileCopyrightText: 2025 Kittygyat <202250949+Kittygyat@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Ghagliiarghii <68826635+Ghagliiarghii@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Velken <8467292+Velken@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: ClothingOuterEVASuitBase
   id: ClothingOuterHardsuitEVA
   name: EVA suit
-  description: A lightweight space suit with the basic ability to protect the wearer from the vacuum of space during emergencies.
+  description: A lightweight space suit with the basic ability to protect the wearer from the vacuum of space.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Suits/eva.rsi
@@ -37,8 +12,10 @@
     tags:
     - SuitEVA
     - MonkeyWearable
-    - CorgiWearable
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.5
+    minDamageToRoll: 8.0
 
 #Syndicate EVA
 - type: entity
@@ -58,13 +35,16 @@
     - WhitelistChameleon
   - type: StaticPrice
     price: 1000 # Helmet is 500
+  - type: SuitBreachable # Funky
+    breachChance: 0.4
+    minDamageToRoll: 9.0
 
 #Emergency EVA
 - type: entity
-  parent: ClothingOuterEVASuitBase
+  parent: [ TemperatureProtectionMinimal, ClothingOuterEVASuitBaseToggleable ]
   id: ClothingOuterSuitEmergency
-  name: emergency EVA suit
-  description: An emergency EVA suit with a built-in helmet. It's horribly slow and lacking in temperature protection, but enough to buy you time from the harsh vacuum of space.
+  name: emergency pressure suit
+  description: This bulky, uninsulated pressure suit was clearly not meant for extended use in outer space, despite NanoTrasen's claims that it passes corporate regulations.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Suits/eva_emergency.rsi
@@ -73,29 +53,24 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
-  - type: HeldSpeedModifier
-  - type: TemperatureProtection
-    heatingCoefficient: 0.75
-    coolingCoefficient: 0.5
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetEVALarge
-    slot: head
-  - type: ContainerContainer
-    containers:
-      toggleable-clothing: !type:ContainerSlot {}
   - type: Tag
     tags:
     - CorgiWearable
     - ScurretWearable
     - MonkeyWearable
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.9
+    minDamageToRoll: 5.0
 
 #Prisoner EVA
 - type: entity
-  parent: ClothingOuterEVASuitBase
+  parent: [ TemperatureProtectionMinimal, ClothingOuterEVASuitBase]
   id:  ClothingOuterHardsuitEVAPrisoner
-  name: prisoner EVA suit
-  description: An emergency EVA suit meant for prisoners. It's horribly slow and lacking in temperature protection, but enough to buy you time from the harsh vacuum of space.
+  name: prisoner pressure suit
+  description: An emergency pressure suit meant for prisoners. It's not fully rated for extended use in outer space, but some wardens consider the lack of thermal insulation a feature.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Suits/eva_prisoner.rsi
@@ -104,15 +79,14 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
-  - type: HeldSpeedModifier
-  - type: TemperatureProtection
-    heatingCoefficient: 0.75
-    coolingCoefficient: 0.5
   - type: Tag
     tags:
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.75
+    minDamageToRoll: 7.0
 
 #NTSRA Voidsuit / Ancient Voidsuit
 - type: entity
@@ -129,10 +103,13 @@
     walkModifier: 0.85
     sprintModifier: 0.85
   - type: HeldSpeedModifier
+  - type: SuitBreachable # Funky
+    breachChance: 0.40
+    minDamageToRoll: 12.0
 
 #Paramedic Voidsuit
 - type: entity
-  parent: [ClothingOuterEVASuitBase, BaseMedicalContraband] #Despite "Voidsuits are light hardsuits", since it parents of EVA Suits, it goes with the other softsuits
+  parent: [ClothingOuterEVASuitBaseToggleable, BaseMedicalContraband] #Despite "Voidsuits are light hardsuits", since it parents of EVA Suits, it goes with the other softsuits
   id: ClothingOuterHardsuitVoidParamed
   name: paramedic void suit
   description: A void suit made for paramedics.
@@ -144,17 +121,10 @@
   - type: Appearance
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
-  - type: PressureProtection
-    highPressureMultiplier: 0.5
-    lowPressureMultiplier: 1000
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
     requireActivated: false
-  - type: HeldSpeedModifier
-  - type: TemperatureProtection
-    heatingCoefficient: 0.1
-    coolingCoefficient: 0.1
   - type: Armor
     modifiers:
       coefficients:
@@ -166,6 +136,7 @@
     stealGroup: ClothingOuterHardsuitVoidParamed
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetVoidParamed
+  - type: ItemToggleExaminableStatus
   - type: ItemToggle
     onUse: false
     soundActivate:
@@ -187,13 +158,12 @@
     radius: 2
     energy: 2
     color: blue
-    mask: /Textures/Effects/LightMasks/double_cone.png
+    lightMask: ConeDouble
   - type: RotatingLight
     speed: 360
-  - type: ContainerContainer
-    containers:
-      toggleable-clothing: !type:ContainerSlot {}
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon
+  - type: SuitBreachable # Funky
+    breachChance: 0.40
+    minDamageToRoll: 12.0

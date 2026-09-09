@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Robust.Shared.Prototypes;
@@ -14,9 +9,9 @@ namespace Content.Shared.EntityEffects.Effects.Solution;
 /// Sets the temperature of this solution to a fixed value.
 /// </summary>
 /// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
-public sealed class SetSolutionTemperatureEntityEffectSystem : EntityEffectSystem<SolutionComponent, SetSolutionTemperature>
+public sealed partial class SetSolutionTemperatureEntityEffectSystem : EntityEffectSystem<SolutionComponent, SetSolutionTemperature>
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
 
     protected override void Effect(Entity<SolutionComponent> entity, ref EntityEffectEvent<SetSolutionTemperature> args)
     {
@@ -44,9 +39,9 @@ public sealed partial class SetSolutionTemperature : EntityEffectBase<SetSolutio
 /// The temperature adjustment is modified by scale.
 /// </summary>
 /// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
-public sealed class AdjustSolutionTemperatureEntityEffectSystem : EntityEffectSystem<SolutionComponent, AdjustSolutionTemperature>
+public sealed partial class AdjustSolutionTemperatureEntityEffectSystem : EntityEffectSystem<SolutionComponent, AdjustSolutionTemperature>
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
 
     protected override void Effect(Entity<SolutionComponent> entity, ref EntityEffectEvent<AdjustSolutionTemperature> args)
     {
@@ -91,9 +86,9 @@ public sealed partial class AdjustSolutionTemperature : EntityEffectBase<AdjustS
 /// The energy adjustment is modified by scale.
 /// </summary>
 /// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
-public sealed class AdjustSolutionThermalEnergyEntityEffectSystem : EntityEffectSystem<SolutionComponent, AdjustSolutionThermalEnergy>
+public sealed partial class AdjustSolutionThermalEnergyEntityEffectSystem : EntityEffectSystem<SolutionComponent, AdjustSolutionThermalEnergy>
 {
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
 
     protected override void Effect(Entity<SolutionComponent> entity, ref EntityEffectEvent<AdjustSolutionThermalEnergy> args)
     {

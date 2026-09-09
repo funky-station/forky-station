@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 chavonadelal <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Brandon Li <48413902+aspiringLich@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Client.Stylesheets;
 using Content.Shared.CCVar;
@@ -21,15 +13,15 @@ using Robust.Shared.Prototypes;
 namespace Content.Client.Salvage.UI;
 
 [UsedImplicitly]
-public sealed class SalvageExpeditionConsoleBoundUserInterface : BoundUserInterface
+public sealed partial class SalvageExpeditionConsoleBoundUserInterface : BoundUserInterface
 {
     [ViewVariables]
     private OfferingWindow? _window;
 
-    [Dependency] private readonly IConfigurationManager _cfgManager = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
+    [Dependency] private IConfigurationManager _cfgManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private ILogManager _logManager = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
 
     private readonly ISawmill _sawmill;
 

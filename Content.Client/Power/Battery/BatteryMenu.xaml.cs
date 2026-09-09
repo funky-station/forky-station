@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
@@ -53,8 +50,8 @@ public sealed partial class BatteryMenu : FancyWindow
     private const float PowerPulseFactor = 4;
 
     // Dependencies
-    [Dependency] private readonly IEntityManager _entityManager = null!;
-    [Dependency] private readonly ILocalizationManager _loc = null!;
+    [Dependency] private IEntityManager _entityManager = null!;
+    [Dependency] private ILocalizationManager _loc = null!;
 
     // Active and inactive style boxes for power lines.
     // We modify _activePowerLineStyleBox's properties programmatically to implement the pulsing animation.

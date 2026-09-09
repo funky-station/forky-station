@@ -1,26 +1,9 @@
-// SPDX-FileCopyrightText: 2022, 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022, 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2022 Francesco <frafonia@gmail.com>
-// SPDX-FileCopyrightText: 2022 theashtronaut <112137107+theashtronaut@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Atmos.Piping.Unary.EntitySystems;
 using Content.Shared.Atmos.Piping.Unary.Components;
 using Content.Shared.Atmos.Visuals;
 using Content.Shared.Examine;
 using Content.Shared.Destructible;
-using Content.Server.Atmos.Piping.Components;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Power.Components;
-using Content.Server.NodeContainer;
 using Robust.Server.GameObjects;
 using Content.Server.NodeContainer.Nodes;
 using Content.Server.NodeContainer.NodeGroups;
@@ -28,22 +11,23 @@ using Content.Server.Audio;
 using Content.Server.Administration.Logs;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Shared.Atmos;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Database;
 using Content.Shared.Power;
 
 namespace Content.Server.Atmos.Portable
 {
-    public sealed class PortableScrubberSystem : EntitySystem
+    public sealed partial class PortableScrubberSystem : EntitySystem
     {
-        [Dependency] private readonly GasVentScrubberSystem _scrubberSystem = default!;
-        [Dependency] private readonly GasCanisterSystem _canisterSystem = default!;
-        [Dependency] private readonly GasPortableSystem _gasPortableSystem = default!;
-        [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-        [Dependency] private readonly TransformSystem _transformSystem = default!;
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly AmbientSoundSystem _ambientSound = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
+        [Dependency] private GasVentScrubberSystem _scrubberSystem = default!;
+        [Dependency] private GasCanisterSystem _canisterSystem = default!;
+        [Dependency] private GasPortableSystem _gasPortableSystem = default!;
+        [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
+        [Dependency] private TransformSystem _transformSystem = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
+        [Dependency] private AmbientSoundSystem _ambientSound = default!;
+        [Dependency] private SharedAppearanceSystem _appearance = default!;
+        [Dependency] private NodeContainerSystem _nodeContainer = default!;
 
         public override void Initialize()
         {

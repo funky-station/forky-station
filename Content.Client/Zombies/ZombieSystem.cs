@@ -1,27 +1,14 @@
-// SPDX-FileCopyrightText: 2022-2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 coolmankid12345 <55817627+coolmankid12345@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Wrexbe (Josh) <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Body;
-using Content.Shared.Ghost;
-using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
 using Content.Shared.Zombies;
 using Robust.Client.GameObjects;
-using Robust.Shared.Prototypes;
 
 namespace Content.Client.Zombies;
 
-public sealed class ZombieSystem : SharedZombieSystem
+public sealed partial class ZombieSystem : SharedZombieSystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -34,7 +21,7 @@ public sealed class ZombieSystem : SharedZombieSystem
 
     private void GetZombieIcon(Entity<ZombieComponent> ent, ref GetStatusIconsEvent args)
     {
-        var iconPrototype = _prototype.Index(ent.Comp.StatusIcon);
+        var iconPrototype = ProtoMan.Index(ent.Comp.StatusIcon);
         args.StatusIcons.Add(iconPrototype);
     }
 
@@ -43,7 +30,7 @@ public sealed class ZombieSystem : SharedZombieSystem
         if (HasComp<ZombieComponent>(ent))
             return;
 
-        var iconPrototype = _prototype.Index(ent.Comp.StatusIcon);
+        var iconPrototype = ProtoMan.Index(ent.Comp.StatusIcon);
         args.StatusIcons.Add(iconPrototype);
     }
 

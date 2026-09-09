@@ -1,20 +1,3 @@
-// SPDX-FileCopyrightText: 2020-2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2020-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Saphire Lattice <lattice@saphi.re>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022, 2024 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -55,7 +38,8 @@ namespace Content.Server.Database
             IConfigurationManager cfg,
             bool synchronous,
             ISawmill opsLog,
-            ISerializationManager serialization)
+            ISerializationManager serialization,
+            bool snapshot)
             : base(opsLog, serialization)
         {
             _options = options;
@@ -68,7 +52,12 @@ namespace Content.Server.Database
 
             if (synchronous)
             {
-                prefsCtx.Database.Migrate();
+                // EnsureCreated means you can't apply migrations later, fine for tests
+                if (snapshot)
+                    prefsCtx.Database.EnsureCreated();
+                else
+                    prefsCtx.Database.Migrate();
+
                 _dbReadyTask = Task.CompletedTask;
                 prefsCtx.Dispose();
             }

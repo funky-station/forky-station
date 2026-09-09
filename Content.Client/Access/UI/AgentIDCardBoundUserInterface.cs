@@ -1,75 +1,64 @@
-// SPDX-FileCopyrightText: 2021-2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Watermelon914 <37270891+Watermelon914@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022, 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 PrPleGoo <PrPleGoo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ty Ashley <42426760+TyAshley@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.StatusIcon;
-using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client.Access.UI
+namespace Content.Client.Access.UI;
+
+/// <summary>
+/// Initializes a <see cref="AgentIDCardWindow"/> and updates it when new server messages are received.
+/// </summary>
+public sealed class AgentIDCardBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
-    /// <summary>
-    /// Initializes a <see cref="AgentIDCardWindow"/> and updates it when new server messages are received.
-    /// </summary>
-    public sealed class AgentIDCardBoundUserInterface : BoundUserInterface
+    private AgentIDCardWindow? _window;
+
+    protected override void Open()
     {
-        private AgentIDCardWindow? _window;
+        base.Open();
 
-        public AgentIDCardBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
-        {
-        }
+        if (!EntMan.TryGetComponent(Owner, out AgentIDCardComponent? agent))
+            return;
 
-        protected override void Open()
-        {
-            base.Open();
+        _window = this.CreateWindow<AgentIDCardWindow>();
 
-            _window = this.CreateWindow<AgentIDCardWindow>();
+        _window.OnNameChanged += OnNameChanged;
+        _window.OnJobChanged += OnJobChanged;
+        _window.OnJobIconChanged += OnJobIconChanged;
 
-            _window.OnNameChanged += OnNameChanged;
-            _window.OnJobChanged += OnJobChanged;
-            _window.OnJobIconChanged += OnJobIconChanged;
-        }
+        ProtoId<JobIconPrototype> currentIcon = default;
+        if (EntMan.TryGetComponent<IdCardComponent>(Owner, out var card))
+            currentIcon = card.JobIcon;
 
-        private void OnNameChanged(string newName)
-        {
-            SendMessage(new AgentIDCardNameChangedMessage(newName));
-        }
+        _window.SetAllowedIcons(agent.IconGroups, currentIcon);
+        Update();
+    }
 
-        private void OnJobChanged(string newJob)
-        {
-            SendMessage(new AgentIDCardJobChangedMessage(newJob));
-        }
+    public override void Update()
+    {
+        base.Update();
 
-        public void OnJobIconChanged(ProtoId<JobIconPrototype> newJobIconId)
-        {
-            SendMessage(new AgentIDCardJobIconChangedMessage(newJobIconId));
-        }
+        if (_window == null)
+            return;
 
-        /// <summary>
-        /// Update the UI state based on server-sent info
-        /// </summary>
-        /// <param name="state"></param>
-        protected override void UpdateState(BoundUserInterfaceState state)
-        {
-            base.UpdateState(state);
-            if (_window == null || state is not AgentIDCardBoundUserInterfaceState cast)
-                return;
+        if (!EntMan.TryGetComponent<IdCardComponent>(Owner, out var card))
+            return;
 
-            _window.SetCurrentName(cast.CurrentName);
-            _window.SetCurrentJob(cast.CurrentJob);
-            _window.SetAllowedIcons(cast.CurrentJobIconId);
-        }
+        _window.Update(card);
+    }
+
+    private void OnNameChanged(string newName)
+    {
+        SendPredictedMessage(new AgentIDCardNameChangedMessage(newName));
+    }
+
+    private void OnJobChanged(string newJob)
+    {
+        SendPredictedMessage(new AgentIDCardJobChangedMessage(newJob));
+    }
+
+    private void OnJobIconChanged(ProtoId<JobIconPrototype> newJobIconId)
+    {
+        SendPredictedMessage(new AgentIDCardJobIconChangedMessage(newJobIconId));
     }
 }

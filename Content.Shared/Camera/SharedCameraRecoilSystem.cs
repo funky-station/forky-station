@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022, 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
@@ -17,7 +8,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Camera;
 
 [UsedImplicitly]
-public abstract class SharedCameraRecoilSystem : EntitySystem
+public abstract partial class SharedCameraRecoilSystem : EntitySystem
 {
     /// <summary>
     ///     Maximum rate of magnitude restore towards 0 kick.
@@ -39,8 +30,8 @@ public abstract class SharedCameraRecoilSystem : EntitySystem
     /// </summary>
     protected const float KickMagnitudeMax = 1f;
 
-    [Dependency] private readonly SharedContentEyeSystem _eye = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private SharedContentEyeSystem _eye = default!;
+    [Dependency] private INetManager _net = default!;
 
     public override void Initialize()
     {

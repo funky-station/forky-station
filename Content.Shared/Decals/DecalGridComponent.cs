@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Generic;
@@ -18,9 +7,13 @@ using static Content.Shared.Decals.DecalGridComponent;
 
 namespace Content.Shared.Decals
 {
+    /// <summary>
+    /// Legacy load-only decal storage. Loaded data is migrated to <see cref="DecalChunkComponent"/> chunk entities.
+    /// </summary>
     [RegisterComponent]
     [Access(typeof(SharedDecalSystem))]
     [NetworkedComponent]
+    [Obsolete("DecalGridComponent is load-only. Use DecalChunkComponent on chunk entities instead.")]
     public sealed partial class DecalGridComponent : Component
     {
         [Access(Other = AccessPermissions.ReadExecute)]
@@ -30,7 +23,7 @@ namespace Content.Shared.Decals
         /// <summary>
         ///     Dictionary mapping decals to their corresponding grid chunks.
         /// </summary>
-        public readonly Dictionary<uint, Vector2i> DecalIndex = new();
+        public readonly Dictionary<ushort, Vector2i> DecalIndex = new();
 
         /// <summary>
         ///     Tick at which PVS was last toggled. Ensures that all players receive a full update when toggling PVS.
@@ -41,8 +34,8 @@ namespace Content.Shared.Decals
         [Serializable, NetSerializable]
         public sealed partial class DecalChunk
         {
-            [IncludeDataField(customTypeSerializer:typeof(DictionarySerializer<uint, Decal>))]
-            public Dictionary<uint, Decal> Decals;
+            [IncludeDataField(customTypeSerializer:typeof(DictionarySerializer<ushort, Decal>))]
+            public Dictionary<ushort, Decal> Decals;
 
             [NonSerialized]
             public GameTick LastModified;
@@ -52,7 +45,7 @@ namespace Content.Shared.Decals
                 Decals = new();
             }
 
-            public DecalChunk(Dictionary<uint, Decal> decals)
+            public DecalChunk(Dictionary<ushort, Decal> decals)
             {
                 Decals = decals;
             }
@@ -68,7 +61,7 @@ namespace Content.Shared.Decals
         [DataRecord, Serializable, NetSerializable]
         public partial record DecalGridChunkCollection(Dictionary<Vector2i, DecalChunk> ChunkCollection)
         {
-            public uint NextDecalId;
+            public ushort NextDecalId;
         }
     }
 

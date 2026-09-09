@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pok <113675512+Pok27@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration.Systems;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -25,19 +20,13 @@ public sealed partial class SuperBonkComponent : Component
     /// How often should we bonk.
     /// </summary>
     [DataField]
-    public TimeSpan BonkCooldown = TimeSpan.FromMilliseconds(100);
+    public TimeSpan BonkCooldown = TimeSpan.FromMilliseconds(1500);
 
     /// <summary>
     /// Next time when we will bonk.
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan NextBonk = TimeSpan.Zero;
-
-    /// <summary>
-    /// Whether to remove the clumsy component from the target after SuperBonk is done.
-    /// </summary>
-    [DataField]
-    public bool RemoveClumsy = true;
 
     /// <summary>
     /// Whether to stop Super Bonk on the target once he dies. Otherwise it will continue until no other tables are left

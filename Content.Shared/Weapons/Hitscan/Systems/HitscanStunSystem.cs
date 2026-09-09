@@ -1,15 +1,12 @@
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Damage.Systems;
 using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Hitscan.Events;
 
 namespace Content.Shared.Weapons.Hitscan.Systems;
 
-public sealed class HitscanStunSystem : EntitySystem
+public sealed partial class HitscanStunSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
+    [Dependency] private SharedStaminaSystem _stamina = default!;
 
     public override void Initialize()
     {

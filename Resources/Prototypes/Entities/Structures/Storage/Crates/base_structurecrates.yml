@@ -1,49 +1,7 @@
-# SPDX-FileCopyrightText: 2019-2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2019 L.E.D <10257081+unusualcrow@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2019 Ephememory <yetanotherscuffed@gmail.com>
-# SPDX-FileCopyrightText: 2019 Acruid <shatter66@gmail.com>
-# SPDX-FileCopyrightText: 2020, 2022 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2020-2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 py01 <60152240+collinlunn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021-2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021-2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2021 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2022 Jane Lewis <inquisitivepenguin@protonmail.com>
-# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 iacore <74560659+iacore@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2025 Hitlinemoss <209321380+Hitlinemoss@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Whatstone <166147148+whatston3@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft <ignaz.k@live.de>
-# SPDX-License-Identifier: MIT
-
 - type: entity
+  abstract: true
   parent: [ BaseStructureDynamic, BasePaperLabelableVisualized ]
-  id: CrateGeneric
-  categories: [ HideSpawnMenu ]
+  id: BaseCrate
   name: crate
   description: A large container for items.
   components:
@@ -51,11 +9,11 @@
   - type: Transform
     noRot: true
   - type: Icon
-    sprite: Structures/Storage/Crates/generic.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/generic.rsi # Funky
     state: icon
   - type: Sprite
     noRot: true
-    sprite: Structures/Storage/Crates/generic.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/generic.rsi # Funky
     layers:
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
@@ -65,7 +23,7 @@
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Funkystation/Structures/Storage/Crates/labels.rsi # Funky
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: InteractionOutline
   - type: Physics
@@ -83,20 +41,6 @@
   - type: EntityStorage
   - type: PlaceableSurface
     isPlaceable: false # defaults to closed.
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
   - type: EntityStorageVisuals
     stateDoorOpen: open
     stateDoorClosed: closed
@@ -106,12 +50,29 @@
       paper_label: !type:ContainerSlot
   - type: StaticPrice
     price: 75
+  - type: RequireProjectileTarget
+
+- type: entity
+  parent: [ BaseCrate, StructureHealthContainerWeak ]
+  id: CrateGeneric
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Damageable
+    damageModifierSet: SteelMod
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
   - type: Construction
     graph: CrateGenericSteel
     node: crategenericsteel
     containers:
-      - entity_storage
-  - type: RequireProjectileTarget
+    - entity_storage
 
 - type: entity
   parent: CrateGeneric
@@ -130,10 +91,10 @@
   - type: LockVisuals
   - type: AccessReader
   - type: Icon
-    sprite: Structures/Storage/Crates/secure.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/secure.rsi # Funky
     state: icon
   - type: Sprite
-    sprite: Structures/Storage/Crates/secure.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/secure.rsi # Funky
     layers:
     - state: base
     - state: closed
@@ -145,23 +106,11 @@
       map: ["enum.LockVisualLayers.Lock"]
       shader: unshaded
     - state: paper
-      sprite: Structures/Storage/Crates/labels.rsi
+      sprite: _Funkystation/Structures/Storage/Crates/labels.rsi # Funky
       offset: "-0.5,0"
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 75
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
+    damageModifierSet: PlasteelMod
   - type: Construction
     graph: CrateSecure
     node: cratesecure
@@ -174,3 +123,5 @@
     spread: 90
   - type: Paintable
     group: CrateSecure
+  - type: StaticPrice
+    price: 300

@@ -1,13 +1,5 @@
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+#nullable enable
+using Content.IntegrationTests.Fixtures;
 using Content.Server.Stack;
 using Content.Shared.Stacks;
 using Content.Shared.Materials;
@@ -23,12 +15,12 @@ namespace Content.IntegrationTests.Tests.Materials
     [TestFixture]
     [TestOf(typeof(StackSystem))]
     [TestOf(typeof(MaterialPrototype))]
-    public sealed class MaterialPrototypeSpawnsStackMaterialTest
+    public sealed class MaterialPrototypeSpawnsStackMaterialTest : GameTest
     {
         [Test]
         public async Task MaterialPrototypeSpawnsStackMaterial()
         {
-            await using var pair = await PoolManager.GetServerClient();
+            var pair = Pair;
             var server = pair.Server;
             await server.WaitIdleAsync();
 
@@ -69,8 +61,6 @@ namespace Content.IntegrationTests.Tests.Materials
 
                 mapSystem.DeleteMap(testMap.MapId);
             });
-
-            await pair.CleanReturnAsync();
         }
     }
 }

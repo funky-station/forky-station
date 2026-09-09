@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
-// SPDX-License-Identifier: MIT
-
 namespace Content.Shared._FarHorizons.Materials.Systems;
 
 public sealed class MaterialSystem

@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.UserInterface;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Popups;
@@ -13,10 +5,10 @@ using Robust.Shared.Collections;
 
 namespace Content.Shared.Eye.Blinding.Systems;
 
-public sealed class ActivatableUIRequiresVisionSystem : EntitySystem
+public sealed partial class ActivatableUIRequiresVisionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _userInterfaceSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedUserInterfaceSystem _userInterfaceSystem = default!;
 
     public override void Initialize()
     {
@@ -33,7 +25,7 @@ public sealed class ActivatableUIRequiresVisionSystem : EntitySystem
         if (TryComp<BlindableComponent>(args.User, out var blindable) && blindable.IsBlind)
         {
             if (!args.Silent)
-                _popupSystem.PopupClient(Loc.GetString("blindness-fail-attempt"), args.User, Shared.Popups.PopupType.MediumCaution);
+                _popupSystem.PopupEntity(Loc.GetString("blindness-fail-attempt"), args.User, args.User, PopupType.MediumCaution);
             args.Cancel();
         }
     }

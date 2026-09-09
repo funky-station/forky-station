@@ -1,24 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Francesco <frafonia@gmail.com>
-// SPDX-FileCopyrightText: 2022 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 Jack Fox <35575261+DubiousDoggo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.Materials;
 using Content.Shared.Conveyor;
@@ -34,13 +13,13 @@ using Robust.Shared.Physics.Systems;
 
 namespace Content.Server.Physics.Controllers;
 
-public sealed class ConveyorController : SharedConveyorController
+public sealed partial class ConveyorController : SharedConveyorController
 {
-    [Dependency] private readonly FixtureSystem _fixtures = default!;
-    [Dependency] private readonly DeviceLinkSystem _signalSystem = default!;
-    [Dependency] private readonly MaterialReclaimerSystem _materialReclaimer = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private FixtureSystem _fixtures = default!;
+    [Dependency] private DeviceLinkSystem _signalSystem = default!;
+    [Dependency] private MaterialReclaimerSystem _materialReclaimer = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private TurfSystem _turf = default!;
 
     public override void Initialize()
     {

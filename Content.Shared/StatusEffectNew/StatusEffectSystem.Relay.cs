@@ -1,21 +1,31 @@
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2025 Red <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+using Content.Shared._ES.Viewcone.Components;
 using Content.Shared.Body.Events;
+using Content.Shared.Atmos;
+using Content.Shared.Chat;
+using Content.Shared.Chemistry.Events;
+using Content.Shared.Climbing.Events;
 using Content.Shared.Damage.Events;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Examine;
+using Content.Shared.Eye.Blinding.Systems;
+using Content.Shared.Flash;
+using Content.Shared.Medical;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Events;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Speech;
+using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Stunnable;
+using Content.Shared.Throwing;
+using Content.Shared.Weapons.Ranged.Events;
+using Robust.Shared.Collections;
 using Robust.Shared.Player;
+// ES START
+using Content.Shared.Weapons.Melee.Events;
+// ES END
 
 namespace Content.Shared.StatusEffectNew;
 
@@ -28,7 +38,11 @@ public sealed partial class StatusEffectsSystem
         SubscribeLocalEvent<StatusEffectContainerComponent, RejuvenateEvent>(RelayStatusEffectEvent);
 
         SubscribeLocalEvent<StatusEffectContainerComponent, RefreshMovementSpeedModifiersEvent>(RelayStatusEffectEvent);
+        SubscribeLocalEvent<StatusEffectContainerComponent, ModifySlowOnDamageSpeedEvent>(RefRelayStatusEffectEvent);
         SubscribeLocalEvent<StatusEffectContainerComponent, UpdateCanMoveEvent>(RelayStatusEffectEvent);
+
+        // By Ref Events
+        SubscribeLocalEvent<StatusEffectContainerComponent, MobStateChangedEvent>(RefRelayStatusEffectEvent);
 
         SubscribeLocalEvent<StatusEffectContainerComponent, RefreshFrictionModifiersEvent>(RefRelayStatusEffectEvent);
         SubscribeLocalEvent<StatusEffectContainerComponent, TileFrictionEvent>(RefRelayStatusEffectEvent);
@@ -36,13 +50,31 @@ public sealed partial class StatusEffectsSystem
         SubscribeLocalEvent<StatusEffectContainerComponent, StandUpAttemptEvent>(RefRelayStatusEffectEvent);
         SubscribeLocalEvent<StatusEffectContainerComponent, StunEndAttemptEvent>(RefRelayStatusEffectEvent);
         SubscribeLocalEvent<StatusEffectContainerComponent, RefreshStaminaCritThresholdEvent>(RefRelayStatusEffectEvent);
+        SubscribeLocalEvent<StatusEffectContainerComponent, CanSeeAttemptEvent>(RelayStatusEffectEvent);
+        SubscribeLocalEvent<StatusEffectContainerComponent, FlashAttemptEvent>(RefRelayStatusEffectEvent);
+        SubscribeLocalEvent<StatusEffectContainerComponent, SelfBeforeClimbEvent>(RelayStatusEffectEvent);
 
         SubscribeLocalEvent<StatusEffectContainerComponent, BeforeForceSayEvent>(RelayStatusEffectEvent);
         SubscribeLocalEvent<StatusEffectContainerComponent, BeforeAlertSeverityCheckEvent>(RelayStatusEffectEvent);
+        SubscribeLocalEvent<StatusEffectContainerComponent, SpeakAttemptEvent>(RelayStatusEffectEvent);
+        SubscribeLocalEvent<StatusEffectContainerComponent, ExaminedEvent>(RelayStatusEffectEvent);
 
-        SubscribeLocalEvent<StatusEffectContainerComponent, AccentGetEvent>(RelayStatusEffectEvent);
+        SubscribeLocalEvent<StatusEffectContainerComponent, EmoteActionEvent>(RelayStatusEffectEvent, before: new[] { typeof(VocalSystem) });
+        SubscribeLocalEvent<StatusEffectContainerComponent, AccentGetEvent>(RefRelayStatusEffectEvent);
+        SubscribeLocalEvent<StatusEffectContainerComponent, EmoteEvent>(RefRelayStatusEffectEvent, before: new[] { typeof(VocalSystem), typeof(MumbleAccentSystem) });
 
         SubscribeLocalEvent<StatusEffectContainerComponent, BleedModifierEvent>(RefRelayStatusEffectEvent);
+        SubscribeLocalEvent<StatusEffectContainerComponent, DamageModifyEvent>(RelayStatusEffectEvent);
+        SubscribeLocalEvent<StatusEffectContainerComponent, RefreshPressureImmunityEvent>(RefRelayStatusEffectEvent);
+        SubscribeLocalEvent<StatusEffectContainerComponent, SelfBeforeDefibrillatorZapsEvent>(RelayStatusEffectEvent);
+        SubscribeLocalEvent<StatusEffectContainerComponent, SelfBeforeInjectEvent>(RelayStatusEffectEvent);
+
+        SubscribeLocalEvent<StatusEffectContainerComponent, CatchAttemptEvent>(RefRelayStatusEffectEvent);
+        SubscribeLocalEvent<StatusEffectContainerComponent, SelfBeforeGunShotEvent>(RelayStatusEffectEvent);
+        // ES START
+        SubscribeLocalEvent<StatusEffectContainerComponent, GetMeleeDamageEvent>(RefRelayStatusEffectEvent);
+        SubscribeLocalEvent<StatusEffectContainerComponent, ESViewconeGetAngleModifierEvent>(RelayStatusEffectEvent);
+        // ES END
     }
 
     private void RefRelayStatusEffectEvent<T>(EntityUid uid, StatusEffectContainerComponent component, ref T args) where T : struct
@@ -57,9 +89,15 @@ public sealed partial class StatusEffectsSystem
 
     public void RelayEvent<T>(Entity<StatusEffectContainerComponent> statusEffect, ref T args) where T : struct
     {
+        if(statusEffect.Comp.ActiveStatusEffects?.ContainedEntities is not {} originalCollection || originalCollection.Count == 0)
+            return;
+
         // this copies the by-ref event if it is a struct
-        var ev = new StatusEffectRelayedEvent<T>(args);
-        foreach (var activeEffect in statusEffect.Comp.ActiveStatusEffects?.ContainedEntities ?? [])
+        var ev = new StatusEffectRelayedEvent<T>(args, statusEffect);
+
+        // Prevent a collection modified enumeration error by copying the list in case a status adds another status
+        var list = new ValueList<EntityUid>(originalCollection);
+        foreach (var activeEffect in list)
         {
             RaiseLocalEvent(activeEffect, ref ev);
         }
@@ -69,9 +107,15 @@ public sealed partial class StatusEffectsSystem
 
     public void RelayEvent<T>(Entity<StatusEffectContainerComponent> statusEffect, T args) where T : class
     {
+        if (statusEffect.Comp.ActiveStatusEffects?.ContainedEntities is not { } originalCollection || originalCollection.Count == 0)
+            return;
+
         // this copies the by-ref event if it is a struct
-        var ev = new StatusEffectRelayedEvent<T>(args);
-        foreach (var activeEffect in statusEffect.Comp.ActiveStatusEffects?.ContainedEntities ?? [])
+        var ev = new StatusEffectRelayedEvent<T>(args, statusEffect);
+
+        // Prevent a collection modified enumeration error by copying the list in case a status adds another status
+        var list = new ValueList<EntityUid>(originalCollection);
+        foreach (var activeEffect in list)
         {
             RaiseLocalEvent(activeEffect, ref ev);
         }
@@ -82,4 +126,4 @@ public sealed partial class StatusEffectsSystem
 /// Event wrapper for relayed events.
 /// </summary>
 [ByRefEvent]
-public record struct StatusEffectRelayedEvent<TEvent>(TEvent Args);
+public record struct StatusEffectRelayedEvent<TEvent>(TEvent Args, EntityUid AppliedTo);

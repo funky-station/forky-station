@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Doors.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -22,13 +16,13 @@ public sealed partial class DoorBoltComponent : Component
     /// Sound to play when the bolts on the airlock go up.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public SoundSpecifier BoltUpSound = new SoundPathSpecifier("/Audio/Machines/boltsup.ogg");
+    public SoundSpecifier BoltUpSound = new SoundPathSpecifier("/Audio/_Funkystation/Machines/boltsup.ogg"); // funky
 
     /// <summary>
     /// Sound to play when the bolts on the airlock go down.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public SoundSpecifier BoltDownSound = new SoundPathSpecifier("/Audio/Machines/boltsdown.ogg");
+    public SoundSpecifier BoltDownSound = new SoundPathSpecifier("/Audio/_Funkystation/Machines/boltsdown.ogg"); // funky
 
     /// <summary>
     /// Whether the door bolts are currently deployed.

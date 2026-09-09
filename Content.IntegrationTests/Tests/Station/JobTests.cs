@@ -1,17 +1,14 @@
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.IntegrationTests.Fixtures;
 
 namespace Content.IntegrationTests.Tests.Station;
 
 [TestFixture]
 [TestOf(typeof(SharedJobSystem))]
-public sealed class JobTest
+public sealed class JobTest : GameTest
 {
     /// <summary>
     /// Ensures that every job belongs to at most 1 primary department.
@@ -20,7 +17,7 @@ public sealed class JobTest
     [Test]
     public async Task PrimaryDepartmentsTest()
     {
-        await using var pair = await PoolManager.GetServerClient();
+        var pair = Pair;
         var server = pair.Server;
 
         var prototypeManager = server.ResolveDependency<IPrototypeManager>();
@@ -47,6 +44,5 @@ public sealed class JobTest
                 }
             }
         });
-        await pair.CleanReturnAsync();
     }
 }

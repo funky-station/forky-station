@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 sleepyyapril <123355664+sleepyyapril@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Projectiles;
 using Content.Shared.Trigger.Components.Triggers;
 
@@ -9,7 +6,7 @@ namespace Content.Shared.Trigger.Systems;
 /// <summary>
 /// This handles <see cref="TriggerOnEmbedComponent"/> subscriptions.
 /// </summary>
-public sealed class TriggerOnEmbedSystem : TriggerOnXSystem
+public sealed partial class TriggerOnEmbedSystem : TriggerOnXSystem
 {
     /// <inheritdoc/>
     public override void Initialize()

@@ -1,13 +1,5 @@
-// SPDX-FileCopyrightText: 2023, 2025 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 chavonadelal <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Weather;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Salvage.Expeditions.Modifiers;
 
@@ -19,7 +11,7 @@ public sealed partial class SalvageWeatherMod : IPrototype, IBiomeSpecificMod
     [DataField("desc")] public LocId Description { get; private set; } = string.Empty;
 
     /// <inheritdoc/>
-    [DataField("cost")]
+    [DataField]
     public float Cost { get; private set; } = 0f;
 
     /// <inheritdoc/>
@@ -27,8 +19,8 @@ public sealed partial class SalvageWeatherMod : IPrototype, IBiomeSpecificMod
     public List<ProtoId<SalvageBiomeModPrototype>>? Biomes { get; private set; } = null;
 
     /// <summary>
-    /// Weather prototype to use on the planet.
+    /// Weather status effect prototype to use on the planet.
     /// </summary>
-    [DataField("weather", required: true, customTypeSerializer:typeof(PrototypeIdSerializer<WeatherPrototype>))]
-    public string WeatherPrototype = string.Empty;
+    [DataField("weather", required: true)]
+    public EntProtoId<WeatherStatusEffectComponent> WeatherPrototype = string.Empty;
 }

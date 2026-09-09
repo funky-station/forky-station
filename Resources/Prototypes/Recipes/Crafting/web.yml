@@ -1,84 +1,52 @@
-# SPDX-FileCopyrightText: 2023 Kilk <142771861+TheKilk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Ertanic <36124833+Ertanic@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
+# region Base
 - type: construction
-  id: TileWeb
+  abstract: true
+  id: BaseWebObject
   graph: WebObjects
-  startNode: start
+  category: construction-category-clothing
+  entityWhitelist:
+    tags:
+    - SpiderCraft
+  objectType: Item
+# endregion Base
+
+# region Web Objects
+- type: construction
+  parent: BaseWebObject
+  id: TileWeb
   targetNode: tile
   category: construction-category-tiles
-  entityWhitelist:
-    tags:
-    - SpiderCraft
-  objectType: Item
 
 - type: construction
+  parent: BaseWebObject
   id: ClothingOuterWinterWeb
-  graph: WebObjects
-  startNode: start
   targetNode: coat
-  category: construction-category-clothing
-  entityWhitelist:
-    tags:
-    - SpiderCraft
-  objectType: Item
 
 - type: construction
+  parent: BaseWebObject
   id: ClothingUniformJumpsuitWeb
-  graph: WebObjects
-  startNode: start
   targetNode: jumpsuit
-  category: construction-category-clothing
-  entityWhitelist:
-    tags:
-    - SpiderCraft
-  objectType: Item
 
 - type: construction
+  parent: BaseWebObject
   id: ClothingUniformJumpskirtWeb
-  graph: WebObjects
-  startNode: start
   targetNode: jumpskirt
-  category: construction-category-clothing
-  entityWhitelist:
-    tags:
-    - SpiderCraft
-  objectType: Item
 
 - type: construction
+  parent: BaseWebObject
   id: SilkWovenCloth
   name: construction-recipe-silk-woven-cloth
-  graph: WebObjects
-  startNode: start
   targetNode: cloth
   category: construction-category-materials
-  entityWhitelist:
-    tags:
-    - SpiderCraft
-  objectType: Item
 
 - type: construction
+  parent: BaseWebObject
   id: WebShield
-  graph: WebObjects
-  startNode: start
   targetNode: shield
-  category: construction-category-clothing
-  entityWhitelist:
-    tags:
-    - SpiderCraft
-  objectType: Item
+  category: construction-category-weapons
 
 - type: construction
+  parent: BaseWebObject
   id: ClothingShoesBootsWinterWeb
-  graph: WebObjects
-  startNode: start
   targetNode: boots
-  category: construction-category-clothing
-  entityWhitelist:
-    tags:
-    - SpiderCraft
-  objectType: Item
+# endregion Web Objects

@@ -1,32 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 sBasalto <109002990+sBasalto@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vyacheslav Titov <rincew1nd@ya.ru>
-// SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024-2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Wrexbe (Josh) <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Brandon Hu <103440971+Brandon-Huu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Rainfey <rainfey0+github@gmail.com>
-// SPDX-FileCopyrightText: 2024 ArchPigeon <bookmaster3@gmail.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Samuka <47865393+Samuka-C@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Antag;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking.Rules.Components;
@@ -47,22 +18,24 @@ using Content.Shared.Zombies;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using System.Globalization;
+using System.Linq;
 
 namespace Content.Server.GameTicking.Rules;
 
-public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
+public sealed partial class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
 {
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
-    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly ZombieSystem _zombie = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private RoundEndSystem _roundEnd = default!;
+    [Dependency] private SharedMindSystem _mindSystem = default!;
+    [Dependency] private SharedRoleSystem _roles = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private ZombieSystem _zombie = default!;
+    [Dependency] private EntityQuery<ZombieComponent> _zombieQuery = default!;
 
     public override void Initialize()
     {
@@ -105,7 +78,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
         else
             args.AddLine(Loc.GetString("zombie-round-end-amount-all"));
 
-        var antags = _antag.GetAntagIdentifiers(uid);
+        var antags = _antag.GetAntagIdentifiers(uid).ToList();
         args.AddLine(Loc.GetString("zombie-round-end-initial-count", ("initialCount", antags.Count)));
         foreach (var (_, data, entName) in antags)
         {
@@ -226,13 +199,12 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
         }
 
         var players = AllEntityQuery<HumanoidProfileComponent, ActorComponent, MobStateComponent, TransformComponent>();
-        var zombers = GetEntityQuery<ZombieComponent>();
         while (players.MoveNext(out var uid, out _, out _, out var mob, out var xform))
         {
             if (!_mobState.IsAlive(uid, mob))
                 continue;
 
-            if (zombers.HasComponent(uid))
+            if (_zombieQuery.HasComponent(uid))
                 continue;
 
             if (!includeOffStation && !stationGrids.Contains(xform.GridUid ?? EntityUid.Invalid))

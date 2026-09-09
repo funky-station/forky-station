@@ -1,22 +1,8 @@
-// SPDX-FileCopyrightText: 2022-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 godisdeadLOL <169250097+godisdeadLOL@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025-2026 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Kowlin <10947836+Kowlin@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 Samuka <47865393+Samuka-C@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration.Logs;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Shared.Database;
 using Content.Shared.DeviceNetwork;
+using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Power;
 using Content.Shared.SurveillanceCamera;
@@ -24,19 +10,17 @@ using Content.Shared.SurveillanceCamera.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Content.Shared.DeviceNetwork.Components;
 
 namespace Content.Server.SurveillanceCamera;
 
-public sealed class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
+public sealed partial class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly ViewSubscriberSystem _viewSubscriberSystem = default!;
-    [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
-    [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SurveillanceCameraMapSystem _cameraMapSystem = default!;
+    [Dependency] private ViewSubscriberSystem _viewSubscriberSystem = default!;
+    [Dependency] private DeviceNetworkSystem _deviceNetworkSystem = default!;
+    [Dependency] private UserInterfaceSystem _userInterface = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private SurveillanceCameraMapSystem _cameraMapSystem = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     // Pings a surveillance camera subnet. All cameras will always respond
     // with a data message if they are on the same subnet.
@@ -76,6 +60,8 @@ public sealed class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
         SubscribeLocalEvent<SurveillanceCameraComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
         SubscribeLocalEvent<SurveillanceCameraComponent, SurveillanceCameraSetupSetName>(OnSetName);
         SubscribeLocalEvent<SurveillanceCameraComponent, SurveillanceCameraSetupSetNetwork>(OnSetNetwork);
+
+        InitializeCollide();
     }
 
     private void OnPacketReceived(EntityUid uid, SurveillanceCameraComponent component, DeviceNetworkPacketEvent args)
@@ -97,7 +83,7 @@ public sealed class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
                 { DeviceNetworkConstants.Command, string.Empty },
                 { CameraAddressData, deviceNet.Address },
                 { CameraNameData, component.UseEntityNameAsCameraId ? MetaData(uid).EntityName : component.CameraId },
-                { CameraSubnetData, string.Empty }
+                { CameraSubnetData, null }
             };
 
             var dest = string.Empty;
@@ -123,7 +109,7 @@ public sealed class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
                     payload[DeviceNetworkConstants.Command] = CameraHeartbeatMessage;
                     break;
                 case CameraPingMessage:
-                    if (!args.Data.TryGetValue(CameraSubnetData, out string? subnet))
+                    if (!args.Data.TryGetValue(CameraSubnetData, out ProtoId<DeviceFrequencyPrototype>? subnet))
                     {
                         return;
                     }
@@ -181,7 +167,7 @@ public sealed class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
             return;
         }
 
-        if (!_prototypeManager.Resolve<DeviceFrequencyPrototype>(component.AvailableNetworks[args.Network],
+        if (!ProtoMan.Resolve<DeviceFrequencyPrototype>(component.AvailableNetworks[args.Network],
                 out var frequency))
         {
             return;
@@ -219,9 +205,9 @@ public sealed class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
 
         if (camera.AvailableNetworks.Count == 0)
         {
-            if (deviceNet.ReceiveFrequencyId != null)
+            if (deviceNet.ReceiveFrequencyId is { } recvFreq)
             {
-                camera.AvailableNetworks.Add(deviceNet.ReceiveFrequencyId);
+                camera.AvailableNetworks.Add(recvFreq);
             }
             else if (!camera.NetworkSet)
             {
@@ -247,7 +233,7 @@ public sealed class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
 
         var ev = new SurveillanceCameraDeactivateEvent(camera);
 
-        RemoveActiveViewers(camera, new(component.ActiveViewers), null, component);
+        RemoveActiveViewers(camera, new(component.ActivePvsViewers), null, component);
         component.Active = false;
 
         // Send a targetted event to all monitors.
@@ -262,6 +248,25 @@ public sealed class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
         RaiseLocalEvent(ev);
 
         UpdateVisuals(camera, component);
+    }
+
+    /// <summary>
+    /// Checks whether the camera is being viewed through by anyone at all.
+    /// </summary>
+    /// <param name="ent">The camera to check</param>
+    /// <returns>True if the camera is looked through, otherwise False.</returns>
+    public bool IsGettingViewed(Entity<SurveillanceCameraComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return false;
+
+        if (ent.Comp.ActivePvsViewers.Count > 0 || ent.Comp.ActiveMonitors.Count > 0)
+            return true;
+
+        var ev = new SurveillanceCameraGetIsViewedExternallyEvent();
+        RaiseLocalEvent(ent, ref ev);
+
+        return ev.Viewed;
     }
 
     public override void SetActive(EntityUid camera, bool setting, SurveillanceCameraComponent? component = null)
@@ -299,7 +304,8 @@ public sealed class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
         }
 
         _viewSubscriberSystem.AddViewSubscriber(camera, actor.PlayerSession);
-        component.ActiveViewers.Add(player);
+
+        component.ActivePvsViewers.Add(player);
 
         if (monitor != null)
         {
@@ -361,7 +367,7 @@ public sealed class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
         if (Resolve(player, ref actor))
             _viewSubscriberSystem.RemoveViewSubscriber(camera, actor.PlayerSession);
 
-        component.ActiveViewers.Remove(player);
+        component.ActivePvsViewers.Remove(player);
 
         if (monitor != null)
         {
@@ -406,7 +412,7 @@ public sealed class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
             key = SurveillanceCameraVisuals.Active;
         }
 
-        if (component.ActiveViewers.Count > 0 || component.ActiveMonitors.Count > 0)
+        if (IsGettingViewed((uid, component)))
         {
             key = SurveillanceCameraVisuals.InUse;
         }

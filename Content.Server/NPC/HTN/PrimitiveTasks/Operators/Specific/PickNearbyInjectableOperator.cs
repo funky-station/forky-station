@@ -1,31 +1,24 @@
-// SPDX-FileCopyrightText: 2022-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Arendian <137322659+Arendian@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 godisdeadLOL <169250097+godisdeadLOL@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Shared.NPC.Components;
 using Content.Server.NPC.Pathfinding;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Silicons.Bots;
 using Content.Shared.Emag.Components;
+using Content.Shared.FixedPoint;
 
 namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 
 public sealed partial class PickNearbyInjectableOperator : HTNOperator
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
     private MedibotSystem _medibot = default!;
     private PathfindingSystem _pathfinding = default!;
+    private DamageableSystem _damageable = default!;
 
     private EntityQuery<DamageableComponent> _damageQuery = default!;
     private EntityQuery<InjectableSolutionComponent> _injectQuery = default!;
@@ -52,6 +45,7 @@ public sealed partial class PickNearbyInjectableOperator : HTNOperator
         base.Initialize(sysManager);
         _medibot = sysManager.GetEntitySystem<MedibotSystem>();
         _pathfinding = sysManager.GetEntitySystem<PathfindingSystem>();
+        _damageable = sysManager.GetEntitySystem<DamageableSystem>();
 
         _damageQuery = _entManager.GetEntityQuery<DamageableComponent>();
         _injectQuery = _entManager.GetEntityQuery<InjectableSolutionComponent>();
@@ -89,7 +83,7 @@ public sealed partial class PickNearbyInjectableOperator : HTNOperator
                 // Only go towards a target if the bot can actually help them or if the medibot is emagged
                 // note: this and the actual injecting don't check for specific damage types so for example,
                 // radiation damage will trigger injection but the tricordrazine won't heal it.
-                if (!_emaggedQuery.HasComponent(entity) && !treatment.IsValid(damage.TotalDamage))
+                if (!_emaggedQuery.HasComponent(entity) && _damageable.GetTotalDamage((entity, damage)) == FixedPoint2.Zero)
                     continue;
 
                 //Needed to make sure it doesn't sometimes stop right outside it's interaction range

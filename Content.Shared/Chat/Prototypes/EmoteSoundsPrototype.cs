@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2024 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
@@ -21,6 +13,12 @@ public sealed partial class EmoteSoundsPrototype : IPrototype, IInheritingProtot
 {
     [IdDataField]
     public string ID { get; private set; } = default!;
+
+    /// <summary>
+    /// The name used for the Voice selector in the character editor UI.
+    /// </summary>
+    [DataField]
+    public LocId VoiceSelectorName { get; private set; } = "humanoid-profile-editor-voice-none";
 
     /// <inheritdoc/>
     [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<EmoteSoundsPrototype>))]

@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
@@ -14,14 +10,12 @@ namespace Content.Shared.Xenoarchaeology.Artifact;
 
 public abstract partial class SharedXenoArtifactSystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
-    private EntityQuery<XenoArtifactUnlockingComponent> _unlockingQuery;
+    [Dependency] private EntityQuery<XenoArtifactUnlockingComponent> _unlockingQuery = default!;
 
     private void InitializeUnlock()
     {
-        _unlockingQuery = GetEntityQuery<XenoArtifactUnlockingComponent>();
-
         SubscribeLocalEvent<XenoArtifactUnlockingComponent, MapInitEvent>(OnUnlockingStarted);
     }
 
@@ -71,7 +65,7 @@ public abstract partial class SharedXenoArtifactSystem
     /// </summary>
     public void FinishUnlockingState(Entity<XenoArtifactUnlockingComponent, XenoArtifactComponent> ent)
     {
-        string unlockAttemptResultMsg;
+        string? unlockAttemptResultMsg;
         XenoArtifactComponent artifactComponent = ent;
         XenoArtifactUnlockingComponent unlockingComponent = ent;
 
@@ -80,7 +74,7 @@ public abstract partial class SharedXenoArtifactSystem
         {
             SetNodeUnlocked((ent, artifactComponent), node.Value);
             ActivateNode((ent, ent), (node.Value, node.Value), null, null, Transform(ent).Coordinates, false);
-            unlockAttemptResultMsg = "artifact-unlock-state-end-success";
+            unlockAttemptResultMsg = artifactComponent.UnlockSuccessMsg;
 
             // as an experiment - unlocking node doesn't activate it, activation is left for player to decide.
             // var activated = ActivateNode((ent, artifactComponent), node.Value, null, null, Transform(ent).Coordinates, false);
@@ -89,13 +83,15 @@ public abstract partial class SharedXenoArtifactSystem
         }
         else
         {
-            unlockAttemptResultMsg = "artifact-unlock-state-end-failure";
+            unlockAttemptResultMsg = artifactComponent.UnlockFailureMsg;
             soundEffect = unlockingComponent.UnlockActivationFailedSound;
         }
 
         if (_net.IsServer)
         {
-            _popup.PopupEntity(Loc.GetString(unlockAttemptResultMsg), ent);
+            if (unlockAttemptResultMsg != null)
+                _popup.PopupEntity(Loc.GetString(unlockAttemptResultMsg), ent);
+
             _audio.PlayPvs(soundEffect, ent.Owner);
         }
 

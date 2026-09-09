@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Token <56667933+TokenStyle@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Crude Oil <124208219+CroilBird@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Animals.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;

@@ -1,29 +1,17 @@
-// SPDX-FileCopyrightText: 2023 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Damage.Systems;
-
-namespace Content.Server.Chat.Systems;
-
 using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
-using Content.Shared.Damage;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-public sealed class EmoteOnDamageSystem : EntitySystem
+namespace Content.Server.Chat.Systems;
+
+public sealed partial class EmoteOnDamageSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ChatSystem _chatSystem = default!;
 
     public override void Initialize()
     {
@@ -68,7 +56,7 @@ public sealed class EmoteOnDamageSystem : EntitySystem
             return false;
 
         DebugTools.Assert(emoteOnDamage.LifeStage <= ComponentLifeStage.Running);
-        DebugTools.Assert(_prototypeManager.HasIndex<EmotePrototype>(emotePrototypeId), "Prototype not found. Did you make a typo?");
+        DebugTools.Assert(ProtoMan.HasIndex<EmotePrototype>(emotePrototypeId), "Prototype not found. Did you make a typo?");
 
         return emoteOnDamage.Emotes.Add(emotePrototypeId);
     }
@@ -81,7 +69,7 @@ public sealed class EmoteOnDamageSystem : EntitySystem
         if (!Resolve(uid, ref emoteOnDamage, logMissing: false))
             return false;
 
-        DebugTools.Assert(_prototypeManager.HasIndex<EmotePrototype>(emotePrototypeId), "Prototype not found. Did you make a typo?");
+        DebugTools.Assert(ProtoMan.HasIndex<EmotePrototype>(emotePrototypeId), "Prototype not found. Did you make a typo?");
 
         if (!emoteOnDamage.Emotes.Remove(emotePrototypeId))
             return false;

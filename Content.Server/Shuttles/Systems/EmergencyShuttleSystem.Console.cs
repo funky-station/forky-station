@@ -1,27 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Morber <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 LittleBuilderJane <63973502+LittleBuilderJane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 avery <51971268+graevy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Winkarst-cpu <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Threading;
 using Content.Server.Screens.Components;
 using Content.Server.Shuttles.Components;
@@ -40,17 +16,18 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Timer = Robust.Shared.Timing.Timer;
+using Robust.Shared.Audio;
 
 namespace Content.Server.Shuttles.Systems;
 
 // TODO full game saves
 // Move state data into the emergency shuttle component
+
+/// <summary>
+/// Handles the emergency shuttle's console and early launching.
+/// </summary>
 public sealed partial class EmergencyShuttleSystem
 {
-    /*
-     * Handles the emergency shuttle's console and early launching.
-     */
-
     /// <summary>
     /// Has the emergency shuttle arrived?
     /// </summary>
@@ -92,6 +69,7 @@ public sealed partial class EmergencyShuttleSystem
 
     private static readonly ProtoId<AccessLevelPrototype> EmergencyRepealAllAccess = "EmergencyShuttleRepealAll";
     private static readonly Color DangerColor = Color.Red;
+    private static readonly SoundPathSpecifier AnnounceStartSound = new SoundPathSpecifier("/Audio/Misc/notice1.ogg");
 
     /// <summary>
     /// Have the emergency shuttles been authorised to launch at CentCom?
@@ -320,7 +298,7 @@ public sealed partial class EmergencyShuttleSystem
                 playSound: false, colorOverride: DangerColor);
 
         if (!CheckForLaunch(component))
-            _audio.PlayGlobal("/Audio/Misc/notice1.ogg", Filter.Broadcast(), recordReplay: true);
+            _audio.PlayGlobal(AnnounceStartSound, Filter.Broadcast(), recordReplay: true);
 
         UpdateAllEmergencyConsoles();
     }
@@ -424,7 +402,7 @@ public sealed partial class EmergencyShuttleSystem
             playSound: false,
             colorOverride: DangerColor);
 
-        _audio.PlayGlobal("/Audio/Misc/notice1.ogg", Filter.Broadcast(), recordReplay: true);
+        _audio.PlayGlobal(AnnounceStartSound, Filter.Broadcast(), recordReplay: true);
     }
 
     public bool DelayEmergencyRoundEnd()

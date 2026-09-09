@@ -1,22 +1,18 @@
-// SPDX-FileCopyrightText: 2023-2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Antag;
 using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Random;
 
 namespace Content.Server.StationEvents.Events;
 
 /// <summary>
 /// Station event component for spawning this rules antags in space around a station.
 /// </summary>
-public sealed class SpaceSpawnRule : StationEventSystem<SpaceSpawnRuleComponent>
+public sealed partial class SpaceSpawnRule : StationEventSystem<SpaceSpawnRuleComponent>
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {

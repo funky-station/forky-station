@@ -1,0 +1,221 @@
+## dresses
+
+#doctors
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformMedDress
+  name: medical dress uniform
+  description: A medical dress made of synthetic polymers. On the arms are anti-gas detection armbands, although newer uniforms no longer come with functional ones.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Dress/med.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Dress/med.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformMedDressStockings
+  name: medical dress uniform
+  description: A medical dress with stockings made of synthetic polymers with stockings. On the arms are anti-gas detection armbands, although newer uniforms no longer come with functional ones.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Dress/med-stockings.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Dress/med-stockings.rsi
+
+#chemists
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformChemDress
+  name: chemist dress uniform
+  description: A chemist dress made of synthetic polymers with an insulated rubber layer on the forearms. On the arms are anti-gas detection armbands, although newer uniforms no longer come with functional ones.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Dress/chem.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Dress/chem.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformChemDressStockings
+  name: chemist dress uniform
+  description: A chemist dress with stockings made of synthetic polymers with an insulated rubber layer on the forearms, which includes stockings. On the arms are anti-gas detection armbands, although newer uniforms no longer come with functional ones.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Dress/chem-stockings.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Dress/chem-stockings.rsi
+
+#cmo
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformCmoDress
+  name: chief medical officer's dress uniform
+  description: A medical dress made of synthetic polymers, embellished with an insulated rubber collar and pockets . On the arms are anti-gas detection armbands, although newer uniforms no longer come with functional ones.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Dress/cmo.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Dress/cmo.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformCmoDressStockings
+  name: chief medical officer's dress uniform
+  description: A medical dress made of synthetic polymers, embellished with an insulated rubber collar and pockets, which includes stockings. On the arms are anti-gas detection armbands, although newer uniforms no longer come with functional ones.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Dress/cmo-stockings.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Dress/cmo-stockings.rsi
+
+# intern
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformInternDress
+  name: medical intern dress uniform
+  description: A medical dress made of synthetic polymers, made to look like a two-piece jumper skirt. The newest uniform pattern in medical, this design no longer features even false anti-gas armbands.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Dress/intern.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Dress/intern.rsi
+## jumpsuits
+
+#doctors
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformMedJumpsuit
+  name: medical jumpsuit uniform
+  description: A medical jumpsuit made of synthetic polymers. On the arms are anti-gas detection armbands, although newer uniforms no longer come with functional ones.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Jumpsuit/med.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Jumpsuit/med.rsi
+
+#chemists
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformChemJumpsuit
+  name: chemist jumpsuit uniform
+  description: A chemist jumpsuit made of synthetic polymers with an insulated rubber layer on the forearms. On the arms are anti-gas detection armbands, although newer uniforms no longer come with functional ones.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Jumpsuit/chem.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Jumpsuit/chem.rsi
+
+#cmo
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformCmoJumpsuit
+  name: chief medical officer's jumpsuit uniform
+  description: A medical jumpsuit made of synthetic polymers, embellished with an insulated rubber collar and pockets . On the arms are anti-gas detection armbands, although newer uniforms no longer come with functional ones.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Jumpsuit/cmo.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Jumpsuit/cmo.rsi
+
+# intern
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformInternJumpsuit
+  name: medical intern jumpsuit uniform
+  description: A medical jumpsuit made of synthetic polymers, made to look like a two-piece overall. The newest uniform pattern in medical, this design no longer features even false anti-gas armbands.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Jumpsuit/intern.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Jumpsuit/intern.rsi
+
+# scrubs
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformScrubsBlack
+  name: coroner scrubs
+  description: Black, dreary scrubs worn by coroners. Smells of formaldehyde.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Scrubs/black.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Scrubs/black.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformScrubsBlackSleeveless
+  name: coroner scrubs
+  description: Black, dreary scrubs worn by coroners. Smells of formaldehyde.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Scrubs/black-sleeveless.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Scrubs/black-sleeveless.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformScrubsBlue
+  name: blue medical scrubs
+  description: Medical scrubs in generic medical colours, made of synthetic polymers. Commonly used during surgery.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Scrubs/blue.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Scrubs/blue.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformScrubsBlueSleeveless
+  name: blue medical scrubs
+  description: Medical scrubs in generic medical colours, made of synthetic polymers. Commonly used during surgery.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Scrubs/blue-sleeveless.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Scrubs/blue-sleeveless.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformScrubsPurple
+  name: purple medical scrubs
+  description: Medical scrubs made of synthetic polymers with a simple white cotton shirt underneath, commonly used during surgery.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Scrubs/purple.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Scrubs/purple.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformScrubsPurpleSleeveless
+  name: purple medical scrubs
+  description: Medical scrubs made of synthetic polymers, commonly used during surgery.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Scrubs/purple-sleeveless.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Scrubs/purple-sleeveless.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformScrubsTeal
+  name: teal medical scrubs
+  description: Medical scrubs in NanoTrasen medical colours, made of synthetic polymers. Commonly used during surgery.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Scrubs/teal.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Scrubs/teal.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformScrubsTealSleeveless
+  name: teal medical scrubs
+  description: Medical scrubs in NanoTrasen medical colours, made of synthetic polymers. Commonly used during surgery.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Scrubs/teal-sleeveless.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Medical/Scrubs/teal-sleeveless.rsi

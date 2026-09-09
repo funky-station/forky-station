@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-License-Identifier: MIT
-
 namespace Content.Shared.Chat;
 
 public static class ChatChannelExtensions
@@ -18,6 +14,7 @@ public static class ChatChannelExtensions
             ChatChannel.Admin => Color.Red,
             ChatChannel.AdminAlert => Color.Red,
             ChatChannel.AdminChat => Color.HotPink,
+            ChatChannel.MentorChat => Color.Orange, // RMC Mentor Chat Funky Port
             ChatChannel.Whisper => Color.DarkGray,
             _ => Color.LightGray
         };

@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
-// SPDX-License-Identifier: MIT
-
 using System.Data;
 using System.Threading;
 using System.Threading.Tasks;

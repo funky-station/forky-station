@@ -1,0 +1,135 @@
+# Cadet's hat
+- type: entity
+  parent: [ClothingHeadBase, BaseSecurityContraband]
+  id: ClothingHeadHatCadetSecurity
+  name: cadet's white sailor hat
+  description: A clean, white hat for the newly enlisted! Here's hoping it stays clean.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/cadet.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/cadet.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+
+# scrub caps
+- type: entity
+  parent: ClothingHeadBase
+  id: FuClothingHeadHatScrubcapBlack
+  name: coroner scrub cap
+  description: A medical scrub cap made of synthetic polymers, commonly worn by coroners. Smells of formaldehyde.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Scrubcaps/black.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Scrubcaps/black.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop : HEAD
+      HeadSide : HEAD
+
+- type: entity
+  parent: ClothingHeadBase
+  id: FuClothingHeadHatScrubcapBlue
+  name: blue scrub cap
+  description: A medical scrub cap in generic medical colours, made of synthetic polymers. Commonly used during surgery.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Scrubcaps/blue.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Scrubcaps/blue.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop : HEAD
+      HeadSide : HEAD
+
+- type: entity
+  parent: ClothingHeadBase
+  id: FuClothingHeadHatScrubcapPurple
+  name: purple scrub cap
+  description: A medical scrub cap made of synthetic polymers, commonly used during surgery.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Scrubcaps/purple.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Scrubcaps/purple.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop : HEAD
+      HeadSide : HEAD
+
+- type: entity
+  parent: ClothingHeadBase
+  id: FuClothingHeadHatScrubcapTeal
+  name: teal scrub cap
+  description: A medical scrub cap in NanoTrasen medical colours, made of synthetic polymers. Commonly used during surgery.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Scrubcaps/teal.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Scrubcaps/teal.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+      HeadTop : HEAD
+      HeadSide : HEAD
+
+# medical intern hat
+
+- type: entity
+  parent: [ClothingHeadBase, BaseSecurityContraband]
+  id: FuClothingHeadHatInternMedical
+  name: medical intern's nurse hat
+  description: A teal nurse hat with a white-edged brim that tapers towards the back of the hat. Typically made for interns of medical.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/med_intern.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/med_intern.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+
+# Hospitality Director's hat
+- type: entity
+  parent: [ClothingHeadBase, BaseCommandContraband]
+  id: FuClothingHeadHatHd
+  name: hospitality director's pillbox hat
+  description: A simple yet elegant red hat with gold trim.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/hd.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/hd.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon

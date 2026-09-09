@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Teleportation.Components;
@@ -17,9 +9,9 @@ namespace Content.Shared.Teleportation.Systems;
 ///     This does not do anything on its own (outside of deleting entities that have 0 links, if that option is true)
 ///     Systems can do whatever they please with the linked entities, such as <see cref="SharedPortalSystem"/>.
 /// </summary>
-public sealed class LinkedEntitySystem : EntitySystem
+public sealed partial class LinkedEntitySystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -65,8 +57,16 @@ public sealed class LinkedEntitySystem : EntitySystem
         Dirty(first, firstLink);
         Dirty(second, secondLink);
 
-        return firstLink.LinkedEntities.Add(second)
-            && secondLink.LinkedEntities.Add(first);
+        if (firstLink.LinkedEntities.Add(second) && secondLink.LinkedEntities.Add(first))
+        {
+            var firstEv = new LinkedEntityChangedEvent(firstLink.LinkedEntities);
+            RaiseLocalEvent(first, ref firstEv);
+            var secondEv = new LinkedEntityChangedEvent(secondLink.LinkedEntities);
+            RaiseLocalEvent(second, ref secondEv);
+            return true;
+        }
+
+        return false;
     }
 
     /// <summary>
@@ -82,7 +82,15 @@ public sealed class LinkedEntitySystem : EntitySystem
 
         Dirty(source, firstLink);
 
-        return firstLink.LinkedEntities.Add(target);
+        if (firstLink.LinkedEntities.Add(target))
+        {
+            var ev = new LinkedEntityChangedEvent(firstLink.LinkedEntities);
+            RaiseLocalEvent(source, ref ev);
+            return true;
+        }
+
+        return false;
+
     }
 
     /// <summary>
@@ -111,6 +119,11 @@ public sealed class LinkedEntitySystem : EntitySystem
 
         Dirty(first, firstLink);
         Dirty(second, secondLink);
+
+        var firstEv = new LinkedEntityChangedEvent(firstLink.LinkedEntities);
+        RaiseLocalEvent(first, ref firstEv);
+        var secondEv = new LinkedEntityChangedEvent(secondLink.LinkedEntities);
+        RaiseLocalEvent(second, ref secondEv);
 
         if (firstLink.LinkedEntities.Count == 0 && firstLink.DeleteOnEmptyLinks)
             QueueDel(first);
@@ -143,3 +156,6 @@ public sealed class LinkedEntitySystem : EntitySystem
 
     #endregion
 }
+
+[ByRefEvent]
+public readonly record struct LinkedEntityChangedEvent(HashSet<EntityUid> NewLinks);

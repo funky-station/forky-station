@@ -1,24 +1,6 @@
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2023 Interrobang01 <113810873+Interrobang01@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 HerCoyote23 <131214189+HerCoyote23@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 router <messagebus@vk.com>
-// SPDX-FileCopyrightText: 2023 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024 Thomas <87614336+Aeshus@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Kot <1192090+koteq@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 sleepyyapril <123355664+sleepyyapril@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Collections.Frozen;
 using System.Text.RegularExpressions;
+using Content.Shared._MACRO.Announcements;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Popups;
@@ -50,26 +32,25 @@ public abstract partial class SharedChatSystem : EntitySystem
     public const char EmotesAltPrefix = '*';
     public const char AdminPrefix = ']';
     public const char WhisperPrefix = ',';
+    public const char MentorPrefix = '}'; // RMC Mentor Chat Funky Port
     public const char DefaultChannelKey = 'h';
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
     public const int WhisperMuffledRange = 5; // how far whisper goes at all, in world units
-    public static readonly SoundSpecifier DefaultAnnouncementSound
-        = new SoundPathSpecifier("/Audio/Announcements/announce.ogg");
+    public static readonly ProtoId<AnnouncementSoundPrototype> DefaultAnnouncementSound = "Announce"; // Macrocosm edit - Announcement sound prototypes
 
     public static readonly ProtoId<RadioChannelPrototype> CommonChannel = "Common";
 
     public static readonly string DefaultChannelPrefix = $"{RadioChannelPrefix}{DefaultChannelKey}";
     public static readonly ProtoId<SpeechVerbPrototype> DefaultSpeechVerb = "Default";
 
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private INetManager _net = default!;
 
     /// <summary>
     /// Cache of the keycodes for faster lookup.
@@ -80,7 +61,7 @@ public abstract partial class SharedChatSystem : EntitySystem
     {
         base.Initialize();
 
-        DebugTools.Assert(_prototypeManager.HasIndex(CommonChannel));
+        DebugTools.Assert(ProtoMan.HasIndex(CommonChannel));
 
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypeReload);
         CacheRadios();
@@ -98,7 +79,7 @@ public abstract partial class SharedChatSystem : EntitySystem
 
     private void CacheRadios()
     {
-        _keyCodes = _prototypeManager.EnumeratePrototypes<RadioChannelPrototype>()
+        _keyCodes = ProtoMan.EnumeratePrototypes<RadioChannelPrototype>()
             .ToFrozenDictionary(x => x.KeyCode);
     }
 
@@ -109,13 +90,13 @@ public abstract partial class SharedChatSystem : EntitySystem
     public SpeechVerbPrototype GetSpeechVerb(EntityUid source, string message, SpeechComponent? speech = null)
     {
         if (!Resolve(source, ref speech, false))
-            return _prototypeManager.Index(DefaultSpeechVerb);
+            return ProtoMan.Index(DefaultSpeechVerb);
 
         // check for a suffix-applicable speech verb
         SpeechVerbPrototype? current = null;
         foreach (var (str, id) in speech.SuffixSpeechVerbs)
         {
-            var proto = _prototypeManager.Index(id);
+            var proto = ProtoMan.Index(id);
             if (message.EndsWith(Loc.GetString(str)) && proto.Priority >= (current?.Priority ?? 0))
             {
                 current = proto;
@@ -123,7 +104,7 @@ public abstract partial class SharedChatSystem : EntitySystem
         }
 
         // if no applicable suffix verb return the normal one used by the entity
-        return current ?? _prototypeManager.Index(speech.SpeechVerb);
+        return current ?? ProtoMan.Index(speech.SpeechVerb);
     }
 
     /// <summary>
@@ -181,7 +162,7 @@ public abstract partial class SharedChatSystem : EntitySystem
         if (input.StartsWith(RadioCommonPrefix))
         {
             output = SanitizeMessageCapital(input[1..].TrimStart());
-            channel = _prototypeManager.Index<RadioChannelPrototype>(CommonChannel);
+            channel = ProtoMan.Index<RadioChannelPrototype>(CommonChannel);
             return true;
         }
 
@@ -206,7 +187,7 @@ public abstract partial class SharedChatSystem : EntitySystem
             RaiseLocalEvent(source, ev);
 
             if (ev.Channel != null)
-                _prototypeManager.TryIndex(ev.Channel, out channel);
+                ProtoMan.TryIndex(ev.Channel, out channel);
             return true;
         }
 
@@ -317,7 +298,10 @@ public abstract partial class SharedChatSystem : EntitySystem
     public static string InjectTagAroundString(ChatMessage message, string targetString, string tag, string? tagParameter)
     {
         var rawmsg = message.WrappedMessage;
+        // TODO: Figure out if there's any way we can cache this, and if not then rewrite this to not use regex.
+#pragma warning disable RA0026
         rawmsg = Regex.Replace(rawmsg, "(?i)(" + targetString + ")(?-i)(?![^[]*])", $"[{tag}={tagParameter}]$1[/{tag}]");
+#pragma warning restore RA0026
         return rawmsg;
     }
 

@@ -1,61 +1,35 @@
-# SPDX-FileCopyrightText: 2020 Git-Nivrak <59925169+Git-Nivrak@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021, 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
-# SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2021 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Profane McBane <profanedbane+github@gmail.com>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 degradka <69397649+degradka@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
-# SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
-# SPDX-FileCopyrightText: 2026 taydeo <td12233a@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
+  parent: [ BaseStructureDynamic, StructureHealthDoorWeak ]
   id: FirelockFrame
-  parent: BaseStructureDynamic
   name: firelock frame
   description: That is a firelock frame.
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/firelock.rsi
+    sprite: Structures/Doors/Airlocks/Standard/firelock-base.rsi
     layers:
-    - state: frame1
-      map: [ "enum.ConstructionVisuals.Layer" ]
+    - state: assembly
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.ConstructionVisuals.Key:
-        enum.ConstructionVisuals.Layer:
-          frame1: { state: frame1 }
-          frame2: { state: frame2 }
-          frame3: { state: frame3 }
-          frame4: { state: frame4 }
   - type: Construction
     graph: Firelock
     node: frame1
   - type: InteractionOutline
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallicStrong
   - type: RCDDeconstructable
     cost: 40 # Funkystation
     delay: 6
     fx: EffectRCDDeconstruct6
+  - type: Damageable
+    damageModifierSet: PlasteelMod
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 500
+        damage: 100
       behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -4
   - type: Physics
     bodyType: Dynamic
   - type: Fixtures

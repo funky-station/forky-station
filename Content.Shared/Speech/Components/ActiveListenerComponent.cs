@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chat;
 using Robust.Shared.GameStates;
 
@@ -9,12 +6,12 @@ namespace Content.Shared.Speech.Components;
 /// <summary>
 /// This component is used to relay speech events to other systems.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ActiveListenerComponent : Component
 {
     /// <summary>
     /// The range in which to listen to speech.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float Range = SharedChatSystem.VoiceRange;
 }

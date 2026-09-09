@@ -1,0 +1,97 @@
+- type: entity
+  id: BaseMagazineRifle50
+  name: rifle magazine (.50 AE)
+  parent: [ BaseItem, BaseSecurityContraband ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - MagazineRifle50
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgePistolLarge
+    capacity: 14
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag_50.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazineRifle50
+  name: rifle magazine (.50 AE)
+  parent: BaseMagazineRifle50
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolLarge
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineRifle50Empty
+  name: rifle magazine (.50 AE any)
+  suffix: empty
+  parent: MagazineRifle50
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineRifle50Incendiary
+  name: rifle magazine (.50 AE incendiary)
+  parent: MagazineRifle50
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolLargeIncendiary
+
+- type: entity
+  id: MagazineRifle50Practice
+  name: rifle magazine (.50 AE practice)
+  parent: BaseMagazineRifle50
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolLargePractice
+  - type: Sprite
+    layers:
+    - state: practice
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineRifle50Uranium
+  name: rifle magazine (.50 AE uranium)
+  parent: BaseMagazineRifle50
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolLargeUranium
+  - type: Sprite
+    layers:
+    - state: uranium
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]

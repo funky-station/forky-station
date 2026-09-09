@@ -1,52 +1,17 @@
-// SPDX-FileCopyrightText: 2022, 2025 Errant <35878406+dmnct@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
-// SPDX-FileCopyrightText: 2023 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2023 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2023 corentt <36075110+corentt@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Patrik Caes-Sayrs <heartofgoldfish@gmail.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
-// SPDX-FileCopyrightText: 2024 Debug <49997488+DebugOk@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft <ignaz.k@live.de>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GitHubUser53123 <110841413+GitHubUser53123@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 SyaoranFox <99053675+SyaoranFox@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 UpAndLeaves <92269094+Alpha-Two@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 neomoth <admin@neomoth.dev>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.NPC.Prototypes;
 using Content.Server.Actions;
 using Content.Server.Body.Systems;
 using Content.Server.Chat;
 using Content.Server.Chat.Systems;
 using Content.Server.Emoting.Systems;
-using Content.Server.Speech.EntitySystems;
+using Content.Shared.Speech.EntitySystems;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Armor;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.Body.Systems;
 using Content.Shared.Cloning.Events;
 using Content.Shared.Chat;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -54,6 +19,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Revolutionary;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
 using Content.Shared.Weapons.Melee.Events;
@@ -61,23 +27,23 @@ using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Server.Ghost.Roles.Components;
 
 namespace Content.Server.Zombies
 {
     public sealed partial class ZombieSystem : SharedZombieSystem
     {
-        [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly IPrototypeManager _protoManager = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
-        [Dependency] private readonly DamageableSystem _damageable = default!;
-        [Dependency] private readonly ChatSystem _chat = default!;
-        [Dependency] private readonly ActionsSystem _actions = default!;
-        [Dependency] private readonly AutoEmoteSystem _autoEmote = default!;
-        [Dependency] private readonly EmoteOnDamageSystem _emoteOnDamage = default!;
-        [Dependency] private readonly MobStateSystem _mobState = default!;
-        [Dependency] private readonly SharedPopupSystem _popup = default!;
-        [Dependency] private readonly SharedRoleSystem _role = default!;
+        [Dependency] private IGameTiming _timing = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private BloodstreamSystem _bloodstream = default!;
+        [Dependency] private DamageableSystem _damageable = default!;
+        [Dependency] private ChatSystem _chat = default!;
+        [Dependency] private ActionsSystem _actions = default!;
+        [Dependency] private AutoEmoteSystem _autoEmote = default!;
+        [Dependency] private EmoteOnDamageSystem _emoteOnDamage = default!;
+        [Dependency] private MobStateSystem _mobState = default!;
+        [Dependency] private SharedPopupSystem _popup = default!;
+        [Dependency] private SharedRoleSystem _role = default!;
 
         public readonly ProtoId<NpcFactionPrototype> Faction = "Zombie";
 
@@ -106,6 +72,7 @@ namespace Content.Server.Zombies
             SubscribeLocalEvent<ZombieComponent, GetCharacterUnrevivableIcEvent>(OnGetCharacterUnrevivableIC);
             SubscribeLocalEvent<ZombieComponent, MindAddedMessage>(OnMindAdded);
             SubscribeLocalEvent<ZombieComponent, MindRemovedMessage>(OnMindRemoved);
+            SubscribeLocalEvent<ZombieComponent, AttemptConvertRevolutionaryEvent>(OnAttemptConvert);
 
             SubscribeLocalEvent<PendingZombieComponent, MapInitEvent>(OnPendingMapInit);
             SubscribeLocalEvent<PendingZombieComponent, BeforeRemoveAnomalyOnDeathEvent>(OnBeforeRemoveAnomalyOnDeath);
@@ -218,7 +185,7 @@ namespace Content.Server.Zombies
             if (args.Handled)
                 return;
 
-            _protoManager.Resolve(component.EmoteSoundsId, out var sounds);
+            ProtoMan.Resolve(component.EmoteSoundsId, out var sounds);
 
             args.Handled = _chat.TryPlayEmoteSound(uid, sounds, args.Emote);
         }
@@ -351,9 +318,31 @@ namespace Content.Server.Zombies
         }
 
         // Remove the role when getting cloned, getting gibbed and borged, or leaving the body via any other method.
+        // We also need to make sure the zombie is a ghost role because zombies with minds do not get a ghostrolecomponent
         private void OnMindRemoved(Entity<ZombieComponent> ent, ref MindRemovedMessage args)
         {
             _role.MindRemoveRole<ZombieRoleComponent>((args.Mind.Owner,  args.Mind.Comp));
+            MakeGhostRole(ent.Owner);
+        }
+
+        private void OnAttemptConvert(Entity<ZombieComponent> ent, ref AttemptConvertRevolutionaryEvent args)
+        {
+            args.Cancelled = true;
+        }
+
+        /// <summary>
+        /// Makes the target entity a zombie ghost role. Should only be fired when the entity does not have a mind.
+        /// </summary>
+        private void MakeGhostRole(EntityUid ent)
+        {
+            //yet more hardcoding. Visit zombie.ftl for more information.
+            var ghostRole = EnsureComp<GhostRoleComponent>(ent);
+            EnsureComp<GhostTakeoverAvailableComponent>(ent);
+
+            ghostRole.RoleName = Loc.GetString("zombie-generic");
+            ghostRole.RoleDescription = Loc.GetString("zombie-role-desc");
+            ghostRole.RoleRules = Loc.GetString("zombie-role-rules");
+            ghostRole.MindRoles.Add(MindRoleZombie);
         }
     }
 }

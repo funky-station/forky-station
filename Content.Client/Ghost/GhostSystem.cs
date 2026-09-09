@@ -1,30 +1,9 @@
-// SPDX-FileCopyrightText: 2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Wrexbe <wrexbe@protonmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-// SPDX-FileCopyrightText: 2022-2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Francesco <frafonia@gmail.com>
-// SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Illiux <newoutlook@gmail.com>
-// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 tosatur <63034378+tosatur@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <shadowjjt@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Movement.Systems;
 using Content.Shared.Actions;
-using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
+using Content.Shared.Ghost.Systems;
+using Content.Shared.NightVision;
+using Content.Shared.Overlays;
 using Robust.Client.Console;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
@@ -32,23 +11,23 @@ using Robust.Shared.Player;
 
 namespace Content.Client.Ghost
 {
-    public sealed class GhostSystem : SharedGhostSystem
+    public sealed partial class GhostSystem : SharedGhostSystem
     {
-        [Dependency] private readonly IClientConsoleHost _console = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly SharedActionsSystem _actions = default!;
-        [Dependency] private readonly PointLightSystem _pointLightSystem = default!;
-        [Dependency] private readonly ContentEyeSystem _contentEye = default!;
-        [Dependency] private readonly SpriteSystem _sprite = default!;
+        [Dependency] private IClientConsoleHost _console = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private SharedActionsSystem _actions = default!;
+        [Dependency] private ContentEyeSystem _contentEye = default!;
+        [Dependency] private SpriteSystem _sprite = default!;
+        [Dependency] private SharedNightVisionSystem _nv = default!;
 
         public int AvailableGhostRoleCount { get; private set; }
 
         private bool _ghostVisibility = true;
 
-        private bool GhostVisibility
+        public bool GhostVisibility
         {
             get => _ghostVisibility;
-            set
+            private set
             {
                 if (_ghostVisibility == value)
                 {
@@ -105,27 +84,25 @@ namespace Content.Client.Ghost
             if (args.Handled)
                 return;
 
-            TryComp<PointLightComponent>(uid, out var light);
-
             if (!component.DrawLight)
             {
                 // normal lighting
                 Popup.PopupEntity(Loc.GetString("ghost-gui-toggle-lighting-manager-popup-normal"), args.Performer);
                 _contentEye.RequestEye(component.DrawFov, true);
             }
-            else if (!light?.Enabled ?? false) // skip this option if we have no PointLightComponent
+            else if (TryComp<NightVisionComponent>(uid, out var nv) && !nv.Enabled)
             {
-                // enable personal light
-                Popup.PopupEntity(Loc.GetString("ghost-gui-toggle-lighting-manager-popup-personal-light"), args.Performer);
-                _pointLightSystem.SetEnabled(uid, true, light);
+                Popup.PopupEntity(Loc.GetString("ghost-gui-toggle-lighting-manager-popup-half-bright"), args.Performer);
+                _nv.SetEnabled((uid, nv), true);
             }
             else
             {
                 // fullbright mode
                 Popup.PopupEntity(Loc.GetString("ghost-gui-toggle-lighting-manager-popup-fullbright"), args.Performer);
                 _contentEye.RequestEye(component.DrawFov, false);
-                _pointLightSystem.SetEnabled(uid, false, light);
+                _nv.SetEnabled((uid, nv), false);
             }
+
             args.Handled = true;
         }
 

@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 little-meow-meow <204685920+little-meow-meow@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Numerics;
 using Content.Client.Examine;
@@ -22,6 +12,7 @@ using Content.Client.Verbs.UI;
 using Content.Shared.CCVar;
 using Content.Shared.Input;
 using Content.Shared.Interaction;
+using Content.Shared.Pointing;
 using Content.Shared.Storage;
 using Robust.Client.GameObjects;
 using Robust.Client.Input;
@@ -35,7 +26,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.UserInterface.Systems.Storage;
 
-public sealed class StorageUIController : UIController, IOnSystemChanged<StorageSystem>
+public sealed partial class StorageUIController : UIController, IOnSystemChanged<StorageSystem>
 {
     /*
      * Things are a bit over the shop but essentially
@@ -46,12 +37,13 @@ public sealed class StorageUIController : UIController, IOnSystemChanged<Storage
      * - StorageSystem handles any sim stuff around open windows.
      */
 
-    [Dependency] private readonly IConfigurationManager _configuration = default!;
-    [Dependency] private readonly IInputManager _input = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly CloseRecentWindowUIController _closeRecentWindowUIController = default!;
+    [Dependency] private IConfigurationManager _configuration = default!;
+    [Dependency] private IInputManager _input = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private CloseRecentWindowUIController _closeRecentWindowUIController = default!;
     [UISystemDependency] private readonly StorageSystem _storage = default!;
     [UISystemDependency] private readonly UserInterfaceSystem _ui = default!;
+    [UISystemDependency] private readonly Pointing.PointingSystem _pointing = default!;
 
     private readonly DragDropHelper<ItemGridPiece> _menuDragHelper;
 
@@ -290,6 +282,11 @@ public sealed class StorageUIController : UIController, IOnSystemChanged<Storage
         else if (args.Function == ContentKeyFunctions.AltActivateItemInWorld)
         {
             EntityManager.RaisePredictiveEvent(new InteractInventorySlotEvent(EntityManager.GetNetEntity(control.Entity), altInteract: true));
+            args.Handle();
+        }
+        else if (args.Function == ContentKeyFunctions.Point)
+        {
+            _pointing.TryPointAtEntity(EntityManager.GetNetEntity(control.Entity));
             args.Handle();
         }
 

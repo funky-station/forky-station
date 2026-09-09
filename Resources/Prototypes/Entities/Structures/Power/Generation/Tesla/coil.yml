@@ -1,14 +1,5 @@
-# SPDX-FileCopyrightText: 2023-2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
+  parent: BaseStructureHealth
   id: TeslaCoil
   name: tesla coil
   description: A machine that converts lightning strikes into an electric current.
@@ -89,8 +80,6 @@
   - type: Pullable
   - type: Clickable
   - type: InteractionOutline
-  - type: Damageable
-    damageContainer: StructuralInorganic
   - type: ExaminableDamage
     messages: WindowMessages
   - type: Repairable
@@ -102,35 +91,27 @@
       sprite: Structures/Power/Generation/Tesla/coil_cracks.rsi
   - type: Destructible
     thresholds:
-      - trigger: # Excess damage, don't spawn entities
-          !type:DamageTrigger
-          damage: 400
-        behaviors:
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-      - trigger:
-          !type:DamageTrigger
-          damage: 225
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              SheetSteel1:
-                min: 2
-                max: 4
+    - trigger:
+        !type:DamageTrigger
+        damage: 225
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 2
+            max: 4
   - type: GuideHelp
     guides:
     - TeslaEngine
     - SingularityTeslaEngine
 
 - type: entity
+  parent: BaseStructureHealth
   id: TeslaGroundingRod
   name: grounding rod
   description: A machine that keeps lightning from striking too far away.
@@ -187,8 +168,6 @@
   - type: ExaminableDamage
     messages: WindowMessages
   - type: Repairable
-  - type: Damageable
-    damageContainer: StructuralInorganic
   - type: DamageVisuals
     thresholds: [8, 16, 25]
     damageDivisor: 3.333
@@ -197,29 +176,20 @@
       sprite: Structures/Power/Generation/Tesla/groundingrod_cracks.rsi
   - type: Destructible
     thresholds:
-      - trigger: # Excess damage, don't spawn entities
-          !type:DamageTrigger
-          damage: 600
-        behaviors:
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-      - trigger:
-          !type:DamageTrigger
-          damage: 300
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              SheetSteel1:
-                min: 2
-                max: 4
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 2
+            max: 4
   - type: GuideHelp
     guides:
     - TeslaEngine

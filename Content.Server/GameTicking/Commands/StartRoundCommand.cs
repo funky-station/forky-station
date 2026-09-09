@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
@@ -15,9 +5,9 @@ using Robust.Shared.Console;
 namespace Content.Server.GameTicking.Commands;
 
 [AdminCommand(AdminFlags.Round)]
-public sealed class StartRoundCommand : LocalizedEntityCommands
+public sealed partial class StartRoundCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
 
     public override string Command => "startround";
 

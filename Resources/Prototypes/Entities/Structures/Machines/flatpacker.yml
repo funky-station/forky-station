@@ -1,18 +1,11 @@
-# SPDX-FileCopyrightText: 2024-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 SpeltIncorrectyl <66873282+SpeltIncorrectyl@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: MachineFlatpacker
-  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  parent: [ BaseMachinePowered, ConstructibleMachine, BaseConstructibleMachineDestructible ]
   name: Flatpacker 1001
   description: An industrial machine used for expediting machine construction across the station.
   components:
   - type: Sprite
-    sprite: Structures/Machines/flatpacker.rsi
+    sprite: _Funkystation/Structures/Machines/flatpacker.rsi #Funky resprite
     snapCardinals: true
     layers:
     - state: base
@@ -37,6 +30,14 @@
         anim:
           True: { visible: true }
           False: { visible: false }
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 175
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
   - type: FlatpackCreator
     baseMachineCost:
       Steel: 750

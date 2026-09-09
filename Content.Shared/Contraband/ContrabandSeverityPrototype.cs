@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 John <35928781+sporkyz@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Contraband;
@@ -24,8 +19,20 @@ public sealed partial class ContrabandSeverityPrototype : IPrototype
     public LocId ExamineText;
 
     /// <summary>
+    /// The color of the contraband (used in multiple places like the text color, icon color etc...)
+    /// </summary>
+    [DataField]
+    public Color Color = Color.Red;
+
+    /// <summary>
     /// When examining the contraband, should this take into account the viewer's departments and job?
     /// </summary>
     [DataField]
     public bool ShowDepartmentsAndJobs;
+
+    /// <summary>
+    /// Whether this contraband warning should be shown above others, higher number is higher priority.
+    /// </summary>
+    [DataField]
+    public int Priority = 1;
 }

@@ -1,11 +1,8 @@
-// SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Gibbing;
 
 namespace Content.Shared.Body;
 
-public sealed class GibbableOrganSystem : EntitySystem
+public sealed partial class GibbableOrganSystem : EntitySystem
 {
     public override void Initialize()
     {

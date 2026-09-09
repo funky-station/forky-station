@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: BaseAction
   id: ActionToggleInternals
@@ -11,11 +6,13 @@
   components:
   - type: Action
     useDelay: 1
-    icon:
-      sprite: Interface/Alerts/internals.rsi
-      state: internal2
-    iconOn:
-      sprite: Interface/Alerts/internals.rsi
-      state: internal1
+  - type: Sprite
+    sprite: Interface/Alerts/internals.rsi
+    layers:
+    - state: internal2
+      map: ["enum.ActionVisuals.Icon"]
+    - state: internal1
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
   - type: InstantAction
     event: !type:ToggleActionEvent

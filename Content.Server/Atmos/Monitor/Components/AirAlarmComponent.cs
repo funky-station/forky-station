@@ -1,23 +1,10 @@
-// SPDX-FileCopyrightText: 2022 vulppine <vulppine@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2023-2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.DeviceLinking.Components;
 using Content.Shared.Atmos.Monitor;
 using Content.Shared.Atmos.Monitor.Components;
 using Content.Shared.Atmos.Piping.Unary.Components;
 using Content.Shared.DeviceLinking;
 using Robust.Shared.Network;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Atmos.Monitor.Components;
 
@@ -40,30 +27,30 @@ public sealed partial class AirAlarmComponent : Component
     /// <summary>
     /// Previous alarm state for use with output ports.
     /// </summary>
-    [DataField("state")]
+    [DataField]
     public AtmosAlarmType State = AtmosAlarmType.Normal;
 
     /// <summary>
     /// The port that gets set to high while the alarm is in the danger state, and low when not.
     /// </summary>
-    [DataField("dangerPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
-    public string DangerPort = "AirDanger";
+    [DataField]
+    public ProtoId<SourcePortPrototype> DangerPort = "AirDanger";
 
     /// <summary>
     /// The port that gets set to high while the alarm is in the warning state, and low when not.
     /// </summary>
-    [DataField("warningPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
-    public string WarningPort = "AirWarning";
+    [DataField]
+    public ProtoId<SourcePortPrototype> WarningPort = "AirWarning";
 
     /// <summary>
     /// The port that gets set to high while the alarm is in the normal state, and low when not.
     /// </summary>
-    [DataField("normalPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
-    public string NormalPort = "AirNormal";
+    [DataField]
+    public ProtoId<SourcePortPrototype> NormalPort = "AirNormal";
 
     /// <summary>
     /// Whether the panic wire is cut, forcing the alarm into panic mode.
     /// </summary>
-    [DataField, ViewVariables]
+    [DataField]
     public bool PanicWireCut;
 }

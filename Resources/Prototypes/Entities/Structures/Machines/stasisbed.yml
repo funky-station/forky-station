@@ -1,20 +1,7 @@
-# SPDX-FileCopyrightText: 2022-2023, 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Sir Winters <7543955+Owai-Seek@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kot <1192090+koteq@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: StasisBed
   name: stasis bed
-  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  parent: [ BaseMachinePowered, ConstructibleMachine, BaseConstructibleMachineDestructible ]
   description: A bed that massively slows down the patient's metabolism and prevents bodily decay, allowing more time to administer a proper treatment for stabilization.
   components:
   - type: StasisBed
@@ -25,7 +12,7 @@
         Poison: -0.001
         Blunt: -0.001
   - type: Sprite
-    sprite: Structures/Machines/stasis_bed.rsi
+    sprite: _Funkystation/Structures/Machines/stasis_bed.rsi # Funky
     noRot: true
     layers:
     - state: icon
@@ -42,22 +29,14 @@
   - type: ApcPowerReceiver
     powerLoad: 1000
   - type: ExtensionCableReceiver
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 75
+    - trigger: !type:DamageTrigger
+        damage: 175
       behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetSteel1:
-            min: 1
-            max: 2
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
   - type: Strap
     position: Down
     rotation: -90
@@ -78,3 +57,4 @@
     guides:
     - MedicalDoctor
   - type: PowerSwitch
+  - type: AmbientMusicMarkerMedical

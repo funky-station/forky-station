@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Explosion;
 using Content.Shared.Explosion.Components;
 using Content.Shared.Explosion.EntitySystems;

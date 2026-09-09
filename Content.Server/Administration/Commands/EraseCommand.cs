@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.Administration.Systems;
 using Content.Shared.Administration;
@@ -10,11 +7,11 @@ using Robust.Shared.Console;
 namespace Content.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Admin)]
-public sealed class EraseCommand : LocalizedEntityCommands
+public sealed partial class EraseCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IPlayerLocator _locator = default!;
-    [Dependency] private readonly IPlayerManager _players = default!;
-    [Dependency] private readonly AdminSystem _admin = default!;
+    [Dependency] private IPlayerLocator _locator = default!;
+    [Dependency] private IPlayerManager _players = default!;
+    [Dependency] private AdminSystem _admin = default!;
 
     public override string Command => "erase";
 

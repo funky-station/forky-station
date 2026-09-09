@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 paige404 <59348003+paige404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Clothing.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
@@ -10,10 +6,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Clothing.EntitySystems;
 
-public sealed class HideLayerClothingSystem : EntitySystem
+public sealed partial class HideLayerClothingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHideableHumanoidLayersSystem _hideableHumanoidLayers = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedHideableHumanoidLayersSystem _hideableHumanoidLayers = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {

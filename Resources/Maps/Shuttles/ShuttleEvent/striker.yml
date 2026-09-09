@@ -1,25 +1,11 @@
-# SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 QueerNB <176353696+QueerNB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2026 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 meta:
   format: 7
   category: Grid
-  engineVersion: 270.1.0
+  engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/12/2026 10:23:32
-  entityCount: 295
+  time: 05/29/2026 10:22:44
+  entityCount: 294
 maps: []
 grids:
 - 325
@@ -209,13 +195,18 @@ entities:
     - type: GridPathfinding
     - type: ImplicitRoof
     - type: ExplosionAirtightGrid
+    - type: TileHistory
+      chunkHistory: {}
 - proto: AirCanister
   entities:
   - uid: 91
     components:
     - type: Transform
+      anchored: True
       pos: -0.5,-8.5
       parent: 325
+    - type: Physics
+      bodyType: Static
 - proto: AirlockExternalShuttleSyndicateLocked
   entities:
   - uid: 142
@@ -795,12 +786,6 @@ entities:
       parent: 202
     - type: Physics
       canCollide: False
-  - uid: 346
-    components:
-    - type: Transform
-      parent: 206
-    - type: Physics
-      canCollide: False
 - proto: DresserFilled
   entities:
   - uid: 85
@@ -891,6 +876,8 @@ entities:
     - type: Transform
       pos: -0.5,-1.5
       parent: 325
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
 - proto: GasPipeStraight
   entities:
   - uid: 211
@@ -899,27 +886,37 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,-6.5
       parent: 325
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
   - uid: 213
     components:
     - type: Transform
       pos: -0.5,-4.5
       parent: 325
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
   - uid: 214
     components:
     - type: Transform
       pos: -0.5,-3.5
       parent: 325
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
   - uid: 215
     components:
     - type: Transform
       pos: -0.5,-2.5
       parent: 325
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
   - uid: 217
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -0.5,-0.5
       parent: 325
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
 - proto: GasPipeTJunction
   entities:
   - uid: 210
@@ -928,12 +925,16 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -0.5,-7.5
       parent: 325
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
   - uid: 212
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -0.5,-5.5
       parent: 325
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
 - proto: GasPort
   entities:
   - uid: 59
@@ -942,6 +943,8 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,-8.5
       parent: 325
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
 - proto: GasVentPump
   entities:
   - uid: 218
@@ -949,6 +952,8 @@ entities:
     - type: Transform
       pos: -0.5,0.5
       parent: 325
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
     - type: DeviceNetwork
       address: Vnt-5f41a0ae
       transmitFrequency: 1621
@@ -959,6 +964,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -1.5,-1.5
       parent: 325
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
     - type: DeviceNetwork
       address: Vnt-129c27d2
       transmitFrequency: 1621
@@ -969,6 +976,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 0.5,-1.5
       parent: 325
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
     - type: DeviceNetwork
       address: Vnt-11c4609d
       transmitFrequency: 1621
@@ -979,6 +988,8 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 0.5,-5.5
       parent: 325
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
     - type: DeviceNetwork
       address: Vnt-6859729f
       transmitFrequency: 1621
@@ -989,6 +1000,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -1.5,-7.5
       parent: 325
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
     - type: DeviceNetwork
       address: Vnt-19d24c7f
       transmitFrequency: 1621
@@ -1071,25 +1084,21 @@ entities:
   - uid: 50
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -2.5,-5.5
       parent: 325
   - uid: 51
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -2.5,-4.5
       parent: 325
   - uid: 52
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 1.5,-5.5
       parent: 325
   - uid: 53
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 1.5,-4.5
       parent: 325
 - proto: Gyroscope
@@ -2375,7 +2384,7 @@ entities:
     - type: Transform
       pos: -2.5,2.5
       parent: 325
-- proto: WindoorSecure
+- proto: WindoorSecurePlasma
   entities:
   - uid: 166
     components:
@@ -2383,17 +2392,10 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -3.5,-1.5
       parent: 325
-  - uid: 206
+  - uid: 169
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -0.5,-0.5
       parent: 325
-    - type: ContainerContainer
-      containers:
-        board: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 346
 ...

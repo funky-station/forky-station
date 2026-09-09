@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 Aexxie <codyfox.077@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Shared.Explosion;
 using Content.Shared.Explosion.Components;
@@ -20,6 +11,11 @@ namespace Content.Server.Explosion.EntitySystems;
 // This part of the system handled send visual / overlay data to clients.
 public sealed partial class ExplosionSystem
 {
+
+    /// <summary>
+    /// Initializes the visual parts of this system.
+    /// </summary>
+    /// <see cref="Initialize"/>
     public void InitVisuals()
     {
         SubscribeLocalEvent<ExplosionVisualsComponent, ComponentGetState>(OnGetState);

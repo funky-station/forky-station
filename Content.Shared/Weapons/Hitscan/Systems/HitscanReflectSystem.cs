@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Hitscan.Events;
 using Content.Shared.Weapons.Ranged.Events;
@@ -9,7 +6,7 @@ using Robust.Shared.Random;
 
 namespace Content.Shared.Weapons.Hitscan.Systems;
 
-public sealed class HitscanReflectSystem : EntitySystem
+public sealed partial class HitscanReflectSystem : EntitySystem
 {
     public override void Initialize()
     {

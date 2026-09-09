@@ -1,0 +1,23 @@
+﻿- type: entity
+  name: catering menu
+  parent: Paper
+  id: PaperCateringMenu
+  description: A crisp printout listing today's fare, fresh off the digi-board. Smells nice.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+      color: "#ecebe7"
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      color: "#cbc6c1"
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      visible: false
+  - type: PaperVisuals
+    headerImagePath: "/Textures/_Funkystation/Interface/Paper/paper_heading_todays_menu.svg.96dpi.png"
+    backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
+    backgroundModulate: "#ecebe7"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 32.0, 16.0, 32.0, 0.0

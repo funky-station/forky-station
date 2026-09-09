@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Atmos.Components;
 
 namespace Content.Shared.Atmos.EntitySystems;
@@ -8,10 +5,10 @@ namespace Content.Shared.Atmos.EntitySystems;
 /// <summary>
 /// Implements <see cref="ExtinguishableSetCollisionWakeComponent"/>.
 /// </summary>
-public sealed class ExtinguishableSetCollisionWakeSystem : EntitySystem
+public sealed partial class ExtinguishableSetCollisionWakeSystem : EntitySystem
 {
     [Dependency]
-    private readonly CollisionWakeSystem _collisionWake = null!;
+    private CollisionWakeSystem _collisionWake = null!;
 
     public override void Initialize()
     {

@@ -1,16 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2021 metalgearsloth <comedian_vs_clown@hotmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Body.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.ActionBlocker;
@@ -19,11 +6,11 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Body.Systems;
 
-public sealed class ThermalRegulatorSystem : EntitySystem
+public sealed partial class ThermalRegulatorSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly TemperatureSystem _tempSys = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlockerSys = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private TemperatureSystem _tempSys = default!;
+    [Dependency] private ActionBlockerSystem _actionBlockerSys = default!;
 
     public override void Initialize()
     {
@@ -68,10 +55,10 @@ public sealed class ThermalRegulatorSystem : EntitySystem
         var totalMetabolismTempChange = ent.Comp1.MetabolismHeat - ent.Comp1.RadiatedHeat;
 
         // implicit heat regulation
-        var tempDiff = Math.Abs(ent.Comp2.CurrentTemperature - ent.Comp1.NormalBodyTemperature);
-        var heatCapacity = _tempSys.GetHeatCapacity(ent, ent);
+        var tempDiff = Math.Abs(ent.Comp2.Temperature - ent.Comp1.NormalBodyTemperature);
+        var heatCapacity = ent.Comp2.HeatCapacity;
         var targetHeat = tempDiff * heatCapacity;
-        if (ent.Comp2.CurrentTemperature > ent.Comp1.NormalBodyTemperature)
+        if (ent.Comp2.Temperature > ent.Comp1.NormalBodyTemperature)
         {
             totalMetabolismTempChange -= Math.Min(targetHeat, ent.Comp1.ImplicitHeatRegulation);
         }
@@ -80,10 +67,10 @@ public sealed class ThermalRegulatorSystem : EntitySystem
             totalMetabolismTempChange += Math.Min(targetHeat, ent.Comp1.ImplicitHeatRegulation);
         }
 
-        _tempSys.ChangeHeat(ent, totalMetabolismTempChange, ignoreHeatResistance: true, ent);
+        _tempSys.ChangeHeat((ent, ent.Comp2), totalMetabolismTempChange, ignoreHeatResistance: true);
 
         // recalc difference and target heat
-        tempDiff = Math.Abs(ent.Comp2.CurrentTemperature - ent.Comp1.NormalBodyTemperature);
+        tempDiff = Math.Abs(ent.Comp2.Temperature - ent.Comp1.NormalBodyTemperature);
         targetHeat = tempDiff * heatCapacity;
 
         // if body temperature is not within comfortable, thermal regulation
@@ -91,19 +78,19 @@ public sealed class ThermalRegulatorSystem : EntitySystem
         if (tempDiff < ent.Comp1.ThermalRegulationTemperatureThreshold)
             return;
 
-        if (ent.Comp2.CurrentTemperature > ent.Comp1.NormalBodyTemperature)
+        if (ent.Comp2.Temperature > ent.Comp1.NormalBodyTemperature)
         {
             if (!_actionBlockerSys.CanSweat(ent))
                 return;
 
-            _tempSys.ChangeHeat(ent, -Math.Min(targetHeat, ent.Comp1.SweatHeatRegulation), ignoreHeatResistance: true, ent);
+            _tempSys.ChangeHeat((ent, ent.Comp2), -Math.Min(targetHeat, ent.Comp1.SweatHeatRegulation), ignoreHeatResistance: true);
         }
         else
         {
             if (!_actionBlockerSys.CanShiver(ent))
                 return;
 
-            _tempSys.ChangeHeat(ent, Math.Min(targetHeat, ent.Comp1.ShiveringHeatRegulation), ignoreHeatResistance: true, ent);
+            _tempSys.ChangeHeat((ent, ent.Comp2), Math.Min(targetHeat, ent.Comp1.ShiveringHeatRegulation), ignoreHeatResistance: true);
         }
     }
 }

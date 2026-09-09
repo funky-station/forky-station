@@ -1,17 +1,13 @@
-# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 claustro305 <76455142+claustro305@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SpaceRox1244 <138547931+SpaceRox1244@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
+  parent: BaseLightHousingDestructible
   id: AlwaysPoweredStrobeLight
   name: strobe
-  description: "UH?! Sorry, all I can hear is WEE-OOO-WEE-OOO!"
   suffix: Always powered
+  description: "UH?! Sorry, all I can hear is WEE-OOO-WEE-OOO!"
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
   components:
   - type: AmbientSound
     volume: -15
@@ -30,6 +26,7 @@
     graph: LightFixture
     node: bulbLight
   - type: Sprite
+    offset: 0, 1
     sprite: Structures/Wallmounts/Lighting/strobe_light.rsi
     drawdepth: WallMountedItems
     layers:
@@ -40,12 +37,12 @@
       shader: unshaded
     state: base
   - type: PointLight
-    mask: /Textures/Effects/LightMasks/double_cone.png
+    lightMask: ConeDouble
     color: "#FFE4CE"
     energy: 5
     radius: 10
     softness: 1
-    offset: "0, 0.35"
+    offset: "0, 0.25"
   - type: RotatingLight
   - type: Physics
     bodyType: Static
@@ -60,33 +57,17 @@
         - None
         layer:
         - TabletopMachineLayer
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
-      behaviors: #excess damage, don't spawn entities.
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 25
+        damage: 50
       behaviors:
-      - !type:EmptyAllContainersBehaviour
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetSteel1:
             min: 1
             max: 1
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Wallmount
 
 - type: entity
   name: strobe
@@ -109,6 +90,7 @@
   - type: PoweredLight
     bulb: Bulb
     on: false
+  - type: SpookyPoweredLight
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
   - type: DeviceNetwork

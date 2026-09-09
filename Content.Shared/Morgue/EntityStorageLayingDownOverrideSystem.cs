@@ -1,17 +1,12 @@
-// SPDX-FileCopyrightText: 2022-2023, 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Morgue.Components;
 using Content.Shared.Standing;
 using Content.Shared.Storage.Components;
 
 namespace Content.Shared.Morgue;
 
-public sealed class EntityStorageLayingDownOverrideSystem : EntitySystem
+public sealed partial class EntityStorageLayingDownOverrideSystem : EntitySystem
 {
-    [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
 
     public override void Initialize()
     {

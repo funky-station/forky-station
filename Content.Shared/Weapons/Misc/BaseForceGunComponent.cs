@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Audio;
 
 namespace Content.Shared.Weapons.Misc;
@@ -53,7 +49,7 @@ public abstract partial class BaseForceGunComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("sound"), AutoNetworkedField]
     public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Weapons/weoweo.ogg")
     {
-        Params = AudioParams.Default.WithLoop(true).WithVolume(-8f),
+        Params = AudioParams.Default.WithLoop(true).AddVolume(-8f),
     };
 
     public EntityUid? Stream;

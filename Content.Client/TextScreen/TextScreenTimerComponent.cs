@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023 avery <51971268+graevy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Client.TextScreen;
@@ -13,7 +8,15 @@ namespace Content.Client.TextScreen;
 [RegisterComponent]
 public sealed partial class TextScreenTimerComponent : Component
 {
+    /// <summary>
+    /// The time that the timer is counting down to.
+    /// </summary>
     [DataField("targetTime", customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan Target = TimeSpan.Zero;
+
+    /// <summary>
+    /// Per-character layers, for mapping into the sprite component.
+    /// </summary>
+    [ViewVariables]
     public Dictionary<string, string?> LayerStatesToDraw = new();
 }

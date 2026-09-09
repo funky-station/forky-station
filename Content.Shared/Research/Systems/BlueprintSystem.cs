@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Lathe;
@@ -15,11 +11,11 @@ using System.Linq;
 
 namespace Content.Shared.Research.Systems;
 
-public sealed class BlueprintSystem : EntitySystem
+public sealed partial class BlueprintSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private EntityWhitelistSystem _entityWhitelist = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -64,7 +60,7 @@ public sealed class BlueprintSystem : EntitySystem
                 ("user", userId),
                 ("blueprint", bpId),
                 ("receiver", machineId));
-            _popup.PopupPredicted(msg, ent, user);
+            _popup.PopupEntity(msg, ent);
         }
 
         _container.Insert(blueprint.Owner, _container.GetContainer(ent, ent.Comp.ContainerId));
@@ -91,7 +87,7 @@ public sealed class BlueprintSystem : EntitySystem
         var currentRecipes = GetBlueprintRecipes(ent);
         if (currentRecipes.Count != 0 && currentRecipes.IsSupersetOf(blueprint.Comp.ProvidedRecipes))
         {
-            _popup.PopupPredicted(Loc.GetString("blueprint-receiver-popup-recipe-exists"), ent, user);
+            _popup.PopupEntity(Loc.GetString("blueprint-receiver-popup-recipe-exists"), ent, user);
             return false;
         }
 

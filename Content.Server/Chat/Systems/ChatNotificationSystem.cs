@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Chat.Managers;
 using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
@@ -17,12 +14,10 @@ namespace Content.Server.Chat.Systems;
 /// </summary>
 public sealed partial class ChatNotificationSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IChatManager _chats = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly ILogManager _logManager = default!;
+    [Dependency] private IChatManager _chats = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedRoleSystem _roles = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -42,7 +37,7 @@ public sealed partial class ChatNotificationSystem : EntitySystem
 
         SubscribeLocalEvent<ActorComponent, ChatNotificationEvent>(OnChatNotification);
 
-        _sawmill = _logManager.GetSawmill("chatnotification");
+        _sawmill = LogManager.GetSawmill("chatnotification");
     }
 
     /// <summary>
@@ -52,7 +47,7 @@ public sealed partial class ChatNotificationSystem : EntitySystem
     /// <param name="args">The chat notification event</param>
     public void OnChatNotification(Entity<ActorComponent> ent, ref ChatNotificationEvent args)
     {
-        if (!_proto.TryIndex(args.ChatNotification, out var chatNotification))
+        if (!ProtoMan.TryIndex(args.ChatNotification, out var chatNotification))
         {
             _sawmill.Warning("Attempted to index ChatNotificationPrototype " + args.ChatNotification + " but the prototype does not exist.");
             return;

@@ -1,13 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 Jessica M <jessica@jessicamaybe.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: ActionIntrinsicStore
   id: ActionRevenantShop
@@ -22,7 +12,10 @@
   components:
   - type: Action
     useDelay: 15
-    icon: Interface/Actions/defile.png
+    itemIconStyle: BigAction
+  - type: Sprite
+    layers:
+    - texture: Interface/Actions/defile.png
   - type: InstantAction
     event: !type:RevenantDefileActionEvent
 
@@ -33,8 +26,11 @@
   description: Costs 40 Essence.
   components:
   - type: Action
-    icon: Interface/Actions/overloadlight.png
     useDelay: 20
+    itemIconStyle: BigAction
+  - type: Sprite
+    layers:
+    - texture: Interface/Actions/overloadlight.png
   - type: InstantAction
     event: !type:RevenantOverloadLightsActionEvent
 
@@ -57,7 +53,10 @@
   description: Costs 60 Essence.
   components:
   - type: Action
-    icon: Interface/Actions/malfunction.png
     useDelay: 20
+    itemIconStyle: BigAction
+  - type: Sprite
+    layers:
+    - texture: Interface/Actions/malfunction.png
   - type: InstantAction
     event: !type:RevenantMalfunctionActionEvent

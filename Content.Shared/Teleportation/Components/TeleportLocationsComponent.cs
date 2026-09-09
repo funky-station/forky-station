@@ -1,9 +1,7 @@
-// SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Teleportation.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Content.Shared.Whitelist;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Teleportation.Components;
@@ -48,6 +46,18 @@ public sealed partial class TeleportLocationsComponent : Component
     /// </summary>
     [DataField]
     public LocId? Speech;
+
+    /// <summary>
+    /// Which warp points should be made available for teleportation?
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? Whitelist;
+
+    /// <summary>
+    /// Which warp points should be made unavailable for teleportation?
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? Blacklist;
 }
 
 /// <summary>

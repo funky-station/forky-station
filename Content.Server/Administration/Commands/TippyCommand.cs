@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Administration;
 using Content.Shared.Tips;
 using Robust.Server.Player;
@@ -11,11 +8,11 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Fun)]
-public sealed class TippyCommand : LocalizedEntityCommands
+public sealed partial class TippyCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly SharedTipsSystem _tips = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private SharedTipsSystem _tips = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public override string Command => "tippy";
 
@@ -92,9 +89,9 @@ public sealed class TippyCommand : LocalizedEntityCommands
 }
 
 [AdminCommand(AdminFlags.Fun)]
-public sealed class TipCommand : LocalizedEntityCommands
+public sealed partial class TipCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly SharedTipsSystem _tips = default!;
+    [Dependency] private SharedTipsSystem _tips = default!;
 
     public override string Command => "tip";
 

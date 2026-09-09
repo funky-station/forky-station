@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Wall;
 using Robust.Client.Graphics;
 using Robust.Shared.Console;
@@ -10,9 +7,9 @@ namespace Content.Client.Commands;
 /// <summary>
 /// Shows the area in which entities with <see cref="Content.Shared.Wall.WallMountComponent" /> can be interacted from.
 /// </summary>
-public sealed class ShowWallmountsCommand : LocalizedCommands
+public sealed partial class ShowWallmountsCommand : LocalizedCommands
 {
-    [Dependency] private readonly IOverlayManager _overlay = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
 
     public override string Command => "showwallmounts";
 

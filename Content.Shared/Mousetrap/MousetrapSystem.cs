@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Trigger.Systems;
 using Content.Shared.StepTrigger.Systems;
@@ -8,7 +5,7 @@ using Robust.Shared.Physics.Components;
 
 namespace Content.Shared.Mousetrap;
 
-public sealed class MousetrapSystem : EntitySystem
+public sealed partial class MousetrapSystem : EntitySystem
 {
     public override void Initialize()
     {

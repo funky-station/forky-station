@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
@@ -9,12 +5,12 @@ using Robust.Shared.Console;
 namespace Content.Server.Connection;
 
 [AdminCommand(AdminFlags.Moderator)]
-public sealed class GrantConnectBypassCommand : LocalizedCommands
+public sealed partial class GrantConnectBypassCommand : LocalizedCommands
 {
     private static readonly TimeSpan DefaultDuration = TimeSpan.FromHours(1);
 
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly IConnectionManager _connectionManager = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
+    [Dependency] private IConnectionManager _connectionManager = default!;
 
     public override string Command => "grant_connect_bypass";
 

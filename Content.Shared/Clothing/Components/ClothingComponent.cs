@@ -1,20 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DEATHB4DEFEAT <77995199+DEATHB4DEFEAT@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Zoldorf <silvertorch5@gmail.com>
-// SPDX-FileCopyrightText: 2024 to4no_fix <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Red <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 InsoPL <lukasz.lindert@protonmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 paige404 <59348003+paige404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared.Clothing.EntitySystems;
@@ -27,12 +10,19 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Clothing.Components;
 
 /// <summary>
-///     This handles entities which can be equipped.
+/// This handles entities that can be equipped.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 [Access(typeof(ClothingSystem), typeof(InventorySystem))]
 public sealed partial class ClothingComponent : Component
 {
+    /// <summary>
+    /// A set of clothing visuals per layer by the name of the inventory slot (e.g. "head").
+    /// Species-specific layers are expected at the name of the layer suffixed with the species (e.g. "head-vox")
+    /// NOTE: if your species-specific layers consist entirely of default layers or layers
+    ///       suffixed with your species (e.g. "helmet-unshaded" to "helmet-unshaded-vox")
+    ///       this can be omitted entirely!
+    /// </summary>
     [DataField]
     public Dictionary<string, List<PrototypeLayerData>> ClothingVisuals = new();
 
@@ -56,9 +46,15 @@ public sealed partial class ClothingComponent : Component
     [Access(typeof(ClothingSystem), typeof(InventorySystem), Other = AccessPermissions.ReadExecute)]
     public SlotFlags Slots = SlotFlags.NONE;
 
+    /// <summary>
+    /// The sound that plays when this entity is equipped.
+    /// </summary>
     [DataField]
     public SoundSpecifier? EquipSound;
 
+    /// <summary>
+    /// The sound that plays when this entity is unequipped.
+    /// </summary>
     [DataField]
     public SoundSpecifier? UnequipSound;
 

@@ -1,34 +1,9 @@
-// SPDX-FileCopyrightText: 2019 moneyl <8206401+Moneyl@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 PrPleGoo <felix.leeuwen@gmail.com>
-// SPDX-FileCopyrightText: 2021-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021-2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2021 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
-// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 py01 <60152240+collinlunn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Timothy Teakettle <59849408+timothyteakettle@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 
 namespace Content.Shared.Chemistry.Reaction
 {
@@ -48,8 +23,8 @@ namespace Content.Shared.Chemistry.Reaction
         /// <summary>
         /// Reactants required for the reaction to occur.
         /// </summary>
-        [DataField("reactants", customTypeSerializer:typeof(PrototypeIdDictionarySerializer<ReactantPrototype, ReagentPrototype>))]
-        public Dictionary<string, ReactantPrototype> Reactants = new();
+        [DataField]
+        public Dictionary<ProtoId<ReagentPrototype>, ReactantInfo> Reactants = new();
 
         /// <summary>
         ///     The minimum temperature the reaction can occur at.
@@ -60,7 +35,7 @@ namespace Content.Shared.Chemistry.Reaction
         /// <summary>
         ///     If true, this reaction will attempt to conserve thermal energy.
         /// </summary>
-        [DataField("conserveEnergy")]
+        [DataField]
         public bool ConserveEnergy = true;
 
         /// <summary>
@@ -78,8 +53,8 @@ namespace Content.Shared.Chemistry.Reaction
         /// <summary>
         /// Reagents created when the reaction occurs.
         /// </summary>
-        [DataField("products", customTypeSerializer:typeof(PrototypeIdDictionarySerializer<FixedPoint2, ReagentPrototype>))]
-        public Dictionary<string, FixedPoint2> Products = new();
+        [DataField]
+        public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> Products = new();
 
         /// <summary>
         /// Effects to be triggered when the reaction occurs.
@@ -90,10 +65,10 @@ namespace Content.Shared.Chemistry.Reaction
         /// How dangerous is this effect? Stuff like bicaridine should be low, while things like methamphetamine
         /// or potas/water should be high.
         /// </summary>
-        [DataField("impact", serverOnly: true)] public LogImpact Impact = LogImpact.Low;
+        [DataField(serverOnly: true)] public LogImpact Impact = LogImpact.Low;
 
         // TODO SERV3: Empty on the client, (de)serialize on the server with module manager is server module
-        [DataField("sound", serverOnly: true)] public SoundSpecifier Sound { get; private set; } = new SoundPathSpecifier("/Audio/Effects/Chemistry/bubbles.ogg");
+        [DataField(serverOnly: true)] public SoundSpecifier Sound { get; private set; } = new SoundPathSpecifier("/Audio/Effects/Chemistry/bubbles.ogg");
 
         /// <summary>
         /// If true, this reaction will only consume only integer multiples of the reactant amounts. If there are not
@@ -141,23 +116,13 @@ namespace Content.Shared.Chemistry.Reaction
     }
 
     /// <summary>
-    /// Prototype for chemical reaction reactants.
+    /// Details about a reactant in a <see cref="ReactionPrototype.Reactants">reaction</see>.
     /// </summary>
-    [DataDefinition]
-    public sealed partial class ReactantPrototype
-    {
-        [DataField("amount")]
-        private FixedPoint2 _amount = FixedPoint2.New(1);
-        [DataField("catalyst")]
-        private bool _catalyst;
-
-        /// <summary>
-        /// Minimum amount of the reactant needed for the reaction to occur.
-        /// </summary>
-        public FixedPoint2 Amount => _amount;
-        /// <summary>
-        /// Whether or not the reactant is a catalyst. Catalysts aren't removed when a reaction occurs.
-        /// </summary>
-        public bool Catalyst => _catalyst;
-    }
+    /// <param name="Amount">Minimum amount of the reactant needed for the reaction to occur.</param>
+    /// <param name="Catalyst">Whether or not the reactant is a catalyst. Catalysts aren't removed when a reaction occurs.</param>
+    [DataRecord]
+    public partial record struct ReactantInfo(
+        FixedPoint2 Amount,
+        bool Catalyst
+    );
 }

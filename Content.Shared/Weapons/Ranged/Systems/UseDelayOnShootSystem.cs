@@ -1,16 +1,11 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 mq <113324899+mqole@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Ranged.Components;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
-public sealed class UseDelayOnShootSystem : EntitySystem
+public sealed partial class UseDelayOnShootSystem : EntitySystem
 {
-    [Dependency] private readonly UseDelaySystem _delay = default!;
+    [Dependency] private UseDelaySystem _delay = default!;
 
     public override void Initialize()
     {

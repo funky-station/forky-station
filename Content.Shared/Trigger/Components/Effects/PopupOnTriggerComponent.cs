@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 korczoczek <danielkorczok@gmail.com>
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Popups;
 using Robust.Shared.GameStates;
 

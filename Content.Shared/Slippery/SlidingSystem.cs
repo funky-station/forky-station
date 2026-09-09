@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Movement.Systems;
 using Content.Shared.Standing;
 using Content.Shared.Throwing;
@@ -12,18 +8,16 @@ using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared.Slippery;
 
-public sealed class SlidingSystem : EntitySystem
+public sealed partial class SlidingSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _speedModifierSystem = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private MovementSpeedModifierSystem _speedModifierSystem = default!;
 
-    private EntityQuery<SlipperyComponent> _slipperyQuery;
+    [Dependency] private EntityQuery<SlipperyComponent> _slipperyQuery = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-
-        _slipperyQuery = GetEntityQuery<SlipperyComponent>();
 
         SubscribeLocalEvent<SlidingComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<SlidingComponent, ComponentShutdown>(OnComponentShutdown);
@@ -42,7 +36,7 @@ public sealed class SlidingSystem : EntitySystem
     private void OnComponentInit(Entity<SlidingComponent> entity, ref ComponentInit args)
     {
         if (CalculateSlidingModifier(entity))
-            _speedModifierSystem.RefreshFrictionModifiers(entity);
+            _speedModifierSystem.RefreshFrictionModifiers(entity.Owner);
     }
 
     /// <summary>
@@ -51,7 +45,7 @@ public sealed class SlidingSystem : EntitySystem
     private void OnComponentShutdown(Entity<SlidingComponent> entity, ref ComponentShutdown args)
     {
         entity.Comp.FrictionModifier = 1;
-        _speedModifierSystem.RefreshFrictionModifiers(entity);
+        _speedModifierSystem.RefreshFrictionModifiers(entity.Owner);
     }
 
     /// <summary>
@@ -71,7 +65,7 @@ public sealed class SlidingSystem : EntitySystem
             return;
 
         CalculateSlidingModifier(entity);
-        _speedModifierSystem.RefreshFrictionModifiers(entity);
+        _speedModifierSystem.RefreshFrictionModifiers(entity.Owner);
     }
 
     /// <summary>
@@ -88,7 +82,7 @@ public sealed class SlidingSystem : EntitySystem
             return;
         }
 
-        _speedModifierSystem.RefreshFrictionModifiers(entity);
+        _speedModifierSystem.RefreshFrictionModifiers(entity.Owner);
     }
 
     /// <summary>

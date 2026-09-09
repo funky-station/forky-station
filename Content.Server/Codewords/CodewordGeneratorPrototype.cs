@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Dataset;
 using Robust.Shared.Prototypes;
 

@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.DeviceNetwork.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.DeviceNetwork.Events;
@@ -14,9 +10,9 @@ namespace Content.Server.DeviceNetwork.Systems
     /// This system requires the StationLimitedNetworkComponent to be on the the sending entity as well as the receiving entity
     /// </summary>
     [UsedImplicitly]
-    public sealed class StationLimitedNetworkSystem : EntitySystem
+    public sealed partial class StationLimitedNetworkSystem : EntitySystem
     {
-        [Dependency] private readonly StationSystem _stationSystem = default!;
+        [Dependency] private StationSystem _stationSystem = default!;
         public override void Initialize()
         {
             base.Initialize();

@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Buckle.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
@@ -11,10 +6,10 @@ using Content.Shared.Throwing;
 
 namespace Content.Shared.Traits.Assorted;
 
-public sealed class LegsParalyzedSystem : EntitySystem
+public sealed partial class LegsParalyzedSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
-    [Dependency] private readonly StandingStateSystem _standingSystem = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
+    [Dependency] private StandingStateSystem _standingSystem = default!;
 
     public override void Initialize()
     {

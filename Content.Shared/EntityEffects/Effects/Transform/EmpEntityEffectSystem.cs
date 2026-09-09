@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Database;
 using Content.Shared.Emp;
 using Robust.Shared.Prototypes;
@@ -17,8 +11,8 @@ namespace Content.Shared.EntityEffects.Effects.Transform;
 /// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
 public sealed partial class EmpEntityEffectSystem : EntityEffectSystem<TransformComponent, Emp>
 {
-    [Dependency] private readonly SharedEmpSystem _emp = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private SharedEmpSystem _emp = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<Emp> args)
     {

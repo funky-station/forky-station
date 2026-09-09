@@ -1,63 +1,5 @@
-# SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2020 Peter Wedder <burneddi@gmail.com>
-# SPDX-FileCopyrightText: 2020 Ygg01 <daniel.fath7@gmail.com>
-# SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2020 FrostMando <68990565+FrostMando@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021-2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021-2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Elijahrane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022, 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022, 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022-2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 ninruB <38016303+asperger-sind@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2022 Julian Giebel <juliangiebel@live.de>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Pancake <Pangogie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 liltenhead <104418166+liltenhead@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Tunguso4ka <71643624+Tunguso4ka@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2023 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 CrigCrag <137215465+CrigCrag@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Jackal298 <129199891+Jackal298@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024-2025 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024-2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 RedBookcase <crazykid1590@gmail.com>
-# SPDX-FileCopyrightText: 2024 ArZarLordOfMango <96249677+ArZarLordOfMango@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Golinth <amh2023@gmail.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 PopGamer46 <yt1popgamer@gmail.com>
-# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 hoshizora <willhornbeck12@gmail.com>
-# SPDX-FileCopyrightText: 2025 Hitlinemoss <209321380+Hitlinemoss@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Tao <56692749+TaoNewt@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
-# SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
-# SPDX-FileCopyrightText: 2025 Banedon <15725971+Lanedon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Pgriha <133212269+Pgriha@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Polter <62557990+PolterTzi@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
-# SPDX-License-Identifier: MIT
+#These are intentionally all very mediocre as locational damage does not exist yet. Without it, armor values will stack in a way that makes it really god damn hard to determine how effective something is, along with making players extremely tanky.
+#When it DOES exist, the values here should be totally reworked - probably just port them from SS13.
 
 - type: entity
   parent: ClothingHeadBase
@@ -85,21 +27,34 @@
         Piercing: 0.9
         Heat: 0.9
 
-#Basic Helmet (Security Helmet)
+#Security Helmet
 - type: entity
-  parent: [ClothingHeadHelmetArmoredBase, BaseSecurityContraband]
+  parent: [ClothingHeadHelmetArmoredBase, BaseFoldable, BaseSecurityContraband]
   id: ClothingHeadHelmetBasic
-  name: helmet
-  description: Standard security gear. Protects the head from impacts.
+  name: security helmet
+  description: Standard security gear. Protects the head from impacts, and comes with a visor which can be lowered to protect the eyes.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/security.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon-visor
+      map: [ "foldedLayer" ]
+      visible: false
   - type: Clothing
     sprite: Clothing/Head/Helmets/security.rsi
   - type: Tag
     tags:
     - WhitelistChameleon
     - SecurityHelmet
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-raise-visor-verb
+    foldVerbText: fold-lower-visor-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: visor
+    foldedHeldPrefix: visor
   - type: HideLayerClothing
     layers:
       Hair: HEAD
@@ -163,13 +118,19 @@
 
 #Light Riot Helmet
 - type: entity
-  parent: [ClothingHeadHelmetBase, BaseSecurityContraband]
+  parent: [ClothingHeadHelmetBase, BaseFoldable, BaseSecurityContraband]
   id: ClothingHeadHelmetRiot
   name: light riot helmet
-  description: It's a helmet specifically designed to protect against close range attacks.
+  description: It's a helmet specifically designed to protect against close range attacks, it has a foldable visor.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/light_riot.rsi
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: visor-icon
+      map: [ "foldedLayer" ]
+      visible: false
   - type: Clothing
     sprite: Clothing/Head/Helmets/light_riot.rsi
   - type: IngestionBlocker
@@ -179,9 +140,24 @@
         Blunt: 0.8
         Slash: 0.8
         Piercing: 0.95
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: fold-lower-visor-verb
+    foldVerbText: fold-raise-visor-verb
+  - type: FoldableClothing
+    foldedEquippedPrefix: visor
+    foldedHeldPrefix: visor
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - SecurityHelmet
   - type: HideLayerClothing
     layers:
       Hair: HEAD
+  - type: ESViewconeModifier # Funky
+    angleModifier: -35
+  - type: StainBlocker # Funky
+    slots: [ MASK ]
 
 #Bombsuit Helmet
 - type: entity
@@ -207,6 +183,10 @@
     layers:
       Hair: HEAD
       Snout: HEAD
+  - type: ESViewconeModifier # Funky
+    angleModifier: -90
+  - type: StainBlocker # Funky
+    slots: [ MASK ]
 
 #Janitorial Bombsuit Helmet
 - type: entity
@@ -286,6 +266,10 @@
   - type: HideLayerClothing
     layers:
       Hair: HEAD
+  - type: ESViewconeModifier # Funky
+    angleModifier: -90
+  - type: StainBlocker # Funky
+    slots: [ MASK ]
 
 #Thunderdome Helmet
 - type: entity
@@ -321,22 +305,31 @@
 
 #Fire Helmet
 - type: entity
-  parent: ClothingHeadLightBase
+  parent: [ClothingHeadLightBase, TemperatureProtection]
   id: ClothingHeadHelmetFire
   name: fire helmet
   description: An atmos tech's best friend. Provides some heat resistance and looks cool.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/firehelmet.rsi
+  - type: ToggleableVisuals
+    clothingVisuals:
+      head:
+      - state: equipped-helmet-light
+        shader: unshaded
   - type: Clothing
-    sprite: Clothing/Head/Helmets/firehelmet.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-helmet
     quickEquip: true
   - type: IngestionBlocker
-  - type: TemperatureProtection
-    heatingCoefficient: 0.5
-    coolingCoefficient: 0.8
   - type: FireProtection
     reduction: 0.15 # not fully sealed so less protection
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellSmall
   - type: IdentityBlocker
   - type: Tag
     tags:
@@ -346,23 +339,38 @@
     layers:
       Hair: HEAD
       Snout: HEAD
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: ESViewconeModifier # Funky
+    angleModifier: -90
+  - type: StainBlocker # Funky
+    slots: [ MASK ]
 
 #Atmos Fire Helmet
 - type: entity
-  parent: [ClothingHeadLightBase, BaseEngineeringContraband]
+  parent: [ClothingHeadLightBase, TemperatureProtection, BaseEngineeringContraband]
   id: ClothingHeadHelmetAtmosFire
   name: atmos fire helmet
   description: An atmos fire helmet, able to keep the user cool in any situation.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/atmos_firehelmet.rsi
+  - type: ToggleableVisuals
+    clothingVisuals:
+      head:
+      - state: equipped-helmet-light
+        shader: unshaded
   - type: Clothing
     sprite: Clothing/Head/Helmets/atmos_firehelmet.rsi
     quickEquip: true
+    clothingVisuals:
+      head:
+      - state: equipped-helmet
   - type: IngestionBlocker
-  - type: TemperatureProtection
-    heatingCoefficient: 0.3
-    coolingCoefficient: 0.8
   - type: FireProtection
     reduction: 0.2
   - type: PressureProtection
@@ -373,12 +381,21 @@
     tags:
     - WhitelistChameleon
     - FireHelmet
-    - CorgiWearable
   - type: HideLayerClothing
     layers:
       Hair: HEAD
       Snout: HEAD
   - type: BreathMask
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: ESViewconeModifier # Funky
+    angleModifier: -90
+  - type: StainBlocker # Funky
+    slots: [ MASK ]
 
 #Chitinous Helmet
 - type: entity
@@ -532,7 +549,7 @@
 
 #Justice Helmet
 - type: entity
-  parent: ClothingHeadHelmetBasic
+  parent: [ClothingHeadHelmetArmoredBase, BaseSecurityContraband]
   id: ClothingHeadHelmetJustice
   name: justice helm
   description: Advanced security gear. Protects the station from ne'er-do-wells.
@@ -549,6 +566,7 @@
   - type: Clothing
     sprite: Clothing/Head/Helmets/justice.rsi
     equippedPrefix: off
+  - type: ItemToggleExaminableStatus
   - type: ItemToggle
     predictable: false # issues between ToggleCellDraw and ItemToggleActiveSound
     onUse: false
@@ -581,7 +599,7 @@
     energy: 2.5
     color: red
     netsync: false
-    mask: /Textures/Effects/LightMasks/double_cone.png
+    lightMask: ConeDouble
   - type: RotatingLight
     speed: 360
   - type: PowerCellSlot
@@ -603,6 +621,10 @@
   - type: HideLayerClothing
     layers:
       Hair: HEAD
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - SecurityHelmet
 
 - type: entity
   parent: ClothingHeadHelmetJustice

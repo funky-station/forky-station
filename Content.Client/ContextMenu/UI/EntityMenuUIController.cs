@@ -1,19 +1,3 @@
-// SPDX-FileCopyrightText: 2021, 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 08A <git@08a.re>
-// SPDX-FileCopyrightText: 2023 Alexis Ehret <git@08a.re>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kot <1192090+koteq@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Numerics;
 using Content.Client.CombatMode;
@@ -51,22 +35,25 @@ namespace Content.Client.ContextMenu.UI
     /// </remarks>
     public sealed partial class EntityMenuUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>
     {
-        [Dependency] private readonly IEntitySystemManager _systemManager = default!;
-        [Dependency] private readonly IEntityManager _entityManager = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly IStateManager _stateManager = default!;
-        [Dependency] private readonly IInputManager _inputManager = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
-        [Dependency] private readonly IEyeManager _eyeManager = default!;
-        [Dependency] private readonly ContextMenuUIController _context = default!;
-        [Dependency] private readonly VerbMenuUIController _verb = default!;
+        [Dependency] private IEntitySystemManager _systemManager = default!;
+        [Dependency] private IEntityManager _entityManager = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private IStateManager _stateManager = default!;
+        [Dependency] private IInputManager _inputManager = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private IUserInterfaceManager _userInterfaceManager = default!;
+        [Dependency] private IEyeManager _eyeManager = default!;
+        [Dependency] private ContextMenuUIController _context = default!;
+        [Dependency] private VerbMenuUIController _verb = default!;
 
         [UISystemDependency] private readonly VerbSystem _verbSystem = default!;
         [UISystemDependency] private readonly ExamineSystem _examineSystem = default!;
         [UISystemDependency] private readonly TransformSystem _xform = default!;
         [UISystemDependency] private readonly CombatModeSystem _combatMode = default!;
+
+        private EntityQuery<TransformComponent> _xformQuery;
+        private EntityQuery<SpriteComponent> _spriteQuery;
 
         private bool _updating;
 
@@ -87,6 +74,9 @@ namespace Content.Client.ContextMenu.UI
             CommandBinds.Builder
                 .Bind(EngineKeyFunctions.UseSecondary,  new PointerInputCmdHandler(HandleOpenEntityMenu, outsidePrediction: true))
                 .Register<EntityMenuUIController>();
+
+            _xformQuery = _entityManager.GetEntityQuery<TransformComponent>();
+            _spriteQuery = _entityManager.GetEntityQuery<SpriteComponent>();
         }
 
         public void OnStateExited(GameplayState state)
@@ -176,24 +166,35 @@ namespace Content.Client.ContextMenu.UI
             }
         }
 
+        // ES START
+        // reverse returns they were incorrect before
         private bool HandleOpenEntityMenu(in PointerInputCmdHandler.PointerInputCmdArgs args)
         {
+            // ES START
+            // despite what you may infer from outsidePrediction, that doesnt actually mean this doesnt get predicted,
+            // it appears to just mean this is a clientside/local bind that can prevent server binds from running?
+            // so we still have to check. this was papered over in earlier impls, because of the bad return values, afaict.
+            if (!_gameTiming.IsFirstTimePredicted)
+                return true;
+            // ES END
+
             if (args.State != BoundKeyState.Down)
-                return false;
+                return true;
 
             if (_stateManager.CurrentState is not GameplayStateBase)
-                return false;
+                return true;
 
             if (_combatMode.IsInCombatMode(args.Session?.AttachedEntity))
-                return false;
+                return true;
 
             var coords = _xform.ToMapCoordinates(args.Coordinates);
 
             if (_verbSystem.TryGetEntityMenuEntities(coords, out var entities))
                 OpenRootMenu(entities);
 
-            return true;
+            return false;
         }
+        // ES END
 
         /// <summary>
         ///     Check that entities in the context menu are still visible. If not, remove them from the context menu.
@@ -227,13 +228,20 @@ namespace Content.Client.ContextMenu.UI
             visibility = ev.Visibility;
 
             _entityManager.TryGetComponent(player, out ExaminerComponent? examiner);
-            var xformQuery = _entityManager.GetEntityQuery<TransformComponent>();
 
             foreach (var entity in Elements.Keys.ToList())
             {
-                if (!xformQuery.TryGetComponent(entity, out var xform))
+                if (!_xformQuery.TryGetComponent(entity, out var xform))
                 {
                     // entity was deleted
+                    RemoveEntity(entity);
+                    continue;
+                }
+
+                if ((visibility & MenuVisibility.Invisible) == 0
+                    && _spriteQuery.TryGetComponent(entity, out var sprite)
+                    && !sprite.Visible)
+                {
                     RemoveEntity(entity);
                     continue;
                 }
@@ -241,7 +249,7 @@ namespace Content.Client.ContextMenu.UI
                 if ((visibility & MenuVisibility.NoFov) == MenuVisibility.NoFov)
                     continue;
 
-                var pos = new MapCoordinates(_xform.GetWorldPosition(xform, xformQuery), xform.MapID);
+                var pos = new MapCoordinates(_xform.GetWorldPosition(xform, _xformQuery), xform.MapID);
 
                 if (!_examineSystem.CanExamine(player, pos, e => e == player || e == entity, entity, examiner))
                     RemoveEntity(entity);
@@ -328,7 +336,7 @@ namespace Content.Client.ContextMenu.UI
 
             // remove the element
             var parent = element.ParentMenu?.ParentElement;
-            element.Dispose();
+            element.Orphan();
             Elements.Remove(entity);
 
             // update any parent elements
@@ -356,7 +364,7 @@ namespace Content.Client.ContextMenu.UI
             if (entity == null)
             {
                 // This whole element has no associated entities. We should remove it
-                element.Dispose();
+                element.Orphan();
                 return;
             }
 
@@ -368,7 +376,7 @@ namespace Content.Client.ContextMenu.UI
                 // There was only one entity in the sub-menu. So we will just remove the sub-menu and point directly to
                 // that entity.
                 element.Entity = entity;
-                element.SubMenu.Dispose();
+                element.SubMenu.Orphan();
                 element.SubMenu = null;
                 Elements[entity.Value] = element;
             }

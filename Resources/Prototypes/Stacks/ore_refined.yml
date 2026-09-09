@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: stack
   parent: BaseMediumStack
   id: Diamond
@@ -14,7 +9,7 @@
   parent: BaseSmallStack
   id: Bananium
   name: stack-bananium
-  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: bananium }
+  icon: { sprite: /Textures/Objects/Materials/bananium.rsi, state: bananium-1 }
   spawn: MaterialBananium1
 
 # Ingots

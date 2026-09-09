@@ -1,0 +1,180 @@
+﻿- type: entity
+  parent: BaseItem
+  id: BasePager
+  abstract: true
+  name: pager
+  description: A small handheld pager, "Pocket Bell" brand. Beeps or buzzes, depending on the mode.
+  components:
+  - type: Pager
+    blacklist:
+    - "8008135"
+    - "67"
+    - "6767"
+    - "676767"
+    - "67676767"
+    - "shitmin"
+    - "wingstop"
+    - "8264015"
+    - "3284"
+    - "fuckcc"
+    - "fucknt"
+    - "unionize"
+    - "unionise"
+    - "union"
+  - type: Ringer
+    popup: pager-page-received
+  - type: UserInterface
+    interfaces:
+      enum.PagerUiKey.Key:
+        type: PagerBoundUserInterface
+      enum.RingerUiKey.Key:
+        type: RingerBoundUserInterface
+  - type: ActivatableUI
+    key: enum.PagerUiKey.Key
+  - type: DeviceLinkSource
+    ports:
+    - PagerSender
+
+- type: entity
+  parent: BasePager
+  id: PagerGray
+  suffix: Gray
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/Pagers/gray.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Item
+    size: Tiny
+    sprite: _Funkystation/Objects/Devices/Pagers/gray.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      - state: inhand-left-unshaded
+        shader: unshaded
+      right:
+      - state: inhand-right
+      - state: inhand-right-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: BasePager
+  id: PagerBeige
+  suffix: Beige
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/Pagers/beige.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Item
+    size: Tiny
+    sprite: _Funkystation/Objects/Devices/Pagers/beige.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      - state: inhand-left-unshaded
+        shader: unshaded
+      right:
+      - state: inhand-right
+      - state: inhand-right-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: BasePager
+  id: PagerBlue
+  suffix: Blue
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/Pagers/blue.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Item
+    size: Tiny
+    sprite: _Funkystation/Objects/Devices/Pagers/blue.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      - state: inhand-left-unshaded
+        shader: unshaded
+      right:
+      - state: inhand-right
+      - state: inhand-right-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: BasePager
+  id: PagerTransCyan
+  suffix: Transparent Cyan
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/Pagers/transcyan.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Item
+    size: Tiny
+    sprite: _Funkystation/Objects/Devices/Pagers/transcyan.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      - state: inhand-left-unshaded
+        shader: unshaded
+      right:
+      - state: inhand-right
+      - state: inhand-right-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: BasePager
+  id: PagerTransPink
+  suffix: Transparent Pink
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/Pagers/transpink.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Item
+    size: Tiny
+    sprite: _Funkystation/Objects/Devices/Pagers/transpink.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      - state: inhand-left-unshaded
+        shader: unshaded
+      right:
+      - state: inhand-right
+      - state: inhand-right-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: BasePager
+  id: PagerTransYellow
+  suffix: Transparent Yellow
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/Pagers/transyellow.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Item
+    size: Tiny
+    sprite: _Funkystation/Objects/Devices/Pagers/transyellow.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      - state: inhand-left-unshaded
+        shader: unshaded
+      right:
+      - state: inhand-right
+      - state: inhand-right-unshaded
+        shader: unshaded

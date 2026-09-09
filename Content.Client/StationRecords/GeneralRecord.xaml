@@ -4,6 +4,7 @@
         <Label Name="Age"/>
         <Label Name="Title"/>
         <Label Name="Job"/>
+        <Label Name="Pager"/>
         <Label Name="Species"/>
         <Label Name="Gender"/>
         <Label Name="Fingerprint"/>

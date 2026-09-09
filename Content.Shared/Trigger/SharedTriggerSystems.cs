@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Trigger.Components.Effects;
 using Content.Shared.Trigger.Systems;
 
@@ -9,9 +6,9 @@ namespace Content.Shared.Trigger;
 /// <summary>
 /// This is a base Trigger system which handles all the boilerplate for triggers automagically!
 /// </summary>
-public abstract class TriggerOnXSystem : EntitySystem
+public abstract partial class TriggerOnXSystem : EntitySystem
 {
-    [Dependency] protected readonly TriggerSystem Trigger = default!;
+    [Dependency] protected TriggerSystem Trigger = default!;
 }
 
 /// <summary>

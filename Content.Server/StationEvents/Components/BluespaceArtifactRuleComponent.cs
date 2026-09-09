@@ -1,11 +1,5 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.StationEvents.Events;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.StationEvents.Components;
 
@@ -16,14 +10,15 @@ namespace Content.Server.StationEvents.Components;
 [RegisterComponent, Access(typeof(BluespaceArtifactRule))]
 public sealed partial class BluespaceArtifactRuleComponent : Component
 {
-    [DataField("artifactSpawnerPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string ArtifactSpawnerPrototype = "RandomArtifactSpawner";
+    [DataField]
+    public EntProtoId ArtifactSpawnerPrototype = "RandomArtifactSpawner";
 
-    [DataField("artifactFlashPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string ArtifactFlashPrototype = "EffectFlashBluespace";
+    [DataField]
+    public EntProtoId ArtifactFlashPrototype = "EffectFlashBluespace";
 
-    [DataField("possibleSightings")]
-    public List<string> PossibleSighting = new()
+    // TODO: use LocalizedDataset, ideally when gamerules are more composable
+    [DataField]
+    public List<LocId> PossibleSightings = new()
     {
         "bluespace-artifact-sighting-1",
         "bluespace-artifact-sighting-2",

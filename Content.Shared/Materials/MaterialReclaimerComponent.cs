@@ -1,17 +1,11 @@
-// SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 LucasTheDrgn <kirbyfan.95@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+﻿using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.FixedPoint;
 using Content.Shared.Whitelist;
 using JetBrains.Annotations;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -147,6 +141,24 @@ public sealed partial class MaterialReclaimerComponent : Component
     /// </remarks>
     [DataField, AutoNetworkedField]
     public int ItemsProcessed;
+
+    /// <summary>
+    /// Damage that gets dealt when a creature is in the emagged recycler.
+    /// </summary>
+    [DataField]
+    public DamageSpecifier? DamageOnEmag = new DamageSpecifier
+    {
+        DamageDict = new Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2>
+        {
+            ["Slash"] = 35.0,
+        },
+    };
+
+    /// <summary>
+    /// If it should gib creatures when they enter and the machine is emagged
+    /// </summary>
+    [DataField]
+    public bool GibOnEmag = true;
 }
 
 [NetSerializable, Serializable]

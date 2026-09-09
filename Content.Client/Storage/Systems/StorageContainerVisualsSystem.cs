@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Storage.Components;
 using Content.Shared.Rounding;
 using Content.Shared.Storage;
@@ -10,7 +6,7 @@ using Robust.Client.GameObjects;
 namespace Content.Client.Storage.Systems;
 
 /// <inheritdoc cref="StorageContainerVisualsComponent"/>
-public sealed class StorageContainerVisualsSystem : VisualizerSystem<StorageContainerVisualsComponent>
+public sealed partial class StorageContainerVisualsSystem : VisualizerSystem<StorageContainerVisualsComponent>
 {
     protected override void OnAppearanceChange(EntityUid uid, StorageContainerVisualsComponent component, ref AppearanceChangeEvent args)
     {

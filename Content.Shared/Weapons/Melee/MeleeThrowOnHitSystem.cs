@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Timing;
@@ -22,12 +11,12 @@ namespace Content.Shared.Weapons.Melee;
 /// <summary>
 /// This handles <see cref="MeleeThrowOnHitComponent"/>
 /// </summary>
-public sealed class MeleeThrowOnHitSystem : EntitySystem
+public sealed partial class MeleeThrowOnHitSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly UseDelaySystem _delay = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private UseDelaySystem _delay = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {

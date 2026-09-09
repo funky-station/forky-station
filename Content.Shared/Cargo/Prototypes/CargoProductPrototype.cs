@@ -1,22 +1,6 @@
-// SPDX-FileCopyrightText: 2019 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019 ZelteHonor <gabrieldionbouchard@gmail.com>
-// SPDX-FileCopyrightText: 2019 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 icekot8 <93311212+icekot8@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
+using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 using Robust.Shared.Utility;
 
@@ -34,9 +18,15 @@ namespace Content.Shared.Cargo.Prototypes
         [AbstractDataField]
         public bool Abstract { get; private set; }
 
-        [DataField("name")] private string _name = string.Empty;
+        [DataField("name")]
+        private LocId? _nameLoc;
 
-        [DataField("description")] private string _description = string.Empty;
+        private string _name = string.Empty;
+
+        [DataField("description")]
+        private LocId? _descLoc;
+
+        private string _description = string.Empty;
 
         [ViewVariables]
         [IdDataField]
@@ -53,7 +43,11 @@ namespace Content.Shared.Cargo.Prototypes
                 if (_name.Trim().Length != 0)
                     return _name;
 
-                if (IoCManager.Resolve<IPrototypeManager>().Resolve(Product, out EntityPrototype? prototype))
+                if (_nameLoc is { } nameLoc)
+                {
+                    _name = Loc.GetString(nameLoc);
+                }
+                else if (IoCManager.Resolve<IPrototypeManager>().Resolve(Product, out var prototype))
                 {
                     _name = prototype.Name;
                 }
@@ -73,7 +67,11 @@ namespace Content.Shared.Cargo.Prototypes
                 if (_description.Trim().Length != 0)
                     return _description;
 
-                if (IoCManager.Resolve<IPrototypeManager>().Resolve(Product, out EntityPrototype? prototype))
+                if (_descLoc is { } descLoc)
+                {
+                    _description = Loc.GetString(descLoc);
+                }
+                else if (IoCManager.Resolve<IPrototypeManager>().Resolve(Product, out var prototype))
                 {
                     _description = prototype.Description;
                 }
@@ -95,6 +93,12 @@ namespace Content.Shared.Cargo.Prototypes
         public EntProtoId Product { get; private set; } = string.Empty;
 
         /// <summary>
+        /// The entity to spawn and insert the product into. If null, just the product is spawned.
+        /// </summary>
+        [DataField]
+        public CargoProductContainer? Container;
+
+        /// <summary>
         ///     The point cost of the product.
         /// </summary>
         [DataField]
@@ -111,5 +115,22 @@ namespace Content.Shared.Cargo.Prototypes
         /// </summary>
         [DataField]
         public ProtoId<CargoMarketPrototype> Group { get; private set; } = "market";
+    }
+
+    /// <see cref="CargoProductPrototype.Container"/>
+    [DataDefinition, Serializable, NetSerializable]
+    public sealed partial class CargoProductContainer
+    {
+        /// <summary>
+        /// What entity to spawn as the container.
+        /// </summary>
+        [DataField(required: true)]
+        public EntProtoId<ContainerManagerComponent> Entity;
+
+        /// <summary>
+        /// What container in <see cref="Entity"/> the product should be inserted into.
+        /// </summary>
+        [DataField(required: true)]
+        public string ContainerId;
     }
 }

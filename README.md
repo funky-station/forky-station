@@ -1,6 +1,6 @@
 <p align="center"> <img alt="Space Station 14" width="880" height="200" src="https://github.com/funky-station/funky-station/blob/master/Resources/Textures/Logo/logo.png" /></p>
 
-This is a fork from the Wizard's Den "Space Station 14" repo, called Funky Station. To prevent people forking RobustToolbox, a "content" pack is loaded by the client and server. This content pack contains everything needed to play the game on one specific server.
+This is a Macrocosm powered Space Station 14 server. To prevent people forking RobustToolbox, a "content" pack is loaded by the client and server. This content pack contains everything needed to play the game on one specific server.
 
 ## Links
 
@@ -8,7 +8,7 @@ This is a fork from the Wizard's Den "Space Station 14" repo, called Funky Stati
 
 ## Documentation/Wiki
 
-The [Funky Station Developer Documentation](https://docs.funkystation.org/) has information on how to contribute to Funky Station. It contains guides, game design documents and helpful tips on how to contribute to a repository. 
+The [Funky Station Developer Documentation](https://docs.funkystation.org/) has information on how to contribute to Funky Station. It contains guides, game design documents and helpful tips on how to contribute to a repository.
 
 ## Contributing
 
@@ -34,7 +34,7 @@ Build the server using `dotnet build`.
 
 ## License
 
-This repository uses REUSE Specification headers to determine the appropriate license for each file. Supported licenses are can be found in the LICENSES/ directory. All contributions to this repository are assumed to be MIT unless otherwise specified by the author, which will be reflected in the REUSE Specification headers.
+This repository is MIT. See `LICENSES` for a copy of the MIT license.
 
 Most media assets are licensed under [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) unless stated otherwise. Assets have their license and the copyright in the metadata file. [Example](https://github.com/space-wizards/space-station-14/blob/master/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
 

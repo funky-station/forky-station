@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Atmos;
 using NUnit.Framework;
 

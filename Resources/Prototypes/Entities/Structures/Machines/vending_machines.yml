@@ -1,84 +1,9 @@
-# SPDX-FileCopyrightText: 2019-2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2019 L.E.D <10257081+unusualcrow@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2019 DamianX <DamianX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2019 Acruid <shatter66@gmail.com>
-# SPDX-FileCopyrightText: 2020-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020-2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020, 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020-2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2020 zionnBE <bennyprofanee@protonmail.com>
-# SPDX-FileCopyrightText: 2020 Ygg01 <daniel.fath7@gmail.com>
-# SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 py01 <60152240+collinlunn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 Vince <39844191+Visne@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 zumorica <zddm@outlook.es>
-# SPDX-FileCopyrightText: 2021-2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-# SPDX-FileCopyrightText: 2021 Moses <StrawberryMoses@gmail.com>
-# SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 BulletGrade <66234359+BulletGrade@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Metal Gear Sloth <metalgearsloth@gmail.com>
-# SPDX-FileCopyrightText: 2022, 2024 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 Morb <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 ChilbroBaggins <107660393+ChilbroBaggins@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 theashtronaut <112137107+theashtronaut@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Andreas Kämper <andreas@kaemper.tech>
-# SPDX-FileCopyrightText: 2022 Deahaka <96499407+Deahaka@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Ablankmann <103340990+Ablankmann@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 hubismal <47284081+hubismal@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Profane McBane <profanedbane+github@gmail.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Michael Phillips <1194692+MeltedPixel@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023, 2025 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023, 2025 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Velcroboy <107660393+ChilbroBaggins@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 Nairod <110078045+Nairodian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 potato1234_x <79580518+potato1234x@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Puro <103608145+PuroSlavKing@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 freeman2651 <104049107+freeman2651@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024-2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 erohrs2 <157842463+erohrs2@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 strO0pwafel <153459934+strO0pwafel@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ian <ignaz.k@live.de>
-# SPDX-FileCopyrightText: 2024 MureixloI <132683811+MureixloI@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-# SPDX-FileCopyrightText: 2024 Debug <49997488+DebugOk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 degradka <69397649+degradka@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 telavivgamers <tami@tami.org.il>
-# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
-# SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Alpaccalypse <21291379+Alpaccalypse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
-  id: VendingMachine
-  parent: BaseMachinePowered
+  abstract: true
+  parent: [ BaseMachinePowered, BaseMachineDestructible ]
+  id: BaseVendingMachine
   name: vending machine
   description: Just add capitalism!
-  abstract: true
   components:
   - type: ActionGrant
     actions:
@@ -109,23 +34,19 @@
         layer:
         - MachineLayer
         density: 200
+  - type: Damageable
+    damageModifierSet: GlassReinforcedMod
   - type: Destructible
     thresholds:
-    - trigger: # Excess damage, don't do anything
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
+    - trigger: !type:DamageTrigger
+        damage: 175
+      behaviors: &BehaviorVendorDestroy
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Breakage"]
+    - trigger: !type:DamageTrigger
+        damage: 75
+      behaviors: &BehaviorVendorBreak
       - !type:EjectVendorItems
   - type: Repairable
     doAfterDelay: 8
@@ -135,7 +56,7 @@
   - type: UserInterface
     interfaces:
       enum.VendingMachineUiKey.Key:
-        type: VendingMachineBoundUserInterface
+        type: VendingMachineKeypadBoundUserInterface # Funky change
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: WiresPanel
@@ -179,10 +100,24 @@
     price: 100
   - type: Appearance
   - type: WiresVisuals
+  - type: VendingMachineEject
+  - type: VendingMachineDispenseOnHit
+    chance: 0.25
+    threshold: 2
 
 - type: entity
+  id: VendingMachine
+  parent: BaseVendingMachine
+  abstract: true
+  components:
+  - type: VendingMachineVisuals
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+
+- type: entity
+  parent: [ BaseWallmountMachine, StructureHealthMachineWeak ]
   id: VendingMachineWallmount
-  parent: BaseWallmountMachine
   name: vending machine
   abstract: true
   components:
@@ -194,29 +129,18 @@
     enabled: false
     sound:
       path: /Audio/Ambience/Objects/vending_machine_hum.ogg
+  - type: Damageable
+    damageModifierSet: GlassReinforcedMod
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
         damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Breakage"]
-      - !type:EjectVendorItems
+      behaviors: *BehaviorVendorDestroy
     - trigger:
         !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetSteel1:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalGlassBreak
+        damage: 50
+      behaviors: *BehaviorVendorBreak
   - type: Repairable
     doAfterDelay: 8
   - type: ActivatableUI
@@ -225,7 +149,7 @@
   - type: UserInterface
     interfaces:
       enum.VendingMachineUiKey.Key:
-        type: VendingMachineBoundUserInterface
+        type: VendingMachineKeypadBoundUserInterface
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: WiresPanel
@@ -239,6 +163,15 @@
   - type: LitOnPowered
   - type: Appearance
   - type: WiresVisuals
+  - type: VendingMachineEject
+  - type: VendingMachineDispenseOnHit
+    chance: 0.25
+    threshold: 2
+  - type: VendingMachineVisuals
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+    denyState: deny-unshaded
   - type: Electrified
     enabled: false
     usesApcPower: true
@@ -247,13 +180,14 @@
 # Vending machines
 
 - type: entity
-  parent: VendingMachine
+  parent: BaseVendingMachine
   id: VendingMachineCondiments
   name: condiment station
   description: Slather these thick gooey substances on your food for a full flavor effect.
   components:
   - type: VendingMachine
     pack: CondimentInventory
+  - type: VendingMachineVisuals
     offState: off
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/condiments.rsi
@@ -287,9 +221,6 @@
   components:
   - type: VendingMachine
     pack: AmmoVendInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: CondimentVendAds
   - type: SpeakOnUIClosed
@@ -313,11 +244,9 @@
   components:
   - type: VendingMachine
     pack: BoozeOMatInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     denyState: deny-unshaded
-    loopDeny: false
+    loopDenyAnimation: false
   - type: DatasetVocalizer
     dataset: BoozeOMatAds
   - type: SpeakOnUIClosed
@@ -347,11 +276,9 @@
   components:
   - type: VendingMachine
     pack: BoozeOMatInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     denyState: deny-unshaded
-    loopDeny: false
+    loopDenyAnimation: false
   - type: DatasetVocalizer
     dataset: BruiseOMatAds
   - type: SpeakOnUIClosed
@@ -381,9 +308,7 @@
   components:
   - type: VendingMachine
     pack: PTechInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
   - type: Sprite
@@ -401,7 +326,7 @@
     energy: 2.0
     color: "#ffb0b0"
   - type: AccessReader
-    access: [["HeadOfPersonnel"]]
+    access: [["ExecutiveOfficer"]] # funky
 
 - type: entity
   parent: VendingMachine
@@ -411,9 +336,7 @@
   components:
   - type: VendingMachine
     pack: ChefvendInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
   - type: DatasetVocalizer
     dataset: ChefvendAds
@@ -444,11 +367,7 @@
   components:
   - type: VendingMachine
     pack: CigaretteMachineInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
   - type: DatasetVocalizer
@@ -474,9 +393,7 @@
   components:
   - type: VendingMachine
     pack: ClothesMateInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     denyState: deny-unshaded
   - type: DatasetVocalizer
     dataset: ClothesMateAds
@@ -505,9 +422,7 @@
   components:
   - type: VendingMachine
     pack: WinterDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     denyState: deny-unshaded
   - type: DatasetVocalizer
     dataset: ClothesMateAds
@@ -536,17 +451,14 @@
   components:
   - type: VendingMachine
     pack: HotDrinksMachineInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+    initialStockQuality: 0.33
+  - type: VendingMachineEject
+    ejectDelay: 5
+    soundVend: /Audio/Machines/machine_vend_hot_drink.ogg
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
     screenState: screen
-    ejectDelay: 5
-    soundVend: /Audio/Machines/machine_vend_hot_drink.ogg
-    initialStockQuality: 0.33
   - type: DatasetVocalizer
     dataset: HotDrinksMachineAds
   - type: SpeakOnUIClosed
@@ -577,15 +489,12 @@
   components:
   - type: VendingMachine
     pack: RobustSoftdrinksInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+    initialStockQuality: 0.33
+  - type: VendingMachineEject
+    ejectDelay: 1.9
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    ejectDelay: 1.9
-    initialStockQuality: 0.33
   - type: DatasetVocalizer
     dataset: RobustSoftdrinksAds
   - type: SpeakOnUIClosed
@@ -722,15 +631,12 @@
   components:
   - type: VendingMachine
     pack: ShamblersJuiceInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+    initialStockQuality: 0.33
+  - type: VendingMachineEject
+    ejectDelay: 1.9
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    ejectDelay: 1.9
-    initialStockQuality: 0.33
   - type: DatasetVocalizer
     dataset: RobustSoftdrinksAds
   - type: Sprite
@@ -756,15 +662,12 @@
   components:
   - type: VendingMachine
     pack: PwrGameInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+    initialStockQuality: 0.33
+  - type: VendingMachineEject
+    ejectDelay: 1.9
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    ejectDelay: 1.9
-    initialStockQuality: 0.33
   - type: DatasetVocalizer
     dataset: RobustSoftdrinksAds
   - type: SpeakOnUIClosed
@@ -792,15 +695,12 @@
   components:
   - type: VendingMachine
     pack: DrGibbInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+    initialStockQuality: 0.33
+  - type: VendingMachineEject
+    ejectDelay: 1.9
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    ejectDelay: 1.9
-    initialStockQuality: 0.33
   - type: DatasetVocalizer
     dataset: DrGibbAds
   - type: SpeakOnUIClosed
@@ -838,15 +738,12 @@
       map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
   - type: VendingMachine
     pack: SmiteInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+    initialStockQuality: 0.33
+  - type: VendingMachineEject
+    ejectDelay: 1.9
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    ejectDelay: 1.9
-    initialStockQuality: 0.33
   - type: DatasetVocalizer
     dataset: SmiteAds
   - type: SpeakOnUIClosed
@@ -864,9 +761,7 @@
   components:
   - type: VendingMachine
     pack: DinnerwareInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
   - type: DatasetVocalizer
     dataset: DinnerwareAds
@@ -897,9 +792,6 @@
   components:
   - type: VendingMachine
     pack: MagiVendInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: MagiVendAds
   - type: SpeakOnUIClosed
@@ -927,11 +819,6 @@
   components:
   - type: VendingMachine
     pack: DiscountDansInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
     initialStockQuality: 0.33
   - type: DatasetVocalizer
     dataset: DiscountDansAds
@@ -960,9 +847,7 @@
   components:
   - type: VendingMachine
     pack: EngiVendInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
   - type: Sprite
@@ -981,6 +866,7 @@
     radius: 1.5
     energy: 3.0
     color: "#b89e2a"
+  - type: AmbientMusicMarkerEngineering
 
 - type: entity
   parent: VendingMachine
@@ -990,12 +876,12 @@
   components:
   - type: VendingMachine
     pack: NanoMedCivilianInventory
+  - type: VendingMachineEject
+    ejectDelay: 0.6
+  - type: VendingMachineVisuals
     offState: off-civilian
-    brokenState: broken
-    normalState: normal-unshaded
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    ejectDelay: 0.6
   - type: DatasetVocalizer
     dataset: NanoMedAds
   - type: SpeakOnUIClosed
@@ -1017,6 +903,7 @@
   - type: GuideHelp
     guides:
     - MedicalDoctor
+  - type: AmbientMusicMarkerMedical
 
 - type: entity
   parent: VendingMachineMedicalBase
@@ -1025,6 +912,7 @@
   components:
   - type: VendingMachine
     pack: NanoMedPlusInventory
+  - type: VendingMachineVisuals
     offState: off
   - type: Sprite
     layers:
@@ -1046,9 +934,7 @@
   components:
   - type: VendingMachine
     pack: NutriMaxInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
   - type: DatasetVocalizer
@@ -1080,9 +966,7 @@
   components:
   - type: VendingMachine
     pack: SecTechInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
   - type: DatasetVocalizer
@@ -1119,9 +1003,7 @@
   components:
   - type: VendingMachine
     pack: MegaSeedServitorInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
   - type: DatasetVocalizer
@@ -1159,14 +1041,10 @@
   components:
   - type: VendingMachine
     pack: GetmoreChocolateCorpInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+    initialStockQuality: 0.33
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    initialStockQuality: 0.33
   - type: DatasetVocalizer
     dataset: GetmoreChocolateCorpAds
   - type: SpeakOnUIClosed
@@ -1194,11 +1072,7 @@
   components:
   - type: VendingMachine
     pack: SustenanceInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
   - type: Sprite
@@ -1305,14 +1179,10 @@
   components:
   - type: VendingMachine
     pack: BodaInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+    initialStockQuality: 0.33
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
-    initialStockQuality: 0.33
   - type: DatasetVocalizer
     dataset: BodaAds
   - type: SpeakOnUIClosed
@@ -1341,9 +1211,7 @@
   components:
   - type: VendingMachine
     pack: AutoDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
     screenState: screen
@@ -1377,9 +1245,7 @@
   components:
   - type: VendingMachine
     pack: VendomatInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
   - type: DatasetVocalizer
@@ -1409,9 +1275,7 @@
   components:
   - type: VendingMachine
     pack: RoboticsInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
   - type: DatasetVocalizer
@@ -1446,9 +1310,7 @@
   components:
   - type: VendingMachine
     pack: YouToolInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     ejectState: eject-unshaded
     denyState: deny-unshaded
   - type: Sprite
@@ -1474,11 +1336,10 @@
   components:
   - type: VendingMachine
     pack: GoodCleanFunInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
-    ejectState: eject-unshaded
+  - type: VendingMachineEject
     ejectDelay: 1.8
+  - type: VendingMachineVisuals
+    ejectState: eject-unshaded
   - type: DatasetVocalizer
     dataset: GoodCleanFunAds
   - type: SpeakOnUIClosed
@@ -1506,11 +1367,6 @@
   components:
   - type: VendingMachine
     pack: ChangInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
     initialStockQuality: 0.33
   - type: DatasetVocalizer
     dataset: ChangAds
@@ -1539,9 +1395,7 @@
   components:
   - type: VendingMachine
     pack: SalvageEquipmentInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     denyState: deny-unshaded
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/mining.rsi
@@ -1571,11 +1425,6 @@
   components:
   - type: VendingMachine
     pack: DonutInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
     initialStockQuality: 0.33
   - type: DatasetVocalizer
     dataset: DonutAds
@@ -1606,9 +1455,6 @@
   components:
   - type: VendingMachine
     pack: HyDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: HyDrobeAds
   - type: SpeakOnUIClosed
@@ -1638,9 +1484,6 @@
   components:
   - type: VendingMachine
     pack: LawDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: LawDrobeAds
   - type: SpeakOnUIClosed
@@ -1666,9 +1509,6 @@
   components:
   - type: VendingMachine
     pack: SecDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: SecDrobeAds
   - type: SpeakOnUIClosed
@@ -1698,9 +1538,6 @@
   components:
   - type: VendingMachine
     pack: BarDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: BarDrobeAds
   - type: SpeakOnUIClosed
@@ -1725,9 +1562,7 @@
   components:
   - type: VendingMachine
     pack: PietyVendInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
+  - type: VendingMachineVisuals
     denyState: deny-unshaded
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/chapdrobe.rsi
@@ -1754,9 +1589,6 @@
   components:
   - type: VendingMachine
     pack: CargoDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: CargoDrobeAds
   - type: SpeakOnUIClosed
@@ -1786,9 +1618,6 @@
   components:
   - type: VendingMachine
     pack: MediDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: MediDrobeAds
   - type: SpeakOnUIClosed
@@ -1814,9 +1643,6 @@
   components:
   - type: VendingMachine
     pack: ChemDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: ChemDrobeAds
   - type: SpeakOnUIClosed
@@ -1833,6 +1659,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
     access: [["Chemistry"]]
+  - type: AmbientMusicMarkerMedical
 
 - type: entity
   parent: VendingMachine
@@ -1842,9 +1669,6 @@
   components:
   - type: VendingMachine
     pack: CuraDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: CuraDrobeAds
   - type: SpeakOnUIClosed
@@ -1870,9 +1694,6 @@
   components:
   - type: VendingMachine
     pack: AtmosDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: AtmosDrobeAds
   - type: SpeakOnUIClosed
@@ -1893,6 +1714,7 @@
     color: "#b89e2a"
   - type: AccessReader
     access: [["Engineering"]]
+  - type: AmbientMusicMarkerEngineering
 
 - type: entity
   parent: VendingMachine
@@ -1902,9 +1724,6 @@
   components:
   - type: VendingMachine
     pack: EngiDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: EngiDrobeAds
   - type: SpeakOnUIClosed
@@ -1925,6 +1744,7 @@
     color: "#b89e2a"
   - type: AccessReader
     access: [["Engineering"]]
+  - type: AmbientMusicMarkerEngineering
 
 - type: entity
   parent: VendingMachine
@@ -1934,9 +1754,6 @@
   components:
   - type: VendingMachine
     pack: ChefDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: ChefDrobeAds
   - type: SpeakOnUIClosed
@@ -1962,9 +1779,6 @@
   components:
   - type: VendingMachine
     pack: DetDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: DetDrobeAds
   - type: SpeakOnUIClosed
@@ -1990,9 +1804,6 @@
   components:
   - type: VendingMachine
     pack: JaniDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: JaniDrobeAds
   - type: SpeakOnUIClosed
@@ -2022,9 +1833,6 @@
   components:
   - type: VendingMachine
     pack: SciDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: SciDrobeAds
   - type: SpeakOnUIClosed
@@ -2050,9 +1858,6 @@
   components:
   - type: VendingMachine
     pack: SyndieDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: SyndieDrobeAds
   - type: SpeakOnUIClosed
@@ -2082,9 +1887,6 @@
   components:
   - type: VendingMachine
     pack: RoboDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: RoboDrobeAds
   - type: SpeakOnUIClosed
@@ -2110,9 +1912,6 @@
   components:
   - type: VendingMachine
     pack: GeneDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: GeneDrobeAds
   - type: SpeakOnUIClosed
@@ -2129,6 +1928,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
     access: [["Medical"]]
+  - type: AmbientMusicMarkerMedical
 
 - type: entity
   parent: VendingMachine
@@ -2138,9 +1938,6 @@
   components:
   - type: VendingMachine
     pack: ViroDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: ViroDrobeAds
   - type: SpeakOnUIClosed
@@ -2157,6 +1954,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
     access: [["Medical"]]
+  - type: AmbientMusicMarkerMedical
 
 - type: entity
   parent: VendingMachine
@@ -2166,9 +1964,6 @@
   components:
   - type: VendingMachine
     pack: CentDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/centdrobe.rsi
     layers:
@@ -2194,15 +1989,12 @@
   components:
   - type: VendingMachine
     pack: HappyHonkDispenserInventory
-    dispenseOnHitChance: 0.25
-    dispenseOnHitThreshold: 2
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
-    denyState: deny-unshaded
+    initialStockQuality: 1.0 # Nobody knows how Honk does it, but their vending machines always seem well-stocked...
+  - type: VendingMachineEject
     ejectDelay: 1.9
     soundVend: /Audio/Items/bikehorn.ogg
-    initialStockQuality: 1.0 # Nobody knows how Honk does it, but their vending machines always seem well-stocked...
+  - type: VendingMachineVisuals
+    denyState: deny-unshaded
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/happyhonk.rsi
     layers:
@@ -2234,9 +2026,6 @@
   components:
   - type: VendingMachine
     pack: PrideDrobeInventory
-    offState: off
-    brokenState: broken
-    normalState: normal-unshaded
   - type: DatasetVocalizer
     dataset: PrideDrobeAds
   - type: SpeakOnUIClosed
@@ -2260,7 +2049,7 @@
 # Gas Tank Dispenser
 
 - type: entity
-  parent: VendingMachine
+  parent: BaseVendingMachine
   id: VendingMachineTankDispenserEVA
   suffix: EVA [O2, N2]
   name: gas tank dispenser
@@ -2273,7 +2062,7 @@
     state: dispenser
 
 - type: entity
-  parent: VendingMachine
+  parent: BaseVendingMachine
   id: VendingMachineTankDispenserEngineering
   suffix: ENG [O2, Plasma]
   name: gas tank dispenser
@@ -2295,11 +2084,11 @@
   components:
   - type: VendingMachine
     pack: ChemVendInventory
-    offState: off
-    brokenState: broken
+  - type: VendingMachineEject
+    ejectDelay: 2
+  - type: VendingMachineVisuals
     normalState: normal
     denyState: deny
-    ejectDelay: 2
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/chemvend.rsi
     layers:
@@ -2315,6 +2104,7 @@
     guides:
     - Chemicals
     - Chemist
+  - type: AmbientMusicMarkerMedical
 
 - type: entity
   parent: VendingMachineChemicals
@@ -2324,11 +2114,11 @@
   components:
   - type: VendingMachine
     pack: ChemVendInventorySyndicate
-    offState: off
-    brokenState: broken
+  - type: VendingMachineEject
+    ejectDelay: 2
+  - type: VendingMachineVisuals
     normalState: normal
     denyState: deny
-    ejectDelay: 2
   - type: AccessReader
     access: [["SyndicateAgent"]]
 
@@ -2341,9 +2131,8 @@
   components:
   - type: VendingMachine
     pack: NanoMedCivilianWallInventory
+  - type: VendingMachineVisuals
     offState: off-civilian
-    brokenState: broken
-    normalState: normal-unshaded
     denyState: deny-unshaded
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/wallmed.rsi
@@ -2370,6 +2159,7 @@
   components:
   - type: VendingMachine
     pack: NanoMedInventory
+  - type: VendingMachineVisuals
     offState: off
   - type: Sprite
     layers:

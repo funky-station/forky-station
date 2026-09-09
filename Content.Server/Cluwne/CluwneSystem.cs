@@ -1,53 +1,35 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Jessica M <jessica@jessicamaybe.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Chat;
 using Content.Server.Chat.Systems;
-using Content.Server.Emoting.Systems;
 using Content.Server.Clothing.Systems;
+using Content.Server.Emoting.Systems;
 using Content.Server.Popups;
-using Content.Server.Speech.EntitySystems;
 using Content.Shared.Chat;
-using Content.Shared.Chat.Prototypes;
-using Content.Shared.Clumsy;
 using Content.Shared.Cluwne;
 using Content.Shared.Damage.Systems;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
+using Content.Shared.Speech.EntitySystems;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Cluwne;
 
-public sealed class CluwneSystem : EntitySystem
+public sealed partial class CluwneSystem : EntitySystem
 {
-
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly SharedStunSystem _stunSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly AutoEmoteSystem _autoEmote = default!;
-    [Dependency] private readonly NameModifierSystem _nameMod = default!;
-    [Dependency] private readonly OutfitSystem _outfitSystem = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IRobustRandom _robustRandom = default!;
+    [Dependency] private SharedStunSystem _stunSystem = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private AutoEmoteSystem _autoEmote = default!;
+    [Dependency] private NameModifierSystem _nameMod = default!;
+    [Dependency] private OutfitSystem _outfitSystem = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
 
     public override void Initialize()
     {
@@ -65,16 +47,15 @@ public sealed class CluwneSystem : EntitySystem
     /// </summary>
     private void OnMobState(Entity<CluwneComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead)
-        {
-            RemComp<CluwneComponent>(ent.Owner);
-            RemComp<ClumsyComponent>(ent.Owner);
-            RemComp<AutoEmoteComponent>(ent.Owner);
-            _damageableSystem.TryChangeDamage(ent.Owner, ent.Comp.RevertDamage);
-        }
-    }
+        if (args.NewMobState != MobState.Dead)
+            return;
 
-    public EmoteSoundsPrototype? EmoteSounds;
+        _statusEffects.TryRemoveStatusEffect(ent, ent.Comp.CluwneStatus);
+        RemComp<CluwneComponent>(ent.Owner);
+        RemComp<AutoEmoteComponent>(ent.Owner);
+
+        _damageableSystem.TryChangeDamage(ent.Owner, ent.Comp.RevertDamage);
+    }
 
     /// <summary>
     /// OnStartup gives the cluwne outfit, ensures clumsy, and makes sure emote sounds are laugh.
@@ -84,24 +65,19 @@ public sealed class CluwneSystem : EntitySystem
         if (ent.Comp.EmoteSoundsId == null)
             return;
 
-        _prototypeManager.TryIndex(ent.Comp.EmoteSoundsId, out EmoteSounds);
-
-
         if (ent.Comp.RandomEmote && ent.Comp.AutoEmoteId != null)
         {
             EnsureComp<AutoEmoteComponent>(ent.Owner);
             _autoEmote.AddEmote(ent.Owner, ent.Comp.AutoEmoteId);
         }
 
-        EnsureComp<ClumsyComponent>(ent.Owner);
+        _statusEffects.TrySetStatusEffectDuration(ent, ent.Comp.CluwneStatus);
 
-        var transformMessage = Loc.GetString(ent.Comp.TransformMessage, ("target", ent.Owner));
-
+        var transformMessage = Loc.GetString(ent.Comp.TransformMessage, ("target", Identity.Entity(ent.Owner, EntityManager)));
         _popupSystem.PopupEntity(transformMessage, ent.Owner, PopupType.LargeCaution);
         _audio.PlayPvs(ent.Comp.SpawnSound, ent.Owner);
 
         _nameMod.RefreshNameModifiers(ent.Owner);
-
 
         _outfitSystem.SetOutfit(ent.Owner, ent.Comp.OutfitId, unremovable: true);
     }
@@ -117,7 +93,8 @@ public sealed class CluwneSystem : EntitySystem
         if (!ent.Comp.RandomEmote)
             return;
 
-        args.Handled = _chat.TryPlayEmoteSound(ent.Owner, EmoteSounds, args.Emote);
+        ProtoMan.TryIndex(ent.Comp.EmoteSoundsId, out var emoteSounds);
+        args.Handled = _chat.TryPlayEmoteSound(ent.Owner, emoteSounds, args.Emote);
 
         if (_robustRandom.Prob(ent.Comp.GiggleRandomChance))
         {

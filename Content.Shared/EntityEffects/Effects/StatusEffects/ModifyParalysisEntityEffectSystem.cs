@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Stunnable;
 using Robust.Shared.Prototypes;
@@ -16,8 +11,8 @@ namespace Content.Shared.EntityEffects.Effects.StatusEffects;
 /// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
 public sealed partial class ModifyParalysisEntityEffectSystem : EntityEffectSystem<MetaDataComponent, ModifyParalysis>
 {
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
 
     protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<ModifyParalysis> args)
     {

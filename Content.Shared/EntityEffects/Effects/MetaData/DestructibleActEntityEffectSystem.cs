@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Destructible;
 using Robust.Shared.Prototypes;
 
@@ -10,7 +7,7 @@ namespace Content.Shared.EntityEffects.Effects.MetaData;
 /// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
 public sealed partial class DestructibleActEntityEffectSystem : EntityEffectSystem<MetaDataComponent, DestructibleAct>
 {
-    [Dependency] private readonly SharedDestructibleSystem _destructible = default!;
+    [Dependency] private SharedDestructibleSystem _destructible = default!;
 
     protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<DestructibleAct> args)
     {

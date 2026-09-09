@@ -1,18 +1,13 @@
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Anomaly.Components;
 using Content.Shared.Anomaly.Components;
 using Robust.Shared.Random;
 
 namespace Content.Server.Anomaly.Effects;
 
-public sealed class ShuffleParticlesAnomalySystem : EntitySystem
+public sealed partial class ShuffleParticlesAnomalySystem : EntitySystem
 {
-    [Dependency] private readonly AnomalySystem _anomaly = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private AnomalySystem _anomaly = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {

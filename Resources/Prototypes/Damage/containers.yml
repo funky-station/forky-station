@@ -1,13 +1,4 @@
-# SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Justin Pfeifler <jrpl101998@gmail.com>
-# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tonydatguy <154929293+Tonydatguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
+# Living things, like animals or animal parts
 - type: damageContainer
   id: Biological
   supportedGroups:
@@ -17,6 +8,19 @@
     - Airloss
     - Genetic
 
+# "Living" things that are predominantly static, like walls of meat
+- type: damageContainer
+  id: StructuralBiological
+  supportedGroups:
+  - Brute
+  - Burn
+  - Toxin
+  - Airloss
+  - Genetic
+  supportedTypes:
+  - Structural
+
+# Not living things that are typically items, like sheets of metal or a tool
 - type: damageContainer
   id: Inorganic
   supportedGroups:
@@ -25,6 +29,8 @@
     - Heat
     - Shock
 
+# Not living things that are "well-built" and rarely move, like machines or tables
+# If it's on wheels it probably belongs here, too
 - type: damageContainer
   id: StructuralInorganic
   supportedGroups:
@@ -48,15 +54,6 @@
     - Brute
   supportedTypes:
     - Heat
-
-- type: damageContainer
-  id: Box
-  supportedGroups:
-    - Brute
-    - Burn
-    - Toxin
-  supportedTypes:
-    - Shock
 
 - type: damageContainer
   id: ShadowHaze

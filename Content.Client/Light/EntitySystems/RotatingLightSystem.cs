@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Light;
 using Content.Shared.Light.Components;
 using Robust.Client.Animations;
@@ -12,9 +6,9 @@ using Robust.Shared.Animations;
 
 namespace Content.Client.Light.EntitySystems;
 
-public sealed class RotatingLightSystem : SharedRotatingLightSystem
+public sealed partial class RotatingLightSystem : SharedRotatingLightSystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _animations = default!;
+    [Dependency] private AnimationPlayerSystem _animations = default!;
 
     private Animation GetAnimation(float speed)
     {

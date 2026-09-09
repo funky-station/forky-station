@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Spawners.EntitySystems;
 using Content.Shared.EntityTable.EntitySelectors;
 using Robust.Shared.Prototypes;
@@ -29,5 +26,11 @@ public sealed partial class EntityTableSpawnerComponent : Component
     /// </summary>
     [DataField]
     public bool DeleteSpawnerAfterSpawn = true;
+
+    /// <summary>
+    /// Marker, if produced entities should be spawned stacked if they could be.
+    /// </summary>
+    [DataField]
+    public bool AutoStack = false;
 }
 

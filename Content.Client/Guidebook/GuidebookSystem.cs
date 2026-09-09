@@ -1,16 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Client.Guidebook.Components;
 using Content.Client.Light;
@@ -33,14 +20,15 @@ namespace Content.Client.Guidebook;
 /// <summary>
 ///     This system handles the help-verb and interactions with various client-side entities that are embedded into guidebooks.
 /// </summary>
-public sealed class GuidebookSystem : EntitySystem
+public sealed partial class GuidebookSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly VerbSystem _verbSystem = default!;
-    [Dependency] private readonly RgbLightControllerSystem _rgbLightControllerSystem = default!;
-    [Dependency] private readonly SharedPointLightSystem _pointLightSystem = default!;
-    [Dependency] private readonly TagSystem _tags = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private VerbSystem _verbSystem = default!;
+    [Dependency] private RgbLightControllerSystem _rgbLightControllerSystem = default!;
+    [Dependency] private SharedPointLightSystem _pointLightSystem = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private TagSystem _tags = default!;
 
     public event Action<List<ProtoId<GuideEntryPrototype>>,
         List<ProtoId<GuideEntryPrototype>>?,
@@ -89,7 +77,7 @@ public sealed class GuidebookSystem : EntitySystem
         args.Verbs.Add(new()
         {
             Text = Loc.GetString("guide-help-verb"),
-            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/information.svg.192dpi.png")),
+            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/information.svg.192dpi.png")),
             Act = () => OnGuidebookOpen?.Invoke(component.Guides, null, null, component.IncludeChildren, component.Guides[0]),
             ClientExclusive = true,
             CloseMenu = true
@@ -119,8 +107,9 @@ public sealed class GuidebookSystem : EntitySystem
         {
             Act = () =>
             {
-                if (Transform(uid).LocalRotation != Angle.Zero)
-                    Transform(uid).LocalRotation -= Angle.FromDegrees(90);
+                var xform = Transform(uid);
+                if (xform.LocalRotation != Angle.Zero)
+                    _xform.SetLocalRotationNoLerp(uid, xform.LocalRotation - Angle.FromDegrees(90), xform);
             },
             Text = Loc.GetString("guidebook-monkey-unspin"),
             Priority = -9999,
@@ -151,7 +140,8 @@ public sealed class GuidebookSystem : EntitySystem
 
     private void OnGuidebookControlsTestActivateInWorld(EntityUid uid, GuidebookControlsTestComponent component, ActivateInWorldEvent args)
     {
-        Transform(uid).LocalRotation += Angle.FromDegrees(90);
+        var xform = Transform(uid);
+        _xform.SetLocalRotationNoLerp(uid, xform.LocalRotation + Angle.FromDegrees(90), xform);
     }
 
     private void OnGuidebookControlsTestInteractHand(EntityUid uid, GuidebookControlsTestComponent component, InteractHandEvent args)

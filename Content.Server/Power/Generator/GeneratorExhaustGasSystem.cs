@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Atmos;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos;
@@ -11,9 +7,9 @@ namespace Content.Server.Power.Generator;
 
 /// <seealso cref="GeneratorSystem"/>
 /// <seealso cref="GeneratorExhaustGasComponent"/>
-public sealed class GeneratorExhaustGasSystem : EntitySystem
+public sealed partial class GeneratorExhaustGasSystem : EntitySystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
+    [Dependency] private AtmosphereSystem _atmosphere = default!;
 
     public override void Initialize()
     {

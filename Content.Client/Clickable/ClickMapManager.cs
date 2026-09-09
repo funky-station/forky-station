@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2020, 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pubbi <63283968+impubbi@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Text;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
@@ -18,7 +9,7 @@ using SixLabors.ImageSharp.PixelFormats;
 
 namespace Content.Client.Clickable
 {
-    internal sealed class ClickMapManager : IClickMapManager, IPostInjectInit
+    internal sealed partial class ClickMapManager : IClickMapManager, IPostInjectInit
     {
         private static readonly string[] IgnoreTexturePaths =
         {
@@ -32,7 +23,7 @@ namespace Content.Client.Clickable
         private const float Threshold = 0.1f;
         private const int ClickRadius = 2;
 
-        [Dependency] private readonly IResourceCache _resourceCache = default!;
+        [Dependency] private IResourceCache _resourceCache = default!;
 
         [ViewVariables]
         private readonly Dictionary<Texture, ClickMap> _textureMaps = new();

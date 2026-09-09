@@ -1,15 +1,8 @@
-// SPDX-FileCopyrightText: 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Shared.Procedural;
-using Content.Shared.Tag;
+using Content.Shared.Wall;
 using Robust.Shared.Collections;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Procedural.DungeonJob;
 
@@ -17,15 +10,13 @@ public sealed partial class DungeonJob
 {
     // Various helper methods.
 
-    private static readonly ProtoId<TagPrototype> WallTag = "Wall";
-
     private bool HasWall(Vector2i tile)
     {
-        var anchored = _maps.GetAnchoredEntitiesEnumerator(_gridUid, _grid, tile);
+        var anchored = _maps.GetAnchoredEntities(_gridUid, _grid, tile);
 
         while (anchored.MoveNext(out var uid))
         {
-            if (_tags.HasTag(uid.Value, WallTag))
+            if (_entManager.HasComponent<WallComponent>(uid.Value))
                 return true;
         }
 

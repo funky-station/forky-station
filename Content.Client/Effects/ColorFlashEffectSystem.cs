@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Effects;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
@@ -18,11 +9,11 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.Effects;
 
-public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
+public sealed partial class ColorFlashEffectSystem : SharedColorFlashEffectSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly AnimationPlayerSystem _animation = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private AnimationPlayerSystem _animation = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     /// <summary>
     /// It's a little on the long side but given we use multiple colours denoting what happened it makes it easier to register.

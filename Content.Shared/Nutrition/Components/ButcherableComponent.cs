@@ -1,16 +1,3 @@
-// SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2021-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 mirrorcult <notzombiedude@gmail.com>
-// SPDX-FileCopyrightText: 2021 FoLoKe <36813380+FoLoKe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Winkarst-cpu <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Kitchen;
 using Content.Shared.Storage;
 using Robust.Shared.GameStates;
@@ -18,9 +5,9 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.Nutrition.Components;
 
 /// <summary>
-/// Indicates that the entity can be butchered.
+/// Indicates that the entity can be butchered through use of butcher hook.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(SharedKitchenSpikeSystem))]
 public sealed partial class ButcherableComponent : Component
 {
     /// <summary>
@@ -37,28 +24,4 @@ public sealed partial class ButcherableComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float ButcherDelay = 8.0f;
-
-    /// <summary>
-    /// Tool type used to butcher that entity.
-    /// </summary>
-    [DataField("butcheringType"), AutoNetworkedField]
-    public ButcheringType Type = ButcheringType.Knife;
-}
-
-public enum ButcheringType : byte
-{
-    /// <summary>
-    /// E.g. goliaths.
-    /// </summary>
-    Knife,
-
-    /// <summary>
-    /// E.g. monkeys.
-    /// </summary>
-    Spike,
-
-    /// <summary>
-    /// E.g. humans.
-    /// </summary>
-    Gibber // TODO
 }

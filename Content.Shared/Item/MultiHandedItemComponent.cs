@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Item;
@@ -14,6 +9,9 @@ namespace Content.Shared.Item;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class MultiHandedItemComponent : Component
 {
+    /// <summary>
+    /// Number of free hands required to hold the item.
+    /// </summary>
     [DataField]
     public int HandsNeeded = 2;
 }

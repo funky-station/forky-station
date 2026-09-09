@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Collections.Generic;
 using System.Linq;
 using Content.Shared.NodeContainer;
@@ -11,20 +5,16 @@ using JetBrains.Annotations;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.ResourceManagement;
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
-using Robust.Shared.Map;
 
 namespace Content.Client.NodeContainer
 {
     [UsedImplicitly]
-    public sealed class NodeGroupSystem : EntitySystem
+    public sealed partial class NodeGroupSystem : EntitySystem
     {
-        [Dependency] private readonly IOverlayManager _overlayManager = default!;
-        [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
-        [Dependency] private readonly IMapManager _mapManager = default!;
-        [Dependency] private readonly IInputManager _inputManager = default!;
-        [Dependency] private readonly IResourceCache _resourceCache = default!;
+        [Dependency] private IOverlayManager _overlayManager = default!;
+        [Dependency] private EntityLookupSystem _entityLookup = default!;
+        [Dependency] private IInputManager _inputManager = default!;
+        [Dependency] private IResourceCache _resourceCache = default!;
 
         public bool VisEnabled { get; private set; }
 
@@ -94,7 +84,6 @@ namespace Content.Client.NodeContainer
                 var overlay = new NodeVisualizationOverlay(
                     this,
                     _entityLookup,
-                    _mapManager,
                     _inputManager,
                     _resourceCache,
                     EntityManager);

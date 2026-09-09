@@ -1,16 +1,13 @@
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Destructible.Thresholds;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Xenoarchaeology.Artifact.Components;
 
 /// <summary>
 /// Stores metadata about a particular artifact node
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedXenoArtifactSystem)), AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedXenoArtifactSystem)), AutoGenerateComponentState, EntityCategory("XenoArtifactEffects")]
 public sealed partial class XenoArtifactNodeComponent : Component
 {
     /// <summary>

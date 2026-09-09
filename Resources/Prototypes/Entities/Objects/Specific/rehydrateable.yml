@@ -1,28 +1,3 @@
-# SPDX-FileCopyrightText: 2020-2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2020-2021 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Arendian <137322659+Arendian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Moomoobeef <62638182+Moomoobeef@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Velken <8467292+Velken@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Hrosts <35345601+Hrosts@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: BaseItem
   id: RehydratableItem
@@ -30,10 +5,9 @@
   components:
   - type: Item
     size: Tiny
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      cube:
-        maxVol: 1 # needs room for water
+    - SolutionCube
   - type: RefillableSolution
     solution: cube
   - type: Reactive
@@ -65,25 +39,36 @@
         - LowImpassable
 
 - type: entity
-  parent: RehydratableItem
+  parent: Solution
+  id: SolutionCube # This will be deleted at a later date. Using solutions for this is really dumb.
+  name: cube
+  description: if you're reading this, nuh uh! file a bug report.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    id: cube
+    solution:
+      maxVol: 1
+
+- type: entity
+  abstract: true
+  parent: [SolutionTiny, SolutionFood, RehydratableItem]
   id: RehydratableAnimalCube
   description: Just add water!
-  abstract: true
   components:
   - type: Sprite
     sprite: Objects/Misc/monkeycube.rsi
     state: cube
-  - type: SolutionContainerManager
-    solutions:
-      cube:
-        maxVol: 19 # needs 1u room for water
-        reagents: # equals one piece of raw meat, ideally should vary depending on the animal type, but idk how to link this to biomass costs
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 9
-        - ReagentId: Fat
-          Quantity: 9
+  - type: Solution
+    solution:
+      reagents: # Same as raw meat.
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 20
+      - ReagentId: Fat
+        Quantity: 5
   - type: Edible
-    solution: cube
   - type: FlavorProfile
     flavors:
     - chewy
@@ -176,17 +161,15 @@
   name: carp cube
   description: Just add water! At your own risk.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      cube:
-        maxVol: 24 # needs 1u room for water
-        reagents: # equals one piece of raw meat - plus a deadly toxin!
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 9
-        - ReagentId: Fat
-          Quantity: 9
-        - ReagentId: CarpoToxin
-          Quantity: 5
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: CarpoToxin
+        Quantity: 5
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 20
+      - ReagentId: Fat
+        Quantity: 5
   - type: Rehydratable
     possibleSpawns:
     - MobCarp
@@ -228,12 +211,6 @@
   name: dehydrated space carp
   description: Looks like a plush toy carp, but just add water and it becomes a real-life space carp!
   components:
-  - type: SolutionContainerManager
-    solutions:
-      cube:
-        maxVol: 1 # needs room for water
-  - type: Edible
-    solution: cube
   - type: Fixtures # BaseItem from PlushieCarp overrides fixtures, making carp not react to extinguishers
     fixtures:
       fix1:

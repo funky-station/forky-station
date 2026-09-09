@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Minemoder5000 <minemoder50000@gmail.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Rouge2t7 <81053047+Sarahon@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ty Ashley <42426760+TyAshley@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - files: ["beep.png"]
   license: "CC-BY-SA-3.0"
   copyright: "Modified from borg_chest.png and borg_head.png by TyAshley (AllenTheGreat)"
@@ -60,6 +52,11 @@
   license: "CC-BY-SA-3.0"
   copyright: "Created by Sarahon"
   source: "https://github.com/Sarahon"
+
+- files: ["flap.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made from mothroach.png (created by TurboTracker, screwed by TheShuEd), edited by Pgriha"
+  source: "https://github.com/space-wizards/space-station-14/pull/42912"
 
 - files: ["hew.png"]
   license: "CC-BY-SA-3.0"

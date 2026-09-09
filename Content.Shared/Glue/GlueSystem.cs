@@ -1,56 +1,44 @@
-// SPDX-FileCopyrightText: 2023-2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Damage.Components;
 using Content.Shared.Database;
 using Content.Shared.Hands;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
+using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Glue;
 
-public sealed class GlueSystem : EntitySystem
+public sealed partial class GlueSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly NameModifierSystem _nameMod = default!;
-    [Dependency] private readonly OpenableSystem _openable = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private NameModifierSystem _nameMod = default!;
+    [Dependency] private OpenableSystem _openable = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<GlueComponent, AfterInteractEvent>(OnInteract, after: new[] { typeof(OpenableSystem) });
-        SubscribeLocalEvent<GluedComponent, ComponentInit>(OnGluedInit);
-        SubscribeLocalEvent<GlueComponent, GetVerbsEvent<UtilityVerb>>(OnUtilityVerb);
-        SubscribeLocalEvent<GluedComponent, GotEquippedHandEvent>(OnHandPickUp);
-        SubscribeLocalEvent<GluedComponent, RefreshNameModifiersEvent>(OnRefreshNameModifiers);
     }
 
     // When glue bottle is used on item it will apply the glued and unremoveable components.
+    // TODO: Move to [SubscribeLocalEvent] once "after:" can be applied.
     private void OnInteract(Entity<GlueComponent> entity, ref AfterInteractEvent args)
     {
         if (args.Handled)
@@ -63,6 +51,7 @@ public sealed class GlueSystem : EntitySystem
             args.Handled = true;
     }
 
+    [SubscribeLocalEvent]
     private void OnUtilityVerb(Entity<GlueComponent> entity, ref GetVerbsEvent<UtilityVerb> args)
     {
         if (!args.CanInteract || !args.CanAccess || args.Target is not { Valid: true } target ||
@@ -82,6 +71,36 @@ public sealed class GlueSystem : EntitySystem
         args.Verbs.Add(verb);
     }
 
+    [SubscribeLocalEvent]
+    private void OnGluedInit(Entity<GluedComponent> entity, ref ComponentInit args)
+    {
+        _nameMod.RefreshNameModifiers(entity.Owner);
+    }
+
+    [SubscribeLocalEvent]
+    private void OnHandPickUp(Entity<GluedComponent> entity, ref GotEquippedHandEvent args)
+    {
+        PerformGluedEffect(entity, args.User);
+    }
+
+    [SubscribeLocalEvent]
+    private void OnRefreshNameModifiers(Entity<GluedComponent> entity, ref RefreshNameModifiersEvent args)
+    {
+        args.AddModifier("glued-name-prefix");
+    }
+
+    [SubscribeLocalEvent]
+    private void OnGluedEffectAttemptEvent(Entity<GluedImmuneComponent> entity, ref GluedEffectAttemptEvent args)
+    {
+        args.Cancelled = true;
+    }
+
+    [SubscribeLocalEvent]
+    private void OnGluedEffectAttemptEvent(Entity<GluedImmuneComponent> entity, ref InventoryRelayedEvent<GluedEffectAttemptEvent> args)
+    {
+        OnGluedEffectAttemptEvent(entity, ref args.Args);
+    }
+
     private bool TryGlue(Entity<GlueComponent> entity, EntityUid target, EntityUid actor)
     {
         // if item is glued then don't apply glue again so it can be removed for reasonable time
@@ -89,7 +108,7 @@ public sealed class GlueSystem : EntitySystem
         // This effectively means any unremoveable item could be removed with a bottle of glue.
         if (HasComp<GluedComponent>(target) || !HasComp<ItemComponent>(target) || HasComp<UnremoveableComponent>(target))
         {
-            _popup.PopupClient(Loc.GetString("glue-failure", ("target", target)), actor, actor, PopupType.Medium);
+            _popup.PopupEntity(Loc.GetString("glue-failure", ("target", target)), actor, actor, PopupType.Medium);
             return false;
         }
 
@@ -99,16 +118,19 @@ public sealed class GlueSystem : EntitySystem
             if (quantity > 0)
             {
                 _audio.PlayPredicted(entity.Comp.Squeeze, entity.Owner, actor);
-                _popup.PopupClient(Loc.GetString("glue-success", ("target", target)), actor, actor, PopupType.Medium);
+                _popup.PopupEntity(Loc.GetString("glue-success", ("target", target)), actor, actor, PopupType.Medium);
                 _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(actor):actor} glued {ToPrettyString(target):subject} with {ToPrettyString(entity.Owner):tool}");
                 var gluedComp = EnsureComp<GluedComponent>(target);
                 gluedComp.Duration = quantity.Double() * entity.Comp.DurationPerUnit;
+                if (_container.TryGetContainingContainer((target, null, null), out var container) && _hands.IsHolding(container.Owner, target))
+                    PerformGluedEffect((target, gluedComp), actor);
+
                 Dirty(target, gluedComp);
                 return true;
             }
         }
 
-        _popup.PopupClient(Loc.GetString("glue-failure", ("target", target)), actor, actor, PopupType.Medium);
+        _popup.PopupEntity(Loc.GetString("glue-failure", ("target", target)), actor, actor, PopupType.Medium);
         return false;
     }
 
@@ -129,13 +151,14 @@ public sealed class GlueSystem : EntitySystem
         }
     }
 
-    private void OnGluedInit(Entity<GluedComponent> entity, ref ComponentInit args)
+    private void PerformGluedEffect(Entity<GluedComponent> entity, EntityUid user)
     {
-        _nameMod.RefreshNameModifiers(entity.Owner);
-    }
+        // Check if anything on the user cancels it.
+        var attemptEv = new GluedEffectAttemptEvent();
+        RaiseLocalEvent(user, ref attemptEv);
+        if (attemptEv.Cancelled)
+            return;
 
-    private void OnHandPickUp(Entity<GluedComponent> entity, ref GotEquippedHandEvent args)
-    {
         // When predicting dropping a glued item prediction will reinsert the item into the hand when rerolling the state to a previous one.
         // So dropping the item would add UnRemoveableComponent on the client without this guard statement.
         if (_timing.ApplyingState)
@@ -147,9 +170,18 @@ public sealed class GlueSystem : EntitySystem
         Dirty(entity.Owner, comp);
         Dirty(entity);
     }
+}
 
-    private void OnRefreshNameModifiers(Entity<GluedComponent> entity, ref RefreshNameModifiersEvent args)
-    {
-        args.AddModifier("glued-name-prefix");
-    }
+/// <summary>
+/// Raised on an entity to determine if it will be affected by a glued item or not.
+/// </summary>
+[ByRefEvent]
+public record struct GluedEffectAttemptEvent() : IInventoryRelayEvent
+{
+    public SlotFlags TargetSlots { get; } = SlotFlags.GLOVES;
+
+    /// <summary>
+    /// If true, prevents the effect from being applied.
+    /// </summary>
+    public bool Cancelled;
 }

@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Client.Hands.Systems;
 using Content.Shared.CCVar;
@@ -21,12 +13,12 @@ using Direction = Robust.Shared.Maths.Direction;
 
 namespace Content.Client.Hands
 {
-    public sealed class ShowHandItemOverlay : Overlay
+    public sealed partial class ShowHandItemOverlay : Overlay
     {
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly IInputManager _inputManager = default!;
-        [Dependency] private readonly IClyde _clyde = default!;
-        [Dependency] private readonly IEntityManager _entMan = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
+        [Dependency] private IInputManager _inputManager = default!;
+        [Dependency] private IClyde _clyde = default!;
+        [Dependency] private IEntityManager _entMan = default!;
 
         private HandsSystem? _hands;
         private readonly IRenderTexture _renderBackbuffer;

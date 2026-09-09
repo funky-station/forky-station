@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Globalization;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager;
@@ -40,8 +37,6 @@ public sealed class NumberSelectorTypeSerializer :
         ISerializationContext? context = null,
         ISerializationManager.InstantiationDelegate<NumberSelector>? instanceProvider = null)
     {
-        var type = typeof(NumberSelector);
-
         if (int.TryParse(node.Value, out var result))
             return new ConstantNumberSelector(result);
 
@@ -52,6 +47,6 @@ public sealed class NumberSelectorTypeSerializer :
             return new RangeNumberSelector(new Vector2i(x, y));
         }
 
-        return (NumberSelector) serializationManager.Read(type, node, context)!;
+        return serializationManager.Read<NumberSelector>(node, context, notNullableOverride: true);
     }
 }

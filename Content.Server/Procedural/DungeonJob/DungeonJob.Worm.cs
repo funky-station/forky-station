@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Threading.Tasks;
 using Content.Shared.Maps;
@@ -19,7 +15,7 @@ public sealed partial class DungeonJob
     /// <summary>
     /// <see cref="WormCorridorDunGen"/>
     /// </summary>
-    private async Task PostGen(WormCorridorDunGen gen, Dungeon dungeon, HashSet<Vector2i> reservedTiles, Random random)
+    private async Task PostGen(WormCorridorDunGen gen, Dungeon dungeon, HashSet<Vector2i> reservedTiles, IRobustRandom random)
     {
         var networks = new List<(Vector2i Start, HashSet<Vector2i> Network)>();
 

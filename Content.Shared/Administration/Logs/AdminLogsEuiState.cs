@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Database;
 using Content.Shared.Eui;
 using Robust.Shared.Serialization;
@@ -36,14 +28,16 @@ public static class AdminLogsEuiMsg
     [Serializable, NetSerializable]
     public sealed class SetLogFilter : EuiMessageBase
     {
-        public SetLogFilter(string? search = null, bool invertTypes = false, HashSet<LogType>? types = null)
+        public SetLogFilter(string? search = null, List<Guid>? players = null, bool invertTypes = false, HashSet<LogType>? types = null)
         {
             Search = search;
+            Players = players;
             InvertTypes = invertTypes;
             Types = types;
         }
 
         public string? Search { get; set; }
+        public List<Guid>? Players { get; set; }
         public bool InvertTypes { get; set; }
         public HashSet<LogType>? Types { get; set; }
     }

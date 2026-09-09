@@ -1,18 +1,4 @@
-// SPDX-FileCopyrightText: 2022, 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Morber <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Rainfey <rainfey0+github@gmail.com>
-// SPDX-License-Identifier: MIT
-
+using Content.Server._MACRO.Announcements;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
@@ -23,20 +9,20 @@ using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.StationEvents.Events;
 
 /// <summary>
 ///     An abstract entity system inherited by all station events for their behavior.
 /// </summary>
-public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : IComponent
+public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T : IComponent
 {
-    [Dependency] protected readonly IAdminLogManager AdminLogManager = default!;
-    [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
-    [Dependency] protected readonly ChatSystem ChatSystem = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] protected readonly StationSystem StationSystem = default!;
+    [Dependency] protected IAdminLogManager AdminLogManager = default!;
+    [Dependency] protected ChatSystem ChatSystem = default!;
+    [Dependency] protected SharedAudioSystem Audio = default!;
+    [Dependency] protected StationSystem StationSystem = default!;
+
+    [Dependency] protected AnnouncerManager Announcer = default!; // Macrocosm
 
     protected ISawmill Sawmill = default!;
 
@@ -44,7 +30,7 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
     {
         base.Initialize();
 
-        Sawmill = Logger.GetSawmill("stationevents");
+        Sawmill = LogManager.GetSawmill("stationevents");
     }
 
     /// <inheritdoc/>
@@ -63,7 +49,12 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
         if (stationEvent.StartAnnouncement != null)
             ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.StartAnnouncement), playSound: false, colorOverride: stationEvent.StartAnnouncementColor);
 
-        Audio.PlayGlobal(stationEvent.StartAudio, allPlayersInGame, true);
+        // Macrocosm edit start - announcer variation
+        if (stationEvent.StartAudio == null)
+            return;
+        Announcer.TryGetAnnouncerSound(stationEvent.StartAudio.Value, out var soundSpecifier);
+        Audio.PlayGlobal(soundSpecifier, allPlayersInGame, true);
+        // Macrocosm edit end
     }
 
     /// <inheritdoc/>
@@ -102,7 +93,12 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
         if (stationEvent.EndAnnouncement != null)
             ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.EndAnnouncement), playSound: false, colorOverride: stationEvent.EndAnnouncementColor);
 
-        Audio.PlayGlobal(stationEvent.EndAudio, allPlayersInGame, true);
+        // Macrocosm edit start - announcer variation
+        if (stationEvent.EndAudio == null)
+            return;
+        Announcer.TryGetAnnouncerSound(stationEvent.EndAudio.Value, out var soundSpecifier);
+        Audio.PlayGlobal(soundSpecifier, allPlayersInGame, true);
+        // Macrocosm edit end
     }
 
     /// <summary>

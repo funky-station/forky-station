@@ -1,19 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2023 daerSeebaer <61566539+daerSeebaer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Sergey Dikiy <siarhei.dziki@gmail.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Administration.Logs;
@@ -37,14 +21,14 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Ame.EntitySystems;
 
-public sealed class AmeControllerSystem : EntitySystem
+public sealed partial class AmeControllerSystem : EntitySystem
 {
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private AppearanceSystem _appearanceSystem = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private UserInterfaceSystem _userInterfaceSystem = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
 
     public override void Initialize()
     {
@@ -131,7 +115,11 @@ public sealed class AmeControllerSystem : EntitySystem
 
                 // only play audio if we actually had an injection
                 if (availableInject > 0)
-                    _audioSystem.PlayPvs(controller.InjectSound, uid, AudioParams.Default.WithVolume(overloading ? 10f : 0f));
+                {
+                    var audioParams = controller.InjectSound?.Params ?? AudioParams.Default;
+                    audioParams = audioParams.AddVolume(overloading ? 10f : 0f);
+                    _audioSystem.PlayPvs(controller.InjectSound, uid, audioParams);
+                }
                 UpdateUi(uid, controller);
             }
         }
@@ -360,7 +348,10 @@ public sealed class AmeControllerSystem : EntitySystem
         if (!PlayerCanUseController(uid, user, needsPower, comp))
             return;
 
-        _audioSystem.PlayPvs(comp.ClickSound, uid, AudioParams.Default.WithVolume(-2f));
+        var audioParams = comp.ClickSound?.Params ?? AudioParams.Default;
+        audioParams = audioParams.AddVolume(-2f);
+        _audioSystem.PlayPvs(comp.ClickSound, uid, audioParams);
+
         switch (msg.Button)
         {
             case UiButton.Eject:

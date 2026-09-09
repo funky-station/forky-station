@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Access;
 using Content.Shared.Access.Systems;
 using Content.Shared.Popups;
@@ -16,12 +13,12 @@ namespace Content.Shared.TurretController;
 /// </summary>
 public abstract partial class SharedDeployableTurretControllerSystem : EntitySystem
 {
-    [Dependency] private readonly AccessReaderSystem _accessreader = default!;
-    [Dependency] private readonly TurretTargetSettingsSystem _turretTargetingSettings = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _userInterfaceSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private AccessReaderSystem _accessreader = default!;
+    [Dependency] private TurretTargetSettingsSystem _turretTargetingSettings = default!;
+    [Dependency] private SharedUserInterfaceSystem _userInterfaceSystem = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
@@ -91,7 +88,7 @@ public abstract partial class SharedDeployableTurretControllerSystem : EntitySys
         if (_accessreader.IsAllowed(user, ent))
             return true;
 
-        _popup.PopupClient(Loc.GetString("turret-controls-access-denied"), ent, user);
+        _popup.PopupEntity(Loc.GetString("turret-controls-access-denied"), ent, user);
         _audio.PlayPredicted(ent.Comp.AccessDeniedSound, ent, user);
 
         return false;

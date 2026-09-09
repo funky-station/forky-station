@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.GameTicking.Rules.VariationPass.Components;
 using Content.Server.GameTicking.Rules.VariationPass.Components.ReplacementMarkers;
 
@@ -9,6 +6,4 @@ namespace Content.Server.GameTicking.Rules.VariationPass;
 /// <summary>
 /// This handles the ability to replace entities marked with <see cref="ReinforcedWallReplacementMarkerComponent"/> in a variation pass
 /// </summary>
-public sealed class ReinforcedWallReplaceVariationPassSystem : BaseEntityReplaceVariationPassSystem<ReinforcedWallReplacementMarkerComponent, ReinforcedWallReplaceVariationPassComponent>
-{
-}
+public sealed partial class ReinforcedWallReplaceVariationPassSystem : BaseEntityReplaceVariationPassSystem<ReinforcedWallReplacementMarkerComponent, ReinforcedWallReplaceVariationPassComponent>;

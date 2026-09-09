@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 namespace Content.Client.Materials;
 
 [RegisterComponent]
@@ -16,5 +13,5 @@ public sealed partial class RecyclerVisualsComponent : Component
     /// Base key for the visual state.
     /// </summary>
     [DataField]
-    public string BaseKey = "grinder-o";
+    public string BaseKey = "recycler-o";
 }

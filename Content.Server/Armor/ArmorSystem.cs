@@ -1,27 +1,12 @@
-// SPDX-FileCopyrightText: 2021-2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Armor;
 using Content.Shared.Cargo;
-using Robust.Shared.Prototypes;
 using Content.Shared.Damage.Prototypes;
 
 namespace Content.Server.Armor;
 
 /// <inheritdoc/>
-public sealed class ArmorSystem : SharedArmorSystem
+public sealed partial class ArmorSystem : SharedArmorSystem
 {
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -33,13 +18,13 @@ public sealed class ArmorSystem : SharedArmorSystem
     {
         foreach (var modifier in component.Modifiers.Coefficients)
         {
-            var damageType = _protoManager.Index<DamageTypePrototype>(modifier.Key);
+            var damageType = ProtoMan.Index<DamageTypePrototype>(modifier.Key);
             args.Price += component.PriceMultiplier * damageType.ArmorPriceCoefficient * 100 * (1 - modifier.Value);
         }
 
-        foreach (var modifier in component.Modifiers.FlatReduction)
+        foreach (var modifier in component.Modifiers.FlatReductions)
         {
-            var damageType = _protoManager.Index<DamageTypePrototype>(modifier.Key);
+            var damageType = ProtoMan.Index<DamageTypePrototype>(modifier.Key);
             args.Price += component.PriceMultiplier * damageType.ArmorPriceFlat * modifier.Value;
         }
     }

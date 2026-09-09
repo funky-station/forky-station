@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Centronias <charlie.t.santos@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 using Content.Shared.Silicons.Bots;
 using Robust.Shared.Timing;
@@ -13,9 +8,9 @@ namespace Content.Server.Silicons.Bots;
 /// Beyond what <see cref="SharedHugBotSystem"/> does, this system manages the "lifecycle" of
 /// <see cref="RecentlyHuggedByHugBotComponent"/>.
 /// </summary>
-public sealed class HugBotSystem : SharedHugBotSystem
+public sealed partial class HugBotSystem : SharedHugBotSystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
 
     public override void Initialize()
     {

@@ -1,13 +1,8 @@
-# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: stack
   parent: BaseSheetStack
   id: Paper
   name: stack-paper
-  icon: { sprite: /Textures/Objects/Materials/Sheets/other.rsi, state: paper }
+  icon: { sprite: /Textures/_Funkystation/Objects/Materials/Sheets/other.rsi, state: paper } #Funky resprite
   spawn: SheetPaper1
 
 - type: stack

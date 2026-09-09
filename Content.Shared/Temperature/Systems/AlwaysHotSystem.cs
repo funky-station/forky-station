@@ -1,12 +1,9 @@
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Temperature;
 using Content.Shared.Temperature.Components;
 
 namespace Content.Shared.Temperature.Systems;
 
-public sealed class AlwaysHotSystem : EntitySystem
+public sealed partial class AlwaysHotSystem : EntitySystem
 {
     public override void Initialize()
     {

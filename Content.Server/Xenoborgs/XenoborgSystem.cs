@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Samuka <47865393+Samuka-C@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
@@ -19,10 +16,10 @@ namespace Content.Server.Xenoborgs;
 
 public sealed partial class XenoborgSystem : EntitySystem
 {
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly BorgSystem _borg = default!;
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
-    [Dependency] private readonly XenoborgsRuleSystem _xenoborgsRule = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private BorgSystem _borg = default!;
+    [Dependency] private SharedRoleSystem _roles = default!;
+    [Dependency] private XenoborgsRuleSystem _xenoborgsRule = default!;
 
     private static readonly Color XenoborgBriefingColor = Color.BlueViolet;
 
@@ -99,6 +96,8 @@ public sealed partial class XenoborgSystem : EntitySystem
 
     private void OnXenoborgMindRemoved(EntityUid ent, XenoborgComponent comp, MindRemovedMessage args)
     {
-        _roles.MindRemoveRole(args.Mind.Owner, comp.MindRole);
+        // We don't need to update the mind if the mind is being fully detached!
+        if (args.TransferEntity != null)
+            _roles.MindRemoveRole(args.Mind.Owner, comp.MindRole);
     }
 }

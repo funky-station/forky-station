@@ -1,18 +1,10 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Red <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
-using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Rejuvenate;
 using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared.StatusEffectNew;
 
@@ -22,16 +14,12 @@ namespace Content.Shared.StatusEffectNew;
 /// </summary>
 public sealed partial class StatusEffectsSystem : EntitySystem
 {
-    [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
-    private EntityQuery<StatusEffectContainerComponent> _containerQuery;
-    private EntityQuery<StatusEffectComponent> _effectQuery;
-
-    public static HashSet<string> StatusEffectPrototypes = [];
+    [Dependency] private EntityQuery<StatusEffectContainerComponent> _containerQuery = default!;
+    [Dependency] private EntityQuery<StatusEffectComponent> _effectQuery = default!;
 
     public override void Initialize()
     {
@@ -45,13 +33,6 @@ public sealed partial class StatusEffectsSystem : EntitySystem
         SubscribeLocalEvent<StatusEffectContainerComponent, EntRemovedFromContainerMessage>(OnEntityRemoved);
 
         SubscribeLocalEvent<RejuvenateRemovedStatusEffectComponent, StatusEffectRelayedEvent<RejuvenateEvent>>(OnRejuvenate);
-
-        SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
-
-        _containerQuery = GetEntityQuery<StatusEffectContainerComponent>();
-        _effectQuery = GetEntityQuery<StatusEffectComponent>();
-
-        ReloadStatusEffectsCache();
     }
 
     public override void Update(float frameTime)
@@ -73,25 +54,6 @@ public sealed partial class StatusEffectsSystem : EntitySystem
                 continue;
 
             PredictedQueueDel(ent);
-        }
-    }
-
-    private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
-    {
-        if (!args.WasModified<EntityPrototype>())
-            return;
-
-        ReloadStatusEffectsCache();
-    }
-
-    private void ReloadStatusEffectsCache()
-    {
-        StatusEffectPrototypes.Clear();
-
-        foreach (var ent in _proto.EnumeratePrototypes<EntityPrototype>())
-        {
-            if (ent.TryGetComponent<StatusEffectComponent>(out _, _factory))
-                StatusEffectPrototypes.Add(ent.ID);
         }
     }
 
@@ -176,10 +138,10 @@ public sealed partial class StatusEffectsSystem : EntitySystem
 
     public bool CanAddStatusEffect(EntityUid uid, EntProtoId effectProto)
     {
-        if (!_proto.Resolve(effectProto, out var effectProtoData))
+        if (!ProtoMan.Resolve(effectProto, out var effectProtoData))
             return false;
 
-        if (!effectProtoData.TryGetComponent<StatusEffectComponent>(out var effectProtoComp, Factory))
+        if (!effectProtoData.TryComp<StatusEffectComponent>(out var effectProtoComp, Factory))
             return false;
 
         if (!_whitelist.CheckBoth(uid, effectProtoComp.Blacklist, effectProtoComp.Whitelist))
@@ -235,7 +197,7 @@ public sealed partial class StatusEffectsSystem : EntitySystem
 
         var endTime = delay == null ? _timing.CurTime + duration : _timing.CurTime + delay + duration;
         SetStatusEffectEndTime((effect.Value, effectComp), endTime);
-        var startTime = delay == null ? TimeSpan.Zero : _timing.CurTime + delay.Value;
+        var startTime = delay == null ? _timing.CurTime : _timing.CurTime + delay.Value;
         SetStatusEffectStartTime(effect.Value, startTime);
 
         TryApplyStatusEffect((statusEffect.Value, effectComp));

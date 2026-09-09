@@ -1,26 +1,3 @@
-// SPDX-FileCopyrightText: 2020-2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2020-2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Saphire Lattice <lattice@saphi.re>
-// SPDX-FileCopyrightText: 2021 Leo <lzimann@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022, 2024 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2022 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 YotaXP <yotaxp@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
-// SPDX-License-Identifier: MIT
-
 using System.Collections.Immutable;
 using System.IO;
 using System.Net;
@@ -318,7 +295,7 @@ namespace Content.Server.Database
 
 
         Task<List<string>> GetJobWhitelists(Guid player, CancellationToken cancel = default);
-        Task<bool> IsJobWhitelisted(Guid player, ProtoId<JobPrototype> job);
+        Task<bool> IsJobWhitelisted(Guid player, ProtoId<JobPrototype> job, CancellationToken cancel = default);
 
         Task<bool> RemoveJobWhitelist(Guid player, ProtoId<JobPrototype> job);
 
@@ -352,6 +329,46 @@ namespace Content.Server.Database
         Task SendNotification(DatabaseNotification notification);
 
         #endregion
+
+        #region Custom vote log
+
+        /// <summary>
+        /// Log a new custom vote to the database.
+        /// </summary>
+        /// <param name="title">The player-facing title for the custom vote.</param>
+        /// <param name="roundId">The round ID this vote was initiated.</param>
+        /// <param name="initiator">The user ID of the admin that initiated the vote.</param>
+        /// <param name="options">The player-facing contents of each vote option.</param>
+        /// <remarks>
+        /// The created vote is initially in the <see cref="CustomVoteState.Active"/> state.
+        /// </remarks>
+        /// <returns>
+        /// The ID of the database entry,
+        /// for subsequent calls to <see cref="CustomVoteLogFinish"/> or <see cref="CustomVoteLogCancel"/>.
+        /// </returns>
+        Task<int> CustomVoteLogAdd(string title, int roundId, NetUserId? initiator, ImmutableArray<string> options);
+
+        /// <summary>
+        /// Mark a logged custom vote as finished.
+        /// </summary>
+        /// <param name="voteId">
+        /// The database ID of the custom vote, as returned by <see cref="CustomVoteLogAdd"/>.
+        /// </param>
+        /// <param name="voteCounts">
+        /// The counts each option received. The indexes are matched to the options given in
+        /// <see cref="CustomVoteLogAdd"/>.
+        /// </param>
+        Task CustomVoteLogFinish(int voteId, ImmutableArray<int> voteCounts);
+
+        /// <summary>
+        /// Mark a logged custom vote as canceled.
+        /// </summary>
+        /// <param name="voteId">
+        /// The database ID of the custom vote, as returned by <see cref="CustomVoteLogAdd"/>.
+        /// </param>
+        Task CustomVoteLogCancel(int voteId);
+
+        #endregion
     }
 
     /// <summary>
@@ -379,7 +396,7 @@ namespace Content.Server.Database
         public string? Payload { get; set; }
     }
 
-    public sealed class ServerDbManager : IServerDbManager
+    public sealed partial class ServerDbManager : IServerDbManager
     {
         public static readonly Counter DbReadOpsMetric = Metrics.CreateCounter(
             "db_read_ops",
@@ -393,10 +410,10 @@ namespace Content.Server.Database
             "db_executing_ops",
             "Amount of active database operations. Note that some operations may be waiting for a database connection.");
 
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly IResourceManager _res = default!;
-        [Dependency] private readonly ILogManager _logMgr = default!;
-        [Dependency] private readonly ISerializationManager _serialization = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
+        [Dependency] private IResourceManager _res = default!;
+        [Dependency] private ILogManager _logMgr = default!;
+        [Dependency] private ISerializationManager _serialization = default!;
 
         private ServerDbBase _db = default!;
         private LoggingProvider _msLogProvider = default!;
@@ -404,6 +421,7 @@ namespace Content.Server.Database
         private ISawmill _sawmill = default!;
 
         private bool _synchronous;
+        private bool _snapshot;
         // When running in integration tests, we'll use a single in-memory SQLite database connection.
         // This is that connection, close it when we shut down.
         private SqliteConnection? _sqliteInMemoryConnection;
@@ -420,6 +438,7 @@ namespace Content.Server.Database
             _sawmill = _logMgr.GetSawmill("db.manager");
 
             _synchronous = _cfg.GetCVar(CCVars.DatabaseSynchronous);
+            _snapshot = _cfg.GetCVar(CCVars.DatabaseSnapshot);
 
             var engine = _cfg.GetCVar(CCVars.DatabaseEngine).ToLower();
             var opsLog = _logMgr.GetSawmill("db.op");
@@ -428,7 +447,7 @@ namespace Content.Server.Database
             {
                 case "sqlite":
                     SetupSqlite(out var contextFunc, out var inMemory);
-                    _db = new ServerDbSqlite(contextFunc, inMemory, _cfg, _synchronous, opsLog, _serialization);
+                    _db = new ServerDbSqlite(contextFunc, inMemory, _cfg, _synchronous, opsLog, _serialization, _snapshot);
                     break;
                 case "postgres":
                     var (pgOptions, conString) = CreatePostgresOptions();
@@ -972,7 +991,7 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.GetJobWhitelists(player, cancel));
         }
 
-        public Task<bool> IsJobWhitelisted(Guid player, ProtoId<JobPrototype> job)
+        public Task<bool> IsJobWhitelisted(Guid player, ProtoId<JobPrototype> job, CancellationToken cancel = default)
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.IsJobWhitelisted(player, job));
@@ -1018,6 +1037,28 @@ namespace Content.Server.Database
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.SendNotification(notification));
+        }
+
+        public Task<int> CustomVoteLogAdd(
+            string title,
+            int roundId,
+            NetUserId? initiator,
+            ImmutableArray<string> options)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.CustomVoteLogAdd(title, roundId, initiator, options));
+        }
+
+        public Task CustomVoteLogFinish(int voteId, ImmutableArray<int> voteCounts)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.CustomVoteLogFinish(voteId, voteCounts));
+        }
+
+        public Task CustomVoteLogCancel(int voteId)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.CustomVoteLogCancel(voteId));
         }
 
         private async void HandleDatabaseNotification(DatabaseNotification notification)

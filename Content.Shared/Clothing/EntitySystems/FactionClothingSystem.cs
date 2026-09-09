@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory.Events;
 using Content.Shared.NPC.Components;
@@ -11,9 +8,9 @@ namespace Content.Shared.Clothing.EntitySystems;
 /// <summary>
 /// Handles <see cref="FactionClothingComponent"/> faction adding and removal.
 /// </summary>
-public sealed class FactionClothingSystem : EntitySystem
+public sealed partial class FactionClothingSystem : EntitySystem
 {
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private NpcFactionSystem _faction = default!;
 
     public override void Initialize()
     {
@@ -25,8 +22,8 @@ public sealed class FactionClothingSystem : EntitySystem
 
     private void OnEquipped(Entity<FactionClothingComponent> ent, ref GotEquippedEvent args)
     {
-        TryComp<NpcFactionMemberComponent>(args.Equipee, out var factionComp);
-        var faction = (args.Equipee, factionComp);
+        TryComp<NpcFactionMemberComponent>(args.EquipTarget, out var factionComp);
+        var faction = (args.EquipTarget, factionComp);
         ent.Comp.AlreadyMember = _faction.IsMember(faction, ent.Comp.Faction);
 
         _faction.AddFaction(faction, ent.Comp.Faction);
@@ -40,6 +37,6 @@ public sealed class FactionClothingSystem : EntitySystem
             return;
         }
 
-        _faction.RemoveFaction(args.Equipee, ent.Comp.Faction);
+        _faction.RemoveFaction(args.EquipTarget, ent.Comp.Faction);
     }
 }

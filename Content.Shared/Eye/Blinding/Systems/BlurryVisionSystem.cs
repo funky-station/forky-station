@@ -1,15 +1,10 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Inventory;
 
 namespace Content.Shared.Eye.Blinding.Systems;
 
-public sealed class BlurryVisionSystem : EntitySystem
+public sealed partial class BlurryVisionSystem : EntitySystem
 {
     public override void Initialize()
     {
@@ -26,6 +21,10 @@ public sealed class BlurryVisionSystem : EntitySystem
         args.Args.CorrectionPower *= glasses.Comp.CorrectionPower;
     }
 
+    /// <summary>
+    /// Update a blurry vision component according to a blindable component.
+    /// </summary>
+    /// <param name="ent">The entity with the component to update.</param>
     public void UpdateBlurMagnitude(Entity<BlindableComponent?> ent)
     {
         if (!Resolve(ent.Owner, ref ent.Comp, false))
@@ -49,12 +48,12 @@ public sealed class BlurryVisionSystem : EntitySystem
 
     private void OnGlassesEquipped(Entity<VisionCorrectionComponent> glasses, ref GotEquippedEvent args)
     {
-        UpdateBlurMagnitude(args.Equipee);
+        UpdateBlurMagnitude(args.EquipTarget);
     }
 
     private void OnGlassesUnequipped(Entity<VisionCorrectionComponent> glasses, ref GotUnequippedEvent args)
     {
-        UpdateBlurMagnitude(args.Equipee);
+        UpdateBlurMagnitude(args.EquipTarget);
     }
 }
 

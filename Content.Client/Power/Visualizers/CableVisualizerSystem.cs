@@ -1,20 +1,13 @@
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Linkbro <104574466+Linkbro1@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SpaceManiac <tad@platymuus.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.SubFloor;
 using Content.Shared.Wires;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.Power.Visualizers;
 
-public sealed class CableVisualizerSystem : EntitySystem
+public sealed partial class CableVisualizerSystem : EntitySystem
 {
-    [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private AppearanceSystem _appearanceSystem = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {

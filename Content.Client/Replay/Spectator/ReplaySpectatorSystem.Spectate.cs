@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Client.Replay.UI;
 using Content.Shared.Verbs;
@@ -61,13 +55,13 @@ public sealed partial class ReplaySpectatorSystem
             RemComp<ReplaySpectatorComponent>(old.Value);
     }
 
-    public TransformComponent SpawnSpectatorGhost(EntityCoordinates coords, bool gridAttach)
+    public Entity<TransformComponent> SpawnSpectatorGhost(EntityCoordinates coords, bool gridAttach, Angle rotation = default)
     {
         var old = _player.LocalEntity;
         var session = _player.GetSessionById(DefaultUser);
         _player.SetLocalSession(session);
 
-        var ent = Spawn("ReplayObserver", coords);
+        var ent = SpawnAttachedTo("ReplayObserver", coords, rotation: rotation);
         _eye.SetMaxZoom(ent, Vector2.One * 5);
         EnsureComp<ReplaySpectatorComponent>(ent);
 
@@ -89,7 +83,7 @@ public sealed partial class ReplaySpectatorSystem
         _stateMan.RequestStateChange<ReplayGhostState>();
 
         _spectatorData = GetSpectatorData();
-        return xform;
+        return (ent, xform);
     }
 
     private void SpectateCommand(IConsoleShell shell, string argStr, string[] args)

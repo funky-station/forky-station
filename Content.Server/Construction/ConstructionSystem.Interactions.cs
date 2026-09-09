@@ -1,29 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Júlio César Ueti <52474532+Mirino97@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023, 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ben <50087092+benev0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Timothy Teakettle <59849408+timothyteakettle@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Construction.Components;
@@ -52,9 +26,9 @@ namespace Content.Server.Construction
 {
     public sealed partial class ConstructionSystem
     {
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
 #if EXCEPTION_TOLERANCE
-        [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
+        [Dependency] private IRuntimeLog _runtimeLog = default!;
 #endif
 
         private readonly Queue<EntityUid> _constructionUpdateQueue = new();
@@ -68,7 +42,7 @@ namespace Content.Server.Construction
             SubscribeLocalEvent<ConstructionComponent, InteractUsingEvent>(EnqueueEvent,
                 new []{typeof(AnchorableSystem), typeof(PryingSystem), typeof(WeldableSystem)},
                 new []{typeof(EncryptionKeySystem)});
-            SubscribeLocalEvent<ConstructionComponent, OnTemperatureChangeEvent>(EnqueueEvent);
+            SubscribeLocalEvent<ConstructionComponent, TemperatureChangedEvent>(EnqueueRefEvent);
             SubscribeLocalEvent<ConstructionComponent, PartAssemblyPartInsertedEvent>(EnqueueEvent);
         }
 
@@ -408,7 +382,7 @@ namespace Content.Server.Construction
 
                 case TemperatureConstructionGraphStep temperatureChangeStep:
                 {
-                    if (ev is not OnTemperatureChangeEvent)
+                    if (ev is not TemperatureChangedEvent)
                         break;
 
                     // Some things, like microwaves, might need to block the temperature construction step from kicking in, or override it entirely.
@@ -426,7 +400,7 @@ namespace Content.Server.Construction
                     }
                     else if (TryComp<TemperatureComponent>(uid, out var tempComp))
                     {
-                        temp = tempComp.CurrentTemperature;
+                        temp = tempComp.Temperature;
                     }
                     else
                     {
@@ -569,6 +543,13 @@ namespace Content.Server.Construction
         }
 
         #region Event Handlers
+
+        // Why does this system have you subscribe to an event,
+        // and then pass it through 5 layers of bullshit into a switch statement which tries to guess what event got passed?
+        private void EnqueueRefEvent<T>(Entity<ConstructionComponent> entity, ref T args) where T : struct
+        {
+            EnqueueEvent(entity, entity.Comp, args);
+        }
 
         /// <summary>
         ///     Queues a directed event to be handled by construction on the next update tick.

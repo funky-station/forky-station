@@ -1,57 +1,29 @@
-// SPDX-FileCopyrightText: 2023-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MetalSage <74924875+MetalSage@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jajsha <101492056+Zap527@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
-using Content.Shared.Item;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
-using Robust.Shared.Collections;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Utility;
 
 namespace Content.Shared.Station;
 
-public abstract class SharedStationSpawningSystem : EntitySystem
+public abstract partial class SharedStationSpawningSystem : EntitySystem
 {
-    [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] protected readonly InventorySystem InventorySystem = default!;
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly MetaDataSystem _metadata = default!;
-    [Dependency] private readonly SharedStorageSystem _storage = default!;
-    [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] protected InventorySystem InventorySystem = default!;
+    [Dependency] private SharedHandsSystem _handsSystem = default!;
+    [Dependency] private MetaDataSystem _metadata = default!;
+    [Dependency] private SharedStorageSystem _storage = default!;
+    [Dependency] private SharedTransformSystem _xformSystem = default!;
 
-    private EntityQuery<HandsComponent> _handsQuery;
-    private EntityQuery<InventoryComponent> _inventoryQuery;
-    private EntityQuery<StorageComponent> _storageQuery;
-    private EntityQuery<TransformComponent> _xformQuery;
-
-    public override void Initialize()
-    {
-        base.Initialize();
-        _handsQuery = GetEntityQuery<HandsComponent>();
-        _inventoryQuery = GetEntityQuery<InventoryComponent>();
-        _storageQuery = GetEntityQuery<StorageComponent>();
-        _xformQuery = GetEntityQuery<TransformComponent>();
-    }
+    [Dependency] private EntityQuery<HandsComponent> _handsQuery = default!;
+    [Dependency] private EntityQuery<InventoryComponent> _inventoryQuery = default!;
+    [Dependency] private EntityQuery<StorageComponent> _storageQuery = default!;
+    [Dependency] private EntityQuery<TransformComponent> _xformQuery = default!;
 
     /// <summary>
     ///     Equips the data from a `RoleLoadout` onto an entity.
@@ -63,7 +35,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
         {
             foreach (var items in group.Value)
             {
-                if (!PrototypeManager.TryIndex(items.Prototype, out var loadoutProto))
+                if (!ProtoMan.TryIndex(items.Prototype, out var loadoutProto))
                 {
                     Log.Error($"Unable to find loadout prototype for {items.Prototype}");
                     continue;
@@ -88,7 +60,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
             name = loadout.EntityName;
         }
 
-        if (string.IsNullOrEmpty(name) && PrototypeManager.Resolve(roleProto.NameDataset, out var nameData))
+        if (string.IsNullOrEmpty(name) && ProtoMan.Resolve(roleProto.NameDataset, out var nameData))
         {
             name = Loc.GetString(_random.Pick(nameData.Values));
         }
@@ -110,7 +82,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
     /// </summary>
     public void EquipStartingGear(EntityUid entity, ProtoId<StartingGearPrototype>? startingGear, bool raiseEvent = true)
     {
-        PrototypeManager.Resolve(startingGear, out var gearProto);
+        ProtoMan.Resolve(startingGear, out var gearProto);
         EquipStartingGear(entity, gearProto, raiseEvent);
     }
 
@@ -213,7 +185,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
         {
             foreach (var items in group.Value)
             {
-                if (!PrototypeManager.Resolve(items.Prototype, out var loadoutPrototype))
+                if (!ProtoMan.Resolve(items.Prototype, out var loadoutPrototype))
                     return null;
 
                 var gear = ((IEquipmentLoadout) loadoutPrototype).GetGear(slot);

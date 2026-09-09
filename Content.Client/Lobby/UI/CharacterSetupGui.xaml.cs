@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 dffdff2423 <dffdff2423@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Info;
 using Content.Client.Info.PlaytimeStats;
 using Content.Client.Resources;
@@ -26,11 +21,11 @@ namespace Content.Client.Lobby.UI
     [GenerateTypedNameReferences]
     public sealed partial class CharacterSetupGui : Control
     {
-        [Dependency] private readonly IClientPreferencesManager _preferencesManager = default!;
-        [Dependency] private readonly IPrototypeManager _protomanager = default!;
-        [Dependency] private readonly IResourceCache _resourceCache = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+        [Dependency] private IClientPreferencesManager _preferencesManager = default!;
+        [Dependency] private IPrototypeManager _protomanager = default!;
+        [Dependency] private IResourceCache _resourceCache = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
+        [Dependency] private ISharedPlayerManager _playerManager = default!;
 
         private readonly Button _createNewCharacterButton;
 
@@ -59,7 +54,7 @@ namespace Content.Client.Lobby.UI
 
             _createNewCharacterButton.OnPressed += args =>
             {
-                _preferencesManager.CreateCharacter(HumanoidCharacterProfile.Random());
+                _preferencesManager.CreateCharacter(HumanoidCharacterProfile.Random().WithJobFromCvar(_cfg));
                 ReloadCharacterPickers();
                 args.Event.Handle();
             };
@@ -70,6 +65,7 @@ namespace Content.Client.Lobby.UI
             StatsButton.OnPressed += _ => new PlaytimeStatsWindow().OpenCentered();
 
             _cfg.OnValueChanged(CCVars.SeeOwnNotes, p => AdminRemarksButton.Visible = p, true);
+            _cfg.OnValueChanged(CCVars.GameMaxCharacterSlots, _ => ReloadCharacterPickers());
         }
 
         /// <summary>
@@ -88,9 +84,11 @@ namespace Content.Client.Lobby.UI
                 return;
             }
 
+            var maxCharactersSlots = _cfg.GetCVar(CCVars.GameMaxCharacterSlots);
+
             _createNewCharacterButton.ToolTip =
                 Loc.GetString("character-setup-gui-create-new-character-button-tooltip",
-                    ("maxCharacters", _preferencesManager.Settings!.MaxCharacterSlots));
+                    ("maxCharacters", maxCharactersSlots));
 
             var selectedSlot = _preferencesManager.Preferences?.SelectedCharacterIndex;
 
@@ -102,6 +100,14 @@ namespace Content.Client.Lobby.UI
                     characterButtonsGroup,
                     character,
                     slot == selectedSlot);
+
+                if (slot >= maxCharactersSlots)
+                {
+                    characterPickerButton.SetOnlyStyleClass(ContainerButton.StylePseudoClassDisabled);
+                    characterPickerButton.ToolTip =
+                        Loc.GetString("character-setup-gui-create-new-character-button-tooltip",
+                                      ("maxCharacters", maxCharactersSlots));
+                }
 
                 Characters.AddChild(characterPickerButton);
 
@@ -116,7 +122,7 @@ namespace Content.Client.Lobby.UI
                 };
             }
 
-            _createNewCharacterButton.Disabled = numberOfFullSlots >= _preferencesManager.Settings.MaxCharacterSlots;
+            _createNewCharacterButton.Disabled = numberOfFullSlots >= maxCharactersSlots;
             Characters.AddChild(_createNewCharacterButton);
         }
     }

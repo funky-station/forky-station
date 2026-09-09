@@ -1,14 +1,10 @@
-// SPDX-FileCopyrightText: 2025 SpeltIncorrectyl <66873282+SpeltIncorrectyl@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 mq <113324899+mqole@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Examine;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
-public sealed class GunSpreadModifierSystem : EntitySystem
+public sealed partial class GunSpreadModifierSystem : EntitySystem
 {
     public override void Initialize()
     {

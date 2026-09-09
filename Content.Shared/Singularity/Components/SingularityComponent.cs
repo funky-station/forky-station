@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2022, 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Zoldorf <silvertorch5@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.GameStates;
 
 using Content.Shared.Singularity.EntitySystems;
@@ -61,7 +54,7 @@ public sealed partial class SingularityComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public SoundSpecifier? AmbientSound = new SoundPathSpecifier(
         "/Audio/Effects/singularity_form.ogg",
-        AudioParams.Default.WithVolume(5).WithLoop(true).WithMaxDistance(20f)
+        AudioParams.Default.AddVolume(5).WithLoop(true).WithMaxDistance(20f)
     );
 
     /// <summary>

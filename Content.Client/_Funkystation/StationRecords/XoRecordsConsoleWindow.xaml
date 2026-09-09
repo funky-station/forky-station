@@ -1,0 +1,133 @@
+﻿<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                      Title="{Loc 'xo-records-console-window-title'}"
+                      MinSize="900 600">
+    <BoxContainer Orientation="Vertical">
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
+
+            <PanelContainer StyleClasses="Dark" MinWidth="220" MaxWidth="220" VerticalExpand="True">
+                <BoxContainer Orientation="Vertical" Margin="4">
+                    <Label Text="{Loc 'xo-records-console-roster-label'}" StyleClasses="LabelBig" HorizontalAlignment="Center" Margin="0 4 0 8"/>
+                    <Label Name="RosterEmptyLabel" Visible="False" Text="{Loc 'xo-records-console-roster-empty'}" HorizontalAlignment="Center" StyleClasses="DimNormal"/>
+                    <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                        <ItemList Name="RecordListing"/>
+                    </ScrollContainer>
+                    <Button Name="AddRecordButton" Text="{Loc 'xo-records-console-add-record'}" Margin="0 4 0 0"/>
+                </BoxContainer>
+            </PanelContainer>
+
+            <PanelContainer MinWidth="2" StyleClasses="LowDivider" />
+
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="8">
+                <Label Name="NoSelectionLabel" Text="{Loc 'xo-records-console-no-selection'}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalExpand="True"/>
+
+                <BoxContainer Name="EditForm" Orientation="Vertical" Visible="False" VerticalExpand="True">
+
+                    <controls:StripeBack Name="VerifySuccessBanner" Visible="False" Margin="0 0 0 8">
+                        <PanelContainer>
+                            <PanelContainer.PanelOverride>
+                                <graphics:StyleBoxFlat BackgroundColor="#154515" BorderColor="#208020" BorderThickness="0 1"/>
+                            </PanelContainer.PanelOverride>
+                            <RichTextLabel Name="VerifySuccessLabel" HorizontalAlignment="Center" Margin="4"/>
+                        </PanelContainer>
+                    </controls:StripeBack>
+
+                    <controls:StripeBack Name="VerifyWarningBanner" Visible="False" Margin="0 0 0 8">
+                        <PanelContainer>
+                            <PanelContainer.PanelOverride>
+                                <graphics:StyleBoxFlat BackgroundColor="#453015" BorderColor="#805020" BorderThickness="0 1"/>
+                            </PanelContainer.PanelOverride>
+                            <RichTextLabel Name="VerifyWarningLabel" HorizontalAlignment="Center" Margin="4"/>
+                        </PanelContainer>
+                    </controls:StripeBack>
+
+                    <controls:StripeBack Name="FlaggedBanner" Visible="False" Margin="0 0 0 8">
+                        <PanelContainer>
+                            <PanelContainer.PanelOverride>
+                                <graphics:StyleBoxFlat BackgroundColor="#451515" BorderColor="#802020" BorderThickness="0 1"/>
+                            </PanelContainer.PanelOverride>
+                            <RichTextLabel Name="FlaggedLabel" HorizontalAlignment="Center" Margin="4"/>
+                        </PanelContainer>
+                    </controls:StripeBack>
+
+                    <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                        <BoxContainer Orientation="Vertical" SeparationOverride="8" Margin="4 4 12 4">
+
+                            <Label Text="PERSONNEL DATA" StyleClasses="LabelSubText" FontColorOverride="#8b8b9b" Margin="0 0 0 -4"/>
+                            <PanelContainer>
+                                <PanelContainer.PanelOverride>
+                                    <graphics:StyleBoxFlat BackgroundColor="#111115" BorderColor="#222228" BorderThickness="1" ContentMarginLeftOverride="8" ContentMarginRightOverride="8" ContentMarginTopOverride="8" ContentMarginBottomOverride="8"/>
+                                </PanelContainer.PanelOverride>
+                                <BoxContainer Orientation="Vertical" SeparationOverride="4">
+                                    <Label Text="{Loc 'xo-records-console-field-name'}"/>
+                                    <LineEdit Name="NameField" PlaceHolder="{Loc 'xo-records-console-field-name-placeholder'}"/>
+
+                                    <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+                                        <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                                            <Label Text="{Loc 'xo-records-console-field-age'}"/>
+                                            <LineEdit Name="AgeField" PlaceHolder="{Loc 'xo-records-console-field-age-placeholder'}"/>
+                                        </BoxContainer>
+                                        <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                                            <Label Text="{Loc 'xo-records-console-field-gender'}"/>
+                                            <OptionButton Name="GenderButton" HorizontalExpand="True"/>
+                                        </BoxContainer>
+                                    </BoxContainer>
+
+                                    <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+                                        <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                                            <Label Text="{Loc 'xo-records-console-field-job'}"/>
+                                            <LineEdit Name="JobField" PlaceHolder="{Loc 'xo-records-console-field-job-placeholder'}"/>
+                                        </BoxContainer>
+                                        <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                                            <Label Text="{Loc 'xo-records-console-field-pager'}"/>
+                                            <LineEdit Name="PagerField" PlaceHolder="{Loc 'xo-records-console-field-pager-placeholder'}"/>
+                                        </BoxContainer>
+                                    </BoxContainer>
+
+                                    <Label Text="{Loc 'xo-records-console-field-species'}"/>
+                                    <OptionButton Name="SpeciesButton"/>
+                                </BoxContainer>
+                            </PanelContainer>
+
+                            <Label Text="BIOMETRIC DATA" StyleClasses="LabelSubText" FontColorOverride="#8b8b9b" Margin="0 8 0 -4"/>
+                            <PanelContainer>
+                                <PanelContainer.PanelOverride>
+                                    <graphics:StyleBoxFlat BackgroundColor="#111115" BorderColor="#222228" BorderThickness="1" ContentMarginLeftOverride="8" ContentMarginRightOverride="8" ContentMarginTopOverride="8" ContentMarginBottomOverride="8"/>
+                                </PanelContainer.PanelOverride>
+                                <BoxContainer Orientation="Vertical" SeparationOverride="4">
+                                    <Label Text="{Loc 'xo-records-console-field-fingerprint'}"/>
+                                    <LineEdit Name="FingerprintField" PlaceHolder="{Loc 'xo-records-console-field-fingerprint-placeholder'}"/>
+
+                                    <Label Text="{Loc 'xo-records-console-field-dna'}"/>
+                                    <LineEdit Name="DnaField" PlaceHolder="{Loc 'xo-records-console-field-dna-placeholder'}"/>
+                                </BoxContainer>
+                            </PanelContainer>
+
+                        </BoxContainer>
+                    </ScrollContainer>
+
+                    <PanelContainer StyleClasses="LowDivider" Margin="0 4 0 4"/>
+                    <BoxContainer Orientation="Horizontal" Margin="0 4 0 0">
+                        <Button Name="SubmitButton" Text="{Loc 'xo-records-console-submit'}"/>
+                        <Button Name="VerifyButton" Text="{Loc 'xo-records-console-verify'}" Margin="8 0 0 0"/>
+                        <Control HorizontalExpand="True"/>
+                        <Button Name="DeleteRecordButton" Text="{Loc 'xo-records-console-delete-record'}" StyleClasses="Caution"/>
+                    </BoxContainer>
+
+                </BoxContainer>
+            </BoxContainer>
+
+        </BoxContainer>
+
+        <BoxContainer Orientation="Vertical">
+            <PanelContainer StyleClasses="LowDivider" />
+            <BoxContainer Orientation="Horizontal" Margin="10 4 10 4" VerticalAlignment="Bottom">
+                <Label Text="NT IA-TERMINAL" StyleClasses="WindowFooterText" />
+                <Label Text="SYS-PERS.XO" StyleClasses="WindowFooterText" HorizontalAlignment="Right" HorizontalExpand="True" Margin="0 0 5 0" />
+                <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered" VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="16 16"/>
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

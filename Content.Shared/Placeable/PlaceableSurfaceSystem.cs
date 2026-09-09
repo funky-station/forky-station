@@ -1,31 +1,18 @@
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Storage;
 using Content.Shared.Storage.Components;
-using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Placeable;
 
-public sealed class PlaceableSurfaceSystem : EntitySystem
+public sealed partial class PlaceableSurfaceSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedHandsSystem _handsSystem = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
 
     public override void Initialize()
     {
@@ -88,6 +75,9 @@ public sealed class PlaceableSurfaceSystem : EntitySystem
         _transformSystem.SetCoordinates(args.Used,
             surface.PlaceCentered ? Transform(uid).Coordinates.Offset(surface.PositionOffset) : args.ClickLocation);
 
+        // ES START
+        args.SpawnInteractionParticles = false;
+        // ES END
         args.Handled = true;
     }
 
@@ -123,7 +113,8 @@ public sealed class PlaceableSurfaceSystem : EntitySystem
 
         foreach (var entity in args.DumpQueue)
         {
-            _transformSystem.SetWorldPositionRotation(entity, targetPos + _random.NextVector2Box() / 4, targetRot);
+            var rand = SharedRandomExtensions.PredictedRandom(_timing, GetNetEntity(entity));
+            _transformSystem.SetWorldPositionRotation(entity, targetPos + rand.NextVector2Box() / 4, targetRot);
         }
     }
 }

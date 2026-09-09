@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.EntityTable.EntitySelectors;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -37,7 +33,7 @@ public sealed partial class DeliverySpawnerComponent : Component
     /// The sound to play when the spawner spawns a delivery.
     /// </summary>
     [DataField]
-    public SoundSpecifier? SpawnSound = new SoundCollectionSpecifier("DeliverySpawnSounds", AudioParams.Default.WithVolume(-7));
+    public SoundSpecifier? SpawnSound = new SoundCollectionSpecifier("DeliverySpawnSounds", AudioParams.Default.AddVolume(-7));
 
     /// <summary>
     /// The sound to play when a spawner is opened, and spills all the deliveries out.

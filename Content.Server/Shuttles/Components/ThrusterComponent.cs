@@ -1,17 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 JustinTime <41876089+JustinTether@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Radrark <76271993+Radrark@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 Samuka <47865393+Samuka-C@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Damage;
@@ -37,13 +23,25 @@ namespace Content.Server.Shuttles.Components
         public bool Enabled { get; set; } = true;
 
         /// <summary>
+        /// Base power for the <see cref="ApcPowerReceiverComponent"/>, scaled by thruster setting.
+        /// </summary>
+        [DataField]
+        public float BasePowerLoad = 1500;
+
+        /// <summary>
         /// This determines whether the thruster is actually enabled for the purposes of thrust
         /// </summary>
         public bool IsOn;
 
         // Need to serialize this because RefreshParts isn't called on Init and this will break post-mapinit maps!
         [ViewVariables(VVAccess.ReadWrite), DataField("thrust")]
-        public float Thrust = 100f;
+        public float Thrust = 160000f;
+
+        /// <summary>
+        /// Throttles the influence of gyroscopes on small shuttles. The default value is roughly half the inertia of the standard 4-door cargo shuttle.
+        /// </summary>
+        [DataField]
+        public float InertiaThreshold = 850000f;
 
         [DataField("thrusterType")]
         public ThrusterType Type = ThrusterType.Linear;

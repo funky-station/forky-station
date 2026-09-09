@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.EntitySystems;
 using Robust.Client.GameObjects;
@@ -17,10 +14,10 @@ namespace Content.Client.Atmos.EntitySystems;
 /// </summary>
 public sealed partial class AtmosPipeLayersSystem : SharedAtmosPipeLayersSystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly IReflectionManager _reflection = default!;
-    [Dependency] private readonly IResourceCache _resourceCache = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private IReflectionManager _reflection = default!;
+    [Dependency] private IResourceCache _resourceCache = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {

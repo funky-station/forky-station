@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Bixkitts <72874643+Bixkitts@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
@@ -13,9 +8,9 @@ namespace Content.Shared.Weapons.Melee;
 /// <summary>
 /// This handles <see cref="MeleeSoundComponent"/>
 /// </summary>
-public sealed class MeleeSoundSystem : EntitySystem
+public sealed partial class MeleeSoundSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public const float DamagePitchVariation = 0.05f;
 

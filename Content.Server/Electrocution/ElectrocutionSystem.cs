@@ -1,43 +1,5 @@
-// SPDX-FileCopyrightText: 2021-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021-2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 pointer-to-null <91910481+pointer-to-null@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Clyybber <darkmine956@gmail.com>
-// SPDX-FileCopyrightText: 2022-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Willhelm53 <97707302+Willhelm53@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2023, 2025 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Tomás Alves <tomasalves35@gmail.com>
-// SPDX-FileCopyrightText: 2023 Kacper Urbańczyk <kacperjaroslawurbanczyk@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Errant <35878406+dmnct@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Dawid Bla <46636558+DawBla@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Varen <ychwack@hotmail.it>
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration.Logs;
+using Content.Server.Doors.Systems;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
@@ -68,31 +30,32 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 using PullableComponent = Content.Shared.Movement.Pulling.Components.PullableComponent;
 using PullerComponent = Content.Shared.Movement.Pulling.Components.PullerComponent;
 
 namespace Content.Server.Electrocution;
 
-public sealed class ElectrocutionSystem : SharedElectrocutionSystem
+public sealed partial class ElectrocutionSystem : SharedElectrocutionSystem
 {
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
-    [Dependency] private readonly MeleeWeaponSystem _meleeWeapon = default!;
-    [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
-    [Dependency] private readonly NodeGroupSystem _nodeGroup = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
-    [Dependency] private readonly SharedJitteringSystem _jittering = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedStutteringSystem _stuttering = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private EntityLookupSystem _entityLookup = default!;
+    [Dependency] private MeleeWeaponSystem _meleeWeapon = default!;
+    [Dependency] private NodeContainerSystem _nodeContainer = default!;
+    [Dependency] private NodeGroupSystem _nodeGroup = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private SharedJitteringSystem _jittering = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStunSystem _stun = default!;
+    [Dependency] private StutteringSystem _stuttering = default!;
+    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private TurfSystem _turf = default!;
 
     private static readonly ProtoId<StatusEffectPrototype> StatusKeyIn = "Electrocution";
     private static readonly ProtoId<DamageTypePrototype> DamageType = "Shock";
@@ -118,6 +81,8 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         SubscribeLocalEvent<ElectrifiedComponent, AttackedEvent>(OnElectrifiedAttacked);
         SubscribeLocalEvent<ElectrifiedComponent, InteractHandEvent>(OnElectrifiedHandInteract);
         SubscribeLocalEvent<ElectrifiedComponent, InteractUsingEvent>(OnElectrifiedInteractUsing);
+        SubscribeLocalEvent<ElectrifiedComponent, ActivateInWorldEvent>(OnElectrifiedActivateInWorld, before: [typeof(AirlockSystem), typeof(DoorSystem)]);
+
         SubscribeLocalEvent<RandomInsulationComponent, MapInitEvent>(OnRandomInsulationMapInit);
         SubscribeLocalEvent<PoweredLightComponent, AttackedEvent>(OnLightAttacked);
 
@@ -237,7 +202,27 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         TryDoElectrifiedAct(uid, args.User, siemens, electrified);
     }
 
-    public bool TryDoElectrifiedAct(EntityUid uid, EntityUid targetUid,
+    private void OnElectrifiedActivateInWorld(EntityUid uid, ElectrifiedComponent electrified, ActivateInWorldEvent args)
+    {
+        if (!electrified.OnActivateInWorld || args.Handled)
+            return;
+
+        if (TryDoElectrifiedAct(uid, args.User, 1, electrified))
+            args.Handled = true;
+    }
+
+    /// <summary>
+    /// Attempt to trigger an electrocution via an entity interacting with the electrified entity. Checks what type of electrocution to apply and handles daisy-chaining.
+    /// </summary>
+    /// <param name="uid">The entity emitting electricity.</param>
+    /// <param name="targetUid">The entity interacting.</param>
+    /// <param name="siemens">The electric conductance. 0 means no electricity can pass through, 1 means full force.</param>
+    /// <param name="electrified">The electrified component of uid entity.</param>
+    /// <param name="nodeContainer">The node container of uid entity.</param>
+    /// <param name="transform">The transform of the uid entity.</param>
+    /// <returns>If the attempt caused an electrocution.</returns>
+    public bool TryDoElectrifiedAct(EntityUid uid,
+        EntityUid targetUid,
         float siemens = 1,
         ElectrifiedComponent? electrified = null,
         NodeContainerComponent? nodeContainer = null,
@@ -250,6 +235,9 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             return false;
 
         if (!_random.Prob(electrified.Probability))
+            return false;
+
+        if (electrified.ShockDelay != null && electrified.NextShock > _timing.CurTime)
             return false;
 
         EnsureComp<ActivatedElectrifiedComponent>(uid);
@@ -276,6 +264,8 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
                     electrified.SiemensCoefficient
                 );
             }
+            if (lastRet)
+                electrified.NextShock = _timing.CurTime + electrified.ShockDelay;
             return lastRet;
         }
 
@@ -444,7 +434,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
 
         if (shockDamage is { } dmg)
         {
-            if (_damageable.TryChangeDamage(uid, new DamageSpecifier(_prototypeManager.Index(DamageType), dmg), out var damage, origin: sourceUid))
+            if (_damageable.TryChangeDamage(uid, new DamageSpecifier(ProtoMan.Index(DamageType), dmg), out var damage, origin: sourceUid))
             {
                 _adminLogger.Add(LogType.Electrocution,
                     $"{ToPrettyString(uid):entity} received {damage:damage} powered electrocution damage{(sourceUid != null ? " from " + ToPrettyString(sourceUid.Value) : ""):source}");
@@ -524,6 +514,9 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         {
             return;
         }
-        _audio.PlayPvs(electrified.ShockNoises, targetUid, AudioParams.Default.WithVolume(electrified.ShockVolume));
+
+        var audioParams = electrified.ShockNoises?.Params ?? AudioParams.Default;
+        audioParams = audioParams.AddVolume(electrified.ShockVolume);
+        _audio.PlayPvs(electrified.ShockNoises, targetUid, audioParams);
     }
 }

@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2026 mq <113324899+mqole@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Interaction;
 using Content.Shared.Weapons.Ranged.Components;
 
@@ -12,9 +6,9 @@ namespace Content.Shared.Weapons.Ranged.Systems;
 /// <summary>
 /// Recharges ammo whenever the gun is cycled.
 /// </summary>
-public sealed class RechargeCycleAmmoSystem : EntitySystem
+public sealed partial class RechargeCycleAmmoSystem : EntitySystem
 {
-    [Dependency] private readonly SharedGunSystem _gun = default!;
+    [Dependency] private SharedGunSystem _gun = default!;
 
     public override void Initialize()
     {

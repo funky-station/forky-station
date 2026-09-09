@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Dylan Hunter Whittingham <45404433+DylanWhittingham@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Cargo.Components;
 using Content.Shared.Timing;
 using Content.Shared.Cargo.Systems;
@@ -11,9 +7,9 @@ namespace Content.Client.Cargo.Systems;
 /// <summary>
 /// This handles...
 /// </summary>
-public sealed class ClientPriceGunSystem : SharedPriceGunSystem
+public sealed partial class ClientPriceGunSystem : SharedPriceGunSystem
 {
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
+    [Dependency] private UseDelaySystem _useDelay = default!;
 
     protected override bool GetPriceOrBounty(Entity<PriceGunComponent> entity, EntityUid target, EntityUid user)
     {

@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 FungiFellow <151778459+FungiFellow@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
-# SPDX-FileCopyrightText: 2025 mubururu_ <139181059+muburu@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: borgType
   id: generic
 
@@ -19,6 +12,7 @@
     - BorgModuleScience #until sciborgs are added
 
   defaultModules:
+  - BorgModulePrying
   - BorgModuleTool
   - BorgModuleInflatable
   - BorgModuleArtifact
@@ -53,6 +47,7 @@
     - BorgModuleEngineering
 
   defaultModules:
+  - BorgModulePrying
   - BorgModuleTool
   - BorgModuleConstruction
   - BorgModuleRCD
@@ -63,7 +58,7 @@
   - Science
 
   # Visual
-  inventoryTemplateId: borgShort
+  inventoryTemplateId: borg # Funked up
   spriteBodyState: engineer
   spriteHasMindState: engineer_e
   spriteNoMindState: engineer_e_r
@@ -89,6 +84,7 @@
     - BorgModuleCargo
 
   defaultModules:
+  - BorgModulePrying
   - BorgModuleTool
   - BorgModuleMining
   - BorgModuleTraversal
@@ -98,10 +94,19 @@
   - Supply
   - Science
 
+  # Funky start
+  addComponents:
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.9
+    baseSprintSpeed: 3.9
+  footstepCollection:
+    path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  # Funky end
+
   # Visual
   inventoryTemplateId: borgTall
   spriteBodyState: miner
-  spriteBodyMovementState: miner_moving
+# spriteBodyMovementState: miner_moving # Funky commented
   spriteHasMindState: miner_e
   spriteNoMindState: miner_e_r
   spriteToggleLightState: miner_l
@@ -126,6 +131,7 @@
     - BorgModuleJanitor
 
   defaultModules:
+  - BorgModulePrying
   - BorgModuleCleaning
   - BorgModuleCustodial
 
@@ -134,7 +140,7 @@
   - Service
 
   # Visual
-  inventoryTemplateId: borgShort
+  inventoryTemplateId: borgExtraShort
   spriteBodyState: janitor
   spriteBodyMovementState: janitor_moving
   spriteHasMindState: janitor_e
@@ -161,6 +167,7 @@
     - BorgModuleMedical
 
   defaultModules:
+  - BorgModulePrying
   - BorgModuleChemical
   - BorgModuleTopicals
   - BorgModuleRescue
@@ -177,9 +184,27 @@
   - type: ShowHealthIcons
     damageContainers:
     - Biological
+  # Funky start
+  - type: Physics
+    bodyStatus: InAir
+    bodyType: KinematicController
+  - type: MovementAlwaysTouching
+  - type: CanMoveInAir
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 155
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  # Funky end
 
   # Visual
-  inventoryTemplateId: borgDutch
+  inventoryTemplateId: borg # Funked up
   spriteBodyState: medical
   spriteBodyMovementState: medical_moving
   spriteHasMindState: medical_e
@@ -210,6 +235,7 @@
     - BorgModuleService
 
   defaultModules:
+  - BorgModulePrying
   - BorgModuleMusique
   - BorgModuleService
   - BorgModuleClowning
@@ -220,7 +246,7 @@
   - Service
 
   # Visual
-  inventoryTemplateId: borgTall
+  inventoryTemplateId: borgShort # funky short
   spriteBodyState: service
   spriteHasMindState: service_e
   spriteNoMindState: service_e_r

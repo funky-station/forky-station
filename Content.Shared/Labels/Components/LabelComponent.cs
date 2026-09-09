@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Labels.EntitySystems;
 using Robust.Shared.GameStates;
 
@@ -16,11 +11,18 @@ namespace Content.Shared.Labels.Components;
 public sealed partial class LabelComponent : Component
 {
     /// <summary>
-    /// Current text on the label. If set before map init, during map init this string will be localized.
-    /// This permits localized preset labels with fallback to the text written on the label.
+    /// Current text on the label.
+    /// Do not use this in entity prototypes - use <see cref="LocalizedLabel"/> instead.
     /// </summary>
     [DataField, AutoNetworkedField]
     public string? CurrentLabel { get; set; }
+
+    /// <summary>
+    /// Localization ID used to set <see cref="CurrentLabel"/> on map init.
+    /// Use this in entity prototypes.
+    /// </summary>
+    [DataField]
+    public LocId? LocalizedLabel { get; set; }
 
     /// <summary>
     /// Should the label show up in the examine menu?

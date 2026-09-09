@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 psykana <36602558+psykana@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Objectives.Components;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
@@ -15,10 +8,10 @@ namespace Content.Server.Objectives.Systems;
 /// <summary>
 /// Handles help progress condition logic.
 /// </summary>
-public sealed class HelpProgressConditionSystem : EntitySystem
+public sealed partial class HelpProgressConditionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
-    [Dependency] private readonly TargetObjectiveSystem _target = default!;
+    [Dependency] private SharedObjectivesSystem _objectives = default!;
+    [Dependency] private TargetObjectiveSystem _target = default!;
 
     public override void Initialize()
     {

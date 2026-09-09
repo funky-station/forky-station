@@ -1,6 +1,4 @@
-// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+#nullable enable
 using System.Collections.Generic;
 using System.Linq;
 using Robust.Shared.GameObjects;
@@ -11,7 +9,7 @@ namespace Content.IntegrationTests.Tests.Helpers;
 /// <summary>
 /// Generic system that listens for and records any received events of a given type.
 /// </summary>
-public abstract class TestListenerSystem<TEvent> : EntitySystem where TEvent : notnull
+public abstract partial class TestListenerSystem<TEvent> : EntitySystem where TEvent : notnull
 {
     public override void Initialize()
     {

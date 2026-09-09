@@ -1,14 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Darkie <darksaiyanis@gmail.com>
-# SPDX-FileCopyrightText: 2023 RieBi <42877671+RieBi@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nim <128169402+Nimfar11@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Jessetriesagain <138042477+Jessetriesagain@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 zzylex <146784470+zzylex@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Schuyler Duryee <skywd7766@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - files: ["plasma_cutter.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from Citadel station."
@@ -19,10 +8,15 @@
   copyright: "User tosha73 on freesound.org"
   source: "https://freesound.org/people/tosha73/sounds/509902/"
 
-- files: ["chainsaw.ogg, chainsawidle.ogg, chainsawwield.ogg"]
-  license: "Custom"
-  copyright: "https://www.soundjay.com/tos.html"
-  source: "https://www.soundjay.com/chainsaw-sound-effect.html"
+- files: ["chainsaw_pull.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "User SonoFxAudio on freesound.org, modified by Errant"
+  source: "https://freesound.org/people/SonoFxAudio/sounds/656676/"
+
+- files: ["chainsaw_rev.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "User kyles on freesound.org, modified by Errant"
+  source: "https://freesound.org/people/kyles/sounds/453260/"
 
 - files: ["guitarsmash.ogg"]
   license: "CC0-1.0"

@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025-2026 jhrushbe <capnmerry@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;
 using Content.Shared.Tools;
@@ -34,7 +31,7 @@ public sealed partial class TurbineComponent : Component
     /// Maximum setting of stator load
     /// </summary>
     // [DataField]
-    // public float StatorLoadMax = 500000; 
+    // public float StatorLoadMax = 500000;
 
     /// <summary>
     /// Current RPM of turbine
@@ -222,12 +219,6 @@ public sealed partial class TurbineComponent : Component
     public float OutletRot = 90;
 
     /// <summary>
-    /// Name of the prototype of the arrows that indicate flow on inspect
-    /// </summary>
-    [DataField]
-    public EntProtoId ArrowPrototype = "TurbineFlowArrow";
-
-    /// <summary>
     /// Name of the prototype of the pipes the turbine uses to connect to the pipe network
     /// </summary>
     [DataField]
@@ -238,32 +229,32 @@ public sealed partial class TurbineComponent : Component
     /// <summary>
     /// The proto ID of the "Speed: High" source port
     /// </summary>
-    [DataField("speedHighPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
-    public string SpeedHighPort = "TurbineSpeedHigh";
+    [DataField]
+    public ProtoId<SourcePortPrototype> SpeedHighPort = "TurbineSpeedHigh";
 
     /// <summary>
     /// The proto ID of the "Speed: Low" source port
     /// </summary>
-    [DataField("speedLowPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
-    public string SpeedLowPort = "TurbineSpeedLow";
+    [DataField]
+    public ProtoId<SourcePortPrototype> SpeedLowPort = "TurbineSpeedLow";
 
     /// <summary>
     /// The proto ID of the "Turbine Data" source port
     /// </summary>
-    [DataField("turbineDataPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
-    public string TurbineDataPort = "GasTurbineDataSender";
+    [DataField]
+    public ProtoId<SourcePortPrototype> TurbineDataPort = "GasTurbineDataSender";
 
     /// <summary>
     /// The proto ID of the "Increase Stator Load" sink port
     /// </summary>
-    [DataField("statorLoadIncreasePort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
-    public string StatorLoadIncreasePort = "IncreaseStatorLoad";
+    [DataField]
+    public ProtoId<SinkPortPrototype> StatorLoadIncreasePort = "IncreaseStatorLoad";
 
     /// <summary>
     /// The proto ID of the "Decrease Stator Load" sink port
     /// </summary>
-    [DataField("statorLoadDecreasePort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
-    public string StatorLoadDecreasePort = "DecreaseStatorLoad";
+    [DataField]
+    public ProtoId<SinkPortPrototype> StatorLoadDecreasePort = "DecreaseStatorLoad";
 
     /// <summary>
     /// The signal state of the increase stator load port

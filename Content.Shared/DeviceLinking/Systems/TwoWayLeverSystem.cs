@@ -1,18 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Jack Fox <35575261+DubiousDoggo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.DeviceLinking.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Verbs;
@@ -20,10 +5,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.DeviceLinking.Systems
 {
-    public sealed class TwoWayLeverSystem : EntitySystem
+    public sealed partial class TwoWayLeverSystem : EntitySystem
     {
-        [Dependency] private readonly SharedDeviceLinkSystem _signalSystem = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+        [Dependency] private SharedDeviceLinkSystem _signalSystem = default!;
+        [Dependency] private SharedAppearanceSystem _appearance = default!;
 
         const string _leftToggleImage = "rotate_ccw.svg.192dpi.png";
         const string _rightToggleImage = "rotate_cw.svg.192dpi.png";

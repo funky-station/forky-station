@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Roudenn <149893554+Roudenn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
@@ -24,7 +19,7 @@ public sealed partial class GrapplingGunComponent : Component
     /// Don't be afraid to use large numbers, but do beware that this becomes fast as fuck in frictionless conditions such as space
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float ReelForce = 4000f;
+    public float ReelForce = 10000f;
 
     /// <summary>
     /// Highest mass that can be reeled in without resistance

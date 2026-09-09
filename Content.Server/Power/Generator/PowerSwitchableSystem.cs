@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2023, 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Winkarst-cpu <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 UpAndLeaves <92269094+Alpha-Two@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
@@ -23,12 +16,12 @@ namespace Content.Server.Power.Generator;
 /// <seealso cref="PowerSwitchableComponent"/>
 /// <seealso cref="PortableGeneratorSystem"/>
 /// <seealso cref="GeneratorSystem"/>
-public sealed class PowerSwitchableSystem : SharedPowerSwitchableSystem
+public sealed partial class PowerSwitchableSystem : SharedPowerSwitchableSystem
 {
-    [Dependency] private readonly NodeGroupSystem _nodeGroup = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
+    [Dependency] private NodeGroupSystem _nodeGroup = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private UseDelaySystem _useDelay = default!;
 
     // TODO: Prediction
     /// <inheritdoc/>

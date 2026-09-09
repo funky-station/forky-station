@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023, 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Ghost;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
@@ -23,8 +13,6 @@ namespace Content.Shared.Examine
             base.Initialize();
 
             SubscribeLocalEvent<GroupExamineComponent, GetVerbsEvent<ExamineVerb>>(OnGroupExamineVerb);
-
-            _ghostQuery = GetEntityQuery<GhostComponent>();
         }
 
         /// <summary>
@@ -91,6 +79,9 @@ namespace Content.Shared.Examine
             SendExamineTooltip(user, target, message, getVerbs: false, centerAtCursor: false);
         }
 
+        /// <summary>
+        /// Build a formatted message from a list of examine entries to be displayed in an examine window.
+        /// </summary>
         /// <returns>A FormattedMessage based on all <paramref name="entries"/>, sorted.</returns>
         public static FormattedMessage GetFormattedMessageFromExamineEntries(List<ExamineEntry> entries)
         {

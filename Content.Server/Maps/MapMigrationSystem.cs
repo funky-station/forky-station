@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023, 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2025-2026 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
@@ -21,12 +15,9 @@ namespace Content.Server.Maps;
 /// <summary>
 ///     Performs basic map migration operations by listening for engine <see cref="MapLoaderSystem"/> events.
 /// </summary>
-public sealed class MapMigrationSystem : EntitySystem
+public sealed partial class MapMigrationSystem : EntitySystem
 {
-#if DEBUG
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-#endif
-    [Dependency] private readonly IResourceManager _resMan = default!;
+    [Dependency] private IResourceManager _resMan = default!;
 
     private const string MigrationFile = "/migration.yml";
 
@@ -44,7 +35,7 @@ public sealed class MapMigrationSystem : EntitySystem
         {
             var newId = ((ValueDataNode) node).Value;
             if (!string.IsNullOrEmpty(newId) && newId != "null")
-                DebugTools.Assert(_protoMan.HasIndex<EntityPrototype>(newId), $"{newId} is not an entity prototype.");
+                DebugTools.Assert(ProtoMan.HasIndex<EntityPrototype>(newId), $"{newId} is not an entity prototype.");
         }
 #endif
     }

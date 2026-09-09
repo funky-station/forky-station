@@ -1,52 +1,35 @@
-// SPDX-FileCopyrightText: 2021, 2023, 2025 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Magnus Larsen <i.am.larsenml@gmail.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
-using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
-using Content.Shared.Storage;
 using Robust.Shared.Audio;
-using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Light.Components;
 
 /// <summary>
-///     Device that allows user to quikly change bulbs in <see cref="PoweredLightComponent"/>
-///     Can be reloaded by new light tubes or light bulbs
+/// Device that allows user to quickly change bulbs in <see cref="PoweredLightComponent"/>
+/// Can be reloaded by new light tubes or light bulbs
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedLightReplacerSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(LightReplacerSystem))]
 public sealed partial class LightReplacerComponent : Component
 {
-    [DataField("sound")]
+    [DataField]
     public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Weapons/click.ogg")
     {
-        Params = new()
+        Params = new AudioParams
         {
-            Volume = -4f
+            Volume = -4f,
         }
     };
 
     /// <summary>
-    /// Bulbs that were inserted inside light replacer
+    /// This string defines what kind of tube will be inserted into light fixtures.
     /// </summary>
-    [ViewVariables]
-    public Container InsertedBulbs = default!;
+    [DataField, AutoNetworkedField]
+    public EntProtoId ActiveLightTube = "LightTube";
 
     /// <summary>
-    /// The default starting bulbs
+    /// This string defines what kind of bulb will be inserted into light fixtures.
     /// </summary>
-    [DataField("contents")]
-    public List<EntitySpawnEntry> Contents = new();
+    [DataField, AutoNetworkedField]
+    public EntProtoId ActiveLightBulb = "LightBulb";
 }

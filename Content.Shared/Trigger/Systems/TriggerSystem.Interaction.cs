@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 sleepyyapril <123355664+sleepyyapril@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ViolentMonk <jimmy.toor.s@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Studio Fae-Wilds <studio.faewilds@gmail.com>
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
@@ -149,9 +141,9 @@ public sealed partial class TriggerSystem
 
         var handled = false;
         if (itemToggle.Activated && ent.Comp.CanDeactivate)
-            handled = _itemToggle.TryDeactivate((target.Value, itemToggle), args.User, ent.Comp.Predicted, ent.Comp.ShowPopup);
+            handled = _itemToggle.TryDeactivate((target.Value, itemToggle), args.User, ent.Comp.Predicted, ent.Comp.ShowPopup, ent.Comp.ConsciousAction);
         else if (ent.Comp.CanActivate)
-            handled = _itemToggle.TryActivate((target.Value, itemToggle), args.User, ent.Comp.Predicted, ent.Comp.ShowPopup);
+            handled = _itemToggle.TryActivate((target.Value, itemToggle), args.User, ent.Comp.Predicted, ent.Comp.ShowPopup, ent.Comp.ConsciousAction);
 
         args.Handled |= handled;
     }

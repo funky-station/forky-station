@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2022, 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 vulppine <vulppine@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Atmos.Monitor.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Access.Systems;
@@ -22,14 +11,15 @@ using Robust.Shared.Configuration;
 
 namespace Content.Server.Atmos.Monitor.Systems;
 
-public sealed class FireAlarmSystem : EntitySystem
+public sealed partial class FireAlarmSystem : EntitySystem
 {
-    [Dependency] private readonly AtmosDeviceNetworkSystem _atmosDevNet = default!;
-    [Dependency] private readonly AtmosAlarmableSystem _atmosAlarmable = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
-    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
-    [Dependency] private readonly AccessReaderSystem _access = default!;
-    [Dependency] private readonly IConfigurationManager _configManager = default!;
+    [Dependency] private AtmosDeviceNetworkSystem _atmosDevNet = default!;
+    [Dependency] private AtmosAlarmableSystem _atmosAlarmable = default!;
+    [Dependency] private EmagSystem _emag = default!;
+    [Dependency] private SharedInteractionSystem _interactionSystem = default!;
+    [Dependency] private AccessReaderSystem _access = default!;
+    [Dependency] private IConfigurationManager _configManager = default!;
+    [Dependency] private EntityQuery<DeviceNetworkComponent> _deviceNetworkQuery = default!;
 
     public override void Initialize()
     {
@@ -40,10 +30,9 @@ public sealed class FireAlarmSystem : EntitySystem
 
     private void OnDeviceListSync(EntityUid uid, FireAlarmComponent component, DeviceListUpdateEvent args)
     {
-        var query = GetEntityQuery<DeviceNetworkComponent>();
         foreach (var device in args.OldDevices)
         {
-            if (!query.TryGetComponent(device, out var deviceNet))
+            if (!_deviceNetworkQuery.TryGetComponent(device, out var deviceNet))
             {
                 continue;
             }

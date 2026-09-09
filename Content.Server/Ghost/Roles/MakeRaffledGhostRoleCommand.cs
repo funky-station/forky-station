@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Token <56667933+TokenStyle@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 no <165581243+pissdemon@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Ghost.Roles.Components;
@@ -15,10 +11,10 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.Ghost.Roles
 {
     [AdminCommand(AdminFlags.Admin)]
-    public sealed class MakeRaffledGhostRoleCommand : IConsoleCommand
+    public sealed partial class MakeRaffledGhostRoleCommand : IConsoleCommand
     {
-        [Dependency] private readonly IPrototypeManager _protoManager = default!;
-        [Dependency] private readonly IEntityManager _entManager = default!;
+        [Dependency] private IPrototypeManager _protoManager = default!;
+        [Dependency] private IEntityManager _entManager = default!;
 
         public string Command => "makeghostroleraffled";
         public string Description => "Turns an entity into a raffled ghost role.";

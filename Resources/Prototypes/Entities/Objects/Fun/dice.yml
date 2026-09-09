@@ -1,25 +1,3 @@
-# SPDX-FileCopyrightText: 2019, 2021 Swept <49448379+SweptWasTaken@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2019-2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2019 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2020, 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2020 ALMv1 <70581577+ALMv1@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 degradka <69397649+degradka@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2026 āda <ss.adasts@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   abstract: true
   parent: BaseItem
@@ -112,6 +90,15 @@
     state: d6_6
 
 - type: entity
+  parent: d6Dice
+  id: d6DiceTricked
+  suffix: Tricked
+  components:
+  - type: Dice
+    weightedProb: 0.5
+    weightedValue: 6
+
+- type: entity
   parent: BaseDice
   id: d4Dice
   name: d4
@@ -156,6 +143,24 @@
         Piercing: 5
     # I love this
 
+- type: entity
+  parent: BaseCoin
+  id: d2Dice
+  name: Heads or Tails Coin
+  description: Some sort of two-sided die. Designed to represent the struggle between Nanotrasen and the Syndicate.
+  components:
+  - type: Sprite
+    state: d2_1
+
+- type: entity
+  parent: d2Dice
+  id: d2DiceTricked
+  suffix: Tricked
+  components:
+  - type: Dice
+    weightedValue: 2
+
+
 # bags
 
 - type: entity
@@ -175,6 +180,7 @@
         - id: d12Dice
         - id: d20Dice
         - id: PercentileDie
+        - id: d2Dice
   - type: Sprite
     sprite: Objects/Fun/dice.rsi
     state: dicebag

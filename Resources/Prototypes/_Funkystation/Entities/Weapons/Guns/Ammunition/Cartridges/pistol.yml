@@ -1,0 +1,71 @@
+- type: entity
+  id: BaseCartridgePistolLarge
+  name: cartridge (.50 AE)
+  parent: [ BaseCartridge, BaseSecurityContraband ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - CartridgePistolLarge
+  - type: CartridgeAmmo
+    proto: BulletPistolLarge
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Guns/Ammunition/Casings/pistol_large.rsi
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  id: CartridgePistolLarge
+  name: cartridge (.50 AE)
+  parent: BaseCartridgePistolLarge
+  components:
+  - type: CartridgeAmmo
+    proto: BulletPistolLarge
+
+- type: entity
+  id: CartridgePistolLargePractice
+  name: cartridge (.50 AE practice)
+  parent: BaseCartridgePistolLarge
+  components:
+  - type: CartridgeAmmo
+    proto: BulletPistolLargePractice
+  -  type: Sprite
+     layers:
+       - state: base
+         map: [ "enum.AmmoVisualLayers.Base" ]
+       - state: tip
+         map: [ "enum.AmmoVisualLayers.Tip" ]
+         color: "#dbdbdb"
+
+- type: entity
+  id: CartridgePistolLargeIncendiary
+  name: cartridge (.50 AE incendiary)
+  parent: BaseCartridgePistolLarge
+  components:
+  - type: CartridgeAmmo
+    proto: BulletPistolLargeIncendiary
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#ff6e52"
+
+- type: entity
+  id: CartridgePistolLargeUranium
+  name: cartridge (.50 AE uranium)
+  parent: BaseCartridgePistolLarge
+  components:
+  - type: CartridgeAmmo
+    proto: BulletPistolLargeUranium
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#65fe08"

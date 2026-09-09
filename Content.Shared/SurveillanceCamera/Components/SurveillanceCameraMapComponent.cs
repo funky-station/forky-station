@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2026 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
@@ -16,6 +13,7 @@ public sealed partial class SurveillanceCameraMapComponent : Component
     /// <summary>
     /// Dictionary of cameras on on the current grid.
     /// </summary>
+    [ViewVariables]
     [AutoNetworkedField]
     public Dictionary<NetEntity, CameraMarker> Cameras = new();
 }

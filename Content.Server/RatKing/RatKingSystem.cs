@@ -1,16 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Centronias <me@centronias.com>
-// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
@@ -19,26 +6,28 @@ using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Server.Popups;
 using Content.Shared.Atmos;
-using Content.Shared.Chat;
 using Content.Shared.Dataset;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Nutrition.Prototypes;
 using Content.Shared.Pointing;
 using Content.Shared.Random.Helpers;
 using Content.Shared.RatKing;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
+using Content.Shared.Chat;
 
 namespace Content.Server.RatKing
 {
     /// <inheritdoc/>
-    public sealed class RatKingSystem : SharedRatKingSystem
+    public sealed partial class RatKingSystem : SharedRatKingSystem
     {
-        [Dependency] private readonly AtmosphereSystem _atmos = default!;
-        [Dependency] private readonly ChatSystem _chat = default!;
-        [Dependency] private readonly HTNSystem _htn = default!;
-        [Dependency] private readonly HungerSystem _hunger = default!;
-        [Dependency] private readonly NPCSystem _npc = default!;
-        [Dependency] private readonly PopupSystem _popup = default!;
+        [Dependency] private AtmosphereSystem _atmos = default!;
+        [Dependency] private ChatSystem _chat = default!;
+        [Dependency] private HTNSystem _htn = default!;
+        [Dependency] private SatiationSystem _satiation = default!;
+        [Dependency] private NPCSystem _npc = default!;
+        [Dependency] private PopupSystem _popup = default!;
 
         public override void Initialize()
         {
@@ -57,17 +46,17 @@ namespace Content.Server.RatKing
             if (args.Handled)
                 return;
 
-            if (!TryComp<HungerComponent>(uid, out var hunger))
+            if (!TryComp<SatiationComponent>(uid, out var satiation))
                 return;
 
             //make sure the hunger doesn't go into the negatives
-            if (_hunger.GetHunger(hunger) < component.HungerPerArmyUse)
+            if (_satiation.GetValueOrNull((uid, satiation), SatiationSystem.Hunger) < component.HungerPerArmyUse)
             {
                 _popup.PopupEntity(Loc.GetString("rat-king-too-hungry"), uid, uid);
                 return;
             }
             args.Handled = true;
-            _hunger.ModifyHunger(uid, -component.HungerPerArmyUse, hunger);
+            _satiation.ModifyValue((uid, satiation), SatiationSystem.Hunger, -component.HungerPerArmyUse);
             var servant = Spawn(component.ArmyMobSpawnId, Transform(uid).Coordinates);
             var comp = EnsureComp<RatKingServantComponent>(servant);
             comp.King = uid;
@@ -87,17 +76,17 @@ namespace Content.Server.RatKing
             if (args.Handled)
                 return;
 
-            if (!TryComp<HungerComponent>(uid, out var hunger))
+            if (!TryComp<SatiationComponent>(uid, out var satiation))
                 return;
 
             //make sure the hunger doesn't go into the negatives
-            if (_hunger.GetHunger(hunger) < component.HungerPerDomainUse)
+            if (_satiation.GetValueOrNull((uid, satiation), SatiationSystem.Hunger) < component.HungerPerDomainUse)
             {
                 _popup.PopupEntity(Loc.GetString("rat-king-too-hungry"), uid, uid);
                 return;
             }
             args.Handled = true;
-            _hunger.ModifyHunger(uid, -component.HungerPerDomainUse, hunger);
+            _satiation.ModifyValue((uid, satiation), SatiationSystem.Hunger, -component.HungerPerDomainUse);
 
             _popup.PopupEntity(Loc.GetString("rat-king-domain-popup"), uid);
             var tileMix = _atmos.GetTileMixture(uid, excite: true);
@@ -134,7 +123,7 @@ namespace Content.Server.RatKing
             base.DoCommandCallout(uid, component);
 
             if (!component.OrderCallouts.TryGetValue(component.CurrentOrder, out var datasetId) ||
-                !PrototypeManager.TryIndex<LocalizedDatasetPrototype>(datasetId, out var datasetPrototype))
+                !ProtoMan.TryIndex<LocalizedDatasetPrototype>(datasetId, out var datasetPrototype))
                 return;
 
             var msg = Random.Pick(datasetPrototype);

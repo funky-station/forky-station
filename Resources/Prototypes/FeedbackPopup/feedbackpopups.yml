@@ -19,10 +19,24 @@
   showRoundEnd: false
 
 - type: feedbackPopup
-  id: UplinkFeedback
-  popupOrigin: wizden
-  title: "[bold]Feedback on Traitor Uplink Changes[/bold]"
+  id: XenoborgExtractorFeedback
+  popupOrigin: wizden_master
+  title: "[bold]The [color=deepskyblue]xenoborg[/color] extractor [scramble chars=\"xenoborg-##][{}||,.<>\" rate=40 length=5][/bold]"
   description: >-
-    If you have any feedback on the changes to the Traitor Uplink, feel free to leave them in this thread on the forums!
-  responseType: "Forum Thread"
-  responseLink: "https://forum.spacestation14.com/t/uplink-feedback/26178"
+    Please share feedback on the new xenoborg extractor and crystal, and how these additions affect xenoborg gameplay.
+  responseType: "Feedback Thread"
+  responseLink: "https://forum.spacestation14.com/t/xenoborg-extractor/26689"
+  showRoundEnd: true
+  ruleWhitelist:
+    components:
+    - XenoborgsRule
+
+- type: feedbackPopup
+  id: StructureRebalanceFeedback
+  popupOrigin: wizden_master
+  title: "[bold]Feedback for structure health rebalance.[/bold]"
+  description: >-
+    Please share feedback on the changes to damage resistances, health values, and destruction behaviors for structures.
+  responseType: "Feedback Thread"
+  responseLink: "https://forum.spacestation14.com/t/structure-rebalance-discussion-and-feedback/28228"
+  showRoundEnd: true

@@ -1,12 +1,6 @@
-// SPDX-FileCopyrightText: 2022 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Shared.Chat;
+using Content.Shared.Radio; // RMC Mentor Chat Funky Port
 
 namespace Content.Client.UserInterface.Systems.Chat.Controls;
 
@@ -71,11 +65,12 @@ public sealed class ChannelSelectorButton : ChatPopupButton<ChannelSelectorPopup
             ChatSelectChannel.OOC => Color.LightSkyBlue,
             ChatSelectChannel.Dead => Color.MediumPurple,
             ChatSelectChannel.Admin => Color.HotPink,
+            ChatSelectChannel.Mentor => Color.Orange, // RMC Mentor Chat Funky Port
             _ => Color.DarkGray
         };
     }
 
-    public void UpdateChannelSelectButton(ChatSelectChannel channel, Shared.Radio.RadioChannelPrototype? radio)
+    public void UpdateChannelSelectButton(ChatSelectChannel channel, RadioChannelPrototype? radio)
     {
         Text = radio != null ? Loc.GetString(radio.Name) : ChannelSelectorName(channel);
         Modulate = radio?.Color ?? ChannelSelectColor(channel);

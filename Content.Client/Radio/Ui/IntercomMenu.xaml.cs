@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Threading.Channels;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Radio.Components;
@@ -16,7 +11,7 @@ namespace Content.Client.Radio.Ui;
 [GenerateTypedNameReferences]
 public sealed partial class IntercomMenu : FancyWindow
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public event Action<bool>? OnMicPressed;
     public event Action<bool>? OnSpeakerPressed;

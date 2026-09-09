@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.DeviceNetwork.Components.Devices;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Events;
@@ -13,9 +6,9 @@ using Content.Shared.DeviceNetwork.Components;
 
 namespace Content.Server.DeviceNetwork.Systems.Devices
 {
-    public sealed class ApcNetSwitchSystem : EntitySystem
+    public sealed partial class ApcNetSwitchSystem : EntitySystem
     {
-        [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
+        [Dependency] private DeviceNetworkSystem _deviceNetworkSystem = default!;
 
         public override void Initialize()
         {

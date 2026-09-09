@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Psychpsyo <60073468+Psychpsyo@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: RandomSentience
   parent: BaseGameRule
@@ -9,8 +6,7 @@
     weight: 6
     duration: 1
     maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+    startAudio: Attention # Macrocosm edit - sound prototypes
   - type: RandomSentienceRule
     minSentiences: 2
     maxSentiences: 5

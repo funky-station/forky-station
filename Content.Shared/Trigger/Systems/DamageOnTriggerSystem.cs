@@ -1,16 +1,11 @@
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Damage;
 using Content.Shared.Trigger.Components.Effects;
 
 namespace Content.Shared.Trigger.Systems;
 
-public sealed class DamageOnTriggerSystem : XOnTriggerSystem<DamageOnTriggerComponent>
+public sealed partial class DamageOnTriggerSystem : XOnTriggerSystem<DamageOnTriggerComponent>
 {
-    [Dependency] private readonly Damage.Systems.DamageableSystem _damageableSystem = default!;
+    [Dependency] private Damage.Systems.DamageableSystem _damageableSystem = default!;
 
     protected override void OnTrigger(Entity<DamageOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
     {

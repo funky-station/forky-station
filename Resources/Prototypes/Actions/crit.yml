@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   abstract: true
   parent: BaseMentalAction
@@ -23,9 +15,10 @@
   - type: Action
     startDelay: true
     useDelay: 10
-    icon:
-      sprite: Mobs/Ghosts/ghost_human.rsi
-      state: icon
+  - type: Sprite
+    sprite: Mobs/Ghosts/ghost_human.rsi
+    layers:
+    - state: icon
   - type: InstantAction
     event: !type:CritSuccumbEvent
 
@@ -37,9 +30,10 @@
   components:
   - type: Action
     useDelay: 30
-    icon:
-      sprite: Interface/Actions/actions_crit.rsi
-      state: fakedeath
+  - type: Sprite
+    sprite: Interface/Actions/actions_crit.rsi
+    layers:
+    - state: fakedeath
   - type: InstantAction
     event: !type:CritFakeDeathEvent
 
@@ -50,8 +44,9 @@
   description: Whisper your last words to anyone nearby, and then succumb to your fate. You only have 30 characters to work with.
   components:
   - type: Action
-    icon:
-      sprite: Interface/Actions/actions_crit.rsi
-      state: lastwords
+  - type: Sprite
+    sprite: Interface/Actions/actions_crit.rsi
+    layers:
+    - state: lastwords
   - type: InstantAction
     event: !type:CritLastWordsEvent

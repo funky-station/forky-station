@@ -1,40 +1,20 @@
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2022 Jackrost <jackrost@mail.ru>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft <ignaz.k@live.de>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
-using Content.Server.Botany.Components;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Materials;
 using Content.Server.Power.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Audio;
 using Content.Shared.Body.Components;
+using Content.Shared.Botany.Items.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Climbing.Events;
 using Content.Shared.Construction.Components;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
+using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
@@ -48,6 +28,7 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Throwing;
+using Content.Shared.Tools.Components;
 using Robust.Server.Player;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
@@ -57,25 +38,25 @@ using Robust.Shared.Random;
 
 namespace Content.Server.Medical.BiomassReclaimer
 {
-    public sealed class BiomassReclaimerSystem : EntitySystem
+    public sealed partial class BiomassReclaimerSystem : EntitySystem
     {
-        [Dependency] private readonly IConfigurationManager _configManager = default!;
-        [Dependency] private readonly SharedTransformSystem _transform = default!;
-        [Dependency] private readonly MobStateSystem _mobState = default!;
-        [Dependency] private readonly SharedJitteringSystem _jitteringSystem = default!;
-        [Dependency] private readonly SharedAudioSystem _sharedAudioSystem = default!;
-        [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;
-        [Dependency] private readonly SharedPopupSystem _popup = default!;
-        [Dependency] private readonly PuddleSystem _puddleSystem = default!;
-        [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-        [Dependency] private readonly ThrowingSystem _throwing = default!;
-        [Dependency] private readonly IRobustRandom _robustRandom = default!;
-        [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly MaterialStorageSystem _material = default!;
-        [Dependency] private readonly SharedMindSystem _minds = default!;
-        [Dependency] private readonly InventorySystem _inventory = default!;
+        [Dependency] private IConfigurationManager _configManager = default!;
+        [Dependency] private SharedTransformSystem _transform = default!;
+        [Dependency] private MobStateSystem _mobState = default!;
+        [Dependency] private SharedJitteringSystem _jitteringSystem = default!;
+        [Dependency] private SharedAudioSystem _sharedAudioSystem = default!;
+        [Dependency] private SharedAmbientSoundSystem _ambientSoundSystem = default!;
+        [Dependency] private SharedPopupSystem _popup = default!;
+        [Dependency] private PuddleSystem _puddleSystem = default!;
+        [Dependency] private SharedSolutionContainerSystem _solution = default!;
+        [Dependency] private ThrowingSystem _throwing = default!;
+        [Dependency] private IRobustRandom _robustRandom = default!;
+        [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+        [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private MaterialStorageSystem _material = default!;
+        [Dependency] private SharedMindSystem _minds = default!;
+        [Dependency] private InventorySystem _inventory = default!;
 
         public static readonly ProtoId<MaterialPrototype> BiomassPrototype = "Biomass";
 
@@ -142,7 +123,9 @@ namespace Content.Server.Medical.BiomassReclaimer
             if (TryComp<ApcPowerReceiverComponent>(ent, out var power) && !power.Powered)
                 return;
 
-            _popup.PopupEntity(Loc.GetString("biomass-reclaimer-suicide-others", ("victim", args.Victim)), ent, PopupType.LargeCaution);
+            _popup.PopupEntity(Loc.GetString("biomass-reclaimer-suicide-others", ("victim", Identity.Entity(args.Victim, EntityManager))),
+            ent,
+            PopupType.LargeCaution);
             StartProcessing(args.Victim, ent);
             args.Handled = true;
         }
@@ -233,11 +216,16 @@ namespace Content.Server.Medical.BiomassReclaimer
                 _solution.ResolveSolution(toProcess, stream.BloodSolutionName, ref stream.BloodSolution, out var solution))
             {
                 component.BloodReagents = solution.Clone();
-                component.BloodReagents.ScaleSolution(50 / component.BloodReagents.Volume);
+                var scale = component.BloodReagents.Volume <= FixedPoint2.Zero ? 0 : 50 / component.BloodReagents.Volume;
+                component.BloodReagents.ScaleSolution(scale);
             }
-            if (TryComp<ButcherableComponent>(toProcess, out var butcherableComponent))
+            if (TryComp<ToolRefinableComponent>(toProcess, out var refinable))
             {
-                component.SpawnedEntities = butcherableComponent.SpawnedEntities;
+                component.SpawnedEntities = refinable.RefineResult;
+            }
+            else
+            {
+                component.SpawnedEntities = new();
             }
 
             var expectedYield = physics.FixturesMass * component.YieldPerUnitMass;

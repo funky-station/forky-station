@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pok <113675512+Pok27@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Shared.Administration.Components;
 using Robust.Client.GameObjects;
@@ -13,10 +5,10 @@ using Robust.Client.Player;
 
 namespace Content.Client.Administration.Systems;
 
-public sealed class KillSignSystem : EntitySystem
+public sealed partial class KillSignSystem : EntitySystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public override void Initialize()
     {

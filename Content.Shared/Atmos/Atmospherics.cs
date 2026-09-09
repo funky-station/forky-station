@@ -1,34 +1,3 @@
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 py01 <60152240+collinlunn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022, 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023-2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 router <messagebus@vk.com>
-// SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2023 username <113782077+whateverusername0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Errant <35878406+dmnct@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
-// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025-2026 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
-// SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
-// SPDX-FileCopyrightText: 2026 taydeo <td12233a@gmail.com>
-// SPDX-FileCopyrightText: 2026 Sarah C <93578146+SapphicOverload@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Serialization;
 // ReSharper disable InconsistentNaming
 
@@ -49,6 +18,11 @@ namespace Content.Shared.Atmos
         ///     1 ATM in kPA.
         /// </summary>
         public const float OneAtmosphere = 101.325f;
+
+        /// <summary>
+        /// Global Atmospherics epsilon. Used for all general floating-point comparisons.
+        /// </summary>
+        public const float Epsilon = 0.5f;
 
         /// <summary>
         ///     Maximum external pressure (in kPA) a gas miner will, by default, output to.
@@ -130,6 +104,21 @@ namespace Content.Shared.Atmos
         public const float OxygenMolesGasMiner = MolesCellGasMiner * OxygenStandard;
         public const float NitrogenMolesGasMiner = MolesCellGasMiner * NitrogenStandard;
 
+        /// <summary>
+        /// Converts Grams to Kilograms.
+        /// </summary>
+        public const float gToKg = 0.001f;
+
+        /// <summary>
+        /// Convert kPa to Kg/m^2
+        /// </summary>
+        public const float kPaToKg_m2 = 0.00980665f;
+
+        /// <summary>
+        /// Convert Kg/m^2 to kPa
+        /// </summary>
+        public const float Kg_m2TokPa = 101.9716212978f;
+
         #endregion
 
         /// <summary>
@@ -164,8 +153,19 @@ namespace Content.Shared.Atmos
         /// </summary>
         public const float MinimumAirToSuspend = (MolesCellStandard * MinimumAirRatioToSuspend);
 
-        public const float MinimumTemperatureToMove = (T20C + 100f);
+        /// <summary>
+        /// The minimum difference in temperature between <see cref="GasMixture"/>s
+        /// (<see cref="TileAtmosphere"/>s) required
+        /// for LINDA to report a pressure difference between them for space wind.
+        /// In Kelvin.
+        /// </summary>
+        public const float MinimumTemperatureToMove = 5f;
 
+        /// <summary>
+        /// The minimum difference in moles between <see cref="GasMixture"/>s
+        /// (<see cref="TileAtmosphere"/>s) required for LINDA to
+        /// report a pressure difference between them for space wind.
+        /// </summary>
         public const float MinimumMolesDeltaToMove = (MolesCellStandard * MinimumAirRatioToMove);
 
         /// <summary>
@@ -190,36 +190,11 @@ namespace Content.Shared.Atmos
         public const float MinimumHeatCapacity = 0.0003f;
 
         /// <summary>
-        ///     For the purposes of making space "colder"
+        /// Allows Atmospherics to cool down rooms during spacing
+        /// by assigning a fake heat capacity to space,
+        /// making space "actually cold" for gameplay reasons.
         /// </summary>
         public const float SpaceHeatCapacity = 7000f;
-
-        /// <summary>
-        ///     Dictionary of chemical abbreviations for <see cref="Gas"/>
-        /// </summary>
-        public static Dictionary<Gas, string> GasAbbreviations = new Dictionary<Gas, string>()
-        {
-            [Gas.Ammonia] = Loc.GetString("gas-ammonia-abbreviation"),
-            [Gas.CarbonDioxide] = Loc.GetString("gas-carbon-dioxide-abbreviation"),
-            [Gas.Frezon] = Loc.GetString("gas-frezon-abbreviation"),
-            [Gas.Nitrogen] = Loc.GetString("gas-nitrogen-abbreviation"),
-            [Gas.NitrousOxide] = Loc.GetString("gas-nitrous-oxide-abbreviation"),
-            [Gas.Oxygen] = Loc.GetString("gas-oxygen-abbreviation"),
-            [Gas.Plasma] = Loc.GetString("gas-plasma-abbreviation"),
-            [Gas.Tritium] = Loc.GetString("gas-tritium-abbreviation"),
-            [Gas.WaterVapor] = Loc.GetString("gas-water-vapor-abbreviation"),
-            [Gas.BZ] = Loc.GetString("gas-bz-abbreviation"), // Funky atmos - /tg/ gases
-            [Gas.Healium] = Loc.GetString("gas-healium-abbreviation"), // Funky atmos - /tg/ gases
-            [Gas.Nitrium] = Loc.GetString("gas-nitrium-abbreviation"), // Funky atmos - /tg/ gases
-            [Gas.Pluoxium] = Loc.GetString("gas-pluoxium-abbreviation"), // Funky atmos - /tg/ gases
-            [Gas.Hydrogen] = Loc.GetString("gas-hydrogen-abbreviation"), // Funky atmos - /tg/ gases
-            [Gas.HyperNoblium] = Loc.GetString("gas-hyper-noblium-abbreviation"), // Funky atmos - /tg/ gases
-            [Gas.ProtoNitrate] = Loc.GetString("gas-proto-nitrate-abbreviation"), // Funky atmos - /tg/ gases
-            [Gas.Zauker] = Loc.GetString("gas-zauker-abbreviation"), // Funky atmos - /tg/ gases
-            [Gas.Halon] = Loc.GetString("gas-halon-abbreviation"), // Funky atmos - /tg/ gases
-            [Gas.Helium] = Loc.GetString("gas-helium-abbreviation"), // Funky atmos - /tg/ gases
-            [Gas.AntiNoblium] = Loc.GetString("gas-anti-noblium-abbreviation"), // Funky atmos - /tg/ gases
-        };
 
         #region Excited Groups
 
@@ -259,7 +234,7 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     Amount of heat released per mole of burnt hydrogen or tritium (hydrogen isotope)
         /// </summary>
-        public const float FireHydrogenEnergyReleased = 284e4f;
+        public const float FireHydrogenEnergyReleased = 284e3f;
         public const float FireMinimumTemperatureToExist = T0C + 100f;
         public const float FireMinimumTemperatureToSpread = T0C + 150f;
         public const float FireSpreadRadiosityScale = 0.85f;
@@ -270,8 +245,8 @@ namespace Content.Shared.Atmos
         public const float SuperSaturationEnds = SuperSaturationThreshold / 3;
 
         public const float OxygenBurnRateBase = 1.4f;
-        public const float PlasmaMinimumBurnTemperature = (100f+T0C);
-        public const float PlasmaUpperTemperature = (1370f+T0C);
+        public const float PlasmaMinimumBurnTemperature = 100f + T0C;
+        public const float PlasmaUpperTemperature = 1370f + T0C;
         public const float PlasmaOxygenFullburn = 10f;
         public const float PlasmaBurnRateDelta = 9f;
         public const float HydrogenBurnRateDelta = 2f; // Funky atmos - /tg/ gases

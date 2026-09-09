@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.CombatMode.Pacification;

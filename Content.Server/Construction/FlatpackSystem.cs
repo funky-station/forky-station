@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024, 2026 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SpeltIncorrectyl <66873282+SpeltIncorrectyl@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Audio;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Construction;
@@ -15,11 +9,11 @@ using Robust.Shared.Timing;
 namespace Content.Server.Construction;
 
 /// <inheritdoc/>
-public sealed class FlatpackSystem : SharedFlatpackSystem
+public sealed partial class FlatpackSystem : SharedFlatpackSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly AmbientSoundSystem _ambientSound = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private AmbientSoundSystem _ambientSound = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared.EntityConditions;
@@ -16,7 +11,7 @@ namespace Content.Server.EntityConditions.Conditions;
 /// <inheritdoc cref="EntityConditionSystem{T, TCondition}"/>
 public sealed partial class IsBreathingEntityConditionSystem : EntityConditionSystem<RespiratorComponent, BreathingCondition>
 {
-    [Dependency] private readonly RespiratorSystem _respirator = default!;
+    [Dependency] private RespiratorSystem _respirator = default!;
     protected override void Condition(Entity<RespiratorComponent> entity, ref EntityConditionEvent<BreathingCondition> args)
     {
         args.Result = _respirator.IsBreathing(entity.AsNullable());

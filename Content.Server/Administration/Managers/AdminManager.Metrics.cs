@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.Metrics;
 using System.Runtime.InteropServices;
 using Content.Server.Afk;
@@ -16,9 +13,9 @@ public sealed partial class AdminManager
 
     private const int SentinelRankId = -1;
 
-    [Dependency] private readonly IMetricsManager _metrics = default!;
-    [Dependency] private readonly IAfkManager _afkManager = default!;
-    [Dependency] private readonly IMeterFactory _meterFactory = default!;
+    [Dependency] private IMetricsManager _metrics = default!;
+    [Dependency] private IAfkManager _afkManager = default!;
+    [Dependency] private IMeterFactory _meterFactory = default!;
 
     private void InitializeMetrics()
     {

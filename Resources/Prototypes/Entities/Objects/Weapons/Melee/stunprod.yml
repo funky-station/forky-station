@@ -1,16 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Darkie <darksaiyanis@gmail.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 I.K <45953835+notquitehadouken@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 kxv <136233650+kxvvv@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024-2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 shamp <140359015+shampunj@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 IlyaElDunaev <154531074+IlyaElDunaev@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   name: stun prod
   parent: [BaseItem, BaseMinorContraband]
@@ -22,6 +9,9 @@
     layers:
     - state: stunprod_off
       map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: ItemToggleExaminableStatus
+  - type: ItemToggleRequiresCharge
+    requiredCharge: 120
   - type: ItemToggle
     soundActivate:
       collection: sparks
@@ -35,12 +25,13 @@
       path: /Audio/Machines/button.ogg
       params:
         variation: 0.250
+  - type: ItemTogglePrefix
+    prefixOn: on
+    prefixOff: off
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
         Shock: 5
-  - type: Stunbaton
-    energyPerUse: 120
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
@@ -48,6 +39,10 @@
         Blunt: 9
     angle: 60
     animation: WeaponArcThrust
+  - type: MeleeBatteryHitsLeft
+  - type: StaminaDamageOnHitRequiresToggle
+  - type: StaminaDamageOnHitRequiresCharge
+    requiredCharge: 120
   - type: StaminaDamageOnHit
     damage: 35
     sound: /Audio/Weapons/egloves.ogg
@@ -81,3 +76,6 @@
   - type: Construction
     graph: makeshiftstunprod
     node: msstunprod
+  - type: Tag
+    tags:
+    - Stunbaton

@@ -1,9 +1,7 @@
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.IntegrationTests.Tests.Interaction;
 using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
+using Content.Shared.FixedPoint;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Wieldable.Components;
@@ -21,6 +19,7 @@ public sealed class WeaponTests : InteractionTest
     public async Task GunRequiresWieldTest()
     {
         var gunSystem = SEntMan.System<SharedGunSystem>();
+        var damageSystem = SEntMan.System<DamageableSystem>();
 
         await AddAtmosphere(); // prevent the Urist from suffocating
 
@@ -48,8 +47,8 @@ public sealed class WeaponTests : InteractionTest
         Assert.That(updatedAmmo,
             Is.EqualTo(startAmmo),
             "Mosin discharged ammo when the weapon should not have fired!");
-        Assert.That(damageComp.TotalDamage.Value,
-            Is.EqualTo(0),
+        Assert.That(damageSystem.GetTotalDamage(ToServer(urist)),
+            Is.EqualTo(FixedPoint2.Zero),
             "Urist took damage when the weapon should not have fired!");
 
         await UseInHand();
@@ -60,8 +59,8 @@ public sealed class WeaponTests : InteractionTest
         updatedAmmo = gunSystem.GetAmmoCount(mosinEnt);
 
         Assert.That(updatedAmmo, Is.EqualTo(startAmmo - 1), "Mosin failed to discharge appropriate amount of ammo!");
-        Assert.That(damageComp.TotalDamage.Value,
-            Is.GreaterThan(0),
+        Assert.That(damageSystem.GetTotalDamage(ToServer(urist)),
+            Is.GreaterThan(FixedPoint2.Zero),
             "Mosin was fired but urist sustained no damage!");
     }
 }

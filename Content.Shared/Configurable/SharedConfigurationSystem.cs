@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2023-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Interaction;
 using Content.Shared.Tools.Systems;
 using Robust.Shared.Containers;
@@ -16,10 +8,10 @@ namespace Content.Shared.Configurable;
 /// <summary>
 /// <see cref="ConfigurationComponent"/>
 /// </summary>
-public abstract class SharedConfigurationSystem : EntitySystem
+public abstract partial class SharedConfigurationSystem : EntitySystem
 {
-    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly SharedToolSystem _toolSystem = default!;
+    [Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private SharedToolSystem _toolSystem = default!;
 
     public override void Initialize()
     {

@@ -1,0 +1,148 @@
+﻿- type: entity
+  parent: [BaseStructureDynamic, StructureWheeled]
+  id: LaundryCart
+  name: laundry cart
+  description: A sturdy cart used for transporting laundry bags and clothes.
+  components:
+  - type: LaundryCart
+    requiredBags: 3
+  - type: Rotatable
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Appearance
+  - type: Sprite
+    noRot: true
+    sprite: _Funkystation/Objects/Specific/Janitorial/laundry_cart.rsi
+    layers:
+    - state: cart
+  - type: ItemSlots
+    slots:
+      labeler_slot:
+        name: Hand Labeler
+        ejectVerbText: Eject Labeler
+        whitelist:
+          components:
+          - HandLabeler
+        priority: 5
+      bag_slot1:
+        name: Laundry Bag 1
+        whitelist:
+          tags:
+          - LaundryBag
+        priority: 4
+      bag_slot2:
+        name: Laundry Bag 2
+        whitelist:
+          tags:
+          - LaundryBag
+        priority: 3
+      bag_slot3:
+        name: Laundry Bag 3
+        whitelist:
+          tags:
+          - LaundryBag
+        priority: 2
+      bag_slot4:
+        name: Laundry Bag 4
+        whitelist:
+          tags:
+          - LaundryBag
+        priority: 1
+      bag_slot5:
+        name: Laundry Bag 5
+        whitelist:
+          tags:
+          - LaundryBag
+        priority: 0
+      bag_slot6:
+        name: Laundry Bag 6
+        whitelist:
+          tags:
+          - LaundryBag
+        priority: 0
+  - type: ItemMapper
+    mapLayers:
+      cart-labeler:
+        whitelist:
+          components:
+          - HandLabeler
+      fill-1:
+        minCount: 1
+        whitelist:
+          tags:
+          - LaundryBag
+      fill-2:
+        minCount: 2
+        whitelist:
+          tags:
+          - LaundryBag
+      fill-3:
+        minCount: 3
+        whitelist:
+          tags:
+          - LaundryBag
+      fill-4:
+        minCount: 6
+        whitelist:
+          tags:
+          - LaundryBag
+    sprite: _Funkystation/Objects/Specific/Janitorial/laundry_cart.rsi
+  - type: ContainerContainer
+    containers:
+      labeler_slot: !type:ContainerSlot {}
+      bag_slot1: !type:ContainerSlot {}
+      bag_slot2: !type:ContainerSlot {}
+      bag_slot3: !type:ContainerSlot {}
+      bag_slot4: !type:ContainerSlot {}
+      bag_slot5: !type:ContainerSlot {}
+      bag_slot6: !type:ContainerSlot {}
+      hidden_mobs: !type:Container {}
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 150
+        mask:
+        - MachineMask
+        layer:
+        - Opaque
+  - type: Damageable
+    damageModifierSet: Metallic
+  - type: Injurable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:EmptyAllContainersBehaviour
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+
+- type: entity
+  parent: LaundryCart
+  id: LaundryCartFilled
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      bag_slot1:
+      - LaundryBag
+      bag_slot2:
+      - LaundryBag
+      bag_slot3:
+      - LaundryBag
+      bag_slot4:
+      - LaundryBag
+      bag_slot5:
+      - LaundryBag
+      bag_slot6:
+      - LaundryBag
+      labeler_slot:
+      - HandLabeler

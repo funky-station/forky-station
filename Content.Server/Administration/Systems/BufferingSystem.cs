@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pok <113675512+Pok27@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Components;
@@ -13,9 +7,9 @@ using Robust.Shared.Random;
 
 namespace Content.Server.Administration.Systems;
 
-public sealed class BufferingSystem : SharedBufferingSystem
+public sealed partial class BufferingSystem : SharedBufferingSystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Update(float frameTime)
     {

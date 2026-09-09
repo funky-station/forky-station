@@ -1,8 +1,5 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Sprite;
 
 namespace Content.Server.Sprite;
 
-public sealed class ScaleVisualsSystem : SharedScaleVisualsSystem;
+public sealed partial class ScaleVisualsSystem : SharedScaleVisualsSystem;

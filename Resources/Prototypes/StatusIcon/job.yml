@@ -1,18 +1,3 @@
-# SPDX-FileCopyrightText: 2023-2024 PrPleGoo <PrPleGoo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nairod <110078045+Nairodian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TsjipTsjip <19798667+TsjipTsjip@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Golinth <amh2023@gmail.com>
-# SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2025 Professor Renderer Grizzleton <dimjcb@aol.com>
-# SPDX-FileCopyrightText: 2026 ThatGuyUSA <thatguyusa123@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: jobIcon
   abstract: true
   id: JobIcon
@@ -26,7 +11,7 @@
   parent: JobIcon
   id: JobIconCargoTechnician
   icon:
-    sprite: &icon-rsi /Textures/Interface/Misc/job_icons.rsi
+    sprite: &icon-rsi /Textures/_Funkystation/Interface/Misc/job_icons.rsi # Funky
     state: CargoTechnician
   jobName: job-name-cargotech
 
@@ -35,7 +20,7 @@
   id: JobIconShaftMiner
   icon:
     sprite: *icon-rsi
-    state: ShaftMiner
+    state: SalvageSpecialist # Funky - Formerly "ShaftMiner"
   jobName: job-name-salvagespec
 
 # Command
@@ -68,7 +53,7 @@
   parent: JobIcon
   id: JobIconHeadOfPersonnel
   icon:
-    sprite: *icon-rsi
+    sprite: &old-icon-rsi /Textures/Interface/Misc/job_icons.rsi # Funky - Fallback RSI for jobs without new icons
     state: HeadOfPersonnel
   jobName: job-name-hop
 
@@ -93,7 +78,7 @@
   id: JobIconQuarterMaster
   icon:
     sprite: *icon-rsi
-    state: QuarterMaster
+    state: Quartermaster # Funky - Formerly "QuarterMaster"
   jobName: job-name-qm
 
 # Engineering
@@ -244,7 +229,7 @@
   parent: JobIcon
   id: JobIconWarden
   icon:
-    sprite: *icon-rsi
+    sprite: *old-icon-rsi # Funky - Fallback RSI
     state: Warden
   jobName: job-name-warden
 
@@ -270,7 +255,7 @@
   parent: JobIcon
   id: JobIconBoxer
   icon:
-    sprite: *icon-rsi
+    sprite: *old-icon-rsi # Funky - Fallback RSI
     state: Boxer
   jobName: job-name-boxer
 
@@ -338,6 +323,14 @@
     state: Zookeeper
   jobName: job-name-zookeeper
 
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconTramDriver
+  icon:
+    sprite: *icon-rsi
+    state: Unknown #FUNKYTODO: Sus job icon?
+  jobName: job-name-tramdriver
+
 # Entertainer (like service, but not actually service)
 
 - type: jobIcon
@@ -371,7 +364,7 @@
   id: JobIconPassenger
   icon:
     sprite: *icon-rsi
-    state: Passenger
+    state: Assistant # Funky - Formerly "Passenger"
   jobName: job-name-passenger
 
 - type: jobIcon
@@ -564,7 +557,7 @@
   parent: JobIcon
   id: JobIconNanotrasen
   icon:
-    sprite: *icon-rsi
+    sprite: *old-icon-rsi # Funky - Fallback RSI
     state: Nanotrasen
   jobName: job-name-centcommoff
 
@@ -574,7 +567,6 @@
   icon:
     sprite: *icon-rsi
     state: Admin
-  allowSelection: false
 
 - type: jobIcon
   parent: JobIcon
@@ -582,7 +574,6 @@
   icon:
     sprite: *icon-rsi
     state: SeniorPhysician
-  allowSelection: false
 
 - type: jobIcon
   parent: JobIcon
@@ -590,7 +581,6 @@
   icon:
     sprite: *icon-rsi
     state: SeniorOfficer
-  allowSelection: false
 
 - type: jobIcon
   parent: JobIcon
@@ -598,7 +588,6 @@
   icon:
     sprite: *icon-rsi
     state: SeniorEngineer
-  allowSelection: false
 
 - type: jobIcon
   parent: JobIcon
@@ -606,7 +595,6 @@
   icon:
     sprite: *icon-rsi
     state: SeniorResearcher
-  allowSelection: false
 
 # Other
 
@@ -627,3 +615,11 @@
     state: Unknown
   jobName: job-name-unknown
   isCrewJob: false
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSus
+  icon:
+    sprite: *icon-rsi
+    state: Unknown #FUNKYTODO: Sus job icon?
+  jobName: job-name-sus

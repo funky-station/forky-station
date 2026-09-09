@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2021, 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2025 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ser11y <160628372+Ser1-1y@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Numerics;
 using Content.Client.CombatMode;
@@ -33,12 +23,12 @@ namespace Content.Client.Verbs.UI
     ///     open a verb menu for a given entity, add verbs to it, and add server-verbs when the server response is
     ///     received.
     /// </remarks>
-    public sealed class VerbMenuUIController : UIController,
+    public sealed partial class VerbMenuUIController : UIController,
         IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>,
         IOnStateEntered<MappingState>, IOnStateExited<MappingState>
     {
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly ContextMenuUIController _context = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private ContextMenuUIController _context = default!;
 
         [UISystemDependency] private readonly CombatModeSystem _combatMode = default!;
         [UISystemDependency] private readonly VerbSystem _verbSystem = default!;

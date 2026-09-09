@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2020, 2024-2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Threading.Tasks;
 using Content.Server.Administration.Managers;
@@ -21,12 +13,12 @@ using static Content.Shared.Administration.PermissionsEuiMsg;
 
 namespace Content.Server.Administration.UI
 {
-    public sealed class PermissionsEui : BaseEui
+    public sealed partial class PermissionsEui : BaseEui
     {
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly IServerDbManager _db = default!;
-        [Dependency] private readonly IAdminManager _adminManager = default!;
-        [Dependency] private readonly ILogManager _logManager = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private IServerDbManager _db = default!;
+        [Dependency] private IAdminManager _adminManager = default!;
+        [Dependency] private ILogManager _logManager = default!;
 
         private readonly ISawmill _sawmill;
         private bool _isLoading;
@@ -248,6 +240,12 @@ namespace Content.Server.Administration.UI
                 return;
             }
 
+            var (bad, rankName) = await FetchAndCheckRank(ua.RankId);
+            if (bad)
+            {
+                return;
+            }
+
             var admin = await _db.GetAdminDataForAsync(ua.UserId);
             if (admin == null)
             {
@@ -269,12 +267,6 @@ namespace Content.Server.Administration.UI
             await _db.UpdateAdminAsync(admin);
 
             var playerRecord = await _db.GetPlayerRecordByUserId(ua.UserId);
-            var (bad, rankName) = await FetchAndCheckRank(ua.RankId);
-            if (bad)
-            {
-                return;
-            }
-
             var name = playerRecord?.LastSeenUserName ?? ua.UserId.ToString();
             var title = ua.Title ?? "<no title>";
             var flags = AdminFlagsHelper.PosNegFlagsText(ua.PosFlags, ua.NegFlags);

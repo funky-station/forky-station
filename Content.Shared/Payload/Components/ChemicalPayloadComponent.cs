@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Serylis of Five <stormy-git@stormweyr.dk>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Trigger.Systems;
 using Robust.Shared.Serialization;

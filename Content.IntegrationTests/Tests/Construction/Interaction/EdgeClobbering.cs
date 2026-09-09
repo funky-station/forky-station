@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.IntegrationTests.Tests.Interaction;
 using Content.Server.Construction.Components;
 using Content.Shared.Temperature;
@@ -44,7 +41,8 @@ public sealed class EdgeClobbering : InteractionTest
         var sTarget = SEntMan.GetEntity(Target!.Value);
 
         await InteractUsing(Screw, false);
-        SEntMan.EventBus.RaiseLocalEvent(sTarget, new OnTemperatureChangeEvent(0f, 0f, 0f));
+        var ev = new TemperatureChangedEvent(0f, 0f);
+        SEntMan.EventBus.RaiseLocalEvent(sTarget, ref ev);
         await AwaitDoAfters();
 
         Assert.That(SEntMan.GetComponent<ConstructionComponent>(sTarget).Node, Is.EqualTo("C"));

@@ -1,12 +1,14 @@
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Inventory;
 
 namespace Content.Shared.Medical;
 
 [ByRefEvent]
-public readonly record struct TargetDefibrillatedEvent(EntityUid User, Entity<DefibrillatorComponent> Defibrillator);
+public readonly record struct TargetDefibrillatedEvent(
+    EntityUid User,
+    EntityUid Target,
+    Entity<DefibrillatorComponent> Defibrillator,
+    HashSet<EntityUid> ChainAffected
+);
 
 public abstract class BeforeDefibrillatorZapsEvent : CancellableEntityEventArgs, IInventoryRelayEvent
 {

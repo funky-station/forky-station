@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ssdaniel24 <107036969+ssdaniel24@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Palladinium <patrick.chieppe@hotmail.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;
@@ -51,6 +46,12 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<string> DiscordVotekickWebhook =
         CVarDef.Create("discord.votekick_webhook", string.Empty, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     URL of the Discord webhook which will relay event logs. If left empty, disables the webhook.
+    /// </summary>
+    public static readonly CVarDef<string> DiscordEventWebhook =
+        CVarDef.Create("discord.event_webhook", string.Empty, CVar.SERVERONLY);
 
     /// <summary>
     ///     URL of the Discord webhook which will relay round restart messages.

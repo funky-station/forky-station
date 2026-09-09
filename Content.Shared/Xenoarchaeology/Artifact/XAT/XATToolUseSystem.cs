@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Interaction;
 using Content.Shared.Tools.Components;
 using Content.Shared.Tools.Systems;
@@ -12,9 +9,9 @@ namespace Content.Shared.Xenoarchaeology.Artifact.XAT;
 /// <summary>
 /// This handles <see cref="XATToolUseComponent"/>
 /// </summary>
-public sealed class XATToolUseSystem : BaseXATSystem<XATToolUseComponent>
+public sealed partial class XATToolUseSystem : BaseXATSystem<XATToolUseComponent>
 {
-    [Dependency] private readonly SharedToolSystem _tool = default!;
+    [Dependency] private SharedToolSystem _tool = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

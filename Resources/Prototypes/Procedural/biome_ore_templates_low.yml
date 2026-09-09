@@ -1,18 +1,8 @@
-# SPDX-FileCopyrightText: 2023-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Zadeon <loldude9000@gmail.com>
-# SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: biomeMarkerLayer
   id: OreIronLow
   entityMask:
     AsteroidRock: AsteroidRockTin
     WallRock: WallRockTin
-    WallRockBasalt: WallRockBasaltTin
     WallRockChromite: WallRockChromiteTin
     WallRockSand: WallRockSandTin
     WallRockSnow: WallRockSnowTin
@@ -26,7 +16,6 @@
   entityMask:
     AsteroidRock: AsteroidRockQuartz
     WallRock: WallRockQuartz
-    WallRockBasalt: WallRockBasaltQuartz
     WallRockChromite: WallRockChromiteQuartz
     WallRockSnow: WallRockSnowQuartz
   maxCount: 20
@@ -39,7 +28,6 @@
   entityMask:
     AsteroidRock: AsteroidRockCoal
     WallRock: WallRockCoal
-    WallRockBasalt: WallRockBasaltCoal
     WallRockChromite: WallRockChromiteCoal
     WallRockSand: WallRockSandCoal
     WallRockSnow: WallRockSnowCoal
@@ -53,7 +41,6 @@
   entityMask:
     AsteroidRock: AsteroidRockSalt
     WallRock: WallRockSalt
-    WallRockBasalt: WallRockBasaltSalt
     WallRockChromite: WallRockChromiteSalt
     WallRockSand: WallRockSandSalt
     WallRockSnow: WallRockSnowSalt
@@ -69,7 +56,6 @@
   entityMask:
     AsteroidRock: AsteroidRockGold
     WallRock: WallRockGold
-    WallRockBasalt: WallRockBasaltGold
     WallRockChromite: WallRockChromiteGold
     WallRockSand: WallRockSandGold
     WallRockSnow: WallRockSnowGold
@@ -84,7 +70,6 @@
   entityMask:
     AsteroidRock: AsteroidRockSilver
     WallRock: WallRockSilver
-    WallRockBasalt: WallRockBasaltSilver
     WallRockChromite: WallRockChromiteSilver
     WallRockSand: WallRockSandSilver
     WallRockSnow: WallRockSnowSilver
@@ -100,7 +85,6 @@
   entityMask:
     AsteroidRock: AsteroidRockPlasma
     WallRock: WallRockPlasma
-    WallRockBasalt: WallRockBasaltPlasma
     WallRockChromite: WallRockChromitePlasma
     WallRockSand: WallRockSandPlasma
     WallRockSnow: WallRockSnowPlasma
@@ -115,7 +99,6 @@
   entityMask:
     AsteroidRock: AsteroidRockUranium
     WallRock: WallRockUranium
-    WallRockBasalt: WallRockBasaltUranium
     WallRockChromite: WallRockChromiteUranium
     WallRockSand: WallRockSandUranium
     WallRockSnow: WallRockSnowUranium
@@ -129,7 +112,6 @@
   entityMask:
     AsteroidRock: AsteroidRockDiamond
     WallRock: WallRockDiamond
-    WallRockBasalt: WallRockBasaltDiamond
     WallRockChromite: WallRockChromiteDiamond
     WallRockSand: WallRockSandDiamond
     WallRockSnow: WallRockSnowDiamond
@@ -144,7 +126,6 @@
   entityMask:
     AsteroidRock: AsteroidRockArtifactFragment
     WallRock: WallRockArtifactFragment
-    WallRockBasalt: WallRockBasaltArtifactFragment
     WallRockChromite: WallRockChromiteArtifactFragment
     WallRockSand: WallRockSandArtifactFragment
     WallRockSnow: WallRockSnowArtifactFragment

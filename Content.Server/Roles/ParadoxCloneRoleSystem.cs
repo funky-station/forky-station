@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
-using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Mind;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Roles.Components;
@@ -11,7 +8,7 @@ namespace Content.Server.Roles;
 /// <summary>
 ///     System responsible for giving a ghost of a paradox clone a name modifier.
 /// </summary>
-public sealed class ParadoxCloneRoleSystem : EntitySystem
+public sealed partial class ParadoxCloneRoleSystem : EntitySystem
 {
     public override void Initialize()
     {

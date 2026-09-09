@@ -1,61 +1,48 @@
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2022-2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2022 Chris V <HoofedEar@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 AsikKEsel <115815982+AsikKEsel@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MACMAN2003 <macman2003c@gmail.com>
-# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2025 Ertanic <36124833+Ertanic@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: stack
   parent: BaseSheetStack
   id: Glass
   name: stack-glass
-  icon: { sprite: /Textures/Objects/Materials/Sheets/glass.rsi, state: glass }
+  icon: { sprite: /Textures/_Funkystation/Objects/Materials/Sheets/glass.rsi, state: glass } #Funky resprite
   spawn: SheetGlass1
 
 - type: stack
   parent: BaseSheetStack
   id: ReinforcedGlass
   name: stack-reinforced-glass
-  icon: { sprite: /Textures/Objects/Materials/Sheets/glass.rsi, state: rglass }
+  icon: { sprite: /Textures/_Funkystation/Objects/Materials/Sheets/glass.rsi, state: rglass } #Funky resprite
   spawn: SheetRGlass1
 
 - type: stack
   parent: BaseSheetStack
   id: PlasmaGlass
   name: stack-plasma-glass
-  icon: { sprite: /Textures/Objects/Materials/Sheets/glass.rsi, state: pglass }
+  icon: { sprite: /Textures/_Funkystation/Objects/Materials/Sheets/glass.rsi, state: pglass } #Funky resprite
   spawn: SheetPGlass1
 
 - type: stack
   parent: BaseSheetStack
   id: ReinforcedPlasmaGlass
   name: stack-reinforced-plasma-glass
-  icon: { sprite: /Textures/Objects/Materials/Sheets/glass.rsi, state: rpglass }
+  icon: { sprite: /Textures/_Funkystation/Objects/Materials/Sheets/glass.rsi, state: rpglass } #Funky resprite
   spawn: SheetRPGlass1
 
 - type: stack
   parent: BaseSheetStack
   id: UraniumGlass
   name: stack-uranium-glass
-  icon: { sprite: /Textures/Objects/Materials/Sheets/glass.rsi, state: uglass }
+  icon: { sprite: /Textures/_Funkystation/Objects/Materials/Sheets/glass.rsi, state: uglass } #Funky resprite
   spawn: SheetUGlass1
 
 - type: stack
   parent: BaseSheetStack
   id: ReinforcedUraniumGlass
   name: stack-reinforced-uranium-glass
-  icon: { sprite: /Textures/Objects/Materials/Sheets/glass.rsi, state: ruglass }
+  icon: { sprite: /Textures/_Funkystation/Objects/Materials/Sheets/glass.rsi, state: ruglass } #Funky resprite
   spawn: SheetRUGlass1
 
 - type: stack
   parent: BaseSheetStack
   id: ClockworkGlass
   name: stack-clockwork-glass
-  icon: { sprite: /Textures/Objects/Materials/Sheets/glass.rsi, state: cglass }
+  icon: { sprite: /Textures/_Funkystation/Objects/Materials/Sheets/glass.rsi, state: cglass } #Funky resprite
   spawn: SheetClockworkGlass1

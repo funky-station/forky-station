@@ -1,15 +1,8 @@
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Eye;
+using Content.Shared.DeviceNetwork;
 using Content.Shared.SurveillanceCamera;
-using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
+using Robust.Shared.Prototypes;
 
 namespace Content.Client.SurveillanceCamera.UI;
 
@@ -44,18 +37,18 @@ public sealed class SurveillanceCameraMonitorBoundUserInterface : BoundUserInter
         _window.CameraDisconnect += OnCameraDisconnect;
 
         var xform = EntMan.GetComponent<TransformComponent>(Owner);
-        var gridUid = xform.GridUid ?? xform.MapUid;
+        var gridUid = xform.GridUid;
 
         if (gridUid is not null)
             _window?.SetMap(gridUid.Value);
     }
 
-    private void OnCameraSelected(string address, string? subnet)
+    private void OnCameraSelected(string address, ProtoId<DeviceFrequencyPrototype>? subnet)
     {
         SendMessage(new SurveillanceCameraMonitorSwitchMessage(address, subnet));
     }
 
-    private void OnSubnetRequest(string subnet)
+    private void OnSubnetRequest(ProtoId<DeviceFrequencyPrototype> subnet)
     {
         SendMessage(new SurveillanceCameraMonitorSubnetRequestMessage(subnet));
     }
@@ -129,11 +122,6 @@ public sealed class SurveillanceCameraMonitorBoundUserInterface : BoundUserInter
         {
             _eyeLerpingSystem.RemoveEye(_currentCamera.Value);
             _currentCamera = null;
-        }
-
-        if (disposing)
-        {
-            _window?.Dispose();
         }
     }
 }

@@ -1,14 +1,5 @@
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 August Eymann <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
-// SPDX-FileCopyrightText: 2026 taydeo <td12233a@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Charges.Systems;
-using Content.Shared.FixedPoint;
+using Content.Shared.Popups;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -20,6 +11,18 @@ namespace Content.Shared.Charges.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(SharedChargesSystem))]
 public sealed partial class LimitedChargesComponent : Component
 {
+    /// <summary>
+    /// Localization ID of the popup shown when the entity has no charges left.
+    /// </summary>
+    [DataField]
+    public LocId? OnFailPopup;
+
+    /// <summary>
+    /// The type the fail popup should show up as.
+    /// </summary>
+    [DataField]
+    public PopupType OnFailPopupType = PopupType.SmallCaution;
+
     [DataField, AutoNetworkedField]
     public int LastCharges;
 

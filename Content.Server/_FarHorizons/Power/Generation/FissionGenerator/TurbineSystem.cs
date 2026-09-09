@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025-2026 jhrushbe <capnmerry@gmail.com>
-// SPDX-FileCopyrightText: 2026 princess-gurchi <kharitonovich.m+pg@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.Explosion.EntitySystems;
@@ -28,6 +24,7 @@ using Robust.Shared.Containers;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Damage.Systems;
 using Content.Server.Audio;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Audio;
 
 namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
@@ -36,24 +33,22 @@ namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 // CC-BY-NC-SA-3.0
 // https://github.com/goonstation/goonstation/blob/ff86b044/code/obj/nuclearreactor/turbine.dm
 
-public sealed class TurbineSystem : SharedTurbineSystem
+public sealed partial class TurbineSystem : SharedTurbineSystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
-    [Dependency] private readonly GunSystem _gun = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = null!;
-    [Dependency] private readonly DeviceLinkSystem _signal = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly AmbientSoundSystem _ambientSoundSystem = default!;
-
-    public event Action<string>? TurbineRepairMessage;
+    [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private ExplosionSystem _explosion = default!;
+    [Dependency] private GunSystem _gun = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private NodeContainerSystem _nodeContainer = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private TransformSystem _transformSystem = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = null!;
+    [Dependency] private DeviceLinkSystem _signal = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private EntityManager _entityManager = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private AmbientSoundSystem _ambientSoundSystem = default!;
 
     private readonly List<string> _damageSoundList = [
         "/Audio/_FarHorizons/Effects/engine_grump1.ogg",
@@ -409,7 +404,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
     {
         var state = SignalState.Momentary;
         args.Data?.TryGetValue(DeviceNetworkConstants.LogicState, out state);
-        
+
         if (args.Port == comp.StatorLoadIncreasePort)
             comp.IncreasePortState = state;
         else if (args.Port == comp.StatorLoadDecreasePort)
@@ -533,7 +528,7 @@ public sealed class TurbineSystem : SharedTurbineSystem
     {
         if (args.Cancelled)
             return;
-            
+
         if (comp.RPM < 1)
             return;
 

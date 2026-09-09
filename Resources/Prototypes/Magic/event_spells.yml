@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2024-2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024-2025 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: BaseAction
   id: ActionSummonGhosts
@@ -15,9 +7,10 @@
   - type: Action
     useDelay: 120
     itemIconStyle: BigAction
-    icon:
-      sprite: Mobs/Ghosts/ghost_human.rsi
-      state: icon
+  - type: Sprite
+    sprite: Mobs/Ghosts/ghost_human.rsi
+    layers:
+    - state: icon
   - type: InstantAction
     event: !type:ToggleGhostVisibilityToAllEvent
 
@@ -33,9 +26,10 @@
   - type: Action
     useDelay: 300
     itemIconStyle: BigAction
-    icon:
-      sprite: Objects/Weapons/Guns/Rifles/ak.rsi
-      state: base
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Rifles/ak.rsi
+    layers:
+    - state: base
   - type: InstantAction
     event: !type:RandomGlobalSpawnSpellEvent
       makeSurvivorAntagonist: true
@@ -59,8 +53,6 @@
       - id: WeaponRevolverPirate
         orGroup: Guns
       - id: WeaponRifleAk
-        orGroup: Guns
-      - id: WeaponRifleM90GrenadeLauncher
         orGroup: Guns
       - id: WeaponRifleLecter
         orGroup: Guns
@@ -136,12 +128,6 @@
         orGroup: Guns
       - id: WeaponDisablerPractice
         orGroup: Guns
-      - id: WeaponDisabler
-        orGroup: Guns
-      - id: WeaponDisablerSMG
-        orGroup: Guns
-      - id: WeaponTaser
-        orGroup: Guns
       - id: WeaponAntiqueLaser
         orGroup: Guns
       - id: WeaponAdvancedLaser
@@ -183,9 +169,10 @@
   - type: Action
     useDelay: 300
     itemIconStyle: BigAction
-    icon:
-      sprite: Objects/Magic/magicactions.rsi
-      state: magicmissile
+  - type: Sprite
+    sprite: Objects/Magic/magicactions.rsi
+    layers:
+    - state: magicmissile
   - type: InstantAction
     event: !type:RandomGlobalSpawnSpellEvent
       makeSurvivorAntagonist: true
@@ -205,8 +192,6 @@
       - id: WeaponWandPolymorphMonkey
         orGroup: Magics
       - id: WeaponWandFireball
-        orGroup: Magics
-      - id: WeaponWandPolymorphDoor
         orGroup: Magics
       - id: WeaponWandCluwne
         orGroup: Magics

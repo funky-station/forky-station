@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

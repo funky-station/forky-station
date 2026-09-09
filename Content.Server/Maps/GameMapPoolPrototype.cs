@@ -1,13 +1,6 @@
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Maps;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 
 namespace Content.Server.Maps;
 
@@ -24,6 +17,6 @@ public sealed partial class GameMapPoolPrototype : IPrototype
     /// <summary>
     ///     Which maps are in this pool.
     /// </summary>
-    [DataField("maps", customTypeSerializer:typeof(PrototypeIdHashSetSerializer<GameMapPrototype>), required: true)]
-    public HashSet<string> Maps = new(0);
+    [DataField(required: true)]
+    public HashSet<ProtoId<GameMapPrototype>> Maps = new(0);
 }

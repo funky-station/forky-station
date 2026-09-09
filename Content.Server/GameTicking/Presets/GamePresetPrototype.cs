@@ -1,18 +1,5 @@
-// SPDX-FileCopyrightText: 2021-2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Putnam3145 <putnam3145@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023, 2025 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Maps;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.GameTicking.Presets
 {
@@ -25,22 +12,22 @@ namespace Content.Server.GameTicking.Presets
         [IdDataField]
         public string ID { get; private set; } = default!;
 
-        [DataField("alias")]
+        [DataField]
         public string[] Alias = Array.Empty<string>();
 
         [DataField("name")]
         public string ModeTitle = "????";
 
-        [DataField("description")]
+        [DataField]
         public string Description = string.Empty;
 
-        [DataField("showInVote")]
+        [DataField]
         public bool ShowInVote;
 
-        [DataField("minPlayers")]
+        [DataField]
         public int? MinPlayers;
 
-        [DataField("maxPlayers")]
+        [DataField]
         public int? MaxPlayers;
 
         [DataField]
@@ -50,7 +37,7 @@ namespace Content.Server.GameTicking.Presets
         /// If specified, the gamemode will only be run with these maps.
         /// If none are elligible, the global fallback will be used.
         /// </summary>
-        [DataField("supportedMaps", customTypeSerializer: typeof(PrototypeIdSerializer<GameMapPoolPrototype>))]
-        public string? MapPool;
+        [DataField("supportedMaps")]
+        public ProtoId<GameMapPoolPrototype>? MapPool;
     }
 }

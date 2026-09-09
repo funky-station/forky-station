@@ -1,29 +1,9 @@
-// SPDX-FileCopyrightText: 2021-2023 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2025 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Arimah Greene <30327355+arimah@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 BarryNorfolk <barrynorfolkman@protonmail.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Construction.Components;
-using Content.Server.Containers;
 using Content.Shared.Construction;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Construction.Steps;
 using Content.Shared.Containers;
 using Content.Shared.Database;
-using Robust.Server.Containers;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using System.Linq;
@@ -68,7 +48,7 @@ namespace Content.Server.Construction
 
             // If the set graph prototype does not exist, also return null. This could be due to admemes changing values
             // in ViewVariables, so even though the construction state is invalid, just return null.
-            return PrototypeManager.TryIndex(construction.Graph, out ConstructionGraphPrototype? graph) ? graph : null;
+            return ProtoMan.TryIndex(construction.Graph, out ConstructionGraphPrototype? graph) ? graph : null;
         }
 
         /// <summary>
@@ -320,7 +300,7 @@ namespace Content.Server.Construction
             }
 
             // Exit if the new entity's prototype is the same as the original, or the prototype is invalid
-            if (newEntity == metaData.EntityPrototype?.ID || !PrototypeManager.HasIndex<EntityPrototype>(newEntity))
+            if (newEntity == metaData.EntityPrototype?.ID || !ProtoMan.HasIndex<EntityPrototype>(newEntity))
                 return null;
 
             // [Optional] Exit if the new entity's prototype is a parent of the original
@@ -330,7 +310,7 @@ namespace Content.Server.Construction
             if (GetCurrentNode(uid, construction)?.DoNotReplaceInheritingEntities == true &&
                 metaData.EntityPrototype?.ID != null)
             {
-                var parents = PrototypeManager.EnumerateParents<EntityPrototype>(metaData.EntityPrototype.ID)?.ToList();
+                var parents = ProtoMan.EnumerateParents<EntityPrototype>(metaData.EntityPrototype.ID)?.ToList();
 
                 if (parents != null && parents.Any(x => x.ID == newEntity))
                     return null;
@@ -340,7 +320,7 @@ namespace Content.Server.Construction
             Resolve(uid, ref containerManager, false);
 
             // We create the new entity.
-            var newUid = EntityManager.CreateEntityUninitialized(newEntity, transform.Coordinates);
+            var newUid = EntityManager.CreateEntityUninitialized(newEntity, transform.Coordinates, rotation: transform.LocalRotation);
 
             // Construction transferring.
             var newConstruction = EnsureComp<ConstructionComponent>(newUid);
@@ -383,8 +363,9 @@ namespace Content.Server.Construction
             // Transform transferring.
             var newTransform = Transform(newUid);
             TransformSystem.AttachToGridOrMap(newUid, newTransform); // in case in hands or a container
-            newTransform.LocalRotation = transform.LocalRotation;
+#pragma warning disable CS0618 // Setting anchored state directly, AnchorEntity/Unanchor requires an initialized entity.
             newTransform.Anchored = transform.Anchored;
+#pragma warning restore CS0618
 
             // Container transferring.
             if (containerManager != null)
@@ -452,7 +433,7 @@ namespace Content.Server.Construction
             if (!Resolve(uid, ref construction))
                 return false;
 
-            if (!PrototypeManager.TryIndex<ConstructionGraphPrototype>(graphId, out var graph))
+            if (!ProtoMan.TryIndex<ConstructionGraphPrototype>(graphId, out var graph))
                 return false;
 
             if (GetNodeFromGraph(graph, nodeId) is not { })

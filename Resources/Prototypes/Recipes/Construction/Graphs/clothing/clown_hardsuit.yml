@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Ertanic <36124833+Ertanic@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: constructionGraph
   id: ClownHardsuit
   start: start
@@ -30,19 +24,19 @@
             - tag: CrayonPurple
               name: construction-graph-tag-purple-crayon
               icon:
-                sprite: Objects/Fun/crayons.rsi
+                sprite: _Funkystation/Objects/Fun/crayons.rsi # Funky
                 state: purple
               doAfter: 1
             - tag: CrayonRed
               name: construction-graph-tag-red-crayon
               icon:
-                sprite: Objects/Fun/crayons.rsi
+                sprite: _Funkystation/Objects/Fun/crayons.rsi # Funky
                 state: red
               doAfter: 1
             - tag: CrayonYellow
               name: construction-graph-tag-yellow-crayon
               icon:
-                sprite: Objects/Fun/crayons.rsi
+                sprite: _Funkystation/Objects/Fun/crayons.rsi # Funky
                 state: yellow
               doAfter: 1
             - tag: ClownRecorder

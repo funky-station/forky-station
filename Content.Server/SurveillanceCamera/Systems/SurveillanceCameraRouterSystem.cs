@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022, 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.DeviceNetwork.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.DeviceNetwork;
@@ -14,17 +6,15 @@ using Content.Shared.Power;
 using Content.Shared.SurveillanceCamera;
 using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
-using Robust.Shared.Prototypes;
 using Content.Shared.DeviceNetwork.Components;
 
 namespace Content.Server.SurveillanceCamera;
 
-public sealed class SurveillanceCameraRouterSystem : EntitySystem
+public sealed partial class SurveillanceCameraRouterSystem : EntitySystem
 {
-    [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
+    [Dependency] private DeviceNetworkSystem _deviceNetworkSystem = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private UserInterfaceSystem _userInterface = default!;
     public override void Initialize()
     {
         SubscribeLocalEvent<SurveillanceCameraRouterComponent, ComponentInit>(OnInitialize);
@@ -37,7 +27,7 @@ public sealed class SurveillanceCameraRouterSystem : EntitySystem
     private void OnInitialize(EntityUid uid, SurveillanceCameraRouterComponent router, ComponentInit args)
     {
         if (router.SubnetFrequencyId == null ||
-            !_prototypeManager.TryIndex(router.SubnetFrequencyId, out DeviceFrequencyPrototype? subnetFrequency))
+            !ProtoMan.TryIndex(router.SubnetFrequencyId, out DeviceFrequencyPrototype? subnetFrequency))
         {
             return;
         }
@@ -129,7 +119,7 @@ public sealed class SurveillanceCameraRouterSystem : EntitySystem
             return;
         }
 
-        if (!_prototypeManager.Resolve<DeviceFrequencyPrototype>(component.AvailableNetworks[args.Network],
+        if (!ProtoMan.Resolve<DeviceFrequencyPrototype>(component.AvailableNetworks[args.Network],
                 out var frequency))
         {
             return;
@@ -251,7 +241,7 @@ public sealed class SurveillanceCameraRouterSystem : EntitySystem
         var payload = new NetworkPayload()
         {
             { DeviceNetworkConstants.Command, SurveillanceCameraSystem.CameraPingMessage },
-            { SurveillanceCameraSystem.CameraSubnetData, router.SubnetName }
+            { SurveillanceCameraSystem.CameraSubnetData, router.SubnetFrequencyId }
         };
 
         _deviceNetworkSystem.QueuePacket(uid, null, payload, router.SubnetFrequency);

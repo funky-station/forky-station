@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Client.UserInterface;
 using JetBrains.Annotations;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
@@ -11,9 +8,9 @@ namespace Content.Client._FarHorizons.Power.UI;
 /// Initializes a <see cref="NuclearReactorWindow"/> and updates it when new server messages are received.
 /// </summary>
 [UsedImplicitly]
-public sealed class NuclearReactorBoundUserInterface : BoundUserInterface
+public sealed partial class NuclearReactorBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
 
     [ViewVariables]
     private NuclearReactorWindow? _window;

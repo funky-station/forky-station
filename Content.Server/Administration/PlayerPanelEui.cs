@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
@@ -15,20 +9,21 @@ using Content.Shared.Administration.Systems;
 using Content.Shared.Database;
 using Content.Shared.Eui;
 using Content.Shared.Follower;
+using Content.Shared.Players;
 using Robust.Server.Player;
 using Robust.Shared.Player;
 
 namespace Content.Server.Administration;
 
-public sealed class PlayerPanelEui : BaseEui
+public sealed partial class PlayerPanelEui : BaseEui
 {
-    [Dependency] private readonly IAdminManager _admins = default!;
-    [Dependency] private readonly IServerDbManager _db = default!;
-    [Dependency] private readonly IAdminNotesManager _notesMan = default!;
-    [Dependency] private readonly IEntityManager _entity = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly EuiManager _eui = default!;
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
+    [Dependency] private IAdminManager _admins = default!;
+    [Dependency] private IServerDbManager _db = default!;
+    [Dependency] private IAdminNotesManager _notesMan = default!;
+    [Dependency] private IEntityManager _entity = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private EuiManager _eui = default!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
 
     private readonly LocatedPlayerData _targetPlayer;
     private int? _notes;
@@ -40,6 +35,8 @@ public sealed class PlayerPanelEui : BaseEui
     private bool _frozen;
     private bool _canFreeze;
     private bool _canAhelp;
+    private float _trustScore;
+    private DateTime? _accountCreationDate;
     private FollowerSystem _follower;
 
     public PlayerPanelEui(LocatedPlayerData player)
@@ -73,7 +70,9 @@ public sealed class PlayerPanelEui : BaseEui
             _whitelisted,
             _canFreeze,
             _frozen,
-            _canAhelp);
+            _canAhelp,
+            _trustScore,
+            _accountCreationDate);
     }
 
     private void OnPermsChanged(AdminPermsChangedEventArgs args)
@@ -206,6 +205,10 @@ public sealed class PlayerPanelEui : BaseEui
         {
             _canFreeze = session.AttachedEntity != null;
             _frozen = _entity.HasComponent<AdminFrozenComponent>(session.AttachedEntity);
+
+            var userData = session.Channel.UserData;
+            _trustScore = userData.Trust;
+            _accountCreationDate = userData.CreatedTime;
         }
         else
         {

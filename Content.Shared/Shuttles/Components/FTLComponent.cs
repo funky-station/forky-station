@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022, 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Shuttles.Systems;
 using Content.Shared.Tag;
 using Content.Shared.Timing;
@@ -59,7 +53,7 @@ public sealed partial class FTLComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("soundTravel")]
     public SoundSpecifier? TravelSound = new SoundPathSpecifier("/Audio/Effects/Shuttle/hyperspace_progress.ogg")
     {
-        Params = AudioParams.Default.WithVolume(-3f).WithLoop(true)
+        Params = AudioParams.Default.AddVolume(-3f).WithLoop(true)
     };
 
     [DataField]

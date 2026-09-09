@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.EntityEffects.Effects.Botany.PlantAttributes;
@@ -37,6 +32,6 @@ public abstract partial class BasePlantAdjustAttribute<T> : EntityEffectBase<T> 
         Loc.GetString("entity-effect-guidebook-plant-attribute",
         ("attribute", Loc.GetString(GuidebookAttributeName)),
         ("amount", Amount.ToString("0.00")),
-        ("positive", GuidebookIsAttributePositive),
+        ("positive", GuidebookIsAttributePositive == Amount > 0f),
         ("chance", Probability));
 }

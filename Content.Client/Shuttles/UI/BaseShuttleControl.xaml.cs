@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 exincore <me@exin.xyz>
-// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Shuttles.Components;
@@ -27,7 +20,7 @@ namespace Content.Client.Shuttles.UI;
 [Virtual]
 public partial class BaseShuttleControl : MapGridControl
 {
-    [Dependency] private readonly IParallelManager _parallel = default!;
+    [Dependency] private IParallelManager _parallel = default!;
     protected readonly SharedMapSystem Maps;
 
     protected readonly Font Font;
@@ -124,7 +117,7 @@ public partial class BaseShuttleControl : MapGridControl
 
     protected void DrawGrid(DrawingHandleScreen handle, Matrix3x2 gridToView, Entity<MapGridComponent> grid, Color color, float alpha = 0.01f)
     {
-        var rator = Maps.GetAllTilesEnumerator(grid.Owner, grid.Comp);
+        var rator = Maps.GetAllTiles(grid.Owner, grid.Comp);
         var tileSize = grid.Comp.TileSize;
 
         // Check if we even have data

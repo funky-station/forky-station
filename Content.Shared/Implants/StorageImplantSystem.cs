@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Implants.Components;
 using Content.Shared.Storage;
@@ -9,11 +6,11 @@ using Robust.Shared.Network;
 
 namespace Content.Shared.Implants;
 
-public sealed class StorageImplantSystem : EntitySystem
+public sealed partial class StorageImplantSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private INetManager _net = default!;
 
     public override void Initialize()
     {

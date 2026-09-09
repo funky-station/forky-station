@@ -1,30 +1,9 @@
-// SPDX-FileCopyrightText: 2019-2020 DamianX <DamianX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021, 2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2022, 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021-2022 mirrorcult <notzombiedude@gmail.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Leo <lzimann@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 UpAndLeaves <92269094+Alpha-Two@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 YotaXP <yotaxp@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Server.Afk;
 using Content.Server.Database;
 using Content.Shared.Body;
 using Content.Shared.CCVar;
@@ -51,18 +30,19 @@ namespace Content.Server.Preferences.Managers
     /// Sends <see cref="MsgPreferencesAndSettings"/> before the client joins the lobby.
     /// Receives <see cref="MsgSelectCharacter"/> and <see cref="MsgUpdateCharacter"/> at any time.
     /// </summary>
-    public sealed class ServerPreferencesManager : IServerPreferencesManager, IPostInjectInit
+    public sealed partial class ServerPreferencesManager : IServerPreferencesManager, IPostInjectInit
     {
-        [Dependency] private readonly IServerNetManager _netManager = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly IServerDbManager _db = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly IDependencyCollection _dependencies = default!;
-        [Dependency] private readonly ILogManager _log = default!;
-        [Dependency] private readonly UserDbDataManager _userDb = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly MarkingManager _marking = default!;
-        [Dependency] private readonly ISerializationManager _serialization = default!;
+        [Dependency] private IServerNetManager _netManager = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
+        [Dependency] private IServerDbManager _db = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private IAfkManager _afkManager = default!;
+        [Dependency] private IDependencyCollection _dependencies = default!;
+        [Dependency] private ILogManager _log = default!;
+        [Dependency] private UserDbDataManager _userDb = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private MarkingManager _marking = default!;
+        [Dependency] private ISerializationManager _serialization = default!;
 
         // Cache player prefs on the server so we don't need as much async hell related to them.
         private readonly Dictionary<NetUserId, PlayerPrefData> _cachedPlayerPrefs =
@@ -132,8 +112,15 @@ namespace Content.Server.Preferences.Managers
                 new Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>>();
 
             var species = profile.Species;
-            if (!_prototypeManager.HasIndex<SpeciesPrototype>(species))
+            if (!_prototypeManager.TryIndex<SpeciesPrototype>(species, out var speciesPrototype))
+            {
                 species = HumanoidCharacterProfile.DefaultSpecies;
+                speciesPrototype = _prototypeManager.Index<SpeciesPrototype>(species);
+            }
+
+            var voice = profile.Voice ?? speciesPrototype.DefaultSoundsBySex[(int)sex];
+            if (!_prototypeManager.HasIndex(voice))
+                voice = speciesPrototype.DefaultSoundsBySex[(int)sex];
 
             if (profile.OrganMarkings?.RootElement is { } element)
             {
@@ -153,7 +140,7 @@ namespace Content.Server.Preferences.Managers
 
                     if (parsed is null) continue;
 
-                    markingsList.Add(parsed);
+                    markingsList.Add(parsed.Value);
                 }
 
                 if (Marking.ParseFromDbString($"{profile.HairName}@{profile.HairColor}") is { } facialMarking)
@@ -195,6 +182,7 @@ namespace Content.Server.Preferences.Managers
                 species,
                 profile.Age,
                 sex,
+                voice,
                 gender,
                 new HumanoidCharacterAppearance
                 (
@@ -236,6 +224,7 @@ namespace Content.Server.Preferences.Managers
             }
 
             prefsData.Prefs = new PlayerPreferences(curPrefs.Characters, index, curPrefs.AdminOOCColor, curPrefs.ConstructionFavorites);
+            _afkManager.PlayerDidAction(message.MsgChannel);
 
             if (ShouldStorePrefs(message.MsgChannel.AuthType))
             {
@@ -251,7 +240,10 @@ namespace Content.Server.Preferences.Managers
             if (message.Profile == null)
                 _sawmill.Error($"User {userId} sent a {nameof(MsgUpdateCharacter)} with a null profile in slot {message.Slot}.");
             else
+            {
                 await SetProfile(userId, message.Slot, message.Profile);
+                _afkManager.PlayerDidAction(message.MsgChannel);
+            }
         }
 
         public async Task SetProfile(NetUserId userId, int slot, HumanoidCharacterProfile profile)
@@ -308,12 +300,18 @@ namespace Content.Server.Preferences.Managers
                 return;
             }
 
-            if (slot < 0 || slot >= MaxCharacterSlots)
+
+            if (slot < 0)
             {
                 return;
             }
 
             var curPrefs = prefsData.Prefs!;
+
+            if (!curPrefs.Characters.ContainsKey(slot))
+            {
+                return;
+            }
 
             // If they try to delete the slot they have selected then we switch to another one.
             // Of course, that's only if they HAVE another slot.
@@ -335,6 +333,7 @@ namespace Content.Server.Preferences.Managers
             arr.Remove(slot);
 
             prefsData.Prefs = new PlayerPreferences(arr, nextSlot ?? curPrefs.SelectedCharacterIndex, curPrefs.AdminOOCColor, curPrefs.ConstructionFavorites);
+            _afkManager.PlayerDidAction(message.MsgChannel);
 
             if (ShouldStorePrefs(message.MsgChannel.AuthType))
             {
@@ -376,6 +375,7 @@ namespace Content.Server.Preferences.Managers
 
             var curPrefs = prefsData.Prefs!;
             prefsData.Prefs = new PlayerPreferences(curPrefs.Characters, curPrefs.SelectedCharacterIndex, curPrefs.AdminOOCColor, validatedList);
+            _afkManager.PlayerDidAction(message.MsgChannel);
 
             if (ShouldStorePrefs(message.MsgChannel.AuthType))
             {
@@ -497,9 +497,16 @@ namespace Content.Server.Preferences.Managers
             var prefs = await _db.GetPlayerPreferencesAsync(userId, cancel);
             if (prefs is null)
             {
+                // The player has no characters, so the Company assigns them one
+
                 var speciesToBlacklist =
                     new HashSet<string>(_cfg.GetCVar(CCVars.ICNewAccountSpeciesBlacklist).Split(","));
-                return await _db.InitPrefsAsync(userId, HumanoidCharacterProfile.Random(speciesToBlacklist), cancel);
+
+                //Randomize species and set job priorities from cvar
+                var profile = HumanoidCharacterProfile.Random(speciesToBlacklist);
+                profile = profile.WithJobFromCvar(_cfg);
+
+                return await _db.InitPrefsAsync(userId, profile, cancel);
             }
 
             return prefs;

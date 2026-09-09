@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025-2026 eoineoineoin <helloworld@eoinrul.es>
-// SPDX-FileCopyrightText: 2025 Brandon Li <48413902+aspiringLich@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Resources;
 using Content.Client.Stylesheets.Fonts;
 using Content.Client.Stylesheets.Palette;
@@ -30,6 +26,10 @@ public sealed class LabelSheetlet : Sheetlet<PalettedStylesheet>
                 .Class(StyleClass.LabelHeadingBigger)
                 .Font(sheet.BaseFont.GetFont(20, FontKind.Bold))
                 .FontColor(sheet.HighlightPalette.Text),
+            E<Label>()
+                .Class(StyleClass.LabelSubHeading)
+                .Font(sheet.BaseFont.GetFont(14, FontKind.Italic))
+                .FontColor(sheet.HighlightPalette.TextDark),
             E<Label>()
                 .Class(StyleClass.LabelSubText)
                 .Font(sheet.BaseFont.GetFont(10))

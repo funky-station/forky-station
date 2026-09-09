@@ -1,26 +1,5 @@
-# SPDX-FileCopyrightText: 2022-2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rinkashikachi <15rinkashikachi15@gmail.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Hitlinemoss <209321380+Hitlinemoss@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Citrea <citrea.lingua@gmx.net>
-# SPDX-FileCopyrightText: 2025 SpaceRox1244 <138547931+SpaceRox1244@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-# SPDX-FileCopyrightText: 2025 Ignaz "Ian" Kraft <ignaz.k@live.de>
-# SPDX-License-Identifier: MIT
-
 - type: entity
-  parent: [ BaseStructureDynamic, BasePaperLabelableVisualized ]
+  parent: [ BaseStructureDynamic, BasePaperLabelableVisualized, StructureHealthContainer ]
   id: CrateArtifactContainer
   name: artifact container
   description: Used to safely contain and move artifacts.
@@ -33,7 +12,7 @@
     - type: ResistLocker
     - type: Sprite
       drawdepth: Objects
-      sprite: Structures/Storage/Crates/artifact.rsi
+      sprite: _Funkystation/Structures/Storage/Crates/artifact.rsi # Funky
       layers:
       - state: artifact_container
         map: ["enum.StorageVisualLayers.Base"]
@@ -61,7 +40,7 @@
           layer:
           - MachineLayer
     - type: Icon
-      sprite: Structures/Storage/Crates/artifact.rsi
+      sprite: _Funkystation/Structures/Storage/Crates/artifact.rsi # Funky
       state: artifact_container_icon
     - type: EntityStorage
       capacity: 1
@@ -75,16 +54,16 @@
     - type: PlaceableSurface
       isPlaceable: false
     - type: Damageable
-      damageContainer: StructuralInorganic
-      damageModifierSet: StructuralMetallicStrong
+      damageModifierSet: PlasteelMod
     - type: Destructible
       thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 50
-          behaviors:
-            - !type:DoActsBehavior
-              acts: ["Destruction"]
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalGlassBreak
     - type: Appearance
     - type: EntityStorageVisuals
       stateDoorOpen: artifact_container_open
@@ -114,7 +93,7 @@
       price: 250
 
 - type: entity
-  parent: BaseStorageItem
+  parent: [ BaseStorageItem, StructureHealthContainerWeak ]
   id: HandheldArtifactContainer
   name: handheld artifact container
   description: A handheld case used to safely contain and move small artifacts.
@@ -157,16 +136,16 @@
       path: /Audio/Items/toolbox_drop.ogg
   - type: LockVisuals
   - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallicStrong
+    damageModifierSet: PlasteelMod
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 50
-        behaviors:
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
   - type: PaperLabel
     labelSlot:
       insertVerbText: Attach Label

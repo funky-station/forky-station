@@ -1,24 +1,18 @@
-// SPDX-FileCopyrightText: 2023-2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2025 Justin Pfeifler <jrpl101998@gmail.com>
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Actions.Events;
 using Content.Shared.Charges.Components;
 using Content.Shared.Examine;
+using Content.Shared.Popups;
 using Content.Shared.Rejuvenate;
 using JetBrains.Annotations;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Charges.Systems;
 
-public abstract class SharedChargesSystem : EntitySystem
+public abstract partial class SharedChargesSystem : EntitySystem
 {
-    [Dependency] protected readonly IGameTiming _timing = default!;
+    [Dependency] protected IGameTiming _timing = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     /*
      * Despite what a bunch of systems do you don't need to continuously tick linear number updates and can just derive it easily.
@@ -68,11 +62,16 @@ public abstract class SharedChargesSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        var charges = GetCurrentCharges((ent.Owner, ent.Comp, null));
+        // Only block the action when it has no charges remaining.
+        if (HasCharges((ent.Owner, ent.Comp), 1))
+            return;
 
-        if (charges <= 0)
+        args.Cancelled = true;
+
+        if (ent.Comp.OnFailPopup is { } popup)
         {
-            args.Cancelled = true;
+            args.Reason = Loc.GetString(popup);
+            args.Type = ent.Comp.OnFailPopupType;
         }
     }
 
@@ -96,6 +95,13 @@ public abstract class SharedChargesSystem : EntitySystem
 
         ent.Comp.LastUpdate = _timing.CurTime;
         Dirty(ent);
+        UpdateChargeVisuals((ent.Owner, ent.Comp, null));
+    }
+
+    protected void UpdateChargeVisuals(Entity<LimitedChargesComponent?, AutoRechargeComponent?> entity)
+    {
+        var current = GetCurrentCharges(entity);
+        _appearance.SetData(entity.Owner, LimitedChargesState.HasCharges, current != 0);
     }
 
     [Pure]
@@ -147,6 +153,7 @@ public abstract class SharedChargesSystem : EntitySystem
 
         action.Comp1.LastCharges = Math.Clamp(action.Comp1.LastCharges + addCharges, 0, action.Comp1.MaxCharges);
         Dirty(action.Owner, action.Comp1);
+        UpdateChargeVisuals(action);
     }
 
     public bool TryUseCharge(Entity<LimitedChargesComponent?> entity)
@@ -217,6 +224,7 @@ public abstract class SharedChargesSystem : EntitySystem
         action.Comp.LastCharges = adjusted;
         action.Comp.LastUpdate = _timing.CurTime;
         Dirty(action);
+        UpdateChargeVisuals((action.Owner, action.Comp, null));
     }
 
     /// <summary>

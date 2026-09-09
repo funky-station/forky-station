@@ -1,18 +1,3 @@
-// SPDX-FileCopyrightText: 2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Administration.Managers;
 using Content.Server.Power.Components;
@@ -27,38 +12,21 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Power.EntitySystems
 {
-    public sealed class PowerReceiverSystem : SharedPowerReceiverSystem
+    public sealed partial class PowerReceiverSystem : SharedPowerReceiverSystem
     {
-        [Dependency] private readonly IAdminManager _adminManager = default!;
-        private EntityQuery<ApcPowerReceiverComponent> _recQuery;
-        private EntityQuery<ApcPowerProviderComponent> _provQuery;
+        [Dependency] private IAdminManager _adminManager = default!;
 
-        public override void Initialize()
-        {
-            base.Initialize();
-            SubscribeLocalEvent<ApcPowerReceiverComponent, ExaminedEvent>(OnExamined);
+        [Dependency] private EntityQuery<ApcPowerReceiverComponent> _recQuery = default!;
+        [Dependency] private EntityQuery<ApcPowerProviderComponent> _provQuery = default!;
+        [Dependency] private EntityQuery<HandsComponent> _handsQuery = default!;
 
-            SubscribeLocalEvent<ApcPowerReceiverComponent, ExtensionCableSystem.ProviderConnectedEvent>(OnProviderConnected);
-            SubscribeLocalEvent<ApcPowerReceiverComponent, ExtensionCableSystem.ProviderDisconnectedEvent>(OnProviderDisconnected);
-
-            SubscribeLocalEvent<ApcPowerProviderComponent, ComponentShutdown>(OnProviderShutdown);
-            SubscribeLocalEvent<ApcPowerProviderComponent, ExtensionCableSystem.ReceiverConnectedEvent>(OnReceiverConnected);
-            SubscribeLocalEvent<ApcPowerProviderComponent, ExtensionCableSystem.ReceiverDisconnectedEvent>(OnReceiverDisconnected);
-
-            SubscribeLocalEvent<ApcPowerReceiverComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
-            SubscribeLocalEvent<PowerSwitchComponent, GetVerbsEvent<AlternativeVerb>>(AddSwitchPowerVerb);
-
-            SubscribeLocalEvent<ApcPowerReceiverComponent, ComponentGetState>(OnGetState);
-
-            _recQuery = GetEntityQuery<ApcPowerReceiverComponent>();
-            _provQuery = GetEntityQuery<ApcPowerProviderComponent>();
-        }
-
+        [SubscribeLocalEvent]
         private void OnExamined(Entity<ApcPowerReceiverComponent> ent, ref ExaminedEvent args)
         {
             args.PushMarkup(GetExamineText(ent.Comp.Powered));
         }
 
+        [SubscribeLocalEvent]
         private void OnGetVerbs(EntityUid uid, ApcPowerReceiverComponent component, GetVerbsEvent<Verb> args)
         {
             if (!_adminManager.HasAdminFlag(args.User, AdminFlags.Admin))
@@ -69,7 +37,7 @@ namespace Content.Server.Power.EntitySystems
             {
                 Text = Loc.GetString("verb-debug-toggle-need-power"),
                 Category = VerbCategory.Debug,
-                Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/smite.svg.192dpi.png")), // "smite" is a lightning bolt
+                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/smite.svg.192dpi.png")), // "smite" is a lightning bolt
                 Act = () =>
                 {
                     SetNeedsPower(uid, !component.NeedsPower, component);
@@ -77,6 +45,7 @@ namespace Content.Server.Power.EntitySystems
             });
         }
 
+        [SubscribeLocalEvent]
         private void OnProviderShutdown(EntityUid uid, ApcPowerProviderComponent component, ComponentShutdown args)
         {
             foreach (var receiver in component.LinkedReceivers)
@@ -88,6 +57,7 @@ namespace Content.Server.Power.EntitySystems
             component.LinkedReceivers.Clear();
         }
 
+        [SubscribeLocalEvent]
         private void OnProviderConnected(Entity<ApcPowerReceiverComponent> receiver, ref ExtensionCableSystem.ProviderConnectedEvent args)
         {
             var providerUid = args.Provider.Owner;
@@ -99,6 +69,7 @@ namespace Content.Server.Power.EntitySystems
             ProviderChanged(receiver);
         }
 
+        [SubscribeLocalEvent]
         private void OnProviderDisconnected(Entity<ApcPowerReceiverComponent> receiver, ref ExtensionCableSystem.ProviderDisconnectedEvent args)
         {
             receiver.Comp.Provider = null;
@@ -106,6 +77,7 @@ namespace Content.Server.Power.EntitySystems
             ProviderChanged(receiver);
         }
 
+        [SubscribeLocalEvent]
         private void OnReceiverConnected(Entity<ApcPowerProviderComponent> provider, ref ExtensionCableSystem.ReceiverConnectedEvent args)
         {
             if (_recQuery.TryGetComponent(args.Receiver, out var receiver))
@@ -114,6 +86,7 @@ namespace Content.Server.Power.EntitySystems
             }
         }
 
+        [SubscribeLocalEvent]
         private void OnReceiverDisconnected(EntityUid uid, ApcPowerProviderComponent provider, ExtensionCableSystem.ReceiverDisconnectedEvent args)
         {
             if (_recQuery.TryGetComponent(args.Receiver, out var receiver))
@@ -122,40 +95,43 @@ namespace Content.Server.Power.EntitySystems
             }
         }
 
-        private void AddSwitchPowerVerb(EntityUid uid, PowerSwitchComponent component, GetVerbsEvent<AlternativeVerb> args)
+        [SubscribeLocalEvent]
+        private void AddSwitchPowerVerb(Entity<PowerSwitchComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
         {
-            if(!args.CanAccess || !args.CanInteract)
+            if (!args.CanAccess || !args.CanInteract)
                 return;
 
-            if (!HasComp<HandsComponent>(args.User))
+            if (!_handsQuery.HasComp(args.User))
                 return;
 
-            if (!_recQuery.TryGetComponent(uid, out var receiver))
+            if (!_recQuery.TryGetComponent(ent, out var receiver))
                 return;
 
             if (!receiver.NeedsPower)
                 return;
 
+            var user = args.User;
             AlternativeVerb verb = new()
             {
                 Act = () =>
                 {
-                    TogglePower(uid, user: args.User);
+                    TogglePower(ent, user: user);
                 },
-                Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png")),
+                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png")),
                 Text = Loc.GetString("power-switch-component-toggle-verb"),
                 Priority = -3
             };
             args.Verbs.Add(verb);
         }
 
-        private void OnGetState(EntityUid uid, ApcPowerReceiverComponent component, ref ComponentGetState args)
+        [SubscribeLocalEvent]
+        private void OnGetState(Entity<ApcPowerReceiverComponent> ent, ref ComponentGetState args)
         {
             args.State = new ApcPowerReceiverComponentState
             {
-                Powered = component.Powered,
-                NeedsPower = component.NeedsPower,
-                PowerDisabled = component.PowerDisabled,
+                Powered = ent.Comp.Powered,
+                NeedsPower = ent.Comp.NeedsPower,
+                PowerDisabled = ent.Comp.PowerDisabled,
             };
         }
 

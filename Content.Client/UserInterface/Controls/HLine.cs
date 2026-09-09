@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Jesse Rougeau <jmaster9999@gmail.com>
-// SPDX-FileCopyrightText: 2025 Brandon Li <48413902+aspiringLich@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Stylesheets;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;

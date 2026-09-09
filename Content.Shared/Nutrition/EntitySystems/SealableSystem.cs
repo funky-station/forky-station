@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Examine;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Nutrition.Components;
@@ -10,7 +6,7 @@ namespace Content.Shared.Nutrition.EntitySystems;
 
 public sealed partial class SealableSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
     public override void Initialize()
     {
         base.Initialize();

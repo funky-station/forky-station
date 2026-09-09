@@ -1,17 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023, 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 eoineoineoin <eoin.mcloughlin+gh@gmail.com>
-// SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 exincore <me@exin.xyz>
-// SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Chat.Systems;
 using Content.Server.Fax;
@@ -24,13 +10,13 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Nuke
 {
-    public sealed class NukeCodePaperSystem : EntitySystem
+    public sealed partial class NukeCodePaperSystem : EntitySystem
     {
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly ChatSystem _chatSystem = default!;
-        [Dependency] private readonly StationSystem _station = default!;
-        [Dependency] private readonly PaperSystem _paper = default!;
-        [Dependency] private readonly FaxSystem _faxSystem = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private ChatSystem _chatSystem = default!;
+        [Dependency] private StationSystem _station = default!;
+        [Dependency] private PaperSystem _paper = default!;
+        [Dependency] private FaxSystem _faxSystem = default!;
 
         public override void Initialize()
         {

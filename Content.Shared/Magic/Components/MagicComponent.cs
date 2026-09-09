@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Magic.Components;

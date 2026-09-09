@@ -1,22 +1,5 @@
-# SPDX-FileCopyrightText: 2020 Remie Richards <remierichards@gmail.com>
-# SPDX-FileCopyrightText: 2021-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-# SPDX-FileCopyrightText: 2023-2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
+  parent: StructureHealthMachineWeak
   id: Morgue
   name: morgue
   description: Used to store bodies until someone fetches them. Includes a high-tech alert system for false-positives!
@@ -52,7 +35,7 @@
         mask:
         - MachineMask
         layer:
-        - HalfWallLayer
+        - MachineLayer
   - type: EntityStorage
     isCollidableWhenOpen: true
     showContents: false
@@ -91,8 +74,28 @@
   - type: AntiRottingContainer
   - type: StaticPrice
     price: 200
+  - type: RequireProjectileTarget
+  - type: Damageable
+    damageModifierSet: SteelMod
+  - type: Destructible
+    thresholds:
+    - trigger: &DamageMachineWeak
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        offset: 0
+        spawn:
+          MachineFrameDestroyed:
+            min: 1
+            max: 1
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      # maybe also make things cold? Release freezon?
 
 - type: entity
+  parent: StructureHealthMachineWeak
   id: Crematorium
   name: crematorium
   description: A human incinerator. Works well on barbecue nights.
@@ -161,3 +164,20 @@
           False: { visible: false }
   - type: Transform
     anchored: true
+  - type: RequireProjectileTarget
+  - type: Damageable
+    damageModifierSet: SteelMod
+  - type: Destructible
+    thresholds:
+    - trigger: *DamageMachineWeak
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        offset: 0
+        spawn:
+          MachineFrameDestroyed:
+            min: 1
+            max: 1
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      # maybe also start a fire? Release plasma?

@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Enums;
 using Robust.Shared.Serialization;
 
@@ -12,8 +6,9 @@ namespace Content.Shared.StationRecords;
 /// <summary>
 ///     General station record. Indicates the crewmember's name and job.
 /// </summary>
+[DataDefinition]
 [Serializable, NetSerializable]
-public sealed record GeneralStationRecord
+public sealed partial record GeneralStationRecord : StationRecord
 {
     /// <summary>
     ///     Name tied to this station record.
@@ -56,9 +51,7 @@ public sealed record GeneralStationRecord
     public Gender Gender = Gender.Epicene;
 
     /// <summary>
-    ///     The priority to display this record at.
-    ///     This is taken from the 'weight' of a job prototype,
-    ///     usually.
+    ///     The priority to display this record at, taken from the station's job-weight profile.
     /// </summary>
     [DataField]
     public int DisplayPriority;
@@ -74,4 +67,10 @@ public sealed record GeneralStationRecord
     /// </summary>
     [DataField]
     public string? DNA;
+
+    /// <summary>
+    ///     Funky, pager number assigned roundstart or on late join.
+    /// </summary>
+    [DataField]
+    public int? PagerNumber;
 }

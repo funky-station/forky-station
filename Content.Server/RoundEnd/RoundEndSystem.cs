@@ -1,40 +1,7 @@
-// SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
-// SPDX-FileCopyrightText: 2020 zumorica <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2021, 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021, 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2021 moonheart08 <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2022 Morber <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Chris V <HoofedEar@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023, 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 avery <51971268+graevy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 coolmankid12345 <55817627+coolmankid12345@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 csqrb <56765288+CaptainSqrBeard@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Arimah Greene <30327355+arimah@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 chavonadelal <156101927+chavonadelal@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2025 Samuka <47865393+Samuka-C@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 TrixxedHeart <46364955+TrixxedBit@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Threading;
+using Content.Server._MACRO.Announcements;
 using Content.Server.Administration.Logs;
-using Content.Server.AlertLevel;
+using Content.Shared.AlertLevel;
 using Content.Shared.CCVar;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
@@ -44,16 +11,17 @@ using Content.Server.Screens.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
+using Content.Shared._MACRO.Announcements;
 using Content.Shared.Database;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.GameTicking;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.Station.Components;
+using Robust.Shared.Prototypes;
 using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server.RoundEnd
@@ -62,19 +30,24 @@ namespace Content.Server.RoundEnd
     /// Handles ending rounds normally and also via requesting it (e.g. via comms console)
     /// If you request a round end then an escape shuttle will be used.
     /// </summary>
-    public sealed class RoundEndSystem : EntitySystem
+    public sealed partial class RoundEndSystem : EntitySystem
     {
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly IChatManager _chatManager = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly IPrototypeManager _protoManager = default!;
-        [Dependency] private readonly ChatSystem _chatSystem = default!;
-        [Dependency] private readonly GameTicker _gameTicker = default!;
-        [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
-        [Dependency] private readonly EmergencyShuttleSystem _shuttle = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
-        [Dependency] private readonly StationSystem _stationSystem = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
+        [Dependency] private IChatManager _chatManager = default!;
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private ChatSystem _chatSystem = default!;
+        [Dependency] private GameTicker _gameTicker = default!;
+        [Dependency] private DeviceNetworkSystem _deviceNetworkSystem = default!;
+        [Dependency] private EmergencyShuttleSystem _shuttle = default!;
+        [Dependency] private SharedAudioSystem _audio = default!;
+        [Dependency] private StationSystem _stationSystem = default!;
+        [Dependency] private AnnouncerManager _announcer = default!; // Macrocosm edit
+
+        // Macrocosm edit start
+        private static readonly ProtoId<AnnouncementSoundPrototype> ShuttleCalledAnnouncementId = "ShuttleCalled";
+        private static readonly ProtoId<AnnouncementSoundPrototype> ShuttleRecalledAnnouncementId = "ShuttleRecalled";
+        // Macrocosm edit end
 
         public TimeSpan DefaultCooldownDuration { get; set; } = TimeSpan.FromSeconds(30);
 
@@ -181,11 +154,11 @@ namespace Content.Server.RoundEnd
             if (requester != null)
             {
                 var stationUid = _stationSystem.GetOwningStation(requester.Value);
-                if (TryComp<AlertLevelComponent>(stationUid, out var alertLevel))
+                if (TryComp<AlertLevelComponent>(stationUid, out var alertLevelComp))
                 {
-                    duration = _protoManager
-                        .Index<AlertLevelPrototype>(AlertLevelSystem.DefaultAlertLevelSet)
-                        .Levels[alertLevel.CurrentLevel].ShuttleTime;
+                    duration = ProtoMan
+                        .Index(alertLevelComp.CurrentAlertLevel)
+                        .ShuttleTime;
                 }
             }
 
@@ -245,7 +218,10 @@ namespace Content.Server.RoundEnd
                 null,
                 Color.Gold);
 
-            _audio.PlayGlobal("/Audio/Announcements/shuttlecalled.ogg", Filter.Broadcast(), true);
+            // Macrocosm edit start - announcer override
+            _announcer.TryGetAnnouncerSound(ShuttleCalledAnnouncementId, out var sound);
+            _audio.PlayGlobal(sound, Filter.Broadcast(), true);
+            // Macrocosm edit end
 
             LastCountdownStart = _gameTiming.CurTime;
             ExpectedCountdownEnd = _gameTiming.CurTime + countdownTime;
@@ -295,7 +271,10 @@ namespace Content.Server.RoundEnd
             _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("round-end-system-shuttle-recalled-announcement"),
                 Loc.GetString("round-end-system-shuttle-sender-announcement"), false, colorOverride: Color.Gold);
 
-            _audio.PlayGlobal("/Audio/Announcements/shuttlerecalled.ogg", Filter.Broadcast(), true);
+            // Macrocosm edit start - announcer override
+            _announcer.TryGetAnnouncerSound(ShuttleRecalledAnnouncementId, out var sound);
+            _audio.PlayGlobal(sound, Filter.Broadcast(), true);
+            // Macrocosm edit end
 
             LastCountdownStart = null;
             ExpectedCountdownEnd = null;
@@ -347,7 +326,7 @@ namespace Content.Server.RoundEnd
                 Loc.GetString(
                     "round-end-system-round-restart-eta-announcement",
                     ("time", time),
-                    ("units", Loc.GetString(unitsLocString))));
+                    ("units", Loc.GetString(unitsLocString, ("amount", time)))));
             Timer.Spawn(countdownTime.Value, AfterEndRoundRestart, _countdownTokenSource.Token);
         }
 

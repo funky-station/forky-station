@@ -1,15 +1,12 @@
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Atmos.Piping.Binary.Components;
 using Content.Shared.Atmos.Piping.Binary.Systems;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.Atmos.Piping.Binary.Systems;
 
-public sealed class GasVolumePumpSystem : SharedGasVolumePumpSystem
+public sealed partial class GasVolumePumpSystem : SharedGasVolumePumpSystem
 {
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {

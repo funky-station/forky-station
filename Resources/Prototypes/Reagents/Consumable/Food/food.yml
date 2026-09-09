@@ -1,18 +1,3 @@
-# SPDX-FileCopyrightText: 2021-2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022-2023 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 corentt <36075110+corentt@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2022 Sam Weaver <weaversam8@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Doru991 <75124791+Doru991@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 RumiTiger <154005209+RumiTiger@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: reagent
   id: Nutriment #Anything that isn't better suited to vitamin, protein, or sugar. we aren't doing a super in-depth simulator.
   name: reagent-name-nutriment
@@ -24,7 +9,12 @@
   metabolisms:
     Metabolites:
       effects:
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
+        conditions: # macro add
+        - !type:MetabolizerTypeCondition
+          type: [Kodepiia]
+          inverted: true
   plantMetabolism:
   - !type:PlantAdjustNutrition
     amount: 1.5
@@ -43,16 +33,19 @@
   metabolisms:
     Metabolites: #This makes it not compete with medicines, a large bonus for something that can heal
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         probability: 0.5
         damage:
-          groups:
-            Brute: -0.5
-            Burn: -0.5
+          Brute: -0.5
+          Burn: -0.5
       # Helps you stop bleeding to an extent.
       - !type:ModifyBleed
         amount: -0.25
-      - !type:SatiateHunger #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
+      - !type:Satiate #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
+        satiationType: Hunger
+        conditions: # macro add
+        - !type:MetabolizerTypeCondition
+          type: [Kodepiia]
   # Lets plants benefit too
   plantMetabolism:
   - !type:PlantAdjustNutrition
@@ -72,14 +65,40 @@
   metabolisms:
     Metabolites:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         probability: 0.5
         damage:
-          groups:
-            Brute: -0.4
+          Brute: -0.4
       - !type:ModifyBloodLevel
         amount: 1 # weaker than iron but pretty good all things considered
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
+        # macro add start
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [Kodepiia]
+          inverted: true
+      - !type:PopupMessage
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [Kodepiia]
+        type: Local
+        visualType: MediumCaution
+        messages: [ "generic-reagent-effect-sick" ]
+        probability: 0.5
+#      - !type:ChemVomit
+#        probability: 0.1
+#        conditions:
+#        - !type:MetabolizerTypeCondition
+#          type: [Kodepiia]
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [Kodepiia]
+        damage:
+          types:
+            Poison: 1
+# macro add end
   pricePerUnit: 3
 
 - type: reagent
@@ -94,8 +113,12 @@
   metabolisms:
     Metabolites:
       effects:
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         conditions:
+        - !type:MetabolizerTypeCondition # macro add
+          type: [Kodepiia]
+          inverted: true
         - !type:ReagentCondition #Only satiates when eaten with nutriment
           reagent: Nutriment
           min: 0.1

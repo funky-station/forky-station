@@ -1,26 +1,5 @@
-# SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 vulppine <vulppine@gmail.com>
-# SPDX-FileCopyrightText: 2022 Andreas Kämper <andreas@kaemper.tech>
-# SPDX-FileCopyrightText: 2022 Julian Giebel <juliangiebel@live.de>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 qwerltaz <69696513+qwerltaz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
-# SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
-  parent: BaseWallmountMachine
+  parent: [ BaseWallmountMachine, StructureHealthMachineFlimsy ]
   id: FireAlarm
   name: fire alarm
   description: A fire alarm. Spicy!
@@ -53,9 +32,9 @@
   - type: AtmosAlarmableVisuals
     layerMap: "fireAlarmState"
     alarmStates:
-      Normal: fire_off
-      Warning: fire_off # shouldn't be alarming at a warning
-      Danger: fire_on
+      Normal: fire_0
+      Warning: fire_0 # shouldn't be alarming at a warning
+      Danger: fire_2
       Emagged: fire_emagged
     hideOnDepowered: [ "fireAlarmState" ]
   - type: Tag
@@ -74,12 +53,13 @@
   - type: WiresVisuals
   - type: AlertLevelDisplay
     alertVisuals:
-      green: fire_0
-      blue: fire_1
-      red: fire_2
-      violet: fire_1
-      yellow: fire_1
-      delta: fire_3
+      Green: fire_0
+      Blue: fire_1
+      Red: fire_2
+      Violet: fire_1
+      Yellow: fire_1
+      DeltaNuke: fire_3
+      # TODO: add missing alarm states
   - type: UserInterface
     interfaces:
       enum.WiresUiKey.Key:
@@ -89,13 +69,14 @@
     boardName: wires-board-name-firealarm
     layoutId: FireAlarm
   - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: Structures/Wallmounts/fire-alarm.rsi
+    offset: 0, -0.25
     layers:
-    - state: fire0
+    - state: base
       map: ["fireAlarmBase"]
-    - state: fire_off
+    - state: fire_0
       map: ["fireAlarmState"]
-    - state: fire_b2
+    - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Transform
     anchored: true
@@ -103,85 +84,48 @@
     graph: FireAlarm
     node: fire_alarm
   - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
+    damageModifierSet: PlasticMod
   - type: GuideHelp
     guides:
     - Networking
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 160
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 80
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalGlassBreak
-              params:
-                volume: -4
+    - trigger: &DamageMachineFlimsy
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - &SoundMetalGlassBreak !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+          params:
+            volume: -4
   - type: StationAiWhitelist
 
 - type: entity
-  parent: BaseWallmountMetallic
+  parent: [ BaseWallmountMetallic, StructureHealthMachineFlimsy ]
   id: FireAlarmAssembly
   name: fire alarm assembly
   description: A fire alarm assembly. Very mild.
   components:
   - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors.rsi
+    sprite: Structures/Wallmounts/fire-alarm.rsi
     layers:
-    - state: fire_b1
+    - state: frame1
       map: [ "enum.ConstructionVisuals.Layer" ]
   - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.ConstructionVisuals.Key:
         enum.ConstructionVisuals.Layer:
-          assembly: { state: fire_b1 }
-          electronics: { state: fire_b2 }
+          assembly: { state: frame1 }
+          electronics: { state: frame2 }
   - type: Construction
     graph: FireAlarm
     node: assembly
+  - type: Damageable
+    damageModifierSet: PlasticMod
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 20
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 15
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalGlassBreak
-              params:
-                volume: -4
-
-- type: entity
-  id: FireAlarmXeno
-  parent: FireAlarm
-  description: An alien fire alarm. Works just the same!
-  components:
-  - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors_xeno.rsi
-
-- type: entity
-  id: FireAlarmAssemblyXeno
-  parent: FireAlarmAssembly
-  description: An alien fire alarm assembly. Good luck with the wires.
-  components:
-  - type: Sprite
-    sprite: Structures/Wallmounts/air_monitors_xeno.rsi
+    - trigger: *DamageMachineFlimsy
+      behaviors:
+      - *SoundMetalGlassBreak

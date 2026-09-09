@@ -1,0 +1,17 @@
+# chemist rubber boots
+
+- type: entity
+  parent: [ ClothingShoesBase, BaseMedicalContraband ]
+  id: FuClothingShoesChemistryBoots
+  name: heavy-duty chemistry boots
+  description: Heavy-duty PPE worn by Chemists. For when some intern spills your entire jug of diphenhydramine.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Shoes/Boots/chem.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Shoes/Boots/chem.rsi
+  - type: SlowedOverSlippery
+    slowdownModifier: 0.4
+  - type: SpeedModifierContactCapClothing
+    maxContactSprintSlowdown: 0.4
+    maxContactWalkSlowdown: 0.4

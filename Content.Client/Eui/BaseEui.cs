@@ -1,18 +1,12 @@
-// SPDX-FileCopyrightText: 2020 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2024 Ben <benjaminevanownby@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Eui;
 using Robust.Shared.IoC;
 using Robust.Shared.Network;
 
 namespace Content.Client.Eui
 {
-    public abstract class BaseEui
+    public abstract partial class BaseEui
     {
-        [Dependency] private readonly IClientNetManager _netManager = default!;
+        [Dependency] private IClientNetManager _netManager = default!;
 
         public EuiManager Manager { get; private set; } = default!;
         public uint Id { get; private set; }

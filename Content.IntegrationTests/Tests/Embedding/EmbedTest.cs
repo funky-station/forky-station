@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.IntegrationTests.Tests.Interaction;
 using Content.Shared.Projectiles;
 using Robust.Shared.GameObjects;

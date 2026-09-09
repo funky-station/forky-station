@@ -1,14 +1,10 @@
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Atmos.Piping.Binary.Components;
 
 namespace Content.Client.Atmos.EntitySystems;
 
-public sealed class GasPressurePumpSystem : SharedGasPressurePumpSystem
+public sealed partial class GasPressurePumpSystem : SharedGasPressurePumpSystem
 {
     public override void Initialize()
     {

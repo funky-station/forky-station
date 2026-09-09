@@ -1,29 +1,3 @@
-// SPDX-FileCopyrightText: 2020-2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2021-2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Leo <lzimann@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-// SPDX-FileCopyrightText: 2022 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 YotaXP <yotaxp@gmail.com>
-// SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
-// SPDX-License-Identifier: MIT
-
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -46,7 +20,7 @@ namespace Content.Server.Database.Migrations.Postgres
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.0")
+                .HasAnnotation("ProductVersion", "10.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -874,6 +848,72 @@ namespace Content.Server.Database.Migrations.Postgres
                         });
                 });
 
+            modelBuilder.Entity("Content.Server.Database.CustomVoteLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("custom_vote_log_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<Guid?>("InitiatorId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("initiator_id");
+
+                    b.Property<int>("RoundId")
+                        .HasColumnType("integer")
+                        .HasColumnName("round_id");
+
+                    b.Property<byte>("State")
+                        .HasColumnType("smallint")
+                        .HasColumnName("state");
+
+                    b.Property<DateTime>("TimeCreated")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("time_created");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("title");
+
+                    b.HasKey("Id")
+                        .HasName("PK_custom_vote_log");
+
+                    b.HasIndex("InitiatorId");
+
+                    b.HasIndex("RoundId")
+                        .HasDatabaseName("IX_custom_vote_log_round_id");
+
+                    b.ToTable("custom_vote_log", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.CustomVoteLogOption", b =>
+                {
+                    b.Property<int>("VoteId")
+                        .HasColumnType("integer")
+                        .HasColumnName("vote_id");
+
+                    b.Property<short>("OptionIdx")
+                        .HasColumnType("smallint")
+                        .HasColumnName("option_idx");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("text");
+
+                    b.Property<int>("VoteCount")
+                        .HasColumnType("integer")
+                        .HasColumnName("vote_count");
+
+                    b.HasKey("VoteId", "OptionIdx")
+                        .HasName("PK_custom_vote_log_option");
+
+                    b.ToTable("custom_vote_log_option", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.IPIntelCache", b =>
                 {
                     b.Property<int>("Id")
@@ -1149,6 +1189,10 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("species");
+
+                    b.Property<string>("Voice")
+                        .HasColumnType("text")
+                        .HasColumnName("voice");
 
                     b.HasKey("Id")
                         .HasName("PK_profile");
@@ -1856,6 +1900,39 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Server");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.CustomVoteLog", b =>
+                {
+                    b.HasOne("Content.Server.Database.Player", "Initiator")
+                        .WithMany()
+                        .HasForeignKey("InitiatorId")
+                        .HasPrincipalKey("UserId")
+                        .OnDelete(DeleteBehavior.SetNull)
+                        .HasConstraintName("FK_custom_vote_log_player_initiator_id1");
+
+                    b.HasOne("Content.Server.Database.Round", "Round")
+                        .WithMany("CustomVoteLogs")
+                        .HasForeignKey("RoundId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_custom_vote_log_round_round_id");
+
+                    b.Navigation("Initiator");
+
+                    b.Navigation("Round");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.CustomVoteLogOption", b =>
+                {
+                    b.HasOne("Content.Server.Database.CustomVoteLog", "Vote")
+                        .WithMany("Options")
+                        .HasForeignKey("VoteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_custom_vote_log_option_custom_vote_log_vote_id");
+
+                    b.Navigation("Vote");
+                });
+
             modelBuilder.Entity("Content.Server.Database.Job", b =>
                 {
                     b.HasOne("Content.Server.Database.Profile", "Profile")
@@ -2073,6 +2150,11 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("BanHits");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.CustomVoteLog", b =>
+                {
+                    b.Navigation("Options");
+                });
+
             modelBuilder.Entity("Content.Server.Database.Player", b =>
                 {
                     b.Navigation("AdminLogs");
@@ -2137,6 +2219,8 @@ namespace Content.Server.Database.Migrations.Postgres
             modelBuilder.Entity("Content.Server.Database.Round", b =>
                 {
                     b.Navigation("AdminLogs");
+
+                    b.Navigation("CustomVoteLogs");
                 });
 
             modelBuilder.Entity("Content.Server.Database.Server", b =>

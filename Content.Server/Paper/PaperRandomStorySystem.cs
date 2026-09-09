@@ -1,17 +1,12 @@
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Paper;
 using Content.Shared.StoryGen;
 
 namespace Content.Server.Paper;
 
-public sealed class PaperRandomStorySystem : EntitySystem
+public sealed partial class PaperRandomStorySystem : EntitySystem
 {
-    [Dependency] private readonly StoryGeneratorSystem _storyGen = default!;
-    [Dependency] private readonly PaperSystem _paper = default!;
+    [Dependency] private StoryGeneratorSystem _storyGen = default!;
+    [Dependency] private PaperSystem _paper = default!;
 
     public override void Initialize()
     {

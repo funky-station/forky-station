@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Stalen <33173619+stalengd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 paige404 <59348003+paige404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Clothing.EntitySystems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -51,4 +44,11 @@ public sealed partial class MaskComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool DisableOnFolded;
+
+    /// <summary>
+    /// Toggle Mask delay when the mask is being toggled by someone other than the wearer.
+    /// </summary>
+    [DataField]
+    public TimeSpan Delay = TimeSpan.FromSeconds(2);
+
 }

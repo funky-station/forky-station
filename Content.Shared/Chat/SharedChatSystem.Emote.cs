@@ -1,19 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 HerCoyote23 <131214189+HerCoyote23@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2023 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2024 geraeumig <171753363+geraeumig@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
-// SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Collections.Frozen;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Speech;
@@ -24,12 +8,12 @@ namespace Content.Shared.Chat;
 
 public abstract partial class SharedChatSystem
 {
-    private FrozenDictionary<string, EmotePrototype> _wordEmoteDict = FrozenDictionary<string, EmotePrototype>.Empty;
+    private FrozenDictionary<string, List<EmotePrototype>> _wordEmoteDict = FrozenDictionary<string, List<EmotePrototype>>.Empty; // Macro, list instead of individual
 
     private void CacheEmotes()
     {
-        var dict = new Dictionary<string, EmotePrototype>();
-        var emotes = _prototypeManager.EnumeratePrototypes<EmotePrototype>();
+        var dict = new Dictionary<string, List<EmotePrototype>>(); // Macro, list instead of individual
+        var emotes = ProtoMan.EnumeratePrototypes<EmotePrototype>();
         foreach (var emote in emotes)
         {
             foreach (var word in emote.ChatTriggers)
@@ -37,12 +21,16 @@ public abstract partial class SharedChatSystem
                 var lowerWord = word.ToLower();
                 if (dict.TryGetValue(lowerWord, out var value))
                 {
-                    var errMsg = $"Duplicate of emote word {lowerWord} in emotes {emote.ID} and {value.ID}";
-                    Log.Error(errMsg);
+                    // Macro removal, changed to a list of emote prototypes
+                    // var errMsg = $"Duplicate of emote word {lowerWord} in emotes {emote.ID} and {value.ID}";
+                    // Log.Error(errMsg);
+
+                    value.Add(emote); // Macro
                     continue;
                 }
 
-                dict.Add(lowerWord, emote);
+                var emoteList = new List<EmotePrototype>() { emote }; // Macro
+                dict.Add(lowerWord, emoteList); // Macro, added list instead of individual
             }
         }
 
@@ -73,7 +61,7 @@ public abstract partial class SharedChatSystem
         bool forceEmote = false
     )
     {
-        if (!_prototypeManager.Resolve<EmotePrototype>(emoteId, out var proto))
+        if (!ProtoMan.Resolve<EmotePrototype>(emoteId, out var proto))
             return false;
 
         return TryEmoteWithChat(source, proto, range, hideLog: hideLog, nameOverride, ignoreActionBlocker: ignoreActionBlocker, forceEmote: forceEmote);
@@ -125,7 +113,7 @@ public abstract partial class SharedChatSystem
     /// <returns>True if an emote was performed. False if the emote is unavailable, cancelled, etc.</returns>
     public bool TryEmoteWithoutChat(EntityUid uid, string emoteId, bool ignoreActionBlocker = false)
     {
-        if (!_prototypeManager.Resolve<EmotePrototype>(emoteId, out var proto))
+        if (!ProtoMan.Resolve<EmotePrototype>(emoteId, out var proto))
             return false;
 
         return TryEmoteWithoutChat(uid, proto, ignoreActionBlocker);
@@ -172,7 +160,10 @@ public abstract partial class SharedChatSystem
 
         // optional override params > general params for all sounds in set > individual sound params
         var param = audioParams ?? proto.GeneralParams ?? sound.Params;
-        _audio.PlayPvs(sound, uid, param);
+
+        if (_net.IsServer) // TODO: replace this call with PlayPredicted when chat is predicted.
+            _audio.PlayPvs(sound, uid, param);
+
         return true;
     }
     /// <summary>
@@ -184,14 +175,18 @@ public abstract partial class SharedChatSystem
     protected bool TryEmoteChatInput(EntityUid source, string textInput)
     {
         var actionTrimmedLower = TrimPunctuation(textInput.ToLower());
-        if (!_wordEmoteDict.TryGetValue(actionTrimmedLower, out var emote))
+        if (!_wordEmoteDict.TryGetValue(actionTrimmedLower, out var emoteList)) // Macro, output list instead of individual
             return true;
 
-        if (!AllowedToUseEmote(source, emote))
-            return true;
+        foreach (var emote in emoteList) // Macro
+        {
+            if (!AllowedToUseEmote(source, emote))
+                continue; // Macro, continue instead of instantly returning
 
-        return TryInvokeEmoteEvent(source, emote);
+            return TryInvokeEmoteEvent(source, emote);
+        }
 
+        return true; // Macro, default if no emotes were valid
     }
     /// <summary>
     /// Checks if we can use this emote based on the emotes whitelist, blacklist, and availability to the entity.
@@ -238,10 +233,6 @@ public abstract partial class SharedChatSystem
 
         if (beforeEv.Cancelled)
         {
-            // Chat is not predicted anyways, so no need to predict this popup either.
-            if (_net.IsClient)
-                return false;
-
             if (beforeEv.Blocker != null)
             {
                 _popup.PopupEntity(
@@ -267,7 +258,7 @@ public abstract partial class SharedChatSystem
             return false;
         }
 
-        var ev = new EmoteEvent(proto);
+        var ev = new EmoteEvent(GetNetEntity(uid), proto);
         RaiseLocalEvent(uid, ref ev);
 
         return true;

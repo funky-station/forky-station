@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Whitelist;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
@@ -15,11 +8,11 @@ namespace Content.Shared.Placeable;
 /// Tracks placed entities
 /// Subscribe to <see cref="ItemPlacedEvent"/> or <see cref="ItemRemovedEvent"/> to do things when items or placed or removed.
 /// </summary>
-public sealed class ItemPlacerSystem : EntitySystem
+public sealed partial class ItemPlacerSystem : EntitySystem
 {
-    [Dependency] private readonly CollisionWakeSystem _wake = default!;
-    [Dependency] private readonly PlaceableSurfaceSystem _placeableSurface = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private CollisionWakeSystem _wake = default!;
+    [Dependency] private PlaceableSurfaceSystem _placeableSurface = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
 
     public override void Initialize()
     {

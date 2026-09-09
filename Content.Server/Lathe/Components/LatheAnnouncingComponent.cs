@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Radio;
 using Robust.Shared.Prototypes;
 

@@ -1,15 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 alexalexmax <149889301+alexalexmax@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Whatstone <166147148+whatston3@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Administration.Logs;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
@@ -22,7 +10,6 @@ using Content.Shared.SprayPainter.Components;
 using Content.Shared.SprayPainter.Prototypes;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Linq;
@@ -33,16 +20,15 @@ namespace Content.Shared.SprayPainter;
 /// System for painting paintable objects using a spray painter.
 /// Pipes are handled serverside since AtmosPipeColorSystem is server only.
 /// </summary>
-public abstract class SharedSprayPainterSystem : EntitySystem
+public abstract partial class SharedSprayPainterSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] protected readonly IPrototypeManager Proto = default!;
-    [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!;
-    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] protected readonly SharedChargesSystem Charges = default!;
-    [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] protected ISharedAdminLogManager AdminLogger = default!;
+    [Dependency] protected SharedAppearanceSystem Appearance = default!;
+    [Dependency] protected SharedAudioSystem Audio = default!;
+    [Dependency] protected SharedChargesSystem Charges = default!;
+    [Dependency] protected SharedDoAfterSystem DoAfter = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -72,7 +58,7 @@ public abstract class SharedSprayPainterSystem : EntitySystem
     private void OnMapInit(Entity<SprayPainterComponent> ent, ref MapInitEvent args)
     {
         bool stylesByGroupPopulated = false;
-        foreach (var groupProto in Proto.EnumeratePrototypes<PaintableGroupPrototype>())
+        foreach (var groupProto in ProtoMan.EnumeratePrototypes<PaintableGroupPrototype>())
         {
             ent.Comp.StylesByGroup[groupProto.ID] = groupProto.DefaultStyle;
             stylesByGroupPopulated = true;
@@ -194,7 +180,7 @@ public abstract class SharedSprayPainterSystem : EntitySystem
 
         if (ent.Comp.Group is not { } group
             || !painter.StylesByGroup.TryGetValue(group, out var selectedStyle)
-            || !Proto.Resolve(group, out PaintableGroupPrototype? targetGroup))
+            || !ProtoMan.Resolve(group, out PaintableGroupPrototype? targetGroup))
             return;
 
         // Valid paint target.
@@ -204,14 +190,14 @@ public abstract class SharedSprayPainterSystem : EntitySystem
             && Charges.GetCurrentCharges((args.Used, charges)) < targetGroup.Cost)
         {
             var msg = Loc.GetString("spray-painter-interact-no-charges");
-            _popup.PopupClient(msg, args.User, args.User);
+            _popup.PopupEntity(msg, args.User, args.User);
             return;
         }
 
         if (!targetGroup.Styles.TryGetValue(selectedStyle, out var proto))
         {
             var msg = Loc.GetString("spray-painter-style-not-available");
-            _popup.PopupClient(msg, args.User, args.User);
+            _popup.PopupEntity(msg, args.User, args.User);
             return;
         }
 

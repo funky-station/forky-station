@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Speech.EntitySystems;
 using Robust.Shared.GameStates;
 
@@ -9,7 +6,8 @@ namespace Content.Shared.Speech.Components;
 /// <summary>
 /// Action components which should write a message to ICChat on use
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(SharedSpeakOnActionSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[Access(typeof(SpeakOnActionSystem))]
 public sealed partial class SpeakOnActionComponent : Component
 {
     /// <summary>

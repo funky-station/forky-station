@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -15,12 +8,12 @@ using Robust.Shared.Network;
 
 namespace Content.Shared.Power.EntitySystems;
 
-public abstract class SharedPowerReceiverSystem : EntitySystem
+public abstract partial class SharedPowerReceiverSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _netMan = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPowerNetSystem _net = default!;
+    [Dependency] private INetManager _netMan = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPowerNetSystem _net = default!;
 
     public abstract bool ResolveApc(EntityUid entity, [NotNullWhen(true)] ref SharedApcPowerReceiverComponent? component);
 
@@ -75,7 +68,7 @@ public abstract class SharedPowerReceiverSystem : EntitySystem
         if (playSwitchSound)
         {
             _audio.PlayPredicted(new SoundPathSpecifier("/Audio/Machines/machine_switch.ogg"), uid, user: user,
-                AudioParams.Default.WithVolume(-2f));
+                AudioParams.Default.AddVolume(-2f));
         }
 
         if (_netMan.IsClient && receiver.PowerDisabled)

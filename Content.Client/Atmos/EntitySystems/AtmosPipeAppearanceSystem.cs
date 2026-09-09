@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 08A <git@08a.re>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.SubFloor;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
@@ -19,8 +11,8 @@ namespace Content.Client.Atmos.EntitySystems;
 [UsedImplicitly]
 public sealed partial class AtmosPipeAppearanceSystem : SharedAtmosPipeAppearanceSystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {

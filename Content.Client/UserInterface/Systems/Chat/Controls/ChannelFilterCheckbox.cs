@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chat;
 using Robust.Client.UserInterface.Controls;
 

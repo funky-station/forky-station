@@ -1,13 +1,10 @@
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Events;
 
 namespace Content.Shared.Clothing.EntitySystems;
 
-public sealed class SpeedModifierContactCapClothingSystem : EntitySystem
+public sealed partial class SpeedModifierContactCapClothingSystem : EntitySystem
 {
     public override void Initialize()
     {

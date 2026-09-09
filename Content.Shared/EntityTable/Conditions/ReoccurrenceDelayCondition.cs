@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Content.Shared.EntityTable.EntitySelectors;

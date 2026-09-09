@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Body;

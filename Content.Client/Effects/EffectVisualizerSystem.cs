@@ -1,12 +1,9 @@
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.Effects;
 
-public sealed class EffectVisualizerSystem : EntitySystem
+public sealed partial class EffectVisualizerSystem : EntitySystem
 {
     public override void Initialize()
     {

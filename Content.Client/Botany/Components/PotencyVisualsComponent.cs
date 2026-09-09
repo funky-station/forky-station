@@ -1,17 +1,20 @@
-// SPDX-FileCopyrightText: 2022 Steven K <84935671+ModeratelyAware@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 namespace Content.Client.Botany.Components;
 
+/// <summary>
+/// Configuration for scaling a sprite by its potency value.
+/// </summary>
 [RegisterComponent]
 public sealed partial class PotencyVisualsComponent : Component
 {
-    [DataField("minimumScale")]
+    /// <summary>
+    /// Minimum scale applied to the sprite.
+    /// </summary>
+    [DataField]
     public float MinimumScale = 1f;
 
-    [DataField("maximumScale")]
+    /// <summary>
+    /// Maximum scale applied to the sprite.
+    /// </summary>
+    [DataField]
     public float MaximumScale = 2f;
 }

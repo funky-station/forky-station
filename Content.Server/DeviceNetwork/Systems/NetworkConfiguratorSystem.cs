@@ -1,23 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 vulppine <vulppine@gmail.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Tyzemol <85772526+Tyzemol@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2024-2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2024 Zachary Yona <58833995+Magicalus@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Varen <ychwack@hotmail.it>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.DeviceLinking.Systems;
@@ -45,18 +25,19 @@ using Robust.Shared.Utility;
 namespace Content.Server.DeviceNetwork.Systems;
 
 [UsedImplicitly]
-public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
+public sealed partial class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
 {
-    [Dependency] private readonly DeviceListSystem _deviceListSystem = default!;
-    [Dependency] private readonly DeviceLinkSystem _deviceLinkSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly AccessReaderSystem _accessSystem = default!;
-    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
-    [Dependency] private readonly AudioSystem _audioSystem = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private DeviceListSystem _deviceListSystem = default!;
+    [Dependency] private DeviceLinkSystem _deviceLinkSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private AccessReaderSystem _accessSystem = default!;
+    [Dependency] private SharedInteractionSystem _interactionSystem = default!;
+    [Dependency] private AudioSystem _audioSystem = default!;
+    [Dependency] private SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private EntityQuery<DeviceNetworkComponent> _deviceNetworkQuery = default!;
 
     public override void Initialize()
     {
@@ -268,7 +249,9 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
         if (_accessSystem.IsAllowed(user.Value, target, reader))
             return true;
 
-        _audioSystem.PlayPvs(component.SoundNoAccess, user.Value, AudioParams.Default.WithVolume(-2f).WithPitchScale(1.2f));
+        var audioParams = component.SoundNoAccess?.Params ?? AudioParams.Default;
+        audioParams = audioParams.AddVolume(-2f).WithPitchScale(1.2f);
+        _audioSystem.PlayPvs(component.SoundNoAccess, user.Value, audioParams);
         _popupSystem.PopupEntity(Loc.GetString("network-configurator-device-access-denied"), target, user.Value);
 
         return false;
@@ -320,7 +303,9 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
         _appearanceSystem.SetData(configuratorUid, NetworkConfiguratorVisuals.Mode, configurator.LinkModeActive);
 
         var pitch = configurator.LinkModeActive ? 1 : 0.8f;
-        _audioSystem.PlayPvs(configurator.SoundSwitchMode, userUid, AudioParams.Default.WithVolume(1.5f).WithPitchScale(pitch));
+        var audioParams = configurator.SoundSwitchMode?.Params ?? AudioParams.Default;
+        audioParams = audioParams.AddVolume(1.5f).WithPitchScale(pitch);
+        _audioSystem.PlayPvs(configurator.SoundSwitchMode, userUid, audioParams);
     }
 
     /// <summary>
@@ -652,10 +637,9 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
 
     private void ClearDevices(EntityUid uid, NetworkConfiguratorComponent component)
     {
-        var query = GetEntityQuery<DeviceNetworkComponent>();
         foreach (var device in component.Devices.Values)
         {
-            if (query.TryGetComponent(device, out var comp))
+            if (_deviceNetworkQuery.TryGetComponent(device, out var comp))
                 comp.Configurators.Remove(uid);
         }
 
@@ -814,10 +798,9 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
 
                 ClearDevices(uid, component);
 
-                var query = GetEntityQuery<DeviceNetworkComponent>();
                 foreach (var (addr, device) in _deviceListSystem.GetDeviceList(component.ActiveDeviceList.Value))
                 {
-                    if (query.TryGetComponent(device, out var comp))
+                    if (_deviceNetworkQuery.TryGetComponent(device, out var comp))
                     {
                         component.Devices.Add(addr, device);
                         comp.Configurators.Add(uid);

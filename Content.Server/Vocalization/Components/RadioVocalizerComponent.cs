@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Crude Oil <124208219+CroilBird@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 namespace Content.Server.Vocalization.Components;
 
 /// <summary>

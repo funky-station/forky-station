@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SpeltIncorrectyl <66873282+SpeltIncorrectyl@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Winkarst-cpu <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
@@ -28,16 +17,16 @@ namespace Content.Server.Power.Generator;
 /// Implements logic for portable generators (the PACMAN). Primarily UI & power switching behavior.
 /// </summary>
 /// <seealso cref="PortableGeneratorComponent"/>
-public sealed class PortableGeneratorSystem : SharedPortableGeneratorSystem
+public sealed partial class PortableGeneratorSystem : SharedPortableGeneratorSystem
 {
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly DoAfterSystem _doAfter = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly GeneratorSystem _generator = default!;
-    [Dependency] private readonly PowerSwitchableSystem _switchable = default!;
-    [Dependency] private readonly ActiveGeneratorRevvingSystem _revving = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private DoAfterSystem _doAfter = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private GeneratorSystem _generator = default!;
+    [Dependency] private PowerSwitchableSystem _switchable = default!;
+    [Dependency] private ActiveGeneratorRevvingSystem _revving = default!;
 
     public override void Initialize()
     {

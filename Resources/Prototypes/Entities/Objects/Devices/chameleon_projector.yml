@@ -1,14 +1,3 @@
-# SPDX-FileCopyrightText: 2024-2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Milon <plmilonpl@gmail.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2026 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: [BaseItem, BaseSyndicateContraband]
   id: ChameleonProjectorNoBattery
@@ -38,9 +27,9 @@
       - MindContainer # no
       - Pda # PDAs currently make you invisible /!\
       - SubFloorHide # no hiding under the floor
+      - Wall # Walls make you invisible
       tags:
       - Catwalk # Catwalks make you invisible
-      - Wall # Walls make you invisible
       - Window # Windows make you invisible
     disguiseProto: ChameleonDisguise
   - type: StaticPrice
@@ -98,6 +87,7 @@
   - type: InteractionOutline
   - type: Clickable
   - type: Damageable
+  - type: Injurable
   - type: ChameleonDisguise
 
 # actions
@@ -108,8 +98,10 @@
   description: Use this to prevent your disguise from rotating, making it easier to hide in some scenarios.
   components:
   - type: Action
-    icon: Interface/VerbIcons/refresh.svg.192dpi.png
     itemIconStyle: BigAction
+  - type: Sprite
+    layers:
+    - texture: Interface/VerbIcons/refresh.svg.192dpi.png
   - type: InstantAction
     event: !type:DisguiseToggleNoRotEvent
 
@@ -120,9 +112,10 @@
   description: For many objects you will want to be anchored to not be completely obvious.
   components:
   - type: Action
-    icon:
-      sprite: Objects/Tools/wrench.rsi
-      state: icon
     itemIconStyle: BigAction
+  - type: Sprite
+    sprite: Objects/Tools/wrench.rsi
+    layers:
+    - state: icon
   - type: InstantAction
     event: !type:DisguiseToggleAnchoredEvent

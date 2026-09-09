@@ -1,0 +1,9 @@
+#Impstation - Service Job Board
+- type: entity
+  parent: BaseFlatpack
+  id: ComputerServiceJobBoardFlatpack
+  name: service job board flatpack
+  description: A flatpack used for constructing a service job board.
+  components:
+  - type: Flatpack
+    entity: ComputerServiceJobBoard

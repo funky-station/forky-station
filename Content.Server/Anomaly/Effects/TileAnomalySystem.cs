@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Numerics;
 using Content.Shared.Anomaly;
@@ -18,11 +11,11 @@ using Robust.Shared.Random;
 
 namespace Content.Server.Anomaly.Effects;
 
-public sealed class TileAnomalySystem : SharedTileAnomalySystem
+public sealed partial class TileAnomalySystem : SharedTileAnomalySystem
 {
-    [Dependency] private readonly SharedAnomalySystem _anomaly = default!;
-    [Dependency] private readonly ITileDefinitionManager _tiledef = default!;
-    [Dependency] private readonly TileSystem _tile = default!;
+    [Dependency] private SharedAnomalySystem _anomaly = default!;
+    [Dependency] private ITileDefinitionManager _tiledef = default!;
+    [Dependency] private TileSystem _tile = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

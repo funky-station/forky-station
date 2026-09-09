@@ -1,15 +1,3 @@
-// SPDX-FileCopyrightText: 2022 eoineoineoin <eoin.mcloughlin+gh@gmail.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2026 BarryNorfolk <barrynorfolkman@protonmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.NetworkConfigurator.Systems;
 using Content.Shared.DeviceNetwork.Components;
 using Robust.Client.Graphics;
@@ -19,10 +7,10 @@ using Robust.Shared.Random;
 
 namespace Content.Client.NetworkConfigurator;
 
-public sealed class NetworkConfiguratorLinkOverlay : Overlay
+public sealed partial class NetworkConfiguratorLinkOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
     private readonly DeviceListSystem _deviceListSystem;
     private readonly SharedTransformSystem _transformSystem;
 

@@ -1,0 +1,28 @@
+- type: department
+  id: Service
+  name: department-Service
+  description: department-Service-description
+  color: "#9FED58"
+  weight: -5 # Between Science (0) and Civilian (-10)
+  roles:
+  - Bartender
+  - Chaplain
+  - Chef
+  - Clown
+  - Janitor
+  - HospitalityDirector
+  - Librarian
+  - Mime
+  - Musician
+  - ServiceWorker
+
+- type: department
+  id: InternalAffairs
+  name: department-InternalAffairs
+  description: department-InternalAffairs-description
+  color: "#BDA499"
+  weight: 10 # important, but not as much as security
+  roles:
+  - ExecutiveOfficer
+  - Magistrate
+  - InternalAffairsAgent

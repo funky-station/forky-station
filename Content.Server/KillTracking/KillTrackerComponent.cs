@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
 using Robust.Shared.Network;
@@ -34,6 +31,9 @@ public abstract record KillSource;
 [DataDefinition, Serializable]
 public sealed partial record KillPlayerSource : KillSource
 {
+    /// <summary>
+    ///     The player that has attacked this target.
+    /// </summary>
     [DataField("playerId")]
     public NetUserId PlayerId;
 
@@ -49,6 +49,9 @@ public sealed partial record KillPlayerSource : KillSource
 [DataDefinition, Serializable]
 public sealed partial record KillNpcSource : KillSource
 {
+    /// <summary>
+    ///     The NPC that has attacked this target.
+    /// </summary>
     [DataField("npcEnt")]
     public EntityUid NpcEnt;
 

@@ -1,17 +1,8 @@
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
-using Content.Server.Atmos.EntitySystems;
-using Content.Server.Atmos.Piping.Components;
-using Content.Server.NodeContainer;
+﻿using Content.Server.Atmos.EntitySystems;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.Nodes;
-using Content.Server.Power.Components;
 using Content.Shared.Atmos;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Power;
 
 namespace Content.Server.Power.Generator;
@@ -19,10 +10,10 @@ namespace Content.Server.Power.Generator;
 /// <summary>
 /// This handles gas power receivers, allowing devices to accept power in the form of a gas.
 /// </summary>
-public sealed class GasPowerReceiverSystem : EntitySystem
+public sealed partial class GasPowerReceiverSystem : EntitySystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-    [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
+    [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private NodeContainerSystem _nodeContainer = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

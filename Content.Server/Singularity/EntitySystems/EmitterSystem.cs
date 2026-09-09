@@ -1,28 +1,3 @@
-// SPDX-FileCopyrightText: 2021, 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2022 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Andrew Montagne <andrew@montagne.uk>
-// SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Krunklehorn <42424291+Krunklehorn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 mq <113324899+mqole@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using System.Threading;
 using Content.Server.Administration.Logs;
@@ -36,6 +11,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Lock;
 using Content.Shared.Popups;
 using Content.Shared.Power;
+using Content.Shared.Power.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Singularity.Components;
 using Content.Shared.Singularity.EntitySystems;
@@ -43,21 +19,21 @@ using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server.Singularity.EntitySystems
 {
-    public sealed class EmitterSystem : SharedEmitterSystem
+    public sealed partial class EmitterSystem : SharedEmitterSystem
     {
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly SharedPopupSystem _popup = default!;
-        [Dependency] private readonly ProjectileSystem _projectile = default!;
-        [Dependency] private readonly GunSystem _gun = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
+        [Dependency] private SharedAppearanceSystem _appearance = default!;
+        [Dependency] private SharedPopupSystem _popup = default!;
+        [Dependency] private ProjectileSystem _projectile = default!;
+        [Dependency] private GunSystem _gun = default!;
+        [Dependency] private PowerStateSystem _powerState = default!;
 
         public override void Initialize()
         {
@@ -90,9 +66,10 @@ namespace Content.Server.Singularity.EntitySystems
                 return;
             }
 
+            var isOn = _powerState.GetWorkingState(uid);
             if (TryComp(uid, out PhysicsComponent? phys) && phys.BodyType == BodyType.Static)
             {
-                if (!component.IsOn)
+                if (!isOn)
                 {
                     SwitchOn(uid, component);
                     _popup.PopupEntity(Loc.GetString("comp-emitter-turned-on",
@@ -105,9 +82,10 @@ namespace Content.Server.Singularity.EntitySystems
                         ("target", uid)), uid, args.User);
                 }
 
+                var stateText = isOn ? "on" : "off";
                 _adminLogger.Add(LogType.FieldGeneration,
-                    component.IsOn ? LogImpact.Medium : LogImpact.High,
-                    $"{ToPrettyString(args.User):player} toggled {ToPrettyString(uid):emitter}");
+                    isOn ? LogImpact.Medium : LogImpact.High,
+                    $"{ToPrettyString(args.User):player} toggled {ToPrettyString(uid):emitter} to {stateText}");
                 args.Handled = true;
             }
             else
@@ -122,10 +100,8 @@ namespace Content.Server.Singularity.EntitySystems
             EmitterComponent component,
             ref PowerConsumerReceivedChanged args)
         {
-            if (!component.IsOn)
-            {
+            if (!_powerState.GetWorkingState(uid))
                 return;
-            }
 
             if (args.ReceivedPower < args.DrawRate)
             {
@@ -139,10 +115,8 @@ namespace Content.Server.Singularity.EntitySystems
 
         private void OnApcChanged(EntityUid uid, EmitterComponent component, ref PowerChangedEvent args)
         {
-            if (!component.IsOn)
-            {
+            if (!_powerState.GetWorkingState(uid))
                 return;
-            }
 
             if (!args.Powered)
             {
@@ -156,23 +130,16 @@ namespace Content.Server.Singularity.EntitySystems
 
         public void SwitchOff(EntityUid uid, EmitterComponent component)
         {
-            component.IsOn = false;
-            if (TryComp<PowerConsumerComponent>(uid, out var powerConsumer))
-                powerConsumer.DrawRate = 1; // this needs to be not 0 so that the visuals still work.
-            if (TryComp<ApcPowerReceiverComponent>(uid, out var apcReceiver))
-                apcReceiver.Load = 1;
+            _powerState.SetWorkingState(uid, false);
             PowerOff(uid, component);
             UpdateAppearance(uid, component);
         }
 
         public void SwitchOn(EntityUid uid, EmitterComponent component)
         {
-            component.IsOn = true;
-            if (TryComp<PowerConsumerComponent>(uid, out var powerConsumer))
-                powerConsumer.DrawRate = component.PowerUseActive;
+            _powerState.SetWorkingState(uid, true);
             if (TryComp<ApcPowerReceiverComponent>(uid, out var apcReceiver))
             {
-                apcReceiver.Load = component.PowerUseActive;
                 if (apcReceiver.Powered)
                     PowerOn(uid, component);
             }
@@ -222,7 +189,6 @@ namespace Content.Server.Singularity.EntitySystems
             // Any power-off condition should result in the timer for this method being cancelled
             // and thus not firing
             DebugTools.Assert(component.IsPowered);
-            DebugTools.Assert(component.IsOn);
 
             Fire(uid, component);
 
@@ -267,7 +233,7 @@ namespace Content.Server.Singularity.EntitySystems
             {
                 state = EmitterVisualState.On;
             }
-            else if (component.IsOn)
+            else if (_powerState.GetWorkingState(uid))
             {
                 state = EmitterVisualState.Underpowered;
             }
@@ -294,7 +260,7 @@ namespace Content.Server.Singularity.EntitySystems
             }
             else if (args.Port == component.TogglePort)
             {
-                if (component.IsOn)
+                if (_powerState.GetWorkingState(uid))
                 {
                     SwitchOff(uid, component);
                 }

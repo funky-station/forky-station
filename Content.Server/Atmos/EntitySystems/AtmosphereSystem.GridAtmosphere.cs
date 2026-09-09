@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2022, 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 drakewill-CRL <46307022+drakewill-CRL@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.Reactions;
 using Content.Shared.Atmos;
@@ -83,7 +72,7 @@ public sealed partial class AtmosphereSystem
                 newGridAtmos = AddComp<GridAtmosphereComponent>(newGrid);
 
             // We assume the tiles on the new grid have the same coordinates as they did on the old grid...
-            var enumerator = _mapSystem.GetAllTilesEnumerator(newGrid, mapGrid);
+            var enumerator = _mapSystem.GetAllTiles(newGrid, mapGrid);
 
             while (enumerator.MoveNext(out var tile))
             {
@@ -335,7 +324,7 @@ public sealed partial class AtmosphereSystem
             atmos.InvalidatedCoords.Add(indices);
         }
 
-        var enumerator = _map.GetAllTilesEnumerator(uid, grid);
+        var enumerator = _map.GetAllTiles(uid, grid);
         while (enumerator.MoveNext(out var tile))
         {
             atmos.InvalidatedCoords.Add(tile.Value.GridIndices);

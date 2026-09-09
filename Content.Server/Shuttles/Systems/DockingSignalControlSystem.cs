@@ -1,15 +1,12 @@
-// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 
 namespace Content.Server.Shuttles.Systems;
 
-public sealed class DockingSignalControlSystem : EntitySystem
+public sealed partial class DockingSignalControlSystem : EntitySystem
 {
-    [Dependency] private readonly DeviceLinkSystem _deviceLinkSystem = default!;
+    [Dependency] private DeviceLinkSystem _deviceLinkSystem = default!;
 
     public override void Initialize()
     {

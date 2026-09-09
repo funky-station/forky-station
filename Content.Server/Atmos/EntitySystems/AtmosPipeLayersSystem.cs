@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Atmos.Components;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.NodeGroups;
@@ -19,10 +15,10 @@ namespace Content.Server.Atmos.EntitySystems;
 /// </summary>
 public sealed partial class AtmosPipeLayersSystem : SharedAtmosPipeLayersSystem
 {
-    [Dependency] private readonly NodeGroupSystem _nodeGroup = default!;
-    [Dependency] private readonly PipeRestrictOverlapSystem _pipeRestrictOverlap = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private NodeGroupSystem _nodeGroup = default!;
+    [Dependency] private PipeRestrictOverlapSystem _pipeRestrictOverlap = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
 
     public override void Initialize()
     {

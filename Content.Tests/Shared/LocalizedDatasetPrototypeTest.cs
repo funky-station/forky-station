@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System;
 using Content.Shared.Dataset;
 using NUnit.Framework;

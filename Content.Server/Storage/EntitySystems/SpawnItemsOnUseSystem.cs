@@ -1,18 +1,3 @@
-// SPDX-FileCopyrightText: 2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2021-2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2022 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Pancake <Pangogie@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration.Logs;
 using Content.Server.Cargo.Systems;
 using Content.Server.Storage.Components;
@@ -27,14 +12,14 @@ using static Content.Shared.Storage.EntitySpawnCollection;
 
 namespace Content.Server.Storage.EntitySystems
 {
-    public sealed class SpawnItemsOnUseSystem : EntitySystem
+    public sealed partial class SpawnItemsOnUseSystem : EntitySystem
     {
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly SharedHandsSystem _hands = default!;
-        [Dependency] private readonly PricingSystem _pricing = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
-        [Dependency] private readonly SharedTransformSystem _transform = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private IAdminLogManager _adminLogger = default!;
+        [Dependency] private SharedHandsSystem _hands = default!;
+        [Dependency] private PricingSystem _pricing = default!;
+        [Dependency] private SharedAudioSystem _audio = default!;
+        [Dependency] private SharedTransformSystem _transform = default!;
 
         public override void Initialize()
         {
@@ -85,19 +70,19 @@ namespace Content.Server.Storage.EntitySystems
             if (component.Uses <= 0)
                 return;
 
-            var coords = Transform(args.User).Coordinates;
+            var xform = Transform(args.User);
             var spawnEntities = GetSpawns(component.Items, _random);
             EntityUid? entityToPlaceInHands = null;
 
             foreach (var proto in spawnEntities)
             {
-                entityToPlaceInHands = Spawn(proto, coords);
+                entityToPlaceInHands = SpawnNextToOrDrop(proto, args.User, xform);
                 _adminLogger.Add(LogType.EntitySpawn, LogImpact.Low, $"{ToPrettyString(args.User)} used {ToPrettyString(uid)} which spawned {ToPrettyString(entityToPlaceInHands.Value)}");
             }
 
             // The entity is often deleted, so play the sound at its position rather than parenting
             if (component.Sound != null)
-                _audio.PlayPvs(component.Sound, coords);
+                _audio.PlayPvs(component.Sound, xform.Coordinates);
 
             component.Uses--;
 
@@ -111,7 +96,7 @@ namespace Content.Server.Storage.EntitySystems
             }
 
             if (entityToPlaceInHands != null)
-                _hands.PickupOrDrop(args.User, entityToPlaceInHands.Value);
+                _hands.TryPickupAnyHand(args.User, entityToPlaceInHands.Value);
 
             args.Handled = true;
         }

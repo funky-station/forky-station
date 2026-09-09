@@ -1,12 +1,18 @@
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.AlertLevel;
 
+/// <summary>
+/// Allows an entity to change visuals depending on the station's current alertlevel.
+/// </summary>
 [RegisterComponent]
 public sealed partial class AlertLevelDisplayComponent : Component
 {
-    [DataField("alertVisuals")]
-    public  Dictionary<string, string> AlertVisuals = new();
+    /// <summary>
+    /// The RSI state to use for each alert level.
+    /// Changes the <see cref="AlertLevelDisplay.Layer"/> layer accordingly.
+    /// If the device is unpowered that layer will be hidden.
+    /// </summary>
+    [DataField]
+    public Dictionary<ProtoId<AlertLevelPrototype>, string> AlertVisuals = new();
 }

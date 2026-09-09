@@ -1,26 +1,17 @@
-// SPDX-FileCopyrightText: 2021-2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Clothing;
 using Content.Shared.Damage.Components;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Systems;
+using Content.Shared.StatusEffectNew;
 
 namespace Content.Shared.Damage.Systems;
 
-public sealed class SlowOnDamageSystem : EntitySystem
+public sealed partial class SlowOnDamageSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
+    [Dependency] private DamageableSystem _damage = default!;
 
     public override void Initialize()
     {
@@ -34,9 +25,9 @@ public sealed class SlowOnDamageSystem : EntitySystem
         SubscribeLocalEvent<ClothingSlowOnDamageModifierComponent, ClothingGotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<ClothingSlowOnDamageModifierComponent, ClothingGotUnequippedEvent>(OnGotUnequipped);
 
-        SubscribeLocalEvent<IgnoreSlowOnDamageComponent, ComponentStartup>(OnIgnoreStartup);
-        SubscribeLocalEvent<IgnoreSlowOnDamageComponent, ComponentShutdown>(OnIgnoreShutdown);
-        SubscribeLocalEvent<IgnoreSlowOnDamageComponent, ModifySlowOnDamageSpeedEvent>(OnIgnoreModifySpeed);
+        SubscribeLocalEvent<IgnoreSlowOnDamageComponent, StatusEffectAppliedEvent>(OnIgnoreApplied);
+        SubscribeLocalEvent<IgnoreSlowOnDamageComponent, StatusEffectRemovedEvent>(OnIgnoreRemoved);
+        SubscribeLocalEvent<IgnoreSlowOnDamageComponent, StatusEffectRelayedEvent<ModifySlowOnDamageSpeedEvent>>(OnIgnoreModifySpeed);
     }
 
     private void OnRefreshMovespeed(EntityUid uid, SlowOnDamageComponent component, RefreshMovementSpeedModifiersEvent args)
@@ -44,12 +35,14 @@ public sealed class SlowOnDamageSystem : EntitySystem
         if (!TryComp<DamageableComponent>(uid, out var damage))
             return;
 
-        if (damage.TotalDamage == FixedPoint2.Zero)
+        var totalDamage = _damage.GetTotalDamage((uid, damage));
+
+        if (totalDamage == FixedPoint2.Zero)
             return;
 
         // Get closest threshold
         FixedPoint2 closest = FixedPoint2.Zero;
-        var total = damage.TotalDamage;
+        var total = totalDamage;
         foreach (var thres in component.SpeedModifierThresholds)
         {
             if (total >= thres.Key && thres.Key > closest)
@@ -86,7 +79,7 @@ public sealed class SlowOnDamageSystem : EntitySystem
 
     private void OnExamined(Entity<ClothingSlowOnDamageModifierComponent> ent, ref ExaminedEvent args)
     {
-        var msg = Loc.GetString("slow-on-damage-modifier-examine", ("mod", (1 - ent.Comp.Modifier) * 100));
+        var msg = Loc.GetString("slow-on-damage-modifier-examine", ("mod", ent.Comp.Modifier * 100));
         args.PushMarkup(msg);
     }
 
@@ -100,19 +93,19 @@ public sealed class SlowOnDamageSystem : EntitySystem
         _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(args.Wearer);
     }
 
-    private void OnIgnoreStartup(Entity<IgnoreSlowOnDamageComponent> ent, ref ComponentStartup args)
+    private void OnIgnoreApplied(Entity<IgnoreSlowOnDamageComponent> ent, ref StatusEffectAppliedEvent args)
     {
-        _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(ent);
+        _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(args.Target);
     }
 
-    private void OnIgnoreShutdown(Entity<IgnoreSlowOnDamageComponent> ent, ref ComponentShutdown args)
+    private void OnIgnoreRemoved(Entity<IgnoreSlowOnDamageComponent> ent, ref StatusEffectRemovedEvent args)
     {
-        _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(ent);
+        _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(args.Target);
     }
 
-    private void OnIgnoreModifySpeed(Entity<IgnoreSlowOnDamageComponent> ent, ref ModifySlowOnDamageSpeedEvent args)
+    private void OnIgnoreModifySpeed(Entity<IgnoreSlowOnDamageComponent> ent, ref StatusEffectRelayedEvent<ModifySlowOnDamageSpeedEvent> args)
     {
-        args.Speed = 1f;
+        args.Args = args.Args with { Speed = 1f };
     }
 }
 

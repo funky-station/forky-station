@@ -1,16 +1,12 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Trigger.Components.Effects;
 
 namespace Content.Shared.Trigger.Systems;
 
-public sealed class UncuffOnTriggerSystem : XOnTriggerSystem<UncuffOnTriggerComponent>
+public sealed partial class UncuffOnTriggerSystem : XOnTriggerSystem<UncuffOnTriggerComponent>
 {
-    [Dependency] private readonly SharedCuffableSystem _cuffable = default!;
+    [Dependency] private SharedCuffableSystem _cuffable = default!;
 
     protected override void OnTrigger(Entity<UncuffOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
     {

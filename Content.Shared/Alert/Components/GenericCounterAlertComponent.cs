@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Alert.Components;
@@ -60,7 +57,7 @@ public sealed partial class GenericCounterAlertComponent : Component
 /// <param name="Alert">The alert which is currently requesting an update.</param>
 /// <param name="Amount">The number to display on the alert.</param>
 [ByRefEvent]
-public record struct GetGenericAlertCounterAmountEvent(AlertPrototype Alert, int? Amount = null)
+public record struct GetGenericAlertCounterAmountEvent(AlertPrototype Alert, EntityUid SpriteView, int? Amount = null)
 {
     public bool Handled => Amount.HasValue;
 }

@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023, 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.DeviceLinking.Components;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
@@ -11,9 +5,9 @@ using Content.Shared.DeviceNetwork;
 
 namespace Content.Server.DeviceLinking.Systems;
 
-public sealed class EdgeDetectorSystem : EntitySystem
+public sealed partial class EdgeDetectorSystem : EntitySystem
 {
-    [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
+    [Dependency] private DeviceLinkSystem _deviceLink = default!;
 
     public override void Initialize()
     {

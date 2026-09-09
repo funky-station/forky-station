@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Roles;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
@@ -27,8 +24,8 @@ public sealed partial class ChameleonOutfitPrototype : IPrototype
     public ProtoId<JobPrototype>? Job;
 
     /// <summary>
-    /// Name of the outfit. This will be used for varous things like the chameleon controller UI and the agent IDs job
-    /// name.
+    /// Name of the outfit. This will be used for various things like the chameleon controller UI and the agent IDs job
+    /// name. Currently its only used as a fallback in case LoadoutName isnt set.
     /// </summary>
     [DataField]
     public LocId? Name;

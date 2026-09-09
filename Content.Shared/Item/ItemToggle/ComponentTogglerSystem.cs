@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Item.ItemToggle.Components;
 
 namespace Content.Shared.Item.ItemToggle;
@@ -10,7 +5,7 @@ namespace Content.Shared.Item.ItemToggle;
 /// <summary>
 /// Handles <see cref="ComponentTogglerComponent"/> component manipulation.
 /// </summary>
-public sealed class ComponentTogglerSystem : EntitySystem
+public sealed partial class ComponentTogglerSystem : EntitySystem
 {
     public override void Initialize()
     {

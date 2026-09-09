@@ -1,36 +1,3 @@
-# SPDX-FileCopyrightText: 2022, 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Darkie <darksaiyanis@gmail.com>
-# SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Michael Cu <43478115+michaelcu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nim <128169402+Nimfar11@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Elysium206 <151651971+Elysium206@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-# SPDX-FileCopyrightText: 2024 liltenhead <104418166+liltenhead@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 degradka <69397649+degradka@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nairod <110078045+Nairodian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Sir Warock <67167466+SirWarock@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Hitlinemoss <209321380+Hitlinemoss@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Tao <56692749+TaoNewt@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
-# SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
-# SPDX-FileCopyrightText: 2025 SeamLesss <kai.julian.watson@gmail.com>
-# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 DieselMohawk <173439801+DieselMohawk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   name: base shield
   parent: BaseItem
@@ -44,56 +11,47 @@
     - type: Item
       sprite: Objects/Weapons/Melee/shields.rsi
       size: Ginormous
+      shape:
+      - 0,0,4,5
       heldPrefix: riot
     - type: Blocking
       passiveBlockModifier:
-        coefficients:
-          Blunt: 0.9
-          Slash: 0.9
-          Piercing: 0.9
-          Heat: 0.9
-      activeBlockModifier:
-        coefficients:
-          Blunt: 0.8
-          Slash: 0.8
-          Piercing: 0.8
-          Heat: 0.8
         flatReductions:
-          Blunt: 1
-          Slash: 1
-          Piercing: 1
-          Heat: 1
+          Blunt: 10
+          Slash: 10
+          Piercing: 10
+          Heat: 10
     - type: Damageable
+    - type: Injurable
       damageContainer: Shield
     - type: ExaminableDamage
       messages: ShieldMessages
-    - type: Destructible
-      thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 140
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-        - trigger:
-            !type:DamageTrigger
-            damage: 100 #This is probably enough damage before it breaks
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-            - !type:PlaySoundBehavior
-              sound:
-                collection: MetalBreak
-            - !type:SpawnEntitiesBehavior
-              spawn:
-                SheetSteel:
-                  min: 2
-                  max: 2
-                SheetGlass:
-                  min: 2
-                  max: 2
     - type: StaticPrice
       price: 100
+
+- type: entity
+  abstract: true
+  id: BaseShieldDestructible
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 125 #This is probably enough damage before it breaks
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel:
+            min: 2
+            max: 2
+          SheetGlass:
+            min: 2
+            max: 2
 
 - type: entity
   name: base repairable shield
@@ -104,9 +62,10 @@
   components:
   - type: Repairable # Negative values represent healing
     damage:
-      groups:
-        Brute: -60 # 20 of each Brute Type - 20% of a basic shield HP
       types:
+        Blunt: -20
+        Slash: -20
+        Piercing: -20
         Heat: -20
     fuelCost: 10 # 1/2 of a Welder for a full repair
     doAfterDelay: 5
@@ -116,7 +75,7 @@
 
 - type: entity
   name: riot shield
-  parent: [ BaseRepairableShield, BaseSecurityContraband ]
+  parent: [ BaseRepairableShield, BaseShieldDestructible, BaseSecurityContraband ]
   id: RiotShield
   description: A large tower shield. Good for controlling crowds.
   components:
@@ -124,20 +83,15 @@
       price: 90
     - type: Blocking
       passiveBlockModifier:
-        coefficients:
-          Blunt: 0.7
-          Slash: 0.7
-      activeBlockModifier:
-        coefficients:
-          Blunt: 0.5
-          Slash: 0.5
         flatReductions:
-          Blunt: 1
-          Slash: 1
+          Blunt: 15
+          Slash: 15
+          Piercing: 5
+          Heat: 5
 
 - type: entity
   name: laser shield
-  parent: [ BaseRepairableShield, BaseSecurityContraband ]
+  parent: [ BaseRepairableShield, BaseShieldDestructible, BaseSecurityContraband ]
   id: RiotLaserShield
   description: A shield built for withstanding lasers, but not much else.
   components:
@@ -147,17 +101,15 @@
       heldPrefix: riot_laser
     - type: Blocking
       passiveBlockModifier:
-        coefficients:
-          Heat: 0.7
-      activeBlockModifier:
-        coefficients:
-          Heat: 0.5
         flatReductions:
-          Heat: 1
+          Blunt: 5
+          Slash: 10
+          Piercing: 5
+          Heat: 20
 
 - type: entity
   name: ballistic shield
-  parent: [ BaseRepairableShield, BaseSecurityContraband ]
+  parent: [ BaseRepairableShield, BaseShieldDestructible, BaseSecurityContraband ]
   id: RiotBulletShield
   description: A shield built for protecting against ballistics, but not much else.
   components:
@@ -167,13 +119,11 @@
       heldPrefix: riot_bullet
     - type: Blocking
       passiveBlockModifier:
-        coefficients:
-          Piercing: 0.7
-      activeBlockModifier:
-        coefficients:
-          Piercing: 0.5
         flatReductions:
-          Piercing: 1
+          Blunt: 10
+          Slash: 5
+          Piercing: 20
+          Heat: 5
 
 #Craftable shields
 
@@ -189,46 +139,30 @@
       heldPrefix: buckler
     - type: Blocking
       passiveBlockModifier:
-        coefficients:
-          Blunt: 0.95
-          Slash: 0.95
-          Piercing: 0.95
-          Heat: 2
-      activeBlockModifier:
-        coefficients:
-          Blunt: 0.85
-          Slash: 0.85
-          Piercing: 0.85
-          Heat: 2
         flatReductions:
-          Blunt: 1
-          Slash: 1
-          Piercing: 1
+          Blunt: 5
+          Slash: 5
+          Piercing: 5
+          Heat: 5
     - type: Construction
       graph: WoodenBuckler
       node: woodenBuckler
     - type: Destructible
       thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 60
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-        - trigger:
-            !type:DamageTrigger
-            damage: 30 #Weaker shield
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-            - !type:PlaySoundBehavior
-              sound:
-                collection: WoodDestroy
-            - !type:SpawnEntitiesBehavior
-              spawn:
-                MaterialWoodPlank:
-                  min: 5
-                  max: 5
+      - trigger:
+          !type:DamageTrigger
+          damage: 75 #Weaker shield
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: WoodDestroy
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            MaterialWoodPlank:
+              min: 5
+              max: 5
     - type: StaticPrice
       price: 150
 
@@ -244,19 +178,11 @@
       heldPrefix: cardshield
     - type: Blocking
       passiveBlockModifier:
-        coefficients:
-          Blunt: 1
-          Slash: 2
-          Piercing: 0.6
-          Heat: 3
-      activeBlockModifier:
-        coefficients:
-          Blunt: 0.9
-          Slash: 1.8
-          Piercing: 0.5
-          Heat: 2.5
         flatReductions:
-          Blunt: 0.5
+          Blunt: 1
+          Slash: 1
+          Piercing: 1
+          Heat: 1
     - type: Construction
       graph: CardShield
       node: cardShield
@@ -264,13 +190,7 @@
       thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 25
-        behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 10 #Very very weak shield
+          damage: 25 #Very very weak shield
         behaviors:
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
@@ -294,49 +214,25 @@
       state: makeshift-icon
     - type: Item
       heldPrefix: metal
-    - type: Blocking
-      passiveBlockModifier:
-        coefficients:
-          Blunt: 0.95
-          Slash: 0.95
-          Piercing: 0.95
-          Heat: 0.9
-      activeBlockModifier:
-        coefficients:
-          Blunt: 0.85
-          Slash: 0.85
-          Piercing: 0.85
-          Heat: 0.8
-        flatReductions:
-          Blunt: 0.5
-          Slash: 0.5
-          Piercing: 0.5
-          Heat: 1
     - type: Construction
       graph: MakeshiftShield
       node: makeshiftShield
     - type: Destructible
       thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 40
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-        - trigger:
-            !type:DamageTrigger
-            damage: 20 #Very weak shield
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-            - !type:PlaySoundBehavior
-              sound:
-                collection: MetalBreak
-            - !type:SpawnEntitiesBehavior
-              spawn:
-                SheetSteel:
-                  min: 1
-                  max: 2
+      - trigger:
+          !type:DamageTrigger
+          damage: 75
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalBreak
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            SheetSteel:
+              min: 1
+              max: 2
 
 - type: entity
   name: web shield
@@ -352,50 +248,34 @@
       heldPrefix: icon
     - type: Blocking
       passiveBlockModifier:
-        coefficients:
-          Blunt: 0.95
-          Slash: 0.95
-          Piercing: 0.95
-      activeBlockModifier:
-        coefficients:
-          Blunt: 0.85
-          Slash: 0.85
-          Piercing: 0.85
         flatReductions:
-          Blunt: 0.5
-          Slash: 0.5
-          Piercing: 0.5
+          Blunt: 5
+          Piercing: 1 # Scar told me to.
     - type: Construction
       graph: WebObjects
       node: shield
     - type: Destructible
       thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 40
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-        - trigger:
-            !type:DamageTrigger
-            damage: 20
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-            - !type:SpawnEntitiesBehavior
-              spawn:
-                MaterialWebSilk:
-                  min: 1
-                  max: 1
-            - !type:PlaySoundBehavior
-              sound:
-                collection: WoodDestroy
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            MaterialWebSilk:
+              min: 1
+              max: 1
+        - !type:PlaySoundBehavior
+          sound:
+            collection: WoodDestroy
 
 #Magic/Cult Shields (give these to wizard for now)
 
 - type: entity
   name: clockwork shield
-  parent: BaseRepairableShield
+  parent: [ BaseRepairableShield, BaseShieldDestructible ]
   id: ClockworkShield
   description: Ratvar oyrffrf lbh jvgu uvf cebgrpgvba.
   components:
@@ -403,23 +283,6 @@
       state: ratvarian-icon
     - type: Item
       heldPrefix: ratvarian
-    - type: Blocking
-      passiveBlockModifier:
-        coefficients:
-          Blunt: 0.8
-          Slash: 0.8
-          Piercing: 0.8
-          Heat: 1.5
-      activeBlockModifier:
-        coefficients:
-          Blunt: 0.7
-          Slash: 0.7
-          Piercing: 0.7
-          Heat: 1.5
-        flatReductions:
-          Blunt: 1
-          Slash: 1
-          Piercing: 1
       #Have it break into brass when clock cult is in
 
 - type: entity
@@ -439,36 +302,30 @@
     - type: Blocking #Mirror shield reflects heat/laser, but is relatively weak to everything else.
       passiveBlockModifier:
         coefficients:
-          Blunt: 1.2
-          Slash: 1.2
-          Piercing: 1.2
-          Heat: .7
-      activeBlockModifier:
-        coefficients:
-          Blunt: 1.2
-          Slash: 1.2
-          Piercing: 1.2
-          Heat: .6
+          Heat: 0.5
         flatReductions:
-          Heat: 1
+          Blunt: 5
+          Slash: 10
+          Piercing: 5
+          Heat: 25
       blockSound: !type:SoundPathSpecifier
         path: /Audio/Effects/glass_step.ogg
     - type: Destructible
       thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 40
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-            - !type:PlaySoundBehavior
-              sound:
-                collection: GlassBreak
-            - !type:SpawnEntitiesBehavior
-              spawn:
-                SheetGlass:
-                  min: 5
-                  max: 5
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: GlassBreak
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            SheetGlass:
+              min: 5
+              max: 5
 
 - type: entity
   name: energy shield
@@ -476,6 +333,7 @@
   id: EnergyShield
   description: Exotic energy shield, when folded, can even fit in your pocket.
   components:
+    - type: ItemToggleExaminableStatus
     - type: ItemToggle
       soundActivate:
         path: /Audio/Weapons/ebladeon.ogg
@@ -486,6 +344,8 @@
         path: /Audio/Weapons/ebladehum.ogg
     - type: ItemToggleSize
       activatedSize: Huge
+      activatedShape:
+      - 0,0,3,3
     - type: ComponentToggler
       components:
       - type: DisarmMalus
@@ -528,46 +388,34 @@
     - type: Blocking
       passiveBlockModifier:
         coefficients:
-          Blunt: 1.0
-          Slash: 0.9
-          Piercing: 0.85
-          Heat: 0.6
-      activeBlockModifier:
-        coefficients:
-          Blunt: 1.2
-          Slash: 0.85
-          Piercing: 0.5
-          Heat: 0.4
+          Heat: 0.5
         flatReductions:
-          Heat: 1
-          Piercing: 1
+          Blunt: 5
+          Piercing: 10
+          Slash: 5
+          Heat: 25
     - type: Appearance
     - type: Damageable
+    - type: Injurable
       damageContainer: Shield
     - type: ExaminableDamage
       messages: EnergyShieldMessages
     - type: Destructible
       thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 180
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-        - trigger:
-            !type:DamageTrigger
-            damage: 100
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-            - !type:PlaySoundBehavior
-              sound:
-                collection: GlassBreak
-            - !type:SpawnEntitiesBehavior
-              spawn:
-                BrokenEnergyShield:
-                  min: 1
-                  max: 1
+      - trigger:
+          !type:DamageTrigger
+          damage: 125
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: GlassBreak
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            BrokenEnergyShield:
+              min: 1
+              max: 1
     - type: StaticPrice
       price: 350
 
@@ -587,10 +435,13 @@
 
 - type: entity
   name: telescopic shield
-  parent: BaseRepairableShield
+  parent: [ BaseRepairableShield, BaseShieldDestructible ]
   id: TelescopicShield
   description: An advanced riot shield made of lightweight materials that collapses for easy storage.
   components:
+    - type: ItemToggleExaminableStatus
+      onText: item-toggle-examined-active
+      offText: item-toggle-examined-not-active
     - type: ItemToggle
       soundActivate:
         path: /Audio/Weapons/telescopicon.ogg
@@ -606,6 +457,8 @@
         malus: 0.6
     - type: ItemToggleSize
       activatedSize: Huge
+      activatedShape:
+      - 0,0,3,3
     - type: Sprite
       sprite: Objects/Weapons/Melee/teleriot_shield.rsi
       layers:
@@ -615,6 +468,8 @@
           map: [ "shield" ]
     - type: Item
       size: Small
+      shape:
+      - 0,0,1,1
       sprite: Objects/Weapons/Melee/teleriot_shield.rsi
       heldPrefix: teleriot
     - type: UseDelay
@@ -627,30 +482,5 @@
         right:
           - state: inhand-right-shield
     - type: Appearance
-    - type: Destructible
-      thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 100
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-        - trigger:
-            !type:DamageTrigger
-            damage: 70
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-            - !type:PlaySoundBehavior
-              sound:
-                collection: MetalGlassBreak
-            - !type:SpawnEntitiesBehavior
-              spawn:
-                SheetSteel:
-                  min: 1
-                  max: 1
-                SheetGlass:
-                  min: 2
-                  max: 2
     - type: StaticPrice
       price: 150

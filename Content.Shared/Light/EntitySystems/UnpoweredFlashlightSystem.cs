@@ -1,14 +1,7 @@
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Actions;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Light.Components;
 using Content.Shared.Mind.Components;
-using Content.Shared.Storage.Components;
 using Content.Shared.Toggleable;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
@@ -18,18 +11,17 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Light.EntitySystems;
 
-public sealed class UnpoweredFlashlightSystem : EntitySystem
+public sealed partial class UnpoweredFlashlightSystem : EntitySystem
 {
     // TODO: Split some of this to ItemTogglePointLight
 
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly SharedPointLightSystem _light = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private ActionContainerSystem _actionContainer = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private SharedPointLightSystem _light = default!;
+    [Dependency] private EmagSystem _emag = default!;
 
     public override void Initialize()
     {
@@ -92,7 +84,7 @@ public sealed class UnpoweredFlashlightSystem : EntitySystem
         if (!_light.TryGetLight(uid, out var light))
             return;
 
-        if (_prototypeManager.Resolve(component.EmaggedColorsPrototype, out var possibleColors))
+        if (ProtoMan.Resolve(component.EmaggedColorsPrototype, out var possibleColors))
         {
             var pick = _random.Pick(possibleColors.Colors.Values);
             _light.SetColor(uid, pick, light);

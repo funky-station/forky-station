@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-FileCopyrightText: 2026 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Numerics;
 using Content.Client.UserInterface.Controls;
@@ -18,7 +14,7 @@ public record SmartFridgeListData(EntityUid Representative, SmartFridgeEntry Ent
 [GenerateTypedNameReferences]
 public sealed partial class SmartFridgeMenu : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
 
     public event Action<GUIBoundKeyEventArgs, ListData>? OnItemSelected;
     public event Action<SmartFridgeListData>? OnRemoveButtonPressed;

@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Verbs;
@@ -8,9 +5,9 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.DetailExaminable;
 
-public sealed class DetailExaminableSystem : EntitySystem
+public sealed partial class DetailExaminableSystem : EntitySystem
 {
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
+    [Dependency] private ExamineSystemShared _examine = default!;
 
     public override void Initialize()
     {

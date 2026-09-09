@@ -1,9 +1,5 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 ThunderBear2006 <100388962+ThunderBear2006@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Explosion;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Anomaly.Components;
 
@@ -13,8 +9,8 @@ public sealed partial class ExplosionAnomalyComponent : Component
     /// <summary>
     /// The explosion prototype to spawn
     /// </summary>
-    [DataField("supercriticalExplosion", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<ExplosionPrototype>))]
-    public string ExplosionPrototype = default!;
+    [DataField("supercriticalExplosion", required: true)]
+    public ProtoId<ExplosionPrototype> ExplosionPrototype = default!;
 
     /// <summary>
     /// The total amount of intensity an explosion can achieve

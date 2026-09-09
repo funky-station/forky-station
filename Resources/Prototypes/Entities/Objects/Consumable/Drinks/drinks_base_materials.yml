@@ -1,23 +1,13 @@
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2025 iaada <iaada@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2026 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   abstract: true
   id: DrinkBaseMaterialGlass
   components:
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: FlimsyGlass
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
-    - trigger: # Overkill threshold
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 5
@@ -26,12 +16,6 @@
         sound:
           collection: GlassBreak
       - !type:SpillBehavior { }
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          ShardGlass:
-            min: 1
-            max: 1
-        transferForensics: true
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: DamageOnLand
@@ -53,17 +37,14 @@
 # Porcelain (like glass but no shard)
 - type: entity
   abstract: true
-  parent: DrinkBaseMaterialGlass
   id: DrinkBaseMaterialPorcelain
   components:
+  - type: Damageable
+    damageModifierSet: FlimsyGlass
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
-    - trigger: # Overkill threshold
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 5
@@ -74,9 +55,15 @@
       - !type:SpillBehavior { }
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: PhysicalComposition
-    materialComposition:
-      Glass: 10 # Trace amounts of glass I guess. Important for overriding inheritance
+  - type: DamageOnLand
+    ignoreResistances: true
+    damage:
+      types:
+        Blunt: 5 # so fragile it smashes when thrown
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 5
 
 # Fragile plastic
 - type: entity
@@ -84,16 +71,11 @@
   id: DrinkBaseMaterialPlastic
   components:
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
 #    damageModifierSet: FlimsyPlastic TODO
   - type: Destructible
     thresholds:
-    - trigger: # Overkill threshold
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 5
@@ -125,12 +107,6 @@
   components:
   - type: Destructible
     thresholds:
-    - trigger: # Overkill threshold
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 20 # can take a few more hits than basic plastic
@@ -159,16 +135,11 @@
   id: DrinkBaseMaterialCardboard
   components:
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Card
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
-    - trigger: # Overkill threshold
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 5
@@ -198,16 +169,11 @@
   id: DrinkBaseMaterialMetal
   components:
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: FlimsyMetallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
-    - trigger: # Overkill threshold
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 10
@@ -241,12 +207,6 @@
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
-    - trigger: # Overkill threshold
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 25
@@ -267,16 +227,11 @@
   id: DrinkBaseMaterialGold
   components:
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: FlimsyMetallic
+  - type: Injurable
+    damageContainer: Inorganic
   - type: Destructible
     thresholds:
-    - trigger: # Overkill threshold
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 5 # Gold is very weak

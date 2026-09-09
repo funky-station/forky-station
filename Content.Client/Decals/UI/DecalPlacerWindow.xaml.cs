@@ -1,15 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DamianX <DamianX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2025 Brandon Li <48413902+aspiringLich@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Client.Stylesheets;
 using Content.Shared.Decals;
@@ -28,8 +16,8 @@ namespace Content.Client.Decals.UI;
 [GenerateTypedNameReferences]
 public sealed partial class DecalPlacerWindow : DefaultWindow
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IEntityManager _e = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IEntityManager _e = default!;
 
     private readonly DecalPlacementSystem _decalPlacementSystem;
     private readonly SpriteSystem _sprite;

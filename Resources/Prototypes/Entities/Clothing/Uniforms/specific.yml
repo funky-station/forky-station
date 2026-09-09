@@ -1,49 +1,40 @@
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Justin Pfeifler <jrpl101998@gmail.com>
-# SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: [ClothingUniformBase, BaseChameleon]
   id: ClothingUniformJumpsuitChameleon
   name: black jumpsuit
-  description: A generic black jumpsuit with no rank markings.
   suffix: Chameleon
+  description: A generic black jumpsuit with no rank markings.
   components:
-    - type: Tag
-      tags: # ignore "WhitelistChameleon" tag
-      - ClothMade
-      - Recyclable
-    - type: Sprite
-      sprite: Clothing/Uniforms/Jumpsuit/color.rsi
-      layers:
-      - state: icon
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuits/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#3f3f3f"
+    - state: trinkets-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
         color: "#3f3f3f"
-      - state: trinkets-icon
-    - type: Item
-      inhandVisuals:
-        left:
-        - state: inhand-left
-          color: "#3f3f3f"
-        - state: trinkets-inhand-left
-        right:
-        - state: inhand-right
-          color: "#3f3f3f"
-        - state: trinkets-inhand-right
-    - type: Clothing
-      sprite: Clothing/Shoes/color.rsi
-      clothingVisuals:
-        shoes:
-        - state: equipped-FEET
-          color: "#1d1d1d"
-        - state: soles-equipped-FEET
-    - type: SuitSensor
-      randomMode: false
-      mode: SensorOff
-    - type: ChameleonClothing
-      slot: [innerclothing]
-      default: ClothingUniformJumpsuitColorBlack
+      - state: trinkets-inhand-left
+      right:
+      - state: inhand-right
+        color: "#3f3f3f"
+      - state: trinkets-inhand-right
+  - type: Clothing
+    sprite: Clothing/Shoes/color.rsi
+    clothingVisuals:
+      shoes:
+      - state: equipped-FEET
+        color: "#1d1d1d"
+      - state: soles-equipped-FEET
+  - type: SuitSensor
+    randomMode: false
+    mode: SensorOff
+  - type: Tag
+    tags: # ignore "WhitelistChameleon" tag
+    - ClothMade
+    - Recyclable
+  - type: ChameleonClothing
+    slot: [innerclothing]
+    default: ClothingUniformJumpsuitColorBlack

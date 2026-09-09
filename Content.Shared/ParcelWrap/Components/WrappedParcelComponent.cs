@@ -1,7 +1,4 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
-// SPDX-License-Identifier: MIT
-
+using Content.Shared.Item;
 using Content.Shared.ParcelWrap.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -48,6 +45,21 @@ public sealed partial class WrappedParcelComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public string ContainerId = "contents";
+
+    /// <summary>
+    /// If true, the owner of this entity has its <see cref="ItemComponent.Size"/> set to the size of any item inserted
+    /// into <see cref="Container"/>. If the contents do not have a size,
+    /// <see cref="ParcelWrappingSystem._fallbackParcelSize"/> is used instead.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool GetsSizeFromContent = true;
+
+    /// <summary>
+    /// If true, the owner of this entity has its <see cref="ItemComponent.Shape"/> set to the shape of any item
+    /// inserted into <see cref="Container"/>.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool GetsShapeFromContent;
 
     /// <summary>
     /// If a player trapped inside this parcel can escape from it by unwrapping it.

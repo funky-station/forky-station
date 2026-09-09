@@ -1,14 +1,6 @@
-# SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 eoineoineoin <eoin.mcloughlin+gh@gmail.com>
-# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: DiseaseDiagnoser
-  parent: [ BaseMachinePowered, SmallConstructibleMachine ]
+  parent: [ BaseMachinePowered, SmallConstructibleMachine, BaseSmallConstructibleMachineDestructible ]
   name: Disease Diagnoser Delta Extreme
   description: A machine that analyzes disease samples.
   placement:
@@ -25,6 +17,14 @@
   - type: Appearance
   - type: Machine
     board: DiagnoserMachineCircuitboard
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 
 - type: entity
   name: disease diagnoser report
@@ -33,7 +33,7 @@
   description: 'A chilling medical receipt.'
   components:
   - type: Sprite
-    sprite: Objects/Misc/bureaucracy.rsi
+    sprite: _Funkystation/Objects/Misc/bureaucracy.rsi # Funky
     layers:
     - state: paper_receipt
     - state: paper_receipt_words
@@ -45,7 +45,7 @@
   - type: PaperVisuals
     backgroundImagePath: "/Textures/Interface/Paper/paper_background_perforated.svg.96dpi.png"
     headerImagePath: "/Textures/Interface/Paper/paper_heading_virus.svg.96dpi.png"
-    headerMargin: 0.0, 0.0, 0.0, 6.0
+    headerMargin: 0.0, 6.0, 0.0, 0.0
     backgroundImageTile: true
     backgroundPatchMargin: 0.0, 6.0, 0.0, 6.0
     contentMargin: 12.0, 0.0, 12.0, 0.0

@@ -1,24 +1,5 @@
-// SPDX-FileCopyrightText: 2024-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 godisdeadLOL <169250097+godisdeadLOL@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 IgorAnt028 <118114530+IgorAnt028@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <shadowjjt@gmail.com>
-// SPDX-FileCopyrightText: 2024 Zealith-Gamer <61980908+Zealith-Gamer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2025 WS01 <151183296+Tuchila-Adi-Bogdan@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ciarán Walsh <github@ciaranwal.sh>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 InsoPL <lukasz.lindert@protonmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Verm <32827189+Vermidia@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.ActionBlocker;
+using Content.Shared._ST.Interaction; // Stellar - interaction particles
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
 using Content.Shared.Buckle.Components;
@@ -58,21 +39,21 @@ namespace Content.Shared.Movement.Pulling.Systems;
 /// <summary>
 /// Allows one entity to pull another behind them via a physics distance joint.
 /// </summary>
-public sealed class PullingSystem : EntitySystem
+public sealed partial class PullingSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _modifierSystem = default!;
-    [Dependency] private readonly SharedJointSystem _joints = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly HeldSpeedModifierSystem _clothingMoveSpeed = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedVirtualItemSystem _virtual = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private ActionBlockerSystem _blocker = default!;
+    [Dependency] private AlertsSystem _alertsSystem = default!;
+    [Dependency] private MovementSpeedModifierSystem _modifierSystem = default!;
+    [Dependency] private SharedJointSystem _joints = default!;
+    [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private SharedHandsSystem _handsSystem = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private HeldSpeedModifierSystem _clothingMoveSpeed = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedVirtualItemSystem _virtual = default!;
 
     public override void Initialize()
     {
@@ -164,7 +145,8 @@ public sealed class PullingSystem : EntitySystem
         if (component.Pulling == null)
             return;
 
-        if (TryComp<PullableComponent>(component.Pulling, out var comp) && (args.NewMobState == MobState.Critical || args.NewMobState == MobState.Dead))
+        // funky, hardcrit added
+        if (TryComp<PullableComponent>(component.Pulling, out var comp) && (args.NewMobState == MobState.Critical || args.NewMobState == MobState.HardCritical || args.NewMobState == MobState.Dead))
         {
             TryStopPull(component.Pulling.Value, comp);
         }
@@ -565,7 +547,7 @@ public sealed class PullingSystem : EntitySystem
 
         // Pulling confirmed
 
-        _interaction.DoContactInteraction(pullableUid, pullerUid);
+        _interaction.DoContactInteraction(pullerUid, pullableUid,null, true, interactionParticleType: StellarInteractionParticleType.Pull); // Stellar - Interaction particles
 
         // Use net entity so it's consistent across client and server.
         pullableComp.PullJointId = $"pull-joint-{GetNetEntity(pullableUid)}";
@@ -633,5 +615,22 @@ public sealed class PullingSystem : EntitySystem
 
         StopPulling(pullableUid, pullable);
         return true;
+    }
+
+    /// <summary>
+    /// Copies compatible datafields of <see cref="PullerComponent"/> onto the target entity.
+    /// </summary>
+    /// <param name="source">The entity who's component will be taken.</param>
+    /// <param name="target">The entity to apply it to.</param>
+    public void CopyPullerComponent(Entity<PullerComponent?> source, EntityUid target)
+    {
+        if (!Resolve(source, ref source.Comp))
+            return;
+
+        var targetComp = EnsureComp<PullerComponent>(target);
+        targetComp.ThrowCooldown = source.Comp.ThrowCooldown;
+        targetComp.NeedsHands = source.Comp.NeedsHands;
+        targetComp.PullingAlert = source.Comp.PullingAlert;
+        Dirty(target, targetComp);
     }
 }

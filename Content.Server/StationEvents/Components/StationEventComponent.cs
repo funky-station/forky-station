@@ -1,17 +1,5 @@
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 LudwigVonChesterfield <17705613+LudwigVonChesterfield@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
-using Robust.Shared.Audio;
+using Content.Shared._MACRO.Announcements;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.StationEvents.Components;
@@ -44,10 +32,10 @@ public sealed partial class StationEventComponent : Component
     public Color EndAnnouncementColor = Color.Gold;
 
     [DataField]
-    public SoundSpecifier? StartAudio;
+    public ProtoId<AnnouncementSoundPrototype>? StartAudio; // Macrocosm edit - announcement sound prototypes
 
     [DataField]
-    public SoundSpecifier? EndAudio;
+    public ProtoId<AnnouncementSoundPrototype>? EndAudio; // Macrocosm edit - announcement sound prototypes
 
     /// <summary>
     ///     In minutes, when is the first round time this event can start
@@ -96,7 +84,7 @@ public sealed partial class StationEventComponent : Component
     public TimeSpan? EndTime;
 
     /// <summary>
-    /// If false, the event won't trigger during ongoing evacuation.
+    /// If false, the event won't trigger after the evacuation shuttle is called and cannot be recalled anymore.
     /// </summary>
     [DataField]
     public bool OccursDuringRoundEnd = true;

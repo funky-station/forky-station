@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Objectives.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Objectives.Components;
@@ -10,7 +7,7 @@ namespace Content.Server.Objectives.Systems;
 /// <summary>
 /// Handles species requirement for objectives that require a certain species.
 /// </summary>
-public sealed class SpeciesRequirementSystem : EntitySystem
+public sealed partial class SpeciesRequirementSystem : EntitySystem
 {
     public override void Initialize()
     {

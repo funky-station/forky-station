@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Server.GameTicking;
 using Content.Shared.Administration;
@@ -17,11 +9,11 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.Administration.Commands
 {
     [AdminCommand(AdminFlags.Round | AdminFlags.Spawn)]
-    public sealed class LoadGameMapCommand : LocalizedEntityCommands
+    public sealed partial class LoadGameMapCommand : LocalizedEntityCommands
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly GameTicker _gameTicker = default!;
-        [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private GameTicker _gameTicker = default!;
+        [Dependency] private SharedMapSystem _mapSystem = default!;
 
         public override string Command => "loadgamemap";
 
@@ -81,9 +73,9 @@ namespace Content.Server.Administration.Commands
     }
 
     [AdminCommand(AdminFlags.Round | AdminFlags.Spawn)]
-    public sealed class ListGameMaps : LocalizedCommands
+    public sealed partial class ListGameMaps : LocalizedCommands
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
 
         public override string Command => "listgamemaps";
 

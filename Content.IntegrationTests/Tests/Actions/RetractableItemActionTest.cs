@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.IntegrationTests.Tests.Interaction;
 using Content.Shared.Actions;
 using Content.Shared.Hands.EntitySystems;
@@ -35,7 +31,7 @@ public sealed class RetractableItemActionTest : InteractionTest
             var armBladeActionProto = ProtoMan.Index(ArmBladeActionProtoId);
 
             // Find the component
-            Assert.That(armBladeActionProto.TryGetComponent<RetractableItemActionComponent>(out var actionComp, SEntMan.ComponentFactory));
+            Assert.That(armBladeActionProto.TryComp<RetractableItemActionComponent>(out var actionComp, SEntMan.ComponentFactory));
             // Get the item protoId from the component
             var spawnedProtoId = actionComp!.SpawnedPrototype;
 

@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.Administration;
 using Content.Shared.Administration;
@@ -14,9 +8,9 @@ namespace Content.Server.Nuke.Commands;
 
 [UsedImplicitly]
 [AdminCommand(AdminFlags.Fun)]
-public sealed class ToggleNukeCommand : LocalizedCommands
+public sealed partial class ToggleNukeCommand : LocalizedCommands
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     public override string Command => "nukearm";
 

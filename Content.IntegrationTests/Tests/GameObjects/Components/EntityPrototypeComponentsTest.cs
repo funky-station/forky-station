@@ -1,17 +1,8 @@
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2026 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Content.IntegrationTests.Fixtures;
 using Robust.Shared.ContentPack;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Utility;
@@ -21,12 +12,12 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components
 {
     [TestFixture]
     [TestOf(typeof(Server.Entry.IgnoredComponents))]
-    public sealed class EntityPrototypeComponentsTest
+    public sealed class EntityPrototypeComponentsTest : GameTest
     {
         [Test]
         public async Task PrototypesHaveKnownComponents()
         {
-            await using var pair = await PoolManager.GetServerClient();
+            var pair = Pair;
             var server = pair.Server;
             var client = pair.Client;
 
@@ -110,7 +101,6 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components
 
             if (unknownComponentsClient.Count + unknownComponentsServer.Count + doubleIgnoredComponents.Count == 0)
             {
-                await pair.CleanReturnAsync();
                 Assert.Pass($"Validated {entitiesValidated} entities with {componentsValidated} components in {paths.Length} files.");
                 return;
             }
@@ -141,11 +131,11 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components
         [Test]
         public async Task IgnoredComponentsExistInTheCorrectPlaces()
         {
-            await using var pair = await PoolManager.GetServerClient();
+            var pair = Pair;
             var server = pair.Server;
             var client = pair.Client;
             var serverComponents = server.ResolveDependency<IComponentFactory>();
-            var ignoredServerNames = Server.Entry.IgnoredComponents.List;
+            var ignoredServerNames = Content.Server.Entry.IgnoredComponents.List;
             var clientComponents = client.ResolveDependency<IComponentFactory>();
 
             var failureMessages = "";
@@ -161,7 +151,6 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components
                 }
             }
             Assert.That(failureMessages, Is.Empty);
-            await pair.CleanReturnAsync();
         }
     }
 }

@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Cargo;
 using Robust.Client.GameObjects;
 
@@ -8,7 +5,7 @@ namespace Content.Client.Cargo.Systems;
 
 public sealed partial class CargoSystem : SharedCargoSystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _player = default!;
+    [Dependency] private AnimationPlayerSystem _player = default!;
 
     public override void Initialize()
     {

@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Fahasor <70820551+Fahasor@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: Exclamation
   name: exclamation
@@ -11,7 +7,7 @@
     - type: Transform
       noRot: true
     - type: Sprite
-      sprite: Structures/Storage/closet.rsi
+      sprite: _Funkystation/Structures/Storage/closet.rsi # Funky
       drawdepth: Effects
       noRot: true
       layers:
@@ -21,15 +17,15 @@
     - type: Tag
       tags:
         - HideContextMenu
-        
-        
+
+
 - type: entity
   id: WhistleExclamation
   name: exclamation
   categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
-      sprite: Structures/Storage/closet.rsi
+      sprite: _Funkystation/Structures/Storage/closet.rsi # Funky
       state: cardboard_special
       drawdepth: Effects
       offset: 0, 1

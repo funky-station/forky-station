@@ -1,17 +1,3 @@
-# SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 potato1234_x <79580518+potato1234x@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Debug <49997488+DebugOk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   name: mousetrap
   parent: BaseItem
@@ -19,7 +5,7 @@
   description: Useful for catching rodents sneaking into your kitchen.
   components:
     - type: Sprite
-      sprite: Objects/Devices/mousetrap.rsi
+      sprite: _Funkystation/Objects/Devices/mousetrap.rsi # Funky
       drawdepth: SmallMobs # if mice can hide under tables, so can mousetraps
       layers:
       - state: mousetrap
@@ -28,6 +14,9 @@
       intersectRatio: 0.2
       requiredTriggeredSpeed: 2
     - type: Mousetrap
+    - type: ItemToggleExaminableStatus
+      onText: item-toggle-examined-active
+      offText: item-toggle-examined-not-active
     - type: ItemToggle
       soundActivate: "/Audio/Items/Handcuffs/cuff_end.ogg"
       soundDeactivate: "/Audio/Items/snap.ogg"
@@ -36,6 +25,7 @@
     - type: UseDelay
     - type: ItemToggleOnTrigger
       canActivate: false
+      consciousAction: false # mice trigger it unknowingly
       showPopup: false # only show the popup when arming/disarming the trap in your hand
     - type: TriggerOnStepTrigger
     - type: PreventableStepTrigger
@@ -45,7 +35,7 @@
         types:
           Blunt: 2 # base damage, scales based on mass
     - type: Item
-      sprite: Objects/Devices/mousetrap.rsi
+      sprite: _Funkystation/Objects/Devices/mousetrap.rsi # Funky
     - type: Appearance
     - type: GenericVisualizer
       visuals:
@@ -73,7 +63,6 @@
           density: 30
           mask:
             - ItemMask
-    - type: Rotatable
 
 - type: entity
   name: mousetrap

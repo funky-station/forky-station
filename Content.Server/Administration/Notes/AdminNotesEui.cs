@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Riggle <27156122+RigglePrime@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration.Managers;
 using Content.Server.EUI;
 using Content.Shared.Administration.Notes;
@@ -17,11 +11,11 @@ using static Content.Shared.Administration.Notes.AdminNoteEuiMsg;
 
 namespace Content.Server.Administration.Notes;
 
-public sealed class AdminNotesEui : BaseEui
+public sealed partial class AdminNotesEui : BaseEui
 {
-    [Dependency] private readonly IAdminManager _admins = default!;
-    [Dependency] private readonly IAdminNotesManager _notesMan = default!;
-    [Dependency] private readonly IPlayerLocator _locator = default!;
+    [Dependency] private IAdminManager _admins = default!;
+    [Dependency] private IAdminNotesManager _notesMan = default!;
+    [Dependency] private IPlayerLocator _locator = default!;
 
     public AdminNotesEui()
     {

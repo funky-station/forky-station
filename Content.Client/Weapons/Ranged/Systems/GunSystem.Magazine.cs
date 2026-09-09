@@ -1,9 +1,7 @@
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 778b <33431126+778b@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 mq <113324899+mqole@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+using Content.Client.Items;
+using Content.Client.Weapons.Ranged.UI;
 using Content.Shared.Weapons.Ranged;
+using Content.Shared.Weapons.Ranged.Components;
 
 namespace Content.Client.Weapons.Ranged.Systems;
 
@@ -14,6 +12,8 @@ public sealed partial class GunSystem
         base.InitializeMagazine();
         SubscribeLocalEvent<MagazineAmmoProviderComponent, UpdateAmmoCounterEvent>(OnMagazineAmmoUpdate);
         SubscribeLocalEvent<MagazineAmmoProviderComponent, AmmoCounterControlEvent>(OnMagazineControl);
+
+        Subs.ItemStatus<BallisticAmmoProviderComponent>(entity => new MagazineStatusControl(entity));
     }
 
     private void OnMagazineAmmoUpdate(Entity<MagazineAmmoProviderComponent> ent, ref UpdateAmmoCounterEvent args)

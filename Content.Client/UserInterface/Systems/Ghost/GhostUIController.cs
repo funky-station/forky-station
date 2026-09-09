@@ -1,26 +1,18 @@
-// SPDX-FileCopyrightText: 2022-2023 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Gameplay;
 using Content.Client.Ghost;
 using Content.Client.UserInterface.Systems.Gameplay;
 using Content.Client.UserInterface.Systems.Ghost.Widgets;
-using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
+using Content.Shared.Ghost.Systems;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 
 namespace Content.Client.UserInterface.Systems.Ghost;
 
 // TODO hud refactor BEFORE MERGE fix ghost gui being too far up
-public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSystem>
+public sealed partial class GhostUIController : UIController, IOnSystemChanged<GhostSystem>
 {
-    [Dependency] private readonly IEntityNetworkManager _net = default!;
+    [Dependency] private IEntityNetworkManager _net = default!;
 
     [UISystemDependency] private readonly GhostSystem? _system = default;
 
@@ -126,6 +118,18 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         _net.SendSystemNetworkMessage(msg);
     }
 
+    private void OnWarpToRandomFollowedClicked()
+    {
+        var msg = new WarpToRandomFollowedRequestEvent();
+        _net.SendSystemNetworkMessage(msg);
+    }
+
+    private void OnWarpToRandomClicked()
+    {
+        var msg = new WarpToRandomRequestEvent();
+        _net.SendSystemNetworkMessage(msg);
+    }
+
     public void LoadGui()
     {
         if (Gui == null)
@@ -136,6 +140,8 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui.GhostRolesPressed += GhostRolesPressed;
         Gui.TargetWindow.WarpClicked += OnWarpClicked;
         Gui.TargetWindow.OnGhostnadoClicked += OnGhostnadoClicked;
+        Gui.TargetWindow.OnWarpToRandomFollowedClicked += OnWarpToRandomFollowedClicked;
+        Gui.TargetWindow.OnWarpToRandomClicked += OnWarpToRandomClicked;
 
         UpdateGui();
     }

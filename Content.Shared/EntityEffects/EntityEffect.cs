@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Database;
 using Content.Shared.EntityConditions;
 using Robust.Shared.Prototypes;
@@ -18,8 +10,18 @@ namespace Content.Shared.EntityEffects;
 [ImplicitDataDefinitionForInheritors]
 public abstract partial class EntityEffect
 {
+    /// <summary>
+    /// Applies this effect to a target.
+    /// </summary>
+    /// <param name="target">Target we're applying an effect to.</param>
+    /// <param name="raiser">The type of effect raising the event.</param>
+    /// <param name="scale">Optional scale multiplier for the effect.</param>
+    /// <param name="user">The entity causing the effect.</param>
     public abstract void RaiseEvent(EntityUid target, IEntityEffectRaiser raiser, float scale, EntityUid? user);
 
+    /// <summary>
+    /// Conditions for this effect to happen.
+    /// </summary>
     [DataField]
     public EntityCondition[]? Conditions;
 
@@ -42,6 +44,12 @@ public abstract partial class EntityEffect
     [DataField]
     public float Probability = 1.0f;
 
+/// <summary>
+/// Generates the guidebook text for this effect.
+/// </summary>
+/// <param name="prototype">Prototype manager, to resolve prototype calls.</param>
+/// <param name="entSys">EntitySystem manager, to resolve system calls.</param>
+/// <returns>The guidebook text string, if generated. Null otherwise.</returns>
     public virtual string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys) => null;
 
     /// <summary>
@@ -50,6 +58,9 @@ public abstract partial class EntityEffect
     [ViewVariables]
     public virtual LogImpact? Impact => null;
 
+    /// <summary>
+    /// The type of log this effect should cause.
+    /// </summary>
     [ViewVariables]
     public virtual LogType LogType => LogType.EntityEffect;
 }

@@ -1,0 +1,24 @@
+- files: ["ratchet_click.ogg"]
+  license: "CC-BY-NC-3.0"
+  copyright: "Mixed by vectomassembly"
+  source: "https://funkystation.org"
+
+- files: ["hydraulic-decompress.ogg"]
+  license: "CC-BY-NC-3.0"
+  copyright: "Mixed by vectomassembly"
+  source: "https://funkystation.org"
+
+- files: ["gears_clicking.ogg"]
+  license: "CC0-1.0"
+  copyright: "Mixed by AraiMaia with sources by SoundsofTheMachine, taken via freesound.org"
+  source: "https://freesound.org/people/SoundsofTheMachine/sounds/843093/"
+
+- files: ["cprpulse.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Created by mixing some Effects sounds together by Orsoniks (uses thudwoosh and weak_hit1)"
+  source: "https://github.com/cmss13-devs/cmss13"
+
+- files: ["ribcrack.ogg"]
+  license: "CC0-1.0"
+  copyright: "By mf_gloom, taken via freesound.org"
+  source: "https://freesound.org/people/mf_gloom/sounds/517850/"

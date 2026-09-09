@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Research.Systems;
 using Content.Server.Xenoarchaeology.Artifact;
 using Content.Shared.Popups;
@@ -12,12 +8,12 @@ using Robust.Shared.Audio.Systems;
 namespace Content.Server.Xenoarchaeology.Equipment;
 
 /// <inheritdoc />
-public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
+public sealed partial class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly ResearchSystem _research = default!;
-    [Dependency] private readonly XenoArtifactSystem _xenoArtifact = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private ResearchSystem _research = default!;
+    [Dependency] private XenoArtifactSystem _xenoArtifact = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

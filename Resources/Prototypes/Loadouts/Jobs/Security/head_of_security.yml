@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 qrwas <aleksandr.vernigora93@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: loadoutEffectGroup
   id: MasterHoS
   effects:
@@ -50,6 +44,53 @@
     jumpsuit: ClothingUniformJumpskirtHosFormal
   groupBy: "jumpskirt"
 
+##########################################
+# Funky security uniforms
+
+- type: loadout
+  id: FuHosService
+  equipment:
+    jumpsuit: FuClothingUniformHosService
+  groupBy: "service"
+
+- type: loadout
+  id: FuHosDressPants
+  equipment:
+    jumpsuit: FuClothingUniformHosDressPants
+  groupBy: "dresspants"
+
+- type: loadout
+  id: FuHosDressSkirt
+  equipment:
+    jumpsuit: FuClothingUniformHosDressSkirt
+  groupBy: "dressskirt"
+
+- type: loadout
+  id: FuHosDressSkirtStockings
+  equipment:
+    jumpsuit: FuClothingUniformHosDressSkirtStockings
+  groupBy: "dressskirt"
+
+- type: loadout
+  id: FuHosMessPants
+  equipment:
+    jumpsuit: FuClothingUniformHosMessPants
+  groupBy: "messpants"
+
+- type: loadout
+  id: FuHosMessSkirt
+  equipment:
+    jumpsuit: FuClothingUniformHosMessSkirt
+  groupBy: "messskirt"
+
+- type: loadout
+  id: FuHosMessSkirtStockings
+  equipment:
+    jumpsuit: FuClothingUniformHosMessSkirtStockings
+  groupBy: "messskirt"
+
+##########################################
+
 # Head
 - type: loadout
   id: HeadofSecurityHead
@@ -89,4 +130,4 @@
 - type: loadout
   id: HeadofSecurityWinterCoat
   equipment:
-    outerClothing: ClothingOuterWinterHoS
+    outerClothing: FuClothingOuterWinterHos

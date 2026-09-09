@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Threading;
 using System.Threading.Tasks;
 using Robust.Shared.Random;
@@ -10,7 +6,7 @@ namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators;
 
 public sealed partial class PickRandomRotationOperator : HTNOperator
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     [DataField("targetKey")]
     public string TargetKey = "RotateTarget";

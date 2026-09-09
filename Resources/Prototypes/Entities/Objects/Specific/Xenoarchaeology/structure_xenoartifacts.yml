@@ -1,14 +1,8 @@
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: [BaseStructureDynamic, BaseXenoArtifact]
   id: BaseXenoArtifactStructure
   name: artifact
   abstract: true
-  noSpawn: true
   components:
   # Visual
   - type: Sprite
@@ -45,6 +39,15 @@
         - Opaque
         mask:
         - MachineMask
+
+- type: entity
+  id: DummyArtifactStructure
+  parent: BaseXenoArtifactStructure
+  name: artifact
+  suffix: Debug
+  components:
+  - type: XenoArtifact
+    isGenerationRequired: false
 
 - type: entity
   parent: BaseXenoArtifactStructure

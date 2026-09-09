@@ -1,30 +1,13 @@
-# SPDX-FileCopyrightText: 2023-2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 potato1234_x <79580518+potato1234x@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 OctoRocket <88291550+OctoRocket@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 freeman2651 <104049107+freeman2651@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 degradka <69397649+degradka@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Smith <182301147+AgentSmithRadio@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
-  parent: BaseItem
-  id: BaseVendingMachineRestock
   abstract: true
+  parent: [ BaseItem, BaseItemDestructible ]
+  id: BaseVendingMachineRestock
   name: vending machine restock box
   description: A box for restocking vending machines with corporate goodies.
   components:
   - type: VendingMachineRestock
   - type: Sprite
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     layers:
     - state: base
     - state: green_bit
@@ -40,26 +23,17 @@
   - type: Item
     size: Normal
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 40
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 20
+        damage: 50
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
       - !type:DumpRestockInventory
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
 
 - type: entity
   parent: BaseVendingMachineRestock
@@ -355,7 +329,7 @@
     - SpaceUpInventory
     - SodaInventory
     - DrGibbInventory
-    - SmiteInventory 
+    - SmiteInventory
   - type: Sprite
     layers:
     - state: base

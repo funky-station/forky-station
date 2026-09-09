@@ -1,220 +1,160 @@
-# SPDX-FileCopyrightText: 2021-2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2022 Interrobang01 <113810873+Interrobang01@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Chris V <HoofedEar@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Sirionaut <148076704+Sirionaut@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 kxv <136233650+kxvvv@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Lei Yunxing <lyx2020@sjtu.edu.cn>
-# SPDX-FileCopyrightText: 2023 lzk228 <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 august-sun <45527070+august-sun@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 FungiFellow <151778459+FungiFellow@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Adrian16199 <144424013+Adrian16199@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
-# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
-# SPDX-FileCopyrightText: 2025 Ertanic <36124833+Ertanic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 August Sun <45527070+august-sun@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2026 Samuka <47865393+Samuka-C@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
+# region Base
 - type: construction
+  abstract: true
+  id: BaseItemMisc
+  category: construction-category-misc
+  objectType: Item
+# endregion
+
+# region Weapons
+- type: construction
+  parent: BaseWeapon
   id: bat
   graph: WoodenBat
-  startNode: start
   targetNode: bat
-  category: construction-category-weapons
-  objectType: Item
 
 - type: construction
-  id: ghost_sheet
-  graph: GhostSheet
-  startNode: start
-  targetNode: ghost_sheet
-  category: construction-category-clothing
-  objectType: Item
-
-- type: construction
-  id: makeshifthandcuffs
-  graph: makeshifthandcuffs
-  startNode: start
-  targetNode: cuffscable
-  category: construction-category-tools
-  objectType: Item
-
-- type: construction
+  parent: BaseWeapon
   id: makeshiftstunprod
   graph: makeshiftstunprod
-  startNode: start
   targetNode: msstunprod
-  category: construction-category-weapons
-  objectType: Item
 
 - type: construction
-  id: muzzle
-  graph: Muzzle
-  startNode: start
-  targetNode: muzzle
-  category: construction-category-tools
-  objectType: Item
-
-- type: construction
+  parent: BaseWeapon
   id: pneumaticcannon
   graph: PneumaticCannon
-  startNode: start
   targetNode: cannon
-  category: construction-category-weapons
-  objectType: Item
 
 - type: construction
-  id: gauze
-  graph: Gauze
-  startNode: start
-  targetNode: gauze
-  category: construction-category-tools
-  objectType: Item
-
-- type: construction
-  id: blindfold
-  graph: Blindfold
-  startNode: start
-  targetNode: blindfold
-  category: construction-category-tools
-  objectType: Item
-
-- type: construction
-  id: flowerwreath
-  graph: flowerwreath
-  startNode: start
-  targetNode: flowerwreath
-  category: construction-category-clothing
-  objectType: Item
-
-- type: construction
-  id: rag
-  graph: Rag
-  startNode: start
-  targetNode: rag
-  category: construction-category-tools
-  objectType: Item
-
-- type: construction
+  parent: BaseWeapon
   id: improvisedshotgun
   graph: ImprovisedShotgunGraph
-  startNode: start
   targetNode: shotgun
-  category: construction-category-weapons
-  objectType: Item
 
 - type: construction
+  parent: BaseWeapon
   id: ShellShotgunImprovised
   graph: ImprovisedShotgunShellGraph
-  startNode: start
   targetNode: shell
-  category: construction-category-weapons
-  objectType: Item
 
 - type: construction
+  parent: BaseWeapon
   id: riflestock
   graph: RifleStockGraph
-  startNode: start
   targetNode: riflestock
-  category: construction-category-weapons
-  objectType: Item
 
 - type: construction
+  parent: BaseWeapon
   id: firebomb
   graph: FireBomb
-  startNode: start
   targetNode: firebomb
-  category: construction-category-weapons
-  objectType: Item
 
 - type: construction
-  id: CottonWovenCloth
-  graph: CottonObjects
-  startNode: start
-  targetNode: cottoncloth
-  category: construction-category-misc
-  objectType: Item
-
-- type: construction
-  id: strawHat
-  graph: StrawHat
-  startNode: start
-  targetNode: strawhat
-  category: construction-category-clothing
-  objectType: Item
-
-- type: construction
+  parent: BaseWeapon
   id: pipebomb
   graph: PipeBomb
-  startNode: start
   targetNode: pipebomb
-  category: construction-category-weapons
-  objectType: Item
+# endregion Weapons
+
+# region Clothing
+- type: construction
+  parent: BaseClothing
+  id: ghost_sheet
+  graph: GhostSheet
+  targetNode: ghost_sheet
 
 - type: construction
-  id: rollingpin
-  graph: WoodenRollingPin
-  startNode: start
-  targetNode: rollingpin
-  category: construction-category-tools
-  objectType: Item
+  parent: BaseClothing
+  id: flowerwreath
+  graph: flowerwreath
+  targetNode: flowerwreath
 
 - type: construction
-  id: PetCarrier
-  graph: PetCarrier
-  startNode: start
-  targetNode: petCarrier
-  category: construction-category-misc
-  objectType: Item
+  parent: BaseClothing
+  id: strawHat
+  graph: StrawHat
+  targetNode: strawhat
 
 - type: construction
-  id: RepairMothershipPinpointer
-  graph: RepairMothershipPinpointer
-  startNode: start
-  targetNode: repairedPinpointer
-  category: construction-category-misc
-  objectType: Item
-
-- type: construction
+  parent: BaseClothing
   id: HardsuitGoliath
   graph: HardsuitGoliath
-  startNode: start
   targetNode: hardsuitGoliath
-  category: construction-category-clothing
-  objectType: Item
 
 - type: construction
+  parent: BaseClothing
   id: scraparmor
   graph: scraparmor
-  startNode: start
   targetNode: scraparmorfinished
-  category: construction-category-clothing
-  objectType: Item
 
 - type: construction
+  parent: BaseClothing
   id: scraphelmet
   graph: scraphelmet
-  startNode: start
   targetNode: scraphelmet
-  category: construction-category-clothing
-  objectType: Item
 
 - type: construction
+  parent: BaseClothing
   id: ClothingBagPet
   graph: ClothingBagPet
-  startNode: start
   targetNode: bagPet
-  category: construction-category-clothing
-  objectType: Item
+# endregion Clothing
+
+# region Tools
+- type: construction
+  parent: BaseTool
+  id: makeshifthandcuffs
+  graph: makeshifthandcuffs
+  targetNode: cuffscable
+
+- type: construction
+  parent: BaseTool
+  id: muzzle
+  graph: Muzzle
+  targetNode: muzzle
+
+- type: construction
+  parent: BaseTool
+  id: gauze
+  graph: Gauze
+  targetNode: gauze
+
+- type: construction
+  parent: BaseTool
+  id: blindfold
+  graph: Blindfold
+  targetNode: blindfold
+
+- type: construction
+  parent: BaseTool
+  id: rag
+  graph: Rag
+  targetNode: rag
+
+- type: construction
+  parent: BaseTool
+  id: rollingpin
+  graph: WoodenRollingPin
+  targetNode: rollingpin
+# endregion Tools
+
+# region Miscellaneous
+- type: construction
+  parent: BaseItemMisc
+  id: CottonWovenCloth
+  graph: CottonObjects
+  targetNode: cottoncloth
+  category: construction-category-materials
+
+- type: construction
+  parent: BaseItemMisc
+  id: PetCarrier
+  graph: PetCarrier
+  targetNode: petCarrier
+
+- type: construction
+  parent: BaseItemMisc
+  id: RepairMothershipPinpointer
+  graph: RepairMothershipPinpointer
+  targetNode: repairedPinpointer
+# endregion Miscellaneous

@@ -1,30 +1,6 @@
-// SPDX-FileCopyrightText: 2020-2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
-// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 faint <46868845+ficcialfaint@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Łukasz Mędrek <lukasz@lukaszm.xyz>
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
-using Content.Server.Forensics;
-using Content.Server.Stack;
 using Content.Shared.Destructible.Thresholds;
+using Content.Shared.Forensics.Components;
 using Content.Shared.Prototypes;
 using Content.Shared.Stacks;
 using Robust.Server.GameObjects;
@@ -71,7 +47,7 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
                 {
                     var count = minMax.Min >= minMax.Max
                         ? minMax.Min
-                        : system.Random.Next(minMax.Min, minMax.Max + 1);
+                        : system.Random.NextFloat(minMax.Min, minMax.Max + 1);
 
                     if (count == 0)
                         continue;
@@ -81,7 +57,7 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
                         var spawned = SpawnInContainer
                             ? system.EntityManager.SpawnNextToOrDrop(entityId, owner)
                             : system.EntityManager.SpawnEntity(entityId, position.Offset(getRandomVector()));
-                        system.StackSystem.SetCount((spawned, null), count);
+                        system.StackSystem.SetCount((spawned, null), (int) count);
 
                         TransferForensics(spawned, system, owner);
                     }

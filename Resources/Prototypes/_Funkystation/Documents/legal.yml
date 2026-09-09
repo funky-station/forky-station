@@ -1,0 +1,9 @@
+- type: document
+  id: DocNda
+  name: doc-nda-name
+  description: doc-nda-desc
+  category: DocCatLegal
+  paperPrototype: Paper
+  content: doc-nda-content
+  access:
+    - Command

@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025-2026 āda <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2025 Tiniest Shark <head.rebel@yahoo.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   abstract: true
   parent: BaseFigurine

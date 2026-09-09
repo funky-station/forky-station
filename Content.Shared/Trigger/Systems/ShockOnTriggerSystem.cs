@@ -1,17 +1,13 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Electrocution;
 using Content.Shared.Trigger.Components.Effects;
 using Robust.Shared.Containers;
 
 namespace Content.Shared.Trigger.Systems;
 
-public sealed class ShockOnTriggerSystem : XOnTriggerSystem<ShockOnTriggerComponent>
+public sealed partial class ShockOnTriggerSystem : XOnTriggerSystem<ShockOnTriggerComponent>
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedElectrocutionSystem _electrocution = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedElectrocutionSystem _electrocution = default!;
 
     protected override void OnTrigger(Entity<ShockOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
     {

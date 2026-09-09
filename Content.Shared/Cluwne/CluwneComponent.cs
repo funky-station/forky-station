@@ -1,17 +1,10 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Jessica M <jessica@jessicamaybe.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Audio;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.Roles;
+using Content.Shared.StatusEffectNew.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Cluwne;
 
@@ -19,6 +12,12 @@ namespace Content.Shared.Cluwne;
 [NetworkedComponent]
 public sealed partial class CluwneComponent : Component
 {
+    /// <summary>
+    /// A status effect applied to those afflicted with cluwneness.
+    /// </summary>
+    [DataField]
+    public EntProtoId<StatusEffectComponent> CluwneStatus = "StatusEffectClumsyCluwne";
+
     /// <summary>
     /// timings for giggles and knocks.
     /// </summary>
@@ -33,7 +32,7 @@ public sealed partial class CluwneComponent : Component
     {
         DamageDict = new()
         {
-            { "Genetic", 300.0 },
+            { "Cellular", 300.0 },
         },
     };
 

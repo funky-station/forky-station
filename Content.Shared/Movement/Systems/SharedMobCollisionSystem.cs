@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Shared.CCVar;
 using Content.Shared.Movement.Components;
@@ -15,16 +12,16 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Movement.Systems;
 
-public abstract class SharedMobCollisionSystem : EntitySystem
+public abstract partial class SharedMobCollisionSystem : EntitySystem
 {
-    [Dependency] protected readonly IConfigurationManager CfgManager = default!;
-    [Dependency] private   readonly IRobustRandom _random = default!;
-    [Dependency] private   readonly MovementSpeedModifierSystem _moveMod = default!;
-    [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
-    [Dependency] private   readonly SharedTransformSystem _xformSystem = default!;
+    [Dependency] protected IConfigurationManager CfgManager = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MovementSpeedModifierSystem _moveMod = default!;
+    [Dependency] protected SharedPhysicsSystem Physics = default!;
+    [Dependency] private SharedTransformSystem _xformSystem = default!;
 
-    protected EntityQuery<MobCollisionComponent> MobQuery;
-    protected EntityQuery<PhysicsComponent> PhysicsQuery;
+    [Dependency] protected EntityQuery<MobCollisionComponent> MobQuery = default!;
+    [Dependency] protected EntityQuery<PhysicsComponent> PhysicsQuery = default!;
 
     /// <summary>
     /// <see cref="CCVars.MovementPushingCap"/>
@@ -67,8 +64,6 @@ public abstract class SharedMobCollisionSystem : EntitySystem
             }, true);
         Subs.CVar(CfgManager, CCVars.MovementPushMassCap, val => _massDiffCap = val, true);
 
-        MobQuery = GetEntityQuery<MobCollisionComponent>();
-        PhysicsQuery = GetEntityQuery<PhysicsComponent>();
         SubscribeAllEvent<MobCollisionMessage>(OnCollision);
         SubscribeLocalEvent<MobCollisionComponent, RefreshMovementSpeedModifiersEvent>(OnMoveModifier);
 

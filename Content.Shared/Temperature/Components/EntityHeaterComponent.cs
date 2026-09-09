@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Temperature.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -21,7 +16,7 @@ public sealed partial class EntityHeaterComponent : Component
     /// Low and medium are 33% and 66% respectively.
     /// </summary>
     [DataField]
-    public float Power = 2400f;
+    public float Power = 12000f;
 
     /// <summary>
     /// Current setting of the heater. If it is off or unpowered it won't heat anything.

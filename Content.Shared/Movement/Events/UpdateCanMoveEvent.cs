@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.ActionBlocker;
 using Content.Shared.Movement.Components;
 
@@ -26,3 +21,15 @@ public sealed class UpdateCanMoveEvent : CancellableEntityEventArgs
 
     public EntityUid Uid { get; }
 }
+
+/// <summary>
+/// Event raised on an entity when their value of <see cref="InputMoverComponent.CanMove"/> is updated.
+/// </summary>
+[ByRefEvent]
+public readonly record struct CanMoveUpdatedEvent(bool CanMove);
+
+/// <summary>
+/// Raised on a source entity when its effective movement entity changes.
+/// </summary>
+[ByRefEvent]
+public readonly record struct EffectiveMoverChangedEvent(EntityUid OldMover, EntityUid NewMover);

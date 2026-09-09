@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Clothing;
 using Content.Shared.Inventory;
 using Content.Shared.NameModifier.Components;
@@ -9,7 +6,7 @@ namespace Content.Shared.NameModifier.EntitySystems;
 
 public sealed partial class ModifyWearerNameSystem : EntitySystem
 {
-    [Dependency] private readonly NameModifierSystem _nameMod = default!;
+    [Dependency] private NameModifierSystem _nameMod = default!;
 
     public override void Initialize()
     {

@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023, 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Content.Shared.Parallax.Biomes;
@@ -75,7 +70,7 @@ public sealed partial class BiomeSystem
             return;
         }
 
-        if (!ProtoManager.TryIndex<BiomeTemplatePrototype>(args[1], out var template))
+        if (!ProtoMan.TryIndex<BiomeTemplatePrototype>(args[1], out var template))
         {
             return;
         }
@@ -100,7 +95,7 @@ public sealed partial class BiomeSystem
         if (args.Length == 2)
         {
             return CompletionResult.FromHintOptions(
-                CompletionHelper.PrototypeIDs<BiomeTemplatePrototype>(proto: ProtoManager), "Biome template");
+                CompletionHelper.PrototypeIDs<BiomeTemplatePrototype>(proto: ProtoMan), "Biome template");
         }
 
         if (args.Length == 3)
@@ -154,7 +149,7 @@ public sealed partial class BiomeSystem
             return;
         }
 
-        if (!ProtoManager.HasIndex<BiomeMarkerLayerPrototype>(args[1]))
+        if (!ProtoMan.HasIndex<BiomeMarkerLayerPrototype>(args[1]))
         {
             return;
         }
@@ -185,7 +180,7 @@ public sealed partial class BiomeSystem
         if (args.Length == 2)
         {
             return CompletionResult.FromHintOptions(
-                CompletionHelper.PrototypeIDs<BiomeMarkerLayerPrototype>(proto: ProtoManager), "Marker");
+                CompletionHelper.PrototypeIDs<BiomeMarkerLayerPrototype>(proto: ProtoMan), "Marker");
         }
 
         return CompletionResult.Empty;

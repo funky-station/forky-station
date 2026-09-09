@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -57,4 +54,10 @@ public sealed partial class RingerComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Active;
+
+    /// <summary>
+    /// Funky, popup text when ringing
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public LocId Popup = "comp-ringer-vibration-popup";
 }

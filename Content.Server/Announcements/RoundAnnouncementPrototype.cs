@@ -1,10 +1,4 @@
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
+using Content.Shared._MACRO.Announcements;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -19,7 +13,7 @@ public sealed partial class RoundAnnouncementPrototype : IPrototype
     [IdDataField]
     public string ID { get; private set; } = default!;
 
-    [DataField("sound")] public SoundSpecifier? Sound;
+    [DataField("sound")] public ProtoId<AnnouncementSoundPrototype>? Sound; // Macrocosm edit - announcement sound prototypes
 
     [DataField("message")] public string? Message;
 }

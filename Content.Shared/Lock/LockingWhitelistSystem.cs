@@ -1,15 +1,12 @@
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Popups;
 using Content.Shared.Whitelist;
 
 namespace Content.Shared.Lock;
 
-public sealed class LockingWhitelistSystem : EntitySystem
+public sealed partial class LockingWhitelistSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {
@@ -24,7 +21,7 @@ public sealed class LockingWhitelistSystem : EntitySystem
             return;
 
         if (!args.Silent)
-            _popupSystem.PopupClient(Loc.GetString("locking-whitelist-component-lock-toggle-deny"), ent.Owner);
+            _popupSystem.PopupEntity(Loc.GetString("locking-whitelist-component-lock-toggle-deny"), ent.Owner, ent.Owner);
 
         args.Cancelled = true;
     }

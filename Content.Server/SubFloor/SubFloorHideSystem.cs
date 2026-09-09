@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Eye;
 using Content.Shared.SubFloor;
 using Robust.Server.Player;
@@ -14,10 +6,10 @@ using Robust.Shared.Player;
 
 namespace Content.Server.SubFloor;
 
-public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
+public sealed partial class SubFloorHideSystem : SharedSubFloorHideSystem
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private SharedEyeSystem _eye = default!;
 
     private HashSet<ICommonSession> _showFloors = new();
 

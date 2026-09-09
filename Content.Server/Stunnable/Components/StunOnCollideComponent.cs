@@ -1,13 +1,5 @@
-// SPDX-FileCopyrightText: 2021-2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Stunnable.Systems;
+using Content.Shared.Whitelist;
 
 namespace Content.Server.Stunnable.Components;
 
@@ -71,5 +63,11 @@ public sealed partial class StunOnCollideComponent : Component
     /// Fixture we track for the collision.
     /// </summary>
     [DataField("fixture")] public string FixtureID = "projectile";
+
+    ///<summary>
+    /// Allows blacklisting of entities
+    /// </summary>
+    [DataField]
+    public EntityWhitelist Blacklist = new();
 }
 

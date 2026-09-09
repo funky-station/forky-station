@@ -1,0 +1,21 @@
+# head
+- type: loadout
+  id: FuMedInternHat
+  equipment:
+    head: FuClothingHeadHatInternMedical
+
+# uniforms
+
+## dress
+
+- type: loadout
+  id: FuMedInternDress
+  equipment:
+    jumpsuit: FuClothingUniformInternDress
+  groupBy: "dress"
+
+- type: loadout
+  id: FuMedInternJumpsuit
+  equipment:
+    jumpsuit: FuClothingUniformInternJumpsuit
+  groupBy: "jumpsuit"

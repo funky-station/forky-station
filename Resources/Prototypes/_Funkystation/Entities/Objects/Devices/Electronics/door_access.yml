@@ -1,0 +1,56 @@
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsNewsroom
+  suffix: Newsroom, Locked
+  components:
+  - type: AccessReader
+    access: [["Newsroom"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsLibrary
+  suffix: Library, Locked
+  components:
+  - type: AccessReader
+    access: [["Library"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsHospitalityDirector
+  suffix: HospitalityDirector, Locked
+  components:
+  - type: AccessReader
+    access: [["HospitalityDirector"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsInternalAffairs
+  suffix: InternalAffairs, Locked
+  components:
+  - type: AccessReader
+    access: [["InternalAffairs"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsMagistrate
+  suffix: Magistrate, Locked
+  components:
+  - type: AccessReader
+    access: [["Magistrate"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsExecutiveOfficer
+  suffix: ExecutiveOfficer, Locked
+  components:
+  - type: AccessReader
+    access: [["ExecutiveOfficer"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsCorporate
+  suffix: Corporate, Locked
+  components:
+  - type: AccessReader
+    access: [["Corporate"]]
+

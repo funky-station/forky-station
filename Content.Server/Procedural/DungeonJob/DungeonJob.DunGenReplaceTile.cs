@@ -1,11 +1,6 @@
-// SPDX-FileCopyrightText: 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Threading.Tasks;
 using Content.Shared.Procedural;
 using Content.Shared.Procedural.DungeonGenerators;
-using Content.Shared.Procedural.PostGeneration;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 
@@ -16,7 +11,7 @@ public sealed partial class DungeonJob
     /// <summary>
     /// <see cref="ReplaceTileDunGen"/>
     /// </summary>
-    private async Task GenerateTileReplacementDunGen(ReplaceTileDunGen gen, List<Dungeon> dungeons, HashSet<Vector2i> reservedTiles, Random random)
+    private async Task GenerateTileReplacementDunGen(ReplaceTileDunGen gen, List<Dungeon> dungeons, HashSet<Vector2i> reservedTiles, IRobustRandom random)
     {
         var replacements = new List<(Vector2i Index, Tile Tile)>();
 

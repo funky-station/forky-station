@@ -1,20 +1,14 @@
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Wrexbe (Josh) <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Console;
 
 namespace Content.Client.Access.Commands;
 
-public sealed class ShowAccessReadersCommand : LocalizedEntityCommands
+public sealed partial class ShowAccessReadersCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IOverlayManager _overlay = default!;
-    [Dependency] private readonly IResourceCache _cache = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
+    [Dependency] private IResourceCache _cache = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
 
     public override string Command => "showaccessreaders";
 

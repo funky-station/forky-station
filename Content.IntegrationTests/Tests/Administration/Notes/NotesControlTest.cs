@@ -1,7 +1,5 @@
-// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
+using Content.Client._RMC14.Mentor; // funky mhelp
 using Content.Client.Administration.UI.Bwoink;
 using Content.Client.Administration.UI.CustomControls;
 using Content.Client.Administration.UI.Notes;
@@ -18,13 +16,17 @@ namespace Content.IntegrationTests.Tests.Administration.Notes;
 /// </summary>
 public sealed class NotesControlTest : InteractionTest
 {
-    protected override PoolSettings Settings => new() {Connected = true, Dirty = true, AdminLogsEnabled = true, DummyTicker = false};
+    public override PoolSettings PoolSettings => new() { Connected = true, Dirty = true, AdminLogsEnabled = true, DummyTicker = false };
 
     [Test]
     public async Task TestNotesControl()
     {
         // Click the ahelp button in the menu bar
         await ClickWidgetControl<GameTopMenuBar, MenuButton>(nameof(GameTopMenuBar.AHelpButton));
+        var staffHelp = GetWindow<StaffHelpWindow>();
+
+        // funky mhelp, pick Admin Help from the staff help menu to get to the actual ahelp window
+        await ClickControl(staffHelp.AdminHelpButton); // funky mhelp
         var bwoink = GetWindow<BwoinkWindow>();
 
         // Damn, if only I had an excuse to use bwoink.Bwoink.BwoinkArea

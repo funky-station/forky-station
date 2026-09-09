@@ -1,45 +1,30 @@
-# SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2022 ChilbroBaggins <107660393+ChilbroBaggins@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 TNE <38938720+JustTNE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Topy <topy72.mine@gmail.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 EnDecc <33369477+Endecc@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
-  name: sink
+  parent: [SolutionTank, SolutionHuge, StructureHealthFurnitureStrong]
   id: SinkEmpty
-  suffix: Empty
+  name: sink
   description: The faucets have been tightened to the maximum possible torque but are still known to drip.
+  suffix: Empty
   placement:
     mode: SnapgridCenter
   components:
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
-    sprite: Structures/Furniture/sink.rsi
+    sprite: _Funkystation/Structures/Furniture/sink.rsi # Funky
     layers:
-      - state: sink_stem
-      - map: [ "enum.SolutionContainerLayers.Fill" ]
-        state: sink-fill-1
-        visible: false
+    - state: sink_stem
+    - map: [ "enum.SolutionContainerLayers.Fill" ]
+      state: sink-fill-1
+      visible: false
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     fillBaseName: sink-fill-
     solutionName: drainBuffer
-  - type: SolutionContainerManager
+  - type: SolutionManager
     solutions:
-      drainBuffer:
-        maxVol: 100
-      tank:
-        maxVol: 500
+    - SolutionDrainNormal
   - type: SolutionRegeneration
-    solution: tank
     generated:
       reagents:
       - ReagentId: Water
@@ -51,26 +36,24 @@
     autoDrain: false
   - type: DumpableSolution
     solution: drainBuffer
+  - type: Edible
+    edible: Drink
+    solution: tank
+    destroyOnEmpty: false
+    utensil: Spoon
   - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageModifierSet: RockMod
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 80
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 40
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
+    - trigger:
+        !type:DamageTrigger
+        damage: 80
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/break_stone.ogg
+          params:
+            volume: -3
   - type: AmbientSound
     enabled: false
     volume: -8
@@ -78,29 +61,24 @@
     sound:
       path: /Audio/Ambience/Objects/drain.ogg
 
-
 - type: entity
-  name: sink
-  id: Sink
   parent: SinkEmpty
+  id: Sink
   suffix: Water
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drainBuffer:
-        maxVol: 200
-      tank:
-        reagents:
-        - ReagentId: Water
-          Quantity: 500
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Water
+        Quantity: 480
 
 - type: entity
-  name: wide sink
-  id: SinkWide
   parent: Sink
+  id: SinkWide
+  name: wide sink
   components:
     - type: Sprite
-      sprite: Structures/Furniture/sink.rsi
+      sprite: _Funkystation/Structures/Furniture/sink.rsi # Funky
       layers:
         - state: sink_wide
         - map: [ "enum.SolutionContainerLayers.Fill" ]
@@ -119,7 +97,7 @@
   parent: SinkEmpty
   components:
   - type: Sprite
-    sprite: Structures/Furniture/sink.rsi
+    sprite: _Funkystation/Structures/Furniture/sink.rsi # Funky
     layers:
       - state: sink
       - map: [ "enum.SolutionContainerLayers.Fill" ]
@@ -132,11 +110,8 @@
   parent: SinkStemless
   suffix: Water
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drainBuffer:
-        maxVol: 100
-      tank:
-        reagents:
-        - ReagentId: Water
-          Quantity: 500
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Water
+        Quantity: 480

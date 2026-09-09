@@ -1,18 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration.Logs;
 using Content.Server.Electrocution;
 using Content.Server.Power.Components;
@@ -28,10 +13,10 @@ namespace Content.Server.Power.EntitySystems;
 
 public sealed partial class CableSystem : EntitySystem
 {
-    [Dependency] private readonly ITileDefinitionManager _tileManager = default!;
-    [Dependency] private readonly SharedToolSystem _toolSystem = default!;
-    [Dependency] private readonly StackSystem _stack = default!;
-    [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
+    [Dependency] private ITileDefinitionManager _tileManager = default!;
+    [Dependency] private SharedToolSystem _toolSystem = default!;
+    [Dependency] private StackSystem _stack = default!;
+    [Dependency] private ElectrocutionSystem _electrocutionSystem = default!;
 
     public override void Initialize()
     {
@@ -50,9 +35,9 @@ public sealed partial class CableSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (cable.CuttingQuality != null)
+        if (cable.CuttingQuality is { } tool)
         {
-            args.Handled = _toolSystem.UseTool(args.Used, args.User, uid, cable.CuttingDelay, cable.CuttingQuality, new CableCuttingFinishedEvent());
+            args.Handled = _toolSystem.UseTool(args.Used, args.User, uid, cable.CuttingDelay, tool, new CableCuttingFinishedEvent());
         }
     }
 
@@ -62,7 +47,7 @@ public sealed partial class CableSystem : EntitySystem
             return;
 
         var xform = Transform(uid);
-        var ev = new CableAnchorStateChangedEvent(xform);
+        var ev = new CableAnchorStateChangedEvent((uid, xform));
         RaiseLocalEvent(uid, ref ev);
 
         if (_electrocutionSystem.TryDoElectrifiedAct(uid, args.User))
@@ -76,7 +61,7 @@ public sealed partial class CableSystem : EntitySystem
 
     private void OnAnchorChanged(EntityUid uid, CableComponent cable, ref AnchorStateChangedEvent args)
     {
-        var ev = new CableAnchorStateChangedEvent(args.Transform, args.Detaching);
+        var ev = new CableAnchorStateChangedEvent((uid, args.Transform), args.Detaching);
         RaiseLocalEvent(uid, ref ev);
 
         if (args.Anchored)

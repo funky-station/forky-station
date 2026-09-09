@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 DamianX <DamianX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Runtime.InteropServices;
 using Content.Client.Administration.UI.CustomControls;
@@ -72,6 +62,8 @@ public sealed partial class AdminLogsControl : Control
     public HashSet<Guid> SelectedPlayers { get; } = new();
 
     public HashSet<LogImpact> SelectedImpacts { get; } = new();
+
+    private bool firstTimeOpened = true;
 
     public void SetCurrentRound(int round)
     {
@@ -189,6 +181,22 @@ public sealed partial class AdminLogsControl : Control
             }
 
             player.Pressed = false;
+        }
+
+        UpdateLogs();
+    }
+
+    public void SelectPlayers(List<Guid> players)
+    {
+        SelectedPlayers.Clear();
+        SelectedPlayers.UnionWith(players);
+
+        foreach (var control in PlayersContainer.Children)
+        {
+            if (control is not AdminLogPlayerButton player)
+                continue;
+
+            player.Pressed = SelectedPlayers.Contains(player.Id);
         }
 
         UpdateLogs();
@@ -430,15 +438,13 @@ public sealed partial class AdminLogsControl : Control
     public void SetPlayers(Dictionary<Guid, string> players)
     {
         var buttons = new SortedSet<AdminLogPlayerButton>(_adminLogPlayerButtonComparer);
-        var allSelected = true;
+        // we retrieve everything if we open this window for the first time and the selected player list is empty
+        var allSelected = firstTimeOpened && SelectedPlayers.Count == 0;
 
         foreach (var control in PlayersContainer.Children.ToArray())
         {
             if (control is not AdminLogPlayerButton player)
                 continue;
-
-            if (!SelectedPlayers.Contains(player.Id))
-                allSelected = false;
 
             if (!players.Remove(player.Id))
                 continue;
@@ -467,6 +473,8 @@ public sealed partial class AdminLogsControl : Control
         foreach (var player in buttons)
         {
             PlayersContainer.AddChild(player);
+
+            player.Pressed = SelectedPlayers.Contains(player.Id);
         }
 
         UpdateLogs();

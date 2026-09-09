@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Client.Clothing;
 using Content.Client.Items.Systems;
@@ -21,10 +18,10 @@ namespace Content.Client.Toggleable;
 /// in-hand visuals; and <see cref="OnGetEquipmentVisuals"/> for the clothing visuals.
 /// </summary>
 /// <see cref="ToggleableVisualsComponent"/>
-public sealed class ToggleableVisualsSystem : VisualizerSystem<ToggleableVisualsComponent>
+public sealed partial class ToggleableVisualsSystem : VisualizerSystem<ToggleableVisualsComponent>
 {
-    [Dependency] private readonly SharedItemSystem _item = default!;
-    [Dependency] private readonly SharedPointLightSystem _pointLight = default!;
+    [Dependency] private SharedItemSystem _item = default!;
+    [Dependency] private SharedPointLightSystem _pointLight = default!;
 
     public override void Initialize()
     {

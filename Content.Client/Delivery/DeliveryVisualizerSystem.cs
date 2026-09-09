@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Delivery;
 using Content.Shared.StatusIcon;
 using Robust.Client.GameObjects;
@@ -9,10 +5,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.Delivery;
 
-public sealed class DeliveryVisualizerSystem : VisualizerSystem<DeliveryComponent>
+public sealed partial class DeliveryVisualizerSystem : VisualizerSystem<DeliveryComponent>
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
 
     private static readonly ProtoId<JobIconPrototype> UnknownIcon = "JobIconUnknown";
 
@@ -26,9 +21,9 @@ public sealed class DeliveryVisualizerSystem : VisualizerSystem<DeliveryComponen
         if (string.IsNullOrEmpty(job))
             job = UnknownIcon;
 
-        if (!_prototype.TryIndex<JobIconPrototype>(job, out var icon))
+        if (!ProtoMan.TryIndex<JobIconPrototype>(job, out var icon))
         {
-            SpriteSystem.LayerSetTexture((uid, args.Sprite), DeliveryVisualLayers.JobStamp, SpriteSystem.Frame0(_prototype.Index(UnknownIcon).Icon));
+            SpriteSystem.LayerSetTexture((uid, args.Sprite), DeliveryVisualLayers.JobStamp, SpriteSystem.Frame0(ProtoMan.Index(UnknownIcon).Icon));
             return;
         }
 

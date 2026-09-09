@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 namespace Content.Shared.UserInterface;
 
 /// <summary>
@@ -58,6 +52,11 @@ public sealed class AfterActivatableUIOpenEvent(EntityUid user) : EntityEventArg
     /// The player that opened the UI.
     /// </summary>
     public readonly EntityUid User = user;
+
+    /// <summary>
+    /// Stellar - if an interaction particle should be played for this event.
+    /// </summary>
+    public bool InteractionParticle;
 }
 
 /// <summary>

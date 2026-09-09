@@ -1,54 +1,139 @@
-# SPDX-FileCopyrightText: 2020-2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2020 Vera Aguilera Puerto <zddm@outlook.es>
-# SPDX-FileCopyrightText: 2021-2022, 2025 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Checkraze <71046427+Cheackraze@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Willhelm53 <97707302+Willhelm53@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rinkashikachi <15rinkashikachi15@gmail.com>
-# SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Demetre Beroshvili <69920861+Capnsockless@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023, 2025 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 CMDR-Piboy314 <92357316+CMDR-Piboy314@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Gotimanga <127038462+Gotimanga@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 eclips_e <67359748+Just-a-Unity-Dev@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Arendian <137322659+Arendian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Renlou <rubensvidal@hotmail.co.uk>
-# SPDX-FileCopyrightText: 2023 lzk228 <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Puro <103608145+PuroSlavKing@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 EnDecc <33369477+Endecc@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 mhamster <81412348+mhamsterr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024-2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 xprospero <116504990+xprospero@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tyzemol <85772526+Tyzemol@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Firewatch <54725557+musicmanvr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MACMAN2003 <macman2003c@gmail.com>
-# SPDX-FileCopyrightText: 2024 Kukutis96513 <146854220+Kukutis96513@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2025 cammusubi <122420207+cammusubi@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Hitlinemoss <209321380+Hitlinemoss@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SnappingOpossum <snappingopossum@outlook.com>
-# SPDX-FileCopyrightText: 2025 Huaqas <zacswebb@gmail.com>
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Sender <84488598+SignalSender@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ToastEnjoyer <masondoesgamingyes@gmail.com>
-# SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-# SPDX-FileCopyrightText: 2025 Xeri Marai <8867601+Xeri7@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 TeenSarlacc <46608342+TeenSarlacc@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SpaceLizard <the.justice.league.of.canada@gmail.com>
-# SPDX-FileCopyrightText: 2026 0-Anon <cec124@case.edu>
-# SPDX-License-Identifier: MIT
+# Musical Instruments
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateFunInstrumentsVariety
+  name: variety instrument collection
+  description: Get your sad station movin' and groovin' with this catch-all variety pack! Contains seven different instruments.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: SynthesizerInstrument
+        - id: AcousticGuitarInstrument
+        - id: TrumpetInstrument
+        - id: AccordionInstrument
+        - id: HarmonicaInstrument
+        - id: RecorderInstrument
+        - id: GlockenspielInstrument
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateFunInstrumentsBrass
+  name: brass instrument ensemble crate
+  description: Bring some jazz to the station with the brass ensemble. Contains a variety of brass instruments for the whole station to play.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: TrumpetInstrument
+        - id: TromboneInstrument
+        - id: FrenchHornInstrument
+        - id: EuphoniumInstrument
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateFunInstrumentsString
+  name: string instrument ensemble crate
+  description: Pluck or pick, slap or shred! Play a smooth melody or melt peoples' faces with this package of stringed instruments.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: AcousticGuitarInstrument
+        - id: ElectricGuitarInstrument
+        - id: BassGuitarInstrument
+        - id: RockGuitarInstrument
+        - id: BanjoInstrument
+        - id: ViolinInstrument
+        - id: CelloInstrument
+        - id: ViolaInstrument
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateFunInstrumentsWoodwind
+  name: woodwind instrument ensemble crate
+  description: If atmos is good at their job, use air to play music with these woodwind instruments! Real wood not guaranteed with every item.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: RecorderInstrument
+        - id: BagpipeInstrument
+        - id: ClarinetInstrument
+        - id: FluteInstrument
+        - id: HarmonicaInstrument
+        - id: OcarinaInstrument
+        - id: PanFluteInstrument
+        - id: SaxophoneInstrument # although made out of brass, they are classified as woodwind instrument
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateFunInstrumentsKeyedPercussion
+  name: keyed/percussion instrument ensemble crate
+  description: Hit some keys with some sticks or your hands, with this Keyed and Percussion instrument ensemble crate.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: SynthesizerInstrument
+        - id: AccordionInstrument
+        - id: KalimbaInstrument
+        - id: WoodblockInstrument
+        - id: GlockenspielInstrument
+        - id: XylophoneInstrument
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateFunInstrumentsSpecial
+  name: special instrument collector's crate
+  description: Create some noise with this special collection of arguably-instruments! Centcomm is not responsible for any trauma caused by the contents.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: BikeHornInstrument
+        - id: MusicBoxInstrument
+        - id: SeashellInstrument
+        - id: GunpetInstrument
+        - id: HelicopterInstrument
+        - id: BirdToyInstrument
+        - id: MusicalLungInstrument
+        - id: ReverseCymbalsInstrument
+        - id: CannedApplauseInstrument
+        - id: MicrophoneInstrument
+
+- type: entity
+  parent: CrateGenericSteel
+  id: CrateFunInstrumentsRandom
+  name: random instrument collection
+  description: A box containing several randomly curated instruments, hand picked by Centcomm's top musicians!
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: VarietyInstrumentTable # 200 speso max
+        - !type:NestedSelector
+          tableId: BrassInstrumentTable # 300 speso max
+        - !type:NestedSelector
+          tableId: StringInstrumentTable # 300 speso max
+        - !type:NestedSelector
+          tableId: WoodwindInstrumentTable # 200 speso max
+        - !type:NestedSelector
+          tableId: KeyedPercussionInstrumentTable # 300 speso max
+        - !type:NestedSelector
+          tableId: SpecialInstrumentTable # x2 200 speso max
+          rolls: 2
+
+# Rest of the fun
 
 - type: entityTable
   id: AllPottedPlantsTable
@@ -138,151 +223,6 @@
         - id: PlushieSharkGrey
           amount: !type:ConstantNumberSelector
             value: 2
-
-- type: entity
-  parent: CrateGenericSteel
-  id: CrateFunInstrumentsVariety
-  name: variety instrument collection
-  description: Get your sad station movin' and groovin' with this catch-all variety pack! Contains seven different instruments.
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: SynthesizerInstrument
-        - id: AcousticGuitarInstrument
-        - id: TrumpetInstrument
-        - id: AccordionInstrument
-        - id: HarmonicaInstrument
-        - id: RecorderInstrument
-        - id: GlockenspielInstrument
-
-- type: entity
-  parent: CrateGenericSteel
-  id: CrateFunInstrumentsBrass
-  name: brass instrument ensemble crate
-  description: Bring some jazz to the station with the brass ensemble. Contains a variety of brass instruments for the whole station to play.
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: TrumpetInstrument
-          amount: 2
-        - id: TromboneInstrument
-          amount: 2
-        - id: FrenchHornInstrument
-          amount: 2
-        - id: EuphoniumInstrument
-        - id: TubaInstrument
-
-- type: entity
-  parent: CrateGenericSteel
-  id: CrateFunInstrumentsString
-  name: string instrument ensemble crate
-  description: Pluck or pick, slap or shred! Play a smooth melody or melt peoples' faces with this package of stringed instruments.
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: AcousticGuitarInstrument
-        - id: ElectricGuitarInstrument
-        - id: BassGuitarInstrument
-        - id: RockGuitarInstrument
-        - id: BanjoInstrument
-        - id: ViolinInstrument
-        - id: CelloInstrument
-        - id: ViolaInstrument
-        - id: HarpInstrument
-
-- type: entity
-  parent: CrateGenericSteel
-  id: CrateFunInstrumentsWoodwind
-  name: woodwind instrument ensemble crate
-  description: If atmos is good at their job, use air to play music with these woodwind instruments! Real wood not guaranteed with every item.
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: RecorderInstrument
-          amount: 2
-        - id: BagpipeInstrument
-        - id: ClarinetInstrument
-        - id: FluteInstrument
-        - id: HarmonicaInstrument
-          amount: 2
-        - id: SaxophoneInstrument
-          amount: 2
-        - id: OcarinaInstrument
-        - id: PanFluteInstrument
-
-- type: entity
-  parent: CrateGenericSteel
-  id: CrateFunInstrumentsKeyedPercussion
-  name: keyed/percussion instrument ensemble crate
-  description: Hit some keys with some sticks or your hands, with this Keyed and Percussion instrument ensemble crate.
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: SynthesizerInstrument
-          amount: 2
-        - id: AccordionInstrument
-          amount: 2
-        - id: KalimbaInstrument
-          amount: 2
-        - id: WoodblockInstrument
-        - id: GlockenspielInstrument
-          amount: 2
-        - id: VibraphoneInstrument
-
-- type: entity
-  parent: CrateGenericSteel
-  id: CrateFunInstrumentsSpecial
-  name: special instrument collector's crate
-  description: Create some noise with this special collection of arguably-instruments! Centcomm is not responsible for any trauma caused by the contents.
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: BikeHornInstrument
-        - id: MusicBoxInstrument
-        - id: SeashellInstrument
-        - id: XylophoneInstrument
-        - id: GunpetInstrument
-        - id: MicrophoneInstrument
-        - id: HelicopterInstrument
-        - id: BirdToyInstrument
-        - id: MusicalLungInstrument
-        - id: ReverseCymbalsInstrument
-
-- type: entity
-  parent: CrateGenericSteel
-  id: CrateFunInstrumentsRandom
-  name: random instrument collection
-  description: A box containing several randomly curated instruments, hand picked by Centcomm's top musicians!
-  components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - !type:NestedSelector
-          tableId: VarietyInstrumentTable # 200 speso max
-        - !type:NestedSelector
-          tableId: BrassInstrumentTable # 300 speso max
-        - !type:NestedSelector
-          tableId: StringInstrumentTable # 300 speso max
-        - !type:NestedSelector
-          tableId: WoodwindInstrumentTable # 200 speso max
-        - !type:NestedSelector
-          tableId: KeyedPercussionInstrumentTable # 300 speso max
-        - !type:NestedSelector
-          tableId: SpecialInstrumentTable # x2 200 speso max
-          rolls: 2
 
 - type: entity
   parent: CrateGenericSteel
