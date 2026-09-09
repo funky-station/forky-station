@@ -6,7 +6,7 @@ namespace Content.Shared._Funkystation.Communications;
 public sealed partial class PAAnnouncerComponent : Component
 {
     [DataField]
-    public bool Enabled = true;
+    public bool Enabled;
 
     [DataField]
     public bool PowerRequired = true;
