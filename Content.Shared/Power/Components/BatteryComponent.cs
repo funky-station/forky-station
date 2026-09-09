@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Guidebook;
@@ -77,6 +74,12 @@ public sealed partial class BatteryComponent : Component
     /// </remarks>
     [ViewVariables, AutoNetworkedField]
     public BatteryState State = BatteryState.Neither;
+
+    /// <summary>
+    /// If it should show the battery percentage in the item status.
+    /// </summary>
+    [DataField]
+    public bool ShowItemStatus = true;
 }
 
 /// <summary>

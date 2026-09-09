@@ -1,0 +1,53 @@
+name: Funklog
+
+on:
+  pull_request_target:
+    types: [ closed ]
+
+concurrency:
+  group: funklog
+  cancel-in-progress: false
+
+jobs:
+  update-funklog:
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'master'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - uses: actions/checkout@v7
+      with:
+        ref: master
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: pip install pyyaml
+
+    - name: Extract changelog entry from PR body
+      id: extract
+      env:
+        PR_BODY: ${{ github.event.pull_request.body }}
+        PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+        PR_URL: ${{ github.event.pull_request.html_url }}
+        PR_NUMBER: ${{ github.event.pull_request.number }}
+        PR_MERGED_AT: ${{ github.event.pull_request.merged_at }}
+      run: python3 Tools/funky_changelog.py
+
+    - name: Merge entry into Funklog.yml
+      if: steps.extract.outputs.has_entry == 'true'
+      run: python3 Tools/update_changelog.py Resources/Changelog/Funklog.yml Resources/Changelog/Parts/Funklog --category Funklog
+
+    - name: Commit Funklog.yml
+      if: steps.extract.outputs.has_entry == 'true'
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "Update Funklog.yml"
+        commit_user_name: funkystationbot
+        commit_user_email: funkystationbot@users.noreply.github.com
+        file_pattern: Resources/Changelog/Funklog.yml
+        branch: master

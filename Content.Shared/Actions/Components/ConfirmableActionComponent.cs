@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Actions;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -52,4 +49,18 @@ public sealed partial class ConfirmableActionComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan PrimeTime = TimeSpan.FromSeconds(5);
+
+    /// <summary>
+    /// If true, this action must be confirmed when untoggled.
+    /// True by default.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ConfirmWhenUntoggled = true;
+
+    /// <summary>
+    /// If true, this action must be confirmed when toggled.
+    /// True by default.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool ConfirmWhenToggled = true;
 }

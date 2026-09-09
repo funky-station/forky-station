@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Server.Containers;
 
 namespace Content.Server.NPC.HTN.Preconditions;

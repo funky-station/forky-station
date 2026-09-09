@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Damage.Components;
 
 namespace Content.Shared.Destructible.Thresholds.Triggers;
@@ -17,7 +13,7 @@ namespace Content.Shared.Destructible.Thresholds.Triggers;
 /// IThresholdTriggers on the other hand are directly checked in a foreach loop without raising events.
 /// And there are only few of these conditions, so there is only a minor amount of code duplication.
 /// </remarks>
-public interface IThresholdTrigger
+public interface IThresholdTrigger : IComparable<IThresholdTrigger>, IEquatable<IThresholdTrigger>
 {
     /// <summary>
     /// Checks if this trigger has been reached.

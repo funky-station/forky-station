@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Threading.Tasks;
 using Content.Server.Ghost.Roles.Components;
@@ -13,6 +7,7 @@ using Content.Shared.Physics;
 using Content.Shared.Procedural;
 using Content.Shared.Procedural.DungeonLayers;
 using Robust.Shared.Collections;
+using Robust.Shared.Random;
 
 namespace Content.Server.Procedural.DungeonJob;
 
@@ -22,7 +17,7 @@ public sealed partial class DungeonJob
         EntityTableDunGen gen,
         List<Dungeon> dungeons,
         HashSet<Vector2i> reservedTiles,
-        Random random)
+        IRobustRandom random)
     {
         var count = random.Next(gen.MinCount, gen.MaxCount + 1);
         var npcs = _entManager.System<NPCSystem>();
@@ -42,7 +37,7 @@ public sealed partial class DungeonJob
                 if (!ValidateResume())
                     return;
 
-                if (reservedTiles.Contains(tile))
+                if (reservedTiles.Contains(tile) && !gen.IgnoreReserved)
                     continue;
 
                 if (!_anchorable.TileFree((_gridUid, _grid),

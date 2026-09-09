@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Trigger;
@@ -13,9 +9,9 @@ namespace Content.Server.Trigger.Systems;
 /// Trigger system for adding or removing fire stacks from an entity with <see cref="FlammableComponent"/>.
 /// </summary>
 /// <seealso cref="IgniteOnTriggerSystem"/>
-public sealed class FireStackOnTriggerSystem : EntitySystem
+public sealed partial class FireStackOnTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly FlammableSystem _flame = default!;
+    [Dependency] private FlammableSystem _flame = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -57,7 +53,7 @@ public sealed class FireStackOnTriggerSystem : EntitySystem
         if (!TryComp<FlammableComponent>(target.Value, out var flammable))
             return;
 
-        _flame.Extinguish(target.Value, flammable: flammable);
+        _flame.TryExtinguish((target.Value, flammable));
 
         args.Handled = true;
     }

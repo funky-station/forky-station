@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2019 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-License-Identifier: MIT
-
 /*
 using BenchmarkDotNet.Attributes;
 using Robust.Shared.IoC;
@@ -64,11 +59,11 @@ namespace Content.Benchmarks
 
         private sealed class TestDummy
         {
-            [Dependency] private readonly X1 _x1;
-            [Dependency] private readonly X2 _x2;
-            [Dependency] private readonly X3 _x3;
-            [Dependency] private readonly X4 _x4;
-            [Dependency] private readonly X5 _x5;
+            [Dependency] private X1 _x1;
+            [Dependency] private X2 _x2;
+            [Dependency] private X3 _x3;
+            [Dependency] private X4 _x4;
+            [Dependency] private X5 _x5;
         }
     }
 }

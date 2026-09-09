@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Polymorph.Systems;
@@ -19,7 +12,7 @@ namespace Content.Server.Polymorph.Toolshed;
 ///     Polymorphs the given entity(s) into the target morph.
 /// </summary>
 [ToolshedCommand, AdminCommand(AdminFlags.Fun)]
-public sealed class PolymorphCommand : ToolshedCommand
+public sealed partial class PolymorphCommand : ToolshedCommand
 {
     private PolymorphSystem? _system;
     [Dependency] private IPrototypeManager _proto = default!;

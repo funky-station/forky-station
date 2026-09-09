@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.UserInterface.Systems.Info;
 using Content.Shared.Input;
 using JetBrains.Annotations;
@@ -13,12 +10,12 @@ using Robust.Shared.Input.Binding;
 namespace Content.Client.UserInterface.Systems.EscapeMenu;
 
 [UsedImplicitly]
-public sealed class EscapeContextUIController : UIController
+public sealed partial class EscapeContextUIController : UIController
 {
-    [Dependency] private readonly IInputManager _inputManager = default!;
+    [Dependency] private IInputManager _inputManager = default!;
 
-    [Dependency] private readonly CloseRecentWindowUIController _closeRecentWindowUIController = default!;
-    [Dependency] private readonly EscapeUIController _escapeUIController = default!;
+    [Dependency] private CloseRecentWindowUIController _closeRecentWindowUIController = default!;
+    [Dependency] private EscapeUIController _escapeUIController = default!;
 
     public override void Initialize()
     {

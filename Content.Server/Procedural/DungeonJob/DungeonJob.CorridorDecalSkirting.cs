@@ -1,13 +1,10 @@
-// SPDX-FileCopyrightText: 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Threading.Tasks;
 using Content.Shared.Doors.Components;
 using Content.Shared.Procedural;
 using Content.Shared.Procedural.PostGeneration;
 using Robust.Shared.Collections;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Procedural.DungeonJob;
@@ -17,7 +14,7 @@ public sealed partial class DungeonJob
     /// <summary>
     /// <see cref="CorridorDecalSkirtingDunGen"/>
     /// </summary>
-    private async Task PostGen(CorridorDecalSkirtingDunGen decks, Dungeon dungeon, HashSet<Vector2i> reservedTiles, Random random)
+    private async Task PostGen(CorridorDecalSkirtingDunGen decks, Dungeon dungeon, HashSet<Vector2i> reservedTiles, IRobustRandom random)
     {
         var directions = new ValueList<DirectionFlag>(4);
         var pocketDirections = new ValueList<Direction>(4);
@@ -34,10 +31,10 @@ public sealed partial class DungeonJob
             // Do corners the other step
             for (var i = 0; i < 4; i++)
             {
-                var dir = (DirectionFlag) Math.Pow(2, i);
+                var dir = (DirectionFlag)Math.Pow(2, i);
                 var neighbor = tile + dir.AsDir().ToIntVec();
 
-                var anc = _maps.GetAnchoredEntitiesEnumerator(_gridUid, _grid, neighbor);
+                var anc = _maps.GetAnchoredEntities(_gridUid, _grid, neighbor);
 
                 while (anc.MoveNext(out var ent))
                 {
@@ -61,10 +58,10 @@ public sealed partial class DungeonJob
 
                 for (var i = 1; i < 5; i++)
                 {
-                    var dir = (Direction) (i * 2 - 1);
+                    var dir = (Direction)(i * 2 - 1);
                     var neighbor = tile + dir.ToIntVec();
 
-                    var anc = _maps.GetAnchoredEntitiesEnumerator(_gridUid, _grid, neighbor);
+                    var anc = _maps.GetAnchoredEntities(_gridUid, _grid, neighbor);
 
                     while (anc.MoveNext(out var ent))
                     {

@@ -1,46 +1,40 @@
-// SPDX-FileCopyrightText: 2023 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Chat.Systems;
-using Content.Server.Speech.Muting;
 using Content.Shared.Mobs;
 using Content.Shared.Speech.Muting;
-using Robust.Shared.Prototypes;
+using Content.Shared.StatusEffectNew;
 
 namespace Content.Server.Mobs;
 
-/// <see cref="DeathgaspComponent"/>
-public sealed class DeathgaspSystem: EntitySystem
+/// <summary>
+/// A system that handles death gasps, an emote a character makes when they die.
+/// </summary>
+/// <seealso cref="DeathgaspComponent"/>
+public sealed partial class DeathgaspSystem : SharedDeathgaspSystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<DeathgaspComponent, MobStateChangedEvent>(OnMobStateChanged);
-    }
-
-    private void OnMobStateChanged(EntityUid uid, DeathgaspComponent component, MobStateChangedEvent args)
+    [SubscribeLocalEvent]
+    private void OnMobStateChanged(Entity<DeathgaspComponent> ent, ref MobStateChangedEvent args)
     {
         // don't deathgasp if they arent going straight from crit to dead
-        if (args.NewMobState != MobState.Dead || args.OldMobState != MobState.Critical)
+        // funky start, allow soft and hard crit
+        if (args.NewMobState != MobState.Dead || args.OldMobState is not (MobState.Critical or MobState.SoftCritical or MobState.HardCritical))
             return;
+        // funky end
 
-        Deathgasp(uid, component);
+        Deathgasp(ent, ent.Comp);
     }
 
     /// <summary>
     ///     Causes an entity to perform their deathgasp emote, if they have one.
     /// </summary>
-    public bool Deathgasp(EntityUid uid, DeathgaspComponent? component = null)
+    public override bool Deathgasp(EntityUid uid, DeathgaspComponent? component = null)
     {
         if (!Resolve(uid, ref component, false))
             return false;
 
-        if (HasComp<MutedComponent>(uid))
+        if (_statusEffects.HasEffectComp<MutedStatusEffectComponent>(uid))
             return false;
 
         _chat.TryEmoteWithChat(uid, component.Prototype, ignoreActionBlocker: true);

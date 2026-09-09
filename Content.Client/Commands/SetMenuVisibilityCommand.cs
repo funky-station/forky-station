@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 PrPleGoo <PrPleGoo@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Verbs;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;
@@ -11,9 +6,9 @@ using Robust.Shared.Console;
 namespace Content.Client.Commands;
 
 [UsedImplicitly]
-internal sealed class SetMenuVisibilityCommand : LocalizedCommands
+internal sealed partial class SetMenuVisibilityCommand : LocalizedCommands
 {
-    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] private IEntitySystemManager _entitySystemManager = default!;
 
     public override string Command => "menuvis";
 

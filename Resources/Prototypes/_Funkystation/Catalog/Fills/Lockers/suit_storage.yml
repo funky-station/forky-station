@@ -1,0 +1,19 @@
+﻿#Prisoner Mining Hardsuit
+- type: entity
+  id: SuitStoragePrisonerMining
+  parent: SuitStorageBase
+  suffix: Prisoner Mining Hardsuit
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillSuitStoragePrisonerMining
+
+- type: entityTable
+  id: FillSuitStoragePrisonerMining
+  table: !type:AllSelector
+    children:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitPrisonerMining
+    - id: ClothingMaskBreath

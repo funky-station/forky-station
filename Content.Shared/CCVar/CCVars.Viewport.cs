@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pok <113675512+Pok27@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;
@@ -37,4 +33,7 @@ public sealed partial class CCVars
 
     public static readonly CVarDef<string> ViewportScalingFilterMode =
         CVarDef.Create("viewport.scaling_filter", "nearest", CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<int> ViewportSharpnessStrength =
+        CVarDef.Create("viewport.sharpness_strength", 0, CVar.CLIENTONLY | CVar.ARCHIVE);
 }

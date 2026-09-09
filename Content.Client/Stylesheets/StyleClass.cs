@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025-2026 eoineoineoin <helloworld@eoinrul.es>
-// SPDX-FileCopyrightText: 2025 Brandon Li <48413902+aspiringLich@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 namespace Content.Client.Stylesheets;
 
 ///
@@ -41,6 +37,7 @@ public static class StyleClass
 
     public const string LabelHeading = "LabelHeading";
     public const string LabelHeadingBigger = "LabelHeadingBigger";
+    public const string LabelSubHeading = "LabelSubHeading";
     public const string LabelSubText = "LabelSubText";
     public const string LabelKeyText = "LabelKeyText";
     public const string LabelWeak = "LabelWeak"; // replaces `LabelSecondaryColor`
@@ -54,8 +51,11 @@ public static class StyleClass
     public const string BackgroundPanelOpenRight = "BackgroundPanelOpenRight"; // replaces `BackgroundOpenRight`
 
     public const string PanelDark = "PanelDark";
+    public const string PanelDeep = "PanelDeep";
     public const string PanelLight = "PanelLight";
     public const string PanelDropTarget = "PanelDropTarget";
+    public const string PanelInsetDark = "PanelInsetDark";
+    public const string PanelInsetDeep = "PanelInsetDeep";
 
     public const string ButtonOpenRight = "OpenRight";
     public const string ButtonOpenLeft = "OpenLeft";

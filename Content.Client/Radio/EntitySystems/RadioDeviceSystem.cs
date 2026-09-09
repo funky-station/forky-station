@@ -1,7 +1,5 @@
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+using Content.Shared._Funkystation.Radio;
+using Content.Client._Funkystation.Radio.Ui;
 using Content.Client.Radio.Ui;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
@@ -10,19 +8,29 @@ using Robust.Client.GameObjects;
 
 namespace Content.Client.Radio.EntitySystems;
 
-public sealed class RadioDeviceSystem : SharedRadioDeviceSystem
+/// <inheritdoc/>
+public sealed partial class RadioDeviceSystem : SharedRadioDeviceSystem
 {
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
 
-    /// <inheritdoc/>
-    public override void Initialize()
-    {
-        SubscribeLocalEvent<IntercomComponent, AfterAutoHandleStateEvent>(OnAfterHandleState);
-    }
-
+    [SubscribeLocalEvent]
     private void OnAfterHandleState(Entity<IntercomComponent> ent, ref AfterAutoHandleStateEvent args)
     {
         if (_ui.TryGetOpenUi<IntercomBoundUserInterface>(ent.Owner, IntercomUiKey.Key, out var bui))
+            bui.Update(ent);
+    }
+
+    // funky - radio volume ui
+    [SubscribeLocalEvent]
+    private void OnAfterHandleState(Entity<RadioSpeakerComponent> ent, ref AfterAutoHandleStateEvent args)
+    {
+        if (_ui.TryGetOpenUi<RadioVolumeBoundUserInterface>(ent.Owner, RadioVolumeUiKey.Key, out var bui))
+            bui.Update(ent);
+    }
+    [SubscribeLocalEvent]
+    private void OnAfterHandleState(Entity<RadioMicrophoneComponent> ent, ref AfterAutoHandleStateEvent args)
+    {
+        if (_ui.TryGetOpenUi<RadioVolumeBoundUserInterface>(ent.Owner, RadioVolumeUiKey.Key, out var bui))
             bui.Update(ent);
     }
 }

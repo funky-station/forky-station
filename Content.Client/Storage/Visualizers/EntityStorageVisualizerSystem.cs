@@ -1,23 +1,11 @@
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Whatstone <166147148+whatston3@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.SprayPainter.Prototypes;
 using Content.Shared.Storage;
 using Robust.Client.GameObjects;
-using Robust.Shared.Prototypes;
 
 namespace Content.Client.Storage.Visualizers;
 
-public sealed class EntityStorageVisualizerSystem : VisualizerSystem<EntityStorageVisualsComponent>
+public sealed partial class EntityStorageVisualizerSystem : VisualizerSystem<EntityStorageVisualsComponent>
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -50,13 +38,13 @@ public sealed class EntityStorageVisualizerSystem : VisualizerSystem<EntityStora
         var forceRedrawBase = false;
         if (AppearanceSystem.TryGetData<string>(uid, PaintableVisuals.Prototype, out var prototype, args.Component))
         {
-            if (_prototypeManager.Resolve(prototype, out var proto))
+            if (ProtoMan.Resolve(prototype, out var proto))
             {
-                if (proto.TryGetComponent(out SpriteComponent? sprite, _componentFactory))
+                if (proto.TryComp(out SpriteComponent? sprite, Factory))
                 {
                     SpriteSystem.SetBaseRsi((uid, args.Sprite), sprite.BaseRSI);
                 }
-                if (proto.TryGetComponent(out EntityStorageVisualsComponent? visuals, _componentFactory))
+                if (proto.TryComp(out EntityStorageVisualsComponent? visuals, Factory))
                 {
                     comp.StateBaseOpen = visuals.StateBaseOpen;
                     comp.StateBaseClosed = visuals.StateBaseClosed;

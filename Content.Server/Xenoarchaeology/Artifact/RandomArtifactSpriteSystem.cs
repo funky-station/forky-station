@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Item;
 using Content.Shared.Xenoarchaeology.Artifact;
 using Content.Shared.Xenoarchaeology.XenoArtifacts;
@@ -14,12 +7,12 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Xenoarchaeology.Artifact;
 
-public sealed class RandomArtifactSpriteSystem : EntitySystem
+public sealed partial class RandomArtifactSpriteSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IGameTiming _time = default!;
-    [Dependency] private readonly AppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedItemSystem _item = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IGameTiming _time = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private SharedItemSystem _item = default!;
 
     public override void Initialize()
     {

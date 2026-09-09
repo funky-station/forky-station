@@ -1,14 +1,7 @@
-// SPDX-FileCopyrightText: 2023-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using System.Threading.Tasks;
 using Content.Shared.Procedural;
 using Content.Shared.Procedural.DungeonGenerators;
-using Content.Shared.Whitelist;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -20,7 +13,7 @@ public sealed partial class DungeonJob
     /// <summary>
     /// <see cref="PrefabDunGen"/>
     /// </summary>
-    private async Task<Dungeon> GeneratePrefabDunGen(Vector2i position, PrefabDunGen prefab, HashSet<Vector2i> reservedTiles, Random random)
+    private async Task<Dungeon> GeneratePrefabDunGen(Vector2i position, PrefabDunGen prefab, HashSet<Vector2i> reservedTiles, IRobustRandom random)
     {
         var preset = prefab.Presets[random.Next(prefab.Presets.Count)];
         var gen = _prototype.Index(preset);
@@ -303,7 +296,7 @@ public sealed partial class DungeonJob
         return dungeon;
     }
 
-    private void SetDungeonEntrance(Dungeon dungeon, DungeonRoom room, HashSet<Vector2i> reservedTiles, Random random)
+    private void SetDungeonEntrance(Dungeon dungeon, DungeonRoom room, HashSet<Vector2i> reservedTiles, IRobustRandom random)
     {
         // TODO: Move to dungeonsystem.
 

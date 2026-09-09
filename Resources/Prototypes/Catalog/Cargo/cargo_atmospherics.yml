@@ -1,17 +1,3 @@
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 SweptWasTaken <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2022 Rinkashikachi <15rinkashikachi15@gmail.com>
-# SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Interrobang01 <113810873+Interrobang01@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024-2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MODERN <87994977+modern-nm@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: cargoProduct
   id: AtmosphericsAir
   icon:
@@ -33,16 +19,6 @@
   group: market
 
 - type: cargoProduct
-  id: AtmosphericsLiquidOxygen
-  icon:
-    sprite: Structures/Storage/canister.rsi
-    state: blue
-  product: LiquidOxygenCanister
-  cost: 1000
-  category: cargoproduct-category-name-atmospherics
-  group: market
-
-- type: cargoProduct
   id: AtmosphericsNitrogen
   icon:
     sprite: Structures/Storage/canister.rsi
@@ -53,32 +29,12 @@
   group: market
 
 - type: cargoProduct
-  id: AtmosphericsLiquidNitrogen
-  icon:
-    sprite: Structures/Storage/canister.rsi
-    state: red
-  product: LiquidNitrogenCanister
-  cost: 1000
-  category: cargoproduct-category-name-atmospherics
-  group: market
-
-- type: cargoProduct
   id: AtmosphericsCarbonDioxide
   icon:
     sprite: Structures/Storage/canister.rsi
     state: black
   product: CarbonDioxideCanister
   cost: 670 # even though it's poisonous, it comes locked and only damages you slowly even with high amounts (tested)
-  category: cargoproduct-category-name-atmospherics
-  group: market
-
-- type: cargoProduct
-  id: AtmosphericsLiquidCarbonDioxide
-  icon:
-    sprite: Structures/Storage/canister.rsi
-    state: black
-  product: LiquidCarbonDioxideCanister
-  cost: 1800 # much less deadly than the plasma can (this has been tested) even though this is cold+poison
   category: cargoproduct-category-name-atmospherics
   group: market
 

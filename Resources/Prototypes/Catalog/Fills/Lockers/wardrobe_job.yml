@@ -1,18 +1,3 @@
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2022-2023 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Lamrr <96937466+Lamrr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 ar4ill <122553891+ar4ill@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk228 <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 mhamster <81412348+mhamsterr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Puro <103608145+PuroSlavKing@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 potato1234_x <79580518+potato1234x@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: WardrobePrisonFilled
   suffix: Filled
@@ -227,12 +212,12 @@
   id: FillWardrobeBotanist
   table: !type:AllSelector
     children:
-    - id: ClothingUniformJumpsuitHydroponics
+    - id: FuClothingUniformShirtPantstHydroponics #Funky botany uniforms
     - id: ClothingBackpackHydroponics
     - id: ClothingShoesColorBrown
     - id: ClothingOuterApronBotanist
     - id: ClothingUniformJumpskirtHydroponics
-    - id: ClothingUniformOveralls
+    - id: FuClothingUniformShirtPantstHydroponicsOveralls #Funky botany uniforms
     - id: ClothingHeadHatTrucker #the hat itself is a subtle joke
       prob: 0.15
     - id: ClothingHandsGlovesLeather
@@ -400,7 +385,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingHeadHatHardhatYellow
-    - id: ClothingUniformJumpsuitEngineering
+    - id: FuClothingUniformCoverallsEngineering # Funky
     - id: ClothingBackpackEngineering
     - id: ClothingShoesBootsWork
     - id: ClothingOuterVestHazard

@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Sphiral <145869023+SphiraI@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 Atakku <atakkudev@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: inventoryTemplate
   id: aghost
   slots:

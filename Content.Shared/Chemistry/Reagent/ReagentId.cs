@@ -1,11 +1,6 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.FixedPoint;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Prototypes;
 using System.Linq;
 
 namespace Content.Shared.Chemistry.Reagent;
@@ -19,13 +14,13 @@ namespace Content.Shared.Chemistry.Reagent;
 public partial struct ReagentId : IEquatable<ReagentId>
 {
     // TODO rename data field.
-    [DataField("ReagentId", customTypeSerializer: typeof(PrototypeIdSerializer<ReagentPrototype>), required: true)]
-    public string Prototype { get; private set; }
+    [DataField("ReagentId", required: true)]
+    public ProtoId<ReagentPrototype> Prototype { get; private set; }
 
     /// <summary>
     /// Any additional data that is unique to this reagent type. E.g., for blood this could be DNA data.
     /// </summary>
-    [DataField("data")]
+    [DataField]
     public List<ReagentData>? Data { get; private set; } = new();
 
     public ReagentId(string prototype, List<ReagentData>? data)

@@ -1,18 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023, 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024-2025 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Aexxie <codyfox.077@gmail.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Numerics;
 using Content.Server.Explosion.Components;
@@ -63,7 +48,7 @@ public sealed partial class ExplosionSystem
         var (localGrids, referenceGrid, maxDistance) = GetLocalGrids(epicenter, totalIntensity, slope, maxIntensity);
 
         // get the epicenter tile indices
-        if (_mapManager.TryFindGridAt(epicenter, out var gridUid, out var candidateGrid) &&
+        if (_map.TryFindGridAt(epicenter, out var gridUid, out var candidateGrid) &&
             _map.TryGetTileRef(gridUid, candidateGrid, _map.WorldToTile(gridUid, candidateGrid, epicenter.Position), out var tileRef) &&
             !tileRef.Tile.IsEmpty)
         {
@@ -294,7 +279,7 @@ public sealed partial class ExplosionSystem
         var box = Box2.CenteredAround(epicenter.Position, new Vector2(radius, radius));
 
         _grids.Clear();
-        _mapManager.FindGridsIntersecting(epicenter.MapId, box, ref _grids);
+        _map.FindGridsIntersecting(epicenter.MapId, box, ref _grids);
         foreach (var grid in _grids)
         {
             if (TryComp(grid.Owner, out PhysicsComponent? physics) && physics.FixturesMass > mass)
@@ -316,7 +301,7 @@ public sealed partial class ExplosionSystem
         radius *= 4;
         box = Box2.CenteredAround(epicenter.Position, new Vector2(radius, radius));
         _grids.Clear();
-        _mapManager.FindGridsIntersecting(epicenter.MapId, box, ref _grids);
+        _map.FindGridsIntersecting(epicenter.MapId, box, ref _grids);
         var grids = _grids.Select(x => x.Owner).ToList();
 
         if (referenceGrid != null)
@@ -335,6 +320,10 @@ public sealed partial class ExplosionSystem
         return (grids, referenceGrid, radius);
     }
 
+    /// <summary>
+    /// Creates a visual state object reflecting a potential explosion.
+    /// </summary>
+    /// <param name="request">Parameters of the explosion.</param>
     public ExplosionVisualsState? GenerateExplosionPreview(SpawnExplosionEuiMsg.PreviewRequest request)
     {
         var stopwatch = new Stopwatch();

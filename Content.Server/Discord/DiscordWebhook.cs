@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Jacob <jakevilevac@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
@@ -12,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Content.Server.Discord;
 
-public sealed class DiscordWebhook : IPostInjectInit
+public sealed partial class DiscordWebhook : IPostInjectInit
 {
     private static readonly JsonSerializerOptions JsonOptions = new JsonSerializerOptions
         { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull };
 
-    [Dependency] private readonly ILogManager _log = default!;
+    [Dependency] private ILogManager _log = default!;
 
     private const string BaseUrl = "https://discord.com/api/v10/webhooks";
     private readonly HttpClient _http = new();

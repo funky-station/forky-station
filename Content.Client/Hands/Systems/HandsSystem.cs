@@ -1,21 +1,3 @@
-// SPDX-FileCopyrightText: 2021, 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-// SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2023, 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Menshin <Menshin@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024-2025 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Client.DisplacementMap;
@@ -33,21 +15,22 @@ using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
+using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
 namespace Content.Client.Hands.Systems
 {
     [UsedImplicitly]
-    public sealed class HandsSystem : SharedHandsSystem
+    public sealed partial class HandsSystem : SharedHandsSystem
     {
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly IUserInterfaceManager _ui = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private IUserInterfaceManager _ui = default!;
 
-        [Dependency] private readonly StrippableSystem _stripSys = default!;
-        [Dependency] private readonly SpriteSystem _sprite = default!;
-        [Dependency] private readonly ExamineSystem _examine = default!;
-        [Dependency] private readonly DisplacementMapSystem _displacement = default!;
+        [Dependency] private StrippableSystem _stripSys = default!;
+        [Dependency] private SpriteSystem _sprite = default!;
+        [Dependency] private ExamineSystem _examine = default!;
+        [Dependency] private DisplacementMapSystem _displacement = default!;
 
         public event Action<string?>? OnPlayerSetActiveHand;
         public event Action<Entity<HandsComponent>>? OnPlayerHandsAdded;
@@ -74,6 +57,13 @@ namespace Content.Client.Hands.Systems
         #region StateHandling
         private void HandleComponentState(Entity<HandsComponent> ent, ref ComponentHandleState args)
         {
+            // No need to update everything if we are only switching hands.
+            if (args.Current is HandsComponentActiveHandDeltaState activeHandState)
+            {
+                SetActiveHand(ent.AsNullable(), activeHandState.ActiveHandId);
+                return;
+            }
+
             if (args.Current is not HandsComponentState state)
                 return;
 
@@ -89,10 +79,18 @@ namespace Content.Client.Hands.Systems
             {
                 AddHand(ent.AsNullable(), handId, state.Hands[handId]);
             }
-            ent.Comp.SortedHands = new (state.SortedHands);
+            ent.Comp.SortedHands = new(state.SortedHands);
 
             SetActiveHand(ent.AsNullable(), state.ActiveHandId);
 
+            ent.Comp.ShowInHands = state.ShowInHands;
+            ent.Comp.HandDisplacement = state.HandDisplacement;
+            ent.Comp.LeftHandDisplacement = state.LeftHandDisplacement;
+            ent.Comp.RightHandDisplacement = state.RightHandDisplacement;
+            ent.Comp.CanBeStripped = state.CanBeStripped;
+
+            // TODO: Ideally this would only update if the displacement data actually changed, but there is no way to compare it since the type is not equatable.
+            UpdateAllHandVisuals((ent.Owner, ent.Comp));
             _stripSys.UpdateUi(ent);
         }
         #endregion
@@ -110,9 +108,11 @@ namespace Content.Client.Hands.Systems
         public override void DoDrop(Entity<HandsComponent?> ent,
             string handId,
             bool doDropInteraction = true,
-            bool log = true)
+            bool log = true,
+            EntityCoordinates? targetDropLocation = null
+        )
         {
-            base.DoDrop(ent, handId, doDropInteraction, log);
+            base.DoDrop(ent, handId, doDropInteraction, log, targetDropLocation);
 
             if (TryGetHeldItem(ent, handId, out var held) && TryComp(held, out SpriteComponent? sprite))
                 sprite.RenderOrder = EntityManager.CurrentTick.Value;
@@ -256,6 +256,20 @@ namespace Content.Client.Hands.Systems
 
             if (HasComp<VirtualItemComponent>(args.Entity))
                 OnPlayerHandUnblocked?.Invoke(args.Container.ID);
+        }
+
+        /// <summary>
+        /// Update the players sprite with new in-hand visuals for all held items.
+        /// </summary>
+        private void UpdateAllHandVisuals(Entity<HandsComponent?> ent)
+        {
+            foreach (var handId in EnumerateHands(ent))
+            {
+                if (!TryGetHeldItem(ent, handId, out var held))
+                    continue;
+
+                UpdateHandVisuals(ent, held.Value, handId);
+            }
         }
 
         /// <summary>

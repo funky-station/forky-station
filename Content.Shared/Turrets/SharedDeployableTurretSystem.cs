@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Access.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -22,14 +18,14 @@ namespace Content.Shared.Turrets;
 
 public abstract partial class SharedDeployableTurretSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly UseDelaySystem _useDelay = default!;
-    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedWiresSystem _wires = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private UseDelaySystem _useDelay = default!;
+    [Dependency] private AccessReaderSystem _accessReader = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private SharedPhysicsSystem _physics = default!;
+    [Dependency] private SharedWiresSystem _wires = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -70,7 +66,7 @@ public abstract partial class SharedDeployableTurretSystem : EntitySystem
 
         if (!_accessReader.IsAllowed(args.User, ent))
         {
-            _popup.PopupClient(Loc.GetString("deployable-turret-component-access-denied"), ent, args.User);
+            _popup.PopupEntity(Loc.GetString("deployable-turret-component-access-denied"), ent, args.User);
             _audio.PlayPredicted(ent.Comp.AccessDeniedSound, ent, args.User);
 
             return;
@@ -84,7 +80,7 @@ public abstract partial class SharedDeployableTurretSystem : EntitySystem
         if (!ent.Comp.Enabled || args.Cancelled)
             return;
 
-        _popup.PopupClient(Loc.GetString("deployable-turret-component-cannot-access-wires"), ent, args.User);
+        _popup.PopupEntity(Loc.GetString("deployable-turret-component-cannot-access-wires"), ent, args.User);
 
         args.Cancelled = true;
     }
@@ -99,7 +95,7 @@ public abstract partial class SharedDeployableTurretSystem : EntitySystem
         if (enabled && ent.Comp.CurrentState == DeployableTurretState.Broken)
         {
             if (user != null)
-                _popup.PopupClient(Loc.GetString("deployable-turret-component-is-broken"), ent, user.Value);
+                _popup.PopupEntity(Loc.GetString("deployable-turret-component-is-broken"), ent, user.Value);
 
             return false;
         }
@@ -107,7 +103,7 @@ public abstract partial class SharedDeployableTurretSystem : EntitySystem
         if (enabled && !HasAmmo(ent))
         {
             if (user != null)
-                _popup.PopupClient(Loc.GetString("deployable-turret-component-no-ammo"), ent, user.Value);
+                _popup.PopupEntity(Loc.GetString("deployable-turret-component-no-ammo"), ent, user.Value);
 
             return false;
         }
@@ -154,7 +150,7 @@ public abstract partial class SharedDeployableTurretSystem : EntitySystem
 
         // Play pop up message
         var msg = enabled ? "deployable-turret-component-activating" : "deployable-turret-component-deactivating";
-        _popup.PopupClient(Loc.GetString(msg), ent, user);
+        _popup.PopupEntity(Loc.GetString(msg), ent, user);
 
         // Update enabled state
         ent.Comp.Enabled = enabled;

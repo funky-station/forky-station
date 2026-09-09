@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 coolmankid12345 <55817627+coolmankid12345@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Revolutionary.Components;
@@ -8,7 +5,7 @@ namespace Content.Shared.Revolutionary.Components;
 /// <summary>
 /// Component used for allowing non-humans to be converted. (Mainly monkeys)
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedRevolutionarySystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(RevolutionarySystem))]
 public sealed partial class AlwaysRevolutionaryConvertibleComponent : Component
 {
 

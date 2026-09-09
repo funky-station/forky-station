@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Network;
 using Robust.Shared.Random;
 
@@ -14,9 +9,9 @@ namespace Content.Shared.EntityEffects.Effects;
 /// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
 public sealed partial class GlowEntityEffectSystem : EntityEffectSystem<MetaDataComponent, Glow>
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedPointLightSystem _lightSystem = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedPointLightSystem _lightSystem = default!;
 
     protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<Glow> args)
     {
@@ -52,9 +47,15 @@ public sealed partial class GlowEntityEffectSystem : EntityEffectSystem<MetaData
 /// <inheritdoc cref="EntityEffect"/>
 public sealed partial class Glow : EntityEffectBase<Glow>
 {
+    /// <summary>
+    /// Radius of the glow.
+    /// </summary>
     [DataField]
     public float Radius = 2f;
 
+    /// <summary>
+    /// Color of the glow.
+    /// </summary>
     [DataField]
     public Color Color = Color.Black;
 }

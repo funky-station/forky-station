@@ -1,16 +1,9 @@
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: BaseXenoArtifact
   parent: BaseMob # we use this since it can technically get inhabited
   name: artifact
   description: A strange artifact from time unknown. Looks like a good time.
   abstract: true
-  noSpawn: true
   components:
   # Visual
   - type: Appearance
@@ -33,6 +26,7 @@
     effectsTable: !type:NestedSelector
       tableId: XenoArtifactEffectsDefaultTable
   - type: Damageable
+  - type: Injurable
   - type: Actions
   - type: Physics
     bodyType: KinematicController
@@ -55,6 +49,13 @@
       Flammable: [Touch]
       Extinguish: [Touch]
       Acidic: [Touch]
+  - type: LightningTarget
+    priority: 2
+    lightningExplode: false
+  - type: Stamina
+    baseCritThreshold: 1000
+    decay: 1000
+    cooldown: 0.1
 
 - type: entity
   parent: BaseAction
@@ -63,9 +64,10 @@
   description: Activate yourself, causing chaos to those near you.
   components:
   - type: Action
-    icon:
-      sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
-      state: ano29
     useDelay: 300
+  - type: Sprite
+    sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
+    layers:
+    - state: ano29
   - type: InstantAction
     event: !type:ArtifactSelfActivateEvent

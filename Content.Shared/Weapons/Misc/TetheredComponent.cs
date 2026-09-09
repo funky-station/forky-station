@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Weapons.Misc;
@@ -13,7 +10,4 @@ public sealed partial class TetheredComponent : Component
 {
     [DataField("tetherer"), AutoNetworkedField]
     public EntityUid Tetherer;
-
-    [ViewVariables(VVAccess.ReadWrite), DataField("originalAngularDamping"), AutoNetworkedField]
-    public float OriginalAngularDamping;
 }

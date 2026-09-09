@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Xenoarchaeology.Artifact.XAE.Components;
 using Content.Shared.Chemistry.Reagent;
@@ -14,12 +11,11 @@ namespace Content.Server.Xenoarchaeology.Artifact.XAE;
 /// <summary>
 /// System for xeno artifact effect that creates puddle of chemical reagents under artifact.
 /// </summary>
-public sealed class XAECreatePuddleSystem: BaseXAESystem<XAECreatePuddleComponent>
+public sealed partial class XAECreatePuddleSystem : BaseXAESystem<XAECreatePuddleComponent>
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly PuddleSystem _puddle = default!;
-    [Dependency] private readonly MetaDataSystem _metaData= default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager= default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private PuddleSystem _puddle = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
 
     /// <inheritdoc />
     public override void Initialize()
@@ -52,7 +48,7 @@ public sealed class XAECreatePuddleSystem: BaseXAESystem<XAECreatePuddleComponen
             var reagentNames = new HashSet<string>();
             foreach (var chemProtoId in component.SelectedChemicals)
             {
-                var reagent = _prototypeManager.Index(chemProtoId);
+                var reagent = ProtoMan.Index(chemProtoId);
                 reagentNames.Add(reagent.LocalizedName);
             }
 

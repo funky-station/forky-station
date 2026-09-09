@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;

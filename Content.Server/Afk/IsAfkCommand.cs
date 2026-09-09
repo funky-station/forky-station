@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Robust.Server.Player;
@@ -11,10 +6,10 @@ using Robust.Shared.Console;
 namespace Content.Server.Afk
 {
     [AdminCommand(AdminFlags.Admin)]
-    public sealed class IsAfkCommand : LocalizedCommands
+    public sealed partial class IsAfkCommand : LocalizedCommands
     {
-        [Dependency] private readonly IAfkManager _afkManager = default!;
-        [Dependency] private readonly IPlayerManager _players = default!;
+        [Dependency] private IAfkManager _afkManager = default!;
+        [Dependency] private IPlayerManager _players = default!;
 
         public override string Command => "isafk";
 

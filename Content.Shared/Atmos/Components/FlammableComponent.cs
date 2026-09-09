@@ -1,77 +1,69 @@
-// SPDX-FileCopyrightText: 2020-2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
-// SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2020 ColdAutumnRain <73938872+ColdAutumnRain@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2021 Tomeno <Tomeno@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Silver <silvertorch5@gmail.com>
-// SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 mhamster <81412348+mhamsterr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 M4rchy-S <89603088+M4rchy-S@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Alert;
 using Content.Shared.Damage;
+using Content.Shared.DisplacementMap;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Atmos.Components
 {
-    [RegisterComponent, NetworkedComponent]
+    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause] // TODO: Access restriction so that other systems have to use the API to modify fire stacks
     public sealed partial class FlammableComponent : Component
     {
-        [DataField]
-        public bool Resisting;
+        /// <summary>
+        /// Is the mob currently resisting being on fire
+        /// (i.e. throwing themselves onto the ground to extinguish themselves)?
+        /// </summary>
+        [ViewVariables]
+        public bool Resisting => ResistCompleteTime.HasValue;
 
-        [ViewVariables(VVAccess.ReadWrite)]
+        /// <summary>
+        /// The time stamp at which the active resist will be over and the mob's flame stacks will be reduced.
+        /// </summary>
+        [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+        [AutoPausedField]
+        public TimeSpan? ResistCompleteTime;
+
+        /// <summary>
+        /// Timestamp for the next update.
+        /// </summary>
+        [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+        [AutoPausedField]
+        public TimeSpan NextUpdate;
+
+        /// <summary>
+        /// The time resisting being on fire will take.
+        /// The mob will be paralyzed for this duration.
+        /// </summary>
+        [DataField, AutoNetworkedField]
+        public TimeSpan ResistTime = TimeSpan.FromSeconds(2);
+
         [DataField]
         public bool OnFire;
 
-        [ViewVariables(VVAccess.ReadWrite)]
         [DataField]
         public float FireStacks;
 
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField]
+        [DataField, AutoNetworkedField]
         public float MaximumFireStacks = 10f;
 
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField]
+        [DataField, AutoNetworkedField]
         public float MinimumFireStacks = -10f;
 
-        [ViewVariables(VVAccess.ReadWrite)]
         [DataField]
         public string FlammableFixtureID = "flammable";
 
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField]
+        [DataField, AutoNetworkedField]
         public float MinIgnitionTemperature = 373.15f;
 
-        [ViewVariables(VVAccess.ReadWrite)]
         [DataField]
         public bool FireSpread { get; private set; } = false;
 
-        [ViewVariables(VVAccess.ReadWrite)]
         [DataField]
         public bool CanResistFire { get; private set; } = false;
 
-        [DataField(required: true)]
-        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField(required: true), AutoNetworkedField]
         public DamageSpecifier Damage = new(); // Empty by default, we don't want any funny NREs.
 
         /// <summary>
@@ -83,31 +75,34 @@ namespace Content.Shared.Atmos.Components
         /// <summary>
         ///     Should the component be set on fire by interactions with isHot entities
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField]
+        [DataField, AutoNetworkedField]
         public bool AlwaysCombustible = false;
 
         /// <summary>
         ///     Can the component anyhow lose its FireStacks?
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField]
+        [DataField, AutoNetworkedField]
         public bool CanExtinguish = true;
 
         /// <summary>
         ///     How many firestacks should be applied to component when being set on fire?
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField]
+        [DataField, AutoNetworkedField]
         public float FirestacksOnIgnite = 2.0f;
 
         /// <summary>
         /// Determines how quickly the object will fade out. With positive values, the object will flare up instead of going out.
         /// </summary>
-        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        [DataField, AutoNetworkedField]
         public float FirestackFade = -0.1f;
 
         [DataField]
         public ProtoId<AlertPrototype> FireAlert = "Fire";
+
+        /// <summary>
+        /// If set, applies the displacement map associated with the <see cref="DisplacementDataPrototype"/>.
+        /// </summary>
+        [DataField, AutoNetworkedField]
+        public ProtoId<DisplacementDataPrototype>? Displacement;
     }
 }

@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
@@ -15,9 +10,9 @@ using Robust.Shared.Random;
 namespace Content.Server.GameTicking.Rules;
 
 /// <inheritdoc cref="RoundstartStationVariationRuleComponent"/>
-public sealed class RoundstartStationVariationRuleSystem : GameRuleSystem<RoundstartStationVariationRuleComponent>
+public sealed partial class RoundstartStationVariationRuleSystem : GameRuleSystem<RoundstartStationVariationRuleComponent>
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -31,7 +26,7 @@ public sealed class RoundstartStationVariationRuleSystem : GameRuleSystem<Rounds
         var spawns = EntitySpawnCollection.GetSpawns(component.Rules, _random);
         foreach (var rule in spawns)
         {
-            GameTicker.AddGameRule(rule);
+            GameTicker.AddFilteredGameRule(rule);
         }
     }
 

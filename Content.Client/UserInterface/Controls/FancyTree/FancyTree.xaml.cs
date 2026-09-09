@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SpaceManiac <tad@platymuus.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Client.Resources;
@@ -24,7 +18,7 @@ namespace Content.Client.UserInterface.Controls.FancyTree;
 [GenerateTypedNameReferences]
 public sealed partial class FancyTree : Control
 {
-    [Dependency] private readonly IResourceCache _resCache = default!;
+    [Dependency] private IResourceCache _resCache = default!;
 
     public const string StylePropertyLineWidth = "LineWidth";
     public const string StylePropertyLineColor = "LineColor";

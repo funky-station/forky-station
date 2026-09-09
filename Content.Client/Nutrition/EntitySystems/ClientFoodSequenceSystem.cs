@@ -1,16 +1,12 @@
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.Nutrition.EntitySystems;
 
-public sealed class ClientFoodSequenceSystem : SharedFoodSequenceSystem
+public sealed partial class ClientFoodSequenceSystem : SharedFoodSequenceSystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {

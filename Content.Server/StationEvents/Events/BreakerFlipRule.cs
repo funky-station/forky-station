@@ -1,28 +1,19 @@
-// SPDX-FileCopyrightText: 2022-2023 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Morber <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.StationEvents.Components;
+using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Station.Components;
+using Content.Shared.Whitelist;
 using JetBrains.Annotations;
 
 namespace Content.Server.StationEvents.Events;
 
 [UsedImplicitly]
-public sealed class BreakerFlipRule : StationEventSystem<BreakerFlipRuleComponent>
+public sealed partial class BreakerFlipRule : StationEventSystem<BreakerFlipRuleComponent>
 {
-    [Dependency] private readonly ApcSystem _apcSystem = default!;
+    [Dependency] private ApcSystem _apcSystem = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     protected override void Added(EntityUid uid, BreakerFlipRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
@@ -33,14 +24,13 @@ public sealed class BreakerFlipRule : StationEventSystem<BreakerFlipRuleComponen
         stationEvent.StartAnnouncement = str;
 
         base.Added(uid, component, gameRule, args);
-
     }
 
     protected override void Started(EntityUid uid, BreakerFlipRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
 
-        if (!TryGetRandomStation(out var chosenStation))
+        if (!TryGetRandomStation(out var chosenStation, uid => _whitelist.IsWhitelistFailOrNull(component.Blacklist, uid)))
             return;
 
         var stationApcs = new List<Entity<ApcComponent>>();
@@ -61,7 +51,12 @@ public sealed class BreakerFlipRule : StationEventSystem<BreakerFlipRuleComponen
 
         for (var i = 0; i < toDisable; i++)
         {
-            _apcSystem.ApcToggleBreaker(stationApcs[i], stationApcs[i]);
+            var apc = stationApcs[i];
+            _apcSystem.ApcToggleBreaker(apc, apc);
+
+            var stateString = apc.Comp.MainBreakerEnabled ? "Enabled" : "Disabled";
+            AdminLogManager.Add(LogType.ItemConfigure, LogImpact.Medium,
+                $"Station event {ToPrettyString(uid):user} set the main breaker state of {ToPrettyString(apc):entity} to {stateString:state}");
         }
     }
 }

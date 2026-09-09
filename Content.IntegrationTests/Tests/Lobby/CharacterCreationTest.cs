@@ -1,17 +1,5 @@
-// SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1+git@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Lobby;
+using Content.IntegrationTests.Fixtures;
 using Content.Server.Preferences.Managers;
 using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
@@ -22,12 +10,14 @@ namespace Content.IntegrationTests.Tests.Lobby;
 [TestFixture]
 [TestOf(typeof(ClientPreferencesManager))]
 [TestOf(typeof(ServerPreferencesManager))]
-public sealed class CharacterCreationTest
+public sealed class CharacterCreationTest : GameTest
 {
+    public override PoolSettings PoolSettings => new() { InLobby = true };
+
     [Test]
     public async Task CreateDeleteCreateTest()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings { InLobby = true });
+        var pair = Pair;
         var server = pair.Server;
         var client = pair.Client;
         var user = pair.Client.User!.Value;
@@ -85,7 +75,6 @@ public sealed class CharacterCreationTest
         serverCharacters = serverPrefManager.GetPreferences(user).Characters;
         Assert.That(serverCharacters, Has.Count.EqualTo(2));
         AssertEqual(serverCharacters[1], profile);
-        await pair.CleanReturnAsync();
     }
 
     private void AssertEqual(HumanoidCharacterProfile a, HumanoidCharacterProfile b)

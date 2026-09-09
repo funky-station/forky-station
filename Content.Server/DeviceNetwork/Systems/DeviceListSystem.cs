@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 vulppine <vulppine@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork.Events;
@@ -17,9 +8,10 @@ using Robust.Shared.Map.Events;
 namespace Content.Server.DeviceNetwork.Systems;
 
 [UsedImplicitly]
-public sealed class DeviceListSystem : SharedDeviceListSystem
+public sealed partial class DeviceListSystem : SharedDeviceListSystem
 {
-    [Dependency] private readonly NetworkConfiguratorSystem _configurator = default!;
+    [Dependency] private NetworkConfiguratorSystem _configurator = default!;
+    [Dependency] private EntityQuery<DeviceNetworkComponent> _deviceNetworkQuery = default!;
 
     public override void Initialize()
     {
@@ -37,10 +29,9 @@ public sealed class DeviceListSystem : SharedDeviceListSystem
             _configurator.OnDeviceListShutdown(conf, (uid, component));
         }
 
-        var query = GetEntityQuery<DeviceNetworkComponent>();
         foreach (var device in component.Devices)
         {
-            if (query.TryGetComponent(device, out var comp))
+            if (_deviceNetworkQuery.TryGetComponent(device, out var comp))
                 comp.DeviceLists.Remove(uid);
         }
         component.Devices.Clear();
@@ -134,7 +125,6 @@ public sealed class DeviceListSystem : SharedDeviceListSystem
     private void OnMapSave(BeforeSerializationEvent ev)
     {
         List<EntityUid> toRemove = new();
-        var query = GetEntityQuery<TransformComponent>();
         var enumerator = AllEntityQuery<DeviceListComponent, TransformComponent>();
         while (enumerator.MoveNext(out var uid, out var device, out var xform))
         {
@@ -143,7 +133,7 @@ public sealed class DeviceListSystem : SharedDeviceListSystem
 
             foreach (var ent in device.Devices)
             {
-                if (!query.TryGetComponent(ent, out var linkedXform))
+                if (!TryComp(ent, out TransformComponent? linkedXform))
                 {
                     // Entity was deleted.
                     // TODO remove these on deletion instead of on-save.
@@ -199,7 +189,6 @@ public sealed class DeviceListSystem : SharedDeviceListSystem
             return DeviceListUpdateResult.TooManyDevices;
         }
 
-        var query = GetEntityQuery<DeviceNetworkComponent>();
         var oldDevices = deviceList.Devices.ToList();
         foreach (var device in oldDevices)
         {
@@ -207,13 +196,13 @@ public sealed class DeviceListSystem : SharedDeviceListSystem
                 continue;
 
             deviceList.Devices.Remove(device);
-            if (query.TryGetComponent(device, out var comp))
+            if (_deviceNetworkQuery.TryGetComponent(device, out var comp))
                 comp.DeviceLists.Remove(uid);
         }
 
         foreach (var device in newDevices)
         {
-            if (!query.TryGetComponent(device, out var comp))
+            if (!_deviceNetworkQuery.TryGetComponent(device, out var comp))
                 continue;
 
             if (!deviceList.Devices.Add(device))

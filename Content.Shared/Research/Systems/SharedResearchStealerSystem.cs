@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Ninja.Systems;
@@ -12,11 +7,11 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Research.Systems;
 
-public abstract class SharedResearchStealerSystem : EntitySystem
+public abstract partial class SharedResearchStealerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedNinjaGlovesSystem _gloves = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedNinjaGlovesSystem _gloves = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -44,7 +39,7 @@ public abstract class SharedResearchStealerSystem : EntitySystem
         // fail fast if theres no techs to steal right now
         if (database.UnlockedTechnologies.Count == 0)
         {
-            _popup.PopupClient(Loc.GetString("ninja-download-fail"), uid, uid);
+            _popup.PopupEntity(Loc.GetString("ninja-download-fail"), uid, uid);
             return;
         }
 

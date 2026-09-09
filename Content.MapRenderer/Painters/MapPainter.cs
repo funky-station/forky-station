@@ -1,17 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023, 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vlad <CyberTropic@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -170,8 +156,6 @@ namespace Content.MapRenderer.Painters
             await _pair.RunTicksSync(10);
             await Task.WhenAll(client.WaitIdleAsync(), server.WaitIdleAsync());
 
-            var sMapManager = server.ResolveDependency<IMapManager>();
-
             var tilePainter = new TilePainter(client, server);
             var entityPainter = new GridPainter(client, server);
             var xformQuery = sEntityManager.GetEntityQuery<TransformComponent>();
@@ -189,7 +173,7 @@ namespace Content.MapRenderer.Painters
                 if (_map is RenderMapPrototype)
                 {
                     var mapId = sEntityManager.System<GameTicker>().DefaultMap;
-                    _grids = sMapManager.GetAllGrids(mapId).ToArray();
+                    _grids = mapSys.GetAllGrids(mapId).ToArray();
                 }
 
                 foreach (var (uid, _) in _grids)

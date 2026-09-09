@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Administration;
@@ -13,9 +9,9 @@ namespace Content.Server.Shuttles.Commands;
 /// Delays the round from ending via the shuttle call. Can still be ended via other means.
 /// </summary>
 [AdminCommand(AdminFlags.Fun)]
-public sealed class DelayRoundEndCommand : LocalizedEntityCommands
+public sealed partial class DelayRoundEndCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly EmergencyShuttleSystem _shuttleSystem = default!;
+    [Dependency] private EmergencyShuttleSystem _shuttleSystem = default!;
 
     public override string Command => "delayroundend";
 

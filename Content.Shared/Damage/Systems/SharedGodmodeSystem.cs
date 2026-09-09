@@ -1,15 +1,8 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Red <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Events;
 using Content.Shared.Destructible;
+using Content.Shared.Glue;
+using Content.Shared.Lube;
 using Content.Shared.Nutrition;
 using Content.Shared.Prototypes;
 using Content.Shared.Rejuvenate;
@@ -17,15 +10,11 @@ using Content.Shared.Slippery;
 using Content.Shared.StatusEffect;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.StatusEffectNew.Components;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Damage.Systems;
 
-public abstract class SharedGodmodeSystem : EntitySystem
+public abstract partial class SharedGodmodeSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -51,7 +40,7 @@ public abstract class SharedGodmodeSystem : EntitySystem
 
     private void OnBeforeStatusEffect(EntityUid uid, GodmodeComponent component, ref BeforeStatusEffectAddedEvent args)
     {
-        if (_protoMan.Index(args.Effect).HasComponent<RejuvenateRemovedStatusEffectComponent>(Factory))
+        if (ProtoMan.Index(args.Effect).HasComp<RejuvenateRemovedStatusEffectComponent>(Factory))
             args.Cancelled = true;
     }
 
@@ -76,15 +65,20 @@ public abstract class SharedGodmodeSystem : EntitySystem
         args.Cancelled = true;
     }
 
+    [SubscribeLocalEvent]
+    private void OnGluedEffectAttemptEvent(Entity<GodmodeComponent> entity, ref GluedEffectAttemptEvent args)
+    {
+        args.Cancelled = true;
+    }
+
+    [SubscribeLocalEvent]
+    private void OnGluedEffectAttemptEvent(Entity<GodmodeComponent> entity, ref LubedEffectAttemptEvent args)
+    {
+        args.Cancelled = true;
+    }
+
     public virtual void EnableGodmode(EntityUid uid, GodmodeComponent? godmode = null)
     {
-        godmode ??= EnsureComp<GodmodeComponent>(uid);
-
-        if (TryComp<DamageableComponent>(uid, out var damageable))
-        {
-            godmode.OldDamage = new DamageSpecifier(damageable.Damage);
-        }
-
         // Rejuv to cover other stuff
         RaiseLocalEvent(uid, new RejuvenateEvent());
     }
@@ -93,11 +87,6 @@ public abstract class SharedGodmodeSystem : EntitySystem
     {
         if (!Resolve(uid, ref godmode, false))
             return;
-
-        if (godmode.OldDamage != null)
-        {
-            _damageable.SetDamage(uid, godmode.OldDamage);
-        }
 
         RemComp<GodmodeComponent>(uid);
     }

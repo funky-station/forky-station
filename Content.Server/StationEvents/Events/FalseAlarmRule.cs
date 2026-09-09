@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
@@ -13,9 +7,9 @@ using Robust.Shared.Random;
 namespace Content.Server.StationEvents.Events;
 
 [UsedImplicitly]
-public sealed class FalseAlarmRule : StationEventSystem<FalseAlarmRuleComponent>
+public sealed partial class FalseAlarmRule : StationEventSystem<FalseAlarmRuleComponent>
 {
-    [Dependency] private readonly EventManagerSystem _event = default!;
+    [Dependency] private EventManagerSystem _event = default!;
 
     protected override void Started(EntityUid uid, FalseAlarmRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {

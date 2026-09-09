@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 kosticia <kosticia46@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Alert;
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;
@@ -56,9 +53,6 @@ public sealed partial class MimePowersComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public TimeSpan VowCooldown = TimeSpan.FromMinutes(5);
-
-    [DataField]
-    public ProtoId<AlertPrototype> VowAlert = "VowOfSilence";
 
     [DataField]
     public ProtoId<AlertPrototype> VowBrokenAlert = "VowBroken";

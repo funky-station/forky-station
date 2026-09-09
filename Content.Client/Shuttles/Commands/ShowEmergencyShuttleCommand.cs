@@ -1,15 +1,11 @@
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Shuttles.Systems;
 using Robust.Shared.Console;
 
 namespace Content.Client.Shuttles.Commands;
 
-public sealed class ShowEmergencyShuttleCommand : LocalizedEntityCommands
+public sealed partial class ShowEmergencyShuttleCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly ShuttleSystem _shuttle = default!;
+    [Dependency] private ShuttleSystem _shuttle = default!;
 
     public override string Command => "showemergencyshuttle";
 

@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using System.Threading.Tasks;
 using Content.Shared.Maps;
@@ -24,7 +19,7 @@ public sealed partial class DungeonJob
         NoiseDunGen dungen,
         HashSet<Vector2i> reservedTiles,
         int seed,
-        Random random)
+        IRobustRandom random)
     {
         var tiles = new List<(Vector2i, Tile)>();
         var matrix = Matrix3Helpers.CreateTranslation(position);

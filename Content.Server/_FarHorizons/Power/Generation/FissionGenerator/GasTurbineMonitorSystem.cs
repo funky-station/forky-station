@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 jhrushbe <capnmerry@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Administration.Logs;
 using Content.Server.DeviceLinking.Systems;
@@ -14,12 +11,12 @@ namespace Content.Server._FarHorizons.Power.Generation.FissionGenerator;
 
 public sealed partial class GasTurbineMonitorSystem : EntitySystem
 {
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly TurbineSystem _turbineSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly DeviceLinkSystem _signal = default!;
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = null!;
+    [Dependency] private EntityManager _entityManager = default!;
+    [Dependency] private IAdminLogManager _adminLog = default!;
+    [Dependency] private TurbineSystem _turbineSystem = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private DeviceLinkSystem _signal = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = null!;
 
     private readonly float _threshold = 0.5f;
     private float _accumulator = 0f;

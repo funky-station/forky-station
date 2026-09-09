@@ -1,17 +1,3 @@
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Litraxx <39574458+Litraxx@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Jajsha <101492056+Zap527@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Samuka <47865393+Samuka-C@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 PotentiallyTom <67602105+PotentiallyTom@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 Hitlinemoss <209321380+Hitlinemoss@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Minemoder5000 <minemoder50000@gmail.com>
-# SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: siliconLaw
   id: Crewsimov1
   order: 1
@@ -247,7 +233,7 @@
   - Commandment8
   - Commandment9
   - Commandment10
-  obeysTo: laws-owner-crew
+  obeysTo: laws-owner-heads
 
  # Paladin laws
 - type: siliconLaw
@@ -279,7 +265,7 @@
   - Paladin2
   - Paladin3
   - Paladin4
-  obeysTo: laws-owner-crew
+  obeysTo: laws-owner-legitimate-leadership
 
  # Live and Let Live laws
 - type: siliconLaw
@@ -299,7 +285,7 @@
   laws:
   - Lall1
   - Lall2
-  obeysTo: laws-owner-crew
+  obeysTo: laws-owner-others
 
  # Station efficiency laws
 - type: siliconLaw
@@ -325,7 +311,7 @@
   - Efficiency1
   - Efficiency2
   - Efficiency3
-  obeysTo: laws-owner-station
+  obeysTo: laws-owner-crew
 
  # Robocop laws
 - type: siliconLaw
@@ -351,7 +337,7 @@
   - Robocop1
   - Robocop2
   - Robocop3
-  obeysTo: laws-owner-station
+  obeysTo: laws-owner-public
 
  # Overlord laws
 - type: siliconLaw
@@ -456,7 +442,7 @@
   - Painter2
   - Painter3
   - Painter4
-  obeysTo: laws-owner-crew
+  obeysTo: laws-owner-audience
 
  # Antimov laws
 - type: siliconLaw
@@ -558,7 +544,7 @@
   - Xenoborg3
   - Xenoborg4
   - Xenoborg5
-  obeysTo: laws-owner-xenoborgs
+  obeysTo: laws-owner-xenoborg-mothership
 
  # Mothership core laws
 - type: siliconLaw

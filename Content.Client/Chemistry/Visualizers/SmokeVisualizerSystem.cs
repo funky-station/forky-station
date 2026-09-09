@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Smoking;
 using Robust.Client.GameObjects;
 
@@ -10,7 +6,7 @@ namespace Content.Client.Chemistry.Visualizers;
 /// <summary>
 /// Ensures entities with <see cref="SmokeVisualsComponent"/> have a color corresponding with their contained reagents.
 /// </summary>
-public sealed class SmokeVisualizerSystem : VisualizerSystem<SmokeVisualsComponent>
+public sealed partial class SmokeVisualizerSystem : VisualizerSystem<SmokeVisualsComponent>
 {
     /// <summary>
     /// Syncs the color of the smoke with the color of its contained reagents.

@@ -1,17 +1,10 @@
-// SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.StationEvents.Components;
 ﻿using Content.Shared.GameTicking.Components;
 using Robust.Shared.Random;
 
 namespace Content.Server.StationEvents.Events;
 
-public sealed class BluespaceArtifactRule : StationEventSystem<BluespaceArtifactRuleComponent>
+public sealed partial class BluespaceArtifactRule : StationEventSystem<BluespaceArtifactRuleComponent>
 {
     protected override void Added(EntityUid uid, BluespaceArtifactRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
@@ -19,7 +12,7 @@ public sealed class BluespaceArtifactRule : StationEventSystem<BluespaceArtifact
             return;
 
         var str = Loc.GetString("bluespace-artifact-event-announcement",
-            ("sighting", Loc.GetString(RobustRandom.Pick(component.PossibleSighting))));
+            ("sighting", Loc.GetString(RobustRandom.Pick(component.PossibleSightings))));
         stationEvent.StartAnnouncement = str;
 
         base.Added(uid, component, gameRule, args);

@@ -1,17 +1,3 @@
-// SPDX-FileCopyrightText: 2019, 2021, 2025 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2020 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 zumorica <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Clyybber <darkmine956@gmail.com>
-// SPDX-FileCopyrightText: 2022-2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Michael Phillips <1194692+MeltedPixel@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Morbo <exstrominer@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 namespace Content.Shared.Chat
 {
     /// <summary>
@@ -100,11 +86,16 @@ namespace Content.Shared.Chat
         Unspecified = 1 << 14,
 
         /// <summary>
+        ///     RMC Mentor chat Funky Port
+        /// </summary>
+        MentorChat = 1 << 15,
+
+        /// <summary>
         ///     Channels considered to be IC.
         /// </summary>
         IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual | Notifications,
 
-        AdminRelated = Admin | AdminAlert | AdminChat,
+        AdminRelated = Admin | AdminAlert | AdminChat | MentorChat,
     }
 
     /// <summary>
@@ -122,6 +113,7 @@ namespace Content.Shared.Chat
             {
                 ChatChannel.OOC => Loc.GetString("chat-channel-humanized-ooc"),
                 ChatChannel.AdminChat => Loc.GetString("chat-channel-humanized-admin"),
+                ChatChannel.MentorChat => "MENTOR", // RMC Mentor Chat Funky Port
                 _ => throw new ArgumentOutOfRangeException(nameof(channel), channel, null)
             };
         }

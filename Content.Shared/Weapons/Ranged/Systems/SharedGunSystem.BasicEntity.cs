@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 mq <113324899+mqole@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 
@@ -39,7 +33,7 @@ public abstract partial class SharedGunSystem
             if (ent.Comp.Count != null)
                 ent.Comp.Count--;
 
-            var ammoEnt = Spawn(ent.Comp.Proto, args.Coordinates);
+            var ammoEnt = SpawnAtPosition(ent.Comp.Proto, args.Coordinates);
             args.Ammo.Add((ammoEnt, EnsureShootable(ammoEnt)));
         }
 
@@ -60,6 +54,7 @@ public abstract partial class SharedGunSystem
             return;
 
         Appearance.SetData(ent, AmmoVisuals.HasAmmo, ent.Comp.Count != 0, appearance);
+        Appearance.SetData(ent, AmmoVisuals.IsFull, ent.Comp.Count == ent.Comp.Capacity, appearance);
         Appearance.SetData(ent, AmmoVisuals.AmmoCount, ent.Comp.Count ?? int.MaxValue, appearance);
         Appearance.SetData(ent, AmmoVisuals.AmmoMax, ent.Comp.Capacity ?? int.MaxValue, appearance);
     }

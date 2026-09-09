@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025-2026 jhrushbe <capnmerry@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: BaseReactorPart
   parent: BaseItem
@@ -24,7 +21,7 @@
 # Fuel Rods
 - type: entity
   id: BaseReactorFuelRod
-  parent: [ BaseReactorPart, BaseEngineeringContraband ]
+  parent: [ BaseReactorPart, BaseEngineeringContraband, SolutionFood ]
   categories: [ HideSpawnMenu ]
   name: fuel rod
   description: A fuel rod for a nuclear reactor.
@@ -42,18 +39,18 @@
     forceFeedDelay: 60
   - type: FlavorProfile
     flavors:
-      - metal
+      - metallic
       - electrons
   - type: BadFood
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
+  - type: Solution
+    solution:
+      maxVol: 1000
+      reagents:
         - ReagentId: Uranium
           Quantity: 800
         - ReagentId: Radium
           Quantity: 200
-        canReact: false
+      canReact: false
   - type: StealTarget
     stealGroup: ReactorFuelRodSteal
   - type: SentienceTarget

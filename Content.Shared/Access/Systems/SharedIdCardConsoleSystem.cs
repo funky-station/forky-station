@@ -1,24 +1,14 @@
-// SPDX-FileCopyrightText: 2021-2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2024 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Access.Components;
 using Content.Shared.Containers.ItemSlots;
 using JetBrains.Annotations;
-using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Access.Systems
 {
     [UsedImplicitly]
-    public abstract class SharedIdCardConsoleSystem : EntitySystem
+    public abstract partial class SharedIdCardConsoleSystem : EntitySystem
     {
-        [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
-        [Dependency] private readonly ILogManager _log = default!;
+        [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;
 
         public const string Sawmill = "idconsole";
         protected ISawmill _sawmill = default!;
@@ -26,7 +16,7 @@ namespace Content.Shared.Access.Systems
         public override void Initialize()
         {
             base.Initialize();
-            _sawmill = _log.GetSawmill(Sawmill);
+            _sawmill = LogManager.GetSawmill(Sawmill);
 
             SubscribeLocalEvent<IdCardConsoleComponent, ComponentInit>(OnComponentInit);
             SubscribeLocalEvent<IdCardConsoleComponent, ComponentRemove>(OnComponentRemove);

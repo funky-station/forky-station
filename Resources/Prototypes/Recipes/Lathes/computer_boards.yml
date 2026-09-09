@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: latheRecipe
   abstract: true
   id: BaseEngineeringComputerRecipeCategory
@@ -70,6 +67,11 @@
   parent: [ BaseGoldCircuitboardRecipe, BaseResearchComputerRecipeCategory ]
   id: TechDiskComputerCircuitboard
   result: TechDiskComputerCircuitboard
+
+- type: latheRecipe
+  parent: [ BaseGoldCircuitboardRecipe, BaseResearchComputerRecipeCategory ]
+  id: StationTeleportersControlCircuitboard
+  result: StationTeleportersControlCircuitboard
 
 # Cameras
 - type: latheRecipe

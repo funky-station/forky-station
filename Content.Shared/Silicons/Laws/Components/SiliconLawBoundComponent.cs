@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Actions;
 using Content.Shared.Radio;
 using Robust.Shared.GameStates;
@@ -25,6 +17,12 @@ public sealed partial class SiliconLawBoundComponent : Component
     /// </summary>
     [DataField]
     public EntityUid? LastLawProvider;
+
+    /// <summary>
+    /// Version to display on the law panel. Increments whenever the laws are changed
+    /// </summary>
+    [DataField]
+    public int Version = 1;
 }
 
 /// <summary>
@@ -61,10 +59,12 @@ public sealed class SiliconLawBuiState : BoundUserInterfaceState
 {
     public List<SiliconLaw> Laws;
     public HashSet<ProtoId<RadioChannelPrototype>>? RadioChannels;
+    public int Version;
 
-    public SiliconLawBuiState(List<SiliconLaw> laws, HashSet<ProtoId<RadioChannelPrototype>>? radioChannels)
+    public SiliconLawBuiState(List<SiliconLaw> laws, HashSet<ProtoId<RadioChannelPrototype>>? radioChannels, int version)
     {
         Laws = laws;
         RadioChannels = radioChannels;
+        Version = version;
     }
 }

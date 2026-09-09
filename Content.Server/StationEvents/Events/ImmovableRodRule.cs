@@ -1,32 +1,19 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
-using Content.Server.GameTicking.Rules.Components;
 using Content.Server.ImmovableRod;
 using Content.Server.StationEvents.Components;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Storage;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
 using System.Linq;
 
 namespace Content.Server.StationEvents.Events;
 
-public sealed class ImmovableRodRule : StationEventSystem<ImmovableRodRuleComponent>
+public sealed partial class ImmovableRodRule : StationEventSystem<ImmovableRodRuleComponent>
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly GunSystem _gun = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private GunSystem _gun = default!;
 
     protected override void Started(EntityUid uid, ImmovableRodRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -34,10 +21,10 @@ public sealed class ImmovableRodRule : StationEventSystem<ImmovableRodRuleCompon
 
         var protoName = EntitySpawnCollection.GetSpawns(component.RodPrototypes).First();
 
-        var proto = _prototypeManager.Index<EntityPrototype>(protoName);
+        var proto = ProtoMan.Index<EntityPrototype>(protoName);
 
-        if (proto.TryGetComponent<ImmovableRodComponent>(out var rod, EntityManager.ComponentFactory) &&
-            proto.TryGetComponent<TimedDespawnComponent>(out var despawn, EntityManager.ComponentFactory))
+        if (proto.TryComp<ImmovableRodComponent>(out var rod, EntityManager.ComponentFactory) &&
+            proto.TryComp<TimedDespawnComponent>(out var despawn, EntityManager.ComponentFactory))
         {
             if (!TryFindRandomTile(out _, out _, out _, out var targetCoords))
                 return;

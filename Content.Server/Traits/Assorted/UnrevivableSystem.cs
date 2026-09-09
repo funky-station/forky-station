@@ -1,12 +1,9 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Cloning.Events;
 using Content.Shared.Traits.Assorted;
 
 namespace Content.Server.Traits.Assorted;
 
-public sealed class UnrevivableSystem : EntitySystem
+public sealed partial class UnrevivableSystem : EntitySystem
 {
     public override void Initialize()
     {

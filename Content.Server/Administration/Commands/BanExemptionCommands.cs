@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Text;
 using Content.Server.Database;
@@ -12,10 +7,10 @@ using Robust.Shared.Console;
 namespace Content.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Ban)]
-public sealed class BanExemptionUpdateCommand : LocalizedCommands
+public sealed partial class BanExemptionUpdateCommand : LocalizedCommands
 {
-    [Dependency] private readonly IServerDbManager _dbManager = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
+    [Dependency] private IServerDbManager _dbManager = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
 
     public override string Command => "ban_exemption_update";
 
@@ -67,10 +62,10 @@ public sealed class BanExemptionUpdateCommand : LocalizedCommands
 }
 
 [AdminCommand(AdminFlags.Ban)]
-public sealed class BanExemptionGetCommand : LocalizedCommands
+public sealed partial class BanExemptionGetCommand : LocalizedCommands
 {
-    [Dependency] private readonly IServerDbManager _dbManager = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
+    [Dependency] private IServerDbManager _dbManager = default!;
+    [Dependency] private IPlayerLocator _playerLocator = default!;
 
     public override string Command => "ban_exemption_get";
 

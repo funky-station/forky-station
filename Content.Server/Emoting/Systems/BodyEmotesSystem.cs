@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 poklj <compgeek223@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Chat.Systems;
 using Content.Server.Emoting.Components;
 using Content.Shared.Chat;
@@ -13,10 +7,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Emoting.Systems;
 
-public sealed class BodyEmotesSystem : EntitySystem
+public sealed partial class BodyEmotesSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private ChatSystem _chat = default!;
 
     public override void Initialize()
     {
@@ -43,7 +36,7 @@ public sealed class BodyEmotesSystem : EntitySystem
         if (!TryComp(uid, out HandsComponent? hands) || hands.Count <= 0)
             return false;
 
-        if (!_proto.Resolve(component.SoundsId, out var sounds))
+        if (!ProtoMan.Resolve(component.SoundsId, out var sounds))
             return false;
 
         return _chat.TryPlayEmoteSound(uid, sounds, emote);

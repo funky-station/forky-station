@@ -1,129 +1,82 @@
-# SPDX-FileCopyrightText: 2018 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-# SPDX-FileCopyrightText: 2019, 2021 Swept <49448379+SweptWasTaken@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 py01 <60152240+collinlunn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Martin Petkovski <63034378+martin69420@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+ChilbroBaggins@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Ertanic <36124833+Ertanic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Booblesnoot42 <108703193+Booblesnoot42@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
+﻿# region Base
 - type: construction
-  id: Computer
-  graph: Computer
-  startNode: start
-  targetNode: computer
+  abstract: true
+  id: BaseMachine
   category: construction-category-machines
   placementMode: SnapgridCenter
-  canBuildInImpassable: false
-
-- type: construction
-  id: MachineFrame
-  graph: Machine
-  startNode: start
-  targetNode: machine
-  category: construction-category-machines
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-
-# Switching
-- type: construction
-  id: TwoWayLeverRecipe
-  graph: LeverGraph
-  startNode: start
-  targetNode: LeverNode
-  category: construction-category-machines
-  objectType: Structure
-  canBuildInImpassable: false
   conditions:
-    - !type:TileNotBlocked
+  - !type:TileNotBlocked
 
 - type: construction
-  id: LightSwitchRecipe
-  graph: LightSwitchGraph
-  startNode: start
-  targetNode: LightSwitchNode
-  category: construction-category-machines
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canRotate: true
+  abstract: true
+  parent: BaseMachine
+  id: BaseSwitch
   canBuildInImpassable: true
   conditions:
-    - !type:WallmountCondition
+  - !type:WallmountCondition
+# endregion Base
+
+# region Machines
+- type: construction
+  parent: BaseMachine
+  id: Computer
+  graph: Computer
+  targetNode: computer
+
+- type: construction
+  parent: BaseMachine
+  id: MachineFrame
+  graph: Machine
+  targetNode: machine
+# endregion Machines
+
+# region Switching
+- type: construction
+  parent: BaseMachine
+  id: TwoWayLeverRecipe
+  graph: LeverGraph
+  targetNode: LeverNode
+  placementMode: PlaceFree
+
+- type: construction
+  parent: BaseSwitch
+  id: LightSwitchRecipe
+  graph: LightSwitchGraph
+  targetNode: LightSwitchNode
   hide: true #TODO: Fix the lightswitch, issue #34659. Until then, keep hidden so people don't build it and get confused.
 
 - type: construction
+  parent: BaseSwitch
   id: SignalSwitchRecipe
   graph: SignalSwitchGraph
-  startNode: start
   targetNode: SignalSwitchNode
   category: construction-category-machines
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canRotate: true
-  canBuildInImpassable: true
-  conditions:
-    - !type:WallmountCondition
 
 - type: construction
+  parent: BaseSwitch
   id: SignalButtonRecipe
   graph: SignalButtonGraph
-  startNode: start
   targetNode: SignalButtonNode
-  category: construction-category-machines
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canRotate: true
-  canBuildInImpassable: true
-  conditions:
-    - !type:WallmountCondition
 
 - type: construction
+  parent: BaseSwitch
   id: LightSwitchDirectionalRecipe
   name: construction-recipe-light-switch-directional
   graph: LightSwitchDirectionalGraph
-  startNode: start
   targetNode: LightSwitchDirectionalNode
-  category: construction-category-machines
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canRotate: true
-  canBuildInImpassable: true
-  conditions:
-    - !type:WallmountCondition
   hide: true #TODO: Fix the lightswitch, issue #34659. Until then, keep hidden so people don't build it and get confused.
 
 - type: construction
+  parent: BaseSwitch
   id: SignalSwitchDirectionalRecipe
   name: construction-recipe-signal-switch-directional
   graph: SignalSwitchDirectionalGraph
-  startNode: start
   targetNode: SignalSwitchDirectionalNode
-  category: construction-category-machines
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canRotate: true
-  canBuildInImpassable: true
-  conditions:
-    - !type:WallmountCondition
 
 - type: construction
+  parent: BaseSwitch
   id: SignalButtonDirectionalRecipe
   name: construction-recipe-signal-button-directional
   graph: SignalButtonDirectionalGraph
-  startNode: start
   targetNode: SignalButtonDirectionalNode
-  category: construction-category-machines
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canRotate: true
-  canBuildInImpassable: true
-  conditions:
-    - !type:WallmountCondition
+# endregion Switching

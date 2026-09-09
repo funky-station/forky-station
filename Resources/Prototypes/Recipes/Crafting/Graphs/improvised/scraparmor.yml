@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 RedBookcase <crazykid1590@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: constructionGraph
   id: scraparmor
   start: start
@@ -11,7 +8,7 @@
         steps:
         - tag: Apron
           icon:
-            sprite: Clothing/OuterClothing/Misc/apronbotanist.rsi
+            sprite: _Funkystation/Clothing/OuterClothing/misc/hydro_apron.rsi
             state: icon
           name: construction-graph-tag-apron
         - material: Cable

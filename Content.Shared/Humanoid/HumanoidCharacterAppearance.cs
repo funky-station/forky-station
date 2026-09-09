@@ -1,27 +1,3 @@
-// SPDX-FileCopyrightText: 2019-2020 DamianX <DamianX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Moses <StrawberryMoses@gmail.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022, 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023, 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 csqrb <56765288+CaptainSqrBeard@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 beck <163376292+widgetbeck@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
-using System.Linq;
 using System.Numerics;
 using Content.Shared.Body;
 using Content.Shared.Humanoid.Markings;
@@ -30,6 +6,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using static Content.Shared.Preferences.HumanoidCharacterProfile;
 
 namespace Content.Shared.Humanoid;
 
@@ -80,7 +57,7 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
     public static HumanoidCharacterAppearance DefaultWithSpecies(ProtoId<SpeciesPrototype> species, Sex sex)
     {
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
-        var speciesPrototype = protoMan.Index<SpeciesPrototype>(species);
+        var speciesPrototype = protoMan.Index(species);
         var skinColoration = protoMan.Index(speciesPrototype.SkinColoration).Strategy;
         var skinColor = skinColoration.InputType switch
         {
@@ -97,36 +74,89 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
         return EnsureValid(appearance, species, sex);
     }
 
-    private static IReadOnlyList<Color> _realisticEyeColors = new List<Color>
-    {
+    private static readonly IReadOnlyList<Color> RealisticEyeColors =
+    [
         Color.Brown,
         Color.Gray,
         Color.Azure,
         Color.SteelBlue,
         Color.Black
-    };
+    ];
 
-    public static HumanoidCharacterAppearance Random(string species, Sex sex)
+    /// <summary>
+    /// Picks a random eye color.
+    /// </summary>
+    public static Color RandomEyes()
     {
         var random = IoCManager.Resolve<IRobustRandom>();
-        var markingManager = IoCManager.Resolve<MarkingManager>();
 
-        // TODO: Add random markings
+        var eyes = random.Pick(RealisticEyeColors);
+        return eyes;
+    }
 
-        var newEyeColor = random.Pick(_realisticEyeColors);
-
+    /// <summary>
+    /// Picks a random skin color using species.
+    /// </summary>
+    public static Color RandomSkin(ProtoId<SpeciesPrototype> species)
+    {
+        var random = IoCManager.Resolve<IRobustRandom>();
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
-        var skinType = protoMan.Index<SpeciesPrototype>(species).SkinColoration;
+
+        var speciesProto = protoMan.Index(species);
+        var skinType = speciesProto.SkinColoration;
         var strategy = protoMan.Index(skinType).Strategy;
 
-        var newSkinColor = strategy.InputType switch
+        var skinColor = strategy.InputType switch
         {
             SkinColorationStrategyInput.Unary => strategy.FromUnary(random.NextFloat(0f, 100f)),
             SkinColorationStrategyInput.Color => strategy.ClosestSkinColor(new Color(random.NextFloat(1), random.NextFloat(1), random.NextFloat(1), 1)),
             _ => strategy.ClosestSkinColor(new Color(random.NextFloat(1), random.NextFloat(1), random.NextFloat(1), 1)),
         };
 
-        return new HumanoidCharacterAppearance(newEyeColor, newSkinColor, new());
+        return skinColor;
+    }
+
+    /// <summary>
+    ///     Generates a randomized character appearance.
+    /// </summary>
+    /// <remarks>
+    ///     When <see cref="RandomizeCfg"/> and an existing <see cref="HumanoidCharacterAppearance"> are passed in,
+    ///     values will be selectively randomized with the option to maintain existing values.
+    /// </remarks>
+    /// <param name="charEditorRandomizeConfig">Which values to randomize.</param>
+    /// <param name="baseAppearance">Appearance to base the new appearance on. Values that are not randomized will be taken from this appearance.</param>
+    /// <param name="species">Species prototype ID.</param>
+    /// <param name="sex">Sex.</param>
+    public static HumanoidCharacterAppearance Random(SpeciesPrototype species, Sex sex, RandomizeCfg? charEditorRandomizeConfig = null, HumanoidCharacterAppearance? baseAppearance = null)
+    {
+        var random = IoCManager.Resolve<IRobustRandom>();
+        var protoMan = IoCManager.Resolve<IPrototypeManager>();
+
+        var skinType = protoMan.Index(species.SkinColoration);
+        var palette = GetRandomClampedPalette(skinType, random);
+
+        // squash Cfg as necessary
+        palette = palette with
+        {
+            SkinColor = (charEditorRandomizeConfig & RandomizeCfg.Skin) != 0 || baseAppearance is null
+                ? palette.SkinColor : baseAppearance.SkinColor,
+            EyeColor = (charEditorRandomizeConfig & RandomizeCfg.Eyes) != 0 || baseAppearance is null
+                ? palette.EyeColor : baseAppearance.EyeColor
+        };
+
+        var markings = ((charEditorRandomizeConfig & RandomizeCfg.Markings) != 0 || baseAppearance is null)
+            ? RandomizeMarkings(species, sex, palette, protoMan, random)
+            : baseAppearance.Markings;
+        // TODO if someone really cares they can probably regenerate the old markings with new colors but im too tired to figure that out
+
+        HumanoidCharacterAppearance appearance = new(
+            palette.EyeColor,
+            palette.SkinColor,
+            markings);
+
+        // Safety step. Most systems which called Random() also called this, and not doing so caused issues with markings.
+        // In the future it could *maybe* be removed, but it's probably worth the extra CPU cycles to validate this info.
+        return EnsureValid(appearance, species, sex);
     }
 
     public static Color ClampColor(Color color)
@@ -136,21 +166,20 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
 
     public static HumanoidCharacterAppearance EnsureValid(HumanoidCharacterAppearance appearance, ProtoId<SpeciesPrototype> species, Sex sex)
     {
-        var eyeColor = ClampColor(appearance.EyeColor);
-
         var proto = IoCManager.Resolve<IPrototypeManager>();
         var markingManager = IoCManager.Resolve<MarkingManager>();
 
         var skinColor = appearance.SkinColor;
+        var eyeColor = ClampColor(appearance.EyeColor); // not using ClampEyeColorToStrategy so characters can have fun eye colours
         var validatedMarkings = appearance.Markings.ShallowClone();
 
         if (proto.TryIndex(species, out var speciesProto))
         {
-            var strategy = proto.Index(speciesProto.SkinColoration).Strategy;
+            var coloration = proto.Index(speciesProto.SkinColoration);
             var organs = markingManager.GetOrgans(species);
-            skinColor = strategy.EnsureVerified(skinColor);
+            skinColor = coloration.Strategy.EnsureVerified(skinColor);
 
-            foreach (var (organ, markings) in appearance.Markings)
+            foreach (var (organ, _) in appearance.Markings)
             {
                 if (!organs.ContainsKey(organ))
                     validatedMarkings.Remove(organ);
@@ -164,7 +193,7 @@ public sealed partial class HumanoidCharacterAppearance : IEquatable<HumanoidCha
                     continue;
                 }
 
-                var actualMarkings = appearance.Markings.GetValueOrDefault(organ)?.ShallowClone() ?? [];
+                var actualMarkings = appearance.Markings.GetValueOrDefault(organ)?.ShallowClone() ?? new();
 
                 markingManager.EnsureValidColors(actualMarkings);
                 markingManager.EnsureValidGroupAndSex(actualMarkings, organData.Value.Group, sex);

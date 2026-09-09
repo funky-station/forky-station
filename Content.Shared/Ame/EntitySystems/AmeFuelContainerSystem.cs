@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Ame.Components;
 using Content.Shared.Examine;
 
@@ -11,7 +6,7 @@ namespace Content.Shared.Ame.EntitySystems;
 /// <summary>
 /// Adds details about fuel level when examining antimatter engine fuel containers.
 /// </summary>
-public sealed class AmeFuelContainerSystem : EntitySystem
+public sealed partial class AmeFuelContainerSystem : EntitySystem
 {
     public override void Initialize()
     {

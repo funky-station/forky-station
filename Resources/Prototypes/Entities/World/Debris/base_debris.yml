@@ -1,9 +1,0 @@
-# SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-# SPDX-License-Identifier: MIT
-
-- type: entity
-  id: BaseDebris
-  abstract: true
-  components:
-    - type: OwnedDebris
-    - type: LocalityLoader

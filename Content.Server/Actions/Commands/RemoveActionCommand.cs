@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
@@ -10,9 +7,9 @@ using Robust.Shared.Console;
 namespace Content.Server.Actions.Commands;
 
 [AdminCommand(AdminFlags.Debug)]
-public sealed class RemoveActionCommand : LocalizedEntityCommands
+public sealed partial class RemoveActionCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
 
     public override string Command => "rmaction";
 

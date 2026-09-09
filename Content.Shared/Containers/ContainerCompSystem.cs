@@ -1,9 +1,4 @@
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Containers;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Containers;
@@ -11,10 +6,9 @@ namespace Content.Shared.Containers;
 /// <summary>
 /// Applies / removes an entity prototype from a child entity when it's inserted into a container.
 /// </summary>
-public sealed class ContainerCompSystem : EntitySystem
+public sealed partial class ContainerCompSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -28,7 +22,7 @@ public sealed class ContainerCompSystem : EntitySystem
         if (args.Container.ID != ent.Comp.Container || _timing.ApplyingState)
             return;
 
-        if (_proto.Resolve(ent.Comp.Proto, out var entProto))
+        if (ProtoMan.Resolve(ent.Comp.Proto, out var entProto))
         {
             EntityManager.RemoveComponents(args.Entity, entProto.Components);
         }
@@ -39,7 +33,7 @@ public sealed class ContainerCompSystem : EntitySystem
         if (args.Container.ID != ent.Comp.Container || _timing.ApplyingState)
             return;
 
-        if (_proto.Resolve(ent.Comp.Proto, out var entProto))
+        if (ProtoMan.Resolve(ent.Comp.Proto, out var entProto))
         {
             EntityManager.AddComponents(args.Entity, entProto.Components);
         }

@@ -1,22 +1,10 @@
-// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Shared.Decals;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
+using Robust.Shared.GameStates;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Enumerators;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client.Decals.Overlays
@@ -26,10 +14,12 @@ namespace Content.Client.Decals.Overlays
         private readonly SpriteSystem _sprites;
         private readonly IEntityManager _entManager;
         private readonly IPrototypeManager _prototypeManager;
+        private readonly ChunkEntitySystem _chunkEntities;
+        private readonly EntityQuery<DecalChunkComponent> _decalQuery;
 
         private readonly Dictionary<string, (Texture Texture, bool SnapCardinals)> _cachedTextures = new(64);
 
-        private readonly List<(uint Id, Decal Decal)> _decals = new();
+        private readonly List<(DecalIndex Index, Decal Decal)> _decals = new();
 
         public DecalOverlay(
             SpriteSystem sprites,
@@ -39,6 +29,8 @@ namespace Content.Client.Decals.Overlays
             _sprites = sprites;
             _entManager = entManager;
             _prototypeManager = prototypeManager;
+            _chunkEntities = _entManager.System<ChunkEntitySystem>();
+            _decalQuery = _entManager.GetEntityQuery<DecalChunkComponent>();
         }
 
         protected override void Draw(in OverlayDrawArgs args)
@@ -48,8 +40,7 @@ namespace Content.Client.Decals.Overlays
 
             var owner = Grid.Owner;
 
-            if (!_entManager.TryGetComponent(owner, out DecalGridComponent? decalGrid) ||
-                !_entManager.TryGetComponent(owner, out TransformComponent? xform))
+            if (!_entManager.TryGetComponent(owner, out TransformComponent? xform))
             {
                 return;
             }
@@ -63,12 +54,11 @@ namespace Content.Client.Decals.Overlays
             var eyeAngle = args.Viewport.Eye?.Rotation ?? Angle.Zero;
 
             var gridAABB = xformSystem.GetInvWorldMatrix(xform).TransformBox(args.WorldBounds.Enlarged(1f));
-            var chunkEnumerator = new ChunkIndicesEnumerator(gridAABB, SharedDecalSystem.ChunkSize);
             _decals.Clear();
 
-            while (chunkEnumerator.MoveNext(out var index))
+            foreach (var chunkEnt in _chunkEntities.GetChunksIntersecting(owner, gridAABB))
             {
-                if (!decalGrid.ChunkCollection.ChunkCollection.TryGetValue(index.Value, out var chunk))
+                if (!_decalQuery.TryComp(chunkEnt.Owner, out var chunk))
                     continue;
 
                 foreach (var (id, decal) in chunk.Decals)
@@ -76,7 +66,7 @@ namespace Content.Client.Decals.Overlays
                     if (!gridAABB.Contains(decal.Coordinates))
                         continue;
 
-                    _decals.Add((id, decal));
+                    _decals.Add((new DecalIndex(chunkEnt.Comp.Chunk, id), decal));
                 }
             }
 
@@ -90,7 +80,7 @@ namespace Content.Client.Decals.Overlays
                 if (zComp != 0)
                     return zComp;
 
-                return x.Id.CompareTo(y.Id);
+                return CompareDecalIndex(x.Index, y.Index);
             });
 
             var (_, worldRot, worldMatrix) = xformSystem.GetWorldPositionRotationMatrix(xform);
@@ -127,6 +117,21 @@ namespace Content.Client.Decals.Overlays
             }
 
             handle.SetTransform(Matrix3x2.Identity);
+        }
+
+        private static int CompareDecalIndex(DecalIndex x, DecalIndex y)
+        {
+            var xCompare = x.Chunk.X.CompareTo(y.Chunk.X);
+
+            if (xCompare != 0)
+                return xCompare;
+
+            var chunkYCompare = x.Chunk.Y.CompareTo(y.Chunk.Y);
+
+            if (chunkYCompare != 0)
+                return chunkYCompare;
+
+            return x.Id.CompareTo(y.Id);
         }
     }
 }

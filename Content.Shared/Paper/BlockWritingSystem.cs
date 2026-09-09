@@ -1,13 +1,10 @@
-// SPDX-FileCopyrightText: 2025 SpeltIncorrectyl <66873282+SpeltIncorrectyl@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 namespace Content.Shared.Paper;
 
 /// <summary>
 /// A system that prevents those with the IlliterateComponent from writing on paper.
 /// Has no effect on reading ability.
 /// </summary>
-public sealed class BlockWritingSystem : EntitySystem
+public sealed partial class BlockWritingSystem : EntitySystem
 {
     public override void Initialize()
     {

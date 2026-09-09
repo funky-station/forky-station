@@ -1,101 +1,81 @@
-# SPDX-FileCopyrightText: 2021-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-# SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 Nairod <110078045+Nairodian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Sir Warock <67167466+SirWarock@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SeamLesss <kai.julian.watson@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: RollerBed
   parent: [BaseItem, BaseDeployFoldable]
   name: rollerbed
   description: Used to carry patients around without damaging them.
   components:
-    - type: Transform
-      noRot: true
-    - type: Item
-      size: Normal
-      heldPrefix: rollerbed
-    - type: Sprite
-      sprite: Structures/Furniture/rollerbeds.rsi
-      noRot: true
-      layers:
-      - state: rollerbed
-        map: ["unfoldedLayer"]
-      - state: rollerbed_folded
-        map: ["foldedLayer"]
-        visible: false
-      - state: rollerbed_buckled
-        map: ["buckledLayer"]
-        visible: false
-    - type: MovedByPressure
-    - type: DamageOnHighSpeedImpact
-      soundHit:
-        collection: MetalThud
-    - type: InteractionOutline
-    - type: Physics
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape:
-            !type:PhysShapeCircle
-            radius: 0.35
-          density: 20
-          mask:
-          - MobMask
-    - type: Damageable
-    - type: Destructible
-      thresholds:
-        - trigger: # Excess damage, don't spawn entities
-            !type:DamageTrigger
-            damage: 100
-          behaviors:
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-        - trigger:
-            !type:DamageTrigger
-            damage: 50
-          behaviors:
-            - !type:DoActsBehavior
-              acts: ["Destruction"]
-            - !type:SpawnEntitiesBehavior
-              spawn:
-                SheetSteel1:
-                  min: 1
-                  max: 1
-    - type: Pullable
-    - type: Strap
-      position: Down
-      rotation: -90
-      buckleOffset: "0,0.15"
-      buckleOnInteractHand: False
-    - type: Appearance
-    - type: GenericVisualizer
-      visuals:
-        enum.StrapVisuals.State:
-          buckledLayer:
-            True: {visible: true}
-            False: {visible: false}
-          unfoldedLayer:
-            True: { visible: false }
-            False: { visible: true }
-        enum.FoldedVisuals.State: # Copypasta from BaseFoldable b/c collections don't merge when overriding component prototypes.
-          foldedLayer:
-            True: {visible: true}
-            False: {visible: false}
-          unfoldedLayer:
-            True: {visible: false}
-    - type: StaticPrice
-      price: 120
+  - type: Transform
+    noRot: true
+  - type: Item
+    size: Normal
+    heldPrefix: rollerbed
+  - type: Sprite
+    sprite: Structures/Furniture/rollerbeds.rsi
+    noRot: true
+    layers:
+    - state: rollerbed
+      map: ["unfoldedLayer"]
+    - state: rollerbed_folded
+      map: ["foldedLayer"]
+      visible: false
+    - state: rollerbed_buckled
+      map: ["buckledLayer"]
+      visible: false
+  - type: MovedByPressure
+  - type: DamageOnHighSpeedImpact
+    soundHit:
+      collection: MetalThud
+  - type: InteractionOutline
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 20
+        mask:
+        - MobMask
+  - type: Damageable
+  - type: Injurable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+  - type: Pullable
+  - type: Strap
+    position: Down
+    rotation: -90
+    buckleOffset: "0,0.15"
+    buckleOnInteractHand: False
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.StrapVisuals.State:
+        buckledLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: { visible: false }
+          False: { visible: true }
+      enum.FoldedVisuals.State: # Copypasta from BaseFoldable b/c collections don't merge when overriding component prototypes.
+        foldedLayer:
+          True: {visible: true}
+          False: {visible: false}
+        unfoldedLayer:
+          True: {visible: false}
+  - type: StaticPrice
+    price: 120
 
 - type: entity
   parent: RollerBed

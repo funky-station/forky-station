@@ -1,13 +1,8 @@
-# SPDX-FileCopyrightText: 2022 Pancake <Pangogie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Scribbles0 <91828755+Scribbles0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: localizedDataset
   id: NamesSyndicateNormal
   values:
     prefix: names-syndicate-normal-dataset-
-    count: 25
+    count: 26
 
 - type: localizedDataset
   id: NamesSyndicateElite

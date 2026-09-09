@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
@@ -35,6 +28,13 @@ public sealed partial class LightBulbComponent : Component
     /// </summary>
     [DataField("startingState"), AutoNetworkedField]
     public LightBulbState State = LightBulbState.Normal;
+
+    /// <summary>
+    /// The localized short name of the light. Used for the status control of the light replacer.
+    /// </summary>
+    /// <example>An orange light tube uses "orange" as its short name.</example>
+    [DataField]
+    public LocId? ShortName;
 
     /// <summary>
     /// The temperature the air around the lightbulb is exposed to when the lightbulb burns out.
@@ -70,7 +70,7 @@ public sealed partial class LightBulbComponent : Component
     /// The sound produced when the lightbulb breaks.
     /// </summary>
     [DataField]
-    public SoundSpecifier BreakSound = new SoundCollectionSpecifier("GlassBreak", AudioParams.Default.WithVolume(-6f));
+    public SoundSpecifier BreakSound = new SoundCollectionSpecifier("GlassBreak", AudioParams.Default.AddVolume(-6f));
 
     #region Appearance
 

@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2024-2025 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Mora <46364955+TrixxedHeart@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: marking
   id: TattooVoxHeartLeftArm
   bodyPart: LArm
@@ -98,7 +94,7 @@
 - type: marking
   id: TattooVoxTailRing
   # TODO // Looks off on some tails (i.e docked/amputated), if conditionals for markings ever get implemented this needs to be updated to account for those.
-  bodyPart: Tail
+  bodyPart: TailOverlay
   groupWhitelist: [Vox]
   coloring:
     default:

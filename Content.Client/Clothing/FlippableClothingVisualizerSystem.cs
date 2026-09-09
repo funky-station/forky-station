@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Nikolai Korolev <korolevns98@gmail.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
@@ -12,9 +7,9 @@ using Robust.Client.GameObjects;
 
 namespace Content.Client.Clothing;
 
-public sealed class FlippableClothingVisualizerSystem : VisualizerSystem<FlippableClothingVisualsComponent>
+public sealed partial class FlippableClothingVisualizerSystem : VisualizerSystem<FlippableClothingVisualsComponent>
 {
-    [Dependency] private readonly SharedItemSystem _itemSys = default!;
+    [Dependency] private SharedItemSystem _itemSys = default!;
 
     public override void Initialize()
     {

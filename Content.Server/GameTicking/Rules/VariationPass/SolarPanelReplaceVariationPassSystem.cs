@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.GameTicking.Rules.VariationPass.Components;
 using Content.Server.GameTicking.Rules.VariationPass.Components.ReplacementMarkers;
 
@@ -9,6 +6,4 @@ namespace Content.Server.GameTicking.Rules.VariationPass;
 /// <summary>
 /// This handles the ability to replace entities marked with <see cref="SolarPanelReplacementMarkerComponent"/> in a variation pass
 /// </summary>
-public sealed class SolarPanelReplaceVariationPassSystem : BaseEntityReplaceVariationPassSystem<SolarPanelReplacementMarkerComponent, SolarPanelReplaceVariationPassComponent>
-{
-}
+public sealed partial class SolarPanelReplaceVariationPassSystem : BaseEntityReplaceVariationPassSystem<SolarPanelReplacementMarkerComponent, SolarPanelReplaceVariationPassComponent>;

@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using System.Runtime.InteropServices;
 using Robust.Shared.Network;

@@ -1,12 +1,4 @@
-// SPDX-FileCopyrightText: 2023 Darkie <darksaiyanis@gmail.com>
-// SPDX-FileCopyrightText: 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 kaiserbirch <150971100+kaiserbirch@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+using Content.Shared.Interaction.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
@@ -91,6 +83,12 @@ public sealed partial class ItemToggleComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public SoundSpecifier? SoundFailToActivate;
+
+    /// <summary>
+    /// Does toggling this item require <see cref="ComplexInteractionComponent"/>?
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool RequireComplexInteract = true;
 }
 
 /// <summary>

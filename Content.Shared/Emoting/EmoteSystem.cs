@@ -1,15 +1,6 @@
-// SPDX-FileCopyrightText: 2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 namespace Content.Shared.Emoting;
 
-public sealed class EmoteSystem : EntitySystem
+public sealed partial class EmoteSystem : EntitySystem
 {
     public override void Initialize()
     {
@@ -18,6 +9,9 @@ public sealed class EmoteSystem : EntitySystem
         SubscribeLocalEvent<EmoteAttemptEvent>(OnEmoteAttempt);
     }
 
+    /// <summary>
+    /// Tries to enable emoting component on an entity.
+    /// </summary>
     public void SetEmoting(EntityUid uid, bool value, EmotingComponent? component = null)
     {
         if (value && !Resolve(uid, ref component))

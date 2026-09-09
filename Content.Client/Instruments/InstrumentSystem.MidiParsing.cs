@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Instruments;
 using Robust.Shared.Audio.Midi;

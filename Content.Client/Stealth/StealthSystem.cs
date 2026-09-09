@@ -1,17 +1,5 @@
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Interactable.Components;
-using Content.Client.StatusIcon;
+using Content.Client.Graphics;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Robust.Client.GameObjects;
@@ -20,13 +8,12 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.Stealth;
 
-public sealed class StealthSystem : SharedStealthSystem
+public sealed partial class StealthSystem : SharedStealthSystem
 {
     private static readonly ProtoId<ShaderPrototype> Shader = "Stealth";
 
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     private ShaderInstance _shader = default!;
 
@@ -34,7 +21,7 @@ public sealed class StealthSystem : SharedStealthSystem
     {
         base.Initialize();
 
-        _shader = _protoMan.Index(Shader).InstanceUnique();
+        _shader = ProtoMan.Index(Shader).InstanceUnique();
 
         SubscribeLocalEvent<StealthComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<StealthComponent, ComponentStartup>(OnStartup);
@@ -56,9 +43,19 @@ public sealed class StealthSystem : SharedStealthSystem
             return;
 
         _sprite.SetColor((uid, sprite), Color.White);
-        sprite.PostShader = enabled ? _shader : null;
-        sprite.GetScreenTexture = enabled;
-        sprite.RaiseShaderEvent = enabled;
+        if (enabled)
+        {
+            _sprite.SetPostShader((uid, sprite), new SpriteComponent.PostShaderArgs(ContentPostShaderIds.Stealth, _shader)
+            {
+                GetScreenTexture = true,
+                RaiseShaderEvent = true,
+                Before = ContentPostShaderIds.BeforeOutlines,
+            });
+        }
+        else
+        {
+            _sprite.RemovePostShader((uid, sprite), ContentPostShaderIds.Stealth);
+        }
 
         if (!enabled)
         {
@@ -67,11 +64,8 @@ public sealed class StealthSystem : SharedStealthSystem
             return;
         }
 
-        if (TryComp(uid, out InteractionOutlineComponent? outline))
-        {
-            RemCompDeferred(uid, outline);
+        if (HasComp<InteractionOutlineComponent>(uid))
             component.HadOutline = true;
-        }
     }
 
     private void OnStartup(EntityUid uid, StealthComponent component, ComponentStartup args)
@@ -106,6 +100,7 @@ public sealed class StealthSystem : SharedStealthSystem
 
         _shader.SetParameter("reference", reference);
         _shader.SetParameter("visibility", visibility);
+        _shader.SetParameter("shimmer_frequency", component.ShimmerFrequency);
 
         visibility = MathF.Max(0, visibility);
         _sprite.SetColor((uid, args.Sprite), new Color(visibility, visibility, 1, 1));

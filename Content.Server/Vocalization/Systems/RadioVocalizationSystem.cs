@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Crude Oil <124208219+CroilBird@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Chat.Systems;
 using Content.Server.Vocalization.Components;
 using Content.Shared.Chat;
@@ -18,10 +14,9 @@ namespace Content.Server.Vocalization.Systems;
 /// </summary>
 public sealed partial class RadioVocalizationSystem : EntitySystem
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private InventorySystem _inventory = default!;
 
     public override void Initialize()
     {
@@ -87,7 +82,7 @@ public sealed partial class RadioVocalizationSystem : EntitySystem
         if (!TryPickRandomRadioChannel(entity, out var channel))
             return false;
 
-        var channelPrefix = _proto.Index<RadioChannelPrototype>(channel).KeyCode;
+        var channelPrefix = ProtoMan.Index<RadioChannelPrototype>(channel).KeyCode;
 
         // send a whisper using the radio channel prefix and whatever relevant radio channel character
         // along with the message. This is analogous to how radio messages are sent by players

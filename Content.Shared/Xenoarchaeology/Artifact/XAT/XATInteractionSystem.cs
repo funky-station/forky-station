@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Interaction;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Weapons.Melee.Events;
@@ -12,7 +9,7 @@ namespace Content.Shared.Xenoarchaeology.Artifact.XAT;
 /// <summary>
 /// System for xeno artifact trigger that requires some way of 'using' (with default action) an artifact entity.
 /// </summary>
-public sealed class XATInteractionSystem : BaseXATSystem<XATInteractionComponent>
+public sealed partial class XATInteractionSystem : BaseXATSystem<XATInteractionComponent>
 {
     /// <inheritdoc/>
     public override void Initialize()

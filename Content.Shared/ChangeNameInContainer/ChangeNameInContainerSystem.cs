@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chat;
 using Robust.Shared.Containers;
 using Content.Shared.Whitelist;
@@ -10,8 +7,8 @@ namespace Content.Shared.ChangeNameInContainer;
 
 public sealed partial class ChangeNameInContainerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {

@@ -1,28 +1,3 @@
-// SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2020 ColdAutumnRain <73938872+ColdAutumnRain@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2020 Exp <theexp111@gmail.com>
-// SPDX-FileCopyrightText: 2021, 2024-2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 08A <git@08a.re>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2025 Ertanic <36124833+Ertanic@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Client.Popups;
@@ -39,7 +14,6 @@ using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 
 namespace Content.Client.Construction
 {
@@ -47,13 +21,12 @@ namespace Content.Client.Construction
     /// The client-side implementation of the construction system, which is used for constructing entities in game.
     /// </summary>
     [UsedImplicitly]
-    public sealed class ConstructionSystem : SharedConstructionSystem
+    public sealed partial class ConstructionSystem : SharedConstructionSystem
     {
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
-        [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-        [Dependency] private readonly SpriteSystem _sprite = default!;
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private ExamineSystemShared _examineSystem = default!;
+        [Dependency] private SpriteSystem _sprite = default!;
+        [Dependency] private PopupSystem _popupSystem = default!;
 
         private readonly Dictionary<int, EntityUid> _ghosts = new();
         private readonly Dictionary<string, ConstructionGuide> _guideCache = new();
@@ -70,6 +43,7 @@ namespace Content.Client.Construction
             WarmupRecipesCache();
 
             UpdatesOutsidePrediction = true;
+            SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypeReload);
             SubscribeLocalEvent<LocalPlayerAttachedEvent>(HandlePlayerAttached);
             SubscribeNetworkEvent<AckStructureConstructionMessage>(HandleAckStructure);
             SubscribeNetworkEvent<ResponseConstructionGuide>(OnConstructionGuideReceived);
@@ -101,11 +75,19 @@ namespace Content.Client.Construction
             return false;
         }
 
+        private void OnPrototypeReload(PrototypesReloadedEventArgs obj)
+        {
+            if (obj.WasModified<ConstructionPrototype>())
+                WarmupRecipesCache();
+        }
+
         private void WarmupRecipesCache()
         {
-            foreach (var constructionProto in PrototypeManager.EnumeratePrototypes<ConstructionPrototype>())
+            _recipesMetadataCache.Clear();
+
+            foreach (var constructionProto in ProtoMan.EnumeratePrototypes<ConstructionPrototype>())
             {
-                if (!PrototypeManager.Resolve(constructionProto.Graph, out var graphProto))
+                if (!ProtoMan.Resolve(constructionProto.Graph, out var graphProto))
                     continue;
 
                 if (constructionProto.TargetNode is not { } targetNodeId)
@@ -146,7 +128,7 @@ namespace Content.Client.Construction
                     // If we got the id of the prototype, we exit the “recursion” by clearing the stack.
                     stack.Clear();
 
-                    if (!PrototypeManager.Resolve(entityId, out var proto))
+                    if (!ProtoMan.Resolve(entityId, out var proto))
                         continue;
 
                     var name = constructionProto.SetName.HasValue ? Loc.GetString(constructionProto.SetName) : proto.Name;
@@ -194,7 +176,7 @@ namespace Content.Client.Construction
                     "construction-ghost-examine-message",
                     ("name", component.Prototype.Name)));
 
-                if (!PrototypeManager.Resolve(component.Prototype.Graph, out var graph))
+                if (!ProtoMan.Resolve(component.Prototype.Graph, out var graph))
                     return;
 
                 var startNode = graph.Nodes[component.Prototype.StartNode];
@@ -295,29 +277,28 @@ namespace Content.Client.Construction
                 return false;
             }
 
-            if (!TryGetRecipePrototype(prototype.ID, out var targetProtoId) || !PrototypeManager.TryIndex(targetProtoId, out EntityPrototype? targetProto))
+            if (!TryGetRecipePrototype(prototype.ID, out var targetProtoId) || !ProtoMan.TryIndex(targetProtoId, out EntityPrototype? targetProto))
                 return false;
 
             if (GhostPresent(loc))
                 return false;
 
-            var predicate = GetPredicate(prototype.CanBuildInImpassable, _transformSystem.ToMapCoordinates(loc));
+            var predicate = GetPredicate(prototype.CanBuildInImpassable, TransformSystem.ToMapCoordinates(loc));
             if (!_examineSystem.InRangeUnOccluded(user, loc, 20f, predicate: predicate))
                 return false;
 
             if (!CheckConstructionConditions(prototype, loc, dir, user, showPopup: true))
                 return false;
 
-            ghost = Spawn("constructionghost", loc);
+            ghost = SpawnAttachedTo("constructionghost", loc, rotation: dir.ToAngle());
             var comp = Comp<ConstructionGhostComponent>(ghost.Value);
             comp.Prototype = prototype;
             comp.GhostId = ghost.GetHashCode();
-            Comp<TransformComponent>(ghost.Value).LocalRotation = dir.ToAngle();
             _ghosts.Add(comp.GhostId, ghost.Value);
 
             var sprite = Comp<SpriteComponent>(ghost.Value);
 
-            if (targetProto.TryGetComponent(out IconComponent? icon, EntityManager.ComponentFactory))
+            if (targetProto.TryComp(out IconComponent? icon, EntityManager.ComponentFactory))
             {
                 _sprite.AddBlankLayer((ghost.Value, sprite), 0);
                 _sprite.LayerSetSprite((ghost.Value, sprite), 0, icon.Icon);
@@ -329,9 +310,9 @@ namespace Content.Client.Construction
                 var dummy = EntityManager.SpawnEntity(targetProtoId, MapCoordinates.Nullspace);
                 var targetSprite = EnsureComp<SpriteComponent>(dummy);
                 EntityManager.System<AppearanceSystem>().OnChangeData(dummy, targetSprite);
-
+                var ghostDrawDepth = sprite.DrawDepth;
                 _sprite.CopySprite((dummy, targetSprite), (ghost.Value, sprite));
-
+                _sprite.SetDrawDepth((ghost.Value, sprite), ghostDrawDepth);
                 for (var i = 0; i < sprite.AllLayers.Count(); i++)
                 {
                     sprite.LayerSetShader(i, "unshaded");

@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nairod <110078045+Nairodian@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: marking
   id: ArachnidCheliceraeDownwards
   bodyPart: HeadSide
@@ -9,6 +5,10 @@
   sprites:
   - sprite: Mobs/Customization/Arachnid/chelicerae.rsi
     state: downwards
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
 
 - type: marking
   id: ArachnidCheliceraeInwards
@@ -17,6 +17,10 @@
   sprites:
   - sprite: Mobs/Customization/Arachnid/chelicerae.rsi
     state: inwards
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
 
 # Appendages
 - type: marking

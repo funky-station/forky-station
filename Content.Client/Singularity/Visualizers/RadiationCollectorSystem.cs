@@ -1,15 +1,10 @@
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Singularity.Components;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.Singularity.Visualizers;
 
-public sealed class RadiationCollectorSystem : VisualizerSystem<RadiationCollectorComponent>
+public sealed partial class RadiationCollectorSystem : VisualizerSystem<RadiationCollectorComponent>
 {
     public override void Initialize()
     {

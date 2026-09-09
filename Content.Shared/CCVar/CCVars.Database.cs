@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;
@@ -77,4 +74,12 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<bool> DatabaseSynchronous =
         CVarDef.Create("database.sync", false, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Creates the SQLite database using EnsureCreated instead of Migrate, if using SQLite.
+    ///     Setting this to true means you cannot apply migrations later.
+    ///     Meant to be used in integration tests only.
+    /// </summary>
+    public static readonly CVarDef<bool> DatabaseSnapshot =
+        CVarDef.Create("database.snapshot", false, CVar.SERVERONLY);
 }

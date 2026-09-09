@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Silicons.StationAi;
 using Robust.Client.GameObjects;
 
@@ -8,7 +5,7 @@ namespace Content.Client.Silicons.StationAi;
 
 public sealed partial class StationAiFixerConsoleSystem : SharedStationAiFixerConsoleSystem
 {
-    [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
+    [Dependency] private SharedUserInterfaceSystem _userInterface = default!;
 
     public override void Initialize()
     {

@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2025 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Database;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
@@ -66,7 +55,7 @@ public sealed partial class ResearchSystem
         ResearchClientComponent? component = null,
         TechnologyDatabaseComponent? clientDatabase = null)
     {
-        if (!PrototypeManager.TryIndex<TechnologyPrototype>(prototypeid, out var prototype))
+        if (!ProtoMan.TryIndex<TechnologyPrototype>(prototypeid, out var prototype))
             return false;
 
         return UnlockTechnology(client, prototype, user, component, clientDatabase);
@@ -110,7 +99,7 @@ public sealed partial class ResearchSystem
         if (!Resolve(uid, ref component))
             return;
 
-        if (!PrototypeManager.TryIndex<TechnologyPrototype>(technology, out var prototype))
+        if (!ProtoMan.TryIndex<TechnologyPrototype>(technology, out var prototype))
             return;
         AddTechnology(uid, prototype, component);
     }

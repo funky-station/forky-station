@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Robust.Shared.Prototypes;
@@ -16,14 +10,14 @@ namespace Content.Shared.EntityEffects.Effects;
 /// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
 public sealed partial class EmoteEntityEffectSystem : EntityEffectSystem<MetaDataComponent, Emote>
 {
-    [Dependency] private readonly SharedChatSystem _chat = default!;
+    [Dependency] private SharedChatSystem _chat = default!;
 
     protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<Emote> args)
     {
         if (args.Effect.ShowInChat)
             _chat.TryEmoteWithChat(entity, args.Effect.EmoteId, ChatTransmitRange.GhostRangeLimit, forceEmote: args.Effect.Force);
         else
-            _chat.TryEmoteWithoutChat(entity, args.Effect.EmoteId);
+            _chat.TryEmoteWithChat(entity, args.Effect.EmoteId, ChatTransmitRange.HideChat, forceEmote: args.Effect.Force);
     }
 }
 
@@ -40,7 +34,7 @@ public sealed partial class Emote : EntityEffectBase<Emote>
     ///     If the emote should be recorded in chat.
     /// </summary>
     [DataField]
-    public bool ShowInChat;
+    public bool ShowInChat = false;
 
     /// <summary>
     ///     If the forced emote will be listed in the guidebook.

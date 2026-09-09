@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Atmos.Piping.Binary.Components;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
@@ -9,10 +6,10 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared.Atmos.Piping.Binary.Systems;
 
-public abstract class SharedGasValveSystem : EntitySystem
+public abstract partial class SharedGasValveSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -58,8 +55,6 @@ public abstract class SharedGasValveSystem : EntitySystem
     private void OnExamined(Entity<GasValveComponent> ent, ref ExaminedEvent args)
     {
         var valve = ent.Comp;
-        if (!Transform(ent).Anchored)
-            return;
 
         if (Loc.TryGetString("gas-valve-system-examined", out var str,
                 ("statusColor", valve.Open ? "green" : "orange"),

@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 
@@ -14,7 +9,7 @@ namespace Content.Shared.EntityConditions.Conditions.Tags;
 /// <inheritdoc cref="EntityConditionSystem{T, TCondition}"/>
 public sealed partial class HasTagEntityConditionSystem : EntityConditionSystem<TagComponent, TagCondition>
 {
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private TagSystem _tag = default!;
 
     protected override void Condition(Entity<TagComponent> entity, ref EntityConditionEvent<TagCondition> args)
     {
@@ -25,6 +20,9 @@ public sealed partial class HasTagEntityConditionSystem : EntityConditionSystem<
 /// <inheritdoc cref="EntityCondition"/>
 public sealed partial class TagCondition : EntityConditionBase<TagCondition>
 {
+    /// <summary>
+    /// Tag required to fulfill this condition.
+    /// </summary>
     [DataField(required: true)]
     public ProtoId<TagPrototype> Tag;
 

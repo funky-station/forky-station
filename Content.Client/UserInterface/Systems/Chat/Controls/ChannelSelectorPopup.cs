@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chat;
 using Robust.Client.UserInterface.Controls;
 using static Robust.Client.UserInterface.Controls.BaseButton;
@@ -20,7 +16,8 @@ public sealed class ChannelSelectorPopup : Popup
         ChatSelectChannel.LOOC,
         ChatSelectChannel.OOC,
         ChatSelectChannel.Dead,
-        ChatSelectChannel.Admin
+        ChatSelectChannel.Admin,
+        ChatSelectChannel.Mentor // RMC Mentor Chat Funky Port
         // NOTE: Console is not in there and it can never be permanently selected.
         // You can, however, still submit commands as console by prefixing with /.
     };

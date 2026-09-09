@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Flash;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -16,9 +11,9 @@ namespace Content.Shared.EntityEffects.Effects.Transform;
 /// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
 public sealed partial class FlashEntityEffectSystem : EntityEffectSystem<TransformComponent, Flash>
 {
-    [Dependency] private readonly SharedFlashSystem _flash = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly SharedPointLightSystem _pointLight = default!;
+    [Dependency] private SharedFlashSystem _flash = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private SharedPointLightSystem _pointLight = default!;
 
     protected override void Effect(Entity<TransformComponent> entity, ref EntityEffectEvent<Flash> args)
     {

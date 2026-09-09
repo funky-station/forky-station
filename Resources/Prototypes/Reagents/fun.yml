@@ -1,31 +1,3 @@
-# SPDX-FileCopyrightText: 2021-2022 Moony <moonheart08@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 CrudeWax <75271456+CrudeWax@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2022 Sam Weaver <weaversam8@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 CrigCrag <137215465+CrigCrag@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ubaser <134914314+UbaserB@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 potato1234_x <79580518+potato1234x@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 NoreUhh <85219416+NoreUhh@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Sparlight <twiksparlight@gmail.com>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2025 UpAndLeaves <92269094+Alpha-Two@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Velken <8467292+Velken@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: reagent
   id: Carpetium
   name: reagent-name-carpetium
@@ -65,7 +37,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Moth ]
@@ -174,9 +147,9 @@
   color: "#86530E"
 
 - type: reagent
-  id: Saxoite
-  name: reagent-name-saxoite
-  desc: reagent-desc-saxoite
+  id: Brass
+  name: reagent-name-brass
+  desc: reagent-desc-brass
   physicalDesc: reagent-physical-desc-ground-brass
   flavor: sax
   color: "#B8A603"
@@ -368,7 +341,7 @@
       effects:
       - !type:Emote
         emote: Weh
-        showInChat: true
+        showInChat: false
         showInGuidebook: true
         force: true
         probability: 0.5
@@ -403,7 +376,7 @@
       effects:
       - !type:Emote
         emote: Hew
-        showInChat: true
+        showInChat: false
         showInGuidebook: true
         force: true
         probability: 0.5
@@ -422,40 +395,6 @@
         conditions:
         - !type:ReagentCondition
           reagent: JuiceThatMakesYouHew
-          min: 50
-
-- type: reagent
-  id: CorgiJuice
-  name: reagent-name-corgiessence
-  group: Toxins
-  desc: reagent-desc-corgiessence
-  physicalDesc: reagent-physical-desc-fluffy
-  flavor: dogfood
-  color: "#ed9715"
-  metabolisms:
-    Bloodstream:
-      metabolismRate: 0.2
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentCondition
-          reagent: CorgiJuice
-          min: 15
-        damage:
-          types:
-            Cellular: 0.5
-      - !type:Polymorph
-        prototype: SmartCorgiMorph
-        conditions:
-        - !type:ReagentCondition
-          reagent: CorgiJuice
-          min: 50
-      - !type:AdjustReagent
-        reagent: CorgiJuice
-        amount: -20
-        conditions:
-        - !type:ReagentCondition
-          reagent: CorgiJuice
           min: 50
 
 - type: reagent
@@ -499,7 +438,6 @@
           reagent: Felinase
           min: 10
         emote: Cough
-        showInChat: true
         showInGuidebook: true
         force: true
         probability: 0.05
@@ -550,7 +488,6 @@
           reagent: Caninase
           min: 10
         emote: Cough
-        showInChat: true
         showInGuidebook: true
         force: true
         probability: 0.05

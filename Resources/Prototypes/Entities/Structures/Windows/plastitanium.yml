@@ -1,20 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Ablankmann <103340990+Ablankmann@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 cohanna <conornhanna@gmail.com>
-# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Unisol <1929445+Unisol@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MACMAN2003 <macman2003c@gmail.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2025 ruddygreat <53099277+ruddygreat@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 devinschubert14 <59582670+devinschubert14@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: PlastitaniumWindowBase
   parent: BaseStructure
@@ -62,6 +45,12 @@
         layer:
         - WallLayer
         density: 4000
+  - type: PlacementReplacement
+    key: walls
+  - type: StructureAlignerPylon
+    pylons:
+    - Door
+    - Firelock
 
 - type: entity
   id: PlastitaniumWindowSquareBase
@@ -71,12 +60,12 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/plastitanium_window.rsi
+    sprite: Structures/Windows/window-plastitanium.rsi
   - type: Icon
-    sprite: Structures/Windows/plastitanium_window.rsi
+    sprite: Structures/Windows/window-plastitanium.rsi
     state: full
   - type: IconSmooth
-    key: windows
+    key: walls
     base: ptwindow
   - type: Airtight
   - type: Fixtures
@@ -99,21 +88,15 @@
     messages: null
 
 - type: entity
+  parent: [ PlastitaniumWindowSquareBase, StructureHealthBarrierStrong ]
   id: PlastitaniumWindow
   name: plastitanium window
-  parent: PlastitaniumWindowSquareBase
   components:
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 500
+        damage: 120
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -126,8 +109,6 @@
           PartRodMetal:
             min: 1
             max: 2
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: DamageVisuals
     thresholds: [5, 10, 20]
     damageDivisor: 20
@@ -138,8 +119,7 @@
     fuelCost: 15
     doAfterDelay: 3
   - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: RGlass
+    damageModifierSet: PlastitaniumMod
 
 - type: entity
   id: PlastitaniumWindowDiagonalBase
@@ -150,18 +130,18 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/plastitanium_window_diagonal.rsi
+    sprite: Structures/Windows/window-diagonal-plastitanium.rsi
     state: state0
   - type: Tag
     tags:
     - Diagonal
     - Window
   - type: Icon
-    sprite: Structures/Windows/plastitanium_window_diagonal.rsi
+    sprite: Structures/Windows/window-diagonal-plastitanium.rsi
     state: state0
   - type: IconSmooth
     mode: Diagonal
-    key: windows
+    key: walls
     base: state
   - type: Fixtures
     fixtures:
@@ -195,20 +175,14 @@
 - type: entity
   id: PlastitaniumWindowDiagonal
   name: plastitanium window
-  parent: PlastitaniumWindowDiagonalBase
+  parent: [ PlastitaniumWindowDiagonalBase, StructureHealthBarrierStrong ]
   suffix: diagonal
   components:
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 500
+        damage: 120
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -221,17 +195,14 @@
           PartRodMetal:
             min: 1
             max: 2
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: DamageVisuals
     thresholds: [5, 10, 20]
     damageDivisor: 20
     trackAllDamage: true
     damageOverlay:
-      sprite: Structures/Windows/cracks_diagonal.rsi
+      sprite: Structures/Windows/cracks-diagonal.rsi
   - type: Repairable
     fuelCost: 15
     doAfterDelay: 3
   - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: RGlass
+    damageModifierSet: PlastitaniumMod

@@ -1,14 +1,10 @@
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Light;
 using Content.Shared.Light.Components;
 using Robust.Shared.GameObjects;
 
 namespace Content.Server.Light.EntitySystems;
 
-public sealed class RotatingLightSystem : SharedRotatingLightSystem
+public sealed partial class RotatingLightSystem : SharedRotatingLightSystem
 {
     public override void Initialize()
     {

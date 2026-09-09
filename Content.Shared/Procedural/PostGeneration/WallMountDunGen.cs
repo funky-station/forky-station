@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.EntityTable;
 using Content.Shared.Maps;
 using Content.Shared.Storage;
@@ -18,7 +14,7 @@ public sealed partial class WallMountDunGen : IDunGenLayer
     /// Chance per free tile to spawn a wallmount.
     /// </summary>
     [DataField]
-    public double Prob = 0.1;
+    public float Prob = 0.1f;
 
     [DataField(required: true)]
     public ProtoId<ContentTileDefinition> Tile;

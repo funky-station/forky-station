@@ -1,0 +1,12 @@
+- type: entity
+  parent: BaseThiefObjective
+  id: ScoreThiefObjective
+  components:
+  - type: Objective
+    difficulty: 0.0
+  - type: RoleRequirement
+    roles:
+    - ThiefRole
+  - type: ScoreThiefCondition
+    amountSpesos: 35000
+    amountSpesosVariance: 10000

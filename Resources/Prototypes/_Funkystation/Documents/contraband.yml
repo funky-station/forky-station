@@ -1,0 +1,9 @@
+﻿# Revealed only when emagged
+
+- type: document
+  id: DocSyndicateRecruitment
+  name: doc-syndicate-recruitment-name
+  description: doc-syndicate-recruitment-desc
+  category: DocCatContraband
+  paperPrototype: Paper
+  content: doc-syndicate-recruitment-content

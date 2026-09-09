@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 DrSmugleaf <10968691+DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Łukasz Mędrek <lukasz@lukaszm.xyz>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Systems;
@@ -36,9 +31,7 @@ public record struct GetEyeOffsetAttemptEvent(bool Cancelled);
 ///     Pockets and suitstorage are excluded.
 /// </summary>
 [ByRefEvent]
-public sealed class GetEyeOffsetRelayedEvent : EntityEventArgs, IInventoryRelayEvent
+public record struct GetEyeOffsetRelayedEvent(Vector2 Offset = default) : IInventoryRelayEvent
 {
-    public SlotFlags TargetSlots { get; } = ~(SlotFlags.POCKET & SlotFlags.SUITSTORAGE);
-
-    public Vector2 Offset;
+    SlotFlags IInventoryRelayEvent.TargetSlots => ~(SlotFlags.POCKET & SlotFlags.SUITSTORAGE);
 }

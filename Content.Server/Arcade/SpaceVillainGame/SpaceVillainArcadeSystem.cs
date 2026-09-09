@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Power.Components;
 using Content.Shared.UserInterface;
 using Content.Server.Advertise.EntitySystems;
@@ -15,18 +8,16 @@ using Content.Shared.Random.Helpers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server.Arcade.SpaceVillain;
 
 public sealed partial class SpaceVillainArcadeSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly SpeakOnUIClosedSystem _speakOnUIClosed = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private SpeakOnUIClosedSystem _speakOnUIClosed = default!;
 
     public override void Initialize()
     {
@@ -62,7 +53,7 @@ public sealed partial class SpaceVillainArcadeSystem : EntitySystem
     /// <returns>A fight-verb.</returns>
     public string GenerateFightVerb(SpaceVillainArcadeComponent arcade)
     {
-        return _random.Pick(_prototypeManager.Index(arcade.PossibleFightVerbs));
+        return _random.Pick(ProtoMan.Index(arcade.PossibleFightVerbs));
     }
 
     /// <summary>
@@ -71,8 +62,8 @@ public sealed partial class SpaceVillainArcadeSystem : EntitySystem
     /// <returns>An enemy-name.</returns>
     public string GenerateEnemyName(SpaceVillainArcadeComponent arcade)
     {
-        var possibleFirstEnemyNames = _prototypeManager.Index(arcade.PossibleFirstEnemyNames);
-        var possibleLastEnemyNames = _prototypeManager.Index(arcade.PossibleLastEnemyNames);
+        var possibleFirstEnemyNames = ProtoMan.Index(arcade.PossibleFirstEnemyNames);
+        var possibleLastEnemyNames = ProtoMan.Index(arcade.PossibleLastEnemyNames);
 
         return $"{_random.Pick(possibleFirstEnemyNames)} {_random.Pick(possibleLastEnemyNames)}";
     }
@@ -101,7 +92,9 @@ public sealed partial class SpaceVillainArcadeSystem : EntitySystem
                     _speakOnUIClosed.TrySetFlag((uid, speakComponent));
                 break;
             case SharedSpaceVillainArcadeComponent.PlayerAction.NewGame:
-                _audioSystem.PlayPvs(component.NewGameSound, uid, AudioParams.Default.WithVolume(-4f));
+                var audioParams = component.NewGameSound?.Params ?? AudioParams.Default;
+                audioParams = audioParams.AddVolume(-4f);
+                _audioSystem.PlayPvs(component.NewGameSound, uid, audioParams);
 
                 component.Game = new SpaceVillainGame(uid, component, this);
                 _uiSystem.ServerSendUiMessage(uid, SharedSpaceVillainArcadeComponent.SpaceVillainArcadeUiKey.Key, component.Game.GenerateMetaDataMessage());

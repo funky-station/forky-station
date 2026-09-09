@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Client.Eye;
 using Content.Shared.Administration;
@@ -16,8 +13,8 @@ namespace Content.Client.Administration.UI.AdminCamera;
 [GenerateTypedNameReferences]
 public sealed partial class AdminCameraControl : Control
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IClientGameTiming _timing = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IClientGameTiming _timing = default!;
 
     public event Action? OnFollow;
     public event Action? OnPopoutControl;

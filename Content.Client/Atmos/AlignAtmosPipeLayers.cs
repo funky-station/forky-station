@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Construction;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.EntitySystems;
@@ -10,7 +6,6 @@ using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Placement;
 using Robust.Client.Placement.Modes;
-using Robust.Client.Utility;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -27,17 +22,17 @@ namespace Content.Client.Atmos;
 /// <remarks>
 /// This placement mode is not on the engine because it is content specific.
 /// </remarks>
-public sealed class AlignAtmosPipeLayers : SnapgridCenter
+public sealed partial class AlignAtmosPipeLayers : SnapgridCenter
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly IEyeManager _eyeManager = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private IEyeManager _eyeManager = default!;
 
     private readonly SharedMapSystem _mapSystem;
     private readonly SharedTransformSystem _transformSystem;
     private readonly SharedAtmosPipeLayersSystem _pipeLayersSystem;
     private readonly SpriteSystem _spriteSystem;
+    private readonly ConstructionSystem _constructionSystem;
 
     private const float SearchBoxSize = 2f;
     private EntityCoordinates _unalignedMouseCoords = default;
@@ -55,6 +50,7 @@ public sealed class AlignAtmosPipeLayers : SnapgridCenter
         _transformSystem = _entityManager.System<SharedTransformSystem>();
         _pipeLayersSystem = _entityManager.System<SharedAtmosPipeLayersSystem>();
         _spriteSystem = _entityManager.System<SpriteSystem>();
+        _constructionSystem = _entityManager.System<ConstructionSystem>();
     }
 
     /// <inheritdoc/>
@@ -91,7 +87,7 @@ public sealed class AlignAtmosPipeLayers : SnapgridCenter
         if (pManager.PlacementType != PlacementTypes.None)
             return;
 
-        MouseCoords = _unalignedMouseCoords.AlignWithClosestGridTile(SearchBoxSize, _entityManager, _mapManager);
+        MouseCoords = _unalignedMouseCoords.AlignWithClosestGridTile(SearchBoxSize, _entityManager);
 
         var gridId = _transformSystem.GetGrid(MouseCoords);
 
@@ -130,10 +126,9 @@ public sealed class AlignAtmosPipeLayers : SnapgridCenter
     private void UpdateHijackedPlacer(AtmosPipeLayer layer, ScreenCoordinates mouseScreen)
     {
         // Try to get alternative prototypes from the construction prototype
-        var constructionSystem = (pManager.Hijack as ConstructionPlacementHijack)?.CurrentConstructionSystem;
         var altPrototypes = (pManager.Hijack as ConstructionPlacementHijack)?.CurrentPrototype?.AlternativePrototypes;
 
-        if (constructionSystem == null || altPrototypes == null || (int)layer >= altPrototypes.Length)
+        if (altPrototypes == null || (int)layer >= altPrototypes.Length)
             return;
 
         var newProtoId = altPrototypes[(int)layer];
@@ -155,13 +150,13 @@ public sealed class AlignAtmosPipeLayers : SnapgridCenter
         {
             IsTile = false,
             PlacementOption = newProto.PlacementMode,
-        }, new ConstructionPlacementHijack(constructionSystem, newProto));
+        }, new ConstructionPlacementHijack(newProto));
 
         if (pManager.CurrentMode is AlignAtmosPipeLayers { } newMode)
             newMode.RefreshGrid(mouseScreen);
 
         // Update construction guide
-        constructionSystem.GetGuide(newProto);
+        _constructionSystem.GetGuide(newProto);
     }
 
     private void UpdatePlacer(AtmosPipeLayer layer)
@@ -173,7 +168,7 @@ public sealed class AlignAtmosPipeLayers : SnapgridCenter
         if (!_protoManager.TryIndex<EntityPrototype>(pManager.CurrentPermission.EntityType, out var currentProto))
             return;
 
-        if (!currentProto.TryGetComponent<AtmosPipeLayersComponent>(out var atmosPipeLayers, _entityManager.ComponentFactory))
+        if (!currentProto.TryComp<AtmosPipeLayersComponent>(out var atmosPipeLayers, _entityManager.ComponentFactory))
             return;
 
         if (!_pipeLayersSystem.TryGetAlternativePrototype(atmosPipeLayers, layer, out var newProtoId))
@@ -185,7 +180,7 @@ public sealed class AlignAtmosPipeLayers : SnapgridCenter
             pManager.CurrentPermission.EntityType = newProtoId;
 
             // Update the appearance of the ghost sprite
-            if (newProto.TryGetComponent<SpriteComponent>(out var sprite, _entityManager.ComponentFactory))
+            if (newProto.TryComp<SpriteComponent>(out var sprite, _entityManager.ComponentFactory))
             {
                 var textures = new List<IDirectionalTextureProvider>();
 

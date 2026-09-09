@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Silicons.StationAi;
 using Robust.Client.UserInterface;
@@ -27,7 +23,7 @@ public sealed class StationAiBoundUserInterface(EntityUid owner, Enum uiKey) : B
         _menu.Open();
     }
 
-    private IEnumerable<RadialMenuActionOptionBase> ConvertToButtons(IReadOnlyList<StationAiRadial> actions)
+    private IEnumerable<RadialMenuOptionBase> ConvertToButtons(IReadOnlyList<StationAiRadial> actions)
     {
         var models = new RadialMenuActionOptionBase[actions.Count];
         for (int i = 0; i < actions.Count; i++)

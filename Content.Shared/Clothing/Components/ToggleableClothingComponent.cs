@@ -1,17 +1,8 @@
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Tony <73495699+carteblanche4me@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Inventory;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Clothing.Components;
 
@@ -28,7 +19,7 @@ public sealed partial class ToggleableClothingComponent : Component
     ///     Action used to toggle the clothing on or off.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public EntProtoId Action = "ActionToggleSuitPiece";
+    public EntProtoId? Action;
 
     [DataField, AutoNetworkedField]
     public EntityUid? ActionEntity;
@@ -37,7 +28,7 @@ public sealed partial class ToggleableClothingComponent : Component
     ///     Default clothing entity prototype to spawn into the clothing container.
     /// </summary>
     [DataField(required: true), AutoNetworkedField]
-    public EntProtoId ClothingPrototype = default!;
+    public EntProtoId ClothingPrototype;
 
     /// <summary>
     ///     The inventory slot that the clothing is equipped to.
@@ -78,5 +69,5 @@ public sealed partial class ToggleableClothingComponent : Component
     ///     Text shown in the toggle-clothing verb. Defaults to using the name of the <see cref="ActionEntity"/> action.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public string? VerbText;
+    public LocId VerbText = "toggle-clothing-verb-default";
 }

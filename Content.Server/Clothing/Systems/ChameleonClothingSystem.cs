@@ -1,32 +1,15 @@
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2023-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 exincore <me@exin.xyz>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-FileCopyrightText: 2025 mhamster <81412348+mhamsterr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Emp;
 using Content.Shared.IdentityManagement;
 using Content.Shared.IdentityManagement.Components;
-using Content.Shared.Prototypes;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Clothing.Systems;
 
-public sealed class ChameleonClothingSystem : SharedChameleonClothingSystem
+public sealed partial class ChameleonClothingSystem : SharedChameleonClothingSystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IdentitySystem _identity = default!;
+    [Dependency] private IdentitySystem _identity = default!;
 
     public override void Initialize()
     {
@@ -37,7 +20,7 @@ public sealed class ChameleonClothingSystem : SharedChameleonClothingSystem
 
     private void OnMapInit(EntityUid uid, ChameleonClothingComponent component, MapInitEvent args)
     {
-        SetSelectedPrototype(uid, component.Default, true, component);
+        SetSelectedPrototype(uid, component.Default, true, component: component);
     }
 
     private void OnSelected(EntityUid uid, ChameleonClothingComponent component, ChameleonPrototypeSelectedMessage args)
@@ -54,10 +37,7 @@ public sealed class ChameleonClothingSystem : SharedChameleonClothingSystem
         UI.SetUiState(uid, ChameleonUiKey.Key, state);
     }
 
-    /// <summary>
-    ///     Change chameleon items name, description and sprite to mimic other entity prototype.
-    /// </summary>
-    public override void SetSelectedPrototype(EntityUid uid, string? protoId, bool forceUpdate = false,
+    public override void SetSelectedPrototype(EntityUid uid, string? protoId, bool forceUpdate = false, bool validate = true,
         ChameleonClothingComponent? component = null)
     {
         if (!Resolve(uid, ref component, false))
@@ -69,10 +49,12 @@ public sealed class ChameleonClothingSystem : SharedChameleonClothingSystem
             return;
 
         // make sure that it is valid change
-        if (string.IsNullOrEmpty(protoId) || !_proto.TryIndex(protoId, out EntityPrototype? proto))
+        if (string.IsNullOrEmpty(protoId) || !ProtoMan.TryIndex(protoId, out EntityPrototype? proto))
             return;
-        if (!IsValidTarget(proto, component.Slot, component.RequireTag))
+
+        if (validate && !IsValidTarget(proto, component.Slot, component.RequireTag))
             return;
+
         component.Default = protoId;
 
         UpdateIdentityBlocker(uid, component, proto);
@@ -104,7 +86,7 @@ public sealed class ChameleonClothingSystem : SharedChameleonClothingSystem
 
     private void UpdateIdentityBlocker(EntityUid uid, ChameleonClothingComponent component, EntityPrototype proto)
     {
-        if (proto.HasComponent<IdentityBlockerComponent>(Factory))
+        if (proto.HasComp<IdentityBlockerComponent>(Factory))
             EnsureComp<IdentityBlockerComponent>(uid);
         else
             RemComp<IdentityBlockerComponent>(uid);

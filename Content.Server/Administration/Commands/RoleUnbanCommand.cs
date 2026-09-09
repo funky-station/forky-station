@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Max <SijyKijy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration.Managers;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
@@ -12,9 +5,9 @@ using Robust.Shared.Console;
 namespace Content.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Ban)]
-public sealed class RoleUnbanCommand : LocalizedCommands
+public sealed partial class RoleUnbanCommand : LocalizedCommands
 {
-    [Dependency] private readonly IBanManager _banManager = default!;
+    [Dependency] private IBanManager _banManager = default!;
 
     public override string Command => "roleunban";
 

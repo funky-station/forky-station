@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 alexalexmax <149889301+alexalexmax@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Mind;
 using Content.Shared.Store;
 using Content.Shared.Whitelist;

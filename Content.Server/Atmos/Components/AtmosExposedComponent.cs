@@ -1,23 +1,26 @@
-// SPDX-FileCopyrightText: 2020-2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 creadth <creadth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-License-Identifier: MIT
+using Content.Shared.Temperature.Components;
 
-namespace Content.Server.Atmos.Components
+namespace Content.Server.Atmos.Components;
+
+// not if i get there first - Flipp
+/// <summary>
+/// Represents that entity can be exposed to Atmos
+/// </summary>
+[RegisterComponent, AutoGenerateComponentPause]
+public sealed partial class AtmosExposedComponent : Component
 {
-    // not if i get there first - Flipp
     /// <summary>
-    /// Represents that entity can be exposed to Atmos
+    /// Last real time we were exposed to the atmosphere!
     /// </summary>
-    [RegisterComponent]
-    public sealed partial class AtmosExposedComponent : Component
-    {
-    }
+    [DataField, AutoPausedField]
+    public TimeSpan LastExposure = TimeSpan.Zero;
+
+    /// <summary>
+    /// The amount of surface area this entity has exposed to the atmosphere in m^2.
+    /// The human body has about 2m^2 of surface area so we use that as a default.
+    /// This is multiplied by the <see cref="TemperatureComponent.ThermalConductivity"/>
+    /// Source: https://pmc.ncbi.nlm.nih.gov/articles/PMC8953946/
+    /// </summary>
+    [DataField]
+    public float ExposedArea = 2f;
 }

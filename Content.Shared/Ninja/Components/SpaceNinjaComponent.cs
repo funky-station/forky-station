@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Alert;
 using Content.Shared.Ninja.Systems;
 using Robust.Shared.GameStates;
@@ -30,7 +26,7 @@ public sealed partial class SpaceNinjaComponent : Component
     public EntityUid? Gloves;
 
     /// <summary>
-    /// Bound katana, set once picked up and never removed
+    /// Bound katana, set once equipped and never removed.
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? Katana;

@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
 using Content.Shared.Tools.Systems;
@@ -46,7 +41,7 @@ public sealed partial class WelderComponent : Component
     /// Name of the fuel solution.
     /// </summary>
     [DataField]
-    public string FuelSolutionName = "Welder";
+    public string FuelSolutionName = "welder";
 
     /// <summary>
     /// Reagent that will be used as fuel for welding.

@@ -1,0 +1,26 @@
+- type: constructionGraph
+  id: Lectern
+  start: start
+  graph:
+  - node: start
+    actions:
+    - !type:DestroyEntity {}
+    edges:
+    - to: lectern
+      completed:
+      - !type:SnapToGrid { }
+      steps:
+      - material: WoodPlank
+        amount: 3
+        doAfter: 2
+  - node: lectern
+    entity: Lectern
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MaterialWoodPlank
+        amount: 3
+      steps:
+      - tool: Prying
+        doAfter: 2

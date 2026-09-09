@@ -1,18 +1,4 @@
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022, 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Júlio César Ueti <52474532+Mirino97@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Willhelm53 <97707302+Willhelm53@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+using Content.Shared._MACRO.Interaction;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Components;
@@ -20,6 +6,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -29,15 +16,16 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Interaction;
 
-public sealed class InteractionPopupSystem : EntitySystem
+public sealed partial class InteractionPopupSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly INetManager _netMan = default!;
+    [Dependency] private EntityWhitelistSystem _entityWhitelist = null!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private INetManager _netMan = default!;
 
     public override void Initialize()
     {
@@ -106,7 +94,17 @@ public sealed class InteractionPopupSystem : EntitySystem
         if (_netMan.IsClient && !predict)
             return;
 
-        if (_random.Prob(component.SuccessChance))
+        // MACRO ADD: PettingModifier
+        // TODO: this is a very generic system. we probably need a whitelist of some kind
+        var successChance = component.SuccessChance;
+
+        if (TryComp<PettingChanceModifierComponent>(user, out var pettingChance)
+            && _entityWhitelist.IsWhitelistPassOrNull(pettingChance.TargetWhitelist, target)
+            && _entityWhitelist.IsWhitelistFailOrNull(pettingChance.TargetBlacklist, target))
+            successChance = Math.Clamp(successChance * pettingChance.Modifier, 0, 1);
+        // MACRO END
+
+        if (_random.Prob(successChance)) // MACRO: component.SuccessChance -> successChance
         {
             if (component.InteractSuccessString != null)
                 msg = Loc.GetString(component.InteractSuccessString, ("target", Identity.Entity(uid, EntityManager))); // Success message (localized).
@@ -142,18 +140,16 @@ public sealed class InteractionPopupSystem : EntitySystem
             _popupSystem.PopupEntity(msgOthers, uid, Filter.PvsExcept(user, entityManager: EntityManager), true);
         }
 
+        _popupSystem.PopupEntity(msg, uid, user);
+
         if (!predict)
         {
-            _popupSystem.PopupEntity(msg, uid, user);
-
             if (component.SoundPerceivedByOthers)
                 _audio.PlayPvs(sfx, target);
             else
                 _audio.PlayEntity(sfx, Filter.Entities(user, target), target, false);
             return;
         }
-
-        _popupSystem.PopupClient(msg, uid, user);
 
         if (sfx == null)
             return;

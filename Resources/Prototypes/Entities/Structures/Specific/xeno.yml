@@ -1,10 +1,5 @@
-# SPDX-FileCopyrightText: 2023-2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
+  parent: BaseStatue
   id: XenoWardingTower
   name: xeno warding tower
   placement:
@@ -21,9 +16,6 @@
       Heat:
         collection:
           MeatLaserImpact
-  - type: Transform
-    anchored: true
-  - type: Clickable
   - type: InteractionOutline
   - type: Sprite
     sprite: Structures/Specific/xeno_building.rsi
@@ -31,11 +23,6 @@
       - state: wardingtower
       - state: wardingtower-unshaded
         shader: unshaded
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
-  - type: Physics
-    bodyType: Static
   - type: Fixtures
     fixtures:
       fix1:
@@ -47,14 +34,6 @@
         layer:
           - WallLayer
         density: 1000
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 50
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
 
 - type: entity
   parent: XenoWardingTower

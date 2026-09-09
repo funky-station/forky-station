@@ -1,17 +1,8 @@
-// SPDX-FileCopyrightText: 2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Wrexbe <wrexbe@protonmail.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Holiday;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Roles;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Jobs
 {
@@ -19,17 +10,14 @@ namespace Content.Server.Jobs
     [DataDefinition]
     public sealed partial class GiveItemOnHolidaySpecial : JobSpecial
     {
-        [DataField("holiday", customTypeSerializer:typeof(PrototypeIdSerializer<HolidayPrototype>))]
-        public string Holiday { get; private set; } = string.Empty;
+        [DataField(required: true)]
+        public ProtoId<HolidayPrototype> Holiday;
 
-        [DataField("prototype", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
-        public string Prototype { get; private set; } = string.Empty;
+        [DataField(required: true)]
+        public EntProtoId Prototype;
 
         public override void AfterEquip(EntityUid mob)
         {
-            if (string.IsNullOrEmpty(Holiday) || string.IsNullOrEmpty(Prototype))
-                return;
-
             var sysMan = IoCManager.Resolve<IEntitySystemManager>();
 
             if (!sysMan.GetEntitySystem<HolidaySystem>().IsCurrentlyHoliday(Holiday))

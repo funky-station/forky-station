@@ -1,43 +1,10 @@
-# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 Mith-randalf <84274729+Mith-randalf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 SweptWasTaken <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2022-2023 Nairod <110078045+Nairodian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 rolfero <45628623+rolfero@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rinkashikachi <15rinkashikachi15@gmail.com>
-# SPDX-FileCopyrightText: 2023 LankLTE <135308300+LankLTE@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lapatison <100279397+lapatison@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Maxtone <124747282+MagnusCrowe@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 vorkathbruh <152932728+vorkathbruh@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MODERN <87994977+modern-nm@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 FungiFellow <151778459+FungiFellow@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 K-Dynamic <20566341+K-Dynamic@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 T <theo75cg@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: cargoProduct
   id: SecurityArmor
   icon:
     sprite: Clothing/OuterClothing/Armor/bulletproof.rsi
     state: icon
   product: CrateSecurityArmor
-  cost: 1250
-  category: cargoproduct-category-name-security
-  group: market
-
-- type: cargoProduct
-  id: SecurityHelmet
-  icon:
-    sprite: Clothing/Head/Helmets/security.rsi
-    state: icon
-  product: CrateSecurityHelmet
-  cost: 550
+  cost: 1750
   category: cargoproduct-category-name-security
   group: market
 
@@ -48,16 +15,6 @@
     state: base
   product: CrateSecurityNonlethal
   cost: 4000
-  category: cargoproduct-category-name-security
-  group: market
-
-- type: cargoProduct
-  id: SecuritySupplies
-  icon:
-    sprite: Objects/Storage/boxes.rsi
-    state: box_security
-  product: CrateSecuritySupplies
-  cost: 500
   category: cargoproduct-category-name-security
   group: market
 
@@ -104,9 +61,9 @@
 - type: cargoProduct
   id: SecurityGenPopCloset
   icon:
-    sprite: Structures/Storage/closet.rsi
+    sprite: _Funkystation/Structures/Storage/closet.rsi # Funky
     state: genpop
   product: LockerPrisoner
-  cost: 250
+  cost: 300
   category: cargoproduct-category-name-security
   group: market

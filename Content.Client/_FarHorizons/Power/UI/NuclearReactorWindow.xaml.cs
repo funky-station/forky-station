@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025-2026 jhrushbe <capnmerry@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.IO;
 using Content.Client.UserInterface.Controls;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
@@ -20,7 +17,7 @@ namespace Content.Client._FarHorizons.Power.UI;
 [GenerateTypedNameReferences]
 public sealed partial class NuclearReactorWindow : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _entityManager = null!;
+    [Dependency] private IEntityManager _entityManager = null!;
     private readonly LockSystem _lock;
 
     private readonly Dictionary<Vector2i, StyleBoxFlat> _reactorGrid = [];
@@ -211,7 +208,7 @@ public sealed partial class NuclearReactorWindow : FancyWindow
                 {
                     case (byte)DisplayModes.Temperature:
                         box.BackgroundColor = GetColor(293.15, 1200, exists ? _data[vect].Temperature : 0);
-                        ViewLabel.Text = Loc.GetString("comp-nuclear-reactor-ui-view-temp"); 
+                        ViewLabel.Text = Loc.GetString("comp-nuclear-reactor-ui-view-temp");
                         break;
                     case (byte)DisplayModes.Neutron:
                         box.BackgroundColor = GetColor(0, 7, exists ? _data[vect].NeutronCount : 0);
@@ -229,7 +226,7 @@ public sealed partial class NuclearReactorWindow : FancyWindow
 
                 var icon = exists ? _data[vect].IconName : "base";
                 _reactorRect[vect].TexturePath = "/Textures/_FarHorizons/Structures/Power/Generation/FissionGenerator/reactor_part_inserted/" +  icon + ".png";
-                
+
                 _reactorButton[vect].ToolTip = exists && _data[vect].SpentFuel > 0
                     ? "Fuel Level: " + (int)Math.Round(GetFuelLevel(_data[vect]) * 100) + "%"
                     : "";

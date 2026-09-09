@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-License-Identifier: MIT
-
 global using System;
 global using System.Collections.Generic;
 global using Robust.Shared.Analyzers;

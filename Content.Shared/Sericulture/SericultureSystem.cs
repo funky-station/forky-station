@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Centronias <me@centronias.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 poklj <compgeek223@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Actions;
 using Content.Shared.Cloning.Events;
 using Content.Shared.DoAfter;
@@ -13,7 +6,9 @@ using Robust.Shared.Serialization;
 using Content.Shared.Popups;
 using Robust.Shared.Network;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.Prototypes;
 using Content.Shared.Stacks;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Sericulture;
 
@@ -23,14 +18,14 @@ namespace Content.Shared.Sericulture;
 public abstract partial class SharedSericultureSystem : EntitySystem
 {
     // Managers
-    [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private INetManager _netManager = default!;
 
     // Systems
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly HungerSystem _hungerSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedStackSystem _stackSystem = default!;
+    [Dependency] private SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private SatiationSystem _satiation = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedStackSystem _stackSystem = default!;
 
     public override void Initialize()
     {
@@ -48,13 +43,15 @@ public abstract partial class SharedSericultureSystem : EntitySystem
         if (!args.Settings.EventComponents.Contains(Factory.GetRegistration(ent.Comp.GetType()).Name))
             return;
 
-        var comp = EnsureComp<SericultureComponent>(args.CloneUid);
-        comp.PopupText = ent.Comp.PopupText;
-        comp.ProductionLength = ent.Comp.ProductionLength;
-        comp.HungerCost = ent.Comp.HungerCost;
-        comp.EntityProduced = ent.Comp.EntityProduced;
-        comp.MinHungerThreshold = ent.Comp.MinHungerThreshold;
-        Dirty(args.CloneUid, comp);
+        // Make sure to set the datafields before adding the component so that the correct action gets spawned on map init.
+        var cloneComp = Factory.GetComponent<SericultureComponent>();
+        cloneComp.PopupText = ent.Comp.PopupText;
+        cloneComp.EntityProduced = ent.Comp.EntityProduced;
+        cloneComp.Action = ent.Comp.Action;
+        cloneComp.ProductionLength = ent.Comp.ProductionLength;
+        cloneComp.HungerCost = ent.Comp.HungerCost;
+        cloneComp.MinHungerThreshold = ent.Comp.MinHungerThreshold;
+        AddComp(args.CloneUid, cloneComp, true);
     }
 
     /// <summary>
@@ -75,18 +72,16 @@ public abstract partial class SharedSericultureSystem : EntitySystem
 
     private void OnSericultureStart(EntityUid uid, SericultureComponent comp, SericultureActionEvent args)
     {
-        if (!TryComp<HungerComponent>(uid, out var hungerComp)
-            || _hungerSystem.IsHungerBelowState(uid,
-                comp.MinHungerThreshold,
-                _hungerSystem.GetHunger(hungerComp) - comp.HungerCost,
-                hungerComp))
+        if (!TryComp<SatiationComponent>(uid, out var satiationComponent) ||
+            !_satiation.IsValueInRange((uid, satiationComponent), SatiationSystem.Hunger, above: comp.MinHungerThreshold, hypotheticalValueDelta: -comp.HungerCost))
         {
-            _popupSystem.PopupClient(Loc.GetString(comp.PopupText), uid, uid);
+            _popupSystem.PopupEntity(Loc.GetString(comp.PopupText), uid, uid);
             return;
         }
 
         var doAfter = new DoAfterArgs(EntityManager, uid, comp.ProductionLength, new SericultureDoAfterEvent(), uid)
-        { // I'm not sure if more things should be put here, but imo ideally it should probably be set in the component/YAML. Not sure if this is currently possible.
+        {
+            // I'm not sure if more things should be put here, but imo ideally it should probably be set in the component/YAML. Not sure if this is currently possible.
             BreakOnMove = true,
             BlockDuplicate = true,
             BreakOnDamage = true,
@@ -96,28 +91,24 @@ public abstract partial class SharedSericultureSystem : EntitySystem
         _doAfterSystem.TryStartDoAfter(doAfter);
     }
 
-
     private void OnSericultureDoAfter(EntityUid uid, SericultureComponent comp, SericultureDoAfterEvent args)
     {
         if (args.Cancelled || args.Handled || comp.Deleted)
             return;
 
-        if (!TryComp<HungerComponent>(uid,
-                out var hungerComp) // A check, just incase the doafter is somehow performed when the entity is not in the right hunger state.
-            || _hungerSystem.IsHungerBelowState(uid,
-                comp.MinHungerThreshold,
-                _hungerSystem.GetHunger(hungerComp) - comp.HungerCost,
-                hungerComp))
+        // A check, just incase the doafter is somehow performed when the entity is not in the right hunger state.
+        if (!TryComp<SatiationComponent>(uid, out var satiationComponent) ||
+            !_satiation.IsValueInRange((uid, satiationComponent), SatiationSystem.Hunger, above: comp.MinHungerThreshold, hypotheticalValueDelta: -comp.HungerCost))
         {
-            _popupSystem.PopupClient(Loc.GetString(comp.PopupText), uid, uid);
+            _popupSystem.PopupEntity(Loc.GetString(comp.PopupText), uid, uid);
             return;
         }
 
-        _hungerSystem.ModifyHunger(uid, -comp.HungerCost, hungerComp);
+        _satiation.ModifyValue((uid, satiationComponent), SatiationSystem.Hunger, -comp.HungerCost);
 
         if (!_netManager.IsClient) // Have to do this because spawning stuff in shared is CBT.
         {
-            var newEntity = Spawn(comp.EntityProduced, Transform(uid).Coordinates);
+            var newEntity = SpawnNextToOrDrop(comp.EntityProduced, uid);
 
             _stackSystem.TryMergeToHands(newEntity, uid);
         }
@@ -129,11 +120,10 @@ public abstract partial class SharedSericultureSystem : EntitySystem
 /// <summary>
 /// Should be relayed upon using the action.
 /// </summary>
-public sealed partial class SericultureActionEvent : InstantActionEvent { }
+public sealed partial class SericultureActionEvent : InstantActionEvent;
 
 /// <summary>
 /// Is relayed at the end of the sericulturing doafter.
 /// </summary>
 [Serializable, NetSerializable]
-public sealed partial class SericultureDoAfterEvent : SimpleDoAfterEvent { }
-
+public sealed partial class SericultureDoAfterEvent : SimpleDoAfterEvent;

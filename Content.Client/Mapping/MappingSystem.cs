@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2022, 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Actions;
 using Content.Shared.Actions;
 using Content.Shared.Mapping;
@@ -21,10 +11,10 @@ namespace Content.Client.Mapping;
 
 public sealed partial class MappingSystem : EntitySystem
 {
-    [Dependency] private readonly IPlacementManager _placementMan = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileMan = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private IPlacementManager _placementMan = default!;
+    [Dependency] private ITileDefinitionManager _tileMan = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
 
     public static readonly EntProtoId SpawnAction = "BaseMappingSpawnAction";
     public static readonly EntProtoId EraserAction = "ActionMappingEraser";

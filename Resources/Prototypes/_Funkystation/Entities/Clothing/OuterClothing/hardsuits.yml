@@ -1,0 +1,56 @@
+﻿#Prisoner Mining Suit
+- type: entity
+  parent: [ClothingOuterHardsuitBase, BaseCargoContraband]
+  id: ClothingOuterHardsuitPrisonerMining
+  name: prisoner mining hardsuit
+  description: A cheap, disposable hardsuit issued to prisoners on mining duty. Smells like gunpowder.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/spatio.rsi
+  - type: Clothing
+    stripDelay: 10
+    equipDelay: 5
+    sprite: _Funkystation/Clothing/OuterClothing/Hardsuits/spatio.rsi
+  - type: SelfUnremovableClothing
+  - type: PressureProtection
+    highPressureMultiplier: 0.7
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitPrisonerMining
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+  - type: SuitBreachable
+    breachChance: 0.35
+    minDamageToRoll: 10.0
+  - type: TriggerOnSignal
+  - type: DeviceLinkSink
+    ports:
+    - Trigger
+  - type: TimerTrigger
+    keysIn:
+    - trigger
+    delay: 5
+    initialBeepDelay: 0
+    beepSound: /Audio/Machines/warning_buzzer_xenoborg.ogg
+  - type: Explosive
+    explosionType: DemolitionCharge
+    maxIntensity: 25
+    intensitySlope: 4
+    totalIntensity: 60
+    canCreateVacuum: false
+  - type: ExplosionEffect
+  - type: ExplodeOnTrigger
+    keysIn:
+    - timer

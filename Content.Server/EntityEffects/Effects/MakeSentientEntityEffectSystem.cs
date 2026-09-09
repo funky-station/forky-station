@@ -1,13 +1,11 @@
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
-using Content.Server.Ghost.Roles.Components;
-using Content.Server.Speech.Components;
+﻿using Content.Server.Ghost.Roles.Components;
+using Content.Server.RuntimeFun;
 using Content.Shared.EntityEffects;
 using Content.Shared.EntityEffects.Effects;
 using Content.Shared.Mind.Components;
+using Content.Shared.NPC.Components;
+using Content.Shared.NPC.Systems;
+using Content.Shared.Speech.Components;
 
 namespace Content.Server.EntityEffects.Effects;
 
@@ -18,6 +16,14 @@ namespace Content.Server.EntityEffects.Effects;
 /// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
 public sealed partial class MakeSentientEntityEffectSystem : EntityEffectSystem<MetaDataComponent, MakeSentient>
 {
+    // Funky start
+    [Dependency] private NpcFactionSystem _npcFaction = default!;
+
+    // These two are used in functions that don't like literal values
+    private static readonly string MindRoleGhostRoleSoloAntagonist = "MindRoleGhostRoleSoloAntagonist";
+    private static readonly string NanoTrasen = "NanoTrasen";
+    // Funky end
+
     protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<MakeSentient> args)
     {
         // Let affected entities speak normally to make this effect different from, say, the "random sentience" event
@@ -28,6 +34,7 @@ public sealed partial class MakeSentientEntityEffectSystem : EntityEffectSystem<
             RemComp<ReplacementAccentComponent>(entity);
             // TODO: Make MonkeyAccent a replacement accent and remove MonkeyAccent code-smell.
             RemComp<MonkeyAccentComponent>(entity);
+            RemComp<SpeakOnExceptionComponent>(entity);
         }
 
         // Stops from adding a ghost role to things like people who already have a mind
@@ -43,5 +50,21 @@ public sealed partial class MakeSentientEntityEffectSystem : EntityEffectSystem<
 
         ghostRole.RoleName = entity.Comp.EntityName;
         ghostRole.RoleDescription = Loc.GetString("ghost-role-information-cognizine-description");
+
+        // Funky start
+        // If the entity doesn't have a faction, assume they're friendly
+        if (!TryComp(entity, out NpcFactionMemberComponent? faction))
+            return;
+        // If any of the entity's faction wants to hurt NT personnel, make them a ghost solo antagonist and amend the ghost role rules
+        foreach (var i in faction.Factions)
+        {
+            if (_npcFaction.IsFactionHostile(i.Id, NanoTrasen))
+            {
+                ghostRole.RoleRules = Loc.GetString("ghost-role-information-sentient-hostile-rules");
+                ghostRole.MindRoles.Add(MindRoleGhostRoleSoloAntagonist);
+                return;
+            }
+        }
+        // Funky end
     }
 }

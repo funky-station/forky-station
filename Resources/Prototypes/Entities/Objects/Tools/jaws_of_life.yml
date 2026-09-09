@@ -1,26 +1,3 @@
-# SPDX-FileCopyrightText: 2020-2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
-# SPDX-FileCopyrightText: 2022, 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Moony <moony@hellomouse.net>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 I.K <45953835+notquitehadouken@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 icekot8 <93311212+icekot8@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   name: jaws of life
   parent: BaseItem
@@ -45,26 +22,44 @@
   - type: Tool
     qualities:
       - Prying
-    useSound: /Audio/Items/jaws_pry.ogg
+    useSound: !type:SoundPathSpecifier
+      path: /Audio/Items/jaws_pry.ogg
+      params:
+        volume: -2
   - type: Prying
     speedModifier: 1.5
     pryPowered: true
-    useSound: /Audio/Items/jaws_pry.ogg
+    useSound: !type:SoundPathSpecifier
+      path: /Audio/Items/jaws_pry.ogg
+      params:
+        volume: -2
   - type: MultipleTool
     statusShowBehavior: true
     entries:
-      - behavior: Prying
+      - behavior: [ Prying ]
         sprite:
           sprite: Objects/Tools/jaws_of_life.rsi
           state: jaws_pry
-        useSound: /Audio/Items/jaws_pry.ogg
-        changeSound: /Audio/Items/change_jaws.ogg
-      - behavior: Cutting
+        useSound: !type:SoundPathSpecifier
+          path: /Audio/Items/jaws_pry.ogg
+          params:
+            volume: -2
+        changeSound: !type:SoundPathSpecifier
+          path: /Audio/Items/change_jaws.ogg
+          params:
+            volume: -5
+      - behavior: [ Cutting ]
         sprite:
           sprite: Objects/Tools/jaws_of_life.rsi
           state: jaws_cutter
-        useSound: /Audio/Items/jaws_cut.ogg
-        changeSound: /Audio/Items/change_jaws.ogg
+        useSound: !type:SoundPathSpecifier
+          path: /Audio/Items/jaws_cut.ogg
+          params:
+            volume: -4
+        changeSound: !type:SoundPathSpecifier
+          path: /Audio/Items/change_jaws.ogg
+          params:
+            volume: -5
   - type: MeleeWeapon
     wideAnimationRotation: 90
     damage:
@@ -75,7 +70,7 @@
 
 - type: entity
   name: syndicate jaws of death
-  parent: [JawsOfLife, BaseSyndicateContraband]
+  parent: [ JawsOfLife, BaseSyndicateContraband]
   id: SyndicateJawsOfLife
   description: Useful for breaking into secure areas and other nefarious activities.
   components:
@@ -94,21 +89,83 @@
     speedModifier: 3.0
   - type: MultipleTool
     entries:
-      - behavior: Prying
+      - behavior: [ Prying ]
         sprite:
           sprite: Objects/Tools/jaws_of_life.rsi
           state: syn_jaws_pry
-        useSound: /Audio/Items/jaws_pry.ogg
-        changeSound: /Audio/Items/change_jaws.ogg
-      - behavior: Cutting
+        useSound: !type:SoundPathSpecifier
+          path: /Audio/Items/jaws_pry.ogg
+          params:
+            volume: -2
+        changeSound: !type:SoundPathSpecifier
+          path: /Audio/Items/change_jaws.ogg
+          params:
+            volume: -5
+      - behavior: [ Cutting ]
         sprite:
           sprite: Objects/Tools/jaws_of_life.rsi
           state: syn_jaws_cutter
-        useSound: /Audio/Items/jaws_cut.ogg
-        changeSound: /Audio/Items/change_jaws.ogg
+        useSound: !type:SoundPathSpecifier
+          path: /Audio/Items/jaws_cut.ogg
+          params:
+            volume: -4
+        changeSound: !type:SoundPathSpecifier
+          path: /Audio/Items/change_jaws.ogg
+          params:
+            volume: -5
   - type: MeleeWeapon
     damage:
       types:
         Blunt: 14
   - type: StaticPrice
     price: 1000
+
+- type: entity
+  name: xenoborg jaws of death
+  parent: [JawsOfLife, BaseXenoborgContraband ]
+  id: XenoborgJawsOfLife
+  description: Useful for prying open bolted doors where organics are hiding.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/jaws_of_life.rsi
+    state: xorg_jaws_pry
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: xorg_inhand-left
+      right:
+      - state: xorg_inhand-right
+    size: Normal
+  - type: Prying
+    force: true
+    speedModifier: 3.0
+  - type: MultipleTool
+    entries:
+    - behavior: [ Prying ]
+      sprite:
+        sprite: Objects/Tools/jaws_of_life.rsi
+        state: xorg_jaws_pry
+      useSound: !type:SoundPathSpecifier
+        path: /Audio/Items/jaws_pry.ogg
+        params:
+          volume: -2
+      changeSound: !type:SoundPathSpecifier
+        path: /Audio/Items/change_jaws.ogg
+        params:
+          volume: -5
+    - behavior: [ Cutting ]
+      sprite:
+        sprite: Objects/Tools/jaws_of_life.rsi
+        state: xorg_jaws_cutter
+      useSound: !type:SoundPathSpecifier
+        path: /Audio/Items/jaws_cut.ogg
+        params:
+          volume: -4
+      changeSound: !type:SoundPathSpecifier
+        path: /Audio/Items/change_jaws.ogg
+        params:
+          volume: -5
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12

@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.PDA;
 using Content.Shared.PDA.Ringer;
 using Content.Shared.Store.Components;
@@ -11,7 +7,7 @@ namespace Content.Client.PDA.Ringer;
 /// <summary>
 /// Handles the client-side logic for <see cref="SharedRingerSystem"/>.
 /// </summary>
-public sealed class RingerSystem : SharedRingerSystem
+public sealed partial class RingerSystem : SharedRingerSystem
 {
     /// <inheritdoc/>
     public override void Initialize()

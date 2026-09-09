@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Shuttles.Components;
 using Robust.Client.GameObjects;
 
@@ -10,7 +6,7 @@ namespace Content.Client.Shuttles;
 /// <summary>
 /// Handles making a thruster visibly turn on/emit an exhaust plume according to its state.
 /// </summary>
-public sealed class ThrusterSystem : VisualizerSystem<ThrusterComponent>
+public sealed partial class ThrusterSystem : VisualizerSystem<ThrusterComponent>
 {
     /// <summary>
     /// Updates whether or not the thruster is visibly active/thrusting.

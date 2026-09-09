@@ -1,13 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 PrPleGoo <PrPleGoo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Golinth <amh2023@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Stealth.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
@@ -98,6 +88,7 @@ public partial class StatusIconData : IComparable<StatusIconData>
 /// <summary>
 /// <see cref="StatusIconData"/> but in new convenient prototype form!
 /// </summary>
+[DataDefinition]
 public abstract partial class StatusIconPrototype : StatusIconData, IPrototype
 {
     /// <inheritdoc/>
@@ -128,12 +119,6 @@ public sealed partial class JobIconPrototype : StatusIconPrototype, IInheritingP
 
     [ViewVariables(VVAccess.ReadOnly)]
     public string LocalizedJobName => Loc.GetString(JobName);
-
-    /// <summary>
-    /// Should the agent ID or ID card console be able to use this job icon?
-    /// </summary>
-    [DataField]
-    public bool AllowSelection = true;
 
     /// <summary>
     /// Should this job icon be considered a crew job for silicons?

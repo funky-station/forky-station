@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Prototypes;
@@ -16,11 +11,11 @@ namespace Content.Shared.EntityEffects.Effects;
 /// TODO: This can probably be made into a generic "CleanEntityEffect" which multiple components listen to...
 public sealed partial class WashCreamPieEntityEffectSystem : EntityEffectSystem<CreamPiedComponent, WashCreamPie>
 {
-    [Dependency] private readonly SharedCreamPieSystem _creamPie = default!;
+    [Dependency] private SharedCreamPieSystem _creamPie = default!;
 
     protected override void Effect(Entity<CreamPiedComponent> entity, ref EntityEffectEvent<WashCreamPie> args)
     {
-        _creamPie.SetCreamPied(entity, entity.Comp, false);
+        _creamPie.SetCreamPied((entity, entity.Comp), false);
     }
 }
 

@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2020-2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Text;
 using Content.Server.Administration;
 using Content.Shared.Administration;
@@ -20,11 +9,11 @@ using Robust.Shared.Console;
 namespace Content.Server.Mind.Commands
 {
     [AdminCommand(AdminFlags.Admin)]
-    public sealed class MindInfoCommand : LocalizedEntityCommands
+    public sealed partial class MindInfoCommand : LocalizedEntityCommands
     {
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly SharedRoleSystem _roles = default!;
-        [Dependency] private readonly SharedMindSystem _minds = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private SharedRoleSystem _roles = default!;
+        [Dependency] private SharedMindSystem _minds = default!;
 
         public override string Command => "mindinfo";
 

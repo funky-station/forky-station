@@ -1,30 +1,20 @@
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Dice;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.Dice;
 
-public sealed class DiceSystem : SharedDiceSystem
+public sealed partial class DiceSystem : SharedDiceSystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<DiceComponent, AfterAutoHandleStateEvent>(OnDiceAfterHandleState);
-    }
-
+    [SubscribeLocalEvent]
     private void OnDiceAfterHandleState(Entity<DiceComponent> entity, ref AfterAutoHandleStateEvent args)
     {
         if (!TryComp<SpriteComponent>(entity, out var sprite))
             return;
 
         // TODO maybe just move each die to its own RSI?
+        // If this is ever done keep in mind coin flips also use this system
         var state = _sprite.LayerGetRsiState((entity.Owner, sprite), 0).Name;
         if (state == null)
             return;

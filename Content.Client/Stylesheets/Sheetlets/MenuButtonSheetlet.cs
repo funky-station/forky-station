@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Brandon Li <48413902+aspiringLich@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Client.Stylesheets.Fonts;
 using Content.Client.Stylesheets.SheetletConfigs;
@@ -77,6 +74,8 @@ public sealed class MenuButtonSheetlet<T> : Sheetlet<T> where T : PalettedStyles
         };
 
         ButtonSheetlet<T>.MakeButtonRules<MenuButton>(rules, cfg.ButtonPalette, null);
+        ButtonSheetlet<T>.MakeButtonRules<MenuButton>(rules, cfg.PositiveButtonPalette, StyleClass.Positive);
+        ButtonSheetlet<T>.MakeButtonRules<MenuButton>(rules, cfg.NegativeButtonPalette, StyleClass.Negative);
 
         return rules.ToArray();
     }

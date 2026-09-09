@@ -1,34 +1,3 @@
-# SPDX-FileCopyrightText: 2019-2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2019-2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2019 L.E.D <10257081+unusualcrow@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020-2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020-2021 Swept <jamesurquhartwebb@gmail.com>
-# SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2020 Ygg01 <daniel.fath7@gmail.com>
-# SPDX-FileCopyrightText: 2020 lajolico <55922029+lajolico@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 Vince <39844191+Visne@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 ScumbagDog <33865465+ScumbagDog@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2020 windarkata <windarkata@gmail.com>
-# SPDX-FileCopyrightText: 2020 FL-OZ <58238103+FL-OZ@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-# SPDX-FileCopyrightText: 2021 mirrorcult <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Andreas Kämper <andreas@kaemper.tech>
-# SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 KIBORG04 <bossmira4@gmail.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Profane McBane <profanedbane+github@gmail.com>
-# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Jack Fox <35575261+DubiousDoggo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Lamrr <96937466+Lamrr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   name: piano
   parent: BasePlaceableInstrumentRotatable
@@ -40,6 +9,24 @@
   - type: Sprite
     state: piano
   - type: Climbable
+  - type: Damageable
+    damageModifierSet: WoodMod
+  - type: Destructible
+    thresholds: &ThresholdsFurnitureStrongWood
+    - trigger: &DamageFurnitureStrong
+        !type:DamageTrigger
+        damage: 80
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+          params:
+            volume: -3
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank1:
+            min: 2
+            max: 4
 
 - type: entity
   name: upright piano
@@ -52,6 +39,10 @@
   - type: Sprite
     state: piano-upright
   - type: Climbable
+  - type: Damageable
+    damageModifierSet: WoodMod
+  - type: Destructible
+    thresholds: *ThresholdsFurnitureStrongWood
 
 - type: entity
   name: vibraphone
@@ -63,6 +54,20 @@
     program: 11
   - type: Sprite
     state: vibraphone
+  - type: Damageable
+    damageModifierSet: SteelMod
+  - type: Destructible
+    thresholds: &ThresholdsFurnitureStrongRods
+    - trigger: *DamageFurnitureStrong
+      behaviors:
+      - &SoundMetalBreak !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PartRodMetal1:
+            min: 2
+            max: 4
 
 - type: entity
   name: marimba
@@ -73,6 +78,10 @@
     program: 12
   - type: Sprite
     state: marimba
+  - type: Damageable
+    damageModifierSet: WoodMod
+  - type: Destructible
+    thresholds: *ThresholdsFurnitureStrongWood
 
 - type: entity
   name: church organ
@@ -84,6 +93,18 @@
     program: 19
   - type: Sprite
     state: church-organ
+  - type: Damageable
+    damageModifierSet: BrassMod
+  - type: Destructible
+    thresholds: &ThresholdsFurnitureStrongBrass
+    - trigger: *DamageFurnitureStrong
+      behaviors:
+      - *SoundMetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetBrass1:
+            min: 2
+            max: 4
 
 - type: entity
   name: tuba
@@ -95,6 +116,10 @@
     program: 58
   - type: Sprite
     state: tuba
+  - type: Damageable
+    damageModifierSet: BrassMod
+  - type: Destructible
+    thresholds: *ThresholdsFurnitureStrongBrass
 
 - type: entity
   id: HarpInstrument
@@ -106,6 +131,10 @@
     program: 46
   - type: Sprite
     state: harp
+  - type: Damageable
+    damageModifierSet: WoodMod
+  - type: Destructible
+    thresholds: *ThresholdsFurnitureStrongWood
 
 - type: entity
   id: TimpaniInstrument
@@ -117,6 +146,10 @@
     program: 47
   - type: Sprite
     state: timpani
+  - type: Damageable
+    damageModifierSet: WoodMod
+  - type: Destructible
+    thresholds: *ThresholdsFurnitureStrongWood
 
 - type: entity
   id: TaikoInstrument
@@ -128,6 +161,10 @@
     program: 116
   - type: Sprite
     state: taiko
+  - type: Damageable
+    damageModifierSet: WoodMod
+  - type: Destructible
+    thresholds: *ThresholdsFurnitureStrongWood
 
 - type: entity
   id: ContrabassInstrument
@@ -139,6 +176,10 @@
     program: 43
   - type: Sprite
     state: contrabass
+  - type: Damageable
+    damageModifierSet: WoodMod
+  - type: Destructible
+    thresholds: *ThresholdsFurnitureStrongWood
   - type: Fixtures
     fixtures:
       fix1:
@@ -166,6 +207,10 @@
     program: 81
   - type: Sprite
     state: minimoog
+  - type: Damageable
+    damageModifierSet: WoodMod
+  - type: Destructible
+    thresholds: *ThresholdsFurnitureStrongWood
 
 - type: entity
   id: TomDrumsInstrument
@@ -177,6 +222,10 @@
     program: 117
   - type: Sprite
     state: toms
+  - type: Damageable
+    damageModifierSet: SteelMod
+  - type: Destructible
+    thresholds: *ThresholdsFurnitureStrongRods
 
 - type: entity
   parent: [ BasePlaceableInstrumentRotatable, ConstructibleMachine]
@@ -199,3 +248,27 @@
   - type: Instrument
     allowPercussion: true
     allowProgramChange: true
+  - type: Destructible
+    thresholds:
+    - trigger: *DamageFurnitureStrong
+      behaviors:
+      - *SoundMetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+
+- type: entity
+  parent: BasePlaceableInstrumentRotatable
+  id: BigDrumsInstrument
+  name: drum kit
+  description: Ba dum tss!
+  components:
+  - type: Instrument
+    program: 7
+    bank: 100 # Defined in space-station-14.sf2
+    allowPercussion: true
+  - type: Sprite
+    state: drum
+  - type: Damageable
+    damageModifierSet: SteelMod
+  - type: Destructible
+    thresholds: *ThresholdsFurnitureStrongRods

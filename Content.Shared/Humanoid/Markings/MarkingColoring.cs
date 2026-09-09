@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 csqrb <56765288+CaptainSqrBeard@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Humanoid.Markings;
@@ -94,13 +89,13 @@ public static class MarkingColoring
 public sealed partial class LayerColoringDefinition
 {
     [DataField("type")]
-    public LayerColoringType? Type = new ColoringTypes.SkinColoring();
+    public LayerColoringType? Type;
 
     /// <summary>
     ///     Coloring types that will be used if main coloring type will return nil
     /// </summary>
     [DataField("fallbackTypes")]
-    public List<LayerColoringType> FallbackTypes = new() {};
+    public List<LayerColoringType> FallbackTypes = new() { new ColoringTypes.SkinColoring() };
 
     /// <summary>
     ///     Color that will be used if coloring type and fallback type will return nil

@@ -1,19 +1,13 @@
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.EntityTable;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared.ComponentTable;
 
 /// <summary>
 /// Applies an entity prototype to an entity on map init. Taken from entities inside an EntityTableSelector.
 /// </summary>
-public sealed class SharedComponentTableSystem : EntitySystem
+public sealed partial class SharedComponentTableSystem : EntitySystem
 {
-    [Dependency] private readonly EntityTableSystem _entTable = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private EntityTableSystem _entTable = default!;
 
     public override void Initialize()
     {
@@ -28,7 +22,7 @@ public sealed class SharedComponentTableSystem : EntitySystem
 
         foreach (var entity in spawns)
         {
-            if (_proto.Resolve(entity, out var entProto))
+            if (ProtoMan.Resolve(entity, out var entProto))
             {
                 EntityManager.AddComponents(ent, entProto.Components);
             }

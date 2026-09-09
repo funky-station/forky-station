@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
@@ -25,6 +20,9 @@ public sealed partial class MobStateEntityConditionSystem : EntityConditionSyste
 /// <inheritdoc cref="EntityCondition"/>
 public sealed partial class MobStateCondition : EntityConditionBase<MobStateCondition>
 {
+    /// <summary>
+    /// The mobstate necessary to fulfill this condition.
+    /// </summary>
     [DataField]
     public MobState Mobstate = MobState.Alive;
 

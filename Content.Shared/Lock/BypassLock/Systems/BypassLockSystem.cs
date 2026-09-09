@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2026 Sir Warock <67167466+SirWarock@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
@@ -17,10 +14,10 @@ namespace Content.Shared.Lock.BypassLock.Systems;
 
 public sealed partial class BypassLockSystem : EntitySystem
 {
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly LockSystem _lock = default!;
-    [Dependency] private readonly SharedToolSystem _tool = default!;
-    [Dependency] private readonly SharedWiresSystem _wires = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private LockSystem _lock = default!;
+    [Dependency] private SharedToolSystem _tool = default!;
+    [Dependency] private SharedWiresSystem _wires = default!;
 
     public override void Initialize()
     {

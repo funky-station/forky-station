@@ -1,0 +1,29 @@
+- type: jukebox
+  id: BalladOfAbeApeman
+  name: DECEMBER 7TH SOUND TEAM - The Ballad of ABE APEMAN (Demo)
+  path:
+    path: /Audio/_Funkystation/Jukebox/balladofabeapeman.ogg
+
+- type: jukebox
+  id: RhythmAndBluesPt9
+  name: DECEMBER 7TH SOUND TEAM - Rhythm and Blues Pt. 9
+  path:
+    path: /Audio/_Funkystation/Jukebox/rhythmandbluespt9.ogg
+
+- type: jukebox
+  id: VomitSuite
+  name: DECEMBER 7TH SOUND TEAM - Vomit Suite
+  path:
+    path: /Audio/_Funkystation/Jukebox/vomitsuitemaster.ogg
+
+- type: jukebox
+  id: AlienKidsTheGreatMessage
+  name: Alien Kids - The Great message
+  path:
+    path: /Audio/_Funkystation/Lobby/the_great_message_alien_kids.ogg
+
+- type: jukebox
+  id: AlienKidsAnAlienSong
+  name: Alien Kids - An Alien Song
+  path:
+    path: /Audio/_Funkystation/Lobby/an_alien_song_alien_kids.ogg

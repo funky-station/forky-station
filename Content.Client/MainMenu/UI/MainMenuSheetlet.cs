@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Brandon Li <48413902+aspiringLich@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Stylesheets;
 using Content.Client.Stylesheets.Fonts;
 using Content.Client.Stylesheets.Stylesheets;

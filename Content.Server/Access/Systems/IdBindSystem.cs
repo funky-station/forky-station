@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Verm <32827189+Vermidia@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Access.Components;
 using Content.Server.Humanoid.Systems;
 using Content.Server.PDA;
@@ -10,11 +6,11 @@ using Content.Shared.PDA;
 
 namespace Content.Server.Access.Systems;
 
-public sealed class IdBindSystem : EntitySystem
+public sealed partial class IdBindSystem : EntitySystem
 {
-    [Dependency] private readonly IdCardSystem _cardSystem = default!;
-    [Dependency] private readonly PdaSystem _pdaSystem = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private IdCardSystem _cardSystem = default!;
+    [Dependency] private PdaSystem _pdaSystem = default!;
+    [Dependency] private InventorySystem _inventory = default!;
 
     public override void Initialize()
     {

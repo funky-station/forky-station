@@ -1,20 +1,11 @@
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 KISS <59531932+YuriyKiss@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Spanky <180730777+spanky-spanky@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
-# SPDX-FileCopyrightText: 2025 kaiserbirch <150971100+kaiserbirch@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
-  id: BaseLandMine
   abstract: true
+  parent: StructureHealthMachineFlimsy
+  id: BaseLandMine
   components:
   - type: Clickable
   - type: InteractionOutline
+  - type: ItemToggleExaminableStatus
   - type: ItemToggle
     soundActivate:
       path: /Audio/Weapons/click.ogg
@@ -50,7 +41,7 @@
           True: {visible: true}
           False: {visible: false}
   - type: Damageable
-    damageContainer: Inorganic
+    damageModifierSet: SteelMod
   - type: Destructible
     thresholds:
     - trigger:
@@ -58,8 +49,6 @@
         damage: 50
       behaviors:
       - !type:TriggerBehavior
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: LandMine
     sound:
         path: /Audio/Effects/beep_landmine.ogg
@@ -117,11 +106,12 @@
   components:
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: Default
+    explosionType: Transparent # Funky RMC Explosions
     maxIntensity: 10
     intensitySlope: 3
     totalIntensity: 120 # about a ~4 tile radius
     canCreateVacuum: false
+  - type: ExplosionEffect # Funky RMC Explosions
 
 - type: entity
   suffix: armed

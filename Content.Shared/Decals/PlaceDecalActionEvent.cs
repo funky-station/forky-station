@@ -1,28 +1,25 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Actions;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Decals;
 
 public sealed partial class PlaceDecalActionEvent : WorldTargetActionEvent
 {
-    [DataField("decalId", customTypeSerializer:typeof(PrototypeIdSerializer<DecalPrototype>), required:true)]
-    public string DecalId = string.Empty;
+    [DataField(required: true)]
+    public ProtoId<DecalPrototype> DecalId;
 
-    [DataField("color")]
+    [DataField]
     public Color Color;
 
-    [DataField("rotation")]
+    [DataField]
     public double Rotation;
 
-    [DataField("snap")]
+    [DataField]
     public bool Snap;
 
-    [DataField("zIndex")]
+    [DataField]
     public int ZIndex;
 
-    [DataField("cleanable")]
+    [DataField]
     public bool Cleanable;
 }

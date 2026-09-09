@@ -1,14 +1,11 @@
-// SPDX-FileCopyrightText: 2025 Borsh <85323386+NeBorsh@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.DeviceLinking.Components;
 using Content.Shared.UserInterface;
 
 namespace Content.Shared.DeviceLinking.Systems;
 
-public abstract class SharedRandomGateSystem : EntitySystem
+public abstract partial class SharedRandomGateSystem : EntitySystem
 {
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {

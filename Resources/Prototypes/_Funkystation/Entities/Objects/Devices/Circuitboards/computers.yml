@@ -1,0 +1,10 @@
+﻿- type: entity
+  parent: BaseComputerCircuitboard
+  id: XoRecordsComputerCircuitboard
+  name: station records publishing computer board
+  description: A computer printed circuit board for a station records publishing console.
+  components:
+  - type: Sprite
+    state: cpu_command
+  - type: ComputerBoard
+    prototype: ComputerXoRecords

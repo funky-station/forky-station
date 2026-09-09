@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Sir Warock <67167466+SirWarock@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 YoungThug <ramialanbagy@gmail.com>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   abstract: true
   parent: ClothingBeltStorageBase
@@ -46,6 +41,7 @@
       - TrayScanner
       - GasAnalyzer
       - HandLabeler
+      - TapeRoll # Funky
   - type: ItemMapper
     sprite: &BeltOverlay Clothing/Belt/belt_overlay.rsi
     mapLayers:
@@ -138,11 +134,14 @@
       - WetFloorSign
       - HolosignProjector
       - Plunger
+      - TrashBagHolding
       - GoldenPlunger
       - WireBrush
-      components:
+      - Screwdriver # Funky Start
+      - Powerdrill
+      - Rag # Funky End
       - LightReplacer
-      - SmokeOnTrigger
+      - CleanerGrenade
   - type: ItemMapper
     sprite: *BeltOverlay
     mapLayers:
@@ -154,10 +153,46 @@
         whitelist:
           tags:
           - Spray
-      wrench:
+      light_replacer:
         whitelist:
           tags:
-          - Wrench
+          - LightReplacer
+      trashbag:
+        whitelist:
+          tags:
+          - TrashBag
+      trashbag_holding:
+        whitelist:
+          tags:
+          - TrashBagHolding
+      wetfloorsign:
+        whitelist:
+          tags:
+          - WetFloorSign
+      soap:
+        whitelist:
+          tags:
+          - Soap
+      wire_brush:
+        whitelist:
+          tags:
+          - WireBrush
+      holosign:
+        whitelist:
+          tags:
+          - HolosignProjector
+      plunger:
+        whitelist:
+          tags:
+          - Plunger
+      golden_plunger:
+        whitelist:
+          tags:
+          - GoldenPlunger
+      cleaner_grenade:
+        whitelist:
+          tags:
+          - CleanerGrenade
   - type: Appearance
 
 - type: entity
@@ -167,9 +202,9 @@
   description: Can hold various medical equipment.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/medical.rsi
+    sprite: _Funkystation/Clothing/Belt/medical.rsi
   - type: Clothing
-    sprite: Clothing/Belt/medical.rsi
+    sprite: _Funkystation/Clothing/Belt/medical.rsi
   - type: Storage
     whitelist:
       tags:
@@ -234,9 +269,9 @@
   description: Perfect for holding various equipment for medical emergencies.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/emt.rsi
+    sprite: _Funkystation/Clothing/Belt/emt.rsi
   - type: Clothing
-    sprite: Clothing/Belt/emt.rsi
+    sprite: _Funkystation/Clothing/Belt/emt.rsi
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -245,15 +280,13 @@
   description: A belt used to hold most hydroponics supplies. Suprisingly, not green.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/plant.rsi
+    sprite: _Funkystation/Clothing/Belt/hydro.rsi
   - type: Clothing
-    sprite: Clothing/Belt/plant.rsi
+    sprite: _Funkystation/Clothing/Belt/hydro.rsi
   - type: Storage
     whitelist:
       tags:
-      - PlantSampleTaker
       - BotanyShovel
-      - BotanyHoe
       - BotanyHatchet
       - PlantBGone
       - Bottle
@@ -261,11 +294,13 @@
       - CigPack
       - Dropper
       components:
+      - BotanySampleTaker
+      - BotanyHoe
       - Seed
       - Smokable
       - HandLabeler
   - type: ItemMapper
-    sprite: *BeltOverlay
+    sprite: _Funkystation/Clothing/Belt/belt_overlay.rsi
     mapLayers:
       hatchet:
         whitelist:
@@ -273,7 +308,7 @@
           - BotanyHatchet
       hoe:
         whitelist:
-          tags:
+          components:
           - BotanyHoe
       secateurs: # We don't have secateurs and this looks similar enough.
         whitelist:
@@ -373,9 +408,9 @@
   description: Can hold security gear like handcuffs and flashes.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/security.rsi
+    sprite: _Funkystation/Clothing/Belt/security_belt.rsi
   - type: Clothing
-    sprite: Clothing/Belt/security.rsi
+    sprite: _Funkystation/Clothing/Belt/security_belt.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: Storage
@@ -391,8 +426,8 @@
       - CombatKnife
       - Truncheon
       - HandGrenade
-      components:
       - Stunbaton
+      components:
       - FlashOnTrigger
       - SmokeOnTrigger
       - Flash
@@ -402,6 +437,7 @@
       - DoorRemote
       - Whistle
       - BalloonPopper
+      - TapeRoll # Funky
   - type: ItemMapper
     sprite: *BeltOverlay
     mapLayers:
@@ -411,7 +447,7 @@
           - FlashOnTrigger
       stunbaton:
         whitelist:
-          components:
+          tags:
           - Stunbaton
       tear_gas_grenade:
         whitelist:

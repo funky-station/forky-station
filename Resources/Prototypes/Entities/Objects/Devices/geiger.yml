@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2023 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Magnus Larsen <i.am.larsenml@gmail.com>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-FileCopyrightText: 2025 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: BaseItem
   id: GeigerCounter
@@ -12,7 +5,7 @@
   description: A handheld device used for detecting and measuring radiation pulses.
   components:
   - type: Sprite
-    sprite: Objects/Tools/geiger.rsi
+    sprite: _Funkystation/Objects/Tools/geiger.rsi # Funky
     layers:
       - state: geiger_base
       - state: geiger_on_idle
@@ -20,7 +13,7 @@
         shader: unshaded
         visible: false
   - type: Item
-    sprite: Objects/Tools/geiger.rsi
+    sprite: _Funkystation/Objects/Tools/geiger.rsi # Funky
   - type: Geiger
     showControl: true
     showExamine: true

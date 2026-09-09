@@ -1,0 +1,83 @@
+#jumpsuits
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformJumpsuitHydroponics
+  name: hydroponics jumpsuit
+  description: Has a strong earthy smell to it.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Hydroponics/Jumpsuits/hydro.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Hydroponics/Jumpsuits/hydro.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformJumpsuitHydroponicsDirty
+  name: hydroponics jumpsuit
+  description: Has a strong earthy smell to it. The dirt won't come out, no matter how hard one tries...
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Hydroponics/Jumpsuits/hydro_dirty.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Hydroponics/Jumpsuits/hydro_dirty.rsi
+
+# pants two piece sets
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformShirtPantstHydroponics
+  name: hydroponics uniform
+  description: A comfortable shirt and cargo pants. A simple worker's fit.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Hydroponics/TwoPiecePants/hydro.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Hydroponics/TwoPiecePants/hydro.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformShirtPantstHydroponicsOveralls
+  name: hydroponics uniform
+  description: A comfortable shirt and overalls. A simple worker's fit.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Hydroponics/TwoPiecePants/hydro_overalls.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Hydroponics/TwoPiecePants/hydro_overalls.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformShirtPantstHydroponicsOverallsTurtle
+  name: hydroponics uniform
+  description: A comfortable sweater and overalls. A simple worker's fit. Cozy.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Hydroponics/TwoPiecePants/hydro_overalls_turtle.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Hydroponics/TwoPiecePants/hydro_overalls_turtle.rsi
+
+# skirt two piece sets
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformJumperskirtHydroponics
+  name: hydroponics jumper skirt
+  description: A jumper skirt, for that authentic old-timey feel.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Hydroponics/TwoPieceSkirts/hydro.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Hydroponics/TwoPieceSkirts/hydro.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformJumperskirtHydroponicsTurtle
+  name: hydroponics jumper skirt
+  description: A jumper skirt, for that authentic old-timey feel. Cozy.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Hydroponics/TwoPieceSkirts/hydro_turtle.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Hydroponics/TwoPieceSkirts/hydro_turtle.rsi
+

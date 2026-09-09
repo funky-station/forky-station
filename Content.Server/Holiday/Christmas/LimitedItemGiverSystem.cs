@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Moony <moony@hellomouse.net>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Hands.Systems;
 using Content.Server.Popups;
 using Content.Shared.Interaction;
@@ -14,11 +9,11 @@ namespace Content.Server.Holiday.Christmas;
 /// <summary>
 /// This handles handing out items from item givers.
 /// </summary>
-public sealed class LimitedItemGiverSystem : EntitySystem
+public sealed partial class LimitedItemGiverSystem : EntitySystem
 {
-    [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly HolidaySystem _holiday = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private HolidaySystem _holiday = default!;
+    [Dependency] private PopupSystem _popup = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {

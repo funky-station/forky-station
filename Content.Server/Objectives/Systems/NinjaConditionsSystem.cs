@@ -1,17 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Jake Huxell <JakeHuxell@pm.me>
-// SPDX-FileCopyrightText: 2024 Vyacheslav Kovalevsky <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Connor Huffine <chuffine@gmail.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Objectives.Components;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Roles;
@@ -26,38 +12,20 @@ namespace Content.Server.Objectives.Systems;
 /// Handles the objective conditions that hard depend on ninja.
 /// Survive is handled by <see cref="SurviveConditionSystem"/> since it works without being a ninja.
 /// </summary>
-public sealed class NinjaConditionsSystem : EntitySystem
+public sealed partial class NinjaConditionsSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly NumberObjectiveSystem _number = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedRoleSystem _roles = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private NumberObjectiveSystem _number = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedRoleSystem _roles = default!;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<DoorjackConditionComponent, ObjectiveGetProgressEvent>(OnDoorjackGetProgress);
-
         SubscribeLocalEvent<SpiderChargeConditionComponent, RequirementCheckEvent>(OnSpiderChargeRequirementCheck);
         SubscribeLocalEvent<SpiderChargeConditionComponent, ObjectiveAfterAssignEvent>(OnSpiderChargeAfterAssign);
 
         SubscribeLocalEvent<StealResearchConditionComponent, ObjectiveGetProgressEvent>(OnStealResearchGetProgress);
-    }
-
-    // doorjack
-
-    private void OnDoorjackGetProgress(EntityUid uid, DoorjackConditionComponent comp, ref ObjectiveGetProgressEvent args)
-    {
-        args.Progress = DoorjackProgress(comp, _number.GetTarget(uid));
-    }
-
-    private float DoorjackProgress(DoorjackConditionComponent comp, int target)
-    {
-        // prevent divide-by-zero
-        if (target == 0)
-            return 1f;
-
-        return MathF.Min(comp.DoorsJacked / (float) target, 1f);
     }
 
     // spider charge
@@ -69,15 +37,19 @@ public sealed class NinjaConditionsSystem : EntitySystem
         // choose spider charge detonation point
         var warps = new List<EntityUid>();
         var allEnts = EntityQueryEnumerator<WarpPointComponent>();
+        var bombingWhitelist = comp.Whitelist;
         var bombingBlacklist = comp.Blacklist;
 
         while (allEnts.MoveNext(out var warpUid, out var warp))
         {
-            if (_whitelist.IsWhitelistFail(bombingBlacklist, warpUid)
-                && !string.IsNullOrWhiteSpace(warp.Location))
-            {
-                warps.Add(warpUid);
-            }
+
+            if (string.IsNullOrWhiteSpace(warp.Location))
+                continue;
+
+            if (!_whitelist.CheckBoth(warpUid, bombingBlacklist, bombingWhitelist))
+                continue;
+
+            warps.Add(warpUid);
         }
 
         if (warps.Count <= 0)
@@ -98,7 +70,7 @@ public sealed class NinjaConditionsSystem : EntitySystem
         }
         else
         {
-            title = Loc.GetString("objective-condition-spider-charge-title", ("location", warp.Location));
+            title = Loc.GetString("objective-condition-spider-charge-title", ("location", Loc.GetString(warp.Location)));
         }
         _metaData.SetEntityName(uid, title, args.Meta);
     }

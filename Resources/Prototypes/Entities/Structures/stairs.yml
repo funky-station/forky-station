@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2026 Aearo-Deepwater <77557990+Aearo-Deepwater@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   abstract: true
   id: BaseFloorDecoration
@@ -18,8 +11,8 @@
     drawdepth: FloorTiles
 
 - type: entity
+  parent: [ BaseFloorDecoration, StructureHealthFurnitureStrong ]
   id: Stairs
-  parent: BaseFloorDecoration
   name: stairs
   suffix: Steel
   description: The greatest invention since rocket-propelled grenades.
@@ -27,32 +20,25 @@
   - type: Anchorable
     flags:
     - Anchorable
-  - type: Rotatable
   - type: Sprite
     sprite: Structures/stairs.rsi
     state: stairs_steel
   - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
+    damageModifierSet: SteelMod
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 500
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
+        damage: 80
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetSteel1:
             min: 2
             max: 4
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 
 - type: entity
   id: StairStage

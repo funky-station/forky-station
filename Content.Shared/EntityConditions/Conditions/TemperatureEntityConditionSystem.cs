@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Temperature.Components;
 using Robust.Shared.Prototypes;
@@ -17,7 +12,7 @@ public sealed partial class TemperatureEntityConditionSystem : EntityConditionSy
 {
     protected override void Condition(Entity<TemperatureComponent> entity, ref EntityConditionEvent<TemperatureCondition> args)
     {
-        if (entity.Comp.CurrentTemperature >= args.Condition.Min && entity.Comp.CurrentTemperature <= args.Condition.Max)
+        if (entity.Comp.Temperature >= args.Condition.Min && entity.Comp.Temperature <= args.Condition.Max)
             args.Result = true;
     }
 }

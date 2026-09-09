@@ -1,26 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2022, 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 T-Stalker <43253663+DogZeroX@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 pofitlo <107665898+pofitlo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Andrew Malcolm O'Neill <105134723+maland1@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Threading;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
@@ -28,8 +5,8 @@ using Content.Shared.Explosion;
 using Content.Shared.Nuke;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Nuke
 {
@@ -120,31 +97,27 @@ namespace Content.Server.Nuke
         ///     The explosion prototype. This determines the damage types, the tile-break chance, and some visual
         ///     information (e.g., the light that the explosion gives off).
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("explosionType", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<ExplosionPrototype>))]
-        public string ExplosionType = default!;
+        [DataField(required: true)]
+        public ProtoId<ExplosionPrototype> ExplosionType;
 
         /// <summary>
         ///     The maximum intensity the explosion can have on a single time. This limits the maximum damage and tile
         ///     break chance the explosion can achieve at any given location.
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("maxIntensity")]
+        [DataField]
         public float MaxIntensity = 100;
 
         /// <summary>
         ///     How quickly the intensity drops off as you move away from the epicenter.
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("intensitySlope")]
+        [DataField]
         public float IntensitySlope = 5;
 
         /// <summary>
         ///     The total intensity of this explosion. The radius of the explosion scales like the cube root of this
         ///     number (see <see cref="ExplosionSystem.RadiusToIntensity"/>).
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("totalIntensity")]
+        [DataField]
         public float TotalIntensity = 100000;
 
         /// <summary>

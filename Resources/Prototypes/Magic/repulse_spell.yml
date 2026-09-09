@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: BaseAction
   id: ActionRepulse
@@ -19,8 +15,9 @@
     useDelay: 40
     raiseOnAction: true
     itemIconStyle: BigAction
-    icon:
-      sprite: Objects/Magic/magicactions.rsi
-      state: repulse
+  - type: Sprite
+    sprite: Objects/Magic/magicactions.rsi
+    layers:
+    - state: repulse
   - type: InstantAction
     event: !type:RepulseAttractActionEvent

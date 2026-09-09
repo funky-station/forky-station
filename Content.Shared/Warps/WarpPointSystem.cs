@@ -1,16 +1,9 @@
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Examine;
-using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 
 namespace Content.Shared.Warps;
 
-public sealed class WarpPointSystem : EntitySystem
+public sealed partial class WarpPointSystem : EntitySystem
 {
     public override void Initialize()
     {
@@ -23,7 +16,7 @@ public sealed class WarpPointSystem : EntitySystem
         if (!HasComp<GhostComponent>(args.Examiner))
             return;
 
-        var loc = component.Location == null ? "<null>" : $"'{component.Location}'";
+        var loc = component.Location == null ? Name(uid) : Loc.GetString(component.Location);
         args.PushText(Loc.GetString("warp-point-component-on-examine-success", ("location", loc)));
     }
 }

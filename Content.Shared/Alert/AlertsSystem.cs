@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Collections.Frozen;
 using System.Diagnostics.CodeAnalysis;
 using Robust.Shared.Player;
@@ -17,19 +6,16 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Alert;
 
-public abstract class AlertsSystem : EntitySystem
+public abstract partial class AlertsSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
-    private EntityQuery<AlertsComponent> _alertsQuery;
+    [Dependency] private EntityQuery<AlertsComponent> _alertsQuery = default!;
     private FrozenDictionary<ProtoId<AlertPrototype>, AlertPrototype> _typeToAlert = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-
-        _alertsQuery = GetEntityQuery<AlertsComponent>();
 
         SubscribeLocalEvent<AlertsComponent, ComponentStartup>(HandleComponentStartup);
         SubscribeLocalEvent<AlertsComponent, ComponentShutdown>(HandleComponentShutdown);
@@ -339,7 +325,7 @@ public abstract class AlertsSystem : EntitySystem
     protected virtual void LoadPrototypes()
     {
         var dict = new Dictionary<ProtoId<AlertPrototype>, AlertPrototype>();
-        foreach (var alert in _prototypeManager.EnumeratePrototypes<AlertPrototype>())
+        foreach (var alert in ProtoMan.EnumeratePrototypes<AlertPrototype>())
         {
             if (!dict.TryAdd(alert.ID, alert))
                 Log.Error($"Found alert with duplicate alertType {alert.ID} - all alerts must have a unique alertType, this one will be skipped");

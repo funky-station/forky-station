@@ -1,16 +1,12 @@
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.StationEvents.Components;
-using Content.Server.AlertLevel;
-﻿using Content.Shared.GameTicking.Components;
+using Content.Shared.AlertLevel;
+using Content.Shared.GameTicking.Components;
 
 namespace Content.Server.StationEvents.Events;
 
-public sealed class AlertLevelInterceptionRule : StationEventSystem<AlertLevelInterceptionRuleComponent>
+public sealed partial class AlertLevelInterceptionRule : StationEventSystem<AlertLevelInterceptionRuleComponent>
 {
-    [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
+    [Dependency] private AlertLevelSystem _alertLevel = default!;
 
     protected override void Started(EntityUid uid, AlertLevelInterceptionRuleComponent component, GameRuleComponent gameRule,
         GameRuleStartedEvent args)
@@ -19,9 +15,14 @@ public sealed class AlertLevelInterceptionRule : StationEventSystem<AlertLevelIn
 
         if (!TryGetRandomStation(out var chosenStation))
             return;
-        if (_alertLevelSystem.GetLevel(chosenStation.Value) != "green")
+
+        if (!_alertLevel.TryGetLevel(chosenStation.Value, out var level)
+            || !_alertLevel.TryGetDefaultLevel(chosenStation.Value, out var defaultLevel)
+            || level != defaultLevel)
             return;
 
-        _alertLevelSystem.SetLevel(chosenStation.Value, component.AlertLevel, true, true, true);
+        _alertLevel.SetLevel(chosenStation.Value,
+            component.AlertLevel,
+            force: true);
     }
 }

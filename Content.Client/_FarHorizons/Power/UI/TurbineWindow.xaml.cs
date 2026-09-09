@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025-2026 jhrushbe <capnmerry@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.UserInterface.Controls;
 using Content.Shared._FarHorizons.Power.Generation.FissionGenerator;
 using Content.Shared.IdentityManagement;
@@ -22,7 +19,7 @@ namespace Content.Client._FarHorizons.Power.UI;
 public sealed partial class TurbineWindow : FancyWindow
 {
     // Dependencies
-    [Dependency] private readonly IEntityManager _entityManager = null!;
+    [Dependency] private IEntityManager _entityManager = null!;
     private readonly LockSystem _lock;
 
     #region Variables
@@ -209,7 +206,7 @@ public sealed partial class TurbineWindow : FancyWindow
         {
             BladeEntityView.SetEntity(msg.Blade!.Value);
             BladeInfoName.Text = Identity.Name(_entityManager.GetEntity(msg.Blade!.Value), _entityManager);
-        }  
+        }
 
         BladeInfo.Visible = bladeExists;
         BladeInfoIntegrity.Text = Math.Round(msg.Health * 100 / msg.HealthMax).ToString() + "%";

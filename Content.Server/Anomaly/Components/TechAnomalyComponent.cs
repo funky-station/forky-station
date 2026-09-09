@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Anomaly.Effects;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.DeviceLinking;

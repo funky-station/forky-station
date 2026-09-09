@@ -1,12 +1,8 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Rainfey <rainfey0+github@gmail.com>
-// SPDX-FileCopyrightText: 2024 Kot <1192090+koteq@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.GameTicking.Rules;
+using Content.Shared._MACRO.Announcements;
 using Content.Shared.NukeOps;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.NukeOps;
@@ -40,10 +36,10 @@ public sealed partial class WarDeclaratorComponent : Component
     public Color Color = Color.Red;
 
     /// <summary>
-    /// War declaration sound file path
+    /// War declaration announcement sound
     /// </summary>
     [DataField]
-    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Announcements/war.ogg");
+    public ProtoId<AnnouncementSoundPrototype> Sound = "War"; // Macrocosm edit - announcement sound prototypes
 
     /// <summary>
     /// Fluent ID for the declaration sender title

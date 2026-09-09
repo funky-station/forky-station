@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Map;
 
 namespace Content.Server.NPC.HTN.Preconditions;
@@ -13,7 +7,7 @@ namespace Content.Server.NPC.HTN.Preconditions;
 /// </summary>
 public sealed partial class CoordinatesInRangePrecondition : HTNPrecondition
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
     private SharedTransformSystem _transformSystem = default!;
 
     [DataField("targetKey", required: true)] public string TargetKey = default!;

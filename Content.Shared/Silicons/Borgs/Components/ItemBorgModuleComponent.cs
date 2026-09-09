@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023, 2025 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Hands.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -57,11 +51,14 @@ public partial record struct BorgHand
     public EntProtoId? Item;
 
     /// <summary>
-    /// The settings for the hand, including a whitelist.
+    /// The settings for the hand, including a whitelist of items hand can pick up.
     /// </summary>
     [DataField]
     public Hand Hand = new();
 
+    /// <summary>
+    /// Allows hand to act like normal universal humanoid hand. Pick up and put down items. 
+    /// </summary>
     [DataField]
     public bool ForceRemovable = false;
 

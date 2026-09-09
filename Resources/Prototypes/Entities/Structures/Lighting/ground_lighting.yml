@@ -1,28 +1,9 @@
-# SPDX-FileCopyrightText: 2022-2023, 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022, 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Jack Fox <35575261+DubiousDoggo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
-# SPDX-FileCopyrightText: 2023 Kit0vras <123590995+Kit0vras@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-# SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Alzore <140123969+Blackern5000@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2025 SpaceRox1244 <138547931+SpaceRox1244@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
+  parent: [ BaseStructure, BaseLightHousingDestructible ]
   id: LightPostSmall
   name: post light
-  description: "An always powered light."
   suffix: Always Powered
-  parent: BaseStructure
+  description: "An always powered light."
   components:
   - type: Sprite
     sprite: Structures/Lighting/LightPosts/small_light_post.rsi
@@ -51,47 +32,32 @@
         - BulletImpassable
   - type: PointLight
     radius: 10
-    energy: 2.5
-    softness: 0.9
-    color: "#EEEEFF"
+    energy: 0.8
+    softness: 1
+    color: "#FFE4CE"
   - type: Anchorable
   - type: InteractionOutline
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
+        damage: 50
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetSteel1:
             min: 2
             max: 4
-      - !type:EmptyAllContainersBehaviour
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalGlassBreak
   - type: StaticPrice
     price: 75
   - type: RequireProjectileTarget
 
 - type: entity
+  parent: LightPostSmall
   id: PoweredLightPostSmallEmpty
   name: post light
-  description: "A small light post."
   suffix: Empty
-  parent: LightPostSmall
+  description: "A small light post. Draws power and produces light when equipped with a light tube."
   components:
   - type: Sprite
     sprite: Structures/Lighting/LightPosts/small_light_post.rsi
@@ -100,6 +66,7 @@
     enabled: false
   - type: PoweredLight
     bulb: Tube
+  - type: SpookyPoweredLight
   - type: ContainerContainer
     containers:
       light_bulb: !type:ContainerSlot
@@ -135,11 +102,10 @@
     popupText: powered-light-component-burn-hand
 
 - type: entity
+  parent: PoweredLightPostSmallEmpty
   id: PoweredLightPostSmall
   name: post light
-  description: "A light fixture. Draws power and produces light when equipped with a light tube."
   suffix: ""
-  parent: PoweredLightPostSmallEmpty
   components:
   - type: Sprite
     state: base
@@ -153,18 +119,12 @@
     range: 3
     sound:
       path: /Audio/Ambience/Objects/light_hum.ogg
-  - type: DamageOnInteract
-    damage:
-      types:
-        Heat: 2
-    popupText: powered-light-component-burn-hand
 
 - type: entity
+  parent: PoweredLightPostSmallEmpty
   id: PoweredLEDLightPostSmall
   name: post light
-  description: "A light fixture. Draws power and produces light when equipped with a light tube."
   suffix: LED
-  parent: PoweredLightPostSmallEmpty
   components:
   - type: Sprite
     state: base

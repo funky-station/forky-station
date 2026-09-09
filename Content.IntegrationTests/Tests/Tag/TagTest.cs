@@ -1,18 +1,5 @@
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Tornado Tech <54727692+Tornado-Technology@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Collections.Generic;
+using Content.IntegrationTests.Fixtures;
 using Content.Shared.Tag;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
@@ -23,7 +10,7 @@ namespace Content.IntegrationTests.Tests.Tag
 {
     [TestFixture]
     [TestOf(typeof(TagComponent))]
-    public sealed class TagTest
+    public sealed class TagTest : GameTest
     {
         private const string TagEntityId = "TagTestDummy";
 
@@ -57,7 +44,7 @@ namespace Content.IntegrationTests.Tests.Tag
         [Test]
         public async Task TagComponentTest()
         {
-            await using var pair = await PoolManager.GetServerClient();
+            var pair = Pair;
             var server = pair.Server;
 
             var sEntityManager = server.ResolveDependency<IEntityManager>();
@@ -308,7 +295,6 @@ namespace Content.IntegrationTests.Tests.Tag
                 Assert.Throws<DebugAssertException>(() => { tagSystem.AddTags(sTagEntity, new HashSet<ProtoId<TagPrototype>> { UnregisteredTag }); });
 #endif
             });
-            await pair.CleanReturnAsync();
         }
     }
 }

@@ -1,18 +1,13 @@
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Events;
 
 namespace Content.Shared.Damage.Systems;
 
-public abstract class SharedDamageOtherOnHitSystem : EntitySystem
+public abstract partial class SharedDamageOtherOnHitSystem : EntitySystem
 {
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly DamageExamineSystem _damageExamine = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private DamageExamineSystem _damageExamine = default!;
 
     public override void Initialize()
     {

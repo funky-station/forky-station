@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Tornado Tech <54727692+Tornado-Technology@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,7 +9,7 @@ namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators.Math;
 /// </summary>
 public sealed partial class AddFloatOperator : HTNOperator
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     [DataField(required: true), ViewVariables]
     public string TargetKey = string.Empty;

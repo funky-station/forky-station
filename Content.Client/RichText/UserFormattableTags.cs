@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.UserInterface.RichText;
 using Robust.Client.UserInterface.RichText;
 
@@ -24,5 +21,14 @@ public static class UserFormattableTags
         typeof(HeadingTag),
         typeof(ItalicTag),
         typeof(MonoTag),
+    ];
+
+    /// <summary>
+    /// Tags allowed in Silicon UIs. Extends from BaseAllowedTags.
+    /// </summary>
+    public static readonly Type[] SiliconAllowedTags =
+    [
+        ..BaseAllowedTags,
+        typeof(ScrambleTag)
     ];
 }

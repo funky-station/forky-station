@@ -1,16 +1,9 @@
-// SPDX-FileCopyrightText: 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Threading.Tasks;
 using Content.Server.Ghost.Roles.Components;
-using Content.Server.NPC.Components;
 using Content.Server.NPC.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Procedural;
 using Content.Shared.Procedural.DungeonLayers;
-using Content.Shared.Storage;
 using Robust.Shared.Collections;
 using Robust.Shared.Random;
 
@@ -24,7 +17,7 @@ public sealed partial class DungeonJob
     private async Task PostGen(
         MobsDunGen gen,
         Dungeon dungeon,
-        Random random)
+        IRobustRandom random)
     {
         var availableRooms = new ValueList<DungeonRoom>();
         availableRooms.AddRange(dungeon.Rooms);

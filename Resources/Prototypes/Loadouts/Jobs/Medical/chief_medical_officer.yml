@@ -48,10 +48,10 @@
 - type: loadout
   id: ChiefMedicalOfficerLabCoat
   equipment:
-    outerClothing: ClothingOuterCoatLabCmo
+    outerClothing: FuClothingOuterCoatLabCmo # Funky - previously ClothingOuterCoatLabCmo
 
 - type: loadout
   id: ChiefMedicalOfficerWintercoat
   equipment:
-    outerClothing: ClothingOuterWinterCMO
+    outerClothing: FuClothingOuterWinterCmo # Funk - previously ClothingOuterWinterCMO
 

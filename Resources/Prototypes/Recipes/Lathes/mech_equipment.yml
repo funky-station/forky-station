@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: latheRecipe
   abstract: true
   id: BaseMechEquipmentRecipe
@@ -33,4 +30,4 @@
   result: MechEquipmentHorn
   materials:
     Steel: 500
-    Bananium: 200
+    Gold: 200

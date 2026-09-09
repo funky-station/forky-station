@@ -1,0 +1,19 @@
+{
+    "version": 1,
+    "copyright": "By AraiMaia for Funky Station",
+    "license": "CC0-1.0",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "mirror",
+	    "directions": 4
+        },
+        {
+            "name": "mirror-broke",
+	    "directions": 4
+        }
+    ]
+}

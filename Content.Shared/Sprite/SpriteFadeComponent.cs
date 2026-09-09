@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Sprite;
@@ -12,5 +8,9 @@ namespace Content.Shared.Sprite;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SpriteFadeComponent : Component
 {
-
+    /// <summary>
+    ///     If true, fades the item even if there is nothing else clickable behind the hovered point.
+    /// </summary>
+    [DataField]
+    public bool AlwaysFade;
 }

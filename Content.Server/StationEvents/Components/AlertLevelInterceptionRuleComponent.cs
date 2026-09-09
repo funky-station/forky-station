@@ -1,12 +1,13 @@
-// SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.StationEvents.Events;
-using Content.Server.AlertLevel;
+using Content.Shared.AlertLevel;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.StationEvents.Components;
 
+/// <summary>
+/// Added to gamerule entity prototypes to make them change the station's alert level when starting the gamerule.
+/// This will only apply if the station is currently on its default alert level.
+/// </summary>
 [RegisterComponent, Access(typeof(AlertLevelInterceptionRule))]
 public sealed partial class AlertLevelInterceptionRuleComponent : Component
 {
@@ -14,5 +15,5 @@ public sealed partial class AlertLevelInterceptionRuleComponent : Component
     /// Alert level to set the station to when the event starts.
     /// </summary>
     [DataField]
-    public string AlertLevel = "blue";
+    public ProtoId<AlertLevelPrototype> AlertLevel = "Blue";
 }

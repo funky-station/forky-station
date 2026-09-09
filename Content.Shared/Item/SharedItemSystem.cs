@@ -1,20 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023, 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Darkie <darksaiyanis@gmail.com>
-// SPDX-FileCopyrightText: 2023 Varen <ychwack@hotmail.it>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Verbs;
@@ -22,19 +5,16 @@ using Content.Shared.Examine;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Storage;
 using JetBrains.Annotations;
-using Robust.Shared.Collections;
 using Robust.Shared.Containers;
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Item;
 
-public abstract class SharedItemSystem : EntitySystem
+public abstract partial class SharedItemSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private   readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] protected readonly SharedContainerSystem Container = default!;
+    [Dependency] private SharedHandsSystem _handsSystem = default!;
+    [Dependency] protected SharedContainerSystem Container = default!;
 
     public override void Initialize()
     {
@@ -165,7 +145,7 @@ public abstract class SharedItemSystem : EntitySystem
 
     public ItemSizePrototype GetSizePrototype(ProtoId<ItemSizePrototype> id)
     {
-        return _prototype.Index(id);
+        return ProtoMan.Index(id);
     }
 
     /// <summary>
@@ -287,5 +267,26 @@ public abstract class SharedItemSystem : EntitySystem
                 SetSize(uid, (ProtoId<ItemSizePrototype>) itemToggleSize.DeactivatedSize, item);
             }
         }
+    }
+
+    /// <summary>
+    /// Sorts two protos by <see cref="ItemComponent"/> size, from smallest to largest.
+    /// </summary>
+    /// <param name="a">The first proto.</param>
+    /// <param name="b">The second proto.</param>
+    /// <returns> Less than 0 if a is smaller, greater than 0 if a is larger,
+    /// 0 if they are the same or either proto doesn't have an <see cref="ItemComponent"/>.</returns>
+    [PublicAPI]
+    public int CompareSize(EntProtoId a, EntProtoId b)
+    {
+        var protoA = ProtoMan.Index(a);
+        var protoB = ProtoMan.Index(b);
+        if (!protoA.TryComp<ItemComponent>(out var compA, Factory) ||
+            !protoB.TryComp<ItemComponent>(out var compB, Factory))
+        {
+            return 0;
+        }
+
+        return ProtoMan.Index(compA.Size).CompareTo(ProtoMan.Index(compB.Size));
     }
 }

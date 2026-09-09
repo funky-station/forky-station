@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SpaceManiac <tad@platymuus.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.GameTicking;
 using Content.Server.Voting;
 using Robust.Server;
@@ -11,11 +7,11 @@ using System.Text.Json.Nodes;
 
 namespace Content.Server.Discord.WebhookMessages;
 
-public sealed class VoteWebhooks : IPostInjectInit
+public sealed partial class VoteWebhooks : IPostInjectInit
 {
-    [Dependency] private readonly IEntitySystemManager _entSys = default!;
-    [Dependency] private readonly DiscordWebhook _discord = default!;
-    [Dependency] private readonly IBaseServer _baseServer = default!;
+    [Dependency] private IEntitySystemManager _entSys = default!;
+    [Dependency] private DiscordWebhook _discord = default!;
+    [Dependency] private IBaseServer _baseServer = default!;
 
     private ISawmill _sawmill = default!;
 

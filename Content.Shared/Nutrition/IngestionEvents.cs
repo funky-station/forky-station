@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Baa <9057997+Baa14453@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Chemistry.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
@@ -217,16 +206,4 @@ public record struct GetEdibleTypeEvent
     {
         Type = proto;
     }
-}
-
-/// <summary>
-/// Raised directed at the food being sliced before it's deleted.
-/// Cancel this if you want to do something special before a food is deleted.
-/// </summary>
-public sealed class BeforeFullySlicedEvent : CancellableEntityEventArgs
-{
-    /// <summary>
-    /// The person slicing the food.
-    /// </summary>
-    public EntityUid User;
 }

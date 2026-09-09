@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using JetBrains.Annotations;
 using Robust.Shared.Serialization;
 
@@ -20,6 +15,12 @@ public abstract partial class ListingCondition
     /// </summary>
     /// <returns>Whether or not the listing can be purchased</returns>
     public abstract bool Condition(ListingConditionArgs args);
+
+    /// <summary>
+    /// If true, then this conditions will cause the listing to be locked instead of disappearing from the shop UI.
+    /// </summary>
+    [DataField]
+    public bool Lock;
 }
 
 /// <param name="Buyer">Either the account owner, user, or an inanimate object (e.g., surplus bundle)</param>

@@ -1,25 +1,8 @@
-# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: stack
   parent: BaseTileStack
   id: FloorTileDark
   name: stack-dark-tile
   spawn: FloorTileItemDark
-
-- type: stack
-  parent: BaseTileStack
-  id: FloorTileDarkDiagonalMini
-  name: stack-dark-steel-diagonal-mini-tile
-  spawn: FloorTileItemDarkDiagonalMini
-
-- type: stack
-  parent: BaseTileStack
-  id: FloorTileDarkDiagonal
-  name: stack-dark-steel-diagonal-tile
-  spawn: FloorTileItemDarkDiagonal
 
 - type: stack
   parent: BaseTileStack
@@ -53,6 +36,12 @@
 
 - type: stack
   parent: BaseTileStack
-  id: FloorTileDarkOffset
-  name: stack-offset-dark-steel-tile
-  spawn: FloorTileItemDarkOffset
+  id: FloorTileDarkVerticalSlatsBordered
+  name: stack-dark-steel-vertical-slats-tile-bordered
+  spawn: FloorTileItemDarkVerticalSlatsBordered
+
+- type: stack
+  parent: BaseTileStack
+  id: FloorTileDarkHorizontalSlatsBordered
+  name: stack-dark-steel-horizontal-slats-tile-bordered
+  spawn: FloorTileItemDarkHorizontalSlatsBordered

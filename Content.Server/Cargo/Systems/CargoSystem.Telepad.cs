@@ -1,20 +1,3 @@
-// SPDX-FileCopyrightText: 2022, 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Marat Gadzhiev <15rinkashikachi15@gmail.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Chris V <HoofedEar@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
-// SPDX-FileCopyrightText: 2023 eoineoineoin <eoin.mcloughlin+gh@gmail.com>
-// SPDX-FileCopyrightText: 2023 Checkraze <71046427+Cheackraze@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 DDDragoni <38265528+DDeegan@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Cargo.Components;
@@ -62,10 +45,8 @@ public sealed partial class CargoSystem
                 console.Value.Owner != args.OrderConsole.Owner)
                 continue;
 
-            for (var i = 0; i < args.Order.OrderQuantity; i++)
-            {
-                tele.CurrentOrders.Add(args.Order);
-            }
+            tele.CurrentOrders.Add(args.Order);
+
             tele.Accumulator = tele.Delay;
             args.Handled = true;
             args.FulfillmentEntity = uid;
@@ -99,8 +80,6 @@ public sealed partial class CargoSystem
 
             if (comp.CurrentState == CargoTelepadState.Unpowered)
             {
-                comp.CurrentState = CargoTelepadState.Idle;
-                _appearance.SetData(uid, CargoTelepadVisuals.State, CargoTelepadState.Idle, appearance);
                 comp.Accumulator = comp.Delay;
                 continue;
             }
@@ -122,14 +101,24 @@ public sealed partial class CargoSystem
             }
 
             var currentOrder = comp.CurrentOrders.First();
-            if (FulfillOrder(currentOrder, currentOrder.Account, xform.Coordinates, comp.PrinterOutput))
+            if (currentOrder.NumDispatched >= currentOrder.OrderQuantity)
             {
-                _audio.PlayPvs(_audio.ResolveSound(comp.TeleportSound), uid, AudioParams.Default.WithVolume(-8f));
+                comp.CurrentOrders.Remove(currentOrder);
+            }
+            else if (FulfillOrder(currentOrder, currentOrder.Account, xform.Coordinates, comp.PrinterOutput))
+            {
+                currentOrder.NumDispatched++;
+                if (currentOrder.NumDispatched >= currentOrder.OrderQuantity)
+                    comp.CurrentOrders.Remove(currentOrder);
+
+                var teleportSound = comp.TeleportSound;
+                var audioParams = teleportSound?.Params ?? AudioParams.Default;
+                audioParams = audioParams.AddVolume(-8f);
+                _audio.PlayPvs(_audio.ResolveSound(comp.TeleportSound), uid, audioParams);
 
                 if (_station.GetOwningStation(uid) is { } station)
                     UpdateOrders(station);
 
-                comp.CurrentOrders.Remove(currentOrder);
                 comp.CurrentState = CargoTelepadState.Teleporting;
                 _appearance.SetData(uid, CargoTelepadVisuals.State, CargoTelepadState.Teleporting, appearance);
             }
@@ -178,13 +167,15 @@ public sealed partial class CargoSystem
 
         var disabled = !receiver.Powered || !xform.Anchored;
 
-        // Setting idle state should be handled by Update();
+        // Turn off if disabled
+        // Only change to Idle if off
+        // don't overwrite teleporting state
         if (disabled)
-            return;
+            component.CurrentState = CargoTelepadState.Unpowered;
+        else if (component.CurrentState == CargoTelepadState.Unpowered)
+            component.CurrentState = CargoTelepadState.Idle;
 
-        TryComp<AppearanceComponent>(uid, out var appearance);
-        component.CurrentState = CargoTelepadState.Unpowered;
-        _appearance.SetData(uid, CargoTelepadVisuals.State, CargoTelepadState.Unpowered, appearance);
+        _appearance.SetData(uid, CargoTelepadVisuals.State, component.CurrentState);
     }
 
     private void OnTelepadPowerChange(EntityUid uid, CargoTelepadComponent component, ref PowerChangedEvent args)

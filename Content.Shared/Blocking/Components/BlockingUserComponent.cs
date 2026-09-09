@@ -1,28 +1,24 @@
-// SPDX-FileCopyrightText: 2022-2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
 
-namespace Content.Shared.Blocking;
+namespace Content.Shared.Blocking.Components;
 
 /// <summary>
 /// This component gets dynamically added to an Entity via the <see cref="BlockingSystem"/>
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
 public sealed partial class BlockingUserComponent : Component
 {
     /// <summary>
     /// The entity that's being used to block
     /// </summary>
-    [DataField("blockingItem")]
+    [DataField, AutoNetworkedField]
     public EntityUid? BlockingItem;
 
     /// <summary>
     /// Stores the entities original bodytype
     /// Used so that it can be put back to what it was after anchoring
     /// </summary>
-    [DataField("originalBodyType")]
+    [DataField, AutoNetworkedField]
     public BodyType OriginalBodyType;
 }

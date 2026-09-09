@@ -1,17 +1,10 @@
-// SPDX-FileCopyrightText: 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Threading.Tasks;
 using Content.Server.Parallax;
 using Content.Shared.Maps;
-using Content.Shared.Parallax.Biomes;
 using Content.Shared.Procedural;
 using Content.Shared.Procedural.PostGeneration;
 using Robust.Shared.Map;
+using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Procedural.DungeonJob;
@@ -21,7 +14,7 @@ public sealed partial class DungeonJob
     /// <summary>
     /// <see cref="BiomeDunGen"/>
     /// </summary>
-    private async Task PostGen(BiomeDunGen dunGen, Dungeon dungeon, HashSet<Vector2i> reservedTiles, Random random)
+    private async Task PostGen(BiomeDunGen dunGen, Dungeon dungeon, HashSet<Vector2i> reservedTiles, IRobustRandom random)
     {
         if (!_prototype.Resolve(dunGen.BiomeTemplate, out var indexedBiome))
             return;
@@ -31,7 +24,7 @@ public sealed partial class DungeonJob
         var seed = random.Next();
         var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
 
-        var tiles = _maps.GetAllTilesEnumerator(_gridUid, _grid);
+        var tiles = _maps.GetAllTiles(_gridUid, _grid);
         while (tiles.MoveNext(out var tileRef))
         {
             var node = tileRef.Value.GridIndices;

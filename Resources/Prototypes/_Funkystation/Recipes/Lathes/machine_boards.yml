@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
-# SPDX-License-Identifier: MIT
-
 ## Engineering
 
 # Atmos
@@ -16,3 +13,28 @@
   parent: [ BaseGoldCircuitboardRecipe, BaseMedicalMachineRecipeCategory ]
   id: MedicinalRefillerMachineCircuitboard
   result: MedicinalRefillerMachineCircuitboard
+## Service
+
+# Washing machine
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: WashingMachineCircuitboard
+  result: WashingMachineCircuitboard
+
+# Document Printer
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: DocumentPrinterCircuitboard
+  result: DocumentPrinterCircuitboard
+
+# Paper Shredder
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: PaperShredderCircuitboard
+  result: PaperShredderCircuitboard
+  
+# Pager server
+- type: latheRecipe
+  parent: [ BaseCircuitboardRecipe, BaseEngineeringMachineRecipeCategory ]
+  id: PagerServerCircuitboard
+  result: PagerServerCircuitboard

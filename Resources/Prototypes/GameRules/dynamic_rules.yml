@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: BaseGameRule
   id: DynamicRule
@@ -57,6 +54,11 @@
         children:
         - id: Thief
           prob: 0.5
+          conditions:
+          - !type:HasBudgetCondition
+          - !type:MaxRuleOccurenceCondition
+        - id: Changeling
+          prob: 0.25
           conditions:
           - !type:HasBudgetCondition
           - !type:MaxRuleOccurenceCondition

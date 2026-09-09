@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
@@ -26,22 +20,6 @@ public partial class MobStateSystem
     {
         return _mobStateQuery.Resolve(entity, ref component, false) &&
                component.AllowedStates.Contains(mobState);
-    }
-
-    /// <summary>
-    /// Run a MobState update check. This will trigger update events if the state has been changed.
-    /// </summary>
-    /// <param name="entity">Target Entity we want to change the MobState of</param>
-    /// <param name="component">MobState Component attached to the entity</param>
-    /// <param name="origin">Entity that caused the state update (if applicable)</param>
-    public void UpdateMobState(EntityUid entity, MobStateComponent? component = null, EntityUid? origin = null)
-    {
-        if (!_mobStateQuery.Resolve(entity, ref component))
-            return;
-
-        var ev = new UpdateMobStateEvent {Target = entity, Component = component, Origin = origin};
-        RaiseLocalEvent(entity, ref ev);
-        ChangeState(entity, component, ev.State, origin: origin);
     }
 
     /// <summary>
@@ -108,11 +86,22 @@ public partial class MobStateSystem
     {
         var oldState = component.CurrentState;
         //make sure we are allowed to enter the new state
-        if (oldState == newState || !component.AllowedStates.Contains(newState))
+        if (oldState == newState) // funky
             return;
 
+        // funky start
+        var targetState = newState;
+        if (!component.AllowedStates.Contains(targetState))
+        {
+            if (!ResolveStateFallback(oldState, targetState, component, out targetState))
+                return;
+
+            newState = targetState;
+        }
+        // funky end
+
         OnExitState(target, component, oldState);
-        component.CurrentState = newState;
+        component.CurrentState = newState; // funky
         OnEnterState(target, component, newState);
 
         var ev = new MobStateChangedEvent(target, component, oldState, newState, origin);
@@ -127,14 +116,3 @@ public partial class MobStateSystem
 
     #endregion
 }
-
-/// <summary>
-/// Event that gets triggered when we want to update the mobstate. This allows for systems to override MobState changes
-/// </summary>
-/// <param name="Target">The Entity whose MobState is changing</param>
-/// <param name="Component">The MobState Component owned by the Target</param>
-/// <param name="State">The new MobState we want to set</param>
-/// <param name="Origin">Entity that caused the state update (if applicable)</param>
-[ByRefEvent]
-public record struct UpdateMobStateEvent(EntityUid Target, MobStateComponent Component, MobState State,
-    EntityUid? Origin = null);

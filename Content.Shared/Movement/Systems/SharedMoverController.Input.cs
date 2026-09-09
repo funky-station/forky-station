@@ -1,24 +1,3 @@
-// SPDX-FileCopyrightText: 2020-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021, 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2020-2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2020 GlassEclipse <32942106+GlassEclipse@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Vince <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 collinlunn <60152240+collinlunn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Rane <60792108+Elijahrane@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 ElectroJr <leonsfriedrich@gmail.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Pronana@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using Content.Shared.Alert;
 using Content.Shared.CCVar;
@@ -29,7 +8,6 @@ using Content.Shared.Movement.Events;
 using Robust.Shared.GameStates;
 using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -325,28 +303,25 @@ namespace Content.Shared.Movement.Systems
                 PhysicsSystem.SetBodyType(entity, BodyType.KinematicController);
         }
 
-        private void HandleDirChange(EntityUid entity, Direction dir, ushort subTick, bool state)
+        private void HandleDirChange(Entity<InputMoverComponent?> entity, Direction dir, ushort subTick, bool state)
         {
             // Relayed movement just uses the same keybinds given we're moving the relayed entity
             // the same as us.
+            if (!MoverQuery.Resolve(entity, ref entity.Comp))
+                return;
 
             // TODO: Should move this into HandleMobMovement itself.
-            if (TryComp<RelayInputMoverComponent>(entity, out var relayMover))
+            if (entity.Comp.CanMove && RelayQuery.TryComp(entity, out var relayMover))
             {
-                DebugTools.Assert(relayMover.RelayEntity != entity);
+                DebugTools.Assert(relayMover.RelayEntity != entity.Owner);
                 DebugTools.AssertNotNull(relayMover.RelayEntity);
 
                 if (MoverQuery.TryGetComponent(entity, out var mover))
                     SetMoveInput((entity, mover), MoveButtons.None);
 
-                if (!_mobState.IsIncapacitated(entity))
-                    HandleDirChange(relayMover.RelayEntity, dir, subTick, state);
-
+                HandleDirChange(relayMover.RelayEntity, dir, subTick, state);
                 return;
             }
-
-            if (!MoverQuery.TryGetComponent(entity, out var moverComp))
-                return;
 
             // For stuff like "Moving out of locker" or the likes
             // We'll relay a movement input to the parent.
@@ -359,7 +334,7 @@ namespace Content.Shared.Movement.Systems
                 RaiseLocalEvent(xform.ParentUid, ref relayMoveEvent);
             }
 
-            SetVelocityDirection((entity, moverComp), dir, subTick, state);
+            SetVelocityDirection((entity, entity.Comp), dir, subTick, state);
         }
 
         private void OnInputInit(Entity<InputMoverComponent> entity, ref ComponentInit args)
@@ -394,7 +369,11 @@ namespace Content.Shared.Movement.Systems
             SetSprinting((uid, moverComp), subTick, walking);
         }
 
-        public (Vector2 Walking, Vector2 Sprinting) GetVelocityInput(InputMoverComponent mover)
+        // ES START
+        // forceWalk arg to override mover.Sprinting
+        // + check it for out of simulation
+        // jank but walking/sprinting being handled this low down is already jank
+        public (Vector2 Walking, Vector2 Sprinting) GetVelocityInput(InputMoverComponent mover, bool forceWalk=false)
         {
             if (!Timing.InSimulation)
             {
@@ -402,7 +381,8 @@ namespace Content.Shared.Movement.Systems
                 // So return a full-length vector as if it's a full tick.
                 // Physics system will have the correct time step anyways.
                 var immediateDir = DirVecForButtons(mover.HeldMoveButtons);
-                return mover.Sprinting ? (Vector2.Zero, immediateDir) : (immediateDir, Vector2.Zero);
+                return mover.Sprinting && !forceWalk ? (Vector2.Zero, immediateDir) : (immediateDir, Vector2.Zero);
+                // ES END
             }
 
             Vector2 walk;
@@ -424,7 +404,10 @@ namespace Content.Shared.Movement.Systems
 
             var curDir = DirVecForButtons(mover.HeldMoveButtons) * remainingFraction;
 
-            if (mover.Sprinting)
+            // ES START
+            // check forcewalk in addition to sprinting
+            if (mover.Sprinting && !forceWalk)
+            // ES END
             {
                 sprint += curDir;
             }

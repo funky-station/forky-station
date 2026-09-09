@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Movement.Components;
 using Content.Shared.Station.Components;
 using Robust.Shared.GameStates;
@@ -87,7 +79,7 @@ public sealed partial class ReplaySpectatorSystem
         if (_player.LocalUser != DefaultUser)
             return; // Already spectating some session.
 
-        if (_player.LocalEntity is not {} uid)
+        if (_player.LocalEntity is not { } uid)
             return;
 
         var netEnt = GetNetEntity(uid);
@@ -135,18 +127,15 @@ public sealed partial class ReplaySpectatorSystem
 
         if (data.Local != null && data.Local.Value.Coords.IsValid(EntityManager))
         {
-            var newXform = SpawnSpectatorGhost(data.Local.Value.Coords, false);
-            newXform.LocalRotation = data.Local.Value.Rot;
+            SpawnSpectatorGhost(data.Local.Value.Coords, false, data.Local.Value.Rot);
         }
         else if (data.World != null && data.World.Value.Coords.IsValid(EntityManager))
         {
-            var newXform = SpawnSpectatorGhost(data.World.Value.Coords, true);
-            newXform.LocalRotation = data.World.Value.Rot;
+            SpawnSpectatorGhost(data.World.Value.Coords, true, data.World.Value.Rot);
         }
         else if (TryFindFallbackSpawn(out var coords))
         {
-            var newXform = SpawnSpectatorGhost(coords, true);
-            newXform.LocalRotation = 0;
+            SpawnSpectatorGhost(coords, true);
         }
         else
         {
@@ -185,7 +174,7 @@ public sealed partial class ReplaySpectatorSystem
                 continue;
 
             if (!station && stationFound)
-               continue;
+                continue;
 
             maxUid = (uid, grid);
             maxSize = size;

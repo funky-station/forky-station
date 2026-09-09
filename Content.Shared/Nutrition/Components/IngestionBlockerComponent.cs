@@ -1,14 +1,5 @@
-// SPDX-FileCopyrightText: 2021 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023, 2025 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Nutrition.EntitySystems;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared.Nutrition.Components;
 
@@ -19,12 +10,12 @@ namespace Content.Shared.Nutrition.Components;
 ///     In the event that more head-wear & mask functionality is added (like identity systems, or raising/lowering of
 ///     masks), then this component might become redundant.
 /// </remarks>
-[RegisterComponent, Access(typeof(IngestionSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(IngestionSystem))]
 public sealed partial class IngestionBlockerComponent : Component
 {
     /// <summary>
-    ///     Is this component currently blocking consumption.
+    ///     Whether this item currently blocks consuming something.
     /// </summary>
-    [DataField]
-    public bool Enabled { get; set; } = true;
+    [DataField, AutoNetworkedField]
+    public bool Enabled = true;
 }

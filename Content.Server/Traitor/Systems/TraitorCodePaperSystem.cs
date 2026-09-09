@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
@@ -19,11 +12,11 @@ using Content.Shared.Paper;
 
 namespace Content.Server.Traitor.Systems;
 
-public sealed class TraitorCodePaperSystem : EntitySystem
+public sealed partial class TraitorCodePaperSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly PaperSystem _paper = default!;
-    [Dependency] private readonly CodewordSystem _codewordSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private PaperSystem _paper = default!;
+    [Dependency] private CodewordSystem _codewordSystem = default!;
 
     public override void Initialize()
     {

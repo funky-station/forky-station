@@ -1,9 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: BaseAction
   id: ActionChargeSpell
@@ -13,9 +7,10 @@
   - type: Action
     useDelay: 30
     itemIconStyle: BigAction
-    icon:
-      sprite: Objects/Weapons/Guns/Basic/wands.rsi
-      state: nothing
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Basic/wands.rsi
+    layers:
+    - state: nothing
   - type: InstantAction
     event: !type:ChargeSpellEvent
       charge: 1

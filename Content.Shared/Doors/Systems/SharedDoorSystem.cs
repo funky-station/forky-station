@@ -1,38 +1,3 @@
-// SPDX-FileCopyrightText: 2022-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 TekuNut <13456422+TekuNut@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-// SPDX-FileCopyrightText: 2022 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Fishfish458 <47410468+Fishfish458@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Repo <47093363+Titian3@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Tom Leys <tom@crump-leys.com>
-// SPDX-FileCopyrightText: 2023 Arendian <137322659+Arendian@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Dawid Bla <46636558+DawBla@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kevin Zheng <kevinz5000@gmail.com>
-// SPDX-FileCopyrightText: 2023 Slava0135 <40753025+Slava0135@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024-2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 exincore <me@exin.xyz>
-// SPDX-FileCopyrightText: 2024 Kot <1192090+koteq@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Booblesnoot42 <108703193+Booblesnoot42@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SpaceManiac <tad@platymuus.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 zHonys <69396539+zHonys@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
@@ -58,29 +23,31 @@ using Robust.Shared.Timing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Doors.Systems;
 
 public abstract partial class SharedDoorSystem : EntitySystem
 {
-    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-    [Dependency] protected readonly IGameTiming GameTiming = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] protected readonly SharedPhysicsSystem PhysicsSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
-    [Dependency] private readonly SharedStunSystem _stunSystem = default!;
-    [Dependency] protected readonly TagSystem Tags = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
-    [Dependency] protected readonly SharedAppearanceSystem AppearanceSystem = default!;
-    [Dependency] private readonly OccluderSystem _occluder = default!;
-    [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
-    [Dependency] private readonly PryingSystem _pryingSystem = default!;
-    [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
+    [Dependency] private ISharedAdminLogManager _adminLog = default!;
+    [Dependency] protected IGameTiming GameTiming = default!;
+    [Dependency] private INetManager _net = default!;
+    [Dependency] protected SharedPhysicsSystem PhysicsSystem = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private EmagSystem _emag = default!;
+    [Dependency] private SharedStunSystem _stunSystem = default!;
+    [Dependency] protected TagSystem Tags = default!;
+    [Dependency] protected SharedAudioSystem Audio = default!;
+    [Dependency] private EntityLookupSystem _entityLookup = default!;
+    [Dependency] protected SharedAppearanceSystem AppearanceSystem = default!;
+    [Dependency] private OccluderSystem _occluder = default!;
+    [Dependency] private AccessReaderSystem _accessReaderSystem = default!;
+    [Dependency] private PryingSystem _pryingSystem = default!;
+    [Dependency] protected SharedPopupSystem Popup = default!;
+    [Dependency] private SharedMapSystem _mapSystem = default!;
+    [Dependency] private SharedPowerReceiverSystem _powerReceiver = default!;
 
     public static readonly ProtoId<TagPrototype> DoorBumpTag = "DoorBumpOpener";
 
@@ -88,8 +55,6 @@ public abstract partial class SharedDoorSystem : EntitySystem
     ///     A set of doors that are currently opening, closing, or just queued to open/close after some delay.
     /// </summary>
     private readonly HashSet<Entity<DoorComponent>> _activeDoors = new();
-
-    private readonly HashSet<Entity<PhysicsComponent>> _doorIntersecting = new();
 
     public override void Initialize()
     {
@@ -317,10 +282,13 @@ public abstract partial class SharedDoorSystem : EntitySystem
         if (!SetState(uid, DoorState.Denying, door))
             return;
 
+        var audioParams = door.DenySound?.Params ?? AudioParams.Default;
+        audioParams = audioParams.AddVolume(-3);
+
         if (predicted)
-            Audio.PlayPredicted(door.DenySound, uid, user, AudioParams.Default.WithVolume(-3));
+            Audio.PlayPredicted(door.DenySound, uid, user, audioParams);
         else if (_net.IsServer)
-            Audio.PlayPvs(door.DenySound, uid, AudioParams.Default.WithVolume(-3));
+            Audio.PlayPvs(door.DenySound, uid, audioParams);
     }
 
     public bool TryToggleDoor(EntityUid uid, DoorComponent? door = null, EntityUid? user = null, bool predicted = false)
@@ -364,6 +332,9 @@ public abstract partial class SharedDoorSystem : EntitySystem
         if (door.State == DoorState.Welded)
             return false;
 
+        if (Paused(uid))
+            return false;
+
         var ev = new BeforeDoorOpenedEvent() { User = user };
         RaiseLocalEvent(uid, ev);
         if (ev.Cancelled)
@@ -397,10 +368,12 @@ public abstract partial class SharedDoorSystem : EntitySystem
         if (!SetState(uid, DoorState.Opening, door))
             return;
 
+        var audioParams = door.OpenSound?.Params ?? AudioParams.Default;
+        audioParams = audioParams.AddVolume(-5);
         if (predicted)
-            Audio.PlayPredicted(door.OpenSound, uid, user, AudioParams.Default.WithVolume(-5));
+            Audio.PlayPredicted(door.OpenSound, uid, user, audioParams);
         else if (_net.IsServer)
-            Audio.PlayPvs(door.OpenSound, uid, AudioParams.Default.WithVolume(-5));
+            Audio.PlayPvs(door.OpenSound, uid, audioParams);
 
         if (lastState == DoorState.Emagging && TryComp<DoorBoltComponent>(uid, out var doorBoltComponent))
             SetBoltsDown((uid, doorBoltComponent), true, user, true);
@@ -471,6 +444,9 @@ public abstract partial class SharedDoorSystem : EntitySystem
         if (door.State is DoorState.Welded or DoorState.Closed)
             return false;
 
+        if (Paused(uid))
+            return false;
+
         var ev = new BeforeDoorClosedEvent(door.PerformCollisionCheck, partial);
         RaiseLocalEvent(uid, ev);
         if (ev.Cancelled)
@@ -479,7 +455,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
         if (!HasAccess(uid, user, door))
             return false;
 
-        return !ev.PerformCollisionCheck || !GetColliding(uid).Any();
+        return !ev.PerformCollisionCheck || !GetColliding(uid, null, null, door.CheckFixtureCollision, door.PerformCollisionCheck).Any();
     }
 
     public void StartClosing(EntityUid uid, DoorComponent? door = null, EntityUid? user = null, bool predicted = false)
@@ -490,10 +466,13 @@ public abstract partial class SharedDoorSystem : EntitySystem
         if (!SetState(uid, DoorState.Closing, door))
             return;
 
+        var audioParams = door.CloseSound?.Params ?? AudioParams.Default;
+        audioParams = audioParams.AddVolume(-5);
+
         if (predicted)
-            Audio.PlayPredicted(door.CloseSound, uid, user, AudioParams.Default.WithVolume(-5));
+            Audio.PlayPredicted(door.CloseSound, uid, user, audioParams);
         else if (_net.IsServer)
-            Audio.PlayPvs(door.CloseSound, uid, AudioParams.Default.WithVolume(-5));
+            Audio.PlayPvs(door.CloseSound, uid, audioParams);
     }
 
     /// <summary>
@@ -551,7 +530,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
     }
 
     /// <summary>
-    /// Crushes everyone colliding with us by more than <see cref="IntersectPercentage"/>%.
+    /// Crushes everyone colliding with the door.
     /// </summary>
     public void Crush(EntityUid uid, DoorComponent? door = null, PhysicsComponent? physics = null)
     {
@@ -561,9 +540,9 @@ public abstract partial class SharedDoorSystem : EntitySystem
         if (!door.CanCrush)
             return;
 
-        // Find entities and apply curshing effects
+        // Find entities and apply crushing effects
         var stunTime = door.DoorStunTime + door.OpenTimeOne;
-        foreach (var entity in GetColliding(uid, physics))
+        foreach (var entity in GetColliding(uid, physics, null, door.CheckFixtureCollision, door.AllowMachineLayer))
         {
             door.CurrentlyCrushing.Add(entity);
             if (door.CrushDamage != null)
@@ -581,11 +560,17 @@ public abstract partial class SharedDoorSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Get all entities that collide with this door by more than <see cref="IntersectPercentage"/> percent.\
+    /// Checks if there are any entities colliding with the door, passing them back out to use e.g. to prevent closing.
     /// </summary>
-    public IEnumerable<EntityUid> GetColliding(EntityUid uid, PhysicsComponent? physics = null)
+    /// <param name="uid">The door entity to check.</param>
+    /// <param name="physics">The door's <see cref="PhysicsComponent"/>.</param>
+    /// <param name="checkFixtureCollision">If true, the door will do a more exact check based on its first fixture.</param>
+    /// <param name="fixtures">The door's <see cref="FixturesComponent"/>.</param>
+    /// <param name="allowMachineLayer">The door will be able to close over <see cref="CollisionGroup.MachineLayer"/>.</param>
+    /// <returns>The list of entities inside the door.</returns>
+    public IEnumerable<EntityUid> GetColliding(EntityUid uid, PhysicsComponent? physics = null, FixturesComponent? fixtures = null, bool checkFixtureCollision = false, bool allowMachineLayer = false)
     {
-        if (!Resolve(uid, ref physics))
+        if (!Resolve(uid, ref physics) || !Resolve(uid, ref fixtures))
             yield break;
 
         var xform = Transform(uid);
@@ -595,19 +580,47 @@ public abstract partial class SharedDoorSystem : EntitySystem
             yield break;
         var tileRef = _mapSystem.GetTileRef(xform.GridUid.Value, mapGridComp, xform.Coordinates);
 
-        _doorIntersecting.Clear();
-        _entityLookup.GetLocalEntitiesIntersecting(xform.GridUid.Value, tileRef.GridIndices, _doorIntersecting, gridComp: mapGridComp, flags: (LookupFlags.All & ~LookupFlags.Sensors));
+        var doorIntersecting = new HashSet<Entity<PhysicsComponent>>();
+
+        if (checkFixtureCollision && fixtures.Fixtures.TryFirstOrNull(out var fixture))
+        {
+            var fixtureToWorld = PhysicsSystem.GetPhysicsTransform(uid, xform);
+
+            _entityLookup.GetEntitiesIntersecting(xform.MapID,
+                fixture.Value.Value.Shape,
+                fixtureToWorld,
+                doorIntersecting,
+                flags: LookupFlags.All & ~(LookupFlags.Sensors | LookupFlags.Contained));
+        }
+        else
+        {
+            _entityLookup.GetLocalEntitiesIntersecting(xform.GridUid.Value, tileRef.GridIndices, doorIntersecting, gridComp: mapGridComp, flags: LookupFlags.All & ~(LookupFlags.Sensors | LookupFlags.Contained));
+        }
 
         // TODO SLOTH fix electro's code.
         // ReSharper disable once InconsistentNaming
 
-        foreach (var otherPhysics in _doorIntersecting)
+        foreach (var otherPhysics in doorIntersecting)
         {
             if (otherPhysics.Comp == physics)
                 continue;
 
             if (!otherPhysics.Comp.CanCollide)
                 continue;
+
+            // Skip anchored static entities on adjacent tiles.
+            // The fixture-based AABB lookup may slightly overlap neighboring tiles
+            // due to PolygonRadius enlargement, picking up walls and other structures.
+            if (otherPhysics.Comp.BodyType == BodyType.Static)
+            {
+                var otherXform = Transform(otherPhysics.Owner);
+                if (otherXform.Anchored)
+                {
+                    var otherTile = _mapSystem.GetTileRef(xform.GridUid.Value, mapGridComp, otherXform.Coordinates);
+                    if (otherTile.GridIndices != tileRef.GridIndices)
+                        continue;
+                }
+            }
 
             //TODO: Make only shutters ignore these objects upon colliding instead of all airlocks
             // Excludes Glasslayer for windows, GlassAirlockLayer for windoors, TableLayer for tables
@@ -620,6 +633,10 @@ public abstract partial class SharedDoorSystem : EntitySystem
 
             //For when doors need to close over conveyor belts
             if (otherPhysics.Comp.CollisionLayer == (int) CollisionGroup.ConveyorMask)
+                continue;
+
+            // We want windoors to be able to close over machines
+            if (allowMachineLayer && otherPhysics.Comp.CollisionLayer == (int) CollisionGroup.MachineLayer)
                 continue;
 
             if ((physics.CollisionMask & otherPhysics.Comp.CollisionLayer) == 0 && (otherPhysics.Comp.CollisionMask & physics.CollisionLayer) == 0)

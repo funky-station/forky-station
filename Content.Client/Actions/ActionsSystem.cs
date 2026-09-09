@@ -1,36 +1,11 @@
-// SPDX-FileCopyrightText: 2020-2021 Vera Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
-// SPDX-FileCopyrightText: 2021-2024 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022-2024 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Jezithyr <Jezithyr.@gmail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ygg01 <y.laughing.man.y@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nikolai Korolev <korolevns98@gmail.com>
-// SPDX-FileCopyrightText: 2024 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Perry Fraser <perryprog@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ActiveMammmoth <140334666+ActiveMammmoth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.IO;
 using System.Linq;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
-using Content.Shared.Charges.Systems;
 using Content.Shared.Mapping;
 using Content.Shared.Maps;
 using JetBrains.Annotations;
+using Robust.Client.GameObjects;
 using Robust.Client.Player;
 using Robust.Shared.ContentPack;
 using Robust.Shared.GameStates;
@@ -42,23 +17,21 @@ using Robust.Shared.Serialization.Markdown;
 using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Serialization.Markdown.Sequence;
 using Robust.Shared.Serialization.Markdown.Value;
-using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
 
 namespace Content.Client.Actions
 {
     [UsedImplicitly]
-    public sealed class ActionsSystem : SharedActionsSystem
+    public sealed partial class ActionsSystem : SharedActionsSystem
     {
         public delegate void OnActionReplaced(EntityUid actionId);
 
-        [Dependency] private readonly SharedChargesSystem _sharedCharges = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly IPrototypeManager _proto = default!;
-        [Dependency] private readonly IResourceManager _resources = default!;
-        [Dependency] private readonly MetaDataSystem _metaData = default!;
-        [Dependency] private readonly ISerializationManager _serialization = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private IResourceManager _resources = default!;
+        [Dependency] private MetaDataSystem _metaData = default!;
+        [Dependency] private ISerializationManager _serialization = default!;
+        [Dependency] private SpriteSystem _sprite = default!;
 
         public event Action<EntityUid>? OnActionAdded;
         public event Action<EntityUid>? OnActionRemoved;
@@ -95,8 +68,6 @@ namespace Content.Client.Actions
 
         public override void UpdateAction(Entity<ActionComponent> ent)
         {
-            // TODO: Decouple this.
-            ent.Comp.IconColor = _sharedCharges.GetCurrentCharges(ent.Owner) == 0 ? ent.Comp.DisabledIconColor : ent.Comp.OriginalIconColor;
             base.UpdateAction(ent);
             if (_playerManager.LocalEntity != ent.Comp.AttachedEntity)
                 return;
@@ -180,6 +151,16 @@ namespace Content.Client.Actions
             ActionsUpdated?.Invoke();
         }
 
+        /// <summary>
+        /// True if this action has a distinct sprite layer to show while toggled,
+        /// rather than just highlighting whatever slot displays it.
+        /// </summary>
+        public bool HasToggleIcon(EntityUid? actionId)
+        {
+            return TryComp<SpriteComponent>(actionId, out var sprite)
+                && _sprite.LayerExists((actionId.Value, sprite), ActionVisuals.IconToggled);
+        }
+
         public IEnumerable<Entity<ActionComponent>> GetClientActions()
         {
             if (_playerManager.LocalEntity is not { } user)
@@ -193,7 +174,7 @@ namespace Content.Client.Actions
             LinkAllActions(component);
         }
 
-        private void OnPlayerDetached(EntityUid uid, ActionsComponent component, LocalPlayerDetachedEvent? args = null)
+        private void OnPlayerDetached(EntityUid uid, ActionsComponent component, LocalPlayerDetachedEvent args)
         {
             UnlinkAllActions();
         }
@@ -282,12 +263,12 @@ namespace Content.Client.Actions
                 else if (map.TryGet<ValueDataNode>("entity", out var entityNode))
                 {
                     var id = new EntProtoId(entityNode.Value);
-                    var proto = _proto.Index(id);
+                    var proto = ProtoMan.Index(id);
                     actionId = Spawn(MappingEntityAction);
                     SetIcon(actionId, new SpriteSpecifier.EntityPrototype(id));
                     SetEvent(actionId, new StartPlacementActionEvent()
                     {
-                        PlacementOption = "SnapgridCenter",
+                        PlacementOption = proto.PlacementMode,
                         EntityType = id
                     });
                     _metaData.SetEntityName(actionId, proto.Name);
@@ -295,7 +276,7 @@ namespace Content.Client.Actions
                 else if (map.TryGet<ValueDataNode>("tileId", out var tileNode))
                 {
                     var id = new ProtoId<ContentTileDefinition>(tileNode.Value);
-                    var proto = _proto.Index(id);
+                    var proto = ProtoMan.Index(id);
                     actionId = Spawn(MappingEntityAction);
                     if (proto.Sprite is {} sprite)
                         SetIcon(actionId, new SpriteSpecifier.Texture(sprite));

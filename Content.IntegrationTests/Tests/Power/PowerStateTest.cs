@@ -1,6 +1,4 @@
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+using Content.IntegrationTests.Fixtures;
 using Content.Shared.Coordinates;
 using Content.Shared.Power.Components;
 using Content.Shared.Power.EntitySystems;
@@ -11,7 +9,7 @@ using Robust.Shared.Maths;
 namespace Content.IntegrationTests.Tests.Power;
 
 [TestFixture]
-public sealed class PowerStateTest
+public sealed class PowerStateTest : GameTest
 {
     [TestPrototypes]
     private const string Prototypes = @"
@@ -34,17 +32,16 @@ public sealed class PowerStateTest
     [Test]
     public async Task SetWorkingState_IdleToWorking_UpdatesLoad()
     {
-        await using var pair = await PoolManager.GetServerClient();
+        var pair = Pair;
         var server = pair.Server;
 
-        var mapManager = server.ResolveDependency<IMapManager>();
         var entManager = server.ResolveDependency<IEntityManager>();
         var mapSys = entManager.System<SharedMapSystem>();
 
         await server.WaitAssertion(() =>
         {
             mapSys.CreateMap(out var mapId);
-            var grid = mapManager.CreateGridEntity(mapId);
+            var grid = mapSys.CreateGridEntity(mapId);
 
             mapSys.SetTile(grid, Vector2i.Zero, new Tile(1));
 
@@ -68,8 +65,6 @@ public sealed class PowerStateTest
                 Assert.That(receiver.Load, Is.EqualTo(powerState.WorkingPowerDraw).Within(0.01f));
             });
         });
-
-        await pair.CleanReturnAsync();
     }
 
     /// <summary>
@@ -78,17 +73,16 @@ public sealed class PowerStateTest
     [Test]
     public async Task SetWorkingState_WorkingToIdle_UpdatesLoad()
     {
-        await using var pair = await PoolManager.GetServerClient();
+        var pair = Pair;
         var server = pair.Server;
 
-        var mapManager = server.ResolveDependency<IMapManager>();
         var entManager = server.ResolveDependency<IEntityManager>();
         var mapSys = entManager.System<SharedMapSystem>();
 
         await server.WaitAssertion(() =>
         {
             mapSys.CreateMap(out var mapId);
-            var grid = mapManager.CreateGridEntity(mapId);
+            var grid = mapSys.CreateGridEntity(mapId);
 
             mapSys.SetTile(grid, Vector2i.Zero, new Tile(1));
 
@@ -121,8 +115,6 @@ public sealed class PowerStateTest
                 Assert.That(receiver.Load, Is.EqualTo(powerState.IdlePowerDraw).Within(0.01f));
             });
         });
-
-        await pair.CleanReturnAsync();
     }
 
     /// <summary>
@@ -131,17 +123,16 @@ public sealed class PowerStateTest
     [Test]
     public async Task SetWorkingState_AlreadyInState_NoChange()
     {
-        await using var pair = await PoolManager.GetServerClient();
+        var pair = Pair;
         var server = pair.Server;
 
-        var mapManager = server.ResolveDependency<IMapManager>();
         var entManager = server.ResolveDependency<IEntityManager>();
         var mapSys = entManager.System<SharedMapSystem>();
 
         await server.WaitAssertion(() =>
         {
             mapSys.CreateMap(out var mapId);
-            var grid = mapManager.CreateGridEntity(mapId);
+            var grid = mapSys.CreateGridEntity(mapId);
 
             mapSys.SetTile(grid, Vector2i.Zero, new Tile(1));
 
@@ -182,8 +173,6 @@ public sealed class PowerStateTest
                 Assert.That(receiver.Load, Is.EqualTo(powerState.WorkingPowerDraw).Within(0.01f));
             });
         });
-
-        await pair.CleanReturnAsync();
     }
 }
 

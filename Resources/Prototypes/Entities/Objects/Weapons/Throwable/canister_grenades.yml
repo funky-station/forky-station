@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: [VolatileGrenadeBase, TimerGrenadeBase, BaseSecurityContraband ]
   id: SmokeGrenade
@@ -44,6 +41,9 @@
       reagents:
       - ReagentId: SpaceCleaner
         Quantity: 30
+  - type: Tag
+    tags:
+    - CleanerGrenade
 
 - type: entity
   parent: SmokeGrenade
@@ -118,3 +118,10 @@
         enabled:
           True: { state: active }
           False: { state: spent }
+  - type: RemoveComponentsOnTrigger # should prevent it from being re-triggered
+    keysIn:
+    - timer
+    triggerOnce: true
+    components:
+    - type: TriggerOnUse
+    - type: TimerTrigger

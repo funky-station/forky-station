@@ -1,23 +1,14 @@
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Parallax;
 using Content.Server.Station.Components;
 using Content.Server.Station.Events;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Station.Systems;
 
 public sealed partial class StationBiomeSystem : EntitySystem
 {
-    [Dependency] private readonly BiomeSystem _biome = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private BiomeSystem _biome = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private SharedMapSystem _map = default!;
 
     public override void Initialize()
     {
@@ -34,6 +25,6 @@ public sealed partial class StationBiomeSystem : EntitySystem
         var mapId = Transform(station.Value).MapID;
         var mapUid = _map.GetMapOrInvalid(mapId);
 
-        _biome.EnsurePlanet(mapUid, _proto.Index(map.Comp.Biome), map.Comp.Seed, mapLight: map.Comp.MapLightColor);
+        _biome.EnsurePlanet(mapUid, ProtoMan.Index(map.Comp.Biome), map.Comp.Seed, mapLight: map.Comp.MapLightColor);
     }
 }

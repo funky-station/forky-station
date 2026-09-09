@@ -1,14 +1,3 @@
-// SPDX-FileCopyrightText: 2022, 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Tornado Tech <54727692+Tornado-Technology@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kot <1192090+koteq@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Roles;
@@ -52,6 +41,14 @@ public sealed partial class DepartmentPrototype : IPrototype
     /// </summary>
     [DataField]
     public int Weight { get; private set; }
+
+    // See https://github.com/space-wizards/space-station-14/issues/45214
+    // 
+    /// <summary>
+    /// Whether jobs in this department should skip same-department minimum job fallback.
+    /// </summary>
+    [DataField]
+    public bool IgnoreForDepartmentFallback;
 
     /// <summary>
     /// Toggles the display of the department in the priority setting menu in the character editor.

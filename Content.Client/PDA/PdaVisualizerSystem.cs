@@ -1,14 +1,10 @@
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Light;
 using Content.Shared.PDA;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.PDA;
 
-public sealed class PdaVisualizerSystem : VisualizerSystem<PdaVisualsComponent>
+public sealed partial class PdaVisualizerSystem : VisualizerSystem<PdaVisualsComponent>
 {
     protected override void OnAppearanceChange(EntityUid uid, PdaVisualsComponent comp, ref AppearanceChangeEvent args)
     {

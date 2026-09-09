@@ -1,0 +1,7 @@
+- type: document
+  id: DocAutopsy
+  name: doc-autopsy-name
+  description: doc-autopsy-desc
+  category: DocCatMedical
+  paperPrototype: Paper
+  content: doc-autopsy-content

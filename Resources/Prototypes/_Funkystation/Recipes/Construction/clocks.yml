@@ -1,0 +1,27 @@
+﻿- type: construction
+  name: construction-recipe-cat-clock-name
+  id: CatClock
+  graph: CatClockGraph
+  startNode: start
+  targetNode: clock
+  category: construction-category-furniture
+  description: construction-recipe-cat-clock-desc
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+  - !type:WallmountCondition
+
+- type: construction
+  name: construction-recipe-analog-clock-name
+  id: AnalogClock
+  graph: AnalogClockGraph
+  startNode: start
+  targetNode: clock
+  category: construction-category-furniture
+  description: construction-recipe-analog-clock-desc
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+  - !type:WallmountCondition

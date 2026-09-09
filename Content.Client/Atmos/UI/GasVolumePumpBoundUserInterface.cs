@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2021 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022, 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Kot <1192090+koteq@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Atmos.Piping.Binary.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Localizations;
@@ -47,11 +38,9 @@ namespace Content.Client.Atmos.UI
             Update();
         }
 
-        private void OnToggleStatusButtonPressed()
+        private void OnToggleStatusButtonPressed(bool status)
         {
-            if (_window is null) return;
-
-            SendPredictedMessage(new GasVolumePumpToggleStatusMessage(_window.PumpStatus));
+            SendPredictedMessage(new GasVolumePumpToggleStatusMessage(status));
         }
 
         private void OnPumpTransferRatePressed(string value)

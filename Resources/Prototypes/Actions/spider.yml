@@ -1,10 +1,3 @@
-# SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Jackrost <jackrost@mail.ru>
-# SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: BaseAction
   id: ActionSpiderWeb
@@ -12,8 +5,10 @@
   description: Spawns a web that slows your prey down.
   components:
   - type: Action
-    icon: Interface/Actions/web.png
     useDelay: 25
+  - type: Sprite
+    layers:
+    - texture: Interface/Actions/web.png
   - type: InstantAction
     event: !type:SpiderWebActionEvent
 
@@ -24,7 +19,9 @@
   description: Weave a bit of silk for use in arts and crafts.
   components:
   - type: Action
-    icon: Interface/Actions/web.png
     useDelay: 1
+  - type: Sprite
+    layers:
+    - texture: Interface/Actions/web.png
   - type: InstantAction
     event: !type:SericultureActionEvent

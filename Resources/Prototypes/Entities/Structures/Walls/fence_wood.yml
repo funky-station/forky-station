@@ -1,20 +1,9 @@
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Cojoke <83733158+Cojoke-dot@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Luminight <balazscsabai98@gmail.com>
-# SPDX-FileCopyrightText: 2024 Ko4ergaPunk <62609550+Ko4ergaPunk@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2026 Steve <marlumpy@gmail.com>
-# SPDX-FileCopyrightText: 2026 taydeo <tay@funkystation.org>
-# SPDX-FileCopyrightText: 2026 taydeo <td12233a@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
+  abstract: true
   parent: BaseStructure
   id: BaseFenceWood
   name: wooden fence
   description: Wooden piece of fencing. I hope there is babushka's garden behind it.
-  abstract: true
   components:
   - type: MeleeSound
     soundGroups:
@@ -31,27 +20,26 @@
     bodyType: Static
   - type: Transform
     anchored: true
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Wood
   - type: RCDDeconstructable
     cost: 20 # Funkystation
     delay: 2
     fx: EffectRCDDeconstruct2
+  - type: Climbable
+    delay: 5.0
+  - type: Appearance
+
+- type: entity
+  abstract: true
+  parent: [ BaseFenceWood, StructureHealthBarrier ]
+  id: BaseFenceWoodHigh
+  components:
+  - type: Damageable
+    damageModifierSet: WoodMod
   - type: Destructible
     thresholds:
-    - trigger: # Excess damage, don't spawn entities
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: WoodDestroy
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
-        damage: 125
+        damage: 80
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -61,33 +49,19 @@
           MaterialWoodPlank:
             min: 1
             max: 2
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: Climbable
-    delay: 5.0
-  - type: Appearance
 
 - type: entity
-  parent: BaseFenceWood
+  abstract: true
+  parent: [ BaseFenceWood, StructureHealthBarrierWeak ]
   id: BaseFenceWoodSmall
   name: small wooden fence
   description: Wooden piece of small fence. The best protection for the fencing of a private territory!
-  abstract: true
   components:
   - type: Destructible
     thresholds:
-    - trigger: # Excess damage, don't spawn entities
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: WoodDestroy
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
-        damage: 75
+        damage: 30
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -97,15 +71,13 @@
           MaterialWoodPlank:
             min: 0
             max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: Climbable
     delay: 2.5
   - type: RequireProjectileTarget
 
-#High
+#region High
 - type: entity
-  parent: BaseFenceWood
+  parent: BaseFenceWoodHigh
   id: FenceWoodHighStraight
   suffix: Straight
   components:
@@ -134,7 +106,7 @@
     node: straight
 
 - type: entity
-  parent: BaseFenceWood
+  parent: BaseFenceWoodHigh
   id: FenceWoodHighEnd
   suffix: End
   components:
@@ -163,7 +135,7 @@
     node: end
 
 - type: entity
-  parent: BaseFenceWood
+  parent: BaseFenceWoodHigh
   id: FenceWoodHighCorner
   suffix: Corner
   components:
@@ -201,7 +173,7 @@
     node: corner
 
 - type: entity
-  parent: BaseFenceWood
+  parent: BaseFenceWoodHigh
   id: FenceWoodHighTJunction
   suffix: T-Junction
   components:
@@ -239,7 +211,7 @@
     node: tjunction
 
 - type: entity
-  parent: BaseFenceWood
+  parent: BaseFenceWoodHigh
   id: FenceWoodHighGate
   name: wooden fence gate
   description: Do you have any idea what awaits you behind these gates? It can be either a toilet or a luxurious mansion. But you continue to love your emo boys.
@@ -286,7 +258,9 @@
     graph: FenceWood
     node: gate
 
-#Small
+#endregion
+#region Small
+
 - type: entity
   parent: BaseFenceWoodSmall
   id: FenceWoodSmallStraight
@@ -463,3 +437,5 @@
   - type: Construction
     graph: FenceWood
     node: gate_small
+
+#endregion

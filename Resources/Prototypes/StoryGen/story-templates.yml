@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: storyTemplate
   id: GenericStory
   locId: story-template-generic

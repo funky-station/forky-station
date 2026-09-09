@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 c4llv07e <38111072+c4llv07e@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Brandon Li <48413902+aspiringLich@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Whatstone <166147148+whatston3@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Client.Items;
 using Content.Client.Message;
@@ -26,9 +18,9 @@ namespace Content.Client.SprayPainter;
 /// <summary>
 /// Client-side spray painter functions. Caches information for spray painter windows and updates the UI to reflect component state.
 /// </summary>
-public sealed class SprayPainterSystem : SharedSprayPainterSystem
+public sealed partial class SprayPainterSystem : SharedSprayPainterSystem
 {
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
 
     public List<SprayPainterDecalEntry> Decals = [];
     public Dictionary<string, List<string>> PaintableGroupsByCategory = new();
@@ -68,12 +60,12 @@ public sealed class SprayPainterSystem : SharedSprayPainterSystem
     {
         PaintableGroupsByCategory.Clear();
         PaintableStylesByGroup.Clear();
-        foreach (var category in Proto.EnumeratePrototypes<PaintableGroupCategoryPrototype>().OrderBy(x => x.ID))
+        foreach (var category in ProtoMan.EnumeratePrototypes<PaintableGroupCategoryPrototype>().OrderBy(x => x.ID))
         {
             var groupList = new List<string>();
             foreach (var groupId in category.Groups)
             {
-                if (!Proto.Resolve(groupId, out var group))
+                if (!ProtoMan.Resolve(groupId, out var group))
                     continue;
 
                 groupList.Add(groupId);
@@ -85,7 +77,7 @@ public sealed class SprayPainterSystem : SharedSprayPainterSystem
         }
 
         Decals.Clear();
-        foreach (var decalPrototype in Proto.EnumeratePrototypes<DecalPrototype>().OrderBy(x => x.ID))
+        foreach (var decalPrototype in ProtoMan.EnumeratePrototypes<DecalPrototype>().OrderBy(x => x.ID))
         {
             if (!decalPrototype.Tags.Contains("station")
                 && !decalPrototype.Tags.Contains("markings")

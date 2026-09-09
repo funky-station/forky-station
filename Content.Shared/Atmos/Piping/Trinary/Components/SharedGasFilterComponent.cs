@@ -1,64 +1,37 @@
-// SPDX-FileCopyrightText: 2021 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
-using Content.Shared.Atmos.Prototypes;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Atmos.Piping.Trinary.Components
+namespace Content.Shared.Atmos.Piping.Trinary.Components;
+
+[Serializable, NetSerializable]
+public enum GasFilterUiKey
 {
-    [Serializable, NetSerializable]
-    public enum GasFilterUiKey
+    Key,
+}
+
+[Serializable, NetSerializable]
+public sealed class GasFilterToggleStatusMessage : BoundUserInterfaceMessage
+{
+    public bool Enabled { get; }
+
+    public GasFilterToggleStatusMessage(bool enabled)
     {
-        Key,
+        Enabled = enabled;
     }
+}
 
-    [Serializable, NetSerializable]
-    public sealed class GasFilterBoundUserInterfaceState : BoundUserInterfaceState
+[Serializable, NetSerializable]
+public sealed class GasFilterChangeRateMessage : BoundUserInterfaceMessage
+{
+    public float Rate { get; }
+
+    public GasFilterChangeRateMessage(float rate)
     {
-        public string FilterLabel { get; }
-        public float TransferRate { get; }
-        public bool Enabled { get; }
-        public Gas? FilteredGas { get; }
-
-        public GasFilterBoundUserInterfaceState(string filterLabel, float transferRate, bool enabled, Gas? filteredGas)
-        {
-            FilterLabel = filterLabel;
-            TransferRate = transferRate;
-            Enabled = enabled;
-            FilteredGas = filteredGas;
-        }
+        Rate = rate;
     }
+}
 
-    [Serializable, NetSerializable]
-    public sealed class GasFilterToggleStatusMessage : BoundUserInterfaceMessage
-    {
-        public bool Enabled { get; }
-
-        public GasFilterToggleStatusMessage(bool enabled)
-        {
-            Enabled = enabled;
-        }
-    }
-
-    [Serializable, NetSerializable]
-    public sealed class GasFilterChangeRateMessage : BoundUserInterfaceMessage
-    {
-        public float Rate { get; }
-
-        public GasFilterChangeRateMessage(float rate)
-        {
-            Rate = rate;
-        }
-    }
-
-    [Serializable, NetSerializable]
-    public sealed class GasFilterSelectGasMessage(Gas? gas) : BoundUserInterfaceMessage
-    {
-        public readonly Gas? Gas = gas;
-    }
+[Serializable, NetSerializable]
+public sealed class GasFilterSelectGasMessage(Gas? gas) : BoundUserInterfaceMessage
+{
+    public readonly Gas? Gas = gas;
 }

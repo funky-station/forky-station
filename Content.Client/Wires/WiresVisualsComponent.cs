@@ -1,11 +1,17 @@
-// SPDX-FileCopyrightText: 2022 Andreas Kämper <andreas@kaemper.tech>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
+namespace Content.Client.Wires;
 
-namespace Content.Client.Wires
+/// <summary>
+/// Denotes an entity with an openable maintenance panel.
+/// The sprite layer with a map of "enum.WiresVisualLayers.MaintenancePanel" will be hidden and shown when the maintenance panel is open.
+/// </summary>
+/// <seealso cref="WiresVisuals.MaintenancePanelState"/>
+[RegisterComponent]
+public sealed partial class WiresVisualsComponent : Component
 {
-    [RegisterComponent]
-    public sealed partial class WiresVisualsComponent : Component
-    {
-    }
+    /// <summary>
+    /// If true, the maintenance panel should be visible when the panel is closed.
+    /// If false, it should only be visible when the panel is open (typical for most machines).
+    /// </summary>
+    [DataField]
+    public bool VisibleWhenClosed;
 }

@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Tools.Components;
@@ -11,8 +8,8 @@ namespace Content.Shared.Tools.Systems;
 
 public sealed partial class SimpleToolUsageSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly SharedToolSystem _tools = default!;
+    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private SharedToolSystem _tools = default!;
 
     public override void Initialize()
     {
@@ -69,6 +66,7 @@ public sealed partial class SimpleToolUsageSystem : EntitySystem
         if (attemptEv.Cancelled)
             return;
 
+        var quality = Loc.GetString(ProtoMan.Index(ent.Comp.Quality).Name).ToLower();
         var doAfterArgs = new DoAfterArgs(EntityManager, user, ent.Comp.DoAfter, new SimpleToolDoAfterEvent(), ent, ent, tool)
         {
             BreakOnDamage = true,
@@ -76,6 +74,7 @@ public sealed partial class SimpleToolUsageSystem : EntitySystem
             BreakOnMove = true,
             BreakOnHandChange = true,
             NeedHand = true,
+            ExamineText = Loc.GetString("tool-component-target-doafter-examine", ("user", user), ("quality", quality), ("target", ent)),
         };
 
         _doAfterSystem.TryStartDoAfter(doAfterArgs);

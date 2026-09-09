@@ -1,0 +1,33 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Changeling by @whateverusername0 (GitHub), modified by @Catazeus (GitHub), symbol (as Scientist) by @EmoGarbage404 (GitHub) | Cultist icon from Paradise Station (GitHub, ParadiseSS13/Paradise/icons/mob/hud.dmi), modified by @pirakaplant | Head Revolutionary and Revolutionary icons by @Catazeus | Initial Infected icon by @RamZ (Discord), modified by @Catazeus | Mind controlled icon by @Catazeus | Paradox Clone icon from /tg/station (GitHub, /tgstation/tgstation/icons/mob/huds/antag_hud.dmi) and modified by @slarticodefast (GitHub) and @Catazeus",
+
+    "size": {
+        "x": 8,
+        "y": 8
+    },
+    "states": [
+        {
+            "name": "Changeling"
+        },
+        {
+            "name": "Cultist"
+        },
+        {
+            "name": "HeadRevolutionary"
+        },
+        {
+            "name": "InitialInfected"
+        },
+        {
+            "name": "MindControlled"
+        },
+        {
+            "name": "ParadoxClone"
+        },
+        {
+            "name": "Revolutionary"
+        }
+    ]
+}

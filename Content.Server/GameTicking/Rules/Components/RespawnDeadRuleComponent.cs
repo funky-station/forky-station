@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 namespace Content.Server.GameTicking.Rules.Components;
 
 /// <summary>

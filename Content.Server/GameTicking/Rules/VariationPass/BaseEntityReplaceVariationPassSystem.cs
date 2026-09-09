@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.GameTicking.Rules.VariationPass.Components;
 using Content.Shared.Storage;
 using Robust.Shared.Map;
@@ -22,8 +16,8 @@ namespace Content.Server.GameTicking.Rules.VariationPass;
 ///     See <see cref="WallReplaceVariationPassSystem"/>
 /// </summary>
 public abstract class BaseEntityReplaceVariationPassSystem<TEntComp, TGameRuleComp> : VariationPassSystem<TGameRuleComp>
-    where TEntComp: IComponent
-    where TGameRuleComp: IComponent
+    where TEntComp : IComponent
+    where TGameRuleComp : IComponent
 {
     /// <summary>
     ///     Used so we don't modify while enumerating
@@ -42,7 +36,7 @@ public abstract class BaseEntityReplaceVariationPassSystem<TEntComp, TGameRuleCo
         stopwatch.Start();
 
         var replacementMod = Random.NextGaussian(pass.EntitiesPerReplacementAverage, pass.EntitiesPerReplacementStdDev);
-        var prob = (float) Math.Clamp(1 / replacementMod, 0f, 1f);
+        var prob = (float)Math.Clamp(1 / replacementMod, 0f, 1f);
 
         if (prob == 0)
             return;
@@ -60,8 +54,7 @@ public abstract class BaseEntityReplaceVariationPassSystem<TEntComp, TGameRuleCo
         while (_queuedSpawns.TryDequeue(out var tup))
         {
             var (spawn, coords, rot) = tup;
-            var newEnt = Spawn(spawn, coords);
-            Transform(newEnt).LocalRotation = rot;
+            SpawnAttachedTo(spawn, coords, rotation: rot);
         }
 
         Log.Debug($"Entity replacement took {stopwatch.Elapsed} with {Stations.GetTileCount(args.Station.AsNullable())} tiles");

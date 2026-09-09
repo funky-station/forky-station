@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Atmos.Components;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.EntitySystems;
@@ -19,7 +16,7 @@ namespace Content.Server.Atmos.EntitySystems;
 /// </summary>
 public sealed partial class DeltaPressureSystem : SharedDeltaPressureSystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
 
     public override void Initialize()
     {

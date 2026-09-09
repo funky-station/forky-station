@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: marking
   id: VulpSnout
   bodyPart: Snout
@@ -8,6 +5,10 @@
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/snout_markings.rsi
       state: snout
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
 
 - type: marking
   id: VulpSnoutNose

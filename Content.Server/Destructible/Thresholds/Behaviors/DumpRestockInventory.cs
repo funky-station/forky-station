@@ -1,68 +1,55 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Chief-Engineer <119664036+Chief-Engineer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Random;
 using Content.Shared.Stacks;
-using Content.Shared.Prototypes;
 using Content.Shared.VendingMachines;
+using Content.Shared.VendingMachines.Components;
 
-namespace Content.Server.Destructible.Thresholds.Behaviors
+namespace Content.Server.Destructible.Thresholds.Behaviors;
+
+/// <summary>
+///     Spawns a portion of the total items from one of the canRestock
+///     inventory entries on a VendingMachineRestock component.
+/// </summary>
+[Serializable]
+[DataDefinition]
+public sealed partial class DumpRestockInventory : IThresholdBehavior
 {
     /// <summary>
-    ///     Spawns a portion of the total items from one of the canRestock
-    ///     inventory entries on a VendingMachineRestock component.
+    ///     The percent of each inventory entry that will be salvaged
+    ///     upon destruction of the package.
     /// </summary>
-    [Serializable]
-    [DataDefinition]
-    public sealed partial class DumpRestockInventory: IThresholdBehavior
+    [DataField(required: true)]
+    public float Percent = 0.5f;
+
+    [DataField]
+    public float Offset { get; set; } = 0.5f;
+
+    public void Execute(EntityUid owner, DestructibleSystem system, EntityUid? cause = null)
     {
-        /// <summary>
-        ///     The percent of each inventory entry that will be salvaged
-        ///     upon destruction of the package.
-        /// </summary>
-        [DataField("percent", required: true)]
-        public float Percent = 0.5f;
+        if (!system.EntityManager.TryGetComponent<VendingMachineRestockComponent>(owner, out var packagecomp) ||
+            !system.EntityManager.TryGetComponent<TransformComponent>(owner, out var xform))
+            return;
 
-        [DataField("offset")]
-        public float Offset { get; set; } = 0.5f;
+        var randomInventory = system.Random.Pick(packagecomp.CanRestock);
 
-        public void Execute(EntityUid owner, DestructibleSystem system, EntityUid? cause = null)
+        if (!system.PrototypeManager.TryIndex(randomInventory, out VendingMachineInventoryPrototype? packPrototype))
+            return;
+
+        foreach (var (entityId, count) in packPrototype.StartingInventory)
         {
-            if (!system.EntityManager.TryGetComponent<VendingMachineRestockComponent>(owner, out var packagecomp) ||
-                !system.EntityManager.TryGetComponent<TransformComponent>(owner, out var xform))
-                return;
+            var toSpawn = (int)Math.Round(count * Percent);
 
-            var randomInventory = system.Random.Pick(packagecomp.CanRestock);
+            if (toSpawn == 0) continue;
 
-            if (!system.PrototypeManager.TryIndex(randomInventory, out VendingMachineInventoryPrototype? packPrototype))
-                return;
-
-            foreach (var (entityId, count) in packPrototype.StartingInventory)
+            if (system.PrototypeManager.TryIndex(entityId, out var entProto)
+                && entProto.HasComp<StackComponent>(system.EntityManager.ComponentFactory))
             {
-                var toSpawn = (int) Math.Round(count * Percent);
-
-                if (toSpawn == 0) continue;
-
-                if (EntityPrototypeHelpers.HasComponent<StackComponent>(entityId, system.PrototypeManager, system.EntityManager.ComponentFactory))
-                {
-                    var spawned = system.EntityManager.SpawnEntity(entityId, xform.Coordinates.Offset(system.Random.NextVector2(-Offset, Offset)));
-                    system.StackSystem.SetCount((spawned, null), toSpawn);
-                    system.EntityManager.GetComponent<TransformComponent>(spawned).LocalRotation = system.Random.NextAngle();
-                }
-                else
-                {
-                    for (var i = 0; i < toSpawn; i++)
-                    {
-                        var spawned = system.EntityManager.SpawnEntity(entityId, xform.Coordinates.Offset(system.Random.NextVector2(-Offset, Offset)));
-                        system.EntityManager.GetComponent<TransformComponent>(spawned).LocalRotation = system.Random.NextAngle();
-                    }
-                }
+                var spawned = system.EntityManager.SpawnAttachedTo(entityId, xform.Coordinates.Offset(system.Random.NextVector2(-Offset, Offset)), rotation: system.Random.NextAngle());
+                system.StackSystem.SetCount((spawned, null), toSpawn);
+            }
+            else
+            {
+                for (var i = 0; i < toSpawn; i++)
+                    system.EntityManager.SpawnAttachedTo(entityId, xform.Coordinates.Offset(system.Random.NextVector2(-Offset, Offset)), rotation: system.Random.NextAngle());
             }
         }
     }

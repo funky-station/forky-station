@@ -1,0 +1,38 @@
+- type: loadoutGroup
+  id: FuStationEngineerHead
+  name: fu-loadout-group-station-engineer-head
+  minLimit: 0
+  loadouts:
+  - EngiBandanaBlack
+  - EngiBandanaBrown
+  - EngiBandanaGold
+  - EngiBandanaGrey
+  - EngiBandanaSkull
+  - StationEngineerHardhatOrange
+  - StationEngineerHardhatYellow
+  - EngiHardhatOffwhite
+  - EngiHardhatBlack
+
+- type: loadoutGroup
+  id: FuStationEngineerUniform
+  name: fu-loadout-group-station-engineer-uniform
+  loadouts:
+  - FuEngiCoveralls
+  - FuEngiCoverallsRipley
+  - FuEngiOveralls
+  - FuEngiOverallsGrease
+  - FuEngiShirtPants
+  - FuEngiShirtPantsGrease
+
+- type: loadoutGroup
+  id: FuTechnicalAssistantHead
+  name: fu-loadout-group-technical-assistant-head
+  minLimit: 1
+  loadouts:
+  - StationEngineerHardhatYellow
+
+- type: loadoutGroup
+  id: FuTechnicalAssistantUniform
+  name: fu-loadout-group-technical-assistant-uniform
+  loadouts:
+  - FuEngiIntern

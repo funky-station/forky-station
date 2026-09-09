@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Inventory;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Ensnaring.Components;
@@ -16,7 +11,7 @@ namespace Content.Client.Strip;
 /// <summary>
 ///     This is the client-side stripping system, which just triggers UI updates on events.
 /// </summary>
-public sealed class StrippableSystem : SharedStrippableSystem
+public sealed partial class StrippableSystem : SharedStrippableSystem
 {
     public override void Initialize()
     {

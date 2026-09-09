@@ -1,14 +1,6 @@
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Administration;
 using Content.Server.Database;
+using Content.Server.Players.Whitelist;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Robust.Server.Player;
@@ -19,10 +11,11 @@ using Robust.Shared.Network;
 namespace Content.Server.Whitelist;
 
 [AdminCommand(AdminFlags.Ban)]
-public sealed class AddWhitelistCommand : LocalizedCommands
+public sealed partial class AddWhitelistCommand : LocalizedCommands
 {
-    [Dependency] private readonly IPlayerLocator _locator = default!;
-    [Dependency] private readonly IServerDbManager _dbManager = default!;
+    [Dependency] private IPlayerLocator _locator = default!;
+    [Dependency] private IServerDbManager _dbManager = default!;
+    [Dependency] private WhitelistManager _whitelistManager = default!;
     public override string Command => "whitelistadd";
 
     public override async void Execute(IConsoleShell shell, string argStr, string[] args)
@@ -40,14 +33,13 @@ public sealed class AddWhitelistCommand : LocalizedCommands
         if (data != null)
         {
             var guid = data.UserId;
-            var isWhitelisted = await _dbManager.GetWhitelistStatusAsync(guid);
-            if (isWhitelisted)
+            if (await _dbManager.GetWhitelistStatusAsync(guid))
             {
                 shell.WriteLine(Loc.GetString("cmd-whitelistadd-existing", ("username", data.Username)));
                 return;
             }
 
-            await _dbManager.AddToWhitelistAsync(guid);
+            _whitelistManager.AddWhitelist(guid);
             shell.WriteLine(Loc.GetString("cmd-whitelistadd-added", ("username", data.Username)));
             return;
         }
@@ -67,10 +59,11 @@ public sealed class AddWhitelistCommand : LocalizedCommands
 }
 
 [AdminCommand(AdminFlags.Ban)]
-public sealed class RemoveWhitelistCommand : LocalizedCommands
+public sealed partial class RemoveWhitelistCommand : LocalizedCommands
 {
-    [Dependency] private readonly IPlayerLocator _locator = default!;
-    [Dependency] private readonly IServerDbManager _dbManager = default!;
+    [Dependency] private IPlayerLocator _locator = default!;
+    [Dependency] private IServerDbManager _dbManager = default!;
+    [Dependency] private WhitelistManager _whitelistManager = default!;
 
     public override string Command => "whitelistremove";
 
@@ -89,14 +82,13 @@ public sealed class RemoveWhitelistCommand : LocalizedCommands
         if (data != null)
         {
             var guid = data.UserId;
-            var isWhitelisted = await _dbManager.GetWhitelistStatusAsync(guid);
-            if (!isWhitelisted)
+            if (!await _dbManager.GetWhitelistStatusAsync(guid))
             {
                 shell.WriteLine(Loc.GetString("cmd-whitelistremove-existing", ("username", data.Username)));
                 return;
             }
 
-            await _dbManager.RemoveFromWhitelistAsync(guid);
+            _whitelistManager.RemoveWhitelist(guid);
             shell.WriteLine(Loc.GetString("cmd-whitelistremove-removed", ("username", data.Username)));
             return;
         }
@@ -116,12 +108,12 @@ public sealed class RemoveWhitelistCommand : LocalizedCommands
 }
 
 [AdminCommand(AdminFlags.Ban)]
-public sealed class KickNonWhitelistedCommand : LocalizedCommands
+public sealed partial class KickNonWhitelistedCommand : LocalizedCommands
 {
-    [Dependency] private readonly IConfigurationManager _configManager = default!;
-    [Dependency] private readonly IServerNetManager _netManager = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IServerDbManager _dbManager = default!;
+    [Dependency] private IConfigurationManager _configManager = default!;
+    [Dependency] private IServerNetManager _netManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IServerDbManager _dbManager = default!;
 
     public override string Command => "kicknonwhitelisted";
 
@@ -142,6 +134,8 @@ public sealed class KickNonWhitelistedCommand : LocalizedCommands
             if (await _dbManager.GetAdminDataForAsync(session.UserId) is not null)
                 continue;
 
+            // We let this one query the whitelist to be 100% certain it's kicking out non-whitelisted players +
+            // it's mostly adding/removing whitelists that needs to go through the cache.
             if (!await _dbManager.GetWhitelistStatusAsync(session.UserId))
                 _netManager.DisconnectChannel(session.Channel, Loc.GetString("whitelist-not-whitelisted"));
         }

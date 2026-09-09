@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Trigger.Components.Triggers;
 using Content.Shared.Speech;
 using Content.Shared.Speech.Components;
@@ -153,7 +148,7 @@ public sealed partial class TriggerSystem
         else
             _adminLogger.Add(LogType.Trigger, LogImpact.Low, $"A voice-trigger on {ToPrettyString(ent):entity} has started recording. User: {ToPrettyString(user.Value):user}");
 
-        _popup.PopupPredicted(Loc.GetString("trigger-on-voice-start-recording"), ent, user);
+        _popup.PopupEntity(Loc.GetString("trigger-on-voice-start-recording"), ent);
     }
 
     /// <summary>
@@ -166,7 +161,7 @@ public sealed partial class TriggerSystem
         if (string.IsNullOrWhiteSpace(ent.Comp.KeyPhrase))
             RemComp<ActiveListenerComponent>(ent);
 
-        _popup.PopupPredicted(Loc.GetString("trigger-on-voice-stop-recording"), ent, user);
+        _popup.PopupEntity(Loc.GetString("trigger-on-voice-stop-recording"), ent);
     }
 
 
@@ -212,6 +207,6 @@ public sealed partial class TriggerSystem
         _adminLogger.Add(LogType.Trigger, LogImpact.Low,
             $"A voice-trigger on {ToPrettyString(ent):entity} has been reset to default keyphrase: '{ent.Comp.KeyPhrase}'. User: {ToPrettyString(user):speaker}");
 
-        _popup.PopupPredicted(Loc.GetString("trigger-on-voice-set-default", ("keyphrase", ent.Comp.KeyPhrase)), ent, user);
+        _popup.PopupEntity(Loc.GetString("trigger-on-voice-set-default", ("keyphrase", ent.Comp.KeyPhrase)), ent);
     }
 }

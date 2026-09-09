@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Random;
 using Content.Shared.Storage;
 using Robust.Shared.Prototypes;

@@ -1,25 +1,3 @@
-# SPDX-FileCopyrightText: 2020, 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
-# SPDX-FileCopyrightText: 2020 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2021 Pancake <Pangogie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022-2023, 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Francesco <frafonia@gmail.com>
-# SPDX-FileCopyrightText: 2022 Mervill <mervills.email@gmail.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 themias <89101928+themias@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 liltenhead <104418166+liltenhead@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Cody ~ Aexxie <125095677+Aexxie@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 vmzd <33641966+vmzd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
-# SPDX-FileCopyrightText: 2025 Banedon <15725971+Lanedon@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatHardhatBase
@@ -34,9 +12,12 @@
       map: [ "light" ]
   - type: Clothing
     equippedPrefix: off
+    clothingVisuals:
+      head:
+      - state: equipped-helmet
   - type: PointLight
     enabled: false
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
     radius: 7
     netsync: false
@@ -66,12 +47,15 @@
     spriteLayer: light
     inhandVisuals:
       left:
-      - state: on-inhand-left
+      - state: inhand-left-light
+        shader: unshaded
       right:
-      - state: on-inhand-right
+      - state: inhand-right-light
+        shader: unshaded
     clothingVisuals:
       head:
-      - state: on-equipped-HELMET
+      - state: equipped-helmet-light
+        shader: unshaded
   - type: ItemTogglePointLight
   - type: PowerCellSlot
     cellSlotId: cell_slot
@@ -82,6 +66,11 @@
         startingItem: PowerCellMedium
   - type: Item
     heldPrefix: off
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
   - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot
@@ -97,8 +86,6 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardhats/blue.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Hardhats/blue.rsi
 
 - type: entity
   parent: ClothingHeadHatHardhatBase
@@ -107,8 +94,6 @@
   description: A hard hat, painted in orange, used in dangerous working conditions to protect the head. Comes with a built-in flashlight.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardhats/orange.rsi
-  - type: Clothing
     sprite: Clothing/Head/Hardhats/orange.rsi
 
 - type: entity
@@ -119,8 +104,6 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardhats/red.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Hardhats/red.rsi
 
 - type: entity
   parent: ClothingHeadHatHardhatBase
@@ -129,8 +112,6 @@
   description: A hard hat, painted in white, used in dangerous working conditions to protect the head. Comes with a built-in flashlight.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardhats/white.rsi
-  - type: Clothing
     sprite: Clothing/Head/Hardhats/white.rsi
 
 - type: entity
@@ -141,8 +122,6 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardhats/yellow.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Hardhats/yellow.rsi
 
 - type: entity
   parent: ClothingHeadHatHardhatBase
@@ -152,8 +131,6 @@
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardhats/dark_yellow.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Hardhats/dark_yellow.rsi
 
 - type: entity
   parent: ClothingHeadHatHardhatBase
@@ -162,8 +139,6 @@
   description: An armored hard hat. Provides the best of both worlds in both protection & utility - perfect for the engineer on the frontlines.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardhats/armored.rsi
-  - type: Clothing
     sprite: Clothing/Head/Hardhats/armored.rsi
   - type: Armor #Copied from the sec helmet, as it's hard to give these sane values without locational damage existing.
     modifiers:

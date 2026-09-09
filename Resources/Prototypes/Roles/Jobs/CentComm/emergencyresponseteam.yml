@@ -1,31 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2022 Morber <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 EmoGarbage404 <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2025 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nairod <110078045+Nairodian@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 PrPleGoo <PrPleGoo@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 JoeHammad1844 <130668733+JoeHammad1844@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nim <128169402+Nimfar11@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kit0vras <123590995+Kit0vras@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Unkn0wn_Gh0st <shadowstalkermll@gmail.com>
-# SPDX-FileCopyrightText: 2024 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Mr. 27 <45323883+Dutch-VanDerLinde@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Hanz <41141796+Hanzdegloker@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Nox <nebulousnox38@gmail.com>
-# SPDX-FileCopyrightText: 2025 beck-thompson <107373427+beck-thompson@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 UpAndLeaves <92269094+Alpha-Two@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Alpha-Two <92269094+Alpha-Two@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2026 ThatGuyUSA <thatguyusa123@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: job
   id: ERTLeader
   name: job-name-ertleader
@@ -35,14 +7,14 @@
   startingGear: ERTLeaderGearEVA
   icon: "JobIconERTLeader"
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   accessGroups:
   - AllAccess
   access:
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    #implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ DeathRattleImplantCentcomm ] # Funky - Removed mindshields
 
 - type: startingGear
   parent: ERTLeaderGearEVA
@@ -68,7 +40,6 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltMilitaryWebbingERT
     pocket2: CombatKnife
-    suitstorage: WeaponDisablerSMG
   storage:
     back:
     - Binoculars
@@ -81,7 +52,7 @@
     - MedkitCombatFilled
     - TelescopicShield
     belt:
-    - Stunbaton
+    - Truncheon # Funky
     - Handcuffs
     - Handcuffs
     - CrowbarRed
@@ -93,7 +64,6 @@
   parent: ERTLeaderGearEVA
   id: ERTLeaderGearArmed
   equipment:
-    pocket2: WeaponDisabler
     suitstorage: WeaponRifleLecterXL8
   storage:
     back:
@@ -108,7 +78,7 @@
     - GrenadeShrapnel
     - EmpGrenade
     belt:
-    - Truncheon
+    - Truncheon # Funky
     - Handcuffs
     - Handcuffs
     - CrowbarRed
@@ -134,7 +104,6 @@
   startingGear: ERTChaplainGear
   icon: "JobIconERTChaplain"
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   accessGroups:
   - AllAccess
   access:
@@ -144,7 +113,8 @@
     components:
     - type: BibleUser #Lets them heal with bibles
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    #implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ DeathRattleImplantCentcomm ] # Funky - Removed mindshields
 
 - type: startingGear
   parent: ERTChaplainGearEVA
@@ -211,14 +181,14 @@
   startingGear: ERTEngineerGearEVA
   icon: "JobIconERTEngineer"
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   accessGroups:
   - AllAccess
   access:
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    #implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ DeathRattleImplantCentcomm ] # Funky - Removed mindshields
 
 - type: startingGear
   parent: ERTEngineerGearEVA
@@ -305,14 +275,14 @@
   startingGear: ERTSecurityGearEVA
   icon: "JobIconERTSecurity"
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   accessGroups:
   - AllAccess
   access:
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    #implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ DeathRattleImplantCentcomm ] # Funky - Removed mindshields
 
 - type: startingGear
   parent: ERTSecurityGearEVA
@@ -338,7 +308,6 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltMilitaryWebbingERT
     pocket2: CombatKnife
-    suitstorage: WeaponDisablerSMG
   storage:
     back:
     - BoxZiptie
@@ -351,7 +320,7 @@
     - HoloprojectorSecurity
     - PowerCellHigh
     belt:
-    - Stunbaton
+    - Truncheon # Funky
     - Handcuffs
     - Handcuffs
     - CrowbarRed
@@ -391,7 +360,6 @@
   parent: ERTSecurityGearEVA
   id: ERTSecurityGearArmedGrenade
   equipment:
-    pocket2: WeaponDisabler
     suitstorage: WeaponLauncherHydraLethal
   storage:
     back:
@@ -411,7 +379,7 @@
     - GrenadeFlash
     - MagazinePistol
     belt:
-    - Truncheon
+    - Truncheon # Funky
     - Handcuffs
     - Handcuffs
     - CrowbarRed
@@ -423,7 +391,6 @@
   parent: ERTSecurityGearEVA
   id: ERTSecurityGearArmedVanguard
   equipment:
-    pocket2: WeaponDisabler
     suitstorage: WeaponSubMachineGunWt550
   storage:
     back:
@@ -440,7 +407,7 @@
     - MagazinePistolSubMachineGunTopMounted
     - MagazinePistolSubMachineGunTopMounted
     belt:
-    - Truncheon
+    - Truncheon # Funky
     - Handcuffs
     - Handcuffs
     - CrowbarRed
@@ -452,7 +419,6 @@
   parent: ERTSecurityGearEVA
   id: ERTSecurityGearArmedShotgun
   equipment:
-    pocket2: WeaponDisabler
     suitstorage: WeaponShotgunEnforcer
   storage:
     back:
@@ -466,7 +432,7 @@
     - CableDetStack
     - BoxDetonator
     belt:
-    - Truncheon
+    - Truncheon # Funky
     - Handcuffs
     - Handcuffs
     - CrowbarRed
@@ -492,14 +458,14 @@
   startingGear: ERTMedicalGearEVA
   icon: "JobIconERTMedic"
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   accessGroups:
   - AllAccess
   access:
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    #implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ DeathRattleImplantCentcomm ] # Funky - Removed mindshields
 
 - type: startingGear
   parent: ERTMedicalGearEVA
@@ -551,7 +517,6 @@
   id: ERTMedicalGearArmed
   equipment:
     suitstorage: WeaponRifleLecter
-    pocket2: WeaponDisabler
   storage:
     back:
     - Hypospray
@@ -565,7 +530,7 @@
     - ClothingEyesGlassesChemical
     - ChemistryBottleOmnizine
     belt:
-    - Truncheon
+    - Truncheon # Funky
     - Zipties
     - CrowbarRed
     - MagazineRifle
@@ -592,14 +557,16 @@
   startingGear: ERTJanitorGearEVA
   icon: "JobIconERTJanitor"
   supervisors: job-supervisors-centcom
-  canBeAntag: false
   accessGroups:
   - AllAccess
   access:
   - CentralCommand
+  #special:
+  #- !type:AddImplantSpecial
+  #  implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+    implants: [ DeathRattleImplantCentcomm ] # Funky - Removed mindshields
 
 - type: startingGear
   parent: ERTJanitorGearEVA
@@ -627,13 +594,12 @@
     suitstorage: WeaponLauncherHydra
   storage:
     back:
-    - TrashBag
     - SoapNT
     - Plunger
     - Screwdriver
-    - AdvMopItem # End of first line
+    - AdvMopItem
     - GrenadeCleanade
-    - GrenadeCleanade
+    - GrenadeCleanade # End of first line
     - GrenadeCleanade
     - GrenadeCleanade
     - GrenadeCleanade
@@ -641,12 +607,14 @@
     belt:
     - MegaSprayBottleSpaceCleaner
     - Holoprojector
-    - LightReplacer
+    - LightReplacerFilled
     - WireBrush
     - CrowbarRed
     - WeaponPistolMk58
     - MagazinePistol
     - EmergencyMedipen
+  inhand:
+    - TrashBag
 
 - type: chameleonOutfit
   id: ERTJanitorChameleonOutfit

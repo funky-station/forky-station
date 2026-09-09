@@ -1,13 +1,4 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Chat.Prototypes;
 
@@ -21,8 +12,8 @@ public sealed partial class AutoEmotePrototype : IPrototype
     /// <summary>
     /// The ID of the emote prototype.
     /// </summary>
-    [DataField("emote", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EmotePrototype>))]
-    public string EmoteId = string.Empty;
+    [DataField("emote", required: true)]
+    public ProtoId<EmotePrototype> EmoteId = string.Empty;
 
     /// <summary>
     /// How often an attempt at the emote will be made.
@@ -33,7 +24,7 @@ public sealed partial class AutoEmotePrototype : IPrototype
     /// <summary>
     /// Probability of performing the emote each interval.
     /// </summary>
-    [DataField("chance")]
+    [DataField]
     public float Chance = 1;
 
     /// <summary>

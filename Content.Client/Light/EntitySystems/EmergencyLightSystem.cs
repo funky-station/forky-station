@@ -1,15 +1,10 @@
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Light.Components;
 using Content.Shared.Light.Components;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.Light.EntitySystems;
 
-public sealed class EmergencyLightSystem : VisualizerSystem<EmergencyLightComponent>
+public sealed partial class EmergencyLightSystem : VisualizerSystem<EmergencyLightComponent>
 {
     protected override void OnAppearanceChange(EntityUid uid, EmergencyLightComponent comp, ref AppearanceChangeEvent args)
     {

@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2023-2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.IntegrationTests.Tests.Helpers;
 using Content.Shared.Movement.Components;
 using Content.Shared.Slippery;
@@ -14,7 +9,7 @@ namespace Content.IntegrationTests.Tests.Movement;
 
 public sealed class SlippingTest : MovementTest
 {
-    public sealed class SlipTestSystem : TestListenerSystem<SlipEvent>;
+    public sealed partial class SlipTestSystem : TestListenerSystem<SlipEvent>;
 
     [Test]
     public async Task BananaSlipTest()
@@ -27,15 +22,16 @@ public sealed class SlippingTest : MovementTest
         // Player is to the left of the banana peel.
         Assert.That(Delta(), Is.GreaterThan(0.5f));
 
+        // funky, flipped these so that it holds walk to sprint, hacky as fuck LOL :yum:
         // Walking over the banana slowly does not trigger a slip.
-        await SetKey(EngineKeyFunctions.Walk, BoundKeyState.Down);
+        await SetKey(EngineKeyFunctions.Walk, BoundKeyState.Up); // funky
         await AssertFiresEvent<SlipEvent>(async () => await Move(DirectionFlag.East, 1f), count: 0);
 
         Assert.That(Delta(), Is.LessThan(0.5f));
         AssertComp<KnockedDownComponent>(false, Player);
 
         // Moving at normal speeds does trigger a slip.
-        await SetKey(EngineKeyFunctions.Walk, BoundKeyState.Up);
+        await SetKey(EngineKeyFunctions.Walk, BoundKeyState.Down); // funky
         await AssertFiresEvent<SlipEvent>(async () => await Move(DirectionFlag.West, 1f));
 
         // And the person that slipped was the player
@@ -43,4 +39,3 @@ public sealed class SlippingTest : MovementTest
         AssertComp<KnockedDownComponent>(true, Player);
     }
 }
-

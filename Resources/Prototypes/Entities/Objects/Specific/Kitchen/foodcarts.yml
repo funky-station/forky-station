@@ -1,18 +1,8 @@
-# SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Velcroboy <107660393+ChilbroBaggins@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 degradka <69397649+degradka@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 lapatison <100279397+lapatison@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
-  name: food cart
-  id: FoodCartBase
   abstract: true
-  parent: BaseStructureDynamic
+  parent: [ BaseStructureDynamic, StructureHealthContainer ]
+  id: FoodCartBase
+  name: food cart
   description: A cart for food.
   components:
     - type: Sprite
@@ -31,26 +21,24 @@
           mask:
           - MobMask
     - type: Damageable
-      damageContainer: Inorganic
-      damageModifierSet: Metallic
+      damageModifierSet: PlasticMod
     - type: Destructible
       thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 400
-          behaviors:
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
-        - trigger:
-            !type:DamageTrigger
-            damage: 200
-          behaviors:
-            - !type:EmptyAllContainersBehaviour
-            - !type:DoActsBehavior
-              acts: ["Destruction"]
-            - !type:PlaySoundBehavior
-              sound:
-                collection: MetalBreak
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+        - !type:EmptyAllContainersBehaviour
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalBreak
+            params:
+              volume: -3
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            SheetPlastic1:
+              min: 0
+              max: 2
     - type: Appearance
     - type: UserInterface
       interfaces:

@@ -1,9 +1,5 @@
-# SPDX-FileCopyrightText: 2025 B_Kirill <153602297+B-Kirill@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
-  parent: BaseStructure
+  parent: [ BaseStructure, StructureHealthFurnitureStrong ]
   id: WeaponTurretSyndicateBroken
   name: ballistic turret (broken)
   description: A ballistic machine gun auto-turret.
@@ -16,24 +12,13 @@
     layers:
     - state: syndie_broken
   - type: Damageable
-    damageContainer: Inorganic
+    damageModifierSet: SteelMod
   - type: Destructible
     thresholds:
-    - trigger: # Excess damage, don't spawn entities
-        !type:DamageTrigger
-        damage: 900
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalGlassBreak
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
-        damage: 450
+        damage: 80
       behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak

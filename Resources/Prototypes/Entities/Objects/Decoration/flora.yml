@@ -1,25 +1,11 @@
-# SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Moony <moony@hellomouse.net>
-# SPDX-FileCopyrightText: 2022 Jessica M <jessica@jessicamaybe.com>
-# SPDX-FileCopyrightText: 2022 Jacob Tong <10494922+ShadowCommander@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Delete69 <95458399+Delete69@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 lzk <124214523+lzk228@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Whisper <121047731+QuietlyWhisper@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 zero <hello@enumerate.dev>
-# SPDX-FileCopyrightText: 2023 crazybrain23 <44417085+crazybrain23@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 rosieposie <52761126+rosieposieeee@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 rlebell33 <rlebell33@gmail.com>
-# SPDX-License-Identifier: MIT
+## Natural structures one might find on a planet or in an arboretum
+#region Bases
 
 - type: entity
+  abstract: true
   id: BaseRock
   name: boulder
   description: Heavy as a really heavy thing.
-  abstract: true
   components:
   - type: Clickable
   - type: Sprite
@@ -38,22 +24,12 @@
         - HalfWallLayer
         - Opaque
   - type: Climbable
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 200
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
 
 - type: entity
+  abstract: true
+  parent: StructureHealthFurnitureStrong
   id: BaseTree
   description: Yep, it's a tree.
-  abstract: true
   components:
   - type: SpriteFade
   - type: Clickable
@@ -73,26 +49,21 @@
         density: 1000
         layer:
         - WallLayer
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Wood
   - type: MeleeSound
     soundGroups:
       Brute:
         path: /Audio/Effects/chop.ogg
         params:
           variation: 0.05
+  - type: Damageable
+    damageModifierSet: WoodMod
+  - type: Injurable
+    damageContainer: StructuralBiological
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 400
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
+        damage: 80
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -100,8 +71,6 @@
           params:
             volume: 5
             variation: 0.05
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
       - !type:SpawnEntitiesBehavior
         spawn:
           Log:
@@ -164,8 +133,11 @@
         layer:
         - WallLayer
 
+#endregion
+#region Rocks
+
 - type: entity
-  parent: BaseRock
+  parent: [ BaseRock, StructureHealthFurnitureStrong ]
   id: FloraRockSolid
   components:
   - type: Sprite
@@ -178,24 +150,35 @@
         rocksolid01: ""
         rocksolid02: ""
         rocksolid03: ""
-
-- type: entity
-  name: stalagmite
-  description: Natural stone spikes.
-  parent: BaseRock
-  id: FloraStalagmite
-  components:
+  - type: Damageable
+    damageModifierSet: RockMod
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 5
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: GlassBreak
+    - trigger:
+        !type:DamageTrigger
+        damage: 80
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/break_stone.ogg
+
+- type: entity
+  parent: [ BaseRock, StructureHealthFurnitureWeak ]
+  id: FloraStalagmite
+  name: stalagmite
+  description: Natural stone spikes.
+  components:
+  - type: Damageable
+    damageModifierSet: RockMod
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
   - type: Sprite
     sprite: Objects/Decoration/Flora/flora_stalagmite.rsi
     layers:
@@ -229,6 +212,9 @@
         grey_stalagmite4: ""
         grey_stalagmite5: ""
         grey_stalagmite6: ""
+
+#endregion
+#region Trees
 
 - type: entity
   parent: BaseTree
@@ -317,6 +303,7 @@
   name: christmas tree
   components:
   - type: Sprite
+    sprite: _Funkystation/Objects/Decoration/Flora/flora_treesconifer.rsi
     state: treechristmas01
 
 - type: entity
@@ -326,6 +313,7 @@
   name: christmas tree
   components:
   - type: Sprite
+    sprite: _Funkystation/Objects/Decoration/Flora/flora_treesconifer.rsi
     state: treechristmas02
   - type: Fixtures
     fixtures:
@@ -412,29 +400,12 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 400
+        damage: 80
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 25
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Effects/tree_fell.ogg
-          params:
-            volume: 5
-            variation: 0.05
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          Log:
-            min: 0
-            max: 1
       - !type:SpawnEntitiesBehavior
         spawn:
           MobLuminousObject:
             min: 0
             max: 1
+
+#endregion

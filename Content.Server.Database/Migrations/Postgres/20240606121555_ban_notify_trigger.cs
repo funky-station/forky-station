@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Julian Giebel <juliangiebel@live.de>
-// SPDX-License-Identifier: MIT
-
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable

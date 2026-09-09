@@ -1,15 +1,6 @@
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Partmedia <kevinz5000@gmail.com>
-# SPDX-FileCopyrightText: 2025 mubururu_ <139181059+muburu@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: SingularityBeacon
-  parent: [BaseMachinePowered, BaseSyndicateContraband]
+  parent: [BaseMachinePowered, BaseSyndicateContraband, BaseMachineDestructible]
   name: singularity beacon
   description: A syndicate device that attracts the singularity. If it's loose and you're seeing this, run.
   components:
@@ -38,15 +29,15 @@
     baseRange: 80
   - type: SinguloFood
     energy: 120
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: ApcPowerReceiver
     powerLoad: 5000
   - type: StaticPrice
     price: 7500
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 175
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak

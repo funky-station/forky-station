@@ -1,17 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022, 2024-2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023, 2025 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Morb <14136326+Morb0@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Jezithyr <jezithyr@gmail.com>
-// SPDX-FileCopyrightText: 2024 Vasilis <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.NPC.Components;
 using Content.Server.NPC.HTN;
@@ -32,15 +18,15 @@ namespace Content.Server.NPC.Systems
     /// <summary>
     ///     Handles NPCs running every tick.
     /// </summary>
-    public sealed partial class NPCSystem : EntitySystem
+    public sealed partial class NPCSystem : SharedNPCSystem
     {
         private static readonly Gauge ActiveGauge = Metrics.CreateGauge(
             "npc_active_count",
             "Amount of NPCs that are actively processing");
 
-        [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-        [Dependency] private readonly HTNSystem _htn = default!;
-        [Dependency] private readonly MobStateSystem _mobState = default!;
+        [Dependency] private IConfigurationManager _configurationManager = default!;
+        [Dependency] private HTNSystem _htn = default!;
+        [Dependency] private MobStateSystem _mobState = default!;
 
         /// <summary>
         /// Whether any NPCs are allowed to run at all.
@@ -90,6 +76,11 @@ namespace Content.Server.NPC.Systems
         public void OnNPCShutdown(EntityUid uid, HTNComponent component, ComponentShutdown args)
         {
             SleepNPC(uid, component);
+        }
+
+        public override bool IsNpc(EntityUid uid)
+        {
+            return HasComp<HTNComponent>(uid);
         }
 
         /// <summary>

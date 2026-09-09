@@ -1,20 +1,8 @@
-// SPDX-FileCopyrightText: 2021 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2021 moonheart08 <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2022 Myctai <108953437+Myctai@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Veritius <veritiusgaming@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Chris V <HoofedEar@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-License-Identifier: MIT
-
+using System.Linq;
+using Content.Server._MACRO.Announcements;
 using Content.Server.Administration;
 using Content.Server.Chat.Systems;
+using Content.Shared._MACRO.Announcements;
 using Content.Shared.Administration;
 using Robust.Shared.Audio;
 using Robust.Shared.Console;
@@ -24,11 +12,13 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.Announcements;
 
 [AdminCommand(AdminFlags.Moderator)]
-public sealed class AnnounceCommand : LocalizedEntityCommands
+public sealed partial class AnnounceCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IResourceManager _res = default!;
+    private static readonly ProtoId<AnnouncementSoundPrototype> AnnounceId = "Announce";
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IResourceManager _res = default!;
+    [Dependency] private AnnouncerManager _announcer = default!; // macrocosm
 
     public override string Command => "announce";
     public override string Description => Loc.GetString("cmd-announce-desc");
@@ -49,7 +39,13 @@ public sealed class AnnounceCommand : LocalizedEntityCommands
         var message = args[0];
         var sender = Loc.GetString("cmd-announce-sender");
         var color = Color.Gold;
-        var sound = new SoundPathSpecifier("/Audio/Announcements/announce.ogg");
+        // Macrocosm edit - handle sound
+        if (!_announcer.TryGetAnnouncerSound(AnnounceId, out var sound) && args.Length < 4)
+        {
+            var warningMessage = Loc.GetString("cmd-announce-no-sound", ("sound", AnnounceId));
+            shell.WriteError(warningMessage);
+        }
+        // Macrocosm edit end
 
         // Optional sender argument
         if (args.Length >= 2)
@@ -71,7 +67,11 @@ public sealed class AnnounceCommand : LocalizedEntityCommands
 
         // Optional sound argument
         if (args.Length >= 4)
-            sound = new SoundPathSpecifier(args[3]);
+        {
+            var soundOverride = args[3];
+            if (!_announcer.TryGetAnnouncerSound(soundOverride, out sound)) // Macrocosm edit - allow announcement sound prototypes
+                sound = new SoundPathSpecifier(soundOverride);
+        }
 
         _chat.DispatchGlobalAnnouncement(message, sender, true, sound, color);
         shell.WriteLine(Loc.GetString("shell-command-success"));
@@ -85,7 +85,8 @@ public sealed class AnnounceCommand : LocalizedEntityCommands
             2 => CompletionResult.FromHint(Loc.GetString("cmd-announce-arg-sender")),
             3 => CompletionResult.FromHint(Loc.GetString("cmd-announce-arg-color")),
             4 => CompletionResult.FromHintOptions(
-                CompletionHelper.AudioFilePath(args[3], _proto, _res),
+                CompletionHelper.AudioFilePath(args[3], _proto, _res)
+                    .Concat(CompletionHelper.PrototypeIDs<AnnouncementSoundPrototype>(proto: _proto)), // Macrocosm edit - announcer sound prototypes
                 Loc.GetString("cmd-announce-arg-sound")
             ),
             _ => CompletionResult.Empty

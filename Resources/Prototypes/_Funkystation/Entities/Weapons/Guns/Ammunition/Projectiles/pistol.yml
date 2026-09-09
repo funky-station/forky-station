@@ -1,0 +1,53 @@
+- type: entity
+  id: BulletPistolLarge
+  name: bullet (.50 AE)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 38
+  - type: StaminaDamageOnCollide
+    damage: 20
+
+- type: entity
+  id: BulletPistolLargePractice
+  name: bullet (.50 AE practice)
+  parent: BaseBulletPractice
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 5
+  - type: StaminaDamageOnCollide
+    damage: 10
+
+- type: entity
+  id: BulletPistolLargeIncendiary
+  parent: BaseBulletIncendiary
+  name: bullet (.50 AE incendiary)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 10
+        Heat: 28
+  - type: StaminaDamageOnCollide
+    damage: 20
+
+- type: entity
+  id: BulletPistolLargeUranium
+  parent: BaseBulletUranium
+  name: bullet (.20 rifle uranium)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Radiation: 19
+        Piercing: 19
+  - type: StaminaDamageOnCollide
+    damage: 20

@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.EntityTable.EntitySelectors;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
@@ -19,6 +16,9 @@ public abstract partial class EntityTableCondition
     [DataField]
     public bool Invert;
 
+    /// <summary>
+    /// Evaluates a condition for a given context.
+    /// </summary>
     public bool Evaluate(EntityTableSelector root, IEntityManager entMan, IPrototypeManager proto, EntityTableContext ctx)
     {
         var res = EvaluateImplementation(root, entMan, proto, ctx);

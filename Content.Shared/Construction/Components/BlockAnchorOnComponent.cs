@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Velcroboy <107660393+IamVelcroboy@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;

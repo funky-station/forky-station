@@ -1,0 +1,5 @@
+# Head
+- type: loadout
+  id: ScientistHardhatWhite
+  equipment:
+    head: ClothingHeadHatHardhatWhite

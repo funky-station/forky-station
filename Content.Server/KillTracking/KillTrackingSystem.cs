@@ -1,11 +1,4 @@
-// SPDX-FileCopyrightText: 2023-2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 LordCarve <27449516+LordCarve@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.NPC.HTN;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
@@ -17,13 +10,13 @@ namespace Content.Server.KillTracking;
 /// <summary>
 /// This handles <see cref="KillTrackerComponent"/> and recording who is damaging and killing entities.
 /// </summary>
-public sealed class KillTrackingSystem : EntitySystem
+public sealed partial class KillTrackingSystem : EntitySystem
 {
     /// <inheritdoc/>
     public override void Initialize()
     {
         // Add damage to LifetimeDamage before MobStateChangedEvent gets raised
-        SubscribeLocalEvent<KillTrackerComponent, DamageChangedEvent>(OnDamageChanged, before: [ typeof(MobThresholdSystem) ]);
+        SubscribeLocalEvent<KillTrackerComponent, DamageChangedEvent>(OnDamageChanged, before: [typeof(MobThresholdSystem)]);
         SubscribeLocalEvent<KillTrackerComponent, MobStateChangedEvent>(OnMobStateChanged);
     }
 

@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Quantum-cross <7065792+Quantum-cross@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 Velken <8467292+Velken@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Anomaly;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -42,4 +35,7 @@ public sealed partial class AnomalyScannerComponent : Component
     /// </summary>
     [DataField]
     public bool IgnoreSecret;
+
+    [DataField]
+    public LocId DoAfterExamineText = "anomaly-scanner-doafter-examine";
 }

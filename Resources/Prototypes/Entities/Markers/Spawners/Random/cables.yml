@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   parent: MarkerBase
   id: RandomCableHVSpawner
@@ -14,10 +11,10 @@
       state: hvcable_3
     - sprite: Structures/Power/Cables/hv_cable.rsi
       state: hvcable_12
-  - type: RandomSpawner
-    prototypes:
-    - CableHV
-    chance: 0.5
+  - type: EntityTableSpawner
+    table:
+      id: CableHV
+      prob: 0.5
 
 - type: entity
   parent: MarkerBase
@@ -38,10 +35,10 @@
       color: Yellow
     - sprite: Structures/Power/Cables/mv_cable.rsi
       state: mvstripes_12
-  - type: RandomSpawner
-    prototypes:
-    - CableMV
-    chance: 0.5
+  - type: EntityTableSpawner
+    table:
+      id: CableMV
+      prob: 0.5
 
 - type: entity
   parent: MarkerBase
@@ -58,7 +55,7 @@
     - sprite: Structures/Power/Cables/lv_cable.rsi
       state: lvcable_12
       color: Green
-  - type: RandomSpawner
-    prototypes:
-      - CableApcExtension
-    chance: 0.5
+  - type: EntityTableSpawner
+    table:
+      id: CableApcExtension
+      prob: 0.5

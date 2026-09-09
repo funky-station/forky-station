@@ -1,9 +1,3 @@
-// SPDX-FileCopyrightText: 2023 Chronophylos <nikolai@chronophylos.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Hannah Giovanna Dawson <karakkaraz@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.NPC.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
@@ -19,10 +13,10 @@ namespace Content.Server.NPC.Systems;
 /// <summary>
 ///     Handles NPC which become aggressive after being attacked.
 /// </summary>
-public sealed class NPCRetaliationSystem : EntitySystem
+public sealed partial class NPCRetaliationSystem : EntitySystem
 {
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private NpcFactionSystem _npcFaction = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     /// <inheritdoc />
     public override void Initialize()

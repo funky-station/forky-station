@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2025 korczoczek <danielkorczok@gmail.com>
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Content.Shared.Trigger.Components.Effects;
@@ -12,9 +7,9 @@ namespace Content.Shared.Trigger.Systems;
 /// <summary>
 /// This handles <see cref="PopupOnTriggerComponent"/>
 /// </summary>
-public sealed class PopupOnTriggerSystem : XOnTriggerSystem<PopupOnTriggerComponent>
+public sealed partial class PopupOnTriggerSystem : XOnTriggerSystem<PopupOnTriggerComponent>
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     protected override void OnTrigger(Entity<PopupOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
     {
@@ -25,7 +20,7 @@ public sealed class PopupOnTriggerSystem : XOnTriggerSystem<PopupOnTriggerCompon
         {
             if (ent.Comp.Predicted)
             {
-                _popup.PopupClient(Loc.GetString(ent.Comp.Text, ("entity", ent), ("user", user)),
+                _popup.PopupEntity(Loc.GetString(ent.Comp.Text, ("entity", ent), ("user", user)),
                     target,
                     ent.Comp.UserIsRecipient ? args.User : ent.Owner,
                     ent.Comp.PopupType);
@@ -45,7 +40,7 @@ public sealed class PopupOnTriggerSystem : XOnTriggerSystem<PopupOnTriggerCompon
         // Popups play for all entities
         if (ent.Comp.Predicted)
         {
-            _popup.PopupPredicted(Loc.GetString(ent.Comp.Text, ("entity", ent), ("user", user)),
+            _popup.PopupEntity(Loc.GetString(ent.Comp.Text, ("entity", ent), ("user", user)),
                 Loc.GetString(ent.Comp.OtherText ?? ent.Comp.Text, ("entity", ent), ("user", user)),
                 target,
                 ent.Comp.UserIsRecipient ? args.User : ent.Owner,

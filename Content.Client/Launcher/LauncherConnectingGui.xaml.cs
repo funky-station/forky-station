@@ -1,15 +1,3 @@
-// SPDX-FileCopyrightText: 2021, 2024 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021 Galactic Chimp <63882831+GalacticChimp@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2024 Repo <47093363+Titian3@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 jmcb <joelsgp@protonmail.com>
-// SPDX-FileCopyrightText: 2024 Vigers Ray <60344369+VigersRay@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Brandon Li <48413902+aspiringLich@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Client.Stylesheets;
 using Content.Shared.CCVar;
@@ -168,7 +156,7 @@ namespace Content.Client.Launcher
             var tip = tipList[randomIndex];
             LoginTip.SetMessage(Loc.GetString(tip));
 
-            LoginTipTitle.Text = Loc.GetString("connecting-window-tip", ("numberTip", randomIndex));
+            LoginTipTitle.Text = Loc.GetString("connecting-window-tip", ("numberTip", randomIndex + 1));
         }
 
         protected override void FrameUpdate(FrameEventArgs args)

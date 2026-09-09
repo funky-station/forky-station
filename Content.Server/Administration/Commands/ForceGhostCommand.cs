@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.GameTicking;
 using Content.Server.Ghost;
 using Content.Shared.Administration;
@@ -13,12 +9,12 @@ using Robust.Shared.Console;
 namespace Content.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Admin)]
-public sealed class ForceGhostCommand : LocalizedEntityCommands
+public sealed partial class ForceGhostCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly GhostSystem _ghost = default!;
+    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private GhostSystem _ghost = default!;
 
     public override string Command => "forceghost";
 

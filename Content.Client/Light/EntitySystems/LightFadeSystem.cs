@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Light.Components;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
@@ -8,9 +5,9 @@ using Robust.Shared.Animations;
 
 namespace Content.Client.Light.EntitySystems;
 
-public sealed class LightFadeSystem : EntitySystem
+public sealed partial class LightFadeSystem : EntitySystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _player = default!;
+    [Dependency] private AnimationPlayerSystem _player = default!;
 
     private const string FadeTrack = "light-fade";
 

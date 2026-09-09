@@ -1,12 +1,6 @@
-// SPDX-FileCopyrightText: 2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023, 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Checkraze <71046427+Cheackraze@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Samuka-C <47865393+Samuka-C@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Prototypes;
+using Content.Shared.HijackBeacon;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -15,21 +9,39 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Cargo;
 
-public abstract class SharedCargoSystem : EntitySystem
+public abstract partial class SharedCargoSystem : EntitySystem
 {
-    [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] protected IGameTiming Timing = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<StationBankAccountComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<HijackBeaconSuccessEvent>(OnHijackSuccess);
     }
 
     private void OnMapInit(Entity<StationBankAccountComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.NextIncomeTime = Timing.CurTime + ent.Comp.IncomeDelay;
         Dirty(ent);
+    }
+
+    private void OnHijackSuccess(ref HijackBeaconSuccessEvent args)
+    {
+        var stationQuery = EntityQueryEnumerator<StationBankAccountComponent>();
+        while (stationQuery.MoveNext(out var uid, out var comp))
+        {
+            foreach (var (account, cash) in comp.Accounts)
+            {
+                comp.Accounts[account] = cash - args.Fine;
+                args.Total += args.Fine;
+            }
+
+            var ev = new BankBalanceUpdatedEvent(uid, comp.Accounts);
+            RaiseLocalEvent(uid, ref ev, true);
+            Dirty(uid, comp);
+        }
     }
 
     /// <summary>

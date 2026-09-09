@@ -1,39 +1,9 @@
-# SPDX-FileCopyrightText: 2020 Paul Ritter <ritter.paul1@googlemail.com>
-# SPDX-FileCopyrightText: 2021-2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2021 Ygg01 <y.laughing.man.y@gmail.com>
-# SPDX-FileCopyrightText: 2021 Galactic Chimp <GalacticChimpanzee@gmail.com>
-# SPDX-FileCopyrightText: 2021 Swept <sweptwastaken@protonmail.com>
-# SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2021 py01 <60152240+collinlunn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Gaxeer <44334376+Gaxeer@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2022 TekuNut <13456422+TekuNut@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Alex Evgrashin <aevgrashin@yandex.ru>
-# SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023-2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 icesickleone <132941221+icesickleone@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Julian Giebel <juliangiebel@live.de>
-# SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Verm <32827189+Vermidia@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Tayrtahn <tayrtahn@gmail.com>
-# SPDX-FileCopyrightText: 2024 I.K <45953835+notquitehadouken@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SnappingOpossum <snappingopossum@outlook.com>
-# SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   name: haycutters
   parent: BaseItem
   id: Haycutters
   description: This kills the wire. Moo!
   components:
-  - type: Tag
-    tags:
-    - PlantSampleTaker
   - type: Sprite
     sprite: Objects/Tools/Cowtools/haycutters.rsi
     state: haycutters
@@ -46,11 +16,14 @@
   - type: Tool
     qualities:
     - Cutting
+    - Shearing
     useSound:
       path: /Audio/Items/wirecutter.ogg
     speedModifier: 0.05
   - type: Item
     sprite: Objects/Tools/Cowtools/haycutters.rsi
+  - type: CowTool #macro edit, lets ungus use this with the speed of a normal tool
+  - type: BotanySampleTaker
 
 - type: entity
   name: moodriver
@@ -74,6 +47,7 @@
     useSound:
       collection: Screwdriver
     speedModifier: 0.05
+  - type: CowTool #macro edit, lets ungus use this with the speed of a normal tool
 
 - type: entity
   name: wronch
@@ -97,6 +71,7 @@
     useSound:
       path: /Audio/Items/ratchet.ogg
     speedModifier: 0.05
+  - type: CowTool #macro edit, lets ungus use this with the speed of a normal tool
 
 - type: entity
   name: cowbar
@@ -122,6 +97,8 @@
     delay: 10
   - type: Prying
     speedModifier: 0.05
+  - type: CowTool #macro edit, lets ungus use this with the speed of a normal tool
+  - type: CowToolTileCompatible #macro edit, same as above, but for tiles
 
 - type: entity
   name: mooltitool
@@ -154,6 +131,7 @@
     sprite: Objects/Tools/Cowtools/cowelder.rsi
   - type: Tool
     speedModifier: 0.05
+  - type: CowTool #macro edit, lets ungus use this with the speed of a normal tool
 
 - type: entity
   name: milkalyzer
@@ -176,6 +154,7 @@
       enum.GasAnalyzerUiKey.Key:
         type: GasAnalyzerBoundUserInterface
   - type: Appearance
+  - type: CowTool #macro edit, lets ungus use this with the speed of a normal tool
 
 - type: entity
   name: cow toolbox

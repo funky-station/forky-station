@@ -1,7 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 ScarKy0 <106310278+ScarKy0@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   name: materials spawner
   id: LootSpawnerMaterials
@@ -60,7 +56,7 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Materials/Sheets/other.rsi
+        - sprite: _Funkystation/Objects/Materials/Sheets/other.rsi #Funky station
           state: plasma_2
     - type: EntityTableSpawner
       table: !type:NestedSelector

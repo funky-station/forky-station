@@ -1,31 +1,17 @@
-# SPDX-FileCopyrightText: 2023-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 gus <august.eymann@gmail.com>
-# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
-- type: entity
+﻿- type: entity
+  parent: [ BaseStructureDynamic, StructureHealthContainer ]
   id: OreBox
   name: ore box
   description: A large storage container for holding unprocessed ores.
-  parent: BaseStructureDynamic
   components:
   - type: StaticPrice
     price: 500
   - type: Anchorable
   - type: InteractionOutline
   - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Wood
+    damageModifierSet: WoodMod
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 150
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 100
@@ -36,8 +22,6 @@
           MaterialWoodPlank1:
             min: 3
             max: 5
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: Climbable
 
   # orebox-specific

@@ -1,23 +1,8 @@
-# SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 Peptide90 <78795277+Peptide90@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Subversionary <109166122+Subversionary@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Errant <35878406+Errant-4@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Vordenburg <114301317+Vordenburg@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Armok <155400926+ARMOKS@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 BramvanZijp <56019239+BramvanZijp@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 pubbi <63283968+impubbi@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
-  name: bola
+  abstract: true
   parent: [BaseItem, BaseSecurityContraband]
-  id: Bola
-  description: Linked together with some spare cuffs and metal.
+  id: BaseBola
+  name: bola
   components:
   - type: Item
     size: Normal
@@ -28,19 +13,11 @@
     sound: /Audio/Weapons/bolathrow.ogg
   - type: EmitSoundOnLand
     sound: /Audio/Effects/snap.ogg
-  - type: Construction
-    graph: Bola
-    node: bola
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 75
-      behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 15
@@ -74,3 +51,36 @@
         - ItemMask
         restitution: 0.3
         friction: 0.2
+
+- type: entity
+  parent: BaseBola
+  id: Bola
+  name: makeshift bola
+  description: A makeshift bola, cobbled together with some spare cuffs and metal. It doesn't look like it's going to stay together for very long.
+  components:
+  - type: Construction
+    graph: Bola
+    node: bola
+
+- type: entity
+  parent: BaseBola
+  id: SecurityBola
+  name: tactical bola
+  description: A bola, comprised of steel anchors linked together with a wire cable. Reliable and reusable.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Throwable/securitybola.rsi
+    state: icon
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 0 #reusable, in contrast to makeshift
+  - type: Ensnaring
+    freeTime: 2.5 #slightly slower free time than makeshift
+    breakoutTime: 4.0 #slightly slower breakout time than makeshift
+    walkSpeed: 0.5
+    sprintSpeed: 0.5
+    staminaDamage: 0 # anything but this is gamebreaking
+    canThrowTrigger: true
+    canMoveBreakout: true
+    maxEnsnares: 1

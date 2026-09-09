@@ -1,13 +1,10 @@
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Text.Json;
 using System.Threading.Tasks;
 using Content.Server.Database;
 using Content.Server.GameTicking;
 using Content.Shared.Administration.Logs;
+using Robust.Shared.Network;
+using Robust.Shared.Player;
 
 namespace Content.Server.Administration.Logs;
 
@@ -29,4 +26,5 @@ public interface IAdminLogManager : ISharedAdminLogManager
     IAsyncEnumerable<JsonDocument> CurrentRoundJson(LogFilter? filter = null);
     Task<Round> CurrentRound();
     Task<int> CountLogs(int round);
+    void OpenEui(ICommonSession admin, string? search = null, Guid? targetPlayer = null);
 }

@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "sproten by zergologist (Discord) for Funky Station",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "effect-fistbump",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "effect-handshake",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "effect-highfive",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+        "name": "effect-hug",
+        "delays": [
+          [
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ]
+        ]
+    },
+    {
+        "name": "effect-tailswipe",
+        "delays": [
+          [
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ]
+        ]
+    },
+    {
+        "name": "icon-fistbump"
+    },
+    {
+        "name": "icon-handshake"
+    },
+    {
+        "name": "icon-highfive"
+    },
+    {
+        "name": "icon-hug"
+    },
+    {
+        "name": "icon-tailswipe"
+    }
+  ]
+}

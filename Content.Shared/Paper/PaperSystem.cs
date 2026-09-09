@@ -1,17 +1,3 @@
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2025 xsainteer <156868231+xsainteer@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Qerd <73325910+BigfootBravo@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 J <billsmith116@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SpeltIncorrectyl <66873282+SpeltIncorrectyl@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Linq;
 using Content.Shared.Administration.Logs;
 using Content.Shared.UserInterface;
@@ -26,26 +12,31 @@ using Robust.Shared.Audio.Systems;
 using static Content.Shared.Paper.PaperComponent;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared.IdentityManagement;
+using Content.Shared.IdentityManagement.Components;
+using Content.Shared.Mind.Components;
+using Content.Shared.Roles;
+using Content.Shared._Funkystation.Handwriting; // Funky
 
 namespace Content.Shared.Paper;
 
-public sealed class PaperSystem : EntitySystem
+public sealed partial class PaperSystem : EntitySystem
 {
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly MetaDataSystem _metaSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private TagSystem _tagSystem = default!;
+    [Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private MetaDataSystem _metaSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IdentitySystem _identitySystem = default!;
+    [Dependency] private EntityQuery<PaperComponent> _paperQuery = default!;
 
     private static readonly ProtoId<TagPrototype> WriteIgnoreStampsTag = "WriteIgnoreStamps";
     private static readonly ProtoId<TagPrototype> WriteTag = "Write";
 
-    private EntityQuery<PaperComponent> _paperQuery;
 
     public override void Initialize()
     {
@@ -61,8 +52,8 @@ public sealed class PaperSystem : EntitySystem
         SubscribeLocalEvent<RandomPaperContentComponent, MapInitEvent>(OnRandomPaperContentMapInit);
 
         SubscribeLocalEvent<ActivateOnPaperOpenedComponent, PaperWriteEvent>(OnPaperWrite);
+        SubscribeLocalEvent<PaperComponent, PaperSignatureRequestMessage>(OnSignatureRequest);
 
-        _paperQuery = GetEntityQuery<PaperComponent>();
     }
 
     private void OnMapInit(Entity<PaperComponent> entity, ref MapInitEvent args)
@@ -136,7 +127,7 @@ public sealed class PaperSystem : EntitySystem
                 if (entity.Comp.EditingDisabled)
                 {
                     var paperEditingDisabledMessage = Loc.GetString("paper-tamper-proof-modified-message");
-                    _popupSystem.PopupClient(paperEditingDisabledMessage, entity, args.User);
+                    _popupSystem.PopupEntity(paperEditingDisabledMessage, entity, args.User);
 
                     args.Handled = true;
                     return;
@@ -149,7 +140,7 @@ public sealed class PaperSystem : EntitySystem
                     if (ev.FailReason is not null)
                     {
                         var fileWriteMessage = Loc.GetString(ev.FailReason);
-                        _popupSystem.PopupClient(fileWriteMessage, entity.Owner, args.User);
+                        _popupSystem.PopupEntity(fileWriteMessage, entity.Owner, args.User);
                     }
 
                     args.Handled = true;
@@ -175,12 +166,10 @@ public sealed class PaperSystem : EntitySystem
                     ("user", args.User),
                     ("target", args.Target),
                     ("stamp", args.Used));
-
-            _popupSystem.PopupEntity(stampPaperOtherMessage, args.User, Filter.PvsExcept(args.User, entityManager: EntityManager), true);
             var stampPaperSelfMessage = Loc.GetString("paper-component-action-stamp-paper-self",
                     ("target", args.Target),
                     ("stamp", args.Used));
-            _popupSystem.PopupClient(stampPaperSelfMessage, args.User, args.User);
+            _popupSystem.PopupEntity(stampPaperSelfMessage, stampPaperOtherMessage, args.User, args.User);
 
             _audio.PlayPredicted(stampComp.Sound, entity, args.User);
 
@@ -235,7 +224,7 @@ public sealed class PaperSystem : EntitySystem
             RemCompDeferred(ent, ent.Comp);
             return;
         }
-        var dataset = _protoMan.Index(ent.Comp.Dataset);
+        var dataset = ProtoMan.Index(ent.Comp.Dataset);
         // Intentionally not using the Pick overload that directly takes a LocalizedDataset,
         // because we want to get multiple attributes from the same pick.
         var pick = _random.Pick(dataset.Values);
@@ -264,6 +253,14 @@ public sealed class PaperSystem : EntitySystem
         if (!entity.Comp.StampedBy.Contains(stampInfo))
         {
             entity.Comp.StampedBy.Add(stampInfo);
+
+            // Clean unfilled form and signature tags when stamping to finalize the document
+            var cleanedContent = CleanUnfilledTags(entity.Comp.Content);
+            if (cleanedContent != entity.Comp.Content)
+            {
+                SetContent(entity, cleanedContent);
+            }
+
             Dirty(entity);
             if (entity.Comp.StampState == null && TryComp<AppearanceComponent>(entity, out var appearance))
             {
@@ -321,6 +318,75 @@ public sealed class PaperSystem : EntitySystem
     private void UpdateUserInterface(Entity<PaperComponent> entity)
     {
         _uiSystem.SetUiState(entity.Owner, PaperUiKey.Key, new PaperBoundUserInterfaceState(entity.Comp.Content, entity.Comp.StampedBy, entity.Comp.Mode));
+    }
+
+    private void OnSignatureRequest(Entity<PaperComponent> entity, ref PaperSignatureRequestMessage args)
+    {
+        var signature = GetPlayerSignature(args.Actor);
+        // funky, use the player's handwriting font
+        var rendered = HandwritingFontHelper.WrapIfHandwritten(EntityManager, args.Actor, signature);
+        var newText = ReplaceNthSignatureTag(entity.Comp.Content, args.SignatureIndex, rendered);
+        SetContent(entity, newText);
+
+        _adminLogger.Add(LogType.Chat, LogImpact.Low,
+            $"{ToPrettyString(args.Actor):player} signed {ToPrettyString(entity):entity} with signature: {signature}");
+    }
+
+    /// <summary>
+    /// Gets the player's signature using the identity system (funky edited to be only the name)
+    /// </summary>
+    private string GetPlayerSignature(EntityUid player)
+    {
+        // Get the identity entity (ID card, etc.)
+        var identityEntity = player;
+        if (TryComp<IdentityComponent>(player, out var identity) &&
+            identity.IdentityEntitySlot != null &&
+            identity.IdentityEntitySlot.ContainedEntity is { } idEntity)
+        {
+            identityEntity = idEntity;
+        }
+
+        // Get name from identity or fallback to entity name
+        return MetaData(identityEntity).EntityName;
+    }
+
+    /// <summary>
+    /// Replaces the nth occurrence of [signature] tag with replacement text.
+    /// </summary>
+    private static string ReplaceNthSignatureTag(string text, int index, string replacement)
+    {
+        const string signatureTag = "[signature]";
+        var currentIndex = 0;
+        var pos = 0;
+
+        while (pos < text.Length)
+        {
+            var foundPos = text.IndexOf(signatureTag, pos);
+            if (foundPos == -1) break;
+
+            if (currentIndex == index)
+            {
+                return text.Substring(0, foundPos) + replacement + text.Substring(foundPos + signatureTag.Length);
+            }
+
+            currentIndex++;
+            pos = foundPos + signatureTag.Length;
+        }
+
+        return text;
+    }
+
+    /// <summary>
+    /// Removes any unfilled [form] and [signature] tags, and converts [check] tags to ☐.
+    /// Called when the paper is stamped to finalize the document.
+    /// </summary>
+    /// <param name="text">The paper text to clean</param>
+    /// <returns>Text with unfilled tags cleaned</returns>
+    private static string CleanUnfilledTags(string text)
+    {
+        return text.Replace("[form]", string.Empty)
+                  .Replace("[signature]", string.Empty)
+                  .Replace("[check]", "☐");
     }
 }
 

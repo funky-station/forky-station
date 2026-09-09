@@ -1,22 +1,13 @@
-// SPDX-FileCopyrightText: 2022 keronshb <54602815+keronshb@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Client.Implants.UI;
 using Content.Client.Items;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
-using Robust.Shared.Prototypes;
 
 namespace Content.Client.Implants;
 
-public sealed class ImplanterSystem : SharedImplanterSystem
+public sealed partial class ImplanterSystem : SharedImplanterSystem
 {
-    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
 
     public override void Initialize()
     {
@@ -26,22 +17,18 @@ public sealed class ImplanterSystem : SharedImplanterSystem
         Subs.ItemStatus<ImplanterComponent>(ent => new ImplanterStatusControl(ent));
     }
 
-    private void OnHandleImplanterState(EntityUid uid, ImplanterComponent component, ref AfterAutoHandleStateEvent args)
+    private void OnHandleImplanterState(Entity<ImplanterComponent> ent, ref AfterAutoHandleStateEvent args)
     {
-        if (_uiSystem.TryGetOpenUi<DeimplantBoundUserInterface>(uid, DeimplantUiKey.Key, out var bui))
-        {
-            // TODO: Don't use protoId for deimplanting
-            // and especially not raw strings!
-            Dictionary<string, string> implants = new();
-            foreach (var implant in component.DeimplantWhitelist)
-            {
-                if (_proto.Resolve(implant, out var proto))
-                    implants.Add(proto.ID, proto.Name);
-            }
+        UpdateUi(ent);
+    }
 
-            bui.UpdateState(implants, component.DeimplantChosen);
+    protected override void UpdateUi(Entity<ImplanterComponent> ent)
+    {
+        if (_uiSystem.TryGetOpenUi(ent.Owner, DeimplantUiKey.Key, out var bui))
+        {
+            bui.Update();
         }
 
-        component.UiUpdateNeeded = true;
+        ent.Comp.UiUpdateNeeded = true;
     }
 }

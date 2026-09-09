@@ -1,56 +1,42 @@
-// SPDX-FileCopyrightText: 2017 PJB3005 <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2018, 2021, 2024 Pieter-Jan Briers <pieterjan.briers@gmail.com>
-// SPDX-FileCopyrightText: 2018-2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2018 clusterfack <clusterfack@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2019 ZelteHonor <gabrieldionbouchard@gmail.com>
-// SPDX-FileCopyrightText: 2019 Silver <Silvertorch5@gmail.com>
-// SPDX-FileCopyrightText: 2020-2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2021 ShadowCommander <10494922+ShadowCommander@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 chairbender <kwhipke1@gmail.com>
-// SPDX-FileCopyrightText: 2020 20kdc <asdd2808@gmail.com>
-// SPDX-FileCopyrightText: 2020 Tyler Young <tyler.young@impromptu.ninja>
-// SPDX-FileCopyrightText: 2020 zumorica <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2021-2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021-2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2021-2022 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Paul <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Moony <moonheart08@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Clyybber <darkmine956@gmail.com>
-// SPDX-FileCopyrightText: 2021 Javier Guardia Fernández <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 collinlunn <60152240+collinlunn@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Remie Richards <remierichards@gmail.com>
-// SPDX-FileCopyrightText: 2023, 2025 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.DisplacementMap;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Hands.Components;
 
+/// <summary>
+/// Allows this entity to have hands so that it can interact with items.
+/// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]
 [Access(typeof(SharedHandsSystem))]
-public sealed partial class HandsComponent : Component
+public sealed partial class HandsComponent : Component, IComponentDelta
 {
+    /// <inheritdoc />
+    public GameTick[] LastModifiedFields { get; set; }
+
+    /// <inheritdoc/>
+    public GameTick LastUnclassifiedDirty { get; set; }
+
     /// <summary>
-    ///     The currently active hand.
+    /// The currently active hand.
     /// </summary>
     [DataField]
     public string? ActiveHandId;
 
     /// <summary>
+    /// Intrinsic hands to be added on map init.
+    /// </summary>
+    [DataField]
+    public Dictionary<string, Hand> StartingHands = new();
+
+    /// <summary>
+    /// Contains all hands this entity currently has.
     /// Dictionary relating a unique hand ID corresponding to a container slot on the attached entity to a class containing information about the Hand itself.
+    /// Do not set this in yaml if you want to add intrinsic hands. Use <see cref="StartingHands"/> instead.
     /// </summary>
     [DataField]
     public Dictionary<string, Hand> Hands = new();
@@ -62,68 +48,68 @@ public sealed partial class HandsComponent : Component
     public int Count => Hands.Count;
 
     /// <summary>
-    ///     List of hand-names. These are keys for <see cref="Hands"/>. The order of this list determines the order in which hands are iterated over.
+    /// List of hand-names. These are keys for <see cref="Hands"/>. The order of this list determines the order in which hands are iterated over.
     /// </summary>
     [DataField]
     public List<string> SortedHands = new();
 
     /// <summary>
-    ///     If true, the items in the hands won't be affected by explosions.
+    /// If true, the items in the hands won't be affected by explosions.
     /// </summary>
     [DataField]
     public bool DisableExplosionRecursion;
 
     /// <summary>
-    ///     Modifies the speed at which items are thrown.
+    /// Modifies the speed at which items are thrown.
     /// </summary>
     [DataField]
     public float BaseThrowspeed = 11f;
 
     /// <summary>
-    ///     Distance after which longer throw targets stop increasing throw impulse.
+    /// Distance after which longer throw targets stop increasing throw impulse.
     /// </summary>
     [DataField]
     public float ThrowRange = 8f;
 
     /// <summary>
-    ///     Whether or not to add in-hand sprites for held items. Some entities (e.g., drones) don't want these.
-    ///     Used by the client.
+    /// Whether or not to add in-hand sprites for held items. Some entities (e.g., drones) don't want these.
+    /// Used by the client.
     /// </summary>
     [DataField]
     public bool ShowInHands = true;
 
     /// <summary>
-    ///     Data about the current sprite layers that the hand is contributing to the owner entity. Used for sprite in-hands.
-    ///     Used by the client.
+    /// Data about the current sprite layers that the hand is contributing to the owner entity. Used for sprite in-hands.
+    /// Used by the client.
     /// </summary>
     public readonly Dictionary<HandLocation, HashSet<string>> RevealedLayers = new();
 
     /// <summary>
-    ///     The time at which throws will be allowed again.
+    /// The time at which throws will be allowed again.
     /// </summary>
     [DataField, AutoPausedField]
     public TimeSpan NextThrowTime;
 
     /// <summary>
-    ///     The minimum time inbetween throws.
+    /// The minimum time inbetween throws.
     /// </summary>
     [DataField]
     public TimeSpan ThrowCooldown = TimeSpan.FromSeconds(0.5f);
 
     /// <summary>
-    ///     Fallback displacement map applied to all sprites in the hand, unless otherwise specified
+    /// Fallback displacement map applied to all sprites in the hand, unless otherwise specified
     /// </summary>
     [DataField]
     public DisplacementData? HandDisplacement;
 
     /// <summary>
-    ///     If defined, applies to all sprites in the left hand, ignoring <see cref="HandDisplacement"/>
+    /// If defined, applies to all sprites in the left hand, ignoring <see cref="HandDisplacement"/>
     /// </summary>
     [DataField]
     public DisplacementData? LeftHandDisplacement;
 
     /// <summary>
-    ///     If defined, applies to all sprites in the right hand, ignoring <see cref="HandDisplacement"/>
+    /// If defined, applies to all sprites in the right hand, ignoring <see cref="HandDisplacement"/>
     /// </summary>
     [DataField]
     public DisplacementData? RightHandDisplacement;
@@ -135,6 +121,9 @@ public sealed partial class HandsComponent : Component
     public bool CanBeStripped = true;
 }
 
+/// <summary>
+/// Parameters for a single hand.
+/// </summary>
 [DataDefinition]
 [Serializable, NetSerializable]
 public partial record struct Hand
@@ -182,24 +171,63 @@ public partial record struct Hand
     }
 }
 
+// If you add more fields make sure to also add them to the RegisterFields call in SharedHandsSystem!
+// This is needed for delta states.
 [Serializable, NetSerializable]
-public sealed class HandsComponentState : ComponentState
+public sealed class HandsComponentState(
+    string? activeHandId,
+    Dictionary<string, Hand> hands,
+    List<string> sortedHands,
+    bool showInHands,
+    DisplacementData? handDisplacement,
+    DisplacementData? leftHandDisplacement,
+    DisplacementData? rightHandDisplacement,
+    bool canBeStripped) : ComponentState
 {
-    public readonly Dictionary<string, Hand> Hands;
-    public readonly List<string> SortedHands;
-    public readonly string? ActiveHandId;
+    public string? ActiveHandId = activeHandId;
+    public readonly Dictionary<string, Hand> Hands = new(hands);
+    public readonly List<string> SortedHands = new(sortedHands);
+    public readonly bool ShowInHands = showInHands;
+    public readonly DisplacementData? HandDisplacement = handDisplacement == null ? null : new(handDisplacement);
+    public readonly DisplacementData? LeftHandDisplacement = leftHandDisplacement == null ? null : new(leftHandDisplacement);
+    public readonly DisplacementData? RightHandDisplacement = rightHandDisplacement == null ? null : new(rightHandDisplacement);
+    public readonly bool CanBeStripped = canBeStripped;
+}
 
-    public HandsComponentState(HandsComponent handComp)
+/// <summary>
+/// Delta state for the active hand so that we don't have to network
+/// the entire component inluding displacements each time we switch hands.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class HandsComponentActiveHandDeltaState(string? activeHandId) : IComponentDeltaState<HandsComponentState>
+{
+    public string? ActiveHandId = activeHandId;
+
+    public void ApplyToFullState(HandsComponentState fullState)
     {
-        // cloning lists because of test networking.
-        Hands = new(handComp.Hands);
-        SortedHands = new(handComp.SortedHands);
-        ActiveHandId = handComp.ActiveHandId;
+        fullState.ActiveHandId = ActiveHandId;
+    }
+
+    public HandsComponentState CreateNewFullState(HandsComponentState fullState)
+    {
+        var newState = new HandsComponentState(
+            fullState.ActiveHandId,
+            fullState.Hands,
+            fullState.SortedHands,
+            fullState.ShowInHands,
+            fullState.HandDisplacement,
+            fullState.LeftHandDisplacement,
+            fullState.RightHandDisplacement,
+            fullState.CanBeStripped)
+        {
+            ActiveHandId = fullState.ActiveHandId,
+        };
+        return newState;
     }
 }
 
 /// <summary>
-///     What side of the body this hand is on.
+/// What side of the body this hand is on.
 /// </summary>
 public enum HandLocation : byte
 {

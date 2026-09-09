@@ -1,13 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Ilya246 <57039557+Ilya246@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Kirus59 <145689588+Kirus59@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Killerqu00 <killerqueen1777@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: entity
   id: ShuttleGunBase
   parent: BaseStructure
@@ -23,9 +13,6 @@
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Electronic
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice
@@ -48,7 +35,7 @@
 
 - type: entity
   id: ShuttleGunSvalinnMachineGun
-  parent: [ ShuttleGunBase, ConstructibleMachine]
+  parent: [ ShuttleGunBase, ConstructibleMachine, BaseConstructibleMachineDestructible]
   name: LSE-400c "Svalinn machine gun"
   description: Basic stationary laser unit. Effective against live targets and electronics. Uses regular power cells to fire, and has an extremely high rate of fire.
   categories: [ DoNotMap ]
@@ -65,16 +52,6 @@
       machine_board: !type:Container
       machine_parts: !type:Container
       cell_slot: !type:ContainerSlot
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 150
-      behaviors:
-        - !type:ChangeConstructionNodeBehavior
-          node: machineFrame
-        - !type:DoActsBehavior
-          acts: ["Destruction"]
   - type: Gun
     fireRate: 5
     useKey: false
@@ -103,10 +80,19 @@
   - type: BatteryAmmoProvider
     proto: RedLightLaser
     fireCost: 50
+  - type: Destructible
+    thresholds: &ThresholdsMachineNormalBreakSound
+    - trigger:
+        !type:DamageTrigger
+        damage: 175
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
 
 - type: entity
   id: ShuttleGunPerforator
-  parent: [ ShuttleGunBase, ConstructibleMachine]
+  parent: [ ShuttleGunBase, ConstructibleMachine, BaseConstructibleMachineDestructible]
   name: LSE-1200c "Perforator"
   description: Advanced stationary laser unit. Annihilates electronics and is extremely dangerous to health! Uses the power cage to fire.
   categories: [ DoNotMap ]
@@ -124,15 +110,7 @@
       machine_parts: !type:Container
       cell_slot: !type:ContainerSlot
   - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-        - !type:ChangeConstructionNodeBehavior
-          node: machineFrame
-        - !type:DoActsBehavior
-          acts: ["Destruction"]
+    thresholds: *ThresholdsMachineNormalBreakSound
   - type: Gun
     fireRate: 1
     soundGunshot:
@@ -166,7 +144,7 @@
 
 - type: entity
   id: ShuttleGunFriendship
-  parent: [ShuttleGunBase, ConstructibleMachine]
+  parent: [ShuttleGunBase, ConstructibleMachine, BaseConstructibleMachineDestructible]
   name: EXP-320g "Friendship"
   description: A small stationary grenade launcher that holds 2 grenades.
   categories: [ DoNotMap ]
@@ -183,15 +161,7 @@
       machine_parts: !type:Container
       ballistic-ammo: !type:Container
   - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-        - !type:ChangeConstructionNodeBehavior
-          node: machineFrame
-        - !type:DoActsBehavior
-          acts: ["Destruction"]
+    thresholds: *ThresholdsMachineNormalBreakSound
   - type: Gun
     projectileSpeed: 80
     fireRate: 1
@@ -220,7 +190,7 @@
 
 - type: entity
   id: ShuttleGunDuster
-  parent: [ShuttleGunBase, ConstructibleMachine]
+  parent: [ShuttleGunBase, ConstructibleMachine, BaseConstructibleMachineDestructible]
   name: EXP-2100g "Duster"
   description: A powerful stationary grenade launcher. A cartridge is required for use.
   categories: [ DoNotMap ]
@@ -237,15 +207,7 @@
       machine_parts: !type:Container
       gun_magazine: !type:ContainerSlot
   - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 350
-      behaviors:
-        - !type:ChangeConstructionNodeBehavior
-          node: machineFrame
-        - !type:DoActsBehavior
-          acts: ["Destruction"]
+    thresholds: *ThresholdsMachineNormalBreakSound
   - type: Gun
     projectileSpeed: 40
     fireRate: 0.3
@@ -280,25 +242,16 @@
 # ---- Other weapon ----
 
 - type: entity
+  parent: [ ShuttleGunBase, BaseMachineDestructible ]
   id: ShuttleGunPirateCannon
-  parent: ShuttleGunBase
   name: pirate ship cannon
   description: Kaboom!
   components:
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
   - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-        - !type:DoActsBehavior
-          acts: ["Destruction"]
+    thresholds: *ThresholdsMachineNormalBreakSound
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shuttles/pirate_cannon.rsi
     layers:
@@ -318,7 +271,7 @@
 
 - type: entity
   id: ShuttleGunKinetic
-  parent: [ ShuttleGunBase, ConstructibleMachine]
+  parent: [ ShuttleGunBase, ConstructibleMachine, BaseConstructibleMachineDestructible]
   name: PTK-800 "Matter Dematerializer"
   description: Salvage stationary mining turret. Gradually accumulates charges on its own, extremely effective for asteroid excavation.
   categories: [ DoNotMap ]
@@ -333,15 +286,7 @@
       machine_board: !type:Container
       machine_parts: !type:Container
   - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-        - !type:ChangeConstructionNodeBehavior
-          node: machineFrame
-        - !type:DoActsBehavior
-          acts: ["Destruction"]
+    thresholds: *ThresholdsMachineNormalBreakSound
   - type: Gun
     projectileSpeed: 20
     fireRate: 2
@@ -370,7 +315,7 @@
     board: ShuttleGunKineticCircuitboard
 
 - type: entity
-  parent: ShuttleGunBase
+  parent: [ ShuttleGunBase, StructureHealthMachineWeak ]
   id: ShuttleGunKineticOld
   name: exomorphic dematerializer
   description: An ancient ship gun, utilizing biomechanical systems to store and release energy. While unique in its design, it has been rendered obsolete due to its inferior charging and firing speed compared to mechanical constructions.
@@ -379,6 +324,8 @@
     sprite: Objects/Weapons/Guns/Shuttles/xeno.rsi
     layers:
     - state: rail
+  - type: Damageable
+    damageModifierSet: SteelMod
   - type: Destructible
     thresholds:
     - trigger:
@@ -388,8 +335,6 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
   - type: Gun
     projectileSpeed: 20
     fireRate: 0.2

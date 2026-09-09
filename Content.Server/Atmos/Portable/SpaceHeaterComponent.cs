@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2024 Menshin <Menshin@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 ArtisticRoomba <145879011+ArtisticRoomba@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Piping.Portable.Components;
 using Content.Shared.Atmos.Visuals;

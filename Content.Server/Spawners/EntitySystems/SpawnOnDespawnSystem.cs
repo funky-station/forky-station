@@ -1,15 +1,10 @@
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Spawners.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 
 namespace Content.Server.Spawners.EntitySystems;
 
-public sealed class SpawnOnDespawnSystem : EntitySystem
+public sealed partial class SpawnOnDespawnSystem : EntitySystem
 {
     public override void Initialize()
     {

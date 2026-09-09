@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2025 PJB3005 <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 Vasilis The Pikachu <vasilis@pikachu.systems>
-# SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-# SPDX-License-Identifier: MIT
-
 - type: stack
   parent: BaseTileStack
   id: FloorTileGold
@@ -23,18 +18,18 @@
 
 - type: stack
   parent: BaseTileStack
+  id: FloorTileWhiteMarbleMono
+  name: stack-white-marble-mono-floor
+  spawn: FloorTileItemWhiteMarbleMono
+
+- type: stack
+  parent: BaseTileStack
   id: FloorTileDarkMarble
   name: stack-dark-marble-floor
   spawn: FloorTileItemDarkMarble
 
 - type: stack
   parent: BaseTileStack
-  id: FloorTilePlasmaMarble
-  name: stack-plasma-marble-floor
-  spawn: FloorTileItemPlasmaMarble
-
-- type: stack
-  parent: BaseTileStack
-  id: FloorTileUraniumMarble
-  name: stack-uranium-marble-floor
-  spawn: FloorTileItemUraniumMarble
+  id: FloorTileDarkMarbleMono
+  name: stack-dark-marble-mono-floor
+  spawn: FloorTileItemDarkMarbleMono

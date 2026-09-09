@@ -1,11 +1,3 @@
-# SPDX-FileCopyrightText: 2023-2025 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-# SPDX-FileCopyrightText: 2025 Firewars763 <35506916+Firewars763@users.noreply.github.com>
-# SPDX-License-Identifier: MIT
-
 - type: biomeTemplate
   id: Continental
   layers:
@@ -285,7 +277,7 @@
         cellularDistanceFunction: Euclidean
         cellularReturnType: Distance2
       entities:
-        - WallRockBasalt
+        - WallRock
     - !type:BiomeDummyLayer
       id: Loot
     # Fill basalt
@@ -496,7 +488,7 @@
         lacunarity: 2
         gain: 0.4
       entities:
-      - FloorChromiteChasm
+      - FloorChasmEntity
     - !type:BiomeDummyLayer
       id: Loot
     # Fill chromite

@@ -1,27 +1,17 @@
-// SPDX-FileCopyrightText: 2023 deltanedas <39013340+deltanedas@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Ed <96445749+TheShuEd@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Errant <35878406+Errant-4@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 BeBright <98597725+bebr3ght@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Milon <milonpl.git@proton.me>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Chat.Managers;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Chat;
+using Content.Shared.Database;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Network;
 
 namespace Content.Server.Roles;
 
-public sealed class RoleSystem : SharedRoleSystem
+public sealed partial class RoleSystem : SharedRoleSystem
 {
-    [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private IChatManager _chat = default!;
 
     public string? MindGetBriefing(EntityUid? mindId)
     {
@@ -61,7 +51,7 @@ public sealed class RoleSystem : SharedRoleSystem
         if (!Player.TryGetSessionById(mind.UserId, out var session))
             return;
 
-        if (!_proto.Resolve(mind.RoleType, out var proto))
+        if (!ProtoMan.Resolve(mind.RoleType, out var proto))
             return;
 
         var roleText = Loc.GetString(proto.Name);
@@ -78,6 +68,21 @@ public sealed class RoleSystem : SharedRoleSystem
             default,
             false,
             session.Channel);
+    }
+
+    protected override void UpdateCharacterWindow(NetUserId? user, MindStringRepresentation mindString)
+    {
+        if (Player.TryGetSessionById(user, out var session))
+        {
+            RaiseNetworkEvent(new MindRoleTypeChangedEvent(), session.Channel);
+        }
+        else
+        {
+            _adminLogger.Add(
+                LogType.Mind,
+                LogImpact.Medium,
+                $"The Character Window of {mindString} potentially did not update immediately : session error");
+        }
     }
 }
 

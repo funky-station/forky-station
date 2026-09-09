@@ -1,11 +1,6 @@
-// SPDX-FileCopyrightText: 2024 deathride58 <deathride58@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Eye.Blinding.Components;
 
@@ -28,8 +23,8 @@ public sealed partial class EyeClosingComponent : Component
     /// <summary>
     /// The prototype to grant to enable eye-toggling action.
     /// </summary>
-    [DataField("eyeToggleAction", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string EyeToggleAction = "ActionToggleEyes";
+    [DataField]
+    public EntProtoId EyeToggleAction = "ActionToggleEyes";
 
     /// <summary>
     /// The actual eye toggling action entity itself.
@@ -40,24 +35,30 @@ public sealed partial class EyeClosingComponent : Component
     /// <summary>
     /// Sound to play when opening eyes.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public SoundSpecifier EyeOpenSound = new SoundCollectionSpecifier(DefaultEyeOpen);
 
     /// <summary>
     /// Sound to play when closing eyes.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public SoundSpecifier EyeCloseSound = new SoundCollectionSpecifier(DefaultEyeClose);
 
     /// <summary>
     /// Toggles whether the eyes are open or closed. This is really just exactly what it says on the tin. Honest.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public bool EyesClosed;
 
-    [ViewVariables(VVAccess.ReadOnly), DataField]
+    /// <summary>
+    /// The previous state of eyes closed. Used to ensure relevant audio / visual effects are only emitted once per change.
+    /// </summary>
+    [DataField]
     public bool PreviousEyelidPosition;
 
-    [ViewVariables(VVAccess.ReadOnly), DataField]
+    /// <summary>
+    /// Whether the eye closing was naturally created or not.
+    /// </summary>
+    [DataField]
     public bool NaturallyCreated;
 }

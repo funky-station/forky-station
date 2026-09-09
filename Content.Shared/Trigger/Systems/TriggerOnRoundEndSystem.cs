@@ -1,7 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Princess Cheeseballs <66055347+Princess-Cheeseballs@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 āda <ss.adasts@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.GameTicking;
 using Content.Shared.Trigger.Components.Triggers;
 
@@ -10,7 +6,7 @@ namespace Content.Shared.Trigger.Systems;
 /// <summary>
 /// System for creating a trigger when the round ends.
 /// </summary>
-public sealed class TriggerOnRoundEndSystem : TriggerOnXSystem
+public sealed partial class TriggerOnRoundEndSystem : TriggerOnXSystem
 {
     /// <inheritdoc/>
     public override void Initialize()

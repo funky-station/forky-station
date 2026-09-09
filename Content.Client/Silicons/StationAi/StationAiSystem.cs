@@ -1,8 +1,3 @@
-// SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Silicons.StationAi;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -13,10 +8,10 @@ namespace Content.Client.Silicons.StationAi;
 
 public sealed partial class StationAiSystem : SharedStationAiSystem
 {
-    [Dependency] private readonly IOverlayManager _overlayMgr = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private IOverlayManager _overlayMgr = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
 
     private StationAiOverlay? _overlay;
 

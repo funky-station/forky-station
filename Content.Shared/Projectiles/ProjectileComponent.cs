@@ -1,26 +1,13 @@
-// SPDX-FileCopyrightText: 2020-2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2020-2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2021-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023-2024 Arendian <137322659+Arendian@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 MilenVolf <63782763+MilenVolf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Projectiles;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class ProjectileComponent : Component
 {
     /// <summary>
@@ -48,10 +35,21 @@ public sealed partial class ProjectileComponent : Component
     public EntityUid? Weapon;
 
     /// <summary>
-    ///     The projectile spawns inside the shooter most of the time, this prevents entities from shooting themselves.
+    /// How much time after being shot the projectile can collide with the shooter.
     /// </summary>
+    /// <remarks>
+    /// Since projectiles spawn inside the shooter,
+    /// they have to ignore the shooter for a little while while they fly away.
+    /// </remarks>
     [DataField, AutoNetworkedField]
-    public bool IgnoreShooter = true;
+    public TimeSpan DelayToAcknowledgeShooter = TimeSpan.FromSeconds(1);
+
+    /// <summary>
+    /// Time from which after the projectile can hit the shooter.
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [AutoPausedField]
+    public TimeSpan? WhenToStopIgnoringShooter;
 
     /// <summary>
     ///     The amount of damage the projectile will do.

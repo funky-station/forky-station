@@ -1,11 +1,5 @@
-// SPDX-FileCopyrightText: 2022-2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2024 osjarw <62134478+osjarw@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using System.Collections.Generic;
+using Content.IntegrationTests.Fixtures;
 using Content.Server.NPC.HTN;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
@@ -14,12 +8,12 @@ using Robust.Shared.Utility;
 namespace Content.IntegrationTests.Tests.NPC;
 
 [TestFixture]
-public sealed class NPCTest
+public sealed class NPCTest : GameTest
 {
     [Test]
     public async Task CompoundRecursion()
     {
-        var pool = await PoolManager.GetServerClient();
+        var pool = Pair;
         var server = pool.Server;
 
         await server.WaitIdleAsync();
@@ -37,8 +31,6 @@ public sealed class NPCTest
                 counts.Clear();
             }
         });
-
-        await pool.CleanReturnAsync();
     }
 
     private static void Count(HTNCompoundPrototype compound, Dictionary<string, int> counts, HTNSystem htnSystem, IPrototypeManager protoManager)

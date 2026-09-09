@@ -1,15 +1,5 @@
-// SPDX-FileCopyrightText: 2020 zumorica <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 ike709 <ike709@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 Flipp Syder <76629141+vulppine@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2024 superjj18 <gagnonjake@gmail.com>
-// SPDX-FileCopyrightText: 2024 avery <51971268+graevy@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
+using Content.Shared.AlertLevel;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Communications
@@ -27,31 +17,24 @@ namespace Content.Shared.Communications
         public readonly bool CanCall;
         public readonly TimeSpan? ExpectedCountdownEnd;
         public readonly bool CountdownStarted;
-        public List<string>? AlertLevels;
-        public string CurrentAlert;
-        public float CurrentAlertDelay;
 
-        public CommunicationsConsoleInterfaceState(bool canAnnounce, bool canCall, List<string>? alertLevels, string currentAlert, float currentAlertDelay, TimeSpan? expectedCountdownEnd = null)
+
+        public CommunicationsConsoleInterfaceState(
+            bool canAnnounce,
+            bool canCall,
+            TimeSpan? expectedCountdownEnd = null)
         {
             CanAnnounce = canAnnounce;
             CanCall = canCall;
             ExpectedCountdownEnd = expectedCountdownEnd;
             CountdownStarted = expectedCountdownEnd != null;
-            AlertLevels = alertLevels;
-            CurrentAlert = currentAlert;
-            CurrentAlertDelay = currentAlertDelay;
         }
     }
 
     [Serializable, NetSerializable]
-    public sealed class CommunicationsConsoleSelectAlertLevelMessage : BoundUserInterfaceMessage
+    public sealed class CommunicationsConsoleSelectAlertLevelMessage(ProtoId<AlertLevelPrototype> level) : BoundUserInterfaceMessage
     {
-        public readonly string Level;
-
-        public CommunicationsConsoleSelectAlertLevelMessage(string level)
-        {
-            Level = level;
-        }
+        public ProtoId<AlertLevelPrototype> Level = level;
     }
 
     [Serializable, NetSerializable]

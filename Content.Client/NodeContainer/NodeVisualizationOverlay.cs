@@ -1,17 +1,3 @@
-// SPDX-FileCopyrightText: 2021-2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021, 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 E F R <602406+Efruit@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Vera Aguilera Puerto <gradientvera@outlook.com>
-// SPDX-FileCopyrightText: 2021 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 Leon Friedrich <60421075+ElectroJr@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2023-2024 TemporalOroboros <TemporalOroboros@gmail.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024-2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2024 Plykiya <58439124+Plykiya@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 eoineoineoin <github@eoinrul.es>
-// SPDX-License-Identifier: MIT
-
 using System.Numerics;
 using System.Text;
 using Content.Client.Resources;
@@ -31,7 +17,6 @@ namespace Content.Client.NodeContainer
     {
         private readonly NodeGroupSystem _system;
         private readonly EntityLookupSystem _lookup;
-        private readonly IMapManager _mapManager;
         private readonly IInputManager _inputManager;
         private readonly IEntityManager _entityManager;
         private readonly SharedTransformSystem _transformSystem;
@@ -52,14 +37,12 @@ namespace Content.Client.NodeContainer
         public NodeVisualizationOverlay(
             NodeGroupSystem system,
             EntityLookupSystem lookup,
-            IMapManager mapManager,
             IInputManager inputManager,
             IResourceCache cache,
             IEntityManager entityManager)
         {
             _system = system;
             _lookup = lookup;
-            _mapManager = mapManager;
             _inputManager = inputManager;
             _entityManager = entityManager;
             _transformSystem = _entityManager.System<SharedTransformSystem>();
@@ -133,7 +116,7 @@ namespace Content.Client.NodeContainer
             var xformQuery = _entityManager.GetEntityQuery<TransformComponent>();
 
             _grids.Clear();
-            _mapManager.FindGridsIntersecting(map, worldAABB, ref _grids);
+            _mapSystem.FindGridsIntersecting(map, worldAABB, ref _grids);
 
             foreach (var grid in _grids)
             {

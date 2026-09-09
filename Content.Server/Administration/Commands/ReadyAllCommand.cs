@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Kyle Tyo <36606155+VerinSenpai@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.GameTicking;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
@@ -8,9 +5,9 @@ using Robust.Shared.Console;
 namespace Content.Server.Administration.Commands;
 
 [AdminCommand(AdminFlags.Round)]
-public sealed class ReadyAllCommand : LocalizedEntityCommands
+public sealed partial class ReadyAllCommand : LocalizedEntityCommands
 {
-    [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
 
     public override string Command => "readyall";
 

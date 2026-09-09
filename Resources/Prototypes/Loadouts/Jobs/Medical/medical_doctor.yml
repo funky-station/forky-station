@@ -102,7 +102,7 @@
 - type: loadout
   id: MedicalDoctorWintercoat
   equipment:
-    outerClothing: ClothingOuterWinterMed
+    outerClothing: FuClothingOuterWinterMed # Funky - previously ClothingOuterWinterMed
 
 - type: loadout
   id: SeniorPhysicianLabCoat

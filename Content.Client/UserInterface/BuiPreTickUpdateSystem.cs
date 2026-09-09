@@ -1,6 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
 using Robust.Shared.ContentPack;
@@ -31,20 +28,12 @@ public interface IBuiPreTickUpdate
 /// <summary>
 /// Implements <see cref="BuiPreTickUpdateSystem"/>.
 /// </summary>
-public sealed class BuiPreTickUpdateSystem : EntitySystem
+public sealed partial class BuiPreTickUpdateSystem : EntitySystem
 {
-    [Dependency] private readonly IPlayerManager _playerManager = null!;
-    [Dependency] private readonly UserInterfaceSystem _uiSystem = null!;
-    [Dependency] private readonly IGameTiming _gameTiming = null!;
-
-    private EntityQuery<UserInterfaceUserComponent> _userQuery;
-
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        _userQuery = GetEntityQuery<UserInterfaceUserComponent>();
-    }
+    [Dependency] private IPlayerManager _playerManager = null!;
+    [Dependency] private UserInterfaceSystem _uiSystem = null!;
+    [Dependency] private IGameTiming _gameTiming = null!;
+    [Dependency] private EntityQuery<UserInterfaceUserComponent> _userQuery = default!;
 
     public void RunUpdates()
     {

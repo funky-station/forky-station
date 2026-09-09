@@ -1,10 +1,3 @@
-// SPDX-FileCopyrightText: 2023 coolmankid12345 <55817627+coolmankid12345@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 AJCM-git <60196617+AJCM-git@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Rainfey <rainfey0+github@gmail.com>
-// SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Antag;
 using Robust.Shared.GameStates;
 using Content.Shared.StatusIcon;
@@ -16,7 +9,7 @@ namespace Content.Shared.Revolutionary.Components;
 /// <summary>
 /// Used for marking regular revs as well as storing icon prototypes so you can see fellow revs.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedRevolutionarySystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(RevolutionarySystem))]
 public sealed partial class RevolutionaryComponent : Component
 {
     /// <summary>
@@ -30,6 +23,12 @@ public sealed partial class RevolutionaryComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier RevStartSound = new SoundPathSpecifier("/Audio/Ambience/Antag/headrev_start.ogg");
+
+    /// <summary>
+    /// The duration of the stun when you get deconverted.
+    /// </summary>
+    [DataField]
+    public TimeSpan StunTime = TimeSpan.FromSeconds(4f);
 
     public override bool SessionSpecific => true;
 }

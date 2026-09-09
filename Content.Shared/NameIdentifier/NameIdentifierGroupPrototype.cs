@@ -1,12 +1,4 @@
-// SPDX-FileCopyrightText: 2022 Paul Ritter <ritter.paul1@googlemail.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 lzk <124214523+lzk228@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-License-Identifier: MIT
-
+﻿using Content.Shared.Dataset;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.NameIdentifier;
@@ -22,6 +14,12 @@ public sealed partial class NameIdentifierGroupPrototype : IPrototype
     /// </summary>
     [DataField]
     public bool FullName = false;
+
+    /// <summary>
+    /// Should the identifier be a prefix, or a suffix?
+    /// </summary>
+    [DataField]
+    public bool Prefix = false;
 
     /// <summary>
     /// Optional format identifier. If set, the name will be formatted using it (e.g., "MK-500").
@@ -41,4 +39,11 @@ public sealed partial class NameIdentifierGroupPrototype : IPrototype
     /// </summary>
     [DataField]
     public int MinValue = 0;
+
+    /// <summary>
+    /// An optional field that will provide a list of name elements to pull from.
+    /// If non-null, <see cref="MinValue"/> and <see cref="MaxValue"/> will be ignored.
+    /// </summary>
+    [DataField]
+    public ProtoId<LocalizedDatasetPrototype>? IdentifierDataset;
 }

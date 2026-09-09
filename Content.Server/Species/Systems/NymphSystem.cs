@@ -1,15 +1,8 @@
-// SPDX-FileCopyrightText: 2024 0x6273 <0x40@keemail.me>
-// SPDX-FileCopyrightText: 2024 LankLTE <135308300+LankLTE@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Arendian <137322659+Arendian@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Tayrtahn <tayrtahn@gmail.com>
-// SPDX-FileCopyrightText: 2026 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Server.Mind;
 using Content.Server.Zombies;
 using Content.Shared.Body;
 using Content.Shared.Species.Components;
+using Content.Shared.Whitelist;
 using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
 
@@ -17,9 +10,9 @@ namespace Content.Server.Species.Systems;
 
 public sealed partial class NymphSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly MindSystem _mindSystem = default!;
-    [Dependency] private readonly ZombieSystem _zombie = default!;
+    [Dependency] private MindSystem _mindSystem = default!;
+    [Dependency] private ZombieSystem _zombie = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {
@@ -33,7 +26,10 @@ public sealed partial class NymphSystem : EntitySystem
         if (TerminatingOrDeleted(uid) || TerminatingOrDeleted(args.Target))
             return;
 
-        if (!_protoManager.TryIndex<EntityPrototype>(comp.EntityPrototype, out var entityProto))
+        if (!ProtoMan.TryIndex<EntityPrototype>(comp.EntityPrototype, out var entityProto))
+            return;
+
+        if (!_whitelist.CheckBoth(args.Target, comp.Blacklist, comp.Whitelist))
             return;
 
         // Get the organs' position & spawn a nymph there

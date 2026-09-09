@@ -1,17 +1,8 @@
-// SPDX-FileCopyrightText: 2022-2023 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2023, 2025 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2025 pathetic meowmeow <uhhadd@gmail.com>
-// SPDX-FileCopyrightText: 2025 themias <89101928+themias@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2026 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Lathe;
 using Content.Shared.Research.Prototypes;
 using Content.Shared.Research.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Research.Components;
 
@@ -21,12 +12,10 @@ public sealed partial class TechnologyDatabaseComponent : Component
     /// <summary>
     /// A main discipline that locks out other discipline technology past a certain tier.
     /// </summary>
-    [AutoNetworkedField]
-    [DataField("mainDiscipline", customTypeSerializer: typeof(PrototypeIdSerializer<TechDisciplinePrototype>))]
-    public string? MainDiscipline;
+    [DataField, AutoNetworkedField]
+    public ProtoId<TechDisciplinePrototype>? MainDiscipline;
 
-    [AutoNetworkedField]
-    [DataField("currentTechnologyCards")]
+    [DataField, AutoNetworkedField]
     public List<string> CurrentTechnologyCards = new();
 
     /// <summary>

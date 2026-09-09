@@ -1,5 +1,4 @@
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Random;
 
@@ -10,7 +9,7 @@ public interface IBudgetEntry : IProbEntry
 {
     float Cost { get; set; }
 
-    string Proto { get; set; }
+    EntProtoId Proto { get; set; }
 }
 
 /// <summary>

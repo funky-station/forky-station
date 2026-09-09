@@ -1,19 +1,29 @@
-// SPDX-FileCopyrightText: 2024 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2024 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Skye <me@skye.vg>
-// SPDX-FileCopyrightText: 2025 Centronias <me@centronias.com>
-// SPDX-FileCopyrightText: 2025 qrwas <aleksandr.vernigora93@gmail.com>
-// SPDX-FileCopyrightText: 2025 Killerqu00 <47712032+Killerqu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Winkarst <74284083+Winkarst-cpu@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Myra <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2026 Vasilis The Pikachu <vasilis@pikachu.systems>
-// SPDX-FileCopyrightText: 2026 Velken <8467292+Velken@users.noreply.github.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Roles;
 using Robust.Shared.Configuration;
 
 namespace Content.Shared.CCVar;
+
+/// <summary>
+/// Controls how an unfilled round-start minimum job slot may ignore player job preferences.
+/// </summary>
+public enum MinimumJobFallback : int // needs int backing because cvar
+{
+    /// <summary>
+    /// Select a player who prefers another role in the target job's primary department.
+    /// </summary>
+    SameDepartment = 1,
+
+    /// <summary>
+    /// First select a player who prefers another role in the target job's primary department,
+    /// then select any player who otherwise qualifies for the target job.
+    /// </summary>
+    AnyEligiblePlayer = 2,
+
+    /// <summary>
+    /// Leave the minimum slot empty when no player prefers the target job.
+    /// </summary>
+    None = 3,
+}
 
 public sealed partial class CCVars
 {
@@ -60,6 +70,12 @@ public sealed partial class CCVars
         GameLobbyFallbackPreset = CVarDef.Create("game.fallbackpreset", "Traitor,Extended", CVar.ARCHIVE);
 
     /// <summary>
+    ///     The preset for the game to fall back to if the selected preset could not be used, and fallback is enabled.
+    /// </summary>
+    public static readonly CVarDef<string>
+        GameTickerIgnoredPresets = CVarDef.Create("game.ignoredpresets", "", CVar.ARCHIVE);
+
+    /// <summary>
     ///     Controls if people can win the game in Suspicion or Deathmatch.
     /// </summary>
     public static readonly CVarDef<bool>
@@ -75,7 +91,7 @@ public sealed partial class CCVars
     ///     Controls the maximum number of character slots a player is allowed to have.
     /// </summary>
     public static readonly CVarDef<int>
-        GameMaxCharacterSlots = CVarDef.Create("game.maxcharacterslots", 30, CVar.ARCHIVE | CVar.SERVERONLY);
+        GameMaxCharacterSlots = CVarDef.Create("game.maxcharacterslots", 30, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
 
     /// <summary>
     ///     Controls the game map prototype to load. SS14 stores these prototypes in Prototypes/Maps.
@@ -138,6 +154,14 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<bool>
         GameRoleWhitelist = CVarDef.Create("game.role_whitelist", true, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    ///     Determines how unfilled round-start minimum job slots fall back when no player prefers the job.
+    ///     Role bans, whitelists, playtime requirements, and antag restrictions always apply.
+    /// </summary>
+    public static readonly CVarDef<MinimumJobFallback>
+        GameMinimumJobFallback = CVarDef.Create("game.minimum_job_fallback", MinimumJobFallback.None,
+            CVar.ARCHIVE | CVar.SERVERONLY);
 
     /// <summary>
     ///     Whether or not disconnecting inside of a cryopod should remove the character or just store them until they reconnect.
@@ -323,10 +347,10 @@ public sealed partial class CCVars
         CVarDef.Create("game.ipintel_alert_admin_warn_rating", 0f, CVar.SERVERONLY);
 
     /// <summary>
-    ///     Make people bonk when trying to climb certain objects like tables.
+    ///     Should clumsy people bonk when trying to climb certain objects like tables?
     /// </summary>
     public static readonly CVarDef<bool> GameTableBonk =
-        CVarDef.Create("game.table_bonk", false, CVar.REPLICATED);
+        CVarDef.Create("game.table_bonk", true, CVar.REPLICATED);
 
     /// <summary>
     ///     Whether or not status icons are rendered for everyone.
@@ -356,7 +380,7 @@ public sealed partial class CCVars
 #endif
 
     /// <summary>
-    ///     Delay between station alert level changes.
+    ///     Delay between station alert level changes (in seconds).
     /// </summary>
     public static readonly CVarDef<int> GameAlertLevelChangeDelay =
         CVarDef.Create("game.alert_level_change_delay", 30, CVar.SERVERONLY);
@@ -430,4 +454,27 @@ public sealed partial class CCVars
     /// </remarks>
     public static readonly CVarDef<int> TileStackLimit =
         CVarDef.Create("game.tile_stack_limit", 5, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// The list of jobs that will be enabled on newly created characters.
+    /// The first job will be set to High priority, subsequent ones to Medium.
+    /// </summary>
+    /// <remarks>
+    /// When setting multiple values in server config, separate them with commas, like "Captain, SecurityOfficer,Janitor"
+    /// Spaces between entries can be either used or omitted.
+    /// </remarks>
+    public static readonly CVarDef<string> NewCharacterJobs =
+        CVarDef.Create("game.new_character_jobs", "Passenger", CVar.REPLICATED);
+
+    /// <summary>
+    /// Determines whether wall-mounted entities are hidden when viewed from outside their facing arc.
+    /// </summary>
+    public static readonly CVarDef<bool> WallMountDirectionalVisibility =
+        CVarDef.Create("game.wallmount_directional_visibility", true, CVar.SERVER | CVar.REPLICATED);
+
+    /// <summary>
+    /// Whether wall-mounted entities fade in/out when entering or leaving the facing arc.
+    /// </summary>
+    public static readonly CVarDef<bool> WallMountFade =
+        CVarDef.Create("game.wallmount_fade", true, CVar.SERVER | CVar.REPLICATED);
 }

@@ -1,12 +1,8 @@
-// SPDX-FileCopyrightText: 2024 SlamBamActionman <83650252+SlamBamActionman@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 SpaceManiac <tad@platymuus.com>
-// SPDX-License-Identifier: MIT
-
 using Content.Shared.Voting;
 
 namespace Content.Client.Voting;
 
-public sealed class VotingSystem : EntitySystem
+public sealed partial class VotingSystem : EntitySystem
 {
     public event Action<VotePlayerListResponseEvent>? VotePlayerListResponse; //Provides a list of players elligble for vote actions
 

@@ -1,19 +1,3 @@
-// SPDX-FileCopyrightText: 2019-2020 Víctor Aguilera Puerto <6766154+Zumorica@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020-2023 Vera Aguilera Puerto <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2020-2021 DrSmugleaf <DrSmugleaf@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2020 Tyler Young <tyler.young@impromptu.ninja>
-// SPDX-FileCopyrightText: 2020 zumorica <zddm@outlook.es>
-// SPDX-FileCopyrightText: 2021 Visne <39844191+Visne@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2021 Acruid <shatter66@gmail.com>
-// SPDX-FileCopyrightText: 2022 Pieter-Jan Briers <pieterjan.briers+git@gmail.com>
-// SPDX-FileCopyrightText: 2022 wrexbe <81056464+wrexbe@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2022 mirrorcult <lunarautomaton6@gmail.com>
-// SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Simon <63975668+Simyon264@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-License-Identifier: MIT
-
 using System.Collections;
 using System.Text;
 using Robust.Shared.Audio.Midi;
@@ -29,20 +13,23 @@ public abstract partial class SharedInstrumentComponent : Component
     [ViewVariables]
     public bool Playing { get; set; }
 
-    [DataField("program"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("program")]
     public byte InstrumentProgram { get; set; }
 
-    [DataField("bank"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("bank")]
     public byte InstrumentBank { get; set; }
 
-    [DataField("allowPercussion"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public bool AllowPercussion { get; set; }
 
-    [DataField("allowProgramChange"), ViewVariables(VVAccess.ReadWrite)]
-    public bool AllowProgramChange { get ; set; }
+    [DataField]
+    public bool AllowProgramChange { get; set; }
 
-    [DataField("respectMidiLimits"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public bool RespectMidiLimits { get; set; } = true;
+
+    [DataField]
+    public byte MinVolume { get; set; }
 
     [ViewVariables(VVAccess.ReadWrite)]
     public EntityUid? Master { get; set; } = null;
@@ -79,10 +66,26 @@ public sealed class InstrumentComponentState : ComponentState
     public bool RespectMidiLimits;
 
     public NetEntity? Master;
+    public byte MinVolume;
 
     public BitArray FilteredChannels = default!;
 }
 
+/// <summary>
+///     This message is sent to the client to update midi min volume.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class InstrumentSetMidiMinVolumeEvent : EntityEventArgs
+{
+    public NetEntity Uid { get; }
+    public byte MinVolume { get; set; }
+
+    public InstrumentSetMidiMinVolumeEvent(NetEntity uid, byte minVolume)
+    {
+        Uid = uid;
+        MinVolume = minVolume;
+    }
+}
 
 /// <summary>
 ///     This message is sent to the client to completely stop midi input and midi playback.
@@ -238,7 +241,7 @@ public sealed class MidiTrack
 
     private const string Postfix = "…";
     // TODO: Make a general method to use in RT? idk if we have that.
-    private string Truncate(string input, int limit)
+    private static string Truncate(string input, int limit)
     {
         if (string.IsNullOrEmpty(input) || limit <= 0 || input.Length <= limit)
             return input;
