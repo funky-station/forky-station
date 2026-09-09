@@ -97,4 +97,4 @@
     graph: SharpsBinGraph
     node: bin
   - type: AccessReader
-    access: [ [ "Medical" ] ]
+    access: [ [ "Medical" ], [ "Janitor" ] ]
