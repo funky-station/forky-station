@@ -3,4 +3,4 @@
 - type: loadout
   id: FuCargoLiftBelt
   equipment:
-    jumpsuit: FuClothingNeckCargoLiftBelt
+    neck: FuClothingNeckCargoLiftBelt
