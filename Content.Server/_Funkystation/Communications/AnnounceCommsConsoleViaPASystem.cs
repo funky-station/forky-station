@@ -11,7 +11,8 @@ namespace Content.Server.Communications
         [Dependency] private PASystem _paSystem = null!;
         private void AnnounceCommsConsoleViaPASystem(EntityUid uid,
             CommunicationsConsoleComponent comp,
-            CommunicationsConsoleAnnounceMessage message)
+            CommunicationsConsoleAnnounceMessage message,
+            bool paExclusive)
         {
             Loc.TryGetString(comp.Title, out var title);
             title ??= comp.Title;
@@ -37,21 +38,25 @@ namespace Content.Server.Communications
                     author = _identity.GetIdentityShortInfo(mob, uid) ?? author;
             }
 
-            comp.AnnouncementCooldownRemaining = comp.Delay;
-            UpdateCommsConsoleInterface(uid, comp);
+            if (paExclusive)
+            {
+                // only set the cooldown if announcements are exclusively handled by the PA system, otherwise we'll prevent the normal announcer from working
+                comp.AnnouncementCooldownRemaining = comp.Delay;
+                UpdateCommsConsoleInterface(uid, comp);
 
-            // i don't know if CommunicationConsoleAnnouncementEvent is actually used for anything, so we'll do it identically
-            // to a normal announcement just to be safe
-            var maxLength = _cfg.GetCVar(CCVars.ChatMaxAnnouncementLength);
-            var msg = SharedChatSystem.SanitizeAnnouncement(message.Message, maxLength);
-            var ev = new CommunicationConsoleAnnouncementEvent(uid, comp, msg, message.Actor);
-            RaiseLocalEvent(ref ev);
+                // i don't know if CommunicationConsoleAnnouncementEvent is actually used for anything, so we'll do it identically
+                // to a normal announcement just to be safe
+                var maxLength = _cfg.GetCVar(CCVars.ChatMaxAnnouncementLength);
+                var msg = SharedChatSystem.SanitizeAnnouncement(message.Message, maxLength);
+                var ev = new CommunicationConsoleAnnouncementEvent(uid, comp, msg, message.Actor);
+                RaiseLocalEvent(ref ev);
+            }
 
             _announcer.TryGetAnnouncerSound(comp.Sound, out var sound);
 
             _paSystem.DispatchPAAnnouncement(message.Message, author, message.Actor, true, true, comp.Global, preamble, sound, comp.Color);
 
-            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following station announcement: {msg}");
+            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following station announcement: {message.Message}");
         }
     }
 }

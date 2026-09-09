@@ -209,10 +209,12 @@ namespace Content.Server.Communications
         {
             // funky - redirect comms console announcements to PA speakers
             // TODO: comms console behaviour when pa exclusivity is disabled still needs some work
-            if (!message.BypassPA && PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg))
+            if (!message.BypassPA && _cfg.GetCVar(PAAnnouncementCVars.PAEnabled))
             {
-                AnnounceCommsConsoleViaPASystem(uid, comp, message);
-                return;
+                var paExclusive = _cfg.GetCVar(PAAnnouncementCVars.PAExclusiveAnnouncements);
+                AnnounceCommsConsoleViaPASystem(uid, comp, message, paExclusive);
+                if (paExclusive)
+                    return;
             }
             var maxLength = _cfg.GetCVar(CCVars.ChatMaxAnnouncementLength);
             var msg = SharedChatSystem.SanitizeAnnouncement(message.Message, maxLength);
@@ -257,7 +259,7 @@ namespace Content.Server.Communications
                 return;
             }
 
-            _chatSystem.DispatchStationAnnouncement(uid, msg, title, colorOverride: comp.Color, paSystemBypass: message.BypassPA); // funky - add pa system bypass option
+            _chatSystem.DispatchStationAnnouncement(uid, msg, title, colorOverride: comp.Color, paSystemBypass: true); // funky - add pa system bypass option
 
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following station announcement: {msg}");
 
