@@ -29,7 +29,7 @@ public sealed partial class PAAnnounceCommand : LocalizedEntityCommands
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        var paBypass = !PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // only bother to use PA system if its enabled
+        var paBypass = !_cfg.GetCVar(PAAnnouncementCVars.PAEnabled); // only bother to use PA system if its enabled
         AnnounceCommand.OnExecute(shell, argStr, args, paBypass,
             Loc, _announcer, _chat);
     }
