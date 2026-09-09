@@ -14,4 +14,4 @@
   category: Quirks
   components:
   - type: Smoker
-    WithdrawalInterval: 30
+    WithdrawalInterval: 185
