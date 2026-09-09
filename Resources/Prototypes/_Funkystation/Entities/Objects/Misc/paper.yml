@@ -1,6 +1,6 @@
 - type: entity
   id: BoxFolderBookshelfLabels
-  parent: BoxFolderBase
+  parent: BoxFolderBaseEmpty
   name: bookshelf label folder
   description: A folder filled with labels for your shelves.
   components:
