@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "By AraiMaia for Funky Station. Envelope inhands by TiniestShark (Github)",
+  "copyright": "By AraiMaia for Funky Station, by empty0set for Funkystation, paper_stamp-cci by TheHolyAegis, By Tomlolo for Funky station, Envelope inhands by TiniestShark (Github) ",
   "size": {
     "x": 32,
     "y": 32
@@ -30,6 +30,12 @@
     },
     {
       "name": "envelope_torn_overlay"
+    },
+    {
+       "name": "envelope-inhand-left"
+    },
+    {
+       "name": "envelope-inhand-right"
     },
     {
       "name": "paper"
@@ -143,12 +149,40 @@
       "name": "paper-inhand-right"
     },
     {
-      "name": "envelope-inhand-right",
-      "directions": 4
+      "name": "paper_stamp-iaa"
     },
     {
-      "name": "envelope-inhand-left",
-      "directions": 4
+       "name": "paper_stamp-magi"
+    },
+    {
+      "name": "paper_stamp-borg"
+    },
+    {
+       "name": "paper_stamp-cci"
+    },
+    {
+        "name": "paper_stamp-topsecret"
+    },
+    {
+        "name": "paper_stamp-classified"
+    },
+    {
+       "name": "paper_stamp-hd"
+    },
+    {
+       "name": "paper_stamp-xo"
+    },
+    {
+        "name": "paper_stamp-discharged"
+    },
+    {
+        "name": "paper_stamp-commandant"
+    },
+    {
+        "name": "paper_stamp-lieutenant"
+    },
+    {
+        "name": "paper_stamp-cl"
     }
   ]
 }
