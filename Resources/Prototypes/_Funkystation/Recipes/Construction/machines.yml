@@ -1,0 +1,25 @@
+- type: construction
+  parent: BaseSwitch
+  id: SignalSwitchRecipeAlt1
+  graph: SignalSwitchGraphAlt1
+  targetNode: SignalSwitchNode
+  category: construction-category-machines
+
+- type: construction
+  parent: BaseSwitch
+  id: SignalSwitchRecipeAlt2
+  graph: SignalSwitchGraphAlt2
+  targetNode: SignalSwitchNode
+  category: construction-category-machines
+
+- type: construction
+  parent: BaseSwitch
+  id: SignalButtonRecipeAlt1
+  graph: SignalButtonGraphAlt1
+  targetNode: SignalButtonNode
+
+- type: construction
+  parent: BaseSwitch
+  id: SignalButtonRecipeAlt2
+  graph: SignalButtonGraphAlt2
+  targetNode: SignalButtonNode
