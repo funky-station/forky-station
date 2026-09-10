@@ -1,8 +1,8 @@
 ﻿# Funky - Returned from the graveyard
 - type: listing
   id: UplinkRevolverPython
-  name: uplink-revolver-python-name
-  description: uplink-revolver-python-desc
+  name: Python
+  description: Six cylindered revolver with AP rounds. Make em count.
   productEntity: WeaponRevolverPythonAP
   discountCategory: rareDiscounts
   discountDownTo:
