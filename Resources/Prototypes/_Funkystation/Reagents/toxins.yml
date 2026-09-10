@@ -19,6 +19,7 @@
   #         min: 0.2
   #       amount: -8
 
+# Funky smoking port/tweak
 - type: reagent
   id: Carcinotoxin
   name: reagent-name-carcinotoxin
