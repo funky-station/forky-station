@@ -3,9 +3,15 @@
   name: guide-entry-nclp
   text: "/ServerInfo/_Funkystation/Guidebook/NCLP/nclp.xml"
   children:
+    - Article_1
     - Article_2
     - Article_3
     - Article_5
+
+- type: guideEntry
+  id: Article_1
+  name: guide-entry-nclp-article-1
+  text: "/ServerInfo/_Funkystation/Guidebook/NCLP/Article1/Article1.xml"
 
 - type: guideEntry
   id: Article_2
