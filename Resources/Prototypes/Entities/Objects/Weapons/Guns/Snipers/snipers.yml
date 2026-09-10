@@ -60,11 +60,20 @@
     inHandsMaxFillLevels: 1
     equippedFillBaseName: -fill-
     equippedMaxFillLevels: 1
-  - type: MeleeWeapon
+  - type: EmbeddableProjectile #funky #all this should make this functionally a gun + a spear, which i hope should make the weapon ACTUALLY useable and maybe viable
+    offset: -0.15,0.0
+  - type: ThrowingAngle #funky
+    angle: 225
+  - type: LandAtCursor #funky
+  - type: DamageOtherOnHit #funky #owie they chucked a mosin at my face
+    damage:
+      types:
+        Piercing: 18
+  - type: MeleeWeapon #funky #buffed from 12 so that the bayonet is actually viable and also for that one poor fucking person that's been waiting for a mosin buff
     wideAnimationRotation: -135
     damage:
       types:
-        Piercing: 12
+        Piercing: 20
     angle: 0
     animation: WeaponArcThrust
     soundHit:
@@ -127,6 +136,22 @@
     pvsIncrease: 0.3
   - type: StaticPrice
     price: 3500
+  - type: MeleeWeapon #funky
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee #funky
+    attackType: Heavy
+  - type: IncreaseDamageOnWield #funky
+    damage:
+      types:
+        Blunt: 10
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 12
 
 - type: entity
   name: musket
@@ -157,6 +182,16 @@
       - CartridgeAntiMateriel
     capacity: 1
     proto: CartridgeAntiMateriel
+  - type: EmbeddableProjectile #funky
+    offset: -0.15,0.0
+  - type: ThrowingAngle #funky
+    angle: 225
+  - type: LandAtCursor #funky
+  - type: DamageOtherOnHit #funky #owie they chucked a musket at my face
+    damage:
+      types:
+        Piercing: 14
+        Bloodloss: 1 #the bayonet innately has the bleeds you property
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
@@ -199,6 +234,18 @@
     proto: CartridgeMagnum
   - type: StaticPrice
     price: 0
+  - type: MeleeWeapon #funky
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee #funky
+    attackType: Light
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 6
 
 - type: entity
   parent: WeaponPistolFlintlock

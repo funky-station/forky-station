@@ -47,3 +47,15 @@
     sprite: Objects/Weapons/Guns/Basic/energy_crossbow.rsi
   - type: StaticPrice
     price: 2500
+  - type: MeleeWeapon #funky
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee #funky
+    attackType: Light
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 6
