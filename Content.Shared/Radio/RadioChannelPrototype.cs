@@ -42,8 +42,8 @@ public sealed partial class RadioChannelPrototype : IPrototype
     /// <summary>
     /// Whether the channel can transmit across different stations without a telecommunications server.
     /// </summary>
-    [DataField("longRange"), ViewVariables]
-    public bool LongRange = false;
+    [DataField]
+    public bool LongRange;
 
     /// <summary>
     /// ImpStation original. If a channel is readOnly, then headsets cannot send messages through it.
