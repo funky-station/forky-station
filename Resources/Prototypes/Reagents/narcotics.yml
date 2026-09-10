@@ -261,90 +261,15 @@
   - !type:PlantAdjustHealth
     amount: -5
   # BEGIN FUNKY STATION
-  # Changes to make nicotine build up in the bloodstream and give you cancer effects
+  # Changes to make nicotine build up carcinogens in the bloodstream and give you cancer effects
   metabolisms:
     Bloodstream:
       effects:
       # Makes Nicotine build up in the bloodstream
       - !type:AdjustReagent
         conditions:
-        - !type:ReagentCondition
-          reagent: Nicotine
-          max: 20
-        reagent: Nicotine
-        amount: 0.5
-      - !type:AdjustReagent
-        conditions:
-        - !type:ReagentCondition
-          reagent: Nicotine
-          min: 20
         reagent: Nicotine
         amount: 0.475
-      # Warning Stage: Coughing
-      - !type:Emote
-        conditions:
-        - !type:ReagentCondition
-          reagent: Nicotine
-          min: 25 #should take like a bit of time smoking after hitting the 20u part to hit here, first warning state
-        emote: Cough
-        probability: 0.05
-      # Stage 1: Poison and Asphyxiation damage
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentCondition
-          reagent: Nicotine
-          min: 40   #if you hit this naturally while smoking, good for you.
-        damage:
-          types:
-            Poison: 0.01  #miniscule amounts of poison from the stuff NT puts in, also gives med some work
-            Asphyxiation: 0.1  #lungs are in smoker mode
-      # Stage 2: Gasping for air, added cellular damage
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentCondition
-          reagent: Nicotine
-          min: 70   #if you hit this naturally while smoking, what the fuck.
-        damage:
-          types:
-            Cellular: 0.01 #real spess cancer, straight to the source
-            Asphyxiation: 0.2 #lungs are struggling, mega smoker mode
-      - !type:Emote
-        conditions:
-        - !type:ReagentCondition
-          reagent: Nicotine
-          min: 70
-        emote: Gasp
-        probability: 0.05
-      # Stage 3: Chest pain, reduced movement speed, more damage
-      - !type:PopupMessage
-        conditions:
-        - !type:ReagentCondition
-          reagent: Nicotine
-          min: 125
-        visualType: Medium
-        type: Local
-        messages:
-        - nicotine-effect-dull-ache
-        - nicotine-effect-sharp-pain
-        probability: 0.05
-      # Stage 3 Damage
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentCondition
-          reagent: Nicotine
-          min: 125   #if you hit this naturally while smoking, uh. How even. Are you literally just staying in med at this point.
-        damage:
-          types:
-            Cellular: 0.01
-            Poison: 0.01 #the three nicotine horsemen
-            Asphyxiation: 0.3
-      - !type:MovementSpeedModifier
-        conditions:
-        - !type:ReagentCondition
-          reagent: Nicotine
-          min: 125
-        walkSpeedModifier: 0.8  #lungs don't do good, can't move good.
-        sprintSpeedModifier: 0.8
   # END FUNKY STATION
 
 # TODO: Replace these nonstandardized effects with generic brain damage
