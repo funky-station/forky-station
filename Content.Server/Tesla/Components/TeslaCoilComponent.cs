@@ -12,6 +12,7 @@ public sealed partial class TeslaCoilComponent : Component
     /// How much power will the coil generate from a lightning strike
     /// </summary>
     // To Do: Different lightning bolts have different powers and generate different amounts of energy
+    // Kinda useless now as each lightning bolt has its own energy amount
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float ChargeFromLightning = 50000f;
 }

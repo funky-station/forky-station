@@ -75,6 +75,8 @@
   id: MobSkeletonPerson
   name: Urist McBones
   components:
+  - type: MobSize
+    size: Medium
   - type: Damageable
     damageModifierSet: Skeleton
   - type: Injurable
