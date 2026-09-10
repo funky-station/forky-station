@@ -51,7 +51,7 @@
 - type: cargoProduct
   id: ServiceSmokeables
   icon:
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/green.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Cartons/green.rsi # Funky
     state: icon
   product: CrateServiceSmokeables
   cost: 1500
@@ -61,7 +61,7 @@
 - type: cargoProduct
   id: ServiceCustomSmokable
   icon:
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/green.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Cartons/green.rsi # Funky
     state: icon
   product: BoxServiceCustomSmokable #Funky change boxification
   cost: 1000
@@ -121,7 +121,7 @@
 - type: cargoProduct
   id: ServiceSodaDispenser
   icon:
-    sprite: Objects/Consumable/Drinks/generic_jug.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/generic_jug.rsi # Funky
     state: icon
   product: CrateServiceSodaDispenser
   cost: 850
@@ -131,7 +131,7 @@
 - type: cargoProduct
   id: ServiceBoozeDispenser
   icon:
-    sprite: Objects/Consumable/Drinks/generic_jug.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/generic_jug.rsi # Funky
     state: icon
   product: CrateServiceBoozeDispenser
   cost: 750

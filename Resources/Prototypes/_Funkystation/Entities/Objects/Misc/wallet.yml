@@ -176,6 +176,14 @@
 
 - type: entity
   parent: BaseWallet
+  id: CourierWallet
+  suffix: Courier
+  components:
+  - type: Pda
+    id: FuCourierIDCard
+
+- type: entity
+  parent: BaseWallet
   id: SalvageWallet
   suffix: Salvage
   components:

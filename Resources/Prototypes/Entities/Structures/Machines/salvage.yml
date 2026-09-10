@@ -38,11 +38,18 @@
   - type: ActiveRadio
     channels:
     - Supply
-  - type: SalvageMagnet
   - type: ApcPowerReceiver
     powerLoad: 2500 # TODO change this to a HV power draw that really hits the grid hard WHEN active
   - type: Machine
     board: SalvageMagnetMachineCircuitboard
+  - type: SalvageMagnet #Funky - Moved salvage magnet comp to end
+    #Funky start - Prisoner salvage magnet
+    lateralOffset: 0
+    magnetSpawnDistance: 10
+  - type: ActivatableUIRequiresAccess
+  - type: AccessReader
+    access: [["Security"]]
+    #Funky end - Prisoner salvage magnet
 
 # For Knightship
 - type: entity

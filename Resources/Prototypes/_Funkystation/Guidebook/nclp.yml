@@ -1,0 +1,23 @@
+- type: guideEntry
+  id: NCLP
+  name: guide-entry-nclp
+  text: "/ServerInfo/_Funkystation/Guidebook/NCLP/nclp.xml"
+  children:
+    - Article_2
+    - Article_3
+    - Article_5
+
+- type: guideEntry
+  id: Article_2
+  name: guide-entry-nclp-article-2
+  text: "/ServerInfo/_Funkystation/Guidebook/NCLP/Article2/Article2.xml"
+
+- type: guideEntry
+  id: Article_3
+  name: guide-entry-nclp-article-3
+  text: "/ServerInfo/_Funkystation/Guidebook/NCLP/Article3/Article3.xml"
+
+- type: guideEntry
+  id: Article_5
+  name: guide-entry-nclp-article-5
+  text: "/ServerInfo/_Funkystation/Guidebook/NCLP/Article5/Article5.xml"

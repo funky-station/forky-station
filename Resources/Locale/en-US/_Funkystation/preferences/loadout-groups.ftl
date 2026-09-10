@@ -36,3 +36,16 @@ fu-loadout-group-jani-outerclothing = Janitor outer clothing
 fu-loadout-group-jani-uniform = janitor uniform
 fu-loadout-group-jani-gloves = janitor gloves
 fu-loadout-group-jani-shoes = janitor galoshes
+
+#Logistics
+fu-loadout-group-cargo-neck = Cargo neck
+
+fu-loadout-group-cargo-technician-outer-clothing = Cargo Technician outer clothing
+fu-loadout-group-cargo-technician-uniform = Cargo Technician uniform
+
+fu-loadout-group-courier-head = Courier head
+fu-loadout-group-courier-outer-clothing = Courier outer clothing
+fu-loadout-group-courier-uniform = Courier uniform
+fu-loadout-group-courier-shoes = Courier shoes
+
+fu-loadout-group-quartermaster-outer-clothing = Quartermaster's outer clothing

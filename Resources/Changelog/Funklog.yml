@@ -521,4 +521,146 @@
   id: 58
   time: '2026-09-08T16:48:34Z'
   url: https://github.com/funky-station/forky-station/pull/381
+- author: AraiMaia
+  changes:
+  - message: 'New sprites for: Reagent Grinder, Electrolyzer, Hotplate, Centrifuge,
+      Arcades, Cell Charger'
+    type: Add
+  id: 59
+  time: '2026-09-09T08:15:31Z'
+  url: https://github.com/funky-station/forky-station/pull/406
+- author: AraiMaia
+  changes:
+  - message: New sprites for Game Boards, Crayons, Furniture, Sinks, Racks, Bike Horn,
+      Mirrors
+    type: Add
+  id: 60
+  time: '2026-09-09T08:42:32Z'
+  url: https://github.com/funky-station/forky-station/pull/408
+- author: mkanke
+  changes:
+  - message: Glass sheets now break when dropped or thrown
+    type: Tweak
+  id: 61
+  time: '2026-09-09T08:59:58Z'
+  url: https://github.com/funky-station/forky-station/pull/334
+- author: AraiMaia
+  changes:
+  - message: New sprites for Cardboard Boxes, Mail, Restock Boxes
+    type: Add
+  id: 62
+  time: '2026-09-09T09:14:54Z'
+  url: https://github.com/funky-station/forky-station/pull/407
+- author: AraiMaia
+  changes:
+  - message: Resprites Geiger Counters, Signallers, Extinguisher, Mouse Trap, Interrogation,
+      Lamp, Flash, Plant and Ore Bags
+    type: Add
+  id: 63
+  time: '2026-09-09T09:24:28Z'
+  url: https://github.com/funky-station/forky-station/pull/410
+- author: Rainbeon
+  changes:
+  - message: Added Rule 9 - Silicon/Droid Policy
+    type: Add
+  id: 64
+  time: '2026-09-09T17:33:09Z'
+  url: https://github.com/funky-station/forky-station/pull/441
+- author: AraiMaia
+  changes:
+  - message: Resprited Donk Pockets, Condiments, Bar Implements, Generic Jugs
+    type: Add
+  id: 65
+  time: '2026-09-09T19:50:56Z'
+  url: https://github.com/funky-station/forky-station/pull/409
+- author: AraiMaia, Tea
+  changes:
+  - message: cargo windbreakers!
+    type: Add
+  - message: cargo uniforms
+    type: Tweak
+  id: 66
+  time: '2026-09-09T22:18:44Z'
+  url: https://github.com/funky-station/forky-station/pull/446
+- author: Joaco545
+  changes:
+  - message: Added the NCPL Guidebook entry
+    type: Add
+  id: 67
+  time: '2026-09-10T02:46:13Z'
+  url: https://github.com/funky-station/forky-station/pull/429
+- author: Joaco545
+  changes:
+  - message: Added the new Corporate Law
+    type: Add
+  - message: Removed Space Law
+    type: Remove
+  - message: Renamed space law book into corporate law book
+    type: Tweak
+  id: 68
+  time: '2026-09-10T03:44:17Z'
+  url: https://github.com/funky-station/forky-station/pull/438
+- author: Gamercodeleo1, pirakaplant
+  changes:
+  - message: Added most of SOP.
+    type: Add
+  id: 69
+  time: '2026-09-10T05:23:22Z'
+  url: https://github.com/funky-station/forky-station/pull/451
+- author: willowzeta
+  changes:
+  - message: Greencomms are intercom-only again.
+    type: Tweak
+  id: 70
+  time: '2026-09-10T07:09:18Z'
+  url: https://github.com/funky-station/forky-station/pull/454
+- author: AraiMaia, VectorAssembly
+  changes:
+  - message: Added molotovs. Use a piece of cloth on a glass bottle to create one.
+    type: Add
+  id: 71
+  time: '2026-09-10T08:44:10Z'
+  url: https://github.com/funky-station/forky-station/pull/417
+- author: DrSmugleaf, stinkiestdog, AraiMaia
+  changes:
+  - message: Ported chat stacking from RMC! Thank you DrSmugleaf!
+    type: Add
+  id: 72
+  time: '2026-09-10T08:50:53Z'
+  url: https://github.com/funky-station/forky-station/pull/421
+- author: Reconpangolin
+  changes:
+  - message: Added prisoner radio channel
+    type: Add
+  - message: Adjusted the salvage magnet and ore processor for prisoner
+    type: Tweak
+  id: 73
+  time: '2026-09-10T09:55:07Z'
+  url: https://github.com/funky-station/forky-station/pull/342
+- author: Joaco545
+  changes:
+  - message: Added the new sentencing guidelines
+    type: Add
+  id: 74
+  time: '2026-09-10T15:35:33Z'
+  url: https://github.com/funky-station/forky-station/pull/453
+- author: AraiMaia
+  changes:
+  - message: New sprites and names for the various cigarette packets and cartons.
+    type: Add
+  id: 75
+  time: '2026-09-10T17:37:33Z'
+  url: https://github.com/funky-station/forky-station/pull/450
+- author: Ven
+  changes:
+  - message: Medical beds now accept gas tanks. Internals aswell
+    type: Add
+  - message: Operating tables have a  toggleable overhead light and visual monitor.
+      And sounds!
+    type: Add
+  - message: Furniture wheels now play a little sound and are synced up with wrenches.
+    type: Tweak
+  id: 76
+  time: '2026-09-10T18:42:31Z'
+  url: https://github.com/funky-station/forky-station/pull/319
 Order: -1

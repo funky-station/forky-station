@@ -10,9 +10,9 @@
   - type: ExaminableSolution
     solution: food
   - type: Sprite
-    sprite: Objects/Consumable/Food/condiments.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/condiments.rsi # Funky
   - type: Icon
-    sprite: Objects/Consumable/Food/condiments.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/condiments.rsi # Funky
   - type: TrashOnSolutionEmpty
     solution: food
   - type: SpaceGarbage

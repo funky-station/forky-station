@@ -1,14 +1,14 @@
 - type: entity
   id: CigCartonGreen
   parent: [ BoxCardboard, BaseBagOpenClose ]
-  name: Spessman's Smokes carton
-  description: "A carton containing 6 packets of Spessman's Smokes."
+  name: Interdyne Respirols carton # Funky
+  description: "A carton containing 6 packets of Interdyne Respirols." # Funky
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/green.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Cartons/green.rsi # Funky
     state: icon
   - type: Item
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/green.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Cartons/green.rsi # Funky
     size: Normal
   - type: Storage
     grid:
@@ -29,14 +29,14 @@
 - type: entity
   id: CigCartonRed
   parent: CigCartonGreen
-  name: DromedaryCo carton
-  description: A carton containing 6 packets of Dromedarycos.
+  name: Royal Reds carton # Funky
+  description: A carton containing 6 packets of Royal Reds. # Funky
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/red.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Cartons/red.rsi # Funky
     state: icon
   - type: Item
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/red.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Cartons/red.rsi # Funky
   - type: EntityTableContainerFill
     containers:
       storagebase:
@@ -46,14 +46,14 @@
 - type: entity
   id: CigCartonBlue
   parent: CigCartonGreen
-  name: AcmeCo carton
-  description: A carton containing 6 packets of AcmeCo.
+  name: Nomads carton # Funky
+  description: A carton containing 6 packets of Nomads. # Funky
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/blue.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Cartons/blue.rsi # Funky
     state: icon
   - type: Item
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/blue.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Cartons/blue.rsi # Funky
   - type: EntityTableContainerFill
     containers:
       storagebase:
@@ -63,14 +63,14 @@
 - type: entity
   id: CigCartonBlack
   parent: CigCartonGreen
-  name: Nomads carton
-  description: A carton containing 6 packets of Nomads.
+  name: Ruĝa Stelo carton # Funky
+  description: A carton containing 6 packets of Ruĝa Stelo. # Funky
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/black.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Cartons/black.rsi # Funky
     state: icon
   - type: Item
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/black.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Cartons/black.rsi # Funky
   - type: EntityTableContainerFill
     containers:
       storagebase:
@@ -80,14 +80,14 @@
 - type: entity
   id: CigCartonMixed
   parent: CigCartonGreen
-  name: Dan's soaked smokes
-  description: A carton containg 3 packets of Dan's soaked smokes.
+  name: Newstations carton # Funky
+  description: A carton containg 3 packets of Newstations.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/mixed.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Cartons/mixed.rsi # Funky
     state: icon
   - type: Item
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/mixed.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Cartons/mixed.rsi # Funky
   - type: EntityTableContainerFill
     containers:
       storagebase:

@@ -60,7 +60,7 @@
   description: A metal flask with a leather band and golden badge belonging to the inspector.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/detflask.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/detflask.rsi # Funky
 
 - type: entity
   parent: FlaskBase
@@ -69,7 +69,7 @@
   description: A metal flask, fit for a hard working HoS.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/hosflask.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/hosflask.rsi # Funky
 
 - type: entity
   parent: FlaskBase
@@ -87,7 +87,7 @@
   description: A reusable metal flask. Classier than drinking straight from a bottle.
   components:
     - type: Sprite
-      sprite: Objects/Consumable/Drinks/barflask.rsi
+      sprite: _Funkystation/Objects/Consumable/Drinks/barflask.rsi # Funky
 
 - type: entity
   parent: FlaskBase
@@ -105,7 +105,7 @@
   description: Keeping your drinks at the perfect temperature since 1892.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/vacuumflask.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/vacuumflask.rsi # Funky
   - type: Tool
     qualities:
     - Rolling # Perfectly cylindrical flask

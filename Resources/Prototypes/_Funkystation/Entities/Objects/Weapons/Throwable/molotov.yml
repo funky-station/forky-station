@@ -1,0 +1,80 @@
+﻿- type: entity
+  parent: DrinkBottleGlassBase
+  id: MolotovCocktail
+  name: molotov cocktail
+  description: A bottle stuffed with a very flammable rag. Viva!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Throwable/molotov.rsi
+    state: icon
+  - type: Appearance
+  - type: Molotov
+  - type: Tag
+    tags:
+    - Molotov
+    - DrinkBottle
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+  - type: Flammable
+    fireSpread: false
+    alwaysCombustible: true
+    canExtinguish: true
+    damage:
+      types:
+        Heat: 1
+  - type: FireVisuals
+    sprite: _Funkystation/Objects/Weapons/Throwable/molotov.rsi
+    normalState: icon-fire
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:SpawnBurningRagBehavior
+        litRag: MolotovRag
+        unlitRag: RagItem
+
+- type: entity
+  parent: BaseItem
+  id: MolotovRag
+  name: burnt rag
+  description: A soggy scrap of burnt cloth.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Throwable/molotov.rsi
+    state: rag
+  - type: Appearance
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - ClothMade
+    - Trash
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    canExtinguish: true
+    damage:
+      types:
+        Heat: 1
+  - type: FireVisuals
+    sprite: _Funkystation/Objects/Weapons/Throwable/molotov.rsi
+    normalState: icon-fire
+  - type: Damageable
+  - type: Injurable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

@@ -5,7 +5,7 @@
   description: Old fashioned game of dice and pieces.
   components:
   - type: Sprite
-    sprite: Objects/Fun/Tabletop/backgammon.rsi
+    sprite: _Funkystation/Objects/Fun/Tabletop/backgammon.rsi # Funky
     state: board
   - type: TabletopGame
     boardName: tabletop-backgammon-board-name
