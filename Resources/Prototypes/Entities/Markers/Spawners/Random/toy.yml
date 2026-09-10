@@ -398,7 +398,7 @@
   - type: Sprite
     layers:
     - state: red
-    - sprite: Objects/Fun/bikehorn.rsi
+    - sprite: _Funkystation/Objects/Fun/bikehorn.rsi # Funky
       state: icon
   - type: EntityTableSpawner
     table: !type:NestedSelector
@@ -526,7 +526,7 @@
   - type: Sprite
     layers:
     - state: red
-    - sprite: Objects/Fun/crayons.rsi
+    - sprite: _Funkystation/Objects/Fun/crayons.rsi # Funky
       state: rainbow
   - type: EntityTableSpawner
     table: !type:GroupSelector

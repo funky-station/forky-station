@@ -71,4 +71,7 @@
   id: LaundryBag
 
 - type: Tag
+  id: Molotov
+
+- type: Tag
   id: PASpeakerElectronics

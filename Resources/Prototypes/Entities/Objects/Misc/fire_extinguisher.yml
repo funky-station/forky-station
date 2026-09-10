@@ -59,12 +59,12 @@
   description: It extinguishes fires.
   components:
   - type: Sprite
-    sprite: Objects/Misc/fire_extinguisher.rsi
+    sprite: _Funkystation/Objects/Misc/fire_extinguisher.rsi # Funky
     layers:
     - state: fire_extinguisher_closed
       map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Item
-    sprite: Objects/Misc/fire_extinguisher.rsi
+    sprite: _Funkystation/Objects/Misc/fire_extinguisher.rsi # Funky
     size: Normal
   - type: MeleeWeapon
     wideAnimationRotation: 180
