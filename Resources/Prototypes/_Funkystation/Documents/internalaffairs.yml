@@ -7,3 +7,4 @@
   content: doc-department-audit-content
   access:
     - Command
+    - InternalAffairs
