@@ -261,15 +261,10 @@
   - !type:PlantAdjustHealth
     amount: -5
   # BEGIN FUNKY STATION
-  # Changes to make nicotine build up carcinogens in the bloodstream and give you cancer effects
+  # Changes to make nicotine build up in the bloodstream, for effective addiction
   metabolisms:
     Bloodstream:
-      effects:
-      # Makes Nicotine build up in the bloodstream
-      - !type:AdjustReagent
-        conditions:
-        reagent: Nicotine
-        amount: 0.475
+      metabolismRate: 0.02 # very slow to metabolise, lets it build up
   # END FUNKY STATION
 
 # TODO: Replace these nonstandardized effects with generic brain damage
