@@ -285,14 +285,14 @@ entities:
     - type: Transform
       pos: 5.4233127,3.0429564
       parent: 1
-- proto: GlowstickGreen
+- proto: FuGlowstickGreen
   entities:
   - uid: 69
     components:
     - type: Transform
       pos: -0.38918734,4.4179564
       parent: 1
-- proto: GlowstickYellow
+- proto: FuGlowstickYellow
   entities:
   - uid: 70
     components:

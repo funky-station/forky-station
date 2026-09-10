@@ -268,7 +268,8 @@
       - id: trayScanner
       - id: HandheldGPSBasic
       - id: HandLabeler
-      - id: GlowstickGreen
+      - id: FuGlowstickGreen # Funky
+      - id: FuGlowstickWhite # Funky
       - id: Bucket
       - id: RadioHandheld
       - id: AppraisalTool

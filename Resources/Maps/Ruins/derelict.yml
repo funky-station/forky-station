@@ -3094,7 +3094,7 @@ entities:
     - type: Transform
       pos: 33.5,15.5
       parent: 2
-- proto: GlowstickRed
+- proto: FuGlowstickRed
   entities:
   - uid: 2325
     components:
