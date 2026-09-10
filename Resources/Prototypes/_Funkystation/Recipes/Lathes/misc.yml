@@ -7,6 +7,13 @@
     Plastic: 50
 
 - type: latheRecipe
+  id: PenReceptacle
+  result: PenReceptacle
+  completetime: 1
+  materials:
+    Steel: 50
+
+- type: latheRecipe
   id: ShredderBin
   result: ShredderBin
   completetime: 4
