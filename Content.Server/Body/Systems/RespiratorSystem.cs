@@ -131,6 +131,8 @@ public sealed partial class RespiratorSystem : EntitySystem
                 }
 		}
 
+
+
             if (respirator.Saturation < respirator.SuffocationThreshold)
             {
                 if (_gameTiming.CurTime >= respirator.LastGaspEmoteTime + respirator.GaspEmoteCooldown)
@@ -155,6 +157,9 @@ public sealed partial class RespiratorSystem : EntitySystem
     public void Inhale(Entity<RespiratorComponent?> entity, float multiplier = 1f) //Funky Station - added multiplier parameter
     {
         if (!Resolve(entity, ref entity.Comp, logMissing: false))
+            return;
+
+        if (HasComp<NotBreathingComponent>(entity))
             return;
 
         // Inhale gas
