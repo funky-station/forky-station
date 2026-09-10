@@ -3,6 +3,7 @@
   name: guide-entry-nclp
   text: "/ServerInfo/_Funkystation/Guidebook/NCLP/nclp.xml"
   children:
+  - Article_2
   - Article_3
 
 - type: guideEntry

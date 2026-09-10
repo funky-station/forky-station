@@ -582,4 +582,22 @@
   id: 66
   time: '2026-09-09T22:18:44Z'
   url: https://github.com/funky-station/forky-station/pull/446
+- author: Joaco545
+  changes:
+  - message: Added the NCPL Guidebook entry
+    type: Add
+  id: 67
+  time: '2026-09-10T02:46:13Z'
+  url: https://github.com/funky-station/forky-station/pull/429
+- author: Joaco545
+  changes:
+  - message: Added the new Corporate Law
+    type: Add
+  - message: Removed Space Law
+    type: Remove
+  - message: Renamed space law book into corporate law book
+    type: Tweak
+  id: 68
+  time: '2026-09-10T03:44:17Z'
+  url: https://github.com/funky-station/forky-station/pull/438
 Order: -1
