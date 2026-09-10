@@ -1,10 +1,17 @@
-﻿- type: latheRecipe
+- type: latheRecipe
   parent: BaseToolRecipe
   id: DigitalClock
   result: DigitalClock
   materials:
     Steel: 100
     Plastic: 50
+
+- type: latheRecipe
+  id: SmallPinboard
+  result: SmallPinboard
+  completetime: 1
+  materials:
+    Wood: 25
 
 - type: latheRecipe
   id: ShredderBin
