@@ -59,7 +59,7 @@
     - id: PosterContrabandMoth
     - id: PosterContrabandCybersun600
     - id: PosterContrabandDonk
-    - id: PosterContrabandEnlistGorlex
+#    - id: PosterContrabandEnlistGorlex - Removed by Funky
     - id: PosterContrabandInterdyne
     - id: PosterContrabandWaffleCorp
     - id: PosterContrabandMissingSpacepen
@@ -99,7 +99,7 @@
     - id: PosterLegit50thAnniversaryVintageReprint
     - id: PosterLegitFruitBowl
     - id: PosterLegitPDAAd
-    - id: PosterLegitEnlist
+#    - id: PosterLegitEnlist - Removed by Funky
     - id: PosterLegitNanomichiAd
     - id: PosterLegit12Gauge
     - id: PosterLegitHighClassMartini
