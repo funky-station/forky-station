@@ -20,7 +20,7 @@
         mask:
         - TableMask
   - type: Sprite
-    sprite: Structures/Furniture/furniture.rsi
+    sprite: _Funkystation/Structures/Furniture/furniture.rsi # Funky
     state: bed
     noRot: true
   - type: Strap

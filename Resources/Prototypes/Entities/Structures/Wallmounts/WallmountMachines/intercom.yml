@@ -20,6 +20,7 @@
     toggleOnInteract: false
   - type: RadioSpeaker
     toggleOnInteract: false
+    powerRequired: true # funky - intercom speaker should require power
   - type: Intercom
   - type: Speech
     speechVerb: Robotic

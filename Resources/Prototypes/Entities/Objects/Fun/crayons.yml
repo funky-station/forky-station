@@ -6,9 +6,9 @@
   description: A colourful crayon. A forbidden flavor.
   components:
   - type: Sprite
-    sprite: Objects/Fun/crayons.rsi
+    sprite: _Funkystation/Objects/Fun/crayons.rsi # Funky
   - type: Item
-    sprite: Objects/Fun/crayons.rsi
+    sprite: _Funkystation/Objects/Fun/crayons.rsi # Funky
     size: Tiny
   - type: Tag
     tags:
@@ -272,14 +272,14 @@
   description: It's a box of crayons.
   components:
   - type: Sprite
-    sprite: Objects/Fun/crayons.rsi
+    sprite: _Funkystation/Objects/Fun/crayons.rsi # Funky
     state: box
   - type: Storage
     grid:
     - 0,0,7,0
     maxItemSize: Tiny
   - type: Item
-    sprite: Objects/Fun/crayons.rsi
+    sprite: _Funkystation/Objects/Fun/crayons.rsi # Funky
     size: Small
     shape:
     - 0,0,1,1

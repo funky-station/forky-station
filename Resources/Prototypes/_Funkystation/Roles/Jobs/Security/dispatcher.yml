@@ -23,7 +23,7 @@
 - type: startingGear
   id: DispatcherGear
   equipment:
-    id: DispatcherPDA
+    id: DispatcherWallet
     eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetDispatcher
     pocket2: WeaponPistolMk58

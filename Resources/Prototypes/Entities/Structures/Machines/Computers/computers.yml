@@ -1169,7 +1169,7 @@
   - type: CargoOrderConsole
     account: Service
     announcementChannel: Service
-    removeLimitAccess: [ "HeadOfPersonnel" ]
+    removeLimitAccess: [ "HospitalityDirector" ] # funky
     mode: SendToPrimary
   - type: ActiveRadio
     channels:
@@ -1244,7 +1244,7 @@
     key: enum.FundingAllocationConsoleUiKey.Key
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
-    access: [["HeadOfPersonnel"]]
+    access: [["ExecutiveOfficer"]] # funky
   - type: UserInterface
     interfaces:
       enum.FundingAllocationConsoleUiKey.Key:

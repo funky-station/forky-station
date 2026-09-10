@@ -121,7 +121,7 @@
 - type: cargoProduct
   id: ServiceSodaDispenser
   icon:
-    sprite: Objects/Consumable/Drinks/generic_jug.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/generic_jug.rsi # Funky
     state: icon
   product: CrateServiceSodaDispenser
   cost: 850
@@ -131,7 +131,7 @@
 - type: cargoProduct
   id: ServiceBoozeDispenser
   icon:
-    sprite: Objects/Consumable/Drinks/generic_jug.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/generic_jug.rsi # Funky
     state: icon
   product: CrateServiceBoozeDispenser
   cost: 750

@@ -342,7 +342,7 @@
   description: 'Instructions: Heat in microwave. Product will cool if not eaten within seven minutes.'
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/Baked/donkpocket.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/Baked/donkpocket.rsi # Funky
     state: box
   - type: Storage
     grid:
@@ -351,7 +351,7 @@
       tags:
       - DonkPocket
   - type: Item
-    sprite: Objects/Consumable/Food/Baked/donkpocket.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/Baked/donkpocket.rsi # Funky
     size: Normal
     shape:
     - 0,0,2,1

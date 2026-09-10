@@ -9,7 +9,7 @@
   - type: Edible
     transferAmount: 3
   - type: Sprite
-    sprite: Objects/Consumable/Food/taco_sequence.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/taco_sequence.rsi
     layers:
     - state: tacoshell_back
     - map: ["foodSequenceLayers"]
@@ -45,7 +45,7 @@
   - type: Edible
     transferAmount: 3
   - type: Sprite
-    sprite: Objects/Consumable/Food/taco.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/taco.rsi
   - type: Solution
     solution:
       reagents:
@@ -54,7 +54,7 @@
       - ReagentId: Protein
         Quantity: 2
   - type: Item
-    sprite: Objects/Consumable/Food/taco.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/taco.rsi
     shape:
     - 0,0,1,0
     storedOffset: 0,1

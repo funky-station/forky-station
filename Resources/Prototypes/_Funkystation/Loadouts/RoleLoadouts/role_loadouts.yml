@@ -125,6 +125,24 @@
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
+  id: JobFuCourier
+  groups:
+  - GroupTankHarness
+  - FuCourierHead
+  - FuCargoNeck
+  - FuCourierOuterClothing
+  - FuCourierUniform
+  - CargoTechnicianBackpack
+  - FuCourierShoes
+  - Pager
+  - Glasses
+  - Survival
+  - Trinkets
+  #- CargoTechnicianJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
   id: JobPrisoner
   groups:
   - Glasses
