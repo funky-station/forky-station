@@ -8,14 +8,14 @@
     tags:
     - Soap
   - type: Sprite
-    sprite: Objects/Specific/Janitorial/soap.rsi
+    sprite: _Funkystation/Objects/Specific/Janitorial/soap.rsi # Funky
   - type: SolutionContainerVisuals
     maxFillLevels: 4
     fillBaseName: soap-
     changeColor: false
   - type: Appearance
   - type: Item
-    sprite: Objects/Specific/Janitorial/soap.rsi
+    sprite: _Funkystation/Objects/Specific/Janitorial/soap.rsi # Funky
     storedRotation: -90
   - type: Slippery
   - type: StepTrigger

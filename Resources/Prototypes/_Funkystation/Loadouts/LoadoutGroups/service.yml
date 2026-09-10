@@ -35,3 +35,54 @@
   loadouts:
   - FuHdLaceupBoots # putting this first so it's the default
   - FuHdHighHeelBoots
+
+# Janitor
+- type: loadoutGroup
+  id: FuJaniHead
+  name: fu-loadout-group-jani-head
+  minLimit: 0
+  loadouts:
+  - FuRainHat
+
+- type: loadoutGroup
+  id: FuJaniOuterclothing
+  name: fu-loadout-group-jani-outerclothing
+  minLimit: 0
+  loadouts:
+  - FuRainCoat
+
+- type: loadoutGroup
+  id: FuJaniUniform
+  name: fu-loadout-group-jani-uniform
+  loadouts:
+  - FuJaniJumpsuitPurple
+  - FuJaniJumpsuitGreen
+  - FuJaniJumpsuitOrange
+  - FuJaniJumpskirtPurple
+  - FuJaniJumpskirtGreen
+  - FuJaniJumpskirtOrange
+  - FuJaniOverallsPurple
+  - FuJaniOverallsGreen
+  - FuJaniOverallsOrange
+  - FuJaniOverallSkirtPurple
+  - FuJaniOverallSkirtGreen
+  - FuJaniOverallSkirtOrange
+
+- type: loadoutGroup
+  id: FuJaniGloves
+  name: fu-loadout-group-jani-gloves
+  minLimit: 0
+  loadouts:
+  - FuJaniGlovesYellow
+  - FuJaniGlovesPurple
+  - FuJaniGlovesTeal
+  - FuJaniGlovesOrange
+
+- type: loadoutGroup
+  id: FuJaniGaloshes
+  name: fu-loadout-group-jani-shoes
+  loadouts:
+  - FuJaniGaloshesYellow
+  - FuJaniGaloshesPurple
+  - FuJaniGaloshesTeal
+  - FuJaniGaloshesOrange

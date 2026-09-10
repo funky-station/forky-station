@@ -1,0 +1,74 @@
+- type: entity
+  parent: [ ClothingShoesBase, BaseJanitorContraband ]
+  id: FuClothingShoesGaloshesYellow
+  name: galoshes
+  description: Specialised non-slip rubber boots, designed to reduce janitorial workplace accidents; a tider's treasure.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Shoes/Galoshes/galoshes.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Shoes/Galoshes/galoshes.rsi
+  - type: NoSlip
+  - type: SlowedOverSlippery
+    slowdownModifier: 0.7
+  - type: NoFootprints
+  - type: SpeedModifierContactCapClothing
+    maxContactSprintSlowdown: 0.7
+    maxContactWalkSlowdown: 0.7
+
+- type: entity
+  parent: [ ClothingShoesBase, BaseJanitorContraband ]
+  id: FuClothingShoesGaloshesPurple
+  name: galoshes
+  description: Specialised non-slip rubber boots, designed to reduce janitorial workplace accidents; a tider's treasure.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Shoes/Galoshes/purple_galoshes.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Shoes/Galoshes/purple_galoshes.rsi
+  - type: NoSlip
+  - type: SlowedOverSlippery
+    slowdownModifier: 0.7
+  - type: NoFootprints
+  - type: SpeedModifierContactCapClothing
+    maxContactSprintSlowdown: 0.7
+    maxContactWalkSlowdown: 0.7
+
+- type: entity
+  parent: [ ClothingShoesBase, BaseJanitorContraband ]
+  id: FuClothingShoesGaloshesTeal
+  name: galoshes
+  description: Specialised non-slip rubber boots, designed to reduce janitorial workplace accidents; a tider's treasure.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Shoes/Galoshes/teal_galoshes.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Shoes/Galoshes/teal_galoshes.rsi
+  - type: NoSlip
+  - type: SlowedOverSlippery
+    slowdownModifier: 0.7
+  - type: NoFootprints
+  - type: SpeedModifierContactCapClothing
+    maxContactSprintSlowdown: 0.7
+    maxContactWalkSlowdown: 0.7
+
+- type: entity
+  parent: [ ClothingShoesBase, BaseJanitorContraband ]
+  id: FuClothingShoesGaloshesOrange
+  name: galoshes
+  description: Specialised non-slip rubber boots, designed to reduce janitorial workplace accidents; a tider's treasure.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Shoes/Galoshes/orange_galoshes.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Shoes/Galoshes/orange_galoshes.rsi
+  - type: NoSlip
+  - type: SlowedOverSlippery
+    slowdownModifier: 0.7
+  - type: NoFootprints
+  - type: SpeedModifierContactCapClothing
+    maxContactSprintSlowdown: 0.7
+    maxContactWalkSlowdown: 0.7
+
+
+
