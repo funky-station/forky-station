@@ -120,6 +120,16 @@ public sealed partial class SmokerSystem : EntitySystem
                 smoker.CurrentNicotineLevel = name.Quantity;
                 smoker.TimeSinceSmoking = 0;
                 smoker.NextWithdrawalTime = smoker.WithdrawalInterval;
+
+                // Relief from severe withdrawal symptoms
+                if (smoker.WithdrawalStage > 3 && smoker.WithdrawalStage < 6)
+                {
+                    _popup.PopupEntity(Loc.GetString("trait-smoker-relief1"), uid, uid);
+                }
+                if (smoker.WithdrawalStage >= 6)
+                {
+                    _popup.PopupEntity(Loc.GetString("trait-smoker-relief2"), uid, uid);
+                }
                 smoker.WithdrawalStage = 0;
 
                 return true;
@@ -146,6 +156,7 @@ public sealed partial class SmokerSystem : EntitySystem
         smoker.NextWithdrawalTime += smoker.WithdrawalInterval / (1 + Math.Clamp(smoker.WithdrawalStage, 0, 7));
         switch (smoker.WithdrawalStage)
         {
+            // This will never trigger, but nice to have
             case 0:
                 _popup.PopupEntity("All's fine in the world!", uid, uid);
                 break;

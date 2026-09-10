@@ -12,3 +12,6 @@ trait-smoker-stage3 = You must get some nicotine!
 trait-smoker-stage4 = Your feel very agitated!
 trait-smoker-stage5 = You REALLY need to smoke!
 trait-smoker-stage6 = YOUR WHOLE BODY CRAVES NICOTINE!
+trait-smoker-relief1 = You feel calmer.
+trait-smoker-relief2 = Sweet relief washes through your body.
+
