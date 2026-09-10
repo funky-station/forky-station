@@ -209,6 +209,7 @@
     whitelist:
       tags:
       - Wrench
+      - CentrifugeCompatible #Funky - For vials
       - Bottle
       - Spray
       - Brutepack
