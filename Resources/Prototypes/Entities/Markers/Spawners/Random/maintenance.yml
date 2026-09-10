@@ -276,6 +276,7 @@
       - id: WeaponFlareGun
       - id: BarberScissors
       - id: SuitSealantCanister # Funky
+      - id: FuFoodCerealGorillaCrunch # Funky Gorilla Crunch
       - !type:GroupSelector
         children:
         - id: DrinkSpaceGlue
