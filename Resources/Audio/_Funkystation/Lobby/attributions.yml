@@ -7,3 +7,8 @@
   license: "Custom"
   copyright: "Alien Kids Rap by Gerald Jay Markoe, published by Creative Kids Production"
   source: "https://www.youtube.com/playlist?list=PLhOMLRaahGFyA-vQ2shltSmvMJBVeMhYs"
+
+- files: ["meltdown.ogg","dagd".ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "vectorassembly"
+  source: "https://vectorassembly.org"
