@@ -21,6 +21,8 @@ using Robust.Shared.Containers;
 using Content.Shared._Funkystation.CCVar; // Funky
 using Robust.Shared.Configuration; // Funky
 using Content.Shared.Chemistry.Components; // Funky
+using Robust.Shared.Prototypes; // Funky
+using Content.Shared.Chemistry.Reagent; // Funky
 
 namespace Content.Server.Nutrition.EntitySystems
 {
@@ -39,6 +41,9 @@ namespace Content.Server.Nutrition.EntitySystems
         [Dependency] private SharedAppearanceSystem _appearance = default!;
         [Dependency] private ForensicsSystem _forensics = default!;
         [Dependency] private IConfigurationManager _cfg = default!; // Funky
+
+        // Funky Station change: smoking causes cancer
+        private readonly ProtoId<ReagentPrototype> _carcinotoxin = "Carcinotoxin"; // Funky
 
         private const float UpdateTimer = 3f;
 
@@ -168,7 +173,7 @@ namespace Content.Server.Nutrition.EntitySystems
                 // If the CVar is enabled, add carcinogens to the bloodstream
                 if (_cfg.GetCVar(SmokingCancerCVars.Cancer))
                 {
-                    Solution tempCarcinotoxinSolution = new Solution("Carcinotoxin", 0.07f);
+                    Solution tempCarcinotoxinSolution = new Solution(_carcinotoxin, 0.07f);
 
                     _bloodstreamSystem.TryAddToBloodstream((containerManager.Owner, bloodstream), tempCarcinotoxinSolution);
                 }
