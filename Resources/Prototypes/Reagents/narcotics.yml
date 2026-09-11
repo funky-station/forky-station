@@ -260,6 +260,12 @@
   plantMetabolism:
   - !type:PlantAdjustHealth
     amount: -5
+  # BEGIN FUNKY STATION
+  # Changes to make nicotine build up in the bloodstream, for effective addiction
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.02 # very slow to metabolise, lets it build up
+  # END FUNKY STATION
 
 # TODO: Replace these nonstandardized effects with generic brain damage
 - type: reagent
