@@ -58,12 +58,16 @@
 
   ### NanoTrasen Building & Expansion Regulations
 
-  Any construction is compliant with Building & Expansion Regulations if:
+  In order to ensure that all parts of the station are up to NanoTrasen's safety and quality standards, all new constructions must follow a certain set of requirements.
 
-  - It is sealed and has a habitable atmosphere, unless it is intentionally only accessible from space.
-  - It has reinforced walls, reinforced windows, and a meteor shield where it meets space.
-  - It has reinforced walls, windows, and electrified grilles if it is intended to be a secure area.
-  - It is clearly lit.
+  Requirements for any new construction are as follows:
+
+  - In order to maintain NanoTrasen's dignity and public image, any new constructions must not be excessively unsightly, or otherwise go against NanoTrasen's best interests.
+  - Any part of the construction must not obstruct or impede any existing departmental functions and duties.
+  - The construction must not impede or block any public thoroughfares. Sufficient measures should be made to ensure that any installations placed in a hallway still have safe and unobstructed routes around it.
+  - Any new construction must not require an excessive or unattainable amount of resources, relative to the station’s current needs.
+  - For constructions requiring power, extensions to the power grid must be done safely, according to local station standards.
+  - Enclosed rooms that will house live inhabitants require proper and safe connections to the local Atmospherics system, including a Fire Alarm, Firelocks, Distribution, and Waste Lines.
 
   ### NanoTrasen Cleanliness Regulations
 
@@ -86,6 +90,172 @@
   - Any room where food and drink is consumed.
   - Any room with potentially hazardous and/or highly reactive substances.
   - Any room that stores weaponry.
+
+  ### Corporate Misconduct & Disciplinary Actions
+
+  A member of Command may issue Disciplinary Actions to any of their subordinates that commit acts of Corporate Misconduct. If Corporate Misconduct is observed by a member of Internal Affairs, they are to immediately bring it to the attention of the relevant head of staff. Examples Include:
+
+  - An Internal Affairs Agent notices the Misconduct during an Audit.
+  - The Magistrate notices that a charge they are judging for falls under a Misconduct.
+  - The Executive Officer notices on all-comms that a Misconduct is occurring.
+
+  A member of Internal Affairs can never issue a Disciplinary Action regarding Corporate Misconduct on their own. It always requires signing off by either the relevant Head of Staff, or the Captain. Internal Affairs should recommend a severity level based on the Misconduct, but the final severity is always up to the signee.
+
+  [bold]Corporate Misconduct Categories[/bold]
+
+  <Table Columns="3">
+    <ColorBox>
+      <Box>
+        Corporate Misconduct
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Description
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Example
+      </Box>
+    </ColorBox>
+
+    <ColorBox>
+      <Box>
+        Insubordination
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Going against a direct order from your departmental superiors.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Activating the SM after the CE told you not to.
+      </Box>
+    </ColorBox>
+
+    <ColorBox>
+      <Box>
+        SOP Violation
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Egregiously going against the guidelines set by your job's Standard Operating Procedures.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        See Article 3, Standard Operating Procedure.
+      </Box>
+    </ColorBox>
+
+    <ColorBox>
+      <Box>
+        Theft of Departmental Property
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Taking equipment or products from your department without permission or proper payment.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Taking topicals from a Medkit and giving it to an Assistant for free.
+      </Box>
+    </ColorBox>
+
+    <ColorBox>
+      <Box>
+        Damage to Assigned Company Equipment
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Intentionally or recklessly damaging your job's assigned equipment.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Placing an APE next to an electric anomaly, resulting in a discharge that destroys it.
+      </Box>
+    </ColorBox>
+
+    <ColorBox>
+      <Box>
+        Fraud
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Performing your job's duties in a particularly deceptive or self-serving way.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Lying to certain crewmembers about the state of Science's research offerings.
+      </Box>
+    </ColorBox>
+
+    <ColorBox>
+      <Box>
+        Incompetence
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Egregiously failing to meet assigned quotas, or performing your job's duties in a reckless or dangerous way.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Failing to perform an acceptable amount of your job's work this shift.
+      </Box>
+    </ColorBox>
+  </Table>
+
+  [bold]Corporate Misconduct Disciplinary Actions[/bold]
+
+  <Table Columns="2">
+    <ColorBox>
+      <Box>
+        Class I
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Confiscation
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Class IV
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Demotion
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Class V
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Contract Termination
+      </Box>
+    </ColorBox>
+  </Table>
+
+  [bold]Corporate Honesty & Loyalty Incentive Policy[/bold]
+
+  - Should a crew member be forthright with their Misconduct, and turn themselves in, consider reducing the severity of their Disciplinary Action as a reward for their honesty.
+  - If a crew member that witnesses a Corporate Misconduct reports it to Internal Affairs before the perpetrator does, that crew member shall receive a reward for their loyalty.
 
   ## Order of Succession
 
