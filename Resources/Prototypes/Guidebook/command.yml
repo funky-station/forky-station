@@ -2,3 +2,6 @@
   id: Command
   name: guide-entry-command
   text: "/ServerInfo/Guidebook/Command.xml"
+  children:
+  - RevoltProtocol # Funky addition
+# TODO: When CTM is added move RevoltProtocol to be child of CTM

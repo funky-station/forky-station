@@ -12,6 +12,18 @@
   id: Article_1
   name: guide-entry-nclp-article-1
   text: "/ServerInfo/_Funkystation/Guidebook/NCLP/Article1/Article1.xml"
+  children:
+  - Protestregs
+
+- type: guideEntry
+  id: Protestregs
+  name: guide-entry-nclp-protestregs
+  text: "/ServerInfo/_Funkystation/Guidebook/NCLP/Article1/ProtestRegs.xml"
+
+- type: guideEntry
+  id: RevoltProtocol
+  name: guide-entry-nclp-revoltregs
+  text: "/ServerInfo/_Funkystation/Guidebook/NCLP/Article1/RevoltProtocol.xml"
 
 - type: guideEntry
   id: Article_2
