@@ -19,6 +19,7 @@
   suffix: Limited
   components:
   - type: LimitedCharges
+    maxCharges: 6 # funky change, charges 3 -> 6
   - type: AutoRecharge
   - type: StaticPrice
     price: 2500
