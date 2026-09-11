@@ -2,6 +2,8 @@ using System.Threading;
 using Content.Server.Screens.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
+using Content.Shared._Funkystation.CCVar;
+using Content.Shared._MACRO.Announcements;
 using Content.Shared.Access;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -16,7 +18,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Timer = Robust.Shared.Timing.Timer;
-using Robust.Shared.Audio;
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -69,7 +70,8 @@ public sealed partial class EmergencyShuttleSystem
 
     private static readonly ProtoId<AccessLevelPrototype> EmergencyRepealAllAccess = "EmergencyShuttleRepealAll";
     private static readonly Color DangerColor = Color.Red;
-    private static readonly SoundPathSpecifier AnnounceStartSound = new SoundPathSpecifier("/Audio/Misc/notice1.ogg");
+
+    private static readonly ProtoId<AnnouncementSoundPrototype> NoticeSound = "Notice1"; // funky - use announcement sound prototypes
 
     /// <summary>
     /// Have the emergency shuttles been authorised to launch at CentCom?
@@ -292,13 +294,17 @@ public sealed partial class EmergencyShuttleSystem
         _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle early launch AUTH by {args.Actor:user}");
         var remaining = component.AuthorizationsRequired - component.AuthorizedEntities.Count;
 
+        var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
+        _announcer.TryGetAnnouncerSound(NoticeSound, out var sound); // funky - use announcement sound prototypes
+
         if (remaining > 0)
             _chatSystem.DispatchGlobalAnnouncement(
                 Loc.GetString("emergency-shuttle-console-auth-left", ("remaining", remaining)),
-                playSound: false, colorOverride: DangerColor);
+                playSound: paExclusive, announcementSound: paExclusive ? sound : null, // funky
+                colorOverride: DangerColor);
 
-        if (!CheckForLaunch(component))
-            _audio.PlayGlobal(AnnounceStartSound, Filter.Broadcast(), recordReplay: true);
+        if (!CheckForLaunch(component) && !paExclusive) // funky
+            _audio.PlayGlobal(sound, Filter.Broadcast(), recordReplay: true); // funky - use announcement sound prototypes
 
         UpdateAllEmergencyConsoles();
     }
@@ -396,13 +402,17 @@ public sealed partial class EmergencyShuttleSystem
     {
         if (_announced) return;
 
+        var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
+        _announcer.TryGetAnnouncerSound(NoticeSound, out var sound); // funky - use announcement sound prototypes
+
         _announced = true;
         _chatSystem.DispatchGlobalAnnouncement(
             Loc.GetString("emergency-shuttle-launch-time", ("consoleAccumulator", $"{_consoleAccumulator:0}")),
-            playSound: false,
+            playSound: paExclusive, announcementSound: paExclusive ? sound : null, // funky
             colorOverride: DangerColor);
 
-        _audio.PlayGlobal(AnnounceStartSound, Filter.Broadcast(), recordReplay: true);
+        if (!paExclusive) // funky
+            _audio.PlayGlobal(sound, Filter.Broadcast(), recordReplay: true); // funky - use announcement sound prototypes
     }
 
     public bool DelayEmergencyRoundEnd()

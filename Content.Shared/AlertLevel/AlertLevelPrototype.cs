@@ -1,3 +1,4 @@
+using Content.Shared._Funkystation.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
@@ -57,7 +58,7 @@ public sealed partial class AlertLevelPrototype : IPrototype, IInheritingPrototy
     /// The sound that will played in-game when this alert level is selected.
     /// </summary>
     [DataField]
-    public SoundSpecifier? Sound;
+    public MonoSoundSpecifier? Sound { get; private set; } // funky - switch to mono sounds when using PA announcements
 
     /// <summary>
     /// The color that this alert level will show in-game in chat.

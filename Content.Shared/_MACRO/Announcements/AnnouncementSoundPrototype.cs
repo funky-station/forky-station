@@ -15,4 +15,11 @@ public sealed partial class AnnouncementSoundPrototype : IPrototype
 
     [DataField(required: true)]
     public required SoundSpecifier DefaultSound;
+
+    /// <summary>
+    /// Funky - A mono version of the sound,
+    /// for use in-world, i.e. for a PA system.
+    /// </summary>
+    [DataField(required: true)]
+    public required SoundSpecifier MonoDefaultSound;
 }

@@ -1,6 +1,7 @@
 using Content.Shared.Actions;
 using Content.Shared.Interaction;
 using System.Linq;
+using Content.Shared._Funkystation.Communications;
 using Content.Shared._Funkystation.Radio;
 using Content.Shared.Chat;
 using Content.Shared.Examine;
@@ -468,6 +469,9 @@ public abstract partial class SharedRadioDeviceSystem : EntitySystem
     {
         if (HasComp<RadioSpeakerComponent>(args.Source))
             return; // no feedback loops please.
+
+        if (HasComp<PAAnnouncerComponent>(args.Source)) // funky TODO: any better fix?
+            return;
 
         var channel = ProtoMan.Index(ent.Comp.BroadcastChannel);
         if (_recentlySent.Add((args.Message, args.Source, channel)))
