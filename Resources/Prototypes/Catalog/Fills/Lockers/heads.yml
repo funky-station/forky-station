@@ -16,6 +16,7 @@
       prob: 0.02
     - id: RadioHandheldCargo #funkystation
     - id: RadioHandheldCommand #funkystation
+    - id: BookLogisticsSecrets # Funky
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -55,6 +56,7 @@
     - id: PlushieLizardJobCaptain
       prob: 0.02
     - id: RadioHandheldCommand #funkystation
+    - id: BookCommandSecrets # Funky
 
 # No laser table + Laser table
 - type: entityTable
@@ -173,6 +175,7 @@
       prob: 0.02
     - id: RadioHandheldEngineering #funkystation
     - id: RadioHandheldCommand #funkystation
+    - id: BookEngineerSecrets # Funky
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -232,6 +235,7 @@
       prob: 0.02
     - id: RadioHandheldMedical #funkystation
     - id: RadioHandheldCommand #funkystation
+    - id: BookMedicalSecrets # Funky
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -286,6 +290,7 @@
       prob: 0.02
     - id: RadioHandheldScience #funkystation
     - id: RadioHandheldCommand #funkystation
+    - id: BookScienceSecrets # Funky
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -348,6 +353,7 @@
     - id: PlushieLizardJobHeadofsecurity
       prob: 0.02
     - id: RadioHandheldCommand #funkystation, no sec radio since they start with one
+    - id: BookSecuritySecrets # Funky
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

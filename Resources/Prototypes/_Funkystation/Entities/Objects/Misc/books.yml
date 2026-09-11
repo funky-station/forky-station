@@ -1,0 +1,111 @@
+- type: entity
+  id: BookLogisticsSecrets
+  parent: [BaseGuidebook, BaseCommandContraband]
+  name: logistics training manual
+  description: A brown folder full of documents. A green "APPROVED" is stamped multiple times on it.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/books.rsi
+    layers:
+    - state: logistics-secrets
+  - type: GuideHelp
+    guides:
+    - Cargo
+
+- type: entity
+  id: BookCommandSecrets
+  parent: [BaseGuidebook, BaseCommandContraband]
+  name: command training manual
+  description: A yellow folder full of documents. There's some red lettering that says "FOR APPROVED PERSONAL ONLY" on it.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/books.rsi
+    layers:
+    - state: command-secrets
+  - type: GuideHelp
+    guides:
+    - Command
+
+- type: entity
+  id: BookEngineerSecrets
+  parent: [BaseGuidebook, BaseCommandContraband]
+  name: engineer training manual
+  description: A orange folder full of documents. The pages are partially shredded, but the text is still legible.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/books.rsi
+    layers:
+    - state: engi-secrets
+  - type: GuideHelp
+    guides:
+    - Engineering
+
+- type: entity
+  id: BookMedicalSecrets
+  parent: [BaseGuidebook, BaseCommandContraband]
+  name: medical training manual
+  description: A teal folder full of documents. Significant portions of the pages are soaked in dried blood.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/books.rsi
+    layers:
+    - state: med-secrets
+  - type: GuideHelp
+    guides:
+    - Medical
+
+- type: entity
+  id: BookScienceSecrets
+  parent: [BaseGuidebook, BaseCommandContraband]
+  name: science training manual
+  description: A purple folder full of documents. There's soot coating the border of the pages.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/books.rsi
+    layers:
+    - state: sci-secrets
+  - type: GuideHelp
+    guides:
+    - Science
+
+- type: entity
+  id: BookSecuritySecrets
+  parent: [BaseGuidebook, BaseCommandContraband]
+  name: security training manual
+  description: A red folder full of documents. There's a gold badge sticker stuck on the front, it looks like a scratch-and-sniff.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/books.rsi
+    layers:
+    - state: sec-secrets
+  - type: GuideHelp
+    guides:
+    - Security
+
+- type: entity
+  id: BookServiceSecrets
+  parent: [BaseGuidebook, BaseCommandContraband]
+  name: service training manual
+  description: A white folder full of documents. The cover looks worn and torn, with a scent of fresh bread.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/books.rsi
+    layers:
+    - state: service-secrets
+  - type: GuideHelp
+    guides:
+    - Service
+
+- type: entity
+  id: BookInternalAffairsSecrets
+  parent: [BaseGuidebook, BaseCommandContraband]
+  name: internal affairs training manual
+  description: A black folder full of documents. There's red annotations scattered throughout the pages.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/books.rsi
+    layers:
+    - state: internal-affairs-secrets
+  - type: GuideHelp
+    guides:
+    - RoleplayRules #Please change this to SOP related text, needed to put something here so the book actually functions.
