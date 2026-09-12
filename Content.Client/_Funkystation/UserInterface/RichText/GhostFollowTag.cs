@@ -2,7 +2,6 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Client._Funkystation.UserInterface.Controls;
 using Robust.Client.Console;
 using Robust.Client.UserInterface;
-using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.RichText;
 using Robust.Shared.Input;
 using Robust.Shared.Utility;

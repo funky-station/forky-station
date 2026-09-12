@@ -1,7 +1,7 @@
 using System.Linq;
 using Content.Client._Funkystation.UserInterface.Controls;
-using Content.Client._RMC14.Chat;
-using Content.Client.UserInterface.ControlExtensions; // Persistence: Chat stacking from RMC14 - pull/7587
+using Content.Client._RMC14.Chat; // Persistence: Chat stacking from RMC14 - pull/7587
+using Content.Client.UserInterface.ControlExtensions;
 using Content.Client.UserInterface.Systems.Chat.Controls;
 using Content.Shared.Chat;
 using Content.Shared.Input;
@@ -124,12 +124,17 @@ public partial class ChatBox : UIWidget
         formatted.AddMarkupOrThrow(message);
         formatted.Pop();
 
+        var cmChatSystem = _entManager.System<CMChatSystem>();
+
         // Persistence: Chat stacking from RMC14 - pull/7587
-        if (_entManager.System<CMChatSystem>().TryRepetition(this, Contents, formatted, sender, unwrapped, channel, repeatCheckSender))
+        if (cmChatSystem.TryRepetition(this, Contents, formatted, sender, unwrapped, channel, repeatCheckSender))
+        {
+            cmChatSystem.UpdateGhostFollowLink(this, Contents.GetControlOfType<GhostFollowLabel>().LastOrDefault(), sender, unwrapped, channel, repeatCheckSender);
             return;
+        }
 
         Contents.AddMessage(formatted, tagsAllowed: null);
-        _entManager.System<CMChatSystem>().UpdateGhostFollowLink(this, Contents.GetControlOfType<GhostFollowLabel>().LastOrDefault());
+        cmChatSystem.AddGhostFollowLink(this, Contents.GetControlOfType<GhostFollowLabel>().LastOrDefault());
     }
 
     public void Focus(ChatSelectChannel? channel = null)

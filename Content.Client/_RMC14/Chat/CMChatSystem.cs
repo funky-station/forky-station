@@ -47,7 +47,6 @@ public sealed partial class CMChatSystem : EntitySystem // Persistence: SharedCM
             var copy = new FormattedMessage(old.FormattedMessage);
             old.Count++;
             copy.AddMarkupPermissive($" [color=red]x{old.Count}[/color]");
-            old.GhostFollowLink?.Orphan();
             contents.SetMessage(old.Index, copy, tagsAllowed: null);
             repeated = true;
             break;
@@ -68,7 +67,29 @@ public sealed partial class CMChatSystem : EntitySystem // Persistence: SharedCM
         return repeated;
     }
 
-    public void UpdateGhostFollowLink(ChatBox chat, GhostFollowLabel? control)
+    public void UpdateGhostFollowLink(ChatBox chat, GhostFollowLabel? control, NetEntity sender, string unwrapped, ChatChannel channel, bool repeatCheckSender)
+    {
+        foreach (var old in chat.RepeatQueue)
+        {
+            if (!old.Message.Equals(unwrapped) ||
+                old.Channel != channel)
+            {
+                continue;
+            }
+
+            if (repeatCheckSender &&
+                !old.SenderEntity.Equals(sender))
+            {
+                continue;
+            }
+
+            old.GhostFollowLink?.Orphan();
+            old.GhostFollowLink = control;
+            break;
+        }
+    }
+
+    public void AddGhostFollowLink(ChatBox chat, GhostFollowLabel? control)
     {
         chat.RepeatQueue.LastOrDefault()?.GhostFollowLink = control;
     }
