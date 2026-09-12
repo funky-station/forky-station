@@ -33,7 +33,7 @@
       - Command
       - Engineering
       - External
-      - HeadOfPersonnel
+#      - HeadOfPersonnel HoP is replaced on Forky
       - HeadOfSecurity
       - Hydroponics
       - Janitor
@@ -44,12 +44,19 @@
       - Quartermaster
       - Research
       - ResearchDirector
-      - Salvage
+#      - Salvage Salvage is removed on Forky
       - Security
       - Service
       - Theatre
       - GenpopEnter
       - GenpopLeave
+      - Newsroom #funky start
+      - Corporate
+      - InternalAffairs
+      - Magistrate
+      - ExecutiveOfficer
+      - Library
+      - HospitalityDirector #funky end
       privilegedIdSlot:
         name: id-card-console-privileged-id
         ejectSound: /Audio/Machines/id_swipe.ogg
@@ -130,6 +137,13 @@
     - Xenoborg
     - GenpopEnter
     - GenpopLeave
+    - Newsroom #funky start
+    - Corporate
+    - InternalAffairs
+    - Magistrate
+    - ExecutiveOfficer
+    - Library
+    - HospitalityDirector #funky end
     privilegedIdSlot:
       name: id-card-console-privileged-id
       startingItem: UniversalIDCard
