@@ -14,8 +14,8 @@
   - type: Destructible
     thresholds:
     - trigger: &DamageMachineFlimsy
-        !type:DamageTrigger
-        damage: 50
+      !type:DamageTrigger
+      damage: 50
       behaviors:
       - &SoundMetalGlassBreak !type:PlaySoundBehavior
         sound:
@@ -27,7 +27,16 @@
             max: 1
           SheetSteel1: *Min0Max1
           CableApcStack1: *Min0Max1
-
+  - type: ContainerContainer # funky start
+    containers:
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end
 
 - type: entity
   parent: [ BaseWallmountMachine, StructureHealthMachineWeak ]
@@ -63,6 +72,14 @@
   - type: ContainerContainer
     containers:
       board: !type:Container
+      hidden_slot: !type:ContainerSlot # funky start
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end
   - type: ApcPowerReceiver
     powerLoad: 50
   - type: PowerState

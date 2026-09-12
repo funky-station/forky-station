@@ -67,6 +67,14 @@
       machine_board: !type:Container
       machine_parts: !type:Container
       entity_storage: !type:Container
+      hidden_slot: !type:ContainerSlot # funky start
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end
   - type: Construction
     graph: Machine
     node: machine
