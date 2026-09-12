@@ -14,8 +14,8 @@
   - type: Destructible
     thresholds:
     - trigger: &DamageMachineFlimsy
-        !type:DamageTrigger
-        damage: 50
+      !type:DamageTrigger
+      damage: 50
       behaviors:
       - &SoundMetalGlassBreak !type:PlaySoundBehavior
         sound:
@@ -27,9 +27,6 @@
             max: 1
           SheetSteel1: *Min0Max1
           CableApcStack1: *Min0Max1
-          collection: GlassBreak
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: ContainerContainer # funky start
     containers:
       hidden_slot: !type:ContainerSlot
