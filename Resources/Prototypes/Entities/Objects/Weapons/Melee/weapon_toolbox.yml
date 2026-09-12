@@ -6,11 +6,11 @@
   categories: [ DoNotMap ]
   components:
   - type: Sprite
-    sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
+    sprite: _Funkystation/Objects/Tools/Toolboxes/toolbox_red.rsi # Funky
     state: icon
   - type: Item
     size: Ginormous
-    sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
+    sprite: _Funkystation/Objects/Tools/Toolboxes/toolbox_red.rsi # Funky
   - type: MeleeWeapon
     wideAnimationRotation: -135
     attackRate: 1.5

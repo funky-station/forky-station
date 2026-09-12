@@ -1,0 +1,42 @@
+﻿- type: entity
+  name: ASP-22 handheld log probe
+  parent: [ BaseItem, BaseSecurityContraband ]
+  id: HandheldLogProbe
+  description: An Aegis Security Model ASP-22. This device can probe the access logs of airlocks, which can be particularly useful during investigations.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/handheld_log_probe.rsi
+    state: icon
+  - type: Item
+    size: Small
+    storedRotation: 0
+  - type: ActivatableUI
+    key: enum.HandheldLogProbeUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+    verbText: handheld-log-probe-verb-text
+  - type: UserInterface
+    interfaces:
+      enum.HandheldLogProbeUiKey.Key:
+        type: SingleCartridgeLoaderBoundUserInterface
+  - type: CartridgeLoader
+    uiKey: enum.HandheldLogProbeUiKey.Key
+    diskSpace: 1
+    notificationsEnabled: false
+    cartridgeSlot:
+      locked: true
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      Cartridge-Slot: !type:ContainerSlot {}
+      preinstalled-program-container: !type:Container {}
+      removable-program-container: !type:Container {}
+  - type: AutoActivateCartridge
+  - type: EntityTableContainerFill
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: LogProbeCartridge
+  - type: GuideHelp
+    guides:
+    - Forensics

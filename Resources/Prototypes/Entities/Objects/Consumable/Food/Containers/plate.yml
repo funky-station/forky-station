@@ -42,7 +42,7 @@
   description: A large plate, excellent for bread.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/plates.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/plates.rsi # Funky
     state: plate
   - type: Item
     storedOffset: 0,-6
@@ -73,7 +73,7 @@
   description: A broken plate. Useless.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/plates.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/plates.rsi # Funky
     state: plate-trash
   - type: Item
     shape:
@@ -93,7 +93,7 @@
   description: A small plate. Delicate.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/plates.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/plates.rsi # Funky
     state: plate-small
   - type: Item
     storedOffset: 0,-3
@@ -122,7 +122,7 @@
   id: FoodPlateSmallTrash
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/plates.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/plates.rsi # Funky
     state: plate-small-trash
   - type: Item
     storedOffset: 0,-3
@@ -136,7 +136,7 @@
   description: A large blue plastic plate, excellent for a birthday cake.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/plates.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/plates.rsi # Funky
     state: plate-plastic
   - type: Item
     storedOffset: 0,-6
@@ -156,7 +156,7 @@
   description: A blue plastic plate, excellent for slices of birthday cake.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/plates.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/plates.rsi # Funky
     state: plate-small-plastic
   - type: Item
     storedOffset: 0,-3
@@ -178,7 +178,7 @@
   description: A cheap foil tin for pies.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/plates.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/plates.rsi # Funky
     state: tin
   - type: Item
     size: Small
@@ -202,7 +202,7 @@
   description: A cheap foil tin for muffins.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/plates.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/plates.rsi # Funky
     state: muffin-tin
   - type: Item
     size: Tiny

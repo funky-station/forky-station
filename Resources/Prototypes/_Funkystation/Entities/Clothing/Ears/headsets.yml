@@ -16,7 +16,7 @@
   parent: ClothingHeadsetAltSecurity
   id: ClothingHeadsetWarden
   name: dispatch headset
-  description: A headset for wardens or desk-working officers that receives emergency frequencies in addition to regular security radio.
+  description: A headset for wardens or desk-working officers that receives prisoner and emergency frequencies in addition to regular security radio.
   components:
   - type: ContainerFill
     containers:
@@ -24,7 +24,8 @@
       - EncryptionKeySecurity
       - EncryptionKeyEmergency
       - EncryptionKeyCommon
-      
+      - EncryptionKeyPrisoner
+
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetInternalAffairs
@@ -86,3 +87,15 @@
       - EncryptionKeySecurity
       - EncryptionKeyMedical
       - EncryptionKeyCommon
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetPrisoner
+  name: prisoner headset
+  components:
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/mining.rsi
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyPrisoner

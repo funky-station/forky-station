@@ -263,9 +263,10 @@
   - GroupTankHarness
   - QuartermasterHead
   - QuartermasterNeck
+  - FuQuartermasterOuterClothing # Funky - see previous outerclothing
   - QuartermasterJumpsuit
   - CargoTechnicianBackpack
-  - QuartermasterOuterClothing
+  # Funky - previously QuartermasterOuterClothing
   - QuartermasterShoes
   - Pager
   - Glasses
@@ -281,9 +282,11 @@
   groups:
   - GroupTankHarness
   - CargoTechnicianHead
-  - CargoTechnicianJumpsuit
+  - FuCargoNeck # Funky - new
+  - FuCargoTechnicianOuterClothing # Funky - see previous outerclothing
+  - FuCargoTechnicianUniform # Funky - previously CargoTechnicianJumpsuit
   - CargoTechnicianBackpack
-  - CargoTechnicianOuterClothing
+   # Funky - previously CargoTechnicianOuterClothing
   - CargoTechnicianShoes
   #- CargoTechnicianID # Funky: the wallet-ening, also removing the loadout choice for senior stuff
   - Pager

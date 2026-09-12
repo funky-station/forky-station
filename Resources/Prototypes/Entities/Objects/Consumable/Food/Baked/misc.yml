@@ -4,7 +4,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/Baked/misc.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/Baked/misc.rsi # Funky
   - type: Solution
     solution:
       reagents:
@@ -25,7 +25,7 @@
     trash:
     - FoodPlateMuffinTin
   - type: Sprite
-    sprite: Objects/Consumable/Food/Baked/misc.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/Baked/misc.rsi # Funky
     state: muffin
   - type: FlavorProfile
     flavors:
@@ -623,7 +623,7 @@
       - sweet
       - chocolate
   - type: Sprite
-    sprite: Objects/Consumable/Food/snacks.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/snacks.rsi # Funky
     state: mre-brownie-open
   - type: Solution
     solution:
@@ -683,7 +683,7 @@
       - magical
       - chocolate
   - type: Sprite
-    sprite: Objects/Consumable/Food/snacks.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/snacks.rsi # Funky
     state: mre-brownie-open
   - type: Solution
     solution:
@@ -801,7 +801,7 @@
       - cheesy
       - bread
   - type: Sprite
-    sprite: Objects/Consumable/Food/Baked/misc.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/Baked/misc.rsi # Funky
     state: grilled-cheese
   # macro edit start - allow ungu to eat
   - type: Tag
@@ -828,7 +828,7 @@
     - bread
     - cotton
   - type: Sprite
-    sprite: Objects/Consumable/Food/Baked/misc.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/Baked/misc.rsi # Funky
     state: grilled-cheese-cotton
   - type: Edible
     requiresSpecialDigestion: true

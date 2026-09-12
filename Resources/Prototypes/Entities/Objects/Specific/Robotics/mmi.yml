@@ -2,7 +2,7 @@
   parent: BaseItem
   id: MMI
   name: man-machine interface
-  description: A machine able to facilitate communication between a biological brain and electronics, enabling crew to continue to provide value after work-related incidents.
+  description: A machine able to facilitate communication between a biological brain and electronics, enabling crew to continue to provide value after work-related incidents. Unfortunately, it only fits in simple machines. # Funky
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Specific/Robotics/mmi.rsi #Funky resprite
@@ -20,7 +20,7 @@
       whitelist:
         components:
         - Brain
-  - type: BorgBrain
+  #- type: BorgBrain # Disabled for Funky, no MMIs in Droids
   - type: BlockMovement
   - type: Examiner
   - type: IntrinsicRadioReceiver
@@ -70,7 +70,7 @@
   parent: BaseItem
   id: PositronicBrain
   name: positronic brain
-  description: An artificial brain capable of spontaneous neural activity.
+  description: An artificial brain capable of spontaneous neural activity. Commonly used in droids.
   components:
     - type: Sprite
       sprite: _Funkystation/Objects/Specific/Robotics/mmi.rsi #Funky resprite

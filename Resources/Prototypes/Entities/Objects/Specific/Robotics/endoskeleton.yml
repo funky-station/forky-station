@@ -1,7 +1,7 @@
 - type: entity
   id: CyborgEndoskeleton
-  name: cyborg endoskeleton
-  description: A frame that cyborgs are built on. Significantly less spooky than expected.
+  name: automa endoskeleton # Funky
+  description: A frame that automas are built on. Significantly less spooky than expected. # Funky
   components:
   - type: Clickable
   - type: InteractionOutline

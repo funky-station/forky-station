@@ -708,7 +708,7 @@
 - type: entity
   id: BorgChargerCircuitboard
   parent: BaseMachineCircuitboard
-  name: cyborg recharging station machine board
+  name: automa recharging station machine board # Funky
   description: A machine printed circuit board for a robot recharging station.
   components:
     - type: Sprite

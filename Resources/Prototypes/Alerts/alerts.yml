@@ -455,7 +455,7 @@
 - type: alert
   id: Prying
   icons:
-  - sprite: /Textures/Objects/Tools/crowbar.rsi
+  - sprite: /Textures/_Funkystation/Objects/Tools/crowbar.rsi # Funky
     state: icon
   name: alerts-prying-name
   description: alerts-prying-desc

@@ -71,7 +71,7 @@
   description: An older model recharger that can recharge power cells.
   components:
   - type: Sprite
-    sprite: Structures/Power/cell_recharger.rsi
+    sprite: _Funkystation/Structures/Power/cell_recharger.rsi # Funky
     layers:
     - map: ["enum.PowerChargerVisualLayers.Base"]
       state: "empty"
@@ -235,8 +235,8 @@
 - type: entity
   parent: [ BaseRecharger, BaseConstructibleMachineDestructible ]
   id: BorgCharger
-  name: cyborg recharging station
-  description: A stationary charger for various robotic and cyborg entities. Surprisingly spacious.
+  name: automa recharging station # Funky
+  description: A stationary charger for various robotic and automa entities. Surprisingly spacious. # Funky
   components:
   - type: Sprite
     sprite: Structures/Power/borg_charger.rsi

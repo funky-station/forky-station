@@ -12,3 +12,11 @@
   keycode: "i"
   frequency: 137.5
   color: "#bda499"
+
+- type: radioChannel
+  id: Prisoner
+  name: chat-radio-prisoner
+  keycode: 'p'
+  frequency: 123.7
+  color: "#dddbc5"
+  longRange: true

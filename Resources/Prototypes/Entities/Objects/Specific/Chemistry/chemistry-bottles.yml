@@ -51,7 +51,7 @@
         type: TransferAmountBoundUserInterface
   - type: Item
     size: Tiny
-    sprite: Objects/Specific/Chemistry/beaker.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/beaker.rsi # Funky
   - type: Spillable
     solution: drink
   - type: MeleeWeapon

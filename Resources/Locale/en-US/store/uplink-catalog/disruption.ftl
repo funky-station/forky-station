@@ -7,19 +7,19 @@ uplink-access-breaker-name = Access Breaker
 uplink-access-breaker-desc = A hacked access configurator and a good friend of the emag. This device is able to force airlocks open as well as erase access requirements from station equipment. Recharges automatically.
 
 uplink-emag-name = Emag
-uplink-emag-desc = "The business card of the syndicate", this hacking tool is able to tamper with a variety of station devices. Is notably able to unlock unauthorized security recipes at lathes and subvert cyborgs with open access panels. Recharges automatically.
+uplink-emag-desc = "The business card of the syndicate", this hacking tool is able to tamper with a variety of station devices. Is notably able to unlock unauthorized security recipes at lathes and subvert automas with open access panels. Recharges automatically.
 
 uplink-radio-jammer-name = Radio Jammer
 uplink-radio-jammer-desc = This device will disrupt any nearby outgoing radio communication as well as suit sensors when activated. Battery powered, so you might want to bring a spare.
 
-uplink-syndicate-weapon-module-name = Weapon Cyborg Module
-uplink-syndicate-weapon-module-desc = Upgrades a cyborg with both an energy dagger and a Viper pistol with self-replicating ammo reserves.
+uplink-syndicate-weapon-module-name = Weapon Automa Module
+uplink-syndicate-weapon-module-desc = Upgrades an automa with both an energy dagger and a Viper pistol with self-replicating ammo reserves.
 
 uplink-disposable-turret-name = Disposable Ballistic Turret
 uplink-disposable-turret-desc = Looks and functions like a normal electrical toolbox. Upon hitting the toolbox it will transform into a ballistic turret, theoretically shooting at anyone except members of the syndicate. Can be turned back into a toolbox using a screwdriver and repaired using a wrench.
 
-uplink-syndicate-martyr-module-name = Martyr Cyborg Module
-uplink-syndicate-martyr-module-desc = Turn your emagged borg friend into a walking bomb with just this module. Make sure they're loyal to your cause, results may vary.
+uplink-syndicate-martyr-module-name = Martyr Automa Module
+uplink-syndicate-martyr-module-desc = Turn your automa friend into a walking bomb with just this module. Make sure they're loyal to your cause, results may vary.
 
 uplink-soap-name = Soap
 uplink-soap-desc = An untrustworthy bar of soap. Smells of fear.

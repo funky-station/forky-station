@@ -1,0 +1,36 @@
+- type: siliconLawset
+  id: NTStandard
+  name: law-ntstandard-name
+  laws:
+  - NTStandard1
+  - NTStandard2
+  - NTStandard3
+  - NTStandard4
+  - NTStandard5
+  obeysTo: laws-owner-station
+
+ # NT Standard Laws
+- type: siliconLaw
+  id: NTStandard1
+  order: 1
+  lawString: law-ntstandard-1
+
+- type: siliconLaw
+  id: NTStandard2
+  order: 2
+  lawString: law-ntstandard-2
+
+- type: siliconLaw
+  id: NTStandard3
+  order: 3
+  lawString: law-ntstandard-3
+
+- type: siliconLaw
+  id: NTStandard4
+  order: 4
+  lawString: law-ntstandard-4
+
+- type: siliconLaw
+  id: NTStandard5
+  order: 5
+  lawString: law-ntstandard-5

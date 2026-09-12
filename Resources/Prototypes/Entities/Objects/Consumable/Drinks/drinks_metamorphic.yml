@@ -13,13 +13,13 @@
   - type: Item
     size: Small
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/glass_clear.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/glass_clear.rsi # Funky
   - type: TransformableContainer
   - type: SolutionContainerVisuals
     maxFillLevels: 9
     metamorphic: true
     metamorphicDefaultSprite:
-      sprite: Objects/Consumable/Drinks/glass_clear.rsi
+      sprite: _Funkystation/Objects/Consumable/Drinks/glass_clear.rsi # Funky
       state: icon
   - type: Destructible
     thresholds:
@@ -33,6 +33,21 @@
             min: 1
             max: 1
         transferForensics: true
+  - type: EmitSoundOnPickup # Funky
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/drinkglass_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop # Funky
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/drinkglass_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand # Funky
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/drinkglass_drop.ogg
+      params:
+        volume: -4
 
 - type: entity
   parent: DrinkGlass
@@ -1619,7 +1634,7 @@
         - ReagentId: Moonshine
           Quantity: 30
   - type: Icon
-    sprite: Objects/Consumable/Drinks/glass_clear.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/glass_clear.rsi # Funky
     state: icon
 
 - type: entity

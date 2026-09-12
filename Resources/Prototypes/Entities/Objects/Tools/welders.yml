@@ -98,6 +98,16 @@
     price: 40
   - type: IgnitionSource
     temperature: 700
+  - type: EmitSoundOnPickup # Funky
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/welder_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop # Funky
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/welder_drop.ogg
+      params:
+        volume: -4
 
 - type: entity
   parent: [SolutionToolWelder, BaseWelder]

@@ -21,7 +21,7 @@
 
 - type: Tag # Funky borgs - for the foam module
   id: FoamGrenade
-  
+
 - type: Tag
   id: StargazerShellTag # Funky - ConstructionGraphs for stargazer lollipop
 
@@ -69,3 +69,6 @@
 
 - type: Tag
   id: LaundryBag
+
+- type: Tag
+  id: Molotov

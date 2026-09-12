@@ -414,7 +414,7 @@
   - type: Action
     useDelay: 1
   - type: Sprite
-    sprite: Objects/Fun/bikehorn.rsi
+    sprite: _Funkystation/Objects/Fun/bikehorn.rsi # Funky
     layers:
     - state: icon
 
