@@ -9,7 +9,7 @@
   "states": [
     {"name": "crypt_det"},
     {"name": "det_label"}
-  ]
+  ],
     "states": [
         {
             "name": "crypt_gray"
