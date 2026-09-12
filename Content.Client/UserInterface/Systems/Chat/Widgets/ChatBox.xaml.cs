@@ -1,4 +1,7 @@
-using Content.Client._RMC14.Chat; // Persistence: Chat stacking from RMC14 - pull/7587
+using System.Linq;
+using Content.Client._Funkystation.UserInterface.Controls;
+using Content.Client._RMC14.Chat;
+using Content.Client.UserInterface.ControlExtensions; // Persistence: Chat stacking from RMC14 - pull/7587
 using Content.Client.UserInterface.Systems.Chat.Controls;
 using Content.Shared.Chat;
 using Content.Shared.Input;
@@ -126,6 +129,7 @@ public partial class ChatBox : UIWidget
             return;
 
         Contents.AddMessage(formatted, tagsAllowed: null);
+        _entManager.System<CMChatSystem>().UpdateGhostFollowLink(this, Contents.GetControlOfType<GhostFollowLabel>().LastOrDefault());
     }
 
     public void Focus(ChatSelectChannel? channel = null)

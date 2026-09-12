@@ -420,7 +420,7 @@ internal sealed partial class ChatManager : IChatManager
         if (IsValidWarpDestination(source) && ShouldShowFollowButton(recipient))
         {
             var btnText = _localizationManager.GetString("chat-manager-follow-button");
-            return $"[cmdlink=\"{btnText}\" command=\"{GhostFollowEntityCommand.CommandName} {_entityManager.GetNetEntity(source)}\" /] " + wrappedMessage;
+            return $"[ghostfollow=\"{btnText}\" command=\"{GhostFollowEntityCommand.CommandName} {_entityManager.GetNetEntity(source)}\" /] " + wrappedMessage;
         }
 
         return wrappedMessage;

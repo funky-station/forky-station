@@ -1,4 +1,7 @@
 ﻿// Persistence: Chat stacking from RMC14 - pull/7587
+
+using System.Linq;
+using Content.Client._Funkystation.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Chat.Widgets;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared.Chat;
@@ -44,6 +47,7 @@ public sealed partial class CMChatSystem : EntitySystem // Persistence: SharedCM
             var copy = new FormattedMessage(old.FormattedMessage);
             old.Count++;
             copy.AddMarkupPermissive($" [color=red]x{old.Count}[/color]");
+            old.GhostFollowLink?.Orphan();
             contents.SetMessage(old.Index, copy, tagsAllowed: null);
             repeated = true;
             break;
@@ -62,5 +66,10 @@ public sealed partial class CMChatSystem : EntitySystem // Persistence: SharedCM
         }
 
         return repeated;
+    }
+
+    public void UpdateGhostFollowLink(ChatBox chat, GhostFollowLabel? control)
+    {
+        chat.RepeatQueue.LastOrDefault()?.GhostFollowLink = control;
     }
 }
