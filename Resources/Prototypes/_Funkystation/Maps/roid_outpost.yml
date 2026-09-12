@@ -57,7 +57,8 @@
           Prisoner: [ 3, 3 ]
           #supply
           Quartermaster: [ 1, 1 ]
-          CargoTechnician: [ 7, 7 ]
+          CargoTechnician: [ 6, 6 ]
+          FuCourier: [ 1, 1 ]
           #civillian
           Passenger: [ -1, -1 ]
           Clown: [ 2, 2 ]
