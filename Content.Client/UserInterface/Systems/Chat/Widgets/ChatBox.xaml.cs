@@ -124,16 +124,24 @@ public partial class ChatBox : UIWidget
         formatted.AddMarkupOrThrow(message);
         formatted.Pop();
 
+        // funky - just to avoid asking entManager for the system multiple times
         var cmChatSystem = _entManager.System<CMChatSystem>();
 
         // Persistence: Chat stacking from RMC14 - pull/7587
         if (cmChatSystem.TryRepetition(this, Contents, formatted, sender, unwrapped, channel, repeatCheckSender))
         {
+            // funky
+            // we can get away with getting the last GhostFollowLabel in the OutputPanel's contents because i'm pretty sure
+            // whenever a message with tags that get parsed into controls gets added or modified, those new controls are always
+            // sent to the bottom of the tree
+            // also, we can only do this after the message has been parsed which is partly why it happens separately from TryRepetition
             cmChatSystem.UpdateGhostFollowLink(this, Contents.GetControlOfType<GhostFollowLabel>().LastOrDefault(), sender, unwrapped, channel, repeatCheckSender);
             return;
         }
 
         Contents.AddMessage(formatted, tagsAllowed: null);
+        // funky - if there's a new ghost follow link, attach it to the new message in the repeat message queue
+        // we can only do this after the message has been parsed which is why it happens separately from TryRepetition
         cmChatSystem.AddGhostFollowLink(this, Contents.GetControlOfType<GhostFollowLabel>().LastOrDefault());
     }
 

@@ -67,6 +67,15 @@ public sealed partial class CMChatSystem : EntitySystem // Persistence: SharedCM
         return repeated;
     }
 
+    /// <summary>
+    /// Funky - orphan any ghost follow links attached to repeated messages and attach the new link instead
+    /// </summary>
+    /// <param name="chat"></param>
+    /// <param name="control"></param>
+    /// <param name="sender"></param>
+    /// <param name="unwrapped"></param>
+    /// <param name="channel"></param>
+    /// <param name="repeatCheckSender"></param>
     public void UpdateGhostFollowLink(ChatBox chat, GhostFollowLabel? control, NetEntity sender, string unwrapped, ChatChannel channel, bool repeatCheckSender)
     {
         foreach (var old in chat.RepeatQueue)
@@ -89,6 +98,7 @@ public sealed partial class CMChatSystem : EntitySystem // Persistence: SharedCM
         }
     }
 
+    // funky
     public void AddGhostFollowLink(ChatBox chat, GhostFollowLabel? control)
     {
         chat.RepeatQueue.LastOrDefault()?.GhostFollowLink = control;

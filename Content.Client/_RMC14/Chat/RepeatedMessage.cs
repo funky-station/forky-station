@@ -20,5 +20,5 @@ public sealed class RepeatedMessage(
     public readonly string Message = message;
     public readonly ChatChannel Channel = channel;
     public int Count = 1;
-    internal GhostFollowLabel? GhostFollowLink;
+    internal GhostFollowLabel? GhostFollowLink; // funky
 }

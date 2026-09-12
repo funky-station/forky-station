@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Client._Funkystation.UserInterface.Controls;
+using JetBrains.Annotations;
 using Robust.Client.Console;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.RichText;
@@ -8,6 +9,11 @@ using Robust.Shared.Utility;
 
 namespace Content.Client._Funkystation.UserInterface.RichText;
 
+/// <summary>
+/// Functionally identical to <see cref="CommandLinkTag"/>, exists to use a unique type
+/// for the purpose of chat stacking ghost follow buttons
+/// </summary>
+[UsedImplicitly]
 public sealed partial class GhostFollowTag : IMarkupTagHandler
 {
     [Dependency] private IClientConsoleHost _clientConsoleHost = default!;
