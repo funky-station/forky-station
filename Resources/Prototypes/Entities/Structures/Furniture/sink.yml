@@ -1,5 +1,5 @@
 - type: entity
-  parent: [SolutionTank, SolutionHuge]
+  parent: [SolutionTank, SolutionHuge, StructureHealthFurnitureStrong]
   id: SinkEmpty
   name: sink
   description: The faucets have been tightened to the maximum possible torque but are still known to drip.
@@ -10,7 +10,7 @@
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
-    sprite: Structures/Furniture/sink.rsi
+    sprite: _Funkystation/Structures/Furniture/sink.rsi # Funky
     layers:
     - state: sink_stem
     - map: [ "enum.SolutionContainerLayers.Fill" ]
@@ -36,28 +36,30 @@
     autoDrain: false
   - type: DumpableSolution
     solution: drainBuffer
+  - type: Edible
+    edible: Drink
+    solution: tank
+    destroyOnEmpty: false
+    utensil: Spoon
   - type: Damageable
-    damageModifierSet: Metallic
-  - type: Injurable
-    damageContainer: Inorganic
+    damageModifierSet: RockMod
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 40
+        damage: 80
       behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
-          collection: MetalBreak
+          path: /Audio/Effects/break_stone.ogg
+          params:
+            volume: -3
   - type: AmbientSound
     enabled: false
     volume: -8
     range: 8
     sound:
       path: /Audio/Ambience/Objects/drain.ogg
-
 
 - type: entity
   parent: SinkEmpty
@@ -76,7 +78,7 @@
   name: wide sink
   components:
     - type: Sprite
-      sprite: Structures/Furniture/sink.rsi
+      sprite: _Funkystation/Structures/Furniture/sink.rsi # Funky
       layers:
         - state: sink_wide
         - map: [ "enum.SolutionContainerLayers.Fill" ]
@@ -95,7 +97,7 @@
   parent: SinkEmpty
   components:
   - type: Sprite
-    sprite: Structures/Furniture/sink.rsi
+    sprite: _Funkystation/Structures/Furniture/sink.rsi # Funky
     layers:
       - state: sink
       - map: [ "enum.SolutionContainerLayers.Fill" ]

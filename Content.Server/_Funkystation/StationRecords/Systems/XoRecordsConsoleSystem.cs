@@ -3,7 +3,7 @@ using Content.Server.Station.Systems;
 using Content.Shared._Funkystation.CCVar;
 using Content.Shared._Funkystation.Pager;
 using Content.Shared._Funkystation.StationRecords;
-using Content.Shared.StationRecords;
+using Content.Shared.StationRecords.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 

@@ -100,6 +100,16 @@ public sealed partial class CartridgeLoaderSystem
         UpdateUiState(ent.AsNullable());
     }
 
+    // funky, for autoactivatecartridge
+    public void RequestUiRefresh(Entity<CartridgeLoaderComponent> ent)
+    {
+        if (ent.Comp.ActiveProgram is not { } foreground)
+            return;
+
+        var evt = new CartridgeUiReadyEvent(ent);
+        RaiseLocalEvent(foreground, ref evt);
+    }
+
     /// <summary>
     /// Installs a program by its prototype.
     /// </summary>

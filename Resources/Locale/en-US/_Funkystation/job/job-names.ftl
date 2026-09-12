@@ -16,3 +16,4 @@ job-name-xo = Executive Officer
 job-name-lieutenant = Lieutenant
 job-name-commandant = Commandant
 job-name-dispatcher = Dispatcher
+job-name-courier = Courier

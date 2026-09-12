@@ -1,13 +1,29 @@
 - type: radioChannel
+
   id: Detective
   name: chat-radio-detective
   keycode: '}' #Random character since this will never be spoken on. It is for the listening bug
   frequency: 1984
   color: "#ff4242"
 
+  id: Emergency
+  name: chat-radio-emergency
+  frequency: 150.1
+  keycode: "r"
+  color: "#db4373"
+  longRange: true
+
 - type: radioChannel
   id: InternalAffairs
   name: chat-radio-ia
   keycode: "i"
-  frequency: 1375
+  frequency: 137.5
   color: "#bda499"
+
+- type: radioChannel
+  id: Prisoner
+  name: chat-radio-prisoner
+  keycode: 'p'
+  frequency: 123.7
+  color: "#dddbc5"
+  longRange: true

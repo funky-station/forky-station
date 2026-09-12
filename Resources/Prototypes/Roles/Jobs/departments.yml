@@ -7,6 +7,7 @@
   - Botanist # Funky - Moved from Civilian
   - CargoTechnician
   - Quartermaster
+  - FuCourier # Funky
   # - SalvageSpecialist - funky
 
 - type: department
@@ -15,6 +16,7 @@
   description: department-Civilian-description
   color: "#808080" # Funky - Changed color to gray, like the icons. Service is now green
   weight: -10
+  ignoreForDepartmentFallback: true
   roles:
   #- Bartender # Funky - All the commented out jobs are moving to Service
   #- Botanist # Except Botanist which is moving to Logistics
@@ -30,7 +32,9 @@
   - Passenger
   - Reporter
   - Visitor
+  - Prisoner # funky
   #- ServiceWorker
+  - TramDriver
 
 - type: department
   id: CentralCommand
@@ -143,8 +147,10 @@
   description: department-Specific-description
   color: "#9FED58"
   weight: 10
+  ignoreForDepartmentFallback: true
   roles:
 #  - Reporter - funky
 #  - Psychologist - funky
   - Dispatcher # funky
+  - TramDriver
   primary: false

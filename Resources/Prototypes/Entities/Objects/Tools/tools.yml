@@ -6,13 +6,14 @@
   components:
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Items/wirecutter_drop.ogg
+      path: /Audio/_Funkystation/Items/Handling/wirecutter_drop.ogg # Funky
+      params:
+        volume: -4
   - type: Tag
     tags:
-    - PlantSampleTaker
     - Wirecutter
   - type: Sprite
-    sprite: Objects/Tools/wirecutters.rsi
+    sprite: _Funkystation/Objects/Tools/wirecutters.rsi # Funky
     layers:
     - state: cutters
       map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -36,7 +37,7 @@
       - enum.DamageStateVisualLayers.Base:
           cutters: Rainbow
   - type: Item
-    sprite: Objects/Tools/wirecutters.rsi
+    sprite: _Funkystation/Objects/Tools/wirecutters.rsi # Funky
     storedRotation: -90
   - type: ToolTileCompatible
   - type: PhysicalComposition
@@ -44,6 +45,17 @@
       Steel: 100
   - type: StaticPrice
     price: 30
+  - type: BotanySampleTaker
+  - type: EmitSoundOnPickup # Funky
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/wirecutter_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop # Funky
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/wirecutter_drop.ogg
+      params:
+        volume: -4
 
 - type: entity
   name: screwdriver
@@ -58,13 +70,13 @@
     tags:
     - Screwdriver
   - type: Sprite
-    sprite: Objects/Tools/screwdriver.rsi
+    sprite: _Funkystation/Objects/Tools/screwdriver.rsi # Funky
     layers:
       - state: screwdriver
         map: [ "enum.DamageStateVisualLayers.Base" ]
       - state: screwdriver-screwybits
   - type: Item
-    sprite: Objects/Tools/screwdriver.rsi
+    sprite: _Funkystation/Objects/Tools/screwdriver.rsi # Funky
     storedRotation: -90
   - type: MeleeWeapon
     wideAnimationRotation: -90
@@ -88,6 +100,16 @@
       Steel: 100
   - type: StaticPrice
     price: 30
+  - type: EmitSoundOnPickup # Funky
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/screwdriver_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop # Funky
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/screwdriver_drop.ogg
+      params:
+        volume: -4
 
 - type: entity
   name: wrench
@@ -130,6 +152,16 @@
   - type: GuideHelp
     guides:
     - Construction
+  - type: EmitSoundOnPickup # Funky
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/wrench_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop # Funky
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/wrench_drop.ogg
+      params:
+        volume: -4
 
 - type: entity
   name: multitool
@@ -184,6 +216,16 @@
     - WirePanels
     - Airlocks
     - InspectingPower
+  - type: EmitSoundOnPickup # Funky
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/multitool_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop # Funky
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/multitool_drop.ogg
+      params:
+        volume: -4
 
 - type: entity
   name: network configurator
@@ -257,26 +299,37 @@
     qualities:
       - Screwing
     speedModifier: 1.5
-    useSound: /Audio/Items/drill_use.ogg
+    useSound: !type:SoundPathSpecifier
+      path: /Audio/Items/drill_use.ogg
+      params:
+        volume: -2.5
   - type: MultipleTool
     statusShowBehavior: true
     entries:
-      - behavior: Screwing
+      - behavior: [ Screwing ]
         sprite:
           sprite: Objects/Tools/drill.rsi
           state: drill_screw
-        useSound:
+        useSound: !type:SoundPathSpecifier
           path: /Audio/Items/drill_use.ogg
-        changeSound:
+          params:
+            volume: -2.5
+        changeSound: !type:SoundPathSpecifier
           path: /Audio/Items/change_drill.ogg
-      - behavior: Anchoring
+          params:
+            volume: -5
+      - behavior: [ Anchoring ]
         sprite:
           sprite: Objects/Tools/drill.rsi
           state: drill_bolt
-        useSound:
+        useSound: !type:SoundPathSpecifier
           path: /Audio/Items/drill_use.ogg
-        changeSound:
+          params:
+            volume: -2.5
+        changeSound: !type:SoundPathSpecifier
           path: /Audio/Items/change_drill.ogg
+          params:
+            volume: -5
   - type: PhysicalComposition
     materialComposition:
       Steel: 300
@@ -462,7 +515,7 @@
   - type: MultipleTool
     statusShowBehavior: true
     entries:
-      - behavior: Screwing
+      - behavior: [ Screwing ]
         sprite:
           sprite: Objects/Tools/omnitool.rsi
           state: omnitool-screwing
@@ -470,7 +523,7 @@
           path: /Audio/Items/drill_use.ogg
         changeSound:
           path: /Audio/Items/change_drill.ogg
-      - behavior: Prying
+      - behavior: [ Prying ]
         sprite:
           sprite: Objects/Tools/omnitool.rsi
           state: omnitool-prying
@@ -478,7 +531,7 @@
           path: /Audio/Items/jaws_pry.ogg
         changeSound:
           path: /Audio/Items/change_drill.ogg
-      - behavior: Anchoring
+      - behavior: [ Anchoring ]
         sprite:
           sprite: Objects/Tools/omnitool.rsi
           state: omnitool-wrenching
@@ -486,7 +539,7 @@
           path: /Audio/Items/ratchet.ogg
         changeSound:
           path: /Audio/Items/change_drill.ogg
-      - behavior: Cutting
+      - behavior: [ Cutting ]
         sprite:
           sprite: Objects/Tools/omnitool.rsi
           state: omnitool-snipping
@@ -494,7 +547,7 @@
           path: /Audio/Items/jaws_cut.ogg
         changeSound:
           path: /Audio/Items/change_drill.ogg
-      - behavior: Pulsing
+      - behavior: [ Pulsing ]
         sprite:
           sprite: Objects/Tools/omnitool.rsi
           state: omnitool-pulsing

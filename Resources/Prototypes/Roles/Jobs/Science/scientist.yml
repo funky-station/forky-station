@@ -18,6 +18,7 @@
 - type: startingGear
   id: ScientistGear
   equipment:
+    id: ScienceWallet # Funky: the wallet-ening, also removing the loadout choice for senior stuff
     ears: ClothingHeadsetScience
   #storage:
     #back:

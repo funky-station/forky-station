@@ -2,6 +2,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Popups;
 using Content.Shared.Standing;
 using Robust.Shared.Timing;
 
@@ -16,15 +17,16 @@ public partial class MobStateSystem : EntitySystem
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private DamageableSystem _damageable = default!;
-    private ISawmill _sawmill = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     [Dependency] private EntityQuery<MobStateComponent> _mobStateQuery = default!;
 
     public override void Initialize()
     {
-        _sawmill = LogManager.GetSawmill("MobState");
         base.Initialize();
+
         SubscribeEvents();
+        InitializeSoftcrit(); // funky
     }
 
     #region Public API
@@ -52,7 +54,8 @@ public partial class MobStateSystem : EntitySystem
     {
         if (!_mobStateQuery.Resolve(target, ref component, false))
             return false;
-        return component.CurrentState == MobState.Critical;
+        // funky, soft and hard crit both count as critical
+        return component.CurrentState is MobState.Critical or MobState.SoftCritical or MobState.HardCritical;
     }
 
     /// <summary>
@@ -78,7 +81,8 @@ public partial class MobStateSystem : EntitySystem
     {
         if (!_mobStateQuery.Resolve(target, ref component, false))
             return false;
-        return component.CurrentState is MobState.Critical or MobState.Dead;
+        // funky
+        return component.CurrentState is MobState.Critical or MobState.SoftCritical or MobState.HardCritical or MobState.Dead;
     }
 
     /// <summary>

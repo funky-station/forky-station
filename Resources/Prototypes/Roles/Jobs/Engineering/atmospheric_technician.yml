@@ -24,7 +24,7 @@
   id: AtmosphericTechnicianGear
   equipment:
     eyes: ClothingEyesGlassesMeson
-    id: AtmosPDA
+    id: AtmosWallet # Funky: the wallet-ening
     belt: ClothingBeltUtilityEngineering
     ears: ClothingHeadsetEngineering
   #storage:
@@ -39,4 +39,4 @@
     mask: ClothingMaskGasAtmos
     neck: ClothingNeckScarfStripedLightBlue
     outerClothing: ClothingOuterSuitAtmosFire
-    gloves: ClothingHandsGlovesColorYellow
+    gloves: FuClothingHandsGlovesInsuls #Funky

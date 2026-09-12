@@ -2,6 +2,7 @@
   id: ChemVendInventory
   startingInventory:
     Jug: 4
+    CMBloodPack: 10 # Funky
     JugAluminium: 2
     JugCarbon: 4
     JugChlorine: 1

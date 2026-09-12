@@ -5,7 +5,7 @@
   - type: Electrocution
   - type: Icon
     # Shows up inside the power monitoring console.
-    sprite: "Structures/Wallmounts/signs.rsi"
+    sprite: "/Textures/_Funkystation/Structures/Wallmounts/signs.rsi" # Funky
     state: "shock"
 
 - type: entity

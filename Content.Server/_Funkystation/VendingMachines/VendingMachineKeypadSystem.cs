@@ -1,5 +1,6 @@
 ﻿using Content.Shared._Funkystation.VendingMachines;
 using Content.Shared.VendingMachines;
+using Content.Shared.VendingMachines.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 

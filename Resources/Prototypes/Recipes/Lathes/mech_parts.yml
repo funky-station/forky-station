@@ -20,7 +20,7 @@
   materials:
     Steel: 2000
     Glass: 750
-    Bananium: 250
+    Gold: 250
 
 - type: latheRecipe
   abstract: true
@@ -69,7 +69,7 @@
   materials:
     Steel: 3000
     Glass: 1200
-    Bananium: 500
+    Gold: 500
 
 - type: latheRecipe
   parent: BaseHonkerLimbRecipe

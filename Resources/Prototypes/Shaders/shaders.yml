@@ -127,6 +127,11 @@
   path: "/Textures/Shaders/heatBlur.swsl"
 
 - type: shader
+  id: ScreechShockWave
+  kind: source
+  path: "/Textures/Shaders/screech_shock_wave.swsl"
+
+- type: shader
   id: NightVision
   kind: source
   path: "/Textures/Shaders/nightvision.swsl"
@@ -142,3 +147,8 @@
   id: Goggles
   kind: source
   path: "/Textures/_Funkystation/Shaders/goggles.swsl"
+
+- type: shader
+  id: Sharpness
+  kind: source
+  path: "/Textures/Shaders/sharpness.swsl"

@@ -1,0 +1,6 @@
+#neck
+
+- type: loadout
+  id: FuCargoLiftBelt
+  equipment:
+    neck: FuClothingNeckCargoLiftBelt

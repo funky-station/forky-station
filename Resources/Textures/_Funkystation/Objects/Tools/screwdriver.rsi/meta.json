@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-4.0",
+  "copyright": "screwdriver/map/bits by vectorassembly, everything else - Taken from https://github.com/ParadiseSS13/Paradise (CC-BY-SA-3.0)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "screwdriver"
+    },
+    {
+      "name": "screwdriver-map"
+    },
+    {
+      "name": "screwdriver-screwybits"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-BELT",
+      "directions": 4
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+- type: gameMap
+  id: roid_outpost
+  mapName: 'Roid'
+  mapPath: /Maps/_Funkystation/roid_outpost.yml
+  minPlayers: 0
+  maxPlayers: 45
+  stations:
+    roid_outpost:
+      stationProto: StandardNanotrasenStation
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: '{0} Roid {1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: '14'
+      - type: StationJobs
+        availableJobs:
+          #service
+          Magistrate: [ 1, 1 ]
+          CorporateLiaison: [ 1, 1 ]
+          InternalAffairsAgent: [ 1, 1 ]
+          Captain: [ 1, 1 ]
+          ExecutiveOfficer: [ 1, 1 ]
+          HospitalityDirector: [ 1, 1 ]
+          Bartender: [ 1, 1 ]
+          Botanist: [ 2, 2 ]
+          Chef: [ 2, 2 ]
+          Janitor: [ 2, 2 ]
+          Chaplain: [ 1, 1 ]
+          Librarian: [ 1, 1 ]
+          ServiceWorker: [ 2, 2 ]
+          Reporter: [ 1, 1 ]
+          #engineering
+          ChiefEngineer: [ 1, 1 ]
+          StationEngineer: [ 5, 5 ]
+          TechnicalAssistant: [ 2, 2 ]
+          #medical
+          ChiefMedicalOfficer: [ 1, 1 ]
+          Chemist: [ 2, 2 ]
+          MedicalDoctor: [ 5, 5 ]
+          MedicalIntern: [ 2, 2 ]
+          Paramedic: [ 1, 1 ]
+          Psychologist: [ 1, 1 ]
+          #science
+          ResearchDirector: [ 1, 1 ]
+          Scientist: [ 6, 6 ]
+          ResearchAssistant: [ 2, 2 ]
+          Borg: [ 2, 2 ]
+          #security
+          Commandant: [ 1, 1 ]
+          Warden: [ 1, 1 ]
+          Detective: [ 1, 1 ]
+          Lieutenant: [ 1, 2 ]
+          SecurityOfficer: [ 5, 6 ]
+          SecurityCadet: [ 3, 3 ]
+          Lawyer: [ 1, 1 ]
+          Prisoner: [ 3, 3 ]
+          #supply
+          Quartermaster: [ 1, 1 ]
+          CargoTechnician: [ 7, 7 ]
+          #civillian
+          Passenger: [ -1, -1 ]
+          Clown: [ 2, 2 ]
+          Mime: [ 2, 2 ]
+          Musician: [ 2, 2 ]
+
+#69 normal slots
+#78 total slots counting learning roles

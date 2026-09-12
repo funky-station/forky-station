@@ -1,9 +1,7 @@
-using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
 using Content.Shared.Body.Components;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.EntityConditions;
 
@@ -40,8 +38,8 @@ public sealed partial class BloodReagentCondition : EntityConditionBase<BloodRea
     [DataField]
     public FixedPoint2 Max = FixedPoint2.MaxValue;
 
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<ReagentPrototype>), required: true)]
-    public string Reagent = string.Empty;
+    [DataField (required: true)]
+    public ProtoId<ReagentPrototype> Reagent = string.Empty;
 
     public override string EntityConditionGuidebookText(IPrototypeManager prototype)
     {

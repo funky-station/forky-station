@@ -86,7 +86,7 @@ guide-entry-artifact-reports = Artifact Reports
 guide-entry-traversal-distorter = Traversal Distorter
 guide-entry-machine-upgrading = Machine Upgrading
 guide-entry-robotics = Robotics
-guide-entry-cyborgs = Cyborgs
+guide-entry-cyborgs = Automa
 guide-entry-security = Security
 guide-entry-forensics = Forensics
 guide-entry-defusal = Large Bomb Defusal
@@ -144,6 +144,7 @@ guide-entry-space-ninja = Space Ninja
 guide-entry-thieves = Thieves
 guide-entry-wizard = Wizard
 guide-entry-xenoborgs = Xenoborgs
+guide-entry-changelings = Changelings
 
 guide-entry-rules = Server Rules
 guide-entry-rules-core-only = Core Only Ruleset

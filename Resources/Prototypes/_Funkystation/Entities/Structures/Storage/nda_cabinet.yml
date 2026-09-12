@@ -1,0 +1,17 @@
+- type: entity
+  name: filing cabinet
+  parent: filingCabinet
+  id: FilingCabinetNdaCommand
+  components:
+  - type: NdaCabinet
+    department: Command
+    paperPrototype: PaperNdaCommand
+
+- type: entity
+  name: filing cabinet
+  parent: filingCabinet
+  id: FilingCabinetNdaSecurity
+  components:
+  - type: NdaCabinet
+    department: Security
+    paperPrototype: PaperNdaSecurity

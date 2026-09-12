@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared._MACRO.Announcements;
-using Content.Shared._MACRO.CCVars;
+using Content.Shared._MACRO.CCVar;
 using Content.Shared.Random;
 using Robust.Shared.Audio;
 using Robust.Shared.Configuration;

@@ -9,7 +9,7 @@
     anchored: false
   - type: Sprite
     layers:
-      - sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/black.rsi
+      - sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/black.rsi # Funky
         state: closed
   - type: EntityTableSpawner
     table: !type:NestedSelector

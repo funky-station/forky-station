@@ -15,9 +15,6 @@ enabled = false
 role_time = 0.5
 quick_lottery = true
 
-[gateway]
-generator_enabled = false
-
 [movement]
 mob_pushing = true
 
@@ -47,7 +44,7 @@ see_own_notes = true
 new_player_threshold = 120
 
 [ic]
-random_characters = true
+random_characters = false
 random_species_weights = ""
 ssd_sleep_time = 3600
 
@@ -59,3 +56,7 @@ pg_port = 5432
 pg_database = "ss14"
 pg_username = "postgres"
 pg_password = "postgres"
+
+[net]
+max_rapid_connections = 413
+max_ip_connections = 413

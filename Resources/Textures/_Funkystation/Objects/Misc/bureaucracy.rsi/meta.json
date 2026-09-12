@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "By AraiMaia for Funky Station",
+  "copyright": "By AraiMaia for Funky Station. Envelope inhands by TiniestShark (Github)",
   "size": {
     "x": 32,
     "y": 32
@@ -135,6 +135,20 @@
     },
     {
       "name": "syndicate_card"
+    },
+    {
+      "name": "paper-inhand-left"
+    },
+    {
+      "name": "paper-inhand-right"
+    },
+    {
+      "name": "envelope-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "envelope-inhand-left",
+      "directions": 4
     }
   ]
 }

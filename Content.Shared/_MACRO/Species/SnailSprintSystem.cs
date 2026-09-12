@@ -5,10 +5,12 @@ using Content.Shared.Fluids;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Nutrition.Prototypes;
 using Content.Shared.Popups;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._MACRO.Species;
@@ -26,7 +28,7 @@ public sealed partial class SharedSnailSprintSystem : EntitySystem
     [Dependency] private SharedMapSystem _mapSystem = default!;
     [Dependency] private SharedPopupSystem _popupSystem = default!;
     [Dependency] private SharedPuddleSystem _puddleSystem = default!;
-    [Dependency] private ThirstSystem _thirstSystem = default!;
+    [Dependency] private SatiationSystem _satiationSystem = default!;
 
     public override void Initialize()
     {
@@ -61,10 +63,13 @@ public sealed partial class SharedSnailSprintSystem : EntitySystem
     private void OnSnailSprintAction(Entity<SnailSprintComponent> ent, ref SnailSprintActionEvent args)
     {
         // prevent the action and let the player know if their thirst value is too low to use it.
-        if (TryComp<ThirstComponent>(ent.Owner, out var thirstComp)
-            && thirstComp.CurrentThirstThreshold < ent.Comp.MinThirstThreshold)
+        if (TryComp<SatiationComponent>(ent.Owner, out var satiationComponent)
+            //&& thirstComp.CurrentThirstThreshold < ent.Comp.MinThirstThreshold)
+            && _satiationSystem.IsValueInRange((ent.Owner, satiationComponent),
+                SatiationSystem.Thirst,
+                ent.Comp.MinThirstThreshold))
         {
-            _popupSystem.PopupClient(Loc.GetString(ent.Comp.FailedPopup), ent.Owner, ent.Owner);
+            _popupSystem.PopupEntity(Loc.GetString(ent.Comp.FailedPopup), ent.Owner, ent.Owner);
             return;
         }
         // if not...
@@ -76,7 +81,9 @@ public sealed partial class SharedSnailSprintSystem : EntitySystem
 
         // create the doafter and declare its arguments
         var doAfter = new DoAfterArgs(EntityManager, ent.Owner, ent.Comp.SprintLength, new SnailSprintDoAfterEvent(), ent.Owner)
-        { // this is inherited from Sericulture Component. This should definitely be in YML, but i don't know how to do that
+        {
+            // this is inherited from Sericulture Component.
+            // This should definitely be in YML, but i don't know how to do that
             BreakOnMove = false,
             BlockDuplicate = true,
             BreakOnDamage = true,
@@ -145,13 +152,15 @@ public sealed partial class SharedSnailSprintSystem : EntitySystem
         // Ensure that the next time RefreshMovementSpeedModifiersEvent is raised, OnRefreshMovespeed will remove the movement speed modifier
         ent.Comp.Active = false;
         // then raise that event
-        _movementSpeedModifier.RefreshMovementSpeedModifiers(ent);
+        _movementSpeedModifier.RefreshMovementSpeedModifiers(ent.Owner);
 
         // remove the thirst cost from total thirst
-        if (TryComp<ThirstComponent>(ent.Owner, out var thirstComp))
-        {
-            _thirstSystem.ModifyThirst(ent.Owner, thirstComp, -ent.Comp.ThirstCost);
-        }
+        if (!TryComp<SatiationComponent>(ent.Owner, out var satiationComponent))
+            return;
+
+        _satiationSystem.ModifyValue((ent.Owner, satiationComponent),
+            SatiationSystem.Thirst,
+            -ent.Comp.ThirstCost);
     }
 
     /// <summary>
@@ -160,26 +169,18 @@ public sealed partial class SharedSnailSprintSystem : EntitySystem
     private void OnRefreshMovespeed(Entity<SnailSprintComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
         // if the action has been used and the doafter is not over, apply speed boost.
-        if (ent.Comp.Active == true)
-        {
-            args.ModifySpeed(ent.Comp.SpeedBoost);
-        }
-
         // if the action has not been used, or the doafter has finished, reset speed.
-        else
-        {
-            args.ModifySpeed(1f);
-        }
+        args.ModifySpeed(ent.Comp.Active ? ent.Comp.SpeedBoost : 1f);
     }
 }
 
 /// <summary>
 ///     Relayed upon using the action.
 /// </summary>
-public sealed partial class SnailSprintActionEvent : InstantActionEvent { }
+public sealed partial class SnailSprintActionEvent : InstantActionEvent;
 
 /// <summary>
 ///     Is relayed after the doafter finishes.
 /// </summary>
 [Serializable, NetSerializable]
-public sealed partial class SnailSprintDoAfterEvent : SimpleDoAfterEvent { }
+public sealed partial class SnailSprintDoAfterEvent : SimpleDoAfterEvent;

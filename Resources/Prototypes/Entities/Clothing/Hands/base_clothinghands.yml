@@ -29,10 +29,10 @@
   - type: Stainable
     clothingVisuals:
       gloves:
-      - sprite: _Funkystation/Effects/blood.rsi
+      - sprite: /Textures/_Funkystation/Effects/blood.rsi
         state: gloveblood
     iconVisuals:
-    - sprite: _Funkystation/Effects/blood.rsi
+    - sprite: /Textures/_Funkystation/Effects/blood.rsi
       state: glovebloodicon
   - type: SolutionManager
     solutions:

@@ -10,21 +10,21 @@
   name: tool-quality-prying-name
   toolName: tool-quality-prying-tool-name
   spawn: Crowbar
-  icon: { sprite: Objects/Tools/crowbar.rsi, state: icon }
+  icon: { sprite: _Funkystation/Objects/Tools/crowbar.rsi, state: icon } # Funky
 
 - type: tool
   id: Screwing
   name: tool-quality-screwing-name
   toolName: tool-quality-screwing-tool-name
   spawn: Screwdriver
-  icon: { sprite: Objects/Tools/screwdriver.rsi, state: screwdriver-map }
+  icon: { sprite: _Funkystation/Objects/Tools/screwdriver.rsi, state: screwdriver-map } # Funky
 
 - type: tool
   id: Cutting
   name: tool-quality-cutting-name
   toolName: tool-quality-cutting-tool-name
   spawn: Wirecutter
-  icon: { sprite: Objects/Tools/wirecutters.rsi, state: cutters-map }
+  icon: { sprite: _Funkystation/Objects/Tools/wirecutters.rsi, state: cutters-map } # Funky
 
 - type: tool
   id: Welding
@@ -59,7 +59,7 @@
   name: tool-quality-honking-name
   toolName: tool-quality-honking-tool-name
   spawn: BikeHorn
-  icon: { sprite: Objects/Fun/bikehorn.rsi, state: icon }
+  icon: { sprite: _Funkystation/Objects/Fun/bikehorn.rsi, state: icon } # Funky
 
 - type: tool
   id: Rolling
@@ -80,4 +80,4 @@
   name: tool-quality-shearing-name
   toolName: tool-quality-shearing-tool-name
   spawn: Wirecutter
-  icon: { sprite: Objects/Tools/wirecutters.rsi, state: cutters-map }
+  icon: { sprite: _Funkystation/Objects/Tools/wirecutters.rsi, state: cutters-map } # Funky

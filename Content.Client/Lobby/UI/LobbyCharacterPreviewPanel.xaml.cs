@@ -103,10 +103,11 @@ public sealed partial class LobbyCharacterPreviewPanel : Control
         var departments = _prototypeManager.EnumeratePrototypes<DepartmentPrototype>().ToList();
         departments.Sort(DepartmentUIComparer.Instance);
         var iconsCreated = new HashSet<JobPrototype>(); // avoid duplicates for jobs that are in multiple departments
+        JobUIComparer.TryCreate(_prototypeManager, null, out var comparer);
         foreach (var department in departments)
         {
             var jobs = department.Roles.Select(_prototypeManager.Index).Where(r => r.SetPreference).ToList();
-            jobs.Sort(JobUIComparer.Instance);
+            jobs.Sort(comparer);
             foreach (var job in jobs)
             {
                 if (iconsCreated.Contains(job))

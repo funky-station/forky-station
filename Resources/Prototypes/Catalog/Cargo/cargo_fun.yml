@@ -1,7 +1,7 @@
 - type: cargoProduct
   id: FunArtSupplies
   icon:
-    sprite: Objects/Fun/crayons.rsi
+    sprite: _Funkystation/Objects/Fun/crayons.rsi # Funky
     state: box
   product: CrayonBox
   container:
@@ -188,15 +188,5 @@
     state: random
   product: CratePlants
   cost: 1000
-  category: cargoproduct-category-name-fun
-  group: market
-
-- type: cargoProduct
-  id: BigDrumsInstrument
-  icon:
-    sprite: Objects/Fun/Instruments/structureinstruments.rsi
-    state: drum
-  product: BigDrumsInstrument
-  cost: 1500
   category: cargoproduct-category-name-fun
   group: market

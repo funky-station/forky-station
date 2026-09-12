@@ -20,7 +20,7 @@
   id: ResearchAssistantGear
   equipment:
     shoes: ClothingShoesColorWhite
-    id: ResearchAssistantPDA
+    id: ResearchAssistantWallet # Funky: the wallet-ening
     ears: ClothingHeadsetScience
     pocket2: BookScientistsGuidebook
   #storage:

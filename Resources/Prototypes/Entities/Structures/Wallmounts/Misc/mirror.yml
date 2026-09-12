@@ -1,5 +1,5 @@
-- type: entity
-  parent: BaseWallmountGlass
+﻿- type: entity
+  parent: [ BaseWallmountGlass, StructureHealthFurnitureWeak ]
   id: Mirror
   name: mirror
   description: 'Mirror mirror on the wall , who''s the most robust of them all?'
@@ -7,7 +7,8 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: Structures/Wallmounts/mirror.rsi
+    sprite: _Funkystation/Structures/Wallmounts/mirror.rsi # Funky
+    offset: 0, -0.25 # Funky
     state: mirror
   - type: MagicMirror
     organs:
@@ -24,14 +25,14 @@
     interfaces:
       enum.MagicMirrorUiKey.Key:
         type: MagicMirrorBoundUserInterface
+  - type: Damageable
+    damageModifierSet: GlassMod
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
+        damage: 5
       behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak
@@ -42,4 +43,5 @@
   suffix: rectangle
   components:
   - type: Sprite
+    sprite: Structures/Wallmounts/mirror.rsi # Funky
     state: rectangle-mirror

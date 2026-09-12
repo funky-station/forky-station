@@ -1,8 +1,8 @@
 - type: entity
   id: BaseBorgModule
   parent: BaseItem
-  name: borg module
-  description: A piece of tech that gives cyborgs new abilities.
+  name: automa module # Funky
+  description: A piece of tech that gives automas new abilities. # Funky
   abstract: true
   components:
   - type: Item
@@ -456,8 +456,8 @@
 - type: entity
   id: BorgModulePrying
   parent: [ BaseBorgModule ]
-  name: prying module
-  description: A universal cyborg module which allows the unit to pry open doors.
+  name: prying automa module # Funky
+  description: A universal automa module which allows the unit to pry open doors. # Funky
   components:
   - type: Sprite
     layers:
@@ -473,8 +473,8 @@
 - type: entity
   id: BorgModuleCable
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: cable cyborg module
-  description: A universal cyborg module which allows the unit to install and manipulate electrical systems.
+  name: cable automa module # Funky
+  description: A universal automa module which allows the unit to install and manipulate electrical systems. # Funky
   components:
   - type: Sprite
     layers:
@@ -512,8 +512,8 @@
 - type: entity
   id: BorgModuleArtistry
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: artistry cyborg module
-  description: A module for arts & crafts whilst the station burns!
+  name: artistry automa module # Funky
+  description: A module for arts & crafts!
   components:
   - type: Sprite
     layers:
@@ -529,8 +529,8 @@
 - type: entity
   id: BorgModuleFireExtinguisher
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: thruster cyborg module
-  description: NT assigned a team to design a jetpack for cyborg units, but they ran out of funding and just made a bigger fire extinguisher. It comes with a integrated GPS and mass scanner though!
+  name: thruster automa module # Funky
+  description: NT assigned a team to design a jetpack for automa units, but they ran out of funding and just made a bigger fire extinguisher. It comes with a integrated GPS and mass scanner though! # Funky
   components:
   - type: Sprite
     layers:
@@ -548,7 +548,7 @@
 - type: entity
   id: BorgModuleTool
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: tool cyborg module
+  name: tool automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -568,7 +568,7 @@
 - type: entity
   id: BorgModuleInflatable
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: inflatable cyborg module
+  name: inflatable automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -599,7 +599,7 @@
 - type: entity
   id: BorgModuleAppraisal
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: appraisal cyborg module
+  name: appraisal automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -619,7 +619,7 @@
 - type: entity
   id: BorgModuleMining
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: mining cyborg module
+  name: mining automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -637,8 +637,8 @@
 - type: entity
   id: BorgModuleAdvancedMining
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: advanced mining cyborg module
-  description: Advanced cargo module containing advanced mining equipment. Studies show it advances productivity of a cyborg by 150%.
+  name: advanced mining automa module # Funky
+  description: Advanced cargo module containing advanced mining equipment. Studies show it advances productivity of an automa by 150%. # Funky
   components:
   - type: Sprite
     layers:
@@ -656,7 +656,7 @@
 - type: entity
   id: BorgModuleTraversal
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: traversal cyborg module
+  name: traversal automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -675,7 +675,7 @@
 - type: entity
   id: BorgModuleAdvancedTool
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
-  name: advanced tool cyborg module
+  name: advanced tool automa module # Funky
   description: Advanced engineering module containing cutting-edge tools.
   components:
   - type: Sprite
@@ -703,7 +703,7 @@
 - type: entity
   id: BorgModuleConstruction
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
-  name: construction cyborg module
+  name: construction automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -784,7 +784,7 @@
 - type: entity
   id: BorgModuleRCD
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
-  name: engineering cyborg module
+  name: engineering automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -805,7 +805,7 @@
 - type: entity
   id: BorgModuleCustodial
   parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
-  name: custodial cyborg module
+  name: custodial automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -813,7 +813,7 @@
     - state: icon-light-replacer
   - type: ItemBorgModule
     hands:
-    - item: LightReplacer
+    - item: LightReplacerFilled
     - item: BorgTrashBag
     - item: Plunger
     - item: SoapNT
@@ -829,7 +829,7 @@
 - type: entity
   id: BorgModuleCleaning
   parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
-  name: cleaning cyborg module
+  name: cleaning automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -848,7 +848,7 @@
 - type: entity
   id: BorgModuleAdvancedCleaning
   parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
-  name: advanced cleaning cyborg module
+  name: advanced cleaning automa module # Funky
   description: Advanced janitorial module containing, well... advanced janitor equipment. What were you expecting?
   components:
   - type: Sprite
@@ -876,7 +876,7 @@
 - type: entity
   id: BorgModuleDiagnosis # todo: reuse when med refractor is finished
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: diagnosis cyborg module
+  name: diagnosis automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -892,7 +892,7 @@
 - type: entity
   id: BorgModuleTopicals
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: first aid cyborg module
+  name: first aid automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -929,7 +929,7 @@
 - type: entity
   id: BorgModuleRescue
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: rescue cyborg module
+  name: rescue automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -948,7 +948,7 @@
 - type: entity
   id: BorgModuleChemical
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: chemical cyborg module
+  name: chemical automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -998,8 +998,8 @@
 - type: entity
   id: BorgModuleAdvancedTopical
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: advanced first aid cyborg module
-  description: Advanced medical module containing the cyborg adaptation of the highly coveted hypospray. Now your cyborgs can inject crew-harmers with chloral hydrate even faster!
+  name: advanced first aid automa module # Funky
+  description: Advanced medical module containing the automa adaptation of the highly coveted hypospray. # Funky
   components:
   - type: Sprite
     layers:
@@ -1038,7 +1038,7 @@
 - type: entity
   id: BorgModuleArtifact
   parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
-  name: artifact cyborg module
+  name: artifact automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -1064,7 +1064,7 @@
 - type: entity
   id: BorgModuleAnomaly
   parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
-  name: anomaly cyborg module
+  name: anomaly automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -1095,7 +1095,7 @@
 - type: entity
   id: BorgModuleService
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: service cyborg module
+  name: service automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -1145,7 +1145,7 @@
 - type: entity
   id: BorgModuleMusique
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: musique cyborg module
+  name: musique automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -1180,7 +1180,7 @@
 - type: entity
   id: BorgModuleGardening
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: gardening cyborg module
+  name: gardening automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -1198,7 +1198,7 @@
 - type: entity
   id: BorgModuleHarvesting
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: harvesting cyborg module
+  name: harvesting automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -1215,7 +1215,7 @@
 - type: entity
   id: BorgModuleClowning
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: clowning cyborg module
+  name: clowning automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -1232,8 +1232,8 @@
 - type: entity
   id: BorgModuleAdvancedClowning
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: advanced clowning cyborg module
-  description: Advanced service module for only the silliest cyborgs! Comes with a built-in oven that bakes pies automatically over time, a holopeel projector, and a push horn.
+  name: advanced clowning automa module # Funky
+  description: Advanced service module for only the silliest automas! Comes with a built-in oven that bakes pies automatically over time, a holopeel projector, and a push horn. # Funky
   components:
   - type: Sprite
     layers:
@@ -1253,7 +1253,7 @@
 - type: entity
   parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
   id: BorgModuleSyndicateWeapon
-  name: weapon cyborg module
+  name: weapon automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -1289,7 +1289,7 @@
 - type: entity
   parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
   id: BorgModuleOperative
-  name: operative cyborg module
+  name: operative automa module # Funky
   description: A module that comes with a crowbar, an Emag, an Access Breaker and a syndicate pinpointer.
   components:
     - type: Sprite
@@ -1308,7 +1308,7 @@
 - type: entity
   parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
   id: BorgModuleEsword
-  name: energy sword cyborg module
+  name: energy sword automa module # Funky
   description: A weapons module that comes with an energy sword.
   components:
   - type: Sprite
@@ -1325,7 +1325,7 @@
 - type: entity
   id: BorgModuleDoubleEsword
   parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
-  name: double energy sword cyborg module
+  name: double energy sword automa module # Funky
   description: A weapons module that comes with a double energy sword.
   components:
   - type: Sprite
@@ -1342,7 +1342,7 @@
 - type: entity
   parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
   id: BorgModuleL6C
-  name: L6C ROW cyborg module
+  name: L6C ROW automa module # Funky
   description: A weapons module that comes with a L6C.
   components:
   - type: Sprite
@@ -1359,7 +1359,7 @@
 - type: entity
   parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
   id: BorgModuleC20r
-  name: C-20r ROW cyborg module
+  name: C-20r ROW automa module # Funky
   description: A weapons module that comes with a burst-fire C-20r.
   components:
   - type: Sprite
@@ -1376,7 +1376,7 @@
 - type: entity
   parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
   id: BorgModuleMartyr
-  name: martyr cyborg module
+  name: martyr automa module # Funky
   description: "A module that comes with an explosive you probably don't want to handle yourself."
   components:
     - type: Sprite
@@ -1440,6 +1440,12 @@
           components:
           - BorgModule
     - hand:
+        emptyRepresentative: MaterialXenoborgCrystal
+        emptyLabel: borg-slot-xenoborg-crystal-empty
+        whitelist:
+          tags:
+          - XenoborgCrystal
+    - hand:
         emptyRepresentative: BorgModuleConstructionMaterialPlaceholder
         emptyLabel: borg-slot-construction-empty
         whitelist:
@@ -1451,6 +1457,10 @@
         whitelist:
           components:
           - PowerCell
+    - item: JawsOfLife
+    - item: PowerDrill
+    - item: WelderExperimental
+    - item: Multitool
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-module-module }
 
@@ -1467,6 +1477,12 @@
     - state: icon-xenoborg-basic
   - type: ItemBorgModule
     hands:
+    - hand:
+        emptyRepresentative: MaterialXenoborgCrystal
+        emptyLabel: borg-slot-xenoborg-crystal-empty
+        whitelist:
+          tags:
+          - XenoborgCrystal
     - hand:
         emptyRepresentative: BorgModuleConstructionMaterialPlaceholder
         emptyLabel: borg-slot-construction-empty
@@ -1502,35 +1518,118 @@
 
 - type: entity
   parent: [ BaseXenoborgModuleEngi, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleAdvancedTool
+  name: advanced tool xenoborg module
+  description: Advanced engineering module containing advanced xenoborg technology.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_engi
+    - state: icon-xenoborg-construction
+  - type: ItemBorgModule
+    hands:
+    - item: XenoborgJawsOfLife
+    - item: PowerDrill
+    - item: WelderExperimental
+    - item: Multitool
+    - item: trayScanner
+    - item: RCDRecharging
+    - item: SelfRechargingFireExtinguisher
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-adv-tools-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleEngi, BaseProviderBorgModule, BaseXenoborgContraband ]
   id: XenoborgModuleAccessBreaker
   name: access breaker xenoborg module
-  description: Module with a access breaker.
+  description: Module with an access breaker.
   components:
   - type: Sprite
     layers:
     - state: xenoborg_engi
     - state: icon-xenoborg-access-breaker
+  - type: BorgModuleWhitelist
+    moduleBlacklist:
+      tags:
+      - XenoborgModuleAccessBreaker
   - type: ItemBorgModule
     hands:
-    - item: AccessBreaker
+    - item: XenoborgAccessBreaker
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-access-breaker-module }
+  - type: Tag
+    tags:
+    - XenoborgModuleEngi
+    - XenoborgModuleAccessBreaker
 
 - type: entity
   parent: [ BaseXenoborgModuleEngi, BaseProviderBorgModule, BaseXenoborgContraband ]
-  id: XenoborgModuleFireExtinguisher
-  name: fire extinguisher xenoborg module
-  description: Module with a self-refueling fire extinguisher.
+  id: XenoborgModuleConstruction
+  name: construction xenoborg module
   components:
   - type: Sprite
     layers:
     - state: xenoborg_engi
-    - state: icon-xenoborg-fire-extinguisher
+    - state: icon-xenoborg-construction
   - type: ItemBorgModule
     hands:
-    - item: SelfRechargingFireExtinguisher
+    - hand:
+        emptyRepresentative: BorgModuleConstructionMaterialPlaceholder
+        emptyLabel: borg-slot-construction-empty
+        whitelist:
+          tags:
+          - ConstructionMaterial
+    - hand:
+        emptyRepresentative: CableApcStack10
+        emptyLabel: borg-slot-cables-empty
+        whitelist:
+          tags:
+          - CableCoil
+    - hand:
+        emptyRepresentative: FloorTileItemExoBorg
+        emptyLabel: borg-slot-tiles-empty
+        whitelist:
+          components:
+          - FloorTile
+    - hand:
+        emptyRepresentative: MicroManipulatorStockPart
+        emptyLabel: borg-slot-construction-empty
+        whitelist:
+          tags:
+          - ConstructionMaterial
+    - hand:
+        emptyRepresentative: DoorElectronics
+        emptyLabel: borg-slot-circuitboards-empty
+        whitelist:
+          components:
+          - Circuitboard
+        blacklist:
+          components:
+          - SiliconLawProvider
+    - hand:
+        emptyRepresentative: SpaceHeaterFlatpack
+        emptyLabel: borg-slot-flatpacks-empty
+        whitelist:
+          components:
+          - Flatpack
   - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-extinguisher-module }
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-construction-module }
+
+- type: entity
+  parent: [ BaseXenoborgModuleEngi, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleDeflectorField
+  name: deflector field xenoborg module
+  description: Module with a self-recharging deflector field projector.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_engi
+    - state: icon-xenoborg-shield
+  - type: ItemBorgModule
+    hands:
+    - item: HoloprojectorXenoField
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-deflector-module }
 
 - type: entity
   parent: [ BaseXenoborgModuleEngi, BaseProviderBorgModule, BaseXenoborgContraband ]
@@ -1542,13 +1641,21 @@
     layers:
     - state: xenoborg_engi
     - state: icon-xenoborg-access-breaker
+  - type: BorgModuleWhitelist
+    moduleBlacklist:
+      tags:
+      - XenoborgModuleAccessBreaker
   - type: ItemBorgModule
     hands:
     - item: DoorRemoteXenoborg
-    - item: AccessBreaker
+    - item: XenoborgAccessBreaker
     - item: AccessConfiguratorXenoborg
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-door-remote-module }
+  - type: Tag
+    tags:
+    - XenoborgModuleEngi
+    - XenoborgModuleAccessBreaker
 
 - type: entity
   parent: [ BaseXenoborgModuleEngi, BaseProviderBorgModule, BaseXenoborgContraband ]
@@ -1560,11 +1667,83 @@
     layers:
     - state: xenoborg_engi
     - state: icon-xenoborg-tile
+  - type: BorgModuleWhitelist
+    moduleBlacklist: &secondaryWeapon
+      tags:
+      - XenoborgModuleSecondaryWeapon
   - type: ItemBorgModule
     hands:
     - item: WeaponTileGun
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-tile-module }
+  - type: Tag
+    tags:
+    - XenoborgModuleEngi
+    - XenoborgModuleSecondaryWeapon
+
+- type: entity
+  parent: [ BaseXenoborgModuleEngi, BaseXenoborgContraband ]
+  id: XenoborgModuleZap
+  name: zap xenoborg module
+  description: Module that disables the grounding of the xenoborg, making them electrified. Shocking!
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_engi
+    - state: icon-xenoborg-zap
+  - type: ComponentBorgModule
+    components:
+    - type: Electrified
+      requirePower: false
+      shockDamage: 15
+      shockDelay: 6
+      shockTime: 0.25
+
+- type: entity
+  parent: [ BaseXenoborgModuleEngi, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleOilGun
+  name: oil gun xenoborg module
+  description: Module with a gun that shoots ampoules filled with flammable oil.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_engi
+    - state: icon-xenoborg-oil
+  - type: BorgModuleWhitelist
+    moduleBlacklist: &primaryWeapon
+      tags:
+      - XenoborgModulePrimaryWeapon
+  - type: ItemBorgModule
+    hands:
+    - item: WeaponOilGun
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-oil-gun-module }
+  - type: Tag
+    tags:
+    - XenoborgModuleEngi
+    - XenoborgModulePrimaryWeapon
+
+- type: entity
+  parent: [ BaseXenoborgModuleEngi, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleNaniteGun
+  name: nanite gun xenoborg module
+  description: Module that allows Xenoborgs to have a crystal firing nanite gun.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_engi
+    - state: icon-xenoborg-nanite-gun
+  - type: BorgModuleWhitelist
+    moduleBlacklist: *primaryWeapon
+  - type: ItemBorgModule
+    hands:
+    - item: WeaponNaniteGun
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-nanite-module }
+  - type: Tag
+    tags:
+    - XenoborgModuleEngi
+    - XenoborgModulePrimaryWeapon
 
 - type: entity
   parent: [ BaseXenoborgModuleHeavy, BaseProviderBorgModule, BaseXenoborgContraband ]
@@ -1592,11 +1771,17 @@
     layers:
     - state: xenoborg_heavy
     - state: icon-xenoborg-laser
+  - type: BorgModuleWhitelist
+    moduleBlacklist: *primaryWeapon
   - type: ItemBorgModule
     hands:
     - item: WeaponLaserGunXenoborg
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-laser-module }
+  - type: Tag
+    tags:
+    - XenoborgModuleHeavy
+    - XenoborgModulePrimaryWeapon
 
 - type: entity
   parent: [ BaseXenoborgModuleHeavy, BaseProviderBorgModule, BaseXenoborgContraband ]
@@ -1608,11 +1793,143 @@
     layers:
     - state: xenoborg_heavy
     - state: icon-xenoborg-laser2
+  - type: BorgModuleWhitelist
+    moduleBlacklist: *primaryWeapon
   - type: ItemBorgModule
     hands:
     - item: WeaponLaserCannonXenoborg
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-laser2-module }
+  - type: Tag
+    tags:
+    - XenoborgModuleHeavy
+    - XenoborgModulePrimaryWeapon
+
+- type: entity
+  parent: [ BaseXenoborgModuleHeavy, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleGuidedMissileLauncher
+  name: guided missile launcher xenoborg module
+  description: Module with guided missile launcher and a range finder to set targets.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_heavy
+    - state: icon-xenoborg-guided-missile
+  - type: BorgModuleWhitelist
+    moduleBlacklist:
+      tags:
+      - XenoborgModuleSecondaryWeapon
+      - XenoborgModuleWithSimpleOverlay
+  - type: ComponentBorgModule
+    components:
+    - type: SimpleSpriteOverlay
+      overlaySprite:
+        sprite: Mobs/Silicon/chassis.rsi
+        state: xenoborg_heavy_missile_launcher
+  - type: ItemBorgModule
+    hands:
+    - item: WeaponGuidedMissileLauncherXenoborg
+    - item: WeaponRangeFinderXenoborg
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-guided-missile-module }
+  - type: Tag
+    tags:
+    - XenoborgModuleHeavy
+    - XenoborgModuleSecondaryWeapon
+    - XenoborgModuleWithSimpleOverlay
+
+- type: entity
+  parent: [ BaseXenoborgModuleHeavy, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleRocket
+  name: rocket module
+  description: A module with a rocket launcher designed to destroy structures.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_heavy
+    - state: icon-xenoborg-rocket
+  - type: BorgModuleWhitelist
+    moduleBlacklist:
+      tags:
+      - XenoborgModuleSecondaryWeapon
+      - XenoborgModuleWithSimpleOverlay
+  - type: ItemBorgModule
+    hands:
+    - item: WeaponRocketLauncherXenoborg
+    - item: WeaponRocketLauncherXenoborg
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-rocket-module }
+  - type: ComponentBorgModule
+    components:
+    - type: SimpleSpriteOverlay
+      overlaySprite:
+        sprite: Mobs/Silicon/rockets.rsi
+        state: heavy_xenoborg_rockets
+  - type: Tag
+    tags:
+    - XenoborgModuleHeavy
+    - XenoborgModuleSecondaryWeapon
+    - XenoborgModuleWithSimpleOverlay
+
+- type: entity
+  parent: [ BaseXenoborgModuleHeavy, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleBurstFireLaser
+  name: burst fire laser xenoborg module
+  description: Module with a burst fire incendiary laser.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_heavy
+    - state: icon-xenoborg-laser3
+  - type: BorgModuleWhitelist
+    moduleBlacklist: *primaryWeapon
+  - type: ItemBorgModule
+    hands:
+    - item: WeaponBurstFireLaserXenoborg
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-laser3-module }
+  - type: Tag
+    tags:
+    - XenoborgModuleHeavy
+    - XenoborgModulePrimaryWeapon
+
+- type: entity
+  parent: [ BaseXenoborgModuleHeavy, BaseXenoborgContraband ]
+  id: XenoborgModuleHeavyRadioactive
+  name: radioactive xenoborg module
+  description: Module that causes a xenoborg to emanate radioactive energy.
+  components:
+  - type: PointLight
+    color: green
+    radius: 5
+    energy: 1
+  - type: Sprite
+    layers:
+      - state: xenoborg_heavy
+      - state: icon-xenoborg-radioactive
+  - type: BorgModuleWhitelist
+    moduleBlacklist: &moduleWithSimpleOverlay
+      tags:
+      - XenoborgModuleWithSimpleOverlay
+  - type: ComponentBorgModule
+    components:
+    - type: SimpleSpriteOverlay
+      overlaySprite:
+        sprite: Mobs/Silicon/chassis.rsi
+        state: xenoborg_heavy_rad
+      shader: unshaded
+    - type: RadiationSource
+      intensity: 4
+      slope: 1
+    - type: AmbientSound
+      range: 6
+      volume: -3
+      sound:
+        path: /Audio/Ambience/Objects/xenoborg_radioactive.ogg
+  - type: Tag
+    tags:
+    - XenoborgModuleHeavy
+    - XenoborgModuleWithSimpleOverlay
 
 - type: entity
   parent: [ BaseXenoborgModuleScout, BaseProviderBorgModule, BaseXenoborgContraband ]
@@ -1662,12 +1979,18 @@
     layers:
     - state: xenoborg_scout
     - state: icon-xenoborg-sword
+  - type: BorgModuleWhitelist
+    moduleBlacklist: *primaryWeapon
   - type: ItemBorgModule
     hands:
     - item: KukriKnife
     - item: JetpackXenoborg
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-sword-module }
+  - type: Tag
+    tags:
+    - XenoborgModuleScout
+    - XenoborgModulePrimaryWeapon
 
 - type: entity
   parent: [ BaseXenoborgModuleScout, BaseProviderBorgModule, BaseXenoborgContraband ]
@@ -1679,12 +2002,41 @@
     layers:
     - state: xenoborg_scout
     - state: icon-xenoborg-sword2
+  - type: BorgModuleWhitelist
+    moduleBlacklist: *primaryWeapon
   - type: ItemBorgModule
     hands:
     - item: EnergyDaggerLoudBlue
     - item: JetpackXenoborg
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-sword2-module }
+  - type: Tag
+    tags:
+    - XenoborgModuleScout
+    - XenoborgModulePrimaryWeapon
+
+- type: entity
+  parent: [ BaseXenoborgModuleScout, BaseProviderBorgModule, BaseXenoborgContraband ]
+  id: XenoborgModuleBioKinfe
+  name: bio knife xenoborg module
+  description: Module with an bio knife.
+  components:
+  - type: Sprite
+    layers:
+    - state: xenoborg_scout
+    - state: icon-xenoborg-sword2
+  - type: BorgModuleWhitelist
+    moduleBlacklist: *primaryWeapon
+  - type: ItemBorgModule
+    hands:
+    - item: XenoborgBioKnife
+    - item: JetpackXenoborg
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-bio-knife }
+  - type: Tag
+    tags:
+    - XenoborgModuleScout
+    - XenoborgModulePrimaryWeapon
 
 - type: entity
   parent: [ BaseXenoborgModuleStealth, BaseProviderBorgModule, BaseXenoborgContraband ]
@@ -1696,11 +2048,17 @@
     layers:
     - state: xenoborg_stealth
     - state: icon-xenoborg-hypo
+  - type: BorgModuleWhitelist
+    moduleBlacklist: *primaryWeapon
   - type: ItemBorgModule
     hands:
     - item: NocturineHypo
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-hypo-module }
+  - type: Tag
+    tags:
+    - XenoborgModuleStealth
+    - XenoborgModulePrimaryWeapon
 
 - type: entity
   parent: [ BaseXenoborgModuleStealth, BaseProviderBorgModule, BaseXenoborgContraband ]
@@ -1728,11 +2086,19 @@
     layers:
     - state: xenoborg_stealth
     - state: icon-xenoborg-cloak
+  - type: BorgModuleWhitelist
+    moduleBlacklist:
+      tags:
+      - XenoborgModuleInvisibility
   - type: ItemBorgModule
     hands:
     - item: CloakingDevice
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-eye-module }
+  - type: Tag
+    tags:
+    - XenoborgModuleStealth
+    - XenoborgModuleInvisibility
 
 - type: entity
   parent: [ BaseXenoborgModuleStealth, BaseProviderBorgModule, BaseXenoborgContraband ]
@@ -1744,8 +2110,16 @@
     layers:
     - state: xenoborg_stealth
     - state: icon-xenoborg-cloak2
+  - type: BorgModuleWhitelist
+    moduleBlacklist:
+      tags:
+      - XenoborgModuleInvisibility
   - type: ItemBorgModule
     hands:
     - item: SuperCloakingDevice
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-eye2-module }
+  - type: Tag
+    tags:
+    - XenoborgModuleStealth
+    - XenoborgModuleInvisibility

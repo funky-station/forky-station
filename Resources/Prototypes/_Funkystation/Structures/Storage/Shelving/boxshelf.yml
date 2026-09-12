@@ -15,8 +15,6 @@
     sprite: _Funkystation/Structures/Furniture/boxshelf.rsi
     state: boxshelf
   - type: Appearance
-  - type: Occluder
-    boundingBox: -0.45, -0.45, 0.45, 0.45
   - type: Physics
     bodyType: Static
   - type: Fixtures

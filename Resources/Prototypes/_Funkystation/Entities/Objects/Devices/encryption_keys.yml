@@ -1,4 +1,19 @@
 - type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyEmergency
+  name: emergency encryption key
+  description: An encryption key used by paramedics, brigmedics, and security dispatchers.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Emergency
+    defaultChannel: Emergency
+  - type: Sprite
+    layers:
+    - state: crypt_gray # upstream name
+    - state: label-emergency
+
+- type: entity
   parent: EncryptionKeyCommon
   id: EncryptionKeyIA
   name: IA encryption key
@@ -13,3 +28,17 @@
     - state: crypt_gray
     - state: common_label
 
+- type: entity
+  parent: EncryptionKeyCommon
+  id: EncryptionKeyPrisoner
+  name: Prisoner encryption key
+  description: An encryption key connecting prisoners to the warden and the salvage magnet.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Prisoner
+    defaultChannel: Prisoner
+  - type: Sprite
+    layers:
+    - state: crypt_gray
+    - state: common_label

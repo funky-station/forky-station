@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseWallmountCabinet
+  parent: [ BaseWallmountCabinet, StructureHealthContainerWeak ]
   id: DefibrillatorCabinet
   name: defibrillator cabinet
   description: A small wall mounted cabinet designed to hold a defibrillator.
@@ -7,8 +7,8 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: Structures/Wallmounts/defib_cabinet.rsi
-    noRot: false
+    sprite: Structures/Wallmounts/defib-cabinet.rsi
+    offset: 0, -0.25
     layers:
     - state: frame
     - state: fill
@@ -29,11 +29,9 @@
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger
-        damage: 40
+        damage: 60
       behaviors:
       - !type:EmptyAllContainersBehaviour
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak

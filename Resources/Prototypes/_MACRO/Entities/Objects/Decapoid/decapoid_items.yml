@@ -25,14 +25,10 @@
   - type: Blocking
     passiveBlockModifier:
       coefficients:
-        Blunt: 1 #these numbers don't matter since the shield isn't destructable, but the default values in the component are set up wrong so Some Number is required here
+        Blunt: 0.5
     activeBlockModifier:
       coefficients:
-        Blunt: 1 #see above
-    passiveBlockFraction: 0.0 #does not give damage reduction passively
-    activeBlockFraction: 0.5 #gives 50% damage reduction against brute damage to the decapoid while the claw is raised
-  - type: Injurable
-    damageContainer: DecapoidShield #determines what types of damage are reduced by the Blocking component, DecapoidShield damage container is brute damage only
+        Blunt: 0
   - type: ToolTileCompatible
     delay: 0.5
   - type: Tool
@@ -46,13 +42,13 @@
   - type: MultipleTool
     statusShowBehavior: true
     entries:
-      - behavior: Prying
+      - behavior: [ Prying ]
         sprite:
           sprite: *ClawRSI
           state: icon-closed
         useSound: /Audio/_MACRO/Items/Decapoid/claw_prying.ogg
         changeSound: /Audio/_MACRO/Items/Decapoid/switch.ogg
-      - behavior: Cutting
+      - behavior: [ Cutting ]
         sprite:
           sprite: *ClawRSI
           state: icon

@@ -20,6 +20,9 @@
     vaporAmount: 3
     vaporSpread: 90
     sprayVelocity: 2.0
+  - type: ItemToggleExaminableStatus
+    onText: item-toggle-examined-active
+    offText: item-toggle-examined-not-active
   - type: ItemToggle
     soundActivate:
       path: /Audio/Machines/button.ogg
@@ -56,12 +59,12 @@
   description: It extinguishes fires.
   components:
   - type: Sprite
-    sprite: Objects/Misc/fire_extinguisher.rsi
+    sprite: _Funkystation/Objects/Misc/fire_extinguisher.rsi # Funky
     layers:
     - state: fire_extinguisher_closed
       map: [ "enum.ToggleableVisuals.Layer" ]
   - type: Item
-    sprite: Objects/Misc/fire_extinguisher.rsi
+    sprite: _Funkystation/Objects/Misc/fire_extinguisher.rsi # Funky
     size: Normal
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -127,12 +130,12 @@
   description: A light and compact fibreglass-framed model fire extinguisher. It holds less water than its bigger brother.
   components:
   - type: Sprite
-    sprite: Objects/Misc/fire_extinguisher_mini.rsi
+    sprite: _Funkystation/Objects/Misc/fire_extinguisher_mini.rsi # Funky
     layers:
         - state: fire_extinguisher_closed
           map: [ "enabled" ]
   - type: Item
-    sprite: Objects/Misc/fire_extinguisher_mini.rsi
+    sprite: _Funkystation/Objects/Misc/fire_extinguisher_mini.rsi # Funky
     size: Small
   - type: MeleeWeapon
     wideAnimationRotation: 180

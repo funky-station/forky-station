@@ -70,6 +70,63 @@
   - type: Damageable
   - type: Injurable
     damageContainer: Biological
+  - type: DamageOverlay
+  - type: RadiationReceiver
+  - type: Stamina
+  - type: StunVisuals
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: MobStateActions
+    actions:
+      Critical:
+      - ActionCritSuccumb
+      - ActionCritFakeDeath
+      - ActionCritLastWords
+  - type: StoreDamageTakenOnMind
+  - type: Deathgasp
+  # funky start, cpr
+  - type: Cpr
+    bonusHeal:
+      types:
+        Asphyxiation: -5
+    sound:
+      path: "/Audio/_Funkystation/Effects/cprpulse.ogg"
+  # funky end
+  - type: HealthExaminable
+    examinableTypes:
+    - Blunt
+    - Slash
+    - Piercing
+    - Heat
+    - Shock
+    - Cold
+    - Caustic
+    - Asphyxiation
+    - Radiation
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+  - type: Pullable
+  - type: LightningTarget
+    priority: 2
+    lightningExplode: false
+  - type: GhostOnMove
+    mustBeDead: true
+  - type: ESViewcone # ES
+  - type: ESViewconeOccludable # ES
+
+# Used as a simple default for mob destruction
+- type: entity
+  abstract: true
+  id: BaseMobDestructible
+  components:
   - type: Destructible
     thresholds:
     - trigger:
@@ -108,48 +165,6 @@
         damage: 40
       behaviors:
       - !type:VomitBehavior
-  - type: RadiationReceiver
-  - type: Stamina
-  - type: StunVisuals
-  - type: MobState
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      100: Critical
-      200: Dead
-  - type: MobStateActions
-    actions:
-      Critical:
-      - ActionCritSuccumb
-      - ActionCritFakeDeath
-      - ActionCritLastWords
-  - type: StoreDamageTakenOnMind
-  - type: Deathgasp
-  - type: HealthExaminable
-    examinableTypes:
-    - Blunt
-    - Slash
-    - Piercing
-    - Heat
-    - Shock
-    - Cold
-    - Caustic
-    - Asphyxiation
-    - Radiation
-  - type: DamageOnHighSpeedImpact
-    damage:
-      types:
-        Blunt: 5
-    soundHit:
-      path: /Audio/Effects/hit_kick.ogg
-  - type: Pullable
-  - type: LightningTarget
-    priority: 2
-    lightningExplode: false
-  - type: GhostOnMove
-    mustBeDead: true
-  - type: ESViewcone # ES
-  - type: ESViewconeOccludable # ES
 
 # Used for mobs that can enter combat mode and can attack.
 - type: entity
@@ -174,8 +189,6 @@
   components:
   - type: AtmosExposed
   - type: Temperature
-    currentTemperature: 310.15
-    specificHeat: 42
   - type: TemperatureDamage
     heatDamageThreshold: 325
     coldDamageThreshold: 0
@@ -209,9 +222,6 @@
     shiveringHeatRegulation: 500
     normalBodyTemperature: 310.15
     thermalRegulationTemperatureThreshold: 2
-  - type: Temperature
-    currentTemperature: 310.15
-    specificHeat: 42
   - type: TemperatureDamage
     heatDamageThreshold: 325
     coldDamageThreshold: 260

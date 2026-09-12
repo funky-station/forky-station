@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: [SolutionCompositeSmallStackable, BaseItem]
+  parent: [SolutionCompositeSmallStackable, BaseItem, BaseItemDestructible]
   id: CableStack
   name: cable stack
   suffix: Full
@@ -32,18 +32,8 @@
     - Power
   - type: Damageable
     damageModifierSet: Metallic
-  - type: Injurable
-    damageContainer: Inorganic
   - type: Extractable
     grindableSolutionName: composite
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
 
 - type: entity
   id: CableHVStack

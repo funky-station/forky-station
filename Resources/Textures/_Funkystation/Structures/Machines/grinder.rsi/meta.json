@@ -1,0 +1,19 @@
+{
+    "license":"CC0-1.0",
+    "copyright":"By AraiMaia for Funky Station",
+    "version":1,
+    "size":{
+        "x":32,
+        "y":32
+    },
+    "states":[
+        {
+            "name":"grinder_empty",
+	    "directions": 4
+        },
+        {
+            "name":"grinder_beaker_attached",
+	    "directions": 4
+        }
+    ]
+}

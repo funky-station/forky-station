@@ -22,14 +22,14 @@ public sealed partial class DocumentPrototype : IPrototype
     /// <summary>
     /// .ftl for the short description shown under the name in the UI
     /// </summary>
-    [DataField("description")]
+    [DataField]
     public string Description { get; private set; } = string.Empty;
 
     /// <summary>
     /// Which category tab this document is filed under. Documents with no explicit category fall back to the Misc category
     /// </summary>
-    [DataField("category", customTypeSerializer: typeof(PrototypeIdSerializer<DocumentCategoryPrototype>))]
-    public string Category { get; private set; } = "DocCatMisc";
+    [DataField]
+    public ProtoId<DocumentCategoryPrototype> Category { get; private set; } = "DocCatMisc";
 
     /// <summary>
     /// The paper entity prototype to spawn on print

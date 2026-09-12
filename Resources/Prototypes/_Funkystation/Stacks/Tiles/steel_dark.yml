@@ -1,0 +1,17 @@
+﻿- type: stack
+  parent: BaseTileStack
+  id: FloorTileDarkDiagonal
+  name: stack-dark-steel-diagonal-tile
+  spawn: FloorTileItemDarkDiagonal
+
+- type: stack
+  parent: BaseTileStack
+  id: FloorTileDarkDiagonalMini
+  name: stack-dark-steel-diagonal-mini-tile
+  spawn: FloorTileItemDarkDiagonalMini
+
+- type: stack
+  parent: BaseTileStack
+  id: FloorTileDarkOffset
+  name: stack-offset-dark-steel-tile
+  spawn: FloorTileItemDarkOffset

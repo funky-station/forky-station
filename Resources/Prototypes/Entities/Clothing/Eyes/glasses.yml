@@ -317,9 +317,9 @@
   name: Toggle T-Ray Scanner
   description: Turn the T-ray scanning functionality on or off.
   components:
-  - type: Action
-    icon:
-      sprite: Objects/Tools/t-ray.rsi
-      state: tray-on
+  - type: Sprite
+    sprite: Objects/Tools/t-ray.rsi
+    layers:
+    - state: tray-on
   - type: InstantAction
     event: !type:ToggleTrayScannerEvent

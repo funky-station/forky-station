@@ -1,12 +1,13 @@
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Chat;
-using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Electrocution;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -16,6 +17,21 @@ using Content.Shared.Timing;
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
+// funky start
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using System.Linq;
+using Robust.Shared.Configuration;
+using Robust.Shared.Network;
+using Content.Shared.Inventory;
+using Content.Shared.FixedPoint;
+using Content.Shared.EntityEffects.Effects.StatusEffects;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Body.Components;
+using Content.Shared._Funkystation.CCVar;
+using Content.Shared.Damage;
+// funky end
 
 namespace Content.Shared.Medical;
 
@@ -38,14 +54,25 @@ public abstract partial class SharedDefibrillatorSystem : EntitySystem
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedMindSystem _mind = default!;
     [Dependency] private UseDelaySystem _useDelay = default!;
-    [Dependency] private SharedInteractionSystem _interactionSystem = default!;
+    [Dependency] private SharedInteractionSystem _interaction = default!;
+    [Dependency] private InventorySystem _inventory = default!; // funky
+    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!; // funky
+    [Dependency] private IRobustRandom _random = default!; // funky
+    [Dependency] private IPrototypeManager _prototypeManager = default!; // funky
+    [Dependency] private IConfigurationManager _config = default!; // funky
+    [Dependency] private INetManager _net = default!; // funky
 
-    private readonly HashSet<EntityUid> _interacters = new();
+    private readonly HashSet<EntityUid> _interactors = new();
+    private float _reviveChance; // funky
+    private float _adrenalineCostPerShock; // funky
 
     public override void Initialize()
     {
+        base.Initialize(); // funky
+        _config.OnValueChanged(DefibrillatorCVars.ReviveChance, value => _reviveChance = value, true); // funky
+        _config.OnValueChanged(DefibrillatorCVars.AdrenalineCost, value => _adrenalineCostPerShock = value, true); // funky
+
         SubscribeLocalEvent<DefibrillatorComponent, AfterInteractEvent>(OnAfterInteract);
-        SubscribeLocalEvent<DefibrillatorComponent, DefibrillatorZapDoAfterEvent>(OnDoAfter);
     }
 
     private void OnAfterInteract(Entity<DefibrillatorComponent> ent, ref AfterInteractEvent args)
@@ -56,6 +83,7 @@ public abstract partial class SharedDefibrillatorSystem : EntitySystem
         args.Handled = TryStartZap(ent.AsNullable(), target, args.User);
     }
 
+    [SubscribeLocalEvent]
     private void OnDoAfter(Entity<DefibrillatorComponent> ent, ref DefibrillatorZapDoAfterEvent args)
     {
         if (args.Handled || args.Cancelled)
@@ -77,39 +105,33 @@ public abstract partial class SharedDefibrillatorSystem : EntitySystem
     /// <param name="ent">The defbrillator being used.</param>
     /// <param name="target">Uid of the target getting defibbed.</param>
     /// <param name="user">Uid of the entity using the defibrillator.</param>
-    /// <param name="targetCanBeAlive">
-    /// If true, the target can be alive. If false, the function will check if the target is alive and will return false if they are.
-    /// </param>
     /// <returns>
     /// Returns true if the target is valid to be defibed, false otherwise.
     /// </returns>
-    public bool CanZap(Entity<DefibrillatorComponent?> ent, EntityUid target, EntityUid? user = null, bool targetCanBeAlive = false)
+    public bool CanZap(Entity<DefibrillatorComponent?> ent, EntityUid target, EntityUid? user = null)
     {
         if (!Resolve(ent, ref ent.Comp))
             return false;
 
         if (!_toggle.IsActivated(ent.Owner))
         {
-            _popup.PopupClient(Loc.GetString("defibrillator-not-on"), ent.Owner, user);
+            _popup.PopupEntity(Loc.GetString("defibrillator-not-on"), ent.Owner, user);
             return false;
         }
 
         if (!TryComp<UseDelayComponent>(ent, out var useDelay) || _useDelay.IsDelayed((ent.Owner, useDelay), ent.Comp.DelayId))
             return false;
 
-        if (!TryComp<MobStateComponent>(target, out var mobState))
-            return false;
-
         if (!_powerCell.HasActivatableCharge(ent.Owner, user: user, predicted: true))
             return false;
 
-        if (!targetCanBeAlive && _mobState.IsAlive(target, mobState))
-            return false;
+        // funky, gotta take off their hardsuit or coat
+        if (!_inventory.TryGetSlotEntity(target, "outerClothing", out _))
+            return true;
 
-        if (!targetCanBeAlive && !ent.Comp.CanDefibCrit && _mobState.IsCritical(target, mobState))
-            return false;
+        _popup.PopupClient(Loc.GetString("defibrillator-clothing-blocking"), user);
+        return false;
 
-        return true;
     }
 
     /// <summary>
@@ -130,6 +152,8 @@ public abstract partial class SharedDefibrillatorSystem : EntitySystem
             return false;
 
         _audio.PlayPredicted(ent.Comp.ChargeSound, ent.Owner, user);
+        _popup.PopupEntity(Loc.GetString("defibrillator-begin", ("name", Identity.Entity(user, EntityManager)), ("target", Identity.Entity(target, EntityManager))), target, PopupType.SmallCaution);
+
         return _doAfter.TryStartDoAfter(
             new DoAfterArgs(EntityManager, user, ent.Comp.DoAfterDuration, new DefibrillatorZapDoAfterEvent(),
             ent.Owner, target, ent.Owner)
@@ -159,7 +183,7 @@ public abstract partial class SharedDefibrillatorSystem : EntitySystem
         target = selfEvent.DefibTarget;
 
         // Ensure thet new target is still valid.
-        if (selfEvent.Cancelled || !CanZap(ent, target, user, true))
+        if (selfEvent.Cancelled || !CanZap(ent, target, user))
             return;
 
         var targetEvent = new TargetBeforeDefibrillatorZapsEvent(user, ent.Owner, target);
@@ -167,24 +191,8 @@ public abstract partial class SharedDefibrillatorSystem : EntitySystem
 
         target = targetEvent.DefibTarget;
 
-        if (targetEvent.Cancelled || !CanZap(ent, target, user, true))
+        if (targetEvent.Cancelled || !CanZap(ent, target, user))
             return;
-
-        if (!TryComp<MobStateComponent>(target, out var targetMobState))
-            return;
-
-        _audio.PlayPredicted(ent.Comp.ZapSound, ent.Owner, user);
-        _electrocution.TryDoElectrocution(target, ent.Owner, ent.Comp.ZapDamage, ent.Comp.WritheDuration, true, ignoreInsulation: true);
-
-        _interactionSystem.GetEntitiesInteractingWithTarget(target, _interacters);
-        foreach (var other in _interacters)
-        {
-            if (other == user)
-                continue;
-
-            // Anyone else still operating on the target gets zapped too
-            _electrocution.TryDoElectrocution(other, null, ent.Comp.ZapDamage, ent.Comp.WritheDuration, true);
-        }
 
         if (TryComp<UseDelayComponent>(ent, out var useDelay))
         {
@@ -192,27 +200,118 @@ public abstract partial class SharedDefibrillatorSystem : EntitySystem
             _useDelay.TryResetDelay((ent.Owner, useDelay), id: ent.Comp.DelayId);
         }
 
-        var failedRevive = true;
+        _audio.PlayPredicted(ent.Comp.ZapSound, ent, user);
+        Entity<DefibrillatorComponent> defibEnt = (ent, ent.Comp);
+        var failedRevive = TryRevive(defibEnt, user, target, true);
+
+        _interaction.GetEntitiesInteractingWithTarget(target, _interactors);
+        foreach (var interactor in _interactors)
+        {
+            TryRevive(defibEnt, user, interactor, false);
+        }
+
+        var sound = failedRevive
+            ? ent.Comp.FailureSound
+            : ent.Comp.SuccessSound;
+        _audio.PlayPredicted(sound, ent.Owner, user);
+
+        var ev = new TargetDefibrillatedEvent(user, target, (ent.Owner, ent.Comp), _interactors);
+        RaiseLocalEvent(target, ref ev);
+
+        // if we don't have enough power left for another shot, turn it off
+        if (!_powerCell.HasActivatableCharge(ent.Owner))
+            _toggle.TryDeactivate(ent.Owner);
+    }
+
+    private bool TryRevive(Entity<DefibrillatorComponent> ent, EntityUid user, EntityUid target, bool isOriginal)
+    {
+        bool failedRevive = true;
         if (_rotting.IsRotten(target))
         {
-            _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("defibrillator-rotten"),
-                InGameICChatType.Speak, true);
+            _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("defibrillator-rotten"), InGameICChatType.Speak, true);
         }
         else if (TryComp<UnrevivableComponent>(target, out var unrevivable))
         {
-            _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString(unrevivable.ReasonMessage),
-                InGameICChatType.Speak, true);
+            _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString(unrevivable.ReasonMessage), InGameICChatType.Speak, true);
         }
         else
         {
-            if (_mobState.IsDead(target, targetMobState))
-                _damageable.TryChangeDamage(target, ent.Comp.ZapHeal, true, origin: user);
+            TryComp<MobStateComponent>(target, out var targetMobState);
 
-            if (TryComp<MobThresholdsComponent>(target, out var targetThresholds) &&
-                _mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var threshold, targetThresholds) &&
-                _damageable.GetTotalDamage(target) < threshold)
+            _damageable.TryChangeDamage(target, ent.Comp.ZapHeal, true, origin: user);
+
+            // funky start, need an adrenaline reagent in their system to kick the heart back on
+            var hasAdrenaline = false;
+            if (TryComp<BloodstreamComponent>(target, out var bloodstream))
             {
-                _mobState.ChangeMobState(target, MobState.Critical, targetMobState, user);
+                var bloodSolution = bloodstream.BloodSolution;
+
+                if (_solutionContainer.ResolveSolution(target, bloodstream.BloodSolutionName, ref bloodSolution))
+                {
+                    var contents = bloodSolution.Value.Comp.Solution.Contents;
+
+                    // check reagents in bloodstream
+                    foreach (var (reagentId, quantity) in contents)
+                    {
+                        if (quantity <= FixedPoint2.Zero)
+                            continue;
+
+                        // check effects
+                        if (!_prototypeManager.TryIndex<ReagentPrototype>(reagentId.Prototype, out var reagentProto))
+                            continue;
+
+                        if (reagentProto.Metabolisms == null || !reagentProto.Metabolisms.Metabolisms.TryGetValue("Bloodstream", out var metabolism))
+                            continue;
+
+                        var isAdrenaline = metabolism.Effects.Any(effect => effect is ModifyStatusEffect modify &&
+                            modify.EffectProto.Id == "StatusEffectAdrenaline");
+
+                        // if this reagent grants adrenaline, consume it and roll for revival
+                        if (!isAdrenaline)
+                            continue;
+
+                        hasAdrenaline = true;
+
+                        // removes the adrenaline cost amount
+                        _solutionContainer.RemoveReagent(bloodSolution.Value, reagentId, FixedPoint2.New(_adrenalineCostPerShock));
+
+                        break;
+                    }
+                }
+            }
+
+            var canRevive = true;
+            if (_mobState.IsDead(target, targetMobState))
+            {
+                canRevive = false;
+
+                if (hasAdrenaline)
+                {
+                    // server-only roll to prevent client mispredicting a successful revival
+                    canRevive = _net.IsServer && _random.Prob(_reviveChance);
+                }
+                else
+                {
+                    // if they have no adrenaline reagent, popup
+                    _popup.PopupClient(Loc.GetString("defibrillator-no-adrenaline"), target, user);
+                }
+            }
+
+            // adrenaline zap heals 25 asphyx
+            if (hasAdrenaline)
+            {
+                var asphyxHeal = new DamageSpecifier();
+                asphyxHeal.DamageDict.Add("Asphyxiation", FixedPoint2.New(-25));
+                _damageable.TryChangeDamage(target, asphyxHeal, true, origin: user);
+            }
+            // funky end
+
+            if (canRevive && // funky
+                TryComp<MobThresholdsComponent>(target, out var targetThresholds) &&
+                _mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var threshold, targetThresholds) &&
+                _damageable.GetTotalDamage(target) < threshold) //is their current health above their death threshold
+            {
+                _mobState.ChangeMobState(target, MobState.Critical, targetMobState, user); //if so revive them
                 failedRevive = false;
             }
 
@@ -225,22 +324,23 @@ public abstract partial class SharedDefibrillatorSystem : EntitySystem
             }
             else
             {
-                _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("defibrillator-no-mind"),
-                    InGameICChatType.Speak, true);
+                if (HasComp<MindContainerComponent>(target))
+                    _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("defibrillator-no-mind"), InGameICChatType.Speak, true); //target can host a mind but doesn't
+                else
+                    _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("defibrillator-not-living"), InGameICChatType.Speak, true); //target couldn't have hosted a mind
             }
         }
 
-        var sound = failedRevive
-            ? ent.Comp.FailureSound
-            : ent.Comp.SuccessSound;
-        _audio.PlayPredicted(sound, ent.Owner, user);
+        _electrocution.TryDoElectrocution(
+            target,
+            ent.Owner,
+            ent.Comp.ZapDamage,
+            ent.Comp.WritheDuration,
+            true,
+            ignoreInsulation: isOriginal
+        );
 
-        // if we don't have enough power left for another shot, turn it off
-        if (!_powerCell.HasActivatableCharge(ent.Owner))
-            _toggle.TryDeactivate(ent.Owner);
-
-        var ev = new TargetDefibrillatedEvent(user, (ent.Owner, ent.Comp));
-        RaiseLocalEvent(target, ref ev);
+        return failedRevive;
     }
 
     // TODO: SharedEuiManager so that we can just directly open the eui from shared.

@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "By AraiMaia for Funky Station",
+    "copyright": "By AraiMaia for Funky Station, inhands by TiniestShark (Github)",
     "size": {
         "x": 32,
         "y": 32
@@ -69,6 +69,22 @@
         },
         {
             "name": "stamp-wizard"
+        },
+        {
+        "name": "handle-inhand-left",
+        "directions": 4
+        },
+        {
+        "name": "handle-inhand-right",
+        "directions": 4
+        },
+        {
+        "name": "stamp-inhand-left",
+        "directions": 4
+        },
+        {
+            "name": "stamp-inhand-right",
+            "directions": 4
         }
     ]
 }

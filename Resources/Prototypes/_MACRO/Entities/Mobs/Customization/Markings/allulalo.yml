@@ -15,7 +15,8 @@
   sprites:
   - sprite: _MACRO/Mobs/Customization/Allulalo/chest.rsi
     state: allulaloChestHeartMonitor
-  #shader: unshaded
+  shaders:
+    allulaloChestHeartMonitor: unshaded
 
 # Head
 
@@ -79,7 +80,9 @@
     state: allulaloEyesUnshadedLeft
   - sprite: _MACRO/Mobs/Customization/Allulalo/eyes.rsi
     state: allulaloEyesUnshadedRight
-  #shader: unshaded
+  shaders:
+    allulaloEyesUnshadedLeft: unshaded
+    allulaloEyesUnshadedRight: unshaded
 
 # RArm
 

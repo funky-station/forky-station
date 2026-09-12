@@ -1,0 +1,11 @@
+﻿- type: stack
+  parent: BaseTileStack
+  id: FloorTileShowroom
+  name: stack-showroom-tile
+  spawn: FloorTileItemShowroom
+
+- type: stack
+  parent: BaseTileStack
+  id: FloorTileHydro
+  name: stack-hydro-tile
+  spawn: FloorTileItemHydro

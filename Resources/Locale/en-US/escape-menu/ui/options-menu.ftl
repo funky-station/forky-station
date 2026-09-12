@@ -39,6 +39,10 @@ ui-options-restart-sounds = Round Restart Sounds
 ui-options-event-music = Event Music
 ui-options-admin-sounds = Play Admin Sounds
 ui-options-bwoink-sound = Play AHelp Notification Sound
+ui-options-mute-unfocused = Mute audio when unfocused
+ui-options-audio-device = Output device:
+ui-options-audio-device-default = System default
+ui-options-audio-hrtf = Enable HRTF Audio Processing (Requires Restart)
 ui-options-volume-label = Volume
 
 ## Graphics menu
@@ -61,6 +65,9 @@ ui-options-fancy-speech = Show names in speech bubbles
 ui-options-fancy-name-background = Add background to speech bubble names
 ui-options-chat-follow-button = As ghost, show a follow button next to chat messages
 ui-options-vsync = VSync
+ui-options-max-fps = Maximum FPS:
+ui-options-max-fps-display-rate = Display Rate
+ui-options-max-fps-tooltip = Maximum framerate the client should run at. Set to 0 for no limit. This has no effect if VSync is enabled.
 ui-options-fullscreen = Fullscreen
 ui-options-lighting-label = Lighting Quality:
 ui-options-lighting-very-low = Very Low
@@ -106,6 +113,7 @@ ui-options-ambient-occlusion = Show Ambient Occlusion
 ui-options-fps-counter = Show FPS counter
 ui-options-vp-width = Viewport width:
 ui-options-hud-layout = HUD layout:
+ui-options-sharpness = Sharpness:
 
 ## Controls menu
 
@@ -136,13 +144,15 @@ ui-options-header-text-chat = Chat
 ui-options-header-text-other = Text input other
 
 ui-options-hotkey-keymap = Use US QWERTY Keys
-ui-options-hotkey-toggle-walk = Toggle Walk
+# funky, changed walk to sprint
+ui-options-hotkey-toggle-walk = Toggle Sprint
 
 ui-options-function-move-up = Move Up
 ui-options-function-move-left = Move Left
 ui-options-function-move-down = Move Down
 ui-options-function-move-right = Move Right
-ui-options-function-walk = Walk
+# funky, changed walk to sprint
+ui-options-function-walk = Sprint
 ui-options-function-toggle-knockdown = Toggle Crawling
 
 ui-options-function-camera-rotate-left = Rotate left
@@ -361,16 +371,49 @@ cmd-options-help = Usage: options [tab]
 
 ## Accessibility menu
 
-ui-options-accessability-header-visuals = Visuals
-ui-options-accessability-header-content = Content
+ui-options-accessibility-header-reduced-motion = Reduced Motion
+ui-options-accessibility-header-visuals = Visuals
+ui-options-accessibility-header-content = Content
 
 ui-options-enable-color-name = Add colors to character names
 ui-options-colorblind-friendly = Colorblind friendly mode
-ui-options-reduced-motion = Reduce motion of visual effects
-ui-options-disable-ai-static = Disable the static effect on the AI camera overlay
+
+ui-options-reduced-motion = Reduce general visual effects
+ui-options-reduced-motion-tooltip = Toggle on to show alternative sprites with reduced motion for some items.
+
+# accessibility option tooltips taken from CVar summary blocks.
+
+ui-options-disable-ai-static = AI camera static
+ui-options-disable-ai-static-tooltip = Replaces the AI static camera effect with a plain gradient.
+ui-options-disable-blurry-vision = Blurry vision
+ui-options-disable-blurry-vision-tooltip = Replaces the movement in the blurry shader with a static effect.
+ui-options-disable-drunk-overlay = Drunk overlay
+ui-options-disable-drunk-overlay-tooltip = Replaces the movement in the drunk shader with a static offset.
+ui-options-disable-flash-effect = Flash
+ui-options-disable-flash-effect-tooltip = Replaces the 'flash' effect with a reduced movement equivalent.
+ui-options-disable-heat-distortion = Heat distortion
+ui-options-disable-heat-distortion-tooltip = Decreases motion on the heat distortion shader.
+ui-options-disable-nv-noise = Night vision overlay
+ui-options-disable-nv-noise-tooltip = Disables the noise effect on the night vision overlay.
+ui-options-disable-rainbow-overlay = Rainbow overlay
+ui-options-disable-rainbow-overlay-tooltip = Replaces the movement in the rainbow overlay shader with a static offset.
+ui-options-disable-singulo-warp = Singularity
+ui-options-disable-singulo-warp-tooltip = Disables the screen warping effect on the singularity.
+
 ui-options-screen-shake-intensity = Screen shake intensity
+
 # Funky, ES pain flash
 ui-options-es-pain-flash-intensity = Pain flash intensity
+
+# funky viewcone options
+ui-options-disable-viewcone-grain = Disable the grain effect on the viewcone occlusion overlay
+ui-options-viewcone-occlusion-opacity = Viewcone occlusion strength
+
+# funky custom interaction outlines
+ui-options-interaction-outline-valid = Outline color for objects inside of interaction range
+ui-options-interaction-outline-invalid = Outline color for objects outside of interaction range
+ui-options-interaction-color-example = This is the outline color.
+ui-options-color-slider-default-button = Reset to default
 
 ui-options-chat-window-opacity = Chat window opacity
 ui-options-speech-bubble-text-opacity = Speech bubble text opacity
