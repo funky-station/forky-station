@@ -30,6 +30,7 @@
         layer:
         - Opaque
   - type: MobState
+  - type: ESViewconeOccludable
   - type: SolutionContainerManager
     solutions:
       food:
