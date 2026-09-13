@@ -427,7 +427,7 @@
     - state: cover_base
       color: "#71111f"
     - state: icon_planet
-      color: "#050403"
+      color: "#0e0c0c"
     - state: icon_time
       color: "#c0c6cc"
     - state: decor_wingette_circle
