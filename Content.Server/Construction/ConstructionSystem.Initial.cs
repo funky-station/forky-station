@@ -409,35 +409,11 @@ namespace Content.Server.Construction
                 return;
             }
 
-            if (!ProtoMan.TryIndex(constructionPrototype.Graph, out ConstructionGraphPrototype? constructionGraph))
-            {
-                Log.Error($"Invalid construction graph '{constructionPrototype.Graph}' in recipe '{ev.PrototypeName}'!");
-                RaiseNetworkEvent(new AckStructureConstructionMessage(ev.Ack));
-                return;
-            }
-
             if (args.SenderSession.AttachedEntity is not {Valid: true} user)
             {
                 Log.Error($"Client sent {nameof(TryStartStructureConstructionMessage)} with no attached entity!");
                 return;
             }
-
-            if (_whitelistSystem.IsWhitelistFail(constructionPrototype.EntityWhitelist, user))
-            {
-                _popup.PopupEntity(Loc.GetString("construction-system-cannot-start"), user, user);
-                return;
-            }
-
-            if (_container.IsEntityInContainer(user))
-            {
-                _popup.PopupEntity(Loc.GetString("construction-system-inside-container"), user, user);
-                return;
-            }
-
-            var startNode = constructionGraph.Nodes[constructionPrototype.StartNode];
-            var targetNode = constructionGraph.Nodes[constructionPrototype.TargetNode];
-            var pathFind = constructionGraph.Path(startNode.Name, targetNode.Name);
-
 
             if (_beingBuilt.TryGetValue(args.SenderSession, out var set))
             {
@@ -453,53 +429,85 @@ namespace Content.Server.Construction
                 _beingBuilt[args.SenderSession] = newSet;
             }
 
-            var location = GetCoordinates(ev.Location);
-
-            foreach (var condition in constructionPrototype.Conditions)
-            {
-                if (!condition.Condition(user, location, ev.Angle.GetCardinalDir()))
-                {
-                    Cleanup();
-                    return;
-                }
-            }
-
             void Cleanup()
             {
                 _beingBuilt[args.SenderSession].Remove(ev.Ack);
             }
 
-            if (!_actionBlocker.CanInteract(user, null)
-                || !TryComp(user, out HandsComponent? hands) || _handsSystem.GetActiveItem((user, hands)) == null)
+            var location = GetCoordinates(ev.Location);
+
+            // funky start. delegated construction logic to TryStartStructureConstructionAt
+            if (await TryStartStructureConstructionAt(user, constructionPrototype, location, ev.Angle) is not {Valid: true} structure)
             {
                 Cleanup();
                 return;
+            }
+
+            RaiseNetworkEvent(new AckStructureConstructionMessage(ev.Ack, GetNetEntity(structure)));
+            _adminLogger.Add(LogType.Construction, LogImpact.Low, $"{ToPrettyString(user):player} has turned a {ev.PrototypeName} construction ghost into {ToPrettyString(structure)} at {Transform(structure).Coordinates}");
+            Cleanup();
+            // funky end
+        }
+
+        // funky start. pulled the guts of HandleStartStructureConstruction out into a reusable method
+        public async Task<EntityUid?> TryStartStructureConstructionAt(
+            EntityUid user,
+            ConstructionPrototype constructionPrototype,
+            EntityCoordinates location,
+            Angle angle)
+        {
+            if (!ProtoMan.TryIndex(constructionPrototype.Graph, out var constructionGraph))
+            {
+                Log.Error($"Invalid construction graph '{constructionPrototype.Graph}' in recipe '{constructionPrototype.ID}'!");
+                return null;
+            }
+
+            if (_whitelistSystem.IsWhitelistFail(constructionPrototype.EntityWhitelist, user))
+            {
+                _popup.PopupEntity(Loc.GetString("construction-system-cannot-start"), user, user);
+                return null;
+            }
+
+            if (_container.IsEntityInContainer(user))
+            {
+                _popup.PopupEntity(Loc.GetString("construction-system-inside-container"), user, user);
+                return null;
+            }
+
+            var startNode = constructionGraph.Nodes[constructionPrototype.StartNode];
+            var targetNode = constructionGraph.Nodes[constructionPrototype.TargetNode];
+            var pathFind = constructionGraph.Path(startNode.Name, targetNode.Name);
+
+            foreach (var condition in constructionPrototype.Conditions)
+            {
+                if (!condition.Condition(user, location, angle.GetCardinalDir()))
+                    return null;
+            }
+
+            if (!_actionBlocker.CanInteract(user, null)
+                || !TryComp(user, out HandsComponent? hands) || _handsSystem.GetActiveItem((user, hands)) == null)
+            {
+                return null;
             }
 
             var mapPos = TransformSystem.ToMapCoordinates(location);
             var predicate = GetPredicate(constructionPrototype.CanBuildInImpassable, mapPos);
 
             if (!_interactionSystem.InRangeUnobstructed(user, mapPos, predicate: predicate))
-            {
-                Cleanup();
-                return;
-            }
+                return null;
 
             if (pathFind == null)
-                throw new InvalidDataException($"Can't find path from starting node to target node in construction! Recipe: {ev.PrototypeName}");
+                throw new InvalidDataException($"Can't find path from starting node to target node in construction! Recipe: {constructionPrototype.ID}");
 
             var edge = startNode.GetEdge(pathFind[0].Name);
 
-            if(edge == null)
-                throw new InvalidDataException($"Can't find edge from starting node to the next node in pathfinding! Recipe: {ev.PrototypeName}");
-
-            var valid = false;
+            if (edge == null)
+                throw new InvalidDataException($"Can't find edge from starting node to the next node in pathfinding! Recipe: {constructionPrototype.ID}");
 
             if (_handsSystem.GetActiveItem((user, hands)) is not {Valid: true} holding)
-            {
-                Cleanup();
-                return;
-            }
+                return null;
+
+            var valid = false;
 
             // No support for conditions here!
 
@@ -520,26 +528,16 @@ namespace Content.Server.Construction
             }
 
             if (!valid)
-            {
-                Cleanup();
-                return;
-            }
+                return null;
 
-            if (await Construct(user,
-                    (ev.Ack + constructionPrototype.GetHashCode()).ToString(),
-                    constructionGraph,
-                    edge,
-                    targetNode,
-                    GetCoordinates(ev.Location),
-                    constructionPrototype.CanRotate ? ev.Angle : Angle.Zero) is not {Valid: true} structure)
-            {
-                Cleanup();
-                return;
-            }
-
-            RaiseNetworkEvent(new AckStructureConstructionMessage(ev.Ack, GetNetEntity(structure)));
-            _adminLogger.Add(LogType.Construction, LogImpact.Low, $"{ToPrettyString(user):player} has turned a {ev.PrototypeName} construction ghost into {ToPrettyString(structure)} at {Transform(structure).Coordinates}");
-            Cleanup();
+            return await Construct(user,
+                $"{constructionPrototype.ID}-{user}-{Guid.NewGuid()}",
+                constructionGraph,
+                edge,
+                targetNode,
+                location,
+                constructionPrototype.CanRotate ? angle : Angle.Zero);
         }
+        // end funky
     }
 }

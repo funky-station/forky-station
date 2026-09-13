@@ -1183,3 +1183,10 @@ WeaponShotgunKammerer: FuWeaponShotgunKammerer
 WeaponShotgunDoubleBarreled: FuWeaponShotgunDoubleBarreled
 WeaponShotgunSawn: FuWeaponShotgunSawn
 WeaponLauncherChinaLake: FuWeaponLauncherChinaLake
+
+# 2026-09-12 Funky RCD/RPD to Chalk
+RPD: ConstructionChalkBox
+RCD: ConstructionChalkBox
+RCDEmpty: ConstructionChalkBox
+RCDRecharging: ConstructionChalkBox
+RCDAmmo: ConstructionChalk

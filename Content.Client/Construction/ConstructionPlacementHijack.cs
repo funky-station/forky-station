@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Client._Funkystation.Placement; // funky
 using Content.Shared.Construction.Prototypes;
 using Robust.Client.GameObjects;
 using Robust.Client.Placement;
@@ -7,7 +8,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.Construction;
 
-public sealed partial class ConstructionPlacementHijack : PlacementHijack
+public sealed partial class ConstructionPlacementHijack : PlacementHijack, IAtmosPipeLayerHijack // funky
 {
     [Dependency] private IEntityManager _entMan = default!;
     [Dependency] private IPrototypeManager _protoMan = default!;
@@ -17,6 +18,12 @@ public sealed partial class ConstructionPlacementHijack : PlacementHijack
     private readonly ConstructionPrototype? _prototype;
 
     public ConstructionPrototype? CurrentPrototype => _prototype;
+
+    // funky. lets AlignAtmosPipeLayers rebuild this for a layer recipe without having to know it's SPECIFICALLY a ConstructionPlacementHijack
+    public PlacementHijack WithPrototype(ConstructionPrototype newPrototype)
+    {
+        return new ConstructionPlacementHijack(newPrototype);
+    }
 
     public override bool CanRotate { get; }
 

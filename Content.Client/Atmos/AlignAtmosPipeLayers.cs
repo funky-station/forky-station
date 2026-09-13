@@ -1,4 +1,5 @@
 using Content.Client.Construction;
+using Content.Client._Funkystation.Placement;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Construction.Prototypes;
@@ -125,8 +126,11 @@ public sealed partial class AlignAtmosPipeLayers : SnapgridCenter
 
     private void UpdateHijackedPlacer(AtmosPipeLayer layer, ScreenCoordinates mouseScreen)
     {
-        // Try to get alternative prototypes from the construction prototype
-        var altPrototypes = (pManager.Hijack as ConstructionPlacementHijack)?.CurrentPrototype?.AlternativePrototypes;
+        // funky. generalized from a hardcoded ConstructionPlacementHijack cast so other hijacks can also get mouse position for layers
+        if (pManager.Hijack is not IAtmosPipeLayerHijack layerHijack)
+            return;
+
+        var altPrototypes = layerHijack.CurrentPrototype?.AlternativePrototypes;
 
         if (altPrototypes == null || (int)layer >= altPrototypes.Length)
             return;
@@ -142,7 +146,7 @@ public sealed partial class AlignAtmosPipeLayers : SnapgridCenter
             return;
         }
 
-        if (newProto.ID == (pManager.Hijack as ConstructionPlacementHijack)?.CurrentPrototype?.ID)
+        if (newProto.ID == layerHijack.CurrentPrototype?.ID) // funky
             return;
 
         // Start placing
@@ -150,7 +154,8 @@ public sealed partial class AlignAtmosPipeLayers : SnapgridCenter
         {
             IsTile = false,
             PlacementOption = newProto.PlacementMode,
-        }, new ConstructionPlacementHijack(newProto));
+        },
+        layerHijack.WithPrototype(newProto)); // funky
 
         if (pManager.CurrentMode is AlignAtmosPipeLayers { } newMode)
             newMode.RefreshGrid(mouseScreen);
