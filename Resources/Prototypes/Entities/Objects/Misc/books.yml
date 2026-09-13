@@ -348,37 +348,94 @@
     guides:
     - Lawsets
 
+# Funky start
+- type: entity
+  id: BookStationRegulations
+  parent: BaseGuidebook
+  name: nanotrasen station regulations
+  description: The book all captains should know by heart but don't.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#1b2447"
+    - state: decor_spine
+      color: "#2b4e95"
+    - state: detail_rivets
+      color: "#5e718e"
+    - state: icon_aurora
+      color: "#c0c6cc"
+    - state: icon_text
+      color: "#c0c6cc"
+    - type: GuideHelp
+      guides:
+      - Article_1
+
 - type: entity
   id: BookSpaceLaw
   parent: BaseGuidebook
   name: corporate law # Funky change: Rebranding Space law into Corporate law
-  description: A set of Nanotrasen guidelines for keeping law and order on their space stations.
+  description: A set of NanoTrasen guidelines for keeping law and order on their space stations.
   components:
   - type: Sprite
     layers:
     - state: paper
     - state: cover_strong
-      color: "#87011c"
+      color: "#b29476"
+    - state: detail_rivets
+      color: "#5C0A15"
     - state: icon_law
-      color: "#f7d61a"
+      color: "#f8c53a"
   - type: GuideHelp
     guides:
     - Article_2 # Funky change: SpaceLaw -> Article_2
 
-# Funky start
 - type: entity
-  id: BookSentencingGuidelines
+  id: BookSOP
   parent: BaseGuidebook
-  name: sentencing, trials, and hearings
-  description: A set of Nanotrasen guidelines for keeping stentences resonable and trials on time.
+  name: comprehensive collection of nanotrasen standard operating procedures
+  description: Contains the Standard Operating Procedures for all departments, as agreed to by NanoTrasen and the Unions. Looks really thick.
   components:
   - type: Sprite
     layers:
     - state: paper
-    - state: cover_strong
-      color: "#87011c"
-    - state: icon_law
-      color: "#f7d61a"
+    - state: cover_base
+      color: "#2d1410"
+    - state: detail_rivets
+      color: "#93733E"
+    - state: decor_wingette
+      color: "#595757"
+    - state: icon_briefcase
+    - state: decor_wingette_circle
+      color: "#373334"
+    - state: icon_text
+      color: "#e1bf89"
+  - type: GuideHelp
+    guides:
+    - Article_3
+
+- type: entity
+  id: BookSentencingGuidelines
+  parent: BaseGuidebook
+  name: sentencing, trials, and hearings
+  description: A set of NanoTrasen guidelines for keeping sentences reasonable and trials on time.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#71111f"
+    - state: icon_planet
+      color: "#0e0c0c"
+    - state: icon_time
+      color: "#c0c6cc"
+    - state: decor_wingette_circle
+      color: "#373334"
+    - state: detail_rivets
+      color: "#f8c53a"
+    - state: icon_text2
+      color: "#595757"
   - type: GuideHelp
     guides:
     - Article_5
