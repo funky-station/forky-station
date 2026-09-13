@@ -61,7 +61,7 @@
             Lawyer: [ 1, 1 ]
             #supply
             Botanist: [ 2, 2 ]
-            Courier: [ 1 , 1 ]
+            FuCourier: [ 1 , 1 ]
             CargoTechnician: [ 3, 4 ]
             Prisoner: [ 1, 1 ]
             #civilian
