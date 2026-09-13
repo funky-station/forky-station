@@ -2,7 +2,7 @@
   id: DummyMix
   verbText: mixing-verb-default-mix
   icon:
-    sprite: Objects/Specific/Chemistry/beaker_large.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/beaker_large.rsi # Funky
     state: beakerlarge
 
 - type: mixingCategory
@@ -53,7 +53,7 @@
   id: Shake
   verbText: mixing-verb-shake
   icon:
-    sprite: Objects/Consumable/Drinks/shaker.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/shaker.rsi # Funky
     state: icon
 
 - type: mixingCategory

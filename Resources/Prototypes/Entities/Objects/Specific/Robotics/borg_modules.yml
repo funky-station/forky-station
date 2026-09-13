@@ -1,8 +1,8 @@
 - type: entity
   id: BaseBorgModule
   parent: BaseItem
-  name: borg module
-  description: A piece of tech that gives cyborgs new abilities.
+  name: automa module # Funky
+  description: A piece of tech that gives automas new abilities. # Funky
   abstract: true
   components:
   - type: Item
@@ -456,8 +456,8 @@
 - type: entity
   id: BorgModulePrying
   parent: [ BaseBorgModule ]
-  name: prying module
-  description: A universal cyborg module which allows the unit to pry open doors.
+  name: prying automa module # Funky
+  description: A universal automa module which allows the unit to pry open doors. # Funky
   components:
   - type: Sprite
     layers:
@@ -473,8 +473,8 @@
 - type: entity
   id: BorgModuleCable
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: cable cyborg module
-  description: A universal cyborg module which allows the unit to install and manipulate electrical systems.
+  name: cable automa module # Funky
+  description: A universal automa module which allows the unit to install and manipulate electrical systems. # Funky
   components:
   - type: Sprite
     layers:
@@ -512,8 +512,8 @@
 - type: entity
   id: BorgModuleArtistry
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: artistry cyborg module
-  description: A module for arts & crafts whilst the station burns!
+  name: artistry automa module # Funky
+  description: A module for arts & crafts!
   components:
   - type: Sprite
     layers:
@@ -529,8 +529,8 @@
 - type: entity
   id: BorgModuleFireExtinguisher
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: thruster cyborg module
-  description: NT assigned a team to design a jetpack for cyborg units, but they ran out of funding and just made a bigger fire extinguisher. It comes with a integrated GPS and mass scanner though!
+  name: thruster automa module # Funky
+  description: NT assigned a team to design a jetpack for automa units, but they ran out of funding and just made a bigger fire extinguisher. It comes with a integrated GPS and mass scanner though! # Funky
   components:
   - type: Sprite
     layers:
@@ -548,7 +548,7 @@
 - type: entity
   id: BorgModuleTool
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: tool cyborg module
+  name: tool automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -568,7 +568,7 @@
 - type: entity
   id: BorgModuleInflatable
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: inflatable cyborg module
+  name: inflatable automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -599,7 +599,7 @@
 - type: entity
   id: BorgModuleAppraisal
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: appraisal cyborg module
+  name: appraisal automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -619,7 +619,7 @@
 - type: entity
   id: BorgModuleMining
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: mining cyborg module
+  name: mining automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -637,8 +637,8 @@
 - type: entity
   id: BorgModuleAdvancedMining
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: advanced mining cyborg module
-  description: Advanced cargo module containing advanced mining equipment. Studies show it advances productivity of a cyborg by 150%.
+  name: advanced mining automa module # Funky
+  description: Advanced cargo module containing advanced mining equipment. Studies show it advances productivity of an automa by 150%. # Funky
   components:
   - type: Sprite
     layers:
@@ -656,7 +656,7 @@
 - type: entity
   id: BorgModuleTraversal
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: traversal cyborg module
+  name: traversal automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -675,7 +675,7 @@
 - type: entity
   id: BorgModuleAdvancedTool
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
-  name: advanced tool cyborg module
+  name: advanced tool automa module # Funky
   description: Advanced engineering module containing cutting-edge tools.
   components:
   - type: Sprite
@@ -703,7 +703,7 @@
 - type: entity
   id: BorgModuleConstruction
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
-  name: construction cyborg module
+  name: construction automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -784,7 +784,7 @@
 - type: entity
   id: BorgModuleRCD
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
-  name: engineering cyborg module
+  name: engineering automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -805,7 +805,7 @@
 - type: entity
   id: BorgModuleCustodial
   parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
-  name: custodial cyborg module
+  name: custodial automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -829,7 +829,7 @@
 - type: entity
   id: BorgModuleCleaning
   parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
-  name: cleaning cyborg module
+  name: cleaning automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -848,7 +848,7 @@
 - type: entity
   id: BorgModuleAdvancedCleaning
   parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
-  name: advanced cleaning cyborg module
+  name: advanced cleaning automa module # Funky
   description: Advanced janitorial module containing, well... advanced janitor equipment. What were you expecting?
   components:
   - type: Sprite
@@ -876,7 +876,7 @@
 - type: entity
   id: BorgModuleDiagnosis # todo: reuse when med refractor is finished
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: diagnosis cyborg module
+  name: diagnosis automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -892,7 +892,7 @@
 - type: entity
   id: BorgModuleTopicals
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: first aid cyborg module
+  name: first aid automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -929,7 +929,7 @@
 - type: entity
   id: BorgModuleRescue
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: rescue cyborg module
+  name: rescue automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -948,7 +948,7 @@
 - type: entity
   id: BorgModuleChemical
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: chemical cyborg module
+  name: chemical automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -998,8 +998,8 @@
 - type: entity
   id: BorgModuleAdvancedTopical
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: advanced first aid cyborg module
-  description: Advanced medical module containing the cyborg adaptation of the highly coveted hypospray. Now your cyborgs can inject crew-harmers with chloral hydrate even faster!
+  name: advanced first aid automa module # Funky
+  description: Advanced medical module containing the automa adaptation of the highly coveted hypospray. # Funky
   components:
   - type: Sprite
     layers:
@@ -1038,7 +1038,7 @@
 - type: entity
   id: BorgModuleArtifact
   parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
-  name: artifact cyborg module
+  name: artifact automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -1064,7 +1064,7 @@
 - type: entity
   id: BorgModuleAnomaly
   parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
-  name: anomaly cyborg module
+  name: anomaly automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -1095,7 +1095,7 @@
 - type: entity
   id: BorgModuleService
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: service cyborg module
+  name: service automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -1145,7 +1145,7 @@
 - type: entity
   id: BorgModuleMusique
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: musique cyborg module
+  name: musique automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -1180,7 +1180,7 @@
 - type: entity
   id: BorgModuleGardening
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: gardening cyborg module
+  name: gardening automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -1198,7 +1198,7 @@
 - type: entity
   id: BorgModuleHarvesting
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: harvesting cyborg module
+  name: harvesting automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -1215,7 +1215,7 @@
 - type: entity
   id: BorgModuleClowning
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: clowning cyborg module
+  name: clowning automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -1232,8 +1232,8 @@
 - type: entity
   id: BorgModuleAdvancedClowning
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: advanced clowning cyborg module
-  description: Advanced service module for only the silliest cyborgs! Comes with a built-in oven that bakes pies automatically over time, a holopeel projector, and a push horn.
+  name: advanced clowning automa module # Funky
+  description: Advanced service module for only the silliest automas! Comes with a built-in oven that bakes pies automatically over time, a holopeel projector, and a push horn. # Funky
   components:
   - type: Sprite
     layers:
@@ -1253,7 +1253,7 @@
 - type: entity
   parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
   id: BorgModuleSyndicateWeapon
-  name: weapon cyborg module
+  name: weapon automa module # Funky
   components:
   - type: Sprite
     layers:
@@ -1289,7 +1289,7 @@
 - type: entity
   parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
   id: BorgModuleOperative
-  name: operative cyborg module
+  name: operative automa module # Funky
   description: A module that comes with a crowbar, an Emag, an Access Breaker and a syndicate pinpointer.
   components:
     - type: Sprite
@@ -1308,7 +1308,7 @@
 - type: entity
   parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
   id: BorgModuleEsword
-  name: energy sword cyborg module
+  name: energy sword automa module # Funky
   description: A weapons module that comes with an energy sword.
   components:
   - type: Sprite
@@ -1325,7 +1325,7 @@
 - type: entity
   id: BorgModuleDoubleEsword
   parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
-  name: double energy sword cyborg module
+  name: double energy sword automa module # Funky
   description: A weapons module that comes with a double energy sword.
   components:
   - type: Sprite
@@ -1342,7 +1342,7 @@
 - type: entity
   parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
   id: BorgModuleL6C
-  name: L6C ROW cyborg module
+  name: L6C ROW automa module # Funky
   description: A weapons module that comes with a L6C.
   components:
   - type: Sprite
@@ -1359,7 +1359,7 @@
 - type: entity
   parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
   id: BorgModuleC20r
-  name: C-20r ROW cyborg module
+  name: C-20r ROW automa module # Funky
   description: A weapons module that comes with a burst-fire C-20r.
   components:
   - type: Sprite
@@ -1376,7 +1376,7 @@
 - type: entity
   parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
   id: BorgModuleMartyr
-  name: martyr cyborg module
+  name: martyr automa module # Funky
   description: "A module that comes with an explosive you probably don't want to handle yourself."
   components:
     - type: Sprite

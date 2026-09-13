@@ -20,7 +20,7 @@ public sealed partial class SalvageSystem
     [Dependency] private EntityQuery<SalvageMobRestrictionsComponent> _salvMobQuery = default!;
     [Dependency] private EntityQuery<MobStateComponent> _mobStateQuery = default!;
 
-    private static readonly ProtoId<RadioChannelPrototype> MagnetChannel = "Supply";
+    private static readonly ProtoId<RadioChannelPrototype> MagnetChannel = "Prisoner"; //Funky - Swapped from supply to prisoner radio
 
     private List<(Entity<TransformComponent> Entity, EntityUid MapUid, Vector2 LocalPosition)> _detachEnts = new();
 
@@ -444,7 +444,8 @@ public sealed partial class SalvageSystem
             if (grids.Count > 0)
             {
                 // Bump it further and further just in case.
-                fraction += 0.1f;
+                //Funky - Exponential instead of linear scaling for smaller magnet distance
+                fraction *= 1.1f;
                 continue;
             }
 

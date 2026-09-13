@@ -29,6 +29,7 @@
     back:
     - RubberStampLawyer
     - BookSpaceLaw
+    - BookSentencingGuidelines # Funky
 
 - type: chameleonOutfit
   id: LawyerChameleonOutfit

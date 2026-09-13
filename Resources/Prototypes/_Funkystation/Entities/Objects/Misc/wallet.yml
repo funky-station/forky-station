@@ -71,6 +71,9 @@
     - DoorBumpOpener
     - WhitelistChameleon
     - WhitelistChameleonPDA
+  - type: StorageFill # this is complete bullshit by the way. its staying like this for the playtests though fuckkkkkk you
+    contents:
+    - id: HandheldNewsReader
 
 # YES I KNOW SOME BULLSHIT LIKE SCURRETS HAVE PDAS NO IM NOT DOING THAT SHIT FOR THEM FUCK THEM AND FUCK YOu
 
@@ -173,6 +176,14 @@
   components:
   - type: Pda
     id: CargoIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: CourierWallet
+  suffix: Courier
+  components:
+  - type: Pda
+    id: FuCourierIDCard
 
 - type: entity
   parent: BaseWallet

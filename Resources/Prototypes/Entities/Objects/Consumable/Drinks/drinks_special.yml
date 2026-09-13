@@ -185,10 +185,10 @@
   - type: ExaminableSolution
     heldOnly: true # Opaque, can't see inside from a distance
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/shaker.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/shaker.rsi # Funky
     state: icon
   - type: Item
-    sprite: Objects/Consumable/Drinks/shaker.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/shaker.rsi # Funky
     shape:
     - 0,0,0,2 # 3 tall
   - type: PhysicalComposition
@@ -236,7 +236,7 @@
     heldOnly: true
     exactVolume: true
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/jigger.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/jigger.rsi # Funky
     state: icon
   - type: PhysicalComposition
     materialComposition:

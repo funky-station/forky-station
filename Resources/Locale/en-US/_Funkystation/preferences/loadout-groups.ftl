@@ -30,3 +30,16 @@ fu-loadout-group-hd-outerclothing = Hospitality Director's outer clothing
 fu-loadout-group-hd-uniform = Hospitality Director's uniform
 fu-loadout-group-hd-gloves = Hospitality Director's gloves
 fu-loadout-group-hd-shoes = Hospitality Director's shoes
+
+#Logistics
+fu-loadout-group-cargo-neck = Cargo neck
+
+fu-loadout-group-cargo-technician-outer-clothing = Cargo Technician outer clothing
+fu-loadout-group-cargo-technician-uniform = Cargo Technician uniform
+
+fu-loadout-group-courier-head = Courier head
+fu-loadout-group-courier-outer-clothing = Courier outer clothing
+fu-loadout-group-courier-uniform = Courier uniform
+fu-loadout-group-courier-shoes = Courier shoes
+
+fu-loadout-group-quartermaster-outer-clothing = Quartermaster's outer clothing

@@ -5,6 +5,16 @@
   name: crowbar
   description: A multipurpose tool used for many tasks, such as prying doors or bludgeoning interdimensional invaders.
   components:
+  - type: EmitSoundOnPickup # Funky
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/crowbar_pickup.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnDrop # Funky
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/crowbar_drop.ogg
+      params:
+        volume: -2
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/crowbar_drop.ogg
@@ -31,14 +41,14 @@
     price: 22
   - type: Prying
   - type: Sprite
-    sprite: Objects/Tools/crowbar.rsi
+    sprite: _Funkystation/Objects/Tools/crowbar.rsi # Funky
   - type: Clothing
-    sprite: Objects/Tools/crowbar.rsi
+    sprite: _Funkystation/Objects/Tools/crowbar.rsi # Funky
     quickEquip: false
     slots:
     - Belt
   - type: Item
-    sprite: Objects/Tools/crowbar.rsi
+    sprite: _Funkystation/Objects/Tools/crowbar.rsi # Funky
     size: Small
 
 # Standard (grey) Crowbar
@@ -50,7 +60,7 @@
     state: icon
   - type: Item
     storedSprite:
-      sprite: Objects/Tools/crowbar.rsi
+      sprite: _Funkystation/Objects/Tools/crowbar.rsi # Funky
       state: storage
 
 # Emergency (red) Crowbar
@@ -70,7 +80,7 @@
   - type: Item
     storedSprite:
       state: red-storage
-      sprite: Objects/Tools/crowbar.rsi
+      sprite: _Funkystation/Objects/Tools/crowbar.rsi # Funky
     inhandVisuals:
       left:
       - state: inhand-left
@@ -100,7 +110,7 @@
   - type: Item
     storedSprite:
       state: green-storage
-      sprite: Objects/Tools/crowbar.rsi
+      sprite: _Funkystation/Objects/Tools/crowbar.rsi # Funky
     inhandVisuals:
       left:
       - state: inhand-left
@@ -130,7 +140,7 @@
   - type: Item
     storedSprite:
       state: orange-storage
-      sprite: Objects/Tools/crowbar.rsi
+      sprite: _Funkystation/Objects/Tools/crowbar.rsi # Funky
     inhandVisuals:
       left:
       - state: inhand-left
@@ -160,7 +170,7 @@
   - type: Item
     storedSprite:
       state: yellow-storage
-      sprite: Objects/Tools/crowbar.rsi
+      sprite: _Funkystation/Objects/Tools/crowbar.rsi # Funky
     inhandVisuals:
       left:
       - state: inhand-left

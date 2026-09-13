@@ -28,6 +28,9 @@
     id: MagistrateWallet
     ears: ClothingHeadsetMagistrate
     outerClothing: ClothingOuterRobesJudge
+  storage:
+    back:
+    - BookSentencingGuidelines
 
 - type: chameleonOutfit
   id: MagistrateChameleonOutfit

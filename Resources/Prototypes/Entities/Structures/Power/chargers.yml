@@ -235,8 +235,8 @@
 - type: entity
   parent: [ BaseRecharger, BaseConstructibleMachineDestructible ]
   id: BorgCharger
-  name: cyborg recharging station
-  description: A stationary charger for various robotic and cyborg entities. Surprisingly spacious.
+  name: automa recharging station # Funky
+  description: A stationary charger for various robotic and automa entities. Surprisingly spacious. # Funky
   components:
   - type: Sprite
     sprite: Structures/Power/borg_charger.rsi

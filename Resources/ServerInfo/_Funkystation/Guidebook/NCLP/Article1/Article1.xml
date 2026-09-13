@@ -1,0 +1,292 @@
+<Document>
+  # Station Regulations
+
+  ## Alert Levels
+
+  The station uses a tiered alert level system to indicate the level and nature of potential threats to personnel.
+
+  ### Green
+
+  There is no threat present on the station.  Personnel are encouraged to conduct themselves as they usually would.
+
+  ### Yellow
+
+  There is a considerable threat to the station's structural integrity and/or atmosphere, such as spacing across multiple parts of the station. Personnel are encouraged to:
+
+  - Avoid damaged, spaced, superheated, supercooled, or otherwise hazardous areas.
+  - Follow the guidance of any Engineering personnel present regarding the threat.
+  - Maximize their suit sensors.
+
+  ### Blue
+
+  Evidence of felony-level and/or widespread criminal activity has been uncovered and is actively being pursued by the Security department. Personnel are to comply with any search orders given by Security and understand that events may be delayed or canceled while a Blue alert is active.
+
+  The Security department is encouraged to carry equipment proportional to the size and nature of the threat, such as long arms while pursuing a violent felon.
+
+  The Internal Affairs department is encouraged to use their discretion when enforcing Standard Operating Procedure, and may overlook potential violations if enforcing them would prolong the threat.
+
+  ### Violet
+
+  There is a lethal biohazard present on the station. Personnel are to:
+
+  - Cover their faces, if possible.
+  - Obey any quarantine issued by the Chief Medical Officer.
+  - Maximize their suit sensors.
+  - Suspend all events and other activities.
+
+  The Security department is encouraged to work with the Captain and the Chief Medical Officer to enforce any quarantines.
+
+  The Internal Affairs department is encouraged to use their discretion when enforcing Standard Operating Procedure, and may overlook potential violations if enforcing them would prolong the threat.
+
+  ### Red
+
+  There is an active, violent, and lethal threat on the station. Unless explicitly ordered to do so otherwise by the Captain and/or Security personnel, personnel are to:
+
+  - Follow the guidance of their heads of staff regarding the threat.
+  - Stay within their departments if possible. Civilians are to remain in their office or the Service area.
+  - Stay out of maintenance areas. Entering maintenance areas during a Red alert is an act of trespassing and can be charged as such.
+  - Maximize their suit sensors.
+  - Suspend all events and other activities.
+
+  The Security department is encouraged to carry any equipment necessary to neutralize the threat.
+
+  The Internal Affairs department is to disregard any Standard Operating Procedure if enforcing it would prolong the threat.
+
+  ## Procedural Regulations
+
+  The following regulations are enforced by specific points of Standard Operating Procedure. Please refer to Article 3 for further context on how these should be enforced.
+
+  ### NanoTrasen Building & Expansion Regulations
+
+  In order to ensure that all parts of the station are up to NanoTrasen's safety and quality standards, all new constructions must follow a certain set of requirements.
+
+  Requirements for any new construction are as follows:
+
+  - In order to maintain NanoTrasen's dignity and public image, any new constructions must not be excessively unsightly, or otherwise go against NanoTrasen's best interests.
+  - Any part of the construction must not obstruct or impede any existing departmental functions and duties.
+  - The construction must not impede or block any public thoroughfares. Sufficient measures should be made to ensure that any installations placed in a hallway still have safe and unobstructed routes around it.
+  - Any new construction must not require an excessive or unattainable amount of resources, relative to the station’s current needs.
+  - For constructions requiring power, extensions to the power grid must be done safely, according to local station standards.
+  - Enclosed rooms that will house live inhabitants require proper and safe connections to the local Atmospherics system, including a Fire Alarm, Firelocks, Distribution, and Waste Lines.
+
+  ### NanoTrasen Cleanliness Regulations
+
+  In order to maintain a safe and efficient working environment, as well as to maintain NanoTrasen's dignity and public image, ALL crew on duty are required to adhere to certain cleanliness standards.
+
+  Efforts should be made to either fulfill these standards by hand, or by calling a Janitor to clean in their stead. Failure to attend to a mess within 10 minutes may result in Corporate Misconduct actions.
+
+  Basic cleanliness expectations are as follows:
+
+  - Corridors between workspaces kept free of debris, blockages, and potential slipping hazards, in order to maintain an efficient flow between departments.
+  - Ample lighting should be present in any room outside of maintenance. In any working environment, color and brightness should be kept appropriate for that department.
+  - Public-facing rooms should be kept pristine: Free of trash, improperly stored equipment, and other unsightly items that may damage NanoTrasen's public image.
+  - Departmental staff in uniform and in sight of the public must make efforts to maintain the cleanliness of their appearance, such as regularly washing their uniforms.
+  - In order to prevent attracting unwanted pests, unsealed and perishable food and drink should not be left unattended. Sighted pests should be dealt with and disposed of posthaste.
+
+  Certain locations are held to higher standards in terms of cleanliness. These locations include:
+
+  - Any room that represents NanoTrasen's dignity and authority, such as the bridge or court.
+  - Any room where patients are treated.
+  - Any room where food and drink is consumed.
+  - Any room with potentially hazardous and/or highly reactive substances.
+  - Any room that stores weaponry.
+
+  ### Corporate Misconduct & Disciplinary Actions
+
+  A member of Command may issue Disciplinary Actions to any of their subordinates that commit acts of Corporate Misconduct. If Corporate Misconduct is observed by a member of Internal Affairs, they are to immediately bring it to the attention of the relevant head of staff. Examples Include:
+
+  - An Internal Affairs Agent notices the Misconduct during an Audit.
+  - The Magistrate notices that a charge they are judging for falls under a Misconduct.
+  - The Executive Officer notices on all-comms that a Misconduct is occurring.
+
+  A member of Internal Affairs can never issue a Disciplinary Action regarding Corporate Misconduct on their own. It always requires signing off by either the relevant Head of Staff, or the Captain. Internal Affairs should recommend a severity level based on the Misconduct, but the final severity is always up to the signee.
+
+  [bold]Corporate Misconduct Categories[/bold]
+
+  <Table Columns="3">
+    <ColorBox>
+      <Box>
+        Corporate Misconduct
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Description
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Example
+      </Box>
+    </ColorBox>
+
+    <ColorBox>
+      <Box>
+        Insubordination
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Going against a direct order from your departmental superiors.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Activating the SM after the CE told you not to.
+      </Box>
+    </ColorBox>
+
+    <ColorBox>
+      <Box>
+        SOP Violation
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Egregiously going against the guidelines set by your job's Standard Operating Procedures.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        See Article 3, Standard Operating Procedure.
+      </Box>
+    </ColorBox>
+
+    <ColorBox>
+      <Box>
+        Theft of Departmental Property
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Taking equipment or products from your department without permission or proper payment.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Taking topicals from a Medkit and giving it to an Assistant for free.
+      </Box>
+    </ColorBox>
+
+    <ColorBox>
+      <Box>
+        Damage to Assigned Company Equipment
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Intentionally or recklessly damaging your job's assigned equipment.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Placing an APE next to an electric anomaly, resulting in a discharge that destroys it.
+      </Box>
+    </ColorBox>
+
+    <ColorBox>
+      <Box>
+        Fraud
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Performing your job's duties in a particularly deceptive or self-serving way.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Lying to certain crewmembers about the state of Science's research offerings.
+      </Box>
+    </ColorBox>
+
+    <ColorBox>
+      <Box>
+        Incompetence
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Egregiously failing to meet assigned quotas, or performing your job's duties in a reckless or dangerous way.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Failing to perform an acceptable amount of your job's work this shift.
+      </Box>
+    </ColorBox>
+  </Table>
+
+  [bold]Corporate Misconduct Disciplinary Actions[/bold]
+
+  <Table Columns="2">
+    <ColorBox>
+      <Box>
+        Class I
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Confiscation
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Class IV
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Demotion
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Class V
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Contract Termination
+      </Box>
+    </ColorBox>
+  </Table>
+
+  [bold]Corporate Honesty & Loyalty Incentive Policy[/bold]
+
+  - Should a crew member be forthright with their Misconduct, and turn themselves in, consider reducing the severity of their Disciplinary Action as a reward for their honesty.
+  - If a crew member that witnesses a Corporate Misconduct reports it to Internal Affairs before the perpetrator does, that crew member shall receive a reward for their loyalty.
+
+  ## Order of Succession
+
+  Should the Captain be incapacitated, not present, or otherwise unfit to perform their duties, an acting Captain is to be according to the following priority:
+
+  1. Executive Officer
+
+  2. Research Director
+
+  3. Quartermaster
+
+  4. Chief Medical Officer
+
+  5. Chief Engineer
+
+  6. Hospitality Director
+
+  7. Acting Command, in the same order as above
+
+  8. Corporate Liaison
+
+  9. Commandant
+
+  In the event that the Commandant is made acting Captain, they are to immediately step down as soon as another candidate for acting Captain is available.
+
+  ### Vote of No Confidence
+
+  A member of Command may call a Vote of No Confidence if they believe the Captain is unfit to perform their duties. If such a vote is called, all Command personnel must report to the bridge to discuss and vote on the matter.
+
+  All Command personnel, besides the Captain and the Corporate Liaison, may vote in favor, against, or abstain. A simple majority results in the Captain being replaced with an acting Captain, with the original Captain's new position to be determined by the new captain.
+
+  A record of any Vote of No Confidence must be faxed to Central Command for archival purposes.
+
+</Document>

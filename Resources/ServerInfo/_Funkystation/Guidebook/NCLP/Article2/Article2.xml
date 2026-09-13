@@ -1,0 +1,2238 @@
+<Document>
+    # NanoTrasen Corporate Law
+    ## 1. Definitions
+    NT: NanoTrasen.
+    
+    Charge: The combination of all crimes an individual is accused of.
+
+    Sentence: A judge's decision concerning the validity, in whole or part, of a charge in addition to its accompanying punishment.
+    
+    Arrest: Under restraint by Security, in order to press charges before a judge.
+    
+    Custody: Under restraint by Security, during or after receiving a sentence.
+    
+    Detainee: Any being who is being temporarily held for searches, interrogation, issuing a fine, etc.
+    
+    Arrestee: Any being either arrested or in custody.
+    
+    Criminal Offense: An act that violates Corporate Law, with penalties including fines or imprisonment.
+    
+    Sentient Being: A living entity who perceives or responds to sensations of whatever kind.
+    
+    Sapient Being: A living entity that is capable of fully comprehending itself, its surroundings, and other sapient beings.
+    
+    Privileged Individuals: A member of Command or Central Command.
+    
+    Operational Safety: The ability for the station, departments, and crew as a whole to perform work unimpeded.
+    
+    Reasonable Suspicion: Security personnel either directly witnessing or receiving credible information about potential illegal activity. Valid Reasonable Suspicion is more than a simple hunch or instinct, and must be based on clear facts.
+    
+    Probable Cause: Security personnel either directly witnessing or receiving credible information about an actual crime committed.
+    
+
+    ## 2. Searches
+
+    ### Personnel Searches
+    Security personnel are allowed to search personnel under any of the following conditions:
+    - There is reasonable suspicion of a crime.
+    - There is a search warrant for the being.
+    - The station’s alert level allows for random searches.
+
+    The search allows the seizure of any illegal possessions. This includes any bags, boxes or other containers the person has in the immediate vicinity.
+
+    A crewmate may legally decline any search conducted without reasonable suspicion while the alert level is Green.
+
+    If any contraband is found during a search, the officer may choose to further the search into an arrest, or confiscate the restricted items and issue a fine. After the search is conducted, all legal items are to be returned to the person.
+
+    ### Invasive confiscation
+    Sometimes crewmembers may have contraband that requires surgery to remove.
+
+    Removal of body augmentation contraband should be done by medical personnel and not cause excessive harm or leave the person's body nonfunctional.
+
+    ### Department searches
+    Security personnel are allowed to search a department under any of the following conditions:
+    - There is a search warrant signed by the corresponding Department Head, Executive Officer or Captain.
+    - The station’s alert level allows for the departmental search.
+
+    Anything, excluding personnel, within the areas defined on the searched warrant can be searched.
+
+    Security personnel should make reasonable accommodations to reduce the interruption in the department
+    - Personnel should be able to work
+    - Search time should be kept to a minimum
+
+    Secure Areas are not be searched unless otherwise explicitly authorized by the Head of that department, or higher
+
+    The Executive Officer may issue ID cards with temporary access for the purposes of fulfilling a search warrant.
+
+    ## 3. Detainment & Arrests
+    Security personnel are allowed to temporarily detain anyone with only a reasonable suspicion of a crime.
+    
+    Procedures that necessitate detainment:
+    - Performing a search.
+    - Investigating a crime.
+    - Handing out a fine.
+
+    Security Personnel are allowed to arrest only with probable cause of a crime.
+
+    Arrest reasons include, but are not limited to:
+    - Directly witnessing a crime.
+    - Having suitable forensic evidence of a crime.
+    - Eyewitness report from a trustworthy individual.
+
+    Detained and arrested individuals should not be handcuffed, provided they are cooperating.
+
+    Cuffing of a detainee or arrestee should only happen if either:
+    - The subject poses a clear threat towards privileged individuals, Security personnel, and/or station assets
+    - The subject is non-cooperative, or resisting enforcement authority.
+
+    ## 4. Chain of Custody
+    All Security personnel are held to a high standard when interacting with the public.
+
+    Proper protocol is to be followed in order to ensure that subjects of legal enforcement are given due process and retain any and all rights they may hold.
+
+    Security personnel are to follow the following procedure with any arrest.
+    
+    Failure to follow this procedure may result in formal Disciplinary Actions by the onboard IA staff, or in extreme cases, charges of negligence and/or endangerment.
+
+    1. Given Probable Cause, the officer must state their intent to arrest, and for what crimes, before taking any forceful action.
+
+        - Proper intent includes using a security voice mask, calling their name or job, and/or pointing at them and telling them to stop.
+
+        - This step may be waived if the target is the subject of a Red Alert, or if they are declared “Arrest on Sight” by the Commandant.
+
+    2. If the subject fails to stop when asked or attempts to evade lawful arrest, forceful action and restraints may be used to take them in.
+
+        - Nightsticks, flashes, and handcuffs should be prioritized first, but if all less-lethal options are disabled, stolen, or otherwise ineffective, lethal force is authorized and encouraged.
+        
+        - Heavy weaponry is only permitted to perform an arrest if the subject is the target of a Red Alert, or is a clear militarized danger to the station.
+    
+    3. After successful detainment, the officer is to alert the Commandant and Magistrate as soon as possible, so that all involved parties may prepare for a hearing or trial.
+    
+    4. The arrestee must be brought to security to remove and confiscate any contraband.
+        
+        - All contraband should be properly stored on the evidence storage.
+    
+    5. Recovery of the arrestee’s bodily health is to be ensured before moving on to the hearing or trial.
+    
+    6. In the case of a formal hearing or trial, the arrestee must be informed of their right to a lawyer, and be provided one upon request.
+        
+        - For summary hearings, the arrestee does not have to be offered a lawyer, but still must be provided one upon request.
+    
+    7. The arrestee is to be brought to court, before the Magistrate, where they receive their official sentence via hearing or trial.
+    
+    8. Should their sentence result in brig time, the officer is to transport and hand the prisoner off to the Warden.
+    
+    9. The Warden removes all of the prisoner’s belongings, and ensures they are properly stored in their locker before handing them their prisoner ID and transporting them to the brig.
+
+    Any time evidence is removed from the evidence storage, form SEC-11 needs to be filed for proper chain of custody validation.
+
+    At any point during a prisoner’s arrest or confinement, the Detective is permitted to bring them into interrogation and question them.
+    - The prisoner’s sentence timer may be paused during interrogation.
+    - The prisoner may ask for consultation with a lawyer, during which their sentence is to be paused.
+
+    ## 5. Treatment of Arrestees and Prisoners
+    Personnel in custody are to be ensured the following rights:
+
+    ### Arrestees
+    Arrestees must be provided with:
+
+    1. Adequate medical care.
+
+    2. Access to communications equipment so long as they are not abused.
+
+    3. Access to a lawyer, should they request it.
+
+        - This includes during interrogations and the subsequent hearing.
+
+    ### Prisoners
+    On top of the arrestee’s protections, prisoners must be provided with:
+
+    1. Clothing, food, water, and shelter.
+
+        - Should the Brig be rendered unsafe, confinement must be established in another location.
+
+    2. Psychiatric and spiritual counselling if requested.
+
+    3. Prisoners should not be restrained with handcuffs or other devices after incarceration unless there is an undue risk to life and limb.
+
+    ## 6. Implantation
+    Any crew member can be implanted if they give their clear permission.
+
+    Any prisoner in custody can be subjected to implantation or implant removal procedures, so long as it's within reason. The process of adding an implant should not prolong the arrestee's sentence.
+
+    ### Implantation
+    If a suspect or prisoner represents a flight risk, or is a recurring offender, a tracking implant can be administered to them.
+
+    ### Removal
+    A suspect can be forced to receive implant removal if there is probable cause that they have an illegal implant, such as an officer witnessing them use an implantation device or their biological information being found on a discarded injector.
+
+    Unlike the implantation procedure, a prisoner can have their sentence entirely delayed or extended until they comply with the removal, as long as Security are actively making attempts to perform it. Akin to implanting, if an inmate gives their clear permission, implant removal can proceed without proof.
+
+    ## 7. List of Crimes
+
+    ### Crime Tiers
+    NanoTrasen defines the following Crime Tiers:
+
+    ### Infraction
+
+    Minor, non-criminal offenses.
+
+    An offense is especially considered only an Infraction if it causes minimal damage, and is easily reversible.
+
+    Possible Punishments:
+
+        - A financial penalty ticket and/or a formal warning.
+
+        - Explicitly do not result in brig time.
+
+    Punishments for Infractions aren’t supposed to majorly interrupt the offender’s workplace productivity.
+
+
+    ### Misdemeanor
+
+    Crimes that cause harm to others or some level of asset loss, and aren’t as easily reversible.
+
+
+    ### Felony
+
+    Crimes that cause major harm, major asset loss, and/or are a major threat to the station’s operational safety.
+
+
+    ### Capital Offense
+
+    Crimes that cause irreversible harm or asset loss, and/or majorly disrupt the station’s operational safety.
+
+    ### Criminal Offenses
+
+    NanoTrasen defines the following Infractions and Criminal Offenses:
+
+    <Table Columns="10">
+        <ColorBox>
+            <Box>
+                Infractions
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Misdemeanors
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Felonies
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Capital Offenses
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box></Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                \-
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Class C
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Class B
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Class A
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Class C
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Class B
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Class A
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Class C
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Class B
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Class A
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Ticket \+ Warning
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                8 Minutes
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                10 Minutes
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                12 Minutes
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                16 Minutes
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                20 Minutes
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                24 Minutes
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Perma
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Perma w/o Parole
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box>
+                Execution
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox Color="#59563a">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Loitering (A)
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#59563a">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Trespass (A)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#59563a">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Secure Trespass (A)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        
+        
+        <ColorBox Color="#7d1616">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Possession of Minor Contraband (C)
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#7d1616">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Possession of Moderate Contraband (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#7d1616">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Possession of Major Contraband (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        
+        
+        <ColorBox Color="#453a59">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Vandalism (D)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#453a59">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Destruction of Property (D)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#453a59">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Mass Destruction (D)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#453a59">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Station Sabotage (D)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        
+        
+        <ColorBox Color="#32615f">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Refusal to Identify (F)
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#32615f">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Slander (F)
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#32615f">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Impersonation (F)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#32615f">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Libel (F)
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#32615f">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Fraud (F)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#32615f">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Impersonation of Central Command (F)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#3f5a39">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Contempt of Court (J)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#3f5a39">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Perjury (J)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#3f5a39">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Subversion of Court (J)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        
+
+        <ColorBox Color="#392e65">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Harassment (M)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#392e65">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Extortion (M)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#392e65">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Sedition (M)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#392e65">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Terrorism (M)
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox Color="#6d6d26">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Negligence (N)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#6d6d26">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Endangerment (N)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#6d6d26">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Manslaughter (N)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#6d6d26">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Capital Negligence (N)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        
+        
+        <ColorBox Color="#2b5e68">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Operation without Permit (O)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#2b5e68">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Smuggling (O)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#2b5e68">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Black Marketeering (O)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        
+        
+        <ColorBox Color="#7b3f18">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Disturbance (R)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#7b3f18">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Unlawful Assembly (R)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#7b3f18">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Rioting (R)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        
+        
+        <ColorBox Color="#593a4e">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Failure to Comply (S)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#593a4e">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Breach of Arrest (S)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#593a4e">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Breach of Custody (S)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        
+        
+        <ColorBox Color="#395a39">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Petty Theft (T)
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#395a39">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Theft (T)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#395a39">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Grand Theft (T)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#4d2e2e">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Assault (V)
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#4d2e2e">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Battery (V)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#4d2e2e">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Mutilation (V)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#4d2e2e">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Murder (V)
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#4d2e2e">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Prevention of Revival (V)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#67276c">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Kidnapping (W)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#67276c">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Suppression of Free Will (W)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        
+        
+        <ColorBox Color="#3b4354">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Cannibalism
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#3b4354">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Failure to Pay
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#3b4354">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Animal Cruelty
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#3b4354">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Bribery
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#3b4354">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Tax Evasion
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox Color="#3b4354">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Refusal of Lawful Implantation
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#3b4354">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Breach of NT Contract
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox Color="#3b4354">
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Substance Abuse
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2"></Box>
+        </ColorBox>
+    </Table>
+
+    ### Crime Specifications
+
+    <!-- I am sorry to whoever needs to modify this in the future -->
+
+    <Table Columns="3">
+        <ColorBox Color="#6d6d26">
+            <Box>
+                A
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#6d6d26">
+            <Box>
+                Access
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#6d6d26">
+            <Box>
+                Existing where you are not allowed.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Loitering
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Existing near a restricted area for an extended time, with no reasonable purpose.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Trespass
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Entering a restricted area without express permission.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Secure Trespass
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Entering a station-critical restricted area without express permission.
+            </Box>
+        </ColorBox>
+    </Table>
+
+    <!---->
+
+    <Table Columns="3">
+        <ColorBox Color="#7d1616">
+            <Box>
+                C
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#7d1616">
+            <Box>
+                Contraband
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#7d1616">
+            <Box>
+                Possession or use of controlled, restricted, or illegal contraband.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Possession of Minor Contraband
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                See Contraband Classifications.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Possession of Moderate Contraband
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                See Contraband Classifications.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Possession of Major Contraband
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                See Contraband Classifications.
+            </Box>
+        </ColorBox>
+    </Table>
+
+    <!---->
+
+    <Table Columns="3">
+        <ColorBox Color="#453a59">
+            <Box>
+                D
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#453a59">
+            <Box>
+                Destruction
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#453a59">
+            <Box>
+                Causing intentional damage to station functions.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Vandalism
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Superficially damaging or defacing station property.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Destruction of Property
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Causing substantial structural damage, requiring repairs.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Mass Destruction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Causing substantial structural damage to a large area of the station.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Capital Offense (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Station Sabotage
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Intentionally rendering critical station infrastructure inoperable.
+            </Box>
+        </ColorBox>
+    </Table>
+
+    <!---->
+
+    <Table Columns="3">
+        <ColorBox Color="#32615f">
+            <Box>
+                F
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#32615f">
+            <Box>
+                Fraud
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#32615f">
+            <Box>
+                Lying about yourself or your actions for personal gain.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Refusal to Identify
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Not wearing your shift-assigned ID, and/or hiding your identity with facial coverings and refusing to present your identity when asked by an authority.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Slander
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Speaking false and harmful statements about NanoTrasen, its subsidiaries, or contractees.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Impersonation
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Hiding your true identity and posing as someone you are not for personal gain.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Libel
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Publishing false and harmful written statements about NanoTrasen, its subsidiaries, or contractees.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Fraud
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Intentionally lying about promised actions for personal gain, or not following through with non-NT contracts.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Capital Offense (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Impersonation of Central Command
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Hiding your true identity and posing as Central Command.
+            </Box>
+        </ColorBox>
+    </Table>
+
+    <!---->
+
+    <Table Columns="3">
+        <ColorBox Color="#3f5a39">
+            <Box>
+                J
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#3f5a39">
+            <Box>
+                Obstruction of Legal Justice
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#3f5a39">
+            <Box>
+                Impeding or abusing the legal justice system.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Misdemeanor (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Contempt of Court
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Needlessly interrupting or delaying official court proceedings.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Felony (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Perjury
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Lying under oath of court, or delivering false reports to Security.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (A)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Subversion of Court
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Obstructing court to the point where official court proceedings have to pause or stop altogether.
+            </Box>
+        </ColorBox>
+    </Table>
+
+    <!---->
+
+    <Table Columns="3">
+        <ColorBox Color="#392e65">
+            <Box>
+                M
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#392e65">
+            <Box>
+                Manipulation
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#392e65">
+            <Box>
+                Manipulating a sapient being through tactics of fear and/or aggression.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Harassment
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Unwelcome, knowing, and repeated negative conduct toward a sapient being, causing them to feel seriously uncomfortable, annoyed, or afraid.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Felony (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Extortion
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Unlawfully forcing another sapient being to do something unwillingly, by means of threats, force or aggression.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Felony (A)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Sedition
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Conspiring to overthrow or otherwise dismantle NanoTrasen public trust and authority.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Capital Offense (A)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Terrorism
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Causing mass station panic, or completely disrupting station operations by means of fear and/or lethal force.
+            </Box>
+        </ColorBox>
+    </Table>
+
+    <!---->
+
+    <Table Columns="3">
+        <ColorBox Color="#59563a">
+            <Box>
+                N
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#59563a">
+            <Box>
+                Negligence
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#59563a">
+            <Box>
+                Causing harm to the station or its crew through vocational incompetence.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Negligence
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Unintentionally performing an action in a way that creates unnecessary harm.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Endangerment
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Willfully performing an action in a way that creates unnecessary harm.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Felony (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Manslaughter
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Killing another sapient being without intent.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Capital Offense (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Capital Negligence
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Performing an action in a way that causes unnecessary harm, to the point of causing mass station destruction, or rendering a department mostly inoperable, even temporarily.
+            </Box>
+        </ColorBox>
+    </Table>
+
+    <!---->
+
+    <Table Columns="3">
+        <ColorBox Color="#2b5e68">
+            <Box>
+                O
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#2b5e68">
+            <Box>
+                Operation
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#2b5e68">
+            <Box>
+                Performing works or transactions not sanctioned by NanoTrasen.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Operation without Permit
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Performing another department’s duties, or some other business venture without a legal permit of operation.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Smuggling
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Illegaly distributing or selling items outside of the NT ecosystem.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Black Marketeering
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Engaging in the buying and/or selling of contraband.
+            </Box>
+        </ColorBox>
+    </Table>
+
+    <!---->
+
+    <Table Columns="3">
+        <ColorBox Color="#7b3f18">
+            <Box>
+                R
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#7b3f18">
+            <Box>
+                Rowdiness
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#7b3f18">
+            <Box>
+                Causing public disturbances and general unrest.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Disturbance
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Catch-all for public disruptive or obnoxious behavior.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Unlawful Assembly
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Refusing to disperse a protest or gathering after an official and legal declaration to do so has been issued.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Rioting
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Participating in unlawful protests, in the case where violence or station damages occur.
+            </Box>
+        </ColorBox>
+    </Table>
+
+    <!---->
+
+    <Table Columns="3">
+        <ColorBox Color="#593a4e">
+            <Box>
+                S
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#593a4e">
+            <Box>
+                Obstruction of Security
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#593a4e">
+            <Box>
+                Going against or obstructing lawful Security actions.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Failure to Comply
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Refusing to comply with lawful demands of Security personnel.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Breach of Arrest
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Escaping from or evading a lawful and justified arrest or detainment.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Breach of Custody
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Escaping from custody during or after receiving a legal sentence.
+            </Box>
+        </ColorBox>
+    </Table>
+
+    <!---->
+
+    <Table Columns="3">
+        <ColorBox Color="#395a39">
+            <Box>
+                T
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#395a39">
+            <Box>
+                Theft
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#395a39">
+            <Box>
+                Taking that which belongs to others.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Petty Theft
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Taking something that is mostly worthless or easily replaceable.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Theft
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Taking something of meaningful value.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Grand Theft
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Taking something that is critical to the person’s job or role.
+            </Box>
+        </ColorBox>
+    </Table>
+
+    <!---->
+
+    <Table Columns="3">
+        <ColorBox Color="#4d2e2e">
+            <Box>
+                V
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#4d2e2e">
+            <Box>
+                Intentional Violence
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#4d2e2e">
+            <Box>
+                Causing intentional bodily harm to another sapient being.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Misdemeanor (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Assault
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Threatening or attempting to cause bodily harm to another sapient being.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (A)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Battery
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Causing superficial bodily harm to another sapient being.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Mutilation
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Causing permanent or otherwise long-lasting damage to another sapient being’s body parts, organs, or appendages.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Capital Offense (C)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Murder
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Intentionally killing another sapient being.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Capital Offense (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Prevention of Revival
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Rendering a dead body unrevivable by common medical practice.
+            </Box>
+        </ColorBox>
+    </Table>
+
+    <!---->
+
+    <Table Columns="3">
+        <ColorBox Color="#67276c">
+            <Box>
+                W
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#67276c">
+            <Box>
+                Free Will
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#67276c">
+            <Box>
+                Depriving another sapient being of their free will and autonomy.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Felony (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Kidnapping
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                To unlawfully restrain or transport another sapient being against their will.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Capital Offense (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Suppression of Free Will
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Permanently depriving another sapient being of their free will and autonomy.
+            </Box>
+        </ColorBox>
+    </Table>
+
+    <!---->
+
+    <Table Columns="3">
+        <ColorBox Color="#3b4354">
+            <Box>
+                \-
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#3b4354">
+            <Box>
+                Other
+            </Box>
+        </ColorBox>
+        <ColorBox Color="#3b4354">
+            <Box>
+                Independent crimes with no classification.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Cannibalism
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                To consume a portion of another sapient being, without express consent.
+            </Box>
+        </ColorBox>
+        
+
+        <ColorBox>
+            <Box>
+                Infraction
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Substance Abuse
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Consumption or usage of contraband substances.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Failure to Pay
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Failure to pay a legally imposed fine within the required timeframe.
+            </Box>
+        </ColorBox>
+
+        
+        <ColorBox>
+            <Box>
+                Misdemeanor (A)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Animal Cruelty
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Inflicting excessive harm on a living being, except when required for medical treatment, scientific research, or the preparation of food.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Bribery
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Offering, giving or accepting gifts, money, or favors to influence someone to act outside of their allowed duties.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Felony (A)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Tax Evasion
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Not paying NanoTrasen-mandated scrip taxes, or using non-scrip currencies to avoid paying taxes.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Capital Offense (B)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Refusal of Lawful Implantation
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Refusing to accept a lawful implant from Security personnel while in custody.
+            </Box>
+        </ColorBox>
+        
+        
+        <ColorBox>
+            <Box>
+                Capital Offense (A)
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Breach of NT Contract
+            </Box>
+        </ColorBox>
+        <ColorBox>
+            <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+                Violating the terms of an NT-issued, signed contract. 
+            </Box>
+        </ColorBox>
+    </Table>
+
+    ## 8. Contraband Classifications
+
+    ### Contraband Confiscation Procedures
+    Contraband Classifications follow broad categorizations based on object purpose, rather than a strict, specific list. Higher ranking personnel can override or specify contraband with the following chain of authority:
+    - Central Command.
+    - Captain.
+    - Executive Officer.
+    - Magistrate.
+
+    Security personnel are to avoid unreasonable confiscation of items in order to maintain positive public relations between Security, privileged individuals, and the rest of the station's crew.
+
+    ### Contraband Classifications
+    A single item may have more than one contraband classification, but only the highest charge is applied per item.
+
+    [bold]Weapon[/bold]
+    
+    Objects with a heightened effectiveness for violence or killing.
+    
+    Minor: Improvised item used as a weapon.
+    
+    Moderate: Items that are purpose-made to be a weapon.
+    
+    Major: Highly lethal weapon.
+
+    [bold]Unsanctioned Equipment[/bold]
+    
+    Equipment that is restricted to a certain department or job.
+    
+    Minor: Common, departmental equipment.
+    
+    Moderate: Equipment that is critical to the department’s function.
+    
+    Major: Command-exclusive, unique equipment.
+    
+    [bold]Operational Hazards[/bold]  
+    
+    Objects that pose a heightened threat to the operational safety of the station, that are not explicitly issued by a department to do one’s job.
+    
+    Minor: Common, mostly harmless equipment.
+    
+    Moderate: Local scale threat to operational safety.
+    
+    Major: Large scale threat to operational safety.
+
+    [bold]Chemical[/bold]
+    
+    Substances capable of influencing the mind or harming the body when metabolized or used in a reaction.
+    
+    Minor: Restricted recreational drugs & medicines with low-risk ODs.
+    
+    Moderate: Exploitable stimulants, medicines with high-risk ODs, & minorly dangerous reactive substances.
+    
+    Major: Lethal poisons, highly inhibiting chemicals, & highly dangerous reactive substances.
+    [bold]Propaganda[/bold]
+    
+    Objects that support non-NT-approved entities, or paints NT, its subsidiaries, or it's partners in a false light.
+    
+    Minor: Items that carry branding from Non-NT organizations, with low-risk of exposure to other crew.
+    
+    Moderate: Items that carry branding from enemies of NT, paint NT as an organization in a false light, or lesser items with wide exposure to other crew.
+    
+    Major: Items that carry branding from terrorist organizations, paint NT Command in a false light, or lesser items with station-wide exposure to other crew.
+
+    [bold]Classified Media[/bold]
+    
+    Media containing information from above the carrier’s clearance level.
+    
+    Any classified media is Major Contraband.
+
+    ## 9. Legal Exemptions
+    Indicates the legal exemptions certain roles have from crimes or crime categories, so long as the proper protocol is being followed
+
+    ### Security Exemptions
+    Security personnel are explicitly exempt from the following crime categories, so long as the action is following standard protocol and taken to perform enforcement duties:  
+    - Access: For the case of legal, necessary searches of a department.  
+    - Contraband: For their standard-issue service weapons and security equipment.  
+    - Theft: For legal confiscations of contraband.  
+    - Violence: For necessary force to carry out arrests.  
+    - Free Will: For restraining detainees and holding prisoners in custody.  
+
+    ### Medical Exemptions
+    The Paramedic is explicitly exempt from the following crime categories, so long as the action is done following standard protocol and taken to perform life saving operations:  
+    - Access: For the case of medical emergency  
+
+    ### Engineering Exemptions
+    Engineering personnel are explicitly exempt from the following crime categories, so long as the action is following standard protocol and taken to perform emergency repairs:  
+    - Access: For the case of effecting emergency repairs  
+
+    ### Clown Exception
+    The clown gets a privilege to be able to commit Infraction level crimes for pranks, as long that:
+    - The pranks do not cause bodily harm.
+    - Damages caused are reversed at the end of the bit.
+    - In case the clown gets taken to court, the presiding judge determines if the bit was funny and if the clown exception holds.
+
+    ### Loss of Free Will
+    In the event that a sapient being is under the influence of effects that completely suppress or control the being’s free will, any charges should be dropped upon the removal of said influence.
+</Document>
