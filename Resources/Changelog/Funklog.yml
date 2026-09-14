@@ -704,4 +704,44 @@
   id: 80
   time: '2026-09-11T01:28:44Z'
   url: https://github.com/funky-station/forky-station/pull/447
+- author: mkanke
+  changes:
+  - message: Added NDA cabinets to Roid
+    type: Add
+  id: 81
+  time: '2026-09-13T07:40:19Z'
+  url: https://github.com/funky-station/forky-station/pull/482
+- author: pirakaplant
+  changes:
+  - message: Document prototypes now look for a TXT file, rather than localisation
+      strings.
+    type: Tweak
+  id: 82
+  time: '2026-09-13T12:10:34Z'
+  url: https://github.com/funky-station/forky-station/pull/488
+- author: mycobiota
+  changes:
+  - message: Ghost follow buttons in the chat window will no longer break and start
+      floating sometimes.
+    type: Fix
+  id: 83
+  time: '2026-09-13T17:49:17Z'
+  url: https://github.com/funky-station/forky-station/pull/479
+- author: Idem778
+  changes:
+  - message: Added pagers to new roles
+    type: Add
+  id: 84
+  time: '2026-09-14T06:22:57Z'
+  url: https://github.com/funky-station/forky-station/pull/471
+- author: mycobiota, ratsmageddon, mkanke
+  changes:
+  - message: Added Hailing Frequency and its appropriate items
+    type: Add
+  - message: Added PA Speakers to be installed in hallways and departments to broadcast
+      announcements
+    type: Add
+  id: 85
+  time: '2026-09-14T13:41:51Z'
+  url: https://github.com/funky-station/forky-station/pull/286
 Order: -1

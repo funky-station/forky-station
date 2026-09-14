@@ -3,6 +3,7 @@ using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Chat;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Content.Shared._Funkystation.Communications;
 
 namespace Content.Shared.Radio.Components;
 
@@ -10,7 +11,7 @@ namespace Content.Shared.Radio.Components;
 /// Listens for radio messages and relays them to local chat.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
-[Access(typeof(SharedRadioDeviceSystem))]
+[Access(typeof(SharedRadioDeviceSystem), typeof(PAKeyHolderSystem))] // funky
 public sealed partial class RadioSpeakerComponent : Component
 {
     /// <summary>
@@ -33,7 +34,7 @@ public sealed partial class RadioSpeakerComponent : Component
 
 
     /// <summary>
-    /// Whether this speaker should turn back on
+    /// Funky - Whether this speaker should turn back on
     /// after gaining power. i.e., for a PA system.
     /// </summary>
     [DataField, AutoNetworkedField]

@@ -1,4 +1,6 @@
 ﻿// Persistence: Chat stacking from RMC14 - pull/7587
+
+using Content.Client._Funkystation.UserInterface.Controls;
 using Content.Shared.Chat;
 using Robust.Shared.Utility;
 
@@ -18,4 +20,5 @@ public sealed class RepeatedMessage(
     public readonly string Message = message;
     public readonly ChatChannel Channel = channel;
     public int Count = 1;
+    internal GhostFollowLabel? GhostFollowLink; // funky
 }

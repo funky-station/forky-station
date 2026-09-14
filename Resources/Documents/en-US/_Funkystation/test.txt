@@ -1,0 +1,15 @@
+[color=#373334]▄█▀▀█▄ [head=2]Test[/head]
+░░▄▄█▀ [head=3] Subject:  Test file[/head]
+░░▄▄░░ [head=3] From:  John Tester[/head]
+[/color]──────────────────────────────────────────
+
+Hey, John Tester here.
+
+This is just a file to make sure that formatting works with document printer docs.
+
+Ideally, this is not going to appear in-game. If it has, someone has clearly not implemented the documents properly.
+
+My regards go to Caketaco for making this template.
+
+──────────────────────────────────────────
+Sincerely, John Tester
