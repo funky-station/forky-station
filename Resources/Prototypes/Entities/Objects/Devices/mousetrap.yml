@@ -12,7 +12,8 @@
         map: ["enum.ToggleableVisuals.Layer"]
     - type: StepTrigger
       intersectRatio: 0.2
-      requiredTriggeredSpeed: 2
+      # requiredTriggeredSpeed: 2
+      requiredTriggeredSpeed: 0.2 # funky - make mouse traps trigger on almost anything moving - you'd have to at least be in softcrit to move this slow
     - type: Mousetrap
     - type: ItemToggleExaminableStatus
       onText: item-toggle-examined-active
