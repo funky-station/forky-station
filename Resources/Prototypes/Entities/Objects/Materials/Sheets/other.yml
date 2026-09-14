@@ -77,6 +77,9 @@
       reagents:
       - ReagentId: Plasma
         Quantity: 10
+  - type: Tag # funky
+    tags:
+    - PlasmaSheet
 
 - type: entity
   parent: SheetPlasma
@@ -194,6 +197,9 @@
   - type: RadiationSource #funky
     intensity: 0.1
     slope: 3
+  - type: Tag # funky
+    tags:
+    - UraniumSheet
 
 - type: entity
   parent: SheetUranium
