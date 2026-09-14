@@ -19,7 +19,7 @@
 - type: tile
   id: FloorDarkTechAlt
   name: tiles-dark-tech-alt
-  sprite: /Textures/_Funkystation/Tiles/dark_tech-2.png
+  sprite: /Textures/_Funkystation/Tiles/dark_tech_2.png
   variants: 4
   placementVariants:
   - 1.0
@@ -199,7 +199,7 @@
 - type: tile
   id: FloorSeelGrid
   name: tiles-seel-grid
-  sprite: /Textures/_Funkystation/Tiles/seel_grid.png
+  sprite: /Textures/_Funkystation/Tiles/steel_grid.png
   variants: 4
   placementVariants:
   - 1.0

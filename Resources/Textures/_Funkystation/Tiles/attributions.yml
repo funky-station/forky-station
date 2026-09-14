@@ -8,7 +8,7 @@
   copyright: "TauCetiStation commit 4cd533cf0a4243050364023af9a4fcaca209dce7"
   source: "https://github.com/TauCetiStation/TauCetiClassic/"
 
-- files: ["dark_mono_textured.png", "dark_tech-2.png", "dark_tech.png", "grid.png", "seel_grid.png", "kafel_full.png", "plaque.png", "plaque_smooth.png", "plaque_smooth_burnt.png", "plaque_smooth_burnt_damaged.png", "plaque_smooth_damaged.png", "plaque_smooth_dirty.png", "plaque_smooth_mini.png", "plaque_smooth_mono.png", "plaque_smooth_offset.png", "plaque_smooth_pavement.png", "plaque_smooth_pavement_vertical.png", "plaque_alt.png", "recharge_floor.png", "riged.png", "smooth.png", "steel_grid.png"]
+- files: ["dark_mono_textured.png", "dark_tech_2.png", "dark_tech.png", "grid.png", "seel_grid.png", "kafel_full.png", "plaque.png", "plaque_smooth.png", "plaque_smooth_burnt.png", "plaque_smooth_burnt_damaged.png", "plaque_smooth_damaged.png", "plaque_smooth_dirty.png", "plaque_smooth_mini.png", "plaque_smooth_mono.png", "plaque_smooth_offset.png", "plaque_smooth_pavement.png", "plaque_smooth_pavement_vertical.png", "plaque_alt.png", "recharge_floor.png", "riged.png", "smooth.png", "steel_grid.png"]
   license: "CC-BY-SA-3.0"
   copyright: "TGStation commit e59d89a4d2f8359c2e54816453ed88d01af38de4"
   source: "https://github.com/tgstation/tgstation"
