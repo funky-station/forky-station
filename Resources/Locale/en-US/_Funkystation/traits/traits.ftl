@@ -6,7 +6,6 @@ trait-hayfever-popup3 = You feel an incoming sneeze.
 trait-hayfever-popup4 = You feel an impending sneeze attack.
 
 trait-chronic-migraines-name = Chronic Migraines
-trait-chronic-migraines-desc = You occasionally experience debilitating migraines that impair your vision and movement. You will receive migraine medication upon your arrival.
-
+trait-chronic-migraines-desc = You occasionally experience debilitating migraines that impair your vision and movement. You brought some pills, but are due a new prescription.
 trait-chronic-migraines-start = Your head begins to throb painfully...
 trait-chronic-migraines-others = {THE($target)} rubs {POSS-ADJ($target)} temples in pain
