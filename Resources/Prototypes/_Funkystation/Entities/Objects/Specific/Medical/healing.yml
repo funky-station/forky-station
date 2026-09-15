@@ -5,9 +5,9 @@
   suffix: Praxanol 5u
   components:
   - type: Pill
-    pillType: 15
+    pillType: 3
   - type: Sprite
-    state: pill16
+    state: pill4
   - type: Label
     currentLabel: praxanol 5u
   - type: Solution

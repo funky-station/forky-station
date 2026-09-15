@@ -19,7 +19,7 @@ namespace Content.Shared._Funkystation.Traits.Migraines;
 /// </summary>
 public sealed partial class MigraineSystem : EntitySystem
 {
-    private static readonly SoundSpecifier MigraineSound = new SoundPathSpecifier("/Audio/_Starfall/Effects/migraine.ogg");
+    private static readonly SoundSpecifier MigraineSound = new SoundPathSpecifier("/Audio/_Funkystation/Effects/migraine.ogg");
 
     [Dependency] private MovementSpeedModifierSystem _movementSpeed = null!;
     [Dependency] private SharedPopupSystem _popup = null!;
