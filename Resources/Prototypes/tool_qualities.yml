@@ -82,7 +82,7 @@
   spawn: Wirecutter
   icon: { sprite: _Funkystation/Objects/Tools/wirecutters.rsi, state: cutters-map } # Funky
 
-- type: tool # Funky - Cherrypick of github.com/michaelchessall/SS14-Persistence/pull/182
+- type: tool # Funky - Hull prying with a fire axe - Cherrypick of github.com/michaelchessall/SS14-Persistence/pull/182
   id: Axing
   name: tool-quality-axing-name
   toolName: tool-quality-axing-tool-name
