@@ -8,7 +8,7 @@
   traitGear: PillCanisterPraxanol
   components:
   - type: MigraineScheduler
-    minTimeBetweenIncidents: 20m
-    maxTimeBetweenIncidents: 90m
+    minTimeBetweenIncidents: 15m
+    maxTimeBetweenIncidents: 45m
     minDurationOfIncident: 35s
     maxDurationOfIncident: 65s
