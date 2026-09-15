@@ -3,9 +3,7 @@
   reactants:
     Chlorine:
       amount: 1
-    Benzene:
+    Phenol:
       amount: 2
-    Hydroxide:
-      amount: 1
   products:
-    Praxanol: 4
+    Praxanol: 3
