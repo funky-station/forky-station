@@ -1,4 +1,3 @@
-// using Content.Shared._EE.Silicon.EmitBuzzWhileDamaged;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Jittering;
@@ -20,12 +19,6 @@ namespace Content.Shared._Funkystation.Traits.Migraines;
 /// </summary>
 public sealed partial class MigraineSystem : EntitySystem
 {
-	// We don't have IPCs (yet)
-    // // IPCs get a special effect! yay, this doesn't have any other gameplay effect besides the sparking.
-    // private static readonly ProtoId<SpeciesPrototype> IpcSpecies = "IPC";
-    // private static readonly EntProtoId SparkEffect = "EffectSparks";
-    // private static readonly TimeSpan IpcSparkInterval = TimeSpan.FromSeconds(4);
-
     private static readonly SoundSpecifier MigraineSound = new SoundPathSpecifier("/Audio/_Starfall/Effects/migraine.ogg");
 
     [Dependency] private MovementSpeedModifierSystem _movementSpeed = null!;
@@ -51,15 +44,6 @@ public sealed partial class MigraineSystem : EntitySystem
             return;
 
         var query = EntityQueryEnumerator<MigraineEffectComponent, StatusEffectComponent>();
-
-        while (query.MoveNext(out _, out var migraine, out var status))
-        {
-            if (status.AppliedTo is not { } target || _timing.CurTime < migraine.NextIpcSparkTime || !IsIpc(target))
-                continue;
-
-            // PlayIpcSparks(target);
-            // migraine.NextIpcSparkTime = _timing.CurTime + IpcSparkInterval;
-        }
     }
 
     private void OnMigraineApplied(Entity<MigraineEffectComponent> entity, ref StatusEffectAppliedEvent args)
@@ -72,26 +56,13 @@ public sealed partial class MigraineSystem : EntitySystem
         if (_net.IsServer)
             _audio.PlayEntity(MigraineSound, args.Target, args.Target);
 
-        var isIpc = IsIpc(args.Target);
-
-        if (_net.IsServer && isIpc)
-        {
-        //    PlayIpcSparks(args.Target);
-        //    entity.Comp.NextIpcSparkTime = _timing.CurTime + IpcSparkInterval;
-        }
-
         if (!_net.IsServer)
             return;
 
         if (!entity.Comp.ShowPopup)
             return;
 
-        var popupEvent = new MigrainePopupEvent(isIpc
-                ? "trait-chronic-migraines-start-ipc"
-                : entity.Comp.SelfPopup,
-            isIpc
-                ? "trait-chronic-migraines-others-ipc"
-                : entity.Comp.OthersPopup);
+        var popupEvent = new MigrainePopupEvent(entity.Comp.SelfPopup, entity.Comp.OthersPopup);
 
         // Other systems can modify or cancel the popup.
         RaiseLocalEvent(args.Target, popupEvent);
@@ -115,20 +86,4 @@ public sealed partial class MigraineSystem : EntitySystem
 
         RemCompDeferred<JitteringComponent>(args.Target);
     }
-
-    // Check if the target entity is an IPC
-    private bool IsIpc(EntityUid target)
-    {
-		return false;
-        // return TryComp<HumanoidProfileComponent>(target, out var profile) && profile.Species == IpcSpecies;
-    }
-
-    // private void PlayIpcSparks(EntityUid target)
-    // {
-    //    if (!TryComp<EmitBuzzWhileDamagedComponent>(target, out var damaged))
-    //        return;
-	//
-    //    Spawn(SparkEffect, Transform(target).Coordinates);
-    //    _audio.PlayPvs(damaged.Sound, target, damaged.Sound.Params.WithVariation(0.05f));
-    // }
 }
