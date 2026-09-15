@@ -5,7 +5,7 @@
   description: trait-chronic-migraines-desc
   category: Disabilities
   cost: 0
-  traitGear: PillCanisterChepagepant
+  traitGear: PillCanisterPraxanol
   components:
   - type: MigraineScheduler
     minTimeBetweenIncidents: 20m
