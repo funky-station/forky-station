@@ -115,6 +115,12 @@
   - type: ScoreThiefPriceModifier
     reason: "scorethief-modifier-critical-infrastructure"
     multiplier: 0
+  - type: Climbable #funky
+    delay: 5.0
+  - type: Bonkable #funky
+    bonkDamage:
+      types:
+        Blunt: 4
   # End funky changes
 
 - type: entity
@@ -183,3 +189,9 @@
     transferAmount: 100
   - type: StaticPrice
     price: 5000 # That's a pretty fancy keg you got there.
+  - type: Climbable #funky #to make it not THAT distinguishable at first glance/vault
+    delay: 5.0
+  - type: Bonkable #funky
+    bonkDamage:
+      types:
+        Blunt: 4
