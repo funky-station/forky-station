@@ -80,6 +80,8 @@
   - type: Tag # funky
     tags:
     - PlasmaSheet
+    - Sheet
+    - ConstructionMaterial
 
 - type: entity
   parent: SheetPlasma
@@ -200,6 +202,8 @@
   - type: Tag # funky
     tags:
     - UraniumSheet
+    - Sheet
+    - ConstructionMaterial
 
 - type: entity
   parent: SheetUranium
