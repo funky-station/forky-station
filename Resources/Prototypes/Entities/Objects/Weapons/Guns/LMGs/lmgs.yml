@@ -84,6 +84,22 @@
   - type: Appearance
   - type: StaticPrice
     price: 10000
+  - type: MeleeWeapon #funky
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee #funky
+    attackType: Heavy
+  - type: IncreaseDamageOnWield #funky
+    damage:
+      types:
+        Blunt: 10
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 12
 
 - type: entity
   name: L6C ROW
@@ -127,3 +143,16 @@
       autoRefillRate: 4s
       affectedByEmp: true
     - type: AmmoCounter
+    - type: MeleeWeapon #funky
+      damage:
+        types:
+          Blunt: 8
+      soundHit:
+        collection: MetalThud
+    - type: AltFireMelee #funky
+      attackType: Light
+    - type: DamageOtherOnHit #funky
+      damage:
+        types:
+          Blunt: 6
+
