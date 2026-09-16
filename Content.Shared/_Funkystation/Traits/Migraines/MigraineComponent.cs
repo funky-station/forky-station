@@ -25,8 +25,6 @@ public sealed partial class MigraineEffectComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public string? OthersPopup = "trait-chronic-migraines-others";
-
-    public TimeSpan NextIpcSparkTime;
 }
 
 /// <summary>

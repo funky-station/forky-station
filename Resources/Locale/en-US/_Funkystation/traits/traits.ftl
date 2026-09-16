@@ -8,4 +8,4 @@ trait-hayfever-popup4 = You feel an impending sneeze attack.
 trait-chronic-migraines-name = Chronic Migraines
 trait-chronic-migraines-desc = You occasionally experience debilitating migraines that impair your vision and movement. You brought some spare medication for this shift, but are due a new prescription.
 trait-chronic-migraines-start = Your head begins to throb painfully...
-trait-chronic-migraines-others = {THE($target)} rubs {POSS-ADJ($target)} temples in pain
+trait-chronic-migraines-others = {THE($target)} rubs {POSS-ADJ($target)} temples in pain.
