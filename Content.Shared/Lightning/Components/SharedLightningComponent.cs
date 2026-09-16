@@ -13,6 +13,10 @@ public abstract partial class SharedLightningComponent : Component
     [DataField]
     public bool CanArc;
 
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("lightningEnergy")]
+    public float LightningEnergy = 50000f;
+
     /// <summary>
     /// How much should lightning arc in total?
     /// Controls the amount of bolts that will spawn.
