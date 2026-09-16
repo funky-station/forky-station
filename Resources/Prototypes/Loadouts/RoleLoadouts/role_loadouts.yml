@@ -170,11 +170,12 @@
   id: JobJanitor
   groups:
   - GroupTankHarness
-  - JanitorHead
-  - JanitorJumpsuit
-  - JanitorGloves
+  - FuJaniHead # Funky - previously JanitorHead
+  - FuJaniUniform # Funky - previously JanitorJumpsuit
+  - FuJaniGloves # Funky - previously JanitorGloves
   - CommonBackpack
-  - JanitorOuterClothing
+  - FuJaniOuterclothing # Funky - previously - JanitorOuterClothing
+  - FuJaniGaloshes # Funky - new
   - Pager
   - Glasses
   - AssistiveItems

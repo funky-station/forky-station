@@ -11,3 +11,16 @@
   - type: Clothing
     sprite: _Funkystation/Clothing/Head/Misc/faceshield.rsi
   - type: IngestionBlocker
+
+# rain hat
+
+- type: entity
+  parent: ClothingHeadBase
+  id: FuClothingHeadRainHat
+  name: rain hat
+  description: protecting slime people across the whole galaxy!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/rainhat.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/rainhat.rsi
