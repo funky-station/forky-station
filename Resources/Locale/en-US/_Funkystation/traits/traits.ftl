@@ -4,3 +4,5 @@ trait-hayfever-popup1 = Your nose is itching.
 trait-hayfever-popup2 = Your eyes are itching.
 trait-hayfever-popup3 = You feel an incoming sneeze.
 trait-hayfever-popup4 = You feel an impending sneeze attack.
+trait-cowboy-name = Cowboy accent
+trait-cowboy-desc = You speak with a distinct cowboy accent!
