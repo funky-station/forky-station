@@ -181,16 +181,15 @@ public sealed partial class TargetOutlineSystem : EntitySystem
                 valid = (origin - target).LengthSquared() <= Range;
             }
 
-            // funky start
-            if (OutlineColor.TryGetOutlineColor(true, out var validColor, _cfg, _targetOutlineSawmill))
-                _shaderTargetValid?.SetParameter("outline_color", validColor);
+            var shader = valid ? _shaderTargetValid! : _shaderTargetInvalid!;
 
-            if (OutlineColor.TryGetOutlineColor(false, out var invalidColor, _cfg, _targetOutlineSawmill))
-                _shaderTargetInvalid?.SetParameter("outline_color", invalidColor);
+            // funky start
+            if (OutlineColor.TryGetCustomOutlineColor(valid, out var color, _cfg, _targetOutlineSawmill) || color != default)
+                shader.SetParameter("outline_color", color);
             // funky end
 
             // highlight depending on whether its in or out of range
-            _sprite.SetPostShader(sprite, new SpriteComponent.PostShaderArgs(ContentPostShaderIds.TargetOutline, valid ? _shaderTargetValid! : _shaderTargetInvalid!)
+            _sprite.SetPostShader(sprite, new SpriteComponent.PostShaderArgs(ContentPostShaderIds.TargetOutline, shader)
             {
                 After = ContentPostShaderIds.AfterBaseEffects,
             });

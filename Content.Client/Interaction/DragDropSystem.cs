@@ -460,16 +460,15 @@ public sealed partial class DragDropSystem : SharedDragDropSystem
                         && _interactionSystem.InRangeUnobstructed(user.Value, entity);
             }
 
-            // funky start
-            if (OutlineColor.TryGetOutlineColor(true, out var validColor, _cfgMan, _dragDropSawmill))
-                _dropTargetInRangeShader?.SetParameter("outline_color", validColor);
+            var shader = valid.Value ? _dropTargetInRangeShader! : _dropTargetOutOfRangeShader!;
 
-            if (OutlineColor.TryGetOutlineColor(false, out var invalidColor, _cfgMan, _dragDropSawmill))
-                _dropTargetOutOfRangeShader?.SetParameter("outline_color", invalidColor);
+            // funky start
+            if (OutlineColor.TryGetCustomOutlineColor(valid.Value, out var color, _cfgMan, _dragDropSawmill) || color != default)
+                shader.SetParameter("outline_color", color);
             // funky end
 
             // highlight depending on whether its in or out of range
-            SetDragDropPostShader((entity, inRangeSprite), valid.Value ? _dropTargetInRangeShader! : _dropTargetOutOfRangeShader!);
+            SetDragDropPostShader((entity, inRangeSprite), shader);
             inRangeSprite.RenderOrder = EntityManager.CurrentTick.Value;
             _nextHighlightedSprites.Add(inRangeSprite);
         }

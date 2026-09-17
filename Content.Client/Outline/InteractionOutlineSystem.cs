@@ -249,10 +249,8 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
         }
 
         // funky start
-        if (OutlineColor.TryGetOutlineColor(inRange, out var outlineColor, _configManager, _interactionOutlineSawmill))
-        {
+        if (OutlineColor.TryGetCustomOutlineColor(inInteractionRange, out var outlineColor, _configManager, _interactionOutlineSawmill) || outlineColor != default)
             shader.SetParameter("outline_color", outlineColor);
-        }
         // funky end
 
         _sprite.SetPostShader((uid, sprite), new SpriteComponent.PostShaderArgs(ContentPostShaderIds.InteractionOutline, shader)

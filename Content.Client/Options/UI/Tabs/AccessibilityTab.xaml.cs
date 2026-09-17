@@ -37,9 +37,10 @@ public sealed partial class AccessibilityTab : Control
         Control.AddOptionColorSlider(CCVars.ChatHighlightsColor, HighlightsColorSlider);
 
         // funky start
-        Control.AddOptionColorSlider(InteractionOutlineCVars.ValidInteractionOutlineColor,
+        Control.AddOptionCheckBox(CCVars.UseCustomInteractionOutlineColors, UseCustomInteractionOutlineColors);
+        Control.AddOptionColorSlider(CCVars.CustomValidInteractionOutlineColor,
             ValidInteractionOutlineColorSlider);
-        Control.AddOptionColorSlider(InteractionOutlineCVars.InvalidInteractionOutlineColor,
+        Control.AddOptionColorSlider(CCVars.CustomInvalidInteractionOutlineColor,
             InvalidInteractionOutlineColorSlider);
         // funky end
 

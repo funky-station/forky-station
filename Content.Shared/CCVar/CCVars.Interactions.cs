@@ -83,4 +83,24 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool> ControlHoldToAttackRanged =
         CVarDef.Create("control.hold_to_attack_ranged", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
+    /// <summary>
+    /// Whether to use custom interaction outline colors, as defined by
+    /// <see cref="CustomValidInteractionOutlineColor"/> and <see cref="CustomInvalidInteractionOutlineColor"/>.
+    /// </summary>
+    public static readonly CVarDef<bool> UseCustomInteractionOutlineColors = CVarDef.Create(
+        "interaction.outline.use_custom_colors", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// The color of the outline for objects in-range of interaction.
+    /// </summary>
+    // default colors based on Resources/Prototypes/Shaders/outline.yml
+    public static readonly CVarDef<string> CustomValidInteractionOutlineColor = CVarDef.Create(
+        "interaction.outline.in_range_color", "#00FF0055", CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
+    /// The color of the outline for objects out-of-range of interaction.
+    /// </summary>
+    // default colors based on Resources/Prototypes/Shaders/outline.yml
+    public static readonly CVarDef<string> CustomInvalidInteractionOutlineColor = CVarDef.Create(
+        "interaction.outline.out_of_range_color", "#FF000055", CVar.CLIENTONLY | CVar.ARCHIVE);
 }

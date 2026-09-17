@@ -410,9 +410,13 @@ ui-options-disable-viewcone-grain = Disable the grain effect on the viewcone occ
 ui-options-viewcone-occlusion-opacity = Viewcone occlusion strength
 
 # funky custom interaction outlines
-ui-options-interaction-outline-valid = Outline color for objects inside of interaction range
-ui-options-interaction-outline-invalid = Outline color for objects outside of interaction range
-ui-options-interaction-color-example = This is the outline color.
+ui-options-interaction-outline-header = Interaction outline settings
+ui-options-use-custom-interaction-outline-color = Use custom interaction outline color settings
+ui-options-interaction-outline-color-expand = Expand interaction outline color settings
+ui-options-interaction-outline-color-valid = Outline color for objects inside of interaction range
+ui-options-interaction-outline-color-invalid = Outline color for objects outside of interaction range
+ui-options-interaction-outline-color-example = This is the outline color.
+
 ui-options-color-slider-default-button = Reset to default
 
 ui-options-chat-window-opacity = Chat window opacity
