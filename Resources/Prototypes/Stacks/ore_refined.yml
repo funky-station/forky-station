@@ -2,7 +2,7 @@
   parent: BaseMediumStack
   id: Diamond
   name: stack-diamond
-  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: diamond }
+  icon: { sprite: /Textures/_Funkystation/Objects/Materials/materials.rsi, state: diamond } # Funky
   spawn: MaterialDiamond1
 
 - type: stack

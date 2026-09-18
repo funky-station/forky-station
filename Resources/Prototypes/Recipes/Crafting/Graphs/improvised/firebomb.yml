@@ -15,7 +15,7 @@
       - tag: Igniter
         name: construction-graph-tag-igniter
         icon:
-          sprite: Objects/Devices/igniter.rsi
+          sprite: _Funkystation/Objects/Devices/igniter.rsi # Funky
           state: icon
         doAfter: 1
   - node: empty
