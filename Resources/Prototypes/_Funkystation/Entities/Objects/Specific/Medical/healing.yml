@@ -9,7 +9,7 @@
   - type: Sprite
     state: pill4
   - type: Label
-    currentLabel: praxanol 5u
+    localizedLabel: pill-label-praxanol-5u
   - type: Solution
     solution:
       reagents:
@@ -23,7 +23,7 @@
   suffix: Praxanol 5u, 3
   components:
   - type: Label
-    currentLabel: praxanol 5u
+    localizedLabel: pill-label-praxanol-5u
   - type: EntityTableContainerFill
     containers:
       storagebase:
