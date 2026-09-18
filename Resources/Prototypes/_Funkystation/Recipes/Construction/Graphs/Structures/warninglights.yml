@@ -1,0 +1,32 @@
+- type: constructionGraph
+  id: WarningLightsGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: JaniLight
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2.0
+      - material: Cable
+        amount: 1
+        doAfter: 1.0
+  - node: JaniLight
+    entity: JanitorServiceLightEmpty
+    edges:
+    - to: start
+      conditions:
+      - !type:ContainerEmpty
+        container: "light_bulb"
+      steps:
+      - tool: Screwing
+        doAfter: 2.0
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:SpawnPrototype
+        prototype: CableApcStack1
+        amount: 1
+      - !type:DeleteEntity {}
