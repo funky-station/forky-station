@@ -400,19 +400,19 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/syringe.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/syringe.rsi # Funky, shuffled below order too
     layers:
+      - state: syringe_base0
+        map: [ "enum.SolutionContainerLayers.Base" ]
       - state: syringe1
         map: ["enum.SolutionContainerLayers.Fill"]
         visible: false
-      - state: syringe_base0
-        map: ["enum.SolutionContainerLayers.Base"]
   - type: Icon
-    sprite: Objects/Specific/Chemistry/syringe.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/syringe.rsi # Funky
     state: "syringe_base0"
   - type: Item
     size: Tiny
-    sprite: Objects/Specific/Chemistry/syringe.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/syringe.rsi # Funky
   - type: Injector
     activeModeProtoId: SyringeDrawMode
     allowedModes:
@@ -451,7 +451,7 @@
   id: MiniSyringe
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/syringe.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/syringe.rsi # Funky
     layers:
       - state: minisyringe1
         map: ["enum.SolutionContainerLayers.Fill"]
@@ -526,7 +526,7 @@
     - state: bluespace_base0
       map: ["enum.SolutionContainerLayers.Base"]
   - type: Icon
-    sprite: Objects/Specific/Chemistry/syringe.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/syringe.rsi # Funky
     state: bluespace_base0
   - type: Injector
     activeModeProtoId: BluespaceSyringeDrawMode
@@ -555,7 +555,7 @@
     - state: cryo_base0
       map: ["enum.SolutionContainerLayers.Base"]
   - type: Icon
-    sprite: Objects/Specific/Chemistry/syringe.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/syringe.rsi # Funky
     state: cryo_base0
   - type: Tag
     tags:
