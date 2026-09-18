@@ -74,3 +74,8 @@
         enum.PowerDeviceVisualLayers.Powered:
           True: { visible: true }
           False: { visible: false }
+  - type: Climbable #funky
+  - type: Bonkable #funky
+    bonkDamage:
+      types:
+        Blunt: 4
