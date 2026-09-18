@@ -1,5 +1,68 @@
+
+# jani gloves
 - type: entity
-  parent: ClothingHandsGlovesJanitor
+  parent: ClothingHandsBase
+  id: FuClothingHandsGlovesJanitorYellow
+  name: rubber gloves
+  description: High-quality rubber gloves, squeaky to do some cleaning!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/Gloves/Janitor/janitoryellow.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/Gloves/Janitor/janitoryellow.rsi
+  - type: Fiber
+    fiberMaterial: fibers-rubber
+    fiberColor: fibers-yellow
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: FuClothingHandsGlovesJanitorPurple
+  name: rubber gloves
+  description: High-quality rubber gloves, squeaky to do some cleaning!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/Gloves/Janitor/janitorpurple.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/Gloves/Janitor/janitorpurple.rsi
+  - type: Fiber
+    fiberMaterial: fibers-rubber
+    fiberColor: fibers-purple
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: FuClothingHandsGlovesJanitorTeal
+  name: rubber gloves
+  description: High-quality rubber gloves, squeaky to do some cleaning!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/Gloves/Janitor/janitorteal.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/Gloves/Janitor/janitorteal.rsi
+  - type: Fiber
+    fiberMaterial: fibers-rubber
+    fiberColor: fibers-teal
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: FuClothingHandsGlovesJanitorOrange
+  name: rubber gloves
+  description: High-quality rubber gloves, squeaky to do some cleaning!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/Gloves/Janitor/janitororange.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/Gloves/Janitor/janitororange.rsi
+  - type: Fiber
+    fiberMaterial: fibers-rubber
+    fiberColor: fibers-orange
+  - type: FingerprintMask
+
+# insulated janigloves
+- type: entity
+  parent: FuClothingHandsGlovesJanitorYellow
   id: FuClothingHandsGlovesJanitorInsul
   name: rubber gloves
   description: High-quality rubber gloves, squeaky to do some cleaning!
