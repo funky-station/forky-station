@@ -1,0 +1,6 @@
+- type: localizedDataset
+  id: NamesGyros
+  values:
+    prefix: names-gyros-data-set-
+    count: 8
+    
