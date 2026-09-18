@@ -15,7 +15,7 @@
     - ConstructionMaterial
 
 - type: entity
-  parent: PartBase
+  parent: [PartBase, BaseQuickConstructionMaterial] # DEN add quick construction parent
   id: PartRodMetal
   name: metal rod
   suffix: Full
@@ -60,6 +60,8 @@
   - type: GuideHelp
     guides:
     - ExpandingRepairingStation
+  - type: QuickConstructable # DEN quick construction
+    category: MetalRod
 
 - type: entity
   parent: PartRodMetal
