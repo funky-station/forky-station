@@ -58,9 +58,6 @@
         nodeGroupID: Apc
   - type: Physics
     bodyType: Static
-  - type: Tag
-    tags:
-    - Grille #funky
   - type: Fixtures
     fixtures:
       fix1:

@@ -24,19 +24,19 @@
             - tag: CrayonPurple
               name: construction-graph-tag-purple-crayon
               icon:
-                sprite: Objects/Fun/crayons.rsi
+                sprite: _Funkystation/Objects/Fun/crayons.rsi # Funky
                 state: purple
               doAfter: 1
             - tag: CrayonRed
               name: construction-graph-tag-red-crayon
               icon:
-                sprite: Objects/Fun/crayons.rsi
+                sprite: _Funkystation/Objects/Fun/crayons.rsi # Funky
                 state: red
               doAfter: 1
             - tag: CrayonYellow
               name: construction-graph-tag-yellow-crayon
               icon:
-                sprite: Objects/Fun/crayons.rsi
+                sprite: _Funkystation/Objects/Fun/crayons.rsi # Funky
                 state: yellow
               doAfter: 1
             - tag: ClownRecorder

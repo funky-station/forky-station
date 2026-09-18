@@ -33,22 +33,22 @@
   copyright: "Taken from TG station."
   source: "https://github.com/tgstation/tgstation/blob/00cf2da5f785c110b9930077b3202f1a4638e1fd/sound/machines/cryo_warning.ogg"
 
-- files: ["epsilon.ogg"]
+- files: ["epsilon.ogg", "epsilon_mono.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Made by dj-34 (https://github.com/dj-34)"
   source: "https://github.com/ss220-space/Paradise/blob/05043bcfb35c2e7bcf1efbdbfbf976e1a2504bc2/sound/effects/epsilon.ogg"
 
-- files: ["gamma.ogg"]
+- files: ["gamma.ogg", "gamma_mono.ogg"]
   license: "CC0-1.0"
   copyright: "Created by Bhijin & Myr for Space Station 14"
   source: "https://github.com/space-wizards/space-station-14"
 
-- files: ["redalert.ogg"]
+- files: ["redalert.ogg", "redalert_mono.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from Citadel Station 13"
   source: "https://github.com/Skyrat-SS13/Skyrat13/commit/2d4f2d1b489590b559e4073f41b126cef56f4c50"
 
-- files: ["bluealert.ogg"]
+- files: ["bluealert.ogg", "bluealert_mono.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from Citadel Station 13"
   source: "https://github.com/Skyrat-SS13/Skyrat13/commit/2d4f2d1b489590b559e4073f41b126cef56f4c50"
@@ -68,7 +68,7 @@
   copyright: "Taken from stevielematt via freesound.org, edit by august-sun(GitHub)/augustsun(Discord)"
   source: "https://freesound.org/people/stevielematt/sounds/538066/"
 
-- files: ["notice1.ogg"]
+- files: ["notice1.ogg", "notice1_mono.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from TG station"
   source: "https://github.com/phil235/-tg-station/blob/462ce9c87771c6fa4a0ac29270ef78ea47364d6a/sound/misc/notice1.ogg"
@@ -83,7 +83,7 @@
   copyright: "Taken from TG station"
   source: "https://github.com/phil235/-tg-station/blob/c80f22bf524a900ca484011f1bea55a2c182ac53/sound/items/zip.ogg"
 
-- files: ["delta.ogg"]
+- files: ["delta.ogg", "delta_mono.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from Citadel station"
   source: "https://github.com/Citadel-Station-13/Citadel-Station-13/blob/e31455667ebf3331255c1143e1e7215bc737a287/sound/misc/deltakalaxon.ogg"

@@ -400,9 +400,6 @@
   - type: GuideHelp
     guides:
     - CriminalRecords
-  - type: ActiveRadio #Funky change for Ninja warning
-    channels:
-    - Security
 
 - type: entity
   parent: BaseComputerAiAccess
@@ -787,14 +784,10 @@
     energy: 4.0
     color: "#3c5eb5"
   # Start funky changes
-  - type: ActiveRadio
-    channels:
-    - Security
   - type: ScoreThiefPriceModifier
     reason: "scorethief-modifier-critical-infrastructure"
     multiplier: 0
   # End funky changes
-
 
 - type: entity
   parent: ComputerComms
@@ -818,6 +811,7 @@
     access: [[ "NuclearOperative" ]]
   - type: CommunicationsConsole
     title: comms-console-announcement-title-nukie
+    preamble: foreign-pa-preamble # funky
     color: "#ff0000"
     canShuttle: false
     global: true #announce to everyone they're about to fuck shit up
@@ -852,6 +846,7 @@
     access: [[ "Wizard" ]]
   - type: CommunicationsConsole
     title: comms-console-announcement-title-wizard
+    preamble: foreign-pa-preamble # funky
     color: "#ff00ff"
     canShuttle: false
     global: true #announce to everyone they're about to fuck shit up
@@ -886,6 +881,8 @@
     access: [[ "CentralCommand" ]]
   - type: CommunicationsConsole
     title: comms-console-announcement-title-centcom
+    preamble: centcom-pa-preamble # funky
+    canBypassPA: true # funky
     color: "#1d8bad"
     canShuttle: false
     global: true
@@ -1176,7 +1173,7 @@
   - type: CargoOrderConsole
     account: Service
     announcementChannel: Service
-    removeLimitAccess: [ "HeadOfPersonnel" ]
+    removeLimitAccess: [ "HospitalityDirector" ] # funky
     mode: SendToPrimary
   - type: ActiveRadio
     channels:
@@ -1251,7 +1248,7 @@
     key: enum.FundingAllocationConsoleUiKey.Key
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
-    access: [["HeadOfPersonnel"]]
+    access: [["ExecutiveOfficer"]] # funky
   - type: UserInterface
     interfaces:
       enum.FundingAllocationConsoleUiKey.Key:

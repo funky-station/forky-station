@@ -43,14 +43,6 @@ public abstract partial class BaseSolutionInjectOnEventComponent : Component
     public bool PierceArmor = true;
 
     /// <summary>
-    /// A more advanced version of Armor piercing, injects if the target's vest slot has less than this percent of pierce armor. Does not need PierceArmor to be true
-    /// </summary>
-    /// funky
-    [DataField]
-    public float PierceArmorThreshold = 2f; // by default it always injects
-    // this could probably be expanded to check other slots and damage types but it works for now
-
-    /// <summary>
     /// Contents of popup message to display to the attacker when injection
     /// fails due to the target wearing a hardsuit.
     /// </summary>

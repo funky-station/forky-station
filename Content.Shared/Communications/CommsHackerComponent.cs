@@ -1,10 +1,6 @@
 using Content.Shared.Random;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-///<funky change>
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Content.Shared.Radio;
-//</funky change>
 
 namespace Content.Shared.Communications;
 
@@ -26,27 +22,6 @@ public sealed partial class CommsHackerComponent : Component
     /// </summary>
     [DataField(required: true)]
     public ProtoId<WeightedRandomPrototype> Threats = string.Empty;
-
-    /// <summary>
-    /// The radio channel for security
-    /// </summary>
-    /// funky change for early Ninja warning
-    [DataField("securityChannel", customTypeSerializer: typeof(ProtoId<RadioChannelPrototype>))]
-    public string SecurityChannel = "Security";
-
-    /// <summary>
-    /// Minimum time between sending the security warning radio message for a ninja hacking attempt
-    /// </summary>
-    /// funky, prevents spamming security with messages
-    [DataField]
-    public TimeSpan WarningCooldown = TimeSpan.FromSeconds(10);
-
-    /// <summary>
-    /// The next time the warning radio message may be sent
-    /// </summary>
-    /// funky
-    [DataField]
-    public TimeSpan NextWarningTime = TimeSpan.Zero;
 }
 
 /// <summary>

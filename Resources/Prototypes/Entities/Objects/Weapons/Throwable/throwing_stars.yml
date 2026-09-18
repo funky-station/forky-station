@@ -43,29 +43,11 @@
     damage: 10
 
 - type: entity
-  parent: [ThrowingStar, SolutionWeapon] # funky | use the established solution weapon prototype
+  parent: ThrowingStar
   id: ThrowingStarNinja
   name: ninja throwing star
-  description: A nano-tech throwing star laced with a sleeping agent, although it cannot penetrate armor. It decomposes on its own after some time. # funky
   components:
   # prevent ninja crashing server + filling bag with 20 stars to instakill a single person
   # also limits the crew's use
   - type: TimedDespawn
-    lifetime: 10 # funky change from 30
-  #<funky>
-  - type: Solution
-    id: melee
-    solution:
-      reagents:
-      - ReagentId: Nocturine
-        Quantity: 10
-      maxVol: 10
-  - type: InjectableSolution
-    solution: melee
-  - type: MeleeChemicalInjector
-    solution: melee
-  - type: SolutionInjectOnEmbed
-    transferAmount: 10
-    solution: melee
-    pierceArmorThreshold: 0.3
-  #</funky>
+    lifetime: 30

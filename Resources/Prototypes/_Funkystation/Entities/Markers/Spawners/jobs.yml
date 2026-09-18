@@ -96,6 +96,19 @@
     - state: brigmedic
 
 - type: entity
+  id: FuSpawnPointCourier
+  parent: SpawnPointJobBase
+  name: courier
+  components:
+  - type: SpawnPoint
+    job_id: FuCourier
+  - type: Sprite
+    sprite: _Funkystation/Markers/jobs.rsi
+    layers:
+    - state: green
+    - state: courier
+
+- type: entity
   id: SpawnPointPrisoner
   parent: SpawnPointJobBase
   name: prisoner

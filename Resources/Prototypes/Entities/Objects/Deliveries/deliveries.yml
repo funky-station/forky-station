@@ -59,7 +59,7 @@
   name: package
   components:
   - type: Sprite
-    sprite: Objects/Specific/Cargo/mail_large.rsi
+    sprite: _Funkystation/Objects/Specific/Cargo/mail_large.rsi # Funky
     layers:
     - state: icon
       map: [ "enum.DeliveryVisualLayers.Icon" ]
@@ -112,7 +112,7 @@
   name: letter
   components:
   - type: Sprite
-    sprite: Objects/Specific/Cargo/mail.rsi
+    sprite: _Funkystation/Objects/Specific/Cargo/mail.rsi # Funky
     layers:
     - state: icon
       map: [ "enum.DeliveryVisualLayers.Icon" ]

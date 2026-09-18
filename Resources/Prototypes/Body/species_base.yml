@@ -2,6 +2,7 @@
   abstract: true
   parent:
   - BaseMob
+  - ESBaseMob # ES START
   - MobCombat
   - MobDamageable
   - MobPolymorphable

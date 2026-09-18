@@ -29,7 +29,6 @@ public sealed partial class StationSystem : SharedStationSystem
     [Dependency] private MetaDataSystem _metaData = default!;
     [Dependency] private PvsOverrideSystem _pvsOverride = default!;
     [Dependency] private EntityQuery<MapGridComponent> _gridQuery = default!;
-    [Dependency] private SharedTransformSystem _transform = default!; // funky
 
     private ISawmill _sawmill = default!;
 
@@ -178,49 +177,6 @@ public sealed partial class StationSystem : SharedStationSystem
     }
 
     #endregion Event handlers
-
-    // funky
-    /// <summary>
-    /// Retrieves the distance of an entity from the nearest station grid.
-    /// </summary>
-    public float GetDistanceFromStation(EntityUid user)
-    {
-        var userXform = Transform(user);
-        var userPosition = _transform.GetWorldPosition(userXform);
-        var userMap = userXform.MapID;
-        var minDistance = float.MaxValue;
-
-        foreach (var stationUid in GetStations())
-        {
-            if (!TryComp<StationDataComponent>(stationUid, out var stationData))
-                continue;
-
-            foreach (var gridUid in stationData.Grids)
-            {
-                if (!TryComp<MapGridComponent>(gridUid, out var grid))
-                    continue;
-
-                var gridXform = Transform(gridUid);
-                if (gridXform.MapID != userMap)
-                    continue;
-
-                var worldBounds = _transform.GetWorldMatrix(gridXform).TransformBox(grid.LocalAABB);
-
-                if (worldBounds.Contains(userPosition))
-                    return 0f;
-
-                var nearestX = Math.Clamp(userPosition.X, worldBounds.Left, worldBounds.Right);
-                var nearestY = Math.Clamp(userPosition.Y, worldBounds.Bottom, worldBounds.Top);
-                var dx = userPosition.X - nearestX;
-                var dy = userPosition.Y - nearestY;
-
-                var distance = MathF.Sqrt(dx * dx + dy * dy);
-                if (distance < minDistance)
-                    minDistance = distance;
-            }
-        }
-        return minDistance == float.MaxValue ? 0f : minDistance;
-    }
 
     /// <summary>
     /// Initializes a new station with the given information.

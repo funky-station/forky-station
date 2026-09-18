@@ -24,7 +24,7 @@
 - type: startingGear
   id: LieutenantGear
   equipment:
-    id: LieutenantPDA
+    id: LieutenantWallet
     eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetSecurity
     pocket2: WeaponPistolMk58

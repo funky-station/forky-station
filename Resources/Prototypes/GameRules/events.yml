@@ -239,7 +239,7 @@
   - type: AntagObjectives
     objectives:
     - StealResearchObjective
-    #- DoorjackObjective # funky
+    - DoorjackObjective
     - SpiderChargeObjective
     - TerrorObjective
     - MassArrestObjective

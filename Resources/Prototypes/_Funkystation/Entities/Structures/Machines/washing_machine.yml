@@ -81,6 +81,9 @@
         !type:DamageTrigger
         damage: 50
       behaviors:
+      - !type:EmptyContainersBehaviour
+        containers:
+        - entity_storage
       - !type:ExplodeBehavior
       - !type:PlaySoundBehavior
         sound:

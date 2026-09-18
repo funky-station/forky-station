@@ -7,7 +7,8 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: Structures/Wallmounts/mirror.rsi
+    sprite: _Funkystation/Structures/Wallmounts/mirror.rsi # Funky
+    offset: 0, -0.25 # Funky
     state: mirror
   - type: MagicMirror
     organs:
@@ -42,4 +43,5 @@
   suffix: rectangle
   components:
   - type: Sprite
+    sprite: Structures/Wallmounts/mirror.rsi # Funky
     state: rectangle-mirror

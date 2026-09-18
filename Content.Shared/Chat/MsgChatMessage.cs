@@ -38,10 +38,12 @@ namespace Content.Shared.Chat
         public string? AudioPath;
         public float AudioVolume;
 
+        public bool RepeatCheckSender; // Persistence: Chat stacking from RMC14 - pull/7587
+
         [NonSerialized]
         public bool Read;
 
-        public ChatMessage(ChatChannel channel, string message, string wrappedMessage, NetEntity source, int? senderKey, bool hideChat = false, Color? colorOverride = null, string? audioPath = null, float audioVolume = 0)
+        public ChatMessage(ChatChannel channel, string message, string wrappedMessage, NetEntity source, int? senderKey, bool hideChat = false, Color? colorOverride = null, string? audioPath = null, float audioVolume = 0, bool repeatCheckSender = true) // Persistence: Chat stacking from RMC14 - pull/7587
         {
             Channel = channel;
             Message = message;
@@ -52,6 +54,7 @@ namespace Content.Shared.Chat
             MessageColorOverride = colorOverride;
             AudioPath = audioPath;
             AudioVolume = audioVolume;
+            RepeatCheckSender = repeatCheckSender; // Persistence: Chat stacking from RMC14 - pull/7587
         }
 
         public ChatMessage(ChatMessage copyFrom)

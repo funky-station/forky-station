@@ -7,14 +7,14 @@
     tags:
     - GlassBeaker
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/beaker.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/beaker.rsi # Funky
     layers:
       - state: beaker
       - state: beaker1
         map: ["enum.SolutionContainerLayers.Fill"]
         visible: false
   - type: Item
-    sprite: Objects/Specific/Chemistry/beaker.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/beaker.rsi # Funky
   - type: MeleeWeapon
     soundNoDamage:
       path: "/Audio/Effects/Fluids/splat.ogg"
@@ -104,14 +104,14 @@
     tags:
     - GlassBeaker
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/beaker.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/beaker.rsi # Funky
     layers:
       - state: beaker
       - state: beaker1
         map: ["enum.SolutionContainerLayers.Fill"]
         visible: false
   - type: Item
-    sprite: Objects/Specific/Chemistry/beaker.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/beaker.rsi # Funky
   - type: MeleeWeapon
     soundNoDamage:
       path: "/Audio/Effects/Fluids/splat.ogg"
@@ -277,7 +277,7 @@
   - type: Spillable
     solution: beaker
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/beaker_large.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/beaker_large.rsi # Funky
     layers:
       - state: beakerlarge
       - state: beakerlarge1
@@ -285,7 +285,7 @@
         visible: false
   - type: Item
     size: Normal
-    sprite: Objects/Specific/Chemistry/beaker_large.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/beaker_large.rsi # Funky
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 6
@@ -627,9 +627,9 @@
   components:
   - type: Item
     size: Tiny
-    sprite: Objects/Specific/Chemistry/pills_canister.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/pills_canister.rsi # Funky
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills_canister.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/pills_canister.rsi # Funky
     state: pill_canister
   - type: Tag
     tags:
