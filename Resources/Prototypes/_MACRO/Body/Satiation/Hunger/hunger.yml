@@ -16,4 +16,4 @@
 - type: satiation
   parent: NormalSatiationHunger
   id: KodepiiaSatiationHunger
-  baseChangeRate: -0.15 
+  baseChangeRate: -0.08 # forky. originally -0.15, which was approximately 9x as fast as a human
