@@ -17,7 +17,7 @@
       - tag: Mushroom
         name: soil-construction-graph-any-mushroom
         icon:
-          sprite: Objects/Misc/spaceshroom.rsi
+          sprite: _Funkystation/Objects/Misc/spaceshroom.rsi # Funky
           state: object
   - node: fungalSoil
     entity: FungalSoil

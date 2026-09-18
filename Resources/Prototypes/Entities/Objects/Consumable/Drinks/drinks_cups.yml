@@ -51,7 +51,7 @@
   description: A golden cup.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/golden_cup.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/golden_cup.rsi # Funky
   - type: StaticPrice
     price: 125
 
@@ -78,7 +78,7 @@
   - type: Item
     size: Small
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/glass_coupe_shape.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/glass_coupe_shape.rsi # Funky
   - type: SolutionContainerVisuals
     inHandsMaxFillLevels: 1
   - type: Destructible

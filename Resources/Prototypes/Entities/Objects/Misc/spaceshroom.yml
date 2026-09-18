@@ -6,7 +6,7 @@
   description: A cluster of wild mushrooms that likes to grow in dark, moist environments.
   components:
     - type: Sprite
-      sprite: Objects/Misc/spaceshroom.rsi
+      sprite: _Funkystation/Objects/Misc/spaceshroom.rsi # Funky
       state: structure
     - type: Transform
       anchored: true
@@ -57,7 +57,7 @@
   components:
   - type: Produce
   - type: Sprite
-    sprite: Objects/Misc/spaceshroom.rsi
+    sprite: _Funkystation/Objects/Misc/spaceshroom.rsi # Funky
     state: object
   - type: FlavorProfile
     flavors:
@@ -147,7 +147,7 @@
       - ReagentId: Vitamin
         Quantity: 10
   - type: Sprite
-    sprite: Objects/Misc/spaceshroom.rsi
+    sprite: _Funkystation/Objects/Misc/spaceshroom.rsi # Funky
     state: spaceshroom_cooked
   - type: Produce
   - type: StaticPrice
