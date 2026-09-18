@@ -1,0 +1,12 @@
+- type: mobSize
+  id: Small
+  smPower: 200
+
+- type: mobSize
+  id: Medium
+  smPower: 1000
+
+- type: mobSize
+  id: Large
+  smPower: 2000
+  

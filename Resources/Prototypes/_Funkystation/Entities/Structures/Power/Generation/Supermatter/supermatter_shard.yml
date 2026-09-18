@@ -1,0 +1,36 @@
+- type: entity
+  id: SupermatterShard
+  parent: BaseItem
+  name: supermatter shard
+  description: A sliver of crystallized energy. Extremely dangerous.
+  components:
+  - type: SupermatterShard
+  - type: Supermatter
+    integrity: 400
+    maxIntegrity: 400
+    power: 0
+    delamTimer: 30
+    lightningRange: 4
+    powerPerBolt: 4000
+    maxBolts: 2
+  - type: Sprite
+    sprite: _Funkystation/Structures/Power/Generation/Supermatter/supermatter.rsi
+    state: supermatter
+  - type: Item
+    size: Small
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.25"
+        density: 80
+        mask:
+        - ItemMask
+        layer:
+        - BulletImpassable
+  - type: RadiationSource
+    intensity: 0.5
+  - type: Clickable
+  - type: InteractionOutline
