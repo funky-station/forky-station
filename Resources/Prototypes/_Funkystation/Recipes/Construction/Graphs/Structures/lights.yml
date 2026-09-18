@@ -1,0 +1,96 @@
+- type: constructionGraph
+  id: LightFixtureOffset
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bulbLight_left
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 2.0
+    - to: bulbLight_right
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 2.0
+    - to: emergencyLight_left
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1.0
+      - material: Glass
+        amount: 1
+        doAfter: 1.0
+    - to: emergencyLight_right
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1.0
+      - material: Glass
+        amount: 1
+        doAfter: 1.0
+
+  - node: bulbLight_left
+    entity: PoweredSmallLightLeftEmpty
+    edges:
+    - to: start
+      conditions:
+      - !type:ContainerEmpty
+        container: "light_bulb"
+      steps:
+      - tool: Screwing
+        doAfter: 2.0
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity {}
+
+  - node: bulbLight_right
+    entity: PoweredSmallLightRightEmpty
+    edges:
+    - to: start
+      conditions:
+      - !type:ContainerEmpty
+        container: "light_bulb"
+      steps:
+      - tool: Screwing
+        doAfter: 2.0
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity { }
+
+  - node: emergencyLight_left
+    entity: EmergencyLightLeft
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 2.0
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: SheetGlass1
+        amount: 1
+      - !type:DeleteEntity {}
+
+  - node: emergencyLight_right
+    entity: EmergencyLightRight
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 2.0
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:SpawnPrototype
+        prototype: SheetGlass1
+        amount: 1
+      - !type:DeleteEntity {}

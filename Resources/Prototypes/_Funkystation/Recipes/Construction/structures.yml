@@ -1,0 +1,29 @@
+- type: construction
+  parent: BaseStructureFullTileDirectional
+  id: LightSmallFixtureLeft
+  name: construction-recipe-small-light-offset-name
+  description: construction-recipe-small-light-left-desc
+  graph: LightFixtureOffset
+  targetNode: bulbLight_left
+  conditions:
+  - !type:TileNotBlocked
+  - !type:AgainstWall
+
+- type: construction
+  parent: LightSmallFixtureLeft
+  id: LightSmallFixtureRight
+  description: construction-recipe-small-light-right-desc
+  targetNode: bulbLight_right
+
+- type: construction
+  parent: LightSmallFixtureLeft
+  id: EmergencyLightFixtureLeft
+  name: construction-recipe-emergency-light-offset-name
+  description: construction-recipe-emergency-light-left-desc
+  targetNode: emergencyLight_left
+
+- type: construction
+  parent: EmergencyLightFixtureLeft
+  id: EmergencyLightFixtureRight
+  description: construction-recipe-emergency-light-right-desc
+  targetNode: emergencyLight_right
