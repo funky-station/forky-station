@@ -834,7 +834,7 @@
         color: "#b12023"
 
 - type: entity
-  name: corporate liason's rubber stamp
+  name: corporate liaison's rubber stamp
   parent: RubberStampBase
   id: RubberStampCl
   categories: [ DoNotMap ]
