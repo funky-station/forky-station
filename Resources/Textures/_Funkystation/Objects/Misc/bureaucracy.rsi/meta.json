@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "By AraiMaia for Funky Station, by empty0set for Funkystation, paper_stamp-cci by TheHolyAegis, By Tomlolo for Funky station, Envelope inhands by TiniestShark (Github) ",
+  "copyright": "acquisition forms - paper/paper bins/paper_plane/paper matrices/paper receipts/paper_stamp-cap through paper_stamp-wizard/paper words - syndicate card by AraiMaia for Funky Station , paper_stamp-cci by TheHolyAegis, Envelope inhands by TiniestShark (Github), paper_stamp-borg by empty0set for funkystation, paper_stamp-iaa through paper_stamp-cl by Tomlolo for funkystation",
   "size": {
     "x": 32,
     "y": 32
@@ -149,16 +149,16 @@
       "name": "paper-inhand-right"
     },
     {
+      "name": "paper_stamp-borg"
+    },
+    {
+      "name": "paper_stamp-cci"
+    },
+    {
       "name": "paper_stamp-iaa"
     },
     {
        "name": "paper_stamp-magi"
-    },
-    {
-      "name": "paper_stamp-borg"
-    },
-    {
-       "name": "paper_stamp-cci"
     },
     {
         "name": "paper_stamp-topsecret"
