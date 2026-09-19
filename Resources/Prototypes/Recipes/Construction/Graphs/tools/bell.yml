@@ -20,7 +20,7 @@
       - tag: BikeHorn
         name: construction-graph-tag-clown-bike-horn
         icon:
-          sprite: Objects/Fun/bikehorn.rsi
+          sprite: _Funkystation/Objects/Fun/bikehorn.rsi # Funky
           state: icon
         doAfter: 1
 

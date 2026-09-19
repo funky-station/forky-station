@@ -1,0 +1,88 @@
+﻿- type: entity
+  id: ConstructionChalk
+  parent: [SolutionFood, BaseItem]
+  name: construction chalk
+  description: A piece of dusty and rough white chalk meant for etching out construction plans.
+  components:
+  - type: ConstructionChalk
+  - type: Sprite
+    sprite: _Funkystation/Objects/Tools/construction_chalk.rsi
+    state: icon
+  - type: Item
+    size: Tiny
+  - type: Edible
+  - type: FlavorProfile
+    flavors:
+    - chalky
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: MindbreakerToxin
+        Quantity: 10
+  - type: Tag
+    tags:
+    - ConstructionChalk
+
+- type: entity
+  id: ConstructionChalkBox
+  parent: [ BaseStorageItem, BaseBagOpenClose ]
+  name: construction chalk box
+  description: A small cardboard box for holding construction chalk. Approved by the NTWU.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Tools/construction_chalk.rsi
+    layers:
+    - state: box
+      map: ["closeLayer"]
+    - state: box-open
+      map: ["openLayer"]
+      visible: false
+    - state: box1
+      map: ["box1"]
+      visible: false
+    - state: box2
+      map: ["box2"]
+      visible: false
+    - state: box3
+      map: ["box3"]
+      visible: false
+  - type: Tag
+    tags:
+    - Trash
+  - type: Item
+    size: Small
+  - type: Storage
+    grid:
+    - 0,0,2,0
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: ConstructionChalk
+        amount: 3
+  - type: ItemCounter
+    count:
+      tags: [ConstructionChalk]
+    composite: true
+    layerStates:
+    - box1
+    - box2
+    - box3
+  - type: Appearance
+
+- type: entity
+  id: ConstructionChalkMark
+  categories: [ HideSpawnMenu ]
+  name: chalk mark
+  description: A construction plan chalked out on the floor.
+  components:
+  - type: ConstructionChalkMark
+  - type: Sprite
+    drawdepth: Ghosts
+  - type: Physics
+    canCollide: false
+  - type: Clickable
+  - type: InteractionOutline
+  - type: WallMount
+    arc: 360

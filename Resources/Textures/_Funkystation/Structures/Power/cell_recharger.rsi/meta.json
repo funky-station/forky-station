@@ -1,0 +1,60 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC0-1.0",
+    "copyright": "By AraiMaia for Funky Station",
+    "states": [
+        {
+            "name": "light-off"
+        },
+        {
+            "name": "empty"
+        },
+        {
+            "name": "full"
+        },
+        {
+            "name": "open"
+        },
+        {
+            "name": "light-charging",
+            "delays": [
+                [
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+        {
+            "name": "light-charged",
+            "delays": [
+                [
+                    0.6,
+                    0.6
+                ]
+            ]
+        },
+        {
+            "name": "light-empty",
+            "delays": [
+                [
+                    0.8,
+                    0.8
+                ]
+            ]
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        }
+    ]
+}

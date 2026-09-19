@@ -1,0 +1,4 @@
+- type: traitCategory # Funky Station
+  id: Leadership
+  name: trait-category-leadership
+  maxTraitPoints: 2

@@ -23,7 +23,7 @@
 - type: startingGear
   id: ParamedicGear
   equipment:
-    id: ParamedicPDA
+    id: ParamedicWallet # Funky: the wallet-ening
     ears: ClothingHeadsetParamedic #funkystation
 
 - type: chameleonOutfit

@@ -12,6 +12,21 @@
     maxTransferAmount: 10
   - type: StaticPrice
     price: 10
+  - type: EmitSoundOnPickup # Funky
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/drinkglass_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop # Funky
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/drinkglass_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand # Funky
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/drinkglass_drop.ogg
+      params:
+        volume: -4
 
 # A mug is a type of cup.[2]
 - type: entity
@@ -89,7 +104,7 @@
     solution:
       maxVol: 10 # Miserably small
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/water_cup.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/water_cup.rsi # Funky
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     inHandsFillBaseName: null
@@ -114,6 +129,21 @@
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Consumable/Drinks/mug.rsi # Funky
+  - type: EmitSoundOnPickup # Funky
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/drinkglass_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop # Funky
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/drinkglass_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand # Funky
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/drinkglass_drop.ogg
+      params:
+        volume: -4
 
 - type: entity
   parent: DrinkBaseMug

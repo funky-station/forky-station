@@ -14,6 +14,7 @@
   - FuRuleC6
   - FuRuleC7
   - FuRuleC8
+  - FuRuleC9
   - FuMetashield
 
 - type: guideEntry
@@ -72,6 +73,11 @@
   ruleEntry: true
   text: "/ServerInfo/_Funkystation/Guidebook/ServerRules/CoreRules/RuleC8LOOC.xml"
 
+- type: guideEntry
+  id: FuRuleC9
+  name: guide-entry-rules-c9
+  ruleEntry: true
+  text: "/ServerInfo/_Funkystation/Guidebook/ServerRules/CoreRules/RuleC9Silicon.xml"
 
 - type: guideEntry
   id: FuMetashield

@@ -38,10 +38,10 @@ public sealed partial class DocumentPrototype : IPrototype
     public EntProtoId PaperPrototype { get; private set; }
 
     /// <summary>
-    /// .ftl for the body text written onto the spawned paper
+    /// Name of the text file to load in for the document body. It needs to be located in Resources/Documents.
     /// </summary>
-    [DataField("content", required: true)]
-    public string Content { get; private set; } = string.Empty;
+    [DataField(required: true)]
+    public string ContentFileName = "";
 
     /// <summary>
     /// Stamp prototype automatically applied to the paper on print

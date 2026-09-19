@@ -34,7 +34,7 @@ public sealed partial class MessagingControls : TabContainer
     private EntityUid _broadcastDisplayEntity = EntityUid.Invalid;
     private TimeSpan? _screenTextTime = null;
 
-    public event Action<string>? OnRadioAnnounce;
+    public event Action<string, bool>? OnRadioAnnounce; // funky - add pa bypass option
     public event Action<string>? OnScreenBroadcast;
 
     private bool _canRadioAnnounce;
@@ -67,7 +67,7 @@ public sealed partial class MessagingControls : TabContainer
 
         AnnounceButton.OnPressed += _ =>
         {
-            OnRadioAnnounce?.Invoke(Rope.Collapse(RadioMessageInput.TextRope));
+            OnRadioAnnounce?.Invoke(Rope.Collapse(RadioMessageInput.TextRope), BypassPA.Pressed);
         };
 
         _appearance = _entMan.System<SharedAppearanceSystem>();

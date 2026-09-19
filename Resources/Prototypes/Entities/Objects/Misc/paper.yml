@@ -90,6 +90,12 @@
   - type: PaperVisualizer
   - type: PaperVisuals
   - type: StationAiWhitelist
+  - type: EmitSoundOnPickup # Funky
+    sound: /Audio/_Funkystation/Items/Handling/paper_pickup.ogg
+  - type: EmitSoundOnDrop # Funky
+    sound: /Audio/_Funkystation/Items/Handling/paper_drop.ogg
+  - type: EmitSoundOnLand # Funky
+    sound: /Audio/_Funkystation/Items/Handling/paper_drop.ogg
 
 - type: entity
   name: paper scrap

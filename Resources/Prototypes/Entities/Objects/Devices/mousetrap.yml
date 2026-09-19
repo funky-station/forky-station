@@ -5,14 +5,15 @@
   description: Useful for catching rodents sneaking into your kitchen.
   components:
     - type: Sprite
-      sprite: Objects/Devices/mousetrap.rsi
+      sprite: _Funkystation/Objects/Devices/mousetrap.rsi # Funky
       drawdepth: SmallMobs # if mice can hide under tables, so can mousetraps
       layers:
       - state: mousetrap
         map: ["enum.ToggleableVisuals.Layer"]
     - type: StepTrigger
       intersectRatio: 0.2
-      requiredTriggeredSpeed: 2
+      # requiredTriggeredSpeed: 2
+      requiredTriggeredSpeed: 0.2 # funky - make mouse traps trigger on almost anything moving - you'd have to at least be in softcrit to move this slow
     - type: Mousetrap
     - type: ItemToggleExaminableStatus
       onText: item-toggle-examined-active
@@ -35,7 +36,7 @@
         types:
           Blunt: 2 # base damage, scales based on mass
     - type: Item
-      sprite: Objects/Devices/mousetrap.rsi
+      sprite: _Funkystation/Objects/Devices/mousetrap.rsi # Funky
     - type: Appearance
     - type: GenericVisualizer
       visuals:

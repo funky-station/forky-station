@@ -26,7 +26,7 @@
   id: DetectiveGear
   equipment:
     eyes: ClothingEyesGlassesSecurity
-    id: DetectivePDA
+    id: DetectiveWallet # Funky: the wallet-ening
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltHolsterFilled
   storage:

@@ -1,0 +1,18 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+              Orientation="Vertical"
+              HorizontalExpand="True"
+              Margin="0 0 0 8">
+    <PanelContainer HorizontalExpand="True">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#262629" />
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="6 4 6 4">
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                <Label Name="TitleLabel" HorizontalExpand="True" />
+                <Label Name="MetaLabel" FontColorOverride="#A0A0A0" />
+            </BoxContainer>
+            <RichTextLabel Name="TextLabel" HorizontalExpand="True" />
+        </BoxContainer>
+    </PanelContainer>
+</BoxContainer>

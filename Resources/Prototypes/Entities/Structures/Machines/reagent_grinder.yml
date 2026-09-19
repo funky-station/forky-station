@@ -4,6 +4,8 @@
   name: reagent grinder
   description: From BlenderTech. Will It Blend? Let's find out!
   components:
+  - type: Transform
+    noRot: false
   - type: ReagentGrinder
     grindSound:
       params:
@@ -48,10 +50,9 @@
         sound:
           collection: MetalBreak
   - type: Sprite
-    sprite: Structures/Machines/grinder.rsi
+    sprite: _Funkystation/Structures/Machines/grinder.rsi # Funky
     drawdepth: LargeObjects
-    snapCardinals: true
-    offset: "0.0,0.4"
+    offset: "0.0,0.15" # funky
     layers:
     - map: [ "grinder" ]
       state: "grinder_empty"
@@ -60,6 +61,7 @@
   - type: PowerState
     idlePowerDraw: 5
     workingPowerDraw: 750 # medium power blender
+  - type: Rotatable
   - type: ItemSlots
     slots:
       beakerSlot:

@@ -1,6 +1,6 @@
 # Utility
-uplink-syndicate-hacking-module-name = Hacker Cyborg Module
-uplink-syndicate-hacking-module-desc = For when you need a borg commander for your borg squad.
+uplink-syndicate-hacking-module-name = Hacker Automa Module
+uplink-syndicate-hacking-module-desc = For when you need a robot commander for your robot squad.
 
 # Weapons
 uplink-pistol-wyvern-name = Wyvern

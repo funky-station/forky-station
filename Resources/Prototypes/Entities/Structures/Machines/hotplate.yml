@@ -39,7 +39,8 @@
   description: "The descendent of the microwaves, our newest invention in beaker heating technology: the hotplate!"
   components:
   - type: Sprite
-    sprite: Structures/Machines/hotplate.rsi
+    sprite: _Funkystation/Structures/Machines/hotplate.rsi # Funky
+    offset: 0, 0.25
     drawdepth: SmallObjects
     snapCardinals: true
     layers:

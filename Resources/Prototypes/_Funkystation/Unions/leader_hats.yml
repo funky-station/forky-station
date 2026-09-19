@@ -1,0 +1,105 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: UnionLeaderHardhat
+  name: union hardhat
+  description: A red hardhat that typically belongs to a union leader.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hardhats/union_hardhat.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hardhats/union_hardhat.rsi
+    equippedPrefix: off
+
+- type: entity
+  parent: ClothingHeadBase
+  id: UnionLeaderCapFloppy
+  name: union tarte
+  description: A big red floppy beret that typically belongs to a union leader.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/union_floppy.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/union_floppy.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: UnionLeaderCapBandana
+  name: union bandana
+  description: A red bandana that typically belongs to a union leader.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/union_bandana.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/union_bandana.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: UnionLeaderCapSoft
+  name: union cap
+  description: A red baseball cap that typically belongs to a union leader.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/union_soft.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/union_soft.rsi
+
+# these are all the same (more or less), so we can change them later :<
+- type: unionLeaderItemSet
+  id: unionItemSetSecurity
+  items:
+  - UnionMegaphone
+  - UnionClipboard
+  - Whistle
+  - UnionLeaderCapFloppy
+
+- type: unionLeaderItemSet
+  id: unionItemSetMedical
+  items:
+  - UnionMegaphone
+  - UnionClipboard
+  - Whistle
+  - UnionLeaderCapSoft
+
+- type: unionLeaderItemSet
+  id: unionItemSetScience
+  items:
+  - UnionMegaphone
+  - UnionClipboard
+  - Whistle
+  - UnionLeaderHardhat
+
+- type: unionLeaderItemSet
+  id: unionItemSetEngineering
+  items:
+  - UnionMegaphone
+  - UnionClipboard
+  - Whistle
+  - UnionLeaderHardhat
+
+- type: unionLeaderItemSet
+  id: unionItemSetCargo
+  items:
+  - UnionMegaphone
+  - UnionClipboard
+  - Whistle
+  - UnionLeaderCapBandana
+
+- type: unionLeaderItemSet
+  id: unionItemSetService
+  items:
+  - UnionMegaphone
+  - UnionClipboard
+  - Whistle
+  - UnionLeaderCapBandana
+
+- type: unionLeaderItemSet
+  id: unionItemSetCivilian
+  items:
+  - UnionMegaphone
+  - UnionClipboard
+  - Whistle
+  - UnionLeaderCapSoft
