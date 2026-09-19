@@ -689,6 +689,7 @@
   name: hospitality director's rubber stamp
   parent: RubberStampBase
   id: RubberStampHospitalityDirector
+  categories: [ DoNotMap ]
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-hd
@@ -788,6 +789,7 @@
   name: commandant's rubber stamp
   parent: RubberStampBase
   id: RubberStampCommandant
+  categories: [ DoNotMap ]
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-commandant
@@ -811,6 +813,7 @@
   name: lieutenant's rubber stamp
   parent: RubberStampBase
   id: RubberStamplieutenant
+  categories: [ DoNotMap ]
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-lieutenant
@@ -834,6 +837,7 @@
   name: corporate liason's rubber stamp
   parent: RubberStampBase
   id: RubberStampCl
+  categories: [ DoNotMap ]
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-cl
