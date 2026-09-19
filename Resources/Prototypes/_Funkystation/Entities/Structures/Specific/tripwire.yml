@@ -1,13 +1,10 @@
 - type: entity
+  abstract: true
   parent: BaseStructure
-  id: FuTripwire
+  id: TripwireBase
   name: tripwire
   description: Twang!
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Launchers/sticky_hand.rsi
-    layers:
-    - state: rope
   - type: Appearance
   - type: Slippery
     ignoreNoSlip: true
@@ -17,9 +14,9 @@
       knockdownTime: 2
       launchForwardsMultiplier: 0.5
   - type: StepTrigger
-    intersectRatio: 0.2
+    intersectRatio: 0.
+    requiredTriggeredSpeed:  3
   - type: TriggerOnStepTrigger
-  - type: SignalOnTrigger
   - type: DamageOnTrigger
     damage:
       types:
@@ -33,14 +30,14 @@
       slips:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.4,-0.3,0.4,0.3"
+          bounds: "-0.5,-0.2,0.5,0.2"
         layer:
         - SlipLayer
         hard: false
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.4,-0.3,0.4,0.3"
+          bounds: "-0.5,-0.2,0.5,0.2"
         density: 10
         mask:
         - ItemMask
@@ -48,6 +45,15 @@
     damageModifierSet: FlimsyMetallic
   - type: Injurable
     damageContainer: Inorganic
+
+- type: entity
+  parent: TripwireBase
+  id: TripwireLV
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Traps/tripwire.rsi
+    layers:
+    - state: lv_tripwire
   - type: Destructible
     thresholds:
     - trigger:
@@ -64,3 +70,89 @@
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+
+- type: entity
+  parent: TripwireLV
+  id: TripwireSignalLV
+  suffix: Signal
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Traps/tripwire.rsi
+    layers:
+    - state: lv_tripwire
+    - state: signal_cell
+  - type: SignalOnTrigger
+
+- type: entity
+  parent: TripwireBase
+  id: TripwireMV
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Traps/tripwire.rsi
+    layers:
+    - state: mv_tripwire
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CableMVStack1:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: TripwireMV
+  id: TripwireSignalMV
+  suffix: Signal
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Traps/tripwire.rsi
+    layers:
+    - state: mv_tripwire
+    - state: signal_cell
+  - type: SignalOnTrigger
+
+- type: entity
+  parent: TripwireBase
+  id: TripwireHV
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Traps/tripwire.rsi
+    layers:
+    - state: hv_tripwire
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CableHVStack1:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: TripwireHV
+  id: TripwireSignalHV
+  suffix: Signal
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Traps/tripwire.rsi
+    layers:
+    - state: hv_tripwire
+    - state: signal_cell
+  - type: SignalOnTrigger
