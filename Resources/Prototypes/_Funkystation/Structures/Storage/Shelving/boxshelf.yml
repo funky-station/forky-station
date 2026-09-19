@@ -59,24 +59,28 @@
   - type: ItemSlots
     slots:
       fill4:
+        ejectOnBreak: true
         whitelist:
           tags:
           - CardboardboxLarge
         insertOnInteract: true
         priority: 9
       fill3:
+        ejectOnBreak: true
         whitelist:
           tags:
           - CardboardboxLarge
         insertOnInteract: true
         priority: 8
       fill2:
+        ejectOnBreak: true
         whitelist:
           tags:
           - CardboardboxLarge
         insertOnInteract: true
         priority: 7
       fill1:
+        ejectOnBreak: true
         whitelist:
           tags:
           - CardboardboxLarge
