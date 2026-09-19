@@ -27,3 +27,19 @@
   id: EmergencyLightFixtureRight
   description: construction-recipe-emergency-light-right-desc
   targetNode: emergencyLight_right
+
+- type: construction
+  parent: BaseShelf
+  id: DefibrillatorCabinetLeft
+  name: construction-recipe-defib-cabinet-offset-name
+  description: construction-recipe-defib-cabinet-left-desc
+  graph: DefibrillatorCabinetOffset
+  targetNode: defib_left
+
+- type: construction
+  parent: BaseShelf
+  id: DefibrillatorCabinetRight
+  name: construction-recipe-defib-cabinet-offset-name
+  description: construction-recipe-defib-cabinet-right-desc
+  graph: DefibrillatorCabinetOffset
+  targetNode: defib_right
