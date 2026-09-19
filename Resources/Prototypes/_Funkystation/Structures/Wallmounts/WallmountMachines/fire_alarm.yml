@@ -1,0 +1,67 @@
+- type: entity
+  parent: FireAlarm
+  id: FireAlarmLeft
+  suffix: Left
+  components:
+  - type: Sprite
+    sprite: Structures/Wallmounts/fire-alarm.rsi
+    offset: -0.25, -0.25
+    layers:
+    - state: base
+      map: ["fireAlarmBase"]
+    - state: fire_0
+      map: ["fireAlarmState"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Construction
+    graph: FireAlarmOffset
+    node: fire_alarm_left
+
+- type: entity
+  parent: FireAlarmAssembly
+  id: FireAlarmAssemblyLeft
+  suffix: Left
+  components:
+  - type: Sprite
+    offset: -0.25, -0.25
+    sprite: Structures/Wallmounts/fire-alarm.rsi
+    layers:
+    - state: frame1
+      map: [ "enum.ConstructionVisuals.Layer" ]
+  - type: Construction
+    graph: FireAlarmOffset
+    node: assembly_left
+
+- type: entity
+  parent: FireAlarm
+  id: FireAlarmRight
+  suffix: Right
+  components:
+  - type: Sprite
+    sprite: Structures/Wallmounts/fire-alarm.rsi
+    offset: 0.25, -0.25
+    layers:
+    - state: base
+      map: ["fireAlarmBase"]
+    - state: fire_0
+      map: ["fireAlarmState"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Construction
+    graph: FireAlarmOffset
+    node: fire_alarm_right
+
+- type: entity
+  parent: FireAlarmAssembly
+  id: FireAlarmAssemblyRight
+  suffix: Right
+  components:
+  - type: Sprite
+    offset: 0.25, -0.25
+    sprite: Structures/Wallmounts/fire-alarm.rsi
+    layers:
+    - state: frame1
+      map: [ "enum.ConstructionVisuals.Layer" ]
+  - type: Construction
+    graph: FireAlarmOffset
+    node: assembly_right
