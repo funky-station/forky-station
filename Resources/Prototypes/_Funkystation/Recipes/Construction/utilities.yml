@@ -126,3 +126,9 @@
   - GasOutletInjector
   - GasOutletInjectorAlt1
   - GasOutletInjectorAlt2
+
+- type: construction
+  parent: BaseUtility
+  id: DisposalUnitWallmount
+  graph: DisposalMachineWallmount
+  targetNode: disposal_unit

@@ -1,4 +1,52 @@
 - type: entity
+  parent: StructureHealthMachineWeak
+  id: DisposalMachineFrameWallmount
+  name: high pressure machine frame
+  description: A machine frame made to withstand the amount of pressure used in the station's disposal system.
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Transform
+      anchored: true
+      noRot: true
+    - type: Physics
+      bodyType: Static
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Anchorable
+    - type: Pullable
+    - type: Construction
+      graph: DisposalMachineWallmount
+      node: frame
+    - type: Damageable
+      damageModifierSet: SteelMod
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 100
+          behaviors:
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalBreak
+            - !type:ChangeConstructionNodeBehavior
+              node: start
+    - type: Sprite
+      offset: 0, 0.75
+      sprite: _Funkystation/Structures/Piping/wall-high-pressure-machine-frame.rsi
+      layers:
+        - state: frame
+          map: [ "enum.ConstructionVisuals.Layer" ]
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.ConstructionVisuals.Key:
+          enum.ConstructionVisuals.Layer:
+            frame_cable: { state: frame_cables }
+            frame_electronics: { state: frame_electronics }
+            frame_unit: { state: frame_unit }
+
+- type: entity
   parent: [ BaseWallmountMachine, StructureHealthMachineWeak ]
   id: DisposalUnitWallmount
   name: disposal unit
@@ -118,3 +166,38 @@
     table: !type:NestedSelector
       tableId: RatKingLoot
   - type: RequireProjectileTarget
+  - type: Construction
+    graph: DisposalMachineWallmount
+    node: disposal_unit
+
+- type: entity
+  parent: DisposalPipeBase
+  id: DisposalTrunkWallmount
+  name: wallmount disposal trunk
+  description: A pipe trunk used as an entry point for wallmount disposal systems.
+  components:
+    - type: Sprite
+      offset: 0, 0.5
+      sprite: _Funkystation/Structures/Piping/walldispotrunk.rsi
+      layers:
+        - map: [ "pipe" ]
+          state: conpipe-lt
+    - type: DisposalTube
+    - type: DisposalEntry
+    - type: GenericVisualizer
+      visuals:
+        enum.AnchorVisuals.Anchored:
+          pipe:
+            False: { state: conpipe-lt }
+            True: { state: pipe-lt }
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.25,-0.5,0.25,1.4"
+          mask:
+            - SubfloorMask
+    - type: Construction
+      graph: DisposalPipe
+      node: trunk
