@@ -1,5 +1,5 @@
 - type: entity
-  parent: GasPipeBase
+  parent: GasPipeBaseNoRestrict # funky
   abstract: true
   id: GasUnaryBase
   placement:
@@ -274,7 +274,7 @@
       key: enum.ThermomachineUiKey.Key
     - type: WiresPanel
     - type: WiresVisuals
-    - type: PipeRestrictOverlap
+    # - type: PipeRestrictOverlap # funky gone
     - type: NodeContainer
       nodes:
         pipe:
