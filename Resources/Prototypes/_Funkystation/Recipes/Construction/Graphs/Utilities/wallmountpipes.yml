@@ -1,0 +1,24 @@
+- type: constructionGraph
+  id: DisposalPipeWallmount
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: trunk
+      steps:
+      - material: Steel
+        amount: 4
+        doAfter: 2
+
+  - node: trunk
+    entity: DisposalTrunkWallmount
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 4
+      - !type:DestroyEntity
+      steps:
+      - tool: Welding
+        doAfter: 2

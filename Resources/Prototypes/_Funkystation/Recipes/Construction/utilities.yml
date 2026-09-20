@@ -130,5 +130,15 @@
 - type: construction
   parent: BaseUtility
   id: DisposalUnitWallmount
+  name: construction-recipe-wallmount-disposal-name
+  description: construction-recipe-wallmount-disposal-desc
   graph: DisposalMachineWallmount
   targetNode: disposal_unit
+
+- type: construction
+  parent: DisposalPipe
+  id: DisposalTrunkWallmount
+  name: construction-recipe-wallmount-disposal-trunk-name
+  description: construction-recipe-wallmount-disposal-trunk-desc
+  graph: DisposalPipeWallmount
+  targetNode: trunk

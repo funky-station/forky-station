@@ -199,5 +199,5 @@
           mask:
             - SubfloorMask
     - type: Construction
-      graph: DisposalPipe
+      graph: DisposalPipeWallmount
       node: trunk
