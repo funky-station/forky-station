@@ -105,13 +105,13 @@
             "name": "stamp-classified"
         },
         {
-            "name": "stamp-hd"
+            "name": "stamp-hospitalitydirector"
         },
         {
-            "name": "stamp-hd-bell"
+            "name": "stamp-hospitalitydirector-bell"
         },
         {
-            "name": "stamp-xo"
+            "name": "stamp-executiveofficer"
         },
         {
             "name": "stamp-discharged"
@@ -123,7 +123,7 @@
             "name": "stamp-lieutenant"
         },
         {
-            "name": "stamp-cl"
+            "name": "stamp-corporateliaison"
         }
     ]
 }

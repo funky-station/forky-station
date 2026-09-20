@@ -167,10 +167,10 @@
         "name": "paper_stamp-classified"
     },
     {
-       "name": "paper_stamp-hd"
+       "name": "paper_stamp-hospitalitydirector"
     },
     {
-       "name": "paper_stamp-xo"
+       "name": "paper_stamp-executiveofficer"
     },
     {
         "name": "paper_stamp-discharged"
@@ -182,7 +182,7 @@
         "name": "paper_stamp-lieutenant"
     },
     {
-        "name": "paper_stamp-cl"
+        "name": "paper_stamp-corporateliaison"
     }
   ]
 }
