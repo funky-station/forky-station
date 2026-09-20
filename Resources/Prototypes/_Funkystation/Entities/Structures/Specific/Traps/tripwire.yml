@@ -13,11 +13,11 @@
     affectsSliding: true
     slipData:
       stunTime: 1.2
-      knockdownTime: 2
+      knockdownTime: 3
       launchForwardsMultiplier: 0.5
   - type: StepTrigger
     intersectRatio: 0.
-    requiredTriggeredSpeed:  3
+    requiredTriggeredSpeed:  2.5
   - type: TriggerOnStepTrigger
   - type: DamageOnTrigger
     damage:
