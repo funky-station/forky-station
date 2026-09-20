@@ -1,0 +1,86 @@
+- type: construction
+  id: TripwireLV
+  graph: TripwireGraph
+  startNode: start
+  targetNode: lv_tripwire
+  category: construction-category-traps
+  name: construction-recipe-lv-tripwire-name
+  description: construction-recipe-lv-tripwire-desc
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+  - !type:TileNotBlocked
+  - !type:AgainstWall
+
+- type: construction
+  id: TripwireSignalLV
+  graph: TripwireGraph
+  targetNode: lv_signal
+  category: construction-category-traps
+  name: construction-recipe-lv-tripwire-signal-name
+  description: construction-recipe-lv-tripwire-signal-desc
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+  - !type:TileNotBlocked
+  - !type:AgainstWall
+
+- type: construction
+  id: TripwireMV
+  graph: TripwireGraph
+  startNode: start
+  targetNode: mv_tripwire
+  category: construction-category-traps
+  name: construction-recipe-mv-tripwire-name
+  description: construction-recipe-mv-tripwire-desc
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+  - !type:TileNotBlocked
+  - !type:AgainstWall
+
+- type: construction
+  id: TripwireSignalMV
+  graph: TripwireGraph
+  targetNode: mv_signal
+  category: construction-category-traps
+  name: construction-recipe-mv-tripwire-signal-name
+  description: construction-recipe-mv-tripwire-signal-desc
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+  - !type:TileNotBlocked
+  - !type:AgainstWall
+
+- type: construction
+  id: TripwireHV
+  graph: TripwireGraph
+  startNode: start
+  targetNode: hv_tripwire
+  category: construction-category-traps
+  name: construction-recipe-hv-tripwire-name
+  description: construction-recipe-hv-tripwire-desc
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+  - !type:TileNotBlocked
+  - !type:AgainstWall
+
+- type: construction
+  id: TripwireSignalHV
+  graph: TripwireGraph
+  targetNode: hv_signal
+  category: construction-category-traps
+  name: construction-recipe-hv-tripwire-signal-name
+  description: construction-recipe-hv-tripwire-signal-desc
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+  - !type:TileNotBlocked
+  - !type:AgainstWall
