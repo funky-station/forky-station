@@ -21,6 +21,10 @@ public sealed partial class ChalkSnapgridCenter : SnapgridCenter
 
     public override bool IsValidPosition(EntityCoordinates position)
     {
+        // skip check entirely for editor placement
+        if (pManager.CurrentPermission is not { UseEditorContext: false, Range: > 0 })
+            return base.IsValidPosition(position);
+
         if (_playerManager.LocalSession?.AttachedEntity is not { } player ||
             !_entityManager.TryGetComponent<TransformComponent>(player, out var xform))
         {
