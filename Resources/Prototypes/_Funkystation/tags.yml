@@ -68,7 +68,16 @@
   id: CardboardboxLarge
 
 - type: Tag
+  id: SurveillanceDevices
+
+- type: Tag
   id: LaundryBag
 
 - type: Tag
   id: Molotov
+  
+- type: Tag
+  id: PASpeakerElectronics
+  
+- type: Tag
+  id: ConstructionChalk

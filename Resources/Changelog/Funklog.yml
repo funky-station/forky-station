@@ -704,4 +704,152 @@
   id: 80
   time: '2026-09-11T01:28:44Z'
   url: https://github.com/funky-station/forky-station/pull/447
+- author: mkanke
+  changes:
+  - message: Added NDA cabinets to Roid
+    type: Add
+  id: 81
+  time: '2026-09-13T07:40:19Z'
+  url: https://github.com/funky-station/forky-station/pull/482
+- author: pirakaplant
+  changes:
+  - message: Document prototypes now look for a TXT file, rather than localisation
+      strings.
+    type: Tweak
+  id: 82
+  time: '2026-09-13T12:10:34Z'
+  url: https://github.com/funky-station/forky-station/pull/488
+- author: mycobiota
+  changes:
+  - message: Ghost follow buttons in the chat window will no longer break and start
+      floating sometimes.
+    type: Fix
+  id: 83
+  time: '2026-09-13T17:49:17Z'
+  url: https://github.com/funky-station/forky-station/pull/479
+- author: Idem778
+  changes:
+  - message: Added pagers to new roles
+    type: Add
+  id: 84
+  time: '2026-09-14T06:22:57Z'
+  url: https://github.com/funky-station/forky-station/pull/471
+- author: mycobiota, ratsmageddon, mkanke
+  changes:
+  - message: Added Hailing Frequency and its appropriate items
+    type: Add
+  - message: Added PA Speakers to be installed in hallways and departments to broadcast
+      announcements
+    type: Add
+  id: 85
+  time: '2026-09-14T13:41:51Z'
+  url: https://github.com/funky-station/forky-station/pull/286
+- author: mycobiota
+  changes:
+  - message: Washing machines spit out their contents when destroyed.
+    type: Fix
+  id: 86
+  time: '2026-09-14T20:03:13Z'
+  url: https://github.com/funky-station/forky-station/pull/497
+- author: AraiMaia
+  changes:
+  - message: Atmos can have a little unary pipestacking. As a treat.
+    type: Tweak
+  id: 87
+  time: '2026-09-15T05:08:07Z'
+  url: https://github.com/funky-station/forky-station/pull/491
+- author: mycobiota
+  changes:
+  - message: Electrolyzers properly accept uranium and plasma sheets as fuel.
+    type: Fix
+  id: 88
+  time: '2026-09-15T05:10:05Z'
+  url: https://github.com/funky-station/forky-station/pull/496
+- author: mycobiota
+  changes:
+  - message: Fire axes can pry up hull tiles now.
+    type: Add
+  id: 89
+  time: '2026-09-15T12:43:33Z'
+  url: https://github.com/funky-station/forky-station/pull/501
+- author: UristMcWiki
+  changes:
+  - message: Fixed the uplink names.
+    type: Fix
+  id: 90
+  time: '2026-09-15T15:58:53Z'
+  url: https://github.com/funky-station/forky-station/pull/268
+- author: Joaco545
+  changes:
+  - message: Improved NCLP readability
+    type: Tweak
+  - message: Split the NanoTrasen Law and Procedure guidebook entries
+    type: Tweak
+  id: 91
+  time: '2026-09-16T01:32:41Z'
+  url: https://github.com/funky-station/forky-station/pull/487
+- author: Mirrorcult, WiZ88
+  changes:
+  - message: Ported "Face Direction" button from Ephemeral Space
+    type: Add
+  id: 92
+  time: '2026-09-16T15:26:03Z'
+  url: https://github.com/funky-station/forky-station/pull/503
+- author: mkanke-real
+  changes:
+  - message: Added security access locked shutters
+    type: Add
+  id: 93
+  time: '2026-09-16T16:29:58Z'
+  url: https://github.com/funky-station/forky-station/pull/478
+- author: TrixxedHeart
+  changes:
+  - message: Items being given to you can now be instantly accepted by clicking on
+      the offerer.
+    type: Add
+  id: 94
+  time: '2026-09-16T17:28:23Z'
+  url: https://github.com/funky-station/forky-station/pull/506
+- author: feymild
+  changes:
+  - message: Added the Smoker trait, which causes nicotine addiction and withdrawal
+      symptoms
+    type: Add
+  - message: Added Carcinogen, inhaled when smoking, which builds up to cause long-term
+      effects
+    type: Add
+  - message: Tweaked cancer stages and effects
+    type: Tweak
+  id: 95
+  time: '2026-09-18T19:49:31Z'
+  url: https://github.com/funky-station/forky-station/pull/452
+- author: AraiMaia
+  changes:
+  - message: You can now place pipes far away from you in the entity spawner. Rejoice.
+    type: Fix
+  id: 96
+  time: '2026-09-19T19:37:10Z'
+  url: https://github.com/funky-station/forky-station/pull/522
+- author: Idem778
+  changes:
+  - message: Added Protest Regulations and Revolt Regulations
+    type: Add
+  id: 97
+  time: '2026-09-20T06:14:41Z'
+  url: https://github.com/funky-station/forky-station/pull/472
+- author: Sigmadraconis
+  changes:
+  - message: Gave ERT a new version of their magboots that have a new sprite and the
+      functionality of Jackboots.
+    type: Tweak
+  id: 98
+  time: '2026-09-20T21:05:52Z'
+  url: https://github.com/funky-station/forky-station/pull/108
+- author: mkanke, Tea, [flowersoflethe](https://github.com/flowersoflethe)
+  changes:
+  - message: Added listening bugs and a hidden camera network
+    type: Add
+  id: 99
+  time: '2026-09-20T21:18:08Z'
+  url: https://github.com/funky-station/forky-station/pull/85
 Order: -1

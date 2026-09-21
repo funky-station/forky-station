@@ -22,5 +22,6 @@
           type: WarDeclaratorBoundUserInterface
     - type: WarDeclarator
       message: war-declarator-default-message
+      senderTitle: comms-console-announcement-title-declaration-of-war # funky
     - type: AccessReader
       access: [["NuclearOperative"]]

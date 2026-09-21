@@ -4,4 +4,4 @@
   description: doc-anomaly-log-desc
   category: DocCatResearch
   paperPrototype: Paper
-  content: doc-anomaly-log-content
+  contentFileName: test.txt # TODO: Change this

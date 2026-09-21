@@ -4,4 +4,4 @@
   description: doc-building-permit-desc
   category: DocCatEngineering
   paperPrototype: Paper
-  content: doc-building-permit-content
+  contentFileName: test.txt # TODO: Change this

@@ -11,6 +11,7 @@ using Content.Server.Screens.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
+using Content.Shared._Funkystation.CCVar;
 using Content.Shared._MACRO.Announcements;
 using Content.Shared.Database;
 using Content.Shared.DeviceNetwork;
@@ -210,17 +211,22 @@ namespace Content.Server.RoundEnd
                 units = "eta-units-minutes";
             }
 
+            // funky - moved this further up so it can be passed into dispatchglobalannouncement
+            _announcer.TryGetAnnouncerSound(ShuttleCalledAnnouncementId, out var sound);
+
+            var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
+
             _chatSystem.DispatchGlobalAnnouncement(Loc.GetString(text,
                 ("time", time),
                 ("units", Loc.GetString(units))),
                 Loc.GetString(name),
-                false,
-                null,
+                paExclusive, // funky
+                paExclusive ? sound : null, // funky
                 Color.Gold);
 
             // Macrocosm edit start - announcer override
-            _announcer.TryGetAnnouncerSound(ShuttleCalledAnnouncementId, out var sound);
-            _audio.PlayGlobal(sound, Filter.Broadcast(), true);
+            if (!paExclusive) // funky
+                _audio.PlayGlobal(sound, Filter.Broadcast(), true);
             // Macrocosm edit end
 
             LastCountdownStart = _gameTiming.CurTime;
@@ -268,12 +274,19 @@ namespace Content.Server.RoundEnd
             else
                 _adminLogger.Add(LogType.ShuttleRecalled, LogImpact.High, $"Shuttle recalled{what}");
 
+            // funky - moved this further up so it can be passed into dispatchglobalannouncement
+            _announcer.TryGetAnnouncerSound(ShuttleRecalledAnnouncementId, out var sound);
+
+            var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
+
             _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("round-end-system-shuttle-recalled-announcement"),
-                Loc.GetString("round-end-system-shuttle-sender-announcement"), false, colorOverride: Color.Gold);
+                Loc.GetString("round-end-system-shuttle-sender-announcement"),
+                paExclusive, paExclusive ? sound : null, // funky
+                colorOverride: Color.Gold);
 
             // Macrocosm edit start - announcer override
-            _announcer.TryGetAnnouncerSound(ShuttleRecalledAnnouncementId, out var sound);
-            _audio.PlayGlobal(sound, Filter.Broadcast(), true);
+            if (!paExclusive) // funky
+                _audio.PlayGlobal(sound, Filter.Broadcast(), true);
             // Macrocosm edit end
 
             LastCountdownStart = null;
