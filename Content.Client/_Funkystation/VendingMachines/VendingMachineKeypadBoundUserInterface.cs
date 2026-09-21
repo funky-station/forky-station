@@ -7,6 +7,7 @@ using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using System.Linq;
 using Content.Shared._Funkystation.VendingMachines;
+using Content.Shared.VendingMachines.Components;
 
 namespace Content.Client._Funkystation.VendingMachines;
 
@@ -35,7 +36,7 @@ public sealed class VendingMachineKeypadBoundUserInterface(EntityUid owner, Enum
 
     public void Refresh()
     {
-        var enabled = EntMan.TryGetComponent(Owner, out VendingMachineComponent? bendy) && !bendy.Ejecting;
+        var enabled = EntMan.TryGetComponent(Owner, out VendingMachineEjectComponent? bendy) && !bendy.Ejecting;
 
         var system = EntMan.System<VendingMachineSystem>();
         _cachedInventory = system.GetAllInventory(Owner);
@@ -45,7 +46,7 @@ public sealed class VendingMachineKeypadBoundUserInterface(EntityUid owner, Enum
 
     public void UpdateAmounts()
     {
-        var enabled = EntMan.TryGetComponent(Owner, out VendingMachineComponent? bendy) && !bendy.Ejecting;
+        var enabled = EntMan.TryGetComponent(Owner, out VendingMachineEjectComponent? bendy) && !bendy.Ejecting;
 
         var system = EntMan.System<VendingMachineSystem>();
         _cachedInventory = system.GetAllInventory(Owner);

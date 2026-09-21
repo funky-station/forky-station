@@ -16,6 +16,18 @@
     inHandsMaxFillLevels: 1
   - type: FitsInDispenser
     solution: drink
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 0
+            max: 1
+        transferForensics: true
 
 - type: entity
   parent: [DrinkBaseMaterialMetal, SolutionLarge, DrinkBase]
@@ -173,10 +185,10 @@
   - type: ExaminableSolution
     heldOnly: true # Opaque, can't see inside from a distance
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/shaker.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/shaker.rsi # Funky
     state: icon
   - type: Item
-    sprite: Objects/Consumable/Drinks/shaker.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/shaker.rsi # Funky
     shape:
     - 0,0,0,2 # 3 tall
   - type: PhysicalComposition
@@ -224,7 +236,7 @@
     heldOnly: true
     exactVolume: true
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/jigger.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/jigger.rsi # Funky
     state: icon
   - type: PhysicalComposition
     materialComposition:
@@ -258,6 +270,18 @@
     solution: drink
   - type: FitsInDispenser
     solution: drink
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
 
 - type: entity
   parent: DrinkShakeBase

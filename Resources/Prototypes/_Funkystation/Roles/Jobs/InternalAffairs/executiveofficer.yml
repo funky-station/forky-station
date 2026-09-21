@@ -3,6 +3,7 @@
   name: job-name-xo # funkystation
   description: job-description-xo # funkystation
   playTimeTracker: JobExecutiveOfficer
+  requiresNda: Command # Funky
   requirements:
   - !type:DepartmentTimeRequirement
     department: Engineering
@@ -25,7 +26,7 @@
   - !type:RoleTimeRequirement
     role: JobMagistrate
     time: 2.5h
-  weight: 20
+  #weight: 20 # Funky - Weighting all jobs equally now
   startingGear: XOGear
   icon: "JobIconHeadOfPersonnel"
   joinNotifyCrew: true
@@ -61,8 +62,8 @@
   - Newsroom
   - Library
   special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+  #- !type:AddImplantSpecial
+  #  implants: [ MindShieldImplant ] # Removed mindshields
   - !type:AddComponentSpecial
     components:
     - type: CommandStaff

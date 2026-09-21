@@ -3,6 +3,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Radio.Components;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
+using Robust.Shared.Physics.Systems; // Funky
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -15,10 +16,11 @@ public sealed partial class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeS
 {
     [Dependency] private BorgSystem _borgSystem = default!;
     [Dependency] private ServerInventorySystem _inventorySystem = default!;
+    [Dependency] private SharedPhysicsSystem _physicsSystem = default!; // Funky
 
     protected override void SelectBorgModule(Entity<BorgSwitchableTypeComponent> ent, ProtoId<BorgTypePrototype> borgType)
     {
-        var prototype = Prototypes.Index(borgType);
+        var prototype = ProtoMan.Index(borgType);
 
         // Assign radio channels
         string[] radioChannels = [.. ent.Comp.InherentRadioChannels, .. prototype.RadioChannels];
@@ -60,7 +62,7 @@ public sealed partial class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeS
         }
 
         // Configure special components
-        if (Prototypes.Resolve(ent.Comp.SelectedBorgType, out var previousPrototype))
+        if (ProtoMan.Resolve(ent.Comp.SelectedBorgType, out var previousPrototype))
         {
             if (previousPrototype.AddComponents is { } removeComponents)
                 EntityManager.RemoveComponents(ent, removeComponents);
@@ -70,6 +72,9 @@ public sealed partial class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeS
         {
             EntityManager.AddComponents(ent, addComponents);
         }
+
+        // Funky, inits a Cyborg's masses if there were changes to its fixtures above
+        _physicsSystem.ResetMassData(ent);
 
         // Configure inventory template (used for hat spacing)
         if (TryComp(ent, out InventoryComponent? inventory))

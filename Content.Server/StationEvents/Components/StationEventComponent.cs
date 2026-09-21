@@ -1,4 +1,5 @@
-using Robust.Shared.Audio;
+using Content.Shared._MACRO.Announcements;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.StationEvents.Components;
@@ -31,10 +32,10 @@ public sealed partial class StationEventComponent : Component
     public Color EndAnnouncementColor = Color.Gold;
 
     [DataField]
-    public SoundSpecifier? StartAudio;
+    public ProtoId<AnnouncementSoundPrototype>? StartAudio; // Macrocosm edit - announcement sound prototypes
 
     [DataField]
-    public SoundSpecifier? EndAudio;
+    public ProtoId<AnnouncementSoundPrototype>? EndAudio; // Macrocosm edit - announcement sound prototypes
 
     /// <summary>
     ///     In minutes, when is the first round time this event can start
@@ -83,7 +84,7 @@ public sealed partial class StationEventComponent : Component
     public TimeSpan? EndTime;
 
     /// <summary>
-    /// If false, the event won't trigger during ongoing evacuation.
+    /// If false, the event won't trigger after the evacuation shuttle is called and cannot be recalled anymore.
     /// </summary>
     [DataField]
     public bool OccursDuringRoundEnd = true;

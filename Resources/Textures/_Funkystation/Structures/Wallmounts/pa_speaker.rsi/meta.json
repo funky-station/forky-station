@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Made by ratsmageddon for https://github.com/funky-station/funky-station",
+  "states": [
+    {
+      "name": "icon",
+      "directions": 4
+    },
+    {
+      "name": "icon_ON",
+      "directions": 4
+    },
+    {
+      "name": "unfinished",
+      "directions": 4
+    }
+
+  ]
+}

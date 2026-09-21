@@ -1,7 +1,7 @@
 - type: entity
   abstract: true
   parent: BaseItem
-  id: GasPipeSansLayers
+  id: GasPipeSansLayersIndestructible
   name: gas pipe
   description: Holds gas.
   placement:
@@ -13,47 +13,13 @@
     size: Normal
   - type: Transform
     anchored: true
-  - type: Damageable
-    damageModifierSet: Metallic
-  - type: Injurable
-    damageContainer: StructuralInorganic
   - type: SubFloorHide
   - type: CollideOnAnchor
   - type: Anchorable
   - type: Rotatable
     increment: 90
-  - type: RCDDeconstructable
-    cost: 5
-    delay: 2
-    fx: EffectRCDDeconstruct2
-    rpd: true
-  - type: Destructible
-    thresholds:
-    - trigger: # for nukes
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-    - trigger: # regular damage trigger (replace with broken pipe)
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-          params:
-            volume: -8
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          GasPipeBroken:
-            min: 1
-            max: 1
-        offset: 0
-      - !type:DoActsBehavior
-        acts: ["Breakage"]
   - type: Sprite
-    sprite: Structures/Piping/Atmospherics/pipe.rsi
+    sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
     drawdepth: ThinPipe
     visible: false
   - type: Appearance
@@ -75,15 +41,49 @@
 
 - type: entity
   abstract: true
-  parent: GasPipeSansLayers
-  id: GasPipeBase
+  parent: [ GasPipeSansLayersIndestructible, StructureHealthContainer ]
+  id: GasPipeSansLayers
+  components:
+  - type: RCDDeconstructable
+    cost: 5
+    delay: 2
+    fx: EffectRCDDeconstruct2
+    rpd: true
+  - type: Damageable
+    damageModifierSet: SteelMod
+  - type: Destructible
+    thresholds:
+    - trigger: # regular damage trigger (replace with broken pipe)
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -8
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          GasPipeBroken:
+            min: 1
+            max: 1
+        offset: 0
+
+- type: entity
+  abstract: true
+  id: BaseGasPipeLayers
   components:
   - type: AtmosPipeLayers
     spriteLayersRsiPaths:
       enum.PipeVisualLayers.Pipe:
-        Primary: Structures/Piping/Atmospherics/pipe.rsi
-        Secondary: Structures/Piping/Atmospherics/pipe_alt1.rsi
-        Tertiary: Structures/Piping/Atmospherics/pipe_alt2.rsi
+        Primary: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
+        Secondary: _Funkystation/Structures/Piping/Atmospherics/pipe_alt1.rsi # Funky
+        Tertiary: _Funkystation/Structures/Piping/Atmospherics/pipe_alt2.rsi # Funky
+
+- type: entity
+  abstract: true
+  parent: [ GasPipeSansLayers, BaseGasPipeLayers ]
+  id: GasPipeBase
 
 #Note: The PipeDirection of the PipeNode should be the south-facing version, because the entity starts at an angle of 0 (south)
 
@@ -116,7 +116,7 @@
   - type: Item
     size: Small
     storedSprite:
-      sprite: Structures/Piping/Atmospherics/pipe.rsi
+      sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
       state: storageHalf
   - type: GuideHelp
     guides:
@@ -150,7 +150,7 @@
     node: straight
   - type: Item
     storedSprite:
-      sprite: Structures/Piping/Atmospherics/pipe.rsi
+      sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
       state: storageStraight
     shape:
     - 0,0,0,2
@@ -197,7 +197,7 @@
     - 1,1,1,1
     heldPrefix: Bend
     storedSprite:
-      sprite: Structures/Piping/Atmospherics/pipe.rsi
+      sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
       state: storageBend
   - type: MeleeWeapon
     wideAnimationRotation: 180
@@ -244,7 +244,7 @@
   - type: Item
     heldPrefix: TJunction
     storedSprite:
-      sprite: Structures/Piping/Atmospherics/pipe.rsi
+      sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
       state: storageTJunction
   - type: MeleeWeapon
     wideAnimationRotation: 90
@@ -289,7 +289,7 @@
   - type: Item
     heldPrefix: Fourway
     storedSprite:
-      sprite: Structures/Piping/Atmospherics/pipe.rsi
+      sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
       state: storageFourway
   - type: MeleeWeapon
     wideAnimationRotation: 90
@@ -306,12 +306,12 @@
 
 - type: entity
   id: GasPipeBroken
-  parent: GasPipeBase
+  parent: [ GasPipeSansLayersIndestructible, BaseGasPipeLayers, StructureHealthFurniture ]
   name: broken pipe
   description: It used to hold gas.
   components:
   - type: Sprite
-    sprite: Structures/Piping/Atmospherics/pipe.rsi
+    sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
     drawdepth: ThinPipe
     state: pipeBroken
     layers:
@@ -324,14 +324,8 @@
     node: broken
   - type: Item
     size: Small
-  - type: Destructible
-    thresholds: # override parent to avoid recursive destruction
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
+  - type: Damageable
+    damageModifierSet: SteelMod
   - type: GuideHelp
     guides:
     - Pipes
@@ -346,7 +340,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: Structures/Piping/Atmospherics/manifold.rsi
+    sprite: _Funkystation/Structures/Piping/Atmospherics/manifold.rsi # Funky
     layers:
     - state: pipeManifold
       map: [ "enum.PipeVisualLayers.Pipe" ]
@@ -354,9 +348,9 @@
     pipeLayersLocked: true
   - type: PipeAppearance
     sprite:
-    - { sprite: Structures/Piping/Atmospherics/manifold.rsi, state: pipeConnector }
-    - { sprite: Structures/Piping/Atmospherics/manifold.rsi, state: pipeConnector_alt1 }
-    - { sprite: Structures/Piping/Atmospherics/manifold.rsi, state: pipeConnector_alt2 }
+    - { sprite: _Funkystation/Structures/Piping/Atmospherics/manifold.rsi, state: pipeConnector } # Funky
+    - { sprite: _Funkystation/Structures/Piping/Atmospherics/manifold.rsi, state: pipeConnector_alt1 } # Funky
+    - { sprite: _Funkystation/Structures/Piping/Atmospherics/manifold.rsi, state: pipeConnector_alt2 } # Funky
   - type: Construction
     graph: GasPipe
     node: manifold
@@ -365,7 +359,7 @@
     shape:
     - 0,0,1,0
     storedSprite:
-      sprite: Structures/Piping/Atmospherics/manifold.rsi
+      sprite: _Funkystation/Structures/Piping/Atmospherics/manifold.rsi # Funky
       state: storageManifold
   - type: NodeContainer
     nodes:

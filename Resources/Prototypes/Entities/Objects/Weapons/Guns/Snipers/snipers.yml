@@ -43,6 +43,7 @@
   parent: [BaseWeaponSniper, BaseGunWieldable, SolutionDart, BaseMajorContraband]
   id: WeaponSniperMosin
   description: A true relic, the Kardashev-Mosin has served in nearly every armed conflict since its creation 670 years ago. The bolt-action design of the rifle remains virtually identical to its original design, whether used for hunting, sniping, or endless trench warfare. Loads 10 rounds of .30 rifle.
+  suffix: Deprecated # Funky - Use FuWeaponSniperMosin instead.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
@@ -80,7 +81,7 @@
   - type: SolutionTransfer
     maxTransferAmount: 2
   - type: Tool
-    qualities: Slicing
+    qualities: [ Slicing ]
     speedModifier: 0.5 #It's a bayonet
   - type: GunRequiresWield
   - type: StaticPrice
@@ -102,12 +103,15 @@
     sprite: Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
   - type: GunRequiresWield
   - type: Gun
-    fireRate: 0.4
+    fireRate: 0.5
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+  - type: CustomSpriteAmmoCounter
+    loadedAmmoSprite: Interface/ItemStatus/Sniper_Cartriges/not_spent.png
+    spentAmmoSprite: Interface/ItemStatus/Sniper_Cartriges/spent.png
   - type: BallisticAmmoProvider
     whitelist:
       tags:

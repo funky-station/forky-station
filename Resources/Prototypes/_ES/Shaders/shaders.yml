@@ -3,3 +3,6 @@
   id: Viewcone
   kind: source
   path: "/Textures/_ES/Shaders/viewcone.swsl"
+  params:
+    GrainMult: 0.35
+    DarkenAmount: 0.0

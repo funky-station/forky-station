@@ -15,12 +15,11 @@
     - BaseStationJobsSpawning
     - BaseStationRecords
     - BaseStationArrivals
-    - BaseStationGateway
     - BaseStationShuttles
     - BaseStationCentcomm
     - BaseStationEvacuation
     - BaseStationAlertLevels
-    - BaseStationMagnet
+    - FuStationMagnet # Funky - Swapped salvage magnet events for prisoner timers
     - BaseStationExpeditions
     - BaseStationSalvageJobs
     - BaseStationSiliconLawCrewsimov
@@ -28,6 +27,7 @@
     - BaseStationNanotrasen
     - BaseStationDeliveries
     - BaseStationTrader #funky
+    - BaseStationServiceJobs # imp
   categories: [ HideSpawnMenu ]
   components:
     - type: Transform

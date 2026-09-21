@@ -5,6 +5,8 @@
   description: What secrets lie at the bottom of its endless stack?
   suffix: Empty
   components:
+  - type: Item #funky
+    size: Normal
   - type: Sprite
     sprite: _Funkystation/Objects/Misc/bureaucracy.rsi # Funky
     state: paper_bin0

@@ -22,7 +22,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server._Funkystation.ReagentFires.Systems
@@ -32,7 +31,6 @@ namespace Content.Server._Funkystation.ReagentFires.Systems
         [Dependency] private AtmosphereSystem _atmos = null!;
         [Dependency] private SharedTransformSystem _transform = null!;
         [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = null!;
-        [Dependency] private IPrototypeManager _prototypeManager = null!;
         [Dependency] private SharedAppearanceSystem _appearance = null!;
         [Dependency] private EntityLookupSystem _lookup = null!;
         [Dependency] private SharedAudioSystem _audio = null!;
@@ -114,8 +112,8 @@ namespace Content.Server._Funkystation.ReagentFires.Systems
             }
 
             var solution = ent.Comp.Solution.Value.Comp.Solution;
-            var flammability = solution.GetSolutionFlammability(_prototypeManager);
-            var selfOxidizing = solution.IsSolutionSelfOxidizing(_prototypeManager);
+            var flammability = solution.GetSolutionFlammability(ProtoMan);
+            var selfOxidizing = solution.IsSolutionSelfOxidizing(ProtoMan);
 
             if (flammability <= 0)
             {
@@ -384,8 +382,8 @@ namespace Content.Server._Funkystation.ReagentFires.Systems
 
                 _solutionContainerSystem.BurnFlammableReagents(puddle.Solution.Value, burnFraction);
 
-                var flammability = solution.GetSolutionFlammability(_prototypeManager);
-                var selfOxidizing = solution.IsSolutionSelfOxidizing(_prototypeManager);
+                var flammability = solution.GetSolutionFlammability(ProtoMan);
+                var selfOxidizing = solution.IsSolutionSelfOxidizing(ProtoMan);
 
                 if (flammability <= 0)
                 {
@@ -502,8 +500,8 @@ namespace Content.Server._Funkystation.ReagentFires.Systems
                 var standingEntities = new HashSet<EntityUid>();
                 _lookup.GetLocalEntitiesIntersecting(gridUid.Value, tilePos, standingEntities, 0f);
 
-                var structuralProto = _prototypeManager.Index<DamageTypePrototype>(StructuralDamage);
-                var heatProto = _prototypeManager.Index<DamageTypePrototype>(HeatDamage);
+                var structuralProto = ProtoMan.Index<DamageTypePrototype>(StructuralDamage);
+                var heatProto = ProtoMan.Index<DamageTypePrototype>(HeatDamage);
 
                 // use effectiveFlammability for damage output
                 var structuralDamage = new DamageSpecifier(structuralProto, 2f * effectiveFlammability * _puddleDamageMultiplier);

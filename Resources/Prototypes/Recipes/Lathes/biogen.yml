@@ -178,7 +178,7 @@
   categories:
   - Food
   icon:
-    sprite: Objects/Consumable/Drinks/glass_clear.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/glass_clear.rsi # Funky
     state: icon
   completetime: 1
   materials:
@@ -204,7 +204,7 @@
   categories:
   - Food
   icon:
-    sprite: Objects/Consumable/Food/condiments.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/condiments.rsi # Funky
     state: packet-pepper
   completetime: 1
   materials:
@@ -217,7 +217,7 @@
   categories:
   - Food
   icon:
-    sprite: Objects/Consumable/Food/condiments.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/condiments.rsi # Funky
     state: bottle-empty
   completetime: 1
   materials:

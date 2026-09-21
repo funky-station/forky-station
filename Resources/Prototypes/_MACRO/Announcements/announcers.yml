@@ -1,0 +1,144 @@
+- type: weightedRandom
+  id: Announcers
+  weights:
+    DefaultAnnouncer: 100
+
+- type: announcer
+  id: DefaultAnnouncer
+  sounds:
+    Attention:
+      stereoSound: # funky - specify both a stereo and mono sound for in-world announcements
+        path: /Audio/Announcements/attention.ogg
+      monoSound: # funky
+        path: /Audio/Announcements/attention_mono.ogg
+    Announce:
+      stereoSound: # funky
+        path: /Audio/Announcements/announce.ogg
+      monoSound: # funky
+        path: /Audio/Announcements/announce.ogg
+    GridPowerOff:
+      stereoSound: # funky
+        path: /Audio/Announcements/power_off.ogg
+        params:
+          volume: -4
+      monoSound: # funky
+        path: /Audio/Announcements/power_off.ogg
+        params:
+          volume: -4
+    GridPowerOn:
+      stereoSound: # funky
+        collection: PowerOn
+        params:
+          volume: -4
+      monoSound: # funky
+        collection: PowerOn
+        params:
+          volume: -4
+    Intercept:
+      stereoSound: # funky
+        path: /Audio/Announcements/intercept.ogg
+      monoSound: # funky
+        path: /Audio/Announcements/intercept_mono.ogg
+    Welcome:
+      stereoSound: # funky
+        path: /Audio/Announcements/welcome.ogg
+      monoSound: # funky
+        path: /Audio/Announcements/welcome_mono.ogg
+    Meteors:
+      stereoSound: # funky
+        path: /Audio/Announcements/meteors.ogg
+        params:
+          volume: -4
+      monoSound: # funky
+        path: /Audio/Announcements/meteors_mono.ogg
+        params:
+          volume: -4
+    War:
+      stereoSound: # funky
+        path: /Audio/Announcements/war.ogg
+      monoSound: # funky
+        path: /Audio/Announcements/war_mono.ogg
+    ShuttleCalled:
+      stereoSound: # funky
+        path: /Audio/Announcements/shuttlecalled.ogg
+      monoSound: # funky
+        path: /Audio/Announcements/shuttlecalled_mono.ogg
+    ShuttleRecalled:
+      stereoSound: # funky
+        path: /Audio/Announcements/shuttlerecalled.ogg
+      monoSound: # funky
+        path: /Audio/Announcements/shuttlerecalled_mono.ogg
+    ShuttleDock:
+      stereoSound: # funky
+        path: /Audio/Announcements/shuttle_dock.ogg
+      monoSound: # funky
+        path: /Audio/Announcements/shuttle_dock_mono.ogg
+    Notice1:
+      stereoSound: # funky
+        path: /Audio/Misc/notice1.ogg
+      monoSound: # funky
+        path: /Audio/Misc/notice1_mono.ogg
+
+- type: announcer
+  id: BwoinkAnnouncer
+  sounds:
+    Attention:
+      stereoSound: # funky - specify both a stereo and mono sound for in-world announcements
+        path: /Audio/Effects/adminhelp.ogg
+      monoSound: # funky
+        path: /Audio/Effects/adminhelp.ogg
+    Announce:
+      stereoSound: # funky
+        path: /Audio/Effects/adminhelp.ogg
+      monoSound: # funky
+        path: /Audio/Effects/adminhelp.ogg
+    GridPowerOff:
+      stereoSound: # funky
+        path: /Audio/Effects/adminhelp.ogg
+      monoSound: # funky
+        path: /Audio/Effects/adminhelp.ogg
+    GridPowerOn:
+      stereoSound: # funky
+        path: /Audio/Effects/adminhelp.ogg
+      monoSound: # funky
+        path: /Audio/Effects/adminhelp.ogg
+    Intercept:
+      stereoSound: # funky
+        path: /Audio/Effects/adminhelp.ogg
+      monoSound: # funky
+        path: /Audio/Effects/adminhelp.ogg
+    Welcome:
+      stereoSound: # funky
+        path: /Audio/Effects/adminhelp.ogg
+      monoSound: # funky
+        path: /Audio/Effects/adminhelp.ogg
+    Meteors:
+      stereoSound: # funky
+        path: /Audio/Effects/adminhelp.ogg
+      monoSound: # funky
+        path: /Audio/Effects/adminhelp.ogg
+    War:
+      stereoSound: # funky
+        path: /Audio/Effects/adminhelp.ogg
+      monoSound: # funky
+        path: /Audio/Effects/adminhelp.ogg
+    ShuttleCalled:
+      stereoSound: # funky
+        path: /Audio/Effects/adminhelp.ogg
+      monoSound: # funky
+        path: /Audio/Effects/adminhelp.ogg
+    ShuttleRecalled:
+      stereoSound: # funky
+        path: /Audio/Effects/adminhelp.ogg
+      monoSound: # funky
+        path: /Audio/Effects/adminhelp.ogg
+    ShuttleDock:
+      stereoSound: # funky
+        path: /Audio/Effects/adminhelp.ogg
+      monoSound: # funky
+        path: /Audio/Effects/adminhelp.ogg
+    Notice1:
+      stereoSound: # funky
+        path: /Audio/Effects/adminhelp.ogg
+      monoSound: # funky
+        path: /Audio/Effects/adminhelp.ogg

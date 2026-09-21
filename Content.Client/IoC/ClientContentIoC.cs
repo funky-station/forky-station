@@ -1,4 +1,5 @@
 using Content.Client.Administration.Managers;
+using Content.Client.Audio.Midi;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
 using Content.Client.Clickable;
@@ -22,6 +23,7 @@ using Content.Client.Voting;
 using Content.Shared.Administration.Logs;
 using Content.Client.Lobby;
 using Content.Client.Players.RateLimiting;
+using Content.Shared._Starlight.DocumentManager;
 using Content.Shared.Administration.Managers;
 using Content.Shared.Chat;
 using Content.Shared.FeedbackSystem;
@@ -64,8 +66,10 @@ namespace Content.Client.IoC
             collection.Register<SharedPlayerRateLimitManager, PlayerRateLimitManager>();
             collection.Register<TitleWindowManager>();
             collection.Register<ClientsidePlaytimeTrackingManager>();
+            collection.Register<PreWrittenDocumentManager>(); // Starlight
             collection.Register<ClientFeedbackManager>();
             collection.Register<ISharedFeedbackManager, ClientFeedbackManager>();
+            collection.Register<MidiFileCollectionManager>();
         }
     }
 }

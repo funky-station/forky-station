@@ -46,6 +46,7 @@
     - id: Binoculars
     - id: PlushieLizardJobWarden
       prob: 0.02
+    - id: ClothingHeadsetWarden #funkystation
 
 - type: entityTable
   id: FillLockerWardenHarduit
@@ -74,6 +75,8 @@
       prob: 0.8
     - id: FuClothingUniformSecService
       prob: 0.3
+    - id: SecurityBola
+      amount: 2
     - id: ClothingHeadHelmetBasic
     - id: ClothingOuterArmorBasic
     - id: ClothingBeltSecurityFilled
@@ -109,7 +112,6 @@
   table: !type:AllSelector
     children:
     - id: ClothingEyesGlassesSecurity
-    - id: WeaponTaser # Funky - We're 100% getting rid of brigmed anyway, so I'm not even going to bother touching this
     - id: WeaponDisabler
     - id: TrackingImplanter
       amount: 2
@@ -161,7 +163,7 @@
     - id: FlippoEngravedLighter
     - id: FlashlightSeclite
     - id: ForensicScanner
-    - id: LogProbeCartridge
+    - id: HandheldLogProbe # funky, replaces LogProbeCartridge
     - id: BoxForensicPad
     - id: DrinkDetFlask
     - id: ClothingHandsGlovesForensic
@@ -169,9 +171,10 @@
     - id: HoloprojectorSecurity
     - id: BoxEvidenceMarkers
     - id: HandLabeler
-    - id: CrayonBox #funky, for sketches of crime sites
     - id: PlushieLizardJobDetective
       prob: 0.02
+    - id: CardboardBoxLargeDetectiveFilled #funky
+
 
 - type: entity
   id: ClosetBombFilled

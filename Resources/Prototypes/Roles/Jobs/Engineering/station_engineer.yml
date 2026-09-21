@@ -6,7 +6,8 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 2.5h
+      #time: 2.5h
+      time: 4h # Funky
   startingGear: StationEngineerGear
   icon: "JobIconStationEngineer"
   supervisors: job-supervisors-ce
@@ -20,6 +21,7 @@
   id: StationEngineerGear
   equipment:
     eyes: ClothingEyesGlassesMeson
+    id: EngineerWallet # Funky: the wallet-ening, also removing the loadout choice for senior stuff
     belt: ClothingBeltUtilityEngineering
     ears: ClothingHeadsetEngineering
   #storage:
@@ -34,5 +36,5 @@
     mask: ClothingMaskBreath
     neck: ClothingNeckScarfStripedOrange
     outerClothing: ClothingOuterWinterEngi
-    gloves: ClothingHandsGlovesColorYellow
+    gloves: FuClothingHandsGlovesInsuls #Funky
     shoes: ClothingShoesBootsMag

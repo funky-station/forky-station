@@ -1,0 +1,17 @@
+# all net additions to detectives locker should go in here to make merge conflicts and management easier
+- type: entity
+  parent: CardboardBoxLargeSecurity
+  id: CardboardBoxLargeDetectiveFilled
+  name: detectives gear
+  suffix: FILLED
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CrayonBox # for sketches of crime sites
+        - id: RadioListeningBugDetective
+          amount: 3
+        - id: EncryptionKeyDetective
+          amount: 2
+        - id: WarningTapeRollSecurity

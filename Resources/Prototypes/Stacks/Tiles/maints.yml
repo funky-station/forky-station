@@ -1,9 +1,4 @@
-- type: stack
-  parent: BaseTileStack
-  id: FloorTileTechmaint
-  name: stack-techmaint-floor
-  spawn: FloorTileItemTechmaint
-
+# tiles typically found in maintenance
 - type: stack
   parent: BaseTileStack
   id: FloorTileSteelMaint

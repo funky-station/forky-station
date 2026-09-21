@@ -19,7 +19,7 @@
   equipment:
     eyes: ClothingEyesGlassesSunglasses
     shoes: ClothingShoesBootsLaceup
-    id: MusicianPDA
+    id: MusicianWallet # Funky: the wallet-ening
     ears: ClothingHeadsetService
   #storage:
     #back:

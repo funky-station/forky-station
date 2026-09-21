@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: [ TemperatureProtection, ClothingOuterJacketBase ]
   id: ClothingOuterWinterCoat
   name: winter coat
   description: A heavy jacket made from 'synthetic' animal furs.
@@ -8,11 +8,6 @@
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-  - type: TemperatureProtection
-    heatingCoefficient: 1.1
-    coolingCoefficient: 0.1
-  - type: Item
-    size: Normal
   - type: Armor
     modifiers:
       coefficients:
@@ -38,6 +33,7 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterDefault
     slot: head
+    verbText: toggle-clothing-verb-hood
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
@@ -432,7 +428,7 @@
       left:
       - state: JANI-inhand-left
       right:
-      - state: CHEF-inhand-right
+      - state: JANI-inhand-right
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     clothingVisuals:
@@ -866,13 +862,11 @@
       - cobwebs
     ignoreReagents:
       - Fiber
-  - type: SolutionContainerManager
-    solutions: # 15 (3 (fiber count of web) * 5 (to craft)) + 5 (magical crafting bonus)
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 20
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 20 # 15 (3 (fiber count of web) * 5 (to craft)) + 5 (magical crafting bonus)
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterWeb
 

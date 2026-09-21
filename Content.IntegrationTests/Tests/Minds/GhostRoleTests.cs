@@ -1,8 +1,9 @@
+#nullable enable
 using System.Linq;
 using Content.IntegrationTests.Fixtures;
 using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
-using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Mind;
 using Content.Shared.Players;
 using Robust.Shared.Console;
