@@ -13,7 +13,7 @@
         name: construction-graph-tag-happy-honk-meal
       - tag: BikeHorn
         icon:
-            sprite: Objects/Fun/bikehorn.rsi
+            sprite: _Funkystation/Objects/Fun/bikehorn.rsi # Funky
             state: icon
         name: construction-graph-tag-clown-bike-horn
         doAfter: 2

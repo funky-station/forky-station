@@ -2,13 +2,17 @@
   id: JobHospitalityDirector
   groups:
   - GroupTankHarness
-  - GroupTankHarness
-  - BartenderJumpsuit
+  - FuHdHead
+  - FuHdUniform
+  - FuHdGloves
   - CommonBackpack
+  - FuHdOuterclothing
+  - FuHdShoes
   - Glasses
+  - Pager
   - Survival
   - Trinkets
-  #- ServiceWorkerJobTrinkets
+  #- HDJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
@@ -19,6 +23,7 @@
   - LawyerJumpsuit
   - CommonBackpack
   - Glasses
+  - Pager
   - Survival
   - Trinkets
   #- LawyerJobTrinkets
@@ -32,6 +37,7 @@
   - LawyerNeck
   - LawyerJumpsuit
   - CommonBackpack
+  - Pager
   - Glasses
   - Survival
   - Trinkets
@@ -46,6 +52,7 @@
   - LawyerJumpsuit
   - CommonBackpack
   - Glasses
+  - Pager
   - Survival
   - Trinkets
   #- LawyerJobTrinkets
@@ -61,6 +68,7 @@
   - HoPJumpsuit
   - HoPBackpack
   - HoPOuterClothing
+  - Pager
   - Glasses
   - Survival
   - Trinkets
@@ -119,6 +127,24 @@
   - Trinkets
   - SecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobFuCourier
+  groups:
+  - GroupTankHarness
+  - FuCourierHead
+  - FuCargoNeck
+  - FuCourierOuterClothing
+  - FuCourierUniform
+  - CargoTechnicianBackpack
+  - FuCourierShoes
+  - Pager
+  - Glasses
+  - Survival
+  - Trinkets
+  #- CargoTechnicianJobTrinkets
+  - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout

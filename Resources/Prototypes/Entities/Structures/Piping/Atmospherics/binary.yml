@@ -450,7 +450,7 @@
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: Structures/Piping/Atmospherics/vent.rsi # Funky
+      sprite: _Funkystation/Structures/Piping/Atmospherics/vent.rsi # Funky
       layers:
         - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
           state: pipeBinaryConnectors

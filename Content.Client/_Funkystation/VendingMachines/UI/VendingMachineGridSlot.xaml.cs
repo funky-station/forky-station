@@ -14,6 +14,7 @@ public sealed partial class VendingMachineGridSlot : PanelContainer
 {
     [Dependency] private IPrototypeManager _protoManager = null!;
     [Dependency] private ILocalizationManager _loc = null!;
+    [Dependency] private IComponentFactory _componentFactory = default!;
 
     private const float SlotSize = 84f;
     private const float ItemSize = 64f;
@@ -67,22 +68,7 @@ public sealed partial class VendingMachineGridSlot : PanelContainer
 
         if (_protoManager.TryIndex(protoId, out var proto))
         {
-            var tooltipText = proto.Name;
-
-            if (proto.Components.TryGetValue("Label", out var labelEntry) &&
-                labelEntry.Component is LabelComponent label &&
-                !string.IsNullOrWhiteSpace(label.CurrentLabel))
-            {
-                var labelText = _loc.TryGetString(label.CurrentLabel, out var localized)
-                    ? localized
-                    : label.CurrentLabel;
-
-                tooltipText = $"{proto.Name} ({labelText})";
-            }
-
-            ToolTip = string.IsNullOrWhiteSpace(proto.Description)
-                ? tooltipText
-                : $"{tooltipText}\n{proto.Description}";
+            ToolTip = GetItemText(proto);
         }
 
         SetAmount(amount, soldOut);
@@ -153,5 +139,21 @@ public sealed partial class VendingMachineGridSlot : PanelContainer
 
             ApplySoldOutState(_pendingSoldOut);
         }
+    }
+
+    private string GetItemText(EntityPrototype prototype)
+    {
+        var itemName = prototype.Name;
+
+        if (prototype.TryComp<LabelComponent>(out var label, _componentFactory) &&
+            label.LocalizedLabel is { } locId)
+        {
+            itemName = _loc.GetString("comp-label-format",
+                ("baseName", itemName),
+                ("label", _loc.GetString(locId)));
+        }
+        return string.IsNullOrWhiteSpace(prototype.Description)
+            ? itemName
+            : $"{itemName}\n{prototype.Description}";
     }
 }

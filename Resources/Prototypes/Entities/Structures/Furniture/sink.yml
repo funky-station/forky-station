@@ -10,7 +10,7 @@
   - type: Clickable
   - type: InteractionOutline
   - type: Sprite
-    sprite: Structures/Furniture/sink.rsi
+    sprite: _Funkystation/Structures/Furniture/sink.rsi # Funky
     layers:
     - state: sink_stem
     - map: [ "enum.SolutionContainerLayers.Fill" ]
@@ -78,7 +78,7 @@
   name: wide sink
   components:
     - type: Sprite
-      sprite: Structures/Furniture/sink.rsi
+      sprite: _Funkystation/Structures/Furniture/sink.rsi # Funky
       layers:
         - state: sink_wide
         - map: [ "enum.SolutionContainerLayers.Fill" ]
@@ -97,7 +97,7 @@
   parent: SinkEmpty
   components:
   - type: Sprite
-    sprite: Structures/Furniture/sink.rsi
+    sprite: _Funkystation/Structures/Furniture/sink.rsi # Funky
     layers:
       - state: sink
       - map: [ "enum.SolutionContainerLayers.Fill" ]

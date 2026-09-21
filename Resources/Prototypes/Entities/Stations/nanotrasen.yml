@@ -19,7 +19,7 @@
     - BaseStationCentcomm
     - BaseStationEvacuation
     - BaseStationAlertLevels
-    - BaseStationMagnet
+    - FuStationMagnet # Funky - Swapped salvage magnet events for prisoner timers
     - BaseStationExpeditions
     - BaseStationSalvageJobs
     - BaseStationSiliconLawCrewsimov

@@ -117,7 +117,19 @@ public sealed partial class RespiratorSystem : EntitySystem
                         respirator.Status = RespiratorStatus.Inhaling;
                         break;
                 }
-            }
+            }else{ // Funky Station - made critical state multiply breathing by a low amount rather than completely remove it
+            switch (respirator.Status)
+                {
+                    case RespiratorStatus.Inhaling:
+                        Inhale((uid, respirator), 0.20f);
+                        respirator.Status = RespiratorStatus.Exhaling;
+                        break;
+                    case RespiratorStatus.Exhaling:
+                        Exhale((uid, respirator));
+                        respirator.Status = RespiratorStatus.Inhaling;
+                        break;
+                }
+		}
 
             if (respirator.Saturation < respirator.SuffocationThreshold)
             {
@@ -140,7 +152,7 @@ public sealed partial class RespiratorSystem : EntitySystem
         }
     }
 
-    public void Inhale(Entity<RespiratorComponent?> entity)
+    public void Inhale(Entity<RespiratorComponent?> entity, float multiplier = 1f) //Funky Station - added multiplier parameter
     {
         if (!Resolve(entity, ref entity.Comp, logMissing: false))
             return;
@@ -157,7 +169,7 @@ public sealed partial class RespiratorSystem : EntitySystem
         if (ev.Gas is null)
             return;
 
-        var gas = ev.Gas.RemoveVolume(entity.Comp.BreathVolume);
+        var gas = ev.Gas.RemoveVolume(entity.Comp.BreathVolume*multiplier); //Funky Station - made inhale based on multiplier value
 
         var inhaleEv = new InhaledGasEvent(gas);
         RaiseLocalEvent(entity, ref inhaleEv);

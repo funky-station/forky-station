@@ -30,7 +30,7 @@
   - MedicalBackpack
   - FuMedicalDoctorOuterclothing # funky - previously MedicalDoctorOuterClothing
   - MedicalShoes
-  - MedicalDoctorPDA
+  #- MedicalDoctorPDA # Funky: the wallet-ening, also removing the loadout choice for senior stuff
   - Pager
   - Glasses
   - AssistiveItems

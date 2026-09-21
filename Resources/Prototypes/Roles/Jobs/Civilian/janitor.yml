@@ -19,7 +19,7 @@
   id: JanitorGear
   equipment:
     shoes: ClothingShoesGaloshes
-    id: JanitorPDA
+    id: JanitorWallet # Funky: the wallet-ening
     ears: ClothingHeadsetService
     belt: ClothingBeltJanitorFilled
   #storage:
@@ -30,7 +30,7 @@
   id: JanitorMaidGear
   equipment:
     jumpsuit: ClothingUniformJumpskirtJanimaid
-    id: JanitorPDA
+    id: JanitorWallet # Funky: the wallet-ening
     gloves: ClothingHandsGlovesJanitor
     head: ClothingHeadHatCatEars
     ears: ClothingHeadsetService

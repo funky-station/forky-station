@@ -4,9 +4,12 @@ using Content.Server.Chat.Systems;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Station.Systems;
 using Content.Server.StationEvents.Components;
+using Content.Shared._Funkystation.CCVar;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Random.Helpers;
 using Robust.Server.Audio;
+using Robust.Shared.Audio;
+using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
@@ -21,6 +24,7 @@ public sealed partial class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmCompon
     [Dependency] private AudioSystem _audio = default!;
     [Dependency] private ChatSystem _chat = default!;
     [Dependency] private StationSystem _station = default!;
+    [Dependency] private IConfigurationManager _cfg = null!; // funky - pa announcement cvar
 
     [Dependency] private AnnouncerManager _announcer = default!; // Macrocosm edit
 
@@ -33,13 +37,24 @@ public sealed partial class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmCompon
         // we don't want to send to players who aren't in game (i.e. in the lobby)
         Filter allPlayersInGame = Filter.Empty().AddWhere(GameTicker.UserHasJoinedGame);
 
-        if (component.Announcement is { } locId)
-            _chat.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(locId), playSound: false, colorOverride: Color.Gold);
-
         // Macrocosm edit start - announcer variation
-        if (component.AnnouncementSound is { } soundId && _announcer.TryGetAnnouncerSound(soundId, out var sound))
-            _audio.PlayGlobal(sound, allPlayersInGame, true);
+        SoundSpecifier? sound = null; // funky
+
+        var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
+
+        if (component.AnnouncementSound is { } soundId && _announcer.TryGetAnnouncerSound(soundId, out sound))
+        {
+            if (!paExclusive) // funky
+                _audio.PlayGlobal(sound, allPlayersInGame, true);
+        }
         // Macrocosm edit end
+
+        if (component.Announcement is { } locId)
+            _chat.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(locId),
+                playSound: paExclusive, announcementSound: paExclusive ? sound : null, // funky
+                colorOverride: Color.Gold);
+
+
     }
 
     protected override void ActiveTick(EntityUid uid, MeteorSwarmComponent component, GameRuleComponent gameRule, float frameTime)

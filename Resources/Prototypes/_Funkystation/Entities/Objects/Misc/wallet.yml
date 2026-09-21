@@ -1,0 +1,420 @@
+- type: entity
+  abstract: true
+  parent: BaseStorageItem
+  id: BaseWallet
+  name: wallet
+  description: A wallet that stores your ID, and other bits and ends.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/wallet.rsi
+    state: icon-base
+  - type: Icon
+    sprite: _Funkystation/Objects/Misc/wallet.rsi
+    state: icon-base
+  - type: Item
+    size: Small
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - idcard
+    - Belt
+  - type: Pda
+    idSlot:
+      name: access-id-card-component-default
+      ejectSound: !type:SoundCollectionSpecifier
+        collection: storageRustle
+      insertSound: !type:SoundCollectionSpecifier
+        collection: storageRustle
+      whitelist:
+        components:
+        - IdCard
+    penSlot:
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+    paiSlot:
+      locked: true
+      whitelist:
+        components:
+        - PAI
+  - type: ItemSlots
+  - type: Storage
+    grid:
+    - 0,0,1,1
+    maxItemSize: Tiny
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+      PDA-id: !type:ContainerSlot {}
+      PDA-pen: !type:ContainerSlot {}
+      PDA-pai: !type:ContainerSlot {}
+  - type: ItemMapper
+    mapLayers:
+      icon-no-id:
+        minCount: 0
+        maxCount: 0
+        whitelist:
+          components:
+          - IdCard
+      icon-id:
+        whitelist:
+          components:
+          - IdCard
+      icon-pager:
+        whitelist:
+          components:
+          - Pager
+  - type: Appearance
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - WhitelistChameleon
+    - WhitelistChameleonPDA
+  - type: StorageFill # this is complete bullshit by the way. its staying like this for the playtests though fuckkkkkk you
+    contents:
+    - id: HandheldNewsReader
+
+# YES I KNOW SOME BULLSHIT LIKE SCURRETS HAVE PDAS NO IM NOT DOING THAT SHIT FOR THEM FUCK THEM AND FUCK YOu
+
+- type: entity
+  parent: BaseWallet
+  id: Wallet
+
+- type: entity
+  parent: BaseWallet
+  id: PassengerWallet
+  suffix: Assistant # That's what we're calling it now. Keeping the internal stuff the same to avoid breaking shit.
+  components:
+  - type: Pda
+    id: PassengerIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: TechnicalAssistantWallet
+  suffix: Technical Assistant
+  components:
+  - type: Pda
+    id: TechnicalAssistantIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: MedicalInternWallet
+  suffix: Medical Intern
+  components:
+  - type: Pda
+    id: MedicalInternIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: SecurityCadetWallet
+  suffix: Security Cadet
+  components:
+  - type: Pda
+    id: SecurityCadetIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: ResearchAssistantWallet
+  suffix: Research Assistant
+  components:
+  - type: Pda
+    id: ResearchAssistantIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: ServiceWorkerWallet
+  suffix: Service Worker
+  components:
+  - type: Pda
+    id: ServiceWorkerIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: ChefWallet
+  suffix: Chef
+  components:
+  - type: Pda
+    id: ChefIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: BotanistWallet
+  suffix: Botanist
+  components:
+  - type: Pda
+    id: BotanistIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: ClownWallet
+  suffix: Clown
+  components:
+  - type: Pda
+    id: ClownIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: MimeWallet
+  suffix: Mime
+  components:
+  - type: Pda
+    id: MimeIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: ChaplainWallet
+  suffix: Chaplain
+  components:
+  - type: Pda
+    id: ChaplainIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: CargoWallet
+  suffix: Cargo
+  components:
+  - type: Pda
+    id: CargoIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: CourierWallet
+  suffix: Courier
+  components:
+  - type: Pda
+    id: FuCourierIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: SalvageWallet
+  suffix: Salvage
+  components:
+  - type: Pda
+    id: SalvageIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: BartenderWallet
+  suffix: Bartender
+  components:
+  - type: Pda
+    id: BartenderIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: LibrarianWallet
+  suffix: Librarian
+  components:
+  - type: Pda
+    id: LibrarianIDCard
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+
+- type: entity
+  parent: BaseWallet
+  id: LawyerWallet
+  suffix: Lawyer
+  components:
+  - type: Pda
+    id: LawyerIDCard
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+
+- type: entity
+  parent: BaseWallet
+  id: JanitorWallet
+  suffix: Janitor
+  components:
+  - type: Pda
+    id: JanitorIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: EngineerWallet
+  suffix: Engineer
+  components:
+  - type: Pda
+    id: EngineeringIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: MedicalWallet
+  suffix: Medical
+  components:
+  - type: Pda
+    id: MedicalIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: ParamedicWallet
+  suffix: Paramedic
+  components:
+  - type: Pda
+    id: ParamedicIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: ChemistryWallet
+  suffix: Chemistry
+  components:
+  - type: Pda
+    id: ChemistIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: ScienceWallet
+  suffix: Science
+  components:
+  - type: Pda
+    id: ResearchIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: WardenWallet
+  suffix: Warden
+  components:
+  - type: Pda
+    id: WardenIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: SecurityWallet
+  suffix: Security
+  components:
+  - type: Pda
+    id: SecurityIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: MusicianWallet
+  suffix: Musician
+  components:
+  - type: Pda
+    id: MusicianIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: AtmosWallet
+  suffix: Atmos
+  components:
+  - type: Pda
+    id: AtmosIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: PsychologistWallet
+  suffix: Psychologist
+  components:
+  - type: Pda
+    id: PsychologistIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: TramDriverWallet
+  suffix: Tram Driver
+  components:
+  - type: Pda
+    id: TramDriverIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: ReporterWallet
+  suffix: Reporter
+  components:
+  - type: Pda
+    id: ReporterIDCard
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+
+- type: entity
+  parent: BaseWallet
+  id: DetectiveWallet
+  suffix: Detective
+  components:
+  - type: Pda
+    id: DetectiveIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: SeniorEngineerWallet
+  suffix: Senior Engineer
+  components:
+  - type: Pda
+    id: SeniorEngineerIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: SeniorResearcherWallet
+  suffix: Senior Researcher
+  components:
+  - type: Pda
+    id: SeniorResearcherIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: SeniorPhysicianWallet
+  suffix: Senior Physician
+  components:
+  - type: Pda
+    id: SeniorPhysicianIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: SeniorOfficerWallet
+  suffix: Senior Officer
+  components:
+  - type: Pda
+    id: SeniorOfficerIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: SeniorCourierWallet
+  suffix: Senior Courier
+  components:
+  - type: Pda
+    id: SeniorCourierIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: IAAWallet
+  suffix: Internal Affairs Agent
+  components:
+  - type: Pda
+    id: IAAIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: MagistrateWallet
+  suffix: Magistrate
+  components:
+  - type: Pda
+    id: MagistrateIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: LieutenantWallet
+  suffix: Lieutenant
+  components:
+  - type: Pda
+    id: LieutenantIDCard
+
+- type: entity
+  parent: BaseWallet
+  id: DispatcherWallet
+  suffix: Dispatcher
+  components:
+  - type: Pda
+    id: DispatcherIDCard

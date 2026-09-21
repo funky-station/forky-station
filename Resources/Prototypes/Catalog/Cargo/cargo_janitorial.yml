@@ -51,7 +51,7 @@
 - type: cargoProduct
   id: JanitorialMousetrapBoxes
   icon:
-    sprite: Objects/Devices/mousetrap.rsi
+    sprite: _Funkystation/Objects/Devices/mousetrap.rsi # Funky
     state: mousetrap
   product: BoxMousetrap
   container:

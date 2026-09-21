@@ -35,8 +35,10 @@ public sealed partial class SuicideSystem : SharedSuicideSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<DamageableComponent, SuicideEvent>(OnDamageableSuicide);
-        SubscribeLocalEvent<MobStateComponent, SuicideEvent>(OnEnvironmentalSuicide);
+        // SubscribeLocalEvent<DamageableComponent, SuicideEvent>(OnDamageableSuicide);
+        // SubscribeLocalEvent<MobStateComponent, SuicideEvent>(OnEnvironmentalSuicide);
+        // Funky - we need to handle environmental suicide before default suicide
+        SubscribeLocalEvent<DamageableComponent, SuicideEvent>(OnEnvironmentalSuicide);
         SubscribeLocalEvent<MindContainerComponent, SuicideGhostEvent>(OnSuicideGhost);
     }
 
@@ -113,10 +115,15 @@ public sealed partial class SuicideSystem : SharedSuicideSystem
     /// <summary>
     /// Raise event to attempt to use held item, or surrounding entities to attempt to commit suicide
     /// </summary>
-    private void OnEnvironmentalSuicide(Entity<MobStateComponent> victim, ref SuicideEvent args)
+    private void OnEnvironmentalSuicide(Entity<DamageableComponent> victim, ref SuicideEvent args)
     {
-        if (args.Handled || _mobState.IsCritical(victim))
+        if (args.Handled)
             return;
+
+        // funky - use the default suicide method if we're in crit or there is no mob state component
+        // the goal being to make sure we try to environmental suicide before using default method
+        if (!HasComp<MobStateComponent>(victim) || _mobState.IsCritical(victim))
+            OnDamageableSuicide(victim, ref args);
 
         var suicideByEnvironmentEvent = new SuicideByEnvironmentEvent(victim);
 
@@ -146,6 +153,9 @@ public sealed partial class SuicideSystem : SharedSuicideSystem
             args.Handled = suicideByEnvironmentEvent.Handled;
             return;
         }
+
+        // funky - else, try to use the default suicide method
+        OnDamageableSuicide(victim, ref args);
     }
 
     /// <summary>

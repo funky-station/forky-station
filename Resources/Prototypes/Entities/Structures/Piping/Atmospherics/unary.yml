@@ -1,5 +1,5 @@
 - type: entity
-  parent: GasPipeBase
+  parent: GasPipeBaseNoRestrict # funky
   abstract: true
   id: GasUnaryBase
   placement:
@@ -19,6 +19,16 @@
           nodeGroupID: Pipe
           pipeDirection: South
     - type: CollideOnAnchor
+    - type: ContainerContainer # funky start
+      containers:
+        hidden_slot: !type:ContainerSlot
+    - type: ItemSlots
+      slots:
+        hidden_slot:
+          name: hidden_slot
+          whitelist:
+            tags:
+            - SurveillanceDevices # funky end
 
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]
@@ -41,7 +51,7 @@
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: Structures/Piping/Atmospherics/vent.rsi # Funky
+      sprite: _Funkystation/Structures/Piping/Atmospherics/vent.rsi # Funky
       layers:
         - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
           state: pipeUnaryConnectors
@@ -96,7 +106,7 @@
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: Structures/Piping/Atmospherics/vent.rsi # Funky
+      sprite: _Funkystation/Structures/Piping/Atmospherics/vent.rsi # Funky
       layers:
         - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
           state: pipeUnaryConnectors
@@ -264,7 +274,7 @@
       key: enum.ThermomachineUiKey.Key
     - type: WiresPanel
     - type: WiresVisuals
-    - type: PipeRestrictOverlap
+    # - type: PipeRestrictOverlap # funky gone
     - type: NodeContainer
       nodes:
         pipe:

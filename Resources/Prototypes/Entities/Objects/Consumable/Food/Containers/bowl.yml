@@ -9,7 +9,7 @@
     - 0,0,1,0
     storedOffset: 0,-3
   - type: Sprite
-    sprite: Objects/Consumable/Food/bowl.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/bowl.rsi # Funky
     layers:
     - state: bowl
     - map: ["enum.SolutionContainerLayers.Fill"]
@@ -75,7 +75,7 @@
     - 0,0,1,0
     storedOffset: 0,-3
   - type: Sprite
-    sprite: Objects/Consumable/Food/bowl.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/bowl.rsi # Funky
     state: bowl-trash
   - type: Tag
     tags:
@@ -94,7 +94,7 @@
   description: A fancy bowl, used for SPECIAL soups and salads.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/bowl.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/bowl.rsi # Funky
     layers:
     - state: bowl2
     - map: ["enum.SolutionContainerLayers.Fill"]

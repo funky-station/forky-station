@@ -3,6 +3,7 @@
   name: job-name-qm
   description: job-description-qm
   playTimeTracker: JobQuartermaster
+  requiresNda: Command # Funky
   requirements:
     - !type:RoleTimeRequirement
       role: JobCargoTechnician

@@ -3,6 +3,7 @@
   name: job-name-cadet
   description: job-description-cadet
   playTimeTracker: JobSecurityCadet
+  requiresNda: Security # Funky
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 10h
@@ -29,7 +30,7 @@
   equipment:
     shoes: ClothingShoesBootsJackFilled
     outerClothing: ClothingOuterArmorBasic
-    id: SecurityCadetPDA
+    id: SecurityCadetWallet # Funky: the wallet-ening
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled
     pocket1: WeaponPistolMk58

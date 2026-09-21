@@ -137,6 +137,14 @@
   - ClothingUniformJumpskirtMime
   - ClothingUniformJumpsuitMusician
   - ClothingUniformJumpsuitTramDriver
+  # Funky start
+  - FuClothingUniformShirtPantsHd
+  - FuClothingUniformShirtSkirtHd
+  - FuClothingOuterCoatHd
+  - FuClothingOuterVestHd
+  - FuClothingOuterWinterHd
+  - FuClothingHeadHatHd
+  # Funky end
 
 - type: latheRecipePack
   id: WinterCoats

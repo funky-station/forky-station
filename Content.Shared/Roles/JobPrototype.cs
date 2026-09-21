@@ -134,6 +134,13 @@ public sealed partial class JobPrototype : IPrototype
     /// </summary>
     [DataField]
     public List<ProtoId<GuideEntryPrototype>>? Guides;
+    
+    /// <summary>
+    /// This is for specifying if the job needs an NDA. If it's filled, it generates an NDA from a template and puts it
+    /// in a cabinet for the specified department
+    /// </summary>
+    [DataField]
+    public ProtoId<DepartmentPrototype>? RequiresNda;
 }
 
 /// <summary>

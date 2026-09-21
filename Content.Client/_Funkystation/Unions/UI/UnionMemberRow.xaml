@@ -1,0 +1,18 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              Orientation="Vertical"
+              HorizontalExpand="True"
+              Margin="0 2 0 2">
+    <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+            <Label Name="NameLabel" />
+            <Label Name="JobLabel" FontColorOverride="#A0A0A0" />
+        </BoxContainer>
+        <Button Name="StewardButton" Text="{Loc 'union-clipboard-make-steward-button'}" VerticalAlignment="Center" Margin="0 0 4 0" />
+        <Button Name="NotesButton" Text="{Loc 'union-clipboard-notes-button'}" VerticalAlignment="Center" Margin="0 0 4 0" />
+        <Button Name="RemoveButton" Text="X" VerticalAlignment="Center" />
+    </BoxContainer>
+    <BoxContainer Name="AssignRow" Orientation="Horizontal" HorizontalExpand="True" Margin="0 2 0 0">
+        <Label Text="{Loc 'union-clipboard-assign-steward-label'}" VerticalAlignment="Center" Margin="0 0 4 0" />
+        <OptionButton Name="StewardAssignOption" HorizontalExpand="True" />
+    </BoxContainer>
+</BoxContainer>

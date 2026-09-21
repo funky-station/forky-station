@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-4.0",
+  "copyright": "vectorassembly. plate inhands by AraiMaia",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "plate"
+    },
+    {
+      "name": "plate-trash"
+    },
+    {
+      "name": "plate-plastic"
+    },
+    {
+      "name": "plate-small"
+    },
+    {
+      "name": "plate-small-trash"
+    },
+    {
+      "name": "plate-small-plastic"
+    },
+    {
+      "name": "tin"
+    },
+    {
+      "name": "tray"
+    },
+    {
+      "name": "tray-trash"
+    },
+    {
+        "name": "muffin-tin"
+    },
+    {
+      "name": "plate-plastic-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "plate-plastic-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "plate-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "plate-inhand-left",
+      "directions": 4
+    }
+  ]
+}
