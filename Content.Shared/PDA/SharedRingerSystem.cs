@@ -211,9 +211,8 @@ public abstract partial class SharedRingerSystem : EntitySystem
 
         UpdateRingerUi(ent);
 
-        _popup.PopupPredicted(Loc.GetString(ent.Comp.Popup), // Funky
+        _popup.PopupEntity(Loc.GetString(ent.Comp.Popup),
             ent,
-            ent.Owner,
             Filter.Pvs(ent, 0.05f),
             false,
             PopupType.Medium);

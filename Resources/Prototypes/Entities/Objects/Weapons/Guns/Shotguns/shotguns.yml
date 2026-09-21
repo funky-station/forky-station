@@ -112,6 +112,7 @@
   name: double-barreled shotgun
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityBartenderContraband]
   id: WeaponShotgunDoubleBarreled
+  suffix: Deprecated # Funky - Use FuWeaponShotgunDoubleBarreled instead.
   description: An immortal classic. Uses 12 gauge shotgun shells.
   components:
   - type: Sprite
@@ -135,7 +136,7 @@
   parent: WeaponShotgunDoubleBarreled
   id: WeaponShotgunDoubleBarreledRubber
   description: An immortal classic. Uses 12 gauge shotgun shells.
-  suffix: Non-Lethal
+  suffix: Non-Lethal, Deprecated # Funky - Use FuWeaponShotgunDoubleBarreledRubber instead.
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunBeanbag
@@ -168,6 +169,7 @@
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponShotgunKammerer
   description: An old yet faithful design, and a favorite among irregular forces of many worlds. Uses 12 gauge shotgun shells.
+  suffix: Deprecated # Funky - Use FuWeaponShotgunKammerer instead.
   components: # intend for Kammerer to have tighter choke for slower fire rate and/or manual cycling
   - type: Item
     sprite: Objects/Weapons/Guns/Shotguns/pump_inhands_64x.rsi
@@ -189,6 +191,7 @@
   parent: [ BaseWeaponShotgun, BaseSecurityBartenderContraband ]
   id: WeaponShotgunSawn
   description: Groovy! Uses 12 gauge shotgun shells.
+  suffix: Deprecated # Funky - Use FuWeaponShotgunSawn instead.
   components: # needs to be super inaccurate because you don't need to wield it
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/sawn.rsi
@@ -215,7 +218,7 @@
   parent: WeaponShotgunSawn
   id: WeaponShotgunSawnEmpty
   description: Groovy! Uses 12 gauge shotgun shells.
-  suffix: Empty
+  suffix: Empty, Deprecated # Funky - Use FuWeaponShotgunSawnEmpty instead.
   components:
   - type: BallisticAmmoProvider
     proto: null

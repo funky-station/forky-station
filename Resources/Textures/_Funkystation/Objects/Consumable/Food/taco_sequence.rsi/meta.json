@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Resprite for funkystation, by not-macaw (github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "tacoshell_back"
+    },
+    {
+      "name": "tacoshell_forward"
+    },
+    {
+      "name": "cheese"
+    },
+    {
+      "name": "rat"
+    }
+  ]
+}

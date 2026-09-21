@@ -1,0 +1,11 @@
+﻿- type: entity
+  id: IntercomPrisoner
+  parent: Intercom
+  suffix: Prisoner
+  components:
+  - type: ContainerFill
+    containers:
+      board:
+      - IntercomElectronics
+      key_slots:
+      - EncryptionKeyPrisoner

@@ -1,21 +1,20 @@
+# all net additions to detectives locker should go in here to make merge conflicts and management easier
 - type: entity
-  parent: CardboardBoxLargeInternals
-  id: CardboardBoxLargeInternalsFilled
-  name: small emergency breathing supplies box
+  parent: CardboardBoxLargeSecurity
+  id: CardboardBoxLargeDetectiveFilled
+  name: detectives gear
   suffix: FILLED
   components:
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: ClothingOuterSuitEmergency
+        - id: CrayonBox # for sketches of crime sites
+        - id: RadioListeningBugDetective
+          amount: 3
+        - id: EncryptionKeyDetective
           amount: 2
-        - id: DoubleEmergencyOxygenTankFilled
-          amount: 2
-        - id: DoubleEmergencyNitrogenTankFilled
-          amount: 1
-        - id: Flare
-          amount: 2
+        - id: WarningTapeRollSecurity
 
 - type: entity
   parent: CardboardBoxLargeCargo
@@ -100,3 +99,21 @@
           amount: 2
         - id: RagItem
         - id: WireBrush
+
+- type: entity
+  parent: CardboardBoxLargeInternals
+  id: CardboardBoxLargeInternalsFilled
+  name: small emergency breathing supplies box
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingOuterSuitEmergency
+          amount: 2
+        - id: DoubleEmergencyOxygenTankFilled
+          amount: 2
+        - id: DoubleEmergencyNitrogenTankFilled
+          amount: 1
+        - id: Flare
+          amount: 2

@@ -1,5 +1,5 @@
 - type: entity
-  parent: GasPipeBase
+  parent: GasPipeBaseNoRestrict # funky
   abstract: true
   id: GasUnaryBase
   placement:
@@ -19,6 +19,16 @@
           nodeGroupID: Pipe
           pipeDirection: South
     - type: CollideOnAnchor
+    - type: ContainerContainer # funky start
+      containers:
+        hidden_slot: !type:ContainerSlot
+    - type: ItemSlots
+      slots:
+        hidden_slot:
+          name: hidden_slot
+          whitelist:
+            tags:
+            - SurveillanceDevices # funky end
 
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]
@@ -233,7 +243,7 @@
         Tertiary: GasOutletInjectorAlt2
 
 - type: entity
-  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  parent: [ BaseMachinePowered, ConstructibleMachine, BaseConstructibleMachineDestructible ]
   id: BaseGasThermoMachine
   name: thermomachine
   abstract: true
@@ -264,7 +274,7 @@
       key: enum.ThermomachineUiKey.Key
     - type: WiresPanel
     - type: WiresVisuals
-    - type: PipeRestrictOverlap
+    # - type: PipeRestrictOverlap # funky gone
     - type: NodeContainer
       nodes:
         pipe:
@@ -408,7 +418,7 @@
     board: HellfireHeaterMachineCircuitBoard
 
 - type: entity
-  parent: [ SolutionTank, SolutionHuge, BaseMachinePowered, SmallConstructibleMachine ]
+  parent: [ SolutionTank, SolutionHuge, BaseMachinePowered, SmallConstructibleMachine, BaseSmallConstructibleMachineDestructible ]
   id: BaseGasCondenser
   name: condenser
   description: Condenses gases into liquids. Now we just need some plumbing.
@@ -465,8 +475,6 @@
         !type:DamageTrigger
         damage: 100
       behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
       - !type:SpillBehavior
         solution: tank
       - !type:PlaySoundBehavior

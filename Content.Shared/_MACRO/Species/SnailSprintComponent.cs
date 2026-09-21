@@ -1,4 +1,6 @@
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Nutrition.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -26,7 +28,7 @@ public sealed partial class SnailSprintComponent : Component
     ///     Minimum thirst threshold required to perform the action.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public ThirstThreshold MinThirstThreshold = ThirstThreshold.Okay;
+    public SatiationValue MinThirstThreshold = "Okay";
 
     /// <summary>
     ///     The amount of thirst to be taken at the end of the action.

@@ -1,0 +1,9 @@
+- type: satiation
+  parent: NormalSatiationThirst
+  id: OviniaSatiationThirst
+  baseChangeRate: -0.0083 # 1/2 as fast as a human
+
+- type: satiation
+  parent: NormalSatiationThirst
+  id: DecapoidSatiationThirst
+  baseChangeRate: 0

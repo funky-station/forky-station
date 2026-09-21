@@ -5,7 +5,7 @@
   description: A chessboard. Pieces included!
   components:
   - type: Sprite
-    sprite: Objects/Fun/Tabletop/chessboard.rsi
+    sprite: _Funkystation/Objects/Fun/Tabletop/chessboard.rsi # Funky
     state: chessboard
   - type: TabletopGame
     boardName: tabletop-chess-board-name

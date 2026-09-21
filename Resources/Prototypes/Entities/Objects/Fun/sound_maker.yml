@@ -1,3 +1,8 @@
+# When adding new sound makers, also add it to id: AllToySoundMakerTable
+# These entities exist to make a (funny) sound and not much else
+
+## Bike horns
+
 - type: entity
   parent: BaseItem
   id: BikeHorn
@@ -5,13 +10,13 @@
   description: A horn off of a bicycle.
   components:
   - type: Sprite
-    sprite: Objects/Fun/bikehorn.rsi
+    sprite: _Funkystation/Objects/Fun/bikehorn.rsi # Funky
     state: icon
   - type: Item
-    sprite: Objects/Fun/bikehorn.rsi
+    sprite: _Funkystation/Objects/Fun/bikehorn.rsi # Funky
     size: Tiny
   - type: Clothing
-    sprite: Objects/Fun/bikehorn.rsi
+    sprite: _Funkystation/Objects/Fun/bikehorn.rsi # Funky
     slots: [Belt]
     quickEquip: false
   - type: UseDelay
@@ -219,6 +224,9 @@
   - type: Whistle
     distance: 3
   - type: RMCWhistle
+  - type: Tag
+    tags:
+    - MonkeyWearable
 
 - type: entity
   parent: BaseWhistle

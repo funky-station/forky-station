@@ -1,0 +1,16 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+               MinSize="300 250"
+               SetSize="320 280"
+               Title="{Loc 'union-clipboard-add-note-window-title'}">
+    <BoxContainer Orientation="Vertical" Margin="4 4 4 4" VerticalExpand="True">
+        <LineEdit Name="TitleEdit" PlaceHolder="{Loc 'union-clipboard-add-note-title-placeholder'}" Margin="0 0 0 4" />
+        <PanelContainer VerticalExpand="True" Margin="0 0 0 4">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" BorderColor="#606060" BorderThickness="1" />
+            </PanelContainer.PanelOverride>
+            <TextEdit Name="TextEditBox" VerticalExpand="True" Margin="4 4 4 4" />
+        </PanelContainer>
+        <Button Name="SubmitButton" Text="{Loc 'union-clipboard-add-note-submit'}" HorizontalAlignment="Right" />
+    </BoxContainer>
+</DefaultWindow>

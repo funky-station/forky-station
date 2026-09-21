@@ -24,4 +24,12 @@ public sealed class ViewconeCCVars : CVars
     // whether mobs always rotate to face the mouse cursor
     public static readonly CVarDef<bool> AlwaysFaceCursor =
         CVarDef.Create("funkystation.always_face_cursor", false, CVar.SERVER | CVar.REPLICATED);
+
+    // disables the grainy static-y noise on the viewcone occlusion
+    public static readonly CVarDef<bool> DisableViewconeGrain =
+        CVarDef.Create("funkystation.disable_viewcone_grain", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    // 0-1, how much darker the viewcone occlusion overlay gets
+    public static readonly CVarDef<float> ViewconeOcclusionOpacity =
+        CVarDef.Create("funkystation.viewcone_occlusion_opacity", 0f, CVar.CLIENTONLY | CVar.ARCHIVE);
 }

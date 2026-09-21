@@ -21,3 +21,9 @@
 
 - type: playTimeTracker
   id: JobDispatcher
+
+- type: playTimeTracker
+  id: FuJobCourier
+
+- type: playTimeTracker
+  id: JobPrisoner

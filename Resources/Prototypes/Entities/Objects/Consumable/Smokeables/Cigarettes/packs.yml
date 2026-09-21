@@ -13,27 +13,27 @@
       visible: false
     - state: cig1
       map: ["cig1"]
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
+      sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi # Funky
       visible: false
     - state: cig2
       map: ["cig2"]
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
+      sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi # Funky
       visible: false
     - state: cig3
       map: ["cig3"]
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
+      sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi # Funky
       visible: false
     - state: cig4
       map: ["cig4"]
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
+      sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi # Funky
       visible: false
     - state: cig5
       map: ["cig5"]
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
+      sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi # Funky
       visible: false
     - state: cig6
       map: ["cig6"]
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
+      sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi # Funky
       visible: false
   - type: Tag
     tags:
@@ -88,27 +88,27 @@
       visible: false
     - state: cig1
       map: ["cig1"]
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
+      sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi # Funky
       visible: false
     - state: cig2
       map: ["cig2"]
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
+      sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi # Funky
       visible: false
     - state: cig3
       map: ["cig3"]
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
+      sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi # Funky
       visible: false
     - state: cig4
       map: ["cig4"]
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
+      sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi # Funky
       visible: false
     - state: cig5
       map: ["cig5"]
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
+      sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi # Funky
       visible: false
     - state: cig6
       map: ["cig6"]
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
+      sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi # Funky
       visible: false
   - type: Tag
     tags:
@@ -146,57 +146,57 @@
 - type: entity
   id: CigPackGreen
   parent: CigPackBase
-  name: Spessman's Smokes packet
-  description: A label on the packaging reads, Wouldn't a slow death make a change?
+  name: Interdyne Respirols packet # Funky
+  description: Respirols, an Interdyne brand that contains a heavy dose of bronchodilators. Healthy! # Funky
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/green.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/green.rsi # Funky
   - type: Item
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/green.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/green.rsi # Funky
 
 - type: entity
   id: CigPackRed
   parent: CigPackBase
-  name: DromedaryCo packet
-  description: The most popular brand of Space Cigarettes, sponsors of the Space Olympics.
+  name: Royal Reds packet # Funky
+  description: A premium blend of tobacco with a smooth, chocolate-y aftertaste. Elegant and renowned. # Funky
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/red.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/red.rsi # Funky
   - type: Item
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/red.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/red.rsi # Funky
 
 - type: entity
   id: CigPackBlue
   parent: CigPackBase
-  name: AcmeCo packet
-  description: For those who somehow want to obtain the record for the most amount of cancerous tumors.
+  name: Nomads packet # Funky
+  description: Packed with a tightly compressed, slow-curing tobacco blend designed to burn twice as long, Nomads are for the long haul. # Funky
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/blue.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/blue.rsi # Funky
   - type: Item
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/blue.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/blue.rsi # Funky
 
 - type: entity
   id: CigPackBlack
   parent: CigPackBase
-  name: Nomads packet
-  description: Nomads's extra strong, for when your life is more extra hard.
+  name: Ruĝa Stelo packet # Funky
+  description: A brand of cigarettes produced by the USP, extremely popular amongst military personnel. These are known to still burn bright even in the darkest, dampest trenches. # Funky
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/black.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/black.rsi # Funky
   - type: Item
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/black.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/black.rsi # Funky
 
 - type: entity
   id: CigPackSyndicate
   parent: [CigPackBase, BaseSyndicateContraband]
-  name: Interdyne herbals packet
+  name: Interdyne Redlines # Funky
   description: Elite cigarettes for elite syndicate agents. Infused with medicine for when you need to do more than calm your nerves.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/syndicate.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/syndicate.rsi # Funky
   - type: Item
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/syndicate.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/syndicate.rsi # Funky
   - type: EntityTableContainerFill
     containers:
       storagebase:
@@ -206,14 +206,14 @@
 - type: entity
   id: CigPackMixed
   parent: CigPackMixedBase
-  name: Dan's soaked smokes
+  name: Newstations packet # Funky
   suffix: Mixed
-  description: Dan worked with NT chemistry to dispose of excess chemicals, ENJOY.
+  description: In a recent public relations scandal, these menthol cigarettes were revealed to be intentionally laced with various chemicals by NanoTrasen. They were too popular to recall, though. # Funky
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/mixed.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/mixed.rsi # Funky
   - type: Item
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/mixed.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/mixed.rsi # Funky
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:NestedSelector

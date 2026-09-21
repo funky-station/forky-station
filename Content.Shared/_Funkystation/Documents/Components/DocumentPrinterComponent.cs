@@ -3,7 +3,6 @@ using Content.Shared.Tools;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Shared._Funkystation.Documents.Components;
 
@@ -16,31 +15,31 @@ public sealed partial class DocumentPrinterComponent : Component
     /// <summary>
     /// Document prototypes this specific printer entity can print
     /// </summary>
-    [DataField("availableDocuments", customTypeSerializer: typeof(PrototypeIdListSerializer<DocumentPrototype>))]
-    public List<string> AvailableDocuments = new();
+    [DataField]
+    public List<ProtoId<DocumentPrototype>> AvailableDocuments = new();
 
     /// <summary>
     /// Additional documents unlocked once this printer has been emagged
     /// </summary>
-    [DataField("emagDocuments", customTypeSerializer: typeof(PrototypeIdListSerializer<DocumentPrototype>))]
-    public List<string> EmagDocuments = new();
+    [DataField]
+    public List<ProtoId<DocumentPrototype>> EmagDocuments = new();
 
     /// <summary>
     /// Additional documents unlocked once the manager wire has been cut
     /// </summary>
-    [DataField("managerDocuments", customTypeSerializer: typeof(PrototypeIdListSerializer<DocumentPrototype>))]
-    public List<string> ManagerDocuments = new();
+    [DataField]
+    public List<ProtoId<DocumentPrototype>> ManagerDocuments = new();
 
     /// <summary>
     /// Delay between pressing print and the paper appearing
     /// </summary>
-    [DataField("printDelay")]
+    [DataField]
     public TimeSpan PrintDelay = TimeSpan.FromSeconds(4);
 
     /// <summary>
     /// Minimum time between separate print jobs on this printer
     /// </summary>
-    [DataField("printCooldown")]
+    [DataField]
     public TimeSpan PrintCooldown = TimeSpan.FromSeconds(6);
 
     /// <summary>
@@ -61,7 +60,7 @@ public sealed partial class DocumentPrinterComponent : Component
     [ViewVariables]
     public bool AccessBroken;
 
-    [DataField("printSound")]
+    [DataField]
     public SoundSpecifier PrintSound = new SoundPathSpecifier("/Audio/Machines/printer.ogg");
 
     /// <summary>

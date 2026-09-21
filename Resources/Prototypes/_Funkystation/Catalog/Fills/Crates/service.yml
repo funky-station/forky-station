@@ -44,3 +44,15 @@
     - id: MicroManipulatorStockPart
     - id: PaperShredderCircuitboard
     - id: ShredderBin
+
+# Laundry Bags
+- type: entity
+  id: BoxServiceLaundryBag
+  parent: CardboardBoxLarge
+  name: box of laundry bags
+  description: A cardboard box containing a handful of laundry bags.
+  components:
+  - type: StorageFill
+    contents:
+    - id: LaundryBag
+      amount: 7
