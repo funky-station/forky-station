@@ -1,0 +1,103 @@
+﻿- type: entity
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  id: PaperShredder
+  name: Model IPC-84 paper shredder
+  description: An old-but-gold design of shredder, the NanoTrasen "Integrated Paper Cutter" paper shredders may be slow, but they will efficiently atomize your sensitive documents.
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Transform
+    noRot: false
+  - type: Rotatable
+  - type: Sprite
+    sprite: _Funkystation/Structures/Machines/shredder.rsi
+    drawdepth: SmallObjects
+    layers:
+    - state: icon
+    - state: bin
+      visible: false
+      map: [ "enum.ShredderVisuals.BinPresent" ]
+    - state: icon-unshaded
+      shader: unshaded
+      visible: false
+      map: [ "enum.ShredderVisuals.Unshaded" ]
+    - state: shredding
+      visible: false
+      map: [ "enum.ShredderVisuals.VisualState" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.ShredderVisuals.Unshaded:
+          True: { visible: true }
+          False: { visible: false }
+      enum.ShredderVisuals.VisualState:
+        enum.ShredderVisuals.VisualState:
+          Shredding: { visible: true }
+          Idle: { visible: false }
+      enum.ShredderVisuals.BinPresent:
+        enum.ShredderVisuals.BinPresent:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Machine
+    board: PaperShredderCircuitboard
+  - type: ContainerContainer
+    containers:
+      Bin: !type:ContainerSlot
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: Shredder
+  - type: ItemSlots
+    slots:
+      Bin:
+        name: shredder-bin-slot-name
+        startingItem: ShredderBin
+        insertSound: /Audio/Machines/tray_eject.ogg
+        ejectSound: /Audio/Machines/tray_eject.ogg
+        whitelist:
+          tags:
+          - ShredderBin
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageOnInteract
+    damage:
+      types:
+        Slash: 5
+    popupText: shredder-interact-damage
+    interactSound: /Audio/Effects/saw.ogg
+    interactTimer: 2
+
+- type: entity
+  parent: PaperShredder
+  id: PaperShredderNoBin
+  suffix: No Bin
+  components:
+  - type: ItemSlots
+    slots:
+      Bin:
+        name: shredder-bin-slot-name
+        insertSound: /Audio/Machines/tray_eject.ogg
+        ejectSound: /Audio/Machines/tray_eject.ogg
+        whitelist:
+          tags:
+          - ShredderBin

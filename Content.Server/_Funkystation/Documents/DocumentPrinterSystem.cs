@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.Popups;
 using Content.Server.Tools;
+using Content.Shared._Starlight.DocumentManager;
 using Content.Shared.Access.Systems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
@@ -19,7 +20,6 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -30,7 +30,6 @@ namespace Content.Server._Funkystation.Documents;
 /// </summary>
 public sealed partial class DocumentPrinterSystem : EntitySystem
 {
-    [Dependency] private IPrototypeManager _proto = null!;
     [Dependency] private PaperSystem _paper = null!;
     [Dependency] private AccessReaderSystem _accessReader = null!;
     [Dependency] private UserInterfaceSystem _ui = null!;
@@ -44,6 +43,7 @@ public sealed partial class DocumentPrinterSystem : EntitySystem
     [Dependency] private ToolSystem _toolSystem = null!;
     [Dependency] private SharedDoAfterSystem _doAfter = null!;
     [Dependency] private PopupSystem _popup = null!;
+    [Dependency] private PreWrittenDocumentManager _documentManager = default!;
 
     private const string PaperSlotId = "Paper";
 
@@ -154,7 +154,7 @@ public sealed partial class DocumentPrinterSystem : EntitySystem
 
         foreach (var docId in GetActiveDocumentIds(uid, comp))
         {
-            if (!_proto.TryIndex<DocumentPrototype>(docId, out var doc))
+            if (!ProtoMan.TryIndex<DocumentPrototype>(docId, out var doc))
                 continue;
 
             var accessible = IsDocAccessible(comp, actor, doc);
@@ -230,7 +230,7 @@ public sealed partial class DocumentPrinterSystem : EntitySystem
         if (!GetActiveDocumentIds(uid, comp).Contains(msg.DocumentId))
             return;
 
-        if (!_proto.TryIndex<DocumentPrototype>(msg.DocumentId, out var doc))
+        if (!ProtoMan.TryIndex<DocumentPrototype>(msg.DocumentId, out var doc))
             return;
 
         if (!IsDocAccessible(comp, actor, doc))
@@ -256,8 +256,11 @@ public sealed partial class DocumentPrinterSystem : EntitySystem
                 return;
             }
 
+            if (!_documentManager.TryGetDocumentContents(doc.ContentFileName, out var contents))
+                return;
+
             var paper = Spawn(doc.PaperPrototype, coords);
-            _paper.SetContent(paper, Loc.GetString(doc.Content));
+            _paper.SetContent(paper, contents);
 
             _appearance.SetData(uid, DocumentPrinterVisuals.VisualState, DocumentPrinterVisualState.Normal);
         });

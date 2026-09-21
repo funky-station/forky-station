@@ -34,7 +34,7 @@
       behaviors:
       - !type:OpenBehavior
   - type: Item
-    sprite: Objects/Consumable/Food/snacks.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/snacks.rsi # Funky
     heldPrefix: packet
     size: Small
   - type: DamageOnLand
@@ -61,7 +61,7 @@
   - type: Sprite
     state: trash
   - type: Item
-    sprite: Objects/Consumable/Food/snacks.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/snacks.rsi # Funky
     heldPrefix: packet
     size: Small
   - type: PhysicalComposition

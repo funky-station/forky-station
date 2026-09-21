@@ -1,0 +1,24 @@
+﻿- type: entity
+  parent: BaseItem
+  id: UnionMegaphone
+  name: megaphone
+  description: A megaphone carried by union leaders to rally members and call strikes.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Tools/megaphone.rsi
+    state: icon
+  - type: Item
+    sprite: _Funkystation/Objects/Tools/megaphone.rsi
+    size: Small
+  - type: Megaphone
+  - type: UserInterface
+    interfaces:
+      enum.MegaphoneUiKey.Key:
+        type: MegaphoneBoundUserInterface
+
+- type: unionLeaderItemSet
+  id: unionItemSet
+  items:
+  - UnionMegaphone
+  - UnionClipboard
+  - Whistle

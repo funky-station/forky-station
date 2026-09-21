@@ -34,7 +34,7 @@
       prob: 0.7
     - id: ClothingBeltUtility
       prob: 0.2
-    - id: ClothingHandsGlovesColorYellow
+    - id: FuClothingHandsGlovesInsuls #Funky
       prob: 0.05
     - !type:GroupSelector
       prob: 0.4
@@ -51,6 +51,10 @@
         value: 3
     - id: SprayPainter
       prob: 0.7
+    - id: WarningTapeRollEngineering # funky
+      prob: 0.7
+    - id: ClothingHeadHatConeFull # funky
+      prob: 0.4
 
 - type: entity
   id: LockerElectricalSuppliesFilled
@@ -72,6 +76,10 @@
       prob: 0.05
     - id: APCElectronics
       prob: 0.1
+    - id: WarningTapeRollEngineering # funky
+      prob: 0.5
+    - id: ClothingHeadHatConeFull # funky
+      prob: 0.4
     - !type:GroupSelector
       prob: 0.5
       children:
@@ -153,10 +161,10 @@
     - id: ClothingHeadHelmetAtmosFire
     - id: GasAnalyzer
     - id: MedkitOxygenFilled
-    - id: HolofanProjector
-    - id: RPD
-    - id: RCDAmmo
+    # - id: HoloFanProjecter   removed in funky-station
+    - id: ConstructionChalkBox # Funnky
     - id: AirGrenade
+    - id: SuitSealantCanister # Funky
     - id: PlushieLizardJobAtmospherictechnician
       prob: 0.02
 
@@ -167,6 +175,7 @@
     - id: ClothingOuterHardsuitAtmos
     - id: OxygenTankFilled
     - id: ClothingMaskBreath
+    - id: SuitSealantCanister # Funky
 
 - type: entity
   id: LockerEngineerFilledHardsuit
@@ -196,11 +205,10 @@
   id: FillLockerEngineer
   table: !type:AllSelector
     children:
-    - id: ClothingHandsGlovesColorYellow
+    - id: FuClothingHandsGlovesInsuls #Funky
     - id: ClothingMaskGas
     - id: trayScanner
-    - id: RCD
-    - id: RCDAmmo
+    - id: ConstructionChalkBox # Funky
     - id: MetalFoamGrenade
     - id: PlushieLizardJobTechnicalassistant
       prob: 0.02
@@ -215,6 +223,7 @@
     - id: OxygenTankFilled
     - id: ClothingShoesBootsMag
     - id: ClothingMaskBreath
+    - id: SuitSealantCanister # Funky
 
 - type: entity
   id: ClosetRadiationSuitFilled
@@ -265,7 +274,7 @@
   table: !type:AllSelector
     children:
     - id: BoxInflatable
-    - id: HolofanProjector
+    # - id: HoloFanProjecter   removed in funky-station
     - id: MetalFoamGrenade
       amount: 3
     - id: AirGrenade

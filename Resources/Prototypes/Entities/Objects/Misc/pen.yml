@@ -5,10 +5,10 @@
   description: A dark ink pen.
   components:
   - type: Sprite
-    sprite: Objects/Misc/pens.rsi
+    sprite: _Funkystation/Objects/Misc/pens.rsi # Funky
     state: pen
   - type: Item
-    sprite: Objects/Misc/pens.rsi
+    sprite: _Funkystation/Objects/Misc/pens.rsi # Funky
     heldPrefix: pen
     size: Tiny
   - type: Tag

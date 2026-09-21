@@ -34,7 +34,6 @@
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
             #engineering (7)
-            AtmosphericTechnician: [ 3, 3 ]
             StationEngineer: [ 4, 4 ]
             TechnicalAssistant: [ 3, 3 ] #intern, not counted
             #medical (8)
@@ -53,7 +52,6 @@
             SecurityCadet: [ 4, 4 ] #intern, not counted
             Lawyer: [ 2, 2 ]
             #supply (6)
-            SalvageSpecialist: [ 3, 3 ]
             CargoTechnician: [ 3, 3 ]
             #civilian (3+)
             Passenger: [ -1, -1 ] #infinite, not counted
@@ -61,5 +59,4 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             #silicon (3)
-            StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]

@@ -1,0 +1,161 @@
+- type: entity
+  id: BorgModulePaperwork
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: paperwork cyborg module
+  description: A module that comes with all that is needed to handle, file, write and stamp paperwork.
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-paperwork
+  - type: ItemBorgModule
+    hands:
+    - item: Pen
+    - item: BoxFolderClipboardThreePapers
+    - item: Paper
+      hand:
+        emptyLabel: borg-slot-paperwork-empty
+        emptyRepresentative: Paper
+        whitelist:
+          tags:
+          - Document
+          - Paper
+    - item: RubberStampApproved
+    - item: RubberStampDenied
+    - item: HandLabeler
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: paperwork-module }
+
+- type: entity
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
+  id: BorgModuleSyndicateHacking
+  name: hacker cyborg module
+  description: A module that comes with an emag, for all your hacking needs.
+  components:
+    - type: Sprite
+      layers:
+      - state: syndicate
+      - state: icon-syndicate
+    - type: ItemBorgModule
+      hands:
+      - item: Emag
+    - type: BorgModuleIcon
+      icon: { sprite: Interface/Actions/actions_borg.rsi, state: syndicate-operative-module }
+      
+- type: entity
+  id: BorgModuleAnomalyAdvanced
+  parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
+  name: advanced anomaly cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: science
+    - state: icon-anomalies-advanced
+  - type: ItemBorgModule
+    hands:
+    - item: AnomalyScanner
+    - item: AnomalyLocatorUnpowered
+    - item: AnomalyLocatorWideUnpowered
+    - item: WeaponPistolCHIMPCyborg
+    - hand:
+        emptyRepresentative: SheetRGlass
+        emptyLabel: borg-slot-construction-empty
+        whitelist:
+          tags:
+          - ConstructionMaterial
+    - hand:
+        emptyRepresentative: SheetRPGlass
+        emptyLabel: borg-slot-construction-empty
+        whitelist:
+          tags:
+          - ConstructionMaterial
+    - item: Wrench
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: adv-anomaly-module }
+
+- type: entity
+  id: BorgModuleMedicalBasic
+  parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
+  name: basic topicals cyborg module
+  description: A generic borg module that allows for basic healing. Only fits on generic borgs.
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-treatment
+  - type: ItemBorgModule
+    hands:
+    - item: Gauze
+      hand:
+        emptyLabel: borg-slot-topicals-empty
+        emptyRepresentative: Gauze
+        whitelist:
+          components:
+          - Healing
+    - item: Brutepack
+      hand:
+        emptyLabel: borg-slot-topicals-empty
+        emptyRepresentative: Brutepack
+        whitelist:
+          components:
+          - Healing
+    - item: Ointment
+      hand:
+        emptyLabel: borg-slot-topicals-empty
+        emptyRepresentative: Ointment
+        whitelist:
+          components:
+          - Healing
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: treatment-module }
+
+- type: entity
+  id: BorgModuleChemicalBasic
+  parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
+  name: basic chemicals cyborg module
+  description: A generic borg module that allows for basic liquid handling. Only fits on generic borgs.
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-chemist
+  - type: ItemBorgModule
+    hands:
+    - item: Dropper
+    - item: Beaker
+      hand:
+        emptyLabel: borg-slot-chemical-containers-empty
+        emptyRepresentative: Beaker
+        whitelist:
+          components:
+          - FitsInDispenser
+          tags:
+          - ChemDispensable
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: chem-module }
+
+- type: entity
+  id: BorgModuleFoam
+  suffix: do not map
+  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  name: foam warrior cyborg module
+  description: For NT's strongest cyber warriors.
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-foam
+  - type: ItemBorgModule
+    hands:
+    - item: ToySword
+    - item: FoamCrossbowBorg
+    - item: GrenadeFoamDart
+      hand:
+        emptyLabel: borg-slot-foam-grenade-empty
+        emptyRepresentative: GrenadeFoamDart
+        whitelist:
+          tags:
+          - FoamGrenade
+
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: foam-module }

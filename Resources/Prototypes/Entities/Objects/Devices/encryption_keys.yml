@@ -7,9 +7,13 @@
   components:
   - type: EncryptionKey
   - type: Item
-    sprite: Objects/Devices/encryption_keys.rsi
+    sprite: _Funkystation/Objects/Devices/encryption_keys.rsi #funkystation
   - type: Sprite
-    sprite: Objects/Devices/encryption_keys.rsi
+    sprite: _Funkystation/Objects/Devices/encryption_keys.rsi #funkystation
+  # Funky changes start
+  - type: StaticPrice
+    price: 10
+  # Funky changes end
 
 - type: entity
   parent: EncryptionKey
@@ -32,8 +36,8 @@
 - type: entity
   parent: [ EncryptionKey, BaseCargoContraband ]
   id: EncryptionKeyCargo
-  name: cargo encryption key
-  description: An encryption key used by supply employees.
+  name: logistics encryption key #funky supply -> logistics rename
+  description: An encryption key used by logistics employees. #funky supply -> logistics rename
   components:
   - type: EncryptionKey
     channels:
@@ -61,6 +65,11 @@
     layers:
     - state: crypt_blue
     - state: nano_label
+  # Funky changes start
+  - type: ScoreThiefPriceModifier
+    reason: "scorethief-modifier-centcomm-comms"
+    multiplier: 1500
+  # Funky changes end
 
 - type: entity
   parent: [ EncryptionKey, BaseCentcommCommandContraband ]
@@ -78,11 +87,18 @@
     - Security
     - Service
     - Supply
+    - Emergency #funkystation
+    - InternalAffairs #funky
     defaultChannel: Command
   - type: Sprite
     layers:
     - state: crypt_gold
     - state: cap_label
+  # Funky changes start
+  - type: ScoreThiefPriceModifier
+    reason: "scorethief-modifier-command-comms"
+    multiplier: 400
+  # Funky changes end
 
 - type: entity
   parent: [ EncryptionKey, BaseCommandContraband ]
@@ -101,6 +117,11 @@
   - type: Tag
     tags:
     - EncryptionCommand
+  # Funky changes start
+  - type: ScoreThiefPriceModifier
+    reason: "scorethief-modifier-command-comms"
+    multiplier: 200
+  # Funky changes end
 
 - type: entity
   parent: [ EncryptionKey, BaseEngineeringContraband ]
@@ -204,6 +225,11 @@
   - type: Tag
     tags:
     - EncryptionSecurity
+  # Funky changes start
+  - type: ScoreThiefPriceModifier
+    reason: "scorethief-modifier-sec-comms"
+    multiplier: 100
+  # Funky changes end
 
 - type: entity
   parent: [ EncryptionKey, BaseCivilianContraband ]
@@ -268,7 +294,7 @@
   - type: Sprite
     layers:
     - state: crypt_red
-    - state: ai_label
+    - state: label-sinary #funkystation
   - type: StaticPrice
     price: 1000
 

@@ -1,0 +1,102 @@
+- type: loadoutGroup
+  id: FuMedicalDoctorHead
+  name: fu-loadout-group-medical-doctor-head
+  minLimit: 0
+  loadouts:
+  - FuMedScrubcapBlack
+  - FuMedScrubcapBlue
+  - FuMedScrubcapTeal
+  - FuMedFaceshield
+
+- type: loadoutGroup
+  id: FuMedicalDoctorOuterclothing
+  name: fu-loadout-group-chemist-outerclothing
+  minLimit: 0
+  loadouts:
+  - FuMedicalDoctorLabcoat
+  - FuMedicalDoctorWinterLabcoat
+
+- type: loadoutGroup
+  id: FuMedicalDoctorUniform
+  name: fu-loadout-group-medical-doctor-uniform
+  loadouts:
+  - FuMedScrubsBlue
+  - FuMedScrubsBlueSleeveless
+  - FuMedScrubsTeal
+  - FuMedScrubsTealSleeveless
+  - FuMedScrubsBlack
+  - FuMedScrubsBlackSleeveless
+  - FuDoctorDress
+  - FuDoctorDressStockings
+  - FuDoctorJumpsuit
+
+- type: loadoutGroup
+  id: FuChemistOuterclothing
+  name: fu-loadout-group-chemist-outerclothing
+  minLimit: 0
+  loadouts:
+  - FuChemistLabcoat
+  - FuChemistWinterLabcoat
+
+- type: loadoutGroup
+  id: FuChemistUniform
+  name: fu-loadout-group-chemist-uniform
+  loadouts:
+  - FuChemistDress
+  - FuChemistStockings
+  - FuChemistJumpsuit
+
+- type: loadoutGroup
+  id: FuChemistGloves
+  name: fu-loadout-group-chemist-gloves
+  minLimit: 0
+  loadouts:
+  - FuChemrubberGloves
+
+- type: loadoutGroup
+  id: FuChemistBoots
+  name: fu-loadout-group-chemist-boots
+  loadouts:
+  - FuChemistRubberBoots
+
+
+- type: loadoutGroup
+  id: FuCmoHead
+  name: fu-loadout-group-cmo-head
+  minLimit: 0
+  loadouts:
+  - FuMedScrubcapTeal
+  - FuMedFaceshield
+
+- type: loadoutGroup
+  id: FuCmoOuterclothing
+  name: fu-loadout-group-cmo-outerclothing
+  minLimit: 0
+  loadouts:
+  - FuCmoLabcoat
+  - FuCmoWinterLabcoat
+
+- type: loadoutGroup
+  id: FuCmoUniform
+  name: fu-loadout-group-cmo-uniform
+  loadouts:
+  - FuMedScrubsTeal
+  - FuMedScrubsTealSleeveless
+  - FuCmoDress
+  - FuCmoDressStockings
+  - FuCmoJumpsuit
+
+
+- type: loadoutGroup
+  id: FuMedicalInternHead
+  name: fu-loadout-group-medical-intern-head
+  minLimit: 1
+  loadouts:
+  - FuMedInternHat
+
+- type: loadoutGroup
+  id: FuMedInternUniform
+  name: fu-loadout-group-medical-intern-uniform
+  loadouts:
+  - FuMedInternDress
+  - FuMedInternJumpsuit

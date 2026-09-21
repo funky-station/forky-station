@@ -1,0 +1,4 @@
+﻿- type: sourcePort
+  id: PagerSender
+  name: signal-port-name-pager-sender
+  description: signal-port-description-pager-sender

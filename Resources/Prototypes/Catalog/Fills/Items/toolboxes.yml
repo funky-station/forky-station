@@ -10,8 +10,11 @@
         children:
         - id: CrowbarRed
         - id: RadioHandheld
+        - id: RadioHandheldEmergency #funkystation
+          prob: 0.5
         - id: WelderMini
         - id: FireExtinguisherMini
+        - id: SuitSealantCanister # Funky
         # Random lighting item GroupSelector
         - !type:GroupSelector
           children:
@@ -59,7 +62,7 @@
       prob: 0.9
     - !type:GroupSelector
       children:
-      - id: ClothingHandsGlovesColorYellow
+      - id: FuClothingHandsGlovesInsuls #Funky
         weight: 0.05
       - id: CableHVStack10
 
@@ -164,6 +167,7 @@
   suffix: Filled
   components:
   - type: EntityTableContainerFill
+    sort: true
     containers:
       storagebase: !type:NestedSelector
         tableId: FoolboxTable
@@ -210,7 +214,6 @@
       - id: EnergySword # ~1/1001
         weight: 0.001
     - !type:GroupSelector # Rarer clown tools
-      rolls: 2
       children:
       - !type:NestedSelector
         tableId: AllMiscToysTable
@@ -232,7 +235,6 @@
       - id: RubberStampCaptain # ~1/100
         weight: 0.2
     - !type:GroupSelector # Common clown consumables
-      rolls: 2
       children:
       - !type:NestedSelector
         tableId: SlipTable

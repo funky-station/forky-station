@@ -1,0 +1,378 @@
+#Submitted by Stabithar
+- type: entity
+  parent: BookBase
+  id: ZeroSumOdysseyVol1
+  name: "The Zero-Sum Odyssey Book One: Anodyne Trepidation"
+  description: A slice-of-life prelude to an action-adventure thriller.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#808080"
+    - state: decor_vertical_middle
+      color: "#6f2d80"
+    - state: decor_bottom
+      color: "#3a3a3a"
+    - state: icon_apple
+      color: "#ff0000"
+    - state: icon_biohazard
+      color: "#990033"
+    - state: icon_bucket
+    - state: icon_text3
+      color: "#d5dc1d"
+    - state: decor_spine
+      color: "#540f09"
+  - type: OocAuthorship
+    oocAuthor: Stabithar
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#134975'
+      stampedName: "NT APPROVED"
+    content: |2
+      [head=2]The Zero-Sum Odyssey[/head]
+      [head=3]Book One: Anodyne Trepidation[/head]
+      A book by Genevieve Blaine
+
+      ================================================
+      The following is a work of fiction. Any resemblance to any events or persons, living or dead, is entirely coincidental
+      ================================================
+
+      [italic]The newest entry in the bestselling Zero-Sum series! Meet the new and returning members of Cpt. Nichael Trace’s crew![/italic]
+
+      "...ani to front, please! Jani to front!"
+      Chunk Bulkslab, who had left the Gorilla-X Wreckers some time ago and was now a NanoTrasen janitor, started at the noise outside his janitor's station. He shook his head awake. [italic]Ugh, Sudden Sleep Disorder,[/italic] he thought, [italic]I hope NT finds a cure soon…[/italic]
+
+      Opening his door, he was greeted by the smiling face of Edison Opto, in his striking blue uniform. "Mail for you, Chunk!" he beamed, his outstretched hand holding a brown envelope bearing a green stamp. "Oh, uh, thanks," muttered Chunk blearily, "what could this be...?"
+      But as soon as the envelope had left his hand, Edison had saluted and jogged away, mailbag bouncing along with him. "Aww! NanoTraffen fwent me fome cookief!" Chunk exclaimed through the choc-chip in his mouth, spitting crumbs on the floor.
+
+      He swallowed and stood for a moment, before noticing the empty envelope for - apparently - the first time. "Oh shit! I got a job to do!"
+
+      In a whirl of activity he loaded up his janitorial trolley and stuffed the envelope into the trash bag. "Look out grime, it's cleaning time!" he boasted, posing dramatically.
+      He paused for a moment, and his shoulders fell slightly. "Hmm. Needs work." he mused.
+
+      Chunk barrelled through the hallway, sweeping up food wrappers and mopping up stains, until he skidded to a stop in front of the thaven Head of Personnel. Devotion smiled at him. "Mr. Bulkslab! Great to see you working with such gusto." Chunk returned his greeting with a somewhat lopsided salute, "Thank you, sir! I'm keen to clean!" He nodded to himself and rubbed his chin. [italic]Much better,[/italic] he thought.
+
+      But something that had been bothering him for a while wormed its way back into his self-satisfied glow: "Sir, how come the station's so messy?"
+      Devotion raised an eyebrow, "Are you not up to the task of cleaning it?" he asked.
+      "No, no, I just mean..." he stammered, "This is an NT station, right? So why is there all this trash and mess all over the place? I woulda thought they'd be more proud of their workplace."
+      Devotion cast his eyes upward in thought. "There may be any number of reasons. Currently, I believe it is due to the recent shift change - after all, accidents happen when people are in a hurry."
+      Chunk nodded slowly. This made sense. After all, he'd just dropped his envelope on the floor with the cookie crumbs, and that was before he was hurrying. He saluted - vigorously this time - and charged off in search of more messes.
+
+      He wouldn't have far to look. He heard a noise like "Wom" before he saw the slowly-expanding puddle on the floor, even before he noticed its source - a green floating..orb? It wasn't quite spherical enough for him to feel confident calling it an orb.
+      The scientist (a grey-furred vulpkanin named Selena Garo) manning the A.P.E. nearby noticed him approaching, mop raised, and quickly flagged him down before he got too close.
+      "Be careful!!" she yelled, "There could be all kinds of chemicals in here. Don't risk taking the mop to them!"
+      Chunk froze. He had no idea how to handle a puddle that couldn't be mopped. He started rummaging through his janitorial belt, but was interrupted again by the scientist.
+      "Wait.. there could be [italic]all kinds[/italic] of chemicals in there. Don't just drop a cleanade - we could probably use them! Go get a syringe from medical and slurp 'em up."
+      "Is that safe?" Chunk doubted.
+      "Safer than trying to mop it!" reassured Selena, tapping her forehead.
+      Chunk shrugged. This was, after all, outside his area of expertise. He started moseying towards the medical bay.
+
+      After explaining Selena's idea, there was little resistance from the chemist on duty. They even gave him an extra beaker - "in case you see a white puddle that looks soothing - that’s probably omnizine!" - but it wasn't going to be that easy.
+
+      A squelching noise caught Chunk's attention. He looked down and squinted - the yellow of his galoshes mixed with the yellow of the banana peel.
+      "Whoa, that could have been dangerous! The non-slip tech in my galoshes sure is something else." Chunk thought out loud, "Good thing I got here first!" he shoved the peel into his steadily-growing trash bag.
+      "Ekscussse me!!" came a shout from around the corner, "That wasss of critical importance for my act!"
+      It was Eats-Fruits-and-Leaves, the station's clown, her lurid blue skin still partially visible beneath her mask.
+      "Oh shit! Sorry, Fruity, I'll grab it back for you", Chunk apologised, handing over the peel from inside the trash bag.
+      "Retrieved? From inssside your garbage sssack?! Whereupon it wasss befoul'd? Besssmirched by the detritusss of the ssstation? No! That sssimply will not do - I need a fresssh one now."
+      She tossed the 'dirty' peel over her shoulder and began to storm off.
+
+      Chunk was crestfallen. "I was only trying--"
+      He was interrupted yet again, as Eats-Fruits' oversized shoes caught the peel and sent her flying. As laughter echoed around him, he realised that this was the clown's plan all along, and his horror turned to glee.
+      "Oh man, you super got me." he chuckled. He started to applaud, but the rustling of the trash bag in his hand reminded him he still had a job left to do.
+      "Duty calls, Fruits, and she’s not going to leave a voicemail."
+      “Oh, really?” quipped Eats-Fruits, “What’sss her NanoChat?” But Chunk was already hustling away.
+
+      By the time Chunk had reached the heterogenous pool, Selena was ruefully tapping the buttons on the A.P.E.
+      "Just in time, I guess!" Chunk bounded up enthusiastically.
+      Selena grimaced. "Not hardly. People have complained that the mess is taking up the whole corridor. I've had to decay the anomaly."
+      "Shit!" cried Chunk, "If only Eats-Fruits-and-Leaves hadn't waylaid me with her mischief!"
+      "Don't beat yourself up," she reassured, "We can always find a new anomaly, and you can't put a price on the entertainment value of a good clown."
+      Chunk pulled himself together, and with a wan smile replied "Yeah. Clowns are great."
+      "Clowns ARE great. Anyway, we still need to deal with the mess."
+      "Oh yeah! It’s slurpin’ time!"
+
+      It took him a while, but Chunk managed to suck up all the fluids that had been covering the floor and deposited them in his bucket.
+      "You're sure this is still good?" he asked.
+      "Perfectly fine. The ChemMasters here can even unscramble an egg!"
+      Just as Chunk filled the bucket with the last of the liquid, the anomaly faded with one final pulse, spitting a shiny chemical on the floor.
+      "I can't remember if that's the one they wanted separate…" mused Chunk.
+      Selena was preoccupied with the anomaly core. "Hm? Oh, probably. Need another container?"
+      "Nah," Chunk produced the beaker, "It’s already taken care of."
+
+      Having finally dealt with the mess, he started towards the medical bay but was interrupted again by a raspy voice from the Supply department.
+      "Over here, janitor! Chunk!" shrieked Riichinomi, "We've got a sticky situation for you"
+      Chunk wandered over, "Where's the puddle, sir?"
+      "Oh, not a puddle..." the vox Quartermaster hesitated. "See, all of my techs are busy generating value for NanoTrasen, and I need to be at the desk in case someone needs the department."
+      Chunk nodded. He’d been the beneficiary of their work already.
+      "But..." they swallowed. "Our salvage team hasn't reported in for a while. You've got experience with EVA and spaceflight. We need your help."
+      It was Chunk's turn to swallow nervously. "I, uh, wasn't very skilled last time I tried..."
+      "Don't worry! I'll be with you every step of the way." Riichinomi produced a handheld radio tuned to Supply frequencies. "You can do this. I believe in you."
+      Chunk took the radio hesitantly, then squared his jaw. "I’ll do it. I’ll get our guys."
+
+      ◄●●●►
+
+      [italic]To be continued in The Zero-Sum Odyssey Book Two: Crimson Redemption, hitting bookshelves soon![/italic]
+
+
+
+
+
+
+      .
+
+#Submitted by Stabithar
+- type: entity
+  parent: BookBase
+  id: ZeroSumOdysseyVol2
+  name: "The Zero-Sum Odyssey Book Two: Crimson Redemption"
+  description: The second book in the Zero-Sum Odyssey action-adventure trilogy.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#200104"
+    - state: decor_wingette
+      color: "#540f09"
+    - state: icon_atmos
+      color: "#000000"
+    - state: icon_eye
+    - state: icon_glow
+      color: "#ff0000"
+    - state: icon_text3
+      color: "#d5dc1d"
+    - state: decor_spine
+      color: "#540f09"
+  - type: OocAuthorship
+    oocAuthor: Stabithar
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#134975'
+      stampedName: "NT APPROVED"
+    content: |2
+      [head=2]The Zero-Sum Odyssey [/head]
+      [head=3]Book Two: Crimson Redemption[/head]
+      A book by Genevieve Blaine
+
+      ================================================
+      The following is a work of fiction. Any resemblance to any events or persons, living or dead, is entirely coincidental
+      ================================================
+
+      It didn’t take long for Riichinomi to get Chunk Bulkslab equipped for the rescue. The Quartermaster left him to get into the spare hardsuit while they added Salvage to Chunk’s ID, but he didn’t need the extra time. “It’s so roomy!” He said out loud to the docking bay, “Way more comfy than anything I wore in Gorilla-X.”
+
+      A raucous laugh echoed through the Cargo department. “Glad to hear it - but I’d keep that name under wraps. Don’t want to make anyone nervous.” The Quartermaster tossed Chunk’s modified ID towards him, where it bounced between his hands until he slotted it into his PDA.
+      “Uh, sir! Of course, sir.” He saluted, still holding his PDA. “Ow!”
+      “I don’t need the formality, Chunk. Oh, you’ll need this, too.” croaked the vox, before tapping a button on the Salvage vendor and offering the salvager-nee-janitor the item.
+      “What is it?” asked Chunk, turning over the cylinder - ridged along the sides, with a trigger-bearing handle on one end.
+      “Proto-Kinetic Accelerator”, replied Riichinomi, “It’s sort of a space gun.”
+      “Aw hell,” lamented Chunk, “I’m too overloaded to carry ammo!”
+      “Doesn’t need any. Recharges automatically.”
+      “Whoa. That’s so fucking future.”
+
+      “The console makes piloting the shuttle fairly simple,” explained Riichinomi over the radio after Chunk had boarded the cargo shuttle, “Think of it like walking, except with momentum and a bigger turning circle”
+      Chunk tapped some buttons on the console. “It’s not working?”
+      A cough came through the radio. “You, uh, need to undock from the station first - see the buttons in the interface?” A hissing noise came from the cargo bay airlocks. “Yeah, that. Head towards the ‘mining’ marker, it’s the salvage shuttle’s IFF designation”
+      “It looks like they’re next to a huge…lumpy thing?”
+      “That’s the VGRoid - they’ll have been mining the ironrock there. That’s good; it means they  haven’t gotten lost in space. Probably.” Riichinomi sounded relieved.
+
+      Chunk hunched over the console, staring at the mass scanner readout. At first, he was delicately pecking at the keys, the thrusters firing in brief bursts, but he quickly grew in confidence after finding it really was as easy as the Quartermaster had said.
+      The radio crackled to life again. “Okay, now here’s the tricky part. Try to dock with their shuttle, but remember that if you bump up against it before docking, it’ll cause problems. In space, there’s momentum but no friction - the inertial brake is going to be your best friend.”
+      Chunk froze - he wasn’t ready for such a test of his skills - but slowly, carefully nudged the two shuttles together until with a whirr-[italic]clunk[/italic] he was rewarded by the sound of successful docking.
+      “Fine work, Bulkslab!”
+      “Wait, sir, how did you know I managed it?”
+      “I told you, I’m not a ‘sir’. Anyway-”
+      “Umm… ma’am then?” Chunk interrupted.
+      The irony of interrupting someone in his rush to be polite was not lost on Riichinomi. They cackled.
+      “No titles, please. Anyway, I’ve got a shuttle console here. I was watching the whole time.”
+      “Wait - if you had access to a console from the start, how come I was the one driving?”
+      Chunk could hear the sly grin in the Quartermaster’s voice: “Maybe I was sure you could handle it if you put your mind to it, and if it ever got out of your hands, you’d still have a safety net - which, I might add, you never had cause to notice.”
+      “Si- I mean, ma-, I mean-” Chunk choked on his words. “Thank you.”
+      “I’ll take the cargo shuttle back once you’re safely on board ‘mining’. Good luck!”
+      Chunk retracted his helmet briefly to wipe a tear from his eye, and stepped onto the salvage shuttle.
+
+      His magboot landed with a squelch. Chunk looked down. The entire floor was covered in blood. Chunk yelped as he ran to and fro, but saw no salvager remains. What he did see was a selection of carp meat and offal. “Oh, right, they cut up the space-fish… and didn’t clean up afterwards.” Chunk muttered to himself as his eyes narrowed.
+      “Oh well, good thing I’m the one coming to the rescue!” Chunk’s attitude reversed as he primed a cleanade from his belt. As the space-cleaner foamed throughout the ship, he saw a pAI device on the dashboard.
+      “A pAI! And they left it behind…?”
+      The pAI blinked to life. “Observation: pAIs often take time to boot up. It is not out of the ordinary to leave an inert device behind.”
+      “Well, you’re un-inert now, so-OOF” Chunk slipped on the puddle the cleaner had produced in his hurry to reach the pAI.
+      “Advisory: Magboots’ stability-enhancing properties are non-functional unless activated.”
+      Chunk rubbed the back of his head. At least he wasn’t actually hurt. “Thanks… hey, do you think you could be a bit more, um, friendly?”
+      The pAI beeped. “Understood. Running sociability.aie. Initiating updog protocol.”
+      “Updog?” Chunk’s brow furrowed. “What’s ‘updog’?”
+      “Not much, what’s up with you?!!” The pAI sounded a trilling tone that could only have been its version of laughter.
+      Chunk joined in. “Oh, man, we’re going to get along great. But wait - this isn’t joking time, it’s rescue time!”
+      He took a deep breath, gritted his teeth, and stepped from the shuttle’s loading bay onto the pale gravel of the VGRoid.
+
+      Chunk hadn’t taken more than five steps before he could feel his breathing growing ragged. “Whoa, these magboots must be heavier than I thought…”
+      “Are you sure you brought oxygen with you?” queried the pAI
+      Chunk pouted. “You forget the tank one time and nobody lets you forget it around here, huh. Yes, I’ve got a full oh-two in the hardsuit.”
+      “And you remembered to activate your internal breathing apparatus?”
+      Chunk stopped in place, and quietly raised a finger to a switch near the suit’s neck joint. It clicked into position and his suit filled with a gaseous hiss.
+      Despite how much more breathable his internal air was, Chunk coughed. His pAI remained resolutely silent until they started walking again.
+      “You should probably be packin’ your PKA,” advised the device, “We don’t know what’s around the corners.”
+      Chunk quietly retrieved his weapon and touched the red rocks surrounding them. He swore he could feel a low rumble. “Do you think that’s what got the salvagers?”
+      The pAI buzzed. “We won’t know until we find them.”
+
+      They spent a while carefully making their way through the excavated tunnels that wound around chasing veins of ore like a snake from an old PDA game. But despite their caution, they were shocked when they peeked around a corner.
+      “What the FUCK is that?!” shouted Chunk, reflexively blasting a round from his PKA.
+      It was a mass of eyes and chitin, all burning a deep red that seemed to hate all intelligent life.
+      “That’s a goliath. We need to retreat and regroup.”
+      “More like retreat and re-go-somewhere-else!”
+      “We can’t do that. I saw a blue smear on the ground - that matches Augustus Atracidae’s blood.”
+      Chunk swore.
+      “Luckily, I have a plan,” the pAI continued, “You need to advance, fire, and retreat before it has a chance to use its tentacle attack.”
+      “Tentacle attack?! This keeps getting better…” But Chunk knew he didn’t have a choice - the salvagers were in a much worse situation. He followed the plan.
+      The first shot went wide, too wide. “This thing’s a piece of junk! It doesn’t even shoot where I point!” complained Chunk.
+      “Try holding it with both hands!” urged the pAI.
+      Chunk raised an eyebrow, but raised his left hand up to steady the device as he ran in for his next shot.
+      “Whoa, that’s so much better! And I’ve got time to line up every single shot; I don’t just hafta spray on full-auto!”
+      A beep came from the pAI - it agreed.
+
+      The plan worked, up to a point. But despite the improved accuracy, the two moving bodies meant that few of the bolts met their mark.
+      “Shit, this is taking forever. I need to get in closer. The tentacles can’t be that bad” Chunk started his advance.
+      “I really don’t think you should do that,” cautioned the pAI, “They’ll trip you; you’ll be a sitting duck for its deadly slam attack.”
+      “Oh, is that all?” Chunk quipped, rushing towards the monster, “I’ve got my magboots! I don’t need to worr-URGH”
+      Chunk’s helmet slammed into the dirt. “They’ll only stop you from slipping! They can’t help you if you’re physically pulled to the ground!” explained the pAI, as the goliath advanced.
+      Just as the pAI had said, Chunk could only watch in horror as the monster’s huge bulk collided, slammed, crashed into his body.
+
+      He managed to scramble to his feet and run past it, toward the relative safety of a half-built fence.
+      “Sh-shit-t, that’s MY blood,” he gasped, seeing the steadily-growing pool at his feet. He rummaged in his backpack for his emergency med-pen and jabbed it into a port on his hardsuit designed for that purpose.
+      Though Chunk’s head was swimming, the adrenaline and epinephrine made him fixate on a tiny detail. “Hey wait, where did my blood come from? Aren’t these supposed to be airtight?”
+      “Imagine if they weren’t,” explained his pAI, “have you ever worn wet socks? Imagine that all over. There’s a double-osmosis membrane incorporated.”
+
+      The calm, melodic voice brought Chunk back to the present. “Right. Okay. Now, it’s personal.”
+      He reflexively moved his hand to cock the PKA (though it didn’t need it), only to find his hands empty. It had been knocked to the floor with him back past the goliath.
+      “Shit.”
+
+      ◄●●●►
+
+      [italic]Don't miss the thrilling conclusion in The Zero-Sum Odyssey Book Three: Desolation's Knell![/italic]
+
+      “To NanoTrasen!!” came the reply from the crew and the erstwhile Nukie.
+
+      ◄●●●►
+
+      Captain Nichael Trace and his crew will return in: The Zero-Sum Gambit series, available available soon from authorised NanoTrasen retailers.
+
+
+
+
+
+
+      .
+
+#Submitted by Stabithar
+- type: entity
+  parent: BookBase
+  id: ZeroSumOdysseyVol3
+  name: "The Zero-Sum Odyssey Book Three: Desolation’s Knell"
+  description: The thrilling conclusion to the Zero-Sum Odyssey action-adventure trilogy.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#110f40"
+    - state: icon_mount
+      color: "#110f40"
+    - state: icon_cabbage
+      color: "#ff0000"
+    - state: icon_biohazard
+      color: "#fe6905"
+    - state: icon_glow
+      color: "#fed500"
+    - state: icon_text3
+      color: "#d5dc1d"
+    - state: decor_spine
+      color: "#540f09"
+  - type: OocAuthorship
+    oocAuthor: Stabithar
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#134975'
+      stampedName: "NT APPROVED"
+    content: |2
+      [head=2]The Zero-Sum Odyssey [/head]
+      [head=3]Book Three: Desolation’s Knell[/head]
+      A book by Genevieve Blaine
+
+      ================================================
+      The following is a work of fiction. Any resemblance to any events or persons, living or dead, is entirely coincidental
+      ================================================
+
+      Chunk Bulkslab - stranded on the VGRoid on a mission to rescue the station’s salvagers -  crept along the path he had taken fleeing from the goliath. His hiding place seemed to be at the end of a short tunnel that had split off the main shaft - where he assumed the salvagers he was here to rescue were. But the goliath resolutely blocked his path both in and out.
+
+      He retreated to the deepest part of his lair, and began unpacking his backpack - searching for something that could get him past the goliath. The survival kit? No, he’d already used the emergency med-pen, and he doubted the creature needed water or oxygen. The survival knife? No way, getting close up almost got him killed. The radio? Chunk stared at in horror, realising it had been transmitting the whole time. [italic]Boss must have cleared the whole channel, just so I could screw it up here,[/italic] he thought in despair. Finally, he pulled out the chemicals he’d taken from the anomaly. “I never got the chance to deliver these…” he mumbled.
+      “Chunk?” beeped the pAI, “Why do you have a beaker of potassium?”
+      “It’s not omnizine? Fuck, I can’t even do that right!” Chunk howled.
+      “No, no, that’s perfect! Do you have any space cleaner?”
+      “Uh, of course? I never leave my post without it.” Chunk was confused, but some of his pride had returned to his voice.
+      “Great! Okay, so what you want to do is…”
+
+      Just as the pAI had described, Chunk emptied one of the space cleaner bottles into the large beaker, and gingerly stalked toward the goliath. When it had just barely come into view he gritted his teeth and urged himself forward. One step, two…
+      “Now!” sounded the pAI, and Chunk hurled the beaker with all his strength at the beast. A direct hit!
+      As the beaker shattered, spilling its contents on the astro-sand, the pAI watched as the intelligent molecules in the space cleaner kicked in, reducing the potassium it touched to plain water. As this newly-minted water touched the rest of the potassium, it burst into flame, exposing more of the potassium to the cleaner - causing a chain reaction that engulfed the goliath in flames.
+      All Chunk saw was a solid wall of yellow-orange light.
+
+      When the flames subsided, the goliath’s flesh had burned away, leaving a dark cavity in the centre of its chitin. Chunk kicked it.
+      “You know, goliaths have several useful components for salvagers…” the pAI started suggesting.
+      “I’m not here for prizes, I’m here for [italic]revenge.[/italic]” Chunk paused. “Wait, I finished the revenge, I’m here for [italic]rescue.[/italic]”
+
+      A short trek punctuated by an occasional bloodstain brought the pair to a metal structure embedded in the rock. They’d found them - Augustus Atracidae and Bantamweight Beatrix, the two missing salvagers!
+
+      “It looks like they’re still breathing…” murmured Chunk, “and I can’t see any wounds…”
+      “We should take them back to the ship - check them out clearer in atmo.” noted the pAI.
+      “And drag both of them all the way back?” Chunk looked pained.
+      “It’s a bit of a squeeze, but they should both fit into the crate.” The pAI indicated a steel crate with some miscellaneous scrap loaded.
+
+      The lid wasn’t exactly secured, but it was enough to hold the bodies as they went back to the mining shuttle. Once aboard, Chunk radioed back to Riichinomi, the Quartermaster who had assigned him this duty. “Nice, Chunk! Check them out and RTB, got it?” they instructed.
+
+      Chunk approached Augustus, and hesitantly removed the seal on his spationaut hardsuit helmet.
+      Instantly, Chunk was assaulted by a foul miasma. It resembled cut grass, in the same way rotten dog food resembled a fine steak. It was all too familiar to him.
+      “Interdyne Herbals. Yeuch.” He scowled. He’d hoped never to come across that stench after leaving Gorilla-X, where most of the operatives chain-smoked them.
+      “Bro…” came Augustus’ quiet voice, straining with the effort of forming words, “Why’d you bogus my hotbox, bro…?”
+      “Maybe because your friends on the station were worried about you?!” Chunk was incredulous.
+      He opened Beatrix’ helmet as well, who coughed - spilling a handful of butts onto the shuttle floor.
+      “These are illegal contraband in NanoTrasen space.” supplied the pAI.
+      “Yeah - and for good reason!” Chunk fumed.
+      But all Augustus could manage was a kind of wobbly shrug, before trying to find a last cigarette in the pack, failing, and falling asleep.
+
+      Riichinomi met Chunk at the salvage dock. They clapped as Chunk, wearing a mask of disgust, dragged the salvagers’ crate on board the station. “Don’t worry about them,” they screeched, “They can go sleep it off in the brig. You, though…” Riichinomi’s raucous tone softened, as he looked at Chunk with warmth in his eyes, “Great work, Chunk. I always knew you could do it.”
+      Chunk moved to salute the Quartermaster, but paused, and shared a hug with them instead.
+
+      ◄●●●►
+
+      It was some time later. The Command team had met in the conference room for drinks and debriefing.
+      “What did you say you called this?” asked Captain Nichael Trace, to Devotion, his thaven Head of Personnel.
+      “A ‘Fever Dream’, sir.” came the reply, the quotation marks audible.
+      “It’s good - where did you learn how to make it?”
+      Devotion raised an eyebrow. “I was not always a Head, you know.”
+      “Well, cheers, then. Enjoy your plain water.”
+      “I do not recall saying it was ‘plain’.” retorted Devotion with the tiniest of smirks.
+      Nichael bemusedly waited for Devotion to elaborate. He refused.
+
+      The doors opened.
+      “Ah, Riich’. Good of you to join us!” grinned the captain, “Pull up a chair, and a drink.”
+      But before the quartermaster could relax, he continued. “Now, I’d like to talk about the salvage situation.”
+      Riichinomi looked over at Captain Trace. He still wore his bright, easygoing smile, but his blue eyes flashed with the icy chill of a captain who was worried his crew was in danger.
+      “W-well… I already knew the salvagers weren’t in imminent peril - Doc let me know how they were from the crew monitor” Riichinomi raised his bottle at The Causes of Nature, CMO, who rustled in acknowledgment.
+      “And, even if something did happen to the lad, we had two experienced crewmates on the scene, well, close enough to the scene.” They shuddered. Even knowing they had the right of it, Captain Trace’s steely gaze made their blood run cold.
+      “So!” replied the captain, “What would you say, then, if I suggested you dragged our poor janitor into this whole situation, just to boost his career possibilities and give him more confidence…?”
+      Riichinomi caught the tiniest gleam in their captain’s eyes. “Well,” they shrieked, opening their beer, “I’d say it worked, didn’t it!”
+      The conference room burst into laughter.
+
+      ◄●●●►
+
+      [italic]Look for the next entry in the Zeroverse - The Zero-Sum Prophecy - available soon at all NanoTrasen-approved retailers![/italic]
+
+
+
+
+
+
+      .

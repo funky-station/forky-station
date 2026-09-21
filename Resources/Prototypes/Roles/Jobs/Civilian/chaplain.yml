@@ -5,7 +5,7 @@
   playTimeTracker: JobChaplain
   startingGear: ChaplainGear
   icon: "JobIconChaplain"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-hd # funky
   access:
   - Chapel
   - Maintenance
@@ -18,7 +18,7 @@
   id: ChaplainGear
   equipment:
     shoes: ClothingShoesColorBlack
-    id: ChaplainPDA
+    id: ChaplainWallet # Funky: the wallet-ening
     ears: ClothingHeadsetService
   storage:
     back:

@@ -21,7 +21,6 @@ public abstract partial class SharedDuoEmoteSystem : EntitySystem
     [Dependency] private SharedPopupSystem _popup = null!;
     [Dependency] protected  SharedInteractionSystem _interaction = null!;
     [Dependency] private SharedTransformSystem _transform = null!;
-    [Dependency] protected IPrototypeManager _prototype = null!;
 
     public override void Initialize()
     {
@@ -77,7 +76,7 @@ public abstract partial class SharedDuoEmoteSystem : EntitySystem
         if (initiator.Comp.Active || target.Comp.Active)
             return;
 
-        if (!_prototype.TryIndex(emoteId, out var proto))
+        if (!ProtoMan.TryIndex(emoteId, out var proto))
             return;
 
         if (proto.RequireTail)
@@ -120,7 +119,7 @@ public abstract partial class SharedDuoEmoteSystem : EntitySystem
         var partnerUid = partner.Owner;
         var emoteId = initiator.Comp.EmoteId;
 
-        if (emoteId == null || !_prototype.TryIndex(emoteId.Value, out var proto))
+        if (emoteId == null || !ProtoMan.TryIndex(emoteId.Value, out var proto))
         {
             CancelDuoEmote(initiator);
             CancelDuoEmote(partner);

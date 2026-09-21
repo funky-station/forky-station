@@ -1,12 +1,15 @@
+using Content.Shared.Atmos;
 using Content.Server.Atmos.EntitySystems;
+using Robust.Shared.Audio.Systems;
 using Content.Server.Body.Systems;
-using Content.Shared.Chemistry.EntitySystems;
-using Content.Server.Forensics;
 using Content.Shared.Body.Components;
+using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.FixedPoint;
+using Content.Shared.Forensics.Systems;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
@@ -14,9 +17,12 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Smoking;
 using Content.Shared.Temperature;
 using Robust.Server.GameObjects;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Content.Shared.Atmos;
+using Content.Shared._Funkystation.CCVar; // Funky
+using Robust.Shared.Configuration; // Funky
+using Content.Shared.Chemistry.Components; // Funky
+using Robust.Shared.Prototypes; // Funky
+using Content.Shared.Chemistry.Reagent; // Funky
 
 namespace Content.Server.Nutrition.EntitySystems
 {
@@ -34,6 +40,10 @@ namespace Content.Server.Nutrition.EntitySystems
         [Dependency] private SharedContainerSystem _container = default!;
         [Dependency] private SharedAppearanceSystem _appearance = default!;
         [Dependency] private ForensicsSystem _forensics = default!;
+        [Dependency] private IConfigurationManager _cfg = default!; // Funky
+
+        // Funky Station change: smoking causes cancer
+        private readonly ProtoId<ReagentPrototype> _carcinotoxin = "Carcinotoxin"; // Funky
 
         private const float UpdateTimer = 3f;
 
@@ -158,6 +168,17 @@ namespace Content.Server.Nutrition.EntitySystems
 
                 _reactiveSystem.DoEntityReaction(containerManager.Owner, inhaledSolution, ReactionMethod.Ingestion);
                 _bloodstreamSystem.TryAddToBloodstream((containerManager.Owner, bloodstream), inhaledSolution);
+
+                // BEGIN FUNKY STATION
+                // If the CVar is enabled, add carcinogens to the bloodstream
+                if (_cfg.GetCVar(SmokingCancerCVars.Cancer))
+                {
+                    Solution tempCarcinotoxinSolution = new Solution(_carcinotoxin, 0.07f);
+
+                    _bloodstreamSystem.TryAddToBloodstream((containerManager.Owner, bloodstream), tempCarcinotoxinSolution);
+                }
+                // END FUNKY STATION
+
             }
 
             _timer -= UpdateTimer;

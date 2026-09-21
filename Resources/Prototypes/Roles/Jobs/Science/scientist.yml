@@ -6,7 +6,8 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science
-      time: 2.5h
+      #time: 2.5h
+      time: 4h # Funky
   startingGear: ScientistGear
   icon: "JobIconScientist"
   supervisors: job-supervisors-rd
@@ -17,6 +18,7 @@
 - type: startingGear
   id: ScientistGear
   equipment:
+    id: ScienceWallet # Funky: the wallet-ening, also removing the loadout choice for senior stuff
     ears: ClothingHeadsetScience
   #storage:
     #back:
