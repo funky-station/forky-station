@@ -7,32 +7,18 @@
     "copyright": "mkanke for funkystation",
     "states": [
         {"name": "frame",
-            "directions": 1,
-            "delays": [
-                [1.0]
-            ]
+            "directions": 4
         },
         {
             "name": "frame_cables",
-            "directions": 1,
-            "delays":
-            [
-                [1.0]
-            ]
+            "directions": 4
         },
         {
             "name": "frame_electronics",
-            "directions": 1,
-            "delays": [
-                [
-                1.0]
-            ]
+            "directions": 4
         },
         {"name": "frame_unit",
-            "directions": 1,
-            "delays": [
-            [1.0]
-        ]
+            "directions": 4
         }
     ]
 }
