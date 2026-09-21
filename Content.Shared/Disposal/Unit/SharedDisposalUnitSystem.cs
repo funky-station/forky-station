@@ -326,13 +326,13 @@ public abstract partial class SharedDisposalUnitSystem : EntitySystem
             switch (xform.LocalRotation.GetCardinalDir())
             {
                 case Direction.East:
-                    offset =  new Vector2(1, 0);
+                    offset =  new Vector2(-1, 0);
                     break;
                 case Direction.South:
                     offset = new Vector2(0, 1);
                     break;
                 case Direction.West:
-                    offset = new Vector2(-1, 0);
+                    offset = new Vector2(1, 0);
                     break;
                 case Direction.North:
                     offset = new Vector2(0, -1);
