@@ -85,7 +85,7 @@ public sealed partial class CCVars
 
     /// <summary>
     /// Whether to use custom interaction outline colors, as defined by
-    /// <see cref="CustomValidInteractionOutlineColor"/> and <see cref="CustomInvalidInteractionOutlineColor"/>.
+    /// <see cref="ValidInteractionOutlineColor"/> and <see cref="InvalidInteractionOutlineColor"/>.
     /// </summary>
     public static readonly CVarDef<bool> UseCustomInteractionOutlineColors = CVarDef.Create(
         "interaction.outline.use_custom_colors", false, CVar.CLIENTONLY | CVar.ARCHIVE);
@@ -94,13 +94,13 @@ public sealed partial class CCVars
     /// The color of the outline for objects in-range of interaction.
     /// </summary>
     // default colors based on Resources/Prototypes/Shaders/outline.yml
-    public static readonly CVarDef<string> CustomValidInteractionOutlineColor = CVarDef.Create(
+    public static readonly CVarDef<string> ValidInteractionOutlineColor = CVarDef.Create(
         "interaction.outline.in_range_color", "#00FF0055", CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
     /// The color of the outline for objects out-of-range of interaction.
     /// </summary>
     // default colors based on Resources/Prototypes/Shaders/outline.yml
-    public static readonly CVarDef<string> CustomInvalidInteractionOutlineColor = CVarDef.Create(
+    public static readonly CVarDef<string> InvalidInteractionOutlineColor = CVarDef.Create(
         "interaction.outline.out_of_range_color", "#FF000055", CVar.CLIENTONLY | CVar.ARCHIVE);
 }

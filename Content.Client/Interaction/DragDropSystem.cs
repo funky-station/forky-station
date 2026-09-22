@@ -49,6 +49,7 @@ public sealed partial class DragDropSystem : SharedDragDropSystem
     [Dependency] private SharedTransformSystem _transformSystem = default!;
     [Dependency] private SpriteSystem _sprite = default!;
     [Dependency] private EntityQuery<SpriteComponent> _spriteQuery = default!;
+    [Dependency] private OutlineColorManager _outlineColorManager = null!;
 
     private ISawmill? _dragDropSawmill; // funky
 
@@ -463,8 +464,7 @@ public sealed partial class DragDropSystem : SharedDragDropSystem
             var shader = valid.Value ? _dropTargetInRangeShader! : _dropTargetOutOfRangeShader!;
 
             // funky start
-            if (OutlineColor.TryGetCustomOutlineColor(valid.Value, out var color, _cfgMan, _dragDropSawmill) || color != default)
-                shader.SetParameter("outline_color", color);
+            shader.SetParameter("outline_color", _outlineColorManager.GetOutlineColor(valid.Value));
             // funky end
 
             // highlight depending on whether its in or out of range

@@ -33,6 +33,7 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
     [Dependency] private IStateManager _stateManager = default!;
     [Dependency] private IUserInterfaceManager _uiManager = default!;
     [Dependency] private SharedInteractionSystem _interactionSystem = default!;
+    [Dependency] private OutlineColorManager _outlineColorManager = null!;
 
     [Dependency] private EntityQuery<InteractionOutlineComponent> _outlineQuery;
     [Dependency] private EntityQuery<SpriteComponent> _spriteQuery;
@@ -248,11 +249,6 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
             return;
         }
 
-        // funky start
-        if (OutlineColor.TryGetCustomOutlineColor(inInteractionRange, out var outlineColor, _configManager, _interactionOutlineSawmill) || outlineColor != default)
-            shader.SetParameter("outline_color", outlineColor);
-        // funky end
-
         _sprite.SetPostShader((uid, sprite), new SpriteComponent.PostShaderArgs(ContentPostShaderIds.InteractionOutline, shader)
         {
             After = ContentPostShaderIds.AfterBaseEffects,
@@ -267,6 +263,7 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
             : _shaderOutOfRange ??= _prototype.Index(ShaderOutOfRange).InstanceUnique();
 
         shader.SetParameter("outline_width", DesiredOutlineThickness);
+        shader.SetParameter("outline_color", _outlineColorManager.GetOutlineColor(inRange)); // funky
         return shader;
     }
 

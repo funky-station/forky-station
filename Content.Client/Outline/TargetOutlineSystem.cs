@@ -31,6 +31,7 @@ public sealed partial class TargetOutlineSystem : EntitySystem
     [Dependency] private EntityQuery<SpriteComponent> _spriteQuery = default!;
     [Dependency] private SpriteSystem _sprite = default!;
     [Dependency] private IConfigurationManager _cfg = null!; // funky
+    [Dependency] private OutlineColorManager _outlineColorManager = null!; // funky
 
     private ISawmill? _targetOutlineSawmill; // funky
 
@@ -184,8 +185,7 @@ public sealed partial class TargetOutlineSystem : EntitySystem
             var shader = valid ? _shaderTargetValid! : _shaderTargetInvalid!;
 
             // funky start
-            if (OutlineColor.TryGetCustomOutlineColor(valid, out var color, _cfg, _targetOutlineSawmill) || color != default)
-                shader.SetParameter("outline_color", color);
+            shader.SetParameter("outline_color", _outlineColorManager.GetOutlineColor(valid));
             // funky end
 
             // highlight depending on whether its in or out of range
