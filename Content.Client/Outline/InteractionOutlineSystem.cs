@@ -33,7 +33,7 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
     [Dependency] private IStateManager _stateManager = default!;
     [Dependency] private IUserInterfaceManager _uiManager = default!;
     [Dependency] private SharedInteractionSystem _interactionSystem = default!;
-    [Dependency] private OutlineColorManager _outlineColorManager = null!;
+    [Dependency] private InteractionOutlineColorManager _interactionOutlineColorManager = null!;
 
     [Dependency] private EntityQuery<InteractionOutlineComponent> _outlineQuery;
     [Dependency] private EntityQuery<SpriteComponent> _spriteQuery;
@@ -45,8 +45,6 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
     private ShaderInstance? _shaderOutOfRange;
 
     private const float DesiredOutlineThickness = 1f;
-
-    private ISawmill? _interactionOutlineSawmill; // funky
 
     /// <summary>
     ///     Whether to currently draw the outline. The outline may be temporarily disabled by other systems
@@ -73,8 +71,6 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
 
         Subs.CVar(_configManager, CCVars.OutlineEnabled, SetCvarEnabled);
         UpdatesAfter.Add(typeof(SharedEyeSystem));
-
-        _interactionOutlineSawmill = LogManager.GetSawmill("interaction_outline"); // funky
     }
 
     [SubscribeLocalEvent]
@@ -263,7 +259,7 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
             : _shaderOutOfRange ??= _prototype.Index(ShaderOutOfRange).InstanceUnique();
 
         shader.SetParameter("outline_width", DesiredOutlineThickness);
-        shader.SetParameter("outline_color", _outlineColorManager.GetOutlineColor(inRange)); // funky
+        shader.SetParameter("outline_color", _interactionOutlineColorManager.GetOutlineColor(inRange)); // funky
         return shader;
     }
 

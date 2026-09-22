@@ -3,7 +3,7 @@ using Robust.Shared.Configuration;
 
 namespace Content.Client.Outline;
 
-public sealed partial class OutlineColorManager : IPostInjectInit
+public sealed partial class InteractionOutlineColorManager : IPostInjectInit
 {
     [Dependency] private IConfigurationManager _cfg = null!;
     [Dependency] private ILogManager _logManager = null!;
