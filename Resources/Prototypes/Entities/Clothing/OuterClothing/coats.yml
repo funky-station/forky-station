@@ -25,6 +25,11 @@
         children:
         - id: SmokingPipeFilledTobacco
         - id: FlippoEngravedLighter
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: [ClothingOuterCoatDetectiveLoadout]
@@ -156,6 +161,11 @@
     modifiers:
       coefficients:
         Slash: 0.95
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
