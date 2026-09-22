@@ -42,7 +42,7 @@ public sealed partial class ShredderSystem : EntitySystem
 
     private void OnComponentInit(EntityUid uid, ShredderComponent comp, ComponentInit args)
     {
-        if (TryComp<ItemSlotsComponent>(uid, out var itemSlots) && _itemSlots.TryGetSlot(uid, BinSlotId, out var slot, itemSlots))
+        if (TryComp<ItemSlotsComponent>(uid, out var itemSlots) && _itemSlots.TryGetSlot((uid, itemSlots), BinSlotId, out var slot))
             comp.BinSlot = slot;
 
         if (!TryComp<ApcPowerReceiverComponent>(uid, out var receiver))
@@ -57,7 +57,7 @@ public sealed partial class ShredderSystem : EntitySystem
             return;
 
         var hasItem = TryComp<ItemSlotsComponent>(uid, out var itemSlots)
-            && _itemSlots.TryGetSlot(uid, BinSlotId, out var slot, itemSlots)
+            && _itemSlots.TryGetSlot((uid, itemSlots), BinSlotId, out var slot)
             && slot.HasItem;
 
         _appearance.SetData(uid, ShredderVisuals.BinPresent, hasItem);

@@ -1,7 +1,7 @@
 - type: entity
   abstract: true
+  parent: [ BaseMachinePowered, StructureHealthMachineWeak ]
   id: DisposalUnitBase
-  parent: BaseMachinePowered
   description: A pneumatic waste disposal unit.
   placement:
     mode: SnapgridCenter
@@ -20,12 +20,12 @@
   - type: Climbable
     vaultable: false
   - type: Sprite
-    sprite: Structures/Piping/disposal.rsi
+    sprite: _Funkystation/Structures/Piping/disposal.rsi
     layers:
     - map: [ "enum.DisposalUnitVisualLayers.Base" ]
       state: disposal
     - map: [ "enum.DisposalUnitVisualLayers.OverlayFlushing" ]
-      state: disposal
+      state: disposal-flush
       visible: false
     - map: [ "enum.DisposalUnitVisualLayers.OverlayCharging" ]
       state: dispover-ready
@@ -85,14 +85,14 @@
         - MachineMask
         layer:
         - MachineLayer
+  - type: Damageable
+    damageModifierSet: PlasticMod
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
         damage: 100
       behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
@@ -100,9 +100,17 @@
             volume: -6
       - !type:SpawnEntitiesBehavior
         spawn:
-          SheetSteel1:
-            min: 1
+          SheetPlastic1:
+            min: 0
             max: 1
+          SheetSteel1:
+            min: 0
+            max: 1
+      - !type:EmptyContainersBehaviour
+        containers:
+        - DisposalUnitComponent
+      - !type:ChangeConstructionNodeBehavior
+        node: frame
   - type: Appearance
   - type: UserInterface
     interfaces:
@@ -114,6 +122,11 @@
   - type: StaticPrice
     price: 70
   - type: PowerSwitch
+  - type: ApcPowerReceiver
+    powerLoad: 5
+  - type: PowerState
+    idlePowerDraw: 5
+    workingPowerDraw: 1000
 
 - type: entity
   id: DisposalUnit
@@ -121,7 +134,6 @@
   name: disposal unit
   components:
   - type: Sprite
-    sprite: Structures/Piping/disposal.rsi
     snapCardinals: true
   - type: Construction
     graph: DisposalMachine
@@ -145,21 +157,20 @@
   description: A pneumatic mail delivery unit.
   components:
   - type: Sprite
-    sprite: Structures/Piping/disposal.rsi
     layers:
     - map: [ "enum.DisposalUnitVisualLayers.Base" ]
       state: mailing
     - map: [ "enum.DisposalUnitVisualLayers.OverlayCharging" ]
-      state: mailing-charging
+      state: mailover-holo
       visible: false
     - map: [ "enum.DisposalUnitVisualLayers.OverlayFull" ]
-      state: mailing-full
+      state: dispover-handle
       visible: false
     - map: [ "enum.DisposalUnitVisualLayers.OverlayFlushing" ]
       state: mailing-flush
       visible: false
     - map: [ "enum.DisposalUnitVisualLayers.OverlayEngaged" ]
-      state: mailover-handle
+      state: dispover-handle
   - type: GenericVisualizer
     visuals:
       enum.DisposalUnitVisuals.IsFlushing:
@@ -172,12 +183,12 @@
           False: { state: mailing-charging }
       enum.DisposalUnitVisuals.IsEngaged:
         enum.DisposalUnitVisualLayers.OverlayEngaged:
-          True: { state: mailover-handle }
-          False: { state: mailover-handle-off }
+          True: { state: dispover-handle }
+          False: { state: dispover-handle }
       enum.DisposalUnitVisuals.IsCharging:
         enum.DisposalUnitVisualLayers.OverlayCharging:
-          True: { visible: true }
-          False: { visible: false }
+          True: { visible: false }
+          False: { visible: true }
       enum.DisposalUnitVisuals.IsFull:
         enum.DisposalUnitVisualLayers.OverlayFull:
           True: { visible: true }

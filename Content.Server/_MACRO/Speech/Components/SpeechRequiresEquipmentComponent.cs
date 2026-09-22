@@ -1,7 +1,7 @@
-using Content.Server.Speech.EntitySystems;
+using Content.Server._MACRO.Speech.EntitySystems;
 using Content.Shared.Whitelist;
 
-namespace Content.Server.Speech.Components;
+namespace Content.Server._MACRO.Speech.Components;
 
 /// <summary>
 /// Entities with this component require a certain piece of equipment in a certain slot in order to speak.

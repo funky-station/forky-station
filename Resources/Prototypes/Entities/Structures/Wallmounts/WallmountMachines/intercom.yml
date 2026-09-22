@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseWallmountMachine
+  parent: [ BaseWallmountMachine, StructureHealthMachineWeak ]
   id: BaseIntercom
   name: intercom
   description: An intercom. For when the station just needs to know something.
@@ -20,6 +20,7 @@
     toggleOnInteract: false
   - type: RadioSpeaker
     toggleOnInteract: false
+    powerRequired: true # funky - intercom speaker should require power
   - type: Intercom
   - type: Speech
     speechVerb: Robotic
@@ -36,10 +37,19 @@
     containers:
       board: !type:Container
       key_slots: !type:Container
+      hidden_slot: !type:ContainerSlot # funky start
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end
   - type: Sprite
     noRot: false
     drawdepth: SmallObjects
-    sprite: _Funkystation/Structures/Wallmounts/intercom.rsi # Funky
+    sprite: Structures/Wallmounts/intercom.rsi
+    offset: 0, -0.25
     layers:
     - state: base
     - state: unshaded
@@ -82,13 +92,14 @@
         !type:DamageTrigger
         damage: 100
       behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak
           params:
             volume: -4
+      - !type:EmptyContainersBehaviour
+        containers:
+        - key_slots
   - type: GenericVisualizer
     visuals:
       enum.WiresVisualLayers.MaintenancePanel:
@@ -109,14 +120,15 @@
           False: { visible: false }
 
 - type: entity
-  parent: BaseWallmountMetallic
+  parent: [ BaseWallmountMetallic, StructureHealthMachineFlimsy ]
   id: IntercomAssembly
   name: intercom assembly
   description: An intercom. It doesn't seem very helpful right now.
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: _Funkystation/Structures/Wallmounts/intercom.rsi # Funky
+    sprite: Structures/Wallmounts/intercom.rsi
+    offset: 0, -0.25
     layers:
     - state: build
     - state: panel
@@ -126,10 +138,8 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 50
       behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak
@@ -195,6 +205,18 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: WiresPanel
     open: false
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      key_slots: !type:Container
+      hidden_slot: !type:ContainerSlot # funky start
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end
 
 - type: entity
   id: BaseIntercomSecure
@@ -214,6 +236,18 @@
   parent: Intercom
   suffix: Common
   components:
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      key_slots: !type:Container
+      hidden_slot: !type:ContainerSlot # funky start
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end
   - type: ContainerFill
     containers:
       board:
@@ -227,6 +261,18 @@
   suffix: Command
   description: An intercom. It's been reinforced with metal.
   components:
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      key_slots: !type:Container
+      hidden_slot: !type:ContainerSlot # funky start
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end
   - type: ContainerFill
     containers:
       board:
@@ -240,6 +286,18 @@
   parent: Intercom
   suffix: Engineering
   components:
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      key_slots: !type:Container
+      hidden_slot: !type:ContainerSlot # funky start
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end
   - type: ContainerFill
     containers:
       board:
@@ -253,6 +311,18 @@
   parent: Intercom
   suffix: Medical
   components:
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      key_slots: !type:Container
+      hidden_slot: !type:ContainerSlot # funky start
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end
   - type: ContainerFill
     containers:
       board:
@@ -266,6 +336,18 @@
   parent: Intercom
   suffix: Science
   components:
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      key_slots: !type:Container
+      hidden_slot: !type:ContainerSlot # funky start
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end
   - type: ContainerFill
     containers:
       board:
@@ -280,6 +362,18 @@
   suffix: Security
   description: An intercom. It's been reinforced with metal from security helmets, making it a bitch-and-a-half to open.
   components:
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      key_slots: !type:Container
+      hidden_slot: !type:ContainerSlot # funky start
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end
   - type: ContainerFill
     containers:
       board:
@@ -293,6 +387,18 @@
   parent: Intercom
   suffix: Service
   components:
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      key_slots: !type:Container
+      hidden_slot: !type:ContainerSlot # funky start
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end
   - type: ContainerFill
     containers:
       board:
@@ -306,6 +412,18 @@
   parent: Intercom
   suffix: Supply
   components:
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      key_slots: !type:Container
+      hidden_slot: !type:ContainerSlot # funky start
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end
   - type: ContainerFill
     containers:
       board:
@@ -319,6 +437,18 @@
   parent: Intercom
   suffix: All
   components:
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      key_slots: !type:Container
+      hidden_slot: !type:ContainerSlot # funky start
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end
   - type: ContainerFill
     containers:
       board:
@@ -332,6 +462,18 @@
   parent: Intercom
   suffix: Freelance
   components:
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      key_slots: !type:Container
+      hidden_slot: !type:ContainerSlot # funky start
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end
   - type: ContainerFill
     containers:
       board:

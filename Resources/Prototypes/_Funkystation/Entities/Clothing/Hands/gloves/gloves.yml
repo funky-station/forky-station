@@ -1,0 +1,160 @@
+- type: entity
+  parent: ClothingHandsGlovesJanitor
+  id: FuClothingHandsGlovesJanitorInsul
+  name: rubber gloves
+  description: High-quality rubber gloves, squeaky to do some cleaning!
+  suffix: Insulated
+  components:
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-rubber
+    fiberColor: fibers-yellow
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsButcherable
+  id: FuClothingHandsGlovesChemist
+  name: heavy-duty chemistry gloves
+  description: High-quality, heavy-duty rubber latex gloves. Expensive PPE, to protect you from all the meth you're making.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/Gloves/chemistry.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/Gloves/chemistry.rsi
+  - type: Fiber
+    fiberMaterial: fibers-black
+  - type: FingerprintMask
+
+- type: entity
+  parent: [ClothingHandsGlovesColorBlack, BaseMajorContraband]
+  id: FuClothingHandsGlovesCombatBloodred
+  name: blood-red combat gloves
+  description: These tactical gloves are resistant to low voltage shocks, with high grip palms and padded knuckles. You feel unstoppable.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/Gloves/bloodredcombatgloves.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/Gloves/bloodredcombatgloves.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+
+# Insulated Gloves
+- type: entity
+  parent: [ClothingHandsBase, BaseSlicingRefinable]
+  id: FuClothingHandsGlovesInsuls #Funky
+  name: insulated gloves
+  description: These gloves will protect the wearer from electric shocks.
+  components:
+  - type: FingerprintMask
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/Gloves/insulated.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/Gloves/insulated.rsi
+  - type: ToolRefinable
+    refineResult:
+    - id: ClothingHandsGlovesFingerlessInsulated
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-yellow
+
+# Budget Insulated Gloves
+- type: entity
+  parent: FuClothingHandsGlovesInsuls
+  id: FuClothingHandsGlovesInsulsBudget
+  name: budget insulated gloves
+  description: These gloves are cheap knockoffs of the coveted ones - no way this can end badly.
+  components:
+  - type: RandomInsulation
+    # Why repeated numbers? So some numbers are more common, of course!
+    list:
+    - 0
+    - 0
+    - 0.5
+    - 0.5
+    - 0.5
+    - 1.5
+    - 1.5
+    - 2
+    - 2.5
+    - 2.5
+    - 3
+    - 3.5
+    - 4
+  - type: Fiber
+    fiberMaterial: fibers-insulative-frayed
+    fiberColor: fibers-yellow
+
+# Conductive Insulated Gloves
+- type: entity
+  parent: FuClothingHandsGlovesInsuls
+  id: FuClothingHandsGlovesConducting
+  suffix: Conducting
+  components:
+  - type: Insulated
+    coefficient: 5 # zap em good
+
+# Yellow Gloves
+- type: entity
+  parent: ClothingHandsGlovesSyntheticBase
+  id: FuClothingHandsGlovesColorYellow
+  name: yellow gloves
+  description: Regular yellow gloves that do not keep you from frying.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/Gloves/color.rsi
+    layers:
+    - state: icon
+      color: "#EBE216"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#EBE216"
+      right:
+      - state: inhand-right
+        color: "#EBE216"
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/Gloves/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#EBE216"
+  - type: Fiber
+    fiberColor: fibers-yellow
+
+# Super Duper Mega Hyper Insuls
+- type: entity
+  parent: [FuClothingHandsGlovesInsuls, BaseCommandContraband]
+  id: FuClothingHandsGlovesChiefEngineerInsuls
+  name: chief engineer's arc gloves
+  description: High-quality, heavy-duty insulated arc gloves. These'll keep you safe from just about any voltage.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/Gloves/ceinsuls.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/Gloves/ceinsuls.rsi
+  - type: Insulated
+    coefficient: 0.0
+#    maxSiemensThreshold: 4
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-black
+
+- type: entity
+  parent: [FuClothingHandsGlovesInsuls, BaseEngineeringContraband]
+  id: FuClothingHandsGlovesArcGloves
+  name: arc gloves
+  description: Industrial-grade arc gloves designed to keep you safe from any high voltages you may encounter. Or, at least, make your funeral open casket.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Hands/Gloves/arcgloves.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Hands/Gloves/arcgloves.rsi
+  - type: Insulated
+    coefficient: 0.0
+#    maxSiemensThreshold: 4
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-white

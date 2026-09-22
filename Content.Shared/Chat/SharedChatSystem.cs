@@ -32,6 +32,7 @@ public abstract partial class SharedChatSystem : EntitySystem
     public const char EmotesAltPrefix = '*';
     public const char AdminPrefix = ']';
     public const char WhisperPrefix = ',';
+    public const char MentorPrefix = '}'; // RMC Mentor Chat Funky Port
     public const char DefaultChannelKey = 'h';
 
     public const int VoiceRange = 10; // how far voice goes in world units
@@ -406,12 +407,14 @@ public abstract partial class SharedChatSystem : EntitySystem
     /// <param name="playSound">Play the announcement sound.</param>
     /// <param name="announcementSound">Sound to play.</param>
     /// <param name="colorOverride">Optional color for the announcement message.</param>
+    /// <param name="paSystemBypass">Funky - whether to bypass diegetic PA systems and broadcast directly to players.</param>
     public virtual void DispatchGlobalAnnouncement(
         string message,
         string? sender = null,
         bool playSound = true,
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null
+        Color? colorOverride = null,
+        bool paSystemBypass = false // funky addition
         )
     { }
 
@@ -425,6 +428,7 @@ public abstract partial class SharedChatSystem : EntitySystem
     /// <param name="playSound">Play the announcement sound.</param>
     /// <param name="announcementSound">Sound to play.</param>
     /// <param name="colorOverride">Optional color for the announcement message.</param>
+    /// <param name="paSystemBypass">Funky - whether to bypass diegetic PA systems and broadcast directly to players.</param>
     public virtual void DispatchFilteredAnnouncement(
         Filter filter,
         string message,
@@ -432,7 +436,9 @@ public abstract partial class SharedChatSystem : EntitySystem
         string? sender = null,
         bool playSound = true,
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null)
+        Color? colorOverride = null,
+        bool paSystemBypass = false // funky addition
+        )
     { }
 
     /// <summary>
@@ -444,13 +450,16 @@ public abstract partial class SharedChatSystem : EntitySystem
     /// <param name="playDefaultSound">Play the announcement sound.</param>
     /// <param name="announcementSound">Sound to play.</param>
     /// <param name="colorOverride">Optional color for the announcement message.</param>
+    /// <param name="paSystemBypass">Funky - whether to bypass diegetic PA systems and broadcast directly to players.</param>
     public virtual void DispatchStationAnnouncement(
         EntityUid source,
         string message,
         string? sender = null,
         bool playDefaultSound = true,
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null)
+        Color? colorOverride = null,
+        bool paSystemBypass = false // funky addition
+        )
     { }
 }
 

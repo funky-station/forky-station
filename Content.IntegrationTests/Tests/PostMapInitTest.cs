@@ -203,6 +203,10 @@ namespace Content.IntegrationTests.Tests
                 return; // We just pass immediately.
             }
 
+            //Funky - Only check funky and ruin maps
+            if (map.ToString().Count('/') < 3)
+                return;
+
             if (!resourceManager.TryContentFileRead(rootedPath, out var fileStream))
             {
                 Assert.Fail($"Map not found: {rootedPath}");

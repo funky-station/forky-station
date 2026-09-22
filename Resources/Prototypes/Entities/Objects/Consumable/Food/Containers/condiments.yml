@@ -10,9 +10,9 @@
   - type: ExaminableSolution
     solution: food
   - type: Sprite
-    sprite: Objects/Consumable/Food/condiments.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/condiments.rsi # Funky
   - type: Icon
-    sprite: Objects/Consumable/Food/condiments.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/condiments.rsi # Funky
   - type: TrashOnSolutionEmpty
     solution: food
   - type: SpaceGarbage
@@ -526,9 +526,7 @@
     destroyOnEmpty: false
     utensil: None # don't conflict with stirring
   - type: SolutionTransfer
-    canChangeTransferAmount: true
-    minTransferAmount: 5
-    maxTransferAmount: 20
+    transferAmount: 1
   - type: Destructible
     thresholds:
     - trigger:

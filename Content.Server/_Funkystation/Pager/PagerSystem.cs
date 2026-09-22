@@ -1,6 +1,5 @@
 ﻿using Content.Server._Funkystation.StationRecords.Components;
 using Content.Server.Power.Components;
-using Content.Server.StationRecords.Systems;
 using Content.Shared._Funkystation.Pager;
 using Content.Shared._Funkystation.Pager.Components;
 using Content.Shared.PDA;
@@ -15,6 +14,8 @@ using Content.Shared.Database;
 using Content.Shared.Emag.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.DeviceLinking.Systems;
+using Content.Shared.StationRecords.Events;
+using Content.Shared.StationRecords.Systems;
 using Content.Shared.Stunnable;
 
 namespace Content.Server._Funkystation.Pager;
@@ -41,7 +42,7 @@ public sealed partial class PagerSystem : SharedPagerSystem
         SubscribeLocalEvent<PagerComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<PagerComponent, PagerSendPageMessage>(OnSendPage);
         SubscribeLocalEvent<PagerComponent, BoundUIOpenedEvent>(OnBuiOpened);
-        SubscribeLocalEvent<AfterGeneralRecordCreatedEvent>(OnGeneralRecordCreated);
+        SubscribeLocalEvent<GeneralRecordCreatedEvent>(OnGeneralRecordCreated);
         SubscribeLocalEvent<PagerComponent, GotEmaggedEvent>(OnEmagged);
     }
 
@@ -55,7 +56,7 @@ public sealed partial class PagerSystem : SharedPagerSystem
         args.Handled = true;
     }
 
-    private void OnGeneralRecordCreated(AfterGeneralRecordCreatedEvent args)
+    private void OnGeneralRecordCreated(ref GeneralRecordCreatedEvent args)
     {
         if (!_records.TryGetRecord<GeneralStationRecord>(args.Key, out var record))
             return;

@@ -32,3 +32,4 @@ holopad-logistics-cargo-shuttle = Logistics - Cargo Shuttle
 
 holopad-civilian-lawyer = Civilian - Lawyer
 holopad-civilian-reporter = Civilian - Reporter
+holopad-civilian-newsroom = Civilian - Newsroom

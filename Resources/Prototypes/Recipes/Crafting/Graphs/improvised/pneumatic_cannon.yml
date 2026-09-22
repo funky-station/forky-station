@@ -8,7 +8,7 @@
       steps:
       - tag: Pipe
         icon:
-          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
           state: pipeStraight
         name: construction-graph-tag-pipe
       - tag: Handcuffs

@@ -1,0 +1,299 @@
+#Submitted by Stabithar
+- type: entity
+  parent: BookBase
+  id: MoonStationHJoNKGame
+  name: "Moon Station H.J.N.K: Rules and Pranks"
+  description: The detailed rules for running the underground card game Moon Station H.J.o.N.K. This copy is worn and torn with heavy use.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_old
+      color: "#808080"
+    - state: decor_spine
+      color: "#3a3a3a"
+    - state: decor_bottom
+      color: "#3a3a3a"
+    - state: decor_wingette
+      color: "#540f09"
+    - state: icon_banana
+  - type: OocAuthorship
+    oocAuthor: "Tesseract Allen"
+  - type: Paper
+    content: |2
+      [head=2]Moon Station H.J.N.K: Rules and Pranks[/head]
+      A game by Vafod Brettleblox
+
+      [bold]Welcome to Moon Station H.J.ö.N.K. Enjoy your shift.[/bold]
+
+      [italic]In the far future Humanity has stretched across the galaxy and found absolutely nothing. After that things got really weird really fast. Weird Drives, Pet Uplifts, NLC (Near Light Cloning) travel, Space Clowns.[/italic]
+
+      Today is your first shift at the best post in the entirety of the LSC. Luna 1 and your cloned body is already aching.
+
+      [bold]Set Up[/bold]
+
+      It is suggested that you create your own cards for a smoother experience.
+      There will be more detailed instructions in a future version.
+
+      Separate the cards into five decks, each suit (Clubs, Spades, Diamonds, Hearts) and the face cards(Kings, Queens, Jacks.).
+      Add the face cards into the Clubs deck. Shuffle all decks individually and place them next to each other making sure to mark which deck is which. Keep this booklet open and use the tables in the Cards section.
+
+
+      [bold]Optional Set Up Rules[/bold]
+
+      Players must create their own crewmember using their own artistic or writing ability.
+      If used, refer to the Alternate Win Rules.
+
+      Add the joker cards into the Clubs deck
+
+      [bold]Play[/bold]
+
+      The objective of the game is to collect points and have the most interesting shifts as possible. To do that each card has a point value and flavour text that acts as a window into how your shift went.
+
+      [bold]Turn Order[/bold]
+
+      Starting with the person who last ate a banana, then going clockwise, each player takes a turn.
+
+      Choose two decks and draw one card from each of them. If you have more than 6 cards in your hand, place two cards from your hand on the bottom of their respective decks before you draw.
+
+      Play one of the cards from your hand on any player.
+
+      Continue taking turns until one character reaches 10 points.
+
+      [bold]Deck Aesthetics and Special Rules.[/bold]
+
+      Each deck has character and aesthetic that embodies what cards you can get from them.
+      When choosing a deck to draw from, keep these in mind.
+
+      [color=#2A81CC][bold](Clubs)Head of Personnel, Scruffles[/bold][/color]
+      Reliable and safe, Scruffle likes to keep his deck on even keel. If you draw from his deck you will always get something positive though, it won’t be the most exciting shift. It’s also the only place you can draw powerful Gear Cards which can manipulate other cards.
+
+
+      [color=#6A2894][bold](Spades) Janitor Goobie[/bold][/color]
+      Goobie is a klutz, likes to drink too much tea, and keeps the station spotless. Her deck is much the same hot mess she is. The cards can be used to increase your points or decrease others.
+
+      [color=#C73232][bold](Diamonds)Shadowfoot the Proud[/bold][/color]
+      Like any cat Shadowfoot is a tiny, cute little monster who would murder for the right scritches. She is the blade in the night and the antagonist of the station. Drawing from her deck you take on the antagonist roll and take an axe to the station. Her deck is full of cards that affect every player, increasing or decreasing en-mass.
+
+      [color=#EC9898][bold](Hearts)Yes the Clown[/bold][/color]
+      “Whaaat do YoU cAlL a COW WITh no LEGS? A sad coW!?” The clown’s deck is high risk, high reward. Anything you draw from this deck is played on your
+      character when drawn. There are some really high value cards in this deck, there are also some absolutely terrible cards as well.
+
+      Card compass (X represents the point value.)
+      +X Add that many points
+      -X Subtract that many points
+
+      Antagonist cards
+      These cards are played in the middle and only the last card played counts.
+      XP The player who plays this card adds/subtracts that many points
+      XO All players except the player who plays the card adds/subtracts that many points
+
+      High risk Cards
+      XH This card must be immediately played on the player who drew it.
+
+      Gear Cards
+      G This card may be played at any time on any card/player.
+
+      [bold]Winning.[/bold]
+
+      When someone reaches +10 or -10 points the game is over and point values are totaled.
+
+      The following gives a player one WP(Win Point):
+      The most points
+      The most interesting shift by player consensus
+      The lowest points
+
+      [bold]Alternate Win Rules[/bold]
+
+      Everyone who made their character gets a win point
+
+      The person with the most WP wins the game.
+
+      [bold]Cards[/bold]
+
+
+      [color=#2A81CC][bold]Clubs[/bold][/color]
+
+      [color=#2A81CC][bold]10.[/bold][/color] +1
+      	[italic]Found your lucky pen.[/italic]
+
+      [color=#2A81CC][bold]9.[/bold][/color] +1
+      	[italic]Ate a good doughnut.[/italic]
+
+      [color=#2A81CC][bold]8.[/bold][/color] +1
+      	[italic]Found the perfect temperature on the thermostat.[/italic]
+
+      [color=#2A81CC][bold]7.[/bold][/color] +1
+      	[italic]Organised pen drawer.[/italic]
+
+      [color=#2A81CC][bold]6.[/bold][/color] +1
+      	[italic]Had a nap.[/italic]
+
+      [color=#2A81CC][bold]5.[/bold][/color] +1
+      	[italic]Cleaned out your capsule bed.[/italic]
+
+      [color=#2A81CC][bold]4.[/bold][/color] +1
+      	[italic]The station clown told you a good joke.[/italic]
+
+      [color=#2A81CC][bold]3.[/bold][/color] +1
+      	[italic]Finished all of your paperwork.[/italic]
+
+      [color=#2A81CC][bold]2.[/bold][/color] +1
+      	[italic]Someone spilled cinnamon and the entire station smells great all shift.[/italic]
+
+      [color=#2A81CC][bold]A.[/bold][/color] +1
+      	[italic]Saw a space puppy in a tiny space suit.[/italic]
+
+      [color=#6A2894][bold]Spades[/bold][/color]
+
+
+      [color=#6A2894][bold]10.[/bold][/color] +3
+      	[italic]Spork the Corgi spins for you.[/italic]
+
+      [color=#6A2894][bold]9.[/bold][/color] +2
+      	[italic]The chef has figured out how to make anything edible. You always thought your stapler would taste good fried.[/italic]
+
+      [color=#6A2894][bold]8.[/bold][/color] +2
+      	[italic]Married your long time girlfriend, the one and only sapient chicken, Cluclacon.[/italic]
+
+      [color=#6A2894][bold]7.[/bold][/color] +1
+      	[italic]The station AI remembers your birthday and opens doors for you all day.[/italic]
+
+      [color=#6A2894][bold]6.[/bold][/color] +1
+      	[italic]It turns out Elvis was a time traveler and he’s LIVE IN THE MESS HALL!?![/italic]
+
+      [color=#6A2894][bold]5.[/bold][/color] +1
+      	[italic]You find a space hamster in the vents and adopt it.[/italic]
+
+      [color=#6A2894][bold]4. v-1[/bold][/color]
+      	[italic]Space clown. Banana peel. Thumbtack.[/italic]
+
+      [color=#6A2894][bold]3.[/bold][/color] -1
+      	[italic]Accidentally set off a sanitization grenade on your samples. Two years of work are gone.[/italic]
+
+      [color=#6A2894][bold]2.[/bold][/color] -2
+      	[italic]Contracted a space virus which switched your hair and your rear. Everyone calls you Doctor Butt Head.[/italic]
+
+      [color=#6A2894][bold]A.[/bold][/color] -3
+      	[italic]Forgot your diaper during EVA but didn’t realise until too late.[/italic]
+
+
+      [color=#C73232][bold]Diamonds[/bold][/color]
+
+
+      [color=#C73232][bold]10.[/bold][/color] +2P -3O
+      	[italic]Through paperwork you take control of the station. You execute the captain by mortal combat with a small crab.[/italic]
+
+      [color=#C73232][bold]9.[/bold][/color] +1P -2O
+      	[italic]You bypass the reactor transformer and hook the output directly to the station main. The hum of a station electric is stunning.[/italic]
+
+      [color=#C73232][bold]8.[/bold][/color] +1P +1O
+      	[italic]Safe shift, no problems. The captain throws a pizza party.[/italic]
+
+      [color=#C73232][bold]7.[/bold][/color] -3O
+      	[italic]The AI overpressurized the station and blew out all the windows. The cloners are in a vacuum.[/italic]
+
+      [color=#C73232][bold]6.[/bold][/color] -2O
+      	[italic]Someone let loose a Singulo and it bounces around the station, killing as it goes.[/italic]
+
+      [color=#C73232][bold]5.[/bold][/color] -1O
+      	[italic]An alien artefact turns everyone into sentient ham sandwiches.[/italic]
+
+      [color=#C73232][bold]4.[/bold][/color] -1O
+      	[italic]The captain introduces mind control chips and the station has never run smoother.[/italic]
+
+      [color=#C73232][bold]3.[/bold][/color] -1P
+      	[italic]You try to steal the captain’s hat and the clown catches you. Now you’re in the banana contraption.[/italic]
+
+      [color=#C73232][bold]2. [/bold][/color]-1P -1O
+      	[italic]You thought you made napalm but instead you made industrial space lubricant. Now the only thing on fire is everyone’s sick skating moves.[/italic]
+
+      [color=#C73232][bold]A. -2P -2O[/bold][/color]
+      	[italic]SPACE BEES!!!!!!!!!![/italic]
+
+      [color=#EC9898][bold]Hearts[/bold][/color]
+
+
+      [color=#EC9898][bold]10.[/bold][/color] +5H
+      	[italic]With the clown by your side you killed a cosmic being. Not only did you kill a god but loneliness as well.[/italic]
+
+      [color=#EC9898][bold]9.[/bold][/color] +3H
+      	[italic]Harnessing the very essence of the underworld you create the mythical Hellburn inside the reactor and get a medal.[/italic]
+
+      [color=#EC9898][bold]8.[/bold][/color] +3H
+      	[italic]Spork the Corgi spins for you. Twice![/italic]
+
+      [color=#EC9898][bold]7.[/bold][/color] +2H
+      [italic]The space gods have given you a cookie.[/italic]
+
+      [color=#EC9898][bold]6.[/bold][/color] +2H
+      	[italic]Through the powers of science you get trapped in an infinite loop of time. You use this time to catch up with all the paperwork you’re ever going to have.[/italic]
+
+      [color=#EC9898][bold]5.[/bold][/color] +2H
+      	[italic]A space truck full of novelty beds crashes through the station. You sleep in a different race car bed every night.[/italic]
+
+      [color=#EC9898][bold]4.[/bold][/color] -2H
+      	[italic]A gorilla stole your favourite mop and you spent the entire shift trying to get it back.[/italic]
+
+      [color=#EC9898][bold]3.[/bold][/color] -3H
+      	[italic]Forgot to upload memories for six weeks, eaten by a giant space spider, have an existential crisis.[/italic]
+
+      [color=#EC9898][bold]2. [/bold][/color]-3H
+      	[italic]Shady people with squeaky shoes swap the clown and your brain. No one believes you.[/italic]
+
+      [color=#EC9898][bold]A. [/bold][/color]-5H
+      	[italic]You ate the cosmic doughnut. The singulos taste like stardust.[/italic]
+
+      [color=#4CAE50][bold]Face Cards[/bold][/color]
+
+
+      [color=#4CAE50][bold]KC. G[/bold][/color] Copy any card and play it
+      	[italic]Dimensional Merger[/italic]
+
+      [color=#4CAE50][bold]KS. G[/bold][/color] Copy any card and play it
+      [italic]Time Loop Floor Pill[/italic]
+
+      [color=#4CAE50][bold]KD. G[/bold][/color] Discard your hand and redraw the same number
+      	[italic]Universal D20[/italic]
+      [color=#4CAE50][bold]KH. G[/bold][/color] Discard your hand
+      and redraw the same number
+      	[italic]Trash Shoot Slalom Sled[/italic]
+
+      [color=#4CAE50][bold]QC. G[/bold][/color] Swap any two cards
+      [italic]Yellow Insulated Gloves[/italic]
+
+      [color=#4CAE50][bold]QS. G[/bold][/color] Swap any two cards
+      	[italic]Yoinkity Yonk Cyber Arm[/italic]
+
+      [color=#4CAE50][bold]QD. G[/bold][/color] Swap any two cards
+      [italic]Memory Stealer[/italic]
+
+      [color=#4CAE50][bold]QH. G[/bold][/color] Swap any two cards
+      	[italic]Changeling Sting[/italic]
+
+      [color=#4CAE50][bold]JC. G[/bold][/color] Delete any card
+      	[italic]Pocket Singulo[/italic]
+
+      [color=#4CAE50][bold]JS. G[/bold][/color] Delete any card
+      [italic]Banana Peel[/italic]
+
+      [color=#4CAE50][bold]JD. G[/bold][/color] Delete any card
+      	[italic]One Way Teleporter
+
+      [color=#4CAE50][bold]JH. G [/bold][/color]Delete any card
+      	[italic]Space Magic Missile[/italic]
+
+      [color=#4CAE50][bold]Joker. G[/bold][/color] Eat this card to get a Win Point
+      	[italic]For the HJöNK MÜTHER[/italic]
+
+
+
+      Pranked. There are no pranks.
+
+
+
+
+
+
+      .

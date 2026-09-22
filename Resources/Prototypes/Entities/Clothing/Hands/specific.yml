@@ -10,9 +10,9 @@
       - ClothMade
       - Recyclable
     - type: Sprite
-      sprite: Clothing/Hands/Gloves/Color/black.rsi
+      sprite: _Funkystation/Clothing/Hands/Gloves/black.rsi #funky resprite
     - type: Clothing
-      sprite: Clothing/Hands/Gloves/Color/black.rsi
+      sprite: _Funkystation/Clothing/Hands/Gloves/black.rsi #funky resprite
     - type: ChameleonClothing
       slot: [gloves]
       default: ClothingHandsGlovesColorBlack

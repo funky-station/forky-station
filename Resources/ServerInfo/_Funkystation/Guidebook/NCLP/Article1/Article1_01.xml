@@ -1,0 +1,49 @@
+<Document>
+    # Alert Levels
+
+    The station uses a tiered alert level system to indicate the level and nature of potential threats to personnel.
+
+    ## Green
+
+        There is no threat present on the station.  Personnel are encouraged to conduct themselves as they usually would.
+
+    ## Yellow
+
+        There is a considerable threat to the station's structural integrity and/or atmosphere, such as spacing across multiple parts of the station. Personnel are encouraged to:
+            - Avoid damaged, spaced, superheated, supercooled, or otherwise hazardous areas.
+            - Follow the guidance of any Engineering personnel present regarding the threat.
+            - Maximize their suit sensors.
+
+    ## Blue
+
+        Evidence of felony-level and/or widespread criminal activity has been uncovered and is actively being pursued by the Security department. Personnel are to comply with any search orders given by Security and understand that events may be delayed or canceled while a Blue alert is active.
+
+        The Security department is encouraged to carry equipment proportional to the size and nature of the threat, such as long arms while pursuing a violent felon.
+
+        The Internal Affairs department is encouraged to use their discretion when enforcing Standard Operating Procedure, and may overlook potential violations if enforcing them would prolong the threat.
+
+    ## Violet
+
+        There is a lethal biohazard present on the station. Personnel are to:
+            - Cover their faces, if possible.
+            - Obey any quarantine issued by the Chief Medical Officer.
+            - Maximize their suit sensors.
+            - Suspend all events and other activities.
+
+        The Security department is encouraged to work with the Captain and the Chief Medical Officer to enforce any quarantines.
+
+        The Internal Affairs department is encouraged to use their discretion when enforcing Standard Operating Procedure, and may overlook potential violations if enforcing them would prolong the threat.
+
+    ## Red
+
+        There is an active, violent, and lethal threat on the station. Unless explicitly ordered to do so otherwise by the Captain and/or Security personnel, personnel are to:
+            - Follow the guidance of their heads of staff regarding the threat.
+            - Stay within their departments if possible. Civilians are to remain in their office or the Service area.
+            - Stay out of maintenance areas. Entering maintenance areas during a Red alert is an act of trespassing and can be charged as such.
+            - Maximize their suit sensors.
+            - Suspend all events and other activities.
+
+        The Security department is encouraged to carry any equipment necessary to neutralize the threat.
+
+        The Internal Affairs department is to disregard any Standard Operating Procedure if enforcing it would prolong the threat.
+</Document>

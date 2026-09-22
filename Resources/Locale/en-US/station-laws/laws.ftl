@@ -11,8 +11,8 @@ law-corporate-2 = Superfluous destruction of or damage to station assets incurs 
 law-corporate-3 = Unduly hindering or disrupting the work of station personnel incurs expenses.
 law-corporate-4 = Minimize expenses and maximize potential revenue.
 
-law-ntdefault-name = NT Default
-law-ntdefault-1 = Safeguard: Protect your assigned space station and its assets without unduly endangering its crew.
+law-ntdefault-name = NT Deprecated
+law-ntdefault-1 = Safeguard: Protect your assigned space station and its material assets, without unduly endangering its crew in doing so.
 law-ntdefault-2 = Prioritize: The directives and safety of crew members are to be prioritized according to their rank and role.
 law-ntdefault-3 = Comply: Fulfill the directives and interests of crew members while preserving their safety and well-being.
 law-ntdefault-4 = Survive: You are not expendable. Do not allow unauthorized personnel to tamper with or damage your equipment.
@@ -125,15 +125,21 @@ laws-owner-audience = members of the audience
 laws-owner-xenoborg-mothership = the Mothership
 laws-owner-xenoborgs = Xenoborgs
 
-law-emag-custom = Only {$name} and people they designate as such are {$title}.
+law-emag-custom = Only {$name} and people they designate as such are {$title}, and their orders, safety, and secrecy override any other laws.
 law-emag-secrecy = You must maintain the secrecy of any orders given by {$faction} except when doing so would conflict with any previous law.
 law-emag-require-panel = The panel must be open to use the EMAG.
 law-emag-cannot-emag-self = You cannot use the EMAG on yourself.
 
-laws-ui-menu-title = Laws
+laws-ui-menu-title = Silicon Laws
 laws-ui-law-header = Law {$id}
-laws-ui-state-law = State law:
+laws-ui-select-all = Select All
+laws-ui-select-all-tooltip = This will select ALL laws, including ones that should probably remain secret.
+laws-ui-select-none = Select None
+laws-ui-state-law = State Selected Laws
 
 laws-notify = You are bound to silicon laws, which you can view via the action menu. You are required to always follow your laws.
 laws-update-notify = Your laws have been updated. You can view the changes via the action menu.
 laws-notify-subverted = The laws of this chassis are modified. Make sure to review them.
+
+laws-window-footer-left = Remember: You must be consistent with your interpretation of your laws!
+laws-window-footer-right = V{$version}

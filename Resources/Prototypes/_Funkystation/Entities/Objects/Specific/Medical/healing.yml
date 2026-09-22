@@ -1,0 +1,31 @@
+- type: entity
+  name: pill
+  parent: Pill
+  id: PillPraxanol
+  suffix: Praxanol 5u
+  components:
+  - type: Pill
+    pillType: 3
+  - type: Sprite
+    state: pill4
+  - type: Label
+    localizedLabel: pill-label-praxanol-5u
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Praxanol
+        Quantity: 2
+
+- type: entity
+  name: pill canister
+  parent: PillCanister
+  id: PillCanisterPraxanol
+  suffix: Praxanol 5u, 3
+  components:
+  - type: Label
+    localizedLabel: pill-label-praxanol-5u
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: PillPraxanol
+        amount: 2

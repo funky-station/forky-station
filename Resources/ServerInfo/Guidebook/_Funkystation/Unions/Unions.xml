@@ -1,0 +1,62 @@
+<Document>
+    # Department Unions 
+    
+    Workers of certain departments organize themselves into a [color=#a4885c]Union[/color], electing a [color=#a4885c]Leader[/color] to represent their interests and, if push comes to shove, call a [color=#cb0000]strike[/color].
+    
+    ## Joining 
+    To join a union, you select the Union Member trait. When you join the round, you'll be assigned to a union. However, some unions are special or some don't exist. 
+    
+    There is, for example, a special Security Union. This union is specific to Security, and is not part of the general structure of other unions. All unions excluding security are part of the NanoTrasen Workers Union, the NTWU. Security has the Security Union, which, again, is ENTIRELY unrelated to the NTWU. 
+    
+    ## Purpose of Unions
+    A union defends the rights of its workers, such as being treated with respect, looking into why people are fired, and maintaining order in the workplace. SOP is expected to be followed and employees can be fired for not following SOP, so as a union member, steward, or leader, make sure you have SOP handy. 
+    
+    This extends into the Security Union. If an officer is fired for "brutalizing" the clown, this should be met with appropriate criticism, and a proper investigation. As the leader or a steward of the Security Union, you do not leave officers behind!
+    
+    These groups first and foremost look out for their own. Pressures from the public in whatever direction generally shouldn't influence your decisions as a leader or steward.
+    
+    ## Leadership 
+    You can also opt to be a leader of your union. If you opt in, you'll be randomly selected. Otherwise, if your union has no leader but is big enough, your union will merge with another union. The union with a leader takes precident over who gets to claim ownership. 
+    
+    Leaders are expected to talk to each other about organizing. Leaders are also expected to be the ones making sure SOP is followed.
+    
+    ## Clipboard
+    <Box>
+        <GuideEntityEmbed Entity="UnionClipboard" Caption="Clipboard"/>
+    </Box>
+    
+    The clipboard is the union leader's roster. Present someone's ID to it to register them as a member.
+    
+    You can assign stewards to members and make members stewards. Assigning a steward to a member essentially gives them a place in a 3 layer "hierarchy", if you want to organize that way.
+    This can be done at your clipboard. Promoting a new steward though requires them to be physically there. After you click on "Make Steward", you then ask the Steward-to-be for their ID. You use their ID on the clipboard, then your clipboard will tell you the promotion is complete.
+    
+    Signing up a new member is the same. Ask the Member-to-be for their ID, and after you use it, your clipboard will tell you the result. A union member can't join another union.
+    
+    ## Megaphone
+    <Box>
+        <GuideEntityEmbed Entity="UnionMegaphone" Caption="Megaphone"/>
+    </Box>
+    The megaphone lets a union leader call, or end, a [color=#cb0000]strike[/color]. That's it pretty much.
+    
+    ## Union Card
+    
+    <Box>
+        <GuideEntityEmbed Entity="UnionCard" Caption="Union Card"/>
+    </Box>
+    Every union member is issued a card certifying their membership and position within the union.
+    
+    When you late-join or join a round at the beginning, if you've signed up to be a part of the union, you will automatically be given a union card. This union card is essential.
+    You can resign from a union (or someone else can make you resign) if you burn it. You can burn it with a lighter or a flare. To sign up again, see your local union leader.
+    
+    ## Stewards 
+    A steward acts as a middle-man between the union leader and its members, managing a group of workers on the leader's behalf.
+    
+    A steward is responsible for managing a group of workers assigned to them. They make sure these workers are following SOP, excercising workplace safety and other rules agreed to by command and the union.
+    
+    ### Why follow these rules at all?
+    
+    They are the balance between making sure a contract is honored on both sides and not. If you get hurt while following all workplace rules, there is compensation, proper recourse, and changing rules.
+    If you were not following the rules, you can face a lawsuit or losing your job. SOP and other workplace rules are first and foremost compromises that both groups agree to follow.
+    
+    If either side breaks SOP or workplace rules, that is a great reason to either fire someone, or to declare a strike.
+</Document>

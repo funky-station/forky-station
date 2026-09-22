@@ -1,0 +1,31 @@
+{
+    "version": 1,
+
+    "license": "CC-BY-NC-3.0",
+    "copyright": "Icon by VectorAssembly, modified by AraiMaia. Fire and rag sprites by AraiMaia for Funky Station",
+
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "icon-fire",
+	    "delays":
+            [
+                [
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+	    ]
+        },
+        {
+            "name": "rag"
+        }
+    ]
+}

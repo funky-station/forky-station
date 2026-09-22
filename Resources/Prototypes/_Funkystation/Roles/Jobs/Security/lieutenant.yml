@@ -3,6 +3,7 @@
   name: job-name-lieutenant
   description: job-description-lieutenant
   playTimeTracker: JobLieutenant
+  requiresNda: Security # Funky
   requirements:
   - !type:RoleTimeRequirement
     role: JobSecurityOfficer
@@ -16,14 +17,14 @@
   - Maintenance
   - External
   - Cryogenics
-  special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+  #special:
+  #- !type:AddImplantSpecial
+  #  implants: [ MindShieldImplant ] # Removed mindshields
 
 - type: startingGear
   id: LieutenantGear
   equipment:
-    id: LieutenantPDA
+    id: LieutenantWallet
     eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetSecurity
     pocket2: WeaponPistolMk58

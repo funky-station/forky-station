@@ -146,11 +146,20 @@
     emoteSounds: UnisexAnt
   - type: Damageable
     damageModifierSet: Ant
+  # funky start, softcrit
   - type: MobThresholds
     thresholds:
       0: Alive
-      9: Critical
+      2: SoftCritical
+      9: HardCritical
       10: Dead
+  - type: MobState
+    allowedStates:
+    - Alive
+    - SoftCritical
+    - HardCritical
+    - Dead
+  # funky end
   - type: Destructible
     thresholds:
     - trigger:

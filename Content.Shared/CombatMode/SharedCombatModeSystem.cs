@@ -47,7 +47,7 @@ public abstract partial class SharedCombatModeSystem : EntitySystem
         SetInCombatMode(uid, !component.IsInCombatMode, component);
 
         var msg = component.IsInCombatMode ? "action-popup-combat-enabled" : "action-popup-combat-disabled";
-        _popup.PopupClient(Loc.GetString(msg), args.Performer, args.Performer);
+        _popup.PopupEntity(Loc.GetString(msg), args.Performer, args.Performer);
     }
 
     public void SetCanDisarm(EntityUid entity, bool canDisarm, CombatModeComponent? component = null)
@@ -84,7 +84,10 @@ public abstract partial class SharedCombatModeSystem : EntitySystem
         SetMouseRotatorComponents(entity, value);
     }
 
-    private void SetMouseRotatorComponents(EntityUid uid, bool value)
+    // ES START
+    // what the fuck was i thinking?
+    public void SetMouseRotatorComponents(EntityUid uid, bool value)
+    // ES END
     {
         if (value)
         {

@@ -23,15 +23,16 @@ public record ESViewconeGetAngleModifierEvent : IInventoryRelayEvent
 {
     public SlotFlags TargetSlots => SlotFlags.HEAD | SlotFlags.EYES | SlotFlags.MASK;
 
-    private float _angleModifier;
+    private float? _angleModifier;
 
     public float GetAngleModifier()
     {
-        return _angleModifier;
+        return _angleModifier ?? 0f;
     }
 
+    // funky, takes the lowest value seen instead of stacking
     public void ModifyAngle(float angle)
     {
-        _angleModifier += angle;
+        _angleModifier = _angleModifier is { } current ? Math.Min(current, angle) : angle;
     }
 }

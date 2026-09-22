@@ -1,4 +1,13 @@
 - type: loadoutGroup
+  id: Glasses
+  name: loadout-group-glasses
+  minLimit: 0
+  loadouts:
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
+
+- type: loadoutGroup
   id: Trinkets
   name: loadout-group-trinkets
   minLimit: 0
@@ -38,22 +47,20 @@
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
+  - TowelColorWhite
+
+- type: loadoutGroup
+  id: AssistiveItems
+  name: loadout-group-assistive-items
+  minLimit: 0
+  maxLimit: 1 # Increase this limit in the future once there's more assistive items than just canes!
+  loadouts:
   - OffsetCane
   - OffsetCaneWood
   - OffsetCaneClown
   - OffsetCaneMime
   - OffsetCaneNT
   - Cane
-  - TowelColorWhite
-
-- type: loadoutGroup
-  id: Glasses
-  name: loadout-group-glasses
-  minLimit: 0
-  loadouts:
-  - Glasses
-  - GlassesJamjar
-  - GlassesJensen
 
 - type: loadoutGroup
   id: GroupTankHarness
@@ -74,7 +81,6 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyAquatic # MACRO: Decapoids
   - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
-  - EmergencyWheat # MACRO: Ungu
 
 # nitrogen or oxygen tank, depending on what your species needs
 - type: loadoutGroup
@@ -84,7 +90,6 @@
   loadouts:
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
-  - LoadoutSpeciesEVAUngu # macro
 
 # vox get a nitrogen tank, other species get nothing
 - type: loadoutGroup
@@ -101,7 +106,6 @@
   loadouts:
   - LoadoutSpeciesPocketDoubleNitrogen
   - LoadoutSpeciesPocketDoubleOxygen
-  - LoadoutSpeciesPocketDoubleOxygenUngu # macro
 
 # Command
 - type: loadoutGroup
@@ -579,7 +583,6 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyAquaticClown # MACRO: Decapoids
   - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
-  - EmergencyWheatClown # MACRO: Ungu
 
 - type: loadoutGroup
   id: ClownJobTrinkets
@@ -633,20 +636,6 @@
   loadouts:
   - MimeSuspendersRed
   - MimeSuspendersBlack
-
-- type: loadoutGroup
-  id: SurvivalMime
-  name: loadout-group-survival-mime
-  minLimit: 2
-  hidden: true
-  loadouts:
-  - EmergencyNitrogenMime
-  - EmergencyOxygenMime
-  - EmergencySpeciesMothMime
-  - LoadoutSpeciesVoxNitrogen
-  - EmergencyAquaticMime # MACRO: Decapoids
-  - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
-  - EmergencyWheatMime # MACRO: Ungu
 
 #- type: loadoutGroup
 #  id: MimeJobTrinkets
@@ -999,7 +988,6 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyAquaticExtended # MACRO: Decapoids
   - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
-  - EmergencyWheatExtended # MACRO: Ungu
 
 # Science
 - type: loadoutGroup
@@ -1396,7 +1384,6 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyAquaticSecurity # MACRO: Decapoids
   - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
-  - EmergencyWheatSecurity # MACRO: Ungu
 
 # Wildcards
 - type: loadoutGroup
@@ -1439,9 +1426,49 @@
 #  minLimit: 0
 #  loadouts:
 
-# Other
 - type: loadoutGroup
-  id: SurvivalSyndicate
+  id: TramDriverJumpsuit
+  name: loadout-group-tramdriver-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - TramDriverJumpsuit
+
+- type: loadoutGroup
+  id: TramDriverOuterClothing
+  name: loadout-group-tramdriver-outerclothing
+  minLimit: 0
+  loadouts:
+  - TramDriverSuit
+
+- type: loadoutGroup
+  id: TramDriverHat
+  name: loadout-group-tramdriver-hat
+  loadouts:
+  - TramDriverHat
+
+- type: loadoutGroup
+  id: TramDriverGloves
+  name: loadout-group-tramdriver-gloves
+  minLimit: 0
+  loadouts:
+  - TramDriverGlovesWhite
+  - TramDriverGlovesBlack
+
+# Other
+
+- type: loadoutGroup
+  id: SurvivalExtendedAntag # Larger survival box containing food/water, used by antags that spawn off-station (e.g ninjas, wizards)
+  name: loadout-group-survival-extended
+  minLimit: 2
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenExtendedAntag
+  - EmergencyOxygenExtendedAntag
+  - LoadoutSpeciesVoxNitrogen
+
+- type: loadoutGroup
+  id: SurvivalSyndicate # Larger survival box containing food, used by syndicate operatives that spawn off-station (e.g nukies)
   name: loadout-group-survival-syndicate
   minLimit: 2
   hidden: true
@@ -1451,10 +1478,9 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyAquaticSyndicate # MACRO: Decapoids
   - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
-  - EmergencyWheatSyndicate # MACRO: Ungu
 
 - type: loadoutGroup
-  id: SurvivalMilitaryDouble
+  id: SurvivalMilitaryDouble # Survival box mostly used by ERT/deathsquad
   name: loadout-group-survival-military
   minLimit: 2
   hidden: true

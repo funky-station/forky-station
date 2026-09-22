@@ -3,25 +3,24 @@ using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.Ghost;
 using Content.Server.Power.Components;
+using Content.Shared._RMC14.Chat; // Persistence: Chat stacking from RMC14 - pull/7587
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
+using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Speech;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Radio.EntitySystems;
 
-/// <summary>
-///     This system handles intrinsic radios and the general process of converting radio messages into chat messages.
-/// </summary>
-public sealed partial class RadioSystem : EntitySystem
+/// <inheritdoc/>
+public sealed partial class RadioSystem : SharedRadioSystem
 {
     [Dependency] private INetManager _netMan = default!;
     [Dependency] private IReplayRecordingManager _replay = default!;
@@ -74,20 +73,8 @@ public sealed partial class RadioSystem : EntitySystem
         _netMan.ServerSendMessage(msg, actor.PlayerSession.Channel);
     }
 
-    /// <summary>
-    /// Send radio message to all active radio listeners
-    /// </summary>
-    public void SendRadioMessage(EntityUid messageSource, string message, ProtoId<RadioChannelPrototype> channel, EntityUid radioSource, bool escapeMarkup = true)
-    {
-        SendRadioMessage(messageSource, message, ProtoMan.Index(channel), radioSource, escapeMarkup: escapeMarkup);
-    }
-
-    /// <summary>
-    /// Send radio message to all active radio listeners
-    /// </summary>
-    /// <param name="messageSource">Entity that spoke the message</param>
-    /// <param name="radioSource">Entity that picked up the message and will send it, e.g. headset</param>
-    public void SendRadioMessage(EntityUid messageSource, string message, RadioChannelPrototype channel, EntityUid radioSource, bool escapeMarkup = true)
+    /// <inheritdoc/>
+    public override void SendRadioMessage(EntityUid messageSource, string message, RadioChannelPrototype channel, EntityUid radioSource, bool escapeMarkup = true)
     {
         // TODO if radios ever garble / modify messages, feedback-prevention needs to be handled better than this.
         if (!_messages.Add(message))
@@ -123,8 +110,9 @@ public sealed partial class RadioSystem : EntitySystem
             ChatChannel.Radio,
             message,
             wrappedMessage,
-            NetEntity.Invalid,
-            null);
+            GetNetEntity(messageSource), // Persistence: Chat stacking from RMC14 - pull/7587
+            _chatManager.EnsurePlayer(CompOrNull<ActorComponent>(messageSource)?.PlayerSession.UserId)?.Key,  // Persistence: Chat stacking from RMC14 - pull/7587
+            repeatCheckSender: !HasComp<ChatRepeatIgnoreSenderComponent>(radioSource));  // Persistence: Chat stacking from RMC14 - pull/7587
         var chatMsg = new MsgChatMessage { Message = chat };
         var ev = new RadioReceiveEvent(message, messageSource, channel, radioSource, chatMsg);
 
@@ -160,6 +148,10 @@ public sealed partial class RadioSystem : EntitySystem
             RaiseLocalEvent(ref attemptEv);
             RaiseLocalEvent(receiver, ref attemptEv);
             if (attemptEv.Cancelled)
+                continue;
+
+            // Imp original
+            if (channel.IntercomOnly && HasComp<HeadsetComponent>(radioSource))
                 continue;
 
             // send the message
