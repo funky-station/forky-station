@@ -21,13 +21,6 @@
     Plastic: 50
 
 - type: latheRecipe
-  id: PenReceptacleGray
-  result: PenReceptacleGray
-  completetime: 1
-  materials:
-    Plastic: 50
-
-- type: latheRecipe
   id: PenReceptacleGreen
   result: PenReceptacleGreen
   completetime: 1
@@ -35,8 +28,15 @@
     Plastic: 50
 
 - type: latheRecipe
-  id: PenReceptacleBlue
-  result: PenReceptacleBlue
+  id: PenReceptacleGrey
+  result: PenReceptacleGrey
+  completetime: 1
+  materials:
+    Plastic: 50
+
+- type: latheRecipe
+  id: PenReceptacleRed
+  result: PenReceptacleRed
   completetime: 1
   materials:
     Plastic: 50
