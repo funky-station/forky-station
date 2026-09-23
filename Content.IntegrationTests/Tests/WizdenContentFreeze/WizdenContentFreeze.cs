@@ -6,7 +6,6 @@ namespace Content.IntegrationTests.Tests.WizdenContentFreeze;
 /// <summary>
 /// These tests are limited to adding a specific type of content, essentially freezing it. If you are a fork developer, you may want to disable these tests.
 /// </summary>
-[Explicit] // funky - exclude wizden content freeze tests from runs
 public sealed class WizdenContentFreeze : GameTest
 {
     /// <summary>
@@ -18,6 +17,7 @@ public sealed class WizdenContentFreeze : GameTest
     /// https://github.com/space-wizards/space-station-14/issues/8524
     /// </summary>
     [Test]
+    [Explicit] // funky - exclude wizden content freeze tests from runs
     public async Task MicrowaveRecipesFreezeTest()
     {
         var pair = Pair;
