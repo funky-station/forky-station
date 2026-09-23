@@ -6,6 +6,7 @@ namespace Content.IntegrationTests.Tests.WizdenContentFreeze;
 /// <summary>
 /// These tests are limited to adding a specific type of content, essentially freezing it. If you are a fork developer, you may want to disable these tests.
 /// </summary>
+[Explicit] // funky - exclude wizden content freeze tests from runs
 public sealed class WizdenContentFreeze : GameTest
 {
     /// <summary>
