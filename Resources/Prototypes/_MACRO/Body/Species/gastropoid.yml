@@ -137,8 +137,7 @@
       types:
         Heat : 1.5 #per second, scales with temperature & other constants
   - type: Temperature
-    currentTemperature: 310
-    specificHeat: 42
+    specificHeat: 2500 # 42 -> 2500 (default: 3000)
   - type: TemperatureSpeed
     thresholds: # removes their temp speed restrictions. this is hacky and sucks.
       293: 1.0
@@ -148,7 +147,7 @@
     bloodReferenceSolution:
       reagents:
       - ReagentId: CopperBlood
-        Quantity: 300
+        Quantity: 600
   - type: Tag
     tags:
       - DoorBumpOpener
@@ -171,10 +170,7 @@
     footstepSoundCollection:
       path: /Audio/_MACRO/Effects/Footsteps/snailstep.ogg
   - type: Vocal
-    sounds:
-      Male: UnisexSnail
-      Female: UnisexSnail
-      Unsexed: UnisexSnail
+    emoteSounds: UnisexSnail
   - type: BodyEmotes
     soundsId: GastropoidBodyEmotes
   - type: GastropoidAccent

@@ -1,0 +1,25 @@
+﻿- type: particleEffect
+  id: SuitBreachAirLeak
+  parent: SfFireContinuous
+  sprite:
+    sprite: _Starfall/Particles/generic.rsi
+    state: dot
+  emissionRate: 20
+  maxCount: 60
+  speed: 1.5
+  speedVariance: 0.8
+  gravity: 0
+  spreadAngle: 360
+  sizeVariance: 0.3
+  stretchFactor: 0.35
+  noiseStrength: 0.3
+  noiseFrequency: 1.2
+  colorOverLifetime:
+  - time: 0.0
+    color: "#FFFFFF44"
+  - time: 0.3
+    color: "#FFFFFF22"
+  - time: 0.7
+    color: "#FFFFFF11"
+  - time: 1.0
+    color: "#FFFFFF00"

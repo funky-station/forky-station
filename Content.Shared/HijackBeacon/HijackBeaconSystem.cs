@@ -22,7 +22,7 @@ public sealed partial class HijackBeaconSystem : EntitySystem
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
 
-    public readonly SoundSpecifier AnnounceSound = new SoundPathSpecifier("/Audio/Misc/notice1.ogg");
+    public readonly SoundSpecifier AnnounceSound = new SoundPathSpecifier("/Audio/Misc/notice1_mono.ogg"); // funky - mono sounds for pa speakers
     public readonly SoundSpecifier DeactivateSound = new SoundPathSpecifier("/Audio/Misc/notice2.ogg");
 
     public override void Initialize()
@@ -298,7 +298,7 @@ public sealed partial class HijackBeaconSystem : EntitySystem
             return;
 
         _transform.AnchorEntity(ent, beaconXForm);
-        _popup.PopupPredicted(Loc.GetString("hijack-beacon-popup-anchor"), ent, null);
+        _popup.PopupEntity(Loc.GetString("hijack-beacon-popup-anchor"), ent);
     }
 
     /// <summary>
@@ -312,7 +312,7 @@ public sealed partial class HijackBeaconSystem : EntitySystem
             return;
 
         _transform.Unanchor(ent, beaconXForm);
-        _popup.PopupPredicted(Loc.GetString("hijack-beacon-popup-unanchor"), ent, null);
+        _popup.PopupEntity(Loc.GetString("hijack-beacon-popup-unanchor"), ent);
     }
 
     /// <summary>

@@ -46,6 +46,7 @@
   - CellRechargerCircuitboard
   - WeaponCapacitorRechargerCircuitboard
   - FreezerElectronics
+  - PASpeakerElectronics #funky
 
 - type: latheRecipePack
   id: EngineeringBoardsStatic
@@ -90,3 +91,4 @@
   - SMESAdvancedMachineCircuitboard
   - HolopadMachineCircuitboard
   - ElectrolyzerMachineCircuitboard # Funky atmos - /tg/ gases
+  - PagerServerCircuitboard # Funky

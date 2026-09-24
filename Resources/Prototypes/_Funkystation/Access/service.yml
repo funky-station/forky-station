@@ -1,0 +1,7 @@
+- type: accessLevel
+  id: Library
+  name: id-card-access-level-library
+
+- type: accessLevel
+  id: HospitalityDirector
+  name: id-card-access-level-hd

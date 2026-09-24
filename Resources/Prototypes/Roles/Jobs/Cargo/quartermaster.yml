@@ -3,17 +3,20 @@
   name: job-name-qm
   description: job-description-qm
   playTimeTracker: JobQuartermaster
+  requiresNda: Command # Funky
   requirements:
     - !type:RoleTimeRequirement
       role: JobCargoTechnician
       time: 5h
     - !type:RoleTimeRequirement
-      role: JobSalvageSpecialist
+      role: JobBotanist #funky - replaces salvage
       time: 2.5h
     - !type:DepartmentTimeRequirement
       department: Cargo
       time: 10h
-  weight: 10
+    - !type:OverallPlaytimeRequirement
+      time: 20h # Funky
+  #weight: 10 # Funky - Weighting all jobs equally now
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
   joinNotifyCrew: true # Funky
@@ -29,8 +32,8 @@
   - Brig
   - Cryogenics
   special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+  #- !type:AddImplantSpecial
+  #  implants: [ MindShieldImplant ] # Funky - Removed mindshields
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff

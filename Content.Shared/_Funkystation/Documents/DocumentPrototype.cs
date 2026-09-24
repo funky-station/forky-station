@@ -22,14 +22,14 @@ public sealed partial class DocumentPrototype : IPrototype
     /// <summary>
     /// .ftl for the short description shown under the name in the UI
     /// </summary>
-    [DataField("description")]
+    [DataField]
     public string Description { get; private set; } = string.Empty;
 
     /// <summary>
     /// Which category tab this document is filed under. Documents with no explicit category fall back to the Misc category
     /// </summary>
-    [DataField("category", customTypeSerializer: typeof(PrototypeIdSerializer<DocumentCategoryPrototype>))]
-    public string Category { get; private set; } = "DocCatMisc";
+    [DataField]
+    public ProtoId<DocumentCategoryPrototype> Category { get; private set; } = "DocCatMisc";
 
     /// <summary>
     /// The paper entity prototype to spawn on print
@@ -38,10 +38,10 @@ public sealed partial class DocumentPrototype : IPrototype
     public EntProtoId PaperPrototype { get; private set; }
 
     /// <summary>
-    /// .ftl for the body text written onto the spawned paper
+    /// Name of the text file to load in for the document body. It needs to be located in Resources/Documents.
     /// </summary>
-    [DataField("content", required: true)]
-    public string Content { get; private set; } = string.Empty;
+    [DataField(required: true)]
+    public string ContentFileName = "";
 
     /// <summary>
     /// Stamp prototype automatically applied to the paper on print

@@ -22,6 +22,7 @@
   - type: Item
     size: Small
     sprite: Objects/Tools/welder.rsi
+  - type: ItemToggleExaminableStatus
   - type: ItemToggle
     predictable: false
     soundActivate:
@@ -55,6 +56,7 @@
   - type: ItemToggleHot
   - type: ComponentToggler
     components:
+    - type: IgniteOnMeleeHit
     - type: DisarmMalus
       malus: 0.6
   - type: ToggleableVisuals
@@ -79,7 +81,7 @@
   - type: Tool
     useSound:
       collection: Welder
-    qualities: Welding
+    qualities: [ Welding ]
   - type: Welder
   - type: PointLight
     enabled: false
@@ -96,6 +98,16 @@
     price: 40
   - type: IgnitionSource
     temperature: 700
+  - type: EmitSoundOnPickup # Funky
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/welder_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop # Funky
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/welder_drop.ogg
+      params:
+        volume: -4
 
 - type: entity
   parent: [SolutionToolWelder, BaseWelder]

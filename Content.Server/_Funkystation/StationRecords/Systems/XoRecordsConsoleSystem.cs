@@ -1,8 +1,9 @@
 ﻿using Content.Server._Funkystation.StationRecords.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._Funkystation.CCVar;
+using Content.Shared._Funkystation.Pager;
 using Content.Shared._Funkystation.StationRecords;
-using Content.Shared.StationRecords;
+using Content.Shared.StationRecords.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 
@@ -129,7 +130,11 @@ public sealed partial class XoRecordsConsoleSystem : EntitySystem
 
         var age = Math.Clamp(msg.Fields.Age, 18, 120);
 
-        _manifest.TrySubmitRecord(owning.Value, msg.Id, name, age, jobTitle, species, msg.Fields.Gender, fingerprint, dna);
+        int? pagerNumber = msg.Fields.PagerNumber;
+        if (pagerNumber is { } pVal && !SharedPagerSystem.IsValidNumber(pVal))
+            pagerNumber = null;
+
+        _manifest.TrySubmitRecord(owning.Value, msg.Id, name, age, jobTitle, species, msg.Fields.Gender, fingerprint, dna, pagerNumber);
     }
 
     private void UpdateUserInterface(Entity<XoRecordsConsoleComponent> ent)
@@ -168,7 +173,8 @@ public sealed partial class XoRecordsConsoleSystem : EntitySystem
                     selectedPublished.Species,
                     selectedPublished.Gender,
                     selectedPublished.Fingerprint,
-                    selectedPublished.DNA);
+                    selectedPublished.DNA,
+                    selectedPublished.PagerNumber);
             }
         }
 

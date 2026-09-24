@@ -1,0 +1,24 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+#Submitted by Taydeo
+- type: entity
+  parent: BookBase
+  id: TheWealthOfNations
+  name: The Wealth of Nations
+  description: A book outlining the blueprint of Capitalism.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_old
+      color: "#ffc773"
+    - state: icon_diamond
+    - state: detail_rivets
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#134975'
+      stampedName: stamped-nt-approved
+    content: book-text-wealthofnations

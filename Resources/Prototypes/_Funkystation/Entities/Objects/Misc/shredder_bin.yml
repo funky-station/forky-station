@@ -1,0 +1,102 @@
+﻿- type: entity
+  parent: BaseStorageItem
+  id: ShredderBin
+  name: shredder bin
+  description: A removable bin that catches shredded paper. Empty it out before it starts overflowing.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/shredder_bin.rsi
+    layers:
+      - state: icon-0
+        map: ["enum.StorageFillLayers.Fill"]
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,2,2
+    quickInsert: true
+    areaInsert: true
+    storageOpenSound:
+      collection: trashBagRustle
+    storageInsertSound:
+      collection: trashBagRustle
+    whitelist:
+      tags:
+        - Trash
+  - type: Appearance
+  - type: StorageFillVisualizer
+    maxFillLevels: 2
+    fillBaseName: icon
+  - type: UseDelay
+    delay: 0.5
+  - type: Dumpable
+  - type: Item
+    size: Normal
+  - type: Tag
+    tags:
+    - TrashBag
+    - ShredderBin
+
+- type: entity
+  parent: BaseItem
+  id: ShreddedPaperPile
+  name: shredded paper
+  description: A messy pile of shredded paper clippings.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/shredded_paper.rsi
+    layers:
+    - state: pile-0
+      map: [ "random" ]
+  - type: Appearance
+  - type: RandomSprite
+    available:
+    - random:
+        pile-0: ""
+        pile-1: ""
+        pile-2: ""
+        pile-3: ""
+        pile-big: ""
+  - type: Item
+    size: Tiny
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+  - type: ExtinguishableSetCollisionWake
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    canExtinguish: true
+    damage:
+      types:
+        Heat: 1
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Injurable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Edible
+    delay: 7
+    forceFeedDelay: 7
+  - type: FlavorProfile
+    flavors:
+    - paper
+  - type: BadFood
+  - type: Tag
+    tags:
+    - Trash
+    - Recyclable

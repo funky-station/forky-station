@@ -1,5 +1,6 @@
 ﻿- type: emoteSounds
   id: UnisexAnt
+  voiceSelectorName: humanoid-profile-editor-voice-neutral
   params:
     variation: 0.125
     pitch: 3

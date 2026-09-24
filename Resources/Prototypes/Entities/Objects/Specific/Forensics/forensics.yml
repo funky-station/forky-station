@@ -8,7 +8,7 @@
     size: Tiny
   - type: ForensicPad
   - type: Sprite
-    sprite: Objects/Misc/bureaucracy.rsi
+    sprite: _Funkystation/Objects/Misc/bureaucracy.rsi # Funky
     layers:
     - state: paper
       color: yellow

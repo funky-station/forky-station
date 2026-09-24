@@ -2,7 +2,7 @@
   parent: BaseSmallStack
   id: Ointment
   name: stack-ointment
-  icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: ointment }
+  icon: { sprite: "/Textures/_Funkystation/Objects/Specific/Medical/medical.rsi", state: ointment } # funky
   spawn: Ointment
 
 - type: stack
@@ -16,34 +16,34 @@
   parent: BaseSmallStack
   id: Gauze
   name: stack-gauze
-  icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: gauze }
+  icon: { sprite: "/Textures/_Funkystation/Objects/Specific/Medical/medical.rsi", state: gauze } # funky
   spawn: Gauze
 
 - type: stack
   parent: BaseSmallStack
   id: Brutepack
   name: stack-brutepack
-  icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: gauze }
+  icon: { sprite: "/Textures/_Funkystation/Objects/Specific/Medical/medical.rsi", state: gauze } # funky
   spawn: Brutepack
 
 - type: stack
   parent: BaseSmallStack
   id: Bloodpack
   name: stack-bloodpack
-  icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: bloodpack }
+  icon: { sprite: "/Textures/_Funkystation/Objects/Specific/Medical/medical.rsi", state: bloodpack } # funky
   spawn: Bloodpack
 
 - type: stack
   parent: BaseSmallStack
   id: MedicatedSuture
   name: stack-medicated-suture
-  icon: {sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: medicated-suture }
+  icon: {sprite: "/Textures/_Funkystation/Objects/Specific/Medical/medical.rsi", state: medicated-suture } # funky
   spawn: MedicatedSuture
 
 - type: stack
   parent: BaseSmallStack
   id: RegenerativeMesh
   name: stack-regenerative-mesh
-  icon: {sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: regenerative-mesh}
+  icon: {sprite: "/Textures/_Funkystation/Objects/Specific/Medical/medical.rsi", state: regenerative-mesh} # funky
   spawn: RegenerativeMesh
 

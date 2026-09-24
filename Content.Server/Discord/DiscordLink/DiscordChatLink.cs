@@ -1,4 +1,5 @@
 using Content.Server.Chat.Managers;
+using Content.Shared._RMC14.CCVar; // RMC Mentor Chat Funky Port
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using NetCord;
@@ -20,6 +21,7 @@ public sealed partial class DiscordChatLink : IPostInjectInit
 
     private ulong? _oocChannelId;
     private ulong? _adminChannelId;
+    private ulong? _mentorChannelId; // RMC Mentor Chat Funky Port
 
     public void Initialize()
     {
@@ -31,6 +33,7 @@ public sealed partial class DiscordChatLink : IPostInjectInit
 
         _configurationManager.OnValueChanged(CCVars.OocDiscordChannelId, OnOocChannelIdChanged, true);
         _configurationManager.OnValueChanged(CCVars.AdminChatDiscordChannelId, OnAdminChannelIdChanged, true);
+        _configurationManager.OnValueChanged(RMCCVars.RMCDiscordMentorChatChannel, OnMentorChannelIdChanged, true); // RMC Mentor Chat Funky Port
     }
 
     public void Shutdown()
@@ -39,6 +42,7 @@ public sealed partial class DiscordChatLink : IPostInjectInit
 
         _configurationManager.UnsubValueChanged(CCVars.OocDiscordChannelId, OnOocChannelIdChanged);
         _configurationManager.UnsubValueChanged(CCVars.AdminChatDiscordChannelId, OnAdminChannelIdChanged);
+        _configurationManager.UnsubValueChanged(RMCCVars.RMCDiscordMentorChatChannel, OnMentorChannelIdChanged); // RMC Mentor Chat Funky Port
     }
 
     #if DEBUG
@@ -71,6 +75,18 @@ public sealed partial class DiscordChatLink : IPostInjectInit
         _adminChannelId = ulong.Parse(channelId);
     }
 
+    // RMC Mentor Chat Funky Port
+    private void OnMentorChannelIdChanged(long channelId)
+    {
+        if (channelId == 0)
+        {
+            _mentorChannelId = null;
+            return;
+        }
+
+        _mentorChannelId = (ulong)channelId;
+    }
+
     private void OnMessageReceived(Message message)
     {
         if (message.Author.IsBot)
@@ -86,6 +102,11 @@ public sealed partial class DiscordChatLink : IPostInjectInit
         {
             _taskManager.RunOnMainThread(() => _chatManager.SendHookAdmin(message.Author.Username, contents));
         }
+        // RMC Mentor Chat Funky Port
+        else if (message.ChannelId == _mentorChannelId)
+        {
+            _taskManager.RunOnMainThread(() => ((ChatManager)_chatManager).SendHookMentor(message.Author.Username, contents));
+        }
     }
 
     public async void SendMessage(string message, string author, ChatChannel channel)
@@ -94,6 +115,7 @@ public sealed partial class DiscordChatLink : IPostInjectInit
         {
             ChatChannel.OOC => _oocChannelId,
             ChatChannel.AdminChat => _adminChannelId,
+            ChatChannel.MentorChat => _mentorChannelId, // RMC Mentor Chat Funky Port
             _ => throw new InvalidOperationException("Channel not linked to Discord."),
         };
 

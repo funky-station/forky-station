@@ -1,0 +1,79 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  id: FolderStandardForms
+  parent: BoxFolderBaseEmpty
+  name: standard forms folder
+  description: A folder filled with editable standard forms for designing paperwork.
+  components:
+  - type: Sprite
+    layers:
+    - state: folder-colormap
+      color: "#1b487e"
+    - state: folder-base
+  - type: OocAuthorship
+    oocAuthor: Compiled from MooMooBeef forms by wgreen84
+  - type: StorageFill
+    contents:
+    - id: PaperHumanResourcesDept
+    - id: PaperMemo
+    - id: PaperScienceAnomalyDocumentationForm
+    - id: PaperJobChangeRequest
+    - id: PaperCrimeSentencingForm
+    - id: PaperReplacementIDForm
+
+- type: entity
+  id: PaperHumanResourcesDept
+  name: Nanotrasen Human Resources Department
+  description: Nanotrasen Human Resources Department welcome form.
+  parent: Paper
+  components:
+  - type: Paper
+    content: paper-form-humanresources
+
+- type: entity
+  id: PaperMemo
+  name: Memo
+  description: Standard memo form.
+  parent: Paper
+  components:
+  - type: Paper
+    content: paper-form-memo
+
+- type: entity
+  id: PaperScienceAnomalyDocumentationForm
+  name: Science Anomaly Documentation Form
+  description: Standard anomaly documentation form.
+  parent: Paper
+  components:
+  - type: Paper
+    content: paper-form-anomalydoc
+
+- type: entity
+  id: PaperJobChangeRequest
+  name: Job/Department Change Request Form
+  description: Standard job or department change request form.
+  parent: Paper
+  components:
+  - type: Paper
+    content: paper-form-jobchange
+
+- type: entity
+  id: PaperCrimeSentencingForm
+  name: Quick Crime Sentencing Memo
+  description: A document for quickly sentencing crimes.
+  parent: Paper
+  components:
+  - type: Paper
+    content: paper-form-sentencingmemo
+
+- type: entity
+  id: PaperReplacementIDForm
+  name: Replacement Identification Card and/or Personal Digital Assistant Request
+  description: A document for getting a replacement ID or PDA.
+  parent: Paper
+  components:
+  - type: Paper
+    content: paper-form-idreplacement

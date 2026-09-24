@@ -90,6 +90,8 @@
       weight: 1
     - id: PlushieLizardInversed
       weight: 0.1 # 1 in >100
+    - id: PlushieLizardMirrored #funky
+      weight: 0.1 # 1 in >100
     - !type:GroupSelector # Lizard gets a job table
       children:
       - id: PlushieLizardJobAtmospherictechnician
@@ -396,7 +398,7 @@
   - type: Sprite
     layers:
     - state: red
-    - sprite: Objects/Fun/bikehorn.rsi
+    - sprite: _Funkystation/Objects/Fun/bikehorn.rsi # Funky
       state: icon
   - type: EntityTableSpawner
     table: !type:NestedSelector
@@ -524,7 +526,7 @@
   - type: Sprite
     layers:
     - state: red
-    - sprite: Objects/Fun/crayons.rsi
+    - sprite: _Funkystation/Objects/Fun/crayons.rsi # Funky
       state: rainbow
   - type: EntityTableSpawner
     table: !type:GroupSelector

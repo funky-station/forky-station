@@ -236,3 +236,11 @@
   completetime: 2
   materials:
     Cloth: 300
+
+#funkstart
+- type: latheRecipe
+  id: PaperBin
+  result: PaperBin
+  completetime: 2
+  materials:
+    Steel: 400

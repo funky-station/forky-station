@@ -1,16 +1,38 @@
-name: "Labels: Approved"
+name: "Labels: Remove statuses on close"
 on:
-  pull_request_review:
-    types: [submitted]
+  pull_request_target:
+    types: [closed]
 jobs:
   add_label:
     # Change the repository name after you've made sure the team name is correct for your fork!
-    if: ${{ (github.repository == 'funky-station/forky-station') && (github.event.review.state == 'APPROVED') }}
-    permissions:
-      contents: read
-      pull-requests: write
+    if: ${{ (github.repository == 'funky-station/forky-station') }}
     runs-on: ubuntu-latest
     steps:
-    - uses: actions-ecosystem/action-add-labels@v1
-      with:
-        labels: "Status: Approved"
+    - if: ${{contains(github.event.pull_request.labels.*.name, format('Status{0} Untriaged', ':'))}}
+      run: |
+        curl --silent --fail-with-body \
+        -X DELETE \
+        -H "Accept: application/vnd.github.v3+json" \
+        -H "Authorization: token ${{ github.token }}" \
+        https://api.github.com/repos/${{github.repository}}/issues/${{github.event.number}}/labels/Status%3A%20Untriaged
+    - if: ${{ contains(github.event.pull_request.labels.*.name, format('Status{0} Merge Conflict', ':'))}}
+      run: |
+        curl --silent --fail-with-body \
+        -X DELETE \
+        -H "Accept: application/vnd.github.v3+json" \
+        -H "Authorization: token ${{ github.token }}" \
+        https://api.github.com/repos/${{github.repository}}/issues/${{github.event.number}}/labels/Status%3A%20Merge%20Conflict
+    - if: ${{ contains(github.event.pull_request.labels.*.name, format('Status{0} Needs Review', ':'))}}
+      run: |
+        curl --silent --fail-with-body \
+        -X DELETE \
+        -H "Accept: application/vnd.github.v3+json" \
+        -H "Authorization: token ${{ github.token}}" \
+        https://api.github.com/repos/${{ github.repository }}/issues/${{github.event.number}}/labels/Status%3A%20Needs%20Review
+    - if: ${{ contains(github.event.pull_request.labels.*.name, format('Status{0} Awaiting Changes', ':'))}}
+      run: |
+        curl --silent --fail-with-body \
+        -X DELETE \
+        -H "Accept: application/vnd.github.v3+json" \
+        -H "Authorization: token ${{ github.token}}" \
+        https://api.github.com/repos/${{ github.repository }}/issues/${{github.event.number}}/labels/Status%3A%20Awaiting%20Changes

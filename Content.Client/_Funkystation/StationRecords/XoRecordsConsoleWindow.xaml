@@ -75,8 +75,16 @@
                                         </BoxContainer>
                                     </BoxContainer>
 
-                                    <Label Text="{Loc 'xo-records-console-field-job'}"/>
-                                    <LineEdit Name="JobField" PlaceHolder="{Loc 'xo-records-console-field-job-placeholder'}"/>
+                                    <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+                                        <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                                            <Label Text="{Loc 'xo-records-console-field-job'}"/>
+                                            <LineEdit Name="JobField" PlaceHolder="{Loc 'xo-records-console-field-job-placeholder'}"/>
+                                        </BoxContainer>
+                                        <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                                            <Label Text="{Loc 'xo-records-console-field-pager'}"/>
+                                            <LineEdit Name="PagerField" PlaceHolder="{Loc 'xo-records-console-field-pager-placeholder'}"/>
+                                        </BoxContainer>
+                                    </BoxContainer>
 
                                     <Label Text="{Loc 'xo-records-console-field-species'}"/>
                                     <OptionButton Name="SpeciesButton"/>

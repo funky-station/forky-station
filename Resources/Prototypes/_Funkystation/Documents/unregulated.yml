@@ -6,7 +6,7 @@
   description: doc-xo-murder-desc
   category: DocCatUnregulatedForms
   paperPrototype: Paper
-  content: doc-xo-murder-content
+  contentFileName: test.txt # TODO: Change this
 
 - type: document
   id: DocClownAAForm
@@ -14,4 +14,4 @@
   description: doc-clown-aa-form-desc
   category: DocCatUnregulatedForms
   paperPrototype: Paper
-  content: doc-clown-aa-form-content
+  contentFileName: todo.txt # TODO: Change this

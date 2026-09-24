@@ -1,0 +1,17 @@
+- type: entity
+  id: DresserHospitalityDirectorFilled
+  parent: Dresser
+  suffix: Filled, HospitalityDirector
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatTophat
+        - id: FuClothingHeadHatHd
+        - id: FuClothingUniformShirtPantsHd
+        - id: FuClothingUniformShirtSkirtHd
+        - id: FuClothingOuterCoatHd
+        - id: FuClothingOuterVestHd
+        - id: FuClothingOuterWinterHd
+        - id: ClothingHandsGlovesColorWhite

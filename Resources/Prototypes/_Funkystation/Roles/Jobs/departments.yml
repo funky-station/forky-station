@@ -10,8 +10,19 @@
   - Chef
   - Clown
   - Janitor
-  - HeadOfPersonnel
+  - HospitalityDirector
   - Librarian
   - Mime
   - Musician
   - ServiceWorker
+
+- type: department
+  id: InternalAffairs
+  name: department-InternalAffairs
+  description: department-InternalAffairs-description
+  color: "#BDA499"
+  weight: 10 # important, but not as much as security
+  roles:
+  - ExecutiveOfficer
+  - Magistrate
+  - InternalAffairsAgent

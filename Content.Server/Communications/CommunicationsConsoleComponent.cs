@@ -1,6 +1,8 @@
 using Content.Server.UserInterface;
+using Content.Shared._MACRO.Announcements;
 using Content.Shared.Communications;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Communications
 {
@@ -27,6 +29,19 @@ namespace Content.Server.Communications
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField(required: true)]
         public LocId Title = "comms-console-announcement-title-station";
+
+        /// <summary>
+        /// Funky - Fluent ID for the preamble "Incoming announcement" statement.
+        /// </summary>
+        [DataField]
+        public LocId Preamble = "pa-announcement-preamble";
+
+        /// <summary>
+        /// Funky - whether this comms console can bypass PA speakers
+        /// and be received directly by players, AKA "announce telepathically".
+        /// </summary>
+        [DataField]
+        public bool CanBypassPA = false;
 
         /// <summary>
         /// Announcement color
@@ -66,7 +81,7 @@ namespace Content.Server.Communications
         /// Announce sound file path
         /// </summary>
         [DataField]
-        public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Announcements/announce.ogg");
+        public ProtoId<AnnouncementSoundPrototype> Sound = "Announce"; // Macrocosm edit - announcement sound prototypes
 
         /// <summary>
         /// Hides the sender identity (If they even have one).
