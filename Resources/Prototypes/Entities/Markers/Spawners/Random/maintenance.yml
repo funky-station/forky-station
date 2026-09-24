@@ -226,7 +226,7 @@
       - id: Wirecutter
       - id: Screwdriver
       - id: Wrench
-      - !type:GroupSelector
+      - !type:GroupSelector #funky start
         weight: 1
         children:
         - id: CrowbarGreen
@@ -242,7 +242,7 @@
         - id: CrowbarCutePurple
           weight: 1
         - id: CrowbarCutePink
-          weight: 1
+          weight: 1 #funky end
       - id: Multitool
       - id: Shovel
       - id: Welder
