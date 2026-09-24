@@ -1,0 +1,78 @@
+## jumpsuits
+
+# cargo tech
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformJumpsuitLogiCt
+  name: cargo technician jumpsuit
+  description: The standard jumpsuit for NanoTrasen cargo technicians. Copper brown, with beige accents. Comes with more pockets than the standard uniform.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Logistics/Jumpsuit/cargotech.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Logistics/Jumpsuit/cargotech.rsi
+
+# courier
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformJumpsuitLogiCourier
+  name: courier jumpsuit
+  description: The standard jumpsuit for NanoTrasen couriers. Blue, with off-white and red stripes for easier identification.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Logistics/Jumpsuit/courier.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Logistics/Jumpsuit/courier.rsi
+
+## pants two piece sets
+
+# cargo tech
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformTwopiecePantsLogiCt
+  name: cargo technician uniform
+  description: The standard uniform for NanoTrasen cargo technicians. A copper brown vest, with an off-white shirt and pants with brown socks.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Logistics/TwoPiecePants/cargotech.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Logistics/TwoPiecePants/cargotech.rsi
+
+# courier
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformTwopiecePantsLogiCourier
+  name: courier uniform
+  description: The standard uniform for NanoTrasen couriers. A blue vest and pants with an off-white shirt that features a red embroidered badge.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Logistics/TwoPiecePants/courier.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Logistics/TwoPiecePants/courier.rsi
+
+
+## skirt two piece sets
+
+# cargo tech
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformTwopieceSkirtLogiCt
+  name: cargo technician uniform
+  description: The standard uniform for NanoTrasen cargo technicians. A copper brown vest, with an off-white shirt and skirt with a brown stripe running horizontall across it.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Logistics/TwoPieceSkirts/cargotech.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Logistics/TwoPieceSkirts/cargotech.rsi
+
+# courier
+- type: entity
+  parent: ClothingUniformBase
+  id: FuClothingUniformTwopieceSkirtLogiCourier
+  name: courier uniform
+  description: The standard uniform for NanoTrasen cargo technicians. A blue vest, with an off-white shirt and skirt with a brown stripe running horizontall across it.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Logistics/TwoPieceSkirts/courier.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Logistics/TwoPieceSkirts/courier.rsi

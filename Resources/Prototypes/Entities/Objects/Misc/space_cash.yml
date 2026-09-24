@@ -52,6 +52,10 @@
         mask:
         - ItemMask
   - type: Appearance
+  # Funky changes start
+  - type: ScoreThiefPriceModifier
+    multiplier: 0
+    reason: "scorethief-modifier-money"
 
 - type: material
   id: Credit

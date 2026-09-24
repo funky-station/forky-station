@@ -82,3 +82,4 @@
     containers:
       machine_board: !type:Container
       machine_parts: !type:Container
+      hidden_slot: !type:ContainerSlot

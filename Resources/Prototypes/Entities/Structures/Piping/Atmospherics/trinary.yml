@@ -39,9 +39,9 @@
       visibleLayers:
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
-      sprite: Structures/Piping/Atmospherics/gasfilter.rsi
+      sprite: _Funkystation/Structures/Piping/Atmospherics/gasfilter.rsi # Funky
       layers:
-        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+        - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
           state: pipeTrinaryConnectors
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: gasFilter
@@ -54,6 +54,9 @@
             True: { state: gasFilterOn }
             False: { state: gasFilter }
     - type: PipeColorVisuals
+    - type: ActivatableUI
+      key: enum.GasFilterUiKey.Key
+    - type: ActivatableUIRequiresAnchor
     - type: UserInterface
       interfaces:
         enum.GasFilterUiKey.Key:
@@ -91,9 +94,9 @@
     visibleLayers:
     - enum.SubfloorLayers.FirstLayer
   - type: Sprite
-    sprite: Structures/Piping/Atmospherics/gasfilter.rsi
+    sprite: _Funkystation/Structures/Piping/Atmospherics/gasfilter.rsi # Funky
     layers:
-    - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
       state: pipeTrinaryConnectors
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: gasFilterF
@@ -138,9 +141,9 @@
       visibleLayers:
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
-      sprite: Structures/Piping/Atmospherics/gasmixer.rsi
+      sprite: _Funkystation/Structures/Piping/Atmospherics/gasmixer.rsi # Funky
       layers:
-        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+        - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
           state: pipeTrinaryConnectors
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: gasMixer
@@ -153,6 +156,9 @@
             True: { state: gasMixerOn }
             False: { state: gasMixer }
     - type: PipeColorVisuals
+    - type: ActivatableUI
+      key: enum.GasMixerUiKey.Key
+    - type: ActivatableUIRequiresAnchor
     - type: UserInterface
       interfaces:
         enum.GasMixerUiKey.Key:
@@ -187,9 +193,9 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: Structures/Piping/Atmospherics/gasmixer.rsi
+    sprite: _Funkystation/Structures/Piping/Atmospherics/gasmixer.rsi # Funky
     layers:
-    - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
       state: pipeTrinaryConnectors
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: gasMixerF
@@ -253,9 +259,9 @@
           nodeGroupID: Pipe
           pipeDirection: South
     - type: Sprite
-      sprite: Structures/Piping/Atmospherics/pneumaticvalve.rsi
+      sprite: _Funkystation/Structures/Piping/Atmospherics/pneumaticvalve.rsi # Funky
       layers:
-        - sprite: Structures/Piping/Atmospherics/pipe.rsi
+        - sprite: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi # Funky
           state: pipeTrinaryConnectors
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: off

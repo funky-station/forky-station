@@ -9,7 +9,7 @@
   - type: Sprite
     state: pill19
   - type: Label
-    currentLabel: emergency
+    localizedLabel: emergency-pill-label
   - type: Solution
     solution:
       maxVol: 20

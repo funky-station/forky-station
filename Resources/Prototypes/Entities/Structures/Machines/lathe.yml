@@ -1,6 +1,6 @@
 - type: entity
   id: BaseLathe
-  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  parent: [ BaseMachinePowered, ConstructibleMachine, BaseConstructibleMachineDestructible ]
   abstract: true
   name: lathe
   components:
@@ -23,15 +23,11 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 175
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-      - !type:ChangeConstructionNodeBehavior
-        node: machineFrame
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
   - type: WiresPanel
   - type: ActivatableUI
     key: enum.LatheUiKey.Key
@@ -155,6 +151,14 @@
       machine_board: !type:Container
       machine_parts: !type:Container
       blueprint: !type:Container
+      hidden_slot: !type:ContainerSlot # funky start
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: computer_slot_accessory
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end
   - type: EmptyOnMachineDeconstruct
     containers:
     - blueprint
@@ -491,6 +495,7 @@
   - type: OreSiloClient
   - type: LatheAnnouncing
     channels: [Medical]
+  - type: AmbientMusicMarkerMedical
 
 - type: entity
   parent: BaseLathe
@@ -614,6 +619,11 @@
       staticPacks:
       - OreSmelting
       - RGlassSmelting
+      #Funky start - Prisoner salvage magnet
+    - type: ActivatableUIRequiresAccess
+    - type: AccessReader
+      access: [["Security"]]
+      #Funky end - Prisoner salvage magnet
 
 - type: entity
   parent: OreProcessor

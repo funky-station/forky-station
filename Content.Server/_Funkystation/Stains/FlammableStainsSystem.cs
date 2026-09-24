@@ -20,7 +20,6 @@ namespace Content.Server._Funkystation.Stains
         [Dependency] private FlammableSystem _flammable = null!;
         [Dependency] private InventorySystem _inventory = null!;
         [Dependency] private SharedSolutionContainerSystem _solution = null!;
-        [Dependency] private IPrototypeManager _prototypeManager = null!;
         [Dependency] private EntityLookupSystem _lookup = null!;
         [Dependency] private IConfigurationManager _cfg = null!;
         [Dependency] private IAdminLogManager _adminLogger = default!;
@@ -116,7 +115,7 @@ namespace Content.Server._Funkystation.Stains
                     !_solution.TryGetSolution(slotEnt.Value, stain.SolutionName, out var soln, out var solution))
                     continue;
 
-                if (solution.GetSolutionFlammability(_prototypeManager) <= 0)
+                if (solution.GetSolutionFlammability(ProtoMan) <= 0)
                     continue;
 
                 _solution.BurnFlammableReagents(soln.Value, StainBurnRatePerSecond * frameTime);
@@ -137,7 +136,7 @@ namespace Content.Server._Funkystation.Stains
                 if (TryComp<StainableComponent>(slotEnt, out var stain) &&
                     _solution.TryGetSolution(slotEnt.Value, stain.SolutionName, out _, out var solution))
                 {
-                    total += solution.GetSolutionFlammability(_prototypeManager);
+                    total += solution.GetSolutionFlammability(ProtoMan);
                 }
             }
             return total;
@@ -175,7 +174,7 @@ namespace Content.Server._Funkystation.Stains
                 {
                     foreach (var (reagentId, _) in solution.Contents)
                     {
-                        if (_prototypeManager.TryIndex<ReagentPrototype>(reagentId.Prototype, out var proto) && proto.Flammability > 0)
+                        if (ProtoMan.TryIndex<ReagentPrototype>(reagentId.Prototype, out var proto) && proto.Flammability > 0)
                         {
                             names.Add(proto.LocalizedName);
                         }

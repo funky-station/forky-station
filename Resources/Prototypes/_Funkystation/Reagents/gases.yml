@@ -244,7 +244,7 @@
           reagent: Nitrium
           min: 6
         reagent: NitrosylPlasmide
-        amount: 2.5
+        quantity: 2.5
 
       - !type:GenericStatusEffect
         conditions:

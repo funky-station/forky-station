@@ -1,13 +1,13 @@
 - type: entity
-  parent: BaseItem
-  id: BaseVendingMachineRestock
   abstract: true
+  parent: [ BaseItem, BaseItemDestructible ]
+  id: BaseVendingMachineRestock
   name: vending machine restock box
   description: A box for restocking vending machines with corporate goodies.
   components:
   - type: VendingMachineRestock
   - type: Sprite
-    sprite: Objects/Specific/Service/vending_machine_restock.rsi
+    sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
     layers:
     - state: base
     - state: green_bit
@@ -24,20 +24,16 @@
     size: Normal
   - type: Damageable
     damageModifierSet: Metallic
-  - type: Injurable
-    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 20
+        damage: 50
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
       - !type:DumpRestockInventory
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
 
 - type: entity
   parent: BaseVendingMachineRestock

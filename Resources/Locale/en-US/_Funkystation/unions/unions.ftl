@@ -1,0 +1,56 @@
+trait-category-leadership = Leadership
+trait-union-leader-name = Union Leader
+trait-union-leader-desc = Lead your local union! You make sure workers are following SOP, and that department heads are following the rules.
+trait-union-member-name = Union Member
+trait-union-member-desc = Be a part of your local union!
+
+megaphone-not-a-member = You do not belong to this union.
+megaphone-not-leader = Only the union leader may use this.
+megaphone-on-cooldown = The megaphone needs a moment to rest before another use.
+megaphone-strike-started = { $union } IS NOW ON STRIKE. Members are expected to rally around their union head.
+megaphone-strike-ended = The { $union } strike has ended. Members may now return to work.
+megaphone-window-title = Megaphone
+megaphone-call-strike-button = Call Strike
+megaphone-end-strike-button = End Strike
+megaphone-message-too-long = Message is too long.
+megaphone-message-placeholder = Write your reasons for the strike here.
+
+union-clipboard-not-a-member = You do not belong to this union.
+union-clipboard-claim-window-title = Claim Leadership
+union-clipboard-claim-prompt = You are not the current leader for this union, would you like to claim the title?
+union-clipboard-claim-yes = Yes
+union-clipboard-claim-no = No
+union-clipboard-claim-leadership-prompt = You begin to fiddle with the clipboard, attempting to take charge...
+union-clipboard-claimed-leadership = Using the clipboard, you now declare yourself head of the { $union }!
+
+union-clipboard-menu-title = Union Roster
+union-clipboard-leader-name = { $name } (Leader)
+union-clipboard-notes-button = Notes
+union-clipboard-notes-window-title = Notes: { $name }
+union-clipboard-no-notes = No notes yet.
+union-clipboard-add-note-button = + Add Note
+union-clipboard-add-note-window-title = Add Note
+union-clipboard-add-note-title-placeholder = Title
+union-clipboard-add-note-text-placeholder = Say something kind!
+union-clipboard-add-note-submit = Save
+union-clipboard-no-match = You do not see anyone nearby matching that ID.
+union-clipboard-command-member = { $name } is a member of command and cannot join the union.
+union-clipboard-already-registered = They already belong to another union.
+union-clipboard-registered = { $name } has been added to the union roster.
+union-clipboard-make-steward-button = Make Steward
+union-clipboard-locked-message = Verifying { $name } as Steward. Present their ID to the clipboard to confirm.
+union-clipboard-locked-cancel = Cancel
+union-clipboard-steward-mismatch = This is not the correct ID.
+union-clipboard-steward-confirmed = { $name } is now a Steward.
+union-clipboard-steward-name = { $name } (Steward)
+union-clipboard-assign-steward-label = Steward:
+union-clipboard-assign-steward-none = None
+
+union-card-examine = Certifies that { $name } is a { $position } of the { $union }.
+union-card-position-leader = Leader
+union-card-position-steward = Steward
+union-card-position-member = Member
+union-card-burn-begin-self = You hold your union card to the flame, renouncing your membership...
+union-card-burn-begin-other = You hold { $name }'s union card to the flame...
+union-card-burned-self = Your union card is no more. You have resigned from the union.
+union-card-burned-other = { $name }'s union card is no more. They are no longer a member of their union.

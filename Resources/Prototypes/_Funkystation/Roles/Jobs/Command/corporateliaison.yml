@@ -3,6 +3,7 @@
   name: job-name-cl
   description: job-description-cl
   playTimeTracker: JobCorporateLiaison
+  requiresNda: Command # Funky
   requirements:
   - !type:DepartmentTimeRequirement
     department: Command
@@ -12,7 +13,7 @@
     time: 10h
   startingGear: CLGear
   icon: "JobIconCorporateLiaison"
-  supervisors: job-supervisors-cl
+  supervisors: job-supervisors-centcomm-advisor
   access:
   - Corporate
   - Command

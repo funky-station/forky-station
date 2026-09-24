@@ -1,0 +1,98 @@
+#Submitted by Stabithar
+- type: entity
+  parent: BookBase
+  id: ZeroSumOdysseyVol1
+  name: "The Zero-Sum Odyssey Book One: Anodyne Trepidation"
+  description: A slice-of-life prelude to an action-adventure thriller.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#808080"
+    - state: decor_vertical_middle
+      color: "#6f2d80"
+    - state: decor_bottom
+      color: "#3a3a3a"
+    - state: icon_apple
+      color: "#ff0000"
+    - state: icon_biohazard
+      color: "#990033"
+    - state: icon_bucket
+    - state: icon_text3
+      color: "#d5dc1d"
+    - state: decor_spine
+      color: "#540f09"
+  - type: OocAuthorship
+    oocAuthor: Stabithar
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#134975'
+      stampedName: stamped-nt-approved
+    content: book-text-zerosumodyssey-1
+
+#Submitted by Stabithar
+- type: entity
+  parent: BookBase
+  id: ZeroSumOdysseyVol2
+  name: "The Zero-Sum Odyssey Book Two: Crimson Redemption"
+  description: The second book in the Zero-Sum Odyssey action-adventure trilogy.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#200104"
+    - state: decor_wingette
+      color: "#540f09"
+    - state: icon_atmos
+      color: "#000000"
+    - state: icon_eye
+    - state: icon_glow
+      color: "#ff0000"
+    - state: icon_text3
+      color: "#d5dc1d"
+    - state: decor_spine
+      color: "#540f09"
+  - type: OocAuthorship
+    oocAuthor: Stabithar
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#134975'
+      stampedName: stamped-nt-approved
+    content: book-text-zerosumodyssey-2
+
+#Submitted by Stabithar
+- type: entity
+  parent: BookBase
+  id: ZeroSumOdysseyVol3
+  name: "The Zero-Sum Odyssey Book Three: Desolation’s Knell"
+  description: The thrilling conclusion to the Zero-Sum Odyssey action-adventure trilogy.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#110f40"
+    - state: icon_mount
+      color: "#110f40"
+    - state: icon_cabbage
+      color: "#ff0000"
+    - state: icon_biohazard
+      color: "#fe6905"
+    - state: icon_glow
+      color: "#fed500"
+    - state: icon_text3
+      color: "#d5dc1d"
+    - state: decor_spine
+      color: "#540f09"
+  - type: OocAuthorship
+    oocAuthor: Stabithar
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#134975'
+      stampedName: stamped-nt-approved
+    content: book-text-zerosumodyssey-3

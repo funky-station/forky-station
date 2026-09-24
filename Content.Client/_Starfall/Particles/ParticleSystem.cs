@@ -20,7 +20,6 @@ namespace Content.Client._Starfall.Particles;
 public sealed partial class ParticleSystem : EntitySystem
 {
     [Dependency] private IOverlayManager _overlayManager = default!;
-    [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
@@ -138,7 +137,7 @@ public sealed partial class ParticleSystem : EntitySystem
             return null;
         }
 
-        if (!_protoManager.TryIndex(effectId, out var proto))
+        if (!ProtoMan.TryIndex(effectId, out var proto))
             return null;
 
         // Skip quality check if this is a gameplay-critical particle

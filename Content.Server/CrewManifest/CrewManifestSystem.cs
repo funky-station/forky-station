@@ -1,11 +1,7 @@
 using System.Linq;
 using Content.Server.Administration;
 using Content.Server.EUI;
-using Content.Server._Funkystation.StationRecords.Components; // Funky
-using Content.Server._Funkystation.StationRecords.Systems; // Funky
 using Content.Server.Station.Systems;
-using Content.Server.StationRecords;
-using Content.Server.StationRecords.Systems;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.CrewManifest;
@@ -13,10 +9,12 @@ using Content.Shared.GameTicking;
 using Content.Shared.Roles;
 using Content.Shared.Station.Components;
 using Content.Shared.StationRecords;
+using Content.Shared.StationRecords.Components;
+using Content.Shared.StationRecords.Events;
+using Content.Shared.StationRecords.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.CrewManifest;
 
@@ -26,7 +24,6 @@ public sealed partial class CrewManifestSystem : EntitySystem
     [Dependency] private StationRecordsSystem _recordsSystem = default!;
     [Dependency] private EuiManager _euiManager = default!;
     [Dependency] private IConfigurationManager _configManager = default!;
-    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     /// <summary>
     ///     Cached crew manifest entries. The alternative is to outright
@@ -39,7 +36,9 @@ public sealed partial class CrewManifestSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<XoRecordManifestSystem.XoRecordManifestUpdatedEvent>(OnManifestUpdated); // funky
+        SubscribeLocalEvent<GeneralRecordCreatedEvent>(GeneralRecordCreated);
+        SubscribeLocalEvent<RecordModifiedEvent>(OnRecordModified);
+        SubscribeLocalEvent<RecordRemovedEvent>(OnRecordRemoved);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
         SubscribeNetworkEvent<RequestCrewManifestMessage>(OnRequestCrewManifest);
 
@@ -72,13 +71,27 @@ public sealed partial class CrewManifestSystem : EntitySystem
         OpenEui(GetEntity(message.Id), sessionCast);
     }
 
-    // funky start, updates on XO publish
-    private void OnManifestUpdated(XoRecordManifestSystem.XoRecordManifestUpdatedEvent ev)
+    // Not a big fan of this one. Rebuilds the crew manifest every time
+    // somebody spawns in, meaning that at round start, it rebuilds the crew manifest
+    // wrt the amount of players readied up.
+    private void GeneralRecordCreated(ref GeneralRecordCreatedEvent ev)
     {
-        BuildCrewManifest(ev.Station);
-        UpdateEuis(ev.Station);
+        BuildCrewManifest(ev.Key.OriginStation);
+        UpdateEuis(ev.Key.OriginStation);
     }
-    // funky end
+
+    private void OnRecordModified(ref RecordModifiedEvent ev)
+    {
+        BuildCrewManifest(ev.Key.OriginStation);
+        UpdateEuis(ev.Key.OriginStation);
+    }
+
+    private void OnRecordRemoved(ref RecordRemovedEvent ev)
+    {
+        BuildCrewManifest(ev.Key.OriginStation);
+        UpdateEuis(ev.Key.OriginStation);
+    }
+
     private void OnBoundUiClose(EntityUid uid, CrewManifestViewerComponent component, BoundUIClosedEvent ev)
     {
         if (!Equals(ev.UiKey, component.OwnerKey))
@@ -207,27 +220,32 @@ public sealed partial class CrewManifestSystem : EntitySystem
     /// <param name="station"></param>
     private void BuildCrewManifest(EntityUid station)
     {
-        var manifest = EnsureComp<XoRecordManifestComponent>(station); // funky
+        var iter = _recordsSystem.GetRecordsOfType<GeneralStationRecord>(station);
 
         var entries = new CrewManifestEntries();
 
         var entriesSort = new List<(JobPrototype? job, CrewManifestEntry entry)>();
-        foreach (var record in manifest.Published.Values) // Funky
+        foreach (var recordObject in iter)
         {
+            var record = recordObject.Item2;
             var entry = new CrewManifestEntry(record.Name, record.JobTitle, record.JobIcon, record.JobPrototype);
 
-            _prototypeManager.TryIndex(record.JobPrototype, out JobPrototype? job);
+            ProtoMan.TryIndex(record.JobPrototype, out JobPrototype? job);
             entriesSort.Add((job, entry));
         }
 
-        entriesSort.Sort((a, b) =>
+        var jobWeights = Comp<StationDataComponent>(station).JobWeights;
+        if (JobUIComparer.TryCreate(ProtoMan, jobWeights, out var comparer))
         {
-            var cmp = JobUIComparer.Instance.Compare(a.job, b.job);
-            if (cmp != 0)
-                return cmp;
+            entriesSort.Sort((a, b) =>
+            {
+                var cmp = comparer.Compare(a.job, b.job);
+                if (cmp != 0)
+                    return cmp;
 
-            return string.Compare(a.entry.Name, b.entry.Name, StringComparison.CurrentCultureIgnoreCase);
-        });
+                return string.Compare(a.entry.Name, b.entry.Name, StringComparison.CurrentCultureIgnoreCase);
+            });
+        }
 
         entries.Entries = entriesSort.Select(x => x.entry).ToArray();
         _cachedEntries[station] = entries;

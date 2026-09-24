@@ -1,3 +1,5 @@
+# Tier 1
+
 - type: technology
   id: Hydroponics
   name: research-technology-basic-hydroponics
@@ -100,7 +102,6 @@
   - FauxTileMowedAstroGrass
   - FauxTileJungleAstroGrass
   - FauxTileDarkAstroGrass
-  - FauxTileLightAstroGrass
   - FauxTileAstroIce
   - FauxTileAstroSnow
   - FauxTileAstroAsteroidSand
@@ -113,7 +114,7 @@
   id: BiochemicalStasis
   name: research-technology-biochemical-stasis
   icon:
-    sprite: Structures/Machines/stasis_bed.rsi
+    sprite: _Funkystation/Structures/Machines/stasis_bed.rsi # Funky
     state: icon
   discipline: CivilianServices
   tier: 2
@@ -128,7 +129,7 @@
   id: MechanizedTreatment
   name: research-technology-mechanized-treatment
   icon:
-    sprite: Mobs/Silicon/chassis.rsi
+    sprite: _Funkystation/Mobs/Silicon/chassis.rsi # Funky
     state: medical
   discipline: CivilianServices
   tier: 2
@@ -150,6 +151,7 @@
   - AdvMopItem
   - MegaSprayBottle
   - BorgModuleAdvancedCleaning
+  - TrashBagHolding
   - WashingMachineCircuitboard
 
 - type: technology

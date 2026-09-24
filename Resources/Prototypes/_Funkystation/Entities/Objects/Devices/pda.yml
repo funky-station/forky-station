@@ -70,3 +70,29 @@
       whitelist:
         tags:
         - Write
+
+- type: entity
+  parent: HoSPDA
+  id: CommandantPDA
+  name: commandant PDA
+  components:
+  - type: Pda
+    id: CommandantIDCard
+
+- type: entity
+  parent: SecurityPDA
+  id: LieutenantPDA
+  name: lieutenant PDA
+  description: Red, the color of middle management and blood.
+  components:
+  - type: Pda
+    id: LieutenantIDCard
+
+- type: entity
+  parent: SecurityPDA
+  id: DispatcherPDA
+  name: dispatcher PDA
+  description: Red, like the cross.
+  components:
+  - type: Pda
+    id: DispatcherIDCard

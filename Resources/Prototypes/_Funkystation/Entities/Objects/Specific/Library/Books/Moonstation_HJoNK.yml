@@ -1,0 +1,24 @@
+#Submitted by Stabithar
+- type: entity
+  parent: BookBase
+  id: MoonStationHJoNKGame
+  name: "Moon Station H.J.N.K: Rules and Pranks"
+  description: The detailed rules for running the underground card game Moon Station H.J.o.N.K. This copy is worn and torn with heavy use.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_old
+      color: "#808080"
+    - state: decor_spine
+      color: "#3a3a3a"
+    - state: decor_bottom
+      color: "#3a3a3a"
+    - state: decor_wingette
+      color: "#540f09"
+    - state: icon_banana
+  - type: OocAuthorship
+    oocAuthor: "Tesseract Allen"
+  - type: Paper
+    content: book-text-moonstation

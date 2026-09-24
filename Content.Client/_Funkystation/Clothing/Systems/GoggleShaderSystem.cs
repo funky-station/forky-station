@@ -15,7 +15,6 @@ public sealed partial class GoggleShaderSystem : EntitySystem
     [Dependency] private IOverlayManager _overlayMan = null!;
     [Dependency] private IPlayerManager _playerManager = null!;
     [Dependency] private InventorySystem _inventory = null!;
-    [Dependency] private IPrototypeManager _prototype = null!;
     [Dependency] private IConfigurationManager _cfg = null!;
 
     private GoggleShaderOverlay _overlay = null!;
@@ -23,7 +22,7 @@ public sealed partial class GoggleShaderSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        _overlay = new GoggleShaderOverlay(_prototype);
+        _overlay = new GoggleShaderOverlay(ProtoMan);
 
         _cfg.OnValueChanged(CCVars.ReducedMotion, value => _overlay.ReducedMotion = value, true);
 

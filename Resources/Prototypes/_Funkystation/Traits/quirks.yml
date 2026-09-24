@@ -1,0 +1,17 @@
+﻿- type: trait
+  id: HayFever
+  name: trait-hayfever-name
+  description: trait-hayfever-description
+  category: Quirks
+  components:
+  - type: HayFever
+    ReactionInterval: 45
+
+- type: trait
+  id: Smoker
+  name: trait-smoker-name
+  description: trait-smoker-description
+  category: Quirks
+  components:
+  - type: Smoker
+    WithdrawalInterval: 185

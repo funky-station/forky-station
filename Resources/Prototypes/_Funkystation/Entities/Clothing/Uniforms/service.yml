@@ -1,0 +1,23 @@
+# Hospitality Director
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: FuClothingUniformShirtPantsHd
+  name: hospitality director's uniform
+  description: A gold-buttoned dress shirt matched with a pair of gold-lined pants. They've just been ironed.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Service/TwoPiecePants/hd.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Service/TwoPiecePants/hd.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: FuClothingUniformShirtSkirtHd
+  name: hospitality director's uniform
+  description: A gold-buttoned dress shirt matched with a gold-lined pencil skirt. They've just been ironed.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Service/TwoPieceSkirt/hd.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Service/TwoPieceSkirt/hd.rsi

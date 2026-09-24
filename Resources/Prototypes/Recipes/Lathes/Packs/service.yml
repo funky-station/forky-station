@@ -1,3 +1,5 @@
+## Static
+
 - type: latheRecipePack
   id: ServiceStatic
   recipes:
@@ -48,6 +50,7 @@
   - ClothingBackpackWaterTank
   - MegaSprayBottle
   - WashingMachineCircuitboard # Funky
+  - TrashBagHolding
 
 - type: latheRecipePack
   id: Instruments

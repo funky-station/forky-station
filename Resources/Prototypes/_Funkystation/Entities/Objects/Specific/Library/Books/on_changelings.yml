@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+#submited by Soggy
+- type: entity
+  parent: BookBase
+  id: OnChangelings
+  name: "On Changelings: A Brief History on the Science Fiction Trope"
+  description: A short analysis essay on a popular science fiction topic.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#55369a"
+    - state: decor_bottom
+      color: "#8A6240"
+    - state: icon_eye
+    - state: detail_bookmark
+      color: "#AD03DE"
+  - type: OocAuthorship
+    oocAuthor: Soggy
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#134975'
+      stampedName: stamped-nt-approved
+    content: book-text-onchangelings

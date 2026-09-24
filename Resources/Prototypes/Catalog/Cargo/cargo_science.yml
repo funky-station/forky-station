@@ -1,7 +1,7 @@
 - type: cargoProduct
   id: ArtifactContainer
   icon:
-    sprite: Structures/Storage/Crates/artifact.rsi
+    sprite: _Funkystation/Structures/Storage/Crates/artifact.rsi # Funky
     state: artifact_container_icon
   product: CrateArtifactContainer
   cost: 500

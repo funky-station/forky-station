@@ -1,3 +1,7 @@
+using System.Linq;
+using Content.Client._Funkystation.UserInterface.Controls;
+using Content.Client._RMC14.Chat; // Persistence: Chat stacking from RMC14 - pull/7587
+using Content.Client.UserInterface.ControlExtensions;
 using Content.Client.UserInterface.Systems.Chat.Controls;
 using Content.Shared.Chat;
 using Content.Shared.Input;
@@ -21,6 +25,7 @@ public partial class ChatBox : UIWidget
 {
     [Dependency] private IEntityManager _entManager = default!;
     [Dependency] private ILogManager _log = default!;
+    [Dependency] private CMChatSystem _cmChatSystem = null!; // funky
 
     private readonly ISawmill _sawmill;
     private readonly ChatUIController _controller;
@@ -28,6 +33,8 @@ public partial class ChatBox : UIWidget
     public bool Main { get; set; }
 
     public ChatSelectChannel SelectedChannel => ChatInput.ChannelSelector.SelectedChannel;
+
+    public readonly Queue<RepeatedMessage> RepeatQueue = new(); // Persistence: Chat stacking from RMC14 - pull/7587
 
     public ChatBox()
     {
@@ -62,13 +69,13 @@ public partial class ChatBox : UIWidget
         }
 
         if (msg is { Read: false, AudioPath: { } })
-            _entManager.System<AudioSystem>().PlayGlobal(msg.AudioPath, Filter.Local(), false, AudioParams.Default.WithVolume(msg.AudioVolume));
+            _entManager.System<AudioSystem>().PlayGlobal(msg.AudioPath, Filter.Local(), false, AudioParams.Default.AddVolume(msg.AudioVolume));
 
         msg.Read = true;
 
         var color = msg.MessageColorOverride ?? msg.Channel.TextColor();
 
-        AddLine(msg.WrappedMessage, color);
+        AddLine(msg.WrappedMessage, color, msg.SenderEntity, msg.Message, msg.Channel, msg.RepeatCheckSender); // Persistence: Chat stacking from RMC14 - pull/7587
     }
 
     private void OnHighlightsUpdated(string highlights)
@@ -111,13 +118,29 @@ public partial class ChatBox : UIWidget
         _controller.UpdateHighlights(highlighs);
     }
 
-    public void AddLine(string message, Color color)
+    public void AddLine(string message, Color color, NetEntity sender, string unwrapped, ChatChannel channel, bool repeatCheckSender) // Persistence: Chat stacking from RMC14 - pull/7587
     {
         var formatted = new FormattedMessage(3);
         formatted.PushColor(color);
         formatted.AddMarkupOrThrow(message);
         formatted.Pop();
+
+        // Persistence: Chat stacking from RMC14 - pull/7587
+        if (_cmChatSystem.TryRepetition(this, Contents, formatted, sender, unwrapped, channel, repeatCheckSender))
+        {
+            // funky
+            // we can get away with getting the last GhostFollowLabel in the OutputPanel's contents because i'm pretty sure
+            // whenever a message with tags that get parsed into controls gets added or modified, those new controls are always
+            // sent to the bottom of the tree
+            // also, we can only do this after the message has been parsed which is partly why it happens separately from TryRepetition
+            _cmChatSystem.UpdateGhostFollowLink(this, Contents.GetControlOfType<GhostFollowLabel>().LastOrDefault(), sender, unwrapped, channel, repeatCheckSender);
+            return;
+        }
+
         Contents.AddMessage(formatted, tagsAllowed: null);
+        // funky - if there's a new ghost follow link, attach it to the new message in the repeat message queue
+        // we can only do this after the message has been parsed which is why it happens separately from TryRepetition
+        _cmChatSystem.AddGhostFollowLink(this, Contents.GetControlOfType<GhostFollowLabel>().LastOrDefault());
     }
 
     public void Focus(ChatSelectChannel? channel = null)

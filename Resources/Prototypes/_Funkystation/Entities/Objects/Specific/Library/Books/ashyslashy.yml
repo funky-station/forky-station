@@ -1,0 +1,72 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: BookBase
+  id: AshySlashy1
+  name: "The Curse of Ashy Slashy Book I"
+  description: A haunting work of fiction... you hope it's fiction...
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#880808"
+    - state: decor_bottom
+      color: "#616161"
+    - state: icon_skull
+  - type: OocAuthorship
+    oocAuthor: Greyhound
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#134975'
+      stampedName: stamped-nt-approved
+    content: book-text-ashy-slashy-1
+
+- type: entity
+  parent: BookBase
+  id: AshySlashy2
+  name: "The Curse of Ashy Slashy Book II"
+  description: A haunting work of fiction... you hope it's fiction...
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#880808"
+    - state: decor_bottom
+      color: "#484848"
+    - state: icon_skull
+  - type: OocAuthorship
+    oocAuthor: Greyhound
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#134975'
+      stampedName: stamped-nt-approved
+    content: book-text-ashy-slashy-2
+
+- type: entity
+  parent: BookBase
+  id: AshySlashy3
+  name: "The Curse of Ashy Slashy Book III"
+  description: A haunting work of fiction... you hope it's fiction...
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#880808"
+    - state: decor_bottom
+      color: "#1a1a1a"
+    - state: icon_skull
+  - type: OocAuthorship
+    oocAuthor: Greyhound
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#134975'
+      stampedName: stamped-nt-approved
+    content: book-text-ashy-slashy-3

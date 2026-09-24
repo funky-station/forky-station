@@ -7,9 +7,13 @@
   - !type:RoleTimeRequirement
     role: JobIAA
     time: 5h
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 5h
+
   startingGear: MagistrateGear
   icon: "JobIconMagistrate"
-  supervisors: job-supervisors-ia
+  supervisors: job-supervisors-xo
   access:
   - Magistrate
   - Brig
@@ -21,9 +25,12 @@
   equipment:
     head: ClothingHeadHatPwig
     shoes: ClothingShoesBootsLaceup
-    id: MagistratePDA
+    id: MagistrateWallet
     ears: ClothingHeadsetMagistrate
     outerClothing: ClothingOuterRobesJudge
+  storage:
+    back:
+    - BookSentencingGuidelines
 
 - type: chameleonOutfit
   id: MagistrateChameleonOutfit
