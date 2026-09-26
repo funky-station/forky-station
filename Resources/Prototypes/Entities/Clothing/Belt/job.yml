@@ -87,9 +87,9 @@
   description: Can hold various things.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/utility.rsi
+    sprite: _Funkystation/Clothing/Belt/utility.rsi # Funky
   - type: Clothing
-    sprite: Clothing/Belt/utility.rsi
+    sprite: _Funkystation/Clothing/Belt/utility.rsi # Funky
   - type: Tag
     tags:
     - UtilityBelt
@@ -102,9 +102,9 @@
   description: Holds tools, looks snazzy.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/ce.rsi
+    sprite: _Funkystation/Clothing/Belt/ce.rsi # Funky
   - type: Clothing
-    sprite: Clothing/Belt/ce.rsi
+    sprite: _Funkystation/Clothing/Belt/ce.rsi # Funky
   - type: Storage
     grid:
     - 0,0,9,1
@@ -118,9 +118,9 @@
   description: A belt used to hold most janitorial supplies.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/janitor.rsi
+    sprite: _Funkystation/Clothing/Belt/janitor.rsi # Funky
   - type: Clothing
-    sprite: Clothing/Belt/janitor.rsi
+    sprite: _Funkystation/Clothing/Belt/janitor.rsi # Funky
   - type: Storage
     maxItemSize: Large
     whitelist:
@@ -331,9 +331,9 @@
   description: A belt used to hold kitchen knives and condiments for quick access.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/chef.rsi
+    sprite: _Funkystation/Clothing/Belt/chef.rsi # Funky
   - type: Clothing
-    sprite: Clothing/Belt/chef.rsi
+    sprite: _Funkystation/Clothing/Belt/chef.rsi # Funky
   - type: Storage
     whitelist:
       tags:

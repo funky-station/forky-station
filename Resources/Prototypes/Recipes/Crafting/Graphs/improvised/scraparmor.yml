@@ -39,7 +39,7 @@
         steps:
         - tag: UtilityBelt
           icon:
-            sprite: Clothing/Belt/utility.rsi
+            sprite: _Funkystation/Clothing/Belt/utility.rsi # Funky
             state: icon
           name: construction-graph-tag-utility-belt
         - material: Cable

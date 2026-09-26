@@ -54,7 +54,7 @@
   name: changeling flesh belt
   components:
   - type: Sprite
-    sprite: Clothing/Belt/utility.rsi
+    sprite: _Funkystation/Clothing/Belt/utility.rsi # Funky
     state: icon
   - type: Item
     size: Normal
