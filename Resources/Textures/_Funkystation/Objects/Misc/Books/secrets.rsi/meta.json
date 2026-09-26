@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-4.0",
+    "copyright": "Secret docs made by Dogman20801 for Funky Station",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "logistics-secrets"
+        },
+        {
+            "name": "command-secrets"
+        },
+        {
+            "name": "engi-secrets"
+        },
+        {
+            "name": "internal-affairs-secrets"
+        },
+        {
+            "name": "med-secrets"
+        },
+        {
+            "name": "sci-secrets"
+        },
+        {
+            "name": "sec-secrets"
+        },
+        {
+            "name": "service-secrets"
+        }
+    ]
+}
