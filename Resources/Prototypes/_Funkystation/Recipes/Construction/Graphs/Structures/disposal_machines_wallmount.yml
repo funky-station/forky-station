@@ -1,0 +1,89 @@
+- type: constructionGraph
+  id: DisposalMachineWallmount
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: frame
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+  - node: frame
+    entity: DisposalMachineFrameWallmount
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:DeleteEntity
+      steps:
+      - tool: Screwing
+        doAfter: 1
+    - to: frame_cable
+      steps:
+      - material: Cable
+        amount: 2
+        doAfter: 1
+  - node: frame_cable
+    entity: DisposalMachineFrameWallmount
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame
+      completed:
+      - !type:SpawnPrototype
+        prototype: CableApcStack1
+        amount: 2
+      steps:
+      - tool: Cutting
+        doAfter: 1
+    - to: frame_electronics
+      steps:
+      - material: Plastic
+        amount: 2
+        doAfter: 1
+  - node: frame_electronics
+    entity: DisposalMachineFrameWallmount
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: frame_cable
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetPlastic
+        amount: 2
+      steps:
+      - tool: Cutting
+        doAfter: 1
+    - to: frame_unit
+      steps:
+      - tool: Screwing
+        doAfter: 0.25
+  - node: frame_unit
+    entity: DisposalMachineFrameWallmount
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: disposal_unit
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 1
+    - to: frame_electronics
+      steps:
+      - tool: Screwing
+        doAfter: 0.25
+  - node: disposal_unit
+    entity: DisposalUnitWallmount
+    edges:
+    - to: frame_unit
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      - !type:EmptyAllContainers
+      steps:
+      - tool: Prying
+        doAfter: 1
