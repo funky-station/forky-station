@@ -1,0 +1,10 @@
+accent-words-celedon-1 = Roar!
+accent-words-celedon-2 = Grrr...
+accent-words-celedon-3 = Raaaawr!
+accent-words-celedon-4 = Rrrr!
+accent-words-celedon-5 = Rawr?
+accent-words-celedon-6 = Grrraaawr!
+accent-words-celedon-7 = Roaaar...
+accent-words-celedon-8 = Rooooar!
+accent-words-celedon-9 = Arrerruuuoor!
+accent-words-celedon-10 = Raaarrr!
