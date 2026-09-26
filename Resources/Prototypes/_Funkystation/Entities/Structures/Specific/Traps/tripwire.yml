@@ -1,0 +1,184 @@
+- type: entity
+  abstract: true
+  parent: BaseStructure
+  id: TripwireBase
+  name: tripwire
+  description: Twang!
+  components:
+  - type: Appearance
+  - type: ESViewconeOccludable
+    occludeIfAnchored: true
+  - type: Slippery
+    ignoreNoSlip: true
+    affectsSliding: true
+    slipData:
+      stunTime: 1.2
+      knockdownTime: 3
+      launchForwardsMultiplier: 0.5
+  - type: StepTrigger
+    intersectRatio: 0.
+    requiredTriggeredSpeed:  2.5
+  - type: TriggerOnStepTrigger
+  - type: DamageOnTrigger
+    damage:
+      types:
+        Slash: 20
+  - type: CollisionWake
+    enabled: false
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      slips:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.2,0.5,0.2"
+        layer:
+        - SlipLayer
+        hard: false
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.2,0.5,0.2"
+        density: 10
+        mask:
+        - ItemMask
+  - type: Damageable
+    damageModifierSet: FlimsyMetallic
+  - type: Injurable
+    damageContainer: Inorganic
+
+- type: entity
+  parent: TripwireBase
+  id: TripwireLV
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Traps/tripwire.rsi
+    layers:
+    - state: lv_tripwire
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CableApcStack1:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    graph: TripwireGraph
+    node: lv_tripwire
+
+- type: entity
+  parent: TripwireLV
+  id: TripwireSignalLV
+  suffix: Signal
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Traps/tripwire.rsi
+    layers:
+    - state: lv_tripwire
+    - state: signal_cell
+  - type: SignalOnTrigger
+  - type: Construction
+    graph: TripwireGraph
+    node: lv_signal
+    containers:
+    - battery-container
+
+- type: entity
+  parent: TripwireBase
+  id: TripwireMV
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Traps/tripwire.rsi
+    layers:
+    - state: mv_tripwire
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CableMVStack1:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    graph: TripwireGraph
+    node: mv_tripwire
+
+- type: entity
+  parent: TripwireMV
+  id: TripwireSignalMV
+  suffix: Signal
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Traps/tripwire.rsi
+    layers:
+    - state: mv_tripwire
+    - state: signal_cell
+  - type: SignalOnTrigger
+  - type: Construction
+    graph: TripwireGraph
+    node: mv_signal
+    containers:
+    - battery-container
+
+- type: entity
+  parent: TripwireBase
+  id: TripwireHV
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Traps/tripwire.rsi
+    layers:
+    - state: hv_tripwire
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CableHVStack1:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    graph: TripwireGraph
+    node: hv_tripwire
+
+- type: entity
+  parent: TripwireHV
+  id: TripwireSignalHV
+  suffix: Signal
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Traps/tripwire.rsi
+    layers:
+    - state: hv_tripwire
+    - state: signal_cell
+  - type: SignalOnTrigger
+  - type: Construction
+    graph: TripwireGraph
+    node: hv_signal
+    containers:
+    - battery-container

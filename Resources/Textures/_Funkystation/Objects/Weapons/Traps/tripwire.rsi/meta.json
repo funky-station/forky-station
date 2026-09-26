@@ -1,0 +1,30 @@
+{
+    "version": 1,
+
+    "license": "CC-BY-NC-3.0",
+    "copyright": "By mkanke for Funkystation",
+
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+
+    "states": [
+        {
+            "name": "lv_tripwire",
+            "directions": 4
+        },
+        {
+            "name": "mv_tripwire",
+            "directions": 4
+        },
+        {
+            "name": "hv_tripwire",
+            "directions": 4
+        },
+        {
+            "name": "signal_cell",
+            "directions": 4
+        }
+    ]
+}
