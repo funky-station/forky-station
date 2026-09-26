@@ -426,7 +426,7 @@
         path: /Audio/Items/Culinary/chop.ogg
   - type: Item
     size: Tiny
-    sprite: Objects/Weapons/Melee/utility_knife.rsi
+    sprite: _Funkystation/Objects/Weapons/Melee/utility_knife.rsi # Funky
   - type: ItemToggleExaminableStatus
     onText: item-toggle-examined-active
     offText: item-toggle-examined-not-active
@@ -451,7 +451,7 @@
     materialComposition:
       Steel: 50
   - type: Sprite
-    sprite: Objects/Weapons/Melee/utility_knife.rsi
+    sprite: _Funkystation/Objects/Weapons/Melee/utility_knife.rsi # Funky
     layers:
     - state: utility_knife_handle
     - state: utility_knife_blade

@@ -5,10 +5,10 @@
   description: A spray painter for painting airlocks, pipes, and other items.
   components:
   - type: Sprite
-    sprite: Objects/Tools/spray_painter.rsi
+    sprite: _Funkystation/Objects/Tools/spray_painter.rsi # Funky
     state: spray_painter
   - type: Item
-    sprite: Objects/Tools/spray_painter.rsi
+    sprite: _Funkystation/Objects/Tools/spray_painter.rsi # Funky
   - type: ActivatableUI
     key: enum.SprayPainterUiKey.Key
   - type: UserInterface
@@ -73,10 +73,10 @@
   components:
   - type: SprayPainterAmmo
   - type: Sprite
-    sprite: Objects/Tools/spray_painter.rsi
+    sprite: _Funkystation/Objects/Tools/spray_painter.rsi # Funky
     state: ammo
   - type: Item
-    sprite: Objects/Tools/spray_painter.rsi
+    sprite: _Funkystation/Objects/Tools/spray_painter.rsi # Funky
     heldPrefix: ammo
   - type: PhysicalComposition
     materialComposition:

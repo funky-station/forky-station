@@ -8,7 +8,7 @@
       Brute:
         collection: GlassSmash
   - type: Sprite
-    sprite: Objects/Power/light_bulb.rsi
+    sprite: _Funkystation/Objects/Power/light_bulb.rsi # Funky
     layers:
     - map: [ enum.LightBulbVisualLayers.Base ]
       state: normal
@@ -81,7 +81,7 @@
   id: BaseLightTube
   components:
   - type: Sprite
-    sprite: Objects/Power/light_tube.rsi
+    sprite: _Funkystation/Objects/Power/light_tube.rsi # Funky
   - type: Destructible
     thresholds:
     - trigger: *DamageTrigger10

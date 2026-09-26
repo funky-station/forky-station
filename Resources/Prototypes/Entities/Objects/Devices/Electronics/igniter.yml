@@ -5,7 +5,7 @@
   description: Creates a spark when activated by a signal.
   components:
   - type: Sprite
-    sprite: Objects/Devices/igniter.rsi
+    sprite: _Funkystation/Objects/Devices/igniter.rsi # Funky
     state: icon
   - type: Item
     storedRotation: -90

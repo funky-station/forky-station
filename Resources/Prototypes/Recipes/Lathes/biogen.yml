@@ -22,7 +22,7 @@
   categories:
   - Materials
   icon:
-    sprite: Objects/Materials/materials.rsi
+    sprite: _Funkystation/Objects/Materials/materials.rsi # Funky
     state: cloth
   completetime: 1
   materials:
@@ -34,7 +34,7 @@
   categories:
   - Materials
   icon:
-    sprite: Objects/Materials/materials.rsi
+    sprite: _Funkystation/Objects/Materials/materials.rsi # Funky
     state: cardboard
   completetime: 1
   materials:
