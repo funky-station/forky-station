@@ -109,7 +109,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncementColor: "#18abf5"
+    # startAnnouncementColor: "#18abf5" # funky
     startAudio: Announce # Macrocosm edit - sound prototypes
     weight: 8
     duration: 35
@@ -124,7 +124,7 @@
       min:  30
       max:  30
   - type: StationEvent
-    startAnnouncementColor: "#18abf5"
+    # startAnnouncementColor: "#18abf5" # funky
     startAudio: Announce # Macrocosm edit - sound prototypes
     weight: 8
     duration: 35

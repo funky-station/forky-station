@@ -346,8 +346,10 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
             _chatSystem.DispatchStationAnnouncement(
                 result.Station,
                 Loc.GetString(stationShuttleComp.FailureAnnouncement),
+                sender: Loc.GetString("chat-manager-sender-sistr"), // funky
                 playDefaultSound: paExclusive,
-                announcementSound: paExclusive ? sound : null); // funky
+                announcementSound: paExclusive ? sound : null, // funky
+                colorOverride: Color.FromHex("#f9a524")); // funky
 
             // TODO: Need filter extensions or something don't blame me.
             // Macrocosm edit start - announcer variation
@@ -395,8 +397,10 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
                 ("direction", direction),
                 ("location", location),
                 ("extended", extendedText)),
+            sender: Loc.GetString("chat-manager-sender-sistr"), // funky
             playDefaultSound: paExclusive, // funky
-            announcementSound: audio); // funky
+            announcementSound: audio, // funky
+            colorOverride: Color.FromHex("#f9a524")); // funky
         // Macrocosm edit end
 
         // Trigger shuttle timers on the shuttle.

@@ -1,9 +1,16 @@
 ## RoundEndSystem
 
-round-end-system-shuttle-called-announcement = An emergency shuttle has been sent. ETA: {$time} {$units}.
-round-end-system-shuttle-already-called-announcement = An emergency shuttle has already been sent.
-round-end-system-shuttle-auto-called-announcement = An automatic crew shift change shuttle has been sent. ETA: {$time} {$units}. Recall the shuttle to extend the shift.
-round-end-system-shuttle-recalled-announcement = The emergency shuttle has been recalled.
+# rewritten for funky
+round-end-system-shuttle-called-announcement = Evacuation telemetry alert.
+                                               Emergency vessel dispatched.
+                                               ETA: {$time} {$units}.
+round-end-system-shuttle-already-called-announcement = Evacuation telemetry advisory. Redundant dispatch rejected: emergency vessel transit already active.
+round-end-system-shuttle-auto-called-announcement = Logistics telemetry update.
+                                                    Automated shift-rotation transport dispatched.
+                                                    ETA: {$time} {$units}.
+round-end-system-shuttle-recalled-announcement = Evacuation telemetry update.
+                                                 Emergency vessel recalled.
+                                                 Inbound approach aborted.
 round-end-system-shuttle-sender-announcement = Station
 round-end-system-round-restart-eta-announcement = Restarting the round in {$time} {$units}...
 

@@ -127,8 +127,9 @@ namespace Content.Server.PowerSink
             _chat.DispatchStationAnnouncement(
                 station.Value,
                 Loc.GetString("powersink-imminent-explosion-announcement"),
+                sender: Loc.GetString("chat-manager-sender-sistr"), // funky
                 playDefaultSound: true,
-                colorOverride: Color.Yellow
+                colorOverride: Color.FromHex("#f9a524") // funky
             );
         }
     }

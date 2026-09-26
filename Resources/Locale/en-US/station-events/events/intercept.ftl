@@ -1,1 +1,4 @@
-﻿station-event-communication-interception = Attention! Enemy communication intercepted. Security level elevated.
+﻿# rewritten for funky
+station-event-communication-interception = Telemetry alert.
+                                           Unregistered transmission intercepted in local sector.
+                                           Station alert level elevated.

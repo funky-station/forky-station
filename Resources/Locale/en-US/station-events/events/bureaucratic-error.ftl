@@ -1,2 +1,8 @@
-﻿station-event-bureaucratic-error-announcement = A recent bureaucratic error in the Organic Resources Department may result in personnel shortages in some departments and redundant staffing in others.
-station-event-clerical-error-announcement = A minor clerical error in the Organic Resources Department has resulted in the permanent destruction of some of the station records.
+﻿# rewritten for funky
+station-event-bureaucratic-error-announcement = Manifest telemetry alert.
+                                                Unexpected allocation fault logged in Organic Resources registry.
+                                                Departmental staffing desynchronized; personnel shortages and redundancies projected.
+
+station-event-clerical-error-announcement = Database integrity alert.
+                                            Unscheduled deletion sequence executed via Organic Resources registry.
+                                            Partial archive purge confirmed; affected station records unrecoverable.
