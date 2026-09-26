@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "By AraiMaia for Funky Station, inhands by TiniestShark (Github)",
+    "copyright": "stamp-cap through stamp-wizard By AraiMaia for Funky Station, inhands by TiniestShark (Github), borg stamp by empty0set for Funkystation, centcomintern by TheHolyAegis for Funky Station, stamp-iaa through stamp-cl by Tomlolo for Funky Station",
     "size": {
         "x": 32,
         "y": 32
@@ -83,8 +83,47 @@
         "directions": 4
         },
         {
-            "name": "stamp-inhand-right",
-            "directions": 4
+         "name": "stamp-inhand-right",
+         "directions": 4
+        },
+        {
+            "name": "stamp-borg"
+        },
+        {
+            "name": "stamp-centcomintern"
+        },
+        {
+            "name": "stamp-iaa"
+        },
+        {
+            "name": "stamp-magi"
+        },
+        {
+            "name": "stamp-topsecret"
+        },
+        {
+            "name": "stamp-classified"
+        },
+        {
+            "name": "stamp-hospitalitydirector"
+        },
+        {
+            "name": "stamp-hospitalitydirector-bell"
+        },
+        {
+            "name": "stamp-executiveofficer"
+        },
+        {
+            "name": "stamp-discharged"
+        },
+        {
+            "name": "stamp-commandant"
+        },
+        {
+            "name": "stamp-lieutenant"
+        },
+        {
+            "name": "stamp-corporateliaison"
         }
     ]
 }
