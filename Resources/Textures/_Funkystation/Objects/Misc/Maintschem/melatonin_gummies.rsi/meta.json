@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "copyright": "By AraiMaia for Funky Station",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "tablet"
+    },
+    {
+      "name": "box"
+    },
+    {
+      "name": "box-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "box-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "tablet-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "tablet-inhand-right",
+      "directions": 4
+    }
+  ]
+}

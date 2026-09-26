@@ -1,0 +1,738 @@
+﻿# these are maintschem reagentcontainers
+
+- type: entity
+  parent: [ReagentPacket, ItemHeftyBase]
+  id: ReagentContainerBleach
+  name: thing of bleach
+  description: A jug of bleach. Doesn't go well with vodka.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/bleach.rsi
+    layers:
+    - state: icon
+      map: [ "enum.OpenableVisuals.Layer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "icon_open"}
+          False: {state: "icon"}
+  - type: Edible
+    edible: Drink
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Bleach
+        Quantity: 120
+
+- type: entity
+  parent: [ReagentPacket, ItemHeftyBase]
+  id: ReagentContainerDrainCleaner
+  name: drain cleaner
+  description: A jug of industrial-grade drain cleaner.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/drain_cleaner.rsi
+    layers:
+    - state: icon
+      map: [ "enum.OpenableVisuals.Layer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "icon_open"}
+          False: {state: "icon"}
+  - type: Edible
+    edible: Drink
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: SodiumHydroxide
+        Quantity: 120
+
+- type: entity
+  parent: [ReagentPacket, ItemHeftyBase]
+  id: ReagentContainerPoolChlorine
+  name: pool chlorine
+  description: A jug of chlorine, used to sanitize large bodies of water.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/pool_chlorine.rsi
+    layers:
+    - state: icon
+      map: [ "enum.OpenableVisuals.Layer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "icon_open"}
+          False: {state: "icon"}
+  - type: Edible
+    edible: Drink
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Chlorine
+        Quantity: 120
+
+- type: entity
+  parent: [ReagentPacket, ItemHeftyBase]
+  id: ReagentContainerWashingSoda
+  name: washing soda
+  description: A box of washing soda, in powder form.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/washing_soda.rsi
+    layers:
+    - state: icon
+      map: [ "enum.OpenableVisuals.Layer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "icon_open"}
+          False: {state: "icon"}
+  - type: Edible
+    edible: Food
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: SodiumCarbonate
+        Quantity: 120
+
+- type: entity
+  parent: [ReagentPacket, ItemHeftyBase]
+  id: ReagentContainerMouthwash
+  name: Dragonbreath mouthwash
+  description: A bottle of mouthwash, produced by the NT logistics subsidiary Pony Express. Extra minty-fresh.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/mouthwash.rsi
+    layers:
+    - state: icon
+      map: [ "enum.OpenableVisuals.Layer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "icon_open"}
+          False: {state: "icon"}
+  - type: Edible
+    edible: Drink
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Ethanol
+        Quantity: 80
+      - ReagentId: Water
+        Quantity: 30
+      - ReagentId: Frezon
+        Quantity: 10
+
+- type: entity
+  parent: [ReagentPacket, ItemHeftyBase]
+  id: ReagentContainerFluorideToothpaste
+  name: fluoride toothpaste
+  description: A tube of fluoride toothpaste. Smile!
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/fluoride_toothpaste.rsi
+    layers:
+    - state: icon
+      map: [ "enum.OpenableVisuals.Layer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "icon_open"}
+          False: {state: "icon"}
+  - type: Edible
+    edible: Food
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Fluorine
+        Quantity: 60
+      - ReagentId: Water
+        Quantity: 40
+      - ReagentId: Sodium
+        Quantity: 20
+
+- type: entity
+  parent: [ReagentPacket, ItemHeftyBase]
+  id: ReagentContainerColdMedicine
+  name: cold medicine
+  description: Some generic, over-the-counter cold medicine.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/cold_medicine.rsi
+    layers:
+    - state: icon
+      map: [ "enum.OpenableVisuals.Layer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "icon_open"}
+          False: {state: "icon"}
+  - type: Edible
+    edible: Drink
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Ephedrine
+        Quantity: 30
+      - ReagentId: ChloralHydrate
+        Quantity: 20
+      - ReagentId: Water
+        Quantity: 70
+
+- type: entity
+  parent: [ReagentPacket, ItemHeftyBase]
+  id: ReagentContainerCalamineLotion
+  name: calamine lotion
+  description: A generic bottle of calamine lotion, meant to ease irritation on the skin.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/calamine_lotion.rsi
+    layers:
+    - state: icon
+      map: [ "enum.OpenableVisuals.Layer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "icon_open"}
+          False: {state: "icon"}
+  - type: Edible
+    edible: Food
+  - type: Healing
+    damageContainers:
+    - Biological
+    damage:
+      types:
+        Brute: -2
+        Heat: -2
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Zinc
+        Quantity: 30
+      - ReagentId: Iron
+        Quantity: 20
+      - ReagentId: Water
+        Quantity: 70
+
+- type: entity
+  parent: [ReagentPacket, ItemHeftyBase]
+  id: ReagentContainerDentalAmalgam
+  name: dental amalgam paste
+  description: A small bottle of dental amalgam, meant to be used as fillings in dentistry.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/dental_amalgam.rsi
+    layers:
+    - state: icon
+      map: [ "enum.OpenableVisuals.Layer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "icon_open"}
+          False: {state: "icon"}
+  - type: Edible
+    edible: Drink
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Mercury
+        Quantity: 20
+      - ReagentId: Silver
+        Quantity: 20
+      - ReagentId: Zinc
+        Quantity: 80
+
+- type: entity
+  parent: [ReagentPacket, ItemHeftyBase]
+  id: ReagentContainerDeodorant
+  name: deodorant
+  description: A stick of deodorant. Some crew could desperately use this.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/deodorant.rsi
+    layers:
+    - state: icon
+      map: [ "enum.OpenableVisuals.Layer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "icon_open"}
+          False: {state: "icon"}
+  - type: Edible
+    edible: Food
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Acetone
+        Quantity: 30
+      - ReagentId: Fluorine
+        Quantity: 20
+      - ReagentId: Water
+        Quantity: 70
+  - type: Healing
+    damageContainers:
+    - Biological
+    damage:
+      types:
+        Brute: -1
+        Heat: -1
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+
+- type: entity
+  parent: [ReagentPacket, ItemHeftyBase]
+  id: ReagentContainerNailPolishRemover
+  name: nail polish remover
+  description: A little glass bottle full of nail polish remover.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/nail_polish_remover.rsi
+    layers:
+    - state: icon
+      map: [ "enum.OpenableVisuals.Layer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "icon_open"}
+          False: {state: "icon"}
+  - type: Edible
+    edible: Drink
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Acetone
+        Quantity: 120
+
+- type: entity
+  parent: [ReagentPacket, ItemHeftyBase]
+  id: ReagentContainerBathSalts
+  name: bath salts
+  description: Not the ones you're thinking of. These are the ones for you actual bathtub.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/bath_salts.rsi
+    layers:
+    - state: icon
+      map: [ "enum.OpenableVisuals.Layer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "icon_open"}
+          False: {state: "icon"}
+  - type: Edible
+    edible: Food
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Sulfur
+        Quantity: 60
+      - ReagentId: Sodium
+        Quantity: 60
+
+- type: entity
+  parent: [ReagentPacket, ItemHeftyBase]
+  id: ReagentContainerSilicaPacket
+  name: silica packet
+  description: It says "DO NOT EAT" all over it.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/silica_packet.rsi
+    layers:
+    - state: icon
+      map: [ "enum.OpenableVisuals.Layer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "icon_open"}
+          False: {state: "icon"}
+  - type: Edible
+    edible: Food
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: SodiumPolyacrylate
+        Quantity: 30
+
+- type: entity
+  parent: [ReagentPacket, ItemHeftyBase]
+  id: ReagentContainerChloraseptic
+  name: chloraseptic spray
+  description: A spray bottle of a chloraseptic, meant to relieve sore throats.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/chloraseptic.rsi
+    layers:
+    - state: icon
+      map: [ "enum.OpenableVisuals.Layer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "icon_open"}
+          False: {state: "icon"}
+  - type: Edible
+    edible: Drink
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Phenol
+        Quantity: 80
+      - ReagentId: Water
+        Quantity: 40
+  - type: UseDelay
+  - type: Spray
+    solution: food
+    transferAmount: 10
+    sprayVelocity: 2
+    spraySound:
+      path: /Audio/Effects/spray2.ogg
+
+# these are items + boxes
+
+- type: entity
+  parent: [SolutionTiny, FoodInjectableBase]
+  id: FoodAntacids
+  name: antacid gummy
+  description: A gummy made to relieve an upset stomach and heartburn.
+  components:
+  - type: Edible
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/antacids.rsi
+    state: tablet
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: SodiumCarbonate
+        Quantity: 15
+      - ReagentId: Hydroxide
+        Quantity: 15
+  - type: Item
+    size: Tiny
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - chewy
+  - type: Tag
+    tags:
+    - FoodSnack
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxAntacid
+  name: antacid carton
+  description: A carton full of antacids, for instant heartburn relief.
+  components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,0,1
+  - type: Storage
+    maxItemSize: Tiny
+    grid:
+    - 0,0,2,2
+    whitelist:
+      tags:
+      - FoodSnack
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/antacids.rsi
+    state: box
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: FoodAntacids
+        amount: 9
+
+- type: entity
+  parent: [SolutionTiny, BaseItem]
+  id: IodineSwab
+  name: iodine swab
+  description: A small swab meant to disinfect small cuts and wounds.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/iodine_swabs.rsi
+    state: swab
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Iodine
+        Quantity: 30
+  - type: Item
+    size: Tiny
+  - type: Healing
+    damageContainers:
+    - Biological
+    damage:
+      types:
+        Brute: -4
+        Heat: -4
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+  - type: Tag
+    tags:
+    - Ointment
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxIodineSwabs
+  name: box of iodine swabs
+  description: A box full of iodine swabs, for mass disinfection of papercuts.
+  components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+  - type: Storage
+    maxItemSize: Tiny
+    grid:
+    - 0,0,2,2
+    whitelist:
+      tags:
+      - Ointment
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/iodine_swabs.rsi
+    state: box
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: IodineSwab
+        amount: 9
+
+- type: entity
+  parent: [SolutionTiny, FoodInjectableBase]
+  id: FoodSleepGummies
+  name: sleep gummy
+  description: A gummy made to aid sleep using very aggressive chemicals.
+  components:
+  - type: Edible
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/melatonin_gummies.rsi
+    state: tablet
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: ChloralHydrate
+        Quantity: 25
+      - ReagentId: Nocturine
+        Quantity: 5
+  - type: Item
+    size: Tiny
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - chewy
+  - type: Tag
+    tags:
+    - FoodSnack
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxSleepGummies
+  name: bottle of sleep gummies
+  description: A little plastic canister full of sleep gummies. Naptime!
+  components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,0,1
+  - type: Storage
+    maxItemSize: Tiny
+    grid:
+    - 0,0,2,2
+    whitelist:
+      tags:
+      - FoodSnack
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/melatonin_gummies.rsi
+    state: box
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: FoodSleepGummies
+        amount: 9
+
+- type: entity
+  parent: [SolutionTiny, FoodInjectableBase]
+  id: FoodMothball
+  name: mothball
+  description: A poisonous mothball made to kill any pests that try to get into your closet.
+  components:
+  - type: Edible
+    requiresSpecialDigestion: true
+    solution: food
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/mothballs.rsi
+    state: ball
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Benzene
+        Quantity: 15
+      - ReagentId: MindbreakerToxin
+        Quantity: 15
+  - type: Item
+    size: Tiny
+  - type: FlavorProfile
+    flavors:
+    - fiber
+  - type: Tag
+    tags:
+    - ClothMade
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxMothballs
+  name: box of mothballs
+  description: A box full of mothballs, meant to kill cloth-eating pests. Or cloth-eating assistants.
+  components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,0,1
+  - type: Storage
+    maxItemSize: Tiny
+    grid:
+    - 0,0,2,2
+    whitelist:
+      tags:
+      - ClothMade
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/mothballs.rsi
+    state: box
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: FoodMothball
+        amount: 9
+
+# breakables
+
+- type: entity
+  parent: [BaseItem, DrinkBaseMaterialGlass]
+  id: SpecimenJar
+  name: old specimen jar
+  description: A large glass jar full of... Something...
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/specimen_jar.rsi
+    state: icon
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,1,1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Benzene
+        Quantity: 120
+      - ReagentId: Phenol
+        Quantity: 120
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:SpillBehavior
+        solution: solution
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 2
+          OrganGrayBrain:
+            min: 1
+            max: 1
+        transferForensics: true
+  - type: Tag
+    tags:
+    - Trash
+
+- type: entity
+  parent: [BaseItem, DrinkBaseMaterialGlass]
+  id: OldThermometer
+  name: old thermometer
+  description: An old thermometer. Doesn't really seem to work anymore.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Maintschem/old_thermometer.rsi
+    state: icon
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,0,1
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Mercury
+        Quantity: 60
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:SpillBehavior
+        solution: solution
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+  - type: Tag
+    tags:
+    - Trash
