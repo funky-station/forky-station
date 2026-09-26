@@ -60,5 +60,5 @@
   id: Stir
   verbText: mixing-verb-stir
   icon:
-    sprite: Objects/Misc/utensils.rsi
+    sprite: _Funkystation/Objects/Misc/utensils.rsi # Funky
     state: spoon

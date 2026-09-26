@@ -389,7 +389,7 @@
   - type: Sprite
     layers:
       - state: red
-      - sprite: Objects/Misc/spaceshroom.rsi
+      - sprite: _Funkystation/Objects/Misc/spaceshroom.rsi # Funky
         state: structure
   - type: EntityTableSpawner
     table:
