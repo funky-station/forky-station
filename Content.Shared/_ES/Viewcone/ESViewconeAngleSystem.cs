@@ -1,5 +1,4 @@
 using Content.Shared._ES.Viewcone.Components;
-using Content.Shared._Funkystation.Viewcone;
 using Content.Shared.Disposal.Unit;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
@@ -21,7 +20,6 @@ public sealed class ESViewconeAngleSystem : EntitySystem
         SubscribeLocalEvent<ESViewconeModifierComponent, InventoryRelayedEvent<ESViewconeGetAngleModifierEvent>>(OnAngleInventoryModify);
         SubscribeLocalEvent<ESViewconeModifierComponent, StatusEffectRelayedEvent<ESViewconeGetAngleModifierEvent>>(OnAngleStatusEffectModify);
 
-        SubscribeLocalEvent<ViewconeStorageBlindComponent, ESViewconeGetAngleModifierEvent>(OnConcealedAngle); // Funky
         SubscribeLocalEvent<BeingDisposedComponent, ESViewconeGetAngleModifierEvent>(OnBeingDisposedAngle);
     }
 
@@ -50,13 +48,6 @@ public sealed class ESViewconeAngleSystem : EntitySystem
         args.Args.ModifyAngle(ent.Comp.AngleModifier);
     }
 
-    // Funky start
-    private void OnConcealedAngle(Entity<ViewconeStorageBlindComponent> ent, ref ESViewconeGetAngleModifierEvent args)
-    {
-        args.ModifyAngle(-360f);
-    }
-    // Funky end
-
     private void OnBeingDisposedAngle(Entity<BeingDisposedComponent> ent, ref ESViewconeGetAngleModifierEvent args)
     {
         args.ModifyAngle(-360f);
@@ -71,10 +62,33 @@ public sealed class ESViewconeAngleSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp))
             return 0f;
 
-        var ev = new ESViewconeGetAngleModifierEvent();
-        RaiseLocalEvent(ent, ref ev, true);
+        // Funky start
+        var viewcone = ent.Comp;
 
-        // clamps to 0, 360 since this is additive and could easily go over with stacking equipment items and shit
-        return Math.Clamp(ent.Comp.BaseConeAngle + ev.GetAngleModifier(), 0f, 360f);
+        if (ent.Comp.IsBlind)
+            viewcone.DesiredConeAngle = viewcone.BaseConeAngleBlind;
+        else
+        {
+            var ev = new ESViewconeGetAngleModifierEvent();
+            RaiseLocalEvent(ent, ref ev, true);
+            viewcone.DesiredConeAngle = viewcone.BaseConeAngle + ev.GetAngleModifier();
+        }
+
+        // CurrentAngle gets lerped each frame in ViewconeBlindSystem
+        return ent.Comp.CurrentConeAngle;
+        // Funky end
+    }
+
+    // Funky - we need this method to modify the ConeIgnoreRadius depending on if
+    // we're blinded or not
+    public float GetModifiedConeIgnoreRadius(Entity<ESViewconeComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return 0f;
+
+        if (ent.Comp.IsBlind)
+            return ent.Comp.ConeIgnoreRadiusBlind;
+
+        return ent.Comp.ConeIgnoreRadius;
     }
 }
