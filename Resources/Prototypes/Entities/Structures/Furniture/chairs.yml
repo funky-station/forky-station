@@ -33,6 +33,11 @@
   - type: Pullable
   - type: StaticPrice
     price: 50
+  - type: Climbable #funky
+  - type: Bonkable #funky
+    bonkDamage:
+      types:
+        Blunt: 4
 
 #Starts unanchored, cannot be rotated while anchored
 - type: entity

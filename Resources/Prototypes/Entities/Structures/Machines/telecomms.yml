@@ -192,8 +192,14 @@
           - SurveillanceDevices
   - type: ScoreThiefPriceModifier
     reason: "scorethief-modifier-critical-infrastructure"
-    multiplier: 0 # funky end
-  
+    multiplier: 0
+  - type: Climbable #funky
+    delay: 5.0
+  - type: Bonkable #funky
+    bonkDamage:
+      types:
+        Blunt: 4
+  # End funky changes
 
 - type: entity
   parent: TelecomServer

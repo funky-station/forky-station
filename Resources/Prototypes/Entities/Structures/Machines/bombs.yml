@@ -51,6 +51,12 @@
       openOnActivation: true
       guides:
       - Defusal
+    - type: Climbable #funky
+      delay: 5.0 #you climb over the bomb with purpose, as to not trigger its mechanisms
+    - type: Bonkable #funky
+      bonkDamage:
+        types:
+          Blunt: 4
 
 - type: entity
   parent: BaseHardBomb
