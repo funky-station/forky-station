@@ -120,6 +120,7 @@
   - ChemicalPayload
   - CableDetStack1
   - EmptyDetonator
+  - BreachingCharge # Funky
 
 - type: technology
   id: SpecialMeans
