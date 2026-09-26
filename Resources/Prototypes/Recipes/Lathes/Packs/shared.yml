@@ -42,9 +42,16 @@
   recipes:
   - BoxFolderClipboardEmpty
   - BoxFolderPlasticClipboardEmpty
-  - PaperBin #funky
-  - ShredderBin # Funky
-  - DigitalClock # Funky
+  # Funky start
+  - PaperBin
+  - ShredderBin
+  - DigitalClock
+  - PenReceptacleBeige
+  - PenReceptacleBlue
+  - PenReceptacleGreen
+  - PenReceptacleGrey
+  - PenReceptacleRed
+  # Funky end
 
 - type: latheRecipePack
   id: TowelsStatic # This is used for both the autolathe and the uniform printer, so "unique" towels that only HoP can print shouldn't be included!
