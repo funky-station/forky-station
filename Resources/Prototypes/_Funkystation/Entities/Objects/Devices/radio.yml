@@ -283,12 +283,12 @@
   parent: BaseItem
   components:
   - type: Sprite
-    sprite: Objects/Fun/Instruments/microphone.rsi
+    sprite: _Funkystation/Objects/Fun/Instruments/microphone.rsi # Funky
     layers:
     - state: icon
     state: icon
   - type: Item
-    sprite: Objects/Fun/Instruments/microphone.rsi
+    sprite: _Funkystation/Objects/Fun/Instruments/microphone.rsi # Funky
     heldPrefix: icon
   - type: TelecomExempt
   - type: RadioMicrophone
