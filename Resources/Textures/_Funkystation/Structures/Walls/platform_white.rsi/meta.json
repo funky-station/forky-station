@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "BeeStation at f5029797ec3c6d58f9a806b68427ca44de310008",
+  "size": {
+    "x": 32,
+    "y": 32
+    },
+  "states": [
+    {
+      "name": "side",
+      "directions": 4
+    },
+    {
+      "name": "corner",
+      "directions": 4
+    },
+    {
+      "name": "corner_small",
+      "directions": 4
+    },
+    {
+      "name": "end",
+      "directions": 4
+    }
+  ]
+}
