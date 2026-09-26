@@ -33,6 +33,10 @@
         - ItemMask
         restitution: 0.3
         friction: 0.2
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 5 #ow
 
 - type: entity # Starts fuse after taking 10 damage.
   abstract: true
