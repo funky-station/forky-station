@@ -1175,7 +1175,7 @@ StatueBananiumClown: StatueOrnateClown
 DrinkNeurotoxinGlass: null
 
 #2026-08-19
-JanitorServiceLight: null
+#JanitorServiceLight: null #commented out due to funky
 
 # 2026-08-31 RMC Pump/Breech Ports
 WeaponSniperMosin: FuWeaponSniperMosin
