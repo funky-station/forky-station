@@ -154,7 +154,7 @@
   description: A modern recharging station that can fit both power cells and small electronic devices.
   components:
   - type: Sprite
-    sprite: Structures/Power/recharger.rsi
+    sprite: _Funkystation/Structures/Power/recharger.rsi # Funky
   - type: Machine
     board: WeaponCapacitorRechargerCircuitboard
   - type: ItemSlots
@@ -181,7 +181,7 @@
   description: An overclocked recharger. Not recommended for use around asthmatics.
   components:
   - type: Sprite
-    sprite: Structures/Power/turbo_recharger.rsi
+    sprite: _Funkystation/Structures/Power/turbo_recharger.rsi # Funky
   - type: Machine
     board: TurboItemRechargerCircuitboard
   - type: Charger

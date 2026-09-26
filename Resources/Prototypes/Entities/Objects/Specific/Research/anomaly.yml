@@ -5,7 +5,7 @@
   description: A hand-held scanner built to collect information on various anomalous objects.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Research/anomalyscanner.rsi
+    sprite: _Funkystation/Objects/Specific/Research/anomalyscanner.rsi # Funky
     layers:
       - state: icon
         map: ["enum.AnomalyScannerVisualLayers.Base"]
@@ -63,6 +63,7 @@
           False: { visible: false }
   - type: AnomalyScanner
   - type: AnomalyScannerScreen
+    offset: 9, 17 # funky, for new sprite
   - type: GuideHelp
     guides:
     - ScannersAndVessels
@@ -89,7 +90,7 @@
   suffix: Always Powered
   components:
   - type: Sprite
-    sprite: Objects/Specific/Research/anomalylocator.rsi
+    sprite: _Funkystation/Objects/Specific/Research/anomalylocator.rsi # Funky
     layers:
       - state: icon
       - state: screen
@@ -148,7 +149,7 @@
   suffix: Always Powered
   components:
   - type: Sprite
-    sprite: Objects/Specific/Research/anomalylocatorwide.rsi
+    sprite: _Funkystation/Objects/Specific/Research/anomalylocatorwide.rsi # Funky
   - type: Beeper
     minBeepInterval: 0.5
     maxBeepInterval: 0.5

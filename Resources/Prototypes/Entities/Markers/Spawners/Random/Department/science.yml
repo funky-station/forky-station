@@ -7,7 +7,7 @@
   - type: Sprite
     layers:
       - state: red
-      - sprite: Objects/Specific/Research/anomalyscanner.rsi
+      - sprite: _Funkystation/Objects/Specific/Research/anomalyscanner.rsi # Funky
         state: icon
   - type: RandomSpawner
     rarePrototypes:
@@ -80,7 +80,7 @@
   - type: Sprite
     layers:
     - state: red
-    - sprite: Objects/Specific/Research/researchdisk.rsi
+    - sprite: _Funkystation/Objects/Specific/Research/researchdisk.rsi # Funky
       state: icon
   - type: EntityTableSpawner
     table: !type:NestedSelector

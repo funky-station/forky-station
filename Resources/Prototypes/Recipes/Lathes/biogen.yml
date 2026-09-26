@@ -113,7 +113,7 @@
   categories:
   - Chemicals
   icon:
-    sprite: Objects/Specific/Chemistry/bottle.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/bottle.rsi # Funky
     state: bottle-1
   completetime: 1
   materials:
@@ -126,7 +126,7 @@
   categories:
   - Chemicals
   icon:
-    sprite: Objects/Specific/Chemistry/bottle.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/bottle.rsi # Funky
     state: bottle-1
   completetime: 1
   materials:
@@ -139,7 +139,7 @@
   categories:
   - Chemicals
   icon:
-    sprite: Objects/Specific/Chemistry/bottle.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/bottle.rsi # Funky
     state: bottle-1
   completetime: 1
   materials:
@@ -265,7 +265,7 @@
   categories:
   - Chemicals
   icon:
-    sprite: Objects/Specific/Chemistry/bottle.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/bottle.rsi # Funky
     state: bottle-1
   completetime: 5
   materials:
@@ -278,7 +278,7 @@
   categories:
   - Chemicals
   icon:
-    sprite: Objects/Specific/Chemistry/bottle.rsi #Structures/Storage/canister.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/bottle.rsi # Funky #Structures/Storage/canister.rsi
     state: bottle-1 #greenys
   completetime: 1
   materials:
