@@ -46,6 +46,7 @@
     eyes: ClothingEyesGlassesMeson
     ears: ClothingHeadsetCE
     belt: ClothingBeltUtilityEngineering
+    back: ClothingBackpackSatchelLeather # funky
   storage:
     back:
     - Flash

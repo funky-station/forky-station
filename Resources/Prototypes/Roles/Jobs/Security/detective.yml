@@ -29,6 +29,7 @@
     id: DetectiveWallet # Funky: the wallet-ening
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltHolsterFilled
+    back: ClothingBackpackSatchelLeather # funky
   storage:
     back:
     - Flash

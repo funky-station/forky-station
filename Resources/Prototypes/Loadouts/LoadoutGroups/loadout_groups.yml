@@ -183,10 +183,10 @@
   id: HoPBackpack
   name: loadout-group-hop-backpack
   loadouts:
-  - CommonBackpack
-  - CommonSatchel
-  - CommonDuffel
-  - HoPBackpackIan
+  # - CommonBackpack #funky. no backpack or duffel
+  - LeatherSatchel # funky, leather satchel for command
+  # - CommonDuffel # funky. no backpack or duffel
+  - HoPBackpackIan # ok you can stay.
 
 - type: loadoutGroup
   id: HoPOuterClothing
@@ -515,7 +515,7 @@
   loadouts:
   - BotanistBackpack
   - BotanistSatchel
-  - BotanistDuffel
+  # - BotanistDuffel # funky
 
 - type: loadoutGroup
   id: BotanistOuterClothing
@@ -555,7 +555,7 @@
   loadouts:
   - ClownBackpack
   - ClownSatchel
-  - ClownDuffel
+  # - ClownDuffel # funky
 
 - type: loadoutGroup
   id: ClownOuterClothing
@@ -765,7 +765,7 @@
   id: CargoTechnicianBackpack
   name: loadout-group-cargo-technician-backpack
   loadouts:
-  - CargoTechnicianBackpack
+  # - CargoTechnicianBackpack # funky
   - CargoTechnicianSatchel
   - CargoTechnicianDuffel
 
@@ -909,7 +909,7 @@
   id: StationEngineerBackpack
   name: loadout-group-station-engineer-backpack
   loadouts:
-  - StationEngineerBackpack
+  # - StationEngineerBackpack # funky
   - StationEngineerSatchel
   - StationEngineerDuffel
 
@@ -1260,7 +1260,7 @@
   loadouts:
   - SecurityBackpack
   - SecuritySatchel
-  - SecurityDuffel
+  # - SecurityDuffel # funky. no duffel bags for security
 
 - type: loadoutGroup
   id: SecurityBelt

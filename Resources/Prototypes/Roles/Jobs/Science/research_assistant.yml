@@ -22,7 +22,8 @@
     shoes: ClothingShoesColorWhite
     id: ResearchAssistantWallet # Funky: the wallet-ening
     ears: ClothingHeadsetScience
-    pocket2: BookScientistsGuidebook
+    pocket1: BookScientistsGuidebook # funky, pocket1
+    pocket2: PouchResearch # funky
   #storage:
     #back:
     #- Stuff

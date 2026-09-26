@@ -5,7 +5,6 @@
   - FuHdHead
   - FuHdUniform
   - FuHdGloves
-  - CommonBackpack
   - FuHdOuterclothing
   - FuHdShoes
   - Glasses
@@ -21,7 +20,6 @@
   groups:
   - GroupTankHarness
   - LawyerJumpsuit
-  - CommonBackpack
   - Glasses
   - Pager
   - Survival
@@ -36,7 +34,6 @@
   - GroupTankHarness
   - LawyerNeck
   - LawyerJumpsuit
-  - CommonBackpack
   - Pager
   - Glasses
   - Survival
@@ -50,7 +47,6 @@
   groups:
   - GroupTankHarness
   - LawyerJumpsuit
-  - CommonBackpack
   - Glasses
   - Pager
   - Survival
@@ -66,7 +62,7 @@
   - HoPHead
   - HoPNeck
   - HoPJumpsuit
-  - HoPBackpack
+  - XOBackpack
   - HoPOuterClothing
   - Pager
   - Glasses

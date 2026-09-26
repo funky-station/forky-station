@@ -21,6 +21,7 @@
     shoes: ClothingShoesBootsLaceup
     id: MusicianWallet # Funky: the wallet-ening
     ears: ClothingHeadsetService
+    pocket2: PouchGeneric # funky
   #storage:
     #back:
     #- Stuff

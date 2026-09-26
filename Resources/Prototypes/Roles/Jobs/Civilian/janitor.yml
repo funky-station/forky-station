@@ -22,9 +22,7 @@
     id: JanitorWallet # Funky: the wallet-ening
     ears: ClothingHeadsetService
     belt: ClothingBeltJanitorFilled
-  #storage:
-    #back:
-    #- Stuff
+    pocket2: PouchGeneric # funky
 
 - type: startingGear
   id: JanitorMaidGear

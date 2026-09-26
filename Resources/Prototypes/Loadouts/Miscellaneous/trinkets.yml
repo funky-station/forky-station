@@ -10,41 +10,41 @@
 # Flowers
 - type: loadout
   id: FlowerWreath
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - ClothingHeadHatFlowerWreath
 
 - type: loadout
   id: Hairflower
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - ClothingHeadHatHairflower
 
 # Headphones
 - type: loadout
   id: Headphones
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - ClothingMultipleHeadphones
 
 # Toys
 - type: loadout
   id: PlushieLizard
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - PlushieLizard
 
 - type: loadout
   id: PlushieSpaceLizard
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - PlushieSpaceLizard
 
 - type: loadout
   id: ThreeCandles
   dummyEntity: LoadoutDummyCandles
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - CandleRed
     - CandleBlue
     - CandleGreenSmall
@@ -52,36 +52,36 @@
 # Smokeables
 - type: loadout
   id: Lighter
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - Lighter
   groupBy: "smokeables"
 
 - type: loadout
   id: CigPackGreen
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - CigPackGreen
   groupBy: "smokeables"
 
 - type: loadout
   id: CigPackRed
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - CigPackRed
   groupBy: "smokeables"
 
 - type: loadout
   id: CigPackBlue
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - CigPackBlue
   groupBy: "smokeables"
 
 - type: loadout
   id: CigPackBlack
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - CigPackBlack
   groupBy: "smokeables"
 
@@ -90,8 +90,8 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: Command
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - CigarCase
   groupBy: "smokeables"
 
@@ -100,23 +100,23 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: Command
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - CigarGold
   groupBy: "smokeables"
 
 # Folders
 - type: loadout
   id: BoxFolderBaseThreePapers
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - BoxFolderBaseThreePapers
   groupBy: "folders"
 
 - type: loadout
   id: BoxFolderPlasticClipboardThreePapers
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - BoxFolderPlasticClipboardThreePapers
   groupBy: "folders"
 
@@ -125,142 +125,142 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: Command
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - BoxFolderClipboardThreePapers
   groupBy: "folders"
 
 # Pins
 - type: loadout
   id: ClothingNeckLGBTPin
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - ClothingNeckLGBTPin
   groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckAllyPin
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - ClothingNeckAllyPin
   groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckAromanticPin
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - ClothingNeckAromanticPin
   groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckAsexualPin
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - ClothingNeckAsexualPin
   groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckBisexualPin
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - ClothingNeckBisexualPin
   groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckGayPin
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - ClothingNeckGayPin
   groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckIntersexPin
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - ClothingNeckIntersexPin
   groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckLesbianPin
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - ClothingNeckLesbianPin
   groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckNonBinaryPin
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - ClothingNeckNonBinaryPin
   groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckPansexualPin
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - ClothingNeckPansexualPin
   groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckOmnisexualPin
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - ClothingNeckOmnisexualPin
   groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckGenderqueerPin
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - ClothingNeckGenderqueerPin
   groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckTransPin
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - ClothingNeckTransPin
   groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckAutismPin
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - ClothingNeckAutismPin
   groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckGoldAutismPin
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - ClothingNeckGoldAutismPin
   groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckAroacePin
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - ClothingNeckAroacePin
   groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckPluralPin
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - ClothingNeckPluralPin
   groupBy: "pin"
 
 - type: loadout
   id: ClothingNeckGenderfluidPin
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - ClothingNeckGenderfluidPin
   groupBy: "pin"
 
 # Towels
 - type: loadout
   id: TowelColorWhite
-  storage:
-    back:
+  storage: # funky
+    jumpsuit:
     - TowelColorWhite
   groupBy: "towels"

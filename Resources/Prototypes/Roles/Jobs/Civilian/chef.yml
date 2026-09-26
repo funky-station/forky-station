@@ -25,6 +25,7 @@
     id: ChefWallet # Funky: the wallet-ening
     ears: ClothingHeadsetService
     belt: ClothingBeltChefFilled
+    pocket2: PouchGeneric # funky
   #storage:
     #back:
     #- Stuff

@@ -45,6 +45,7 @@
     ears: ClothingHeadsetQM
     belt: BoxFolderClipboardThreePapers
     pocket1: AppraisalTool
+    back: ClothingBackpackSatchelLeather # funky
   storage:
     back:
     - Flash
