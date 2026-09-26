@@ -25,6 +25,11 @@
         children:
         - id: SmokingPipeFilledTobacco
         - id: FlippoEngravedLighter
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: [ClothingOuterCoatDetectiveLoadout]
@@ -36,6 +41,11 @@
     sprite: Clothing/OuterClothing/Coats/detective_grey.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/detective_grey.rsi
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 
 - type: entity
@@ -48,6 +58,11 @@
         children:
         - id: SmokingPipeFilledTobacco
         - id: FlippoLighter #Not the steal objective, only difference from normal detective trenchcoat
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -59,6 +74,11 @@
     sprite: Clothing/OuterClothing/Coats/gentlecoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/gentlecoat.rsi
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   abstract: true
@@ -111,6 +131,11 @@
     sprite: Clothing/OuterClothing/Coats/jensencoat.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodChaplainHood
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: ClothingOuterCoatJensen
@@ -136,6 +161,11 @@
     modifiers:
       coefficients:
         Slash: 0.95
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
@@ -151,11 +181,22 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLab]
   id: ClothingOuterCoatLabOpened
   name: lab coat
+  components:
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
@@ -171,11 +212,22 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabChem]
   id: ClothingOuterCoatLabChemOpened
   name: chemist lab coat
+  components:
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
@@ -191,11 +243,22 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabViro]
   id: ClothingOuterCoatLabViroOpened
   name: virologist lab coat
+  components:
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
@@ -211,11 +274,22 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabGene]
   id: ClothingOuterCoatLabGeneOpened
   name: geneticist lab coat
+  components:
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
@@ -233,11 +307,22 @@
         Slash: 0.95
         Heat: 0.95
         Caustic: 0.65
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabCmo]
   id: ClothingOuterCoatLabCmoOpened
   name: chief medical officer's lab coat
+  components:
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
@@ -253,11 +338,22 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRnd]
   id: ClothingOuterCoatRndOpened
   name: scientist lab coat
+  components:
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
@@ -273,11 +369,22 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRobo]
   id: ClothingOuterCoatRoboOpened
   name: roboticist lab coat
+  components:
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
@@ -294,11 +401,22 @@
       coefficients:
         Caustic: 0.75
         Radiation: 0.9
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatRD]
   id: ClothingOuterCoatRDOpened
   name: research director lab coat
+  components:
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -310,6 +428,11 @@
     sprite: Clothing/OuterClothing/Coats/pirate.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/pirate.rsi
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: [ClothingOuterArmorWarden, BaseSecurityContraband]
@@ -382,6 +505,11 @@
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecap.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecap.rsi
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: [BaseSyndicateContraband, ClothingOuterCoatHoSTrench] # BaseSyndicateContraband as first parent so contraband system takes that as priority, yeah I know
@@ -393,6 +521,11 @@
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -427,11 +560,22 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabSeniorResearcher]
   id: ClothingOuterCoatLabSeniorResearcherOpened
   name: senior researcher lab coat
+  components:
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
@@ -447,11 +591,22 @@
     modifiers:
       coefficients:
         Caustic: 0.75
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabSeniorPhysician]
   id: ClothingOuterCoatLabSeniorPhysicianOpened
   name: senior physician lab coat
+  components:
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -463,6 +618,11 @@
     sprite: Clothing/OuterClothing/Coats/space_asshole.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/space_asshole.rsi
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
