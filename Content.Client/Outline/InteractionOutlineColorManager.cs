@@ -1,4 +1,5 @@
 using Content.Shared.CCVar;
+using JetBrains.Annotations;
 using Robust.Shared.Configuration;
 
 namespace Content.Client.Outline;
@@ -23,6 +24,7 @@ public sealed partial class InteractionOutlineColorManager : IPostInjectInit
     /// otherwise gets the default colors.
     /// </summary>
     /// <param name="inRange">Whether the thing we're getting the outline for is in-range or out-of-range.</param>
+    [PublicAPI]
     public Color GetOutlineColor(bool inRange)
     {
         return inRange ? _validInteractionOutlineColor : _invalidInteractionOutlineColor;
