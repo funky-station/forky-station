@@ -208,7 +208,7 @@
   description: uplink-pizza-bomb-desc
   productEntity: Pizzabomb
   cost:
-    Telecrystal: 40
+    Telecrystal: 20
   categories:
   - UplinkExplosives
   conditions:
@@ -225,7 +225,7 @@
   description: uplink-pizza-bomb-surplus-desc
   productEntity: PizzabombSurplus
   cost:
-    Telecrystal: 40
+    Telecrystal: 20
   categories:
   - UplinkExplosives
   conditions:
