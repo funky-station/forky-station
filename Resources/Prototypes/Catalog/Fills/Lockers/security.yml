@@ -29,7 +29,7 @@
     - id: FlashlightSeclite
     - id: ClothingBeltSecurityFilled
     - id: Flash
-    - id: ClothingEyesGlassesSecurity
+    #- id: ClothingEyesGlassesSecurity # Funky - Removing HUDs. TODO: Move this change to a partial when that's possible
     - id: ClothingHandsGlovesCombat
     - id: ClothingShoesBootsJack
     - id: ClothingOuterCoatWarden
@@ -82,7 +82,7 @@
     - id: ClothingBeltSecurityFilled
     - id: Flash
       prob: 0.5
-    - id: ClothingEyesGlassesSecurity
+    #- id: ClothingEyesGlassesSecurity # Funky - Removing HUDs. TODO: Move this change to a partial when that's possible
     - id: ClothingHeadsetSecurity
     - id: ClothingHandsGlovesColorBlack
     - id: ClothingShoesBootsJack

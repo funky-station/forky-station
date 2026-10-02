@@ -61,11 +61,11 @@
   graph: BananaClownShoes
   targetNode: shoes
 
-- type: construction
-  parent: BaseClothing
-  id: ClothingEyesHudMedSec
-  graph: HudMedSec
-  targetNode: medsecHud
+#- type: construction # Funky - Removing HUDs
+#  parent: BaseClothing # There doesn't seem to be a clean way to remove prototypes without ignoring a whole files
+#  id: ClothingEyesHudMedSec # So I'm just going to comment this and the secHUD construction out
+#  graph: HudMedSec
+#  targetNode: medsecHud
 
 - type: construction
   parent: BaseClothing
@@ -79,11 +79,11 @@
   graph: ClothingShoeSlippersLizard
   targetNode: shoes
 
-- type: construction
-  parent: BaseClothing
-  id: ClothingEyesGlassesSecurity
-  graph: GlassesSecHUD
-  targetNode: glassesSec
+#- type: construction # Funky - Removing HUDs
+#  parent: BaseClothing
+#  id: ClothingEyesGlassesSecurity
+#  graph: GlassesSecHUD
+#  targetNode: glassesSec
 
 - type: construction
   parent: BaseClothing
