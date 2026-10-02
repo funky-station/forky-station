@@ -51,7 +51,7 @@
   - type: Item
     size: Small
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/waterbottle.rsi # fallback
+    sprite: _Funkystation/Objects/Consumable/Drinks/waterbottle.rsi # Funky # fallback
   - type: FitsInDispenser
     solution: drink
 
@@ -67,7 +67,7 @@
       - ReagentId: Water
         Quantity: 60
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/waterbottle.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/waterbottle.rsi # Funky
   - type: Label
     localizedLabel: reagent-name-water
 

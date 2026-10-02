@@ -10,7 +10,7 @@
   - type: Item
     size: Tiny
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/shotglass.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/shotglass.rsi # Funky
   - type: SolutionContainerVisuals
     maxFillLevels: 2
     inHandsMaxFillLevels: 1
@@ -43,7 +43,7 @@
       - ReagentId: Ice
         Quantity: 240
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/icebucket.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/icebucket.rsi # Funky
     state: icon
   - type: PhysicalComposition
     materialComposition:

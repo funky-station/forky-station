@@ -20,10 +20,10 @@
   name: brown briefcase
   components:
   - type: Sprite
-    sprite: Objects/Storage/Briefcases/briefcase_brown.rsi
+    sprite: _Funkystation/Objects/Storage/Briefcases/briefcase_brown.rsi # Funky
     state: icon
   - type: Item
-    sprite: Objects/Storage/Briefcases/briefcase_brown.rsi
+    sprite: _Funkystation/Objects/Storage/Briefcases/briefcase_brown.rsi # Funky
 
 - type: entity
   parent: BriefcaseBrown
@@ -42,7 +42,7 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: Objects/Storage/Briefcases/weapon_case_large.rsi
+    sprite: _Funkystation/Objects/Storage/Briefcases/weapon_case_large.rsi # Funky
     layers:
     - state: icon
       map: [ base ]
@@ -70,7 +70,7 @@
   suffix: Gun, Small, Empty
   components:
   - type: Sprite
-    sprite: Objects/Storage/Briefcases/weapon_case.rsi
+    sprite: _Funkystation/Objects/Storage/Briefcases/weapon_case.rsi # Funky
   - type: Item
     size: Large
   - type: Storage
