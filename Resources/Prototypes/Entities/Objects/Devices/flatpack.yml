@@ -7,7 +7,11 @@
   - HideSpawnMenu
   components:
   - type: Item
-    size: Large
+    size: Ginormous #was large
+  - type: MultiHandedItem #funky, nerfing these to be more in line with constructing it there
+  - type: HeldSpeedModifier #this big and slow
+    walkModifier: 0.7
+    sprintModifier: 0.7
   - type: Sprite
     sprite: Objects/Devices/flatpack.rsi
     layers:
