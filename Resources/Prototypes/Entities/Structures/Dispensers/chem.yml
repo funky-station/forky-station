@@ -14,8 +14,22 @@
     whitelist:
       tags:
       - ChemDispensable
-  - type: ApcPowerReceiver
-  - type: ExtensionCableReceiver
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  # Funky - Remove these
+  # - type: ApcPowerReceiver
+  # - type: ExtensionCableReceiver
   - type: Machine
     board: ChemDispenserMachineCircuitboard
   - type: GuideHelp
@@ -67,3 +81,4 @@
         - id: JugSilicon
         - id: JugSodium
         - id: JugSulfur
+
