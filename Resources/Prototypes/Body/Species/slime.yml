@@ -82,6 +82,8 @@
   id: MobSlimePerson
   name: Urist McWobble
   components:
+  - type: MobSize
+    size: Medium
   - type: Storage
     clickInsert: false
     grid:
