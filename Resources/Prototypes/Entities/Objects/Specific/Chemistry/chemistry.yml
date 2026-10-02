@@ -307,7 +307,7 @@
   - type: Spillable
     solution: beaker
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/beaker_cryostasis.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/beaker_cryostasis.rsi # Funky
     layers:
       - state: beakernoreact
   - type: SolutionContainerVisuals
@@ -337,7 +337,7 @@
   id: Dropper
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/dropper.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/dropper.rsi # Funky
     layers:
       - state: dropper
       - state: dropper1
@@ -360,7 +360,7 @@
   - type: Spillable
     solution: injector
   - type: Item
-    sprite: Objects/Specific/Chemistry/dropper.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/dropper.rsi # Funky
     size: Tiny
   - type: Appearance
   - type: SolutionContainerVisuals
@@ -383,14 +383,14 @@
   description: State-of-the-art hydraulic dropper built for cyborgs.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/dropper.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/dropper.rsi # Funky
     layers:
       - state: borgdropper
       - state: dropper1
         map: ["enum.SolutionContainerLayers.Fill"]
         visible: false
   - type: Item
-    sprite: Objects/Specific/Chemistry/dropper.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/dropper.rsi # Funky
 
 - type: entity
   name: syringe
