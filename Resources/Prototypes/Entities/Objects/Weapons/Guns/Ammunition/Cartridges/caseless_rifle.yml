@@ -11,7 +11,7 @@
     deleteOnSpawn: true
   - type: Sprite
     noRot: false
-    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    sprite: _Funkystation/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi # Funky
     layers:
     - state: base
       map: ["enum.AmmoVisualLayers.Base"]
