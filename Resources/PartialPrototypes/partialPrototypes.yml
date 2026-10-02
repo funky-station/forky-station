@@ -24,6 +24,7 @@
 
 # Specifying directories as the above text suggests seems to cause insanely long loading times. Just specify files for now.
 - /Prototypes/_Funkystation/Catalog/Fills/Boxes/security.yml
+- /Prototypes/_Funkystation/Catalog/VendingMachines/Inventories/bardrobe.yml
 - /Prototypes/_Funkystation/Catalog/VendingMachines/Inventories/medidrobe.yml
 - /Prototypes/_Funkystation/Catalog/VendingMachines/Inventories/robotics.yml
 - /Prototypes/_Funkystation/Catalog/VendingMachines/Inventories/sec.yml
