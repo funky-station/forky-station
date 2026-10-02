@@ -125,7 +125,7 @@
   description: A sterile injector for convenient administration of drugs to patients.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/jetinjector.rsi
+    sprite: _Funkystation/Objects/Specific/Medical/jetinjector.rsi # Funky
     layers:
     - state: jetinjector_base
       map: [ "enum.SolutionContainerLayers.Base" ]
@@ -133,7 +133,7 @@
       map: [ "enum.SolutionContainerLayers.Fill" ]
       visible: false
   - type: Item
-    sprite: Objects/Specific/Medical/jetinjector.rsi
+    sprite: _Funkystation/Objects/Specific/Medical/jetinjector.rsi # Funky
   - type: UseDelay
     delay: 1.5
   - type: Solution
@@ -158,7 +158,7 @@
   description: A pristine, fashionable, high quality injector. Allows for a faster injection, with a slightly larger capacity.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/advanced_jetinjector.rsi
+    sprite: _Funkystation/Objects/Specific/Medical/advanced_jetinjector.rsi # Funky
     layers:
     - state: jetinjector_base
       map: [ "enum.SolutionContainerLayers.Base" ]
@@ -166,7 +166,7 @@
       map: [ "enum.SolutionContainerLayers.Fill" ]
       visible: false
   - type: Item
-    sprite: Objects/Specific/Medical/advanced_jetinjector.rsi
+    sprite: _Funkystation/Objects/Specific/Medical/advanced_jetinjector.rsi # Funky
   - type: SolutionContainerVisuals
     maxFillLevels: 4
   - type: Injector
