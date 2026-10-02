@@ -1,6 +1,7 @@
 station-beacon-logistics = Logistics
 
 station-beacon-cl = Liaison's Office
+station-beacon-hd= Hospitality Director's Office
 
 station-beacon-commandant = Commandant's Office
 station-beacon-dispatch = Dispatch Desk
@@ -25,3 +26,10 @@ station-beacon-mailroom = Mailroom
 
 station-beacon-reactor = Reactor Chamber
 station-beacon-sm = Supermatter Chamber
+station-beacon-sistr= SIS/TR core
+station-beacon-shuttles= Shuttle workshop
+
+station-beacon-laundromat= Laundromat
+station-beacon-park= Park
+station-beacon-restaurant= Restaurant
+
