@@ -1,0 +1,83 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:admin="clr-namespace:Content.Client.Administration.UI.CustomControls"
+                      xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                      xmlns:canvas="clr-namespace:Content.Client._AS.CanvasDesign.UI"
+                      Title="{Loc 'canvas-design-window-title'}">
+  <BoxContainer Orientation="Vertical" Margin="8">
+    <BoxContainer Name="MetadataSection" Orientation="Vertical">
+      <BoxContainer Orientation="Horizontal" Margin="0 0 0 2">
+        <Label Text="{Loc 'canvas-design-name'}" />
+        <Control HorizontalExpand="True" />
+        <Label Name="NameCount" />
+      </BoxContainer>
+      <LineEdit Name="NameEdit" MinHeight="30" HorizontalExpand="True" />
+      <BoxContainer Orientation="Horizontal" Margin="0 6 0 2">
+        <Label Text="{Loc 'canvas-design-description'}" />
+        <Control HorizontalExpand="True" />
+        <Label Name="DescriptionCount" />
+      </BoxContainer>
+      <PanelContainer MinHeight="64" MaxHeight="82" HorizontalExpand="True">
+        <PanelContainer.PanelOverride>
+          <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" BorderColor="#44444A" BorderThickness="1" />
+        </PanelContainer.PanelOverride>
+        <TextEdit Name="DescriptionEdit" HorizontalExpand="True" VerticalExpand="True" Margin="4" />
+      </PanelContainer>
+      <admin:HSeparator Margin="0 7" />
+    </BoxContainer>
+
+    <BoxContainer Orientation="Horizontal">
+      <BoxContainer Orientation="Vertical">
+        <!-- This row is constrained to the canvas column, keeping Clear at the canvas's right edge. -->
+        <BoxContainer Orientation="Horizontal" Margin="0 0 0 6">
+          <Button Name="SaveButton" Text="{Loc 'canvas-design-save'}" />
+          <Button Name="ExportButton" Text="{Loc 'canvas-design-export'}" Margin="6 0 0 0" />
+          <Button Name="ImportButton" Text="{Loc 'canvas-design-import'}" Margin="6 0 0 0" />
+          <Control HorizontalExpand="True" />
+          <controls:ConfirmButton Name="ClearButton"
+                                  Text="{Loc 'canvas-design-clear'}"
+                                  ConfirmationText="{Loc 'canvas-design-clear-confirm'}" />
+        </BoxContainer>
+        <!-- Window resizes based on canvas size -->
+        <canvas:CanvasDesignControl Name="Canvas" />
+      </BoxContainer>
+      <admin:VSeparator Margin="8 0" />
+      <PanelContainer MinWidth="270" VerticalAlignment="Stretch">
+        <BoxContainer Orientation="Vertical" Margin="8">
+          <Label Text="{Loc 'canvas-design-tools'}" StyleClasses="LabelHeading" HorizontalAlignment="Center" />
+          <admin:HSeparator Margin="0 5 0 8" />
+          <GridContainer Columns="3" HSeparationOverride="6" VSeparationOverride="6" HorizontalAlignment="Center">
+            <Button Name="PencilButton" ToolTip="{Loc 'canvas-design-tool-pencil'}" ToggleMode="True" SetSize="68 40">
+              <TextureRect TexturePath="/Textures/_AS/Interface/Misc/tool_icons/pencil.svg.png" Stretch="KeepAspectCentered" SetSize="24 24" />
+            </Button>
+            <Button Name="EraserButton" ToolTip="{Loc 'canvas-design-tool-eraser'}" ToggleMode="True" SetSize="68 40">
+              <TextureRect TexturePath="/Textures/Interface/eraser.svg.png" Stretch="KeepAspectCentered" SetSize="24 24" />
+            </Button>
+            <Button Name="PickerButton" ToolTip="{Loc 'canvas-design-tool-picker'}" ToggleMode="True" SetSize="68 40">
+              <TextureRect TexturePath="/Textures/Interface/eyedropper.svg.png" Stretch="KeepAspectCentered" SetSize="24 24" />
+            </Button>
+            <Button Name="FillButton" ToolTip="{Loc 'canvas-design-tool-fill'}" ToggleMode="True" SetSize="68 40">
+              <TextureRect TexturePath="/Textures/_AS/Interface/Misc/tool_icons/paint-bucket.svg.png" Stretch="KeepAspectCentered" SetSize="24 24" />
+            </Button>
+            <Button Name="LineButton" ToolTip="{Loc 'canvas-design-tool-line'}" ToggleMode="True" SetSize="68 40" >
+                <TextureRect TexturePath="/Textures/_AS/Interface/Misc/tool_icons/line.svg.png" Stretch="KeepAspectCentered" SetSize="24 24" />
+            </Button>
+            <Button Name="SquareButton" ToolTip="{Loc 'canvas-design-tool-square'}" ToggleMode="True" SetSize="68 40">
+              <TextureRect TexturePath="/Textures/_AS/Interface/Misc/tool_icons/plain-square.svg.png" Stretch="KeepAspectCentered" SetSize="24 24" />
+            </Button>
+            <Button Name="CircleButton" ToolTip="{Loc 'canvas-design-tool-circle'}" ToggleMode="True" SetSize="68 40">
+              <TextureRect TexturePath="/Textures/_AS/Interface/Misc/tool_icons/plain-circle.svg.png" Stretch="KeepAspectCentered" SetSize="24 24" />
+            </Button>
+          </GridContainer>
+          <Control VerticalExpand="True" />
+          <admin:HSeparator Margin="0 8" />
+          <ColorSelectorSliders Name="ColorSelector" IsAlphaVisible="False">
+            <BoxContainer HorizontalAlignment="Right" VerticalAlignment="Top" SetHeight="29">
+              <Button Name="ColorPalette" Text="{Loc 'canvas-design-palette'}" />
+            </BoxContainer>
+          </ColorSelectorSliders>
+        </BoxContainer>
+      </PanelContainer>
+    </BoxContainer>
+  </BoxContainer>
+</controls:FancyWindow>
