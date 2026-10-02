@@ -34,6 +34,9 @@
         sound:
           collection: MetalBreak
       - !type:DumpRestockInventory
+  - type: Tag #funky start, make them able to be stored on box shelves and carts
+    tags:
+    - CardboardboxLarge #funky end
 
 - type: entity
   parent: BaseVendingMachineRestock
