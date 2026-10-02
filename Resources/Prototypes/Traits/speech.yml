@@ -71,6 +71,20 @@
   - type: ReplacementAccent
     accent: scottish
 
+# funky
+
+- type: trait
+  id: CowboyAccent
+  name: trait-cowboy-name
+  description: trait-cowboy-desc
+  category: SpeechTraits
+  cost: 1
+  components:
+  - type: ReplacementAccent
+    accent: cowboy
+
+# end funky
+
 # 2 Cost
 
 - type: trait
