@@ -9,6 +9,11 @@
     sprite: _Funkystation/Clothing/OuterClothing/Wintercoats/NoHood/hos.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/OuterClothing/Wintercoats/NoHood/hos.rsi
+  - type: Storage
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small
 
 - type: entity
   parent: [BaseSecurityCommandContraband, ClothingOuterArmorWarden, ClothingOuterStorageBase]
@@ -20,6 +25,11 @@
     sprite: _Funkystation/Clothing/OuterClothing/Wintercoats/NoHood/ward.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/OuterClothing/Wintercoats/NoHood/ward.rsi
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: [BaseSecurityCommandContraband, ClothingOuterArmorBase, ClothingOuterStorageBase]
@@ -62,6 +72,11 @@
     modifiers:
       coefficients:
         Caustic: 0.8
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 #medical toggleable
 - type: entity
@@ -78,11 +93,22 @@
     modifiers:
       coefficients:
         Caustic: 0.9
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: [ClothingOuterStorageFoldableBaseOpened, FuClothingOuterWinterCmo]
   id: FuClothingOuterWinterCmoOpened
   name: chief medical officer's insulated labcoat
+  components:
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 
 - type: entity
   parent: [ClothingOuterWinterCoat, BaseCommandContraband]
