@@ -75,6 +75,12 @@
   - type: StaticPrice
     price: 200
   - type: RequireProjectileTarget
+  - type: Climbable #funky
+    delay: 5.0
+  - type: Bonkable #funky
+    bonkDamage:
+      types:
+        Blunt: 4
   - type: Damageable
     damageModifierSet: SteelMod
   - type: Destructible

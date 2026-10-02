@@ -29,4 +29,9 @@
     guides:
     - TeslaEngine
     - Power
-
+  - type: Climbable #funky
+    delay: 5.0
+  - type: Bonkable #funky
+    bonkDamage:
+      types:
+        Blunt: 4
