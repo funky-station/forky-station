@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "sprites taken from BeeStation",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "box_corners_1"
+    },
+    {
+      "name": "box_corners_2"
+    },
+    {
+      "name": "box_corners_3"
+    },
+    {
+      "name": "box_corners_4"
+    },
+    {
+      "name": "box_corners_white_1"
+    },
+    {
+      "name": "box_corners_white_2"
+    },
+    {
+      "name": "box_corners_white_3"
+    },
+    {
+      "name": "box_corners_white_4"
+    }
+  ]
+}
