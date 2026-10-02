@@ -5,7 +5,7 @@
   description: A configurable timer.
   components:
   - type: Sprite
-    sprite: Objects/Devices/timer.rsi
+    sprite: _Funkystation/Objects/Devices/timer.rsi # Funky
     state: timer
   - type: Item
     size: Tiny
@@ -35,7 +35,7 @@
   description: Adds a machine link that is triggered by signals.
   components:
   - type: Sprite
-    sprite: Objects/Devices/signaltrigger.rsi
+    sprite: _Funkystation/Objects/Devices/signaltrigger.rsi # Funky
     state: signaltrigger
   - type: StaticPrice
     price: 40
@@ -73,7 +73,7 @@
   - type: Item
     size: Tiny
   - type: Sprite
-    sprite: Objects/Devices/voice.rsi
+    sprite: _Funkystation/Objects/Devices/voice.rsi # Funky
     state: voice
   - type: StaticPrice
     price: 40

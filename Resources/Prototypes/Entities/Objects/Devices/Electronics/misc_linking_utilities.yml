@@ -5,7 +5,7 @@
   description: This microphone, invented by Micheal Phone during his time working at Michealsoft, sends signals when a prerecorded code phrase is uttered!
   components:
   - type: Sprite
-    sprite: Objects/Devices/voicesensor.rsi
+    sprite: _Funkystation/Objects/Devices/voicesensor.rsi # Funky
     state: icon
   - type: StaticPrice
     price: 40
