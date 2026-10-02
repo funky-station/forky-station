@@ -115,6 +115,11 @@ ui-options-vp-width = Viewport width:
 ui-options-hud-layout = HUD layout:
 ui-options-sharpness = Sharpness:
 
+# funky - radio color preset options
+ui-options-radio-colors-title = Radio channel theme:
+ui-options-radio-colors-default = Default (Wizard's Den)
+ui-options-radio-colors-funky = Funky
+
 ## Controls menu
 
 ui-options-hold-to-attack-melee = Hold to attack (melee)

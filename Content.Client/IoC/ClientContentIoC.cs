@@ -1,3 +1,4 @@
+using Content.Client._Funkystation.Radio;
 using Content.Client._RMC14.Chat;
 using Content.Client.Administration.Managers;
 using Content.Client.Audio.Midi;
@@ -72,6 +73,7 @@ namespace Content.Client.IoC
             collection.Register<ISharedFeedbackManager, ClientFeedbackManager>();
             collection.Register<MidiFileCollectionManager>();
             collection.Register<CMChatSystem>(); // funky
+            collection.Register<RadioChannelColorManager>(); // funky - radio channel color presets
         }
     }
 }

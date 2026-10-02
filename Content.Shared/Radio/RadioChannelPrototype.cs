@@ -36,6 +36,9 @@ public sealed partial class RadioChannelPrototype : IPrototype
     /// <summary>
     /// Color used to display the channel.
     /// </summary>
+    /// <funky>
+    /// Even if you're using channel color presets, you should set this as a fallback.
+    /// </funky>
     [DataField]
     public Color Color { get; private set; } = Color.Lime;
 
