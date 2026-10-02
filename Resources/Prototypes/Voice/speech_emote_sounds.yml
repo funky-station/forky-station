@@ -109,6 +109,26 @@
     DefaultDeathgasp:
       collection: DeathGasp
 
+#funkystation
+- type: emoteSounds
+  id: Celedon
+  voiceSelectorName: humanoid-profile-editor-voice-feminine
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/_Funkystation/Animals/Celedon/celedon_scream.ogg
+    Laugh:
+      path: /Audio/_Funkystation/Animals/Celedon/celedon_happy.ogg
+    Honk:
+      collection: BikeHorn
+    Whistle:
+      collection: Whistles
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathgasp:
+      collection: DeathGasp
+
 - type: emoteSounds
   id: FemaleReptilian
   voiceSelectorName: humanoid-profile-editor-voice-feminine
