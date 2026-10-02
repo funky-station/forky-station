@@ -33,7 +33,7 @@
     whitelist:
       tags:
       - PetWearable
-  - name: suitstorage
+  - name: suitstorage # FUNKY: They can keep this because they're a pet and it's only gas tanks
     slotTexture: suit_storage
     slotFlags: SUITSTORAGE
     stripTime: 3
@@ -76,7 +76,7 @@
       - PetWearable
       components:
       - Smokable
-  - name: suitstorage
+  - name: suitstorage # FUNKY: They can keep this because they're a pet and it's only gas tanks
     slotTexture: suit_storage
     slotFlags: SUITSTORAGE
     stripTime: 3

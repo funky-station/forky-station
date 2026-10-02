@@ -12,6 +12,7 @@ namespace Content.Shared.Inventory;
 public partial class InventorySystem : EntitySystem
 {
     [Dependency] private IViewVariablesManager _vvm = default!;
+    [Dependency] private EntityQuery<InventoryComponent> _inventoryComponent = default!; // FUNKY CHANGE
 
     private void InitializeSlots()
     {
@@ -22,6 +23,40 @@ public partial class InventorySystem : EntitySystem
             .AddHandler(HandleViewVariablesSlots, ListViewVariablesSlots);
 
         SubscribeLocalEvent<InventoryComponent, AfterAutoHandleStateEvent>(AfterAutoState);
+        SubscribeLocalEvent<InventoryComponent, EquipableInventoryChangeEvent>(EquipableInventoryChange); // FUNKY CHANGE
+    }
+
+    private void EquipableInventoryChange(Entity<InventoryComponent> ent, ref EquipableInventoryChangeEvent args)
+    {
+        if (args.Add)
+        {
+            Array.Resize(ref ent.Comp.TemplateId, ent.Comp.TemplateId.Length + 1);
+            Array.Resize(ref ent.Comp.Owners, ent.Comp.Owners.Length + 1);
+            ent.Comp.TemplateId[^1] = args.Inventory.TemplateId;
+            ent.Comp.Owners[^1] = args.Inventory.Owner;
+        }
+        else
+        {
+            var newTemplateId = new List<ProtoId<InventoryTemplatePrototype>>();
+            var newOwners = new List<EntityUid?>();
+            var removed = false;
+            for (var i = 0; i < ent.Comp.TemplateId.Length; i++)
+            {
+                if (ent.Comp.TemplateId[i] != args.Inventory.TemplateId || removed)
+                {
+                    newTemplateId.Add(ent.Comp.TemplateId[i]);
+                    newOwners.Add(ent.Comp.Owners[i]);
+                }
+                else
+                {
+                    removed = true;
+                }
+
+                ent.Comp.TemplateId = newTemplateId.ToArray();
+                ent.Comp.Owners = newOwners.ToArray();
+            }
+        }
+        UpdateInventoryTemplate(ent);
     }
 
     private void ShutdownSlots()
@@ -69,7 +104,7 @@ public partial class InventorySystem : EntitySystem
         targetComp.Displacements = new Dictionary<string, DisplacementData>(source.Comp.Displacements);
         targetComp.FemaleDisplacements = new Dictionary<string, DisplacementData>(source.Comp.FemaleDisplacements);
         targetComp.MaleDisplacements = new Dictionary<string, DisplacementData>(source.Comp.MaleDisplacements);
-        SetTemplateId((target, targetComp), source.Comp.TemplateId);
+        //SetTemplateId((target, targetComp), source.Comp.TemplateId); FUNKY CHANGE
         Dirty(target, targetComp);
     }
 
@@ -83,32 +118,47 @@ public partial class InventorySystem : EntitySystem
         UpdateInventoryTemplate(ent);
     }
 
+    // METHOD REDONE ON FUNKY
     protected virtual void UpdateInventoryTemplate(Entity<InventoryComponent> ent)
     {
-        if (!ProtoMan.Resolve(ent.Comp.TemplateId, out var invTemplate))
-            return;
+        var invTemplates = new List<InventoryTemplatePrototype>();
+        var allSlots = new List<SlotDefinition>();
+        var invOwners = new List<EntityUid?>();
+        for (int i = 0; i < ent.Comp.TemplateId.Length; i++)
+        {
+            if (!ProtoMan.Resolve(ent.Comp.TemplateId[i], out var invTemplate))
+                return;
+            invTemplates.Add(invTemplate);
+            for (int j = 0; j < invTemplate.Slots.Length; j++)
+            {
+                allSlots.Add(invTemplate.Slots[j]);
+                invOwners.Add(ent.Comp.Owners[i]);
+            }
+        }
 
+        var k = 0;
         // Remove any containers that aren't in the new template.
         foreach (var container in ent.Comp.Containers)
         {
-            if (invTemplate.Slots.Any(s => s.Name == container.ID))
+            if (allSlots.Any(s => s.Name == container.ID))
                 continue;
 
-            // Empty container before deletion so the contents don't get deleted.
-            // For cases when we update the template while items are already worn.
-            _containerSystem.EmptyContainer(container);
-            _containerSystem.ShutdownContainer(container);
+            if (ent.Comp.Slots[k].Drop)
+            {
+                _containerSystem.EmptyContainer(container);
+            }
+            k++;
         }
 
         // Ensure the containers from the template.
-        ent.Comp.Slots = invTemplate.Slots;
+        ent.Comp.Slots = allSlots.ToArray();
         ent.Comp.Containers = new ContainerSlot[ent.Comp.Slots.Length];
-        for (var i = 0; i < ent.Comp.Containers.Length; i++)
+        for (var j = 0; j < ent.Comp.Containers.Length; j++)
         {
-            var slot = ent.Comp.Slots[i];
-            var container = _containerSystem.EnsureContainer<ContainerSlot>(ent.Owner, slot.Name);
+            var slot = ent.Comp.Slots[j];
+            var container = _containerSystem.EnsureContainer<ContainerSlot>(invOwners[j]?? ent.Owner, slot.Name);
             container.OccludesLight = false;
-            ent.Comp.Containers[i] = container;
+            ent.Comp.Containers[j] = container;
         }
 
         var ev = new InventoryTemplateUpdated();
@@ -139,9 +189,25 @@ public partial class InventorySystem : EntitySystem
 
         if (!_containerSystem.TryGetContainer(uid, slotDefinition.Name, out var container, containerComp))
         {
-            if (inventory.LifeStage >= ComponentLifeStage.Initialized)
-                Log.Error($"Missing inventory container {slot} on entity {ToPrettyString(uid)}");
-            return false;
+            // FUNKY CHANGE: People will regularly not have certain slots now when naked. This is no longer an error, but expected.
+            //if (inventory.LifeStage >= ComponentLifeStage.Initialized)
+                //Log.Error($"Missing inventory container {slot} on entity {ToPrettyString(uid)}");
+            // START FUNKY CHANGES
+            if (!_inventoryComponent.TryGetComponent(uid, out var comp))
+            {
+                return false;
+            }
+
+            for (var i = 0; i < comp.Containers.Length; i++)
+            {
+                if (comp.Containers[i].ID == slotDefinition.Name)
+                {
+                    containerSlot = comp.Containers[i];
+                    slotDefinition = comp.Slots[i];
+                    return true;
+                }
+            }
+            // END FUNKY CHANGES
         }
 
         if (container is not ContainerSlot containerSlotChecked)
@@ -228,10 +294,13 @@ public partial class InventorySystem : EntitySystem
     /// <param name="newTemplate">The ID of the new inventory template prototype.</param>
     public void SetTemplateId(Entity<InventoryComponent> ent, ProtoId<InventoryTemplatePrototype> newTemplate)
     {
-        if (ent.Comp.TemplateId == newTemplate)
+        // FUNKY CHANGES START
+        ProtoId<InventoryTemplatePrototype>[] array = [newTemplate];
+        if (ent.Comp.TemplateId == array)
             return;
 
-        ent.Comp.TemplateId = newTemplate;
+        ent.Comp.TemplateId = array;
+        // FUNKY CHANGES END
         UpdateInventoryTemplate(ent);
         Dirty(ent);
     }

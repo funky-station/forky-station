@@ -95,6 +95,8 @@
         whitelist:
           tags:
           - SurveillanceDevices # funky end
+  - type: EquipableInventory
+    templateId: "jumpsuitBase"
 
 - type: entity
   abstract: true

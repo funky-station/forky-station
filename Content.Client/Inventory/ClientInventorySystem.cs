@@ -286,8 +286,19 @@ namespace Content.Client.Inventory
                 ReloadInventory(inventorySlots);
         }
 
-        public sealed class SlotData
+        public sealed class SlotData : IComparable
         {
+            // START FUNKY CHANGES
+            public int CompareTo(object? obj)
+            {
+                return obj switch
+                {
+                    SlotData slotData => this.SlotDef.CompareTo(slotData.SlotDef),
+                    _ => throw new ArgumentException("Object is not a SlotData"),
+                };
+            }
+            // END FUNKY CHANGES
+
             [ViewVariables] public SlotDefinition SlotDef;
             [ViewVariables] public EntityUid? HeldEntity => Container?.ContainedEntity;
             [ViewVariables] public bool Blocked;

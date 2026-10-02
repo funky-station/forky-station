@@ -1,6 +1,7 @@
 - type: inventoryTemplate
   id: holoclown
   slots:
+    # FUNKY COMMENT: holoclowns get to keep this because their clothes are part of them (Hall Of Grahm)
     - name: pocket1
       slotTexture: pocket
       fullTextureName: template_small

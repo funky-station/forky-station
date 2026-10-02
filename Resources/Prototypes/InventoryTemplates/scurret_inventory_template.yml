@@ -39,26 +39,28 @@
     uiWindowPos: 1,0
     strippingWindowPos: 0,2
     displayName: Jumpsuit
-  - name: id
-    slotTexture: id
-    fullTextureName: template_small
-    slotFlags: IDCARD
-    slotGroup: SecondHotbar
-    stripTime: 6
-    uiWindowPos: 2,1
-    strippingWindowPos: 2,4
-    displayName: ID
-  - name: suitstorage
-    slotTexture: suit_storage
-    slotFlags:   SUITSTORAGE
-    slotGroup: MainHotbar
-    stripTime: 3
-    uiWindowPos: 2,0
-    strippingWindowPos: 2,5
-    dependsOn: jumpsuit
-    dependsOnComponents:
-    - type: AllowSuitStorage
-    displayName: Suit Storage
+  # FUNKY CHANGE START
+  #- name: id
+  #  slotTexture: id
+  #  fullTextureName: template_small
+  #  slotFlags: IDCARD
+  #  slotGroup: SecondHotbar
+  #  stripTime: 6
+  #  uiWindowPos: 2,1
+  #  strippingWindowPos: 2,4
+  #  displayName: ID
+  #- name: suitstorage
+  #  slotTexture: suit_storage
+  #  slotFlags:   SUITSTORAGE
+  #  slotGroup: MainHotbar
+  #  stripTime: 3
+  #  uiWindowPos: 2,0
+  #  strippingWindowPos: 2,5
+  #  dependsOn: jumpsuit
+  #  dependsOnComponents:
+  #  - type: AllowSuitStorage
+  #  displayName: Suit Storage
+  # FUNKY CHANGE END
   - name: back
     slotTexture: back
     fullTextureName: template_small

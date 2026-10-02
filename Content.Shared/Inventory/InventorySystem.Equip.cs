@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._Funkystation.Inventory;
 using Content.Shared.Armor;
 using Content.Shared.Clothing.Components;
 using Content.Shared.DoAfter;
@@ -34,6 +35,7 @@ public abstract partial class InventorySystem
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private SharedStrippableSystem _strippable = default!;
+    [Dependency] private EntityQuery<EquipableInventoryComponent> _equipableInventoryQuery = default!; // FUNKY CHANGE
 
     private static readonly ProtoId<ItemSizePrototype> PocketableItemSize = "Small";
 
@@ -193,6 +195,9 @@ public abstract partial class InventorySystem
             return false;
         }
 
+        var equippedEvent = new DidEquipEvent(target, itemUid, slotDefinition);
+        RaiseLocalEvent(target, equippedEvent, true);
+
         if (!silent && clothing != null)
         {
             _audio.PlayPredicted(clothing.EquipSound, target, actor);
@@ -203,6 +208,15 @@ public abstract partial class InventorySystem
             TriggerHandContactInteraction(target);
 
         _movementSpeed.RefreshMovementSpeedModifiers(target);
+
+        // START FUNKY CHANGES
+        if (_equipableInventoryQuery.TryComp(itemUid, out var comp))
+        {
+            var changeEvent = new EquipableInventoryChangeEvent(true, comp);
+            RaiseLocalEvent(target, changeEvent, false);
+            RaiseLocalEvent(itemUid, changeEvent, false);
+        }
+        // END FUNKY CHANGES
 
         return true;
     }
@@ -221,6 +235,24 @@ public abstract partial class InventorySystem
         // Can the actor reach the item?
         if (_interactionSystem.InRangeAndAccessible(actor, itemUid))
             return true;
+
+        // START FUNKY CHANGES
+        if (!_inventoryComponent.TryGetComponent(target, out var comp))
+        {
+            return false;
+        }
+
+        for (var index = 0; index < comp.Containers.Length; index++)
+        {
+            var t = comp.Containers[index];
+            if (t.ContainedEntities.Count > 0 && t.ContainedEntities[0] == itemUid)
+            {
+                var unequippedEvent = new DidUnequipEvent(target, itemUid, comp.Slots[index]);
+                RaiseLocalEvent(target, unequippedEvent, true);
+                return true;
+            }
+        }
+        // END FUNKY CHANGES
 
         // Is the actor currently stripping the target? Here we could check if the actor has the stripping UI open, but
         // that requires server/client specific code.
@@ -539,6 +571,14 @@ public abstract partial class InventorySystem
             TriggerHandContactInteraction(target);
 
         _movementSpeed.RefreshMovementSpeedModifiers(target);
+
+        // START FUNKY CHANGES
+        if (_equipableInventoryQuery.TryComp(removedItem, out var comp))
+        {
+            var changeEvent = new EquipableInventoryChangeEvent(false, comp);
+            RaiseLocalEvent(target, changeEvent, false);
+        }
+        // END FUNKY CHANGES
 
         return true;
     }

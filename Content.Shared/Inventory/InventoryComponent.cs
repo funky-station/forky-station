@@ -10,32 +10,36 @@ namespace Content.Shared.Inventory;
 [AutoGenerateComponentState(true)]
 public sealed partial class InventoryComponent : Component
 {
+
     /// <summary>
-    /// The template defining how the inventory layout will look like.
+    /// The templates defining how the inventory layout will look like.
     /// </summary>
     [DataField, AutoNetworkedField]
     [ViewVariables] // use the API method
-    public ProtoId<InventoryTemplatePrototype> TemplateId = "human";
+    public ProtoId<InventoryTemplatePrototype>[] TemplateId = ["human"]; // FUNKY CHANGE
+
+    public EntityUid?[] Owners = [null]; // FUNKY CHANGE
 
     /// <summary>
     /// For setting the TemplateId.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
+    /* FUNKY CHANGE
+     [ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<InventoryTemplatePrototype> TemplateIdVV
     {
         get => TemplateId;
         set => IoCManager.Resolve<IEntityManager>().System<InventorySystem>().SetTemplateId((Owner, this), value);
-    }
+    }*/
 
     [DataField, AutoNetworkedField]
     public string? SpeciesId;
 
 
     [ViewVariables]
-    public SlotDefinition[] Slots = Array.Empty<SlotDefinition>();
+    public SlotDefinition[] Slots = [];
 
     [ViewVariables]
-    public ContainerSlot[] Containers = Array.Empty<ContainerSlot>();
+    public ContainerSlot[] Containers = [];
 
     [DataField, AutoNetworkedField]
     public Dictionary<string, DisplacementData> Displacements = new();

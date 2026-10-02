@@ -138,7 +138,11 @@ public sealed partial class InventoryUIController : UIController, IOnStateEntere
             return;
         }
 
-        foreach (var (_, data) in clientInv.SlotData)
+        // FUNKY CHANGES START
+        var sortedInv = from entry in clientInv.SlotData orderby entry.Value ascending select entry;
+
+        foreach (var (_, data) in sortedInv)
+        // FUNKY CHANGES END
         {
             if (!data.ShowInWindow || !_slotGroups.TryGetValue(data.SlotGroup, out var container))
                 continue;
@@ -397,7 +401,12 @@ public sealed partial class InventoryUIController : UIController, IOnStateEntere
         UnloadSlots();
         _playerUid = clientUid;
         _playerInventory = clientInv;
-        foreach (var slotData in clientInv.SlotData.Values)
+
+        // FUNKY CHANGES START
+        var sortedInv = from entry in clientInv.SlotData orderby entry.Value ascending select entry;
+
+        foreach (var (_, slotData) in sortedInv)
+        // FUNKY CHANGES END
         {
             AddSlot(slotData);
 

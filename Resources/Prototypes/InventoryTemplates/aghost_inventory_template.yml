@@ -9,7 +9,7 @@
       uiWindowPos: 2,1
       strippingWindowPos: 2,4
       displayName: Back
-    - name: id
+    - name: id # FUNKY: Admins get to keep this since they can't wear jumpsuits. Nakey. Nakeymin. Eww. Gross.
       slotTexture: id
       fullTextureName: template_small
       slotFlags: IDCARD

@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Shared.Strip;
 using Content.Shared.Whitelist;
+using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Inventory;
@@ -14,8 +15,19 @@ public sealed partial class InventoryTemplatePrototype : IPrototype
 }
 
 [DataDefinition]
-public sealed partial class SlotDefinition
+public sealed partial class SlotDefinition : IComparable // IComparable added by Funky
 {
+    // START FUNKY CHANGES
+    public int CompareTo(object? obj)
+    {
+        return obj switch
+        {
+            SlotDefinition slotDef => this.UIWindowPosition.X.CompareTo(slotDef.UIWindowPosition.X),
+            _ => throw new ArgumentException("Object is not an InventoryComponent"),
+        };
+    }
+    // END FUNKY CHANGES
+
     [DataField("name", required: true)] public string Name { get; private set; } = string.Empty;
     [DataField("slotTexture")] public string TextureName { get; private set; } = "pocket";
     /// <summary>
@@ -60,4 +72,8 @@ public sealed partial class SlotDefinition
     ///     Entity blacklist for CanEquip checks.
     /// </summary>
     [DataField("blacklist")] public EntityWhitelist? Blacklist = null;
+
+    // FUNKY CHANGES START
+    [DataField("drop")] public bool Drop;
+    // FUNKY CHANGES END
 }
