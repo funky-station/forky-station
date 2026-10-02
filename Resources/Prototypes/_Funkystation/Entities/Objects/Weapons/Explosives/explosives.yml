@@ -1,0 +1,37 @@
+- type: entity
+  parent: [BasePlasticExplosive, BaseSecurityContraband]
+  id: BreachingCharge
+  name: breaching charge
+  description: When you need in that room by any means necessary.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Explosives/breaching_charge.rsi
+    state: icon
+    layers:
+    - state: icon
+      map: ["base"]
+  - type: Clothing
+    sprite: _Funkystation/Objects/Explosives/breaching_charge.rsi
+    slots:
+    - HEAD
+    quickEquip: false
+    equipDelay: 3
+    unequipDelay: 6
+  - type: TimerTrigger
+    keysIn:
+    - trigger
+    - stuck
+    delay: 5
+    delayOptions: [ 5, 10 ]
+    initialBeepDelay: 1
+    beepSound: /Audio/Machines/Nuke/general_beep.ogg
+  - type: DeviceLinkSink
+    ports:
+    - Timer
+  - type: Explosive # As few tiles as possible but still able to take down a high sec door
+    explosionType: DemolitionCharge
+    totalIntensity: 100
+    intensitySlope: 60
+    maxIntensity: 75
+    canCreateVacuum: false
+  - type: ExplodeOnTrigger
