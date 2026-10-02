@@ -1,0 +1,139 @@
+# hats
+
+- type: loadout
+  id: FuRainHat
+  equipment:
+    head: FuClothingHeadRainHat
+
+# uniforms
+
+- type: loadout
+  id: FuJaniJumpsuitPurple
+  equipment:
+    jumpsuit: FuClothingJumpsuitPurpleJani
+  groupBy: "jumpsuits"
+
+- type: loadout
+  id: FuJaniJumpsuitGreen
+  equipment:
+    jumpsuit: FuClothingJumpsuitGreenJani
+  groupBy: "jumpsuits"
+
+- type: loadout
+  id: FuJaniJumpsuitOrange
+  equipment:
+    jumpsuit: FuClothingJumpsuitOrangeJani
+  groupBy: "jumpsuits"
+
+- type: loadout
+  id: FuJaniJumpskirtPurple
+  equipment:
+    jumpsuit: FuClothingJumpskirtPurpleJani
+  groupBy: "jumpskirts"
+
+- type: loadout
+  id: FuJaniJumpskirtGreen
+  equipment:
+    jumpsuit: FuClothingJumpskirtGreenJani
+  groupBy: "jumpskirts"
+
+- type: loadout
+  id: FuJaniJumpskirtOrange
+  equipment:
+    jumpsuit: FuClothingJumpskirtOrangeJani
+  groupBy: "jumpskirts"
+
+- type: loadout
+  id: FuJaniOverallsPurple
+  equipment:
+    jumpsuit: FuClothingOverallsPurpleJani
+  groupBy: "overalls"
+
+- type: loadout
+  id: FuJaniOverallsGreen
+  equipment:
+    jumpsuit: FuClothingOverallsGreenJani
+  groupBy: "overalls"
+
+- type: loadout
+  id: FuJaniOverallsOrange
+  equipment:
+    jumpsuit: FuClothingOverallsOrangeJani
+  groupBy: "overalls"
+
+- type: loadout
+  id: FuJaniOverallSkirtPurple
+  equipment:
+    jumpsuit: FuClothingOverallSkirtPurpleJani
+  groupBy: "overallskirts"
+
+- type: loadout
+  id: FuJaniOverallSkirtGreen
+  equipment:
+    jumpsuit: FuClothingOverallSkirtGreenJani
+  groupBy: "overallskirts"
+
+- type: loadout
+  id: FuJaniOverallSkirtOrange
+  equipment:
+    jumpsuit: FuClothingOverallSkirtOrangeJani
+  groupBy: "overallskirts"
+
+# outer clothing
+
+- type: loadout
+  id: FuRainCoat
+  equipment:
+    outerclothing: FuClothingOuterRainCoat
+
+# gloves
+
+- type: loadout
+  id: FuJaniGlovesYellow
+  equipment:
+    gloves: FuClothingHandsGlovesJanitorYellow
+  groupBy: "rubbergloves"
+
+- type: loadout
+  id: FuJaniGlovesPurple
+  equipment:
+    gloves: FuClothingHandsGlovesJanitorPurple
+  groupBy: "rubbergloves"
+
+- type: loadout
+  id: FuJaniGlovesTeal
+  equipment:
+    gloves: FuClothingHandsGlovesJanitorTeal
+  groupBy: "rubbergloves"
+
+- type: loadout
+  id: FuJaniGlovesOrange
+  equipment:
+    gloves: FuClothingHandsGlovesJanitorOrange
+  groupBy: "rubbergloves"
+
+# shoes
+
+- type: loadout
+  id: FuJaniGaloshesYellow
+  equipment:
+    shoes: FuClothingShoesGaloshesYellow
+  groupBy: "galoshes"
+
+- type: loadout
+  id: FuJaniGaloshesPurple
+  equipment:
+    shoes: FuClothingShoesGaloshesPurple
+  groupBy: "galoshes"
+
+- type: loadout
+  id: FuJaniGaloshesTeal
+  equipment:
+    shoes: FuClothingShoesGaloshesTeal
+  groupBy: "galoshes"
+
+- type: loadout
+  id: FuJaniGaloshesOrange
+  equipment:
+    shoes: FuClothingShoesGaloshesOrange
+  groupBy: "galoshes"

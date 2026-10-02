@@ -18,7 +18,8 @@
 - type: startingGear
   id: JanitorGear
   equipment:
-    shoes: ClothingShoesGaloshes
+    id: JanitorPDA
+#    shoes: ClothingShoesGaloshes # Funky - has galoshes customization in loadout now
     id: JanitorWallet # Funky: the wallet-ening
     ears: ClothingHeadsetService
     belt: ClothingBeltJanitorFilled

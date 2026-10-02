@@ -4,7 +4,7 @@
   parent: BaseStorageItem
   components:
   - type: Sprite
-    sprite: Objects/Specific/Janitorial/trashbag.rsi
+    sprite: _Funkystation/Objects/Specific/Janitorial/trashbag.rsi # Funky
     layers:
       - state: icon-0
         map: ["enum.StorageFillLayers.Fill"]
