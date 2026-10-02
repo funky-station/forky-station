@@ -87,4 +87,4 @@
   name: tool-quality-axing-name
   toolName: tool-quality-axing-tool-name
   spawn: FireAxe
-  icon: { sprite: Objects/Weapons/Melee/fireaxe.rsi, state: icon }
+  icon: { sprite: _Funkystation/Objects/Weapons/Melee/fireaxe.rsi, state: icon } # Funky

@@ -39,37 +39,37 @@
             - tag: Matchstick
               name: construction-graph-tag-match-stick
               icon:
-                sprite: Objects/Tools/matches.rsi
+                sprite: _Funkystation/Objects/Tools/matches.rsi # Funky
                 state: match_unlit
               doAfter: 0.5
             - tag: Matchstick
               name: construction-graph-tag-match-stick
               icon:
-                sprite: Objects/Tools/matches.rsi
+                sprite: _Funkystation/Objects/Tools/matches.rsi # Funky
                 state: match_unlit
               doAfter: 0.5
             - tag: Matchstick
               name: construction-graph-tag-match-stick
               icon:
-                sprite: Objects/Tools/matches.rsi
+                sprite: _Funkystation/Objects/Tools/matches.rsi # Funky
                 state: match_unlit
               doAfter: 0.5
             - tag: Matchstick
               name: construction-graph-tag-match-stick
               icon:
-                sprite: Objects/Tools/matches.rsi
+                sprite: _Funkystation/Objects/Tools/matches.rsi # Funky
                 state: match_unlit
               doAfter: 0.5
             - tag: Matchstick
               name: construction-graph-tag-match-stick
               icon:
-                sprite: Objects/Tools/matches.rsi
+                sprite: _Funkystation/Objects/Tools/matches.rsi # Funky
                 state: match_unlit
               doAfter: 0.5
             - tag: Matchstick
               name: construction-graph-tag-match-stick
               icon:
-                sprite: Objects/Tools/matches.rsi
+                sprite: _Funkystation/Objects/Tools/matches.rsi # Funky
                 state: match_unlit
               doAfter: 0.5
     - node: shell

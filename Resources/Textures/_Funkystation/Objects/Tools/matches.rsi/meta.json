@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "copyright": "By AraiMaia for Funky Station",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "match_burnt"
+    },
+    {
+      "name": "match_lit",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "match_unlit"
+    },
+    {
+      "name": "matchbox"
+    },
+    {
+      "name": "matchbox-open"
+    },
+    {
+      "name": "matchbox1"
+    },
+    {
+      "name": "matchbox2"
+    },
+    {
+      "name": "matchbox3"
+    },
+    {
+      "name": "matchbox-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "matchbox-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "unlit-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "unlit-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "lit-inhand-left",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "lit-inhand-right",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    }
+  ]
+}
