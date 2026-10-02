@@ -13,6 +13,10 @@
       tags:
         - CartridgeMagnum
     capacity: 7
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 4
 
 - type: entity
   parent: BaseMagazineMagnum

@@ -36,3 +36,13 @@
       - NozzleBackTank
   - type: UseDelay
     delay: 1.0
+  - type: MeleeWeapon #funky
+    damage:
+      types:
+        Blunt: 4
+  - type: AltFireMelee #funky
+    attackType: Light
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 3
