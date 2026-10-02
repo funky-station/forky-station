@@ -1,0 +1,214 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: FuGlowstickBase
+  name: glowstick
+  description: A single-use glowstick, useful in raves and emergencies.
+  components:
+  - type: SpaceGarbage
+  - type: ExpendableLight
+    glowDuration: 900 # time in seconds
+    fadeOutDuration: 300
+    turnOnBehaviourID: turn_on
+    fadeOutBehaviourID: fade_out
+    iconStateLit: icon-lit
+    iconStateSpent: icon
+    litSound:
+      path: /Audio/Items/Handcuffs/rope_breakout.ogg
+  - type: Sprite
+    layers:
+    - map: [ enum.ExpendableLightVisualLayers.Base ]
+      state: icon
+    - map: [ enum.ExpendableLightVisualLayers.Overlay ]
+      state: icon
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - neck
+  - type: Item
+    size: Tiny
+    heldPrefix: unlit
+  - type: Appearance
+  - type: PointLight
+    enabled: false
+    color: "#F6F7E9"
+    radius: 4
+    energy: 0
+    netsync: false
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour # slowly fade in once activated
+      id: turn_on
+      interpolate: Linear
+      maxDuration: 10.0
+      startValue: 0.0
+      endValue: 3.0
+      property: Energy
+    - !type:FadeBehaviour # fade out energy as it burns out
+      id: fade_out
+      interpolate: Linear
+      maxDuration: 10 # 300.0
+      startValue: 3.0
+      endValue: 0.2
+      property: Energy
+    - !type:FadeBehaviour # fade out radius as it burns out
+      id: fade_out
+      interpolate: Linear
+      maxDuration: 10 # 300.0
+      startValue: 5.0
+      endValue: 1.5
+  - type: Tag
+    tags:
+    - Trash
+
+# Colored glowsticks
+
+- type: entity
+  parent: FuGlowstickBase
+  id: FuGlowstickRed
+  name: red glowstick
+  description: A single-use red glowstick, useful in raves and emergencies.
+  components:
+  - type: ExpendableLight
+    spentName: expendable-light-spent-red-glowstick-name
+  - type: PointLight
+    color: "#e64659"
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Glowsticks/red.rsi
+  - type: Item
+    sprite: _Funkystation/Objects/Misc/Glowsticks/red.rsi
+
+- type: entity
+  parent: FuGlowstickBase
+  id: FuGlowstickYellow
+  name: yellow glowstick
+  description: A single-use yellow glowstick, useful in raves and emergencies.
+  components:
+  - type: ExpendableLight
+    spentName: expendable-light-spent-yellow-glowstick-name
+  - type: PointLight
+    color: "#f8c53a"
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Glowsticks/yellow.rsi
+  - type: Item
+    sprite: _Funkystation/Objects/Misc/Glowsticks/yellow.rsi
+
+- type: entity
+  parent: FuGlowstickBase
+  id: FuGlowstickGreen
+  name: green glowstick
+  description: A single-use green glowstick, useful in raves and emergencies.
+  components:
+  - type: ExpendableLight
+    spentName: expendable-light-spent-green-glowstick-name
+  - type: PointLight
+    color: "#8fd032"
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Glowsticks/green.rsi
+  - type: Item
+    sprite: _Funkystation/Objects/Misc/Glowsticks/green.rsi
+
+- type: entity
+  parent: FuGlowstickBase
+  id: FuGlowstickBlue
+  name: blue glowstick
+  description: A single-use blue glowstick, useful in raves and emergencies.
+  components:
+  - type: ExpendableLight
+    spentName: expendable-light-spent-blue-glowstick-name
+  - type: PointLight
+    color: "#42bfe8"
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Glowsticks/blue.rsi
+  - type: Item
+    sprite: _Funkystation/Objects/Misc/Glowsticks/blue.rsi
+
+- type: entity
+  parent: FuGlowstickBase
+  id: FuGlowstickPurple
+  name: purple glowstick
+  description: A single-use purple glowstick, useful in raves and emergencies.
+  components:
+  - type: ExpendableLight
+    spentName: expendable-light-spent-purple-glowstick-name
+  - type: PointLight
+    color: "#9c8bdb"
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Glowsticks/purple.rsi
+  - type: Item
+    sprite: _Funkystation/Objects/Misc/Glowsticks/purple.rsi
+
+# Weird Glowsticks
+
+- type: entity
+  parent: FuGlowstickBase
+  id: FuGlowstickWhite
+  name: white glowstick
+  description: An extra-bright, single-use white glowstick that burns out quicker than regular glowsticks.
+  components:
+  - type: ExpendableLight
+    spentName: expendable-light-spent-white-glowstick-name
+    glowDuration: 450
+  - type: PointLight
+    color: "#ffffff"
+    radius: 6
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Glowsticks/white.rsi
+  - type: Item
+    sprite: _Funkystation/Objects/Misc/Glowsticks/white.rsi
+
+# Commented out for the case that someone decides to do more with blacklight glowsticks
+#- type: entity
+#  parent: FuGlowstickBase
+#  id: FuGlowstickBlacklight
+#  name: blacklight glowstick
+#  description: An extra-dim, single-use purple glowstick that burns out quicker than regular glowsticks. Supposedly emits its light in the UV spectrum.
+#  components:
+#  - type: ExpendableLight
+#    spentName: expendable-light-spent-blacklight-glowstick-name
+#    glowDuration: 600
+#  - type: PointLight
+#    color: "#9c8bdb"
+#    radius: 1
+#  - type: Sprite
+#    sprite: _Funkystation/Objects/Misc/Glowsticks/black.rsi
+#  - type: Item
+#    sprite: _Funkystation/Objects/Misc/Glowsticks/black.rsi
+
+# Glowstick Pack, Gives you all 5 of the base glowsticks
+
+- type: entity
+  parent: BaseItem
+  id: FuGlowstickPack
+  name: glowstick pack
+  description: A pack of five Glow-Sprite glowsticks, meant to be broken into for raves and emergencies.
+  components:
+  - type: Item
+    sprite: _Funkystation/Objects/Misc/Glowsticks/pack.rsi
+    size: Small
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Glowsticks/pack.rsi
+    state: icon
+  - type: SpawnItemsOnUse
+    items:
+    - id: FuGlowstickRed
+    - id: FuGlowstickYellow
+    - id: FuGlowstickGreen
+    - id: FuGlowstickBlue
+    - id: FuGlowstickPurple
+    - id: FuGlowstickPackTrash
+    sound:
+      path: /Audio/Items/Handcuffs/rope_breakout.ogg
+
+- type: entity
+  parent: FoodPacketTrash
+  id: FuGlowstickPackTrash
+  name: glowstick pack label
+  description: The discarded label of a pack of Glow-Sprite glowsticks.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Glowsticks/pack.rsi
+    state: trash
+  - type: Item
+    sprite: _Funkystation/Objects/Misc/Glowsticks/pack.rsi
+    heldPrefix: trash
