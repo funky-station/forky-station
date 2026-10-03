@@ -74,6 +74,9 @@
   id: LaundryBag
 
 - type: Tag
+  id: SharpsTrash
+
+- type: Tag
   id: Molotov
 
 - type: Tag

@@ -1,0 +1,13 @@
+- type: construction
+  name: construction-recipe-sharps-bin-name
+  id: SharpsBin
+  graph: SharpsBinGraph
+  startNode: start
+  targetNode: bin
+  category: construction-category-furniture
+  description: construction-recipe-sharps-bin-desc
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+  - !type:AgainstWall
