@@ -43,7 +43,7 @@
 - type: startingGear
   id: CommandantGear
   equipment:
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesGlassesSunglasses
     id: CommandantPDA
     gloves: ClothingHandsGlovesCombat
     ears: ClothingHeadsetAltSecurity

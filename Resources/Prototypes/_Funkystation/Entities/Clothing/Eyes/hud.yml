@@ -1,0 +1,44 @@
+# Partial prototypes start
+
+# Just including the ones most likely to be mapped. Nobody on earth is mapping fried onion goggles anyway
+- type: entity
+  id: ClothingEyesHudDiagnostic
+  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
+
+- type: entity
+  id: ClothingEyesHudMedical
+  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
+
+- type: entity
+  id: ClothingEyesHudSecurity
+  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
+
+- type: entity
+  id: ClothingEyesHudCommand
+  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
+
+- type: entity
+  id: ClothingEyesHudMedSec
+  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
+
+- type: entity
+  id: ClothingEyesEyepatchHudMedical
+  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
+
+- type: entity
+  id: ClothingEyesEyepatchHudSecurity
+  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
+
+- type: entity
+  id: ClothingEyesEyepatchHudDiag
+  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
+
+# Partial prototypes end
