@@ -162,8 +162,7 @@
     - id: GasAnalyzer
     - id: MedkitOxygenFilled
     # - id: HoloFanProjecter   removed in funky-station
-    - id: RPD
-    - id: RCDAmmo
+    - id: ConstructionChalkBox # Funnky
     - id: AirGrenade
     - id: SuitSealantCanister # Funky
     - id: PlushieLizardJobAtmospherictechnician
@@ -209,8 +208,7 @@
     - id: FuClothingHandsGlovesInsuls #Funky
     - id: ClothingMaskGas
     - id: trayScanner
-    - id: RCD
-    - id: RCDAmmo
+    - id: ConstructionChalkBox # Funky
     - id: MetalFoamGrenade
     - id: PlushieLizardJobTechnicalassistant
       prob: 0.02

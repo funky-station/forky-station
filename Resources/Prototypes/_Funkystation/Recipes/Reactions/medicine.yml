@@ -1,0 +1,9 @@
+- type: reaction
+  id: Praxanol
+  reactants:
+    Chlorine:
+      amount: 1
+    Phenol:
+      amount: 2
+  products:
+    Praxanol: 3

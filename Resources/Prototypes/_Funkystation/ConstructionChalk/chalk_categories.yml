@@ -1,0 +1,185 @@
+﻿# construction
+- type: chalkCategory
+  id: ChalkCategoryWalls
+  name: chalk-category-walls
+  mode: Construction
+  icon: /Textures/Interface/Radial/RCD/solid_wall.png
+  entries:
+  - name: chalk-entry-wall
+    icon: /Textures/Interface/Radial/RCD/solid_wall.png
+    constructionPrototype: Girder
+  - name: chalk-entry-catwalk
+    icon: /Textures/Interface/Radial/RCD/catwalk.png
+    constructionPrototype: Catwalk
+
+- type: chalkCategory
+  id: ChalkCategoryWindowsAndGrilles
+  name: chalk-category-windows-and-grilles
+  mode: Construction
+  icon: /Textures/Interface/Radial/RCD/window.png
+  entries:
+  - name: chalk-entry-grille
+    icon: /Textures/Interface/Radial/RCD/grille.png
+    constructionPrototype: Grille
+  - name: chalk-entry-window
+    icon: /Textures/Interface/Radial/RCD/window.png
+    constructionPrototype: Window
+  - name: chalk-entry-window-directional
+    icon: /Textures/Interface/Radial/RCD/directional.png
+    constructionPrototype: WindowDirectional
+  - name: chalk-entry-reinforced-window
+    icon: /Textures/Interface/Radial/RCD/window_reinforced.png
+    constructionPrototype: ReinforcedWindow
+  - name: chalk-entry-reinforced-window-directional
+    icon: /Textures/Interface/Radial/RCD/directional_reinforced.png
+    constructionPrototype: WindowReinforcedDirectional
+
+- type: chalkCategory
+  id: ChalkCategoryAirlocks
+  name: chalk-category-airlocks
+  mode: Construction
+  icon: /Textures/Interface/Radial/RCD/airlock.png
+  entries:
+  - name: chalk-entry-airlock
+    icon: /Textures/Interface/Radial/RCD/airlock.png
+    constructionPrototype: Airlock
+  - name: chalk-entry-airlock-glass
+    icon: /Textures/Interface/Radial/RCD/glass_airlock.png
+    constructionPrototype: AirlockGlass
+  - name: chalk-entry-firelock
+    icon: /Textures/Interface/Radial/RCD/firelock.png
+    constructionPrototype: Firelock
+
+- type: chalkCategory
+  id: ChalkCategoryLighting
+  name: chalk-category-lighting
+  mode: Construction
+  icon: /Textures/Interface/Radial/RCD/tube_light.png
+  entries:
+  - name: chalk-entry-tube-light
+    icon: /Textures/Interface/Radial/RCD/tube_light.png
+    constructionPrototype: LightTubeFixture
+  - name: chalk-entry-bulb-light
+    icon: /Textures/Interface/Radial/RCD/bulb_light.png
+    constructionPrototype: LightSmallFixture
+
+- type: chalkCategory
+  id: ChalkCategoryElectrical
+  name: chalk-category-electrical
+  mode: Construction
+  icon: /Textures/Interface/Radial/RCD/cable_terminal.png
+  entries:
+  - name: chalk-entry-cable-terminal
+    icon: /Textures/Interface/Radial/RCD/cable_terminal.png
+    constructionPrototype: CableTerminal
+
+# piping
+- type: chalkCategory
+  id: ChalkCategoryPipes
+  name: chalk-category-pipes
+  mode: Piping
+  icon: /Textures/_Funkystation/Interface/Radial/RPD/straight.png
+  entries:
+  - name: chalk-entry-pipe-straight
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/straight.png
+    constructionPrototype: GasPipeStraight
+  - name: chalk-entry-pipe-bend
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/bend.png
+    constructionPrototype: GasPipeBend
+  - name: chalk-entry-pipe-tjunction
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/tjunction.png
+    constructionPrototype: GasPipeTJunction
+  - name: chalk-entry-pipe-fourway
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/fourway.png
+    constructionPrototype: GasPipeFourway
+  - name: chalk-entry-pipe-half
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/pipe_half.png
+    constructionPrototype: GasPipeHalf
+  - name: chalk-entry-pipe-manifold
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/manifold.png
+    constructionPrototype: GasPipeManifold
+
+- type: chalkCategory
+  id: ChalkCategoryPumpsValves
+  name: chalk-category-pumps-valves
+  mode: Piping
+  icon: /Textures/_Funkystation/Interface/Radial/RPD/pump_pressure.png
+  entries:
+  - name: chalk-entry-pressure-pump
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/pump_pressure.png
+    constructionPrototype: GasPressurePump
+  - name: chalk-entry-volumetric-pump
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/pump_volume.png
+    constructionPrototype: GasVolumePump
+  - name: chalk-entry-manual-valve
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/pump_manual_valve.png
+    constructionPrototype: GasValve
+  - name: chalk-entry-signal-valve
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/pump_signal_valve.png
+    constructionPrototype: SignalControlledValve
+  - name: chalk-entry-pressure-valve
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/pneumatic_valve.png
+    constructionPrototype: PressureControlledValve
+  - name: chalk-entry-pressure-regulator
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/pump_pressure_regulator.png
+    constructionPrototype: GasPressureRegulator
+
+- type: chalkCategory
+  id: ChalkCategoryVents
+  name: chalk-category-vents
+  mode: Piping
+  icon: /Textures/_Funkystation/Interface/Radial/RPD/vent_off.png
+  entries:
+  - name: chalk-entry-outlet-injector
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/injector.png
+    constructionPrototype: GasOutletInjector
+  - name: chalk-entry-vent-scrubber
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/scrub_off.png
+    constructionPrototype: GasVentScrubber
+  - name: chalk-entry-vent-gas
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/vent_off.png
+    constructionPrototype: GasVentPump
+  - name: chalk-entry-dual-port-vent
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/dual_port.png
+    constructionPrototype: GasDualPortVentPump
+  - name: chalk-entry-vent-passive
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/vent_passive.png
+    constructionPrototype: GasPassiveVent
+
+- type: chalkCategory
+  id: ChalkCategoryAtmosphericUtility
+  name: chalk-category-atmospheric-utility
+  mode: Piping
+  icon: /Textures/_Funkystation/Interface/Radial/RPD/radiator.png
+  entries:
+  - name: chalk-entry-radiator
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/radiator.png
+    constructionPrototype: HeatExchanger
+  - name: chalk-entry-radiator-bend
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/he_bend.png
+    constructionPrototype: HeatExchangerBend
+  - name: chalk-entry-mixer-gas
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/gas_mixer.png
+    constructionPrototype: GasMixer
+  - name: chalk-entry-filter-gas
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/gas_filter.png
+    constructionPrototype: GasFilter
+  - name: chalk-entry-canister-port
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/port.png
+    constructionPrototype: GasPort
+
+- type: chalkCategory
+  id: ChalkCategorySensorsMonitors
+  name: chalk-category-sensors-monitors
+  mode: Piping
+  icon: /Textures/_Funkystation/Interface/Radial/RPD/sensor.png
+  entries:
+  - name: chalk-entry-alarm
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/alarm.png
+    constructionPrototype: AirAlarmFixture
+  - name: chalk-entry-sensor
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/sensor.png
+    constructionPrototype: AirSensor
+  - name: chalk-entry-sensor-pipe
+    icon: /Textures/_Funkystation/Interface/Radial/RPD/sensorpipe.png
+    constructionPrototype: GasPipeSensor

@@ -10,7 +10,7 @@
     - Bed
   components:
   - type: Sprite
-    sprite: Objects/Misc/bedsheets.rsi
+    sprite: _Funkystation/Objects/Misc/bedsheets.rsi # Funky
     noRot: true
   - type: Item
     size: Small

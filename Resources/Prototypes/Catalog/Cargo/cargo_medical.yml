@@ -11,7 +11,7 @@
 - type: cargoProduct
   id: MedicalChemistrySupplies
   icon:
-    sprite: Objects/Specific/Chemistry/beaker.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/beaker.rsi # Funky
     state: beaker
   product: CrateChemistrySupplies
   cost: 1750

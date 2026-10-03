@@ -1,8 +1,8 @@
 - type: entity
   parent: [BaseMob, StripableInventoryBase]
   id: BaseBorgChassisNotIonStormable
-  name: cyborg
-  description: A man-machine hybrid that assists in station activity. They love being asked to state their laws over and over.
+  name: automa
+  description: An automa that assists in station activity. It seems like it's watching you...
   save: false
   abstract: true
   components:
@@ -82,7 +82,7 @@
   - type: EmagSiliconLaw
     stunTime: 5
   - type: SiliconLawProvider
-    laws: Crewsimov
+    laws: NTStandard # Funky: New Lawset
   - type: Inventory
     templateId: borg
   - type: Hands
@@ -91,10 +91,9 @@
     canBeStripped: false
   - type: ComplexInteraction
   - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
+  - type: IntrinsicRadioTransmitter # Funky: No Common transmitting
     channels:
     - Binary
-    - Common
     - Science
   - type: ActiveRadio
     channels:

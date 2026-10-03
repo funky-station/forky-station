@@ -95,6 +95,7 @@
         Asphyxiation: -5
     sound:
       path: "/Audio/_Funkystation/Effects/cprpulse.ogg"
+  - type: Patdownable
   # funky end
   - type: HealthExaminable
     examinableTypes:

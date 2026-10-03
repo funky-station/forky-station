@@ -7,7 +7,7 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Weapons/Melee/flash.rsi
+        - sprite: _Funkystation/Objects/Weapons/Melee/flash.rsi # Funky
           state: flash
     - type: RandomSpawner
       rarePrototypes:
@@ -31,7 +31,7 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Weapons/Melee/flash.rsi
+        - sprite: _Funkystation/Objects/Weapons/Melee/flash.rsi # Funky
           state: flash
     - type: RandomSpawner
       rarePrototypes:

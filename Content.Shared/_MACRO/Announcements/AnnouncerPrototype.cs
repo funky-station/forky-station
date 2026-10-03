@@ -1,3 +1,4 @@
+using Content.Shared._Funkystation.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -14,5 +15,5 @@ public sealed partial class AnnouncerPrototype : IPrototype
     public string ID { get; private set; } = default!;
 
     [DataField(required: true)]
-    public required Dictionary<ProtoId<AnnouncementSoundPrototype>, SoundSpecifier> Sounds;
+    public required Dictionary<ProtoId<AnnouncementSoundPrototype>, MonoSoundSpecifier> Sounds;
 }

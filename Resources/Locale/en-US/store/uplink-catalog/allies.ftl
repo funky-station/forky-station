@@ -10,7 +10,7 @@ uplink-reinforcement-radio-traitor-desc = Radio in a reinforcement agent of extr
 uplink-reinforcement-radio-nukeops-name = Nuclear Operative Teleporter
 uplink-reinforcement-radio-nukeops-desc = Radio in a nuclear operative of extremely questionable quality. No off button, buy this if you're ready to party. They have basic nuclear operative gear.
 
-uplink-reinforcement-radio-cyborg-assault-name = Syndicate Assault Cyborg Teleporter
+uplink-reinforcement-radio-cyborg-assault-name = Syndicate Assault Automa Teleporter
 uplink-reinforcement-radio-cyborg-assault-desc = A lean, mean killing machine with access to an Energy Sword, an L6 SAW with self-replenishing ammo reserves, an EMAG, and a Pinpointer.
 
 uplink-reinforcement-radio-ancestor-name = Genetic Ancestor Reinforcement Teleporter

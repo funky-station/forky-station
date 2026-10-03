@@ -8,7 +8,7 @@
   copyright: "Created by NoahBangs, clipped and converted Mono and .ogg by Jhrushbe"
   source: https://freesound.org/people/NoahBangs/sounds/587950/
 
-- files: ["meltdown_siren.ogg"]
+- files: ["meltdown_siren.ogg", "meltdown_siren_mono.ogg"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "Taken from Goonstation"
   source: https://github.com/goonstation/goonstation/blob/ff86b044/sound/machines/meltdown_siren.ogg

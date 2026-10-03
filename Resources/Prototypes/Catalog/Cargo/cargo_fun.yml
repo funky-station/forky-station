@@ -1,7 +1,7 @@
 - type: cargoProduct
   id: FunArtSupplies
   icon:
-    sprite: Objects/Fun/crayons.rsi
+    sprite: _Funkystation/Objects/Fun/crayons.rsi # Funky
     state: box
   product: CrayonBox
   container:

@@ -7,7 +7,7 @@
     arc: 360
   - type: Rotatable
   - type: Sprite
-    sprite: Structures/Wallmounts/signs.rsi
+    sprite: _Funkystation/Structures/Wallmounts/signs.rsi # Funky
     snapCardinals: true
   - type: StaticPrice
     price: 20

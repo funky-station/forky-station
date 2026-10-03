@@ -22,7 +22,7 @@
   description: service-job-game-show-description
   startAnnounce: service-job-game-show-start
   sprite:
-    sprite: Structures/Wallmounts/signs.rsi
+    sprite: _Funkystation/Structures/Wallmounts/signs.rsi # Funky
     state: arcade
 
 - type: serviceJob
@@ -187,5 +187,5 @@
   description: service-job-unforgettable-luncheon-description
   startAnnounce: service-job-unforgettable-luncheon-start
   sprite:
-    sprite: Objects/Consumable/Food/Baked/misc.rsi #Funky - No lunchbox sprite
+    sprite: _Funkystation/Objects/Consumable/Food/Baked/misc.rsi # Funky #Funky - No lunchbox sprite
     state: grilled-cheese

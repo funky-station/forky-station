@@ -7,9 +7,9 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: Objects/Specific/Service/vending_machine_restock.rsi
+      - sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
         state: base
-      - sprite: Objects/Specific/Service/vending_machine_restock.rsi
+      - sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
         state: refill_discount
   - type: ConditionalSpawner
     prototypes:
@@ -31,9 +31,9 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: Objects/Specific/Service/vending_machine_restock.rsi
+      - sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
         state: base
-      - sprite: Objects/Specific/Service/vending_machine_restock.rsi
+      - sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
         state: refill_donuts
   - type: ConditionalSpawner
     prototypes:
@@ -53,9 +53,9 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: Objects/Specific/Service/vending_machine_restock.rsi
+      - sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
         state: base
-      - sprite: Objects/Specific/Service/vending_machine_restock.rsi
+      - sprite: _Funkystation/Objects/Specific/Service/vending_machine_restock.rsi # Funky
         state: refill_cola
   - type: ConditionalSpawner
     prototypes:

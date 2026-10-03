@@ -88,6 +88,8 @@
     tags:
     - GasTank
     - OxygenTank # funky change
+  - type: BedTankVisual
+    visual: Oxygen
 
 - type: entity
   parent: GasTankRoundBase
@@ -105,6 +107,8 @@
     tags:
     - GasTank
     - NitrogenTank # funky change
+  - type: BedTankVisual
+    visual: Nitrogen
 
 - type: entity
   parent: GasTankRoundBase
@@ -138,6 +142,8 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
+  - type: BedTankVisual
+    visual: Oxygen
 
 - type: entity
   parent: EmergencyOxygenTank
@@ -154,6 +160,8 @@
       sprite: Objects/Tanks/emergency_red.rsi
   - type: Clothing
     sprite: Objects/Tanks/emergency_red.rsi
+  - type: BedTankVisual
+    visual: Nitrogen
 
 - type: entity
   parent: EmergencyOxygenTank
@@ -263,6 +271,8 @@
     tags:
     - GasTank
     - AirTank # funky change
+  - type: BedTankVisual
+    visual: Generic
 
 - type: entity
   parent: GasTankRoundBase
@@ -282,6 +292,8 @@
     tags:
     - GasTank
     - NitrousOxideTank # funky change
+  - type: BedTankVisual
+    visual: Nitrous
 
 - type: entity
   # it's a square so no rolling dough
@@ -305,3 +317,5 @@
     tags:
     - GasTank
     - PlasmaTank # funky change
+  - type: BedTankVisual
+    visual: Plasma

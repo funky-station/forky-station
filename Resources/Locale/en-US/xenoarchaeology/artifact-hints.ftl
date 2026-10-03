@@ -78,7 +78,7 @@ xenoarch-trigger-tip-stamp = Bureaucratic Approval
 xenoarch-trigger-tip-shock = Electrical Shock
 xenoarch-trigger-tip-particle = Singularity-Effecting Particles
 xenoarch-trigger-tip-anomparticle = Anomaly-Effecting Particles
-xenoarch-trigger-tip-stamina-damage = Organic Exhaustion
+xenoarch-trigger-tip-stamina-damage = Application of suppressive violence
 xenoarch-trigger-tip-laser = High-Intensity photon impacts
 
 ### Description hints

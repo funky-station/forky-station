@@ -25,7 +25,7 @@
         volume: -10
         maxDistance: 5
   - type: Sprite
-    sprite: Objects/Misc/flare.rsi
+    sprite: _Funkystation/Objects/Misc/flare.rsi # Funky
     layers:
       - map: [ enum.ExpendableLightVisualLayers.Base ]
         state: flare_base
@@ -38,10 +38,10 @@
         state: flare_unlit
         color: "#FF0000"
   - type: Icon
-    sprite: Objects/Misc/flare.rsi
+    sprite: _Funkystation/Objects/Misc/flare.rsi # Funky
     state: icon
   - type: Item
-    sprite: Objects/Misc/flare.rsi
+    sprite: _Funkystation/Objects/Misc/flare.rsi # Funky
     heldPrefix: unlit
     size: Tiny
   - type: Appearance

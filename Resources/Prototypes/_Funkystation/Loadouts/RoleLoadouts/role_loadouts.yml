@@ -5,10 +5,10 @@
   - FuHdHead
   - FuHdUniform
   - FuHdGloves
-  - CommonBackpack
   - FuHdOuterclothing
   - FuHdShoes
   - Glasses
+  - Pager
   - Survival
   - Trinkets
   #- HDJobTrinkets
@@ -20,8 +20,8 @@
   groups:
   - GroupTankHarness
   - LawyerJumpsuit
-  - CommonBackpack
   - Glasses
+  - Pager
   - Survival
   - Trinkets
   #- LawyerJobTrinkets
@@ -34,7 +34,7 @@
   - GroupTankHarness
   - LawyerNeck
   - LawyerJumpsuit
-  - CommonBackpack
+  - Pager
   - Glasses
   - Survival
   - Trinkets
@@ -47,8 +47,8 @@
   groups:
   - GroupTankHarness
   - LawyerJumpsuit
-  - CommonBackpack
   - Glasses
+  - Pager
   - Survival
   - Trinkets
   #- LawyerJobTrinkets
@@ -62,8 +62,9 @@
   - HoPHead
   - HoPNeck
   - HoPJumpsuit
-  - HoPBackpack
+  - XOBackpack
   - HoPOuterClothing
+  - Pager
   - Glasses
   - Survival
   - Trinkets
@@ -125,9 +126,29 @@
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
+  id: JobFuCourier
+  groups:
+  - GroupTankHarness
+  - FuCourierHead
+  - FuCargoNeck
+  - FuCourierOuterClothing
+  - FuCourierUniform
+  - CargoTechnicianBackpack
+  - FuCourierShoes
+  - Pager
+  - Glasses
+  - Survival
+  - Trinkets
+  #- CargoTechnicianJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
   id: JobPrisoner
   groups:
   - Glasses
   - Trinkets
+  - Survival
+  - GroupTankHarness
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # MACRO: Decapoid

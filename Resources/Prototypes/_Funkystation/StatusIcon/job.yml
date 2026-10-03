@@ -50,6 +50,16 @@
     state: HospitalityDirector
   jobName: job-name-hd
 
+# Logistics
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCourier
+  icon:
+    sprite: *icon-rsi
+    state: Courier
+  jobName: job-name-courier
+
 # Internal Affairs
 
 - type: jobIcon

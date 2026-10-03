@@ -1,0 +1,106 @@
+﻿// Persistence: Chat stacking from RMC14 - pull/7587
+
+using System.Linq;
+using Content.Client._Funkystation.UserInterface.Controls;
+using Content.Client.UserInterface.Systems.Chat.Widgets;
+using Content.Shared._RMC14.CCVar;
+using Content.Shared.Chat;
+using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Configuration;
+using Robust.Shared.Utility;
+
+namespace Content.Client._RMC14.Chat;
+
+public sealed partial class CMChatSystem : EntitySystem // Persistence: SharedCMChatSystem < EntitySystem
+{
+    [Dependency] private IConfigurationManager _config = default!;
+
+    private int _repeatHistory;
+
+    public override void Initialize()
+    {
+        // base.Initialize();
+
+        Subs.CVar(_config, RMCCVars.RMCChatRepeatHistory, v => _repeatHistory = v, true);
+    }
+
+    public bool TryRepetition(ChatBox chat, OutputPanel contents, FormattedMessage message, NetEntity sender, string unwrapped, ChatChannel channel, bool repeatCheckSender)
+    {
+        if (ChatChannel.AdminRelated.HasFlag(channel)) // Persistence: don't stack anything that's admin-chat related
+            return false;
+
+        var repeated = false;
+        foreach (var old in chat.RepeatQueue)
+        {
+            if (!old.Message.Equals(unwrapped) ||
+                old.Channel != channel)
+            {
+                continue;
+            }
+
+            if (repeatCheckSender &&
+                !old.SenderEntity.Equals(sender))
+            {
+                continue;
+            }
+
+            var copy = new FormattedMessage(old.FormattedMessage);
+            old.Count++;
+            copy.AddMarkupPermissive($" [color=red]x{old.Count}[/color]");
+            contents.SetMessage(old.Index, copy, tagsAllowed: null);
+            repeated = true;
+            break;
+        }
+
+        if (!repeated)
+        {
+            chat.RepeatQueue.Enqueue(new RepeatedMessage(contents.EntryCount, message, sender, unwrapped, channel));
+            if (_repeatHistory > 0)
+            {
+                while (chat.RepeatQueue.Count > _repeatHistory)
+                {
+                    chat.RepeatQueue.Dequeue();
+                }
+            }
+        }
+
+        return repeated;
+    }
+
+    /// <summary>
+    /// Funky - orphan any ghost follow links attached to repeated messages and attach the new link instead
+    /// </summary>
+    /// <param name="chat"></param>
+    /// <param name="control"></param>
+    /// <param name="sender"></param>
+    /// <param name="unwrapped"></param>
+    /// <param name="channel"></param>
+    /// <param name="repeatCheckSender"></param>
+    public void UpdateGhostFollowLink(ChatBox chat, GhostFollowLabel? control, NetEntity sender, string unwrapped, ChatChannel channel, bool repeatCheckSender)
+    {
+        foreach (var old in chat.RepeatQueue)
+        {
+            if (!old.Message.Equals(unwrapped) ||
+                old.Channel != channel)
+            {
+                continue;
+            }
+
+            if (repeatCheckSender &&
+                !old.SenderEntity.Equals(sender))
+            {
+                continue;
+            }
+
+            old.GhostFollowLink?.Orphan();
+            old.GhostFollowLink = control;
+            break;
+        }
+    }
+
+    // funky
+    public void AddGhostFollowLink(ChatBox chat, GhostFollowLabel? control)
+    {
+        chat.RepeatQueue.LastOrDefault()?.GhostFollowLink = control;
+    }
+}

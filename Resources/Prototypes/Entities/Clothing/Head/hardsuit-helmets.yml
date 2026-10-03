@@ -50,8 +50,20 @@
   name: engineering hardsuit helmet
   description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.
   components:
+  # funky start, changed this whole thing because we don't have unshaded stuff :godo:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/engineering.rsi # Funky changes
+    sprite: _Funkystation/Clothing/Head/Hardsuits/engineering.rsi
+    layers:
+    - state: icon
+    - state: light-overlay
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-head
+  # funky end
   - type: HandheldLight
     addPrefix: false
   - type: PointLight

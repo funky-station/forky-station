@@ -14,6 +14,8 @@
       - AnchoredStorageFilter
   - type: Visibility
     layer: 1
+  - type: ESViewconeOccludable # funky
+    occludeIfAnchored: true
 
 - type: entity
   abstract: true

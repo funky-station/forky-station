@@ -5,9 +5,14 @@ using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Station.Systems;
 using Content.Server.StationEvents.Components;
+using Content.Server._Funkystation.SistrCore; // funky
+using Content.Server.Station.Components; // funky
+using Content.Shared._Funkystation.CCVar;
 using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 
 namespace Content.Server.StationEvents.Events;
@@ -21,8 +26,11 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
     [Dependency] protected ChatSystem ChatSystem = default!;
     [Dependency] protected SharedAudioSystem Audio = default!;
     [Dependency] protected StationSystem StationSystem = default!;
+    [Dependency] private IConfigurationManager _cfg = null!; // funky - pa announcement cvar
 
     [Dependency] protected AnnouncerManager Announcer = default!; // Macrocosm
+
+    [Dependency] protected SistrCoreSystem SistrCore = default!; // funky
 
     protected ISawmill Sawmill = default!;
 
@@ -41,20 +49,45 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
         if (!TryComp<StationEventComponent>(uid, out var stationEvent))
             return;
 
+        var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
+
         AdminLogManager.Add(LogType.EventAnnounced, $"Event added / announced: {ToPrettyString(uid)}");
 
         // we don't want to send to players who aren't in game (i.e. in the lobby)
         Filter allPlayersInGame = Filter.Empty().AddWhere(GameTicker.UserHasJoinedGame);
 
-        if (stationEvent.StartAnnouncement != null)
-            ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.StartAnnouncement), playSound: false, colorOverride: stationEvent.StartAnnouncementColor);
+        // funky start, check if SISTR should announce and is alive
+        var isSistr = stationEvent.StartAnnouncementSender == "chat-manager-sender-sistr";
+        var sistrUp = false;
+        var query = EntityQueryEnumerator<StationEventEligibleComponent>();
+        while (query.MoveNext(out var stationUid, out _))
+        {
+            if (SistrCore.StationHasFunctionalCore(stationUid))
+            {
+                sistrUp = true;
+                break;
+            }
+        }
+        var canAnnounce = !isSistr || sistrUp;
+        // funky end
 
         // Macrocosm edit start - announcer variation
-        if (stationEvent.StartAudio == null)
-            return;
-        Announcer.TryGetAnnouncerSound(stationEvent.StartAudio.Value, out var soundSpecifier);
-        Audio.PlayGlobal(soundSpecifier, allPlayersInGame, true);
+        SoundSpecifier? soundSpecifier = null; // funky
+
+        if (canAnnounce && stationEvent.StartAudio is { } startAudio && Announcer.TryGetAnnouncerSound(startAudio, out soundSpecifier)) // funky
+        {
+            if (!paExclusive) // funky
+                Audio.PlayGlobal(soundSpecifier, allPlayersInGame, true);
+        }
         // Macrocosm edit end
+
+        if (canAnnounce && stationEvent.StartAnnouncement != null) // funky
+            ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.StartAnnouncement),
+                sender: Loc.GetString(stationEvent.StartAnnouncementSender), // funky
+                playSound: paExclusive, announcementSound: paExclusive ? soundSpecifier : null, // funky
+                colorOverride: stationEvent.StartAnnouncementColor);
+
+
     }
 
     /// <inheritdoc/>
@@ -85,20 +118,44 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
         if (!TryComp<StationEventComponent>(uid, out var stationEvent))
             return;
 
+        var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
+
         AdminLogManager.Add(LogType.EventStopped, $"Event ended: {ToPrettyString(uid)}");
 
         // we don't want to send to players who aren't in game (i.e. in the lobby)
         Filter allPlayersInGame = Filter.Empty().AddWhere(GameTicker.UserHasJoinedGame);
 
-        if (stationEvent.EndAnnouncement != null)
-            ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.EndAnnouncement), playSound: false, colorOverride: stationEvent.EndAnnouncementColor);
+        // funky start, check if SISTR should announce and is alive
+        var isSistr = stationEvent.EndAnnouncementSender == "chat-manager-sender-sistr";
+        var sistrUp = false;
+        var query = EntityQueryEnumerator<StationEventEligibleComponent>();
+        while (query.MoveNext(out var stationUid, out _))
+        {
+            if (SistrCore.StationHasFunctionalCore(stationUid))
+            {
+                sistrUp = true;
+                break;
+            }
+        }
+        var canAnnounce = !isSistr || sistrUp;
+        // funky end
 
         // Macrocosm edit start - announcer variation
-        if (stationEvent.EndAudio == null)
-            return;
-        Announcer.TryGetAnnouncerSound(stationEvent.EndAudio.Value, out var soundSpecifier);
-        Audio.PlayGlobal(soundSpecifier, allPlayersInGame, true);
+        SoundSpecifier? soundSpecifier = null; // funky
+
+        if (canAnnounce && stationEvent.EndAudio is { } endAudio && Announcer.TryGetAnnouncerSound(stationEvent.EndAudio.Value, out soundSpecifier)) // funky
+        {
+            if (!paExclusive) // funky
+                Audio.PlayGlobal(soundSpecifier, allPlayersInGame, true);
+        }
         // Macrocosm edit end
+        if (canAnnounce && stationEvent.EndAnnouncement != null) // funky
+            ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.EndAnnouncement),
+                sender: Loc.GetString(stationEvent.EndAnnouncementSender), // funky
+                playSound: paExclusive, announcementSound: paExclusive ? soundSpecifier : null, // funky
+                colorOverride: stationEvent.EndAnnouncementColor);
+
+
     }
 
     /// <summary>
