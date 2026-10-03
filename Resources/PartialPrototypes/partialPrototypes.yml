@@ -30,6 +30,7 @@
 - /Prototypes/_Funkystation/Catalog/VendingMachines/Inventories/sec.yml
 - /Prototypes/_Funkystation/Entities/Clothing/Eyes/glasses.yml
 - /Prototypes/_Funkystation/Entities/Clothing/Eyes/hud.yml
+- /Prototypes/_Funkystation/Recipes/Construction/clothing.yml
 - /Prototypes/_Funkystation/Roles/Jobs/CentComm/cburn.yml
 - /Prototypes/_Funkystation/Roles/Jobs/CentComm/emergency_response_team.yml
 - /Prototypes/_Funkystation/Roles/Jobs/Command/captain.yml
