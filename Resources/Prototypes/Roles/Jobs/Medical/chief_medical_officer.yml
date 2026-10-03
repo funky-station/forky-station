@@ -3,6 +3,7 @@
   name: job-name-cmo
   description: job-description-cmo
   playTimeTracker: JobChiefMedicalOfficer
+  requiresNda: Command # Funky
   requirements:
     - !type:RoleTimeRequirement
       role: JobChemist
@@ -43,6 +44,7 @@
   equipment:
     id: CMOPDA
     ears: ClothingHeadsetCMO
+    back: ClothingBackpackSatchelLeather # funky
   storage:
     back:
     - Flash

@@ -1,0 +1,21 @@
+﻿- type: entity
+  name: handheld news reader
+  parent: BaseItem
+  id: HandheldNewsReader
+  description: A "digital ink" display connected to the station's local news channels.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/handheld_news_reader.rsi
+    state: icon
+  - type: Item
+    size: Tiny
+  - type: ActivatableUI
+    key: enum.HandheldNewsReaderUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+    verbText: handheld-news-reader-verb-text
+  - type: UserInterface
+    interfaces:
+      enum.HandheldNewsReaderUiKey.Key:
+        type: HandheldNewsReaderBoundUserInterface
+  - type: HandheldNewsReader

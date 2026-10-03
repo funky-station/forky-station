@@ -46,3 +46,51 @@
         Slash: 0.95
         Heat: 0.90
         Caustic: 0.75
+
+# cargo - toggleable windbreakers
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: FuClothingOuterCoatWindbreakerCt
+  name: cargo technician windbreaker
+  description: An off-white windbreaker designed for cargo technicians. Made mostly of polyester, with a faux fur collar.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/Windbreakers/cargo.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/Windbreakers/cargo.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: FuClothingOuterCoatWindbreakerCourier
+  name: courier windbreaker
+  description: A bright red windbreaker designed for couriers. Made mostly of polyester, with a name plaque on the back.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/Windbreakers/courier.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/Windbreakers/courier.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: FuClothingOuterCoatWindbreakerQm
+  name: quartermaster's windbreaker
+  description: A command blue windbreaker speciall made for quartermasters. Made mostly of nylon, with a real fur collar.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/Windbreakers/qm.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/Windbreakers/qm.rsi
+
+# HD coat - non-toggleable
+
+- type: entity
+  parent: [ClothingOuterStorageBase, BaseCommandContraband]
+  id: FuClothingOuterCoatHd
+  name: hospitality director's coat
+  description: A red coat with gold buttons and embroidery. Unfortunately, the cufflinks are missing.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/hd.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/OuterClothing/Coats/hd.rsi

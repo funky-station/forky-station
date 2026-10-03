@@ -1,3 +1,5 @@
+chat-manager-sender-sistr = SIS/TR v3.20
+
 chat-speech-verb-name-glorpish = Glorpish
 chat-speech-verb-glorpish-1 = zeepity slorpo glorb
 chat-speech-verb-glorpish-2 = glarp gnaru glompurt

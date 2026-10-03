@@ -24,7 +24,7 @@
   equipment:
     gloves: ClothingHandsGlovesColorWhite
     shoes: ClothingShoesColorWhite
-    id: MimePDA
+    id: MimeWallet # Funky: the wallet-ening
     pocket1: CrayonMime
     ears: ClothingHeadsetService
   storage:

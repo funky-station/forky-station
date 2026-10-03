@@ -18,8 +18,9 @@
 - type: startingGear
   id: ChemistGear
   equipment:
-    id: ChemistryPDA
+    id: ChemistryWallet # Funky: the wallet-ening
     ears: ClothingHeadsetMedical
+    pocket2: PouchMedical # funky
 
 - type: chameleonOutfit
   id: ChemistChameleonOutfit

@@ -27,10 +27,11 @@
   equipment:
     head: ClothingHeadHatFedoraBrown
     shoes: ClothingShoesBootsLaceup
-    id: IAAPDA
+    id: IAAWallet
     eyes: ClothingEyesGlassesSunglasses
     ears: ClothingHeadsetInternalAffairs
     outerClothing: ClothingOuterCoatTrench
+    pocket2: PouchGeneric
 
 - type: chameleonOutfit
   id: IAAChameleonOutfit

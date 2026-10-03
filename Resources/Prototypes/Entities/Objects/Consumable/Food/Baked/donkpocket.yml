@@ -5,7 +5,7 @@
   components:
   - type: Edible
   - type: Sprite
-    sprite: Objects/Consumable/Food/Baked/donkpocket.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/Baked/donkpocket.rsi # Funky
   - type: Solution
     solution:
       reagents:

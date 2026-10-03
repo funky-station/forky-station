@@ -1,0 +1,71 @@
+<Document>
+    ## Formal Hearings
+
+    A lengthier, formal hearing for more severe crimes.
+
+    Held for Felonies or for Capital Offenses that do not wish to escalate into a Trial.
+
+    Target time is around 15 minutes.
+
+    ## Prosecution
+        
+        Arresting Officers must have an Internal Affairs Agent represent them as prosecution, so that they may return to their duties should it be needed.
+
+    ## Defense
+        
+        A lawyer must be offered to represent the defendant.
+        
+        The defendant can still choose to self-represent, but it is not recommended.
+
+    ## Witnesses
+        
+        Witnesses are only allowed if it is absolutely essential to the determination, and to a maximum of one per side.
+        
+        Witnesses may not be allowed to be Command, Security, or other essential jobs that cannot afford to be away from their post.
+
+    ## Procedure
+
+        ### Pre-Hearing Consultation:
+
+            Both sides may briefly consult with their representation, before the Trial officially begins.
+            
+            Consultations are confidential. Statements said in consultation never have to be disclosed.
+            
+            There is no strict time limit on consultation, but time spent consulting does not reduce any eventual sentence.
+            
+            Both sides are recommended to plan for and consider:
+                - The evidence that will be presented.
+                - Whether the defendant will plead guilty or not guilty.
+                - What witnesses, if any, they intend to call.
+                - Whether any aggravating or extenuating circumstances apply.
+                - Whether a plea deal for an alternative punishment is worth pursuing.
+
+        ### Hearing procedure:
+
+            1. Opening
+                - The Judge identifies all participating parties, and reads the formal charges aloud.
+
+            2. Plea
+                - The Judge formally asks: “How does the Defendant plea?”                
+                - If the Defense pleads guilty, skip to step 5 (Sentencing).
+                - If the Defense pleads not guilty, proceed.
+
+            3. Presenting Cases
+                - The Prosecution presents their case in its entirety, followed by the Defense in its entirety.
+                - Any physical evidence must be formally presented before the Judge, and entered into the record before it can be referenced in argument.
+                - Each side may bring their witnesses to the stand and question them directly.
+                - After each witness, the opposing side may briefly cross-examine.
+                - The Defendant may choose to testify. If they do, they are subject to cross-examination.
+
+            4. Verdict
+                - The Judge delivers a verdict on each charge.
+                - If the Defense is found Not Guilty on all charges, the hearing closes immediately.
+
+            5. Sentencing
+                - Both sides may now argue for aggravating or extenuating circumstances that should influence the sentence.
+                - Either side may also propose a plea deal, for an alternative punishment in lieu of standard brig sentencing.
+                - The Judge considers these arguments and issues their final sentence.
+
+            6. Closing
+                - The arresting officer either releases the defendant or escorts them to serve their sentence, as appropriate.
+</Document>

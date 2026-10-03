@@ -61,7 +61,7 @@
     reactionTypes:
     - Electrolysis
   - type: Sprite
-    sprite: Structures/Machines/Medical/electrolysis.rsi
+    sprite: _Funkystation/Structures/Machines/Medical/electrolysis.rsi # Funky
     noRot: true
     offset: "0.0,0.4"
     layers:
@@ -107,7 +107,7 @@
     reactionTypes:
     - Centrifuge
   - type: Sprite
-    sprite: Structures/Machines/Medical/centrifuge.rsi
+    sprite: _Funkystation/Structures/Machines/Medical/centrifuge.rsi # Funky
     noRot: true
     offset: "0.0,0.4"
     layers:

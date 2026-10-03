@@ -24,7 +24,9 @@
 - type: startingGear
   id: DoctorGear
   equipment:
+    id: MedicalWallet # Funky: the wallet-ening, also removing the loadout choice for senior stuff
     ears: ClothingHeadsetMedical
+    pocket2: PouchMedical # funky
 
 - type: chameleonOutfit
   id: MedicalDoctorChameleonOutfit

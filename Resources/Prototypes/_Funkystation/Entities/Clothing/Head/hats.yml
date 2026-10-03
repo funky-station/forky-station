@@ -105,7 +105,7 @@
 # medical intern hat
 
 - type: entity
-  parent: [ClothingHeadBase, BaseSecurityContraband]
+  parent: ClothingHeadBase
   id: FuClothingHeadHatInternMedical
   name: medical intern's nurse hat
   description: A teal nurse hat with a white-edged brim that tapers towards the back of the hat. Typically made for interns of medical.
@@ -114,6 +114,38 @@
     sprite: _Funkystation/Clothing/Head/Hats/med_intern.rsi
   - type: Clothing
     sprite: _Funkystation/Clothing/Head/Hats/med_intern.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+
+# Hospitality Director's hat
+- type: entity
+  parent: [ClothingHeadBase, BaseCommandContraband]
+  id: FuClothingHeadHatHd
+  name: hospitality director's pillbox hat
+  description: A simple yet elegant red hat with gold trim.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/hd.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/hd.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+
+# courier hat
+
+- type: entity
+  parent: ClothingHeadBase
+  id: FuClothingHeadHatCourier
+  name: courier hat
+  description: A blue courier's hat, with a red flag reminiscent of old-school mailboxes.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Hats/courier.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Hats/courier.rsi
   - type: Tag
     tags:
     - ClothMade

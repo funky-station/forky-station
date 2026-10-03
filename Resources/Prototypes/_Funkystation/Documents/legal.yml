@@ -4,6 +4,6 @@
   description: doc-nda-desc
   category: DocCatLegal
   paperPrototype: Paper
-  content: doc-nda-content
+  contentFileName: test.txt # TODO: Change this
   access:
     - Command

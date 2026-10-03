@@ -1,0 +1,36 @@
+- type: reagent
+  id: Praxanol  # based on propranolol, beta blocker used to treat migraines and hypertension
+  name: reagent-name-praxanol
+  desc: reagent-desc-praxanol
+  group: Medicine
+  physicalDesc: reagent-physical-desc-chalky
+  flavor: medicine
+  color: "#a38303"
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.5
+      # prevents future migraines, but won't cure active ones
+      effects:
+      - !type:NestedEffect
+        proto: PraxanolMigrainePrevention
+        conditions:
+        - !type:ReagentCondition
+          reagent: Praxanol
+          min: 0.10
+      # Overdose above 15u
+      - !type:Emote
+        emote: Gasp  # based on tightening of airways
+        showInChat: true
+        probability: 0.1
+        conditions:
+        - !type:ReagentCondition
+          reagent: Praxanol
+          min: 15
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectWoozy # based on side effect of dizziness
+        time: 3
+        type: Update
+        conditions:
+        - !type:ReagentCondition
+          reagent: Praxanol
+          min: 15

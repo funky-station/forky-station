@@ -15,9 +15,10 @@
   id: ReporterGear
   equipment:
     shoes: ClothingShoesColorWhite
-    id: ReporterPDA
+    id: ReporterWallet # Funky: the wallet-ening
     #ears: ClothingHeadsetService
     ears: ClothingHeadsetGrey # Funky - No longer a part of Service
+    pocket2: PouchGeneric # funky
   #storage:
     #back:
     #- Stuff

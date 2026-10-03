@@ -1,0 +1,126 @@
+- type: entity
+  name: double-barreled shotgun
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityBartenderContraband]
+  id: FuWeaponShotgunDoubleBarreled
+  description: An immortal classic. Uses 12 gauge shotgun shells.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
+    layers:
+    - state: icon
+      map: ["enum.BreechVisuals.Open"]
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: BreechLoaded
+    openSound:
+      path: "/Audio/_RMC14/Weapons/Guns/Breech/pkd_open_chamber.ogg"
+    closeSound:
+      path: "/Audio/_RMC14/Weapons/Guns/Breech/pkd_close_chamber.ogg"
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.BreechVisuals.Open:
+        enum.BreechVisuals.Open:
+          True: {state: bolt-open}
+          False: {state: icon}
+  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: Gun
+    fireRate: 3
+  - type: GunSpreadModifier
+    spread: 0.6
+  - type: BallisticAmmoProvider
+    capacity: 2
+  - type: Construction
+    graph: FuShotgunSawn
+    node: start
+    deconstructionTarget: null
+
+- type: entity
+  name: double-barreled shotgun
+  parent: FuWeaponShotgunDoubleBarreled
+  id: FuWeaponShotgunDoubleBarreledRubber
+  description: An immortal classic. Uses 12 gauge shotgun shells.
+  suffix: Non-Lethal
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunBeanbag
+
+- type: entity
+  name: Kammerer
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband]
+  id: FuWeaponShotgunKammerer
+  description: An old yet faithful design, and a favorite among irregular forces of many worlds. Uses 12 gauge shotgun shells.
+  components: # intend for Kammerer to have tighter choke for slower fire rate and/or manual cycling
+  - type: Item
+    sprite: Objects/Weapons/Guns/Shotguns/pump_inhands_64x.rsi
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
+  - type: PumpAction
+  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: Gun
+    fireRate: 1
+  - type: GunSpreadModifier
+    spread: 0.6
+  - type: Tag
+    tags:
+    - WeaponShotgunKammerer
+
+- type: entity
+  name: sawn-off shotgun
+  parent: [ BaseWeaponShotgun, BaseSecurityBartenderContraband ]
+  id: FuWeaponShotgunSawn
+  description: Groovy! Uses 12 gauge shotgun shells.
+  components: # needs to be super inaccurate because you don't need to wield it
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Guns/Shotguns/sawn.rsi
+    layers:
+    - state: icon
+      map: ["enum.BreechVisuals.Open"]
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/Guns/Shotguns/sawn.rsi
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,2,0
+  - type: BreechLoaded
+    openSound:
+      path: "/Audio/_RMC14/Weapons/Guns/Breech/pkd_open_chamber.ogg"
+    closeSound:
+      path: "/Audio/_RMC14/Weapons/Guns/Breech/pkd_close_chamber.ogg"
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.BreechVisuals.Open:
+        enum.BreechVisuals.Open:
+          True: {state: bolt-open}
+          False: {state: icon}
+  - type: Gun
+    fireRate: 3
+  - type: GunSpreadModifier
+    spread: 1.4
+  - type: BallisticAmmoProvider
+    capacity: 2
+  - type: Construction
+    graph: FuShotgunSawn
+    node: fushotgunsawn
+    deconstructionTarget: null
+
+- type: entity
+  name: sawn-off shotgun
+  parent: FuWeaponShotgunSawn
+  id: FuWeaponShotgunSawnEmpty
+  description: Groovy! Uses 12 gauge shotgun shells.
+  suffix: Empty
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Construction
+    graph: FuShotgunSawn
+    node: fushotgunsawn
+    deconstructionTarget: null

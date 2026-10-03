@@ -3,6 +3,7 @@
   name: job-name-rd
   description: job-description-rd
   playTimeTracker: JobResearchDirector
+  requiresNda: Command # Funky
   requirements:
   - !type:RoleTimeRequirement
     role: JobScientist
@@ -38,6 +39,7 @@
   equipment:
     id: RnDPDA
     ears: ClothingHeadsetRD
+    back: ClothingBackpackSatchelLeather # funky
   storage:
     back:
     - Flash

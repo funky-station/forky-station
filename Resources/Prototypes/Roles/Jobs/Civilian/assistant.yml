@@ -12,8 +12,9 @@
 - type: startingGear
   id: PassengerGear
   equipment:
-    id: PassengerPDA
+    id: PassengerWallet # Funky: the wallet-ening
     ears: ClothingHeadsetGrey
+    pocket2: PouchGeneric # funky
   #storage:
     #back:
     #- Stuff
@@ -27,4 +28,4 @@
     mask: ClothingMaskGas
     neck: ClothingNeckMantle
     outerClothing: ClothingOuterWinterCoat
-    gloves: ClothingHandsGlovesColorYellowBudget
+    gloves: FuClothingHandsGlovesInsulsBudget #Funky

@@ -24,7 +24,7 @@
   id: RatTaco
   name: food-sequence-content-rat
   sprites:
-  - sprite: Objects/Consumable/Food/taco_sequence.rsi
+  - sprite: _Funkystation/Objects/Consumable/Food/taco_sequence.rsi
     state: rat
 
 - type: foodSequenceElement
@@ -49,7 +49,7 @@
   id: CheeseTaco
   name: food-sequence-content-cheese
   sprites:
-  - sprite: Objects/Consumable/Food/taco_sequence.rsi
+  - sprite: _Funkystation/Objects/Consumable/Food/taco_sequence.rsi
     state: cheese
   tags:
   - Cheese

@@ -44,5 +44,13 @@
       - QuantumSpinInverter # avoid the morbillionth QSI bug
   - type: ContainerContainer
     containers:
+      hidden_slot: !type:ContainerSlot # funky change
       storagebase: !type:Container
         ents: [ ]
+  - type: ItemSlots # funky start
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end

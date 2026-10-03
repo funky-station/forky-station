@@ -19,14 +19,14 @@
         name: construction-graph-component-flash
         store: part-container
         icon:
-          sprite: Objects/Weapons/Melee/flash.rsi
+          sprite: _Funkystation/Objects/Weapons/Melee/flash.rsi # Funky
           state: flash
 
       - component: Flash
         name: construction-graph-component-second-flash
         store: part-container
         icon:
-          sprite: Objects/Weapons/Melee/flash.rsi
+          sprite: _Funkystation/Objects/Weapons/Melee/flash.rsi # Funky
           state: flash
 
       - tool: Screwing

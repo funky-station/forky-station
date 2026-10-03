@@ -1,5 +1,10 @@
 version: 1 # Not used right now, whatever.
 binds:
+# ES START
+- function: ESHoldToFace
+  type: State
+  key: Space
+# ES END
 - function: UIClick
   type: State
   key: MouseLeft
@@ -651,3 +656,7 @@ binds:
   type: State
   key: MouseRight
   canFocus: true
+# RMC Port
+- function: CMUniqueAction
+  type: State
+  key: Space

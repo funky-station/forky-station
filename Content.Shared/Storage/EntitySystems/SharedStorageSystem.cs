@@ -1,6 +1,7 @@
 using System.Collections.Frozen;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._Funkystation.StripStorageAccess;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
@@ -726,6 +727,20 @@ public abstract partial class SharedStorageSystem : EntitySystem
         if (!ValidateInput(args, msg.StorageUid, msg.InteractedItemUid, out var player, out var storage, out var item))
             return;
 
+        // funky start
+        if (TryGetOtherMobHolder(storage, player, out var holder))
+        {
+            StartStripStorageRemoveDoAfter(player, storage, holder, item);
+            return;
+        }
+
+        DoInteractWithStoredItem(player, storage, item);
+    }
+        // funky end
+
+    // funky, split out of OnInteractWithItem so the strip storage access doafter can call this again once it completes
+    public void DoInteractWithStoredItem(Entity<HandsComponent> player, Entity<StorageComponent> storage, Entity<ItemComponent> item)
+    {
         // If the user's active hand is empty, try pick up the item.
         if (!_sharedHandsSystem.TryGetActiveItem(player.AsNullable(), out var activeItem))
         {
@@ -760,6 +775,41 @@ public abstract partial class SharedStorageSystem : EntitySystem
         var failedEv = new StorageInsertFailedEvent((storage, storage.Comp), (player, player.Comp));
         RaiseLocalEvent(storage, ref failedEv);
     }
+
+    // funky start. used to gate taking items behind a doafter when going through someone else's storage while it's still on them
+    private bool TryGetOtherMobHolder(EntityUid storageUid, EntityUid user, out EntityUid holder)
+    {
+        holder = default;
+
+        if (HasComp<BypassInteractionChecksComponent>(user))
+            return false;
+
+        if (!ContainerSystem.TryGetContainingContainer(storageUid, out var container) || container.Owner == user)
+            return false;
+
+        if (!HasComp<InventoryComponent>(container.Owner) && !HasComp<HandsComponent>(container.Owner))
+            return false;
+
+        holder = container.Owner;
+        return true;
+    }
+
+    private void StartStripStorageRemoveDoAfter(EntityUid user, Entity<StorageComponent> storage, EntityUid holder, EntityUid item)
+    {
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(2), new StripStorageRemoveDoAfterEvent(), storage, holder, item)
+        {
+            BreakOnMove = true,
+            BreakOnDamage = true,
+            DistanceThreshold = SharedInteractionSystem.InteractionRange,
+            NeedHand = true,
+            BlockDuplicate = true,
+            DuplicateCondition = DuplicateConditions.SameTool,
+        };
+
+        if (_doAfterSystem.TryStartDoAfter(doAfterArgs))
+            Audio.PlayPredicted(new SoundCollectionSpecifier("storageRustle"), storage, user);
+    }
+    // funky end
 
     private void OnSetItemLocation(StorageSetItemLocationEvent msg, EntitySessionEventArgs args)
     {

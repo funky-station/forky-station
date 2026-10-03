@@ -640,11 +640,15 @@
   graph: Soil
   targetNode: fungalSoil
 
-- type: construction
-  parent: BaseStructureFullTile
-  id: StationAiCore
-  graph: StationAiCore
-  targetNode: stationAiCore
+# Funky Station - AI Core disabled
+
+#- type: construction
+#  parent: BaseStructureFullTile
+#  id: StationAiCore
+#  graph: StationAiCore
+#  targetNode: stationAiCore
+
+# End Funky Station
 
 - type: construction
   parent: BaseStructureFullTile

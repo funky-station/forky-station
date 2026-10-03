@@ -35,6 +35,7 @@
   id: WeaponLauncherChinaLake
   name: china lake
   description: PLOOP.
+  suffix: Deprecated # Funky - Use FuWeaponLauncherChinaLake instead.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi

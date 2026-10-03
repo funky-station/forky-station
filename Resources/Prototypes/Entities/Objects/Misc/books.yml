@@ -351,7 +351,7 @@
 - type: entity
   id: BookSpaceLaw
   parent: BaseGuidebook
-  name: space law
+  name: corporate law # Funky change: Rebranding Space law into Corporate law
   description: A set of Nanotrasen guidelines for keeping law and order on their space stations.
   components:
   - type: Sprite
@@ -363,7 +363,26 @@
       color: "#f7d61a"
   - type: GuideHelp
     guides:
-    - SpaceLaw
+    - Article_2 # Funky change: SpaceLaw -> Article_2
+
+# Funky start
+- type: entity
+  id: BookSentencingGuidelines
+  parent: BaseGuidebook
+  name: sentencing, trials, and hearings
+  description: A set of Nanotrasen guidelines for keeping stentences resonable and trials on time.
+  components:
+  - type: Sprite
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#87011c"
+    - state: icon_law
+      color: "#f7d61a"
+  - type: GuideHelp
+    guides:
+    - Article_5
+# Funky end
 
 - type: entity
   parent: BookBase

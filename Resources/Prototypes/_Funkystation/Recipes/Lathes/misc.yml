@@ -7,6 +7,41 @@
     Plastic: 50
 
 - type: latheRecipe
+  id: PenReceptacleBeige
+  result: PenReceptacleBeige
+  completetime: 1
+  materials:
+    Plastic: 50
+
+- type: latheRecipe
+  id: PenReceptacleBlue
+  result: PenReceptacleBlue
+  completetime: 1
+  materials:
+    Plastic: 50
+
+- type: latheRecipe
+  id: PenReceptacleGreen
+  result: PenReceptacleGreen
+  completetime: 1
+  materials:
+    Plastic: 50
+
+- type: latheRecipe
+  id: PenReceptacleGrey
+  result: PenReceptacleGrey
+  completetime: 1
+  materials:
+    Plastic: 50
+
+- type: latheRecipe
+  id: PenReceptacleRed
+  result: PenReceptacleRed
+  completetime: 1
+  materials:
+    Plastic: 50
+
+- type: latheRecipe
   id: ShredderBin
   result: ShredderBin
   completetime: 4

@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Christmas Tree sprites by Alecksohs: https://github.com/funky-station/funky-station/pull/2298",
+    "size": {
+        "x": 64,
+        "y": 96
+    },
+    "states": [
+        {
+            "name": "treechristmas01"
+        },
+        {
+            "name": "treechristmas02"
+        }
+    ]
+}

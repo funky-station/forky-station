@@ -1,0 +1,39 @@
+- type: job
+  id: FuCourier
+  name: job-name-courier
+  description: job-description-courier
+  playTimeTracker: JobFuCourier
+  startingGear: FuCourierGear
+  icon: "JobIconCourier"
+  supervisors: job-supervisors-qm
+  access:
+  - Cargo
+  - Maintenance
+  extendedAccess:
+  - Hydroponics # Funky - Botanist is now in Logistics
+  - Salvage
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: BoxingDay
+    prototype: BoxCardboard
+
+- type: startingGear
+  id: FuCourierGear
+  equipment:
+    id: CourierWallet
+    ears: ClothingHeadsetCargo
+    pocket1: AppraisalTool
+    #storage:
+    #back:
+    #- Stuff
+
+- type: chameleonOutfit
+  id: CourierChameleonOutfit
+  job: FuCourier
+  equipment:
+    head: FuClothingHeadHatCourier
+    eyes: ClothingEyesGlassesCheapSunglasses
+    mask: ClothingMaskBreath
+    outerClothing: FuClothingOuterCoatWindbreakerCourier
+    neck: ClothingNeckScarfStripedBrown
+    gloves: ClothingHandsGlovesFingerless

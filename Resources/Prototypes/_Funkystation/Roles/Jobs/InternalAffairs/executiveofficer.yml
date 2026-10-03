@@ -3,6 +3,7 @@
   name: job-name-xo # funkystation
   description: job-description-xo # funkystation
   playTimeTracker: JobExecutiveOfficer
+  requiresNda: Command # Funky
   requirements:
   - !type:DepartmentTimeRequirement
     department: Engineering

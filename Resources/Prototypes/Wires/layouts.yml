@@ -245,3 +245,11 @@
   - !type:DocumentPrinterAccessWireAction
   - !type:AiInteractWireAction
   - !type:DocumentPrinterManagerWireAction
+
+# Funky
+- type: wireLayout
+  id: PASpeaker
+  dummyWires: 2
+  wires:
+  - !type:PowerWireAction
+    pulseTimeout: 15

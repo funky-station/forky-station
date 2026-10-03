@@ -18,9 +18,10 @@
   id: TramDriverGear
   equipment:
     shoes: ClothingShoesBootsLaceup
-    id: TramDriverPDA
+    id: TramDriverWallet # Funky: the wallet-ening
     ears: ClothingHeadsetService
     neck: ClothingNeckTieSerious
+    pocket2: PouchGeneric # funky
 
 - type: chameleonOutfit
   id: TramDriverChameleonOutfit

@@ -3,6 +3,7 @@
   name: job-name-ce
   description: job-description-ce
   playTimeTracker: JobChiefEngineer
+  requiresNda: Command # Funky
   requirements:
     #- !type:RoleTimeRequirement
     #  role: JobAtmosphericTechnician
@@ -45,6 +46,7 @@
     eyes: ClothingEyesGlassesMeson
     ears: ClothingHeadsetCE
     belt: ClothingBeltUtilityEngineering
+    back: ClothingBackpackSatchelLeather # funky
   storage:
     back:
     - Flash
@@ -58,5 +60,5 @@
     mask: ClothingMaskBreath
     neck: ClothingNeckCloakCe
     outerClothing: ClothingOuterWinterCE
-    gloves: ClothingHandsGlovesColorYellow
+    gloves: FuClothingHandsGlovesInsuls #Funky
     shoes: ClothingShoesBootsMagAdv

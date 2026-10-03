@@ -20,7 +20,7 @@
       - ReagentId: Nutriment
         Quantity: 30
   - type: Sprite
-    sprite: Objects/Consumable/Food/bowl.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/bowl.rsi # Funky
   - type: DamageOnLand
     damage:
       types:
@@ -77,7 +77,7 @@
       - creamy
       - peas
   - type: Sprite
-    sprite: Objects/Consumable/Food/bowl.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/bowl.rsi # Funky
     layers:
     - state: bowl
     - state: alpha-filling

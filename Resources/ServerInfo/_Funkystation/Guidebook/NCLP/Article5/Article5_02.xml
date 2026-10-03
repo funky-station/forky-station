@@ -1,0 +1,189 @@
+<Document>
+    # Sentencing guidelines
+
+    Sentencing is the act of determining a suitable punishment for convicted criminals.
+
+    The presiding Judge determines the sentence after they have made an official verdict.
+
+    ## Processing Priority
+
+        At any given time, at least one legal authority must be in charge of sentencing aboard the station, known as the Judge.
+
+        Typically, this is the Magistrate, but in their absence, the responsibility falls upon the following order of succession:
+            - Magistrate.
+            - Acting Magistrate (Promoting an IAA).
+            - Executive Officer.
+            - Captain.
+
+        The Judge is responsible for:
+            - Categorizing hearings: Determining which level of hearing is suitable for the charges.
+            - Delivering a verdict: Whether or not the defendant is guilty.
+            - Determining a sentence: The amount of brig time and/or alternative punishments to assign.
+
+        The Judge's Legal Authority is bestowed by the Captain, who still holds the most legal authority aboard the station. At any time, the Captain may temporarily or permanently revoke this authority and overrule any verdict and/or sentence if truly necessary.
+
+    ## Standard Punishment Lengths
+
+        When determining brig times, standard times based on the crime severity and punishment classification should be used as the starting point. Additional modifiers based on circumstances can be placed to increase or decrease the final time and/or tier.
+
+        Infractions:
+            - Ticket + Warning recommended.
+        
+        Misdemeanors:
+            - Class C: 8 Minutes
+            - Class B: 10 Minutes
+            - Class A: 12 Minutes
+        
+        Felonies:
+            - Class C: 16 Minutes
+            - Class B: 20 Minutes
+            - Class A: 24 Minutes
+        
+        Capital Offenses:
+            - Class C: Permanent Confinement
+            - Class B: Permanent Confinement without Parole
+            - Class A: Execution
+
+        ### Aggravating Circumstances
+
+            Aggravating circumstances increase the severity of a punishment.
+
+            Minor cases of aggravating circumstances would increase the Punishment Class by one level.
+
+            Ex. Class C \-\> Class B
+
+            Major cases of aggravating circumstances could increase the severity by an entire tier.
+
+            Ex. Misdemeanor \-\> Felony
+
+            [bold]Attempted/Planned Crime[/bold]:\n
+            Attempted or planned crimes are to be charged as the full crime committed, so long as there is clear evidence. A crime should not be charged as attempted if there is a more fitting lesser crime.
+
+            [bold]Alert Level[/bold]:\n
+            Committing a crime that directly goes against restrictions placed during a heightened alert level, or directly goes against a public announcement made by Command.
+
+            [bold]Brutality[/bold]:\n
+            The crime was committed recklessly, with no regard for collateral damage, and/or with a complete lack of remorse.
+
+            [bold]Evasion of Enforcement[/bold]:\n
+            The defendant greatly resisted arrest, or otherwise evaded and obstructed security from charging them.
+
+            [bold]Parole Violation[/bold]:\n
+            The crime was committed while the defendant was on parole, or serving an alternative sentence.
+
+            [bold]Privileged Victim[/bold]:\n
+            The crime was committed, and concerns a member of high ranking or authority under NanoTrasen.
+
+            [bold]Repeat Offense[/bold]:\n
+            The Defendant has already been sentenced for the same crime this shift.
+
+        ### Extenuating Circumstances
+
+            Extenuating circumstances decrease the severity of a punishment.
+
+            Minor cases of extenuating circumstances could decrease the Punishment Class by one level.
+
+            Ex. Class B \-\> Class C
+
+            Major cases of extenuating circumstances could decrease the severity by an entire tier.
+
+            Ex. Felony \-\> Misdemeanor
+
+            The Judge may also determine that an extenuating circumstance is so significant that it waives the charge entirely, but it is recommended that this power is used sparingly.
+
+            [bold]Cooperation[/bold]:\n
+            The defendant cooperated with Security personnel and did not resist.
+
+            [bold]First Offense[/bold]:\n
+            The defendant has no criminal record this shift, and only committed the single charged crime.
+
+            [bold]Enforcement Incompetence[/bold]:\n
+            Security used excessive force to perform the arrest, took excessive time to process the defendant, or otherwise greatly inconvenienced the justice process.
+
+            [bold]Self-Defense[/bold]:\n
+            The crime was committed in self-defense.
+
+            [bold]Self-Reported[/bold]:\n
+            The defendant turned themselves into Security, and/or willingly returned any stolen property.
+
+            [bold]Necessity[/bold]:\n
+            The defendant has shown that the crime they committed was necessary to prevent some greater harm.
+
+            [bold]Victim Involvement[/bold]:\n
+            The victim personally requested that the charges should be dropped or reduced.
+
+    ## Crime Categories and Stacking Crimes
+
+        Charges from the same Crime Category cannot be stacked for the same sentence. Only the highest offense in that category will be counted.
+
+        Multiple crimes from different categories can stack freely, up to a maximum of 40 minutes.
+
+        However, if the calculated brig time would greatly exceed 40 minutes, the Judge is recommended, but not required, to instead elevate the punishment to Permanent Confinement.
+
+    ## Executions
+
+        After applying modifiers and circumstances, the Judge may determine that a sentence should result in execution.
+
+        Any executions need express permission from the presiding Captain, and cannot be authorized in the absence of one.
+
+        Should the execution order not be ready, the defendant should be sentenced with permanent confinement pending execution order.
+
+        Executions are recommended only when multiple Capital Offense charges have stacked, or if a single Capital Offense has been aggravated multiple times.
+
+    ## Adjacent Parties
+
+        Adjacent parties are other entities that participate in the crime, but are not necessarily the primary perpetrator. Special cases are listed to handle these circumstances below.
+
+        [bold]Accessory[/bold]:\n
+        If a secondary party knowingly and intentionally assists in a crime, they should be fully charged for the crimes they assisted in, even if they did not directly commit them.
+
+        [bold]Silicon Abuse[/bold]:\n
+        Silicons cannot be charged for committing crimes. The individual who ordered the silicon to perform the crime should be fully charged for the crime committed.
+
+        [bold]Mind Control[/bold]:\n
+        Individuals under the influence of an effect that suppresses their free will should not be held accountable for their actions while controlled. The individual who gave the orders should be fully charged for the crime committed.
+
+    ## Alternative Punishments
+
+        Alternative punishments may be offered as a replacement or reduction to brig time.
+        
+        The Defense can argue for alternative punishments, but the final sentence is ultimately up to the Judge.
+        
+        Possible alternative punishments are listed below:
+
+        [bold]Community Service/Station Labor[/bold]:\n
+        The detainee agrees to serve some time performing hard labor for the station while under watch by Security, or while in confinement.
+
+        [bold]Demotion[/bold]:\n
+        The defendant loses their current job and is demoted below their current status.
+
+        [bold]Disclosure[/bold]:\n
+        The defendant agrees to reveal incriminating information about their accomplices, or any other critical information relevant to station security.
+
+        [bold]Financial Compensation[/bold]:\n
+        The defendant agrees to pay scrip or otherwise compensate the victims, according to the damages caused by the charged crimes.
+
+        [bold]Reverse Damages[/bold]:\n
+        The defendant promises to reverse damages, such as revealing the location of stashed stolen goods.
+
+    ## Parole
+
+        Parole is when a prisoner is freed from their brig sentence, under special conditions.
+
+        The Judge may offer parole if they deem the defendant capable of genuine reform. The Judge is highly recommended to consider offers for parole that result in increased productivity and profits to NanoTrasen.
+
+        Parole can be discussed with a representative lawyer, after the prisoner has served at least half of their sentence. Parole discussions can be held after 20 minutes in the case of permanent sentences.
+
+        The Judge is recommended to discuss with the Warden to have a Security Officer assigned as the defendant’s Parole Officer. The Parole Officer is responsible for escorting the paroled prisoner, to ensure they are properly integrating back into their station responsibilities.
+
+        Parole may have additional conditions, as listed below:
+
+        [bold]Community Service/Station Labor[/bold]:\n
+        The detainee agrees to serve some time performing hard labor for the station while under watch by Security, or while in confinement.
+
+        [bold]Character Reform[/bold]:\n
+        The detainee agrees to an appointment with a station Psychologist or Chaplain, who evaluates their level of remorse and likelihood to reform.
+
+        [bold]Free Parole[/bold]:\n
+        Detainees expressed good behavior while in custody, and may be tentatively freed from their sentence, so long as they check up with security regularly. Security may choose to require them to use a Bodycam, Electropack, and/or Tracking Implanter.
+</Document>

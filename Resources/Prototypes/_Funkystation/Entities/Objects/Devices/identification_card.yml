@@ -61,3 +61,11 @@
   components:
   - type: PresetIdCard
     job: Dispatcher
+
+- type: entity
+  parent: CargoIDCard
+  id: FuCourierIDCard
+  name: courier ID card
+  components:
+  - type: PresetIdCard
+    job: FuCourier

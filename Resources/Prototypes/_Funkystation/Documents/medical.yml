@@ -4,4 +4,4 @@
   description: doc-autopsy-desc
   category: DocCatMedical
   paperPrototype: Paper
-  content: doc-autopsy-content
+  contentFileName: test.txt # TODO: Change this

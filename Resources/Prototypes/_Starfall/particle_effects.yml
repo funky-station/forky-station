@@ -253,7 +253,7 @@
   sprite:
     sprite: Effects/chemsmoke.rsi
     state: chemsmoke
-  startColor: "#CCCCCC88"
+  startColor: "#CCCCCC55" # funky, slightly more transparent
   endColor: "#CCCCCC00"
   sizeOverLifetime:
     - time: 0.0

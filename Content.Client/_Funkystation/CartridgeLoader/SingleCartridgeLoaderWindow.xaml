@@ -1,0 +1,6 @@
+﻿<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      MinSize="576 420"
+                      SetSize="576 420">
+    <BoxContainer Name="Content" Access="Public" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True"/>
+</controls:FancyWindow>

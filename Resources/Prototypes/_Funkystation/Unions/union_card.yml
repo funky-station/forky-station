@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseItem
+  id: UnionCard
+  name: union card
+  description: A membership card for a station union.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/union_card.rsi
+    state: icon
+  - type: Item
+    sprite: _Funkystation/Objects/Misc/union_card.rsi
+    size: Tiny
+  - type: UnionCard

@@ -6,4 +6,4 @@
   description: doc-syndicate-recruitment-desc
   category: DocCatContraband
   paperPrototype: Paper
-  content: doc-syndicate-recruitment-content
+  contentFileName: test.txt # TODO: Change this

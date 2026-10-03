@@ -25,9 +25,13 @@
   equipment:
     head: ClothingHeadHatPwig
     shoes: ClothingShoesBootsLaceup
-    id: MagistratePDA
+    id: MagistrateWallet
     ears: ClothingHeadsetMagistrate
     outerClothing: ClothingOuterRobesJudge
+    pocket2: PouchGeneric
+  storage:
+    back:
+    - BookSentencingGuidelines
 
 - type: chameleonOutfit
   id: MagistrateChameleonOutfit

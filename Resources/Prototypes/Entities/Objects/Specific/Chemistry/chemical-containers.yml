@@ -5,10 +5,10 @@
   description: Used to contain a very large amount of chemicals or solutions. Chugging is extremely ill-advised.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/jug.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/jug.rsi # Funky
   - type: Item
     size: Large
-    sprite: Objects/Specific/Chemistry/jug.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/jug.rsi # Funky
   - type: SolutionContainerVisuals
     maxFillLevels: 6
     inHandsMaxFillLevels: 5

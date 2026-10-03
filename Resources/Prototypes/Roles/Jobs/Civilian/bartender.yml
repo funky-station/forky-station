@@ -22,8 +22,9 @@
   id: BartenderGear
   equipment:
     shoes: ClothingShoesColorBlack
-    id: BartenderPDA
+    id: BartenderWallet # Funky: the wallet-ening
     ears: ClothingHeadsetService
+    pocket2: PouchGeneric # funky
   #storage:
     #back:
     #- Stuff

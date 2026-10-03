@@ -20,6 +20,7 @@
 - type: startingGear
   id: CargoTechGear
   equipment:
+    id: CargoWallet # Funky: the wallet-ening, also replacing the loadout choice
     ears: ClothingHeadsetCargo
     pocket1: AppraisalTool
   #storage:

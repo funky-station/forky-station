@@ -47,7 +47,7 @@
   id: UplinkZombieBundle
   name: uplink-zombie-bundle-name
   description: uplink-zombie-bundle-desc
-  icon: { sprite: /Textures/Structures/Wallmounts/signs.rsi, state: bio }
+  icon: { sprite: /Textures/_Funkystation/Structures/Wallmounts/signs.rsi, state: bio } # Funky
   productEntity: ClothingBackpackDuffelZombieBundle
   cost:
     Telecrystal: 200

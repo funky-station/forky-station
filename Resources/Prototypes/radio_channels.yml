@@ -4,6 +4,7 @@
   keycode: ";"
   frequency: 145.9
   color: "#c4f129" # Funky, splendor palette color
+  intercomOnly: true # Imp Original
 
 - type: radioChannel
   id: CentCom

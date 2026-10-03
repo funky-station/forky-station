@@ -3,6 +3,7 @@
   name: job-name-cl
   description: job-description-cl
   playTimeTracker: JobCorporateLiaison
+  requiresNda: Command # Funky
   requirements:
   - !type:DepartmentTimeRequirement
     department: Command
@@ -26,6 +27,7 @@
     shoes: ClothingShoesBootsLaceup
     id: CLPDA
     ears: ClothingHeadsetCL
+    back: ClothingBackpackSatchelLeather
 
 - type: chameleonOutfit
   id: CLChameleonOutfit

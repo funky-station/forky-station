@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "copyright": "By AraiMaia for Funky Station.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "icon-inhand-left"
+    },
+    {
+      "name": "icon-inhand-right"
+    },
+    {
+      "name": "box"
+    },
+    {
+      "name": "box-open"
+    },
+    {
+      "name": "box1"
+    },
+    {
+      "name": "box2"
+    },
+    {
+      "name": "box3"
+    }
+  ]
+}

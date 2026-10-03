@@ -284,7 +284,7 @@
         - id: ClothingHeadHelmetSyndicate
         - id: ClothingOuterEVASuitSyndicate
         - id: ClothingMaskGasSyndicate
-        - id: ClothingHandsGlovesColorYellowBudget
+        - id: FuClothingHandsGlovesInsulsBudget #Funky
         - id: DoubleEmergencyOxygenTankFilled
         - id: DoubleEmergencyNitrogenTankFilled
         - id: SuitSealantCanister # Funky

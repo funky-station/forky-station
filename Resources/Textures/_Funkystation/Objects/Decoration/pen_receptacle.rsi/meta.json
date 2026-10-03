@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Icon sprites by @vectorassembly and @pirakaplant (both GitHub) | Pen sprites by @Dogman20801 (GitHub)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon-beige"
+    },
+    {
+      "name": "icon-blue"
+    },
+    {
+      "name": "icon-grey"
+    },
+    {
+      "name": "icon-green"
+    },
+    {
+      "name": "icon-red"
+    },
+    {
+      "name": "pen1"
+    },
+    {
+      "name": "pen2"
+    },
+    {
+      "name": "pen3"
+    },
+    {
+      "name": "pen4"
+    }
+  ]
+}

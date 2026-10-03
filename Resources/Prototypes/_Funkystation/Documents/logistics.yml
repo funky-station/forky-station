@@ -4,4 +4,4 @@
   description: doc-material-request-desc
   category: DocCatLogistics
   paperPrototype: Paper
-  content: doc-material-request-content
+  contentFileName: test.txt # TODO: Change this

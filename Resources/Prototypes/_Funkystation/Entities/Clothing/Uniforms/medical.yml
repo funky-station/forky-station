@@ -1,6 +1,6 @@
 ## dresses
 
-#doctors
+#doctor
 - type: entity
   parent: ClothingUniformBase
   id: FuClothingUniformMedDress
@@ -23,7 +23,7 @@
   - type: Clothing
     sprite: _Funkystation/Clothing/Uniforms/Medical/Dress/med-stockings.rsi
 
-#chemists
+#chemist
 - type: entity
   parent: ClothingUniformBase
   id: FuClothingUniformChemDress

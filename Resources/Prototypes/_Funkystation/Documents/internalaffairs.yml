@@ -4,6 +4,6 @@
   description: doc-department-audit-desc
   category: DocCatInternalAffairs
   paperPrototype: Paper
-  content: doc-department-audit-content
+  contentFileName: test.txt # TODO: Change this
   access:
     - Command

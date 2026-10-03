@@ -146,7 +146,7 @@
   description: An ultrabright flashbulb with a trigger, which causes the victim to be dazed and lose their eyesight for a moment. Useless when burnt out.
   components:
     - type: Sprite
-      sprite: Objects/Weapons/Melee/flash.rsi
+      sprite: _Funkystation/Objects/Weapons/Melee/flash.rsi # Funky
       layers:
       - state: flash
         map: [ "enum.FlashVisualLayers.BaseLayer" ]
@@ -166,7 +166,7 @@
       angle: 10
     - type: Item
       size: Small
-      sprite: Objects/Weapons/Melee/flash.rsi
+      sprite: _Funkystation/Objects/Weapons/Melee/flash.rsi # Funky
     - type: UseDelay
       delay: 4 # has to be the same as the FlashingTime datafield in FlashComponent
     - type: UseDelayOnMeleeHit
