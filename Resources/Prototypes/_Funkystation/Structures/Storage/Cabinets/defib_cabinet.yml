@@ -1,0 +1,87 @@
+- type: entity
+  parent: DefibrillatorCabinet
+  id: DefibrillatorCabinetLeft
+  suffix: Left
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: Structures/Wallmounts/defib-cabinet.rsi
+    offset: -0.25, -0.25
+    layers:
+    - state: frame
+    - state: fill
+      map: ["enum.ItemCabinetVisuals.Layer"]
+      visible: true
+    - state: closed
+      map: ["enum.OpenableVisuals.Layer"]
+  - type: Construction
+    graph: DefibrillatorCabinetOffset
+    node: defib_left
+
+- type: entity
+  parent: DefibrillatorCabinetLeft
+  id: DefibrillatorCabinetLeftOpen
+  suffix: Left Open
+  components:
+  - type: Openable
+    opened: true
+
+- type: entity
+  parent: DefibrillatorCabinetLeft
+  id: DefibrillatorCabinetLeftFilled
+  suffix: Left Filled
+  components:
+  - type: ContainerFill
+    containers:
+      ItemCabinet:
+      - Defibrillator
+
+- type: entity
+  parent: [DefibrillatorCabinetLeftFilled, DefibrillatorCabinetLeftOpen]
+  id: DefibrillatorCabinetLeftFilledOpen
+  suffix: Left, Filled, Open
+
+- type: entity
+  parent: DefibrillatorCabinet
+  id: DefibrillatorCabinetRight
+  suffix: Right
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: Structures/Wallmounts/defib-cabinet.rsi
+    offset: 0.25, -0.25
+    layers:
+    - state: frame
+    - state: fill
+      map: ["enum.ItemCabinetVisuals.Layer"]
+      visible: true
+    - state: closed
+      map: ["enum.OpenableVisuals.Layer"]
+  - type: Construction
+    graph: DefibrillatorCabinetOffset
+    node: defib_right
+
+- type: entity
+  parent: DefibrillatorCabinetRight
+  id: DefibrillatorCabinetRightOpen
+  suffix: Right Open
+  components:
+  - type: Openable
+    opened: true
+
+- type: entity
+  parent: DefibrillatorCabinetRight
+  id: DefibrillatorCabinetRightFilled
+  suffix: Right Filled
+  components:
+  - type: ContainerFill
+    containers:
+      ItemCabinet:
+      - Defibrillator
+
+- type: entity
+  parent: [DefibrillatorCabinetRightFilled, DefibrillatorCabinetRightOpen]
+  id: DefibrillatorCabinetRightFilledOpen
+  suffix: Right, Filled, Open

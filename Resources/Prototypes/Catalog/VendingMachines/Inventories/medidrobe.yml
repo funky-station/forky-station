@@ -19,9 +19,10 @@
 #    ClothingHeadHatSurgcapPurple: 2
     ClothingMaskSterile: 2
     ClothingHeadsetMedical: 2
-    ClothingBackpackMedical: 2
-    ClothingBackpackDuffelMedical: 2
-    ClothingBackpackSatchelMedical: 2
+    # ClothingBackpackMedical: 2 # Funky
+    ClothingBackpackDuffelMedical: 1 # Funky
+    # ClothingBackpackSatchelMedical: 2 # Funky
+    PouchMedical: 2 # Funky
     # Funky uniforms
     FuClothingUniformMedDress: 2
     FuClothingUniformMedJumpsuit: 2

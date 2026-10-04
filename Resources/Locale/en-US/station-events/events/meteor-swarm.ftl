@@ -1,9 +1,33 @@
-﻿station-event-meteor-swarm-start-announcement = Meteors have been detected on collision course with the station.
-station-event-meteor-swarm-end-announcement = The meteor swarm has passed. Please return to your stations.
+﻿# rewritten for funky
+station-event-meteor-swarm-start-announcement = Telemetry alert.
+                                                High-density cluster of meteors detected on collision trajectory.
+                                                External hull breach alert active.
 
-station-event-space-dust-start-announcement = The station is passing through a debris cloud, expect minor damage to external fittings and fixtures.
-station-event-meteor-urist-start-announcement = The station is colliding with an unidentified swarm of debris. Please stay calm and do not listen to them.
-station-event-meteor-cow-start-announcement = The station is colliding with an unidentified swarm of debris. Warning: Do not feed them wheat. Moo-ve away from exterior sections.
-station-event-meteor-clown-start-announcement = The station is colliding with an unidentified swarm of debris. HONK! Evacuate laughing gas storage immediately.
-station-event-meteor-potato-start-announcement = The station is colliding with an unidentified swarm of debris. High starch content detected.
-station-event-fun-swarm-start-announcement = The station is colliding with an unidentified swarm of debris. Please panic appropriately.
+station-event-meteor-swarm-end-announcement = Telemetry update.
+                                              Meteor cluster cleared from station perimeter.
+                                              Structural damage assessments authorized.
+
+station-event-space-dust-start-announcement = Telemetry alert.
+                                              Station entering micro-debris particulate field.
+                                              Minor external fixture abrasion projected.
+
+station-event-meteor-urist-start-announcement = Telemetry alert.
+                                                Biological mass detected on collision trajectory.
+                                                Sensor arrays register vocalizations.
+                                                Disregard.
+
+station-event-meteor-cow-start-announcement = Telemetry alert.
+                                              Biological mass detected on collision trajectory.
+                                              Spectrographic analysis registers frozen bovine biomass.
+
+station-event-meteor-clown-start-announcement = Telemetry alert.
+                                                Biological mass detected on collision trajectory.
+                                                Sensor readings indicate clowns.
+
+station-event-meteor-potato-start-announcement = Telemetry alert.
+                                                 Biological mass detected on collision trajectory.
+                                                 Spectrographic analysis registers elevated starch contents.
+
+station-event-fun-swarm-start-announcement = Telemetry alert.
+                                             Non-standard kinetic cluster on collision course.
+                                             Telemetry inputs unresolvable.
