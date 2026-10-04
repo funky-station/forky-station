@@ -1,5 +1,5 @@
 - type: entity
-  parent: GasPipeBase
+  parent: GasPipeBaseNoRestrict # funky
   abstract: true
   id: GasUnaryBase
   placement:
@@ -19,6 +19,16 @@
           nodeGroupID: Pipe
           pipeDirection: South
     - type: CollideOnAnchor
+    - type: ContainerContainer # funky start
+      containers:
+        hidden_slot: !type:ContainerSlot
+    - type: ItemSlots
+      slots:
+        hidden_slot:
+          name: hidden_slot
+          whitelist:
+            tags:
+            - SurveillanceDevices # funky end
 
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]
@@ -264,7 +274,7 @@
       key: enum.ThermomachineUiKey.Key
     - type: WiresPanel
     - type: WiresVisuals
-    - type: PipeRestrictOverlap
+    # - type: PipeRestrictOverlap # funky gone
     - type: NodeContainer
       nodes:
         pipe:

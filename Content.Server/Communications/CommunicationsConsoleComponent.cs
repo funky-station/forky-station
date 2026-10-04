@@ -31,6 +31,19 @@ namespace Content.Server.Communications
         public LocId Title = "comms-console-announcement-title-station";
 
         /// <summary>
+        /// Funky - Fluent ID for the preamble "Incoming announcement" statement.
+        /// </summary>
+        [DataField]
+        public LocId Preamble = "pa-announcement-preamble";
+
+        /// <summary>
+        /// Funky - whether this comms console can bypass PA speakers
+        /// and be received directly by players, AKA "announce telepathically".
+        /// </summary>
+        [DataField]
+        public bool CanBypassPA = false;
+
+        /// <summary>
         /// Announcement color
         /// </summary>
         [ViewVariables]

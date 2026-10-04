@@ -27,7 +27,7 @@ public sealed class ViewconeCCVars : CVars
 
     // disables the grainy static-y noise on the viewcone occlusion
     public static readonly CVarDef<bool> DisableViewconeGrain =
-        CVarDef.Create("funkystation.disable_viewcone_grain", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+        CVarDef.Create("funkystation.disable_viewcone_grain", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     // 0-1, how much darker the viewcone occlusion overlay gets
     public static readonly CVarDef<float> ViewconeOcclusionOpacity =

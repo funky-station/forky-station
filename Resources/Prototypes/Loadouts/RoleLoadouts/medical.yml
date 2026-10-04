@@ -7,7 +7,6 @@
   - FuCmoHead # funky- previously ChiefMedicalOfficerHead
   - MedicalMask
   - FuCmoUniform # funky - ChiefMedicalOfficerJumpsuit
-  - MedicalBackpack
   - FuCmoOuterclothing # funky - previously ChiefMedicalOfficerOuterClothing
 #  - ChiefMedicalOfficerNeck funky - no more capes for non-militant command
   - ChiefMedicalOfficerShoes
@@ -27,7 +26,6 @@
   - FuMedicalDoctorHead # funky - previously MedicalDoctorHead
   - MedicalMask
   - FuMedicalDoctorUniform # funky - previously MedicalDoctorJumpsuit
-  - MedicalBackpack
   - FuMedicalDoctorOuterclothing # funky - previously MedicalDoctorOuterClothing
   - MedicalShoes
   #- MedicalDoctorPDA # Funky: the wallet-ening, also removing the loadout choice for senior stuff
@@ -46,7 +44,6 @@
   - GroupTankHarness
   - FuMedicalInternHead # funky - new
   - FuMedInternUniform # funky - previously MedicalInternJumpsuit
-  - MedicalBackpack
   - Pager
   - Glasses
   - AssistiveItems
@@ -63,7 +60,6 @@
   - MedicalMask
   - FuChemistUniform # funky - previously ChemistJumpsuit
   - FuChemistGloves # funky - new
-  - ChemistBackpack
   - FuChemistOuterclothing # funky - previously ChemistOuterClothing
   - FuChemistBoots # funky - previously MedicalShoes
   - Pager
@@ -82,7 +78,6 @@
   - ParamedicHead
   - MedicalMask
   - ParamedicJumpsuit
-  - MedicalBackpack
   - ParamedicOuterClothing
   - ParamedicShoes
   - Pager

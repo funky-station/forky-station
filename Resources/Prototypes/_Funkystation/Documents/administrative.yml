@@ -4,7 +4,7 @@
   description: doc-command-promotion-desc
   category: DocCatAdministrative
   paperPrototype: Paper
-  content: doc-command-promotion-content
+  contentFileName: test.txt # TODO: Change this
   access:
     - Command
 
@@ -14,7 +14,7 @@
   description: doc-job-transfer-desc
   category: DocCatAdministrative
   paperPrototype: Paper
-  content: doc-job-transfer-content
+  contentFileName: test.txt # TODO: Change this
   access:
   - Command
 
@@ -24,6 +24,6 @@
   description: doc-demotion-notice-desc
   category: DocCatAdministrative
   paperPrototype: Paper
-  content: doc-demotion-notice-content
+  contentFileName: test.txt # TODO: Change this
   access:
   - Command

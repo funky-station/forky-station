@@ -78,25 +78,7 @@
   category: cargoproduct-category-name-engineering
   group: market
 
-- type: cargoProduct
-  id: EngineeringRCDAmmo
-  icon:
-    sprite: Objects/Tools/rcd.rsi
-    state: ammo
-  product: CrateRCDAmmo
-  cost: 2500
-  category: cargoproduct-category-name-engineering
-  group: market
-
-- type: cargoProduct
-  id: EngineeringRCD
-  icon:
-    sprite: Objects/Tools/rcd.rsi
-    state: icon
-  product: CrateRCD
-  cost: 800
-  category: cargoproduct-category-name-engineering
-  group: market
+  # funky, removed RCD from cargo
 
 - type: cargoProduct
   id: EngineeringParticleDecelerators

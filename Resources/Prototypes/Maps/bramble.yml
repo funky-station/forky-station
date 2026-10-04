@@ -21,7 +21,6 @@
           availableJobs:
             #corporate
             CorporateLiaison: [ 1, 1 ]
-            InternalAffairsAgent: [ 2, 2 ]
             #command
             Captain: [ 1, 1 ]
             ExecutiveOfficer: [ 1, 1 ]
@@ -60,9 +59,11 @@
             #legal
             Magistrate: [ 1, 1 ]
             Lawyer: [ 2, 2 ]
+            InternalAffairsAgent: [ 2, 2 ]
             #supply
             Botanist: [ 2, 3 ]
             CargoTechnician: [ 4, 4 ]
+            FuCourier: [ 1, 1 ]
             Prisoner: [ 1, 1 ]
             #civilian
             Passenger: [ -1, -1 ]

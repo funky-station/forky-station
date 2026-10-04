@@ -2,8 +2,6 @@
   parent: BaseItem
   id: BasePager
   abstract: true
-  name: pager
-  description: A small handheld pager, "Pocket Bell" brand. Beeps or buzzes, depending on the mode.
   components:
   - type: Pager
     blacklist:
@@ -39,6 +37,8 @@
   parent: BasePager
   id: PagerGray
   suffix: Gray
+  name: PB-10 pager
+  description: A small, gray handheld pager, ever ubiquitous "Pocket Bell" brand. About as generic as it gets.
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Devices/Pagers/gray.rsi
@@ -63,6 +63,8 @@
   parent: BasePager
   id: PagerBeige
   suffix: Beige
+  name: PXIA-2 pager
+  description: A small, beige handheld pager. This is the kind of "premium" pagers sold to paperpushers all over the sector.
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Devices/Pagers/beige.rsi
@@ -87,6 +89,8 @@
   parent: BasePager
   id: PagerBlue
   suffix: Blue
+  name: CM100 pager
+  description: A small, blue handheld pager. This brand was marketed towards your average working joe, proclaiming its "robustness".
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Devices/Pagers/blue.rsi
@@ -111,6 +115,8 @@
   parent: BasePager
   id: PagerTransCyan
   suffix: Transparent Cyan
+  name: Type-n-Tell 4000 pager
+  description: A small, transparent-cyan plastic pager. It's clearly made for children.
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Devices/Pagers/transcyan.rsi
@@ -135,6 +141,8 @@
   parent: BasePager
   id: PagerTransPink
   suffix: Transparent Pink
+  name: ASCPF-06 pager
+  description: A small, transparent-pink handheld pager. This one's labelled as property of some "Aegis Security Consolidated Penal Facility".
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Devices/Pagers/transpink.rsi
@@ -159,6 +167,8 @@
   parent: BasePager
   id: PagerTransYellow
   suffix: Transparent Yellow
+  name: DonkCo. pager
+  description: A small handheld transparent-yellow pager. This one was manufactured by DonkCo. It's slightly sticky...
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Devices/Pagers/transyellow.rsi

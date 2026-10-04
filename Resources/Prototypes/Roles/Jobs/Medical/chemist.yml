@@ -20,6 +20,7 @@
   equipment:
     id: ChemistryWallet # Funky: the wallet-ening
     ears: ClothingHeadsetMedical
+    pocket2: PouchMedical # funky
 
 - type: chameleonOutfit
   id: ChemistChameleonOutfit

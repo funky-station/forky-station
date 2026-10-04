@@ -792,7 +792,7 @@
     - state: icon-rcd
   - type: ItemBorgModule
     hands:
-    - item: RCDRecharging
+    - item: ConstructionChalk # Funky
     - item: BorgFireExtinguisher
     - item: BorgHandheldGPSBasic
     - item: GasAnalyzer
