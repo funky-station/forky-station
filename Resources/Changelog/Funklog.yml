@@ -900,4 +900,114 @@
   id: 105
   time: '2026-09-24T04:46:04Z'
   url: https://github.com/funky-station/forky-station/pull/177
+- author: TheHolyAegis
+  changes:
+  - message: Removed the ability to construct the AI core.
+    type: Remove
+  id: 106
+  time: '2026-09-25T13:25:45Z'
+  url: https://github.com/funky-station/forky-station/pull/494
+- author: AraiMaia
+  changes:
+  - message: You can now pat people down by right clicking them, and selecting the
+      verb.
+    type: Add
+  - message: You can now open the worn storage items of people in the strip menu.
+    type: Tweak
+  id: 107
+  time: '2026-09-26T19:32:08Z'
+  url: https://github.com/funky-station/forky-station/pull/536
+- author: honeyed-lemons
+  changes:
+  - message: Added Quick Construction menus to Steel, Metal Rods, and all types of
+      Glass.
+    type: Add
+  id: 108
+  time: '2026-09-26T19:33:09Z'
+  url: https://github.com/funky-station/forky-station/pull/505
+- author: WiZ88
+  changes:
+  - message: Crew Monitoring console search bar now refreshes instantly
+    type: Fix
+  id: 109
+  time: '2026-09-27T05:02:51Z'
+  url: https://github.com/funky-station/forky-station/pull/420
+- author: mkanke
+  changes:
+  - message: Tweak curb collision to make more sense
+    type: Tweak
+  id: 110
+  time: '2026-09-27T06:18:40Z'
+  url: https://github.com/funky-station/forky-station/pull/486
+- author: AraiMaia
+  changes:
+  - message: Dying now cuts to black. Dramatic.
+    type: Add
+  - message: Hardcrit slowly darkens your screen and lowers your audio.
+    type: Add
+  id: 111
+  time: '2026-09-29T03:32:07Z'
+  url: https://github.com/funky-station/forky-station/pull/561
+- author: mkanke
+  changes:
+  - message: Added security locked blast doors
+    type: Add
+  id: 112
+  time: '2026-09-30T14:31:10Z'
+  url: https://github.com/funky-station/forky-station/pull/519
+- author: mkanke
+  changes:
+  - message: Added several offset variations of common wallmount items
+    type: Add
+  id: 113
+  time: '2026-10-02T09:13:54Z'
+  url: https://github.com/funky-station/forky-station/pull/517
+- author: AraiMaia, mkanke
+  changes:
+  - message: Added Generic, Medical, and Research pouches that fit into your pocket
+      slots.
+    type: Add
+  - message: All jumpsuits now have a native 2x2 storage grid.
+    type: Tweak
+  - message: Wearing a backpack, satchel, or duffel now slightly reduces your stamina
+      regeneration speed.
+    type: Tweak
+  - message: Rebalanced roundstart loadouts. Medical, Science, and Service roles now
+      rely on pouches instead of backpacks. Command roles now use stylish Leather
+      Satchels.
+    type: Tweak
+  - message: Backpacks have been heavily phased out of most department vending machines
+      to encourage using pockets, pouches, and belts.
+    type: Remove
+  id: 114
+  time: '2026-10-02T14:23:07Z'
+  url: https://github.com/funky-station/forky-station/pull/542
+- author: AraiMaia
+  changes:
+  - message: Added SIS/TR v3.20, a station infrastructure machine that manages all
+      automated station event announcements.
+    type: Add
+  - message: Rewrote station event and alert level announcements to fit SIS/TR.
+    type: Tweak
+  - message: Station events will no longer announce themselves if SIS/TR is unpowered
+      or destroyed.
+    type: Tweak
+  id: 115
+  time: '2026-10-02T14:31:45Z'
+  url: https://github.com/funky-station/forky-station/pull/550
+- author: mycobiota
+  changes:
+  - message: Viewcone grain is disabled by default.
+    type: Tweak
+  id: 116
+  time: '2026-10-02T14:44:03Z'
+  url: https://github.com/funky-station/forky-station/pull/559
+- author: pirakaplant, vectorassembly, Dogman20801
+  changes:
+  - message: Pen receptacles have been added (with sprites by @pirakaplant, @vectorassembly,
+      and @Dogman20801).
+    type: Add
+  id: 117
+  time: '2026-10-02T21:59:59Z'
+  url: https://github.com/funky-station/forky-station/pull/173
 Order: -1

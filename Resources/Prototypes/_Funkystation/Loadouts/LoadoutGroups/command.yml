@@ -1,0 +1,6 @@
+﻿- type: loadoutGroup
+  id: XOBackpack
+  name: loadout-group-xo-backpack
+  loadouts:
+  - LeatherSatchel
+  - HoPBackpackIan

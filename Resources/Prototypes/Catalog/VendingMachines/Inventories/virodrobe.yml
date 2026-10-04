@@ -7,6 +7,6 @@
     ClothingOuterCoatLabViro: 2
     ClothingOuterWinterViro: 2
     ClothingMaskSterile: 2
-    ClothingBackpackVirology: 2
-    ClothingBackpackSatchelVirology: 2
-    ClothingBackpackDuffelVirology: 2
+    # ClothingBackpackVirology: 2 # Funky
+    # ClothingBackpackSatchelVirology: 2 # Funky
+    # ClothingBackpackDuffelVirology: 2 # Funky

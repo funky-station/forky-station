@@ -18,6 +18,7 @@
     shoes: ClothingShoesLeather
     id: PsychologistWallet # Funky: the wallet-ening
     ears: ClothingHeadsetMedical
+    pocket2: PouchMedical # funky
   storage:
     back:
     - RubberStampPsychologist

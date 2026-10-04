@@ -1,7 +1,9 @@
 using System.Numerics;
+using Content.Server._Funkystation.SistrCore; // funky
 using Content.Server._MACRO.Announcements;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking.Rules;
+using Content.Server.Station.Components; // funky
 using Content.Server.Station.Systems;
 using Content.Server.StationEvents.Components;
 using Content.Shared._Funkystation.CCVar;
@@ -24,6 +26,7 @@ public sealed partial class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmCompon
     [Dependency] private AudioSystem _audio = default!;
     [Dependency] private ChatSystem _chat = default!;
     [Dependency] private StationSystem _station = default!;
+    [Dependency] private SistrCoreSystem _sistrCore = default!; // funky
     [Dependency] private IConfigurationManager _cfg = null!; // funky - pa announcement cvar
 
     [Dependency] private AnnouncerManager _announcer = default!; // Macrocosm edit
@@ -37,24 +40,41 @@ public sealed partial class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmCompon
         // we don't want to send to players who aren't in game (i.e. in the lobby)
         Filter allPlayersInGame = Filter.Empty().AddWhere(GameTicker.UserHasJoinedGame);
 
+        // funky start, check if SISTR should announce and is alive
+        var isSistr = Comp<StationEventComponent>(uid).StartAnnouncementSender == "chat-manager-sender-sistr";
+        var sistrUp = false;
+        var query = EntityQueryEnumerator<StationEventEligibleComponent>();
+        while (query.MoveNext(out var stationUid, out _))
+        {
+            if (_sistrCore.StationHasFunctionalCore(stationUid))
+            {
+                sistrUp = true;
+                break;
+            }
+        }
+        var canAnnounce = !isSistr || sistrUp;
+        // funky end
+
         // Macrocosm edit start - announcer variation
         SoundSpecifier? sound = null; // funky
 
         var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
 
-        if (component.AnnouncementSound is { } soundId && _announcer.TryGetAnnouncerSound(soundId, out sound))
+        if (canAnnounce && component.AnnouncementSound is { } soundId && _announcer.TryGetAnnouncerSound(soundId, out sound)) // funky
         {
             if (!paExclusive) // funky
                 _audio.PlayGlobal(sound, allPlayersInGame, true);
         }
         // Macrocosm edit end
 
-        if (component.Announcement is { } locId)
+        if (canAnnounce && component.Announcement is { } locId) // funky
+            // funky, sender/color pulled from the StationEvent component
+        {
             _chat.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(locId),
+                sender: Loc.GetString(Comp<StationEventComponent>(uid).StartAnnouncementSender), // funky
                 playSound: paExclusive, announcementSound: paExclusive ? sound : null, // funky
-                colorOverride: Color.Gold);
-
-
+                colorOverride: Comp<StationEventComponent>(uid).StartAnnouncementColor); // funky
+        }
     }
 
     protected override void ActiveTick(EntityUid uid, MeteorSwarmComponent component, GameRuleComponent gameRule, float frameTime)
