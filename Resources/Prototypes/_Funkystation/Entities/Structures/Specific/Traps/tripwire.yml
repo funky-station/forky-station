@@ -16,7 +16,7 @@
       knockdownTime: 3
       launchForwardsMultiplier: 0.5
   - type: StepTrigger
-    intersectRatio: 0.
+    intersectRatio: 0
     requiredTriggeredSpeed:  2.5
   - type: TriggerOnStepTrigger
   - type: DamageOnTrigger
