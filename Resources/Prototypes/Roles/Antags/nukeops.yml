@@ -9,6 +9,9 @@
     #time: 5h
     time: 10h
   guides: [ NuclearOperatives ]
+  tags:
+  - OffStation
+  - Roundstart
 
 - type: antag
   id: NukeopsMedic
@@ -25,6 +28,9 @@
     #time: 3h
     time: 5h # Funky
   guides: [ NuclearOperatives ]
+  tags:
+  - OffStation
+  - Roundstart
 
 - type: antag
   id: NukeopsCommander
@@ -41,6 +47,9 @@
     time: 5h
   # should be changed to nukie playtime when thats tracked (wyci)
   guides: [ NuclearOperatives ]
+  tags:
+  - OffStation
+  - Roundstart
 
 - type: antagSpecifier
   abstract: true

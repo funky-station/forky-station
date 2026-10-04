@@ -25,6 +25,8 @@ public sealed partial class CommunicationsConsoleBoundUserInterface(EntityUid ow
     [ViewVariables]
     private CommunicationsConsoleMenu? _menu;
 
+    private static readonly EntProtoId FallbackScreen = "Screen";
+
     /// <inheritdoc/>
     protected override void Open()
     {
@@ -39,6 +41,8 @@ public sealed partial class CommunicationsConsoleBoundUserInterface(EntityUid ow
 
         if (EntMan.TryGetComponent<CommunicationsConsoleComponent>(Owner, out var console))
             _menu.SetBroadcastDisplayEntity(console.ScreenDisplayId);
+        else
+            _menu.SetBroadcastDisplayEntity(FallbackScreen);
     }
 
     public void AlertLevelSelected(ProtoId<AlertLevelPrototype> level)

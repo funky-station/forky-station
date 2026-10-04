@@ -23,6 +23,24 @@
     state: SalvageSpecialist # Funky - Formerly "ShaftMiner"
   jobName: job-name-salvagespec
 
+# Civilian
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPassenger
+  icon:
+    sprite: *icon-rsi
+    state: Assistant # Funky - Formerly "Passenger"
+  jobName: job-name-passenger
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconVisitor
+  icon:
+    sprite: *icon-rsi
+    state: Visitor
+  jobName: job-name-visitor
+
 # Command
 
 - type: jobIcon
@@ -328,7 +346,7 @@
   id: JobIconTramDriver
   icon:
     sprite: *icon-rsi
-    state: Unknown #FUNKYTODO: Sus job icon?
+    state: TramDriver
   jobName: job-name-tramdriver
 
 # Entertainer (like service, but not actually service)
@@ -356,24 +374,6 @@
     sprite: *icon-rsi
     state: Musician
   jobName: job-name-musician
-
-# Passenger
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconPassenger
-  icon:
-    sprite: *icon-rsi
-    state: Assistant # Funky - Formerly "Passenger"
-  jobName: job-name-passenger
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconVisitor
-  icon:
-    sprite: *icon-rsi
-    state: Visitor
-  jobName: job-name-visitor
 
 # Silicon
 
@@ -621,5 +621,5 @@
   id: JobIconSus
   icon:
     sprite: *icon-rsi
-    state: Unknown #FUNKYTODO: Sus job icon?
+    state: Sus
   jobName: job-name-sus
