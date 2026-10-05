@@ -46,7 +46,13 @@ public sealed partial class GasFilterComponent : Component
     public float MaxTransferRate = Atmospherics.MaxTransferRate;
 
     /// <summary>
-    /// Indicates gas type to be filtered out into the secondary outlet
+    /// Indicates gas types to be filtered out into the secondary outlet
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public List<Gas> FilteredGases = new(); // Funky
+
+    /// <summary>
+    /// Indicates gas type to be filtered out into the secondary outlet [DEPRECATED]
     /// </summary>
     [DataField, AutoNetworkedField]
     public Gas? FilteredGas;

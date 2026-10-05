@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Atmos.Piping.Trinary.Components;
@@ -30,12 +31,14 @@ public abstract partial class SharedGasFilterSystem : EntitySystem
             args.PushMarkup(transferRateStr);
         }
 
+        // funky - start
         var gasName = Loc.GetString("comp-gas-filter-ui-filter-gas-none");
-        if (ent.Comp.FilteredGas.HasValue)
+        if (ent.Comp.FilteredGases.Count > 0)
         {
-            var gas = _atmosphereSystem.GetGas((Gas)ent.Comp.FilteredGas);
-            gasName = Loc.GetString(gas.Name);
+            var gases = ent.Comp.FilteredGases.Select(gasId => _atmosphereSystem.GetGas(gasId).Name);
+            gasName = string.Join(", ", gases);
         }
+        // funky - end
 
         if (Loc.TryGetString("comp-gas-filter-filtered-gas-examine",
                 out var filteredGasStr,
@@ -71,28 +74,31 @@ public abstract partial class SharedGasFilterSystem : EntitySystem
     }
 
     [SubscribeLocalEvent]
-    private void OnSelectGasMessage(Entity<GasFilterComponent> ent, ref GasFilterSelectGasMessage args)
+    private void OnSelectGasMessage(Entity<GasFilterComponent> ent, ref GasFilterSelectGasesMessage args)
     {
-        if (args.Gas.HasValue)
+        // funky - start
+        if (args.Gases.Count > 0)
         {
-            if (!Enum.IsDefined(typeof(Gas), args.Gas))
+            if (args.Gases.Any(gas => !Enum.IsDefined(typeof(Gas), gas)))
             {
-                Log.Warning($"{ToPrettyString(ent.Owner)} received GasFilterSelectGasMessage with an invalid ID: {args.Gas}");
+                var invalidIds = string.Join(", ", args.Gases.Where(gas => !Enum.IsDefined(typeof(Gas), gas)));
+                Log.Warning($"{ToPrettyString(ent.Owner)} received GasFilterSelectGasMessage with invalid IDs: {invalidIds}");
                 return;
             }
 
-            ent.Comp.FilteredGas = args.Gas;
+            ent.Comp.FilteredGases = args.Gases;
             _adminLogger.Add(LogType.AtmosFilterChanged, LogImpact.Medium,
-                $"{ToPrettyString(args.Actor):player} set the filter on {ToPrettyString(ent.Owner):device} to {args.Gas.ToString()}");
+                $"{ToPrettyString(args.Actor):player} set the filter on {ToPrettyString(ent.Owner):device} to {string.Join(", ", args.Gases)}");
         }
         else
         {
-            ent.Comp.FilteredGas = null;
+            ent.Comp.FilteredGases = new List<Gas>();
             _adminLogger.Add(LogType.AtmosFilterChanged, LogImpact.Medium,
                 $"{ToPrettyString(args.Actor):player} set the filter on {ToPrettyString(ent.Owner):device} to none");
         }
 
-        DirtyField(ent.Owner, ent.Comp, nameof(GasFilterComponent.FilteredGas));
+        DirtyField(ent.Owner, ent.Comp, nameof(GasFilterComponent.FilteredGases));
+        // funky - end
         UpdateUi(ent);
     }
 

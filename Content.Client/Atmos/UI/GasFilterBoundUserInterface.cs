@@ -1,9 +1,11 @@
+using System.Linq;
 using Content.Client.Atmos.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Piping.Trinary.Components;
 using Content.Shared.Localizations;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
+using Robust.Shared.Toolshed.Commands.Values;
 
 namespace Content.Client.Atmos.UI;
 
@@ -42,16 +44,6 @@ public sealed partial class GasFilterBoundUserInterface(EntityUid owner, Enum ui
         _window.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
         _window.SetFilterStatus(filter.Enabled);
         _window.SetTransferRate(filter.TransferRate);
-
-        if (filter.FilteredGas is { } filtered)
-        {
-            var gas = _atmosphere.GetGas(filtered);
-            _window.SetGasFiltered(gas.ID, Loc.GetString(gas.Name));
-        }
-        else
-        {
-            _window.SetGasFiltered(null, Loc.GetString("comp-gas-filter-ui-filter-gas-none"));
-        }
     }
 
     private void OnToggleStatusButtonPressed(bool status)
@@ -70,17 +62,20 @@ public sealed partial class GasFilterBoundUserInterface(EntityUid owner, Enum ui
     {
         if (_window is null)
             return;
-
-        if (_window.SelectedGas is null)
+        // Funky - Start
+        if (_window.SelectedGases is null)
         {
-            SendPredictedMessage(new GasFilterSelectGasMessage(null));
+            SendPredictedMessage(new GasFilterSelectGasesMessage(new List<Gas>()));
         }
         else
         {
-            if (!Enum.TryParse<Gas>(_window.SelectedGas, out var gas))
-                return;
+            var gases = _window.SelectedGases.Where(gasId =>
+            {
+                return Enum.TryParse<Gas>(gasId, out var gas);
+            }).Select(Enum.Parse<Gas>).ToList();
 
-            SendPredictedMessage(new GasFilterSelectGasMessage(gas));
+            SendPredictedMessage(new GasFilterSelectGasesMessage(gases));
         }
+        // Funky - End
     }
 }
