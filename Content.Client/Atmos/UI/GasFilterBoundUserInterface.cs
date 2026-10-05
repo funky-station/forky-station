@@ -25,7 +25,11 @@ public sealed partial class GasFilterBoundUserInterface(EntityUid owner, Enum ui
         base.Open();
 
         _window = this.CreateWindow<GasFilterWindow>();
-        _window.PopulateGasList(_atmosphere.Gases);
+
+        if (_window == null || !EntMan.TryGetComponent(Owner, out GasFilterComponent? filter))
+            return;
+
+        _window.PopulateGasList(_atmosphere.Gases, filter);
 
         _window.ToggleStatusButtonPressed += OnToggleStatusButtonPressed;
         _window.FilterTransferRateChanged += OnFilterTransferRatePressed;
@@ -78,4 +82,5 @@ public sealed partial class GasFilterBoundUserInterface(EntityUid owner, Enum ui
         }
         // Funky - End
     }
+
 }

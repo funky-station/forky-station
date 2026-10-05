@@ -7,6 +7,11 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using System.Linq;
 using Content.Shared.Atmos;
+using Content.Client.Atmos.EntitySystems;
+using System.Runtime.CompilerServices;
+using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;
+using Content.Shared.Atmos.Piping.Trinary.Components;
+using Robust.Shared.Player;
 
 namespace Content.Client.Atmos.UI
 {
@@ -32,10 +37,7 @@ namespace Content.Client.Atmos.UI
 
         private Dictionary<string, Button> _gasControls = new();
 
-        [Dependency] private IEntityManager _entMan = default!;
-        [Dependency] private IPrototypeManager _prototypeManager = default!;
         // funky - end
-
         public GasFilterWindow()
         {
             RobustXamlLoader.Load(this);
@@ -48,6 +50,7 @@ namespace Content.Client.Atmos.UI
                 FilterTransferRateChanged?.Invoke(FilterTransferRateInput.Text);
                 SetFilterRate.Disabled = true;
             };
+
 
         }
 
@@ -62,24 +65,30 @@ namespace Content.Client.Atmos.UI
         }
 
 
-        public void PopulateGasList(IEnumerable<GasPrototype> gases)
+
+        public void PopulateGasList(IEnumerable<GasPrototype> gases, GasFilterComponent filter)
         {
+            SelectedGases = filter.FilteredGases.Select(gas => gas.ToString()).ToList();
+
             // funky - start
             _selectAll.OnPressed += _ =>
             {
                 SelectedGases = gases.Select(gas => gas.ID).ToList();
-                GasSelected();
+                GasSelected(filter);
+                SetSelectedGases(filter);
             };
             _deselectAll.OnPressed += _ =>
             {
                 SelectedGases.Clear();
-                GasSelected();
+                GasSelected(filter);
+                SetSelectedGases(filter);
             };
 
 
             foreach (var gas in gases)
             {
                 var gasName = gas.Name;
+                if (!Enum.TryParse<Gas>(gas.ID, out var gasEnum)) continue;
 
                 var gasButton = new Button
                 {
@@ -87,7 +96,7 @@ namespace Content.Client.Atmos.UI
                     Text = Loc.GetString(gasName),
                     ToggleMode = true,
                     HorizontalExpand = true,
-                    Pressed = SelectedGases.Contains(gas.ID)
+                    Pressed = filter.FilteredGases.Contains(gasEnum)
                 };
 
                 gasButton.OnToggled += args =>
@@ -97,26 +106,28 @@ namespace Content.Client.Atmos.UI
                     else
                         SelectedGases.Remove(gas.ID);
 
-                    GasSelected();
+                    GasSelected(filter);
                 };
                 _gasControls.Add(gas.ID, gasButton);
                 _gases.AddChild(gasButton);
             }
             // funky - end
-
         }
 
 
-        private void GasSelected()
+        private void GasSelected(GasFilterComponent filter)
         {
             SelectGasPressed?.Invoke();
-
-            foreach (var value in Enum.GetValues<Gas>())
-            {
-                _gasControls[value.ToString()].Pressed = SelectedGases.Contains(value.ToString());
-            }
         }
 
+        internal void SetSelectedGases(GasFilterComponent filter)
+        {
+            foreach (var gas in Enum.GetValues<Gas>())
+            {
+                if (!Enum.TryParse<Gas>(gas.ToString(), out var gasEnum)) continue;
+                _gasControls[gas.ToString()].Pressed = filter.FilteredGases.Contains(gasEnum);
+            }
 
+        }
     }
 }
