@@ -3,20 +3,23 @@
 # Sorting by path instead of by who added it one day :(
 # this isn't how codeowners rules work pls read the first comment instead of trying to force a sorting order
 
+# sheply
+/Content.*/_FlockSpace/ @Flock-Space/Maintainers @sheplyram
+
 # taydeo
-/Content.*/_Funkystation/ @taydeo
+/Content.*/_Funkystation/ @Flock-Space/Maintainers
 
 # maps
-/Resources/Maps/ @willowzeta
+/Resources/Maps/ @Flock-Space/Maintainers @Flock-Space/Game-Management
 
 # audio
-/Resources/Audio/ @vectorassembly
+/Resources/Audio/ @Flock-Space/Maintainers @Flock-Space/Game-Management
 
 # textures
-/Resources/Textures/ @Teasq
+/Resources/Textures/ @Flock-Space/Maintainers @Flock-Space/Game-Management
 
 # rules
-/Resources/ServerInfo/ @salpphie @Huhm-1
+/Resources/ServerInfo/ @Flock-Space/Maintainers @Flock-Space/Game-Management
 
 # github
-/.github/ @taydeo @Komonighub
+/.github/ @Flock-Space/Overseers
