@@ -191,7 +191,7 @@ public sealed partial class ThrowingSystem : EntitySystem
             else
             {
                 Resolve(uid, ref throwingAngle, false);
-                var gridRot = transform.ParentUid.IsValid() ? _transform.GetWorldRotation(transform.ParentUid) : Angle.Zero; // funky - make sure the parent is valid to prevent exceptions during test cleanup
+                var gridRot = _transform.GetWorldRotation(transform.ParentUid);
                 var angle = direction.ToWorldAngle() - gridRot;
                 var offset = throwingAngle?.Angle ?? Angle.Zero;
                 _transform.SetLocalRotation(uid, angle + offset);
