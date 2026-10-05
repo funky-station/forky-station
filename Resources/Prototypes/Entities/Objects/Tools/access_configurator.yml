@@ -114,7 +114,7 @@
     - EmergencyShuttleRepealAll
     - Engineering
     - External
-    - HeadOfPersonnel
+#    - HeadOfPersonnel # funky edit
     - HeadOfSecurity
     - Hydroponics
     - Janitor
