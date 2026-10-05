@@ -35,7 +35,7 @@ public abstract partial class SharedGasFilterSystem : EntitySystem
         var gasName = Loc.GetString("comp-gas-filter-ui-filter-gas-none");
         if (ent.Comp.FilteredGases.Count > 0)
         {
-            var gases = ent.Comp.FilteredGases.Select(gasId => _atmosphereSystem.GetGas(gasId).Name);
+            var gases = ent.Comp.FilteredGases.Select(gasId => Loc.GetString(_atmosphereSystem.GetGas(gasId).Name));
             gasName = string.Join(", ", gases);
         }
         // funky - end

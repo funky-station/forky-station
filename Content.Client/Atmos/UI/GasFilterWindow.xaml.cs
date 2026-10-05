@@ -6,6 +6,7 @@ using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.Shared.Atmos;
 
 namespace Content.Client.Atmos.UI
 {
@@ -109,6 +110,13 @@ namespace Content.Client.Atmos.UI
         private void GasSelected()
         {
             SelectGasPressed?.Invoke();
+
+            foreach (var value in Enum.GetValues<Gas>())
+            {
+                _gasControls[value.ToString()].Pressed = SelectedGases.Contains(value.ToString());
+            }
         }
+
+
     }
 }
