@@ -40,14 +40,14 @@ public sealed class CurrencyExchangeSystem : EntitySystem
             if (!TryComp<StackComponent>(held, out var stack) || !IsCurrency(stack.StackTypeId))
                 continue;
 
-            _itemSlots.TryInsert(ent, ent.Comp.CashSlotId, held, args.Actor);
+            _itemSlots.TryInsert(ent.Owner, ent.Comp.CashSlotId, held, args.Actor);
             break;
         }
     }
 
     private void OnEjectCash(Entity<CurrencyExchangeComponent> ent, ref EjectCashMessage args)
     {
-        if (!_itemSlots.TryGetSlot(ent, ent.Comp.CashSlotId, out var slot))
+        if (!_itemSlots.TryGetSlot(ent.Owner, ent.Comp.CashSlotId, out var slot))
             return;
 
         _itemSlots.TryEjectToHands(ent, slot, args.Actor);
@@ -55,7 +55,7 @@ public sealed class CurrencyExchangeSystem : EntitySystem
 
     private void OnConvert(Entity<CurrencyExchangeComponent> ent, ref ConvertCurrencyMessage args)
     {
-        var cashUid = _itemSlots.GetItemOrNull(ent, ent.Comp.CashSlotId);
+        var cashUid = _itemSlots.GetItemOrNull(ent.Owner, ent.Comp.CashSlotId);
         if (cashUid == null || !TryComp<StackComponent>(cashUid, out var stack))
             return;
 

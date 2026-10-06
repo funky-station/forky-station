@@ -146,7 +146,7 @@ public abstract class SharedBankingSystem : EntitySystem
 
     private void OnTransactionRequested(Entity<ATMComponent> ent, ref RequestTransactionMessage args)
     {
-        var cardUid = _itemSlots.GetItemOrNull(ent, ent.Comp.CardSlotId);
+        var cardUid = _itemSlots.GetItemOrNull(ent.Owner, ent.Comp.CardSlotId);
         if (cardUid == null || !TryComp<BankCardComponent>(cardUid, out var card))
             return;
 
@@ -158,13 +158,13 @@ public abstract class SharedBankingSystem : EntitySystem
         if (!TryGetHeldCard(args.Actor, out var card))
             return;
 
-        _itemSlots.TryInsert(ent, ent.Comp.CardSlotId, card.Owner, args.Actor);
+        _itemSlots.TryInsert(ent.Owner, ent.Comp.CardSlotId, card.Owner, args.Actor);
     }
 
     private void OnEjectCardRequested(Entity<ATMComponent> ent, ref EjectCardMessage args)
     {
         // pickup into the player's hand or just falls on floor lol
-        if (!_itemSlots.TryGetSlot(ent, ent.Comp.CardSlotId, out var slot))
+        if (!_itemSlots.TryGetSlot(ent.Owner, ent.Comp.CardSlotId, out var slot))
             return;
 
         _itemSlots.TryEjectToHands(ent, slot, args.Actor);
@@ -209,12 +209,12 @@ public abstract class SharedBankingSystem : EntitySystem
         if (!ConsoleAllowed(ent, args.Actor) || !TryGetHeldCard(args.Actor, out var card))
             return;
 
-        _itemSlots.TryInsert(ent, ent.Comp.CardSlotId, card.Owner, args.Actor);
+        _itemSlots.TryInsert(ent.Owner, ent.Comp.CardSlotId, card.Owner, args.Actor);
     }
 
     private void OnConsoleEjectCard(Entity<AccountManagementConsoleComponent> ent, ref EjectCardMessage args)
     {
-        if (!ConsoleAllowed(ent, args.Actor) || !_itemSlots.TryGetSlot(ent, ent.Comp.CardSlotId, out var slot))
+        if (!ConsoleAllowed(ent, args.Actor) || !_itemSlots.TryGetSlot(ent.Owner, ent.Comp.CardSlotId, out var slot))
             return;
 
         _itemSlots.TryEjectToHands(ent, slot, args.Actor);
@@ -225,7 +225,7 @@ public abstract class SharedBankingSystem : EntitySystem
         if (!ConsoleAllowed(ent, args.Actor))
             return;
 
-        var cardUid = _itemSlots.GetItemOrNull(ent, ent.Comp.CardSlotId);
+        var cardUid = _itemSlots.GetItemOrNull(ent.Owner, ent.Comp.CardSlotId);
         if (cardUid == null || !TryComp<BankCardComponent>(cardUid, out var cardComp))
             return;
 

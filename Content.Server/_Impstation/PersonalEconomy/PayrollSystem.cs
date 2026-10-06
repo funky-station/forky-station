@@ -1,9 +1,9 @@
 using Content.Server.Chat.Systems;
-using Content.Server.StationRecords.Systems;
 using Content.Shared._Impstation.PersonalEconomy.Components;
 using Content.Shared.CriminalRecords;
 using Content.Shared.Security;
 using Content.Shared.StationRecords;
+using Content.Shared.StationRecords.Systems;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.PersonalEconomy;

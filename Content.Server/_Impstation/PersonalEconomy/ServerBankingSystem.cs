@@ -1,7 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Cargo.Systems;
 using Content.Server.DeviceLinking.Systems;
-using Content.Server.StationRecords.Systems;
 using Content.Server.Stack;
 using Content.Shared._Impstation.PersonalEconomy;
 using Content.Shared._Impstation.PersonalEconomy.Components;
@@ -19,6 +18,8 @@ using Content.Shared.Stacks;
 using Content.Shared.CCVar;
 using Content.Shared.Station;
 using Content.Shared.StationRecords;
+using Content.Shared.StationRecords.Components;
+using Content.Shared.StationRecords.Systems;
 using Robust.Server.GameStates;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
@@ -116,7 +117,7 @@ public sealed class ServerBankingSystem : SharedBankingSystem
             return;
 
         // card needs to be slotted so it can mint it there
-        var cardUid = _itemSlots.GetItemOrNull(ent, ent.Comp.CardSlotId);
+        var cardUid = _itemSlots.GetItemOrNull(ent.Owner, ent.Comp.CardSlotId);
         if (cardUid == null || !TryComp<BankCardComponent>(cardUid, out var cardComp))
             return;
 
@@ -207,7 +208,7 @@ public sealed class ServerBankingSystem : SharedBankingSystem
     {
         account = null;
 
-        var cardUid = _itemSlots.GetItemOrNull(ent, ent.Comp.CardSlotId);
+        var cardUid = _itemSlots.GetItemOrNull(ent.Owner, ent.Comp.CardSlotId);
         if (cardUid == null || !TryComp<BankCardComponent>(cardUid, out var card))
             return false;
 

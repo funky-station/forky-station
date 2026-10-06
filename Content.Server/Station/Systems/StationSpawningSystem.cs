@@ -266,7 +266,7 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
         string? fallback = null;
         var found = false;
 
-        foreach (var dept in _prototypeManager.EnumeratePrototypes<DepartmentPrototype>())
+        foreach (var dept in ProtoMan.EnumeratePrototypes<DepartmentPrototype>())
         {
             if (!dept.Roles.Contains(jobId))
                 continue;
