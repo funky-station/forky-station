@@ -1,0 +1,29 @@
+# outer clothing
+
+- type: loadout
+  id: FuCtWindbreaker
+  equipment:
+    outerClothing: FuClothingOuterCoatWindbreakerCt
+
+# uniforms
+
+## jumpsuits
+- type: loadout
+  id: FuCtJumpsuit
+  equipment:
+    jumpsuit: FuClothingUniformJumpsuitLogiCt
+  groupBy: "jumpsuit"
+
+## two piece pants
+- type: loadout
+  id: FuCtTwoPiecePants
+  equipment:
+    jumpsuit: FuClothingUniformTwopiecePantsLogiCt
+  groupBy: "twopiecepants"
+
+## two piece skirts
+- type: loadout
+  id: FuCtTwoPieceSkirt
+  equipment:
+    jumpsuit: FuClothingUniformTwopieceSkirtLogiCt
+  groupBy: "twopieceskirt"

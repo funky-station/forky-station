@@ -3,7 +3,6 @@
   id: ClothingHeadHeadHatBaseFlippable
   abstract: true
   components:
-  - type: Appearance
   - type: Foldable
     canFoldInsideContainer: true
     unfoldVerbText: fold-flip-verb
@@ -265,9 +264,9 @@
   description: A baseball cap colored to match security's uniforms.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Soft/secsoft.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/security_soft.rsi
   - type: Clothing
-    sprite: Clothing/Head/Soft/secsoft.rsi
+    sprite: _Funkystation/Clothing/Head/Hats/security_soft.rsi
 
 - type: entity
   parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatSecsoft]

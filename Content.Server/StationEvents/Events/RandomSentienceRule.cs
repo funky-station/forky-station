@@ -9,13 +9,12 @@ using Robust.Shared.Random;
 
 namespace Content.Server.StationEvents.Events;
 
-public sealed class RandomSentienceRule : StationEventSystem<RandomSentienceRuleComponent>
+public sealed partial class RandomSentienceRule : StationEventSystem<RandomSentienceRuleComponent>
 {
     private static readonly ProtoId<LocalizedDatasetPrototype> DataSourceNames = "RandomSentienceEventData";
     private static readonly ProtoId<LocalizedDatasetPrototype> IntelligenceLevelNames = "RandomSentienceEventStrength";
 
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     protected override void Started(EntityUid uid, RandomSentienceRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -72,15 +71,20 @@ public sealed class RandomSentienceRule : StationEventSystem<RandomSentienceRule
         var kind2 = groupList.Count > 1 ? groupList[1] : "???";
         var kind3 = groupList.Count > 2 ? groupList[2] : "???";
 
+        var isSistr = Comp<StationEventComponent>(uid).StartAnnouncementSender == "chat-manager-sender-sistr";
+        if (isSistr && !SistrCore.StationHasFunctionalCore(station.Value)) // funky, no working sis/tr core on the station means no announcement
+            return;
+
         ChatSystem.DispatchStationAnnouncement(
             station.Value,
             Loc.GetString("station-event-random-sentience-announcement",
                 ("kind1", kind1), ("kind2", kind2), ("kind3", kind3), ("amount", groupList.Count),
-                ("data", _random.Pick(_prototype.Index(DataSourceNames))),
-                ("strength", _random.Pick(_prototype.Index(IntelligenceLevelNames)))
+                ("data", _random.Pick(ProtoMan.Index(DataSourceNames))),
+                ("strength", _random.Pick(ProtoMan.Index(IntelligenceLevelNames)))
             ),
+            sender: Loc.GetString(Comp<StationEventComponent>(uid).StartAnnouncementSender), // funky
             playDefaultSound: false,
-            colorOverride: Color.Gold
+            colorOverride: Comp<StationEventComponent>(uid).StartAnnouncementColor // funky
         );
     }
 }

@@ -25,10 +25,11 @@ public sealed class PopupUIController : UIController, IOnStateEntered<GameplaySt
     {
         base.Initialize();
         var cache = IoCManager.Resolve<IResourceCache>();
-
-        _smallFont = new VectorFont(cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Italic.ttf"), 10);
-        _mediumFont = new VectorFont(cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Italic.ttf"), 12);
-        _largeFont = new VectorFont(cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-BoldItalic.ttf"), 14);
+        // FUNKY EDIT START
+        _smallFont = new VectorFont(cache.GetResource<FontResource>("/Fonts/Atkinson/AtkinsonHyperlegibleNext-Italic.ttf"), 10);
+        _mediumFont = new VectorFont(cache.GetResource<FontResource>("/Fonts/Atkinson/AtkinsonHyperlegibleNext-Italic.ttf"), 12);
+        _largeFont = new VectorFont(cache.GetResource<FontResource>("/Fonts/Atkinson/AtkinsonHyperlegibleNext-BoldItalic.ttf"), 14);
+        // FUNKY EDIT END
     }
 
     public void OnStateEntered(GameplayState state)
@@ -82,7 +83,9 @@ public sealed class PopupUIController : UIController, IOnStateEntered<GameplaySt
         }
 
         var dimensions = handle.GetDimensions(font, popup.Text, scale);
-        handle.DrawString(font, updatedPosition - dimensions / 2f, popup.Text, scale, color.WithAlpha(alpha));
+        var drawPosition = updatedPosition - dimensions / 2f;
+        var outline = TextOutline.Default with { Color = TextOutline.Default.Color.WithAlpha(alpha) };
+        handle.DrawString(font, drawPosition, popup.Text, scale, color.WithAlpha(alpha), outline);
     }
 
     /// <summary>

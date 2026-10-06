@@ -1,3 +1,4 @@
+#nullable enable
 using System.Linq;
 using System.Reflection;
 using Content.IntegrationTests.Pair;
@@ -11,6 +12,11 @@ public static partial class PoolManager
 {
     public static readonly ContentPoolManager Instance = new();
     public const string TestMap = "Empty";
+
+    /// <summary>
+    /// Designated load bearing station. Sometimes you need a station for a test.
+    /// </summary>
+    public const string TestStation = "Saltern";
 
     /// <summary>
     /// Runs a server, or a client until a condition is true

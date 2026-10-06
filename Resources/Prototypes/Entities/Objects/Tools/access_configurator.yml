@@ -33,7 +33,7 @@
       - Command
       - Engineering
       - External
-      - HeadOfPersonnel
+#      - HeadOfPersonnel HoP is replaced on Forky
       - HeadOfSecurity
       - Hydroponics
       - Janitor
@@ -44,17 +44,23 @@
       - Quartermaster
       - Research
       - ResearchDirector
-      - Salvage
+#      - Salvage Salvage is removed on Forky
       - Security
       - Service
       - Theatre
       - GenpopEnter
       - GenpopLeave
+      - Newsroom #funky start
+      - Corporate
+      - InternalAffairs
+      - Magistrate
+      - ExecutiveOfficer
+      - Library
+      - HospitalityDirector #funky end
       privilegedIdSlot:
         name: id-card-console-privileged-id
         ejectSound: /Audio/Machines/id_swipe.ogg
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-        ejectOnBreak: true
         swap: false
         whitelist:
           components:
@@ -108,7 +114,7 @@
     - EmergencyShuttleRepealAll
     - Engineering
     - External
-    - HeadOfPersonnel
+#    - HeadOfPersonnel # funky edit
     - HeadOfSecurity
     - Hydroponics
     - Janitor
@@ -131,12 +137,18 @@
     - Xenoborg
     - GenpopEnter
     - GenpopLeave
+    - Newsroom #funky start
+    - Corporate
+    - InternalAffairs
+    - Magistrate
+    - ExecutiveOfficer
+    - Library
+    - HospitalityDirector #funky end
     privilegedIdSlot:
       name: id-card-console-privileged-id
       startingItem: UniversalIDCard
       ejectSound: /Audio/Machines/id_swipe.ogg
       insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-      ejectOnBreak: true
       swap: false
       whitelist:
         components:
@@ -164,7 +176,6 @@
       startingItem: XenoborgIDCard
       ejectSound: /Audio/Machines/id_swipe.ogg
       insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-      ejectOnBreak: true
       disableEject: true
       swap: false
       whitelist:

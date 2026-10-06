@@ -98,6 +98,10 @@
         orGroup: GiftPool
       - id: PlushieArachind
         orGroup: GiftPool
+      - id: PlushieSheep
+        orGroup: GiftPool
+      - id: PlushieSpaceSheep
+        orGroup: GiftPool
       - id: ClothingNeckCloakMoth
         orGroup: GiftPool
       - id: TennisBall
@@ -179,6 +183,8 @@
       - id: MicrophoneInstrument
         orGroup: GiftPool
       - id: BassGuitarInstrument
+        orGroup: GiftPool
+      - id: FretlessBassGuitarInstrument
         orGroup: GiftPool
       - id: OcarinaInstrument
         orGroup: GiftPool
@@ -282,9 +288,9 @@
         orGroup: GiftPool
       - id: ClothingHandsGlovesColorPurple
         orGroup: GiftPool
-      - id: ClothingHandsGlovesColorYellow
+      - id: FuClothingHandsGlovesInsuls #Funky
         orGroup: GiftPool
-      - id: ClothingHandsGlovesColorYellowBudget
+      - id: FuClothingHandsGlovesInsulsBudget #Funky
         orGroup: GiftPool
       - id: ClothingEyesGlassesSunglasses
         orGroup: GiftPool
@@ -326,7 +332,7 @@
         orGroup: GiftPool
       - id: ClothingUniformJumpskirtColorRainbow
         orGroup: GiftPool
-      - id: ClothingUniformOveralls
+      - id: FuClothingUniformShirtPantstHydroponicsOveralls
         orGroup: GiftPool
       - id: ClothingUniformJumpskirtDetectiveGrey
         orGroup: GiftPool

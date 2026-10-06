@@ -1,0 +1,86 @@
+- type: entity
+  parent: DrinkCanPack
+  id: DrinkCanPackBeer
+  name: 6pack of beer
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/6pack.rsi
+    layers:
+    - state: plastic-thingy
+  - type: ItemSlots
+    slots:
+      6pack_slot6:
+        ejectOnUse: true
+        startingItem: DrinkBeerCan
+        whitelist:
+          tags:
+          - DrinkCan
+        priority: 6
+      6pack_slot5:
+        ejectOnUse: true
+        startingItem: DrinkBeerCan
+        whitelist:
+          tags:
+          - DrinkCan
+        priority: 5
+      6pack_slot4:
+        ejectOnUse: true
+        startingItem: DrinkBeerCan
+        whitelist:
+          tags:
+          - DrinkCan
+        priority: 4
+      6pack_slot3:
+        ejectOnUse: true
+        startingItem: DrinkBeerCan
+        whitelist:
+          tags:
+          - DrinkCan
+        priority: 3
+      6pack_slot2:
+        ejectOnUse: true
+        startingItem: DrinkBeerCan
+        whitelist:
+          tags:
+          - DrinkCan
+        priority: 2
+      6pack_slot1:
+        ejectOnUse: true
+        startingItem: DrinkBeerCan
+        whitelist:
+          tags:
+          - DrinkCan
+        priority: 1
+  - type: ItemMapper
+    mapLayers:
+      6pack1:
+        minCount: 1
+        whitelist:
+          tags:
+          - DrinkCan
+      6pack2:
+        minCount: 2
+        whitelist:
+          tags:
+          - DrinkCan
+      6pack3:
+        minCount: 3
+        whitelist:
+          tags:
+          - DrinkCan
+      6pack4:
+        minCount: 4
+        whitelist:
+          tags:
+          - DrinkCan
+      6pack5:
+        minCount: 5
+        whitelist:
+          tags:
+          - DrinkCan
+      6pack6:
+        minCount: 6
+        whitelist:
+          tags:
+          - DrinkCan
+    sprite: _Funkystation/Objects/Consumable/Drinks/6packbeer.rsi

@@ -28,4 +28,4 @@
 - type: loadout
   id: WardenArmoredWinterCoat
   equipment:
-    outerClothing: ClothingOuterWinterWarden
+    outerClothing: FuClothingOuterWinterWard

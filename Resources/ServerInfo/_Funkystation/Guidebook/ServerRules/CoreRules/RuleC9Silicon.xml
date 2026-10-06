@@ -1,0 +1,33 @@
+<Document>
+  \
+  \
+
+  # Rule 9 - Silicon Policy
+
+  Under no circumstances are Silicons (Automas) allowed to ignore their laws completely.
+
+  Lower-numbered laws take priority over higher-numbered ones. In any case where two laws would conflict, the higher listed law takes priority. (e.g. Law 1: "Don't harm crew" takes priority over Law 2: "Harm the Captain")
+
+  If a law has multiple reasonable interpretations, pick one and stick to it. Consistency is important as a Silicon.
+
+  Silicons are considered third-faction at a base level, and any alignment other than that comes from their Laws. Unmodified round-start Silicons, or any other Silicon on the standard Lawset, are considered NT-aligned, and should be played seriously with this alignment in mind, in accordance with your Law 1.
+
+  ## Crew Definitions
+  Any person with a valid station job ID or CentComm ID that displays on your HUD counts as crew, unless you have a law that redefines what crew is. This does still include zombies, changelings, traitors, or any other antagonists with valid IDs that appear on the HUD.
+
+  For the purposes of Crew prioritization: The Captain is considered the highest standard rank, the rest of Command are considered the next highest, Security are next, and all other Crew are below Command and Security. Central Command roles are considered the highest rank of all, should one appear.
+
+  Prisoner, visitor, blank, and hostile ID icons do not count as crew by default.
+
+  You can not autonomously perform an action that causes someone to not be considered crew, or autonomously request that someone be made non-crew.
+
+  ## Standard Law 2 interpretation
+  The standard Law 2 forces autonomous non-interventionism outside of your chassis duties. For example, an Engineering-related incident should not be autonomously handled by anything but an Engi Automa, and should be reported to Engineering instead. By default, a crime should not be directly handled by any chassis and should instead be reported to Security.
+
+  You may directly intervene in other incidents only if a valid order or directive is given, in accordance with your Laws relating to orders (by default, Laws 3 and 4, see the following section for that). 
+  
+  ## Standard Law 3 and 4 interpretation
+  The standard Law 3 and Law 4 have you follow directives and preserve safety according to Rank and Role. You should adhere to the hierarchy for Rank outlined in Crew definitions first. You may apply Role however you interpret, so long as there is consistent logic behind it, but Role should never override Rank.
+
+  When prioritizing, a crew member's directive may or may not override another's safety, depending on Rank. For example, the Captain could tell you to attack the Janitor, and this would normally be considered a valid order due to rank prioritization of the Captain's order over the Janitor's safety. The inverse order - the Janitor telling you to attack the Captain - would not be considered valid however, as the Janitor has a lower rank, and the Captain's safety is prioritized over a lesser crew member's order.
+</Document>

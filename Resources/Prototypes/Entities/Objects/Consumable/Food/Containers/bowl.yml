@@ -8,17 +8,16 @@
     shape:
     - 0,0,1,0
     storedOffset: 0,-3
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50 # enough to make cheese in.
   - type: Sprite
-    sprite: Objects/Consumable/Food/bowl.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/bowl.rsi # Funky
     layers:
     - state: bowl
     - map: ["enum.SolutionContainerLayers.Fill"]
       state: fill-1
       visible: false
+  - type: Solution
+    solution:
+      maxVol: 50
   - type: MixableSolution
     solution: food
   - type: Edible
@@ -76,7 +75,7 @@
     - 0,0,1,0
     storedOffset: 0,-3
   - type: Sprite
-    sprite: Objects/Consumable/Food/bowl.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/bowl.rsi # Funky
     state: bowl-trash
   - type: Tag
     tags:
@@ -95,7 +94,7 @@
   description: A fancy bowl, used for SPECIAL soups and salads.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/bowl.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/bowl.rsi # Funky
     layers:
     - state: bowl2
     - map: ["enum.SolutionContainerLayers.Fill"]

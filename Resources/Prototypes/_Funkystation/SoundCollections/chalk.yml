@@ -1,0 +1,8 @@
+﻿- type: soundCollection
+  id: Chalk
+  files:
+  - /Audio/_Funkystation/Items/Chalk/chalk_1.ogg
+  - /Audio/_Funkystation/Items/Chalk/chalk_2.ogg
+  - /Audio/_Funkystation/Items/Chalk/chalk_3.ogg
+  - /Audio/_Funkystation/Items/Chalk/chalk_4.ogg
+  - /Audio/_Funkystation/Items/Chalk/chalk_5.ogg

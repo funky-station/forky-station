@@ -1,0 +1,55 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: BookBase
+  id: FrontierMathematician1
+  name: "Frontier Mathematician!: The History of Calculus, Book 1: Newton and Gottfried Enter the Ring"
+  description: An older book filled with mathematical scribbles.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#2d96b8"
+    - state: decor_diagonal
+      color: "#ef4307"
+    - state: icon_time
+      color: "#000000"
+    - state: icon_text
+      color: "#000000"
+  - type: OocAuthorship
+    oocAuthor: AlDente
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#134975'
+      stampedName: stamped-nt-approved
+    content: book-text-frontier-mathematician-1
+
+- type: entity
+  parent: BookBase
+  id: FrontierMathematician2
+  name: "Frontier Mathematician!: The History of Calculus, Book 2: The Great Bribe"
+  description: An older book filled with mathematical scribbles.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#2d96b8"
+    - state: decor_diagonal
+      color: "#2db639"
+    - state: icon_time
+      color: "#000000"
+    - state: icon_text
+      color: "#000000"
+  - type: OocAuthorship
+    oocAuthor: AlDente
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#134975'
+      stampedName: stamped-nt-approved
+    content: book-text-frontier-mathematician-2

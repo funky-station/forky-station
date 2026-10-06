@@ -1,4 +1,5 @@
-using Robust.Shared.Audio;
+using Content.Shared._MACRO.Announcements;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.StationEvents.Components;
@@ -25,16 +26,24 @@ public sealed partial class StationEventComponent : Component
     public string? EndAnnouncement;
 
     [DataField]
-    public Color StartAnnouncementColor = Color.Gold;
+    public Color StartAnnouncementColor = Color.FromHex("#f9a524"); // funky, SIS/TR's announcement color
 
     [DataField]
-    public Color EndAnnouncementColor = Color.Gold;
+    public Color EndAnnouncementColor = Color.FromHex("#f9a524"); // funky, SIS/TR's announcement color
+
+    // funky. loc id for who's speaking. override per-event in yaml if some event shouldn't be sis/tr
+    [DataField]
+    public string StartAnnouncementSender = "chat-manager-sender-sistr";
+
+    // funky
+    [DataField]
+    public string EndAnnouncementSender = "chat-manager-sender-sistr";
 
     [DataField]
-    public SoundSpecifier? StartAudio;
+    public ProtoId<AnnouncementSoundPrototype>? StartAudio; // Macrocosm edit - announcement sound prototypes
 
     [DataField]
-    public SoundSpecifier? EndAudio;
+    public ProtoId<AnnouncementSoundPrototype>? EndAudio; // Macrocosm edit - announcement sound prototypes
 
     /// <summary>
     ///     In minutes, when is the first round time this event can start
@@ -83,7 +92,7 @@ public sealed partial class StationEventComponent : Component
     public TimeSpan? EndTime;
 
     /// <summary>
-    /// If false, the event won't trigger during ongoing evacuation.
+    /// If false, the event won't trigger after the evacuation shuttle is called and cannot be recalled anymore.
     /// </summary>
     [DataField]
     public bool OccursDuringRoundEnd = true;

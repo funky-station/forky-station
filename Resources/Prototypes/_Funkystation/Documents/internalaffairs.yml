@@ -1,0 +1,9 @@
+- type: document
+  id: DocDepartmentAudit
+  name: doc-department-audit-name
+  description: doc-department-audit-desc
+  category: DocCatInternalAffairs
+  paperPrototype: Paper
+  contentFileName: test.txt # TODO: Change this
+  access:
+    - Command

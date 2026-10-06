@@ -24,24 +24,24 @@ using Content.Shared.Mobs.Systems;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared._Funkystation.Cpr; // funky
 
 namespace Content.Server.Body.Systems;
 
 [UsedImplicitly]
-public sealed class RespiratorSystem : EntitySystem
+public sealed partial class RespiratorSystem : EntitySystem
 {
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-    [Dependency] private readonly AtmosphereSystem _atmosSys = default!;
-    [Dependency] private readonly BodySystem _body = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly DamageableSystem _damageableSys = default!;
-    [Dependency] private readonly LungSystem _lungSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedEntityConditionsSystem _entityConditions = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private AlertsSystem _alertsSystem = default!;
+    [Dependency] private AtmosphereSystem _atmosSys = default!;
+    [Dependency] private BodySystem _body = default!;
+    [Dependency] private ChatSystem _chat = default!;
+    [Dependency] private DamageableSystem _damageableSys = default!;
+    [Dependency] private LungSystem _lungSystem = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private SharedEntityConditionsSystem _entityConditions = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
 
     private static readonly ProtoId<MetabolismStagePrototype> RespirationStage = new("Respiration");
 
@@ -90,7 +90,21 @@ public sealed class RespiratorSystem : EntitySystem
 
             UpdateSaturation(uid, -(float)respirator.UpdateInterval.TotalSeconds, respirator);
 
-            if (!_mobState.IsIncapacitated(uid)) // cannot breathe in crit.
+            // funky start, assisted respiration from cpr allows breathing in crit
+            var canBreathe = !_mobState.IsIncapacitated(uid);
+            if (!canBreathe && TryComp<AssistedRespirationComponent>(uid, out var assist))
+            {
+                if (_gameTiming.CurTime <= assist.AssistedUntil)
+                {
+                    canBreathe = true;
+                }
+                else
+                {
+                    RemCompDeferred<AssistedRespirationComponent>(uid);
+                }
+            }
+
+            if (canBreathe) // funky end
             {
                 switch (respirator.Status)
                 {
@@ -103,7 +117,19 @@ public sealed class RespiratorSystem : EntitySystem
                         respirator.Status = RespiratorStatus.Inhaling;
                         break;
                 }
-            }
+            }else{ // Funky Station - made critical state multiply breathing by a low amount rather than completely remove it
+            switch (respirator.Status)
+                {
+                    case RespiratorStatus.Inhaling:
+                        Inhale((uid, respirator), 0.20f);
+                        respirator.Status = RespiratorStatus.Exhaling;
+                        break;
+                    case RespiratorStatus.Exhaling:
+                        Exhale((uid, respirator));
+                        respirator.Status = RespiratorStatus.Inhaling;
+                        break;
+                }
+		}
 
             if (respirator.Saturation < respirator.SuffocationThreshold)
             {
@@ -126,7 +152,7 @@ public sealed class RespiratorSystem : EntitySystem
         }
     }
 
-    public void Inhale(Entity<RespiratorComponent?> entity)
+    public void Inhale(Entity<RespiratorComponent?> entity, float multiplier = 1f) //Funky Station - added multiplier parameter
     {
         if (!Resolve(entity, ref entity.Comp, logMissing: false))
             return;
@@ -143,7 +169,7 @@ public sealed class RespiratorSystem : EntitySystem
         if (ev.Gas is null)
             return;
 
-        var gas = ev.Gas.RemoveVolume(entity.Comp.BreathVolume);
+        var gas = ev.Gas.RemoveVolume(entity.Comp.BreathVolume*multiplier); //Funky Station - made inhale based on multiplier value
 
         var inhaleEv = new InhaledGasEvent(gas);
         RaiseLocalEvent(entity, ref inhaleEv);
@@ -188,8 +214,10 @@ public sealed class RespiratorSystem : EntitySystem
     /// </summary>
     public bool IsBreathing(Entity<RespiratorComponent?> ent)
     {
-        if (_mobState.IsIncapacitated(ent))
+        // funky start, assisted respiration allows breathing in crit
+        if (_mobState.IsIncapacitated(ent) && (!TryComp<AssistedRespirationComponent>(ent, out var assist) || _gameTiming.CurTime > assist.AssistedUntil))
             return false;
+        // funky end
 
         if (!Resolve(ent, ref ent.Comp))
             return false;
@@ -283,7 +311,7 @@ public sealed class RespiratorSystem : EntitySystem
         float saturation = 0;
         foreach (var (id, quantity) in solution.Contents)
         {
-            var reagent = _protoMan.Index<ReagentPrototype>(id.Prototype);
+            var reagent = ProtoMan.Index<ReagentPrototype>(id.Prototype);
             if (reagent.Metabolisms == null)
                 continue;
 

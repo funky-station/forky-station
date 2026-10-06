@@ -24,6 +24,14 @@ namespace Content.Shared.Strip.Components
     [NetSerializable, Serializable]
     public sealed class StrippingSlotButtonPressed(string slot, bool isHand) : BoundUserInterfaceMessage
     {
+        public readonly string Slot = slot; // funky
+        public readonly bool IsHand = isHand; // funky
+    }
+
+    // funky, separate message for the open storage action
+    [NetSerializable, Serializable]
+    public sealed class StrippingOpenStorageButtonPressed(string slot, bool isHand) : BoundUserInterfaceMessage
+    {
         public readonly string Slot = slot;
         public readonly bool IsHand = isHand;
     }
@@ -39,7 +47,7 @@ namespace Content.Shared.Strip.Components
         public TimeSpan Additive = TimeSpan.Zero;
         public bool Stealth = stealth;
 
-        public TimeSpan Time => TimeSpan.FromSeconds(MathF.Max(InitialTime.Seconds * Multiplier + Additive.Seconds, 0f));
+        public TimeSpan Time => TimeSpan.FromTicks(Math.Max((InitialTime * Multiplier + Additive).Ticks, 0));
 
         public SlotFlags TargetSlots { get; } = SlotFlags.GLOVES;
     }

@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: [ BaseMachinePowered, SmallConstructibleMachine ]
+  parent: [ BaseMachinePowered, SmallConstructibleMachine, BaseSmallConstructibleMachineDestructible ]
   id: BaseHeaterMachine
   components:
   - type: ItemPlacer
@@ -21,6 +21,14 @@
         - TabletopMachineMask
         layer:
         - TabletopMachineLayer
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
   - type: ApcPowerReceiver
     powerLoad: 300
 
@@ -31,7 +39,8 @@
   description: "The descendent of the microwaves, our newest invention in beaker heating technology: the hotplate!"
   components:
   - type: Sprite
-    sprite: Structures/Machines/hotplate.rsi
+    sprite: _Funkystation/Structures/Machines/hotplate.rsi # Funky
+    offset: 0, 0.25
     drawdepth: SmallObjects
     snapCardinals: true
     layers:

@@ -1,3 +1,10 @@
+# Head
+- type: loadout
+  id: CadetHat
+  equipment:
+    head: ClothingHeadHatCadetSecurity
+
+# Jumpsuit
 - type: loadout
   id: RedJumpsuit
   equipment:
@@ -7,3 +14,17 @@
   id: RedJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorRed
+
+##########################################
+# Funky security uniforms
+- type: loadout
+  id: FuSecurityCadetPants
+  equipment:
+    jumpsuit: FuClothingUniformCadetPants
+
+- type: loadout
+  id: FuSecurityCadetSkirt
+  equipment:
+    jumpsuit: FuClothingUniformCadetSkirt
+
+##########################################

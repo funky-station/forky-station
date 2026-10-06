@@ -6,12 +6,12 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science
-      time: 10h
+      #time: 10h
+      time: 35h
       inverted: true # stop playing intern if you're good at science!
   startingGear: ResearchAssistantGear
   icon: "JobIconResearchAssistant"
   supervisors: job-supervisors-science
-  canBeAntag: false
   access:
   - Research
   - Maintenance
@@ -20,9 +20,10 @@
   id: ResearchAssistantGear
   equipment:
     shoes: ClothingShoesColorWhite
-    id: ResearchAssistantPDA
+    id: ResearchAssistantWallet # Funky: the wallet-ening
     ears: ClothingHeadsetScience
-    pocket2: BookScientistsGuidebook
+    pocket1: BookScientistsGuidebook # funky, pocket1
+    pocket2: PouchResearch # funky
   #storage:
     #back:
     #- Stuff

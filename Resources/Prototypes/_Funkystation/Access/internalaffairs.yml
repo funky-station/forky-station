@@ -1,0 +1,11 @@
+- type: accessLevel
+  id: InternalAffairs
+  name: id-card-access-level-ia
+
+- type: accessLevel
+  id: Magistrate
+  name: id-card-access-level-magistrate
+
+- type: accessLevel
+  id: ExecutiveOfficer
+  name: id-card-access-level-xo

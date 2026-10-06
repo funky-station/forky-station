@@ -3,21 +3,26 @@
   name: job-name-ce
   description: job-description-ce
   playTimeTracker: JobChiefEngineer
+  requiresNda: Command # Funky
   requirements:
-    - !type:RoleTimeRequirement
-      role: JobAtmosphericTechnician
-      time: 2.5h
+    #- !type:RoleTimeRequirement
+    #  role: JobAtmosphericTechnician
+    #  time: 2.5h # Funky
     - !type:RoleTimeRequirement
       role: JobStationEngineer
-      time: 5h
+      #time: 5h
+      time: 10h # Funky
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 10h
-  weight: 10
+      #time: 10h
+      time: 20h # Funky
+    - !type:OverallPlaytimeRequirement
+      time: 25h # Funky
+  #weight: 10 # Funky - Weighting all jobs equally now
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
+  joinNotifyCrew: true # Funky
   supervisors: job-supervisors-captain
-  canBeAntag: false
   access:
   - Maintenance
   - Engineering
@@ -28,8 +33,8 @@
   - Brig
   - Cryogenics
   special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+  #- !type:AddImplantSpecial
+  #  implants: [ MindShieldImplant ] # Funky - Removed mindshields
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
@@ -41,6 +46,7 @@
     eyes: ClothingEyesGlassesMeson
     ears: ClothingHeadsetCE
     belt: ClothingBeltUtilityEngineering
+    back: ClothingBackpackSatchelLeather # funky
   storage:
     back:
     - Flash
@@ -54,5 +60,5 @@
     mask: ClothingMaskBreath
     neck: ClothingNeckCloakCe
     outerClothing: ClothingOuterWinterCE
-    gloves: ClothingHandsGlovesColorYellow
+    gloves: FuClothingHandsGlovesInsuls #Funky
     shoes: ClothingShoesBootsMagAdv

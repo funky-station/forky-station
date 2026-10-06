@@ -41,7 +41,7 @@ public sealed partial class NewsReaderUiFragment : BoxContainer
 
         NotificationSwitch.Text = Loc.GetString(notificationOn ? "news-read-ui-notification-on" : "news-read-ui-notification-off");
 
-        var shareTime = article.ShareTime.ToString(@"hh\:mm\:ss");
+        var shareTime = article.ShareTimeString ?? article.ShareTime.ToString(@"hh\:mm\:ss"); // Funky Change
         ShareTime.SetMarkup(Loc.GetString("news-read-ui-time-prefix-text") + " " + shareTime);
 
         var author = Loc.GetString("news-read-ui-author-prefix") + " " + (article.Author ?? Loc.GetString("news-read-ui-no-author"));

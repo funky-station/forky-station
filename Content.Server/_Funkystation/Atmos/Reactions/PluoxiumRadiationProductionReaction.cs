@@ -145,20 +145,20 @@ public sealed partial class RadiationReceiverTimerComponent : Component
 
 public sealed partial class RadiationTimerSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IEntityManager entityManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        foreach (var timer in entityManager.EntityQuery<RadiationReceiverTimerComponent>())
+        foreach (var timer in _entityManager.EntityQuery<RadiationReceiverTimerComponent>())
         {
             var uid = timer.Owner;
             if (_timing.CurTime >= timer.TimerExpiresAt)
             {
-                entityManager.RemoveComponent<RadiationReceiverComponent>(uid);
-                entityManager.RemoveComponent<RadiationReceiverTimerComponent>(uid);
+                _entityManager.RemoveComponent<RadiationReceiverComponent>(uid);
+                _entityManager.RemoveComponent<RadiationReceiverTimerComponent>(uid);
             }
         }
     }

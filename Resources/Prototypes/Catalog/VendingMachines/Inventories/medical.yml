@@ -70,6 +70,7 @@
     PillTricordrazine: 10
     PillIron: 5
     PillCopper: 5
+    CMBloodPackFull: 5 # Funky
   contrabandInventory:
     PillCanisterRandom: 1
     PillSpaceDrugs: 3

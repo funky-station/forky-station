@@ -16,16 +16,16 @@
     # Randomly generated books
     - id: BookRandomStory
       amount: !type:RangeNumberSelector
-        range: 0, 8
+        range: 0, 1 #Funky Change
     # Guidebooks
     - !type:NestedSelector
       rolls: !type:RangeNumberSelector
-        range: 0, 2
+        range: 1, 5
       tableId: RandomGuidebookTable
     # Handwritten books
     - !type:NestedSelector
       rolls: !type:RangeNumberSelector
-        range: 0, 3
+        range: 2, 14
       tableId: RandomHandwrittenBookTable
 
 - type: entityTable
@@ -62,6 +62,21 @@
     - id: BookTruth
     - id: BookWatched
     - id: BookWorld
+    - id: TheWealthOfNations #Funky
+    - id: OnChangelings #Funky
+    - id: IanHoppyBook1 #Funky
+    - id: ZeroSumSymphonyVol1 #Funky
+    - id: ZeroSumSymphonyVol2 #Funky
+    - id: AshySlashy1 #Funky
+    - id: AshySlashy2 #Funky
+    - id: AshySlashy3 #Funky
+    - id: FrontierMathematician1 #Funky
+    - id: FrontierMathematician2 #Funky
+    - id: how2clown #Funky
+    - id: ZeroSumOdysseyVol1 #Funky
+    - id: ZeroSumOdysseyVol2 #Funky
+    - id: ZeroSumOdysseyVol3 #Funky
+    - id: MoonStationHJoNKGame #Funky
 
 - type: entityTable
   id: RandomGuidebookTable
@@ -81,6 +96,8 @@
     - id: BookSpaceEncyclopedia
     - id: BookSpaceLaw
     - id: BookTheBookOfControl
+    - id: BookCookbookPie #Funky
+    - id: FolderStandardForms #Funky
 
 - type: entityTable
   id: RandomBookTable

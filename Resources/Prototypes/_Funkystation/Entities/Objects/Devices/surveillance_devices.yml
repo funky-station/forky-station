@@ -1,0 +1,234 @@
+# Radio stuff
+
+- type: entity
+  name: listening bug
+  description: A covert listening device for gaining intel on your enemies. The back has an adhesive for attachment to objects.
+  parent: [ BaseItem, BaseSyndicateContraband ]
+  id: RadioListeningBugSyndicate
+  suffix: Syndicate
+  components:
+  - type: TelecomExempt
+  - type: RadioMicrophone
+    broadcastChannel: Syndicate
+    listenRange: 6
+  - type: Speech
+    speechVerb: Robotic
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/syndicate_listening_bug.rsi
+    layers:
+    - state: icon
+    - state: icon-ON
+      map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Item
+    size: Tiny
+  - type: Appearance
+  - type: Visibility
+  - type: SubFloorHide
+  - type: Anchorable
+  - type: CollideOnAnchor
+  - type: Transform
+    anchored: false
+  - type: Tag
+    tags:
+    - Radio
+    - SurveillanceDevices
+
+- type: entity
+  parent: [ RadioListeningBugSyndicate, BaseSecurityContraband ]
+  id: RadioListeningBugDetective
+  suffix: Detective
+  components:
+  - type: TelecomExempt
+  - type: RadioMicrophone
+    broadcastChannel: Detective
+    listenRange: 6
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/detective_listening_bug.rsi
+    layers:
+    - state: icon
+    - state: icon-ON
+      map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Item
+    size: Tiny
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyDetective
+  name: listening bug encryption key
+  description: An encryption key used to tune into the detectives listening bugs.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Detective
+    defaultChannel: Detective
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/encryption_keys.rsi
+    layers:
+    - state: crypt_det
+    - state: det_label
+  - type: Item
+    sprite: _Funkystation/Objects/Devices/encryption_keys.rsi
+
+# Camera Stuff
+
+- type: entity
+  name: hidden camera
+  description: A covert device for seeing without being seen. Perfect for keeping tabs on pesky command members.
+  parent: [ BaseItem, BaseSyndicateContraband ]
+  id: HiddenCameraSyndicate
+  suffix: Syndicate
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/syndicate_hidden_camera.rsi
+    layers:
+    - state: icon
+    - state: icon-ON
+    state: icon
+  - type: Item
+    sprite: _Funkystation/Objects/Devices/syndicate_hidden_camera.rsi
+    size: Tiny
+  - type: Transform
+    anchored: false
+  - type: InteractionOutline
+  - type: Eye
+  - type: Visibility
+  - type: WirelessNetworkConnection
+    range: 2000
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SurveillanceCameraHidden
+    transmitFrequencyId: SurveillanceCameraHidden
+  - type: SurveillanceCamera
+    setupAvailableNetworks:
+    - SurveillanceCameraHidden
+  - type: Tag
+    tags:
+    - SurveillanceDevices
+
+- type: entity
+  name: hidden camera router
+  description: A routing system for a hidden camera network. Must be anchored and powered for the network to function.
+  parent: [ BaseItem, BaseSyndicateContraband ]
+  id: HiddenCameraRouterSyndicate
+  suffix: Syndicate
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/syndicate_hidden_camera_router.rsi
+    layers:
+      - state: icon
+      - state: icon-ON
+        map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+        shader: unshaded
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Item
+    sprite: _Funkystation/Objects/Devices/syndicate_hidden_camera_router.rsi
+    size: Normal
+    shape:
+    - 0,0,1,1
+    heldPrefix: icon
+  - type: Appearance
+  - type: Visibility
+  - type: SubFloorHide
+  - type: Anchorable
+  - type: CollideOnAnchor
+  - type: InteractionOutline
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SurveillanceCameraHidden
+    transmitFrequencyId: SurveillanceCameraHiddenRouted
+  - type: SurveillanceCameraRouter
+    subnetFrequency: SurveillanceCameraHidden
+  - type: UserInterface
+    interfaces:
+      enum.SurveillanceCameraSetupUiKey.Router:
+        type: SurveillanceCameraSetupBoundUi
+  - type: ApcPowerReceiver
+  - type: ExtensionCableReceiver
+  - type: DeviceNetworkRequiresPower
+
+- type: entity
+  id: HiddenCameraViewer
+  parent: [ BaseItem, BaseSyndicateContraband ]
+  name: hidden camera monitor
+  description: An illegal syndicate device that allows you to view a hidden camera network.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/camera_bug.rsi
+    layers:
+    - state: camera_bug
+  - type: Item
+    sprite: Objects/Devices/camera_bug.rsi
+    size: Normal
+    shape:
+    - 0,0,1,0
+  - type: ActivatableUI
+    requireActiveHand: false
+    inHandsOnly: true
+    key: enum.SurveillanceCameraMonitorUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.SurveillanceCameraMonitorUiKey.Key:
+        type: SurveillanceCameraMonitorBoundUserInterface
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SurveillanceCameraHiddenRouted
+    transmitFrequencyId: SurveillanceCameraHiddenRouted
+  - type: WiredNetworkConnection
+  - type: SurveillanceCameraMonitor
+  - type: StaticPrice
+    price: 2000
+
+# Kits
+
+- type: entity
+  id: BriefcaseBrownCameraBugKit
+  parent: BriefcaseBrown
+  suffix: Camera Bug Kit
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: HiddenCameraSyndicate
+          amount: 3
+        - id: HiddenCameraRouterSyndicate
+          amount: 1
+        - id: HiddenCameraViewer
+          amount: 1
+
+- type: entity
+  id: BriefcaseBrownEspionageKit
+  parent: BriefcaseBrown
+  suffix: Espionage Kit
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: PinpointerUniversal
+        - id: FlippoEngravedLighter
+        - id: EncryptionKeySyndie
+        - id: DrinkVermouthBottleFull
+        - id: HiddenCameraRouterSyndicate
+        - id: HiddenCameraViewer
+        - id: HiddenCameraSyndicate
+          amount: 3
+        - id: RadioListeningBugSyndicate
+          amount: 3

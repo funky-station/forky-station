@@ -1,0 +1,13 @@
+# medical faceshield
+
+- type: entity
+  parent: ClothingHeadBase
+  id: FuClothingHeadFaceshield
+  name: face shield
+  description: A medical face shield meant to further impede infection vectors.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Misc/faceshield.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Misc/faceshield.rsi
+  - type: IngestionBlocker

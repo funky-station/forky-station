@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformTankTop
+  name: tank top
+  description: A white tank top made of affordable textile paired with a black pair of pants. Pump it up !
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Misc/tanktop.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Misc/tanktop.rsi

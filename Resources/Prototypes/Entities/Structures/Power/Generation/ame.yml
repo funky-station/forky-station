@@ -1,4 +1,5 @@
 - type: entity
+  parent: StructureHealthMachineStrong
   id: AmeController
   name: AME controller
   description: It's a controller for the antimatter engine.
@@ -9,7 +10,7 @@
   - type: InteractionOutline
   - type: Sprite
     snapCardinals: true
-    sprite: Structures/Power/Generation/ame.rsi
+    sprite: _Funkystation/Structures/Power/Generation/ame.rsi #Funky resprite
     state: control
     layers:
     - state: control
@@ -29,27 +30,18 @@
         layer:
         - WallLayer
   - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallicStrong
+    damageModifierSet: PlasteelMod
   - type: Destructible
     thresholds:
-    - trigger: # Excess damage, don't spawn entities
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 275
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
-          SheetSteel1:
+          SheetPlasteel1:
             min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
+            max: 3
   - type: Transform
     anchored: true
     noRot: true
@@ -64,9 +56,10 @@
       lockedFailPopup: ame-controller-component-fuel-slot-fail-locked
       insertSuccessPopup: ame-controller-component-fuel-slot-success-insert
   - type: Explosive
-    explosionType: Default
+    explosionType: Transparent # Funky RMC Explosions
     intensitySlope: 5
     maxIntensity: 60
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: ActivatableUI
     key: enum.AmeControllerUiKey.Key
   - type: UserInterface
@@ -95,7 +88,7 @@
   - type: PowerMonitoringDevice
     group: Generator
     loadNode: input
-    sprite: Structures/Power/Generation/ame.rsi
+    sprite: _Funkystation/Structures/Power/Generation/ame.rsi #Funky resprite
     state: static
   - type: PowerSupplier
     supplyRate: 0
@@ -114,6 +107,7 @@
     requirePower: true
     highVoltageNode: input
     mediumVoltageNode: ame
+  - type: AmbientMusicMarkerEngineering
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -127,6 +121,7 @@
     bodyType: Dynamic
 
 - type: entity
+  parent: StructureHealthMachineStrong
   id: AmeShielding
   name: AME shielding
   description: Keeps the antimatter in and the matter out.
@@ -137,7 +132,7 @@
   - type: InteractionOutline
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Power/Generation/ame.rsi
+    sprite: _Funkystation/Structures/Power/Generation/ame.rsi #Funky resprite
     state: shield_0
     layers:
     - state: shield_0
@@ -161,27 +156,18 @@
         layer:
         - WallLayer
   - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallicStrong
+    damageModifierSet: PlasteelMod
   - type: Destructible
     thresholds:
-    - trigger: # Excess damage, don't spawn entities
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 275
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
-          SheetSteel1:
+          SheetPlasteel1:
             min: 1
             max: 2
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
   - type: Transform
     anchored: true
   - type: IconSmooth

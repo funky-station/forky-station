@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "icon made by AraiMaia and edited by zergologist, digital clock screen sproten by zergologist (Discord) for Funky station",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "digital_clock_screen_1",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "digital_clock_screen_2",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "digital_clock_screen_3",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "digital_clock_screen_4",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    }
+  ]
+}

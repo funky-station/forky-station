@@ -1,0 +1,35 @@
+﻿- type: loadout
+  id: PagerGray
+  storage:
+    id:
+    - PagerGray
+
+- type: loadout
+  id: PagerBeige
+  storage:
+    id:
+    - PagerBeige
+
+- type: loadout
+  id: PagerBlue
+  storage:
+    id:
+    - PagerBlue
+
+- type: loadout
+  id: PagerTransCyan
+  storage:
+    id:
+    - PagerTransCyan
+
+- type: loadout
+  id: PagerTransPink
+  storage:
+    id:
+    - PagerTransPink
+
+- type: loadout
+  id: PagerTransYellow
+  storage:
+    id:
+    - PagerTransYellow

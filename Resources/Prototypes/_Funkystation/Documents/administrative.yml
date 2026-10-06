@@ -1,0 +1,29 @@
+- type: document
+  id: DocCommandPromotion
+  name: doc-command-promotion-name
+  description: doc-command-promotion-desc
+  category: DocCatAdministrative
+  paperPrototype: Paper
+  contentFileName: test.txt # TODO: Change this
+  access:
+    - Command
+
+- type: document
+  id: DocJobTransfer
+  name: doc-job-transfer-name
+  description: doc-job-transfer-desc
+  category: DocCatAdministrative
+  paperPrototype: Paper
+  contentFileName: test.txt # TODO: Change this
+  access:
+  - Command
+
+- type: document
+  id: DocDemotionNotice
+  name: doc-demotion-notice-name
+  description: doc-demotion-notice-desc
+  category: DocCatAdministrative
+  paperPrototype: Paper
+  contentFileName: test.txt # TODO: Change this
+  access:
+  - Command

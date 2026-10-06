@@ -20,6 +20,7 @@
   - HandheldStationMap
   - ClothingHeadHatWelding
   - ClothingHeadHatCone
+  - Pen
 
 - type: latheRecipePack
   id: AtmosStatic
@@ -45,6 +46,7 @@
   - CellRechargerCircuitboard
   - WeaponCapacitorRechargerCircuitboard
   - FreezerElectronics
+  - PASpeakerElectronics #funky
 
 - type: latheRecipePack
   id: EngineeringBoardsStatic
@@ -89,3 +91,4 @@
   - SMESAdvancedMachineCircuitboard
   - HolopadMachineCircuitboard
   - ElectrolyzerMachineCircuitboard # Funky atmos - /tg/ gases
+  - PagerServerCircuitboard # Funky

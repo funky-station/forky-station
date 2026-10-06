@@ -2,7 +2,8 @@
 # Security
 Ensuring the safety of both station and crew is number one for [color=#cb0000]Security[/color]. They are ready for any situation, and [color=#cb0000]Security[/color] are on hand to maintain order and control crowds.
 
-They face [textlink="Syndicate Agents" link="Traitors"], [textlink="Nuclear Operatives" link="NuclearOperatives"], [textlink="Zombies" link="Zombies"] and unruly staff.
+They face [textlink="Syndicate Agents" link="Traitors"], [textlink="Nuclear Operatives" link="NuclearOperatives"], [textlink="Zombies" link="Zombies"] and unruly staff. 
+They enforce [textlink="Article 2" link="Article_2"] of the NanoTrasen Colonial Law and Procedure.
 
 ## Personnel
 [color=#cb0000]Security[/color]'s staff is made up of Security Cadets, Security Officers, and the Detective. [color=#cb0000]Security[/color] is run by the Warden and Head of Security.
@@ -15,11 +16,10 @@ They face [textlink="Syndicate Agents" link="Traitors"], [textlink="Nuclear Oper
   </Box>
 
 ## Gear
-First we have non-lethals a step above simply telling someone to cooperate with instructions. Both the stunbaton and disabler are capable of limiting the movement of an assailant, whereas handcuffs can be applied to deny a criminal free movement and access to their hands. Cuffs will also shove the person down if your [color=red]harm mode[/color] is active during uncuff.
+First we have less-lethals, a step above simply telling someone to cooperate with instructions. The nightstick is capable of limiting the movement of an assailant, whereas handcuffs can be applied to deny a criminal free movement and access to their hands. Cuffs will also shove the person down if your [color=red]harm mode[/color] is active during uncuff.
   <Box>
-    <GuideEntityEmbed Entity="Stunbaton"/>
+    <GuideEntityEmbed Entity="Nightstick"/>
     <GuideEntityEmbed Entity="Handcuffs"/>
-   <GuideEntityEmbed Entity="WeaponDisabler"/>
   </Box>
 
 ## Flashes

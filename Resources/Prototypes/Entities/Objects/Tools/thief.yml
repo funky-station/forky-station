@@ -46,7 +46,7 @@
   parent: [ BaseItem, BaseMinorContraband ]
   components:
   - type: Sprite
-    sprite: Objects/Tools/Toolboxes/toolbox_thief.rsi
+    sprite: _Funkystation/Objects/Tools/Toolboxes/toolbox_thief.rsi # Funky
     state: icon
   - type: ThiefUndeterminedBackpack
     possibleSets:

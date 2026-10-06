@@ -1,4 +1,13 @@
 - type: loadoutGroup
+  id: Glasses
+  name: loadout-group-glasses
+  minLimit: 0
+  loadouts:
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
+
+- type: loadoutGroup
   id: Trinkets
   name: loadout-group-trinkets
   minLimit: 0
@@ -38,22 +47,20 @@
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
+  - TowelColorWhite
+
+- type: loadoutGroup
+  id: AssistiveItems
+  name: loadout-group-assistive-items
+  minLimit: 0
+  maxLimit: 1 # Increase this limit in the future once there's more assistive items than just canes!
+  loadouts:
   - OffsetCane
   - OffsetCaneWood
   - OffsetCaneClown
   - OffsetCaneMime
   - OffsetCaneNT
   - Cane
-  - TowelColorWhite
-
-- type: loadoutGroup
-  id: Glasses
-  name: loadout-group-glasses
-  minLimit: 0
-  loadouts:
-  - Glasses
-  - GlassesJamjar
-  - GlassesJensen
 
 - type: loadoutGroup
   id: GroupTankHarness
@@ -72,6 +79,8 @@
   - EmergencyNitrogen
   - EmergencyOxygen
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyAquatic # MACRO: Decapoids
+  - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
 
 # nitrogen or oxygen tank, depending on what your species needs
 - type: loadoutGroup
@@ -140,11 +149,13 @@
   - CaptainOuterClothing
   - CaptainWintercoat
 
-#- type: loadoutGroup
-#  id: CaptainJobTrinkets
-#  name: loadout-group-jobtrinkets
-#  minLimit: 0
-#  loadouts: []
+# Funky uncommented, added whistle
+- type: loadoutGroup
+  id: CaptainJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - CommandWhistle
 
 - type: loadoutGroup
   id: HoPHead
@@ -172,10 +183,10 @@
   id: HoPBackpack
   name: loadout-group-hop-backpack
   loadouts:
-  - CommonBackpack
-  - CommonSatchel
-  - CommonDuffel
-  - HoPBackpackIan
+  # - CommonBackpack #funky. no backpack or duffel
+  - LeatherSatchel # funky, leather satchel for command
+  # - CommonDuffel # funky. no backpack or duffel
+  - HoPBackpackIan # ok you can stay.
 
 - type: loadoutGroup
   id: HoPOuterClothing
@@ -184,11 +195,13 @@
   loadouts:
   - HoPWintercoat
 
-#- type: loadoutGroup
-#  id: HoPJobTrinkets
-#  name: loadout-group-jobtrinkets
-#  minLimit: 0
-#  loadouts: []
+# Funky uncommented, added whistle
+- type: loadoutGroup
+  id: HoPJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - CommandWhistle
 
 # Civilian
 - type: loadoutGroup
@@ -472,15 +485,29 @@
   minLimit: 0
   loadouts:
   - BotanistHead
-  - BotanistBandana
+  - BotanistBandanaBlack
+  - BotanistBandanaBlue
+  - BotanistBandanaGold
+  - BotanistBandanaGreen
+  - BotanistBandanaRed
+  - BotanistBandanaSkull
+  - BotanistBandanaBrown
+#  - BotanistBandana
 
 - type: loadoutGroup
   id: BotanistJumpsuit
   name: loadout-group-botanist-jumpsuit
   loadouts:
-  - BotanistJumpsuit
-  - BotanistJumpskirt
-  - BotanistOveralls
+  - FuBotanistShirtPants
+  - FuBotanistShirtPantsOveralls
+  - FuBotanistShirtPantsOverallsTurtle
+  - FuBotanistJumpsuit
+  - FuBotanistJumpsuitDirty
+  - FuBotanistJumperSkirt
+  - FuBotanistJumperSkirtTurtle
+#  - BotanistJumpsuit
+#  - BotanistJumpskirt
+#  - BotanistOveralls
 
 - type: loadoutGroup
   id: BotanistBackpack
@@ -488,7 +515,7 @@
   loadouts:
   - BotanistBackpack
   - BotanistSatchel
-  - BotanistDuffel
+  # - BotanistDuffel # funky
 
 - type: loadoutGroup
   id: BotanistOuterClothing
@@ -511,6 +538,7 @@
   loadouts:
   - JesterHat
   - JesterAltHat
+  - ClownMitre
 
 - type: loadoutGroup
   id: ClownJumpsuit
@@ -527,7 +555,7 @@
   loadouts:
   - ClownBackpack
   - ClownSatchel
-  - ClownDuffel
+  # - ClownDuffel # funky
 
 - type: loadoutGroup
   id: ClownOuterClothing
@@ -553,6 +581,8 @@
   - EmergencyNitrogenClown
   - EmergencyOxygenClown
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyAquaticClown # MACRO: Decapoids
+  - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
 
 - type: loadoutGroup
   id: ClownJobTrinkets
@@ -606,17 +636,6 @@
   loadouts:
   - MimeSuspendersRed
   - MimeSuspendersBlack
-
-- type: loadoutGroup
-  id: SurvivalMime
-  name: loadout-group-survival-mime
-  minLimit: 2
-  hidden: true
-  loadouts:
-  - EmergencyNitrogenMime
-  - EmergencyOxygenMime
-  - EmergencySpeciesMothMime
-  - LoadoutSpeciesVoxNitrogen
 
 #- type: loadoutGroup
 #  id: MimeJobTrinkets
@@ -720,11 +739,13 @@
   - BrownShoes
   - CargoWinterBoots
 
-#- type: loadoutGroup
-#  id: QuartermasterJobTrinkets
-#  name: loadout-group-jobtrinkets
-#  minLimit: 0
-#  loadouts:
+# Funky uncommented, added whistle
+- type: loadoutGroup
+  id: QuartermasterJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - CommandWhistle
 
 - type: loadoutGroup
   id: CargoTechnicianHead
@@ -744,7 +765,7 @@
   id: CargoTechnicianBackpack
   name: loadout-group-cargo-technician-backpack
   loadouts:
-  - CargoTechnicianBackpack
+  # - CargoTechnicianBackpack # funky
   - CargoTechnicianSatchel
   - CargoTechnicianDuffel
 
@@ -843,11 +864,13 @@
   - BrownShoes
   - EngineeringWinterBoots
 
-#- type: loadoutGroup
-#  id: ChiefEngineerJobTrinkets
-#  name: loadout-group-jobtrinkets
-#  minLimit: 0
-#  loadouts:
+# Funky uncommented, added whistle
+- type: loadoutGroup
+  id: ChiefEngineerJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - CommandWhistle
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit
@@ -886,7 +909,7 @@
   id: StationEngineerBackpack
   name: loadout-group-station-engineer-backpack
   loadouts:
-  - StationEngineerBackpack
+  # - StationEngineerBackpack # funky
   - StationEngineerSatchel
   - StationEngineerDuffel
 
@@ -963,6 +986,8 @@
   - EmergencyNitrogenExtended
   - EmergencyOxygenExtended
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyAquaticExtended # MACRO: Decapoids
+  - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
 
 # Science
 - type: loadoutGroup
@@ -1002,11 +1027,13 @@
   - BrownShoes
   - ScienceWinterBoots
 
-#- type: loadoutGroup
-#  id: ResearchDirectorJobTrinkets
-#  name: loadout-group-jobtrinkets
-#  minLimit: 0
-#  loadouts:
+# Funky uncommented, added whistle
+- type: loadoutGroup
+  id: ResearchDirectorJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - CommandWhistle
 
 - type: loadoutGroup
   id: ScientistHead
@@ -1015,6 +1042,7 @@
   loadouts:
   - RoboticistCap
   - SkullBandana
+  - ScientistHardhatWhite # Funky
   - ScientificBeret
 
 - type: loadoutGroup
@@ -1111,12 +1139,18 @@
   id: HeadofSecurityJumpsuit
   name: loadout-group-head-of-security-jumpsuit
   loadouts:
-  - HeadofSecurityJumpsuit
-  - HeadofSecurityJumpskirt
-  - HeadofSecurityTurtleneck
-  - HeadofSecurityTurtleneckSkirt
-  - HeadofSecurityFormalSuit
-  - HeadofSecurityFormalSkirt
+  - FuHosService
+  - FuHosDressPants
+  - FuHosDressSkirt
+  - FuHosDressSkirtStockings
+  - FuHosMessSkirt
+  - FuHosMessSkirtStockings
+#  - HeadofSecurityJumpsuit
+#  - HeadofSecurityJumpskirt
+#  - HeadofSecurityTurtleneck
+#  - HeadofSecurityTurtleneckSkirt
+#  - HeadofSecurityFormalSuit
+#  - HeadofSecurityFormalSkirt
 
 - type: loadoutGroup
   id: HeadofSecurityNeck
@@ -1132,6 +1166,7 @@
   loadouts:
   - HeadofSecurityCoat
   - HeadofSecurityWinterCoat
+  - ArmorVest
 
 - type: loadoutGroup
   id: HeadofSecurityJobTrinkets
@@ -1139,6 +1174,7 @@
   minLimit: 0
   loadouts:
   - SecStar
+  - SecurityWhistle # Funky
 
 - type: loadoutGroup
   id: WardenHead
@@ -1152,8 +1188,25 @@
   id: WardenJumpsuit
   name: loadout-group-warden-jumpsuit
   loadouts:
-  - WardenJumpsuit
-  - WardenJumpskirt
+  - FuSecurityService
+  - FuSecurityDressPants
+ # - FuSecurityDressPantsSenior No senior gear
+  - FuSecurityDressSkirt
+  - FuSecurityDressSkirtStockings
+ # - FuSecurityDressSkirtSenior No senior gear
+ # - FuSecurityDressSkirtSeniorStockings No senior gear
+  - FuSecurityMessPants
+  - FuSecurityMessSkirt
+  - FuSecurityMessSkirtStockings
+#  - WardenJumpsuit
+#  - WardenJumpskirt
+
+- type: loadoutGroup
+  id: WardenNeck
+  name: loadout-group-warden-neck
+  minLimit: 0
+  loadouts:
+  - MessTie
 
 - type: loadoutGroup
   id: WardenOuterClothing
@@ -1183,13 +1236,23 @@
   id: SecurityJumpsuit
   name: loadout-group-security-jumpsuit
   loadouts:
-  - SecurityJumpsuit
-  - SecurityJumpskirt
-  - SecurityJumpsuitGrey
-  - SecurityJumpskirtGrey
-  - SeniorOfficerJumpsuit
-  - SeniorOfficerJumpskirt
-  - TrooperUniform
+  - FuSecurityService
+  - FuSecurityDressPants
+ # - FuSecurityDressPantsSenior
+  - FuSecurityDressSkirt
+  - FuSecurityDressSkirtStockings
+ # - FuSecurityDressSkirtSenior
+ # - FuSecurityDressSkirtSeniorStockings
+  - FuSecurityMessPants
+  - FuSecurityMessSkirt
+  - FuSecurityMessSkirtStockings
+#  - SecurityJumpsuit
+#  - SecurityJumpskirt
+#  - SecurityJumpsuitGrey
+#  - SecurityJumpskirtGrey
+#  - SeniorOfficerJumpsuit
+#  - SeniorOfficerJumpskirt
+#  - TrooperUniform
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1197,7 +1260,7 @@
   loadouts:
   - SecurityBackpack
   - SecuritySatchel
-  - SecurityDuffel
+  # - SecurityDuffel # funky. no duffel bags for security
 
 - type: loadoutGroup
   id: SecurityBelt
@@ -1207,11 +1270,25 @@
   - SecurityWebbing
 
 - type: loadoutGroup
+  id: SecurityGloves
+  name: loadout-group-security-gloves
+  loadouts:
+  - BlackGloves
+  - WhiteGloves
+
+- type: loadoutGroup
+  id: SecurityNeck
+  name: loadout-group-security-neck
+  minLimit: 0
+  loadouts:
+  - MessTie
+
+- type: loadoutGroup
   id: SecurityOuterClothing
   name: loadout-group-security-outerclothing
   loadouts:
   - ArmorVest
-  - ArmorVestSlim
+#  - ArmorVestSlim
   - SecurityOfficerWintercoat
 
 - type: loadoutGroup
@@ -1266,6 +1343,7 @@
   - DetectiveArmorVest
   - DetectiveCoat
   - DetectiveCoatGrey
+  - SecurityOfficerWintercoat
 
 - type: loadoutGroup
   id: DetectiveJobTrinkets
@@ -1275,11 +1353,19 @@
   - SecStar
 
 - type: loadoutGroup
+  id: SecurityCadetHat
+  name: loadout-group-security-cadet-hat
+  loadouts:
+  - CadetHat
+
+- type: loadoutGroup
   id: SecurityCadetJumpsuit
   name: loadout-group-security-cadet-jumpsuit
   loadouts:
-  - RedJumpsuit
-  - RedJumpskirt
+  - FuSecurityCadetPants
+  - FuSecurityCadetSkirt
+#  - RedJumpsuit
+#  - RedJumpskirt
 
 #- type: loadoutGroup
 #  id: SecurityCadetJobTrinkets
@@ -1296,6 +1382,8 @@
   - EmergencyNitrogenSecurity
   - EmergencyOxygenSecurity
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyAquaticSecurity # MACRO: Decapoids
+  - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
 
 # Wildcards
 - type: loadoutGroup
@@ -1304,6 +1392,20 @@
   loadouts:
   - ReporterJumpsuit
   - JournalistJumpsuit
+
+- type: loadoutGroup
+  id: ReporterHead
+  name: loadout-group-reporter-head
+  minLimit: 0
+  loadouts:
+  - ReporterPressFedora
+
+- type: loadoutGroup
+  id: ReporterOuterClothing
+  name: loadout-group-reporter-outerclothing
+  minLimit: 0
+  loadouts:
+  - ReporterPressVest
 
 #- type: loadoutGroup
 #  id: ReporterJobTrinkets
@@ -1324,9 +1426,49 @@
 #  minLimit: 0
 #  loadouts:
 
-# Other
 - type: loadoutGroup
-  id: SurvivalSyndicate
+  id: TramDriverJumpsuit
+  name: loadout-group-tramdriver-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - TramDriverJumpsuit
+
+- type: loadoutGroup
+  id: TramDriverOuterClothing
+  name: loadout-group-tramdriver-outerclothing
+  minLimit: 0
+  loadouts:
+  - TramDriverSuit
+
+- type: loadoutGroup
+  id: TramDriverHat
+  name: loadout-group-tramdriver-hat
+  loadouts:
+  - TramDriverHat
+
+- type: loadoutGroup
+  id: TramDriverGloves
+  name: loadout-group-tramdriver-gloves
+  minLimit: 0
+  loadouts:
+  - TramDriverGlovesWhite
+  - TramDriverGlovesBlack
+
+# Other
+
+- type: loadoutGroup
+  id: SurvivalExtendedAntag # Larger survival box containing food/water, used by antags that spawn off-station (e.g ninjas, wizards)
+  name: loadout-group-survival-extended
+  minLimit: 2
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenExtendedAntag
+  - EmergencyOxygenExtendedAntag
+  - LoadoutSpeciesVoxNitrogen
+
+- type: loadoutGroup
+  id: SurvivalSyndicate # Larger survival box containing food, used by syndicate operatives that spawn off-station (e.g nukies)
   name: loadout-group-survival-syndicate
   minLimit: 2
   hidden: true
@@ -1334,15 +1476,18 @@
   - EmergencyNitrogenSyndicate
   - EmergencyOxygenSyndicate
   - LoadoutSpeciesVoxNitrogen
+  - EmergencyAquaticSyndicate # MACRO: Decapoids
+  - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
 
 - type: loadoutGroup
-  id: SurvivalMilitaryDouble
+  id: SurvivalMilitaryDouble # Survival box mostly used by ERT/deathsquad
   name: loadout-group-survival-military
   minLimit: 2
   hidden: true
   loadouts:
   - EmergencyNitrogenMilitaryDouble
   - EmergencyOxygenMilitaryDouble
+  - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool

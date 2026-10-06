@@ -25,12 +25,12 @@
               doAfter: 2
             - tag: Paper
               icon:
-                sprite: Objects/Misc/bureaucracy.rsi
+                sprite: _Funkystation/Objects/Misc/bureaucracy.rsi # Funky
                 state: paper
               name: construction-graph-tag-paper
             - tag: Paper
               icon:
-                sprite: Objects/Misc/bureaucracy.rsi
+                sprite: _Funkystation/Objects/Misc/bureaucracy.rsi # Funky
                 state: paper
               name: construction-graph-tag-paper
 

@@ -1,0 +1,25 @@
+﻿- type: particleEffect
+  id: SprintPixelDrift
+  sprite:
+    sprite: _Starfall/Particles/generic.rsi
+    state: dot
+  startColor: "#FFFFFFFF"
+  endColor: "#FFFFFF00"
+  lifetime: 0.5
+  lifetimeVariance: 0.2
+  speed: 1.2
+  speedVariance: 0.6
+  particleSize: 0.7
+  sizeVariance: 0.05
+  emissionRate: 0
+  maxCount: 3
+  burst: true
+  gravity: -0.05
+  drag: 0.3
+  noiseStrength: 0.1
+  noiseFrequency: 0.5
+  spreadAngle: 360
+  emitAngle: 0
+  shape:
+    type: CircleFill
+    radius: 0.05

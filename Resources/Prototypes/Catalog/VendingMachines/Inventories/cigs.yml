@@ -11,10 +11,12 @@
     Vape: 1
     Matchbox: 5
     PackPaperRollingFilters: 3
-    CheapLighter: 4
-    Lighter: 2
+    #CheapLighter: 4
+    #Lighter: 2
+    Lighter: 6 # funky station
     FlippoLighter: 2
   contrabandInventory:
     GroundTobacco: 3
     CigarGold: 2
     Igniter: 1
+    NanotrasenFlippo: 1

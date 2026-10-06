@@ -1,0 +1,34 @@
+# outer clothing
+
+- type: loadout
+  id: FuMedicalDoctorLabcoat
+  equipment:
+    outerClothing: FuClothingOuterCoatLabMed
+
+- type: loadout
+  id: FuMedicalDoctorWinterLabcoat
+  equipment:
+    outerClothing: FuClothingOuterWinterMed
+
+# uniforms
+
+## dresses
+- type: loadout
+  id: FuDoctorDress
+  equipment:
+    jumpsuit: FuClothingUniformMedDress
+  groupBy: "dress"
+
+- type: loadout
+  id: FuDoctorDressStockings
+  equipment:
+    jumpsuit: FuClothingUniformMedDressStockings
+  groupBy: "dress"
+
+## jumpsuits
+- type: loadout
+  id: FuDoctorJumpsuit
+  equipment:
+    jumpsuit: FuClothingUniformMedJumpsuit
+  groupBy: "jumpsuit"
+

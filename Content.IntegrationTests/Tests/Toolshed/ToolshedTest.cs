@@ -1,3 +1,4 @@
+#nullable enable
 using System.Collections.Generic;
 using Content.IntegrationTests.Pair;
 using Content.Server.Administration.Managers;

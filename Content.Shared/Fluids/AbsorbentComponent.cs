@@ -30,7 +30,7 @@ public sealed partial class AbsorbentComponent : Component
     /// How much solution we can transfer in one interaction.
     /// </summary>
     [DataField]
-    public FixedPoint2 PickupAmount = FixedPoint2.New(100);
+    public FixedPoint2 PickupAmount = FixedPoint2.New(120);
 
     /// <summary>
     /// The effect spawned when the puddle fully evaporates.
@@ -43,12 +43,16 @@ public sealed partial class AbsorbentComponent : Component
         AudioParams.Default.WithVariation(SharedContentAudioSystem.DefaultVariation));
 
     [DataField]
-    public SoundSpecifier TransferSound = new SoundPathSpecifier("/Audio/Effects/Fluids/slosh.ogg",
-        AudioParams.Default.WithVariation(SharedContentAudioSystem.DefaultVariation).WithVolume(-3f));
+    public SoundSpecifier TransferSound = new SoundPathSpecifier("/Audio/Effects/Fluids/slosh.ogg")
+    {
+        Params = AudioParams.Default.WithVariation(SharedContentAudioSystem.DefaultVariation).AddVolume(-3f),
+    };
 
     public static readonly SoundSpecifier DefaultTransferSound =
-        new SoundPathSpecifier("/Audio/Effects/Fluids/slosh.ogg",
-            AudioParams.Default.WithVariation(SharedContentAudioSystem.DefaultVariation).WithVolume(-3f));
+        new SoundPathSpecifier("/Audio/Effects/Fluids/slosh.ogg")
+        {
+            Params = AudioParams.Default.WithVariation(SharedContentAudioSystem.DefaultVariation).AddVolume(-3f),
+        };
 
     /// <summary>
     /// Marker that absorbent component owner should try to use 'absorber solution' to replace solution to be absorbed.
@@ -56,4 +60,13 @@ public sealed partial class AbsorbentComponent : Component
     /// </summary>
     [DataField]
     public bool UseAbsorberSolution = true;
+
+    [DataField]
+    public float FootprintCleaningRange = 0.2f;
+
+    /// <summary>
+    /// How many footprints within FootprintCleaningRange can be cleaned at once.
+    /// </summary>
+    [DataField]
+    public int MaxCleanedFootprints = 9;
 }

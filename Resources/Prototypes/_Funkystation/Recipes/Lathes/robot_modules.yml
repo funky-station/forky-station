@@ -1,0 +1,24 @@
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModulePaperwork
+  result: BorgModulePaperwork
+
+- type: latheRecipe
+  parent: BaseGoldBorgModuleRecipe
+  id: BorgModuleAnomalyAdvanced
+  result: BorgModuleAnomalyAdvanced
+  
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleMedicalBasic
+  result: BorgModuleMedicalBasic
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleChemicalBasic
+  result: BorgModuleChemicalBasic
+  
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleFoam
+  result: BorgModuleFoam

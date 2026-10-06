@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: 2025 mkanke-real <mikekanke@gmail.com>
+#
+# SPDX-License-Identifier: MIT
+
+#submited by Sevenups
+- type: entity
+  parent: BookBase
+  id: IanHoppyBook1
+  name: "The Adventures of Hoppy and Ian Book I"
+  description: A childrens book based on a dog named Ian and a productive worker named Hoppy.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#2267c7"
+    - state: decor_bottom
+      color: "#2cb040"
+    - state: decor_wingette
+      color: "#3aa6f8"
+    - state: icon_ian
+    - state: icon_text2
+      color: "#ffffff"
+    - state: detail_bookmark
+      color: "#d11717"
+  - type: OocAuthorship
+    oocAuthor: Sevenups
+  - type: Paper
+    stampedBy:
+    - stampedColor: '#134975'
+      stampedName: stamped-nt-approved
+    content: book-text-ianandhoppy

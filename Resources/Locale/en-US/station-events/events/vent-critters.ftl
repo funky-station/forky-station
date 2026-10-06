@@ -1,1 +1,6 @@
-﻿station-event-vent-creatures-start-announcement = Attention. A large influx of unknown life forms have been detected residing within the station's ventilation systems. Please be rid of these creatures before it begins to affect productivity.
+﻿# rewritten for funky
+station-event-vent-creatures-start-horde-announcement = Telemetry alert.
+                                                        Unexpected biological signatures detected tracking through distribution network.
+                                                        Projected emergence vector:
+                                                        { $location }.
+                                                        Immediate evacuation advised.

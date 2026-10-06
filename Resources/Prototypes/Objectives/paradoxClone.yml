@@ -6,7 +6,7 @@
   - type: Objective
     # required but not used
     difficulty: 1
-    issuer: objective-issuer-paradox
+    issuer: Paradox
   - type: RoleRequirement
     roles:
     - ParadoxCloneRole
@@ -22,7 +22,7 @@
   components:
   - type: Objective
     icon:
-      sprite: Structures/Furniture/chairs.rsi
+      sprite: _Funkystation/Structures/Furniture/chairs.rsi # Funky
       state: shuttle
   - type: EscapeShuttleCondition
 

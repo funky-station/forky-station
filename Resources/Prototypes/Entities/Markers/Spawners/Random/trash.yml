@@ -52,7 +52,7 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Consumable/Food/snacks.rsi
+        - sprite: _Funkystation/Objects/Consumable/Food/snacks.rsi # Funky
           state: pistachio-trash
     - type: EntityTableSpawner
       offset: 0.2

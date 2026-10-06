@@ -8,7 +8,7 @@
     keysIn:
     - timer
   - type: Explosive
-    explosionType: Default
+    explosionType: Transparent # Funky RMC Explosions
     maxIntensity: 10
     intensitySlope: 3
     totalIntensity: 120 # about a ~4 tile radius
@@ -92,10 +92,11 @@
     keysIn:
     - timer
   - type: Explosive
-    explosionType: Minibomb
+    explosionType: TransparentMinibomb # Funky RMC Explosions
     totalIntensity: 200
     intensitySlope: 30 #Will destroy the tile under it reliably, space 1-2 more to rods. Only does any significant damage in a 5-tile cross.
     maxIntensity: 60
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: Appearance
   - type: TimerTriggerVisuals
     primingSound:
@@ -116,13 +117,14 @@
     keysIn:
     - timer
   - type: Explosive
-    explosionType: Minibomb
+    explosionType: TransparentMinibomb # Funky RMC Explosions
     totalIntensity: 400
     intensitySlope: 30
     maxIntensity: 125
     deleteAfterExplosion: false
     repeatable: true
     canCreateVacuum: true
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: TimerTrigger
     delay: 4.5
     beepSound:
@@ -139,7 +141,7 @@
     color: Red
     softness: 0
     falloff: 20
-    mask: /Textures/Effects/LightMasks/double_cone.png
+    lightMask: ConeDouble
   - type: RotatingLight
     speed: 360
   - type: LightBehaviour
@@ -284,9 +286,9 @@
     price: 1000
 
 - type: entity
+  parent: [ VolatileGrenadeBase, TimerGrenadeBase ]
   name: the nuclear option
   description: Please don't throw it, think of the children.
-  parent: TimerGrenadeBase
   id: NuclearGrenade
   components:
   - type: Sprite
@@ -301,26 +303,16 @@
     totalIntensity: 20000 # ~15 tile radius.
     intensitySlope: 5
     maxIntensity: 50
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:TriggerBehavior
-        keyOut: timer # immediately explode
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
   - type: Appearance
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Effects/countdown.ogg
 
 - type: entity
+  parent: [ BaseItem, BaseItemDestructible ]
+  id: ModularGrenade
   name: modular grenade
   description: A grenade casing. Requires a trigger and a payload.
-  parent: BaseItem
-  id: ModularGrenade
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/modular.rsi
@@ -336,8 +328,6 @@
   - type: Construction
     graph: ModularGrenadeGraph
     node: emptyCase
-  - type: Damageable
-    damageContainer: Inorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -345,8 +335,6 @@
         damage: 50
       behaviors:
       - !type:TriggerBehavior
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: Appearance
   - type: GenericVisualizer
     visuals:

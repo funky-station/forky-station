@@ -1,0 +1,27 @@
+- type: entity
+  parent: [ BaseItem, BaseToyGun ]
+  id: FoamCrossbowBorg
+  name: bluespace foam crossbow
+  description: Contains a bluespace ammunition generation device for maximum foam-induced destruction.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/Foam/foam_crossbow.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: Objects/Fun/Foam/foam_crossbow.rsi
+  - type: Gun
+    fireRate: 0.5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/energycrossbow_shoot.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletFoam
+    capacity: 5
+    count: 5
+  - type: PacifismAllowedGun
+  - type: AmmoCounter
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 3

@@ -95,6 +95,7 @@
     - !type:GroupSelector
       weight: 23
       children:
+      - id: TravelCamera
       - id: ClothingNeckCloakHerald
       - id: ClothingHeadHelmetTemplar
       # Cloaks
@@ -159,7 +160,7 @@
         - id: ClothingNeckGoldAutismPin
     # Rare Group
     - !type:GroupSelector
-      weight: 2
+      weight: 15
       children:
       - id: DrinkMugDog
       - id: CigarGold
@@ -243,11 +244,11 @@
       - id: CableApcStack10
       - !type:GroupSelector
         children:
-        - id: ClothingHandsGlovesColorYellowBudget
+        - id: FuClothingHandsGlovesInsulsBudget #Funky
           weight: 5
         - id: ClothingHandsGlovesFingerlessInsulated
           weight: 0.5
-        - id: ClothingHandsGlovesColorYellow
+        - id: FuClothingHandsGlovesInsuls #Funky
           weight: 1
         - id: ClothingHandsGlovesConducting
           weight: 0.1
@@ -274,6 +275,8 @@
       - id: ModularReceiver
       - id: WeaponFlareGun
       - id: BarberScissors
+      - id: SuitSealantCanister # Funky
+      - id: FuFoodCerealGorillaCrunch # Funky Gorilla Crunch
       - !type:GroupSelector
         children:
         - id: DrinkSpaceGlue
@@ -295,6 +298,8 @@
       - id: DrinkMopwataBottleRandom
       - id: SpectralLocator
       - id: LidSalami
+        weight: 0.05
+      - id: CommemorativeFlippoLighter # funkystation
         weight: 0.05
 
 - type: entity
@@ -329,6 +334,7 @@
       - id: RifleStock
       - id: ModularReceiver
       - id: HydroponicsToolScythe
+      - id: Brick
     # Rare Group
     - !type:GroupSelector
       weight: 5
@@ -380,25 +386,25 @@
   id: MaintenancePlantSpawner
   parent: MarkerBase
   components:
-    - type: Sprite
-      layers:
-        - state: red
-        - sprite: Objects/Misc/spaceshroom.rsi
-          state: structure
-    - type: RandomSpawner
-      prototypes:
-        - Spaceshroom
-      chance: 0.6
-      offset: 0.0
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Objects/Misc/spaceshroom.rsi
+        state: structure
+  - type: EntityTableSpawner
+    table:
+      id: Spaceshroom
+      prob: 0.6
+    offset: 0.0
 
 
 - type: entityTable
   id: InsulsTable
   table: !type:GroupSelector
     children:
-    - id: ClothingHandsGlovesColorYellowBudget # budget insuls
+    - id: FuClothingHandsGlovesInsulsBudget # budget insuls
       weight: 85
-    - id: ClothingHandsGlovesColorYellow # true insuls
+    - id: FuClothingHandsGlovesInsuls # true insuls
       weight: 10
     - id: ClothingHandsGlovesFingerlessInsulated # fingerless
       weight: 4

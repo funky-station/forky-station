@@ -7,7 +7,7 @@ device-frequency-prototype-name-mailing-units = Mailing Units
 device-frequency-prototype-name-pdas = PDAs
 device-frequency-prototype-name-fax = Fax
 device-frequency-prototype-name-basic-device = Basic Devices
-device-frequency-prototype-name-cyborg-control = Cyborg Control
+device-frequency-prototype-name-cyborg-control = Automa Control
 device-frequency-prototype-name-robotics-console = Robotics Console
 device-frequency-prototype-name-turret = Sentry Turret
 device-frequency-prototype-name-turret-control = Sentry Turret Control
@@ -55,3 +55,5 @@ device-net-id-apc = Apc
 device-net-id-atmos-devices = Atmos Devices
 device-net-id-reserved = Reserved
 
+# Unknown
+device-address-unknown = ????-????

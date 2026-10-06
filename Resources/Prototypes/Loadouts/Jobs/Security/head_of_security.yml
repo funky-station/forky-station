@@ -44,6 +44,53 @@
     jumpsuit: ClothingUniformJumpskirtHosFormal
   groupBy: "jumpskirt"
 
+##########################################
+# Funky security uniforms
+
+- type: loadout
+  id: FuHosService
+  equipment:
+    jumpsuit: FuClothingUniformHosService
+  groupBy: "service"
+
+- type: loadout
+  id: FuHosDressPants
+  equipment:
+    jumpsuit: FuClothingUniformHosDressPants
+  groupBy: "dresspants"
+
+- type: loadout
+  id: FuHosDressSkirt
+  equipment:
+    jumpsuit: FuClothingUniformHosDressSkirt
+  groupBy: "dressskirt"
+
+- type: loadout
+  id: FuHosDressSkirtStockings
+  equipment:
+    jumpsuit: FuClothingUniformHosDressSkirtStockings
+  groupBy: "dressskirt"
+
+- type: loadout
+  id: FuHosMessPants
+  equipment:
+    jumpsuit: FuClothingUniformHosMessPants
+  groupBy: "messpants"
+
+- type: loadout
+  id: FuHosMessSkirt
+  equipment:
+    jumpsuit: FuClothingUniformHosMessSkirt
+  groupBy: "messskirt"
+
+- type: loadout
+  id: FuHosMessSkirtStockings
+  equipment:
+    jumpsuit: FuClothingUniformHosMessSkirtStockings
+  groupBy: "messskirt"
+
+##########################################
+
 # Head
 - type: loadout
   id: HeadofSecurityHead
@@ -83,4 +130,4 @@
 - type: loadout
   id: HeadofSecurityWinterCoat
   equipment:
-    outerClothing: ClothingOuterWinterHoS
+    outerClothing: FuClothingOuterWinterHos

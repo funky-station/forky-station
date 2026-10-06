@@ -3,8 +3,10 @@
   parent: BaseItem
   id: ProjectileGrenadeBase
   components:
+  - type: ExplosionEffect # Funky RMC Explosions
   - type: Appearance
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: DeleteOnTrigger
     keysIn:

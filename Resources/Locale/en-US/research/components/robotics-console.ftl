@@ -1,7 +1,7 @@
 robotics-console-window-title = Robotics Console
-robotics-console-no-cyborgs = No Cyborgs!
+robotics-console-no-cyborgs = No Automas!
 
-robotics-console-select-cyborg = Select a cyborg above.
+robotics-console-select-cyborg = Select an automa above.
 robotics-console-model = [color=gray]Model:[/color] {$name}
 # name is not formatted to prevent players trolling
 robotics-console-designation = [color=gray]Designation:[/color]

@@ -1,0 +1,12 @@
+- type: entity
+  id: BriefcaseWeaponEstocFilled
+  parent: BriefcaseWeapon
+  name: secure estoc case
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRifleEstoc
+        - id: MagazineRifle50
+          amount: 3

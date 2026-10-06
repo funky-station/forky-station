@@ -54,4 +54,10 @@ public sealed partial class RingerComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Active;
+
+    /// <summary>
+    /// Funky, popup text when ringing
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public LocId Popup = "comp-ringer-vibration-popup";
 }

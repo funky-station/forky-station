@@ -88,6 +88,11 @@
       tableId: UncommonLetterBundleTable
     - id: SpaceCash100
     - id: Joint
+    #funky changes start here
+    - id: MothroachCube
+    - id: SecurityWhistle
+    - id: HandheldStationMap
+    #ends
 
 - type: entityTable # TODO: Add more variety!
   id: LetterRareEntityTable # Interesting things that can actually be of use, should never be more expensive than 500 spesos
@@ -106,6 +111,26 @@
       - id: Bloodpack
     - id: SyndicateBusinessCard
       weight: 0.5
+      #funky changes start from here
+    - id: ArabianLamp
+    - id: PhoneInstrumentSyndicate
+      weight: 0.5
+    - id: MoproachCube
+    - id: SyndicateWhistle
+      weight: 0.5
+    - id: SpectralLocator
+    - id: ChemistryBottleCognizine
+      weight: 0.1
+    - !type:NestedSelector
+      tableId: LetterImplanter
+    - id: HandheldStationMapNukeops
+      weight: 0.5
+    - id: ClothingHeadHatCatEars
+      weight: 0.1
+    - id: LandMineModular
+    - !type:NestedSelector
+      tableId: LetterKnives
+      #funkends
 
 # Packages
 # TODO: Currently mostly maints loot, should be updated in the future.
@@ -121,6 +146,11 @@
       tableId: FoodRandomCakeTable
       weight: 2
     - id: FoodBoxPizzaFilled
+    #funkstart
+    - id: DrinkCanPack
+    - id: FoodMealHappyHonkBigBite
+      weight: 0.5
+      #funkend
 
 - type: entityTable
   id: PackageUncommonEntityTable
@@ -135,6 +165,9 @@
       tableId: AllPlushiesTable
       weight: 0.4
     - !type:NestedSelector
+      tableId: AllToysTable #funky
+      weight: 0.4
+    - !type:NestedSelector
       tableId: RandomAllAlcoholTable
       weight: 0.2
       rolls: !type:RangeNumberSelector
@@ -142,6 +175,9 @@
     - !type:NestedSelector
       tableId: InsulsTable #Uncommon since it's weighted towards budget/fingerless
       weight: 0.2
+    - !type:NestedSelector #funky
+      tableId: PackagePresents
+      weight: 0.1
 
 - type: entityTable # TODO: Add more variety!
   id: PackageRareEntityTable
@@ -151,8 +187,8 @@
     - id: PipeBomb # TODO: PackageRarePunishmentTable, including things like pipebombs and other potentially harmful things (the pipebomb should also get primed when unpacked)
     - !type:NestedSelector
       tableId: SmallCritterEntityTable
-    #- !type:NestedSelector # TODO: Uncomment after all the rare department bundles are done (medical, security, etc...)
-    #  tableId: PackageRareDepartmentBundlesTable
+    - !type:NestedSelector # TODO: Uncomment after all the rare department bundles are done (medical, security, etc...)
+      tableId: PackageRareDepartmentBundlesTable
     - !type:NestedSelector
       tableId: AnimalMaskTable
     - !type:NestedSelector
@@ -161,4 +197,26 @@
     - !type:NestedSelector
       tableId: SyndieMaintLoot
       weight: 0.5
-      
+      #funkstart
+    - !type:NestedSelector
+      tableId: PackageSyndieStructureStuff
+      weight: 0.1
+    - !type:NestedSelector
+      tableId: PackageHardbomb
+      weight: 0.1
+    - !type:NestedSelector
+      tableId: PackageBoxHug
+    - id: ToolboxSyndicate
+      weight: 0.1
+    - !type:NestedSelector
+      tableId: PackageWehBundle
+      weight: 0.01
+    - id: BriefcaseWeapon
+      weight: 0.1
+    - !type:NestedSelector
+      tableId: PackageSyndicateDuffles
+      weight: 0.1
+    - !type:NestedSelector
+      tableId: PackageFoamFun
+    - !type:NestedSelector
+      tableId: PackagePracticeLasers

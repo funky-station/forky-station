@@ -1,0 +1,17 @@
+﻿- type: stack
+  parent: BaseTileStack
+  id: FloorTileSteelOffset
+  name: stack-offset-steel-tile
+  spawn: FloorTileItemSteelOffset
+
+- type: stack
+  parent: BaseTileStack
+  id: FloorTileSteelDiagonalMini
+  name: stack-steel-diagonal-mini-tile
+  spawn: FloorTileItemSteelDiagonalMini
+
+- type: stack
+  parent: BaseTileStack
+  id: FloorTileSteelDiagonal
+  name: stack-steel-diagonal-tile
+  spawn: FloorTileItemSteelDiagonal

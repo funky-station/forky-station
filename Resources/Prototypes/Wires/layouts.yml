@@ -233,3 +233,23 @@
   wires:
   - !type:AccessWireAction
   - !type:AiInteractWireAction
+
+# Funky
+- type: wireLayout
+  id: DocumentPrinter
+  dummyWires: 1
+  wires:
+  - !type:PowerWireAction
+  - !type:PowerWireAction
+    pulseTimeout: 15
+  - !type:DocumentPrinterAccessWireAction
+  - !type:AiInteractWireAction
+  - !type:DocumentPrinterManagerWireAction
+
+# Funky
+- type: wireLayout
+  id: PASpeaker
+  dummyWires: 2
+  wires:
+  - !type:PowerWireAction
+    pulseTimeout: 15

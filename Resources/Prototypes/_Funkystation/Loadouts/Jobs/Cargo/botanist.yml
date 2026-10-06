@@ -1,0 +1,94 @@
+#Hats
+
+- type: loadout
+  id: BotanistBandanaBlack
+  equipment:
+    head: ClothingHeadBandBlack
+  groupBy: "bandanas"
+
+- type: loadout
+  id: BotanistBandanaBlue
+  equipment:
+    head: ClothingHeadBandBlue
+  groupBy: "bandanas"
+
+- type: loadout
+  id: BotanistBandanaBrown
+  equipment:
+    head: ClothingHeadBandBrown
+  groupBy: "bandanas"
+
+- type: loadout
+  id: BotanistBandanaGold
+  equipment:
+    head: ClothingHeadBandGold
+  groupBy: "bandanas"
+
+- type: loadout
+  id: BotanistBandanaGreen
+  equipment:
+    head: ClothingHeadBandGreen
+  groupBy: "bandanas"
+
+- type: loadout
+  id: BotanistBandanaGrey
+  equipment:
+    head: ClothingHeadBandGrey
+  groupBy: "bandanas"
+
+- type: loadout
+  id: BotanistBandanaRed
+  equipment:
+    head: ClothingHeadBandRed
+  groupBy: "bandanas"
+
+- type: loadout
+  id: BotanistBandanaSkull
+  equipment:
+    head: ClothingHeadBandSkull
+  groupBy: "bandanas"
+
+# Uniforms
+
+- type: loadout
+  id: FuBotanistJumpsuit
+  equipment:
+    jumpsuit: FuClothingUniformJumpsuitHydroponics
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: FuBotanistJumpsuitDirty
+  equipment:
+    jumpsuit: FuClothingUniformJumpsuitHydroponicsDirty
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: FuBotanistShirtPants
+  equipment:
+    jumpsuit: FuClothingUniformShirtPantstHydroponics
+  groupBy: "pants"
+
+- type: loadout
+  id: FuBotanistShirtPantsOveralls
+  equipment:
+    jumpsuit: FuClothingUniformShirtPantstHydroponicsOveralls
+  groupBy: "pants"
+
+- type: loadout
+  id: FuBotanistShirtPantsOverallsTurtle
+  equipment:
+    jumpsuit: FuClothingUniformShirtPantstHydroponicsOverallsTurtle
+  groupBy: "pants"
+
+- type: loadout
+  id: FuBotanistJumperSkirt
+  equipment:
+    jumpsuit: FuClothingUniformJumperskirtHydroponics
+  groupBy: "skirt"
+
+- type: loadout
+  id: FuBotanistJumperSkirtTurtle
+  equipment:
+    jumpsuit: FuClothingUniformJumperskirtHydroponicsTurtle
+  groupBy: "skirt"
+

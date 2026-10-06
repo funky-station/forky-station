@@ -1,0 +1,23 @@
+- type: construction
+  id: BoxShelf
+  graph: BoxShelf
+  startNode: start
+  targetNode: boxshelf
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+  
+- type: construction
+  id: Lectern
+  graph: Lectern
+  startNode: start
+  targetNode: lectern
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

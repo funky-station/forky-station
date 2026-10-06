@@ -1,0 +1,95 @@
+# Hats
+## Bandanas
+- type: loadout
+  id: EngiBandanaBlack
+  equipment:
+    head: ClothingHeadBandBlack
+  groupBy: "bandanas"
+
+- type: loadout
+  id: EngiBandanaBrown
+  equipment:
+    head: ClothingHeadBandBrown
+  groupBy: "bandanas"
+
+- type: loadout
+  id: EngiBandanaGold
+  equipment:
+    head: ClothingHeadBandGold
+  groupBy: "bandanas"
+
+- type: loadout
+  id: EngiBandanaGrey
+  equipment:
+    head: ClothingHeadBandGrey
+  groupBy: "bandanas"
+
+- type: loadout
+  id: EngiBandanaSkull
+  equipment:
+    head: ClothingHeadBandSkull
+  groupBy: "bandanas"
+
+## Hardhats
+- type: loadout
+  id: EngiHardhatOrange
+  equipment:
+    head: ClothingHeadHatHardhatOrange
+  groupBy: "hardhats"
+
+- type: loadout
+  id: EngiHardhatYellow
+  equipment:
+    head: ClothingHeadHatHardhatYellow
+  groupBy: "hardhats"
+
+- type: loadout
+  id: EngiHardhatOffwhite
+  equipment:
+    head: FuClothingHeadHatHardhatOffwhite
+  groupBy: "hardhats"
+
+- type: loadout
+  id: EngiHardhatBlack
+  equipment:
+    head: FuClothingHeadHatHardhatBlack
+  groupBy: "hardhats"
+
+# Uniforms
+
+- type: loadout
+  id: FuEngiCoveralls
+  equipment:
+    jumpsuit: FuClothingUniformCoverallsEngineering
+  groupBy: "coveralls"
+
+
+- type: loadout
+  id: FuEngiCoverallsRipley
+  equipment:
+    jumpsuit: FuClothingUniformCoverallsEngineeringRipley
+  groupBy: "coveralls"
+
+- type: loadout
+  id: FuEngiOveralls
+  equipment:
+    jumpsuit: FuClothingUniformOverallsEngineering
+  groupBy: "overalls"
+
+- type: loadout
+  id: FuEngiOverallsGrease
+  equipment:
+    jumpsuit: FuClothingUniformOverallsEngineeringGrease
+  groupBy: "overalls"
+
+- type: loadout
+  id: FuEngiShirtPants
+  equipment:
+    jumpsuit: FuClothingUniformShirtPantsEngineering
+  groupBy: "shirtpants"
+
+- type: loadout
+  id: FuEngiShirtPantsGrease
+  equipment:
+    jumpsuit: FuClothingUniformShirtPantsEngineeringGrease
+  groupBy: "shirtpants"

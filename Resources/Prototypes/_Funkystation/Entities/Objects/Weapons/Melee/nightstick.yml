@@ -1,0 +1,64 @@
+- type: entity
+  name: nightstick
+  parent: [BaseItem, BaseSecurityContraband]
+  id: Nightstick
+  description: A collapsible baton designed to beat troublemakers into submission.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Melee/nightstick.rsi
+    layers:
+    - state: nightstick_handle
+    - state: nightstick_extend
+      visible: false
+      map: [ "extend" ]
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: Item
+    size: Small
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/_Funkystation/Weapons/nightstick_extend.ogg
+    soundDeactivate:
+      path: /Audio/_Funkystation/Weapons/nightstick_retract.ogg
+  - type: ItemToggleSize
+    activatedSize: Normal
+    activatedShape:
+    - 0,0,0,3
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Blunt: 12
+    activatedSoundOnHit:
+      collection: Nightstick
+    activatedBluntStaminaDamageFactor: 2.5
+  - type: ToggleableVisuals
+    spriteLayer: extend
+    inhandVisuals:
+      left:
+      - state: inhand-left-extend
+      right:
+      - state: inhand-right-extend
+  - type: UseDelay
+    delay: 0.2
+  - type: Tag
+    tags:
+    - Truncheon
+  - type: Clothing
+    sprite: _Funkystation/Objects/Weapons/Melee/nightstick.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: DisarmMalus
+    malus: 0.225
+  - type: Appearance
+  - type: StaticPrice
+    price: 80
+  - type: GuideHelp
+    guides:
+    - Security
+    - Antagonists

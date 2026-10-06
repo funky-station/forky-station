@@ -6,7 +6,7 @@ namespace Content.Shared.Interaction;
 ///     Raised when an entity is activated in the world.
 /// </summary>
 [PublicAPI]
-public sealed class ActivateInWorldEvent : HandledEntityEventArgs, ITargetedInteractEventArgs
+public sealed class ActivateInWorldEvent : HandledEntityEventArgs
 {
     /// <summary>
     ///     Entity that activated the target world entity.
@@ -28,6 +28,11 @@ public sealed class ActivateInWorldEvent : HandledEntityEventArgs, ITargetedInte
     /// </summary>
     public bool WasLogged { get; set; }
 
+    /// <summary>
+    ///     Stellar - set to false if this interaction shouldn't have an interaction particle
+    /// </summary>
+    public bool InteractionParticle = true;
+
     public ActivateInWorldEvent(EntityUid user, EntityUid target, bool complex)
     {
         User = user;
@@ -40,7 +45,7 @@ public sealed class ActivateInWorldEvent : HandledEntityEventArgs, ITargetedInte
 /// Event raised on the user when it activates something in the world
 /// </summary>
 [PublicAPI]
-public sealed class UserActivateInWorldEvent : HandledEntityEventArgs, ITargetedInteractEventArgs
+public sealed class UserActivateInWorldEvent : HandledEntityEventArgs
 {
     /// <summary>
     ///     Entity that activated the target world entity.

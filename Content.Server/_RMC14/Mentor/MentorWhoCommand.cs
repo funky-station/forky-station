@@ -1,0 +1,23 @@
+﻿using Content.Shared.Administration;
+using Robust.Shared.Console;
+
+namespace Content.Server._RMC14.Mentor;
+
+[AnyCommand]
+public sealed partial class MentorWhoCommand : LocalizedCommands
+{
+    [Dependency] private MentorManager _mentor = default!;
+
+    public override string Command => "mentorwho";
+
+    public override async void Execute(IConsoleShell shell, string argStr, string[] args)
+    {
+        if (shell.Player == null)
+            return;
+
+        if (!_mentor.IsMentor(shell.Player.UserId))
+            return;
+
+        shell.WriteLine(string.Join("\n", _mentor.GetActiveMentors()));
+    }
+}

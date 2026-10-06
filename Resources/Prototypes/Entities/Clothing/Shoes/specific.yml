@@ -19,13 +19,11 @@
     slots:
       item:
         name: clothing-boots-sidearm
+        ejectOnBreak: true
         whitelist:
           tags:
-          - Knife
+          - ToyKnife
           - ToySidearm
-        blacklist:
-          components:
-          - Sharp
 
 - type: entity
   parent: ClothingShoesClownBase
@@ -117,6 +115,7 @@
   - type: NoSlip
   - type: SlowedOverSlippery
     slowdownModifier: 0.7
+  - type: NoFootprints # Funky change
   - type: SpeedModifierContactCapClothing
     maxContactSprintSlowdown: 0.7
     maxContactWalkSlowdown: 0.7
@@ -203,7 +202,7 @@
 - type: entity
   parent: ClothingShoesChameleon
   id: ClothingShoesChameleonNoSlips
-  name: black shoes #actual name and description in uplink_catalog.yml
+  name: black shoes #actual name and description in wearables.yml
   suffix: No-slip, Chameleon
   description: Stylish black shoes.
   components:

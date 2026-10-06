@@ -1,3 +1,5 @@
+## Static
+
 - type: latheRecipePack
   id: ServiceStatic
   recipes:
@@ -46,6 +48,8 @@
   - WeaponSprayNozzle
   - ClothingBackpackWaterTank
   - MegaSprayBottle
+  - WashingMachineCircuitboard # Funky
+  - TrashBagHolding
 
 - type: latheRecipePack
   id: Instruments
@@ -64,3 +68,5 @@
   - ReagentGrinderIndustrialMachineCircuitboard
   - JukeboxCircuitBoard
   - DawInstrumentMachineCircuitboard
+  - DocumentPrinterCircuitboard # Funky
+  - PaperShredderCircuitboard # Funky

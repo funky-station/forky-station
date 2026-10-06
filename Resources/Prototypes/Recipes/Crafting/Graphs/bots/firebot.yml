@@ -8,7 +8,7 @@
       steps:
       - tag: FireExtinguisher
         icon:
-          sprite: Objects/Misc/fire_extinguisher.rsi
+          sprite: _Funkystation/Objects/Misc/fire_extinguisher.rsi # Funky
           state: fire_extinguisher_open
         name: construction-graph-tag-fire-extinguisher
       - tag: FireHelmet

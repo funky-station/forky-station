@@ -1,0 +1,31 @@
+﻿- type: entity
+  parent: BaseItem
+  id: LaundryBag
+  name: laundry bag
+  description: A proprietary design of plastic bag designed by the Interstellar Custodial Labour Union, made to hold dirty clothes for the wash.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Specific/Janitorial/laundry_bag.rsi
+    state: icon
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,1,1
+  - type: Tag
+    tags:
+    - LaundryBag
+  - type: Storage
+    grid:
+    - 0,0,3,3
+    maxItemSize: Large
+    whitelist:
+      tags:
+      - ClothMade
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: [ ]

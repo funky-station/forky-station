@@ -1,0 +1,51 @@
+                        [color=#1b67a5]╔══════════════════╗
+                        ║███░███░░░░██░░░░░║
+                        ║░██░████░░░██░░░░░║
+                        ║░░█░██░██░░██░█░░░║
+                        ║░░░░██░░██░██░██░░║
+                        ║░░░░██░░░████░███░║
+                        ╚══════════════════╝[/color]
+          [head=2][bold]NON-DISCLOSURE AGREEMENT[/bold][/head]
+══════════════════════════════════════════
+
+[head=3]PARTIES[/head]
+This Agreement is between:
+    [color=#1b67a5]Nanotrasen[/color]
+  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+(1st Party) and:
+    [color=#1b67a5]{EMPLOYEE_NAME}[/color]
+  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+(2nd Party).
+
+[head=3]AGREEMENT TYPE[/head]
+\[X] [bold]Unilateral[/bold] - 1st Party discloses, 2nd Party protects
+\[  ] [bold]Mutual[/bold] - Both parties exchange and protect information
+
+[head=3]CONFIDENTIAL INFORMATION[/head]
+ \[  ] All information shared by disclosing Party
+ \[X] Information marked 'Confidential' or 'Classified'
+ \[X] Specific categories (check below):
+  - \[  ] Research and development data
+  - \[X] Security protocols and access codes
+  - \[  ] Command procedures and emergency plans
+  - \[  ] Proprietary technology and blueprints
+  - \[X] Personnel records and station operations
+  - \[  ] Other:
+
+[head=3]DURATION[/head]
+ \[  ] Until information is no longer proprietary
+ \[X] Until written release by Nanotrasen Legal
+ \[  ] Specific time period:
+ \[  ] Other:
+
+[head=3]ENFORCEMENT[/head]
+Violation may result in immediate termination, legal action, and prosecution under corporate law.
+
+══════════════════════════════════════════
+
+[italic]Signatures indicate understanding and acceptance of these terms.[/italic]
+
+Signed: {EMPLOYEE_SIGNATURE}
+
+          [mono]OFFICIAL STAMP REQUIRED FOR VALIDATION[/mono]
+══════════════════════════════════════════

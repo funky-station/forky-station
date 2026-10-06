@@ -178,7 +178,7 @@
   categories:
   - Food
   icon:
-    sprite: Objects/Consumable/Drinks/glass_clear.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/glass_clear.rsi # Funky
     state: icon
   completetime: 1
   materials:
@@ -204,7 +204,7 @@
   categories:
   - Food
   icon:
-    sprite: Objects/Consumable/Food/condiments.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/condiments.rsi # Funky
     state: packet-pepper
   completetime: 1
   materials:
@@ -217,7 +217,7 @@
   categories:
   - Food
   icon:
-    sprite: Objects/Consumable/Food/condiments.rsi
+    sprite: _Funkystation/Objects/Consumable/Food/condiments.rsi # Funky
     state: bottle-empty
   completetime: 1
   materials:
@@ -270,3 +270,16 @@
   completetime: 5
   materials:
     Biomass: 20
+
+- type: latheRecipe
+  id: BioGenCompostAmmonia
+  resultReagents:
+    Ammonia: 10 # 15 biomass give 10 eznutrient which contain 3 ammonia, but also 2 other components. between 10 and 30 units, going for 15 ammonia sounds the most reasonable. (total nutrient for plants is 15 vs 20 ignoring the slight health boost)
+  categories:
+  - Chemicals
+  icon:
+    sprite: Objects/Specific/Chemistry/bottle.rsi #Structures/Storage/canister.rsi
+    state: bottle-1 #greenys
+  completetime: 1
+  materials:
+    Biomass: 10

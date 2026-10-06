@@ -1,0 +1,4 @@
+- files: ["AtkinsonHyperlegibleNext-Regular.ttf", "AtkinsonHyperlegibleNext-Italic.ttf", "AtkinsonHyperlegibleNext-Bold.ttf", "AtkinsonHyperlegibleNext-BoldItalic.ttf"]
+  license: "Custom"
+  copyright: "Copyright (c) Braille Institute of America, Inc. Licensed under the SIL Open Font License 1.1 (see OFL.txt). "
+  source: "https://fonts.google.com/specimen/Atkinson+Hyperlegible+Next"

@@ -4,62 +4,72 @@
   id: JobChiefMedicalOfficer
   groups:
   - GroupTankHarness
-  - ChiefMedicalOfficerHead
+  - FuCmoHead # funky- previously ChiefMedicalOfficerHead
   - MedicalMask
-  - ChiefMedicalOfficerJumpsuit
-  - MedicalBackpack
-  - ChiefMedicalOfficerOuterClothing
-  - ChiefMedicalOfficerNeck
+  - FuCmoUniform # funky - ChiefMedicalOfficerJumpsuit
+  - FuCmoOuterclothing # funky - previously ChiefMedicalOfficerOuterClothing
+#  - ChiefMedicalOfficerNeck funky - no more capes for non-militant command
   - ChiefMedicalOfficerShoes
+  - Pager
   - Glasses
+  - AssistiveItems
   - SurvivalMedical
   - Trinkets
-#  - ChiefMedicalOfficerJobTrinkets
+  - ChiefMedicalOfficerJobTrinkets # Funky uncommented
   - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: JobMedicalDoctor
   groups:
   - GroupTankHarness
-  - MedicalDoctorHead
+  - FuMedicalDoctorHead # funky - previously MedicalDoctorHead
   - MedicalMask
-  - MedicalDoctorJumpsuit
-  - MedicalBackpack
-  - MedicalDoctorOuterClothing
+  - FuMedicalDoctorUniform # funky - previously MedicalDoctorJumpsuit
+  - FuMedicalDoctorOuterclothing # funky - previously MedicalDoctorOuterClothing
   - MedicalShoes
-  - MedicalDoctorPDA
+  #- MedicalDoctorPDA # Funky: the wallet-ening, also removing the loadout choice for senior stuff
+  - Pager
   - Glasses
+  - AssistiveItems
   - SurvivalMedical
   - Trinkets
 #  - MedicalDoctorJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: JobMedicalIntern
   groups:
   - GroupTankHarness
-  - MedicalInternJumpsuit
-  - MedicalBackpack
+  - FuMedicalInternHead # funky - new
+  - FuMedInternUniform # funky - previously MedicalInternJumpsuit
+  - Pager
   - Glasses
+  - AssistiveItems
   - SurvivalMedical
   - Trinkets
 #  - MedicalInternJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: JobChemist
   groups:
   - GroupTankHarness
   - MedicalMask
-  - ChemistJumpsuit
-  - ChemistBackpack
-  - ChemistOuterClothing
-  - MedicalShoes
+  - FuChemistUniform # funky - previously ChemistJumpsuit
+  - FuChemistGloves # funky - new
+  - FuChemistOuterclothing # funky - previously ChemistOuterClothing
+  - FuChemistBoots # funky - previously MedicalShoes
+  - Pager
   - Glasses
+  - AssistiveItems
   - SurvivalMedical
   - Trinkets
 #  - ChemistJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: JobParamedic
@@ -68,11 +78,13 @@
   - ParamedicHead
   - MedicalMask
   - ParamedicJumpsuit
-  - MedicalBackpack
   - ParamedicOuterClothing
   - ParamedicShoes
+  - Pager
   - Glasses
+  - AssistiveItems
   - SurvivalMedical
   - Trinkets
 #  - ParamedicJobTrinkets
   - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid # MACRO: Decapoid

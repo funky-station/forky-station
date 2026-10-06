@@ -51,7 +51,7 @@
 - type: cargoProduct
   id: EngineeringElectricalSupplies
   icon:
-    sprite: Objects/Tools/Toolboxes/toolbox_yellow.rsi
+    sprite: _Funkystation/Objects/Tools/Toolboxes/toolbox_yellow.rsi # Funky
     state: icon
   product: CrateEngineeringElectricalSupplies
   cost: 4500
@@ -69,64 +69,16 @@
   group: market
 
 - type: cargoProduct
-  id: EngineeringJetpack
-  icon:
-    sprite: Objects/Tanks/Jetpacks/blue.rsi
-    state: icon
-  product: CrateEngineeringJetpack
-  cost: 1000
-  category: cargoproduct-category-name-engineering
-  group: market
-
-- type: cargoProduct
-  id: EngineeringMiniJetpack
-  icon:
-    sprite: Objects/Tanks/Jetpacks/mini.rsi
-    state: icon
-  product: CrateEngineeringMiniJetpack
-  cost: 750
-  category: cargoproduct-category-name-engineering
-  group: market
-
-- type: cargoProduct
   id: AirlockKit
   icon:
-    sprite: Objects/Tools/Toolboxes/toolbox_yellow.rsi
+    sprite: _Funkystation/Objects/Tools/Toolboxes/toolbox_yellow.rsi # Funky
     state: icon
   product: CrateAirlockKit
   cost: 1100
   category: cargoproduct-category-name-engineering
   group: market
 
-- type: cargoProduct
-  id: EvaKit
-  icon:
-    sprite: Clothing/Head/Helmets/eva.rsi
-    state: icon
-  product: CrateEvaKit
-  cost: 5000
-  category: cargoproduct-category-name-engineering
-  group: market
-
-- type: cargoProduct
-  id: EngineeringRCDAmmo
-  icon:
-    sprite: Objects/Tools/rcd.rsi
-    state: ammo
-  product: CrateRCDAmmo
-  cost: 2500
-  category: cargoproduct-category-name-engineering
-  group: market
-
-- type: cargoProduct
-  id: EngineeringRCD
-  icon:
-    sprite: Objects/Tools/rcd.rsi
-    state: icon
-  product: CrateRCD
-  cost: 800
-  category: cargoproduct-category-name-engineering
-  group: market
+  # funky, removed RCD from cargo
 
 - type: cargoProduct
   id: EngineeringParticleDecelerators

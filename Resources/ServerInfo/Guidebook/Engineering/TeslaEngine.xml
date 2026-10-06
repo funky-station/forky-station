@@ -76,7 +76,7 @@
   </Box>
 
   Grounding rods do not take damage from lightning strikes.
-  This makes them beneficial for forming a saftey net of grounding rods to rely on in case the tesla coils are damaged or destroyed.
+  This makes them beneficial for forming a safety net of grounding rods to rely on in case the tesla coils are damaged or destroyed.
 
   Engineers should use grounding rods to protect sensitive equipment from lightning strikes, such as the Emitters powering the containment field generators.
 
@@ -89,7 +89,7 @@
   Wearing insulated gloves will protect you from being shocked by the tesla, but it won't prevent the tesla from striking you.
 
   <Box>
-    <GuideEntityEmbed Entity="ClothingHandsGlovesColorYellow"/>
+    <GuideEntityEmbed Entity="FuClothingHandsGlovesInsuls"/>
   </Box>
 
   The tesla can be destroyed by firing antiparticles at it using a Portable Particle Decelerator, however, the Tesla is much more powerful than the Singularity, and it will take a lot of antiparticles to destroy it.

@@ -1,0 +1,230 @@
+##service
+
+# security
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: FuClothingUniformSecService
+  name: security service uniform
+  description: A uniform issued to the Nanotrasen troops, usually it comes with a car.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Security/Service/security.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Security/Service/security.rsi
+
+#head of security
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: FuClothingUniformHosService
+  name: head of security's service uniform
+  description: The head of security's service uniform, for when you anticipate a war on mothroaches.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Security/Service/hos.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Security/Service/hos.rsi
+
+## dress
+
+# security
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: FuClothingUniformSecDressPants
+  name: security dress uniform
+  description: A uniform made of strong material, for day to day wear.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Security/Dress/sec_pants.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Security/Dress/sec_pants.rsi
+
+# No senior uniforms
+#- type: entity
+#  parent: [ClothingUniformBase, BaseSecurityContraband]
+#  id: FuClothingUniformSecDressPantsSenior
+#  name: security senior dress uniform
+#  description: A uniform made of strong material, for day to day wear. Awarded to senior officers so they feel better about their time spent on the force.
+#  components:
+#  - type: Sprite
+#    sprite: _Funkystation/Clothing/Uniforms/Security/Dress/sec_pants-senior.rsi
+#  - type: Clothing
+#    sprite: _Funkystation/Clothing/Uniforms/Security/Dress/sec_pants-senior.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: FuClothingUniformSecDressSkirt
+  name: security dress uniform
+  description: A uniform made of strong material, for day to day wear.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Security/Dress/sec_skirt.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Security/Dress/sec_skirt.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: FuClothingUniformSecDressSkirtStockings
+  name: security dress uniform
+  description: A uniform with stockings made of strong material, for day to day wear.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Security/Dress/sec_skirt-stockings.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Security/Dress/sec_skirt-stockings.rsi
+
+#No senior uniforms
+#- type: entity
+#  parent: [ClothingUniformBase, BaseSecurityContraband]
+#  id: FuClothingUniformSecDressSkirtSenior
+#  name: security senior dress uniform
+#  description: A uniform made of strong material, for day to day wear. Awarded to senior officers so they feel better about their time spent on the force.
+#  components:
+#  - type: Sprite
+#    sprite: _Funkystation/Clothing/Uniforms/Security/Dress/sec_skirt-senior.rsi
+#  - type: Clothing
+#    sprite: _Funkystation/Clothing/Uniforms/Security/Dress/sec_skirt-senior.rsi
+
+# No senior uniforms
+#- type: entity
+#  parent: [ClothingUniformBase, BaseSecurityContraband]
+#  id: FuClothingUniformSecDressSkirtSeniorStockings
+#  name: security senior dress uniform
+#  description: A uniform with stockings made of strong material, for day to day wear. Awarded to senior officers so they feel better about their time spent on the force.
+#  components:
+#  - type: Sprite
+#    sprite: _Funkystation/Clothing/Uniforms/Security/Dress/sec_skirt-senior-stockings.rsi
+#  - type: Clothing
+#    sprite: _Funkystation/Clothing/Uniforms/Security/Dress/sec_skirt-senior-stockings.rsi
+
+# head of security
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: FuClothingUniformHosDressPants
+  name: head of security's dress uniform
+  description: The head of security's dress uniform, for day to day wear.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Security/Dress/hos_pants.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Security/Dress/hos_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: FuClothingUniformHosDressSkirt
+  name: head of security's dress uniform
+  description: The head of security's dress uniform, for day to day wear.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Security/Dress/hos_skirt.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Security/Dress/hos_skirt.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: FuClothingUniformHosDressSkirtStockings
+  name: head of security's dress uniform
+  description: The head of security's dress uniform with stockings, for day to day wear.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Security/Dress/hos_skirt-stockings.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Security/Dress/hos_skirt-stockings.rsi
+
+# cadet
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: FuClothingUniformCadetPants
+  name: enlisted uniform
+  description: A uniform made of strong material, providing robust protection for a budding security officer.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Security/Dress/cadet_pants.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Security/Dress/cadet_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: FuClothingUniformCadetSkirt
+  name: enlisted uniform
+  description: A uniform made of strong material, providing robust protection for a budding security officer.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Security/Dress/cadet_skirt.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Security/Dress/cadet_skirt.rsi
+
+## mess
+
+# security
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: FuClothingUniformSecMessPants
+  name: security mess uniform
+  description: A uniform made of strong material, for special occasions.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Security/Mess/sec_pants.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Security/Mess/sec_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: FuClothingUniformSecMessSkirt
+  name: security mess uniform
+  description: A uniform made of strong material, for special occasions.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Security/Mess/sec_skirt.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Security/Mess/sec_skirt.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: FuClothingUniformSecMessSkirtStockings
+  name: security mess uniform
+  description: A uniform with stockings made of strong material, for special occasions.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Security/Mess/sec_skirt-stockings.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Security/Mess/sec_skirt-stockings.rsi
+
+# head of security
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: FuClothingUniformHosMessPants
+  name: head of security's formal uniform
+  description: The head of security's formal uniform, for special occasions
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Security/Mess/hos_pants.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Security/Mess/hos_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: FuClothingUniformHosMessSkirt
+  name: head of security's formal uniform
+  description: The head of security's formal uniform, for special occasions
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Security/Mess/hos_skirt.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Security/Mess/hos_skirt.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSecurityContraband]
+  id: FuClothingUniformHosMessSkirtStockings
+  name: head of security's formal uniform
+  description: The head of security's formal uniform with stockings, for special occasions
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Uniforms/Security/Mess/hos_skirt-stockings.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Uniforms/Security/Mess/hos_skirt-stockings.rsi

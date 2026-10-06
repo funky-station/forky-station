@@ -12,6 +12,10 @@
 
         <GridContainer Rows="1">
             <CheckBox Name="KeepWindowOpen" Access="Public" Text="{Loc 'admin-announce-keep-open'}" />
+            <!-- funky additions start -->
+            <CheckBox Name="BroadcastTelepathically" Access="Public" Text="{Loc 'admin-announce-bypass-pa'}" ToolTip="{Loc 'admin-announce-bypass-pa-tooltip'}" Visible="False" Margin="10 0 0 0"/>
+            <Control HorizontalExpand="True"/>
+            <!-- funky additions end -->
             <Button Name="AnnounceButton" Access="Public" Disabled="True" Text="{Loc admin-announce-button}" HorizontalAlignment="Center"/>
         </GridContainer>
     </GridContainer>

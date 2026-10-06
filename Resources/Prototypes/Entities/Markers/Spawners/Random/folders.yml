@@ -8,17 +8,18 @@
   - type: Transform
     anchored: false
   - type: Sprite
-    sprite: Objects/Misc/folders.rsi
+    sprite: _Funkystation/Objects/Misc/folders.rsi # Funky
     layers:
     - state: folder-base
     - state: folder-colormap
-  - type: RandomSpawner
+  - type: EntityTableSpawner
     offset: 0
-    prototypes:
-    - BoxFolderBase
-    - BoxFolderRed
-    - BoxFolderBlue
-    - BoxFolderYellow
-    - BoxFolderGrey
-    - BoxFolderBlack
-    - BoxFolderGreen
+    table: !type:GroupSelector
+      children:
+      - id: BoxFolderBase
+      - id: BoxFolderRed
+      - id: BoxFolderBlue
+      - id: BoxFolderYellow
+      - id: BoxFolderGrey
+      - id: BoxFolderBlack
+      - id: BoxFolderGreen

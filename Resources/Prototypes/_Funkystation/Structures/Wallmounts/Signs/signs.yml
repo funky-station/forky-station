@@ -1,0 +1,19 @@
+﻿- type: entity
+  parent: BaseSign
+  id: NanoComebackSign
+  name: nano comeback tour sign
+  description: Say the line.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/Wallmounts/nano_comeback_sign.rsi
+    state: sign
+
+- type: entity
+  parent: BaseSign
+  id: SignEvidence
+  name: evidence sign
+  description: A sign, pointing out where the evidence storage room is.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/Wallmounts/signs.rsi
+    state: evidence

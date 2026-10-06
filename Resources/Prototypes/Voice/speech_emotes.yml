@@ -131,7 +131,7 @@
   name: chat-emote-name-squish
   category: Vocal
   available: false
-  icon: Interface/Emotes/squish.png
+  icon: _Funkystation/Interface/Emotes/Slime/squish.png # Funky change
   whitelist:
     components:
     - Vocal
@@ -143,6 +143,101 @@
     - squish
     - squishing
     - squishes
+
+# Funky start
+- type: emote
+  id: Bubble
+  name: chat-emote-name-bubble
+  category: Vocal
+  available: false
+  icon: _Funkystation/Interface/Emotes/Slime/bubble.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    tags:
+    - SiliconEmotes
+  chatMessages: ["chat-emote-msg-bubble"]
+  chatTriggers:
+    - bubble
+    - bubbling
+    - bubbles
+
+- type: emote
+  id: Pop
+  name: chat-emote-name-pop
+  category: Vocal
+  available: false
+  icon: _Funkystation/Interface/Emotes/Slime/pop.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    tags:
+    - SiliconEmotes
+  chatMessages: ["chat-emote-msg-pop"]
+  chatTriggers:
+    - pop
+    - poping
+    - pops
+
+- type: emote
+  id: Slosh
+  name: chat-emote-name-slosh
+  category: Vocal
+  available: false
+  icon: _Funkystation/Interface/Emotes/Slime/slosh.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    tags:
+    - SiliconEmotes
+  chatMessages: ["chat-emote-msg-slosh"]
+  chatTriggers:
+    - slosh
+    - sloshing
+    - sloshes
+
+- type: emote
+  id: Fizz
+  name: chat-emote-name-fizz
+  category: Vocal
+  available: false
+  icon: _Funkystation/Interface/Emotes/Slime/fizz.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    tags:
+    - SiliconEmotes
+  chatMessages: ["chat-emote-msg-fizz"]
+  chatTriggers:
+    - fizz
+    - fizzing
+    - fizzes
+    - carbonate
+    - carbonating
+    - carbonates
+
+- type: emote # RMC port
+  id: Wobble
+  name: chat-emote-name-wobble
+  category: Vocal
+  available: false
+  icon: _Funkystation/Interface/Emotes/Slime/wobble.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    tags:
+    - SiliconEmotes
+  chatMessages: ["chat-emote-msg-wobble"]
+  chatTriggers:
+    - wobble
+    - wobbling
+    - wobbles
+# Funky end
 
 - type: emote
   id: Chitter
@@ -478,6 +573,41 @@
     - chirps
     - chirped
     - chirping
+
+- type: emote
+  id: Flap
+  name: chat-emote-name-flap
+  category: Hands # Not really "hands", but how far it to vocal? (moth mimes want to flap too!)
+  available: false
+  icon: Interface/Emotes/flap.png
+  whitelist:
+    components:
+    - Hands
+  blacklist:
+    tags:
+    - SiliconEmotes
+  chatMessages: ["chat-emote-msg-flap"]
+  chatTriggers:
+   - flap
+   - flaps
+   - flapped
+   - flapping
+   - flutter
+   - flutters
+   - fluttering
+   - fluttered
+   - flap wings
+   - flaps wings
+   - flutter wings
+   - flutters wings
+   - flaps his wings
+   - flaps her wings
+   - flaps their wings
+   - flaps its wings
+   - flutters his wings
+   - flutters her wings
+   - flutters their wings
+   - flutters its wings
 
 # Machine Emotes
 - type: emote

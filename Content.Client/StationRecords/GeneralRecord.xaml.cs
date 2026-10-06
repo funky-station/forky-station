@@ -17,7 +17,7 @@ public sealed partial class GeneralRecord : Control
         RecordName.Text = record.Name;
         Age.Text = Loc.GetString("general-station-record-console-record-age", ("age", record.Age.ToString()));
         Title.Text = Loc.GetString("general-station-record-console-record-title",
-            ("job", Loc.GetString(record.JobTitle)));
+            ("job", record.JobTitle));
         var species = Loc.GetString(prototypeManager.Index<SpeciesPrototype>(record.Species).Name);
         Species.Text = Loc.GetString("general-station-record-console-record-species", ("species", species));
         Gender.Text = Loc.GetString("general-station-record-console-record-gender",
@@ -26,6 +26,10 @@ public sealed partial class GeneralRecord : Control
             ("fingerprint", record.Fingerprint ?? Loc.GetString("generic-not-available-shorthand")));
         Dna.Text = Loc.GetString("general-station-record-console-record-dna",
             ("dna", record.DNA ?? Loc.GetString("generic-not-available-shorthand")));
+        // Funky start
+        Pager.Text = Loc.GetString("general-station-record-console-record-pager",
+            ("pager", record.PagerNumber?.ToString() ?? Loc.GetString("generic-not-available-shorthand")));
+        // Funky end
 
         if (canDelete && id != null)
         {

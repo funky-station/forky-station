@@ -12,7 +12,8 @@ namespace Content.Server.Atmos.EntitySystems;
 
 public sealed partial class AtmosphereSystem
 {
-    [Dependency] private readonly IConsoleHost _consoleHost = default!;
+    [Dependency] private IConsoleHost _consoleHost = default!;
+    [Dependency] private EntityQuery<AtmosFixMarkerComponent> _atmosFixMarkerQuery = default!;
 
     private void InitializeCommands()
     {
@@ -32,34 +33,34 @@ public sealed partial class AtmosphereSystem
     [AdminCommand(AdminFlags.Debug)]
     private void FixGridAtmosCommand(IConsoleShell shell, string argstr, string[] args)
     {
-       if (args.Length == 0)
-       {
-           shell.WriteError("Not enough arguments.");
-           return;
-       }
+        if (args.Length == 0)
+        {
+            shell.WriteError("Not enough arguments.");
+            return;
+        }
 
-       foreach (var arg in args)
-       {
-           if (!NetEntity.TryParse(arg, out var netEntity) || !TryGetEntity(netEntity, out var euid))
-           {
-               shell.WriteError($"Failed to parse euid '{arg}'.");
-               return;
-           }
+        foreach (var arg in args)
+        {
+            if (!NetEntity.TryParse(arg, out var netEntity) || !TryGetEntity(netEntity, out var euid))
+            {
+                shell.WriteError($"Failed to parse euid '{arg}'.");
+                return;
+            }
 
-           if (!TryComp(euid, out MapGridComponent? gridComp))
-           {
-               shell.WriteError($"Euid '{euid}' does not exist or is not a grid.");
-               return;
-           }
+            if (!TryComp(euid, out MapGridComponent? gridComp))
+            {
+                shell.WriteError($"Euid '{euid}' does not exist or is not a grid.");
+                return;
+            }
 
-           if (!TryComp(euid, out GridAtmosphereComponent? gridAtmosphere))
-           {
-               shell.WriteError($"Grid \"{euid}\" has no atmosphere component, try addatmos.");
-               continue;
-           }
+            if (!TryComp(euid, out GridAtmosphereComponent? gridAtmosphere))
+            {
+                shell.WriteError($"Grid \"{euid}\" has no atmosphere component, try addatmos.");
+                continue;
+            }
 
-           RebuildGridAtmosphere((euid.Value, gridAtmosphere, gridComp));
-       }
+            RebuildGridAtmosphere((euid.Value, gridAtmosphere, gridComp));
+        }
     }
 
     /// <summary>
@@ -68,7 +69,7 @@ public sealed partial class AtmosphereSystem
     /// <remarks>Please be responsible with this method. Used only by tests and fixgridatmos.</remarks>
     public void RebuildGridAtmosphere(Entity<GridAtmosphereComponent, MapGridComponent> ent)
     {
-        var mixtures = new GasMixture[9];
+        var mixtures = new GasMixture[11]; // MACRO, from 9 to 11
         for (var i = 0; i < mixtures.Length; i++)
         {
             mixtures[i] = new GasMixture(Atmospherics.CellVolume) { Temperature = Atmospherics.T20C };
@@ -106,25 +107,30 @@ public sealed partial class AtmosphereSystem
         mixtures[8].AdjustMoles(Gas.Oxygen, Atmospherics.OxygenMolesGasMiner);
         mixtures[8].AdjustMoles(Gas.Nitrogen, Atmospherics.NitrogenMolesGasMiner);
 
+        // MACRO Start: Add water vapor for decapoids.
+        // 9: Water Vapor (GM)
+        mixtures[8].AdjustMoles(Gas.WaterVapor, Atmospherics.MolesCellGasMiner);
 
+        // 10: Water Vapor (101kpa) for decapoid rooms
+        mixtures[9].AdjustMoles(Gas.WaterVapor, Atmospherics.MolesCellStandard);
+        // Macro End
         // Force Invalidate & update air on all tiles
         Entity<GridAtmosphereComponent, GasTileOverlayComponent, MapGridComponent, TransformComponent> grid =
             new(ent.Owner, ent.Comp1, Comp<GasTileOverlayComponent>(ent), ent.Comp2, Transform(ent));
 
         RebuildGridTiles(grid);
 
-        var query = GetEntityQuery<AtmosFixMarkerComponent>();
         foreach (var (indices, tile) in ent.Comp1.Tiles.ToArray())
         {
-            if (tile.Air is not {Immutable: false} air)
+            if (tile.Air is not { Immutable: false } air)
                 continue;
 
             air.Clear();
             var mixtureId = 0;
-            var enumerator = _mapSystem.GetAnchoredEntitiesEnumerator(grid, grid, indices);
+            var enumerator = _mapSystem.GetAnchoredEntities(grid, grid, indices);
             while (enumerator.MoveNext(out var entUid))
             {
-                if (query.TryComp(entUid, out var marker))
+                if (_atmosFixMarkerQuery.TryComp(entUid, out var marker))
                     mixtureId = marker.Mode;
             }
 
@@ -162,7 +168,7 @@ public sealed partial class AtmosphereSystem
         var volume = GetVolumeForTiles(ent);
         TryComp(ent.Comp4.MapUid, out MapAtmosphereComponent? mapAtmos);
 
-        var enumerator = _map.GetAllTilesEnumerator(ent, ent);
+        var enumerator = _map.GetAllTiles(ent, ent);
         while (enumerator.MoveNext(out var tileRef))
         {
             var tile = GetOrNewTile(ent, ent, tileRef.Value.GridIndices);
@@ -183,7 +189,7 @@ public sealed partial class AtmosphereSystem
         if (playerMap == null)
             return CompletionResult.FromOptions(options);
 
-        foreach (var grid in _mapManager.GetAllGrids(playerMap.Value).OrderBy(o => o.Owner))
+        foreach (var grid in _mapSystem.GetAllGrids(playerMap.Value).OrderBy(o => o.Owner))
         {
             var uid = grid.Owner;
             if (!TryComp(uid, out TransformComponent? gridXform))

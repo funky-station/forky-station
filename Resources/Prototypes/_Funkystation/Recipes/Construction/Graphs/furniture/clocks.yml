@@ -1,0 +1,55 @@
+﻿- type: constructionGraph
+  id: CatClockGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: clock
+      steps:
+      - material: Plastic
+        amount: 3
+        doAfter: 2.0
+      - material: Cable
+        amount: 1
+        doAfter: 1.0
+
+  - node: clock
+    entity: CatClock
+    edges:
+    - to: start
+      completed:
+      - !type:GivePrototype
+        prototype: SheetPlastic1
+        amount: 3
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Screwing
+        doAfter: 2
+
+- type: constructionGraph
+  id: AnalogClockGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: clock
+      steps:
+      - material: Plastic
+        amount: 3
+        doAfter: 2.0
+      - material: Cable
+        amount: 1
+        doAfter: 1.0
+
+  - node: clock
+    entity: AnalogClock
+    edges:
+    - to: start
+      completed:
+      - !type:GivePrototype
+        prototype: SheetPlastic1
+        amount: 3
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Screwing
+        doAfter: 2

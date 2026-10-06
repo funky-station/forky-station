@@ -2,6 +2,8 @@ using System.Threading;
 using Content.Server.Screens.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
+using Content.Shared._Funkystation.CCVar;
+using Content.Shared._MACRO.Announcements;
 using Content.Shared.Access;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -21,12 +23,12 @@ namespace Content.Server.Shuttles.Systems;
 
 // TODO full game saves
 // Move state data into the emergency shuttle component
+
+/// <summary>
+/// Handles the emergency shuttle's console and early launching.
+/// </summary>
 public sealed partial class EmergencyShuttleSystem
 {
-    /*
-     * Handles the emergency shuttle's console and early launching.
-     */
-
     /// <summary>
     /// Has the emergency shuttle arrived?
     /// </summary>
@@ -68,6 +70,8 @@ public sealed partial class EmergencyShuttleSystem
 
     private static readonly ProtoId<AccessLevelPrototype> EmergencyRepealAllAccess = "EmergencyShuttleRepealAll";
     private static readonly Color DangerColor = Color.Red;
+
+    private static readonly ProtoId<AnnouncementSoundPrototype> NoticeSound = "Notice1"; // funky - use announcement sound prototypes
 
     /// <summary>
     /// Have the emergency shuttles been authorised to launch at CentCom?
@@ -207,7 +211,9 @@ public sealed partial class EmergencyShuttleSystem
         if (!ShuttlesLeft && _consoleAccumulator <= 0f)
         {
             ShuttlesLeft = true;
-            _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("emergency-shuttle-left", ("transitTime", $"{TransitTime:0}")));
+            // funky, sis/tr
+            _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("emergency-shuttle-left", ("transitTime", $"{TransitTime:0}")),
+                sender: Loc.GetString("chat-manager-sender-sistr"), colorOverride: Color.FromHex("#f9a524")); // funky
 
             Timer.Spawn((int)(TransitTime * 1000) + _bufferTime.Milliseconds, () => _roundEnd.EndRound(), _roundEndCancelToken?.Token ?? default);
         }
@@ -245,7 +251,9 @@ public sealed partial class EmergencyShuttleSystem
             return;
 
         _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle early launch REPEAL ALL by {args.Actor:user}");
-        _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("emergency-shuttle-console-auth-revoked", ("remaining", component.AuthorizationsRequired)));
+        // funky - sis/tr, not centcom
+        _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("emergency-shuttle-console-auth-revoked", ("remaining", component.AuthorizationsRequired)),
+            sender: Loc.GetString("chat-manager-sender-sistr"), colorOverride: Color.FromHex("#f9a524")); // funky
         component.AuthorizedEntities.Clear();
         UpdateAllEmergencyConsoles();
     }
@@ -265,7 +273,9 @@ public sealed partial class EmergencyShuttleSystem
 
         _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle early launch REPEAL by {args.Actor:user}");
         var remaining = component.AuthorizationsRequired - component.AuthorizedEntities.Count;
-        _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("emergency-shuttle-console-auth-revoked", ("remaining", remaining)));
+        // funky, sis/tr
+        _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("emergency-shuttle-console-auth-revoked", ("remaining", remaining)),
+            sender: Loc.GetString("chat-manager-sender-sistr"), colorOverride: Color.FromHex("#f9a524")); // funky
         CheckForLaunch(component);
         UpdateAllEmergencyConsoles();
     }
@@ -290,13 +300,19 @@ public sealed partial class EmergencyShuttleSystem
         _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle early launch AUTH by {args.Actor:user}");
         var remaining = component.AuthorizationsRequired - component.AuthorizedEntities.Count;
 
+        var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
+        _announcer.TryGetAnnouncerSound(NoticeSound, out var sound); // funky - use announcement sound prototypes
+
         if (remaining > 0)
+            // funky, sis/tr
             _chatSystem.DispatchGlobalAnnouncement(
                 Loc.GetString("emergency-shuttle-console-auth-left", ("remaining", remaining)),
-                playSound: false, colorOverride: DangerColor);
+                sender: Loc.GetString("chat-manager-sender-sistr"), // funky
+                playSound: paExclusive, announcementSound: paExclusive ? sound : null, // funky
+                colorOverride: DangerColor);
 
-        if (!CheckForLaunch(component))
-            _audio.PlayGlobal("/Audio/Misc/notice1.ogg", Filter.Broadcast(), recordReplay: true);
+        if (!CheckForLaunch(component) && !paExclusive) // funky
+            _audio.PlayGlobal(sound, Filter.Broadcast(), recordReplay: true); // funky - use announcement sound prototypes
 
         UpdateAllEmergencyConsoles();
     }
@@ -394,13 +410,19 @@ public sealed partial class EmergencyShuttleSystem
     {
         if (_announced) return;
 
+        var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
+        _announcer.TryGetAnnouncerSound(NoticeSound, out var sound); // funky - use announcement sound prototypes
+
         _announced = true;
+        // funky, sis/tr
         _chatSystem.DispatchGlobalAnnouncement(
             Loc.GetString("emergency-shuttle-launch-time", ("consoleAccumulator", $"{_consoleAccumulator:0}")),
-            playSound: false,
+            sender: Loc.GetString("chat-manager-sender-sistr"), // funky
+            playSound: paExclusive, announcementSound: paExclusive ? sound : null, // funky
             colorOverride: DangerColor);
 
-        _audio.PlayGlobal("/Audio/Misc/notice1.ogg", Filter.Broadcast(), recordReplay: true);
+        if (!paExclusive) // funky
+            _audio.PlayGlobal(sound, Filter.Broadcast(), recordReplay: true); // funky - use announcement sound prototypes
     }
 
     public bool DelayEmergencyRoundEnd()

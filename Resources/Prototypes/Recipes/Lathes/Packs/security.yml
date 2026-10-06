@@ -8,6 +8,8 @@
   - TargetHuman
   - TargetSyndicate
   - Zipties
+  - SecurityBola
+  - EvidenceBag #Funky Edit
 
 # Practice ammo/mags and practice weapons
 - type: latheRecipePack
@@ -18,11 +20,14 @@
   - MagazineBoxMagnumPractice
   - MagazineBoxPistolPractice
   - MagazineBoxRiflePractice
+  - MagazineBoxPistolLargePractice # Funky
   - WeaponDisablerPractice
   - WeaponLaserCarbinePractice
   - MagazineLightRiflePractice
   - MagazineRiflePractice
   - MagazinePistolPractice
+  - MagazinePistolLargePractice # Funky
+  - MagazineRifle50Practice # Funky
   - SpeedLoaderMagnumPractice
   - MagazinePistolSubMachineGunPractice
   - WeaponFlareGunSecurity
@@ -37,6 +42,7 @@
   - MagazineBoxMagnum
   - MagazineBoxPistol
   - MagazineBoxRifle
+  - MagazineBoxPistolLarge # Funky
   - MagazineLightRifle
   - MagazineLightRifleEmpty
   - MagazinePistol
@@ -45,8 +51,12 @@
   - MagazinePistolSubMachineGunEmpty
   - MagazinePistolSubMachineGunTopMounted
   - MagazinePistolSubMachineGunTopMountedEmpty
+  - MagazinePistolLarge # Funky
+  - MagazinePistolLargeEmpty # Funky
   - MagazineRifle
   - MagazineRifleEmpty
+  - MagazineRifle50 # Funky
+  - MagazineRifle50Empty # Funky
   - SpeedLoaderMagnum
   - SpeedLoaderMagnumEmpty
 
@@ -54,7 +64,6 @@
   id: SecurityWeaponsStatic
   recipes:
   - Flash
-  - Stunbaton
   - CombatKnife
   - RiotShield
 
@@ -109,6 +118,8 @@
   - MagazineBoxPistolUranium
   - MagazineBoxRifleIncendiary
   - MagazineBoxRifleUranium
+  - MagazineBoxPistolLargeIncendiary # Funky
+  - MagazineBoxPistolLargeUranium # Funky
   - MagazineLightRifleIncendiary
   - MagazineLightRifleUranium
   - MagazinePistolIncendiary
@@ -117,8 +128,12 @@
   - MagazinePistolSubMachineGunUranium
   - MagazineRifleIncendiary
   - MagazineRifleUranium
+  - MagazinePistolLargeIncendiary # Funky
+  - MagazinePistolLargeUranium # Funky
   - MagazineShotgunBeanbag
   - MagazineShotgunIncendiary
+  - MagazineRifle50Incendiary # Funky
+  - MagazineRifle50Uranium # Funky
   - SpeedLoaderMagnumIncendiary
   - SpeedLoaderMagnumUranium
 
@@ -131,9 +146,3 @@
   - WeaponLaserCarbine
   - WeaponXrayCannon
   - WeaponTemperatureGun
-
-- type: latheRecipePack
-  id: SecurityDisablers
-  recipes:
-  - WeaponDisabler
-  - WeaponDisablerSMG

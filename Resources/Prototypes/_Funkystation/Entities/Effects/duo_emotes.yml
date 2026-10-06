@@ -1,0 +1,117 @@
+﻿# Funky Duo Emotes entity
+- type: entity
+  id: FunkyEffectDuoEmoteBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 11.0
+  - type: Sprite
+    offset: 0, 0.65
+    sprite: _Funkystation/Effects/duo_emotes.rsi
+    noRot: true
+    drawdepth: Effects
+    layers:
+    - shader: unshaded
+      map: [ "emote" ]
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+
+# Define actually new emotes down here.
+# Fist Bump
+- type: duoEmote
+  id: Fistbump
+  name: duo-emote-fistbump-perform
+  icon:
+    sprite: _Funkystation/Effects/duo_emotes.rsi
+    state: icon-fistbump
+  effectSprite:
+    sprite: _Funkystation/Effects/duo_emotes.rsi
+    state: effect-fistbump
+  sound:
+    path: /Audio/Effects/weak_hit1.ogg
+    params:
+      variation: 0.05
+  attemptSelf: duo-emote-fistbump-attempt-self
+  attemptOthers: duo-emote-fistbump-attempt
+  performSelf: duo-emote-fistbump-self
+  performOthers: duo-emote-fistbump
+
+# High Five
+- type: duoEmote
+  id: Highfive
+  name: duo-emote-highfive-perform
+  icon:
+    sprite: _Funkystation/Effects/duo_emotes.rsi
+    state: icon-highfive
+  effectSprite:
+    sprite: _Funkystation/Effects/duo_emotes.rsi
+    state: effect-highfive
+  sound:
+    path: /Audio/Items/snap.ogg
+    params:
+      variation: 0.15
+  attemptSelf: duo-emote-highfive-attempt-self
+  attemptOthers: duo-emote-highfive-attempt
+  performSelf: duo-emote-highfive-self
+  performOthers: duo-emote-highfive
+
+# Hug
+- type: duoEmote
+  id: Hug
+  name: duo-emote-hug-perform
+  icon:
+    sprite: _Funkystation/Effects/duo_emotes.rsi
+    state: icon-hug
+  effectSprite:
+    sprite: _Funkystation/Effects/duo_emotes.rsi
+    state: effect-hug
+  sound:
+    path: /Audio/Effects/thudswoosh.ogg
+    params:
+      variation: 0.15
+  attemptSelf: duo-emote-hug-attempt-self
+  attemptOthers: duo-emote-hug-attempt
+  performSelf: duo-emote-hug-self
+  performOthers: duo-emote-hug
+
+# Tail Swipe
+- type: duoEmote
+  id: TailSwipe
+  name: duo-emote-tailswipe-perform
+  requireTail: true # will only show & work with other species with tails
+  animation: Spin
+  icon:
+    sprite: _Funkystation/Effects/duo_emotes.rsi
+    state: icon-tailswipe
+  effectSprite:
+    sprite: _Funkystation/Effects/duo_emotes.rsi
+    state: effect-tailswipe
+  sound:
+    path: /Audio/_Funkystation/Effects/Emotes/whip_crack.ogg
+    params:
+      variation: 0.15
+  attemptSelf: duo-emote-tailswipe-attempt-self
+  attemptOthers: duo-emote-tailswipe-attempt
+  performSelf: duo-emote-tailswipe-self
+  performOthers: duo-emote-tailswipe
+
+# Handshake
+- type: duoEmote
+  id: Handshake
+  name: duo-emote-handshake-perform
+  icon:
+    sprite: _Funkystation/Effects/duo_emotes.rsi
+    state: icon-handshake
+  effectSprite:
+    sprite: _Funkystation/Effects/duo_emotes.rsi
+    state: effect-handshake
+  sound:
+    path: /Audio/_Funkystation/Effects/Emotes/handshake.ogg
+    params:
+      variation: 0.15
+  attemptSelf: duo-emote-handshake-attempt-self
+  attemptOthers: duo-emote-handshake-attempt
+  performSelf: duo-emote-handshake-self
+  performOthers: duo-emote-handshake

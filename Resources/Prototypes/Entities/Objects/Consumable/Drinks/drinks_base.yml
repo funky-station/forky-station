@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: BaseItem
+  parent: [SolutionDrink, BaseItem]
   id: DrinkBase
   components:
   - type: Sprite
@@ -33,10 +33,6 @@
     solution: *sol
   - type: SolutionItemStatus
     solution: *sol
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
   - type: SolutionTransfer
     canChangeTransferAmount: true
   - type: UserInterface
@@ -49,12 +45,13 @@
 # This drink is empty trash
 - type: entity
   abstract: true
+  parent: SolutionDrink
   id: DrinkBaseEmptyTrash
   suffix: Empty
   components:
   - type: SpaceGarbage
   - type: TrashOnSolutionEmpty
-    solution: *sol
+    solution: drink
   - type: Tag
     tags:
     - Trash

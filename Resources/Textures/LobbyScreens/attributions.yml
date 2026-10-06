@@ -48,6 +48,11 @@
   copyright: "plantyfern on discord"
   source: "https://github.com/space-wizards/space-station-14"
 
+- files: ["invisiblewall.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "vanderslootassgiraffe on discord"
+  source: "https://github.com/space-wizards/space-station-14"
+
 - files: ["janishootout.webp"]
   license: "CC0-1.0"
   copyright: "psychpsyo on Github/Twitter"
@@ -56,4 +61,9 @@
 - files: ["reclaimer-nuke.webp"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "GetOutMarutak,aka.Snicket on Discord/github/Cara/Ko-fi"
+  source: "https://github.com/space-wizards/space-station-14"
+
+- files: ["stationisafuck.yml"]
+  license: "CC-BY-SA-3.0"
+  copyright: "@fuzyfries on discord"
   source: "https://github.com/space-wizards/space-station-14"

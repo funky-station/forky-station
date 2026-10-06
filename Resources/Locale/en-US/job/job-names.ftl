@@ -1,6 +1,6 @@
 job-name-atmostech = Atmospheric Technician
 job-name-bartender = Bartender
-job-name-borg = Cyborg
+job-name-borg = Automa
 job-name-botanist = Botanist
 job-name-brigmedic = Brigmedic
 job-name-cadet = Security Cadet
@@ -46,6 +46,7 @@ job-name-security = Security Officer
 job-name-serviceworker = Service Worker
 job-name-station-ai = Station AI
 job-name-technical-assistant = Technical Assistant
+job-name-tram-driver = Tram Driver
 job-name-visitor = Visitor
 job-name-warden = Warden
 
@@ -58,6 +59,7 @@ job-name-no-id = No ID
 job-name-prisoner = Prisoner
 job-name-roboticist = Roboticist
 job-name-unknown = Unknown
+job-name-sus = Sus
 job-name-virologist = Virologist
 job-name-zookeeper = Zookeeper
 
@@ -79,7 +81,7 @@ job-title-visitor = Visitor
 # Role timers - Make these alphabetical or I cut you
 JobAtmosphericTechnician = Atmospheric Technician
 JobBartender = Bartender
-JobBorg = Borg
+JobBorg = Automa
 JobBotanist = Botanist
 JobCaptain = Captain
 JobCargoTechnician = Cargo Technician

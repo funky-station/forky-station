@@ -1,0 +1,87 @@
+#  Big gun with uranium rounds, don't forget chem can make Siever!
+- type: listing
+  id: UplinkPistolWyvern
+  name: uplink-pistol-wyvern-name
+  description: uplink-pistol-wyvern-desc
+  productEntity: WeaponPistolWyvern
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkWeaponry
+
+# For the wyvern
+- type: listing
+  id: UplinkPistolLargeMagazineUranium
+  name: uplink-pistol-magazine-large-uranium-name
+  description: uplink-pistol-magazine-large-uranium-desc
+  icon: { sprite: /Textures/_Funkystation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag_50.rsi, state: green-icon }
+  productEntity: MagazinePistolLargeUranium
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAmmo
+  conditions:
+    - !type:BuyerWhitelistCondition # as to not spam the surplus crates with a bunch of ammo types
+      blacklist:
+        components:
+          - SurplusBundle
+
+- type: listing
+  id: UplinkPistolLargeMagazineIncendiary
+  name: uplink-pistol-magazine-large-name
+  description: uplink-pistol-magazine-large-desc
+  icon: { sprite: /Textures/_Funkystation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag_50.rsi, state: base }
+  productEntity: MagazinePistolLarge
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAmmo
+
+# Estoc, except this time it actually is useful (i hope)
+- type: listing
+  id: UplinkWeaponEstoc
+  name: uplink-estoc-bundle-name
+  description: uplink-estoc-bundle-desc
+  productEntity: BriefcaseWeaponEstocFilled
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkWeaponry
+  
+# For the Estoc
+- type: listing
+  id: UplinkRifle50Magazine
+  name: uplink-rifle-magazine-50-name
+  description: uplink-rifle-magazine-50-desc
+  icon: { sprite: /Textures/_Funkystation/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag_50.rsi, state: base }
+  productEntity: MagazineRifle50
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkAmmo
+  
+- type: listing
+  id: UplinkRifle50MagazineIncendiary
+  name: uplink-rifle-magazine-50-incendiary-name
+  description: uplink-rifle-magazine-50-incendiary-desc
+  icon: { sprite: /Textures/_Funkystation/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag_50.rsi, state: red-icon }
+  productEntity: MagazineRifle50Incendiary
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkAmmo
+
+# Borgs hacking borgs hacking borgs hacking borgs hacking borgs hacking borgs hacking borgs hacking borgs hacking borgs hacking borgs hacking borgs...
+- type: listing
+  id: UplinkSyndicateHackingModule
+  name: uplink-syndicate-hacking-module-name
+  description: uplink-syndicate-hacking-module-desc
+  productEntity: BorgModuleSyndicateHacking
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 8
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkDisruption
+  

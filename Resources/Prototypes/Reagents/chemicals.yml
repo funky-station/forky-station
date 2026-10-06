@@ -5,6 +5,8 @@
   physicalDesc: reagent-physical-desc-acidic
   flavor: bitter
   color: "#AF14B7"
+  flammability: 3 # Funky change
+  selfOxidizing: true # Funky change
   boilingPoint: 55.5
   meltingPoint: -50.0
 
@@ -34,6 +36,7 @@
   color: "#22282b"
   boilingPoint: 4200.0
   meltingPoint: 3550.0
+  flammability: 2
   metabolisms:
     Bloodstream:
       effects:
@@ -120,6 +123,8 @@
   allowedJobs:
   - Chemist
   color: "#E7EA91"
+  flammability: 2 # Funky change
+  selfOxidizing: true # Funky change
   boilingPoint: 353.2
   meltingPoint: 278.7
   metabolisms:
@@ -181,7 +186,8 @@
   metabolisms:
     Bloodstream:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: -5 # This is basically industrial dessicant
       - !type:PopupMessage
         visualType: MediumCaution
@@ -209,11 +215,9 @@
   metabolisms:
     Bloodstream:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         damage:
-          groups:
-            Brute: -4
-      - !type:GenericStatusEffect
-        key: Adrenaline
-        component: IgnoreSlowOnDamage
+          Brute: -4
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectAdrenaline
         time: 120

@@ -1,0 +1,6 @@
+﻿- type: job
+  id: Mentor
+  name: Mentor
+  description: A player dedicated to helping newer players learn the game.
+  playTimeTracker: JobMentor
+  icon: "JobIconPassenger"

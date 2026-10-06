@@ -28,24 +28,28 @@ using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
+using Content.Shared._Funkystation.StationTime.EntitySystems; // Funky Change
+using Content.Shared._Funkystation.StationTime.Components; // Funky Change
 
 namespace Content.Server.MassMedia.Systems;
 
-public sealed class NewsSystem : SharedNewsSystem
+public sealed partial class NewsSystem : SharedNewsSystem
 {
-    [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoaderSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly DiscordWebhook _discord = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IBaseServer _baseServer = default!;
+    [Dependency] private AccessReaderSystem _accessReaderSystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IAdminLogManager _adminLogger = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private CartridgeLoaderSystem _cartridgeLoaderSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private GameTicker _ticker = default!;
+    [Dependency] private IChatManager _chatManager = default!;
+    [Dependency] private DiscordWebhook _discord = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IBaseServer _baseServer = default!;
+    [Dependency] private IdentitySystem _identity = default!;
+    [Dependency] private StationTimeSystem _stationTime = default!; // Funky Change
 
     private WebhookIdentifier? _webhookId = null;
     private Color _webhookEmbedColor;
@@ -170,9 +174,7 @@ public sealed class NewsSystem : SharedNewsSystem
         ent.Comp.PublishEnabled = false;
         ent.Comp.NextPublish = _timing.CurTime + TimeSpan.FromSeconds(ent.Comp.PublishCooldown);
 
-        var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(ent, msg.Actor);
-        RaiseLocalEvent(tryGetIdentityShortInfoEvent);
-        string? authorName = tryGetIdentityShortInfoEvent.Title;
+        var authorName = _identity.GetIdentityShortInfo(msg.Actor, ent);
 
         var title = msg.Title.Trim();
         var content = msg.Content.Trim();
@@ -205,12 +207,24 @@ public sealed class NewsSystem : SharedNewsSystem
             return false;
         }
 
+        // Funky Change Start
+        var rd = _ticker.RoundDuration();
+        var shareTimeString = rd < TimeSpan.Zero ? "00:00:00" : $"{(int)rd.TotalHours:D2}:{rd.Minutes:D2}:{rd.Seconds:D2}";
+        var station = _station.GetOwningStation(uid);
+        if (station != null && TryComp<StationTimeComponent>(station.Value, out var timeComp))
+        {
+            var st = _stationTime.GetStationTime((station.Value, timeComp));
+            shareTimeString = _stationTime.FormatTimestamp(st);
+        }
+        // Funky Change End
+
         article = new NewsArticle
         {
             Title = title.Length <= MaxTitleLength ? title : $"{title[..MaxTitleLength]}...",
             Content = content.Length <= MaxContentLength ? content : $"{content[..MaxContentLength]}...",
             Author = author,
-            ShareTime = _ticker.RoundDuration()
+            ShareTime = _ticker.RoundDuration(),
+            ShareTimeString = shareTimeString // Funky Change
         };
 
         articles.Add(article.Value);
@@ -440,7 +454,7 @@ public sealed class NewsSystem : SharedNewsSystem
                         ("server", _baseServer.ServerName),
                         ("round", _ticker.RoundId),
                         ("author", article.Author ?? Loc.GetString("news-discord-unknown-author")),
-                        ("time", article.ShareTime.ToString(@"hh\:mm\:ss")))
+                        ("time", article.ShareTimeString)) // Funky Change
                 }
             };
             var payload = new WebhookPayload { Embeds = [embed] };

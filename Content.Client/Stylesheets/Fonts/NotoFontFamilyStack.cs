@@ -11,9 +11,8 @@ namespace Content.Client.Stylesheets.Fonts;
 ///     TODO: fix (once engine support is added for font properties?)
 /// </summary>
 /// <param name="resCache"></param>
-/// <param name="variant"></param>
 [PublicAPI]
-public sealed class NotoFontFamilyStack(IResourceCache resCache, string variant = "")
+public sealed class NotoFontFamilyStack(IResourceCache resCache)
 {
     /// <summary>
     ///     The primary font path, with string substitution markers.
@@ -23,7 +22,7 @@ public sealed class NotoFontFamilyStack(IResourceCache resCache, string variant 
     ///     0 is the font kind.
     ///     1 is the font kind with BoldItalic replaced with Bold when it occurs.
     /// </remarks>
-    private string _fontPrimary = $"/Fonts/NotoSans{variant}/NotoSans{variant}-{{0}}.ttf";
+    private string _fontPrimary = $"/Fonts/Atkinson/AtkinsonHyperlegibleNext-{{0}}.ttf"; // FUNKY EDIT
 
     /// <summary>
     ///     The symbols font path, with string substitution markers.
@@ -38,7 +37,7 @@ public sealed class NotoFontFamilyStack(IResourceCache resCache, string variant 
     /// <summary>
     ///     The fallback font path, exactly. (no string substitutions.)
     /// </summary>
-    private string[] _extras = new[] { "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf" };
+    private string[] _extras = new[] { "/Fonts/NotoSans/NotoSans-Regular.ttf", "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf" }; // FUNKY EDIT
 
     public HashSet<FontKind> AvailableKinds = [FontKind.Regular, FontKind.Bold, FontKind.Italic, FontKind.BoldItalic];
 

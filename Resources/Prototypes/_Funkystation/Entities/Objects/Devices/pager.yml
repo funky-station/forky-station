@@ -1,0 +1,190 @@
+﻿- type: entity
+  parent: BaseItem
+  id: BasePager
+  abstract: true
+  components:
+  - type: Pager
+    blacklist:
+    - "8008135"
+    - "67"
+    - "6767"
+    - "676767"
+    - "67676767"
+    - "shitmin"
+    - "wingstop"
+    - "8264015"
+    - "3284"
+    - "fuckcc"
+    - "fucknt"
+    - "unionize"
+    - "unionise"
+    - "union"
+  - type: Ringer
+    popup: pager-page-received
+  - type: UserInterface
+    interfaces:
+      enum.PagerUiKey.Key:
+        type: PagerBoundUserInterface
+      enum.RingerUiKey.Key:
+        type: RingerBoundUserInterface
+  - type: ActivatableUI
+    key: enum.PagerUiKey.Key
+  - type: DeviceLinkSource
+    ports:
+    - PagerSender
+
+- type: entity
+  parent: BasePager
+  id: PagerGray
+  suffix: Gray
+  name: PB-10 pager
+  description: A small, gray handheld pager, ever ubiquitous "Pocket Bell" brand. About as generic as it gets.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/Pagers/gray.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Item
+    size: Tiny
+    sprite: _Funkystation/Objects/Devices/Pagers/gray.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      - state: inhand-left-unshaded
+        shader: unshaded
+      right:
+      - state: inhand-right
+      - state: inhand-right-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: BasePager
+  id: PagerBeige
+  suffix: Beige
+  name: PXIA-2 pager
+  description: A small, beige handheld pager. This is the kind of "premium" pagers sold to paperpushers all over the sector.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/Pagers/beige.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Item
+    size: Tiny
+    sprite: _Funkystation/Objects/Devices/Pagers/beige.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      - state: inhand-left-unshaded
+        shader: unshaded
+      right:
+      - state: inhand-right
+      - state: inhand-right-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: BasePager
+  id: PagerBlue
+  suffix: Blue
+  name: CM100 pager
+  description: A small, blue handheld pager. This brand was marketed towards your average working joe, proclaiming its "robustness".
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/Pagers/blue.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Item
+    size: Tiny
+    sprite: _Funkystation/Objects/Devices/Pagers/blue.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      - state: inhand-left-unshaded
+        shader: unshaded
+      right:
+      - state: inhand-right
+      - state: inhand-right-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: BasePager
+  id: PagerTransCyan
+  suffix: Transparent Cyan
+  name: Type-n-Tell 4000 pager
+  description: A small, transparent-cyan plastic pager. It's clearly made for children.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/Pagers/transcyan.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Item
+    size: Tiny
+    sprite: _Funkystation/Objects/Devices/Pagers/transcyan.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      - state: inhand-left-unshaded
+        shader: unshaded
+      right:
+      - state: inhand-right
+      - state: inhand-right-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: BasePager
+  id: PagerTransPink
+  suffix: Transparent Pink
+  name: ASCPF-06 pager
+  description: A small, transparent-pink handheld pager. This one's labelled as property of some "Aegis Security Consolidated Penal Facility".
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/Pagers/transpink.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Item
+    size: Tiny
+    sprite: _Funkystation/Objects/Devices/Pagers/transpink.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      - state: inhand-left-unshaded
+        shader: unshaded
+      right:
+      - state: inhand-right
+      - state: inhand-right-unshaded
+        shader: unshaded
+
+- type: entity
+  parent: BasePager
+  id: PagerTransYellow
+  suffix: Transparent Yellow
+  name: DonkCo. pager
+  description: A small handheld transparent-yellow pager. This one was manufactured by DonkCo. It's slightly sticky...
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Devices/Pagers/transyellow.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+  - type: Item
+    size: Tiny
+    sprite: _Funkystation/Objects/Devices/Pagers/transyellow.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      - state: inhand-left-unshaded
+        shader: unshaded
+      right:
+      - state: inhand-right
+      - state: inhand-right-unshaded
+        shader: unshaded

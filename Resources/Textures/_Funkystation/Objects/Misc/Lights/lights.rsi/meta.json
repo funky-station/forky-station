@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "By AraiMaia for Funky Station",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "floodlight"
+    },
+    {
+      "name": "floodlight-on"
+    },
+    {
+      "name": "floodlight-burned"
+    },
+    {
+      "name": "floodlight-broken"
+    }
+  ]
+}

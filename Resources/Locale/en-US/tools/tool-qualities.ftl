@@ -10,6 +10,9 @@ tool-quality-screwing-tool-name = Screwdriver
 tool-quality-cutting-name = Cutting
 tool-quality-cutting-tool-name = Wirecutter
 
+tool-quality-shearing-name = Shearing
+tool-quality-shearing-tool-name = Wirecutter
+
 tool-quality-welding-name = Welding
 tool-quality-welding-tool-name = Welder
 
@@ -36,3 +39,7 @@ tool-quality-digging-tool-name = Shovel
 
 tool-quality-brushing-name = Brushing
 tool-quality-brushing-tool-name = Wire Brush
+
+# Funky - cherrypick of https://github.com/michaelchessall/SS14-Persistence/pull/182
+tool-quality-axing-name = Axing
+tool-quality-axing-tool-name = Fireaxe

@@ -1,0 +1,515 @@
+#Steel
+- type: entity
+  parent: BaseStructure
+  id: BaseCurb
+  abstract: true
+  name: Curb
+  description: A curb to keep your crates off my lawn.
+  components:
+  - type: Sprite
+    drawdepth: FloorTiles
+    sprite: _Funkystation/Structures/curbs.rsi
+  - type: Icon
+    sprite: _Funkystation/Structures/curbs.rsi
+  - type: Physics
+    bodyType: Static
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Repairable
+  - type: Damageable
+    damageModifierSet: FlimsyMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Construction
+    graph: curbs
+    node: steelCurb
+  - type: RCDDeconstructable
+    cost: 2
+    delay: 2
+    fx: EffectRCDDeconstruct2
+
+- type: entity
+  id: StraightCurbFixture
+  abstract: true
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.45,0.49,-0.40"
+        density: 1000
+        mask:
+        - CrateMask
+
+- type: entity
+  id: InsideCornerCurbFixture
+  abstract: true
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,0.45,-0.45,0.49"
+        density: 1000
+        mask:
+        - CrateMask
+
+- type: entity
+  id: CornerCurbFixture
+  abstract: true
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.45,0.49,-0.40"
+        density: 1000
+        mask:
+        - CrateMask
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.45,-0.45,0.49,0.49"
+        density: 1000
+        mask:
+        - CrateMask
+
+- type: entity
+  id: UBendCurbFixture
+  abstract: true
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.45,0.49,-0.40"
+        density: 1000
+        mask:
+        - CrateMask
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.45,-0.45,0.49,0.49"
+        density: 1000
+        mask:
+        - CrateMask
+      fix3:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.45,-0.45,0.40"
+        density: 1000
+        mask:
+        - CrateMask
+
+- type: entity
+  id: SquareCurbFixture
+  abstract: true
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.45,0.49,-0.40"
+        density: 1000
+        mask:
+        - CrateMask
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "0.45,-0.45,0.49,0.49"
+        density: 1000
+        mask:
+        - CrateMask
+      fix3:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.45,-0.45,0.40"
+        density: 1000
+        mask:
+        - CrateMask
+      fix4:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,0.40,0.49,0.45"
+        density: 1000
+        mask:
+        - CrateMask
+
+- type: entity
+  parent: [StraightCurbFixture, BaseCurb ]
+  id: SteelCurb
+  name: steel curb
+  components:
+  - type: Sprite
+    state: steel_curb
+    drawdepth: FloorTiles
+  - type: Icon
+    state: steel_curb
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    node: steelCurb
+
+- type: entity
+  parent: [CornerCurbFixture, SteelCurb]
+  id: SteelCurbCorner
+  name: steel curb corner
+  components:
+  - type: Sprite
+    state: steel_curb_corner
+    drawdepth: FloorTiles
+  - type: Icon
+    state: steel_curb_corner
+  - type: Construction
+    node: steelCurbCorner
+
+- type: entity
+  parent: [InsideCornerCurbFixture, SteelCurb]
+  id: SteelCurbCornerInside
+  name: steel curb inside corner
+  components:
+  - type: Sprite
+    state: steel_curb_inside_corner
+    drawdepth: FloorTiles
+  - type: Icon
+    state: steel_curb_inside_corner
+  - type: Construction
+    node: steelCurbCornerInside
+
+- type: entity
+  parent: [UBendCurbFixture, SteelCurb]
+  id: SteelCurbUbend
+  name: steel curb u-bend
+  components:
+  - type: Sprite
+    state: steel_curb_ubend
+    drawdepth: FloorTiles
+  - type: Icon
+    state: steel_curb_ubend
+  - type: Construction
+    node: steelCurbUbend
+
+- type: entity
+  parent: [SquareCurbFixture, SteelCurb]
+  id: SteelCurbSquare
+  name: steel curb square
+  components:
+  - type: Sprite
+    state: steel_curb_square
+    drawdepth: FloorTiles
+  - type: Icon
+    state: steel_curb_square
+  - type: Construction
+    node: steelCurbSquare
+
+#Brass
+- type: entity
+  parent: [StraightCurbFixture, BaseCurb ]
+  id: BrassCurb
+  name: brass curb
+  components:
+  - type: Sprite
+    state: brass_curb
+    drawdepth: FloorTiles
+  - type: Icon
+    state: brass_curb
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -6
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetBrass1:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Construction
+    node: brassCurb
+
+- type: entity
+  parent: [CornerCurbFixture, BrassCurb]
+  id: BrassCurbCorner
+  name: brass curb corner
+  components:
+  - type: Sprite
+    state: brass_curb_corner
+    drawdepth: FloorTiles
+  - type: Icon
+    state: brass_curb_corner
+  - type: Construction
+    node: brassCurbCorner
+
+- type: entity
+  parent: [InsideCornerCurbFixture, BrassCurb]
+  id: BrassCurbCornerInside
+  name: brass curb inside corner
+  components:
+  - type: Sprite
+    state: brass_curb_inside_corner
+    drawdepth: FloorTiles
+  - type: Icon
+    state: brass_curb_inside_corner
+  - type: Construction
+    node: brassCurbCornerInside
+
+- type: entity
+  parent: [UBendCurbFixture, BrassCurb]
+  id: BrassCurbUbend
+  name: brass curb u-bend
+  components:
+  - type: Sprite
+    state: brass_curb_ubend
+    drawdepth: FloorTiles
+  - type: Icon
+    state: brass_curb_ubend
+  - type: Construction
+    node: brassCurbUbend
+
+- type: entity
+  parent: [SquareCurbFixture, BrassCurb]
+  id: BrassCurbSquare
+  name: brass curb square
+  components:
+  - type: Sprite
+    state: brass_curb_square
+    drawdepth: FloorTiles
+  - type: Icon
+    state: brass_curb_square
+  - type: Construction
+    node: brassCurbSquare
+
+#Gold
+- type: entity
+  parent: [StraightCurbFixture, BaseCurb ]
+  id: GoldCurb
+  name: gold curb
+  components:
+    - type: Sprite
+      state: gold_curb
+      drawdepth: FloorTiles
+    - type: Icon
+      state: gold_curb
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 100
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+        - trigger:
+            !type:DamageTrigger
+            damage: 20
+          behaviors:
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalBreak
+                params:
+                  volume: -6
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                IngotGold1:
+                  min: 0
+                  max: 1
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+    - type: Construction
+      node: goldCurb
+
+- type: entity
+  parent: [CornerCurbFixture, GoldCurb]
+  id: GoldCurbCorner
+  name: gold curb corner
+  components:
+    - type: Sprite
+      state: gold_curb_corner
+      drawdepth: FloorTiles
+    - type: Icon
+      state: gold_curb_corner
+    - type: Construction
+      node: goldCurbCorner
+
+- type: entity
+  parent: [InsideCornerCurbFixture, GoldCurb]
+  id: GoldCurbCornerInside
+  name: gold curb inside corner
+  components:
+    - type: Sprite
+      state: gold_curb_inside_corner
+      drawdepth: FloorTiles
+    - type: Icon
+      state: gold_curb_inside_corner
+    - type: Construction
+      node: goldCurbCornerInside
+
+- type: entity
+  parent: [UBendCurbFixture, GoldCurb]
+  id: GoldCurbUbend
+  name: gold curb u-bend
+  components:
+    - type: Sprite
+      state: gold_curb_ubend
+      drawdepth: FloorTiles
+    - type: Icon
+      state: gold_curb_ubend
+    - type: Construction
+      node: goldCurbUbend
+
+- type: entity
+  parent: [SquareCurbFixture, GoldCurb]
+  id: GoldCurbSquare
+  name: gold curb square
+  components:
+    - type: Sprite
+      state: gold_curb_square
+      drawdepth: FloorTiles
+    - type: Icon
+      state: gold_curb_square
+    - type: Construction
+      node: goldCurbSquare
+
+#Hydrogen
+- type: entity
+  parent: [StraightCurbFixture, BaseCurb ]
+  id: HydrogenCurb
+  name: hydrogen curb
+  components:
+    - type: Sprite
+      state: hydrogen_curb
+      drawdepth: FloorTiles
+    - type: Icon
+      state: hydrogen_curb
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 100
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+        - trigger:
+            !type:DamageTrigger
+            damage: 20
+          behaviors:
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalBreak
+                params:
+                  volume: -6
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                MetalHydrogen1:
+                  min: 0
+                  max: 1
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+    - type: Construction
+      node: hydrogenCurb
+
+- type: entity
+  parent: [CornerCurbFixture, HydrogenCurb]
+  id: HydrogenCurbCorner
+  name: hydrogen curb corner
+  components:
+    - type: Sprite
+      state: hydrogen_curb_corner
+      drawdepth: FloorTiles
+    - type: Icon
+      state: hydrogen_curb_corner
+    - type: Construction
+      node: hydrogenCurbCorner
+
+- type: entity
+  parent: [InsideCornerCurbFixture, HydrogenCurb]
+  id: HydrogenCurbCornerInside
+  name: hydrogen curb inside corner
+  components:
+    - type: Sprite
+      state: hydrogen_curb_inside_corner
+      drawdepth: FloorTiles
+    - type: Icon
+      state: hydrogen_curb_inside_corner
+    - type: Construction
+      node: hydrogenCurbCornerInside
+
+- type: entity
+  parent: [UBendCurbFixture, HydrogenCurb]
+  id: HydrogenCurbUbend
+  name: hydrogen curb u-bend
+  components:
+    - type: Sprite
+      state: hydrogen_curb_ubend
+      drawdepth: FloorTiles
+    - type: Icon
+      state: hydrogen_curb_ubend
+    - type: Construction
+      node: hydrogenCurbUbend
+
+- type: entity
+  parent: [SquareCurbFixture, HydrogenCurb]
+  id: HydrogenCurbSquare
+  name: hydrogen curb square
+  components:
+    - type: Sprite
+      state: hydrogen_curb_square
+      drawdepth: FloorTiles
+    - type: Icon
+      state: hydrogen_curb_square
+    - type: Construction
+      node: hydrogenCurbSquare

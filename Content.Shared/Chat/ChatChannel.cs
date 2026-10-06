@@ -86,11 +86,16 @@ namespace Content.Shared.Chat
         Unspecified = 1 << 14,
 
         /// <summary>
+        ///     RMC Mentor chat Funky Port
+        /// </summary>
+        MentorChat = 1 << 15,
+
+        /// <summary>
         ///     Channels considered to be IC.
         /// </summary>
         IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual | Notifications,
 
-        AdminRelated = Admin | AdminAlert | AdminChat,
+        AdminRelated = Admin | AdminAlert | AdminChat | MentorChat,
     }
 
     /// <summary>
@@ -108,6 +113,7 @@ namespace Content.Shared.Chat
             {
                 ChatChannel.OOC => Loc.GetString("chat-channel-humanized-ooc"),
                 ChatChannel.AdminChat => Loc.GetString("chat-channel-humanized-admin"),
+                ChatChannel.MentorChat => "MENTOR", // RMC Mentor Chat Funky Port
                 _ => throw new ArgumentOutOfRangeException(nameof(channel), channel, null)
             };
         }

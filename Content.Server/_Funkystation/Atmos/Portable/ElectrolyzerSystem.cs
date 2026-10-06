@@ -9,6 +9,7 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Stacks;
 using Content.Server.Stack;
 using Content.Server.Hands.Systems;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Tag;
 using Content.Shared.Hands.Components;
 using Content.Shared.DeviceLinking;
@@ -18,17 +19,17 @@ using Robust.Shared.Audio;
 
 namespace Content.Server._Funkystation.Atmos.Portable;
 
-public sealed class ElectrolyzerSystem : EntitySystem
+public sealed partial class ElectrolyzerSystem : EntitySystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly GasTileOverlaySystem _gasOverlaySystem = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private readonly StackSystem _stackSystem = default!;
-    [Dependency] private readonly HandsSystem _handsSystem = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private GasTileOverlaySystem _gasOverlaySystem = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private StackSystem _stackSystem = default!;
+    [Dependency] private HandsSystem _handsSystem = default!;
+    [Dependency] private TagSystem _tagSystem = default!;
+    [Dependency] private AudioSystem _audio = default!;
     private const float WorkingPower = 2f;
     private const float PowerEfficiency = 1f;
     private const string PlasmaTag = "PlasmaSheet";
@@ -101,7 +102,7 @@ public sealed class ElectrolyzerSystem : EntitySystem
 
     private void UpdateAppearance(EntityUid uid)
     {
-        if (EntityManager.TryGetComponent<ElectrolyzerComponent>(uid, out var comp))
+        if (TryComp<ElectrolyzerComponent>(uid, out var comp))
         {
             _appearance.SetData(uid, ElectrolyzerVisuals.State,
                 comp.IsPowered ? ElectrolyzerState.On : ElectrolyzerState.Off);
@@ -146,7 +147,7 @@ public sealed class ElectrolyzerSystem : EntitySystem
 
             // If stack now empty, delete it
             if (stack.Count <= 0)
-                EntityManager.QueueDeleteEntity(fuelEntity);
+                QueueDel(fuelEntity);
         }
 
         UpdateAppearance(uid);
@@ -270,7 +271,7 @@ public sealed class ElectrolyzerSystem : EntitySystem
             else
             {
                 _stackSystem.SetCount(existingItem.Value, total, existingStack);
-                EntityManager.QueueDeleteEntity(heldItem);
+                QueueDel(heldItem);
             }
 
             return;
