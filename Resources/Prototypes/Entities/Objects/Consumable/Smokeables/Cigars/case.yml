@@ -5,7 +5,7 @@
   description: A case for holding your cigars when you are not smoking them.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Smokeables/Cigars/case.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigars/case.rsi # Funky
     layers:
     - state: closed
       map: ["closeLayer"]
@@ -39,7 +39,7 @@
     grid:
     - 0,0,3,1
   - type: Item
-    sprite: Objects/Consumable/Smokeables/Cigars/case.rsi
+    sprite: _Funkystation/Objects/Consumable/Smokeables/Cigars/case.rsi # Funky
     size: Normal
     shape:
     - 0,0,2,1

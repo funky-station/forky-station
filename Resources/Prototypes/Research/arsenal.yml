@@ -16,7 +16,7 @@
   id: DraconicMunitions
   name: research-technology-draconic-munitions
   icon:
-    sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
+    sprite: _Funkystation/Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi # Funky
     state: incendiarydisplay
   discipline: Arsenal
   tier: 1
@@ -53,7 +53,7 @@
   id: NonlethalAmmunition
   name: research-technology-nonlethal-ammunition
   icon:
-    sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
+    sprite: _Funkystation/Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi # Funky
     state: beanbag
   discipline: Arsenal
   tier: 1
