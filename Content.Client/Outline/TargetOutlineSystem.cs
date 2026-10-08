@@ -177,17 +177,17 @@ public sealed partial class TargetOutlineSystem : EntitySystem
                 valid = (origin - target).LengthSquared() <= Range;
             }
 
+            // funky start - with changes cherrypicked from https://github.com/metalgearsloth/space-station-14/commit/e29bbb8c6d8e6743c64fc0d403de492684a047d1
             var shader = valid ? _shaderTargetValid! : _shaderTargetInvalid!;
 
-            // funky start
             shader.SetParameter("outline_color", _interactionOutlineColorManager.GetOutlineColor(valid));
-            // funky end
 
             // highlight depending on whether its in or out of range
             _sprite.SetPostShader(sprite, new SpriteComponent.PostShaderArgs(ContentPostShaderIds.TargetOutline, shader)
             {
                 After = ContentPostShaderIds.AfterBaseEffects,
             });
+            // funky end
             sprite.RenderOrder = EntityManager.CurrentTick.Value;
             _highlightedSprites.Add(sprite);
         }

@@ -82,4 +82,5 @@ public sealed partial class CCVars
     /// </summary>
     public static readonly CVarDef<bool> ControlHoldToAttackRanged =
         CVarDef.Create("control.hold_to_attack_ranged", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
 }

@@ -28,13 +28,14 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
     [Dependency] private IEyeManager _eyeManager = default!;
     [Dependency] private IInputManager _inputManager = default!;
     [Dependency] private IPlayerManager _playerManager = default!;
-    [Dependency] private IPrototypeManager _prototype = default!;
-    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private IPrototypeManager _prototype = default!; // funky - cherrypicked from https://github.com/metalgearsloth/space-station-14/commit/e29bbb8c6d8e6743c64fc0d403de492684a047d1
+    [Dependency] private SpriteSystem _sprite = default!; // funky - cherrypicked from https://github.com/metalgearsloth/space-station-14/commit/e29bbb8c6d8e6743c64fc0d403de492684a047d1
     [Dependency] private IStateManager _stateManager = default!;
     [Dependency] private IUserInterfaceManager _uiManager = default!;
     [Dependency] private SharedInteractionSystem _interactionSystem = default!;
-    [Dependency] private InteractionOutlineColorManager _interactionOutlineColorManager = null!;
+    [Dependency] private InteractionOutlineColorManager _interactionOutlineColorManager = null!; // funky
 
+    // funky start - changes cherrypicked from https://github.com/metalgearsloth/space-station-14/commit/e29bbb8c6d8e6743c64fc0d403de492684a047d1
     [Dependency] private EntityQuery<InteractionOutlineComponent> _outlineQuery;
     [Dependency] private EntityQuery<SpriteComponent> _spriteQuery;
 
@@ -45,6 +46,7 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
     private ShaderInstance? _shaderOutOfRange;
 
     private const float DesiredOutlineThickness = 1f;
+    // funky end
 
     /// <summary>
     ///     Whether to currently draw the outline. The outline may be temporarily disabled by other systems
@@ -60,8 +62,10 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
 
     public override void Shutdown()
     {
+        // funky start - cherrypicked from https://github.com/metalgearsloth/space-station-14/commit/e29bbb8c6d8e6743c64fc0d403de492684a047d1
         _shaderInRange?.Dispose();
         _shaderOutOfRange?.Dispose();
+        // funky end
         base.Shutdown();
     }
 
@@ -94,7 +98,7 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
         if (_lastHoveredEntity == null || Deleted(_lastHoveredEntity))
             return;
 
-        if (_outlineQuery.TryComp(_lastHoveredEntity, out var outline))
+        if (_outlineQuery.TryComp(_lastHoveredEntity, out var outline)) // funky - cherrypicked from https://github.com/metalgearsloth/space-station-14/commit/e29bbb8c6d8e6743c64fc0d403de492684a047d1
             RemoveOutline((_lastHoveredEntity.Value, outline));
     }
 
@@ -110,11 +114,11 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
 
         if (_lastHoveredEntity == null || Deleted(_lastHoveredEntity))
         {
-            _lastHoveredEntity = null;
+            _lastHoveredEntity = null; // funky - cherrypicked from https://github.com/metalgearsloth/space-station-14/commit/e29bbb8c6d8e6743c64fc0d403de492684a047d1
             return;
         }
 
-        if (_outlineQuery.TryComp(_lastHoveredEntity, out var outline))
+        if (_outlineQuery.TryComp(_lastHoveredEntity, out var outline)) // funky - cherrypicked from https://github.com/metalgearsloth/space-station-14/commit/e29bbb8c6d8e6743c64fc0d403de492684a047d1
             RemoveOutline((_lastHoveredEntity.Value, outline));
     }
 
@@ -124,7 +128,7 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
 
         if (!_enabled || !_cvarEnabled)
         {
-            ClearOutline();
+            ClearOutline(); // funky - cherrypicked from https://github.com/metalgearsloth/space-station-14/commit/e29bbb8c6d8e6743c64fc0d403de492684a047d1
             return;
         }
 
@@ -132,7 +136,7 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
         var localSession = _playerManager.LocalSession;
         if (localSession == null)
         {
-            ClearOutline();
+            ClearOutline(); // funky - cherrypicked from https://github.com/metalgearsloth/space-station-14/commit/e29bbb8c6d8e6743c64fc0d403de492684a047d1
             return;
         }
 
@@ -142,7 +146,7 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
 
         if (currentState is not GameplayStateBase screen)
         {
-            ClearOutline();
+            ClearOutline(); // funky - cherrypicked from https://github.com/metalgearsloth/space-station-14/commit/e29bbb8c6d8e6743c64fc0d403de492684a047d1
             return;
         }
 
@@ -175,6 +179,7 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
 
         if (entityToClick == _lastHoveredEntity)
         {
+            // funky start - cherrypicked from https://github.com/metalgearsloth/space-station-14/commit/e29bbb8c6d8e6743c64fc0d403de492684a047d1
             if (entityToClick != null && _outlineQuery.TryComp(entityToClick, out outline))
             {
                 UpdateOutline((entityToClick.Value, outline), inRange);
@@ -183,10 +188,12 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
             {
                 ClearOutline();
             }
+            // funky end
 
             return;
         }
 
+        // funky start - cherrypicked from https://github.com/metalgearsloth/space-station-14/commit/e29bbb8c6d8e6743c64fc0d403de492684a047d1
         if (_lastHoveredEntity != null &&
             !Deleted(_lastHoveredEntity) &&
             _outlineQuery.TryComp(_lastHoveredEntity, out outline))
@@ -198,30 +205,36 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
             ClearOutline();
         }
 
+
         _lastHoveredEntity = entityToClick;
 
         if (_lastHoveredEntity != null && _outlineQuery.TryComp(_lastHoveredEntity, out outline))
         {
             AddOutline((_lastHoveredEntity.Value, outline), inRange);
         }
+        // funky end
     }
 
+    // funky - changes cherrypicked from https://github.com/metalgearsloth/space-station-14/commit/e29bbb8c6d8e6743c64fc0d403de492684a047d1
     private void AddOutline(Entity<InteractionOutlineComponent> ent, bool inInteractionRange)
     {
         SetPostShader(ent.Owner, inInteractionRange);
     }
 
+    // funky - changes cherrypicked from https://github.com/metalgearsloth/space-station-14/commit/e29bbb8c6d8e6743c64fc0d403de492684a047d1
     private void RemoveOutline(Entity<InteractionOutlineComponent> ent)
     {
         if (_spriteQuery.TryComp(ent.Owner, out var sprite))
             _sprite.RemovePostShader((ent.Owner, sprite), ContentPostShaderIds.InteractionOutline);
     }
 
+    // funky - changes cherrypicked from https://github.com/metalgearsloth/space-station-14/commit/e29bbb8c6d8e6743c64fc0d403de492684a047d1
     private void UpdateOutline(Entity<InteractionOutlineComponent> ent, bool inInteractionRange)
     {
         SetPostShader(ent.Owner, inInteractionRange);
     }
 
+    // funky - changes cherrypicked from https://github.com/metalgearsloth/space-station-14/commit/e29bbb8c6d8e6743c64fc0d403de492684a047d1
     private void ClearOutline()
     {
         if (_lastHoveredEntity != null &&
@@ -232,6 +245,7 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
         }
     }
 
+    // funky - changes cherrypicked from https://github.com/metalgearsloth/space-station-14/commit/e29bbb8c6d8e6743c64fc0d403de492684a047d1
     private void SetPostShader(EntityUid uid, bool inInteractionRange)
     {
         if (!_spriteQuery.TryComp(uid, out var sprite))
@@ -252,6 +266,7 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
         });
     }
 
+    // funky - with changes cherrypicked from https://github.com/metalgearsloth/space-station-14/commit/e29bbb8c6d8e6743c64fc0d403de492684a047d1
     private ShaderInstance GetShader(bool inRange)
     {
         var shader = inRange
@@ -259,10 +274,11 @@ public sealed partial class InteractionOutlineSystem : EntitySystem
             : _shaderOutOfRange ??= _prototype.Index(ShaderOutOfRange).InstanceUnique();
 
         shader.SetParameter("outline_width", DesiredOutlineThickness);
-        shader.SetParameter("outline_color", _interactionOutlineColorManager.GetOutlineColor(inRange)); // funky
+        shader.SetParameter("outline_color", _interactionOutlineColorManager.GetOutlineColor(inRange)); // funky specific - custom outline colors
         return shader;
     }
 
+    // funky - cherrypicked from https://github.com/metalgearsloth/space-station-14/commit/e29bbb8c6d8e6743c64fc0d403de492684a047d1
     [SubscribeLocalEvent]
     private void OnBeforePostShaderRender(Entity<InteractionOutlineComponent> ent, ref BeforePostShaderRenderEvent args)
     {

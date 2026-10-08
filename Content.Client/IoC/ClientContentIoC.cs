@@ -73,7 +73,7 @@ namespace Content.Client.IoC
             collection.Register<ISharedFeedbackManager, ClientFeedbackManager>();
             collection.Register<MidiFileCollectionManager>();
             collection.Register<CMChatSystem>(); // funky
-            collection.Register<InteractionOutlineColorManager>();
+            collection.Register<InteractionOutlineColorManager>(); // funky
         }
     }
 }

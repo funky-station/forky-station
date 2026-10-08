@@ -49,7 +49,7 @@ public sealed partial class DragDropSystem : SharedDragDropSystem
     [Dependency] private SharedTransformSystem _transformSystem = default!;
     [Dependency] private SpriteSystem _sprite = default!;
     [Dependency] private EntityQuery<SpriteComponent> _spriteQuery = default!;
-    [Dependency] private InteractionOutlineColorManager _interactionOutlineColorManager = null!;
+    [Dependency] private InteractionOutlineColorManager _interactionOutlineColorManager = null!; // funky
 
     // how often to recheck possible targets (prevents calling expensive
     // check logic each update)
@@ -457,14 +457,14 @@ public sealed partial class DragDropSystem : SharedDragDropSystem
                         && _interactionSystem.InRangeUnobstructed(user.Value, entity);
             }
 
+            // funky start - with changes cherrypicked from https://github.com/metalgearsloth/space-station-14/commit/e29bbb8c6d8e6743c64fc0d403de492684a047d1
             var shader = valid.Value ? _dropTargetInRangeShader! : _dropTargetOutOfRangeShader!;
 
-            // funky start
-            shader.SetParameter("outline_color", _interactionOutlineColorManager.GetOutlineColor(valid.Value));
-            // funky end
+            shader.SetParameter("outline_color", _interactionOutlineColorManager.GetOutlineColor(valid.Value)); // funky - custom outline color
 
             // highlight depending on whether its in or out of range
             SetDragDropPostShader((entity, inRangeSprite), shader);
+            // funky end
             inRangeSprite.RenderOrder = EntityManager.CurrentTick.Value;
             _nextHighlightedSprites.Add(inRangeSprite);
         }
