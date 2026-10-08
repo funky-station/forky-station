@@ -1888,7 +1888,7 @@ entities:
       parent: 1653
       rot: 1.5707963267948966 rad
       pos: 13.5,45.5
-- proto: GlowstickRed
+- proto: FuGlowstickRed
   entities:
   - uid: 256
     components:

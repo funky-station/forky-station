@@ -86,11 +86,13 @@
     - FoamBlade
     - FoamCutlass
     - Football
-    - GlowstickGreen
-    - GlowstickBlue
-    - GlowstickYellow
-    - GlowstickPurple
-    - GlowstickRed
+    - FuGlowstickGreen # Funky change Start
+    - FuGlowstickBlue
+    - FuGlowstickYellow
+    - FuGlowstickPurple
+    - FuGlowstickRed
+    - FuGlowstickWhite
+    - FuGlowstickPack # Funky change end
     - HarmonicaInstrument
     - OcarinaInstrument
     - RecorderInstrument
