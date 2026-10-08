@@ -2,7 +2,7 @@
   id: SalvageEquipment
   name: research-technology-salvage-equipment
   icon:
-    sprite: Objects/Tools/handdrill.rsi
+    sprite: _Funkystation/Objects/Tools/handdrill.rsi # Funky
     state: handdrill
   discipline: Industrial
   tier: 1
@@ -172,7 +172,7 @@
   id: MassExcavation
   name: research-technology-excavation
   icon:
-    sprite: Objects/Tools/handdrilldiamond.rsi
+    sprite: _Funkystation/Objects/Tools/handdrilldiamond.rsi # Funky
     state: handdrill
   discipline: Industrial
   tier: 2

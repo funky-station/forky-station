@@ -8,12 +8,12 @@
     tags:
     - JawsOfLife
   - type: Sprite
-    sprite: Objects/Tools/jaws_of_life.rsi
+    sprite: _Funkystation/Objects/Tools/jaws_of_life.rsi # Funky
     state: jaws_pry
   - type: Item
     size: Normal
   - type: Clothing
-    sprite: Objects/Tools/jaws_of_life.rsi
+    sprite: _Funkystation/Objects/Tools/jaws_of_life.rsi # Funky
     quickEquip: false
     slots:
       - Belt
@@ -38,7 +38,7 @@
     entries:
       - behavior: [ Prying ]
         sprite:
-          sprite: Objects/Tools/jaws_of_life.rsi
+          sprite: _Funkystation/Objects/Tools/jaws_of_life.rsi # Funky
           state: jaws_pry
         useSound: !type:SoundPathSpecifier
           path: /Audio/Items/jaws_pry.ogg
@@ -50,7 +50,7 @@
             volume: -5
       - behavior: [ Cutting ]
         sprite:
-          sprite: Objects/Tools/jaws_of_life.rsi
+          sprite: _Funkystation/Objects/Tools/jaws_of_life.rsi # Funky
           state: jaws_cutter
         useSound: !type:SoundPathSpecifier
           path: /Audio/Items/jaws_cut.ogg
@@ -75,7 +75,7 @@
   description: Useful for breaking into secure areas and other nefarious activities.
   components:
   - type: Sprite
-    sprite: Objects/Tools/jaws_of_life.rsi
+    sprite: _Funkystation/Objects/Tools/jaws_of_life.rsi # Funky
     state: syn_jaws_pry
   - type: Item
     inhandVisuals:
@@ -91,7 +91,7 @@
     entries:
       - behavior: [ Prying ]
         sprite:
-          sprite: Objects/Tools/jaws_of_life.rsi
+          sprite: _Funkystation/Objects/Tools/jaws_of_life.rsi # Funky
           state: syn_jaws_pry
         useSound: !type:SoundPathSpecifier
           path: /Audio/Items/jaws_pry.ogg
@@ -103,7 +103,7 @@
             volume: -5
       - behavior: [ Cutting ]
         sprite:
-          sprite: Objects/Tools/jaws_of_life.rsi
+          sprite: _Funkystation/Objects/Tools/jaws_of_life.rsi # Funky
           state: syn_jaws_cutter
         useSound: !type:SoundPathSpecifier
           path: /Audio/Items/jaws_cut.ogg
@@ -127,7 +127,7 @@
   description: Useful for prying open bolted doors where organics are hiding.
   components:
   - type: Sprite
-    sprite: Objects/Tools/jaws_of_life.rsi
+    sprite: _Funkystation/Objects/Tools/jaws_of_life.rsi # Funky
     state: xorg_jaws_pry
   - type: Item
     inhandVisuals:
@@ -143,7 +143,7 @@
     entries:
     - behavior: [ Prying ]
       sprite:
-        sprite: Objects/Tools/jaws_of_life.rsi
+        sprite: _Funkystation/Objects/Tools/jaws_of_life.rsi # Funky
         state: xorg_jaws_pry
       useSound: !type:SoundPathSpecifier
         path: /Audio/Items/jaws_pry.ogg
@@ -155,7 +155,7 @@
           volume: -5
     - behavior: [ Cutting ]
       sprite:
-        sprite: Objects/Tools/jaws_of_life.rsi
+        sprite: _Funkystation/Objects/Tools/jaws_of_life.rsi # Funky
         state: xorg_jaws_cutter
       useSound: !type:SoundPathSpecifier
         path: /Audio/Items/jaws_cut.ogg
