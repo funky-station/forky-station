@@ -55,5 +55,6 @@ public sealed partial class GasFilterComponent : Component
     /// Indicates gas type to be filtered out into the secondary outlet [DEPRECATED]
     /// </summary>
     [DataField, AutoNetworkedField]
+    [Obsolete("Gas filters now filter multiple gases. Use FilteredGases instead.")]
     public Gas? FilteredGas;
 }
