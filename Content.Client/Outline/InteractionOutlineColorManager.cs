@@ -1,3 +1,4 @@
+using Content.Shared._Funkystation.CCVar;
 using Content.Shared.CCVar;
 using JetBrains.Annotations;
 using Robust.Shared.Configuration;
@@ -11,16 +12,16 @@ public sealed partial class InteractionOutlineColorManager : IPostInjectInit
 
     private ISawmill _sawmill = null!;
 
-    private static readonly CVarDef<string> ValidInteractionCvar = CCVars.ValidInteractionOutlineColor;
-    private static readonly CVarDef<string> InvalidInteractionCvar = CCVars.InvalidInteractionOutlineColor;
-    private static readonly CVarDef<bool> UseCustomOutlineCvar = CCVars.UseCustomInteractionOutlineColors;
+    private static readonly CVarDef<string> ValidInteractionCvar = InteractionOutlineCVars.ValidInteractionOutlineColor;
+    private static readonly CVarDef<string> InvalidInteractionCvar = InteractionOutlineCVars.InvalidInteractionOutlineColor;
+    private static readonly CVarDef<bool> UseCustomOutlineCvar = InteractionOutlineCVars.UseCustomInteractionOutlineColors;
 
     private Color _validInteractionOutlineColor;
     private Color _invalidInteractionOutlineColor;
 
     /// <summary>
-    /// Gets the client's custom interaction outline colors set via <see cref="CCVars.ValidInteractionOutlineColor"/>
-    /// and <see cref="CCVars.InvalidInteractionOutlineColor"/> if the client has enabled them via <see cref="CCVars.UseCustomInteractionOutlineColors"/>,
+    /// Gets the client's custom interaction outline colors set via <see cref="InteractionOutlineCVars.ValidInteractionOutlineColor"/>
+    /// and <see cref="InteractionOutlineCVars.InvalidInteractionOutlineColor"/> if the client has enabled them via <see cref="InteractionOutlineCVars.UseCustomInteractionOutlineColors"/>,
     /// otherwise gets the default colors.
     /// </summary>
     /// <param name="inRange">Whether the thing we're getting the outline for is in-range or out-of-range.</param>
