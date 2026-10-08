@@ -1,11 +1,12 @@
 using Content.Client.Eye;
 using Content.Shared._ES.Viewcone;
 using Content.Shared._ES.Viewcone.Components;
+using Content.Shared._Funkystation.CCVar;
 using Robust.Client.Graphics;
+using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Configuration;
-using Content.Shared._Funkystation.CCVar;
+using System.Numerics;
 
 namespace Content.Client._ES.Viewcone.Overlays;
 
@@ -80,7 +81,7 @@ public sealed partial class ESViewconeConeOverlay : Overlay
             // and i really dont want to make it stateful
             _coneAngle = _angle.GetModifiedViewconeAngle((uid, viewcone));
             _coneFeather = _coneAngle <= 0f ? 0.01f : viewcone.ConeFeather; // semi-hack to make 0-angle viewcone look correct
-            _coneIgnoreRadius = (viewcone.ConeIgnoreRadius - viewcone.ConeIgnoreFeather) * 50f;
+            _coneIgnoreRadius = (viewcone.ConeIgnoreRadius - viewcone.ConeIgnoreFeather) * 70f;
             _coneIgnoreFeather = Math.Max(viewcone.ConeIgnoreFeather * 200f, 8f);
             _eyeEntity = (uid, eye, viewcone, xform);
             break;
@@ -95,11 +96,11 @@ public sealed partial class ESViewconeConeOverlay : Overlay
             return;
 
         var worldHandle = args.WorldHandle;
-        var viewport = args.WorldBounds;
+        var viewportBounds = args.WorldBounds;
 
         _viewconeShader.SetParameter("SCREEN_TEXTURE", ScreenTexture);
         _viewconeShader.SetParameter("Zoom", _eyeEntity.Value.Comp1.Zoom.X);
-        _viewconeShader.SetParameter("ViewAngle", (float) _eyeEntity.Value.Comp2.ViewAngle.Theta);
+        _viewconeShader.SetParameter("ViewAngle", (float)_eyeEntity.Value.Comp2.ViewAngle.Theta);
         _viewconeShader.SetParameter("ConeAngle", _coneAngle);
         _viewconeShader.SetParameter("ConeFeather", _coneFeather);
         _viewconeShader.SetParameter("ConeIgnoreRadius", _coneIgnoreRadius);
@@ -108,7 +109,7 @@ public sealed partial class ESViewconeConeOverlay : Overlay
         _viewconeShader.SetParameter("DarkenAmount", _darkenAmount);
 
         worldHandle.UseShader(_viewconeShader);
-        worldHandle.DrawRect(viewport, Color.White);
+        worldHandle.DrawRect(viewportBounds, Color.White);
         worldHandle.UseShader(null);
         _eyeEntity = null;
     }
