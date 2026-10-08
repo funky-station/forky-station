@@ -3,6 +3,7 @@ using Content.Client.CombatMode;
 using Content.Client.Gameplay;
 using Content.Client.Graphics;
 using Content.Client.Outline;
+using Content.Client._Funkystation.Outline;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CCVar;
 using Content.Shared.DragDrop;

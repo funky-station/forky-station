@@ -1,3 +1,4 @@
+using Content.Client._Funkystation.Outline;
 using Content.Client._RMC14.Chat;
 using Content.Client.Administration.Managers;
 using Content.Client.Audio.Midi;
@@ -23,7 +24,6 @@ using Content.Client.Viewport;
 using Content.Client.Voting;
 using Content.Shared.Administration.Logs;
 using Content.Client.Lobby;
-using Content.Client.Outline;
 using Content.Client.Players.RateLimiting;
 using Content.Shared._Starlight.DocumentManager;
 using Content.Shared.Administration.Managers;

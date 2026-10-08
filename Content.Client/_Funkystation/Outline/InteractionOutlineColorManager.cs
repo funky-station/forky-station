@@ -1,9 +1,8 @@
 using Content.Shared._Funkystation.CCVar;
-using Content.Shared.CCVar;
 using JetBrains.Annotations;
 using Robust.Shared.Configuration;
 
-namespace Content.Client.Outline;
+namespace Content.Client._Funkystation.Outline;
 
 public sealed partial class InteractionOutlineColorManager : IPostInjectInit
 {

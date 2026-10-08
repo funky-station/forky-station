@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client._Funkystation.Outline;
 using Content.Client.Graphics;
 using Content.Shared.Interaction;
 using Content.Shared.Whitelist;

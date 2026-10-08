@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client._Funkystation.Outline;
 using Content.Client.ContextMenu.UI;
 using Content.Client.Gameplay;
 using Content.Client.Graphics;
