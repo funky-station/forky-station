@@ -1010,4 +1010,80 @@
   id: 117
   time: '2026-10-02T21:59:59Z'
   url: https://github.com/funky-station/forky-station/pull/173
+- author: mkanke-real
+  changes:
+  - message: Fixed missing accesses from access config
+    type: Fix
+  id: 118
+  time: '2026-10-05T12:03:31Z'
+  url: https://github.com/funky-station/forky-station/pull/484
+- author: mkanke
+  changes:
+  - message: Buttons and switches can now be built 3 per wall
+    type: Tweak
+  id: 119
+  time: '2026-10-05T13:20:10Z'
+  url: https://github.com/funky-station/forky-station/pull/400
+- author: Idem778
+  changes:
+  - message: Added IA access to the IA part of the printer
+    type: Add
+  id: 120
+  time: '2026-10-08T17:23:56Z'
+  url: https://github.com/funky-station/forky-station/pull/393
+- author: WiZ88
+  changes:
+  - message: Fixed gas masks reducing vision when lowered.
+    type: Fix
+  id: 121
+  time: '2026-10-08T17:37:05Z'
+  url: https://github.com/funky-station/forky-station/pull/502
+- author: mkanke-real
+  changes:
+  - message: Added an alternate recipe for Gunpowder
+    type: Add
+  id: 122
+  time: '2026-10-08T18:02:52Z'
+  url: https://github.com/funky-station/forky-station/pull/374
+- author: WiZ88
+  changes:
+  - message: Vision now updates quicker when entering and leaving closed storage containers.
+    type: Fix
+  - message: Entities can no longer see items while inside a closed container.
+    type: Fix
+  id: 123
+  time: '2026-10-08T18:12:34Z'
+  url: https://github.com/funky-station/forky-station/pull/499
+- author: AraiMaia
+  changes:
+  - message: Reagent fires set you on fire.
+    type: Tweak
+  id: 124
+  time: '2026-10-08T21:32:46Z'
+  url: https://github.com/funky-station/forky-station/pull/573
+- author: mycobiota
+  changes:
+  - message: Added a "Radio channel theme" dropdown to the general tab of options
+      that lets you choose between Wizden radio colors and Funky radio colors. (Funky
+      is selected by default)
+    type: Add
+  id: 125
+  time: '2026-10-08T21:43:54Z'
+  url: https://github.com/funky-station/forky-station/pull/563
+- author: mycobiota
+  changes:
+  - message: Made the union hardhat functional, with a light
+    type: Add
+  - message: Fixed some hardhat resprites
+    type: Fix
+  id: 126
+  time: '2026-10-08T21:47:57Z'
+  url: https://github.com/funky-station/forky-station/pull/539
+- author: mkanke
+  changes:
+  - message: Tweaked and expanded coat inventories
+    type: Tweak
+  id: 127
+  time: '2026-10-08T21:55:06Z'
+  url: https://github.com/funky-station/forky-station/pull/544
 Order: -1

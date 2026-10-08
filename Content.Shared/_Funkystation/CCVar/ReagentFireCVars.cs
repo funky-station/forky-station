@@ -58,4 +58,10 @@ public sealed class ReagentFireCVars
     /// </summary>
     public static readonly CVarDef<float> SmallPuddleBurnPercent =
         CVarDef.Create("funkystation.reagent_fire.small_puddle_burn_percent", 0.5f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Fire stacks a standing mob is topped up to per point of effective puddle flammability
+    /// </summary>
+    public static readonly CVarDef<float> PuddleFireStackMultiplier =
+        CVarDef.Create("funkystation.reagent_fire.puddle_stack_multiplier", 3.0f, CVar.SERVERONLY);
 }
