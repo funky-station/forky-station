@@ -19,6 +19,8 @@ public sealed partial class InteractionOutlineColorManager : IPostInjectInit
     private Color _validInteractionOutlineColor;
     private Color _invalidInteractionOutlineColor;
 
+    private bool _useCustomColors;
+
     /// <summary>
     /// Gets the client's custom interaction outline colors set via <see cref="InteractionOutlineCVars.ValidInteractionOutlineColor"/>
     /// and <see cref="InteractionOutlineCVars.InvalidInteractionOutlineColor"/> if the client has enabled them via <see cref="InteractionOutlineCVars.UseCustomInteractionOutlineColors"/>,
@@ -53,6 +55,7 @@ public sealed partial class InteractionOutlineColorManager : IPostInjectInit
 
     private void SetDefaults(bool useCustom)
     {
+        _useCustomColors = useCustom;
         if (useCustom)
         {
             _validInteractionOutlineColor = GetColorFromCvar(_cfg.GetCVar(ValidInteractionCvar), ValidInteractionCvar);
@@ -68,12 +71,22 @@ public sealed partial class InteractionOutlineColorManager : IPostInjectInit
     void IPostInjectInit.PostInject()
     {
         _sawmill = _logManager.GetSawmill("interaction.outline_color");
+
         _cfg.OnValueChanged(
             ValidInteractionCvar,
-            val => _validInteractionOutlineColor = GetColorFromCvar(val, ValidInteractionCvar));
+            val =>
+            {
+                if (_useCustomColors)
+                    _validInteractionOutlineColor = GetColorFromCvar(val, ValidInteractionCvar);
+            });
         _cfg.OnValueChanged(
             InvalidInteractionCvar,
-            val => _invalidInteractionOutlineColor = GetColorFromCvar(val, InvalidInteractionCvar));
+            val =>
+            {
+                if (_useCustomColors)
+                    _invalidInteractionOutlineColor = GetColorFromCvar(val, InvalidInteractionCvar);
+            });
+
         _cfg.OnValueChanged(UseCustomOutlineCvar, SetDefaults, true);
     }
 }
