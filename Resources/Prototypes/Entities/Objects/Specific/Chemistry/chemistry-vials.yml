@@ -51,9 +51,9 @@
   description: A small vial.
   components:
   - type: Item
-    sprite: Objects/Specific/Chemistry/vial.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/vial.rsi # Funky
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/vial.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/vial.rsi # Funky
   - type: SolutionContainerVisuals
     maxFillLevels: 6
     inHandsMaxFillLevels: 4
@@ -81,9 +81,9 @@
   description: A smaller vial.
   components:
   - type: Item
-    sprite: Objects/Specific/Chemistry/vial_mini.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/vial_mini.rsi # Funky
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/vial_mini.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/vial_mini.rsi # Funky
   - type: SolutionContainerVisuals
     maxFillLevels: 5
     inHandsMaxFillLevels: 4
