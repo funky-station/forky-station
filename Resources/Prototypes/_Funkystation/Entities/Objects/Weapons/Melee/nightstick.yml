@@ -47,7 +47,7 @@
     delay: 0.2
   - type: Tag
     tags:
-    - Truncheon
+    - Nightstick
   - type: Clothing
     sprite: _Funkystation/Objects/Weapons/Melee/nightstick.rsi
     quickEquip: false

@@ -1,3 +1,4 @@
+# Leader
 - type: job
   id: ERTLeader
   name: job-name-ertleader
@@ -369,23 +370,22 @@
     - GrenadeBlast
     - GrenadeBlast
     - GrenadeBlast
-    - MagazinePistol
-    - MedkitCombatFilled # End of first line
+    - GrenadeFlash
+    - GrenadeFlash # End of first line
     - GrenadeEMP
     - GrenadeEMP
     - GrenadeEMP
-    - GrenadeFlash
-    - GrenadeFlash
-    - GrenadeFlash
     - MagazinePistol
     belt:
     - Truncheon # Funky
     - Handcuffs
     - Handcuffs
     - CrowbarRed
+    - EmergencyMedipen
     - WeaponPistolMk58
     - MagazinePistol
-    - EmergencyMedipen
+    - MagazinePistol
+    - MedkitCombatFilled
 
 - type: startingGear
   parent: ERTSecurityGearEVA
@@ -397,11 +397,9 @@
     - ExGrenade
     - SmokeGrenade
     - EmpGrenade
-    - HoloprojectorSecurity
     - TelescopicShield
-    - TelescopicShield
-    - TelescopicShield
-    - MedkitCombatFilled # End of first line
+    - TelescopicShield # End of first line
+    - MedkitCombatFilled
     - MagazinePistolSubMachineGunTopMounted
     - MagazinePistolSubMachineGunTopMounted
     - MagazinePistolSubMachineGunTopMounted
@@ -414,6 +412,7 @@
     - WeaponPistolMk58
     - MagazinePistol
     - EmergencyMedipen
+    - HoloprojectorSecurity
 
 - type: startingGear
   parent: ERTSecurityGearEVA
@@ -427,7 +426,6 @@
     - BoxShotgunSlug
     - BoxShotgunIncendiary
     - MedkitCombatFilled # End of first line
-    - SmokeGrenade
     - ExGrenade
     - CableDetStack
     - BoxDetonator

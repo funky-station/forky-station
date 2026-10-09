@@ -22,9 +22,9 @@
       - MagazinePistol
       - MagazineMagnum
       - CombatKnife
-      - Truncheon
       - HandGrenade
       - Stunbaton
+      - Nightstick
       components:
       - FlashOnTrigger
       - SmokeOnTrigger

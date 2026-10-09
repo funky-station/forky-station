@@ -40,7 +40,7 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
 
-    # we already have our own shit 
+    # we already have our own shit
     # - name: Update changelog
     #   run: |
     #     dotnet tool install --global SpaceWizards.ChangelogTool --version 1.0.7

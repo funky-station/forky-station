@@ -11,7 +11,7 @@
   parent: JobIcon
   id: JobIconCargoTechnician
   icon:
-    sprite: &icon-rsi /Textures/_Funkystation/Interface/Misc/job_icons.rsi # Funky
+    sprite: &funky-icon-rsi /Textures/_Funkystation/Interface/Misc/job_icons.rsi # Funky
     state: CargoTechnician
   jobName: job-name-cargotech
 
@@ -19,9 +19,27 @@
   parent: JobIcon
   id: JobIconShaftMiner
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: SalvageSpecialist # Funky - Formerly "ShaftMiner"
   jobName: job-name-salvagespec
+
+# Civilian
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPassenger
+  icon:
+    sprite: *funky-icon-rsi
+    state: Assistant # Funky - Formerly "Passenger"
+  jobName: job-name-passenger
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconVisitor
+  icon:
+    sprite: *funky-icon-rsi
+    state: Visitor
+  jobName: job-name-visitor
 
 # Command
 
@@ -29,7 +47,7 @@
   parent: JobIcon
   id: JobIconCaptain
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Captain
   jobName: job-name-captain
 
@@ -37,7 +55,7 @@
   parent: JobIcon
   id: JobIconChiefEngineer
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: ChiefEngineer
   jobName: job-name-ce
 
@@ -45,7 +63,7 @@
   parent: JobIcon
   id: JobIconChiefMedicalOfficer
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: ChiefMedicalOfficer
   jobName: job-name-cmo
 
@@ -53,7 +71,7 @@
   parent: JobIcon
   id: JobIconHeadOfPersonnel
   icon:
-    sprite: &old-icon-rsi /Textures/Interface/Misc/job_icons.rsi # Funky - Fallback RSI for jobs without new icons
+    sprite: &icon-rsi /Textures/Interface/Misc/job_icons.rsi # Funky - Fallback RSI for jobs without new icons
     state: HeadOfPersonnel
   jobName: job-name-hop
 
@@ -61,7 +79,7 @@
   parent: JobIcon
   id: JobIconHeadOfSecurity
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: HeadOfSecurity
   jobName: job-name-hos
 
@@ -69,7 +87,7 @@
   parent: JobIcon
   id: JobIconResearchDirector
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: ResearchDirector
   jobName: job-name-rd
 
@@ -77,7 +95,7 @@
   parent: JobIcon
   id: JobIconQuarterMaster
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Quartermaster # Funky - Formerly "QuarterMaster"
   jobName: job-name-qm
 
@@ -87,7 +105,7 @@
   parent: JobIcon
   id: JobIconAtmosphericTechnician
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: AtmosphericTechnician
   jobName: job-name-atmostech
 
@@ -95,7 +113,7 @@
   parent: JobIcon
   id: JobIconStationEngineer
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: StationEngineer
   jobName: job-name-engineer
 
@@ -103,7 +121,7 @@
   parent: JobIcon
   id: JobIconTechnicalAssistant
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: TechnicalAssistant
   jobName: job-name-technical-assistant
 
@@ -113,7 +131,7 @@
   parent: JobIcon
   id: JobIconChemist
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Chemist
   jobName: job-name-chemist
 
@@ -121,7 +139,7 @@
   parent: JobIcon
   id: JobIconGeneticist
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Geneticist
   jobName: job-name-geneticist
 
@@ -129,7 +147,7 @@
   parent: JobIcon
   id: JobIconMedicalDoctor
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: MedicalDoctor
   jobName: job-name-doctor
 
@@ -137,7 +155,7 @@
   parent: JobIcon
   id: JobIconMedicalIntern
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: MedicalIntern
   jobName: job-name-intern
 
@@ -145,7 +163,7 @@
   parent: JobIcon
   id: JobIconParamedic
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Paramedic
   jobName: job-name-paramedic
 
@@ -153,7 +171,7 @@
   parent: JobIcon
   id: JobIconPsychologist
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Psychologist
   jobName: job-name-psychologist
 
@@ -161,7 +179,7 @@
   parent: JobIcon
   id: JobIconVirologist
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Virologist
   jobName: job-name-virologist
 
@@ -171,7 +189,7 @@
   parent: JobIcon
   id: JobIconResearchAssistant
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: ResearchAssistant
   jobName: job-name-research-assistant
 
@@ -179,7 +197,7 @@
   parent: JobIcon
   id: JobIconRoboticist
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Roboticist
   jobName: job-name-roboticist
 
@@ -187,7 +205,7 @@
   parent: JobIcon
   id: JobIconScientist
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Scientist
   jobName: job-name-scientist
 
@@ -197,7 +215,7 @@
   parent: JobIcon
   id: JobIconBrigmedic
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Brigmedic
   jobName: job-name-brigmedic
 
@@ -205,7 +223,7 @@
   parent: JobIcon
   id: JobIconDetective
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Detective
   jobName: job-name-detective
 
@@ -213,7 +231,7 @@
   parent: JobIcon
   id: JobIconSecurityCadet
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: SecurityCadet
   jobName: job-name-cadet
 
@@ -221,7 +239,7 @@
   parent: JobIcon
   id: JobIconSecurityOfficer
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: SecurityOfficer
   jobName: job-name-security
 
@@ -229,7 +247,7 @@
   parent: JobIcon
   id: JobIconWarden
   icon:
-    sprite: *old-icon-rsi # Funky - Fallback RSI
+    sprite: *icon-rsi # Funky - Fallback RSI
     state: Warden
   jobName: job-name-warden
 
@@ -239,7 +257,7 @@
   parent: JobIcon
   id: JobIconBartender
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Bartender
   jobName: job-name-bartender
 
@@ -247,7 +265,7 @@
   parent: JobIcon
   id: JobIconBotanist
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Botanist
   jobName: job-name-botanist
 
@@ -255,7 +273,7 @@
   parent: JobIcon
   id: JobIconBoxer
   icon:
-    sprite: *old-icon-rsi # Funky - Fallback RSI
+    sprite: *icon-rsi # Funky - Fallback RSI
     state: Boxer
   jobName: job-name-boxer
 
@@ -263,7 +281,7 @@
   parent: JobIcon
   id: JobIconChaplain
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Chaplain
   jobName: job-name-chaplain
 
@@ -271,7 +289,7 @@
   parent: JobIcon
   id: JobIconChef
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Chef
   jobName: job-name-chef
 
@@ -279,7 +297,7 @@
   parent: JobIcon
   id: JobIconJanitor
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Janitor
   jobName: job-name-janitor
 
@@ -287,7 +305,7 @@
   parent: JobIcon
   id: JobIconLawyer
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Lawyer
   jobName: job-name-lawyer
 
@@ -295,7 +313,7 @@
   parent: JobIcon
   id: JobIconLibrarian
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Librarian
   jobName: job-name-librarian
 
@@ -303,7 +321,7 @@
   parent: JobIcon
   id: JobIconReporter
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Reporter
   jobName: job-name-reporter
 
@@ -311,7 +329,7 @@
   parent: JobIcon
   id: JobIconServiceWorker
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: ServiceWorker
   jobName: job-name-serviceworker
 
@@ -328,7 +346,7 @@
   id: JobIconTramDriver
   icon:
     sprite: *icon-rsi
-    state: Unknown #FUNKYTODO: Sus job icon?
+    state: TramDriver
   jobName: job-name-tramdriver
 
 # Entertainer (like service, but not actually service)
@@ -337,7 +355,7 @@
   parent: JobIcon
   id: JobIconClown # :o)
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Clown
   jobName: job-name-clown
 
@@ -345,7 +363,7 @@
   parent: JobIcon
   id: JobIconMime
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Mime
   jobName: job-name-mime
 
@@ -353,27 +371,9 @@
   parent: JobIcon
   id: JobIconMusician
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Musician
   jobName: job-name-musician
-
-# Passenger
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconPassenger
-  icon:
-    sprite: *icon-rsi
-    state: Assistant # Funky - Formerly "Passenger"
-  jobName: job-name-passenger
-
-- type: jobIcon
-  parent: JobIcon
-  id: JobIconVisitor
-  icon:
-    sprite: *icon-rsi
-    state: Visitor
-  jobName: job-name-visitor
 
 # Silicon
 
@@ -381,7 +381,7 @@
   parent: JobIcon
   id: JobIconBorg
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Borg
   jobName: job-name-borg
   isCrewJob: false
@@ -390,7 +390,7 @@
   parent: JobIcon
   id: JobIconStationAi
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: StationAi
   jobName: job-name-station-ai
   isCrewJob: false
@@ -401,7 +401,7 @@
   parent: JobIcon
   id: JobIconCluwne # >:o(
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Cluwne
   jobName: job-name-cluwne
   isCrewJob: false
@@ -410,7 +410,7 @@
   parent: JobIcon
   id: JobIconNinja
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Ninja
   jobName: job-name-ninja
   isCrewJob: false
@@ -419,7 +419,7 @@
   parent: JobIcon
   id: JobIconPirate
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Pirate
   jobName: job-name-pirate
   isCrewJob: false
@@ -428,7 +428,7 @@
   parent: JobIcon
   id: JobIconPrisoner
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Prisoner
   jobName: job-name-prisoner
   isCrewJob: false
@@ -437,7 +437,7 @@
   parent: JobIcon
   id: JobIconSyndicate # Just in case you want to make it official which side you are on
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Syndicate
   jobName: job-name-syndicate
   isCrewJob: false
@@ -446,7 +446,7 @@
   parent: JobIcon
   id: JobIconSyndicateCommander
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: SyndicateCommander
   jobName: job-name-syndicate-commander
   isCrewJob: false
@@ -455,7 +455,7 @@
   parent: JobIcon
   id: JobIconSyndicateCorpsman
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: SyndicateCorpsman
   jobName: job-name-syndicate-corpsman
   isCrewJob: false
@@ -464,7 +464,7 @@
   parent: JobIcon
   id: JobIconSyndicateOperative
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: SyndicateOperative
   jobName: job-name-syndicate-operative
   isCrewJob: false
@@ -473,7 +473,7 @@
   parent: JobIcon
   id: JobIconWizard
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Wizard
   jobName: job-name-wizard
   isCrewJob: false
@@ -482,7 +482,7 @@
   parent: JobIcon
   id: JobIconZombie # This is a perfectly legitimate profession to pursue
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Zombie
   jobName: job-name-zombie
   isCrewJob: false
@@ -493,7 +493,7 @@
   parent: JobIcon
   id: JobIconCBURN
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: CBURN
   jobName: job-name-cburn
 
@@ -501,7 +501,7 @@
   parent: JobIcon
   id: JobIconDeathSquad
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: DeathSquad
   jobName: job-name-deathsquad
 
@@ -509,7 +509,7 @@
   parent: JobIcon
   id: JobIconERTLeader
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: ERTLeader
   jobName: job-name-ertleader
 
@@ -517,7 +517,7 @@
   parent: JobIcon
   id: JobIconERTChaplain
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: ERTChaplain
   jobName: job-name-ertchaplain
 
@@ -525,7 +525,7 @@
   parent: JobIcon
   id: JobIconERTEngineer
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: ERTEngineer
   jobName: job-name-ertengineer
 
@@ -533,7 +533,7 @@
   parent: JobIcon
   id: JobIconERTSecurity
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: ERTSecurity
   jobName: job-name-ertsecurity
 
@@ -541,7 +541,7 @@
   parent: JobIcon
   id: JobIconERTMedic
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: ERTMedical
   jobName: job-name-ertmedic
 
@@ -549,7 +549,7 @@
   parent: JobIcon
   id: JobIconERTJanitor
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: ERTJanitor
   jobName: job-name-ertjanitor
 
@@ -557,7 +557,7 @@
   parent: JobIcon
   id: JobIconNanotrasen
   icon:
-    sprite: *old-icon-rsi # Funky - Fallback RSI
+    sprite: *icon-rsi # Funky - Fallback RSI
     state: Nanotrasen
   jobName: job-name-centcommoff
 
@@ -565,35 +565,35 @@
   parent: JobIcon
   id: JobIconAdmin
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Admin
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconSeniorPhysician
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: SeniorPhysician
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconSeniorOfficer
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: SeniorOfficer
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconSeniorEngineer
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: SeniorEngineer
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconSeniorResearcher
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: SeniorResearcher
 
 # Other
@@ -602,7 +602,7 @@
   parent: JobIcon
   id: JobIconNoId
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: NoId
   jobName: job-name-no-id
   isCrewJob: false
@@ -611,7 +611,7 @@
   parent: JobIcon
   id: JobIconUnknown
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: Unknown
   jobName: job-name-unknown
   isCrewJob: false
@@ -621,5 +621,5 @@
   id: JobIconSus
   icon:
     sprite: *icon-rsi
-    state: Unknown #FUNKYTODO: Sus job icon?
+    state: Sus
   jobName: job-name-sus
