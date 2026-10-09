@@ -6,6 +6,7 @@ using Content.Shared.Ghost.Systems;
 using Content.Shared.Gibbing;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 
@@ -42,6 +43,10 @@ public sealed partial class DeathBlackoutSystem : EntitySystem
     private void OnBeingGibbed(Entity<BrainComponent> ent, ref BodyRelayedEvent<BeingGibbedEvent> relayedEvent)
     {
         if (!TryComp<MindContainerComponent>(relayedEvent.Body, out var mindContainer) || !mindContainer.HasMind)
+            return;
+
+        if (TryComp<MobStateComponent>(relayedEvent.Body, out var mobStateComponent) &&
+            mobStateComponent.CurrentState == MobState.Dead)
             return;
 
         ApplyDeathBlackout(ent);
