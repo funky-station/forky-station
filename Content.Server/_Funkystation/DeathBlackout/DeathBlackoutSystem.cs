@@ -16,17 +16,10 @@ public sealed partial class DeathBlackoutSystem : EntitySystem
     [Dependency] private IConfigurationManager _cfg = null!;
     [Dependency] private IGameTiming _timing = null!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-        SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
-        SubscribeLocalEvent<BrainComponent, BodyRelayedEvent<BeingGibbedEvent>>(OnBeingGibbed);
-        SubscribeLocalEvent<DeathBlackoutComponent, GhostAttemptEvent>(OnGhostAttempt);
-    }
-
     /// <summary>
     /// starts the blackout when a mob with a mind dies
     /// </summary>
+    [SubscribeLocalEvent]
     private void OnMobStateChanged(MobStateChangedEvent args)
     {
         var ent = args.Target;
@@ -45,6 +38,7 @@ public sealed partial class DeathBlackoutSystem : EntitySystem
         ApplyDeathBlackout(ent);
     }
 
+    [SubscribeLocalEvent]
     private void OnBeingGibbed(Entity<BrainComponent> ent, ref BodyRelayedEvent<BeingGibbedEvent> relayedEvent)
     {
         ApplyDeathBlackout(ent);
@@ -61,6 +55,7 @@ public sealed partial class DeathBlackoutSystem : EntitySystem
     }
 
     // no ghosting until the blackout is over. you're COMPROMISING my CINEMATIC VISION
+    [SubscribeLocalEvent]
     private void OnGhostAttempt(Entity<DeathBlackoutComponent> ent, ref GhostAttemptEvent args)
     {
         if (!_cfg.GetCVar(DeathBlackoutCVars.Enabled))
