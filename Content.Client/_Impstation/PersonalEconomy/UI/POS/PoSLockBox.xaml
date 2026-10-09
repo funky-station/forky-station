@@ -1,0 +1,17 @@
+<controls:PoSLockBox
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._Impstation.PersonalEconomy.UI.POS"
+    VerticalExpand="True"
+    HorizontalExpand="True">
+    <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Margin="14 12">
+        <Control VerticalExpand="True"/>
+        <Label Text="{Loc pos-lock-title}" StyleClasses="LabelHeading" HorizontalAlignment="Center"/>
+        <Control MinHeight="8"/>
+        <RichTextLabel Name="PromptLabel" HorizontalAlignment="Center" SetWidth="260"/>
+        <Control MinHeight="8"/>
+        <Control HorizontalExpand="True" MinHeight="22">
+            <Label Name="InvalidPinLabel" Text="{Loc pos-lock-invalid}" Visible="False" Access="Public" HorizontalAlignment="Center"/>
+        </Control>
+        <Control VerticalExpand="True"/>
+    </BoxContainer>
+</controls:PoSLockBox>
