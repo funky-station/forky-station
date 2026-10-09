@@ -21,3 +21,23 @@
 #
 # - /Prototypes/_ForkOne
 # - /Prototypes/Catalog/uplink_catalog.yml
+
+# Specifying directories as the above text suggests seems to cause insanely long loading times. Just specify files for now.
+- /Prototypes/_Funkystation/Catalog/Fills/Boxes/security.yml
+- /Prototypes/_Funkystation/Catalog/VendingMachines/Inventories/bardrobe.yml
+- /Prototypes/_Funkystation/Catalog/VendingMachines/Inventories/medidrobe.yml
+- /Prototypes/_Funkystation/Catalog/VendingMachines/Inventories/robotics.yml
+- /Prototypes/_Funkystation/Catalog/VendingMachines/Inventories/sec.yml
+- /Prototypes/_Funkystation/Entities/Clothing/Eyes/glasses.yml
+- /Prototypes/_Funkystation/Entities/Clothing/Eyes/hud.yml
+- /Prototypes/_Funkystation/Recipes/Construction/clothing.yml
+- /Prototypes/_Funkystation/Roles/Jobs/CentComm/cburn.yml
+- /Prototypes/_Funkystation/Roles/Jobs/CentComm/emergency_response_team.yml
+- /Prototypes/_Funkystation/Roles/Jobs/Command/captain.yml
+- /Prototypes/_Funkystation/Roles/Jobs/Medical/chief_medical_officer.yml
+- /Prototypes/_Funkystation/Roles/Jobs/Medical/medical_doctor.yml
+- /Prototypes/_Funkystation/Roles/Jobs/Medical/medical_intern.yml
+- /Prototypes/_Funkystation/Roles/Jobs/Medical/paramedic.yml
+- /Prototypes/_Funkystation/Roles/Jobs/Security/detective.yml
+- /Prototypes/_Funkystation/Roles/Jobs/Security/security_officer.yml
+- /Prototypes/_Funkystation/Roles/Jobs/Security/warden.yml

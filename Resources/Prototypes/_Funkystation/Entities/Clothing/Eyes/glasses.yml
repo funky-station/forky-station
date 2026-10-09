@@ -1,0 +1,13 @@
+# Partial prototypes start
+
+- type: entity
+  id: ClothingEyesGlassesSecurity
+  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
+
+# Reparenting the noir-tech glasses so they aren't sec contraband and don't have sec-HUD vision
+- type: entity
+  parent: [BaseItem, ClothingEyesBase] # I have to remind the engine that this is an item for some reason because if I don't it does weird shit
+  id: ClothingEyesGlassesNoir
+
+# Partial prototypes end
