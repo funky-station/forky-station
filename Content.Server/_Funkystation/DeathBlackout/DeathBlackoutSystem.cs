@@ -1,6 +1,9 @@
 ﻿using Content.Shared._Funkystation.CCVar;
 using Content.Shared._Funkystation.DeathBlackout;
+using Content.Shared.Body;
+using Content.Shared.Body.Components;
 using Content.Shared.Ghost.Systems;
+using Content.Shared.Gibbing;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Robust.Shared.Configuration;
@@ -17,6 +20,7 @@ public sealed partial class DeathBlackoutSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
+        SubscribeLocalEvent<BrainComponent, BodyRelayedEvent<BeingGibbedEvent>>(OnBeingGibbed);
         SubscribeLocalEvent<DeathBlackoutComponent, GhostAttemptEvent>(OnGhostAttempt);
     }
 
@@ -35,10 +39,20 @@ public sealed partial class DeathBlackoutSystem : EntitySystem
             return;
         }
 
-        if (!_cfg.GetCVar(DeathBlackoutCVars.Enabled))
+        if (!TryComp<MindContainerComponent>(ent, out var mindContainer) || !mindContainer.HasMind)
             return;
 
-        if (!TryComp<MindContainerComponent>(ent, out var mindContainer) || !mindContainer.HasMind)
+        ApplyDeathBlackout(ent);
+    }
+
+    private void OnBeingGibbed(Entity<BrainComponent> ent, ref BodyRelayedEvent<BeingGibbedEvent> relayedEvent)
+    {
+        ApplyDeathBlackout(ent);
+    }
+
+    private void ApplyDeathBlackout(EntityUid ent)
+    {
+        if (!_cfg.GetCVar(DeathBlackoutCVars.Enabled))
             return;
 
         var blackout = EnsureComp<DeathBlackoutComponent>(ent);
