@@ -41,6 +41,9 @@ public sealed partial class DeathBlackoutSystem : EntitySystem
     [SubscribeLocalEvent]
     private void OnBeingGibbed(Entity<BrainComponent> ent, ref BodyRelayedEvent<BeingGibbedEvent> relayedEvent)
     {
+        if (!TryComp<MindContainerComponent>(relayedEvent.Body, out var mindContainer) || !mindContainer.HasMind)
+            return;
+
         ApplyDeathBlackout(ent);
     }
 
