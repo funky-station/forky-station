@@ -22,6 +22,14 @@
           PartRodMetal1:
             min: 5
             max: 10
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Climbable #funky
+    delay: 5.0
+  - type: Bonkable #funky
+    bonkDamage:
+      types:
+        Blunt: 4
 
 - type: entity
   id: ShowcaseRobot

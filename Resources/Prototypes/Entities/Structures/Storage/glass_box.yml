@@ -25,6 +25,12 @@
         - LowImpassable
   - type: Anchorable
     delay: 4
+  - type: Climbable #funky
+    delay: 5.0
+  - type: Bonkable #funky
+    bonkDamage:
+      types:
+        Blunt: 4
 
 - type: entity
   parent: [BaseGlassBox, BaseItemCabinetGlass, StructureHealthContainer]

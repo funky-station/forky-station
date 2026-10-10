@@ -93,6 +93,12 @@
     guides:
     - Botany
     - Chemicals
+  - type: Climbable #funky
+  - type: Bonkable #funky
+    bonkDamage:
+      types:
+        Blunt: 4
+
 
 - type: entity
   parent: hydroponicsTray

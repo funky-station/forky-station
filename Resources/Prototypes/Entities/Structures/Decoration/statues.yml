@@ -30,6 +30,12 @@
     state: venus_red
     drawdepth: Mobs
     offset: "0.0,0.5"
+  - type: Climbable #funky
+    delay: 5.0
+  - type: Bonkable #funky
+    bonkDamage:
+      types:
+        Blunt: 4
 
 - type: entity
   parent: BaseStatue
@@ -44,6 +50,12 @@
     state: venus_blue
     drawdepth: Mobs
     offset: "0.0,0.5"
+  - type: Climbable #funky
+    delay: 5.0
+  - type: Bonkable #funky
+    bonkDamage:
+      types:
+        Blunt: 4
 
 - type: entity
   parent: BaseStatue
@@ -76,6 +88,12 @@
         layer:
         - MidImpassable
         - LowImpassable
+  - type: Climbable #funky
+    delay: 5.0
+  - type: Bonkable #funky
+    bonkDamage:
+      types:
+        Blunt: 4
 
 # Ironsand Statues
 
@@ -96,6 +114,12 @@
           SteelOre1:
             min: 1
             max: 2
+  - type: Climbable #funky
+    delay: 5.0
+  - type: Bonkable #funky
+    bonkDamage:
+      types:
+        Blunt: 4
 
 - type: entity
   parent: BaseIronsandStatue
