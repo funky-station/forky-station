@@ -188,6 +188,7 @@
     action: ActionVulpkaninGravityJump
     canCollide: true
     jumpDistance: 3
+    collideKnockdown: 2
     jumpSound:
       path: /Audio/Weapons/punchmiss.ogg
       params:
