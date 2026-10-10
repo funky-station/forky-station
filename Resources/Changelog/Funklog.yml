@@ -1093,4 +1093,11 @@
   id: 128
   time: '2026-10-09T02:34:13Z'
   url: https://github.com/funky-station/forky-station/pull/575
+- author: mkanke
+  changes:
+  - message: Explosives can now be set to have 5 and 1 second timers
+    type: Tweak
+  id: 129
+  time: '2026-10-10T18:02:41Z'
+  url: https://github.com/funky-station/forky-station/pull/526
 Order: -1
