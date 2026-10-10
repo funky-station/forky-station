@@ -1,0 +1,13 @@
+- type: funkyInventoryTemplate
+  id: human
+  slots:
+    - slotType: Head
+    - slotType: Eyes
+    - slotType: Ears
+    - slotType: Mask
+    - slotType: InnerClothing
+    - slotType: OuterClothing
+    - slotType: Neck
+    - slotType: Belt
+    - slotType: Gloves
+    - slotType: Feet
