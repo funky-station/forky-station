@@ -65,7 +65,7 @@
     head: ClothingHeadHatOutlawHat
     outerClothing: ClothingOuterArmorBasicSlim
     back: ClothingBackpackSatchel
-    pocket1: BaseUplinkRadio125TC
+    pocket1: BaseUplinkRadio125TC #funky change to fix the ID names so they are actually reflective of 100tc baseline
     pocket2: EnergySword
 
 # Nanotrasen Paramilitary Unit Gear

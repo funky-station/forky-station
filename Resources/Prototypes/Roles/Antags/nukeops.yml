@@ -141,7 +141,7 @@
   id: SyndicateOperativeGearFull
   parent: SyndicateOperativeGearFullNoUplink
   equipment:
-    pocket2: BaseUplinkRadio200TC
+    pocket2: BaseUplinkRadio200TC #funky change to fix the ID names so they are actually reflective of 100tc baseline
 
 - type: chameleonOutfit
   id: NukeopsOutfit
@@ -208,4 +208,4 @@
   id: SyndicateLoneOperativeGearFull
   parent: SyndicateOperativeGearFull
   equipment:
-    pocket2: BaseUplinkRadio300TC
+    pocket2: BaseUplinkRadio300TC #funky change to fix the ID names so they are actually reflective of 100tc baseline
