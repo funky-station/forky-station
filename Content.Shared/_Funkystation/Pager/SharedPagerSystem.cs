@@ -14,7 +14,7 @@ public abstract partial class SharedPagerSystem : EntitySystem
     [Dependency] protected SharedPopupSystem Popup = null!;
     [Dependency] private SharedRingerSystem _ringer = null!;
 
-    public const int MinNumber = 1000;
+    public const int MinNumber = 0;
     public const int MaxNumber = 9999;
 
     public override void Initialize()
@@ -30,7 +30,7 @@ public abstract partial class SharedPagerSystem : EntitySystem
     {
         using (args.PushGroup(nameof(PagerComponent)))
         {
-            args.PushMarkup(Loc.GetString("pager-examine-number", ("number", ent.Comp.Number)));
+            args.PushMarkup(Loc.GetString("pager-examine-number", ("number", FormatNumber(ent.Comp.Number))));
         }
     }
 
@@ -65,7 +65,7 @@ public abstract partial class SharedPagerSystem : EntitySystem
         });
     }
 
-    private void CycleMode(Entity<PagerComponent> ent, EntityUid user)
+    protected void CycleMode(Entity<PagerComponent> ent, EntityUid user)
     {
         ent.Comp.Mode = ent.Comp.Mode switch
         {
@@ -79,7 +79,7 @@ public abstract partial class SharedPagerSystem : EntitySystem
         Popup.PopupEntity(Loc.GetString("pager-mode-set", ("mode", Loc.GetString(ModeLocKey(ent.Comp.Mode)))), ent, user);
     }
 
-    private static string ModeLocKey(PagerMode mode)
+    public static string ModeLocKey(PagerMode mode)
     {
         return mode switch
         {
@@ -87,6 +87,11 @@ public abstract partial class SharedPagerSystem : EntitySystem
             PagerMode.Buzz => "pager-mode-buzz",
             _ => "pager-mode-mute",
         };
+    }
+
+    public static string FormatNumber(int number)
+    {
+        return number.ToString("D4");
     }
 
     public static bool IsValidNumber(int number)
@@ -134,6 +139,11 @@ public abstract partial class SharedPagerSystem : EntitySystem
     protected SoundSpecifier GetBuzzSound(Entity<PagerComponent> ent)
     {
         return ent.Comp.BuzzSound;
+    }
+
+    protected SoundSpecifier GetSendSound(Entity<PagerComponent> ent)
+    {
+        return ent.Comp.SendSound;
     }
 
     protected bool TryConsumeCooldown(Entity<PagerComponent> ent, TimeSpan now)

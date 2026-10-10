@@ -175,7 +175,9 @@ public sealed partial class XoRecordsConsoleWindow : FancyWindow
         NameField.Text = state.Published?.Name ?? string.Empty;
         AgeField.Text = state.Published?.Age.ToString() ?? string.Empty;
         JobField.Text = state.Published?.JobTitle ?? string.Empty;
-        PagerField.Text = state.Published?.PagerNumber?.ToString() ?? string.Empty;
+        PagerField.Text = state.Published?.PagerNumber is { } pagerNumber
+            ? Shared._Funkystation.Pager.SharedPagerSystem.FormatNumber(pagerNumber)
+            : string.Empty;
         FingerprintField.Text = state.Published?.Fingerprint ?? string.Empty;
         DnaField.Text = state.Published?.Dna ?? string.Empty;
 

@@ -503,6 +503,7 @@
         - id: NanoTaskCartridge
         - id: NewsReaderCartridge
         - id: AstroNavCartridge
+        - id: PagerCartridge # funky
 
 - type: entity
   parent: BasePDA
@@ -679,6 +680,16 @@
     borderColor: "#7C5D00"
   - type: Icon
     state: pda-captain
+  - type: EntityTableContainerFill # funky
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: AstroNavCartridge
+        - id: PagerCartridge
 
 - type: entity
   parent: BasePDA
@@ -729,6 +740,16 @@
     accentHColor: "#447987"
   - type: Icon
     state: pda-ce
+  - type: EntityTableContainerFill # funky
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: AstroNavCartridge
+        - id: PagerCartridge
 
 - type: entity
   parent: BasePDA
@@ -774,6 +795,17 @@
     accentVColor: "#447987"
   - type: Icon
     state: pda-cmo
+  - type: EntityTableContainerFill # funky
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: AstroNavCartridge
+        - id: MedTekCartridge
+        - id: PagerCartridge
 
 - type: entity
   parent: BaseMedicalPDA
@@ -871,6 +903,16 @@
     accentVColor: "#8900c9"
   - type: Icon
     state: pda-rd
+  - type: EntityTableContainerFill # funky
+    containers:
+      preinstalled-program-container: !type:AllSelector
+        children:
+        - id: CrewManifestCartridge
+        - id: NotekeeperCartridge
+        - id: NanoTaskCartridge
+        - id: NewsReaderCartridge
+        - id: AstroNavCartridge
+        - id: PagerCartridge
 
 - type: entity
   parent: BasePDA
@@ -998,6 +1040,7 @@
         - id: WantedListCartridge
         - id: LogProbeCartridge
         - id: AstroNavCartridge
+        - id: PagerCartridge # funky
 
 - type: entity
   parent: CentcomPDA
@@ -1026,6 +1069,7 @@
         - id: WantedListCartridge
         - id: MedTekCartridge
         - id: AstroNavCartridge
+        - id: PagerCartridge # funky
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener

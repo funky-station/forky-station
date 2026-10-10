@@ -1,0 +1,16 @@
+﻿- type: entity
+  parent: [ BasePDACartridge, BasePager ]
+  id: PagerCartridge
+  name: pager cartridge
+  description: A program that mimics a pager. Head of staff IDs unlock department directories and mass paging.
+  components:
+  - type: Sprite
+    state: cart-y
+  - type: UIFragment
+    ui: !type:PagerCartridgeUi
+  - type: Cartridge
+    programName: pager-cartridge-program-name
+    icon:
+      sprite: _Funkystation/Objects/Devices/Pagers/gray.rsi
+      state: icon
+  - type: PagerCartridge
