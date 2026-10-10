@@ -47,6 +47,7 @@
     - id: PlushieLizardJobWarden
       prob: 0.02
     - id: ClothingHeadsetWarden #funkystation
+    - id: WeaponEnergyShotgun #funkystation
 
 - type: entityTable
   id: FillLockerWardenHarduit
