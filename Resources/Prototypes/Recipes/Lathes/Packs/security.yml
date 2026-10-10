@@ -101,6 +101,7 @@
   - GrenadeEMP
   - GrenadeFlash
   - MagazineGrenadeEmpty
+  - BreachingCharge #Funky
 
 # Shared between secfab and emagged protolathe
 - type: latheRecipePack
