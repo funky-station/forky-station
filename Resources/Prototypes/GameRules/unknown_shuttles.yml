@@ -1,3 +1,21 @@
+# Shuttle Game Rule Tables -- If you dont add your rules to these they wont be used by the games schedulers.
+
+- type: entityTable
+  id: UnknownShuttlesFriendlyTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: UnknownShuttleHonki
+    - id: UnknownShuttleNTQuark
+    - id: UnknownShuttleCruiser
+    - id: UnknownShuttleFlatline
+    - id: UnknownShuttleNTIncorporation
+
+- type: entityTable
+  id: UnknownShuttlesFreelanceTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: UnknownShuttleSyndieEvacPod
+
 - type: entityTable
   id: UnknownShuttlesHostileTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
@@ -53,6 +71,29 @@
 
 - type: entity
   id: UnknownShuttleNTQuark
+  parent: BaseUnknownShuttleAnnouncedRule
+  components:
+  - type: StationEvent
+    weight: .5 # Hopefully this is uncommon enough, it needs to be uncommon enough that people wont waste time metaknowledging it.
+    earliestStart: 45 # late to hopefully have enough ghosts to fill all roles quickly.
+    minimumPlayers: 25
+  - type: LoadMapRule
+    gridPath: /Maps/Shuttles/ShuttleEvent/quark.yml
+
+
+# The power of 3 clowns proved too strong for the players and may need to be 1984'ed. Replace this with a more engaging clown shuttle.
+- type: entity
+  parent: BaseUnknownShuttleAnnouncedRule
+  id: UnknownShuttleHonki
+  components:
+  - type: StationEvent
+    weight: 2
+  - type: LoadMapRule
+    gridPath: /Maps/Shuttles/ShuttleEvent/honki.yml
+
+
+- type: entity
+  id: UnknownShuttleNTQuark
   parent: BaseUnknownShuttleRule
   components:
   - type: StationEvent
@@ -63,8 +104,36 @@
     gridPath: /Maps/Shuttles/ShuttleEvent/quark.yml
 
 - type: entity
+  id: UnknownShuttleCruiser
+  parent: BaseUnknownShuttleAnnouncedRule
+  components:
+  - type: StationEvent
+    weight: 2 # Its just a big ship, so it needs to be rarer to be interesting.
+  - type: LoadMapRule
+    gridPath: /Maps/Shuttles/ShuttleEvent/cruiser.yml
+
+
+- type: entity
+  id: UnknownShuttleFlatline
+  parent: BaseUnknownShuttleAnnouncedRule
+  components:
+  - type: StationEvent
+  - type: LoadMapRule
+    gridPath: /Maps/Shuttles/ShuttleEvent/flatline.yml
+
+- type: entity
+  id: UnknownShuttleNTIncorporation
+  parent: BaseUnknownShuttleAnnouncedRule
+  components:
+  - type: StationEvent
+    weight: 2 # Its just a big ship, so it needs to be rarer to be interesting.
+    earliestStart: 45 # late to hopefully have enough ghosts to fill all roles quickly. (5-6)
+  - type: LoadMapRule
+    gridPath: /Maps/Shuttles/ShuttleEvent/incorporation.yml
+
+- type: entity
   id: UnknownShuttleInstigator
-  parent: BaseUnknownShuttleRule
+  parent: BaseUnknownShuttleAnnouncedRule
   components:
   - type: StationEvent
     weight: 0.1 #  approximately 1/1000 on the random hostile shuttle table. Golden Legendary!
@@ -73,9 +142,10 @@
 
 - type: entity
   id: UnknownShuttleManOWar
-  parent: BaseUnknownShuttleRule
+  parent: BaseUnknownShuttleAnnouncedRule
   components:
   - type: StationEvent
     weight: 1 # lower because antags
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/ShuttleEvent/manowar.yml
+
