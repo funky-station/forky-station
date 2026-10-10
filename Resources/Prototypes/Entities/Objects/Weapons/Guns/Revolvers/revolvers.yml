@@ -78,6 +78,18 @@
   - type: Appearance
   - type: StaticPrice
     price: 1500
+  - type: MeleeWeapon #funky
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee #funky
+    attackType: Light
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 6
 
 - type: entity
   name: Inspector
@@ -97,6 +109,18 @@
     ammoSlots: [ null, null, null, null, null, null ]
   - type: StealTarget
     stealGroup: OfficerHandgun
+  - type: MeleeWeapon #funky
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee #funky
+    attackType: Light
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 6
 
 - type: entity
   name: Mateba
@@ -114,6 +138,18 @@
     fireRate: 3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+  - type: MeleeWeapon #funky
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee #funky
+    attackType: Light
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 6
 
 - type: entity
   parent: WeaponRevolverMateba
@@ -146,6 +182,18 @@
         volume: 2.25
   - type: StaticPrice
     price: 1500 # Botany can shit these out like candy, but let's see how it goes
+  - type: MeleeWeapon #funky
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee #funky
+    attackType: Light
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 6
 
 - type: entity
   parent: WeaponRevolverPython
@@ -177,6 +225,18 @@
     capacity: 5
     chambers: [ True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null ]
+  - type: MeleeWeapon #funky
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee #funky
+    attackType: Light
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 6
 
 - type: entity
   parent: WeaponRevolverPirate

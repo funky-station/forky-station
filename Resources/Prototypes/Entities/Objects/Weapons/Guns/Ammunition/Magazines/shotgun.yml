@@ -41,6 +41,10 @@
     steps: 2
     zeroVisible: false
   - type: Appearance
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 5
 
 - type: entity
   id: MagazineShotgunEmpty

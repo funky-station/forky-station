@@ -69,6 +69,10 @@
         base:
           Primed: { state: primed }
           Unprimed: { state: icon }
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 5 #ow
 
 ## Plastic Explosives used in game
 - type: entity

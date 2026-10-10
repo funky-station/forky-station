@@ -38,6 +38,10 @@
     steps: 5
     zeroVisible: false
   - type: Appearance
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 6 #chunky so they hurt a good bit
 
 - type: entity
   parent: BaseMagazineGrenade

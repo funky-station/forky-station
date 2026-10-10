@@ -30,6 +30,10 @@
     steps: 6
     zeroVisible: false
   - type: Appearance
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 4
 
 - type: entity
   abstract: true
@@ -63,6 +67,10 @@
     steps: 6
     zeroVisible: false
   - type: Appearance
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 4
 
 - type: entity
   abstract: true
@@ -96,6 +104,10 @@
     steps: 6
     zeroVisible: false
   - type: Appearance
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 5
 
 - type: entity
   parent: [ BaseItem, BaseSecurityContraband ]
@@ -130,6 +142,10 @@
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 5
 
 - type: entity
   parent: MagazinePistolSubMachineGunTopMounted

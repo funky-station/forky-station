@@ -81,6 +81,18 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: MeleeWeapon #funky
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee #funky
+    attackType: Light
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 6
 
 - type: entity
   name: C-20r submachine gun
@@ -121,6 +133,22 @@
   - type: Appearance
   - type: StaticPrice
     price: 5000
+  - type: MeleeWeapon #funky
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee #funky
+    attackType: Heavy
+  - type: IncreaseDamageOnWield #funky
+    damage:
+      types:
+        Blunt: 7
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 10
 
 - type: entity
   name: C-20r ROW #I think ROW stands for Recharging Onboard Weapon so i'm following the L6C's example
@@ -163,6 +191,18 @@
     autoRefillRate: 4s
     affectedByEmp: true
   - type: AmmoCounter
+  - type: MeleeWeapon #funky
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: AltFireMelee #funky
+    attackType: Light
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 6
 
 - type: entity
   name: Drozd
@@ -221,6 +261,22 @@
       steps: 5
       zeroVisible: true
     - type: Appearance
+    - type: MeleeWeapon #funky
+      damage:
+        types:
+          Blunt: 5
+      soundHit:
+        collection: MetalThud
+    - type: AltFireMelee #funky
+      attackType: Heavy
+    - type: IncreaseDamageOnWield #funky
+      damage:
+        types:
+          Blunt: 7
+    - type: DamageOtherOnHit #funky
+      damage:
+        types:
+          Blunt: 10
 
 - type: entity
   name: WT550
@@ -282,6 +338,16 @@
     steps: 6
     zeroVisible: true
   - type: Appearance
+  - type: MeleeWeapon #funky
+    damage:
+      types:
+        Blunt: 8
+  - type: AltFireMelee #funky
+    attackType: Light
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 6
 
 - type: entity
   name: brown briefcase
@@ -327,3 +393,9 @@
     damage:
       types:
         Blunt: 8
+  - type: AltFireMelee #funky
+    attackType: Heavy
+  - type: DamageOtherOnHit #funky #todo make all/most stuff that's throwable deal damage, then delete this todo #this shouldn't be an out, since if someone's holding your briefcase, OOC you're already out since the mag indicator
+    damage:
+      types:
+        Blunt: 6
