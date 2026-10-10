@@ -524,14 +524,14 @@
   name: bananium peel
   components:
   - type: Sprite
-    sprite: Objects/Materials/materials.rsi
+    sprite: _Funkystation/Objects/Materials/materials.rsi # Funky
     state: peel
   - type: Item
-    sprite: Objects/Materials/materials.rsi
+    sprite: _Funkystation/Objects/Materials/materials.rsi # Funky
     heldPrefix: peel
   - type: Slippery
   - type: Clothing
-    sprite: Objects/Materials/materials.rsi
+    sprite: _Funkystation/Objects/Materials/materials.rsi # Funky
     equippedPrefix: peel
 
 - type: entity

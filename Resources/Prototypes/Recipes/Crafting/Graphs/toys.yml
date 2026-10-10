@@ -31,7 +31,7 @@
       - tag: HideCorgi
         name: construction-graph-tag-corgi-hide
         icon:
-          sprite: Objects/Materials/materials.rsi
+          sprite: _Funkystation/Objects/Materials/materials.rsi # Funky
           state: corgihide
         doAfter: 5
   - node: suit

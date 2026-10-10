@@ -44,7 +44,7 @@
   - type: Sprite
     layers:
     - state: red
-    - sprite: Objects/Tools/welder.rsi
+    - sprite: _Funkystation/Objects/Tools/welder.rsi # Funky
       state: icon
   - type: EntityTableSpawner
     table: !type:GroupSelector

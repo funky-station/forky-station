@@ -21,7 +21,7 @@
           False: { visible: false }
   - type: Item
     size: Small
-    sprite: Objects/Tools/welder.rsi
+    sprite: _Funkystation/Objects/Tools/welder.rsi # Funky
   - type: ItemToggleExaminableStatus
   - type: ItemToggle
     predictable: false
@@ -116,7 +116,7 @@
   description: "Melts anything as long as it's fueled, don't forget your eye protection!"
   components:
   - type: Sprite
-    sprite: Objects/Tools/welder.rsi
+    sprite: _Funkystation/Objects/Tools/welder.rsi # Funky
 
 - type: entity
   parent: [SolutionWelder, SolutionSmall]
@@ -137,9 +137,9 @@
   description: "An industrial welder with over double the fuel capacity."
   components:
   - type: Sprite
-    sprite: Objects/Tools/welder_industrial.rsi
+    sprite: _Funkystation/Objects/Tools/welder_industrial.rsi # Funky
   - type: Item
-    sprite: Objects/Tools/welder_industrial.rsi
+    sprite: _Funkystation/Objects/Tools/welder_industrial.rsi # Funky
 
 - type: entity
   parent: [SolutionWelder, SolutionToolNormal]
@@ -160,9 +160,9 @@
   description: "An advanced industrial welder with over double the fuel capacity and hotter flame."
   components:
   - type: Sprite
-    sprite: Objects/Tools/welder_industrialadv.rsi
+    sprite: _Funkystation/Objects/Tools/welder_industrialadv.rsi # Funky
   - type: Item
-    sprite: Objects/Tools/welder_industrialadv.rsi
+    sprite: _Funkystation/Objects/Tools/welder_industrialadv.rsi # Funky
   - type: Tool
     speedModifier: 1.3
 
@@ -173,9 +173,9 @@
   description: "An experimental welder capable of self-fuel generation and less harmful to the eyes."
   components:
   - type: Sprite
-    sprite: Objects/Tools/welder_experimental.rsi
+    sprite: _Funkystation/Objects/Tools/welder_experimental.rsi # Funky
   - type: Item
-    sprite: Objects/Tools/welder_experimental.rsi
+    sprite: _Funkystation/Objects/Tools/welder_experimental.rsi # Funky
   - type: PointLight
     enabled: false
     radius: 1.5
@@ -208,10 +208,10 @@
   description: "A miniature welder used during emergencies."
   components:
   - type: Sprite
-    sprite: Objects/Tools/welder_mini.rsi
+    sprite: _Funkystation/Objects/Tools/welder_mini.rsi # Funky
   - type: Item
     size: Tiny
-    sprite: Objects/Tools/welder_mini.rsi
+    sprite: _Funkystation/Objects/Tools/welder_mini.rsi # Funky
   - type: RefillableSolution
     solution: welder
   - type: Tool

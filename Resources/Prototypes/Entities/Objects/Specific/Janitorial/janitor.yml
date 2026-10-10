@@ -307,7 +307,7 @@
   description: For cleaning up messes, you suppose.
   components:
     - type: Sprite
-      sprite: Objects/Specific/Janitorial/rag.rsi
+      sprite: _Funkystation/Objects/Specific/Janitorial/rag.rsi # Funky
       layers:
       - state: rag
       - map: ["enum.SolutionContainerLayers.Fill"]
@@ -330,7 +330,7 @@
           Blunt: 0
     - type: Item
       size: Small
-      sprite: Objects/Specific/Janitorial/rag.rsi
+      sprite: _Funkystation/Objects/Specific/Janitorial/rag.rsi # Funky
     - type: Absorbent
       pickupAmount: 15
       useAbsorberSolution: true
@@ -354,11 +354,11 @@
   description: A bristly steel wire brush, perfect for scraping away even the toughest patches of rust.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Janitorial/wirebrush.rsi
+    sprite: _Funkystation/Objects/Specific/Janitorial/wirebrush.rsi # Funky
     state: icon
   - type: Item
     storedSprite:
-      sprite: Objects/Specific/Janitorial/wirebrush.rsi
+      sprite: _Funkystation/Objects/Specific/Janitorial/wirebrush.rsi # Funky
       state: storage
     size: Small
   - type: Tag
