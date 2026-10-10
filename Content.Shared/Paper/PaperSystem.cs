@@ -182,7 +182,8 @@ public sealed partial class PaperSystem : EntitySystem
         return new StampDisplayInfo
         {
             StampedName = stamp.StampedName,
-            StampedColor = stamp.StampedColor
+            StampedColor = stamp.StampedColor,
+            StampLargeIcon = stamp.StampLargeIcon
         };
     }
 
