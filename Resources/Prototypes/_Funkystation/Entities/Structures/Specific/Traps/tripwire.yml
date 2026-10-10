@@ -87,6 +87,9 @@
     - state: lv_tripwire
     - state: signal_cell
   - type: SignalOnTrigger
+  - type: DeviceLinkSource
+    ports:
+    - Trigger
   - type: Construction
     graph: TripwireGraph
     node: lv_signal
@@ -132,6 +135,9 @@
     - state: mv_tripwire
     - state: signal_cell
   - type: SignalOnTrigger
+  - type: DeviceLinkSource
+    ports:
+    - Trigger
   - type: Construction
     graph: TripwireGraph
     node: mv_signal
@@ -177,6 +183,9 @@
     - state: hv_tripwire
     - state: signal_cell
   - type: SignalOnTrigger
+  - type: DeviceLinkSource
+    ports:
+    - Trigger
   - type: Construction
     graph: TripwireGraph
     node: hv_signal
