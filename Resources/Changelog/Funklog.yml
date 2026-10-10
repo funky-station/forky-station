@@ -1100,4 +1100,16 @@
   id: 129
   time: '2026-10-10T18:02:41Z'
   url: https://github.com/funky-station/forky-station/pull/526
+- author: metalgearsloth, mycobiota
+  changes:
+  - message: Fix interaction outline not scaling with zoom. (by metalgearsloth, cherrypicked
+      by mycobiota)
+    type: Fix
+  - message: Tidied up interaction outline color settings in the accessibility settings.
+    type: Tweak
+  - message: Added a checkbox to enable/disable custom interaction outline colors.
+    type: Add
+  id: 130
+  time: '2026-10-10T18:04:50Z'
+  url: https://github.com/funky-station/forky-station/pull/574
 Order: -1
