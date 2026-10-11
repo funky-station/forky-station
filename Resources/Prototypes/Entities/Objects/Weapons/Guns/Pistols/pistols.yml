@@ -216,6 +216,8 @@
       path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
   - type: StealTarget
     stealGroup: OfficerHandgun
+  - type: SerialNumber #funky
+    serialNumber: "Testing:"
 
 - type: entity
   name: N1984

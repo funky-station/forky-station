@@ -17,10 +17,10 @@ namespace Content.Shared._Funkystation.SerialNumber
             SubscribeLocalEvent<SerialNumberComponent, ExaminedEvent>(OnExamined);
         }
 
-        private void RandomNumber(SerialNumberComponent comp, comp.minDigits, comp.maxDigits)
+        private void RandomNumber(SerialNumberComponent comp)
         {
             var serialNumber = comp.SerialNumber;
-            serialNumber = SerialNumber.Next(minDigits, maxDigits);
+            serialNumber = SerialNumber.Next(comp.MinDigits, comp.MaxDigits);
         }
 
         private void OnExamined(EntityUid uid, SerialNumberComponent comp, ExaminedEvent args)
