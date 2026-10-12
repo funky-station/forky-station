@@ -1,6 +1,6 @@
 using Content.Shared.Examine;
-using Content.Shared.Random.Helpers;
 using Robust.Shared.Utility;
+using Robust.Shared.Random;
 
 
 namespace Content.Shared._Funkystation.SerialNumber
@@ -9,35 +9,30 @@ namespace Content.Shared._Funkystation.SerialNumber
     //This component exists to add a semi-random identification number to an entity such as guns or devices
     // </summary>
     public sealed class SerialNumberSystem : EntitySystem
+
     {
+        [Dependency] private IRobustRandom _random = default!;
+
         public override void Initialize()
         {
             base.Initialize();
 
             SubscribeLocalEvent<SerialNumberComponent, ExaminedEvent>(OnExamined);
+            SubscribeLocalEvent<SerialNumberComponent, MapInitEvent>(OnInit);
         }
 
-        private void RandomNumber(SerialNumberComponent comp)
+        private void OnInit(EntityUid uid, SerialNumberComponent comp, MapInitEvent args)
         {
-            var serialNumber = comp.SerialNumber;
-            serialNumber = SerialNumber.Next(comp.MinDigits, comp.MaxDigits);
+            var random = _random.Next(comp.MinDigit, comp.MaxDigit);
+            comp.SerialNumber = random.ToString();
+            Dirty(uid, comp);
         }
 
         private void OnExamined(EntityUid uid, SerialNumberComponent comp, ExaminedEvent args)
         {
             var formattedmessage = new FormattedMessage();
-            var LeadUp = comp.LeadUp;
-            var Prefix = comp.Prefix;
-            var serialNumber = comp.serialNumber;
-            var FullMessage = LeadUp + Prefix + serialNumber;
-
-            if (string.IsNullOrWhiteSpace(FullMessage))
-            {
-                formattedmessage.AddText($"{Loc.GetString("serial-number-is-blank")}\n");
-                return;
-            }
-
-            formattedmessage.AddText($"{FullMessage}\n");
+            var fullMessage = comp.LeadUp + comp.Prefix + comp.SerialNumber;
+            formattedmessage.AddText($"{fullMessage}\n");
             args.AddMessage(formattedmessage, -1);
         }
     }
