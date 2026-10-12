@@ -10,6 +10,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Chat.Systems;
 
+// todo: mark funky changes on all affected files
+// todo: method and ChatAnnouncement documentation
+// todo: test it actually works lol
+
 public sealed partial class ChatSystem
 {
     [Dependency] private AnnouncerManager _announcer = default!; // macrocosm
