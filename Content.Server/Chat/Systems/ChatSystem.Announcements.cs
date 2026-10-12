@@ -33,7 +33,7 @@ public sealed partial class ChatSystem
 
         if (chatAnnouncement.ShouldPlaySound)
         {
-            PlaySound(chatAnnouncement);
+            PlayAnnouncementSound(chatAnnouncement);
         }
 
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Global station announcement from {chatAnnouncement.SenderName}: {chatAnnouncement.Message}");
@@ -53,7 +53,7 @@ public sealed partial class ChatSystem
 
         if (chatAnnouncement.ShouldPlaySound)
         {
-            PlaySound(chatAnnouncement);
+            PlayAnnouncementSound(chatAnnouncement);
         }
 
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement from {chatAnnouncement.SenderName}: {chatAnnouncement.Message}");
@@ -84,7 +84,7 @@ public sealed partial class ChatSystem
 
         if (chatAnnouncement.ShouldPlaySound)
         {
-            PlaySound(chatAnnouncement);
+            PlayAnnouncementSound(chatAnnouncement);
         }
 
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement on {ToPrettyString(stationUid)} from {chatAnnouncement.SenderName}: {chatAnnouncement.Message}");
@@ -116,7 +116,7 @@ public sealed partial class ChatSystem
     }
 
     // todo: should filtered / station announcements only play the announcement sound for recipients?
-    private void PlaySound(ChatAnnouncement chatAnnouncement)
+    private void PlayAnnouncementSound(ChatAnnouncement chatAnnouncement)
     {
         var announcementSound = chatAnnouncement.AltAnnouncementSound;
         // Macrocosm edit start - announcer variation
