@@ -409,7 +409,7 @@ public abstract partial class SharedChatSystem : EntitySystem
     /// <param name="colorOverride">Optional color for the announcement message.</param>
     /// <param name="paSystemBypass">Funky - whether to bypass diegetic PA systems and broadcast directly to players.</param>
     [Obsolete("Create a ChatAnnouncement instead of passing individual params")]
-    public virtual void DispatchGlobalAnnouncement(
+    public void DispatchGlobalAnnouncement(
         string message,
         string? sender = null,
         bool playSound = true,
@@ -439,7 +439,7 @@ public abstract partial class SharedChatSystem : EntitySystem
     /// <param name="colorOverride">Optional color for the announcement message.</param>
     /// <param name="paSystemBypass">Funky - whether to bypass diegetic PA systems and broadcast directly to players.</param>
     [Obsolete("Create a ChatAnnouncement instead of passing individual params")]
-    public virtual void DispatchFilteredAnnouncement(
+    public void DispatchFilteredAnnouncement(
         Filter filter,
         string message,
         EntityUid? source = null,
@@ -472,7 +472,7 @@ public abstract partial class SharedChatSystem : EntitySystem
     /// <param name="colorOverride">Optional color for the announcement message.</param>
     /// <param name="paSystemBypass">Funky - whether to bypass diegetic PA systems and broadcast directly to players.</param>
     [Obsolete("Create a ChatAnnouncement instead of passing individual params")]
-    public virtual void DispatchStationAnnouncement(
+    public void DispatchStationAnnouncement(
         EntityUid source,
         string message,
         string? sender = null,
