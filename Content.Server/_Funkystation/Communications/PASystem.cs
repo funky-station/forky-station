@@ -24,6 +24,8 @@ public sealed partial class PASystem : EntitySystem
     [Dependency] private IAdminLogManager _adminLogger = null!;
     [Dependency] private ChatSystem _chat = null!;
 
+    [Dependency] private EntityQuery<StationDataComponent> _stationDataQuery;
+
     [GeneratedRegex(@"(?<=[\.\!\?])\s")]
     private static partial Regex SpaceAfterSentenceEnd();
 
@@ -49,7 +51,7 @@ public sealed partial class PASystem : EntitySystem
                 return;
             }
 
-            targetStation = (stationUid.Value, Comp<StationDataComponent>(stationUid.Value));
+            targetStation = (stationUid.Value, _stationDataQuery.Comp(stationUid.Value));
         }
         var lines = FormatPAAnnouncement(announce.Message, preamble, customPreamble);
         var author = announce.SenderName ?? Loc.GetString("comms-console-announcement-unknown-sender");
