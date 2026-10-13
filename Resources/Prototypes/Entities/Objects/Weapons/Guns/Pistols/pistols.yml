@@ -217,6 +217,7 @@
   - type: StealTarget
     stealGroup: OfficerHandgun
   - type: SerialNumber #funky
+#    scratchedOff: true
 
 - type: entity
   name: N1984
