@@ -46,3 +46,7 @@
         base:
           Primed: { state: primed }
           Unprimed: { state: icon }
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 5 #ow #maybe REALLY don't throw this one...
