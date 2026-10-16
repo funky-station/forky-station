@@ -702,3 +702,144 @@
   - type: Tag
     tags:
     - Kangaroo
+
+#tacklegloves start
+#todo fix all of this
+
+- type: entity
+  parent: [ ClothingHandsGlovesSyntheticBase, BaseMinorContraband ]
+  id: ClothingHandsGlovesColorBlackTackleBad
+  name: tackle gloves
+  description: Black gloves that do not keep you from frying, while granting the wearer the ability to jump headfirst towards a person.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/black.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/black.rsi
+  - type: Fiber
+    fiberColor: fibers-black
+  - type: JumpAbility
+    action: ActionBadTackleGravityJump
+    canCollide: true
+    jumpDistance: 3
+    collideKnockdown: 2
+    jumpSound:
+      path: /Audio/Weapons/punchmiss.ogg
+      params:
+        pitch: 1.33
+        volume: -5
+        variation: 0.05
+  - type: ActionGrant
+    actions:
+    - ActionBadTackleGravityJump
+  - type: ItemActionGrant
+    actions:
+    - ActionBadTackleGravityJump
+    activeIfWorn: true
+
+- type: entity
+  parent: [ ClothingHandsGlovesSyntheticBase, BaseSecurityContraband ]
+  id: ClothingHandsGlovesColorBlackTackleSec
+  name: security tackle gloves
+  description: Black gloves issued to security that do not keep you from frying, while granting the wearer the ability to jump headfirst towards a suspect.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/black.rsi
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/black.rsi
+  - type: Fiber
+    fiberColor: fibers-black
+  - type: JumpAbility
+    action: ActionBasicTackleGravityJump
+    canCollide: true
+    jumpDistance: 4
+    collideKnockdown: 3
+    jumpSound:
+      path: /Audio/Weapons/punchmiss.ogg
+      params:
+        pitch: 1.33
+        volume: -5
+        variation: 0.05
+  - type: ActionGrant
+    actions:
+    - ActionBasicTackleGravityJump
+  - type: ItemActionGrant
+    actions:
+    - ActionBasicTackleGravityJump
+    activeIfWorn: true
+
+- type: entity
+  parent: [ ClothingHandsGlovesColorBlack, BaseSecurityContraband ]
+  id: ClothingHandsGlovesCombatTackle
+  name: combat tackle gloves
+  description: These tactical gloves are fireproof and shock resistant, while granting the wearer the ability to jump headfirst towards a suspect.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/combat.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/combat.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+  - type: JumpAbility
+    action: ActionAdvancedTackleGravityJump
+    canCollide: true
+    jumpDistance: 5
+    collideKnockdown: 4
+    jumpSound:
+      path: /Audio/Weapons/punchmiss.ogg
+      params:
+        pitch: 1.33
+        volume: -5
+        variation: 0.05
+  - type: ActionGrant
+    actions:
+    - ActionAdvancedTackleGravityJump
+  - type: ItemActionGrant
+    actions:
+    - ActionAdvancedTackleGravityJump
+    activeIfWorn: true
+
+- type: entity
+  parent: [ ClothingHandsGlovesColorBlack, BaseSyndicateContraband ]
+  id: ClothingHandsBloodredTackle
+  name: blood-red combat tackle gloves
+  description: These tactical gloves are resistant to low voltage shocks, with high grip palms and padded knuckles, while granting the wearer the ability to jump headfirst towards a target. You feel unstoppable.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/combat.rsi #todo use the blood red gloves sprite when it's ported
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/combat.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+  - type: JumpAbility
+    action: ActionAdvancedTackleGravityJump
+    canCollide: true
+    jumpDistance: 5
+    collideKnockdown: 4
+    jumpSound:
+      path: /Audio/Weapons/punchmiss.ogg
+      params:
+        pitch: 1.33
+        volume: -5
+        variation: 0.05
+  - type: ActionGrant
+    actions:
+    - ActionAdvancedTackleGravityJump
+  - type: ItemActionGrant
+    actions:
+    - ActionAdvancedTackleGravityJump
+    activeIfWorn: true
