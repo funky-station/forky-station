@@ -350,3 +350,7 @@ ghost-role-information-wizard-desc = YER A WIZARD! Show the station what your ma
 
 ghost-role-information-emotional-support-scurret-name = Emotional Support Scurret
 ghost-role-information-emotional-support-scurret-description = Support the crew, be adorable, say "wa" a lot.
+
+# funkystation
+ghost-role-information-celedon-name = Celedon, Animal Lab Rescue
+ghost-role-information-celedon-description = You are a sapient creature. As you were experimented upon during your early years, other beings need to earn your trust.

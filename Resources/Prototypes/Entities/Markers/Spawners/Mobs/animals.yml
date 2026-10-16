@@ -362,3 +362,33 @@
   - type: ConditionalSpawner
     prototypes:
     - MobSlug
+
+#funkystation
+- type: entity
+  name: Mothroach Spawner
+  id: SpawnMobMothroach
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Animals/mothroach/mothroach.rsi
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobMothroach
+    
+#funkystation
+- type: entity
+  name: Celedon Spawner
+  id: SpawnMobCeledonRaptor
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: celedon_raptor
+      sprite: Mobs/Pets/celedon.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCeledonRaptor
