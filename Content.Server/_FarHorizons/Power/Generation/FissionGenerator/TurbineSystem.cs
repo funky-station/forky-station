@@ -77,7 +77,6 @@ public sealed partial class TurbineSystem : SharedTurbineSystem
         SubscribeLocalEvent<TurbineComponent, TurbineChangeFlowRateMessage>(OnTurbineFlowRateChanged);
         SubscribeLocalEvent<TurbineComponent, TurbineChangeStatorLoadMessage>(OnTurbineStatorLoadChanged);
 
-        SubscribeLocalEvent<TurbineComponent, SignalReceivedEvent>(OnSignalReceived);
         SubscribeLocalEvent<TurbineComponent, PortDisconnectedEvent>(OnPortDisconnected);
 
         SubscribeLocalEvent<TurbineComponent, AnchorStateChangedEvent>(OnAnchorChanged);
@@ -400,10 +399,10 @@ public sealed partial class TurbineSystem : SharedTurbineSystem
     }
     #endregion
 
-    private void OnSignalReceived(EntityUid uid, TurbineComponent comp, ref SignalReceivedEvent args)
+    [SubscribeLocalEvent]
+    private void OnSignalReceived(EntityUid uid, TurbineComponent comp, ref SignalReceivedEvent<LogicStatePayload> args)
     {
-        var state = SignalState.Momentary;
-        args.Data?.TryGetValue(DeviceNetworkConstants.LogicState, out state);
+        var state = args.Data.State;
 
         if (args.Port == comp.StatorLoadIncreasePort)
             comp.IncreasePortState = state;
