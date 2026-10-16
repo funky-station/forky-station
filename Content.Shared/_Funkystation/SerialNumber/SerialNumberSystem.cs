@@ -27,7 +27,7 @@ namespace Content.Shared._Funkystation.SerialNumber
             SubscribeLocalEvent<SerialNumberComponent, ExaminedEvent>(OnExamined);
             SubscribeLocalEvent<SerialNumberComponent, MapInitEvent>(OnInit);
             SubscribeLocalEvent<SerialNumberComponent, InteractUsingEvent>(OnScratchOff);
-            SubscribeLocalEvent<SerialNumberComponent, SerialNumberDoAfterEvent>(OnScratchOff);
+            // SubscribeLocalEvent<SerialNumberComponent, SerialNumberDoAfterEvent>(OnScratchOff);
         }
 
         private void OnInit(EntityUid uid, SerialNumberComponent comp, MapInitEvent args)
@@ -36,24 +36,24 @@ namespace Content.Shared._Funkystation.SerialNumber
             comp.SerialNumber = random.ToString();
             Dirty(uid, comp);
         }
-        private void TryStartDoAfter(Entity<SerialNumberComponent> ent, EntityUid user, TimeSpan delay)
-        {
-            if (ent.Comp.SerialNumberDoAfter.HasValue)
-                return;
-
-            var doAfterEventArgs = new DoAfterArgs(EntityManager, user, delay, new SerialNumberDoAfterEvent(), ent.Owner, ent.Owner)
-            {
-                BreakOnDamage = true,
-                NeedHand = true,
-                BreakOnHandChange = true,
-                MovementThreshold = 0.01f,
-                DistanceThreshold = 1.0f,
-            };
-
-            if (_doAfterSystem.TryStartDoAfter(doAfterEventArgs, out var doAfterId))
-                ent.Comp.SerialNumberDoAfter = doAfterId;
-        }
-        private void OnScratchOff(EntityUid uid, SerialNumberComponent comp, InteractUsingEvent args, ref SerialNumberDoAfterEvent)
+        // private void TryStartDoAfter(Entity<SerialNumberComponent> ent, EntityUid user, TimeSpan delay)
+        // {
+        //     if (ent.Comp.SerialNumberDoAfter.HasValue)
+        //         return;
+        //
+        //     var doAfterEventArgs = new DoAfterArgs(EntityManager, user, delay, new SerialNumberDoAfterEvent(), ent.Owner, ent.Owner)
+        //     {
+        //         BreakOnDamage = true,
+        //         NeedHand = false,
+        //         BreakOnHandChange = true,
+        //         MovementThreshold = 0.01f,
+        //         DistanceThreshold = 0.5f,
+        //     };
+        //
+        //     if (_doAfterSystem.TryStartDoAfter(doAfterEventArgs, out var doAfterId))
+        //         ent.Comp.SerialNumberDoAfter = doAfterId;
+        // }
+        private void OnScratchOff(EntityUid uid, SerialNumberComponent comp, InteractUsingEvent args)
         {
             if (comp.ScratchedOff)
             {
