@@ -16,6 +16,9 @@
   - type: UseDelay
     delay: 0.5
   - type: Appearance
+  - type: Tag #funky start
+    tags:
+    - SharpsTrash #funky end
 
 - type: entity
   abstract: true
@@ -67,6 +70,7 @@
   - type: Tag
     tags:
     - HighRiskItem
+    - SharpsTrash #funky change
   - type: StealTarget
     stealGroup: Hypospray
   - type: SolutionContainerVisuals

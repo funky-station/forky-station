@@ -434,6 +434,7 @@
   - type: Tag
     tags:
     - Syringe
+    - SharpsTrash #funky
 
 - type: entity
   parent: BaseSyringe
@@ -443,6 +444,7 @@
     tags:
     - Syringe
     - Trash
+    - SharpsTrash #funky
 
 - type: entity
   name: mini syringe
@@ -503,6 +505,7 @@
     - Syringe
     - Trash
     - SyringeGunAmmo
+    - SharpsTrash #funky
 
 - type: entity
   abstract: true
@@ -540,6 +543,7 @@
     tags:
     - Syringe
     - Trash
+    - SharpsTrash #funky
 
 - type: entity
   id: SyringeCryostasis
@@ -561,6 +565,7 @@
     tags:
     - Syringe
     - Trash
+    - SharpsTrash #funky
 
 - type: entity
   name: pill

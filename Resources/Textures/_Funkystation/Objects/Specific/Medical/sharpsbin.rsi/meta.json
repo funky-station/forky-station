@@ -1,0 +1,27 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-4.0",
+    "copyright": "Needle Disposal made by Dogman20801 for Funky Station",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "closed",
+            "directions": 4
+        },
+        {
+            "name": "open",
+            "directions": 4
+        },
+        {
+            "name": "lock-locked",
+            "directions": 4
+        },
+        {
+            "name": "lock-unlocked",
+            "directions": 4
+        }
+    ]
+}
