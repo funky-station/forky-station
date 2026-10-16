@@ -97,7 +97,7 @@ public sealed partial class RadioSystem : SharedRadioSystem
             : message;
 
         var wrappedMessage = Loc.GetString(speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap",
-            ("color", channel.Color),
+            ("protoID", channel.ID), // funky - add radio channel color tags to allow color customization by the player
             ("fontType", speech.FontId),
             ("fontSize", speech.FontSize),
             ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),

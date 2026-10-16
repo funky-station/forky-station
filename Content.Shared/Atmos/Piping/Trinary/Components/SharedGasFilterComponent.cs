@@ -31,7 +31,7 @@ public sealed class GasFilterChangeRateMessage : BoundUserInterfaceMessage
 }
 
 [Serializable, NetSerializable]
-public sealed class GasFilterSelectGasMessage(Gas? gas) : BoundUserInterfaceMessage
+public sealed class GasFilterSelectGasesMessage(List<Gas> gases) : BoundUserInterfaceMessage
 {
-    public readonly Gas? Gas = gas;
+    public readonly List<Gas> Gases = gases; // Funky - Allow multiple gases
 }

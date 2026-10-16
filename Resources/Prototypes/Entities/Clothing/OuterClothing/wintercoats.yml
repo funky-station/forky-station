@@ -729,6 +729,11 @@
       toggleable-clothing: !type:ContainerSlot { }
       storagebase: !type:Container
         ents: [ ]
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,2
+    - 3,0,4,2
+    maxItemSize: Small #funk end
 ################################################################
 
 - type: entity
@@ -1210,3 +1215,10 @@
       - state: winterbits-equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterColorYellow
+
+
+  - type: Storage # funky storage edits Start
+    grid:
+    - 0,0,1,1
+    - 3,0,4,1
+    maxItemSize: Small #funk end
