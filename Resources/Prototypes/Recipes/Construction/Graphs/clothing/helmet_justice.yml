@@ -18,7 +18,7 @@
       - tag: LightBulb
         name: construction-graph-tag-light-bulb
         icon:
-          sprite: Objects/Power/light_bulb.rsi
+          sprite: _Funkystation/Objects/Power/light_bulb.rsi # Funky
           state: normal
         doAfter: 5
   - node: helmet

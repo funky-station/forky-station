@@ -86,7 +86,7 @@
 - type: cargoProduct
   id: MaterialCloth
   icon:
-    sprite: Objects/Materials/materials.rsi
+    sprite: _Funkystation/Objects/Materials/materials.rsi # Funky
     state: cloth_3
   product: CrateMaterialCloth
   cost: 600
@@ -106,7 +106,7 @@
 - type: cargoProduct
   id: CardboardMaterial
   icon:
-    sprite: Objects/Materials/materials.rsi
+    sprite: _Funkystation/Objects/Materials/materials.rsi # Funky
     state: cardboard_3
   product: CrateMaterialCardboard
   cost: 330
