@@ -1,0 +1,70 @@
+﻿# first two digits of pager numbers. departments not listed get random numbers outside these prefixes
+- type: pagerPrefix
+  id: PagerPrefixCommand
+  department: Command
+  prefix: 0
+  massPageAccess:
+  - Captain
+  - ExecutiveOfficer
+  - ChiefMedicalOfficer
+  - ResearchDirector
+  - ChiefEngineer
+  - Quartermaster
+  - HospitalityDirector
+  - Corporate
+
+- type: pagerPrefix
+  id: PagerPrefixSecurity
+  department: Security
+  prefix: 1
+  massPageAccess:
+  - HeadOfSecurity
+  - Captain
+
+- type: pagerPrefix
+  id: PagerPrefixMedical
+  department: Medical
+  prefix: 2
+  massPageAccess:
+  - ChiefMedicalOfficer
+  - Captain
+
+- type: pagerPrefix
+  id: PagerPrefixScience
+  department: Science
+  prefix: 3
+  massPageAccess:
+  - ResearchDirector
+  - Captain
+
+- type: pagerPrefix
+  id: PagerPrefixEngineering
+  department: Engineering
+  prefix: 4
+  massPageAccess:
+  - ChiefEngineer
+  - Captain
+
+- type: pagerPrefix
+  id: PagerPrefixCargo
+  department: Cargo
+  prefix: 5
+  massPageAccess:
+  - Quartermaster
+  - Captain
+
+- type: pagerPrefix
+  id: PagerPrefixInternalAffairs
+  department: InternalAffairs
+  prefix: 6
+  massPageAccess:
+  - ExecutiveOfficer
+  - Captain
+
+- type: pagerPrefix
+  id: PagerPrefixService
+  department: Service
+  prefix: 7
+  massPageAccess:
+  - HospitalityDirector
+  - Captain
