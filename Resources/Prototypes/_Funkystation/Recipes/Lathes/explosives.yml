@@ -1,0 +1,8 @@
+- type: latheRecipe
+  id: BreachingCharge
+  result: BreachingCharge
+  completetime: 1
+  materials:
+    Plastic: 500
+    Steel: 200
+    Silver: 50
