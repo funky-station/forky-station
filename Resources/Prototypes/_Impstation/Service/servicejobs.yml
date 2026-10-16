@@ -169,7 +169,7 @@
   description: service-job-tournament-description
   startAnnounce: service-job-tournament-start
   sprite:
-    sprite: Objects/Consumable/Drinks/golden_cup.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/golden_cup.rsi # Funky
     state: icon
 
 - type: serviceJob

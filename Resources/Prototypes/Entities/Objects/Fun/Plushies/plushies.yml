@@ -275,7 +275,7 @@
   description: A light emitting friend!
   components:
   - type: Sprite
-    sprite: Objects/Fun/Plushies/lamp.rsi
+    sprite: _Funkystation/Objects/Fun/Plushies/lamp.rsi # Funky
     state: icon
   - type: PointLight
     radius: 1.5
