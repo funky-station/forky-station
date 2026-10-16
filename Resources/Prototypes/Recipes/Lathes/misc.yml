@@ -55,7 +55,7 @@
 - type: latheRecipe
   parent: BaseLightRecipe
   id: GlowstickRed
-  result: GlowstickRed
+  result: FuGlowstickRed # Funky Change
   materials:
     Plastic: 50
 
