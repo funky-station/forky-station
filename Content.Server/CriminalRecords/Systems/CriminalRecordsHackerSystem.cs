@@ -1,5 +1,6 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Station.Systems;
+using Content.Shared.Chat;
 using Content.Shared.CriminalRecords;
 using Content.Shared.CriminalRecords.Components;
 using Content.Shared.CriminalRecords.Systems;
@@ -44,7 +45,12 @@ public sealed partial class CriminalRecordsHackerSystem : SharedCriminalRecordsH
             // main damage with this is existing arrest warrants are lost and to anger beepsky
         }
 
-        _chat.DispatchGlobalAnnouncement(Loc.GetString(ent.Comp.Announcement), playSound: true, colorOverride: Color.Red);
+        var announcement = new ChatAnnouncement(
+            Message: Loc.GetString(ent.Comp.Announcement),
+            ShouldPlaySound: true,
+            ColorOverride: Color.Red);
+
+        _chat.DispatchGlobalAnnouncement(announcement);
 
         // once is enough
         RemComp<CriminalRecordsHackerComponent>(ent);

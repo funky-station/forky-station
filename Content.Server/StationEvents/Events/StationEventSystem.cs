@@ -8,6 +8,7 @@ using Content.Server.StationEvents.Components;
 using Content.Server._Funkystation.SistrCore; // funky
 using Content.Server.Station.Components; // funky
 using Content.Shared._Funkystation.CCVar;
+using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.Audio;
@@ -49,7 +50,7 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
         if (!TryComp<StationEventComponent>(uid, out var stationEvent))
             return;
 
-        var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
+        var shouldNotPlayGlobal = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
 
         AdminLogManager.Add(LogType.EventAnnounced, $"Event added / announced: {ToPrettyString(uid)}");
 
@@ -76,16 +77,22 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
 
         if (canAnnounce && stationEvent.StartAudio is { } startAudio && Announcer.TryGetAnnouncerSound(startAudio, out soundSpecifier)) // funky
         {
-            if (!paExclusive) // funky
+            if (!shouldNotPlayGlobal) // funky
                 Audio.PlayGlobal(soundSpecifier, allPlayersInGame, true);
         }
         // Macrocosm edit end
 
-        if (canAnnounce && stationEvent.StartAnnouncement != null) // funky
-            ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.StartAnnouncement),
-                sender: Loc.GetString(stationEvent.StartAnnouncementSender), // funky
-                playSound: paExclusive, announcementSound: paExclusive ? soundSpecifier : null, // funky
-                colorOverride: stationEvent.StartAnnouncementColor);
+        if (canAnnounce && stationEvent.StartAnnouncement != null)
+        {
+            var announcement = new ChatAnnouncement(
+                Message: Loc.GetString(stationEvent.StartAnnouncement),
+                SenderName: Loc.GetString(stationEvent.StartAnnouncementSender),
+                ShouldPlaySound: shouldNotPlayGlobal,
+                AltAnnouncementSound: soundSpecifier,
+                ColorOverride: stationEvent.StartAnnouncementColor);
+
+            ChatSystem.DispatchFilteredAnnouncement(announcement, allPlayersInGame);
+        }
 
 
     }
@@ -118,7 +125,7 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
         if (!TryComp<StationEventComponent>(uid, out var stationEvent))
             return;
 
-        var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
+        var shouldNotPlayGlobal = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
 
         AdminLogManager.Add(LogType.EventStopped, $"Event ended: {ToPrettyString(uid)}");
 
@@ -145,17 +152,22 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
 
         if (canAnnounce && stationEvent.EndAudio is { } endAudio && Announcer.TryGetAnnouncerSound(stationEvent.EndAudio.Value, out soundSpecifier)) // funky
         {
-            if (!paExclusive) // funky
+            if (!shouldNotPlayGlobal) // funky
                 Audio.PlayGlobal(soundSpecifier, allPlayersInGame, true);
         }
         // Macrocosm edit end
+
         if (canAnnounce && stationEvent.EndAnnouncement != null) // funky
-            ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.EndAnnouncement),
-                sender: Loc.GetString(stationEvent.EndAnnouncementSender), // funky
-                playSound: paExclusive, announcementSound: paExclusive ? soundSpecifier : null, // funky
-                colorOverride: stationEvent.EndAnnouncementColor);
+        {
+            var announcement = new ChatAnnouncement(
+                Message: Loc.GetString(stationEvent.EndAnnouncement),
+                SenderName: Loc.GetString(stationEvent.EndAnnouncementSender),
+                ShouldPlaySound: shouldNotPlayGlobal,
+                AltAnnouncementSound: soundSpecifier,
+                ColorOverride: stationEvent.EndAnnouncementColor);
 
-
+            ChatSystem.DispatchFilteredAnnouncement(announcement, allPlayersInGame);
+        }
     }
 
     /// <summary>

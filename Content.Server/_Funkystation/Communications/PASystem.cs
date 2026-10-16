@@ -5,7 +5,9 @@ using Content.Server.Chat.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared._Funkystation.CCVar;
 using Content.Shared._Funkystation.Communications;
+using Content.Shared.Chat;
 using Content.Shared.Database;
+using Content.Shared.Station.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
@@ -22,61 +24,54 @@ public sealed partial class PASystem : EntitySystem
     [Dependency] private IAdminLogManager _adminLogger = null!;
     [Dependency] private ChatSystem _chat = null!;
 
+    [Dependency] private EntityQuery<StationDataComponent> _stationDataQuery;
+
     [GeneratedRegex(@"(?<=[\.\!\?])\s")]
     private static partial Regex SpaceAfterSentenceEnd();
 
     /// <summary>
     /// Dispatches a PA announcement to all receivers.
     /// </summary>
-    /// <param name="message">The message being broadcast.</param>
-    /// <param name="sender">The name of the person making the announcement.</param>
-    /// <param name="source">The EntityUid of the thing that made the announcement.</param>
-    /// <param name="preamble">Whether the PA system should make a preamble "Incoming announcement" statement.</param>
-    /// <param name="playSound">Whether the PA system should play an announcement sound.</param>
     /// <param name="global">Whether the announcement should broadcast to all grids or just the station of the sender.</param>
+    /// <param name="preamble">Whether the PA system should make a preamble "Incoming announcement" statement.</param>
     /// <param name="customPreamble">A custom string of text to display instead of the default preamble.</param>
-    /// <param name="announcementSound">A custom sound to play instead of whatever the speaker's default is. MAKE SURE IT IS IN MONO!</param>
-    /// <param name="colorOverride"></param>
     public void DispatchPAAnnouncement(
-        string message,
-        string? sender = null,
-        EntityUid? source = null,
+        ChatAnnouncement announce,
         bool preamble = false,
-        bool playSound = true,
-        bool global = true,
         LocId? customPreamble = null,
-        SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null)
+        bool global = true,
+        Entity<StationDataComponent>? targetStation = null)
     {
-        EntityUid? station = null;
-        if (!global)
+        if (!global && !targetStation.HasValue)
         {
-            station = _stationSystem.GetOwningStation(source);
-
-            if (station == null)
+            var stationUid = _stationSystem.GetOwningStation(announce.Source);
+            if (stationUid == null)
             {
                 // you can't make a station announcement without a station
                 return;
             }
-        }
-        var lines = FormatPAAnnouncement(message, preamble, customPreamble);
-        var author = sender ?? Loc.GetString("comms-console-announcement-unknown-sender");
 
-        var announceEv = new PAAnnouncementEvent(lines, author, source, preamble, playSound, announcementSound, colorOverride);
+            targetStation = (stationUid.Value, _stationDataQuery.Comp(stationUid.Value));
+        }
+        var lines = FormatPAAnnouncement(announce.Message, preamble, customPreamble);
+        var author = announce.SenderName ?? Loc.GetString("comms-console-announcement-unknown-sender");
+
+        var announceEv = new PAAnnouncementEvent(lines, author, announce.Source, preamble, announce.ShouldPlaySound, announce.AltAnnouncementSound, announce.ColorOverride);
         // send the announcement to every PAAnnouncer
         var announcers = EntityQueryEnumerator<PAAnnouncerComponent>();
         while (announcers.MoveNext(out var announcer, out var paComp))
         {
-            if (!global && _stationSystem.GetOwningStation(announcer) != station)
+            if (!global && _stationSystem.GetOwningStation(announcer) != targetStation!.Value.Owner)
                 continue;
+
             if (paComp.Enabled)
                 RaiseLocalEvent(announcer, ref announceEv);
         }
 
         if (global)
-            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Global station announcement from {sender}: {message}");
+            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Global station announcement from {announce.SenderName}: {announce.Message}");
         else
-            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement on {station} from {sender}: {message}");
+            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement on {ToPrettyString(targetStation)} from {announce.SenderName}: {announce.Message}");
     }
 
     private string[] FormatPAAnnouncement(string message, bool preamble = false, LocId? customPreamble = null)

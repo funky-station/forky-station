@@ -3,6 +3,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Fax;
 using Content.Shared.Fax.Components;
 using Content.Server.Station.Systems;
+using Content.Shared.Chat;
 using Content.Shared.Paper;
 using Content.Shared.Station.Components;
 using Robust.Shared.Random;
@@ -81,7 +82,11 @@ namespace Content.Server.Nuke
             if (wasSent)
             {
                 var msg = Loc.GetString("nuke-component-announcement-send-codes");
-                _chatSystem.DispatchStationAnnouncement(station, msg, colorOverride: Color.Red);
+                _chatSystem.DispatchStationAnnouncement(new ChatAnnouncement(
+                    Message: msg,
+                    Source: station,
+                    ColorOverride: Color.Red),
+                    station);
             }
 
             return wasSent;

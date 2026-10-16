@@ -189,13 +189,14 @@ public sealed partial class AlertLevelSystem : EntitySystem
 
         if (announce)
         {
-            _chat.DispatchStationAnnouncement(
-                station,
-                announcementFull,
-                playDefaultSound: playDefault,
-                colorOverride: prototype.Color,
-                sender: stationName,
-                announcementSound: paExclusive ? prototype.Sound?.MonoSound : null); // funky - play sound locally instead of globally);
+            var announcement = new ChatAnnouncement(
+                Message: announcementFull,
+                SenderName: stationName,
+                ShouldPlaySound: playDefault,
+                ColorOverride: prototype.Color,
+                AltAnnouncementSound: paExclusive ? prototype.Sound?.MonoSound : null);
+
+            _chat.DispatchStationAnnouncement(announcement, station);
         }
 
     }

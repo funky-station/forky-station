@@ -36,6 +36,8 @@ public sealed partial class PAAnnouncerSystem : EntitySystem
     [Dependency] private TransformSystem _xform = null!;
     [Dependency] private SharedPowerReceiverSystem _power = null!;
 
+    [Dependency] private EntityQuery<GhostHearingComponent> _ghostHearingQuery;
+
     private const double MessageDelay = 3;
     private const double LongMessageDelay = 5;
     private const float VolumeModifier = -4f;
@@ -64,7 +66,7 @@ public sealed partial class PAAnnouncerSystem : EntitySystem
 
         // make sure all ghosts hear the announcement (only once, though)
         if (paExclusive)
-            recipients = Filter.Broadcast().RemoveWhereAttachedEntity(uid => !HasComp<GhostHearingComponent>(uid));
+            recipients = Filter.Broadcast().RemoveWhereAttachedEntity(uid => !_ghostHearingQuery.HasComp(uid));
 
         var announcers = EntityQueryEnumerator<PAAnnouncerComponent>();
         while (announcers.MoveNext(out var uid, out var comp))

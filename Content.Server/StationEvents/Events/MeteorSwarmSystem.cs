@@ -7,6 +7,7 @@ using Content.Server.Station.Components; // funky
 using Content.Server.Station.Systems;
 using Content.Server.StationEvents.Components;
 using Content.Shared._Funkystation.CCVar;
+using Content.Shared.Chat;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Random.Helpers;
 using Robust.Server.Audio;
@@ -70,10 +71,13 @@ public sealed partial class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmCompon
         if (canAnnounce && component.Announcement is { } locId) // funky
             // funky, sender/color pulled from the StationEvent component
         {
-            _chat.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(locId),
-                sender: Loc.GetString(Comp<StationEventComponent>(uid).StartAnnouncementSender), // funky
-                playSound: paExclusive, announcementSound: paExclusive ? sound : null, // funky
-                colorOverride: Comp<StationEventComponent>(uid).StartAnnouncementColor); // funky
+            _chat.DispatchFilteredAnnouncement(new ChatAnnouncement(
+                Message: Loc.GetString(locId),
+                SenderName: Loc.GetString(Comp<StationEventComponent>(uid).StartAnnouncementSender),
+                ShouldPlaySound: paExclusive,
+                AltAnnouncementSound: sound,
+                ColorOverride: Comp<StationEventComponent>(uid).StartAnnouncementColor),
+                allPlayersInGame);
         }
     }
 

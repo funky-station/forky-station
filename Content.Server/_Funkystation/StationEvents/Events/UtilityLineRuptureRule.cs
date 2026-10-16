@@ -4,6 +4,7 @@ using Content.Server.Pinpointer;
 using Content.Server.StationEvents.Events;
 using Content.Server._Funkystation.StationEvents.Components;
 using Content.Shared.Atmos;
+using Content.Shared.Chat;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.Timing;
@@ -43,7 +44,15 @@ public sealed partial class UtilityLineRuptureRule : StationEventSystem<UtilityL
         {
             // Announce 10 seconds before it happens (if you weren't paying attention you get round removed bye)
             var msg = Loc.GetString("utility-line-rupture-announcement", ("location", locationName));
-            _chat.DispatchStationAnnouncement(targetStation.Value, msg, Loc.GetString("utility-line-rupture-sender"), playDefaultSound: true, colorOverride: Color.FromHex("#f9a524"));
+
+            var announcement = new ChatAnnouncement(
+                Message: msg,
+                Source: targetStation,
+                SenderName: Loc.GetString("utility-line-rupture-sender"),
+                ShouldPlaySound: true,
+                ColorOverride: Color.FromHex("#f9a524"));
+
+            _chat.DispatchStationAnnouncement(announcement, targetStation);
         }
     }
 

@@ -3,6 +3,7 @@ using Content.Server.Popups;
 using Content.Shared._Funkystation.Traits.Unions;
 using Content.Shared._Funkystation.Unions;
 using Content.Shared.CCVar;
+using Content.Shared.Chat;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Timing;
 using Robust.Server.GameObjects;
@@ -91,12 +92,17 @@ public sealed partial class MegaphoneSystem : EntitySystem
         {
             message = Loc.GetString("megaphone-strike-ended", ("union", union.Name));
         }
-        
+
         // so it look pretty just like the comms console one
         var author = $"{Name(args.Actor)} ({_unionSelector.GetUnionDisplayName(union)})";
         message += "\n" + Loc.GetString("comms-console-announcement-sent-by") + " " + author;
 
-        _chatSystem.DispatchStationAnnouncement(ent.Owner, message, sender: union.Name);
+        var announcement = new ChatAnnouncement(
+            Message: message,
+            Source: args.Actor,
+            SenderName: union.Name);
+
+        _chatSystem.DispatchStationAnnouncement(announcement);
         UpdateUi(ent);
     }
 

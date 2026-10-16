@@ -19,6 +19,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using System.Globalization;
 using System.Linq;
+using Content.Shared.Chat;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -124,7 +125,11 @@ public sealed partial class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponen
         {
             foreach (var station in _station.GetStations())
             {
-                _chat.DispatchStationAnnouncement(station, Loc.GetString("zombie-shuttle-call"), colorOverride: Color.Crimson);
+                _chat.DispatchStationAnnouncement(new ChatAnnouncement(
+                    Message: Loc.GetString("zombie-shuttle-call"),
+                    Source: station,
+                    ColorOverride: Color.Crimson),
+                    station);
             }
             _roundEnd.RequestRoundEnd(checkCooldown: false);
         }

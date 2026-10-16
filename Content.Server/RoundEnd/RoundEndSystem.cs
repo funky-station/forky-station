@@ -13,6 +13,7 @@ using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared._Funkystation.CCVar;
 using Content.Shared._MACRO.Announcements;
+using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.GameTicking;
@@ -216,13 +217,16 @@ namespace Content.Server.RoundEnd
 
             var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
 
-            _chatSystem.DispatchGlobalAnnouncement(Loc.GetString(text,
-                ("time", time),
-                ("units", Loc.GetString(units))),
-                Loc.GetString(name),
-                paExclusive, // funky
-                paExclusive ? sound : null, // funky
-                Color.Gold);
+            var announcement = new ChatAnnouncement(
+                Message: Loc.GetString(text,
+                    ("time", time),
+                    ("units", Loc.GetString(units))),
+                SenderName: Loc.GetString(name),
+                ShouldPlaySound: paExclusive,
+                AltAnnouncementSound: sound,
+                ColorOverride: Color.Gold);
+
+            _chatSystem.DispatchGlobalAnnouncement(announcement);
 
             // Macrocosm edit start - announcer override
             if (!paExclusive) // funky
@@ -279,10 +283,14 @@ namespace Content.Server.RoundEnd
 
             var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
 
-            _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("round-end-system-shuttle-recalled-announcement"),
-                Loc.GetString("round-end-system-shuttle-sender-announcement"),
-                paExclusive, paExclusive ? sound : null, // funky
-                colorOverride: Color.Gold);
+            var announcement = new ChatAnnouncement(
+                Message: Loc.GetString("round-end-system-shuttle-recalled-announcement"),
+                SenderName: Loc.GetString("round-end-system-shuttle-sender-announcement"),
+                ShouldPlaySound: paExclusive,
+                AltAnnouncementSound: sound,
+                ColorOverride: Color.Gold);
+
+            _chatSystem.DispatchGlobalAnnouncement(announcement);
 
             // Macrocosm edit start - announcer override
             if (!paExclusive) // funky
@@ -366,9 +374,10 @@ namespace Content.Server.RoundEnd
                     // Check is shuttle called or not. We should only dispatch announcement if it's already called
                     if (IsRoundEndRequested())
                     {
-                        _chatSystem.DispatchGlobalAnnouncement(Loc.GetString(textAnnounce),
-                            Loc.GetString(sender),
-                            colorOverride: Color.Gold);
+                        _chatSystem.DispatchGlobalAnnouncement(new ChatAnnouncement(
+                            Message: Loc.GetString(textAnnounce),
+                            SenderName: Loc.GetString(sender),
+                            ColorOverride: Color.Gold));
                     }
                     else
                     {

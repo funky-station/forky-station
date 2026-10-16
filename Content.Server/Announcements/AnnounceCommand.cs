@@ -4,6 +4,7 @@ using Content.Server.Administration;
 using Content.Server.Chat.Systems;
 using Content.Shared._MACRO.Announcements;
 using Content.Shared.Administration;
+using Content.Shared.Chat;
 using Robust.Shared.Audio;
 using Robust.Shared.Console;
 using Robust.Shared.ContentPack;
@@ -82,7 +83,15 @@ public sealed partial class AnnounceCommand : LocalizedEntityCommands
                 sound = new SoundPathSpecifier(soundOverride);
         }
 
-        chat.DispatchGlobalAnnouncement(message, sender, true, sound, color, paBypass); // funky - add pa system bypass option
+        var announcement = new ChatAnnouncement(
+            Message: message,
+            SenderName: sender,
+            ShouldPlaySound: true,
+            AltAnnouncementSound: sound,
+            ColorOverride: color,
+            BypassPASystem: paBypass);
+
+        chat.DispatchGlobalAnnouncement(announcement);
         shell.WriteLine(loc.GetString("shell-command-success"));
     }
 

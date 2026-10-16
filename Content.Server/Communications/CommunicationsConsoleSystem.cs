@@ -247,18 +247,24 @@ namespace Content.Server.Communications
             if (comp.AnnounceSentBy)
                 msg += "\n" + Loc.GetString("comms-console-announcement-sent-by") + " " + author;
 
+            _announcer.TryGetAnnouncerSound(comp.Sound, out var sound);
+
+            var announcement = new ChatAnnouncement(
+                Message: msg,
+                SenderName: title,
+                AltAnnouncementSound: sound,
+                ColorOverride: comp.Color,
+                BypassPASystem: true);
+
             if (comp.Global)
             {
-                // Macrocosm start - Announcer overrides
-                _announcer.TryGetAnnouncerSound(comp.Sound, out var sound);
-                _chatSystem.DispatchGlobalAnnouncement(msg, title, announcementSound: sound, colorOverride: comp.Color, paSystemBypass: true); // funky - add pa system bypass option
-                // Macrocosm end
+                _chatSystem.DispatchGlobalAnnouncement(announcement); // funky - add pa system bypass option
 
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following global announcement: {msg}");
                 return;
             }
 
-            _chatSystem.DispatchStationAnnouncement(uid, msg, title, colorOverride: comp.Color, paSystemBypass: true); // funky - add pa system bypass option
+            _chatSystem.DispatchStationAnnouncement(announcement); // funky - add pa system bypass option
 
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following station announcement: {msg}");
 

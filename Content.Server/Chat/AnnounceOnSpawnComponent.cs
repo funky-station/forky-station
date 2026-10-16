@@ -29,6 +29,12 @@ public sealed partial class AnnounceOnSpawnComponent : Component
     public SoundSpecifier? Sound;
 
     /// <summary>
+    /// Funky - whether the sound should be heard globally by all players or played through PA speakers.
+    /// </summary>
+    [DataField]
+    public bool GlobalSound = true; // default to true since that's the default behavior for current usages
+
+    /// <summary>
     /// Color override for the announcement.
     /// </summary>
     [DataField]

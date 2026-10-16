@@ -7,6 +7,7 @@ using Content.Server.Station.Systems;
 using Content.Shared._Funkystation.CCVar;
 using Content.Shared.Audio;
 using Content.Shared.AlertLevel;
+using Content.Shared.Chat;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.DoAfter;
@@ -510,9 +511,15 @@ public sealed partial class NukeSystem : EntitySystem
             ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((uid, nukeXform)))));
         var sender = Loc.GetString("nuke-component-announcement-sender");
 
-        _chatSystem.DispatchStationAnnouncement(stationUid ?? uid, announcement, sender,
-            paExclusive, paExclusive ? component.ArmSound : null, // funky
-            Color.Red);
+        var toDispatch = new ChatAnnouncement(
+            Message: announcement,
+            Source: stationUid ?? uid,
+            SenderName: sender,
+            ShouldPlaySound: paExclusive,
+            AltAnnouncementSound: component.ArmSound,
+            ColorOverride: Color.Red);
+
+        _chatSystem.DispatchStationAnnouncement(toDispatch, stationUid);
 
         if (!paExclusive) // funky
             _sound.PlayGlobalOnStation(uid, _audio.ResolveSound(component.ArmSound));
@@ -555,8 +562,15 @@ public sealed partial class NukeSystem : EntitySystem
         // warn a crew
         var announcement = Loc.GetString("nuke-component-announcement-unarmed");
         var sender = Loc.GetString("nuke-component-announcement-sender");
-        _chatSystem.DispatchStationAnnouncement(uid, announcement, sender,
-            paExclusive, paExclusive ? component.DisarmSound : null); // funky
+
+        var toDispatch = new ChatAnnouncement(
+            Message: announcement,
+            Source: stationUid ?? uid,
+            SenderName: sender,
+            ShouldPlaySound: paExclusive,
+            AltAnnouncementSound: component.DisarmSound);
+
+        _chatSystem.DispatchStationAnnouncement(toDispatch, stationUid); // funky
 
         component.PlayedNukeSong = false;
         if (!paExclusive) // funky

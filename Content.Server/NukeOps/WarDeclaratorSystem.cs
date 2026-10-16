@@ -79,7 +79,12 @@ public sealed partial class WarDeclaratorSystem : EntitySystem
             var title = Loc.GetString(ent.Comp.SenderTitle);
             // Macrocosm edit start - announcer variation
             _announcer.TryGetAnnouncerSound(ent.Comp.Sound, out var sound);
-            _chat.DispatchGlobalAnnouncement(ent.Comp.Message, title, true, sound, ent.Comp.Color);
+            _chat.DispatchGlobalAnnouncement(new ChatAnnouncement(
+                Message: ent.Comp.Message,
+                SenderName: title,
+                ShouldPlaySound: true,
+                AltAnnouncementSound: sound,
+                ColorOverride: ent.Comp.Color));
             // Macrocosm edit end
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(args.Actor):player} has declared war with this text: {ent.Comp.Message}");
         }

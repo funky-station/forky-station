@@ -20,6 +20,7 @@ using Content.Server.Station.Systems;
 using Content.Shared._Funkystation.CCVar;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
+using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Components;
@@ -343,13 +344,14 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
             // funky - getting this earlier so it can be passed into the announcement
             _announcer.TryGetAnnouncerSound(stationShuttleComp.FailureAudio, out var sound);
 
-            _chatSystem.DispatchStationAnnouncement(
-                result.Station,
-                Loc.GetString(stationShuttleComp.FailureAnnouncement),
-                sender: Loc.GetString("chat-manager-sender-sistr"), // funky
-                playDefaultSound: paExclusive,
-                announcementSound: paExclusive ? sound : null, // funky
-                colorOverride: Color.FromHex("#f9a524")); // funky
+            _chatSystem.DispatchStationAnnouncement(new ChatAnnouncement(
+                Message: Loc.GetString(stationShuttleComp.FailureAnnouncement),
+                Source: result.Station,
+                SenderName: Loc.GetString("chat-manager-sender-sistr"),
+                ShouldPlaySound: paExclusive,
+                AltAnnouncementSound: sound,
+                ColorOverride: Color.FromHex("#f9a524")),
+                result.Station);
 
             // TODO: Need filter extensions or something don't blame me.
             // Macrocosm edit start - announcer variation
@@ -389,18 +391,19 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
         _announcer.TryGetAnnouncerSound(audioId, out var audio);
 
 
-        _chatSystem.DispatchStationAnnouncement(
-            result.Station,
-            Loc.GetString(
+        _chatSystem.DispatchStationAnnouncement(new ChatAnnouncement(
+            Message: Loc.GetString(
                 locKey,
                 ("time", $"{_consoleAccumulator:0}"),
                 ("direction", direction),
                 ("location", location),
                 ("extended", extendedText)),
-            sender: Loc.GetString("chat-manager-sender-sistr"), // funky
-            playDefaultSound: paExclusive, // funky
-            announcementSound: audio, // funky
-            colorOverride: Color.FromHex("#f9a524")); // funky
+            Source: result.Station,
+            SenderName: Loc.GetString("chat-manager-sender-sistr"), // funky
+            ShouldPlaySound: paExclusive, // funky
+            AltAnnouncementSound: audio, // funky
+            ColorOverride: Color.FromHex("#f9a524")),
+            result.Station);
         // Macrocosm edit end
 
         // Trigger shuttle timers on the shuttle.

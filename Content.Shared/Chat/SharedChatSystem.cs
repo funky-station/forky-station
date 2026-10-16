@@ -408,15 +408,24 @@ public abstract partial class SharedChatSystem : EntitySystem
     /// <param name="announcementSound">Sound to play.</param>
     /// <param name="colorOverride">Optional color for the announcement message.</param>
     /// <param name="paSystemBypass">Funky - whether to bypass diegetic PA systems and broadcast directly to players.</param>
-    public virtual void DispatchGlobalAnnouncement(
+    [Obsolete("Create a ChatAnnouncement instead of passing individual params")]
+    public void DispatchGlobalAnnouncement(
         string message,
         string? sender = null,
         bool playSound = true,
         SoundSpecifier? announcementSound = null,
         Color? colorOverride = null,
         bool paSystemBypass = false // funky addition
-        )
-    { }
+    )
+    {
+        DispatchGlobalAnnouncement(new ChatAnnouncement(
+            Message: message,
+            SenderName: sender,
+            ShouldPlaySound: playSound,
+            AltAnnouncementSound: announcementSound,
+            ColorOverride: colorOverride,
+            BypassPASystem: paSystemBypass));
+    }
 
     /// <summary>
     /// Dispatches an announcement to players selected by filter.
@@ -429,7 +438,8 @@ public abstract partial class SharedChatSystem : EntitySystem
     /// <param name="announcementSound">Sound to play.</param>
     /// <param name="colorOverride">Optional color for the announcement message.</param>
     /// <param name="paSystemBypass">Funky - whether to bypass diegetic PA systems and broadcast directly to players.</param>
-    public virtual void DispatchFilteredAnnouncement(
+    [Obsolete("Create a ChatAnnouncement instead of passing individual params")]
+    public void DispatchFilteredAnnouncement(
         Filter filter,
         string message,
         EntityUid? source = null,
@@ -438,8 +448,18 @@ public abstract partial class SharedChatSystem : EntitySystem
         SoundSpecifier? announcementSound = null,
         Color? colorOverride = null,
         bool paSystemBypass = false // funky addition
-        )
-    { }
+    )
+    {
+        DispatchFilteredAnnouncement(new ChatAnnouncement(
+            Message: message,
+            Source: source,
+            SenderName: sender,
+            ShouldPlaySound: playSound,
+            AltAnnouncementSound: announcementSound,
+            ColorOverride: colorOverride,
+            BypassPASystem: paSystemBypass),
+            filter);
+    }
 
     /// <summary>
     /// Dispatches an announcement on a specific station.
@@ -451,7 +471,8 @@ public abstract partial class SharedChatSystem : EntitySystem
     /// <param name="announcementSound">Sound to play.</param>
     /// <param name="colorOverride">Optional color for the announcement message.</param>
     /// <param name="paSystemBypass">Funky - whether to bypass diegetic PA systems and broadcast directly to players.</param>
-    public virtual void DispatchStationAnnouncement(
+    [Obsolete("Create a ChatAnnouncement instead of passing individual params")]
+    public void DispatchStationAnnouncement(
         EntityUid source,
         string message,
         string? sender = null,
@@ -459,8 +480,17 @@ public abstract partial class SharedChatSystem : EntitySystem
         SoundSpecifier? announcementSound = null,
         Color? colorOverride = null,
         bool paSystemBypass = false // funky addition
-        )
-    { }
+    )
+    {
+        DispatchStationAnnouncement(new ChatAnnouncement(
+            Message: message,
+            Source: source,
+            SenderName: sender,
+            ShouldPlaySound: playDefaultSound,
+            AltAnnouncementSound: announcementSound,
+            ColorOverride: colorOverride,
+            BypassPASystem: paSystemBypass));
+    }
 }
 
 /// <summary>
@@ -497,3 +527,12 @@ public enum InGameOOCChatType : byte
     Looc,
     Dead
 }
+
+public record struct ChatAnnouncement(
+    string Message,
+    EntityUid? Source = null,
+    string? SenderName = null,
+    bool ShouldPlaySound = true,
+    SoundSpecifier? AltAnnouncementSound = null,
+    Color? ColorOverride = null,
+    bool BypassPASystem = false);
