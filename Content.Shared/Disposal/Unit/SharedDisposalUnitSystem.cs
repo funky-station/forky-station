@@ -20,6 +20,7 @@ using Content.Shared.Power.EntitySystems;
 using Content.Shared.Storage.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Verbs;
+using Content.Shared.Wall; // Funkystation
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -29,6 +30,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 using System.Linq;
+using System.Numerics; // Funkystation
 
 namespace Content.Shared.Disposal.Unit;
 
@@ -302,15 +304,57 @@ public abstract partial class SharedDisposalUnitSystem : EntitySystem
         // Try to find an entry into disposals
         Entity<DisposalTubeComponent>? tube = null;
 
-        foreach (var tubeUid in _map.GetLocal(xform.GridUid.Value, grid, xform.Coordinates))
+        // Funkystation start - wallmounted disposals
+        if (!TryComp<WallMountComponent>(ent, out var wallmount))
         {
-            if (HasComp<DisposalEntryComponent>(tubeUid) &&
-                TryComp<DisposalTubeComponent>(tubeUid, out var tubeComp))
+            foreach (var tubeUid in _map.GetLocal(xform.GridUid.Value, grid, xform.Coordinates))
             {
-                tube = new Entity<DisposalTubeComponent>(tubeUid, tubeComp);
-                break;
+                if (HasComp<DisposalEntryComponent>(tubeUid) &&
+                    TryComp<DisposalTubeComponent>(tubeUid, out var tubeComp))
+                {
+                    tube = new Entity<DisposalTubeComponent>(tubeUid, tubeComp);
+                    break;
+                }
             }
         }
+        else // if the disposals unit is wallmounted
+        {
+            // determine position of offset based on wallmount direction
+            var offset = Vector2.Zero;
+            var coordinates = xform.Coordinates;
+            // this needs to exist because the wallmount disposals unit just uses a sprite offset so stuff doesn't get stuck in walls
+            switch (xform.LocalRotation.GetCardinalDir())
+            {
+                case Direction.East:
+                    offset =  new Vector2(-1, 0);
+                    break;
+                case Direction.South:
+                    offset = new Vector2(0, 1);
+                    break;
+                case Direction.West:
+                    offset = new Vector2(1, 0);
+                    break;
+                case Direction.North:
+                    offset = new Vector2(0, -1);
+                    break;
+                default:
+                    offset = new Vector2(0, 0);
+                    break;
+            }
+
+            var newCoords = coordinates.Offset(offset);
+
+            foreach (var tubeUid in _map.GetLocal(xform.GridUid.Value, grid, newCoords))
+            {
+                if (HasComp<DisposalEntryComponent>(tubeUid) &&
+                    TryComp<DisposalTubeComponent>(tubeUid, out var tubeComp))
+                {
+                    tube = new Entity<DisposalTubeComponent>(tubeUid, tubeComp);
+                    break;
+                }
+            }
+        }
+        // Funkystation end
 
         if (tube == null)
         {
