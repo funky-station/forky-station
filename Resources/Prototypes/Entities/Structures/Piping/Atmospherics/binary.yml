@@ -404,7 +404,7 @@
   name: connector port
   description: For connecting portable devices related to atmospherics control.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
     - type: SubFloorHide
       visibleLayers:
@@ -418,6 +418,10 @@
         - state: gasCanisterPort
           map: [ "enum.SubfloorLayers.FirstLayer" ]
     - type: AtmosPipeLayers
+      alternativePrototypes:
+        Primary: GasPort
+        Secondary: GasPortAlt1
+        Tertiary: GasPortAlt2
       spriteRsiPaths: {}
     - type: Appearance
     - type: PipeColorVisuals
@@ -575,7 +579,7 @@
   name: radiator
   description: Transfers heat between the pipe and its surroundings.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
   - type: Transform
     noRot: false
@@ -588,8 +592,19 @@
     - state: heStraight
       map: [ "enum.SubfloorLayers.FirstLayer" ]
   - type: AtmosPipeLayers
-    spriteRsiPaths: {}
-    numberOfPipeLayers: 1
+    spriteRsiPaths:
+      Primary: _Funkystation/Structures/Piping/Atmospherics/heatexchanger.rsi
+      Secondary: _Funkystation/Structures/Piping/Atmospherics/heatexchanger_alt1.rsi
+      Tertiary: _Funkystation/Structures/Piping/Atmospherics/heatexchanger_alt2.rsi
+    spriteLayersRsiPaths:
+      enum.PipeVisualLayers.Pipe:
+        Primary: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi
+        Secondary: _Funkystation/Structures/Piping/Atmospherics/pipe_alt1.rsi
+        Tertiary: _Funkystation/Structures/Piping/Atmospherics/pipe_alt2.rsi
+    alternativePrototypes:
+      Primary: HeatExchanger
+      Secondary: HeatExchangerAlt1
+      Tertiary: HeatExchangerAlt2
   - type: SubFloorHide
     visibleLayers:
     - enum.SubfloorLayers.FirstLayer
@@ -631,6 +646,20 @@
         map: [ "enum.PipeVisualLayers.Pipe" ]
       - state: heBend
         map: [ "enum.SubfloorLayers.FirstLayer" ]
+    - type: AtmosPipeLayers
+      spriteRsiPaths:
+        Primary: _Funkystation/Structures/Piping/Atmospherics/heatexchanger.rsi
+        Secondary: _Funkystation/Structures/Piping/Atmospherics/heatexchanger_alt1.rsi
+        Tertiary: _Funkystation/Structures/Piping/Atmospherics/heatexchanger_alt2.rsi
+      spriteLayersRsiPaths:
+        enum.PipeVisualLayers.Pipe:
+          Primary: _Funkystation/Structures/Piping/Atmospherics/pipe.rsi
+          Secondary: _Funkystation/Structures/Piping/Atmospherics/pipe_alt1.rsi
+          Tertiary: _Funkystation/Structures/Piping/Atmospherics/pipe_alt2.rsi
+      alternativePrototypes:
+        Primary: HeatExchangerBend
+        Secondary: HeatExchangerBendAlt1
+        Tertiary: HeatExchangerBendAlt2
     - type: NodeContainer
       nodes:
         inlet:

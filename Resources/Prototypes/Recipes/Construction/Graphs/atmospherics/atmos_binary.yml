@@ -118,6 +118,18 @@
         amount: 2
         doAfter: 1
 
+    - to: portAlt1
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+
+    - to: portAlt2
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+
     - to: dualportventpump
       steps:
       - material: Steel
@@ -130,7 +142,31 @@
         amount: 2
         doAfter: 1
 
+    - to: radiatorAlt1
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+
+    - to: radiatorAlt2
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+
     - to: bendradiator
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+
+    - to: bendradiatorAlt1
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 1
+
+    - to: bendradiatorAlt2
       steps:
       - material: Steel
         amount: 2
@@ -440,6 +476,38 @@
       - tool: Welding
         doAfter: 1
 
+  - node: portAlt1
+    entity: GasPortAlt1
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
+  - node: portAlt2
+    entity: GasPortAlt2
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:DeleteEntity
+      steps:
+      - tool: Welding
+        doAfter: 1
+
   - node: dualportventpump
     entity: GasDualPortVentPump
     edges:
@@ -476,8 +544,80 @@
       - tool: Welding
         doAfter: 1
 
+  - node: radiatorAlt1
+    entity: HeatExchangerAlt1
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:DeleteEntity
+      steps:
+      - tool: Screwing
+        doAfter: 1
+      - tool: Welding
+        doAfter: 1
+
+  - node: radiatorAlt2
+    entity: HeatExchangerAlt2
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:DeleteEntity
+      steps:
+      - tool: Screwing
+        doAfter: 1
+      - tool: Welding
+        doAfter: 1
+
   - node: bendradiator
     entity: HeatExchangerBend
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:DeleteEntity
+      steps:
+      - tool: Screwing
+        doAfter: 1
+      - tool: Welding
+        doAfter: 1
+
+  - node: bendradiatorAlt1
+    entity: HeatExchangerBendAlt1
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:DeleteEntity
+      steps:
+      - tool: Screwing
+        doAfter: 1
+      - tool: Welding
+        doAfter: 1
+
+  - node: bendradiatorAlt2
+    entity: HeatExchangerBendAlt2
     edges:
     - to: start
       conditions:

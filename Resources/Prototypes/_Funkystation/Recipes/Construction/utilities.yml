@@ -126,3 +126,28 @@
   - GasOutletInjector
   - GasOutletInjectorAlt1
   - GasOutletInjectorAlt2
+
+# ATMOS TRINARY
+- type: construction
+  parent: BaseGasTrinary
+  id: PressureControlledValve
+  placementMode: AlignAtmosPipeLayers
+  targetNode: pneumaticvalve
+  alternativePrototypes:
+  - PressureControlledValve
+  - PressureControlledValveAlt1
+  - PressureControlledValveAlt2
+  conditions:
+  - !type:NoUnstackableInTile
+
+- type: construction
+  parent: PressureControlledValve
+  id: PressureControlledValveAlt1
+  hide: true
+  targetNode: pneumaticvalveAlt1
+
+- type: construction
+  parent: PressureControlledValve
+  id: PressureControlledValveAlt2
+  hide: true
+  targetNode: pneumaticvalveAlt2
