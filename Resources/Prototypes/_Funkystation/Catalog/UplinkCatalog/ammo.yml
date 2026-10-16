@@ -1,8 +1,8 @@
 ﻿# Funky - For the Python
 - type: listing
   id: UplinkSpeedLoaderMagnumAP
-  name: uplink-speedloader-magnum-name
-  description: uplink-speedloader-magnu-desc
+  name: Python Speedloader
+  description: Speedloader for the Python with AP Magnum rounds.
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
   productEntity: SpeedLoaderMagnumAP
   cost:
