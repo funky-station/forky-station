@@ -1,0 +1,10 @@
+# Partial prototypes start
+
+# TODO: Move other modifications we made to the protos here
+
+- type: chameleonOutfit
+  id: MedicalInternChameleonOutfit
+  equipment:
+    eyes: ClothingEyesGlassesCheapSunglasses
+
+# Partial prototypes end

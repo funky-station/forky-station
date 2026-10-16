@@ -15,7 +15,7 @@
     - id: ClothingOuterArmorBasicSlim
     - id: WeaponShotgunDoubleBarreledRubber
     - id: DrinkShaker
-    - id: ClothingEyesHudBeer
+    #- id: ClothingEyesHudBeer # Funky - Removing HUDs. TODO: Move this change to a partial when that's possible
     - id: HandLabeler
     - id: DrinkBeerBottleFull
       amount: !type:BinomialNumberSelector
