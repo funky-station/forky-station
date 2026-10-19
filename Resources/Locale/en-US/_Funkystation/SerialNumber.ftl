@@ -1,3 +1,1 @@
-serial-number-is-scratched = The serial number is scratched off
-serial-number-already-scratched-off = The serial number is already scratched off
-serial-number-removed = Scratched off serial number
+serial-number-already-removed = The serial number is already removed

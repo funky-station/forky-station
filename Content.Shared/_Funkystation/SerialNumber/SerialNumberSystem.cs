@@ -26,56 +26,80 @@ namespace Content.Shared._Funkystation.SerialNumber
 
             SubscribeLocalEvent<SerialNumberComponent, ExaminedEvent>(OnExamined);
             SubscribeLocalEvent<SerialNumberComponent, MapInitEvent>(OnInit);
-            SubscribeLocalEvent<SerialNumberComponent, InteractUsingEvent>(OnScratchOff);
-            // SubscribeLocalEvent<SerialNumberComponent, SerialNumberDoAfterEvent>(OnScratchOff);
+            SubscribeLocalEvent<SerialNumberComponent, InteractUsingEvent>(OnRemoval);
+            SubscribeLocalEvent<SerialNumberComponent, SerialNumberDoAfterEvent>(OnRemoveDoAfter);
         }
 
         private void OnInit(EntityUid uid, SerialNumberComponent comp, MapInitEvent args)
         {
-            var random = _random.Next(comp.MinDigit, comp.MaxDigit);
+            var random = _random.Next(comp.StartNumber, comp.EndNumber);
             comp.SerialNumber = random.ToString();
             Dirty(uid, comp);
         }
-        // private void TryStartDoAfter(Entity<SerialNumberComponent> ent, EntityUid user, TimeSpan delay)
-        // {
-        //     if (ent.Comp.SerialNumberDoAfter.HasValue)
-        //         return;
-        //
-        //     var doAfterEventArgs = new DoAfterArgs(EntityManager, user, delay, new SerialNumberDoAfterEvent(), ent.Owner, ent.Owner)
-        //     {
-        //         BreakOnDamage = true,
-        //         NeedHand = false,
-        //         BreakOnHandChange = true,
-        //         MovementThreshold = 0.01f,
-        //         DistanceThreshold = 0.5f,
-        //     };
-        //
-        //     if (_doAfterSystem.TryStartDoAfter(doAfterEventArgs, out var doAfterId))
-        //         ent.Comp.SerialNumberDoAfter = doAfterId;
-        // }
-        private void OnScratchOff(EntityUid uid, SerialNumberComponent comp, InteractUsingEvent args)
+
+        private void StartDoAfter(Entity<SerialNumberComponent> ent, EntityUid user, TimeSpan delay)
         {
-            if (comp.ScratchedOff)
+            var doAfterArgs = new DoAfterArgs(EntityManager,
+                user,
+                delay,
+                new SerialNumberDoAfterEvent(),
+                ent.Owner,
+                target: null,
+                used: null)
             {
-                _popup.PopupEntity(Loc.GetString("serial-number-already-scratched-off"), uid);
+                BreakOnMove = true,
+                NeedHand = true,
+                BreakOnDamage = true,
+                DistanceThreshold = 1.0f,
+            };
+
+            _doAfter.TryStartDoAfter(doAfterArgs);
+        }
+
+        private void OnRemoval(Entity<SerialNumberComponent> ent, EntityUid uid, SerialNumberComponent comp, InteractUsingEvent args)
+        {
+            if (!comp.CanBeRemoved)
+            {
                 return;
             }
-
+            if (comp.Removed)
+            {
+                _popup.PopupEntity(Loc.GetString("serial-number-already-removed"), uid);
+                return;
+            }
             if (!_tool.HasQuality(args.Used, comp.ToolRequired))
             {
                 return;
             }
-            comp.ScratchedOff = true;
-            _popup.PopupEntity(Loc.GetString("serial-number-removed"), uid);
+
+            StartDoAfter(ent, args.User, ent.Comp.RemovalTime);
+            args.Handled = true;
+
+            comp.Removed = true;
+            _popup.PopupEntity(Loc.GetString(comp.RemovedText), uid);
+        }
+        private void OnRemoveDoAfter(Entity<SerialNumberComponent> ent, ref SerialNumberDoAfterEvent args)
+        {
+            if (args.Cancelled || args.Handled)
+                return;
+
+            args.Handled = true;
         }
 
         private void OnExamined(EntityUid uid, SerialNumberComponent comp, ExaminedEvent args)
         {
             var formattedmessage = new FormattedMessage();
 
-            if (comp.ScratchedOff)
+            if (comp.Removed)
             {
-                formattedmessage.AddText($"{Loc.GetString("serial-number-is-scratched")}\n");
+                formattedmessage.AddText($"{Loc.GetString(comp.RemovedText)}\n");
+                args.AddMessage(formattedmessage, -1);
+                return;
+            }
+            if (comp.NoNumber)
+            {
+                var message = comp.LeadUp + comp.Prefix;
+                formattedmessage.AddText($"{message}\n");
                 args.AddMessage(formattedmessage, -1);
                 return;
             }

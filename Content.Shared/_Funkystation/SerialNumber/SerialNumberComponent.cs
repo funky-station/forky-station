@@ -24,28 +24,46 @@ public sealed partial class SerialNumberComponent : Component
     public string Prefix = "NT-";
 
     // <summary>
+    //  Skip adding a random number to the end
+    // </summary>
+    [DataField("noNumber")]
+    public bool NoNumber = false;
+
+    // <summary>
     //  The serial number
     // </summary>
     [DataField("serialNumber"), AutoNetworkedField]
     public string SerialNumber = "123456";
 
     // <summary>
-    //  The smallest the number the serial number can be.
+    //  The smallest the serial number can be.
     // </summary>
-    [DataField("mindigits")]
-    public int MinDigit = 250000;
+    [DataField("startNumber")]
+    public int StartNumber = 250000;
 
     // <summary>
-    //  The biggest the number the serial number can be.
+    //  The biggest the serial number can be.
     // </summary>
-    [DataField("maxdigits")]
-    public int MaxDigit = 350000;
+    [DataField("endNumber")]
+    public int EndNumber = 350000;
 
     // <summary>
     //  If the serial number is scratched off or not
     // </summary>
-    [DataField("scratchedOff"), AutoNetworkedField]
-    public bool ScratchedOff = false;
+    [DataField("removed"), AutoNetworkedField]
+    public bool Removed = false;
+
+    // <summary>
+    //  If the serial number can be removed
+    // </summary>
+    [DataField("canBeRemoved")]
+    public bool CanBeRemoved = true;
+
+    // <summary>
+    //  Examine text if serial number is removed
+    // </summary>
+    [DataField("removedText")]
+    public string RemovedText = "The serial number is scratched off";
 
     /// <summary>
     /// The tool quality needed to remove serial number
@@ -56,8 +74,8 @@ public sealed partial class SerialNumberComponent : Component
     /// <summary>
     /// Amount of time in seconds it takes to remove the serial number
     /// </summary>
-    [DataField("scratchingTime")]
-    public TimeSpan ScratchingTime = TimeSpan.FromSeconds(4f);
+    [DataField("removalTime")]
+    public TimeSpan RemovalTime = TimeSpan.FromSeconds(4f);
 
     /// <summary>
     /// Stores doafter to prevent doafter spam/prediction issues
