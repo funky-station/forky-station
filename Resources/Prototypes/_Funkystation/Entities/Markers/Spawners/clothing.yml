@@ -1,0 +1,52 @@
+- type: entity
+  id: RandomCostumeSpawner
+  parent: MarkerBase
+  name: random costume spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: outfit-1
+      color: "#ffffff"
+      sprite: _MACRO/Objects/Storage/costume_bundle.rsi
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:NestedSelector
+      tableId: CostumeSpawnerTable
+
+- type: entityTable
+  id: CostumeSpawnerTable
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 5
+      children:
+      - id: ClothingMaskBat
+      - id: ClothingMaskBear
+      - id: ClothingMaskBee
+      - id: ClothingMaskFox
+      - id: ClothingMaskItalianMoustache
+      - id: ClothingMaskJackal
+      - id: ClothingMaskJoy
+        weight: 0.2 # fuck ass sprite size
+      - id: ClothingHeadHatHoodMoth
+      - id: ClothingMaskPlague
+      - id: ClothingMaskRat
+      - id: ClothingMaskRaven
+    - !type:GroupSelector
+      weight: 1
+      children:
+      - id: CostumeBundleCardborg
+      - id: CostumeBundleChicken
+      - id: CostumeBundleGladiator
+      - id: CostumeBundleJudge
+      - id: CostumeBundleMonkey
+      - id: CostumeBundlePirate
+      - id: CostumeBundlePerformer
+      - id: CostumeBundleRedRaccoon
+      - id: CostumeBundleSafari
+      - id: CostumeBundleSanta
+      - id: CostumeBundleShrineMaiden
+      - id: CostumeBundleSkub
+      - id: CostumeBundleWitch
+      - id: CostumeBundleYakuza

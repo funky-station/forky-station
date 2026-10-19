@@ -1,0 +1,29 @@
+- type: entity
+  name: Random Solar Spawner
+  suffix: Random Damage
+  id: SolarPanelRandom
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Structures/Power/Generation/solar_panel.rsi
+      state: solar_panel_glass
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: RandomSolarTable
+
+- type: entityTable
+  id: RandomSolarTable
+  table: !type:GroupSelector
+    children:
+    - id: SolarPanel
+      weight: 20
+    - id: SolarPanelBroken
+      weight: 4
+    - id: SolarAssembly
+      weight: 1
+    - id: SolarPanelUranium
+      weight: 0.3
+    - id: SolarPanelPlasma
+      weight: 0.3
