@@ -11,17 +11,10 @@ public sealed partial class SerialNumberComponent : Component
 {
 
     // <summary>
-    //  This is what goes before the prefix. This variable in included in case you
-    //  want to use this system for similar purposes that need a different leadup
-    // </summary>
-    [DataField("leadUp")]
-    public string LeadUp = "Serial Number: ";
-
-    // <summary>
-    //  Prefix before serial number
+    //  Prefix before the random serial number
     // </summary>
     [DataField("prefix")]
-    public string Prefix = "NT-";
+    public string Prefix = "Property of NanoTrasen SN: NT-";
 
     // <summary>
     //  Skip adding a random number to the end
@@ -30,7 +23,7 @@ public sealed partial class SerialNumberComponent : Component
     public bool NoNumber = false;
 
     // <summary>
-    //  The serial number
+    //  The actual serial number
     // </summary>
     [DataField("serialNumber"), AutoNetworkedField]
     public string SerialNumber = "123456";
@@ -42,22 +35,22 @@ public sealed partial class SerialNumberComponent : Component
     public int StartNumber = 250000;
 
     // <summary>
-    //  The biggest the serial number can be.
+    //  The largest the serial number can be.
     // </summary>
     [DataField("endNumber")]
     public int EndNumber = 350000;
-
-    // <summary>
-    //  If the serial number is scratched off or not
-    // </summary>
-    [DataField("removed"), AutoNetworkedField]
-    public bool Removed = false;
 
     // <summary>
     //  If the serial number can be removed
     // </summary>
     [DataField("canBeRemoved")]
     public bool CanBeRemoved = true;
+
+    // <summary>
+    //  If the serial number is scratched off or not
+    // </summary>
+    [DataField("removed"), AutoNetworkedField]
+    public bool Removed = false;
 
     // <summary>
     //  Examine text if serial number is removed
@@ -75,7 +68,7 @@ public sealed partial class SerialNumberComponent : Component
     /// Amount of time in seconds it takes to remove the serial number
     /// </summary>
     [DataField("removalTime")]
-    public TimeSpan RemovalTime = TimeSpan.FromSeconds(4f);
+    public TimeSpan RemovalTime = TimeSpan.FromSeconds(8f);
 
     /// <summary>
     /// Stores doafter to prevent doafter spam/prediction issues

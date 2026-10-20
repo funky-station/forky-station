@@ -10,7 +10,8 @@ using Robust.Shared.Random;
 namespace Content.Shared._Funkystation.SerialNumber
 {
     // <summary>
-    //This component exists to add a semi-random identification number to an entity such as guns or devices
+    // This component exists to add a potentially, semi-random identification number or label to
+    // an entity such as guns or devices that will appear in the examine window
     // </summary>
     public sealed class SerialNumberSystem : EntitySystem
 
@@ -37,13 +38,13 @@ namespace Content.Shared._Funkystation.SerialNumber
             Dirty(uid, comp);
         }
 
-        private void StartDoAfter(Entity<SerialNumberComponent> ent, EntityUid user, TimeSpan delay)
+        private void StartDoAfter(SerialNumberComponent comp, EntityUid user, TimeSpan delay)
         {
             var doAfterArgs = new DoAfterArgs(EntityManager,
                 user,
                 delay,
                 new SerialNumberDoAfterEvent(),
-                ent.Owner,
+                comp.Owner,
                 target: null,
                 used: null)
             {
@@ -56,7 +57,7 @@ namespace Content.Shared._Funkystation.SerialNumber
             _doAfter.TryStartDoAfter(doAfterArgs);
         }
 
-        private void OnRemoval(Entity<SerialNumberComponent> ent, EntityUid uid, SerialNumberComponent comp, InteractUsingEvent args)
+        private void OnRemoval(EntityUid uid, SerialNumberComponent comp, InteractUsingEvent args)
         {
             if (!comp.CanBeRemoved)
             {
@@ -64,7 +65,6 @@ namespace Content.Shared._Funkystation.SerialNumber
             }
             if (comp.Removed)
             {
-                _popup.PopupEntity(Loc.GetString("serial-number-already-removed"), uid);
                 return;
             }
             if (!_tool.HasQuality(args.Used, comp.ToolRequired))
@@ -72,11 +72,10 @@ namespace Content.Shared._Funkystation.SerialNumber
                 return;
             }
 
-            StartDoAfter(ent, args.User, ent.Comp.RemovalTime);
+            StartDoAfter(comp, args.User, comp.RemovalTime);
             args.Handled = true;
 
             comp.Removed = true;
-            _popup.PopupEntity(Loc.GetString(comp.RemovedText), uid);
         }
         private void OnRemoveDoAfter(Entity<SerialNumberComponent> ent, ref SerialNumberDoAfterEvent args)
         {
@@ -98,12 +97,12 @@ namespace Content.Shared._Funkystation.SerialNumber
             }
             if (comp.NoNumber)
             {
-                var message = comp.LeadUp + comp.Prefix;
+                var message = comp.Prefix;
                 formattedmessage.AddText($"{message}\n");
                 args.AddMessage(formattedmessage, -1);
                 return;
             }
-            var fullMessage = comp.LeadUp + comp.Prefix + comp.SerialNumber;
+            var fullMessage = comp.Prefix + comp.SerialNumber;
             formattedmessage.AddText($"{fullMessage}\n");
             args.AddMessage(formattedmessage, -1);
         }
