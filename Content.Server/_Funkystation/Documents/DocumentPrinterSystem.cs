@@ -260,6 +260,21 @@ public sealed partial class DocumentPrinterSystem : EntitySystem
                 return;
 
             var paper = Spawn(doc.PaperPrototype, coords);
+
+            // The labeling code will throw an exception if there's no newline in the text so we should make sure there is one first
+            if (contents.IndexOf(Environment.NewLine, StringComparison.Ordinal) > -1)
+            {
+                var firstLine = contents.Substring(0, contents.IndexOf(Environment.NewLine, StringComparison.Ordinal));
+
+                if (firstLine.StartsWith('#'))
+                {
+                    // Pretty much taken from the fax code. Ignore the hash and remove the whitespace when making it a label
+                    _label.Label(paper, firstLine[1..].Trim());
+
+                    // Cut the label out of the rest of the text. The +1 is to catch the newline too
+                    contents = contents.Substring(firstLine.Length + 1);
+                }
+            }
             _paper.SetContent(paper, contents);
 
             _appearance.SetData(uid, DocumentPrinterVisuals.VisualState, DocumentPrinterVisualState.Normal);
