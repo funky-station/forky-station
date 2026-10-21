@@ -15,8 +15,10 @@ namespace Content.Server.Chat.Systems;
 public sealed partial class ChatSystem
 {
     [Dependency] private AnnouncerManager _announcer = default!; // macrocosm
-
     [Dependency] private PASystem _paSystem = null!; // funky - announcements via PA speakers
+
+    [Dependency] private EntityQuery<StationDataComponent> _stationDataQuery;
+
     /// <inheritdoc />
     public override void DispatchGlobalAnnouncement(ChatAnnouncement chatAnnouncement)
     {
@@ -61,8 +63,10 @@ public sealed partial class ChatSystem
     public override void DispatchStationAnnouncement(ChatAnnouncement chatAnnouncement, EntityUid? stationUid = null) // funky
     {
         stationUid ??= _stationSystem.GetOwningStation(chatAnnouncement.Source);
+        StationDataComponent? stationDataComp = null;
 
-        if (stationUid == null || !TryComp<StationDataComponent>(stationUid, out var stationDataComp))
+        // it's only actually an error if the EntityUid refers to something that isn't a station
+        if (stationUid == null || !_stationDataQuery.Resolve(stationUid.Value, ref stationDataComp))
         {
             // you can't make a station announcement without a station
             return;
