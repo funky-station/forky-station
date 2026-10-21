@@ -1,5 +1,6 @@
 using Content.Shared.DoAfter;
 using Content.Shared.Tools;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -17,7 +18,13 @@ public sealed partial class SerialNumberComponent : Component
     public string Prefix = "Property of NanoTrasen SN: NT-";
 
     // <summary>
-    //  Skip adding a random number to the end
+    //  Suffix after the random serial number, just in case someone needs this in the future
+    // </summary>
+    [DataField("suffix")]
+    public string Suffix = "";
+
+    // <summary>
+    //  Skip adding a random number between the prefix and suffix
     // </summary>
     [DataField("noNumber")]
     public bool NoNumber = false;
@@ -69,6 +76,12 @@ public sealed partial class SerialNumberComponent : Component
     /// </summary>
     [DataField("removalTime")]
     public TimeSpan RemovalTime = TimeSpan.FromSeconds(8f);
+
+    /// <summary>
+    /// Sound to make when removing the marking
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public SoundPathSpecifier RemoveSound = new SoundPathSpecifier("/Audio/Items/Culinary/mortar_grinding.ogg");
 
     /// <summary>
     /// Stores doafter to prevent doafter spam/prediction issues

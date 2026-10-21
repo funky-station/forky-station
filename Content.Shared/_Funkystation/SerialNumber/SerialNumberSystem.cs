@@ -5,6 +5,7 @@ using Content.Shared.Popups;
 using Content.Shared.Tools.Systems;
 using Robust.Shared.Utility;
 using Robust.Shared.Random;
+using Robust.Shared.Audio.Systems;
 
 
 namespace Content.Shared._Funkystation.SerialNumber
@@ -20,6 +21,7 @@ namespace Content.Shared._Funkystation.SerialNumber
         [Dependency] private SharedToolSystem _tool = null!;
         [Dependency] private SharedPopupSystem _popup = null!;
         [Dependency] private SharedDoAfterSystem _doAfter = default!;
+        [Dependency] private SharedAudioSystem _audio = default!;
 
         public override void Initialize()
         {
@@ -72,10 +74,12 @@ namespace Content.Shared._Funkystation.SerialNumber
                 return;
             }
 
+            _audio.PlayPvs(comp.RemoveSound, uid);
+
             StartDoAfter(comp, args.User, comp.RemovalTime);
             args.Handled = true;
 
-            comp.Removed = true;
+
         }
         private void OnRemoveDoAfter(Entity<SerialNumberComponent> ent, ref SerialNumberDoAfterEvent args)
         {
@@ -83,6 +87,7 @@ namespace Content.Shared._Funkystation.SerialNumber
                 return;
 
             args.Handled = true;
+            ent.Comp.Removed = true;
         }
 
         private void OnExamined(EntityUid uid, SerialNumberComponent comp, ExaminedEvent args)
@@ -97,12 +102,12 @@ namespace Content.Shared._Funkystation.SerialNumber
             }
             if (comp.NoNumber)
             {
-                var message = comp.Prefix;
+                var message = comp.Prefix + comp.Suffix;
                 formattedmessage.AddText($"{message}\n");
                 args.AddMessage(formattedmessage, -1);
                 return;
             }
-            var fullMessage = comp.Prefix + comp.SerialNumber;
+            var fullMessage = comp.Prefix + comp.SerialNumber + comp.Suffix;
             formattedmessage.AddText($"{fullMessage}\n");
             args.AddMessage(formattedmessage, -1);
         }
