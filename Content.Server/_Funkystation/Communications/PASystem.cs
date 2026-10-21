@@ -24,44 +24,43 @@ public sealed partial class PASystem : EntitySystem
     [Dependency] private IAdminLogManager _adminLogger = null!;
     [Dependency] private ChatSystem _chat = null!;
 
-    [Dependency] private EntityQuery<StationDataComponent> _stationDataQuery;
-
     [GeneratedRegex(@"(?<=[\.\!\?])\s")]
     private static partial Regex SpaceAfterSentenceEnd();
 
     /// <summary>
     /// Dispatches a PA announcement to all receivers.
     /// </summary>
-    /// <param name="global">Whether the announcement should broadcast to all grids or just the station of the sender.</param>
+    /// <remarks>
+    /// If a targetStation is provided, the announcement will only be dispatched to PA speakers on that station.
+    /// Otherwise, all PA speakers will broadcast the announcement.
+    /// </remarks>
+    /// <param name="announce">The announcement to dispatch.</param>
     /// <param name="preamble">Whether the PA system should make a preamble "Incoming announcement" statement.</param>
-    /// <param name="customPreamble">A custom string of text to display instead of the default preamble.</param>
+    /// <param name="customPreamble">Text to display instead of the default preamble.</param>
+    /// <param name="targetStation">A specific station to dispatch the announcement to.</param>
     public void DispatchPAAnnouncement(
         ChatAnnouncement announce,
         bool preamble = false,
         LocId? customPreamble = null,
-        bool global = true,
-        Entity<StationDataComponent>? targetStation = null)
+        EntityUid? targetStation = null)
     {
-        if (!global && !targetStation.HasValue)
+        var global = !targetStation.HasValue;
+        if (targetStation.HasValue && !_stationSystem.GetStationsSet().Contains(targetStation.Value)) // make sure the provided EntityUid is actually a station
         {
-            var stationUid = _stationSystem.GetOwningStation(announce.Source);
-            if (stationUid == null)
-            {
-                // you can't make a station announcement without a station
-                return;
-            }
-
-            targetStation = (stationUid.Value, _stationDataQuery.Comp(stationUid.Value));
+            Log.Error($"Tried to dispatch a station announcement to an EntityUid that isn't a station: {ToPrettyString(targetStation)}");
+            return;
         }
+
         var lines = FormatPAAnnouncement(announce.Message, preamble, customPreamble);
         var author = announce.SenderName ?? Loc.GetString("comms-console-announcement-unknown-sender");
 
         var announceEv = new PAAnnouncementEvent(lines, author, announce.Source, preamble, announce.ShouldPlaySound, announce.AltAnnouncementSound, announce.ColorOverride);
+
         // send the announcement to every PAAnnouncer
         var announcers = EntityQueryEnumerator<PAAnnouncerComponent>();
         while (announcers.MoveNext(out var announcer, out var paComp))
         {
-            if (!global && _stationSystem.GetOwningStation(announcer) != targetStation!.Value.Owner)
+            if (!global && _stationSystem.GetOwningStation(announcer) != targetStation!.Value)
                 continue;
 
             if (paComp.Enabled)
@@ -112,7 +111,7 @@ public sealed partial class PASystem : EntitySystem
 /// <param name="Preamble">Whether the first message of the announcement should be treated as a preamble "Incoming announcement" statement.</param>
 /// <param name="PlaySound">Whether the PA system should play an announcement sound.</param>
 /// <param name="AnnouncementSound">A custom sound to play instead of whatever the speaker's default is.</param>
-/// <param name="ColorOverride"></param>
+/// <param name="ColorOverride">The color of the announcement's text in the chat window.</param>
 [ByRefEvent]
 public readonly record struct PAAnnouncementEvent(
     string[] Messages,

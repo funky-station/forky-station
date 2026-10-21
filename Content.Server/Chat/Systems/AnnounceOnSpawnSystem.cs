@@ -25,6 +25,7 @@ public sealed partial class AnnounceOnSpawnSystem : EntitySystem
         var message = Loc.GetString(comp.Message);
         var sender = comp.Sender != null ? Loc.GetString(comp.Sender) : Loc.GetString("chat-manager-sender-announcement");
 
+        // funky start - announcement refactor
         var announcement = new ChatAnnouncement(
             Message: message,
             SenderName: sender,
@@ -34,7 +35,8 @@ public sealed partial class AnnounceOnSpawnSystem : EntitySystem
 
         _chat.DispatchGlobalAnnouncement(announcement);
 
-        if (comp.GlobalSound)
+        if (comp.GlobalSound) // funky addition
             _audio.PlayGlobal(comp.Sound, Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
+        // funky end
     }
 }

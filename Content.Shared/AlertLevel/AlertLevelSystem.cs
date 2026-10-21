@@ -189,6 +189,7 @@ public sealed partial class AlertLevelSystem : EntitySystem
 
         if (announce)
         {
+            // funky start - announcement refactor
             var announcement = new ChatAnnouncement(
                 Message: announcementFull,
                 SenderName: stationName,
@@ -197,6 +198,7 @@ public sealed partial class AlertLevelSystem : EntitySystem
                 AltAnnouncementSound: paExclusive ? prototype.Sound?.MonoSound : null);
 
             _chat.DispatchStationAnnouncement(announcement, station);
+            // funky end
         }
 
     }

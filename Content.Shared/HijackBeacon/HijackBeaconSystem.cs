@@ -184,6 +184,7 @@ public sealed partial class HijackBeaconSystem : EntitySystem
         var sender = Loc.GetString("hijack-beacon-announcement-sender");
         var message = Loc.GetString("hijack-beacon-announcement-activated", ("time", GetRemainingTime((ent.Owner, activeComp))));
 
+        // funky start - announcement refactor
         var announcement = new ChatAnnouncement(
             Message: message,
             SenderName: sender,
@@ -192,6 +193,7 @@ public sealed partial class HijackBeaconSystem : EntitySystem
             ColorOverride: Color.Yellow);
 
         _chat.DispatchGlobalAnnouncement(announcement);
+        // funky end
 
         //Anchor. Anchoring is tied to activation.
         Anchor(ent);
@@ -215,6 +217,7 @@ public sealed partial class HijackBeaconSystem : EntitySystem
         var sender = Loc.GetString("hijack-beacon-announcement-sender");
         var message = Loc.GetString("hijack-beacon-announcement-deactivated");
 
+        // funky start - announcement refactor
         var announcement = new ChatAnnouncement(
             Message: message,
             SenderName: sender,
@@ -223,6 +226,7 @@ public sealed partial class HijackBeaconSystem : EntitySystem
             ColorOverride: Color.Green);
 
         _chat.DispatchGlobalAnnouncement(announcement);
+        // funky end
 
         // Unanchor. we want anchoring to be tied to activation here so we just call this.
         Unanchor(ent);
@@ -270,6 +274,7 @@ public sealed partial class HijackBeaconSystem : EntitySystem
         var sender = Loc.GetString("hijack-beacon-announcement-sender");
         var message = Loc.GetString("hijack-beacon-announcement-success", ("fine", ev.Total));
 
+        // funky start - announcement refactor
         var announcement = new ChatAnnouncement(
             Message: message,
             SenderName: sender,
@@ -278,6 +283,7 @@ public sealed partial class HijackBeaconSystem : EntitySystem
             ColorOverride: Color.Red);
 
         _chat.DispatchGlobalAnnouncement(announcement);
+        // funky end
 
         // Unanchoring must occur after updating the status, or it will disarm the beacon
         Unanchor(ent, beaconXForm);

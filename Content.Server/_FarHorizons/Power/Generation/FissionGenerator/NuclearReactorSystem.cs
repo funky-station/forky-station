@@ -527,6 +527,7 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
         var announcement = Loc.GetString("reactor-meltdown-announcement");
         var sender = Loc.GetString("reactor-meltdown-announcement-sender");
 
+        // funky start - refactor announcements to use a struct
         var toDispatch = new ChatAnnouncement(
             Message: announcement,
             Source: stationUid ?? uid,
@@ -540,6 +541,7 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
 
         if (!shouldNotPlayGlobal) // funky
             _soundSystem.PlayGlobalOnStation(uid, _audio.ResolveSound(comp.MeltdownSound.StereoSound));
+        // funky end
 
         comp.Melted = true;
         var MeltdownBadness = 0f;
@@ -697,11 +699,7 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
             var announcement = Loc.GetString("reactor-melting-announcement");
             var sender = Loc.GetString("reactor-melting-announcement-sender");
 
-            //var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
-
-            // funky - delta_alt.ogg was removed!!! https://github.com/funky-station/forky-station/commit/fd9212c73a68ec23f6668ed1cb8d35b434941de8
-            // not sure if there's a suitable replacement available so we just won't play a sound for now
-
+            // funky start - refactor announcements to use a struct
             var toDispatch = new ChatAnnouncement(
                 Message: announcement,
                 Source: stationUid ?? uid,
@@ -709,8 +707,7 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
                 ColorOverride: Color.Orange);
 
             _chatSystem.DispatchStationAnnouncement(toDispatch, stationUid);
-            // if (!paExclusive) // funky
-            //     _soundSystem.PlayGlobalOnStation(uid, _audio.ResolveSound(new SoundPathSpecifier("/Audio/Misc/delta_alt.ogg")));
+            // funky end
 
             comp.HasSentWarning = true;
         }

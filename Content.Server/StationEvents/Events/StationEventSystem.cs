@@ -84,6 +84,7 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
 
         if (canAnnounce && stationEvent.StartAnnouncement != null)
         {
+            // funky start - announcement refactor
             var announcement = new ChatAnnouncement(
                 Message: Loc.GetString(stationEvent.StartAnnouncement),
                 SenderName: Loc.GetString(stationEvent.StartAnnouncementSender),
@@ -92,6 +93,7 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
                 ColorOverride: stationEvent.StartAnnouncementColor);
 
             ChatSystem.DispatchFilteredAnnouncement(announcement, allPlayersInGame);
+            // funky end
         }
 
 
@@ -159,6 +161,7 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
 
         if (canAnnounce && stationEvent.EndAnnouncement != null) // funky
         {
+            // funky start - announcement refactor
             var announcement = new ChatAnnouncement(
                 Message: Loc.GetString(stationEvent.EndAnnouncement),
                 SenderName: Loc.GetString(stationEvent.EndAnnouncementSender),
@@ -167,6 +170,7 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
                 ColorOverride: stationEvent.EndAnnouncementColor);
 
             ChatSystem.DispatchFilteredAnnouncement(announcement, allPlayersInGame);
+            // funky end
         }
     }
 

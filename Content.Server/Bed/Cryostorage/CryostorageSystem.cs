@@ -233,6 +233,7 @@ public sealed partial class CryostorageSystem : SharedCryostorageSystem
             _stationRecords.RemoveRecord(key, stationRecords);
         }
 
+        // funky start - announcement refactor
         var announcement = new ChatAnnouncement(
             Message: Loc.GetString(
                 "earlyleave-cryo-announcement",
@@ -245,6 +246,7 @@ public sealed partial class CryostorageSystem : SharedCryostorageSystem
             ShouldPlaySound: false);
 
         _chatSystem.DispatchStationAnnouncement(announcement, station.Value);
+        // funky end
     }
 
     private void HandleCryostorageReconnection(Entity<CryostorageContainedComponent> entity)

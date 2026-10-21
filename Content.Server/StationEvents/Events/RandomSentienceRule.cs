@@ -76,6 +76,7 @@ public sealed partial class RandomSentienceRule : StationEventSystem<RandomSenti
         if (isSistr && !SistrCore.StationHasFunctionalCore(station.Value)) // funky, no working sis/tr core on the station means no announcement
             return;
 
+        // funky start - announcement refactor
         var announcement = new ChatAnnouncement(
             Message: Loc.GetString("station-event-random-sentience-announcement",
                 ("kind1", kind1),
@@ -91,5 +92,6 @@ public sealed partial class RandomSentienceRule : StationEventSystem<RandomSenti
             ColorOverride: Comp<StationEventComponent>(uid).StartAnnouncementColor);
 
         ChatSystem.DispatchStationAnnouncement(announcement, station);
+        // funky end
     }
 }

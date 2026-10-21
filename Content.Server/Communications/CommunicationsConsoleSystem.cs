@@ -249,6 +249,7 @@ namespace Content.Server.Communications
 
             _announcer.TryGetAnnouncerSound(comp.Sound, out var sound);
 
+            // funky - announcements refactor
             var announcement = new ChatAnnouncement(
                 Message: msg,
                 SenderName: title,
@@ -258,13 +259,13 @@ namespace Content.Server.Communications
 
             if (comp.Global)
             {
-                _chatSystem.DispatchGlobalAnnouncement(announcement); // funky - add pa system bypass option
+                _chatSystem.DispatchGlobalAnnouncement(announcement); // funky - refactor announcements
 
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following global announcement: {msg}");
                 return;
             }
 
-            _chatSystem.DispatchStationAnnouncement(announcement); // funky - add pa system bypass option
+            _chatSystem.DispatchStationAnnouncement(announcement); // funky - refactor announcements
 
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following station announcement: {msg}");
 

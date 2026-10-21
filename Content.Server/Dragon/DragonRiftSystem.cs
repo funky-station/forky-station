@@ -100,7 +100,7 @@ public sealed partial class DragonRiftSystem : EntitySystem
                     ShouldPlaySound: paExclusive,
                     AltAnnouncementSound: sound,
                     ColorOverride: Color.Red));
-                if (!paExclusive) // funky
+                if (!paExclusive) // funky TODO: consider just leaving playing the sound up to the announcement method
                     _audio.PlayGlobal(sound, Filter.Broadcast(), true);
                 // END Funky
 

@@ -125,6 +125,7 @@ namespace Content.Server.PowerSink
             if (station == null)
                 return;
 
+            // funky start - announcement refactor
             var announcement = new ChatAnnouncement(
                 Message: Loc.GetString("powersink-imminent-explosion-announcement"),
                 Source: station.Value,
@@ -132,6 +133,7 @@ namespace Content.Server.PowerSink
                 ColorOverride: Color.FromHex("#f9a524"));
 
             _chat.DispatchStationAnnouncement(announcement, station);
+            // funky end
         }
     }
 }

@@ -290,6 +290,7 @@ public sealed partial class StationSystem : SharedStationSystem
 
         if (loud)
         {
+            // funky - announcement refactor
             _chatSystem.DispatchStationAnnouncement(new ChatAnnouncement($"The station {oldName} has been renamed to {name}.", station), station);
         }
 

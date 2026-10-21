@@ -261,6 +261,7 @@ namespace Content.Server.GameTicking
 
             if (lateJoin && !silent)
             {
+                // funky start - announcement refactor
                 if (jobPrototype.JoinNotifyCrew)
                 {
                     _chatSystem.DispatchStationAnnouncement(new ChatAnnouncement(
@@ -286,6 +287,7 @@ namespace Content.Server.GameTicking
                         ShouldPlaySound: false),
                         station);
                 }
+                // funky end
             }
 
             _stationJobs.TryAssignJob(station, jobPrototype, player.UserId);

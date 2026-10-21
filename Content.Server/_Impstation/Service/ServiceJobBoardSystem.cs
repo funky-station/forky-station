@@ -53,6 +53,7 @@ public sealed partial class ServiceJobBoardSystem : EntitySystem
                 job != null &&
                 data.EndTime.Value < curTime)
             {
+                // funky - announcement refactor
                 _chatSystem.DispatchStationAnnouncement(new ChatAnnouncement(
                     Message: Loc.GetString(job.StartAnnounce),
                     Source: uid,

@@ -45,12 +45,14 @@ public sealed partial class CriminalRecordsHackerSystem : SharedCriminalRecordsH
             // main damage with this is existing arrest warrants are lost and to anger beepsky
         }
 
+        // funky start - announcements refactor
         var announcement = new ChatAnnouncement(
             Message: Loc.GetString(ent.Comp.Announcement),
             ShouldPlaySound: true,
             ColorOverride: Color.Red);
 
         _chat.DispatchGlobalAnnouncement(announcement);
+        // funky end
 
         // once is enough
         RemComp<CriminalRecordsHackerComponent>(ent);

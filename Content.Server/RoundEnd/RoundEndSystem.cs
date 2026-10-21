@@ -217,6 +217,7 @@ namespace Content.Server.RoundEnd
 
             var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
 
+            // funky start - announcement refactor
             var announcement = new ChatAnnouncement(
                 Message: Loc.GetString(text,
                     ("time", time),
@@ -227,6 +228,7 @@ namespace Content.Server.RoundEnd
                 ColorOverride: Color.Gold);
 
             _chatSystem.DispatchGlobalAnnouncement(announcement);
+            // funky end
 
             // Macrocosm edit start - announcer override
             if (!paExclusive) // funky
@@ -283,6 +285,7 @@ namespace Content.Server.RoundEnd
 
             var paExclusive = PAAnnouncementCVars.IsPAEnabledAndExclusive(_cfg); // funky
 
+            // funky start - announcement refactor
             var announcement = new ChatAnnouncement(
                 Message: Loc.GetString("round-end-system-shuttle-recalled-announcement"),
                 SenderName: Loc.GetString("round-end-system-shuttle-sender-announcement"),
@@ -291,6 +294,7 @@ namespace Content.Server.RoundEnd
                 ColorOverride: Color.Gold);
 
             _chatSystem.DispatchGlobalAnnouncement(announcement);
+            // funky end
 
             // Macrocosm edit start - announcer override
             if (!paExclusive) // funky
@@ -374,6 +378,7 @@ namespace Content.Server.RoundEnd
                     // Check is shuttle called or not. We should only dispatch announcement if it's already called
                     if (IsRoundEndRequested())
                     {
+                        // funky - announcement refactor
                         _chatSystem.DispatchGlobalAnnouncement(new ChatAnnouncement(
                             Message: Loc.GetString(textAnnounce),
                             SenderName: Loc.GetString(sender),

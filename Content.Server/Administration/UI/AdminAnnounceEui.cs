@@ -51,6 +51,7 @@ namespace Content.Server.Administration.UI
                             break;
                         // TODO: Per-station announcement support
                         case AdminAnnounceType.Station:
+                            // funky - announcement refactor
                             _chatSystem.DispatchGlobalAnnouncement(new ChatAnnouncement(
                                 Message: doAnnounce.Announcement,
                                 SenderName: doAnnounce.Announcer,

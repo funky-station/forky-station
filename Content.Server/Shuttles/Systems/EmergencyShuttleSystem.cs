@@ -344,6 +344,7 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
             // funky - getting this earlier so it can be passed into the announcement
             _announcer.TryGetAnnouncerSound(stationShuttleComp.FailureAudio, out var sound);
 
+            // funky - announcement sound refactor
             _chatSystem.DispatchStationAnnouncement(new ChatAnnouncement(
                 Message: Loc.GetString(stationShuttleComp.FailureAnnouncement),
                 Source: result.Station,
@@ -391,6 +392,7 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
         _announcer.TryGetAnnouncerSound(audioId, out var audio);
 
 
+        // funky - announcement refactor
         _chatSystem.DispatchStationAnnouncement(new ChatAnnouncement(
             Message: Loc.GetString(
                 locKey,

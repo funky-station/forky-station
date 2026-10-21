@@ -64,9 +64,9 @@ public sealed partial class CommunicationsConsoleSystem
 
         _paSystem.DispatchPAAnnouncement(
             announcement,
-            global: comp.Global,
             preamble: true,
-            customPreamble: preamble);
+            customPreamble: preamble,
+            targetStation: comp.Global ? null : _stationSystem.GetOwningStation(uid));
 
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(message.Actor):player} has sent the following station announcement: {message.Message}");
     }

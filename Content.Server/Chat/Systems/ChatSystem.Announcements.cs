@@ -10,8 +10,6 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Chat.Systems;
 
-// todo: mark funky changes on all affected files
-// todo: method and ChatAnnouncement documentation
 // todo: test it actually works lol
 
 public sealed partial class ChatSystem
@@ -25,7 +23,7 @@ public sealed partial class ChatSystem
         chatAnnouncement.SenderName ??= Loc.GetString("chat-manager-sender-announcement");
 
         // funky - redirect announcement to PA speakers
-        if (DoPADispatch(chatAnnouncement, true))
+        if (DoPADispatch(chatAnnouncement))
             return;
 
         var wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message", ("sender", chatAnnouncement.SenderName), ("message", FormattedMessage.EscapeText(chatAnnouncement.Message)));
@@ -45,7 +43,7 @@ public sealed partial class ChatSystem
         chatAnnouncement.SenderName ??= Loc.GetString("chat-manager-sender-announcement");
 
         // funky - redirect announcement to PA speakers
-        if (DoPADispatch(chatAnnouncement, true))
+        if (DoPADispatch(chatAnnouncement))
             return;
 
         var wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message", ("sender", chatAnnouncement.SenderName), ("message", FormattedMessage.EscapeText(chatAnnouncement.Message)));
@@ -73,7 +71,7 @@ public sealed partial class ChatSystem
         chatAnnouncement.SenderName ??= Loc.GetString("chat-manager-sender-announcement");
 
         // funky - redirect announcement to PA speakers
-        if (DoPADispatch(chatAnnouncement, false, (stationUid.Value, stationDataComp)))
+        if (DoPADispatch(chatAnnouncement, stationUid))
             return;
 
         var wrappedMessage = Loc.GetString("chat-manager-sender-announcement-wrap-message", ("sender", chatAnnouncement.SenderName), ("message", FormattedMessage.EscapeText(chatAnnouncement.Message)));
@@ -91,13 +89,13 @@ public sealed partial class ChatSystem
     }
 
     /// <summary>
-    ///
+    /// Funky specific feature - Handles sending the chat announcement to the PA system if <see cref="PAAnnouncementCVars.PAEnabled"/>
+    /// is enabled.
     /// </summary>
-    /// <param name="chatAnnouncement"></param>
-    /// <param name="global"></param>
-    /// <param name="targetStation"></param>
-    /// <returns>true if pa exclusive</returns> // todo: properly word this
-    private bool DoPADispatch(ChatAnnouncement chatAnnouncement, bool global, Entity<StationDataComponent>? targetStation = null)
+    /// <param name="chatAnnouncement">The announcement to dispatch.</param>
+    /// <param name="targetStation">If provided, a specific station to filter the announcement to.</param>
+    /// <returns>True if PA exclusive announcements are enabled, meaning that further announcement logic should be skipped.</returns>
+    private bool DoPADispatch(ChatAnnouncement chatAnnouncement, EntityUid? targetStation = null)
     {
         if (!chatAnnouncement.BypassPASystem && _configurationManager.GetCVar(PAAnnouncementCVars.PAEnabled))
         {
@@ -106,7 +104,6 @@ public sealed partial class ChatSystem
             _paSystem.DispatchPAAnnouncement(
                 chatAnnouncement with { ShouldPlaySound = chatAnnouncement.ShouldPlaySound && paExclusive }, // we don't want to double up on announcement sounds being played globally and through the PA speakers
                 preamble: false,
-                global: global,
                 targetStation: targetStation);
 
             if (paExclusive)

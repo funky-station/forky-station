@@ -14,8 +14,8 @@ public abstract partial class SharedChatSystem
     /// Dispatches an announcement to players selected by filter.
     /// </summary>
     /// <funky>
-    /// If you have PA system exclusive announcements enabled, this doesn't differ from
-    /// <see cref="DispatchGlobalAnnouncement"/> at all!
+    /// If you have <see cref="_Funkystation.CCVar.PAAnnouncementCVars.PAExclusiveAnnouncements">PAExclusiveAnnouncements</see> enabled,
+    /// this doesn't differ from <see cref="DispatchGlobalAnnouncement(ChatAnnouncement)">DispatchGlobalAnnouncement</see> at all!
     /// </funky>
     public virtual void DispatchFilteredAnnouncement(ChatAnnouncement chatAnnouncement, Filter filter)
     { }

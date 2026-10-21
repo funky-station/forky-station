@@ -79,6 +79,7 @@ public sealed partial class WarDeclaratorSystem : EntitySystem
             var title = Loc.GetString(ent.Comp.SenderTitle);
             // Macrocosm edit start - announcer variation
             _announcer.TryGetAnnouncerSound(ent.Comp.Sound, out var sound);
+            // funky - announcement refactor
             _chat.DispatchGlobalAnnouncement(new ChatAnnouncement(
                 Message: ent.Comp.Message,
                 SenderName: title,

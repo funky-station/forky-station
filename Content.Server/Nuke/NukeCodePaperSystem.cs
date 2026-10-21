@@ -82,6 +82,7 @@ namespace Content.Server.Nuke
             if (wasSent)
             {
                 var msg = Loc.GetString("nuke-component-announcement-send-codes");
+                // funky - announcement refactor
                 _chatSystem.DispatchStationAnnouncement(new ChatAnnouncement(
                     Message: msg,
                     Source: station,

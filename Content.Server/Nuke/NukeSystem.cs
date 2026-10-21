@@ -511,6 +511,7 @@ public sealed partial class NukeSystem : EntitySystem
             ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((uid, nukeXform)))));
         var sender = Loc.GetString("nuke-component-announcement-sender");
 
+        // funky start - announcement refactor
         var toDispatch = new ChatAnnouncement(
             Message: announcement,
             Source: stationUid ?? uid,
@@ -520,6 +521,7 @@ public sealed partial class NukeSystem : EntitySystem
             ColorOverride: Color.Red);
 
         _chatSystem.DispatchStationAnnouncement(toDispatch, stationUid);
+        // funky end
 
         if (!paExclusive) // funky
             _sound.PlayGlobalOnStation(uid, _audio.ResolveSound(component.ArmSound));
@@ -563,6 +565,7 @@ public sealed partial class NukeSystem : EntitySystem
         var announcement = Loc.GetString("nuke-component-announcement-unarmed");
         var sender = Loc.GetString("nuke-component-announcement-sender");
 
+        // funky start - announcement refactor
         var toDispatch = new ChatAnnouncement(
             Message: announcement,
             Source: stationUid ?? uid,
@@ -571,6 +574,7 @@ public sealed partial class NukeSystem : EntitySystem
             AltAnnouncementSound: component.DisarmSound);
 
         _chatSystem.DispatchStationAnnouncement(toDispatch, stationUid); // funky
+        // funky end
 
         component.PlayedNukeSong = false;
         if (!paExclusive) // funky

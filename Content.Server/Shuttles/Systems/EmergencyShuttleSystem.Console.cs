@@ -213,7 +213,7 @@ public sealed partial class EmergencyShuttleSystem
         {
             ShuttlesLeft = true;
             // funky, sis/tr
-            _chatSystem.DispatchGlobalAnnouncement(new ChatAnnouncement(
+            _chatSystem.DispatchGlobalAnnouncement(new ChatAnnouncement( // funky - announcement refactor
                 Message: Loc.GetString("emergency-shuttle-left", ("transitTime", $"{TransitTime:0}")),
                 SenderName: Loc.GetString("chat-manager-sender-sistr"),
                 ColorOverride: Color.FromHex("#f9a524")));
@@ -255,7 +255,7 @@ public sealed partial class EmergencyShuttleSystem
 
         _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle early launch REPEAL ALL by {args.Actor:user}");
         // funky - sis/tr, not centcom
-        _chatSystem.DispatchGlobalAnnouncement(new ChatAnnouncement(
+        _chatSystem.DispatchGlobalAnnouncement(new ChatAnnouncement( // funky - announcement refactor
             Message: Loc.GetString("emergency-shuttle-console-auth-revoked", ("remaining", component.AuthorizationsRequired)),
             SenderName: Loc.GetString("chat-manager-sender-sistr"),
             ColorOverride: Color.FromHex("#f9a524"))); // funky
@@ -279,7 +279,7 @@ public sealed partial class EmergencyShuttleSystem
         _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle early launch REPEAL by {args.Actor:user}");
         var remaining = component.AuthorizationsRequired - component.AuthorizedEntities.Count;
         // funky, sis/tr
-        _chatSystem.DispatchGlobalAnnouncement(new ChatAnnouncement(
+        _chatSystem.DispatchGlobalAnnouncement(new ChatAnnouncement( // funky - announcement refactor
             Message: Loc.GetString("emergency-shuttle-console-auth-revoked", ("remaining", remaining)),
             SenderName: Loc.GetString("chat-manager-sender-sistr"),
             ColorOverride: Color.FromHex("#f9a524")));
@@ -312,7 +312,7 @@ public sealed partial class EmergencyShuttleSystem
 
         if (remaining > 0)
             // funky, sis/tr
-            _chatSystem.DispatchGlobalAnnouncement(new ChatAnnouncement(
+            _chatSystem.DispatchGlobalAnnouncement(new ChatAnnouncement( // funky - announcement refactor
                 Message: Loc.GetString("emergency-shuttle-console-auth-left", ("remaining", remaining)),
                 SenderName: Loc.GetString("chat-manager-sender-sistr"),
                 ShouldPlaySound: paExclusive,
@@ -423,7 +423,7 @@ public sealed partial class EmergencyShuttleSystem
 
         _announced = true;
         // funky, sis/tr
-        _chatSystem.DispatchGlobalAnnouncement(new ChatAnnouncement(
+        _chatSystem.DispatchGlobalAnnouncement(new ChatAnnouncement( // funky - announcement refactor
             Message: Loc.GetString("emergency-shuttle-launch-time", ("consoleAccumulator", $"{_consoleAccumulator:0}")),
             SenderName: Loc.GetString("chat-manager-sender-sistr"), // funky
             ShouldPlaySound: paExclusive,

@@ -33,6 +33,7 @@ public sealed partial class XenoborgsRuleSystem : GameRuleSystem<XenoborgsRuleCo
             return;
 
         var status = mothershipCoreAlive ? "alive" : "dead";
+        // funky - announcement refactor
         _chatSystem.DispatchGlobalAnnouncement(new ChatAnnouncement(
             Message: Loc.GetString($"xenoborgs-no-more-threat-mothership-core-{status}-announcement"),
             ColorOverride: AnnouncmentColor));
@@ -40,6 +41,7 @@ public sealed partial class XenoborgsRuleSystem : GameRuleSystem<XenoborgsRuleCo
 
     public void SendMothershipDeathAnnouncement(Entity<XenoborgsRuleComponent> ent)
     {
+        // funky - announcement refactor
         _chatSystem.DispatchGlobalAnnouncement(new ChatAnnouncement(
             Message: Loc.GetString("mothership-destroyed-announcement"),
             ColorOverride: AnnouncmentColor));
@@ -110,6 +112,7 @@ public sealed partial class XenoborgsRuleSystem : GameRuleSystem<XenoborgsRuleCo
 
         foreach (var station in _station.GetStations())
         {
+            // funky - announcement refactor
             _chatSystem.DispatchStationAnnouncement(new ChatAnnouncement(
                 Message: Loc.GetString("xenoborg-shuttle-call"),
                 Source: station,

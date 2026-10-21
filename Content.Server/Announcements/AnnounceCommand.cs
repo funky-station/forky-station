@@ -83,6 +83,7 @@ public sealed partial class AnnounceCommand : LocalizedEntityCommands
                 sound = new SoundPathSpecifier(soundOverride);
         }
 
+        // funky start - announcement refactor
         var announcement = new ChatAnnouncement(
             Message: message,
             SenderName: sender,
@@ -92,6 +93,7 @@ public sealed partial class AnnounceCommand : LocalizedEntityCommands
             BypassPASystem: paBypass);
 
         chat.DispatchGlobalAnnouncement(announcement);
+        // funky end
         shell.WriteLine(loc.GetString("shell-command-success"));
     }
 

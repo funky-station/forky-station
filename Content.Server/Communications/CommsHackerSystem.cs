@@ -77,6 +77,7 @@ public sealed partial class CommsHackerSystem : SharedCommsHackerSystem
     public void CallInThreat(NinjaHackingThreatPrototype ninjaHackingThreat)
     {
         _gameTicker.StartGameRule(ninjaHackingThreat.Rule, out _);
+        // funky - announcement refactor
         _chat.DispatchGlobalAnnouncement(new ChatAnnouncement(
             Message: Loc.GetString(ninjaHackingThreat.Announcement),
             ShouldPlaySound: true,

@@ -125,6 +125,7 @@ public sealed partial class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponen
         {
             foreach (var station in _station.GetStations())
             {
+                // funky - announcement refactor
                 _chat.DispatchStationAnnouncement(new ChatAnnouncement(
                     Message: Loc.GetString("zombie-shuttle-call"),
                     Source: station,
