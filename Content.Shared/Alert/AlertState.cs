@@ -8,6 +8,7 @@ public record struct AlertState
 {
     public short? Severity;
     public (TimeSpan startTime, TimeSpan endTime)? Cooldown;
+    public string? DynamicMessage;
     public bool AutoRemove;
     public bool ShowCooldown;
     public ProtoId<AlertPrototype> Type;
