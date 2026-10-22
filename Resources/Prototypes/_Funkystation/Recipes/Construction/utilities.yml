@@ -126,3 +126,13 @@
   - GasOutletInjector
   - GasOutletInjectorAlt1
   - GasOutletInjectorAlt2
+
+- type: construction
+  parent: BaseUtility
+  id: DisposalUnitWallmount
+  name: construction-recipe-wallmount-disposal-name
+  description: construction-recipe-wallmount-disposal-desc
+  graph: DisposalMachineWallmount
+  targetNode: disposal_unit
+  conditions:
+  - !type:AgainstWall
