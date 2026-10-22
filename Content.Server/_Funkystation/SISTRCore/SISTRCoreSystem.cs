@@ -16,6 +16,9 @@ public sealed partial class SistrCoreSystem : EntitySystem
     [Dependency] private PowerReceiverSystem _power = null!;
     [Dependency] private IConfigurationManager _cfg = null!;
 
+    [Dependency] private EntityQuery<StationDataComponent> _stationDataQuery;
+    [Dependency] private EntityQuery<StationEventComponent> _stationEventQuery;
+
     private bool GridHasFunctionalCore(EntityUid grid)
     {
         var query = EntityQueryEnumerator<SistrCoreComponent, TransformComponent>();
@@ -36,13 +39,13 @@ public sealed partial class SistrCoreSystem : EntitySystem
     // this is some bullshit LOL
     public bool StationHasFunctionalCore(EntityUid station)
     {
-        return TryComp<StationDataComponent>(station, out var data) && data.Grids.Any(GridHasFunctionalCore);
+        return _stationDataQuery.TryComp(station, out var data) && data.Grids.Any(GridHasFunctionalCore);
     }
 
     public bool ShouldStationEventBeAnnounced(EntityUid eventUid, bool ending = false)
     {
         var canAnnounce = true;
-        var stationEventComp = Comp<StationEventComponent>(eventUid);
+        var stationEventComp = _stationEventQuery.Comp(eventUid);
         if (_cfg.GetCVar(SistrCVars.SistrRequired) && (ending
                 ? stationEventComp.EndAnnouncementSender == "chat-manager-sender-sistr"
                 : stationEventComp.StartAnnouncementSender == "chat-manager-sender-sistr"))
