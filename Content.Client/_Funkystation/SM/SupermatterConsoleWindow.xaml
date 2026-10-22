@@ -1,0 +1,13 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      SetSize="420 320" MinSize="420 320"
+                      Title="{Loc 'supermatter-console-ui-title'}">
+    <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="8">
+        <RichTextLabel Name="StatusLabel"/>
+        <RichTextLabel Name="IntegrityLabel"/>
+        <RichTextLabel Name="PowerLabel"/>
+        <RichTextLabel Name="AbsorbedLabel"/>
+        <RichTextLabel Name="PredictedDelamLabel"/>
+        <RichTextLabel Name="DelamLabel"/>
+    </BoxContainer>
+</controls:FancyWindow>

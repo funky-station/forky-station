@@ -1,0 +1,11 @@
+- type: entity
+  id: SupermatterAshingEffect
+  components:
+    - type: Sprite
+      drawdepth: Effects
+      sprite: /Textures/_RMC14/Effects/cloak.rsi
+      state: cloak
+    - type: EffectVisuals
+    - type: TimedDespawn
+      lifetime: 0.75
+    - type: AnimationPlayer

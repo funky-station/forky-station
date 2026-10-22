@@ -1,0 +1,139 @@
+- type: gasCharacteristics
+  id: Oxygen
+  stability: -1
+  growth: -0.6
+  conductivity: -1
+  enthalpy: 0
+
+- type: gasCharacteristics
+  id: Nitrogen
+  stability: 1
+  growth: 0
+  conductivity: 0
+  enthalpy: 0
+
+- type: gasCharacteristics
+  id: CarbonDioxide
+  stability: -1
+  growth: 1
+  conductivity: 0
+  enthalpy: 0.3
+
+- type: gasCharacteristics
+  id: Plasma
+  stability: -1
+  growth: -0.3
+  conductivity: 0
+  enthalpy: 1
+
+- type: gasCharacteristics
+  id: Tritium
+  stability: -2
+  growth: -0.5
+  conductivity: 0.5
+  enthalpy: 0.5
+
+- type: gasCharacteristics
+  id: WaterVapor
+  stability: 0.2
+  growth: -0.2
+  conductivity: 1
+  enthalpy: 0.2
+
+- type: gasCharacteristics
+  id: Ammonia
+  stability: -1
+  growth: -1
+  conductivity: 0
+  enthalpy: -0.6
+
+- type: gasCharacteristics
+  id: NitrousOxide
+  stability: 0.8
+  growth: 0
+  conductivity: 0
+  enthalpy: -0.8
+
+- type: gasCharacteristics
+  id: Frezon
+  stability: -1
+  growth: -0.2
+  conductivity: -0.2
+  enthalpy: -1
+
+- type: gasCharacteristics
+  id: BZ
+  stability: -1
+  growth: 0
+  conductivity: 0.8
+  enthalpy: 0
+
+- type: gasCharacteristics
+  id: Healium
+  stability: 0.2
+  growth: 0.2
+  conductivity: 0
+  enthalpy: 0
+
+- type: gasCharacteristics
+  id: Pluoxium
+  stability: 0
+  growth: -1
+  conductivity: -0.6
+  enthalpy: 0
+
+- type: gasCharacteristics
+  id: Nitrium
+  stability: -3
+  growth: -1
+  conductivity: 1
+  enthalpy: 1
+
+- type: gasCharacteristics
+  id: Hydrogen
+  stability: -1
+  growth: 0.4
+  conductivity: 0.4
+  enthalpy: 0.4
+
+- type: gasCharacteristics
+  id: HyperNoblium
+  stability: 0.8
+  growth: 0.4
+  conductivity: -0.4
+  enthalpy: -0.4
+
+- type: gasCharacteristics
+  id: ProtoNitrate
+  stability: -1
+  growth: -0.5
+  conductivity: -0.5
+  enthalpy: -0.5
+
+- type: gasCharacteristics
+  id: Zauker
+  stability: -1
+  growth: 0.5
+  conductivity: 0.5
+  enthalpy: 0.5
+
+- type: gasCharacteristics
+  id: Halon
+  stability: 0.5
+  growth: 0
+  conductivity: 1
+  enthalpy: -0.5
+
+- type: gasCharacteristics
+  id: Helium
+  stability: 0
+  growth: 0
+  conductivity: 0
+  enthalpy: 0
+
+- type: gasCharacteristics
+  id: AntiNoblium
+  stability: -0.8
+  growth: -0.4
+  conductivity: 0.4
+  enthalpy: 0.4
