@@ -99,7 +99,8 @@ public sealed class ClumsyStatusTest : InteractionTest
 
         await PlaceInHands(GunProto);
         await UseInHand(); // Chamber the gun
-        await RunSeconds(0.5f); // Guns have a cooldown when picking them up.
+        // FUNKY - we need to wait longer (1 full second) to let the altfire melee cooldown clear. If you're messing around with the melee cooldowns of guns and this test fails, check this first.
+        await RunSeconds(1f); // Guns have a cooldown when picking them up.
         await AttemptShoot(Target);
 
         Assert.That(_sStatusSystem.HasStatusEffect(SPlayer, SharedStunSystem.StunId), Is.True, "Clumsy mob wasn't stunned from shooting a gun.");

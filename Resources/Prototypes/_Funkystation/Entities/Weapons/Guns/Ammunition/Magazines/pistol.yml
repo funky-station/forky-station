@@ -30,6 +30,10 @@
     steps: 6
     zeroVisible: false
   - type: Appearance
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 4
 
 - type: entity
   id: MagazinePistolLarge
