@@ -366,15 +366,15 @@
         orGroup: GiftPool
       - id: Bola
         orGroup: GiftPool
-      - id: GlowstickGreen
+      - id: FuGlowstickGreen # Funky
         orGroup: GiftPool
-      - id: GlowstickBlue
+      - id: FuGlowstickBlue # Funky
         orGroup: GiftPool
-      - id: GlowstickPurple
+      - id: FuGlowstickPurple # Funky
         orGroup: GiftPool
-      - id: GlowstickRed
+      - id: FuGlowstickRed # Funky
         orGroup: GiftPool
-      - id: GlowstickYellow
+      - id: FuGlowstickYellow # Funky
         orGroup: GiftPool
       - id: ToyRubberDuck
         orGroup: GiftPool
