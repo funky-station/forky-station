@@ -17,7 +17,7 @@ public sealed partial class RandomSentienceRule : StationEventSystem<RandomSenti
     private static readonly ProtoId<LocalizedDatasetPrototype> IntelligenceLevelNames = "RandomSentienceEventStrength";
 
     [Dependency] private IRobustRandom _random = default!;
-    [Dependency] private IConfigurationManager _cfg = null!;
+    [Dependency] private IConfigurationManager _cfg = null!; // funky - sis/tr toggle
 
     protected override void Started(EntityUid uid, RandomSentienceRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
