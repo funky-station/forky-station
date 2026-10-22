@@ -1,0 +1,91 @@
+- type: marking
+  id: ScarsVoxRoadrashLeftHead
+  bodyPart: Head
+  groupWhitelist: [Vox]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
+    state: roadrashleft
+
+- type: marking
+  id: ScarsVoxRoadrashRightHead
+  bodyPart: Head
+  groupWhitelist: [Vox]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
+    state: roadrashright
+
+- type: marking
+  id: ScarsVoxBigslashLeftHead
+  bodyPart: Head
+  groupWhitelist: [Vox]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
+    state: bigslashleft
+
+- type: marking
+  id: ScarsVoxBigslashRightHead
+  bodyPart: Head
+  groupWhitelist: [Vox]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
+    state: bigslashright
+
+- type: marking
+  id: ScarsVoxSlashLeftHead
+  bodyPart: Head
+  groupWhitelist: [Vox]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
+    state: slashleft
+
+- type: marking
+  id: ScarsVoxSlashRightHead
+  bodyPart: Head
+  groupWhitelist: [Vox]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/head.rsi
+    state: slashright
+
+- type: marking
+  id: ScarsVoxClawTorso
+  bodyPart: Chest
+  groupWhitelist: [Vox]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/chest.rsi
+    state: claw
+
