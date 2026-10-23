@@ -129,6 +129,12 @@
     requirePower: true
     highVoltageNode: input
     mediumVoltageNode: output
+  - type: Climbable #funky
+    delay: 5.0
+  - type: Bonkable #funky
+    bonkDamage:
+      types:
+        Blunt: 4
 
 # Compact Wall Substation Base
 - type: entity

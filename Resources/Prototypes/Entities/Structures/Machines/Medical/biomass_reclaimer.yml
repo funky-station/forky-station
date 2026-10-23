@@ -13,6 +13,10 @@
   - type: BiomassReclaimer
   - type: Climbable
     delay: 7
+  - type: Bonkable #funky #oh imagine the shenanigans of getting the clown's corpse biomassed...
+    bonkDamage:
+      types:
+        Blunt: 4
   - type: AmbientSound
     enabled: false
     volume: -5
