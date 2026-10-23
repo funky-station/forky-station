@@ -170,6 +170,6 @@
     - type: Cartridge
       programName: astro-nav-program-name
       icon:
-        sprite: Objects/Devices/gps.rsi
+        sprite: _Funkystation/Objects/Devices/gps.rsi # Funky
         state: icon
     - type: AstroNavCartridge
