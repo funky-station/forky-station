@@ -233,15 +233,20 @@ public sealed partial class CryostorageSystem : SharedCryostorageSystem
             _stationRecords.RemoveRecord(key, stationRecords);
         }
 
-        _chatSystem.DispatchStationAnnouncement(station.Value,
-            Loc.GetString(
+        // funky start - announcement refactor
+        var announcement = new ChatAnnouncement(
+            Message: Loc.GetString(
                 "earlyleave-cryo-announcement",
                 ("character", name),
                 ("entity", ent.Owner), // gender things for supporting downstreams with other languages
                 ("job", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(jobName))
-            ), Loc.GetString("earlyleave-cryo-sender"),
-            playDefaultSound: false
-        );
+            ),
+            Source: station.Value,
+            SenderName: Loc.GetString("earlyleave-cryo-sender"),
+            ShouldPlaySound: false);
+
+        _chatSystem.DispatchStationAnnouncement(announcement, station.Value);
+        // funky end
     }
 
     private void HandleCryostorageReconnection(Entity<CryostorageContainedComponent> entity)

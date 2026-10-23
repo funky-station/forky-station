@@ -183,7 +183,17 @@ public sealed partial class HijackBeaconSystem : EntitySystem
         //global announcement
         var sender = Loc.GetString("hijack-beacon-announcement-sender");
         var message = Loc.GetString("hijack-beacon-announcement-activated", ("time", GetRemainingTime((ent.Owner, activeComp))));
-        _chat.DispatchGlobalAnnouncement(message, sender, true, AnnounceSound, Color.Yellow);
+
+        // funky start - announcement refactor
+        var announcement = new ChatAnnouncement(
+            Message: message,
+            SenderName: sender,
+            ShouldPlaySound: true,
+            AltAnnouncementSound: AnnounceSound,
+            ColorOverride: Color.Yellow);
+
+        _chat.DispatchGlobalAnnouncement(announcement);
+        // funky end
 
         //Anchor. Anchoring is tied to activation.
         Anchor(ent);
@@ -206,7 +216,17 @@ public sealed partial class HijackBeaconSystem : EntitySystem
         //global announcement
         var sender = Loc.GetString("hijack-beacon-announcement-sender");
         var message = Loc.GetString("hijack-beacon-announcement-deactivated");
-        _chat.DispatchGlobalAnnouncement(message, sender, true, DeactivateSound, Color.Green);
+
+        // funky start - announcement refactor
+        var announcement = new ChatAnnouncement(
+            Message: message,
+            SenderName: sender,
+            ShouldPlaySound: true,
+            AltAnnouncementSound: DeactivateSound,
+            ColorOverride: Color.Green);
+
+        _chat.DispatchGlobalAnnouncement(announcement);
+        // funky end
 
         // Unanchor. we want anchoring to be tied to activation here so we just call this.
         Unanchor(ent);
@@ -253,7 +273,17 @@ public sealed partial class HijackBeaconSystem : EntitySystem
         //global announcement
         var sender = Loc.GetString("hijack-beacon-announcement-sender");
         var message = Loc.GetString("hijack-beacon-announcement-success", ("fine", ev.Total));
-        _chat.DispatchGlobalAnnouncement(message, sender, true, AnnounceSound, Color.Red);
+
+        // funky start - announcement refactor
+        var announcement = new ChatAnnouncement(
+            Message: message,
+            SenderName: sender,
+            ShouldPlaySound: true,
+            AltAnnouncementSound: AnnounceSound,
+            ColorOverride: Color.Red);
+
+        _chat.DispatchGlobalAnnouncement(announcement);
+        // funky end
 
         // Unanchoring must occur after updating the status, or it will disarm the beacon
         Unanchor(ent, beaconXForm);

@@ -6,6 +6,7 @@ using Content.Server.GameTicking.Events;
 using Content.Server.Maps;
 using Content.Server.Roles;
 using Content.Shared.CCVar;
+using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.Maps;
@@ -798,7 +799,8 @@ namespace Content.Server.GameTicking
             var proto = _robustRandom.Pick(options);
 
             if (proto.Message != null)
-                _chatSystem.DispatchGlobalAnnouncement(Loc.GetString(proto.Message), playSound: true);
+                // funky - announcement refactor
+                _chatSystem.DispatchGlobalAnnouncement(new ChatAnnouncement(Message: Loc.GetString(proto.Message), ShouldPlaySound: true));
 
             // Macrocosm edit start - announcer overrides
             if (proto.Sound != null && _announcer.TryGetAnnouncerSound(proto.Sound.Value, out var sound))

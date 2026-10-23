@@ -1,6 +1,7 @@
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Ninja.Systems;
+using Content.Shared.Chat;
 using Content.Shared.Communications;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
@@ -76,7 +77,11 @@ public sealed partial class CommsHackerSystem : SharedCommsHackerSystem
     public void CallInThreat(NinjaHackingThreatPrototype ninjaHackingThreat)
     {
         _gameTicker.StartGameRule(ninjaHackingThreat.Rule, out _);
-        _chat.DispatchGlobalAnnouncement(Loc.GetString(ninjaHackingThreat.Announcement), playSound: true, colorOverride: Color.Red);
+        // funky - announcement refactor
+        _chat.DispatchGlobalAnnouncement(new ChatAnnouncement(
+            Message: Loc.GetString(ninjaHackingThreat.Announcement),
+            ShouldPlaySound: true,
+            ColorOverride: Color.Red));
     }
 }
 

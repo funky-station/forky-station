@@ -408,15 +408,24 @@ public abstract partial class SharedChatSystem : EntitySystem
     /// <param name="announcementSound">Sound to play.</param>
     /// <param name="colorOverride">Optional color for the announcement message.</param>
     /// <param name="paSystemBypass">Funky - whether to bypass diegetic PA systems and broadcast directly to players.</param>
-    public virtual void DispatchGlobalAnnouncement(
+    [Obsolete("Funky - Create a ChatAnnouncement instead of passing individual params")]
+    public void DispatchGlobalAnnouncement(
         string message,
         string? sender = null,
         bool playSound = true,
         SoundSpecifier? announcementSound = null,
         Color? colorOverride = null,
         bool paSystemBypass = false // funky addition
-        )
-    { }
+    )
+    {
+        DispatchGlobalAnnouncement(new ChatAnnouncement(
+            Message: message,
+            SenderName: sender,
+            ShouldPlaySound: playSound,
+            AltAnnouncementSound: announcementSound,
+            ColorOverride: colorOverride,
+            BypassPASystem: paSystemBypass));
+    }
 
     /// <summary>
     /// Dispatches an announcement to players selected by filter.
@@ -429,7 +438,8 @@ public abstract partial class SharedChatSystem : EntitySystem
     /// <param name="announcementSound">Sound to play.</param>
     /// <param name="colorOverride">Optional color for the announcement message.</param>
     /// <param name="paSystemBypass">Funky - whether to bypass diegetic PA systems and broadcast directly to players.</param>
-    public virtual void DispatchFilteredAnnouncement(
+    [Obsolete("Funky - Create a ChatAnnouncement instead of passing individual params")]
+    public void DispatchFilteredAnnouncement(
         Filter filter,
         string message,
         EntityUid? source = null,
@@ -438,8 +448,18 @@ public abstract partial class SharedChatSystem : EntitySystem
         SoundSpecifier? announcementSound = null,
         Color? colorOverride = null,
         bool paSystemBypass = false // funky addition
-        )
-    { }
+    )
+    {
+        DispatchFilteredAnnouncement(new ChatAnnouncement(
+            Message: message,
+            Source: source,
+            SenderName: sender,
+            ShouldPlaySound: playSound,
+            AltAnnouncementSound: announcementSound,
+            ColorOverride: colorOverride,
+            BypassPASystem: paSystemBypass),
+            filter);
+    }
 
     /// <summary>
     /// Dispatches an announcement on a specific station.
@@ -451,7 +471,8 @@ public abstract partial class SharedChatSystem : EntitySystem
     /// <param name="announcementSound">Sound to play.</param>
     /// <param name="colorOverride">Optional color for the announcement message.</param>
     /// <param name="paSystemBypass">Funky - whether to bypass diegetic PA systems and broadcast directly to players.</param>
-    public virtual void DispatchStationAnnouncement(
+    [Obsolete("Funky - Create a ChatAnnouncement instead of passing individual params")]
+    public void DispatchStationAnnouncement(
         EntityUid source,
         string message,
         string? sender = null,
@@ -459,8 +480,17 @@ public abstract partial class SharedChatSystem : EntitySystem
         SoundSpecifier? announcementSound = null,
         Color? colorOverride = null,
         bool paSystemBypass = false // funky addition
-        )
-    { }
+    )
+    {
+        DispatchStationAnnouncement(new ChatAnnouncement(
+            Message: message,
+            Source: source,
+            SenderName: sender,
+            ShouldPlaySound: playDefaultSound,
+            AltAnnouncementSound: announcementSound,
+            ColorOverride: colorOverride,
+            BypassPASystem: paSystemBypass));
+    }
 }
 
 /// <summary>
@@ -497,3 +527,28 @@ public enum InGameOOCChatType : byte
     Looc,
     Dead
 }
+
+// funky - created a struct for chat announcements
+/// <summary>
+/// An announcement being broadcast to players.
+/// </summary>
+/// <usage>See
+/// <see cref="SharedChatSystem.DispatchGlobalAnnouncement(ChatAnnouncement)">DispatchGlobalAnnouncement</see>,
+/// <see cref="SharedChatSystem.DispatchStationAnnouncement(ChatAnnouncement, EntityUid?)">DispatchStationAnnouncement</see>,
+/// and <see cref="SharedChatSystem.DispatchFilteredAnnouncement(ChatAnnouncement, Filter)">DispatchFilteredAnnouncement</see>.
+/// </usage>
+/// <param name="Message">The text being announced. This is the only thing you really *need* to specify if you just want to make a global announcement.</param>
+/// <param name="Source">The EntityUid of the thing making the announcement.</param>
+/// <param name="SenderName">The name attributed to the announcement.</param>
+/// <param name="ShouldPlaySound">Whether players should hear a sound when the announcement is made.</param>
+/// <param name="AltAnnouncementSound">A sound to use instead of the default.</param>
+/// <param name="ColorOverride">The color of the announcement text.</param>
+/// <param name="BypassPASystem">Funky specific - Whether the announcement should be heard directly by players vs being broadcast from PA speakers.</param>
+public record struct ChatAnnouncement(
+    string Message,
+    EntityUid? Source = null,
+    string? SenderName = null,
+    bool ShouldPlaySound = true,
+    SoundSpecifier? AltAnnouncementSound = null,
+    Color? ColorOverride = null,
+    bool BypassPASystem = false);

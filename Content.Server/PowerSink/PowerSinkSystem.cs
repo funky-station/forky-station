@@ -3,6 +3,7 @@ using Content.Server.Explosion.EntitySystems;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Station.Systems;
+using Content.Shared.Chat;
 using Content.Shared.Examine;
 using Content.Shared.Power.Components;
 using Robust.Shared.Audio.Systems;
@@ -124,13 +125,15 @@ namespace Content.Server.PowerSink
             if (station == null)
                 return;
 
-            _chat.DispatchStationAnnouncement(
-                station.Value,
-                Loc.GetString("powersink-imminent-explosion-announcement"),
-                sender: Loc.GetString("chat-manager-sender-sistr"), // funky
-                playDefaultSound: true,
-                colorOverride: Color.FromHex("#f9a524") // funky
-            );
+            // funky start - announcement refactor
+            var announcement = new ChatAnnouncement(
+                Message: Loc.GetString("powersink-imminent-explosion-announcement"),
+                Source: station.Value,
+                SenderName: Loc.GetString("chat-manager-sender-sistr"),
+                ColorOverride: Color.FromHex("#f9a524"));
+
+            _chat.DispatchStationAnnouncement(announcement, station);
+            // funky end
         }
     }
 }

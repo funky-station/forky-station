@@ -8,6 +8,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Server.Chat.Systems;
+using Content.Shared.Chat;
 
 namespace Content.Server._Impstation.Service;
 
@@ -52,7 +53,13 @@ public sealed partial class ServiceJobBoardSystem : EntitySystem
                 job != null &&
                 data.EndTime.Value < curTime)
             {
-                _chatSystem.DispatchStationAnnouncement(uid, Loc.GetString(job.StartAnnounce), AnnouncementName, colorOverride: AnnouncementColor);
+                // funky - announcement refactor
+                _chatSystem.DispatchStationAnnouncement(new ChatAnnouncement(
+                    Message: Loc.GetString(job.StartAnnounce),
+                    Source: uid,
+                    SenderName: AnnouncementName,
+                    ColorOverride: AnnouncementColor),
+                    uid);
 
                 ResetJobs((uid, data));
             }

@@ -3,6 +3,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.RoundEnd;
 using Content.Server.Station.Systems;
+using Content.Shared.Chat;
 using Content.Shared.Destructible;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
@@ -32,16 +33,18 @@ public sealed partial class XenoborgsRuleSystem : GameRuleSystem<XenoborgsRuleCo
             return;
 
         var status = mothershipCoreAlive ? "alive" : "dead";
-        _chatSystem.DispatchGlobalAnnouncement(
-            Loc.GetString($"xenoborgs-no-more-threat-mothership-core-{status}-announcement"),
-            colorOverride: AnnouncmentColor);
+        // funky - announcement refactor
+        _chatSystem.DispatchGlobalAnnouncement(new ChatAnnouncement(
+            Message: Loc.GetString($"xenoborgs-no-more-threat-mothership-core-{status}-announcement"),
+            ColorOverride: AnnouncmentColor));
     }
 
     public void SendMothershipDeathAnnouncement(Entity<XenoborgsRuleComponent> ent)
     {
-        _chatSystem.DispatchGlobalAnnouncement(
-            Loc.GetString("mothership-destroyed-announcement"),
-            colorOverride: AnnouncmentColor);
+        // funky - announcement refactor
+        _chatSystem.DispatchGlobalAnnouncement(new ChatAnnouncement(
+            Message: Loc.GetString("mothership-destroyed-announcement"),
+            ColorOverride: AnnouncmentColor));
 
         ent.Comp.MothershipCoreDeathAnnouncmentSent = true;
     }
@@ -109,7 +112,12 @@ public sealed partial class XenoborgsRuleSystem : GameRuleSystem<XenoborgsRuleCo
 
         foreach (var station in _station.GetStations())
         {
-            _chatSystem.DispatchStationAnnouncement(station, Loc.GetString("xenoborg-shuttle-call"), colorOverride: Color.BlueViolet);
+            // funky - announcement refactor
+            _chatSystem.DispatchStationAnnouncement(new ChatAnnouncement(
+                Message: Loc.GetString("xenoborg-shuttle-call"),
+                Source: station,
+                ColorOverride: Color.BlueViolet),
+                station);
         }
         _roundEnd.RequestRoundEnd(null, null, false, cantRecall: true);
         xenoborgsRuleComponent.XenoborgShuttleCalled = true;

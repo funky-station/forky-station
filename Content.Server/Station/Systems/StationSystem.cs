@@ -3,6 +3,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Station.Components;
 using Content.Server.Station.Events;
+using Content.Shared.Chat;
 using Content.Shared.Station;
 using Content.Shared.Station.Components;
 using JetBrains.Annotations;
@@ -289,7 +290,8 @@ public sealed partial class StationSystem : SharedStationSystem
 
         if (loud)
         {
-            _chatSystem.DispatchStationAnnouncement(station, $"The station {oldName} has been renamed to {name}.");
+            // funky - announcement refactor
+            _chatSystem.DispatchStationAnnouncement(new ChatAnnouncement($"The station {oldName} has been renamed to {name}.", station), station);
         }
 
         RaiseLocalEvent(station, new StationRenamedEvent(oldName, name), true);

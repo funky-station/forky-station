@@ -7,6 +7,7 @@ using Content.Server.GameTicking.Events;
 using Content.Server.Spawners.Components;
 using Content.Server.Station.Components;
 using Content.Shared.CCVar;
+using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid.Prototypes;
@@ -260,27 +261,33 @@ namespace Content.Server.GameTicking
 
             if (lateJoin && !silent)
             {
+                // funky start - announcement refactor
                 if (jobPrototype.JoinNotifyCrew)
                 {
-                    _chatSystem.DispatchStationAnnouncement(station,
-                        Loc.GetString("latejoin-arrival-announcement-special",
+                    _chatSystem.DispatchStationAnnouncement(new ChatAnnouncement(
+                        Message: Loc.GetString("latejoin-arrival-announcement-special",
                             ("character", MetaData(mob).EntityName),
                             ("entity", mob),
                             ("job", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(jobName))),
-                        Loc.GetString("latejoin-arrival-sender"),
-                        playDefaultSound: false,
-                        colorOverride: Color.Gold);
+                        Source: station,
+                        SenderName: Loc.GetString("latejoin-arrival-sender"),
+                        ShouldPlaySound: false,
+                        ColorOverride: Color.Gold),
+                        station);
                 }
                 else
                 {
-                    _chatSystem.DispatchStationAnnouncement(station,
-                        Loc.GetString("latejoin-arrival-announcement",
+                    _chatSystem.DispatchStationAnnouncement(new ChatAnnouncement(
+                        Message: Loc.GetString("latejoin-arrival-announcement",
                             ("character", MetaData(mob).EntityName),
                             ("entity", mob),
                             ("job", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(jobName))),
-                        Loc.GetString("latejoin-arrival-sender"),
-                        playDefaultSound: false);
+                        Source: station,
+                        SenderName: Loc.GetString("latejoin-arrival-sender"),
+                        ShouldPlaySound: false),
+                        station);
                 }
+                // funky end
             }
 
             _stationJobs.TryAssignJob(station, jobPrototype, player.UserId);

@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Shared.Dataset;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.StationEvents.Components;
+using Content.Shared.Chat;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
@@ -75,16 +76,22 @@ public sealed partial class RandomSentienceRule : StationEventSystem<RandomSenti
         if (isSistr && !SistrCore.StationHasFunctionalCore(station.Value)) // funky, no working sis/tr core on the station means no announcement
             return;
 
-        ChatSystem.DispatchStationAnnouncement(
-            station.Value,
-            Loc.GetString("station-event-random-sentience-announcement",
-                ("kind1", kind1), ("kind2", kind2), ("kind3", kind3), ("amount", groupList.Count),
+        // funky start - announcement refactor
+        var announcement = new ChatAnnouncement(
+            Message: Loc.GetString("station-event-random-sentience-announcement",
+                ("kind1", kind1),
+                ("kind2", kind2),
+                ("kind3", kind3),
+                ("amount", groupList.Count),
                 ("data", _random.Pick(ProtoMan.Index(DataSourceNames))),
                 ("strength", _random.Pick(ProtoMan.Index(IntelligenceLevelNames)))
             ),
-            sender: Loc.GetString(Comp<StationEventComponent>(uid).StartAnnouncementSender), // funky
-            playDefaultSound: false,
-            colorOverride: Comp<StationEventComponent>(uid).StartAnnouncementColor // funky
-        );
+            Source: station.Value,
+            SenderName: Loc.GetString(Comp<StationEventComponent>(uid).StartAnnouncementSender),
+            ShouldPlaySound: false,
+            ColorOverride: Comp<StationEventComponent>(uid).StartAnnouncementColor);
+
+        ChatSystem.DispatchStationAnnouncement(announcement, station);
+        // funky end
     }
 }

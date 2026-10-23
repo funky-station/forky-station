@@ -12,6 +12,7 @@ using System.Numerics;
 using Content.Server._MACRO.Announcements;
 using Content.Shared._Funkystation.CCVar;
 using Content.Shared._MACRO.Announcements;
+using Content.Shared.Chat;
 using Content.Shared.Damage.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -94,10 +95,12 @@ public sealed partial class DragonRiftSystem : EntitySystem
 
                 // BEGIN Funky
                 _announcer.TryGetAnnouncerSound(AnnounceSound, out var sound); // funky - use announcement sound prototypes
-                _chat.DispatchGlobalAnnouncement(msg,
-                    playSound: paExclusive, announcementSound: paExclusive ? sound : null, // funky
-                    colorOverride: Color.Red);
-                if (!paExclusive) // funky
+                _chat.DispatchGlobalAnnouncement(new ChatAnnouncement(
+                    Message: msg,
+                    ShouldPlaySound: paExclusive,
+                    AltAnnouncementSound: sound,
+                    ColorOverride: Color.Red));
+                if (!paExclusive) // funky TODO: consider just leaving playing the sound up to the announcement method
                     _audio.PlayGlobal(sound, Filter.Broadcast(), true);
                 // END Funky
 
