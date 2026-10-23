@@ -47,6 +47,92 @@
     rootTask:
       task: SimpleHumanoidHostileCompound
 
+#funky start
+- type: entity
+  name: mercenary grunt
+  parent: MobHuman
+  id: MobMercenaryGrunt
+  description: Get some!
+  components:
+  - type: NpcFactionMember
+    factions:
+      - Syndicate
+  - type: Loadout
+    prototypes:
+      - MercGruntGear
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHumanoidHostileCompound
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-mercenary-grunt-name
+    description: ghost-role-information-mercenary-grunt-description
+    rules: ghost-role-information-mercenary-grunt-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  name: mercenary guard
+  parent: MobHuman
+  id: MobMercenaryGuard
+  description: Take cover!
+  components:
+  - type: NpcFactionMember
+    factions:
+      - Syndicate
+  - type: Loadout
+    prototypes:
+      - MercGuardGear
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHumanoidHostileCompound
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-mercenary-guard-name
+    description: ghost-role-information-mercenary-guard-description
+    rules: ghost-role-information-mercenary-guard-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  name: mercenary commander
+  parent: MobHuman
+  id: MobMercenaryCommander
+  description: My henchmen do all the work for me.
+  components:
+  - type: NpcFactionMember
+    factions:
+      - Syndicate
+  - type: Loadout
+    prototypes:
+      - MercCommanderGear
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHumanoidHostileCompound
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-mercenary-commander-name
+    description: ghost-role-information-mercenary-commander-description
+    rules: ghost-role-information-mercenary-commander-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+#funky end
+
 - type: entity
   name: syndicate footsoldier
   parent: MobHuman
