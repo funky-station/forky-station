@@ -5,10 +5,10 @@
   description: The archeologist's friend, able to identify the node of an artifact with only a single scan.
   components:
     - type: Sprite
-      sprite: Objects/Specific/Xenoarchaeology/node_scanner.rsi
+      sprite: _Funkystation/Objects/Specific/Xenoarchaeology/node_scanner.rsi # Funky
       state: icon
     - type: Item
-      sprite: Objects/Specific/Xenoarchaeology/node_scanner.rsi
+      sprite: _Funkystation/Objects/Specific/Xenoarchaeology/node_scanner.rsi # Funky
     - type: NodeScanner
     - type: UseDelay
       delay: 1

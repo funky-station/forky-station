@@ -13,13 +13,13 @@
               doAfter: 2
             - tag: CentrifugeCompatible
               icon:
-                sprite: Objects/Specific/Chemistry/vial.rsi
+                sprite: _Funkystation/Objects/Specific/Chemistry/vial.rsi # Funky
                 state: vial
               name: construction-graph-tag-centrifuge-compatible
               doAfter: 2
             - tag: CentrifugeCompatible
               icon:
-                sprite: Objects/Specific/Chemistry/vial.rsi
+                sprite: _Funkystation/Objects/Specific/Chemistry/vial.rsi # Funky
                 state: vial
               name: construction-graph-tag-centrifuge-compatible
               doAfter: 2

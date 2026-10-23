@@ -5,7 +5,7 @@
   description: A disk for the R&D server containing 1000 points.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Research/researchdisk.rsi
+    sprite: _Funkystation/Objects/Specific/Research/researchdisk.rsi # Funky
     state: icon
   - type: ResearchDisk
   - type: GuideHelp

@@ -16,7 +16,7 @@
   id: BasicAnomalousResearch
   name: research-technology-basic-anomalous-research
   icon:
-    sprite: Objects/Specific/Research/anomalyscanner.rsi
+    sprite: _Funkystation/Objects/Specific/Research/anomalyscanner.rsi # Funky
     state: icon
   discipline: Experimental
   tier: 1
