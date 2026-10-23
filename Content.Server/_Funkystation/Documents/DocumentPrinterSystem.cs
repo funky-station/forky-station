@@ -262,9 +262,9 @@ public sealed partial class DocumentPrinterSystem : EntitySystem
             var paper = Spawn(doc.PaperPrototype, coords);
 
             // The labeling code will throw an exception if there's no newline in the text so we should make sure there is one first
-            if (contents.IndexOf(Environment.NewLine, StringComparison.Ordinal) > -1)
+            if (contents.IndexOf('\n', StringComparison.Ordinal) > -1)
             {
-                var firstLine = contents.Substring(0, contents.IndexOf(Environment.NewLine, StringComparison.Ordinal));
+                var firstLine = contents.Substring(0, contents.IndexOf('\n', StringComparison.Ordinal));
 
                 if (firstLine.StartsWith('#'))
                 {
