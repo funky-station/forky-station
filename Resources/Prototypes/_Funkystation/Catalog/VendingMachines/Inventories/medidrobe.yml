@@ -1,0 +1,9 @@
+# Partial prototypes start
+
+- type: vendingMachineInventory
+  id: MediDrobeInventory
+  startingInventory:
+    ClothingEyesHudMedical: !Remove
+    ClothingEyesEyepatchHudMedical: !Remove
+
+# Partial prototypes end

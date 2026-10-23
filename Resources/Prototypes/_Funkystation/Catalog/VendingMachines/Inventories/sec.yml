@@ -1,0 +1,10 @@
+# Partial prototypes start
+
+- type: vendingMachineInventory
+  id: SecTechInventory
+  startingInventory:
+    ClothingEyesGlassesSunglasses: 5 # To make up for the other eyewear being removed
+    ClothingEyesHudSecurity: !Remove
+    ClothingEyesEyepatchHudSecurity: !Remove
+
+# Partial prototypes end

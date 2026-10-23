@@ -1,0 +1,11 @@
+# Partial prototypes start
+
+- type: construction
+  id: ClothingEyesHudMedSec
+  abstract: true # Abstracting construction prototypes stops them from showing up in-game
+
+- type: construction
+  id: ClothingEyesGlassesSecurity
+  abstract: true
+
+# Partial prototypes end
