@@ -362,3 +362,4 @@
   - type: ConditionalSpawner
     prototypes:
     - MobSlug
+
