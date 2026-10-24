@@ -1,0 +1,9 @@
+- type: sourcePort
+  id: POSTransactionSucceeded
+  name: signal-port-name-pos-succeeded
+  description: signal-port-description-pos-succeeded
+
+- type: sourcePort
+  id: POSTransactionFailed
+  name: signal-port-name-pos-failed
+  description: signal-port-description-pos-failed

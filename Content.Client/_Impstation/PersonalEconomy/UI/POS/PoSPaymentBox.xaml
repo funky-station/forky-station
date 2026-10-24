@@ -1,0 +1,48 @@
+<controls:PoSPaymentBox
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._Impstation.PersonalEconomy.UI.POS"
+    VerticalExpand="True"
+    HorizontalExpand="True">
+    <BoxContainer Orientation="Vertical" VerticalExpand="True">
+        <BoxContainer Name="NamingThingsIsHard" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Margin="14 12">
+            <Control VerticalExpand="True"/>
+            <RichTextLabel Name="ValidityLabel" Text="{Loc pos-payment-present-card}" HorizontalAlignment="Center" SetWidth="260"/>
+            <Control VerticalExpand="True"/>
+            <Button Name="MerchantButton" Text="{Loc pos-merchant-button}" HorizontalAlignment="Center" StyleClasses="OpenBoth"/>
+        </BoxContainer>
+        <BoxContainer Name="MainContainer" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Margin="14 12" Visible="False">
+            <Label Text="{Loc pos-payment-review-title}" StyleClasses="LabelHeading" HorizontalAlignment="Center"/>
+            <Control MinHeight="10"/>
+            <Label Name="NameAndNumberLabel"/>
+            <Label Name="ChargeReasonLabel" StyleClasses="LabelSubText"/>
+            <Control MinHeight="14"/>
+            <PanelContainer StyleClasses="LowDivider"/>
+            <Control MinHeight="10"/>
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                <Label Text="{Loc pos-payment-subtotal}"/>
+                <Control HorizontalExpand="True"/>
+                <Label Name="SubtotalLabel"/>
+            </BoxContainer>
+            <Control MinHeight="4"/>
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                <Label Name="TaxLabel" StyleClasses="LabelSubText"/>
+                <Control HorizontalExpand="True"/>
+                <Label Name="TaxAmountLabel" StyleClasses="LabelSubText"/>
+            </BoxContainer>
+            <Control MinHeight="8"/>
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                <Label Text="{Loc pos-payment-total}" StyleClasses="LabelHeading"/>
+                <Control HorizontalExpand="True"/>
+                <Label Name="TotalLabel" StyleClasses="LabelHeading"/>
+            </BoxContainer>
+            <Control VerticalExpand="True" MinHeight="12"/>
+            <Control HorizontalExpand="True" MinHeight="22">
+                <Label Name="NoFundsLabel" Text="{Loc transaction-low-funds}" Visible="False" Access="Public" HorizontalAlignment="Center"/>
+            </Control>
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="6">
+                <Button Name="ConfirmTransactionButton" Text="{Loc pos-payment-confirm-button-label}" HorizontalExpand="True" StyleClasses="positive"/>
+                <Button Name="CancelButton" Text="{Loc pos-payment-cancel-button-label}" HorizontalExpand="True" StyleClasses="negative"/>
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:PoSPaymentBox>
