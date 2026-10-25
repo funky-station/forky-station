@@ -2,7 +2,7 @@ using JetBrains.Annotations;
 using Robust.Client.Graphics;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._FunkyStation.EdgeTrim
+namespace Content.Client._Funkystation.EdgeTrim
 {
     /// <summary>
     ///     Makes sprites of other anchored entities adjust based on the trimming keys that they have. IconSmoothing

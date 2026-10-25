@@ -6,7 +6,7 @@ using Robust.Client.UserInterface.RichText;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Client._FunkyStation.Handwriting;
+namespace Content.Client._Funkystation.Handwriting;
 
 /// <summary>
 /// this is a custom FontTag handler to support changing the font via FontPrototype
