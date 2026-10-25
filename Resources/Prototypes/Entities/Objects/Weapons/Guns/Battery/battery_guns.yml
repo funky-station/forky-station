@@ -274,6 +274,8 @@
   parent: [BaseLaserRifle, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponLaserCarbine
   description: Favoured by Nanotrasen Security for being cheap and easy to use.
+  components: #funky
+  - type: SerialNumber
 
 - type: entity
   name: practice laser carbine
@@ -287,6 +289,7 @@
     proto: RedLaserPractice
     fireCost: 62.5
   - type: PacifismAllowedGun
+  - type: SerialNumber #funky
 
 - type: entity
   name: pulse pistol
@@ -891,6 +894,7 @@
   - type: Battery
     maxCharge: 480
     startingCharge: 480
+  - type: SerialNumber #funky
 
 - type: entity
   name: energy magnum
@@ -935,6 +939,7 @@
   - type: BatterySelfRecharger
     autoRechargeRate: 48
     autoRechargePauseTime: 10
+  - type: SerialNumber #funky
 
 - type: entity
   name: temperature gun
@@ -1057,7 +1062,7 @@
   id: WeaponRangeFinderXenoborg
   name: xenoborg range finder
   components:
-  - type: Sprite 
+  - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/xenoborg_range_finder.rsi
     layers:
     - state: icon

@@ -57,6 +57,7 @@ namespace Content.Shared._Funkystation.SerialNumber
             };
 
             _doAfter.TryStartDoAfter(doAfterArgs);
+            _audio.PlayPvs(comp.RemoveSound, user);
         }
 
         private void OnRemoval(EntityUid uid, SerialNumberComponent comp, InteractUsingEvent args)
@@ -73,8 +74,6 @@ namespace Content.Shared._Funkystation.SerialNumber
             {
                 return;
             }
-
-            _audio.PlayPvs(comp.RemoveSound, uid);
 
             StartDoAfter(comp, args.User, comp.RemovalTime);
             args.Handled = true;

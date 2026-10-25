@@ -32,6 +32,9 @@
   parent: [ BaseSecurityContraband, ClothingOuterArmorBase ]
   id: ClothingOuterArmorBasic
   components:
+  - type: SerialNumber #funky start
+    prefix: "Property of NanoTrasen Model Number: 22569"
+    noNumber: True
   - type: Tag
     tags:
     - WhitelistChameleon

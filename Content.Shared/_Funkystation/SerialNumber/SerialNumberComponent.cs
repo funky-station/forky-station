@@ -63,7 +63,7 @@ public sealed partial class SerialNumberComponent : Component
     //  Examine text if serial number is removed
     // </summary>
     [DataField("removedText")]
-    public string RemovedText = "The serial number is scratched off";
+    public string RemovedText = "The serial number is removed";
 
     /// <summary>
     /// The tool quality needed to remove serial number
@@ -80,8 +80,8 @@ public sealed partial class SerialNumberComponent : Component
     /// <summary>
     /// Sound to make when removing the marking
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public SoundPathSpecifier RemoveSound = new SoundPathSpecifier("/Audio/Items/Culinary/mortar_grinding.ogg");
+    [DataField, ViewVariables]
+    public SoundPathSpecifier RemoveSound = new ("/Audio/Items/Culinary/mortar_grinding.ogg");
 
     /// <summary>
     /// Stores doafter to prevent doafter spam/prediction issues

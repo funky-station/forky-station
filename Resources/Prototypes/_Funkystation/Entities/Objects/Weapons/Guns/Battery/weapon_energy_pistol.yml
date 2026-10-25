@@ -49,6 +49,7 @@
           Blunt: 6
     - type: StaticPrice
       price: 299
+    - type: SerialNumber
     - type: Tag
       tags:
         - Sidearm
