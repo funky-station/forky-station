@@ -77,7 +77,8 @@
     - 0,0,1,2
   - type: Storage
     grid:
-    - 0,0,2,1
+    - 0,0,1,1 # funky storage edits Start
+    - 3,0,4,1 #funk end
     maxItemSize: Small
   - type: ContainerContainer
     containers:
