@@ -1,0 +1,32 @@
+- type: entity
+  parent: FoodBurgerBase
+  id: FoodBurgerThatFucksYouUp
+  name: unnerving burger
+  description: This burger gives off a strange aura that fills you with dread.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - bun
+    - meaty
+    - cheesy
+    - strange
+  - type: Sprite
+    state: cheese
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 35
+      - ReagentId: Protein
+        Quantity: 10
+      - ReagentId: PurpleMold
+        Quantity: 10
+  - type: Tag
+    tags:
+    - Meat
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: plain-inhand-left
+      right:
+      - state: plain-inhand-right
