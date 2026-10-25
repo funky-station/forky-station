@@ -11,7 +11,7 @@
 
 #bro put a switch on their mk58
 - type: entity
-  name: mk 58
+  name: mk 60
   parent: WeaponPistolMk58Illegal
   id: WeaponPistolMk58SUPERIllegal
   description: Designed by Nanotrasen’s Small Arms Division with a black market modification for full auto use.

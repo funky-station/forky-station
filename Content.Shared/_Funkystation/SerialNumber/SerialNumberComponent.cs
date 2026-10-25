@@ -75,13 +75,13 @@ public sealed partial class SerialNumberComponent : Component
     /// Amount of time in seconds it takes to remove the serial number
     /// </summary>
     [DataField("removalTime")]
-    public TimeSpan RemovalTime = TimeSpan.FromSeconds(8f);
+    public TimeSpan RemovalTime = TimeSpan.FromSeconds(6f);
 
     /// <summary>
     /// Sound to make when removing the marking
     /// </summary>
     [DataField, ViewVariables]
-    public SoundPathSpecifier RemoveSound = new ("/Audio/Items/Culinary/mortar_grinding.ogg");
+    public SoundPathSpecifier RemoveSound = new ("/Audio/Items/Culinary/mortar_grinding.ogg", AudioParams.Default.WithVolume(8f));
 
     /// <summary>
     /// Stores doafter to prevent doafter spam/prediction issues

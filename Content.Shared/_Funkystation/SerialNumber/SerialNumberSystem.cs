@@ -3,6 +3,7 @@ using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Tools.Systems;
+using Robust.Shared.Audio;
 using Robust.Shared.Utility;
 using Robust.Shared.Random;
 using Robust.Shared.Audio.Systems;
@@ -57,7 +58,7 @@ namespace Content.Shared._Funkystation.SerialNumber
             };
 
             _doAfter.TryStartDoAfter(doAfterArgs);
-            _audio.PlayPvs(comp.RemoveSound, user);
+            _audio.PlayPredicted(comp.RemoveSound, user, doAfterArgs.User);
         }
 
         private void OnRemoval(EntityUid uid, SerialNumberComponent comp, InteractUsingEvent args)
