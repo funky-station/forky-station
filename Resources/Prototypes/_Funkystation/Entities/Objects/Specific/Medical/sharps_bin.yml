@@ -90,6 +90,8 @@
     maxItemSize: Small
     grid:
     - 0,0,3,4
+    storageInsertSound:
+      collection: trashBagRustle
     whitelist:
       tags:
       - SharpsTrash
