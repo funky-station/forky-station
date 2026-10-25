@@ -229,7 +229,7 @@
   parent: JobIcon
   id: JobIconWarden
   icon:
-    sprite: *old-icon-rsi # Funky - Fallback RSI
+    sprite: *icon-rsi
     state: Warden
   jobName: job-name-warden
 
