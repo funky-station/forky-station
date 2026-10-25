@@ -15,7 +15,7 @@
   parent: WeaponPistolMk58Illegal
   id: WeaponPistolMk58SUPERIllegal
   description: Designed by Nanotrasen’s Small Arms Division with a black market modification for full auto use.
-  suffix: "SUPER ILLEGAL"
+  suffix: "ADMEME SUPER ILLEGAL"
   components:
   - type: Gun
     minAngle: 24
