@@ -1,0 +1,13 @@
+- type: construction
+  name: construction-recipe-jani-service-sign-name
+  id: WarningLights
+  graph: WarningLightsGraph
+  startNode: start
+  targetNode: JaniLight
+  category: construction-category-structures
+  description: construction-recipe-jani-service-sign-desc
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+  - !type:AgainstWall
