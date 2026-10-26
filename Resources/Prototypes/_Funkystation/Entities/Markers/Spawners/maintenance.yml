@@ -254,8 +254,8 @@
   - type: Sprite
     layers:
     - state: red
-    - sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/blue.rsi
-      state: closed
+    - sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/red.rsi
+      state: random
   - type: EntityTableSpawner
     offset: 0
     table: !type:NestedSelector
@@ -302,7 +302,7 @@
     layers:
     - state: red
     - sprite: _Funkystation/Objects/Specific/Chemistry/beaker_large.rsi
-      state: beakerlarge
+      state: random
   - type: EntityTableSpawner
     offset: 0
     table: !type:NestedSelector
@@ -328,8 +328,7 @@
     layers:
     - state: red
     - sprite: Clothing/Multiple/towel.rsi
-      state: icon
-      color: "#EAE8E8"
+      state: random
   - type: EntityTableSpawner
     offset: 0
     table: !type:NestedSelector
@@ -357,7 +356,7 @@
       layers:
         - state: red
         - sprite: Objects/Weapons/Guns/Pistols/soaker.rsi
-          state: icon
+          state: random
     - type: EntityTableSpawner
       offset: 0
       table: !type:NestedSelector
@@ -388,7 +387,7 @@
     layers:
     - state: red
     - sprite: _Funkystation/Objects/Consumable/Drinks/generic_jug.rsi
-      state: icon
+      state: random
   - type: EntityTableSpawner
     offset: 0
     table: !type:NestedSelector

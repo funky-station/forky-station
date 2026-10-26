@@ -8,7 +8,7 @@
     layers:
     - state: red
     - sprite: Structures/Power/Generation/solar_panel.rsi
-      state: solar_panel_glass
+      state: solar_panel_random
   - type: EntityTableSpawner
     table: !type:NestedSelector
       tableId: RandomSolarTable

@@ -6,8 +6,7 @@
   - type: Sprite
     layers:
     - state: green
-    - state: outfit-1
-      color: "#ffffff"
+    - state: random
       sprite: _MACRO/Objects/Storage/costume_bundle.rsi
   - type: EntityTableSpawner
     offset: 0
