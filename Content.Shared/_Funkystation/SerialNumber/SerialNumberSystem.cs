@@ -35,6 +35,13 @@ namespace Content.Shared._Funkystation.SerialNumber
         {
             var random = _random.Next(comp.StartNumber, comp.EndNumber);
             comp.SerialNumber = random.ToString();
+
+            var randomRemoved = _random.Next(1, 100);
+            if (randomRemoved <= comp.RandomRemovedChance)
+            {
+                comp.Removed = true;
+            }
+
             Dirty(uid, comp);
         }
 
@@ -75,8 +82,6 @@ namespace Content.Shared._Funkystation.SerialNumber
 
             StartDoAfter(comp, args.User, comp.RemovalTime);
             args.Handled = true;
-
-
         }
         private void OnRemoveDoAfter(Entity<SerialNumberComponent> ent, ref SerialNumberDoAfterEvent args)
         {
@@ -86,7 +91,6 @@ namespace Content.Shared._Funkystation.SerialNumber
             args.Handled = true;
             ent.Comp.Removed = true;
         }
-
         private void OnExamined(EntityUid uid, SerialNumberComponent comp, ExaminedEvent args)
         {
             var formattedmessage = new FormattedMessage();

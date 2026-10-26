@@ -60,6 +60,12 @@ public sealed partial class SerialNumberComponent : Component
     public bool Removed = false;
 
     // <summary>
+    //  Percent chance the serial number is randomly scratched off on spawn
+    // </summary>
+    [DataField("randomRemovedChance"), AutoNetworkedField]
+    public int RandomRemovedChance = 0;
+
+    // <summary>
     //  Examine text if serial number is removed
     // </summary>
     [DataField("removedText")]
