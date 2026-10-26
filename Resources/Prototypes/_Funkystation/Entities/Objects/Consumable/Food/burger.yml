@@ -21,6 +21,10 @@
         Quantity: 10
       - ReagentId: PurpleMold
         Quantity: 10
+  - type: PointLight
+    color: "#793a80dd"
+    radius: 1.2
+    falloff: 2
   - type: Tag
     tags:
     - Meat

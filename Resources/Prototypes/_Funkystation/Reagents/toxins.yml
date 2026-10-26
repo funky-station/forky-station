@@ -100,16 +100,16 @@
 
 - type: reagent
   id: PurpleMold
-  name: reagent-name-amatoxin
+  name: reagent-name-purple-mold
   group: Toxins
-  desc: reagent-desc-amatoxin
+  desc: reagent-desc-purple-mold
   physicalDesc: reagent-physical-desc-nondescript
-  contrabandSeverity: Major
-  color: "#D6CE7B"
+  color: "#793a80dd"
   metabolisms:
     Bloodstream:
       metabolismRate: 0.2
       effects:
+      - !type:Jitter
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         type: Add
@@ -121,7 +121,7 @@
       - !type:ModifyStatusEffect
         effectProto: StatusEffectWoozy
         type: Add
-        time: 10
+        time: 20
       - !type:ModifyStatusEffect
         effectProto: StatusEffectScrambled
         type: Add
@@ -129,4 +129,6 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 1
+            Poison: 1.5
+            Caustic: 0.25
+            Asphyxiation: 0.25
