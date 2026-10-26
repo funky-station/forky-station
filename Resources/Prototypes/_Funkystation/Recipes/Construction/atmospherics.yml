@@ -1,0 +1,21 @@
+- type: construction
+  parent: BaseAtmos
+  id: FireAlarmLeft
+  graph: FireAlarmOffset
+  name: construction-recipe-firealarm-offset-name
+  description: construction-recipe-firealarm-left-desc
+  targetNode: fire_alarm_left
+  canBuildInImpassable: true
+  conditions:
+  - !type:WallmountCondition
+
+- type: construction
+  parent: BaseAtmos
+  id: FireAlarmRight
+  graph: FireAlarmOffset
+  name: construction-recipe-firealarm-offset-name
+  description: construction-recipe-firealarm-right-desc
+  targetNode: fire_alarm_right
+  canBuildInImpassable: true
+  conditions:
+  - !type:WallmountCondition

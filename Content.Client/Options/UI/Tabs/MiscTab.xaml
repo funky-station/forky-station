@@ -9,6 +9,8 @@
                        StyleClasses="LabelKeyText"/>
                 <ui:OptionDropDown Name="DropDownHudTheme" Title="{Loc 'ui-options-hud-theme'}" />
                 <ui:OptionDropDown Name="DropDownHudLayout" Title="{Loc 'ui-options-hud-layout'}" />
+                <!-- funky - radio color presets -->
+                <ui:OptionDropDown Name="DropDownRadioColors" Title="{Loc 'ui-options-radio-colors-title'}"/>
                 <Label Text="{Loc 'ui-options-general-discord'}"
                        StyleClasses="LabelKeyText"/>
                 <CheckBox Name="DiscordRich" Text="{Loc 'ui-options-discordrich'}" />

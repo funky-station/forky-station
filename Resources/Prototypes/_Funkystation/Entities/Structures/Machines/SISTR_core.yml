@@ -1,0 +1,126 @@
+﻿- type: entity
+  parent: [ BaseMachinePowered, BaseStructureHealth ]
+  id: SistrCore
+  name: SIS/TR v3.20 core
+  description: The station's Station Infrastructure Support/Telemetry Regulator core. A basic, non-sapient system that monitors station conditions and reports on them.
+  components:
+  - type: SistrCore
+  - type: PAAnnouncer
+  - type: RadioSpeaker
+    channels:
+    - Binary
+  - type: ChatRepeatIgnoreSender
+  - type: TelecomExempt
+  - type: Speech
+    speechVerb: Robotic
+    speechBubbleOffset: 0.5
+  - type: Sprite
+    sprite: _Funkystation/Structures/Machines/sistr.rsi
+    layers:
+    - state: base
+      map: [ "base" ]
+    - state: on
+      shader: unshaded
+      visible: false
+      map: [ "powerLight" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        powerLight:
+          True: { visible: true }
+          False: { visible: false }
+  - type: ApcPowerReceiver
+    powerLoad: 1000
+  - type: PointLight
+    enabled: false
+    castShadows: false
+    radius: 1.5
+    energy: 3.0
+    color: "#86c69a"
+  - type: LitOnPowered
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: -9
+    range: 5
+    enabled: false
+    sound:
+      path: /Audio/Ambience/Objects/server_fans.ogg
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.86,-0.98,0.86,0.98"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Damageable
+    damageModifierSet: SteelMod
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SistrCoreDestroyed:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  id: SistrCoreDestroyed
+  parent: [ BaseStructure, BaseStructureHealth ]
+  name: destroyed SIS/TR core
+  description: The remains of the station's Station Infrastructure Support/Telemetry Regulator core. It is no longer functional.
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: _Funkystation/Structures/Machines/sistr.rsi
+    state: destroyed
+  - type: Physics
+    bodyType: Static
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Rotatable
+  - type: Pullable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.86,-0.98,0.86,0.98"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Damageable
+    damageModifierSet: SteelMod
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 15
+            max: 15
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

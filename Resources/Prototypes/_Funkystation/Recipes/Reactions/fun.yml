@@ -1,0 +1,18 @@
+- type: reaction
+  id: GunpowderAlt
+  impact: Low
+  quantized: true
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Potassium:
+      amount: 5
+    SpaceCleaner:
+      amount: 4
+    TableSalt:
+      amount: 1
+    Ash:
+      amount: 5
+  effects:
+  - !type:SpawnEntity
+    entity: MaterialGunpowder

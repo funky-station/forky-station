@@ -1,23 +1,29 @@
-cargo-gifts-event-announcement = Congratulations! { $sender } has decided to send { $description } to the station { $dest }. Look for it in your next cargo shipment.
-cargo-gift-default-description = A bundle of gifts
-cargo-gift-default-sender = NanoTrasen
-cargo-gift-default-dest = Cargo Dept.
+# rewritten for funky
+cargo-gifts-event-announcement = Logistics alert.
+                                 External freight transfer authorized by { $sender }.
+                                 Payload: { $description }.
+                                 Recipient: { $dest }.
+                                 Retrieve via inbound cargo shuttle.
 
-cargo-gift-dest-bar = bar
-cargo-gift-dest-eng = Engineering Dept
-cargo-gift-dest-supp = Cargo Dept
-cargo-gift-dest-janitor = Service Dept
-cargo-gift-dest-med = Medical Dept
-cargo-gift-dest-sec = Security Dept
+cargo-gift-default-description = uncataloged freight
+cargo-gift-default-sender = NanoTrasen Logistics
+cargo-gift-default-dest = Logistics Department
 
-cargo-gift-pizza-small = A small pizza party
-cargo-gift-pizza-large = A large pizza party
+cargo-gift-dest-bar = Service Department
+cargo-gift-dest-eng = Engineering Department
+cargo-gift-dest-supp = Logistics Department
+cargo-gift-dest-janitor = Service Department
+cargo-gift-dest-med = Medical Department
+cargo-gift-dest-sec = AEGIS Security Consolidated
 
-cargo-gift-eng = Repair Materials
-cargo-gift-vending = Vending machines refills
-cargo-gift-cleaning = Cleaning equipment
-cargo-gift-medical-supply = Medical supplies
-cargo-gift-space-protection = Space Hazard Protection
-cargo-gift-fire-protection = Fire Protection
-cargo-gift-security-guns = Lethal Weapons
-cargo-gift-security-riot = Riot Gear
+cargo-gift-pizza-small = mandatory employee appreciation kit (small pizza party)
+cargo-gift-pizza-large = mandatory employee appreciation kit (large pizza party)
+
+cargo-gift-eng = structural repair materials
+cargo-gift-vending = automated vendor replenishment stock
+cargo-gift-cleaning = custodial and sanitation equipment
+cargo-gift-medical-supply = emergency medical supplies
+cargo-gift-space-protection = extravehicular hazard protection units
+cargo-gift-fire-protection = high-temperature thermal protection units
+cargo-gift-security-guns = lethal armaments
+cargo-gift-security-riot = riot control equipment

@@ -38,6 +38,8 @@
     tags:
     - WhitelistChameleon
     - Backpack
+  - type: ClothingStaminaRegenModifier # Funky
+    regenCoefficient: 0.9
 
 - type: entity
   parent: ClothingBackpack

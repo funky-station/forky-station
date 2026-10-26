@@ -14,12 +14,23 @@ cmd-launchemergencyshuttle-desc = Early launches the emergency shuttle if possib
 cmd-launchemergencyshuttle-help = Usage: launchemergencyshuttle
 
 # Emergency shuttle
-emergency-shuttle-left = The Emergency Shuttle has left the station. Estimate {$transitTime} seconds until the shuttle arrives at CentComm.
-emergency-shuttle-launch-time = The emergency shuttle will launch in {$consoleAccumulator} seconds.
-emergency-shuttle-docked = The Emergency Shuttle has docked {$direction} of the station, {$location}. It will leave in {$time} seconds.{$extended}
-emergency-shuttle-good-luck = The Emergency Shuttle is unable to find a station. Good luck.
-emergency-shuttle-nearby = The Emergency Shuttle is unable to find a valid docking port. It has warped in {$direction} of the station, {$location}. It will leave in {$time} seconds.{$extended}
-emergency-shuttle-extended = {" "}Launch time has been extended due to inconvenient circumstances.
+# rewritten for funky
+emergency-shuttle-left = Evacuation telemetry update.
+                         Emergency vessel has departed station perimeter.
+                         Transit time:
+                         { $transitTime } seconds.
+emergency-shuttle-launch-time = Evacuation alert.
+                                Emergency vessel launch in { $consoleAccumulator } seconds.
+emergency-shuttle-docked = Evacuation telemetry alert.
+                           Emergency vessel docked { $direction } of station perimeter, { $location }.
+                           Departure in { $time } seconds.{ $extended }
+emergency-shuttle-good-luck = Navigational tracking failure.
+                              Evacuation vessel failed to acquire station coordinates.
+                              Recovery operations aborted.
+emergency-shuttle-nearby = Navigational warning.
+                           Docking port acquisition failed. Evacuation vessel translated to open space: { $direction }, { $location }.
+                           Departure in { $time } seconds.{ $extended }
+emergency-shuttle-extended = {" "}Departure countdown extended; auxiliary hold window engaged.
 
 # Emergency shuttle console popup / announcement
 emergency-shuttle-console-no-early-launches = Early launch is disabled

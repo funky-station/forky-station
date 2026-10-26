@@ -1,2 +1,10 @@
-﻿station-event-gas-leak-start-announcement = Attention crew, there is a gas leak on the station. We advise you to avoid the area and wear suit internals in the meantime.
-station-event-gas-leak-end-announcement = The source of the gas leak has been fixed. Please be cautious around areas with gas remaining.
+﻿# rewritten for funky
+station-event-gas-leak-start-announcement = Atmospheric warning.
+                                            Unexpected gas leakage detected within station atmosphere.
+                                            Personnel engage internals immediately.
+                                            Evacuate affected sectors.
+
+station-event-gas-leak-end-announcement = Atmospheric update.
+                                          Gas leakage isolated.
+                                          Residual atmospheric contamination persists in affected sectors.
+                                          Caution advised until scrubbing is complete.

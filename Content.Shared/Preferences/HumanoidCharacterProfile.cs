@@ -854,7 +854,7 @@ namespace Content.Shared.Preferences
         public static string GetName(string species, Gender gender)
         {
             var namingSystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<NamingSystem>();
-            return namingSystem.GetName(species, gender);
+            return namingSystem.GetName(species, gender).Replace("\" \"", "").Trim(); // funky - in case one of the name locstrings intentionally specifies whitespace to mean no first/last name (looking at you, grays)
         }
         public bool Equals(HumanoidCharacterProfile? other)
         {

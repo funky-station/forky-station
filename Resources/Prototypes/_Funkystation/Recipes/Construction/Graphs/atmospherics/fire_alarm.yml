@@ -1,0 +1,150 @@
+- type: constructionGraph
+  id: FireAlarmOffset
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: assembly_left
+      steps:
+      - material: Plastic
+        amount: 2
+        doAfter: 2.0
+    - to: assembly_right
+      steps:
+      - material: Plastic
+        amount: 2
+        doAfter: 2.0
+#left
+  - node: assembly_left
+    entity: FireAlarmAssemblyLeft
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: wired_left
+      steps:
+      - material: Cable
+        amount: 2
+        doAfter: 1
+    - to: start
+      completed:
+      - !type:GivePrototype
+        prototype: SheetPlastic1
+        amount: 2
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: wired_left
+    entity: FireAlarmAssemblyLeft
+    edges:
+    - to: electronics_left
+      steps:
+      - tag: FireAlarmElectronics
+        store: board
+        name: construction-graph-tag-fire-alarm-electronics
+        icon:
+          sprite: "Objects/Misc/module.rsi"
+          state: "door_electronics" # /tg/ uses the same sprite, right?
+        doAfter: 1
+    - to: assembly_left
+      completed:
+      - !type:GivePrototype
+        prototype: CableApcStack1
+        amount: 2
+      steps:
+      - tool: Cutting
+        doAfter: 1
+
+  - node: electronics_left
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: fire_alarm_left
+      steps:
+      - tool: Screwing
+        doAfter: 2
+
+  - node: fire_alarm_left
+    entity: FireAlarmLeft
+    edges:
+    - to: wired_left
+      conditions:
+      - !type:AllWiresCut {}
+      - !type:WirePanel {}
+      - !type:ContainerNotEmpty
+        container: board
+      completed:
+      - !type:EmptyAllContainers
+        pickup: true
+        emptyAtUser: true
+      steps:
+      - tool: Prying
+        doAfter: 1
+#right
+  - node: assembly_right
+    entity: FireAlarmAssemblyRight
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: wired_right
+      steps:
+      - material: Cable
+        amount: 2
+        doAfter: 1
+    - to: start
+      completed:
+      - !type:GivePrototype
+        prototype: SheetPlastic1
+        amount: 2
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: wired_right
+    entity: FireAlarmAssemblyRight
+    edges:
+    - to: electronics_right
+      steps:
+      - tag: FireAlarmElectronics
+        store: board
+        name: construction-graph-tag-fire-alarm-electronics
+        icon:
+          sprite: "Objects/Misc/module.rsi"
+          state: "door_electronics" # /tg/ uses the same sprite, right?
+        doAfter: 1
+    - to: assembly_right
+      completed:
+      - !type:GivePrototype
+        prototype: CableApcStack1
+        amount: 2
+      steps:
+      - tool: Cutting
+        doAfter: 1
+
+  - node: electronics_right
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: fire_alarm_right
+      steps:
+      - tool: Screwing
+        doAfter: 2
+
+  - node: fire_alarm_right
+    entity: FireAlarmRight
+    edges:
+    - to: wired_right
+      conditions:
+      - !type:AllWiresCut {}
+      - !type:WirePanel {}
+      - !type:ContainerNotEmpty
+        container: board
+      completed:
+      - !type:EmptyAllContainers
+        pickup: true
+        emptyAtUser: true
+      steps:
+      - tool: Prying
+        doAfter: 1

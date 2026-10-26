@@ -1,1 +1,4 @@
-﻿station-event-vent-clog-start-announcement = The scrubbers network is experiencing a backpressure surge. Some ejection of contents may occur.
+﻿# rewritten for funky
+station-event-vent-clog-start-announcement = Telemetry alert.
+                                             Severe backpressure surge detected across wastenet.
+                                             Reverse discharge of contents imminent.

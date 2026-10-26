@@ -41,6 +41,9 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
         _spriteSystem = _entManager.System<SpriteSystem>();
 
         NavMap.TrackedEntitySelectedAction += SetTrackedEntityFromNavMap;
+
+        // Funky, rebuild the crew list when the search text changes
+        SearchLineEdit.OnTextChanged += OnSearchLineTextChanged;
     }
 
     public void Set(string stationName, EntityUid? mapUid)
@@ -79,88 +82,9 @@ public sealed partial class CrewMonitoringWindow : FancyWindow
 
         NoServerLabel.Visible = false;
 
-        // Collect one status per user, using the sensor with the most data available.
-        Dictionary<NetEntity, SuitSensorStatus> uniqueSensorsMap = new();
-        foreach (var sensor in sensors)
-        {
-            if (uniqueSensorsMap.TryGetValue(sensor.OwnerUid, out var existingSensor))
-            {
-                // Skip if we already have a sensor with more data for this mob.
-                if (existingSensor.Coordinates != null && sensor.Coordinates == null)
-                    continue;
-
-                if (existingSensor.DamagePercentage != null && sensor.DamagePercentage == null)
-                    continue;
-            }
-
-            uniqueSensorsMap[sensor.OwnerUid] = sensor;
-        }
-        var uniqueSensors = uniqueSensorsMap.Values.ToList();
-
-        // Order sensor data
-        var orderedSensors = uniqueSensors.OrderBy(n => n.Name).OrderBy(j => j.Job);
-        var assignedSensors = new HashSet<SuitSensorStatus>();
-        var departments = uniqueSensors.SelectMany(d => d.JobDepartments).Distinct().OrderBy(n => n);
-
-        // Create department labels and populate lists
-        foreach (var department in departments)
-        {
-            var departmentSensors = orderedSensors.Where(d => d.JobDepartments.Contains(department));
-
-            if (departmentSensors == null || !departmentSensors.Any())
-                continue;
-
-            foreach (var sensor in departmentSensors)
-                assignedSensors.Add(sensor);
-
-            if (SensorsTable.ChildCount > 0)
-            {
-                var spacer = new Control()
-                {
-                    SetHeight = 20,
-                };
-
-                SensorsTable.AddChild(spacer);
-            }
-
-            var deparmentLabel = new RichTextLabel()
-            {
-                Margin = new Thickness(10, 0),
-                HorizontalExpand = true,
-            };
-
-            deparmentLabel.SetMessage(department);
-            deparmentLabel.StyleClasses.Add("font-large");
-
-            SensorsTable.AddChild(deparmentLabel);
-
-            PopulateDepartmentList(departmentSensors);
-        }
-
-        // Account for any non-station users
-        var remainingSensors = orderedSensors.Except(assignedSensors);
-
-        if (remainingSensors.Any())
-        {
-            var spacer = new Control()
-            {
-                SetHeight = 20,
-            };
-
-            SensorsTable.AddChild(spacer);
-
-            var deparmentLabel = new RichTextLabel()
-            {
-                Margin = new Thickness(10, 0),
-                HorizontalExpand = true,
-            };
-
-            deparmentLabel.SetMessage(Loc.GetString("crew-monitoring-ui-no-department-label"));
-
-            SensorsTable.AddChild(deparmentLabel);
-
-            PopulateDepartmentList(remainingSensors);
-        }
+        // Funky, Cache unique sensor data so the crew list can be rebuilt locally
+        _uniqueSensors = GetUniqueSensorsList(sensors);
+        RebuildSensorsTable();
 
         // Show monitor on nav map
         if (monitorCoords != null && _blipTexture != null)

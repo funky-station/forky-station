@@ -82,5 +82,8 @@
 - type: Tag
   id: ConstructionChalk
 
+- type: Tag
+  id: Pouch
+  
 - type: Tag # item is invisible to a patdown search
   id: PatdownConcealed

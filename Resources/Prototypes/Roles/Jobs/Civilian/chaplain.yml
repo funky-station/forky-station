@@ -20,6 +20,7 @@
     shoes: ClothingShoesColorBlack
     id: ChaplainWallet # Funky: the wallet-ening
     ears: ClothingHeadsetService
+    pocket2: PouchGeneric # funky
   storage:
     back:
     - RubberStampChaplain
