@@ -58,6 +58,7 @@
   parent: BaseGasDevice
   id: BaseGasTrinary
   graph: GasTrinary
+  placementMode: AlignAtmosPipeLayers
 # endregion Base
 
 # region Machines
@@ -402,8 +403,27 @@
   parent: BaseGasBinary
   id: GasPort
   targetNode: port
-  placementMode: SnapgridCenter
+  alternativePrototypes:
+  - GasPort
+  - GasPortAlt1
+  - GasPortAlt2
   canBuildInImpassable: false
+  conditions:
+    - !type:NoUnstackableInTile
+
+- type: construction
+  parent: GasPort
+  id: GasPortAlt1
+  hide: true
+  targetNode: portAlt1
+  conditions:
+    - !type:NoUnstackableInTile
+
+- type: construction
+  parent: GasPort
+  id: GasPortAlt2
+  hide: true
+  targetNode: portAlt2
   conditions:
     - !type:NoUnstackableInTile
 
@@ -417,14 +437,44 @@
   parent: BaseGasBinaryStackable
   id: HeatExchanger
   targetNode: radiator
-  placementMode: SnapgridCenter
+  alternativePrototypes:
+  - HeatExchanger
+  - HeatExchangerAlt1
+  - HeatExchangerAlt2
+
+- type: construction
+  parent: HeatExchanger
+  id: HeatExchangerAlt1
+  hide: true
+  targetNode: radiatorAlt1
+
+- type: construction
+  parent: HeatExchanger
+  id: HeatExchangerAlt2
+  hide: true
+  targetNode: radiatorAlt2
 
 - type: construction
   parent: BaseGasBinaryStackable
   id: HeatExchangerBend
   name: construction-recipe-heat-exchanger-bend
   targetNode: bendradiator
-  placementMode: SnapgridCenter
+  alternativePrototypes:
+  - HeatExchangerBend
+  - HeatExchangerBendAlt1
+  - HeatExchangerBendAlt2
+
+- type: construction
+  parent: HeatExchangerBend
+  id: HeatExchangerBendAlt1
+  hide: true
+  targetNode: bendradiatorAlt1
+
+- type: construction
+  parent: HeatExchangerBend
+  id: HeatExchangerBendAlt2
+  hide: true
+  targetNode: bendradiatorAlt2
 # endregion Binary
 
 # region Trinary
@@ -432,7 +482,29 @@
   parent: BaseGasTrinary
   id: GasFilter
   targetNode: filter
+  alternativePrototypes:
+  - GasFilter
+  - GasFilterAlt1
+  - GasFilterAlt2
   mirror: GasFilterFlipped
+  conditions:
+    - !type:NoUnstackableInTile
+
+- type: construction
+  parent: GasFilter
+  id: GasFilterAlt1
+  hide: true
+  targetNode: filterAlt1
+  mirror: GasFilterFlippedAlt1
+  conditions:
+    - !type:NoUnstackableInTile
+
+- type: construction
+  parent: GasFilter
+  id: GasFilterAlt2
+  hide: true
+  targetNode: filterAlt2
+  mirror: GasFilterFlippedAlt2
   conditions:
     - !type:NoUnstackableInTile
 
@@ -446,10 +518,50 @@
     - !type:NoUnstackableInTile
 
 - type: construction
+  parent: GasFilterFlipped
+  id: GasFilterFlippedAlt1
+  hide: true
+  targetNode: filterFlippedAlt1
+  mirror: GasFilterAlt1
+  conditions:
+    - !type:NoUnstackableInTile
+
+- type: construction
+  parent: GasFilterFlipped
+  id: GasFilterFlippedAlt2
+  hide: true
+  targetNode: filterFlippedAlt2
+  mirror: GasFilterAlt2
+  conditions:
+    - !type:NoUnstackableInTile
+
+- type: construction
   parent: BaseGasTrinary
   id: GasMixer
   targetNode: mixer
+  alternativePrototypes:
+  - GasMixer
+  - GasMixerAlt1
+  - GasMixerAlt2
   mirror: GasMixerFlipped
+  conditions:
+    - !type:NoUnstackableInTile
+
+- type: construction
+  parent: GasMixer
+  id: GasMixerAlt1
+  hide: true
+  targetNode: mixerAlt1
+  mirror: GasMixerFlippedAlt1
+  conditions:
+    - !type:NoUnstackableInTile
+
+- type: construction
+  parent: GasMixer
+  id: GasMixerAlt2
+  hide: true
+  targetNode: mixerAlt2
+  mirror: GasMixerFlippedAlt2
   conditions:
     - !type:NoUnstackableInTile
 
@@ -463,9 +575,21 @@
     - !type:NoUnstackableInTile
 
 - type: construction
-  parent: BaseGasTrinary
-  id: PressureControlledValve
-  targetNode: pneumaticvalve
+  parent: GasMixerFlipped
+  id: GasMixerFlippedAlt1
+  hide: true
+  targetNode: mixerFlippedAlt1
+  mirror: GasMixerAlt1
   conditions:
-  - !type:NoUnstackableInTile
+    - !type:NoUnstackableInTile
+
+- type: construction
+  parent: GasMixerFlipped
+  id: GasMixerFlippedAlt2
+  hide: true
+  targetNode: mixerFlippedAlt2
+  mirror: GasMixerAlt2
+  conditions:
+    - !type:NoUnstackableInTile
+
 # endregion Trinary
