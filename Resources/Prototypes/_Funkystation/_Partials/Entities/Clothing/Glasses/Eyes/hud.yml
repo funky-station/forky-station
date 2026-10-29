@@ -1,5 +1,3 @@
-# Partial prototypes start
-
 # Just including the ones most likely to be mapped. Nobody on earth is mapping fried onion goggles anyway
 - type: entity
   id: ClothingEyesHudDiagnostic
@@ -40,5 +38,3 @@
   id: ClothingEyesEyepatchHudDiag
   suffix: DO NOT MAP
   categories: [ DoNotMap ]
-
-# Partial prototypes end

@@ -1,8 +1,4 @@
-# Partial prototypes start
-
 - type: entity
   id: BoxSecglasses
   suffix: DO NOT MAP
   categories: [ DoNotMap ]
-
-# Partial prototypes end

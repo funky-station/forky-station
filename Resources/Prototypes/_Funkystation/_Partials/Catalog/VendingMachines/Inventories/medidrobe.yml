@@ -1,9 +1,7 @@
-# Partial prototypes start
+# TODO: Move other modifications we made to the proto here
 
 - type: vendingMachineInventory
   id: MediDrobeInventory
   startingInventory:
     ClothingEyesHudMedical: !Remove
     ClothingEyesEyepatchHudMedical: !Remove
-
-# Partial prototypes end

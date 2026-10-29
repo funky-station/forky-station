@@ -1,10 +1,6 @@
-# Partial prototypes start
-
 # TODO: Move other modifications we made to the protos here
 
 - type: startingGear
-  id: CaptainGear
+  id: WardenGear
   equipment:
     eyes: ClothingEyesGlassesSunglasses
-
-# Partial prototypes end

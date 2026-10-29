@@ -79,7 +79,7 @@
   graph: ClothingShoeSlippersLizard
   targetNode: shoes
 
-- type: construction # Funky - Removing HUDs
+- type: construction
   parent: BaseClothing
   id: ClothingEyesGlassesSecurity
   graph: GlassesSecHUD
