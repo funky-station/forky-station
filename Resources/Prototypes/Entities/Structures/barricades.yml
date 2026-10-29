@@ -43,6 +43,12 @@
   - type: FireVisuals
     sprite: Effects/fire.rsi
     normalState: 1
+  - type: Climbable #funky
+    delay: 5.0
+  - type: Bonkable #funky
+    bonkDamage:
+      types:
+        Blunt: 4
   - type: Damageable
     damageModifierSet: WoodMod
   - type: Destructible

@@ -126,6 +126,10 @@
       radius: 3
       color: red
     - type: Climbable
+    - type: Bonkable #funky #this barrier discriminates against clowns
+      bonkDamage:
+        types:
+          Blunt: 4
     - type: Destructible
       thresholds:
       - trigger:
