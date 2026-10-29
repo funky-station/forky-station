@@ -33,6 +33,10 @@
   - type: Construction
     graph: PipeBomb
     node: pipebomb
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 5 #ow
 
 - type: entity
   parent: [ BaseItem, BaseMinorContraband ]
@@ -48,6 +52,10 @@
     graph: PipeBomb
     node: gunpowder
     defaultTarget: pipebomb
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 5 #ow
 
 - type: entity
   parent: [ BaseItem, BaseMinorContraband ]
@@ -63,3 +71,7 @@
     graph: PipeBomb
     node: cable
     defaultTarget: pipebomb
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 5 #ow

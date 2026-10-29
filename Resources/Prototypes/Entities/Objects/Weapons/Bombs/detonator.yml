@@ -43,6 +43,10 @@
           Unprimed: { state: complete }
   - type: StaticPrice
     price: 25
+  - type: DamageOtherOnHit #funky
+    damage:
+      types:
+        Blunt: 5 #ow
 
 - type: entity
   parent: EmptyDetonator

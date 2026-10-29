@@ -56,6 +56,10 @@
           base:
             Primed: { state: activated }
             Unprimed: { state: icon }
+    - type: DamageOtherOnHit #funky
+      damage:
+        types:
+          Blunt: 5 #ow #seriously, why would you throw this one.
 
 - type: entity
   id: HotPotatoEffect
