@@ -1406,7 +1406,7 @@ entities:
     - type: Transform
       pos: 27.5,-0.5
       parent: 179
-- proto: GlowstickYellow
+- proto: FuGlowstickYellow
   entities:
   - uid: 25
     components:
