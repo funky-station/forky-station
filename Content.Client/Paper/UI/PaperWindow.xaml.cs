@@ -20,7 +20,7 @@ using Content.Shared.Tag;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared._Funkystation.Handwriting; // funky
-using Content.Client._FunkyStation.Handwriting; // funky
+using Content.Client._Funkystation.Handwriting; // funky
 
 namespace Content.Client.Paper.UI
 {

@@ -5,9 +5,10 @@
     ClothingEyesGlassesChemical: 1
     # Optional
     ClothingHeadsetMedical: 1
-    ClothingBackpackChemistry: 1
-    ClothingBackpackSatchelChemistry: 1
-    ClothingBackpackDuffelChemistry: 1
+    # ClothingBackpackChemistry: 1 # funky
+    # ClothingBackpackSatchelChemistry: 1 # funky
+    # ClothingBackpackDuffelChemistry: 1 # funky
+    PouchMedical: 1 # Funky
     ChemBag: 1
     # Funky uniforms
     FuClothingUniformChemDress: 1

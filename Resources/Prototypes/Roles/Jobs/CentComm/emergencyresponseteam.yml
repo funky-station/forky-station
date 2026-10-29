@@ -1,3 +1,4 @@
+# Leader
 - type: job
   id: ERTLeader
   name: job-name-ertleader
@@ -51,8 +52,8 @@
     - MedkitCombatFilled # End of first line
     - MedkitCombatFilled
     - TelescopicShield
-    belt:
     - Truncheon # Funky
+    belt:
     - Handcuffs
     - Handcuffs
     - CrowbarRed
@@ -77,8 +78,8 @@
     - MedkitCombatFilled # End of first line
     - GrenadeShrapnel
     - EmpGrenade
-    belt:
     - Truncheon # Funky
+    belt:
     - Handcuffs
     - Handcuffs
     - CrowbarRed
@@ -319,8 +320,8 @@
     - TelescopicShield
     - HoloprojectorSecurity
     - PowerCellHigh
-    belt:
     - Truncheon # Funky
+    belt:
     - Handcuffs
     - Handcuffs
     - CrowbarRed
@@ -369,23 +370,22 @@
     - GrenadeBlast
     - GrenadeBlast
     - GrenadeBlast
+    - GrenadeFlash
+    - GrenadeFlash # End of first line
+    - GrenadeEMP
+    - GrenadeEMP
+    - GrenadeEMP
     - MagazinePistol
-    - MedkitCombatFilled # End of first line
-    - GrenadeEMP
-    - GrenadeEMP
-    - GrenadeEMP
-    - GrenadeFlash
-    - GrenadeFlash
-    - GrenadeFlash
-    - MagazinePistol
-    belt:
     - Truncheon # Funky
+    belt:
     - Handcuffs
     - Handcuffs
     - CrowbarRed
+    - EmergencyMedipen
     - WeaponPistolMk58
     - MagazinePistol
-    - EmergencyMedipen
+    - MagazinePistol
+    - MedkitCombatFilled
 
 - type: startingGear
   parent: ERTSecurityGearEVA
@@ -397,23 +397,22 @@
     - ExGrenade
     - SmokeGrenade
     - EmpGrenade
-    - HoloprojectorSecurity
     - TelescopicShield
-    - TelescopicShield
-    - TelescopicShield
-    - MedkitCombatFilled # End of first line
+    - TelescopicShield # End of first line
+    - MedkitCombatFilled
     - MagazinePistolSubMachineGunTopMounted
     - MagazinePistolSubMachineGunTopMounted
     - MagazinePistolSubMachineGunTopMounted
     - MagazinePistolSubMachineGunTopMounted
-    belt:
     - Truncheon # Funky
+    belt:
     - Handcuffs
     - Handcuffs
     - CrowbarRed
     - WeaponPistolMk58
     - MagazinePistol
     - EmergencyMedipen
+    - HoloprojectorSecurity
 
 - type: startingGear
   parent: ERTSecurityGearEVA
@@ -427,12 +426,11 @@
     - BoxShotgunSlug
     - BoxShotgunIncendiary
     - MedkitCombatFilled # End of first line
-    - SmokeGrenade
     - ExGrenade
     - CableDetStack
     - BoxDetonator
-    belt:
     - Truncheon # Funky
+    belt:
     - Handcuffs
     - Handcuffs
     - CrowbarRed
@@ -529,8 +527,8 @@
     - MedkitCombatFilled
     - ClothingEyesGlassesChemical
     - ChemistryBottleOmnizine
-    belt:
     - Truncheon # Funky
+    belt:
     - Zipties
     - CrowbarRed
     - MagazineRifle

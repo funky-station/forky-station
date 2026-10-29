@@ -108,6 +108,7 @@
   description: A fire alarm assembly. Very mild.
   components:
   - type: Sprite
+    offset: 0, -0.25 #funky, it was lodged inside the wall instead of on it
     sprite: Structures/Wallmounts/fire-alarm.rsi
     layers:
     - state: frame1

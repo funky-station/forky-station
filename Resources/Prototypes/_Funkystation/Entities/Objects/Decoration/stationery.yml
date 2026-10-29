@@ -1,0 +1,957 @@
+# Pen receptacle
+
+## Abstract prototype
+
+- type: entity
+  id: BasePenReceptacle
+  abstract: true
+  parent: BaseItem
+  name: pen receptacle
+  description: A plastic container distributed by NanoTrasen in a futile attempt to limit loss of stationery.
+  components:
+  - type: Item
+    size: Small
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 10
+  - type: ItemSlots
+    slots:
+      pen_slot8:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 8
+      pen_slot7:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 7
+      pen_slot6:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 6
+      pen_slot5:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 5
+      pen_slot4:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 4
+      pen_slot3:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 3
+      pen_slot2:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 2
+      pen_slot1:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 1
+  - type: ContainerContainer
+    containers:
+      pen_slot8: !type:ContainerSlot { }
+      pen_slot7: !type:ContainerSlot { }
+      pen_slot6: !type:ContainerSlot { }
+      pen_slot5: !type:ContainerSlot { }
+      pen_slot4: !type:ContainerSlot { }
+      pen_slot3: !type:ContainerSlot { }
+      pen_slot2: !type:ContainerSlot { }
+      pen_slot1: !type:ContainerSlot { }
+  - type: ItemMapper
+    mapLayers:
+      pen1:
+        minCount: 1
+        whitelist:
+          tags:
+          - Write
+      pen2:
+        minCount: 2
+        whitelist:
+          tags:
+          - Write
+      pen3:
+        minCount: 3
+        whitelist:
+          tags:
+          - Write
+      pen4:
+        minCount: 4
+        whitelist:
+          tags:
+          - Write
+    sprite: _Funkystation/Objects/Decoration/pen_receptacle.rsi
+  - type: Appearance
+
+## Empty colored prototypes
+
+- type: entity
+  id: PenReceptacleBeige
+  parent: BasePenReceptacle
+  suffix: Beige
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Decoration/pen_receptacle.rsi
+    layers:
+    - state: icon-beige
+
+- type: entity
+  id: PenReceptacleBlue
+  parent: BasePenReceptacle
+  suffix: Blue
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Decoration/pen_receptacle.rsi
+    layers:
+    - state: icon-blue
+
+- type: entity
+  id: PenReceptacleGreen
+  parent: BasePenReceptacle
+  suffix: Green
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Decoration/pen_receptacle.rsi
+    layers:
+    - state: icon-green
+
+- type: entity
+  id: PenReceptacleGrey
+  parent: BasePenReceptacle
+  suffix: Grey
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Decoration/pen_receptacle.rsi
+    layers:
+    - state: icon-grey
+
+- type: entity
+  id: PenReceptacleRed
+  parent: BasePenReceptacle
+  suffix: Red
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Decoration/pen_receptacle.rsi
+    layers:
+    - state: icon-red
+
+## Half- and fully-filled variants for mappers
+
+# I tried using parenting stuff to make it to avoid having to type out this ItemSlots stuff a million times but it didn't work. Sorry!
+# Also yeah you literally have to fill out this ChuddySlots shit over and over in order for it to work at all.
+
+### Half full
+
+- type: entity
+  id: PenReceptacleBeigeHalfFull
+  parent: PenReceptacleBeige
+  suffix: Beige, 4 pens
+  components:
+  - type: ItemSlots
+    slots:
+      pen_slot8:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 8
+      pen_slot7:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 7
+      pen_slot6:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 6
+      pen_slot5:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 5
+      pen_slot4:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 4
+        startingItem: Pen
+      pen_slot3:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 3
+        startingItem: Pen
+      pen_slot2:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 2
+        startingItem: Pen
+      pen_slot1:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 1
+        startingItem: Pen
+
+- type: entity
+  id: PenReceptacleBlueHalfFull
+  parent: PenReceptacleBlue
+  suffix: Blue, 4 pens
+  components:
+  - type: ItemSlots
+    slots:
+      pen_slot8:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 8
+      pen_slot7:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 7
+      pen_slot6:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 6
+      pen_slot5:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 5
+      pen_slot4:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 4
+        startingItem: Pen
+      pen_slot3:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 3
+        startingItem: Pen
+      pen_slot2:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 2
+        startingItem: Pen
+      pen_slot1:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 1
+        startingItem: Pen
+
+- type: entity
+  id: PenReceptacleGreenHalfFull
+  parent: PenReceptacleGreen
+  suffix: Green, 4 pens
+  components:
+  - type: ItemSlots
+    slots:
+      pen_slot8:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 8
+      pen_slot7:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 7
+      pen_slot6:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 6
+      pen_slot5:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 5
+      pen_slot4:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 4
+        startingItem: Pen
+      pen_slot3:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 3
+        startingItem: Pen
+      pen_slot2:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 2
+        startingItem: Pen
+      pen_slot1:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 1
+        startingItem: Pen
+
+- type: entity
+  id: PenReceptacleGreyHalfFull
+  parent: PenReceptacleGrey
+  suffix: Grey, 4 pens
+  components:
+  - type: ItemSlots
+    slots:
+      pen_slot8:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 8
+      pen_slot7:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 7
+      pen_slot6:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 6
+      pen_slot5:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 5
+      pen_slot4:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 4
+        startingItem: Pen
+      pen_slot3:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 3
+        startingItem: Pen
+      pen_slot2:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 2
+        startingItem: Pen
+      pen_slot1:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 1
+        startingItem: Pen
+
+- type: entity
+  id: PenReceptacleRedHalfFull
+  parent: PenReceptacleRed
+  suffix: Red, 4 pens
+  components:
+  - type: ItemSlots
+    slots:
+      pen_slot8:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 8
+      pen_slot7:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 7
+      pen_slot6:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 6
+      pen_slot5:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 5
+      pen_slot4:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 4
+        startingItem: Pen
+      pen_slot3:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 3
+        startingItem: Pen
+      pen_slot2:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 2
+        startingItem: Pen
+      pen_slot1:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 1
+        startingItem: Pen
+
+### Full
+
+- type: entity
+  id: PenReceptacleBeigeFull
+  parent: PenReceptacleBeige
+  suffix: Beige, 8 pens
+  components:
+  - type: ItemSlots
+    slots:
+      pen_slot8:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 8
+        startingItem: Pen
+      pen_slot7:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 7
+        startingItem: Pen
+      pen_slot6:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 6
+        startingItem: Pen
+      pen_slot5:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 5
+        startingItem: Pen
+      pen_slot4:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 4
+        startingItem: Pen
+      pen_slot3:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 3
+        startingItem: Pen
+      pen_slot2:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 2
+        startingItem: Pen
+      pen_slot1:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 1
+        startingItem: Pen
+
+- type: entity
+  id: PenReceptacleBlueFull
+  parent: PenReceptacleBlue
+  suffix: Blue, 8 pens
+  components:
+  - type: ItemSlots
+    slots:
+      pen_slot8:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 8
+        startingItem: Pen
+      pen_slot7:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 7
+        startingItem: Pen
+      pen_slot6:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 6
+        startingItem: Pen
+      pen_slot5:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 5
+        startingItem: Pen
+      pen_slot4:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 4
+        startingItem: Pen
+      pen_slot3:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 3
+        startingItem: Pen
+      pen_slot2:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 2
+        startingItem: Pen
+      pen_slot1:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 1
+        startingItem: Pen
+
+- type: entity
+  id: PenReceptacleGreenFull
+  parent: PenReceptacleGreen
+  suffix: Green, 8 pens
+  components:
+  - type: ItemSlots
+    slots:
+      pen_slot8:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 8
+        startingItem: Pen
+      pen_slot7:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 7
+        startingItem: Pen
+      pen_slot6:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 6
+        startingItem: Pen
+      pen_slot5:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 5
+        startingItem: Pen
+      pen_slot4:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 4
+        startingItem: Pen
+      pen_slot3:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 3
+        startingItem: Pen
+      pen_slot2:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 2
+        startingItem: Pen
+      pen_slot1:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 1
+        startingItem: Pen
+
+- type: entity
+  id: PenReceptacleGreyFull
+  parent: PenReceptacleGrey
+  suffix: Grey, 8 pens
+  components:
+  - type: ItemSlots
+    slots:
+      pen_slot8:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 8
+        startingItem: Pen
+      pen_slot7:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 7
+        startingItem: Pen
+      pen_slot6:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 6
+        startingItem: Pen
+      pen_slot5:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 5
+        startingItem: Pen
+      pen_slot4:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 4
+        startingItem: Pen
+      pen_slot3:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 3
+        startingItem: Pen
+      pen_slot2:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 2
+        startingItem: Pen
+      pen_slot1:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 1
+        startingItem: Pen
+
+- type: entity
+  id: PenReceptacleRedFull
+  parent: PenReceptacleRed
+  suffix: Red, 8 pens
+  components:
+  - type: ItemSlots
+    slots:
+      pen_slot8:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 8
+        startingItem: Pen
+      pen_slot7:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 7
+        startingItem: Pen
+      pen_slot6:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 6
+        startingItem: Pen
+      pen_slot5:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 5
+        startingItem: Pen
+      pen_slot4:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 4
+        startingItem: Pen
+      pen_slot3:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 3
+        startingItem: Pen
+      pen_slot2:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 2
+        startingItem: Pen
+      pen_slot1:
+        name: pen-receptacle-slot-component-slot-name-pen
+        insertSound: /Audio/_Funkystation/Items/pen_drop.ogg
+        ejectSound: null
+        whitelist:
+          tags:
+          - Write
+        priority: 1
+        startingItem: Pen

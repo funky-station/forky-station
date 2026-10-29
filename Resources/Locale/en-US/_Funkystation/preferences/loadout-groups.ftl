@@ -1,3 +1,6 @@
+# Internal affairs
+loadout-group-xo-backpack = Executive Officer backpack
+
 # Engineering
 fu-loadout-group-station-engineer-head = Station Engineer head
 fu-loadout-group-station-engineer-uniform = Station Engineer uniform
@@ -43,3 +46,6 @@ fu-loadout-group-courier-uniform = Courier uniform
 fu-loadout-group-courier-shoes = Courier shoes
 
 fu-loadout-group-quartermaster-outer-clothing = Quartermaster's outer clothing
+
+#Pouches
+loadout-group-pouch = Pouch

@@ -948,4 +948,272 @@
   id: 111
   time: '2026-09-29T03:32:07Z'
   url: https://github.com/funky-station/forky-station/pull/561
+- author: mkanke
+  changes:
+  - message: Added security locked blast doors
+    type: Add
+  id: 112
+  time: '2026-09-30T14:31:10Z'
+  url: https://github.com/funky-station/forky-station/pull/519
+- author: mkanke
+  changes:
+  - message: Added several offset variations of common wallmount items
+    type: Add
+  id: 113
+  time: '2026-10-02T09:13:54Z'
+  url: https://github.com/funky-station/forky-station/pull/517
+- author: AraiMaia, mkanke
+  changes:
+  - message: Added Generic, Medical, and Research pouches that fit into your pocket
+      slots.
+    type: Add
+  - message: All jumpsuits now have a native 2x2 storage grid.
+    type: Tweak
+  - message: Wearing a backpack, satchel, or duffel now slightly reduces your stamina
+      regeneration speed.
+    type: Tweak
+  - message: Rebalanced roundstart loadouts. Medical, Science, and Service roles now
+      rely on pouches instead of backpacks. Command roles now use stylish Leather
+      Satchels.
+    type: Tweak
+  - message: Backpacks have been heavily phased out of most department vending machines
+      to encourage using pockets, pouches, and belts.
+    type: Remove
+  id: 114
+  time: '2026-10-02T14:23:07Z'
+  url: https://github.com/funky-station/forky-station/pull/542
+- author: AraiMaia
+  changes:
+  - message: Added SIS/TR v3.20, a station infrastructure machine that manages all
+      automated station event announcements.
+    type: Add
+  - message: Rewrote station event and alert level announcements to fit SIS/TR.
+    type: Tweak
+  - message: Station events will no longer announce themselves if SIS/TR is unpowered
+      or destroyed.
+    type: Tweak
+  id: 115
+  time: '2026-10-02T14:31:45Z'
+  url: https://github.com/funky-station/forky-station/pull/550
+- author: mycobiota
+  changes:
+  - message: Viewcone grain is disabled by default.
+    type: Tweak
+  id: 116
+  time: '2026-10-02T14:44:03Z'
+  url: https://github.com/funky-station/forky-station/pull/559
+- author: pirakaplant, vectorassembly, Dogman20801
+  changes:
+  - message: Pen receptacles have been added (with sprites by @pirakaplant, @vectorassembly,
+      and @Dogman20801).
+    type: Add
+  id: 117
+  time: '2026-10-02T21:59:59Z'
+  url: https://github.com/funky-station/forky-station/pull/173
+- author: mkanke-real
+  changes:
+  - message: Fixed missing accesses from access config
+    type: Fix
+  id: 118
+  time: '2026-10-05T12:03:31Z'
+  url: https://github.com/funky-station/forky-station/pull/484
+- author: mkanke
+  changes:
+  - message: Buttons and switches can now be built 3 per wall
+    type: Tweak
+  id: 119
+  time: '2026-10-05T13:20:10Z'
+  url: https://github.com/funky-station/forky-station/pull/400
+- author: Idem778
+  changes:
+  - message: Added IA access to the IA part of the printer
+    type: Add
+  id: 120
+  time: '2026-10-08T17:23:56Z'
+  url: https://github.com/funky-station/forky-station/pull/393
+- author: WiZ88
+  changes:
+  - message: Fixed gas masks reducing vision when lowered.
+    type: Fix
+  id: 121
+  time: '2026-10-08T17:37:05Z'
+  url: https://github.com/funky-station/forky-station/pull/502
+- author: mkanke-real
+  changes:
+  - message: Added an alternate recipe for Gunpowder
+    type: Add
+  id: 122
+  time: '2026-10-08T18:02:52Z'
+  url: https://github.com/funky-station/forky-station/pull/374
+- author: WiZ88
+  changes:
+  - message: Vision now updates quicker when entering and leaving closed storage containers.
+    type: Fix
+  - message: Entities can no longer see items while inside a closed container.
+    type: Fix
+  id: 123
+  time: '2026-10-08T18:12:34Z'
+  url: https://github.com/funky-station/forky-station/pull/499
+- author: AraiMaia
+  changes:
+  - message: Reagent fires set you on fire.
+    type: Tweak
+  id: 124
+  time: '2026-10-08T21:32:46Z'
+  url: https://github.com/funky-station/forky-station/pull/573
+- author: mycobiota
+  changes:
+  - message: Added a "Radio channel theme" dropdown to the general tab of options
+      that lets you choose between Wizden radio colors and Funky radio colors. (Funky
+      is selected by default)
+    type: Add
+  id: 125
+  time: '2026-10-08T21:43:54Z'
+  url: https://github.com/funky-station/forky-station/pull/563
+- author: mycobiota
+  changes:
+  - message: Made the union hardhat functional, with a light
+    type: Add
+  - message: Fixed some hardhat resprites
+    type: Fix
+  id: 126
+  time: '2026-10-08T21:47:57Z'
+  url: https://github.com/funky-station/forky-station/pull/539
+- author: mkanke
+  changes:
+  - message: Tweaked and expanded coat inventories
+    type: Tweak
+  id: 127
+  time: '2026-10-08T21:55:06Z'
+  url: https://github.com/funky-station/forky-station/pull/544
+- author: mycobiota
+  changes:
+  - message: Getting gibbed now also cuts to black.
+    type: Tweak
+  id: 128
+  time: '2026-10-09T02:34:13Z'
+  url: https://github.com/funky-station/forky-station/pull/575
+- author: mkanke
+  changes:
+  - message: Explosives can now be set to have 5 and 1 second timers
+    type: Tweak
+  id: 129
+  time: '2026-10-10T18:02:41Z'
+  url: https://github.com/funky-station/forky-station/pull/526
+- author: metalgearsloth, mycobiota
+  changes:
+  - message: Fix interaction outline not scaling with zoom. (by metalgearsloth, cherrypicked
+      by mycobiota)
+    type: Fix
+  - message: Tidied up interaction outline color settings in the accessibility settings.
+    type: Tweak
+  - message: Added a checkbox to enable/disable custom interaction outline colors.
+    type: Add
+  id: 130
+  time: '2026-10-10T18:04:50Z'
+  url: https://github.com/funky-station/forky-station/pull/574
+- author: gaesnek
+  changes:
+  - message: Removed Meowls.
+    type: Remove
+  id: 131
+  time: '2026-10-12T03:30:51Z'
+  url: https://github.com/funky-station/forky-station/pull/577
+- author: mkanke
+  changes:
+  - message: Service blinker lights are now craftable
+    type: Add
+  id: 132
+  time: '2026-10-16T18:44:11Z'
+  url: https://github.com/funky-station/forky-station/pull/398
+- author: ClocksAreWorthy
+  changes:
+  - message: 9 variations the comfy chair
+    type: Add
+  id: 133
+  time: '2026-10-16T18:45:23Z'
+  url: https://github.com/funky-station/forky-station/pull/416
+- author: mkanke, Gosera
+  changes:
+  - message: Ported small pinboard from old Funky
+    type: Add
+  id: 134
+  time: '2026-10-17T00:01:48Z'
+  url: https://github.com/funky-station/forky-station/pull/273
+- author: pirakaplant
+  changes:
+  - message: 'Document printers now recognise the first line as a label if it begins
+      with a #, like fax machines.'
+    type: Tweak
+  id: 135
+  time: '2026-10-20T08:43:34Z'
+  url: https://github.com/funky-station/forky-station/pull/579
+- author: 1Yunis1
+  changes:
+  - message: Added the Pizzabomb, available for Syndicate agents
+    type: Add
+  id: 136
+  time: '2026-10-20T11:22:57Z'
+  url: https://github.com/funky-station/forky-station/pull/232
+- author: TrixxedHeart
+  changes:
+  - message: Added CanvasDesign, entities that support CanvasDesign can be interacted
+      with to open a drawing menu.
+    type: Add
+  id: 137
+  time: '2026-10-22T07:37:58Z'
+  url: https://github.com/funky-station/forky-station/pull/514
+- author: mkanke
+  changes:
+  - message: Vendor restocks can now be stored on boxshelves and carts
+    type: Add
+  - message: Boxshelves no longer deleted their contents on being broken
+    type: Fix
+  id: 138
+  time: '2026-10-22T12:52:58Z'
+  url: https://github.com/funky-station/forky-station/pull/518
+- author: mkanke-real
+  changes:
+  - message: Newstations can now be selected in the loadout screen
+    type: Add
+  id: 139
+  time: '2026-10-22T13:33:27Z'
+  url: https://github.com/funky-station/forky-station/pull/567
+- author: PopUpPuppygirl
+  changes:
+  - message: Meowls!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    type: Add
+  id: 140
+  time: '2026-10-25T05:21:00Z'
+  url: https://github.com/funky-station/forky-station/pull/581
+- author: PopupPup
+  changes:
+  - message: Marisa
+    type: Fix
+  id: 141
+  time: '2026-10-25T05:49:17Z'
+  url: https://github.com/funky-station/forky-station/pull/585
+- author: AraiMaia
+  changes:
+  - message: Pagers now beep and show a popup when you send a page.
+    type: Add
+  - message: Head PDAs have a Pager app. Depending on your ID's access it can mass-page
+      a department and lists its employees' pager numbers.
+    type: Add
+  - message: Pager numbers now start with a departmental prefix.
+    type: Tweak
+  - message: Pagers now correctly spawn in your wallet at roundstart.
+    type: Fix
+  id: 142
+  time: '2026-10-26T12:46:40Z'
+  url: https://github.com/funky-station/forky-station/pull/572
+- author: Mycobiota, ReconPangolin
+  changes:
+  - message: Upstream merge
+    type: Add
+  - message: Adjusted artifact trigger weights
+    type: Tweak
+  id: 143
+  time: '2026-10-29T10:41:29Z'
+  url: https://github.com/funky-station/forky-station/pull/566
 Order: -1

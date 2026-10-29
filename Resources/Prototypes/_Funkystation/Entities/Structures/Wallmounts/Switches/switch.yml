@@ -1,0 +1,828 @@
+# Alt offsets for switches/buttons
+- type: entity
+  parent: SignalSwitch
+  id: SignalSwitchAlt1
+  suffix: Left
+  components:
+  - type: Sprite
+    offset: -0.315, -0.25
+  - type: Construction
+    graph: SignalButtonGraphAlt1
+    node: SignalButtonNode
+
+- type: entity
+  parent: SignalButton
+  id: SignalButtonAlt1
+  suffix: Left
+  components:
+  - type: Sprite
+    offset: -0.315, -0.25
+  - type: Construction
+    graph: SignalButtonGraphAlt1
+    node: SignalButtonNode
+
+- type: entity
+  parent: SignalSwitch
+  id: SignalSwitchAlt2
+  suffix: Right
+  components:
+  - type: Sprite
+    offset: 0.315, -0.25
+  - type: Construction
+    graph: SignalButtonGraphAlt2
+    node: SignalButtonNode
+
+- type: entity
+  parent: SignalButton
+  id: SignalButtonAlt2
+  suffix: Right
+  components:
+  - type: Sprite
+    offset: 0.315, -0.25
+  - type: Construction
+    graph: SignalButtonGraphAlt2
+    node: SignalButtonNode
+
+# special named version
+- type: entity
+  parent: SignalSwitch
+  id: GenericLightSwitch
+  name: light switch
+  description: Save a watt, turn them off!
+
+- type: entity
+  parent: GenericLightSwitch
+  id: GenericLightAlt1
+  suffix: Left
+  components:
+    - type: Sprite
+      offset: -0.315, -0.25
+
+- type: entity
+  parent: GenericLightSwitch
+  id: GenericLightAlt2
+  suffix: Right
+  components:
+    - type: Sprite
+      offset: 0.315, -0.25
+
+- type: entity
+  parent: SignalSwitch
+  id: BedroomLightSwitch
+  name: light switch
+  description: Time for some shut eye.
+  suffix: Bedroom
+
+- type: entity
+  parent: BedroomLightSwitch
+  id: BedroomLightAlt1
+  suffix: Bedroom, Left
+  components:
+    - type: Sprite
+      offset: -0.315, -0.25
+
+- type: entity
+  parent: BedroomLightSwitch
+  id: BedroomLightAlt2
+  suffix: Bedroom, Right
+  components:
+    - type: Sprite
+      offset: 0.315, -0.25
+
+- type: entity
+  parent: SignalSwitch
+  id: JaniLightSwitch
+  name: janitorial light switch
+  description: Switch to alert the janitor to messes in your department.
+
+- type: entity
+  parent: JaniLightSwitch
+  id: JaniLightAlt1
+  suffix: Left
+  components:
+    - type: Sprite
+      offset: -0.315, -0.25
+
+- type: entity
+  parent: JaniLightSwitch
+  id: JaniLightAlt2
+  suffix: Right
+  components:
+    - type: Sprite
+      offset: 0.315, -0.25
+
+- type: entity
+  parent: SignalSwitch
+  id: BlastDoorSwitch
+  name: blast door switch
+  description: Whatever is in there, you want nothing to do with it.
+
+- type: entity
+  parent: BlastDoorSwitch
+  id: BlastDoorAlt1
+  suffix: Left
+  components:
+    - type: Sprite
+      offset: -0.315, -0.25
+
+- type: entity
+  parent: BlastDoorSwitch
+  id: BlastDoorAlt2
+  suffix: Right
+  components:
+    - type: Sprite
+      offset: 0.315, -0.25
+
+- type: entity
+  parent: SignalSwitch
+  id: ShutterSwitch
+  name: shutter switch
+  description: Keep the air in and the tide out.
+
+- type: entity
+  parent: ShutterSwitch
+  id: ShutterAlt1
+  suffix: Left
+  components:
+    - type: Sprite
+      offset: -0.315, -0.25
+
+- type: entity
+  parent: ShutterSwitch
+  id: ShutterAlt2
+  suffix: Right
+  components:
+    - type: Sprite
+      offset: 0.315, -0.25
+
+# lockable buttons alt offset
+- type: entity
+  parent: SignalButtonDirectional
+  id: LockableButtonAlt1
+  name: lockable button
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Lock
+    - type: AccessReader
+    - type: Sprite
+      offset: -0.315, -0.25
+      drawdepth: WallMountedItems
+      sprite: Structures/Wallmounts/switch-lockable.rsi
+      layers:
+        - state: base
+        - state: button
+        - state: button-unshaded
+          shader: unshaded
+        - map: [ "lock-shaded" ]
+          state: lock-locked
+        - map: [ "lock-unshaded" ]
+          state: lock-locked-unshaded
+          shader: unshaded
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.LockVisuals.Locked:
+          lock-shaded:
+            True: { state: lock-locked }
+            False: { state: lock-unlocked }
+          lock-unshaded:
+            True: { state: lock-locked-unshaded }
+            False: { state: lock-unlocked-unshaded }
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonCaptainAlt1
+  suffix: Captain, Left
+  components:
+    - type: AccessReader
+      access: [["Captain"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonHeadOfPersonnelAlt1
+  suffix: HeadOfPersonnel, Left
+  components:
+    - type: AccessReader
+      access: [["HeadOfPersonnel"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonChiefEngineerAlt1
+  suffix: ChiefEngineer, Left
+  components:
+    - type: AccessReader
+      access: [["ChiefEngineer"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonChiefMedicalOfficerAlt1
+  suffix: ChiefMedicalOfficer, Left
+  components:
+    - type: AccessReader
+      access: [["ChiefMedicalOfficer"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonHeadOfSecurityAlt1
+  suffix: HeadOfSecurity, Left
+  components:
+    - type: AccessReader
+      access: [["HeadOfSecurity"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonResearchDirectorAlt1
+  suffix: ResearchDirector, Left
+  components:
+    - type: AccessReader
+      access: [["ResearchDirector"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonCommandAlt1
+  suffix: Command, Left
+  components:
+    - type: AccessReader
+      access: [["Command"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonCryogenicsAlt1
+  suffix: Cryogenics, Left
+  components:
+    - type: AccessReader
+      access: [["Cryogenics"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonSecurityAlt1
+  suffix: Security, Left
+  components:
+    - type: AccessReader
+      access: [["Security"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonDetectiveAlt1
+  suffix: Detective, Left
+  components:
+    - type: AccessReader
+      access: [["Detective"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonArmoryAlt1
+  suffix: Armory, left
+  components:
+    - type: AccessReader
+      access: [["Armory"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonBrigAlt1
+  suffix: Brig, Left
+  components:
+    - type: AccessReader
+      access: [["Brig"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonLawyerAlt1
+  suffix: Lawyer, Left
+  components:
+    - type: AccessReader
+      access: [["Lawyer"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonEngineeringAlt1
+  suffix: Engineering, LEft
+  components:
+    - type: AccessReader
+      access: [["Engineering"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonMedicalAlt1
+  suffix: Medical, Left
+  components:
+    - type: AccessReader
+      access: [["Medical"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonQuartermasterAlt1
+  suffix: Quartermaster, Left
+  components:
+    - type: AccessReader
+      access: [["Quartermaster"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonSalvageAlt1
+  suffix: Salvage, Left
+  components:
+    - type: AccessReader
+      access: [["Salvage"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonCargoAlt1
+  suffix: Cargo, Left
+  components:
+    - type: AccessReader
+      access: [["Cargo"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonResearchAlt1
+  suffix: Research, Left
+  components:
+    - type: AccessReader
+      access: [["Research"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonServiceAlt1
+  suffix: Service, Left
+  components:
+    - type: AccessReader
+      access: [["Service"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonMaintenanceAlt1
+  suffix: Maintenance, Left
+  components:
+    - type: AccessReader
+      access: [["Maintenance"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonExternalAlt1
+  suffix: Externalm Left
+  components:
+    - type: AccessReader
+      access: [["External"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonJanitorAlt1
+  suffix: Janitor, Left
+  components:
+    - type: AccessReader
+      access: [["Janitor"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonTheatreAlt1
+  suffix: Theatre, Left
+  components:
+    - type: AccessReader
+      access: [["Theatre"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonBarAlt1
+  suffix: Bar, LEft
+  components:
+    - type: AccessReader
+      access: [["Bar"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonChemistryAlt1
+  suffix: Chemistry, Left
+  components:
+    - type: AccessReader
+      access: [["Chemistry"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonKitchenAlt1
+  suffix: Kitchen, Left
+  components:
+    - type: AccessReader
+      access: [["Kitchen"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonChapelAlt1
+  suffix: Chapel, Left
+  components:
+    - type: AccessReader
+      access: [["Chapel"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonHydroponicsAlt1
+  suffix: Hydroponics, Left
+  components:
+    - type: AccessReader
+      access: [["Hydroponics"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonAtmosphericsAlt1
+  suffix: Atmospherics, Left
+  components:
+    - type: AccessReader
+      access: [["Atmospherics"]]
+
+- type: entity
+  parent: LockableButtonAlt1
+  id: LockableButtonCentcommAlt1
+  suffix: CentComm, Left
+  components:
+    - type: AccessReader
+      access: [["CentralCommand"]]
+
+- type: entity
+  parent: SignalButtonDirectional
+  id: LockableButtonAlt2
+  name: lockable button
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Lock
+    - type: AccessReader
+    - type: Sprite
+      offset: 0.315, -0.25
+      drawdepth: WallMountedItems
+      sprite: Structures/Wallmounts/switch-lockable.rsi
+      layers:
+        - state: base
+        - state: button
+        - state: button-unshaded
+          shader: unshaded
+        - map: [ "lock-shaded" ]
+          state: lock-locked
+        - map: [ "lock-unshaded" ]
+          state: lock-locked-unshaded
+          shader: unshaded
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.LockVisuals.Locked:
+          lock-shaded:
+            True: { state: lock-locked }
+            False: { state: lock-unlocked }
+          lock-unshaded:
+            True: { state: lock-locked-unshaded }
+            False: { state: lock-unlocked-unshaded }
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonCaptainAlt2
+  suffix: Captain, Right
+  components:
+    - type: AccessReader
+      access: [["Captain"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonHeadOfPersonnelAlt2
+  suffix: HeadOfPersonnel, Right
+  components:
+    - type: AccessReader
+      access: [["HeadOfPersonnel"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonChiefEngineerAlt2
+  suffix: ChiefEngineer, Right
+  components:
+    - type: AccessReader
+      access: [["ChiefEngineer"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonChiefMedicalOfficerAlt2
+  suffix: ChiefMedicalOfficer, Right
+  components:
+    - type: AccessReader
+      access: [["ChiefMedicalOfficer"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonHeadOfSecurityAlt2
+  suffix: HeadOfSecurity, Right
+  components:
+    - type: AccessReader
+      access: [["HeadOfSecurity"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonResearchDirectorAlt2
+  suffix: ResearchDirector, Right
+  components:
+    - type: AccessReader
+      access: [["ResearchDirector"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonCommandAlt2
+  suffix: Command, Right
+  components:
+    - type: AccessReader
+      access: [["Command"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonCryogenicsAlt2
+  suffix: Cryogenics, Right
+  components:
+    - type: AccessReader
+      access: [["Cryogenics"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonSecurityAlt2
+  suffix: Security, Right
+  components:
+    - type: AccessReader
+      access: [["Security"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonDetectiveAlt2
+  suffix: Detective, Right
+  components:
+    - type: AccessReader
+      access: [["Detective"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonArmoryAlt2
+  suffix: Armory, Right
+  components:
+    - type: AccessReader
+      access: [["Armory"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonBrigAlt2
+  suffix: Brig, Right
+  components:
+    - type: AccessReader
+      access: [["Brig"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonLawyerAlt2
+  suffix: Lawyer, Right
+  components:
+    - type: AccessReader
+      access: [["Lawyer"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonEngineeringAlt2
+  suffix: Engineering, Right
+  components:
+    - type: AccessReader
+      access: [["Engineering"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonMedicalAlt2
+  suffix: Medical, Right
+  components:
+    - type: AccessReader
+      access: [["Medical"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonQuartermasterAlt2
+  suffix: Quartermaster, Right
+  components:
+    - type: AccessReader
+      access: [["Quartermaster"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonSalvageAlt2
+  suffix: Salvage, Right
+  components:
+    - type: AccessReader
+      access: [["Salvage"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonCargoAlt2
+  suffix: Cargo, Right
+  components:
+    - type: AccessReader
+      access: [["Cargo"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonResearchAlt2
+  suffix: Research, Right
+  components:
+    - type: AccessReader
+      access: [["Research"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonServiceAlt2
+  suffix: Service, Right
+  components:
+    - type: AccessReader
+      access: [["Service"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonMaintenanceAlt2
+  suffix: Maintenance, Right
+  components:
+    - type: AccessReader
+      access: [["Maintenance"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonExternalAlt2
+  suffix: External, Right
+  components:
+    - type: AccessReader
+      access: [["External"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonJanitorAlt2
+  suffix: Janitor, Right
+  components:
+    - type: AccessReader
+      access: [["Janitor"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonTheatreAlt2
+  suffix: Theatre, Right
+  components:
+    - type: AccessReader
+      access: [["Theatre"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonBarAlt2
+  suffix: Bar, Right
+  components:
+    - type: AccessReader
+      access: [["Bar"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonChemistryAlt2
+  suffix: Chemistry, Right
+  components:
+    - type: AccessReader
+      access: [["Chemistry"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonKitchenAlt2
+  suffix: Kitchen, Right
+  components:
+    - type: AccessReader
+      access: [["Kitchen"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonChapelAlt2
+  suffix: Chapel, Right
+  components:
+    - type: AccessReader
+      access: [["Chapel"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonHydroponicsAlt2
+  suffix: Hydroponics, Right
+  components:
+    - type: AccessReader
+      access: [["Hydroponics"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonAtmosphericsAlt2
+  suffix: Atmospherics, Right
+  components:
+    - type: AccessReader
+      access: [["Atmospherics"]]
+
+- type: entity
+  parent: LockableButtonAlt2
+  id: LockableButtonCentcommAlt2
+  suffix: CentComm, Right
+  components:
+    - type: AccessReader
+      access: [["CentralCommand"]]
+
+# switch frames alt offset
+- type: entity
+  parent: StructureHealthFurnitureWeak
+  id: ButtonFrameGreyAlt1
+  suffix: Left
+  name: button frame
+  description: It's a frame to help distinguish switches visually.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    offset: -0.315, -0.25
+    drawdepth: SmallObjects
+    sprite: Structures/Wallmounts/switch-frame.rsi
+    state: grey
+  - type: Clickable
+  - type: WallMount
+    arc: 175
+  - type: Physics
+    canCollide: false
+  - type: Rotatable
+  - type: Fixtures
+
+- type: entity
+  id: ButtonFrameCautionAlt1
+  parent: ButtonFrameGreyAlt1
+  suffix: caution, Left
+  components:
+  - type: Sprite
+    state: caution
+
+- type: entity
+  id: ButtonFrameCautionSecurityAlt1
+  parent: ButtonFrameGreyAlt1
+  suffix: caution, Left
+  components:
+  - type: Sprite
+    state: caution-security
+
+- type: entity
+  id: ButtonFrameWhiteAlt1
+  parent: ButtonFrameGreyAlt1
+  suffix: white, Left
+  components:
+  - type: Sprite
+    state: white
+
+- type: entity
+  id: ButtonFrameJanitorAlt1
+  parent: ButtonFrameGreyAlt1
+  suffix: janitor, Left
+  components:
+  - type: Sprite
+    state: janitor
+
+- type: entity
+  parent: StructureHealthFurnitureWeak
+  id: ButtonFrameGreyAlt2
+  suffix: Right
+  name: button frame
+  description: It's a frame to help distinguish switches visually.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    offset: 0.315, -0.25
+    drawdepth: SmallObjects
+    sprite: Structures/Wallmounts/switch-frame.rsi
+    state: grey
+  - type: Clickable
+  - type: WallMount
+    arc: 175
+  - type: Physics
+    canCollide: false
+  - type: Rotatable
+  - type: Fixtures
+
+- type: entity
+  id: ButtonFrameCautionAlt2
+  parent: ButtonFrameGreyAlt2
+  suffix: caution, Right
+  components:
+  - type: Sprite
+    state: caution
+
+- type: entity
+  id: ButtonFrameCautionSecurityAlt2
+  parent: ButtonFrameGreyAlt2
+  suffix: caution, Right
+  components:
+  - type: Sprite
+    state: caution-security
+
+- type: entity
+  id: ButtonFrameWhiteAlt2
+  parent: ButtonFrameGreyAlt2
+  suffix: white, Right
+  components:
+  - type: Sprite
+    state: white
+
+- type: entity
+  id: ButtonFrameJanitorAlt2
+  parent: ButtonFrameGreyAlt2
+  suffix: janitor, Right
+  components:
+  - type: Sprite
+    state: janitor

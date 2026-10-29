@@ -26,7 +26,7 @@
     id: TechnicalAssistantWallet # Funky: the wallet-ening
     belt: ClothingBeltUtilityEngineering
     ears: ClothingHeadsetEngineering
-    pocket2: BookEngineersHandbook
+    pocket1: BookEngineersHandbook # funky, pocket1
   #storage:
     #back:
     #- Stuff

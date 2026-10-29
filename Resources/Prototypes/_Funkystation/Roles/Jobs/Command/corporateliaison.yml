@@ -27,6 +27,7 @@
     shoes: ClothingShoesBootsLaceup
     id: CLPDA
     ears: ClothingHeadsetCL
+    back: ClothingBackpackSatchelLeather
 
 - type: chameleonOutfit
   id: CLChameleonOutfit

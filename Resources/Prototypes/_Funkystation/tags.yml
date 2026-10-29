@@ -82,5 +82,11 @@
 - type: Tag
   id: ConstructionChalk
 
+- type: Tag
+  id: Pouch
+  
 - type: Tag # item is invisible to a patdown search
   id: PatdownConcealed
+
+- type: Tag
+  id: Nightstick # security belt storage
