@@ -18,7 +18,7 @@
   id: SpaceScanning
   name: research-technology-space-scanning
   icon:
-    sprite: Objects/Tools/handheld_mass_scanner.rsi
+    sprite: _Funkystation/Objects/Tools/handheld_mass_scanner.rsi # Funky
     state: icon
   discipline: Industrial
   tier: 1
@@ -155,7 +155,7 @@
   id: AdvancedToolsTechnology
   name: research-technology-advanced-tools
   icon:
-    sprite: Objects/Tools/welder_experimental.rsi
+    sprite: _Funkystation/Objects/Tools/welder_experimental.rsi # Funky
     state: icon
   discipline: Industrial
   tier: 2

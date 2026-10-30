@@ -21,7 +21,7 @@
 - type: cargoProduct
   id: JanitorialLightsReplacement
   icon:
-    sprite: Objects/Power/light_bulb.rsi
+    sprite: _Funkystation/Objects/Power/light_bulb.rsi # Funky
     state: normal
   product: CrateJanitorialReplacementLights
   cost: 600
@@ -31,7 +31,7 @@
 - type: cargoProduct
   id: JanitorialLightsColorful
   icon:
-    sprite: Objects/Power/light_bulb.rsi
+    sprite: _Funkystation/Objects/Power/light_bulb.rsi # Funky
     state: normal
   product: CrateJanitorialColorfulLights
   cost: 800
@@ -41,7 +41,7 @@
 - type: cargoProduct
   id: JanitorialLightsHoliday
   icon:
-    sprite: Objects/Power/light_bulb.rsi
+    sprite: _Funkystation/Objects/Power/light_bulb.rsi # Funky
     state: normal
   product: CrateJanitorialHolidayLights
   cost: 800
