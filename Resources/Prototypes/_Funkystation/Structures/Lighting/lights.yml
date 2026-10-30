@@ -1,0 +1,33 @@
+- type: entity
+  parent: PoweredSmallLightEmpty
+  id: PoweredLEDSmallLightBroken
+  suffix: Broken
+  components:
+  - type: Sprite
+    state: base
+  - type: PointLight
+    enabled: true
+    radius: 8
+    energy: 1
+    softness: 1
+    color: "#EEEEFF"
+  - type: PoweredLight
+    hasLampOnSpawn: LightBulbBroken
+
+- type: entity
+  parent: PoweredlightEmpty
+  id: PoweredlightBroken
+  suffix: Broken
+  components:
+  - type: Sprite
+    state: base
+  - type: PointLight
+    enabled: true
+  - type: PoweredLight
+    hasLampOnSpawn: LightTubeBroken
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: -15
+    range: 2
+    sound:
+      path: /Audio/Ambience/Objects/light_hum.ogg

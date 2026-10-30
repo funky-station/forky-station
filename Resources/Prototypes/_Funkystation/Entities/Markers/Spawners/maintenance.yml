@@ -232,3 +232,195 @@
     offset: 0
     table: !type:NestedSelector
       tableId: RandomToolbox
+
+- type: entityTable
+  id: CigPackTable
+  table: !type:GroupSelector
+    children:
+    - id: CigPackGreen
+    - id: CigPackMixed
+    - id: CigPackBlue
+    - id: CigPackRed
+    - id: CigPackBlack
+
+- type: entity
+  name: Random Cig Pack Spawner
+  id: RandomCigPackSpawner
+  parent: MarkerBase
+  suffix: 100
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Funkystation/Objects/Consumable/Smokeables/Cigarettes/Packs/red.rsi
+      state: random
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:NestedSelector
+      tableId: CigPackTable
+
+- type: entityTable
+  id: MaintenanceGlasswareTable
+  table: !type:GroupSelector
+    children:
+    - id: ChemistryEmptyVial
+    - id: Beaker
+    - id: LargeBeaker
+    - id: DrinkShotGlass
+    - id: DrinkGlass
+    - id: ChemistryEmptyBottle01
+    - id: DrinkBottleAle
+      weight: 0.2
+    - id: DrinkBottleTequila
+      weight: 0.2
+    - id: DrinkBottleRum
+      weight: 0.2
+    - id: DrinkBottleGildlager
+      weight: 0.2
+    - id: DrinkBottleGin
+      weight: 0.2
+    - id: DrinkBottleAlcoClear
+      weight: 0.2
+    - id: DrinkBottleWhiskey
+      weight: 0.2
+    - id: DrinkBottlePatron
+      weight: 0.2
+    - id: DrinkBottleVodka
+      weight: 0.2
+
+- type: entity
+  name: Random Maints Glassware Spawner
+  id: RandomMaintsGlasswareSpawner
+  parent: MarkerBase
+  suffix: 100
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Funkystation/Objects/Specific/Chemistry/beaker_large.rsi
+      state: random
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:NestedSelector
+      tableId: MaintenanceGlasswareTable
+
+- type: entityTable
+  id: TowelTable
+  table: !type:GroupSelector
+    children:
+    - id: TowelColorWhite
+      weight: 20
+    - id: TowelColorNT
+
+- type: entity
+  name: Random Towel Spawner
+  id: RandomTowelSpawner
+  parent: MarkerBase
+  suffix: 100
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Clothing/Multiple/towel.rsi
+      state: random
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:NestedSelector
+      tableId: TowelTable
+
+- type: entityTable
+  id: WaterGunTable
+  table: !type:GroupSelector
+    children:
+      - id: WeaponWaterPistol
+        weight: 10
+      - id: WeaponWaterBlaster
+        weight: 5
+      - id: WeaponWaterBlasterSuper
+
+- type: entity
+  name: Random Water Gun Spawner
+  id: RandomWaterGunSpawner
+  parent: MarkerBase
+  suffix: 100
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Objects/Weapons/Guns/Pistols/soaker.rsi
+          state: random
+    - type: EntityTableSpawner
+      offset: 0
+      table: !type:NestedSelector
+        tableId: WaterGunTable
+
+- type: entityTable
+  id: RandomContainerTable
+  table: !type:GroupSelector
+    children:
+    - id: DrinkFlaskBar
+    - id: DrinkWaterCup
+    - id: CustomDrinkJug
+      weight: 0.25
+    - id: Jug
+      weight: 0.25
+    - !type:NestedSelector
+      tableId: MaintenanceGlasswareTable
+
+- type: entity
+  name: Random Container Spawner
+  id: RandomContainerTable
+  parent: MarkerBase
+  suffix: 100
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Funkystation/Objects/Consumable/Drinks/generic_jug.rsi
+      state: random
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:NestedSelector
+      tableId: RandomContainerTable
+
+- type: entity
+  name: Random Chem Bottle Spawner
+  id: RandomChemBottleSpawner
+  parent: MarkerBase
+  suffix: ALLMEDS
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Objects/Specific/Chemistry/bottle.rsi
+          state: bottle-1
+    - type: EntityTableSpawner
+      offset: 0
+      table: !type:NestedSelector
+        tableId: AllMedicineReagentBottlesTable
+
+#- type: entityTable
+#  id: MaintenanceMedicationLootCommonTable
+#  table: !type:AllSelector
+#    children:
+#    - id: ClothingHeadHatCanadaBeanie
+#      prob: 0.6
+#
+#- type: entityTable
+#  id: MaintenanceMedicationLootUncommonTable
+#  table: !type:AllSelector
+#    children:
+#    - id: ClothingHeadHatCanadaBeanie
+#      prob: 0.6

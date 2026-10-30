@@ -1,0 +1,939 @@
+- type: entity
+  name: Thematic Maint Locker Spawner
+  id: ClosetMaintenanceThematic
+  parent: MarkerBase
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Funkystation/Structures/Storage/closet.rsi # Funky
+      state: rainbow_locker
+  - type: EntityTableSpawner
+    offset: 0
+    table: !type:NestedSelector
+      tableId: ThematicLockerSelector
+      prob: 1
+
+- type: entityTable
+  id: ThematicLockerSelector
+  table: !type:GroupSelector
+    children:
+    - id: ClosetMaintenanceLockerFullRandom
+      weight: 10
+    - id: ClosetMaintenanceLockerJani
+    - id: ClosetMaintenanceLockerClothing
+    - id: ClosetMaintenanceLockerLaundry
+    - id: ClosetMaintenanceLockerServiceWorker
+    - id: ClosetMaintenanceLockerPlumber
+    - id: ClosetMaintenanceLockerNerd
+    - id: ClosetMaintenanceLockerScience
+    - id: ClosetMaintenanceLockerSupply
+    - id: ClosetMaintenanceLockerMusician
+      weight: 0.7
+    - id: ClosetMaintenanceLockerPrankster
+      weight: 0.5
+    - id: ClosetMaintenanceLockerChef
+      weight: 0.5
+    - id: ClosetMaintenanceLockerDruggy
+      weight: 0.5
+    - id: ClosetMaintenanceLockerElectricitan
+      weight: 0.5
+    - id: ClosetMaintenanceLockerEngi
+      weight: 0.3
+    - id: ClosetMaintenanceLockerMedical
+      weight: 0.3
+    - id: ClosetMaintenanceLockerPlushies
+      weight: 0.2
+    - id: ClosetMaintenanceLockerPoolCleaner
+      weight: 0.2
+    - id: ClosetMaintenanceLockerChemist
+      weight: 0.2
+    - id: ClosetMaintenanceLockerPrepper
+      weight: 0.1
+    - id: ClosetMaintenanceLockerSalami
+      weight: 0.001 #lamo
+
+- type: entity
+  id: ClosetMaintenanceLockerFullRandom
+  parent: ClosetMaintenance
+  name: maintenance closet
+  description: It's a storage unit.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: MaintenanceLockerLoot
+#sickly
+- type: entity
+  id: ClosetMaintenanceLockerSickly
+  parent: ClosetMaintenance
+  name: maintenance closet
+  description: It's a storage unit.
+  suffix: Sickly
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: ClosetMaintenanceLockerSicklyTable
+
+- type: entityTable
+  id: ClosetMaintenanceLockerSicklyTable
+  table: !type:AllSelector
+    children:
+    - id: ClothingHandsGlovesNitrile
+      prob: 0.75
+    - id: ClothingMaskSterile
+    - id: SprayBottleSpaceCleaner
+      prob: 0.1
+    - id: ClothingNeckStethoscope
+      prob: 0.05
+    - id: PillTricordrazine
+      amount: !type:RangeNumberSelector
+        range: 0, 1
+    - id: FuClothingHeadFaceshield
+      prob: 0.1
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 1
+      tableId: MaintenanceLockerLoot
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 2
+      tableId: AllSoapsTable
+#jani
+- type: entity
+  id: ClosetMaintenanceLockerJani
+  parent: ClosetMaintenance
+  name: maintenance closet
+  description: It's a storage unit.
+  suffix: Jani
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: ClosetMaintenanceLockerJaniTable
+
+- type: entityTable
+  id: ClosetMaintenanceLockerJaniTable
+  table: !type:AllSelector
+    children:
+    - id: MopItem
+      prob: 0.3
+    - id: Bucket
+      amount: !type:RangeNumberSelector
+        range: 0, 1
+    - id: SprayBottleSpaceCleaner
+      prob: 0.2
+    - !type:GroupSelector
+      prob: 0.5
+      children:
+        - id: ClothingUniformJumpsuitJanitor
+        - id: ClothingUniformJumpskirtJanitor
+    - id: WetFloorSign
+      amount: !type:RangeNumberSelector
+        range: 0, 1
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 1
+      tableId: MaintenanceLockerLoot
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 1
+      tableId: AllSoapsTable
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 1
+      tableId: RareJanitorGloveTable
+
+- type: entityTable
+  id: RareJanitorGloveTable
+  table: !type:GroupSelector
+    children:
+    - id: ClothingHandsGlovesJanitor
+    - id: FuClothingHandsGlovesJanitorInsul
+      weight: 0.05
+#clothing
+- type: entity
+  id: ClosetMaintenanceLockerClothing
+  parent: ClosetMaintenance
+  name: maintenance closet
+  description: It's a storage unit.
+  suffix: Clothing
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: ClosetMaintenanceLockerClothingTable
+
+- type: entityTable
+  id: ClosetMaintenanceLockerClothingTable
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 3, 5
+      tableId: RandomClothingTable
+    - !type:NestedSelector
+      prob: 0.33
+      tableId: MaintenanceLockerLoot
+#plumber
+- type: entity
+  id: ClosetMaintenanceLockerPlumber
+  parent: ClosetMaintenance
+  name: maintenance closet
+  description: It's a storage unit.
+  suffix: Plumber
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: ClosetMaintenanceLockerPlumberTable
+
+- type: entityTable
+  id: ClosetMaintenanceLockerPlumberTable
+  table: !type:AllSelector
+    children:
+      - !type:AllSelector
+        prob: 0.3
+        children:
+        - id: ClothingUniformOveralls
+        - id: ClothingHeadHatGreensoft
+        - id: ClothingShoesColorGreen
+      - id: Plunger
+        amount: !type:RangeNumberSelector
+          range: 0, 1
+      - !type:NestedSelector
+        rolls: !type:RangeNumberSelector
+          range: 0, 1
+        tableId: MaintenanceLockerLoot
+      - !type:NestedSelector
+        rolls: !type:RangeNumberSelector
+          range: 0, 1
+        tableId: AllSoapsTable
+      - !type:NestedSelector
+        rolls: !type:RangeNumberSelector
+          range: 0, 1
+        tableId: RareJanitorGloveTable
+#druggy
+- type: entity
+  id: ClosetMaintenanceLockerDruggy
+  parent: ClosetMaintenance
+  name: maintenance closet
+  description: It's a storage unit.
+  suffix: Druggy
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: ClosetMaintenanceLockerDruggyTable
+
+- type: entityTable
+  id: ClosetMaintenanceLockerDruggyTable
+  table: !type:AllSelector
+    children:
+    - id: ClothingHeadHatCanadaBeanie
+      prob: 0.6
+    - id: ClothingOuterPoncho
+      prob: 0.3
+    - id: ClothingShoesTourist
+      prob: 0.3
+    - id: PackPaperRollingFilters
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: LeavesCannabisDried
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: LeavesTobaccoDried
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+      tableId: CigPackTable
+    - id: FoodBakedCannabisBrownie
+      prob: 0.4
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 1
+      tableId: MaintenanceLockerLoot
+#electricitan
+- type: entity
+  id: ClosetMaintenanceLockerElectricitan
+  parent: ClosetMaintenance
+  name: maintenance closet
+  description: It's a storage unit.
+  suffix: Electricitan
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: ClosetMaintenanceLockerElectricitanTable
+
+- type: entityTable
+  id: ClosetMaintenanceLockerElectricitanTable
+  table: !type:AllSelector
+    children:
+    - id: ToolboxElectricalMaints
+      prob: 0.3
+    - id: Multitool
+      prob: 0.5
+    - id: CableApcStack10
+      amount: !type:RangeNumberSelector
+        range: 0, 2
+    - id: CableMVStack10
+      amount: !type:RangeNumberSelector
+        range: 0, 2
+    - id: CableHVStack10
+      amount: !type:RangeNumberSelector
+        range: 0, 2
+    - !type:GroupSelector
+      children:
+      - id: FuClothingHandsGlovesInsulsBudget
+        weight: 3
+      - id: ClothingHandsGlovesFingerlessInsulated
+        weight: 1
+      - id: FuClothingHandsGlovesInsuls
+        weight: 1
+    - !type:GroupSelector
+      prob: 0.5
+      children:
+        - id: FuClothingUniformCoverallsEngineering
+        - id: FuClothingUniformCoverallsEngineeringRipley
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 2
+      tableId: RandomTechBoardTable
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 1
+      tableId: MaintenanceLockerLoot
+#laundry
+- type: entity
+  id: ClosetMaintenanceLockerLaundry
+  parent: ClosetMaintenance
+  name: maintenance closet
+  description: It's a storage unit.
+  suffix: Laundry
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: ClosetMaintenanceLockerLaundryTable
+
+- type: entityTable
+  id: ClosetMaintenanceLockerLaundryTable
+  table: !type:AllSelector
+    children:
+    - id: LaundryBag
+      amount: !type:RangeNumberSelector
+        range: 0, 3
+    - id: WashingMachineCircuitboard
+      prob: 0.1
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 1, 2
+      tableId: RandomClothingTable
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 2
+      tableId: TowelTable
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 1
+      tableId: MaintenanceLockerLoot
+#musician
+- type: entity
+  id: ClosetMaintenanceLockerMusician
+  parent: ClosetMaintenance
+  name: maintenance closet
+  description: It's a storage unit.
+  suffix: Musician
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: ClosetMaintenanceLockerMusicianTable
+
+- type: entityTable
+  id: ClosetMaintenanceLockerMusicianTable
+  table: !type:AllSelector
+    children:
+    - id: DrinkChampagneBottleFull
+      prob: 0.3
+    - !type:GroupSelector
+      children:
+      - id: ClothingUniformJumpsuitMusician
+      - id: ClothingUniformJumpskirtMusician
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 2
+      tableId: RandomInstrumentTable
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 1
+      tableId: SunglassTable
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 1
+      tableId: MaintenanceLockerLoot
+
+- type: entityTable
+  id: SunglassTable
+  table: !type:GroupSelector
+    children:
+    - id: ClothingEyesGlassesCheapSunglasses
+      weight: 15
+    - id: ClothingEyesGlassesSunglasses
+#service worker
+- type: entity
+  id: ClosetMaintenanceLockerServiceWorker
+  parent: ClosetMaintenance
+  name: maintenance closet
+  description: It's a storage unit.
+  suffix: Service Worker
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: ClosetMaintenanceLockerServiceWorkerTable
+
+- type: entityTable
+  id: ClosetMaintenanceLockerServiceWorkerTable
+  table: !type:AllSelector
+    children:
+    - id: DrinkJigger
+      prob: 0.2
+    - id: RagItem
+      prob: 0.7
+    - id: ClothingUniformJumpsuitBartender
+      prob: 0.5
+    - id: DrinkCanPackBeer
+      prob: 0.2
+    - !type:GroupSelector
+      children:
+      - id: ClothingUniformJumpsuitMusician
+      - id: ClothingUniformJumpskirtMusician
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 1
+      tableId: CigPackTable
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 1
+      tableId: MaintenanceLockerLoot
+#prankster
+- type: entity
+  id: ClosetMaintenanceLockerPrankster
+  parent: ClosetMaintenance
+  name: maintenance closet
+  description: It's a storage unit.
+  suffix: Prankster
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: ClosetMaintenanceLockerPranksterTable
+
+- type: entityTable
+  id: ClosetMaintenanceLockerPranksterTable
+  table: !type:AllSelector
+    children:
+    - id: FoodSoupChiliClown
+      prob: 0.2
+    - id: FoodMeatClown
+      prob: 0.1
+    - id: TrashBananaPeel
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: FoodPieBananaCream
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: FloorTileItemCarpetClown
+      amount: !type:RangeNumberSelector
+        range: 6, 12
+    - id: ClothingUniformJumpsuitClown
+      prob: 0.5
+    - id: ClothingShoesClown
+      prob: 0.3
+    - id: WhoopieCushion
+      prob: 0.5
+    - id: SprayFlowerPin
+      prob: 0.3
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 1
+      tableId: MaintenanceLockerLoot
+#engi
+- type: entity
+  id: ClosetMaintenanceLockerEngi
+  parent: ClosetMaintenance
+  name: maintenance closet
+  description: It's a storage unit.
+  suffix: Engi
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: ClosetMaintenanceLockerEngiTable
+
+- type: entityTable
+  id: ClosetMaintenanceLockerEngiTable
+  table: !type:AllSelector
+    children:
+    - id: CustomDrinkJug
+      prob: 0.3
+    - id: FuClothingHandsGlovesInsuls
+      prob: 0.5
+    - id: ClothingBeltUtility
+      prob: 0.5
+    - id: ClothingMaskGas
+      prob: 0.7
+    - id: MetalFoamGrenade
+      prob: 0.1
+    - id: ClothingBeltUtilityEngineering
+      prob: 0.01
+    - id: WarningTapeRollEngineering
+      prob: 0.2
+    - !type:GroupSelector
+      prob: 0.5
+      children:
+        - id: FuClothingUniformCoverallsEngineering
+        - id: FuClothingUniformCoverallsEngineeringRipley
+    - id: ConstructionChalk
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: Welder
+      amount: !type:RangeNumberSelector
+        range: 0, 2
+    - !type:GroupSelector
+      children:
+      - id: ClothingHeadHatWelding
+      - id: ClothingHeadHatWeldingMaskFlameBlue
+      - id: ClothingHeadHatWeldingMaskFlame
+      - id: ClothingHeadHatWeldingMaskPainted
+      - id: ClothingMaskWeldingGas
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+      tableId: ClosetMaintenanceLockerToolTable
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 1
+      tableId: MaintenanceLockerLoot
+
+- type: entityTable
+  id: ClosetMaintenanceLockerToolTable
+  table: !type:GroupSelector
+    children:
+    - id: Crowbar
+    - id: Wrench
+    - id: Screwdriver
+    - id: Wirecutter
+    - id: Welder
+    - id: Multitool
+#plushies
+- type: entity
+  id: ClosetMaintenanceLockerPlushies
+  parent: ClosetMaintenance
+  name: maintenance closet
+  description: It's a storage unit.
+  suffix: Plushies
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: ClosetMaintenanceLockerPlushiesTable
+
+- type: entityTable
+  id: ClosetMaintenanceLockerPlushiesTable
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 2, 5
+      tableId: AllPlushiesTable
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 1
+      tableId: MaintenanceLockerLoot
+#nerd
+- type: entity
+  id: ClosetMaintenanceLockerNerd
+  parent: ClosetMaintenance
+  name: maintenance closet
+  description: It's a storage unit.
+  suffix: Nerd
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: ClosetMaintenanceLockerNerdTable
+
+- type: entityTable
+  id: ClosetMaintenanceLockerNerdTable
+  table: !type:AllSelector
+    children:
+    - id: Pen
+    - id: Blunt
+      prob: 0.3
+    - id: DrinkSpaceMountainWindBottleFull
+      amount: !type:RangeNumberSelector
+        range: 0, 1
+    - id: MysteryFigureBox
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - !type:GroupSelector
+      children:
+      - id: ClothingEyesGlassesJamjar
+      - id: ClothingEyesGlassesGarOrange
+      - id: ClothingEyesGlassesGar
+    - !type:NestedSelector
+      tableId: MaintenanceLockerLoot
+#chemist
+- type: entity
+  id: ClosetMaintenanceLockerChemist
+  parent: ClosetMaintenance
+  name: maintenance closet
+  description: It's a storage unit.
+  suffix: Chemist
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: ClosetMaintenanceLockerChemistTable
+
+- type: entityTable
+  id: ClosetMaintenanceLockerChemistTable
+  table: !type:AllSelector
+    children:
+    - id: Pen
+    - id: ClothingEyesGlassesChemical
+      prob: 0.1
+    - id: Dropper
+      prob: 0.5
+    - id: Syringe
+      prob: 0.2
+    - id: PillCanister
+      prob: 0.3
+    - id: PlasmaChemistryVial
+      prob: 0.2
+    - !type:AllSelector
+      prob: 0.5
+      children:
+      - id: ClothingOuterCoatLabChem
+      - id: ClothingShoesColorWhite
+      - id: ClothingHandsGlovesNitrile
+    - !type:GroupSelector
+      children:
+      - id: ReagentGrinderMachineCircuitboard
+      - id: ChemMasterMachineCircuitboard
+      - id: HotplateMachineCircuitboard
+      - id: ElectrolysisUnitMachineCircuitboard
+      - id: HotplateMachineCircuitboard
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 2
+      tableId: AllMedicineReagentBottlesTable
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 1, 3
+      tableId: MaintenanceGlasswareTable
+    - !type:NestedSelector
+      rolls: !type:RangeNumberSelector
+        range: 0, 1
+      tableId: MaintenanceLockerLoot
+#science
+- type: entity
+  id: ClosetMaintenanceLockerScience
+  parent: ClosetMaintenance
+  name: maintenance closet
+  description: It's a storage unit.
+  suffix: Science
+  components:
+    - type: EntityTableContainerFill
+      containers:
+        entity_storage: !type:NestedSelector
+          tableId: ClosetMaintenanceLockerScienceTable
+
+- type: entityTable
+  id: ClosetMaintenanceLockerScienceTable
+  table: !type:AllSelector
+    children:
+      - id: Pen
+      - id: ClothingHandsGlovesLatex
+      - id: MonkeyCubeBox
+        prob: 0.1
+      - id: AnomalyScanner
+        prob: 0.2
+      - id: NodeScanner
+        prob: 0.2
+      - id: ClothingOuterCoatRnd
+        prob: 0.75
+      - id: ClothingUniformJumpsuitScientist
+        prob: 0.5
+      - id: ResearchDisk
+        prob: 0.25
+        amount: !type:RangeNumberSelector
+          range: 1, 2
+      - !type:NestedSelector
+        rolls: !type:RangeNumberSelector
+          range: 0, 1
+        tableId: MaintenanceLockerLoot
+#supply
+- type: entity
+  id: ClosetMaintenanceLockerSupply
+  parent: ClosetMaintenance
+  name: maintenance closet
+  description: It's a storage unit.
+  suffix: Supply
+  components:
+    - type: EntityTableContainerFill
+      containers:
+        entity_storage: !type:NestedSelector
+          tableId: ClosetMaintenanceLockerSupplyTable
+
+- type: entityTable
+  id: ClosetMaintenanceLockerSupplyTable
+  table: !type:AllSelector
+    children:
+      - id: Pen
+      - id: ClothingHandsGlovesFingerless
+      - id: MaterialCardboard10
+      - id: AppraisalTool
+        prob: 0.3
+      - id: ClothingHeadHatCargosoft
+        prob: 0.2
+      - !type:GroupSelector
+        prob: 0.5
+        children:
+          - id: FuClothingUniformTwopiecePantsLogiCt
+          - id: FuClothingUniformTwopieceSkirtLogiCt
+          - id: FuClothingUniformJumpsuitLogiCt
+          - id: FuClothingOuterCoatWindbreakerCt
+      - !type:NestedSelector
+        rolls: !type:RangeNumberSelector
+          range: 0, 1
+        tableId: MaintenanceLockerLoot
+#chef
+- type: entity
+  id: ClosetMaintenanceLockerChef
+  parent: ClosetMaintenance
+  name: maintenance closet
+  description: It's a storage unit.
+  suffix: Chef
+  components:
+    - type: EntityTableContainerFill
+      containers:
+        entity_storage: !type:NestedSelector
+          tableId: ClosetMaintenanceLockerChefTable
+
+- type: entityTable
+  id: ClosetMaintenanceLockerChefTable
+  table: !type:AllSelector
+    children:
+      - id: ClothingBeltChefFilled
+        prob: 0.5
+      - id: ClothingHeadHatChef
+        prob: 0.25
+      - id: FoodKebabSkewer
+        prob: 0.25
+      - id: HandheldJuicer
+        prob: 0.25
+      - id: MortarAndPestle
+        prob: 0.25
+      - id: RollingPin
+        prob: 0.2
+      - id: KitchenKnife
+        prob: 0.1
+      - id: ButchCleaver
+        prob: 0.05
+      - id: Mousetrap
+        amount: !type:RangeNumberSelector
+          range: 1, 2
+      - !type:GroupSelector
+        children:
+          - id: ReagentContainerSugar
+          - id: ReagentContainerFlour
+          - id: DrinkMilkCarton
+          - id: FoodCheeseSlice
+          - id: FoodCondimentBottleEnzyme
+      - !type:GroupSelector
+        prob: 0.5
+        children:
+          - id: ClothingUniformJumpskirtChef
+          - id: ClothingUniformJumpsuitChef
+          - id: ClothingOuterJacketChef
+          - id: ClothingOuterApronChef
+      - !type:NestedSelector
+        rolls: !type:RangeNumberSelector
+          range: 0, 1
+        tableId: MaintenanceLockerLoot
+#medical
+- type: entity
+  id: ClosetMaintenanceLockerMedical
+  parent: ClosetMaintenance
+  name: maintenance closet
+  description: It's a storage unit.
+  suffix: Medical
+  components:
+    - type: EntityTableContainerFill
+      containers:
+        entity_storage: !type:NestedSelector
+          tableId: ClosetMaintenanceLockerMedicalTable
+
+- type: entityTable
+  id: ClosetMaintenanceLockerMedicalTable
+  table: !type:AllSelector
+    children:
+      - id: ClothingHandsGlovesNitrile
+      - id: Syringe
+        prob: 0.5
+      - id: BodyBagFolded
+        prob: 0.3
+      - id: ClothingHeadHatCargosoft
+        prob: 0.2
+      - !type:GroupSelector
+        children:
+          - id: Ointment
+          - id: Brutepack
+          - id: Gauze
+          - id: PillCanisterTricordrazine
+      - !type:GroupSelector
+        prob: 0.5
+        children:
+          - id: FuClothingUniformMedDress
+          - id: FuClothingUniformMedJumpsuit
+          - id: ClothingUniformJumpskirtOfLife
+      - !type:NestedSelector
+        rolls: !type:RangeNumberSelector
+          range: 0, 1
+        tableId: AllMedicineReagentBottlesTable
+      - !type:NestedSelector
+        rolls: !type:RangeNumberSelector
+          range: 0, 1
+        tableId: MaintenanceLockerLoot
+#pool cleaner
+- type: entity
+  id: ClosetMaintenanceLockerPoolCleaner
+  parent: ClosetMaintenance
+  name: maintenance closet
+  description: It's a storage unit.
+  suffix: PoolCleaner
+  components:
+    - type: EntityTableContainerFill
+      containers:
+        entity_storage: !type:NestedSelector
+          tableId: ClosetMaintenanceLockerPoolCleanerTable
+
+- type: entityTable
+  id: ClosetMaintenanceLockerPoolCleanerTable
+  table: !type:AllSelector
+    children:
+      - id: BeachBall
+      - id: DrinkWaterBottleFull
+        amount: !type:RangeNumberSelector
+          range: 1, 2
+      - id: ClothingHeadHatStrawHat
+      - !type:AllSelector
+        prob: 0.5
+        children:
+          - id: BaseBallBat
+          - id: FoodWatermelon
+      - !type:GroupSelector
+        children:
+          - id: ClothingUniformJumpsuitHawaiBlue
+          - id: ClothingUniformJumpsuitHawaiBlack
+          - id: ClothingUniformJumpsuitHawaiRed
+          - id: ClothingUniformJumpsuitHawaiYellow
+      - !type:NestedSelector
+        rolls: 2
+        tableId: WaterGunTable
+      - !type:NestedSelector
+        tableId: TowelTable
+      - !type:NestedSelector
+        rolls: !type:RangeNumberSelector
+          range: 0, 1
+        tableId: MaintenanceLockerLoot
+#prepper
+- type: entity
+  id: ClosetMaintenanceLockerPrepper
+  parent: ClosetMaintenance
+  name: maintenance closet
+  description: It's a storage unit.
+  suffix: Prepper
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: ClosetMaintenanceLockerPrepperTable
+
+- type: entityTable
+  id: ClosetMaintenanceLockerPrepperTable
+  table: !type:AllSelector
+    children:
+    - id: ClothingMaskGasMerc
+      prob: 0.3
+    - id: ClothingEyesGlassesMercenary
+      prob: 0.3
+    - id: BoxMRE
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: ClothingShoesBootsJackFilled
+      prob: 0.4
+    - id: Handcuffs
+      prob: 0.2
+    - id: ClothingMaskBreathMedicalSecurity
+      prob: 0.2
+    - id: ShellShotgunImprovised
+      amount: !type:RangeNumberSelector
+        range: 1, 6
+    - id: ClothingOuterArmorScrap
+      prob: 0.1
+    - id: ClothingHeadHelmetScrap
+      prob: 0.2
+    - id: ToolboxMechanicalFilledAllTools
+      prob: 0.2
+    - id: FireBomb
+      prob: 0.2
+    - id: PipeBomb
+      prob: 0.2
+    - id: ModularReceiver
+      prob: 0.5
+    - !type:GroupSelector
+      prob: 0.05
+      children:
+        - id: WeaponPistolMk58
+        - id: MagazinePistol
+    - !type:NestedSelector
+      prob: 0.75
+      tableId: MaintWeaponTable
+    - !type:NestedSelector
+      prob: 0.25
+      tableId: MaintenanceLockerLoot
+#salami
+- type: entity
+  id: ClosetMaintenanceLockerSalami
+  parent: ClosetMaintenance
+  name: maintenance closet
+  description: It's a storage unit.
+  suffix: Salami
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: ClosetMaintenanceLockerSalamiTable
+
+- type: entityTable
+  id: ClosetMaintenanceLockerSalamiTable
+  table: !type:AllSelector
+    children:
+    - id: LidSalami
+      amount: !type:RangeNumberSelector
+        range: 1, 6
+    - id: FoodMeatSalamiSlice
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    id: FoodMeatSalami
+    prob: 0.25

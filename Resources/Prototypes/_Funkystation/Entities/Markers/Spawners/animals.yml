@@ -113,3 +113,171 @@
   - type: ConditionalSpawner
     prototypes:
     - MobChicken2
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobArgocyteSlurva
+  name: Slurva Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: slurva
+      sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocyteSlurva
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobArgocyteBarrier
+  name: Barrier Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: barrier
+      sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocyteBarrier
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobArgocyteSkitter
+  name: Skitter Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: skitter
+      sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocyteSkitter
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobArgocyteSwiper
+  name: Swiper Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: swiper
+      sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocyteSwiper
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobArgocyteMolder
+  name: Molder Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: molder
+      sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocyteMolder
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobArgocytePouncer
+  name: Pouncer Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: pouncer
+      sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocytePouncer
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobArgocyteGlider
+  name: Glider Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: glider
+      sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocyteGlider
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobArgocyteHarvester
+  name: Harvester Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: harvester
+      sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocyteHarvester
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobArgocyteCrawler
+  name: Crawler Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: crawler
+      sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocyteCrawler
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobArgocyteEnforcer
+  name: Enforcer Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: enforcer
+      sprite: Mobs/Aliens/Argocyte/argocyte_common.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocyteEnforcer
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobArgocyteFounder
+  name: Founder Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: founder
+      sprite: Mobs/Aliens/Argocyte/argocyte_large.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocyteFounder
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobArgocyteLeviathing
+  name: Leviathing Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: leviathing
+      sprite: Mobs/Aliens/Argocyte/argocyte_large.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobArgocyteLeviathing
