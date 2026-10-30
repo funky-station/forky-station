@@ -65,7 +65,7 @@
   reactants:
     LivingTissue:
       amount: 1
-    Licoxide:
+    Histamine:
       amount: 1
     Impedrezene:
       amount: 1

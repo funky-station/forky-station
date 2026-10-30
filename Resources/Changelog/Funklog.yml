@@ -1179,4 +1179,41 @@
   id: 139
   time: '2026-10-22T13:33:27Z'
   url: https://github.com/funky-station/forky-station/pull/567
+- author: PopUpPuppygirl
+  changes:
+  - message: Meowls!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    type: Add
+  id: 140
+  time: '2026-10-25T05:21:00Z'
+  url: https://github.com/funky-station/forky-station/pull/581
+- author: PopupPup
+  changes:
+  - message: Marisa
+    type: Fix
+  id: 141
+  time: '2026-10-25T05:49:17Z'
+  url: https://github.com/funky-station/forky-station/pull/585
+- author: AraiMaia
+  changes:
+  - message: Pagers now beep and show a popup when you send a page.
+    type: Add
+  - message: Head PDAs have a Pager app. Depending on your ID's access it can mass-page
+      a department and lists its employees' pager numbers.
+    type: Add
+  - message: Pager numbers now start with a departmental prefix.
+    type: Tweak
+  - message: Pagers now correctly spawn in your wallet at roundstart.
+    type: Fix
+  id: 142
+  time: '2026-10-26T12:46:40Z'
+  url: https://github.com/funky-station/forky-station/pull/572
+- author: Mycobiota, ReconPangolin
+  changes:
+  - message: Upstream merge
+    type: Add
+  - message: Adjusted artifact trigger weights
+    type: Tweak
+  id: 143
+  time: '2026-10-30T02:55:06Z'
+  url: https://github.com/funky-station/forky-station/pull/592
 Order: -1

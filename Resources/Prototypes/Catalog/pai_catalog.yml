@@ -3,6 +3,7 @@
   name: pai-mass-scanner-name
   description: pai-mass-scanner-desc
   productAction: ActionPAIMassScanner
+  applyToMob: true
   cost:
     SiliconMemory: 10
   categories:
@@ -16,6 +17,7 @@
   name: pai-midi-player-name
   description: pai-midi-player-desc
   productAction: ActionPAIPlayMidi
+  applyToMob: true
   cost:
     SiliconMemory: 5
   categories:
@@ -29,6 +31,7 @@
   name: pai-station-map-name
   description: pai-station-map-desc
   productAction: ActionPAIOpenMap
+  applyToMob: true
   cost:
     SiliconMemory: 5
   categories:
