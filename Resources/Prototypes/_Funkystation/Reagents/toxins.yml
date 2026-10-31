@@ -98,3 +98,37 @@
         walkSpeedModifier: 0.8  #lungs don't do good, can't move good.
         sprintSpeedModifier: 0.8
 
+- type: reagent
+  id: PurpleMold
+  name: reagent-name-purple-mold
+  group: Toxins
+  desc: reagent-desc-purple-mold
+  physicalDesc: reagent-physical-desc-nondescript
+  color: "#793a80dd"
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.2
+      effects:
+      - !type:Jitter
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 20
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectClumsyAll
+        type: Add
+        time: 40
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectWoozy
+        type: Add
+        time: 20
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectScrambled
+        type: Add
+        time: 10
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1.5
+            Caustic: 0.25
+            Asphyxiation: 0.25
