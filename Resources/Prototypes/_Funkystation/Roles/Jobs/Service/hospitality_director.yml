@@ -36,6 +36,9 @@
   - !type:AddComponentSpecial
     components:
     - type: CommandStaff
+  - !type:AddComponentSpecial
+    components:
+    - type: DepartmentHead
 
 - type: startingGear
   id: HDGear

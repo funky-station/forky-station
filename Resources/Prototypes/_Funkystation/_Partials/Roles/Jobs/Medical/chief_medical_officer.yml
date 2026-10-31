@@ -1,0 +1,6 @@
+- type: job
+  id: ChiefMedicalOfficer
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: DepartmentHead
