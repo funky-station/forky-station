@@ -1,0 +1,24 @@
+- type: constructionGraph
+  id: SharpsBinGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bin
+      steps:
+      - material: Plastic
+        amount: 3
+        doAfter: 2.0
+
+  - node: bin
+    entity: SharpsBin
+    edges:
+    - to: start
+      completed:
+      - !type:GivePrototype
+        prototype: SheetPlastic1
+        amount: 2
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Screwing
+        doAfter: 2
