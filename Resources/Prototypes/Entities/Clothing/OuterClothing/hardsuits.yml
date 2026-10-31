@@ -389,6 +389,7 @@
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
+  - type: SupermatterImmune
   - type: FireProtection
     reduction: 0.8
   - type: ExplosionResistance
