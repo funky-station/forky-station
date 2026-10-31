@@ -7,18 +7,18 @@
   # - Allulalo # macro - uncomment to enable
   # - Apid # macro - uncomment to enable
   - Arachnid
-  # - Decapoid # macro - uncomment to enable
+  - Decapoid # macro - uncomment to enable
   - Diona
   - Dwarf
-  # - Gastropoid # macro - uncomment to enable
-  # - Gray # macro - uncomment to enable
+  - Gastropoid # macro - uncomment to enable
+  - Gray # macro - uncomment to enable
   - Human
-  # - Kodepiia # macro - uncomment to enable
+  - Kodepiia # macro - uncomment to enable
   - Moth
   # - Ovinia # macro - uncomment to enable
   - Reptilian
   - SlimePerson
-  # - Ungu # macro - uncomment to enable
+  - Ungu # macro - uncomment to enable
   - Vox
   - Vulpkanin
 
