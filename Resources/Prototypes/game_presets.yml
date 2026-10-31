@@ -281,4 +281,5 @@
   - BasicRoundstartVariation
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
+  - ForkyGreenerEventScheduler
 # Funky additions end here
