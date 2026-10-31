@@ -152,7 +152,7 @@
   categories:
   - Food
   icon:
-    sprite: Objects/Consumable/Drinks/milk.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/milk.rsi # Funky
     state: icon
   completetime: 1
   materials:

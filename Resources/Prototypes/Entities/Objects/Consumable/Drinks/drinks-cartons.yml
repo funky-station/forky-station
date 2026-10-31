@@ -201,7 +201,7 @@
   description: An opaque white liquid produced by the mammary glands of mammals.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/milk.rsi
+    sprite: _Funkystation/Objects/Consumable/Drinks/milk.rsi # Funky
 
 - type: entity
   parent: DrinkCartonMilk
