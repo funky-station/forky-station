@@ -1,0 +1,44 @@
+
+#Funky mercenary roles gear
+
+- type: startingGear
+  id: MercCommanderGear
+  equipment:
+    head: ClothingHeadHatBeretMerc
+    jumpsuit: ClothingUniformJumpsuitMercenary
+    shoes: ClothingShoesBootsMercFilled
+    outerClothing: ClothingOuterVestWebMerc
+    eyes: ClothingEyesGlassesMercenary
+    gloves: ClothingHandsGlovesMercFingerless
+  inhand:
+    - WeaponRevolverPython
+
+- type: startingGear
+  id: MercGuardGear
+  equipment:
+    head: ClothingHeadHelmetMerc
+    mask: ClothingMaskGasMerc
+    jumpsuit: ClothingUniformJumpsuitMercenary
+    shoes: ClothingShoesBootsMercFilled
+    outerClothing: ClothingOuterVestWebMerc
+    gloves: ClothingHandsMercGlovesCombat
+  inhand:
+    - WeaponShotgunBulldog
+
+- type: startingGear
+  id: MercGruntGear
+  equipment:
+    head: ClothingHeadBandMerc
+    mask: ClothingMaskBandMerc
+    jumpsuit: ClothingUniformJumpsuitMercenary
+    shoes: ClothingShoesBootsMercFilled
+    back: ClothingBackpackMerc
+    belt: ClothingBeltMercWebbing
+    gloves: ClothingHandsGlovesColorLightBrown
+    eyes: ClothingEyesGlassesSunglasses
+  inhand:
+    - WeaponPistolMk58
+  storage:
+    back: 
+    - BoxMRE
+    - BoxFlare
