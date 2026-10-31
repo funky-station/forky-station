@@ -5,9 +5,9 @@
   description: A leather waist bag meant for carrying small items.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/waistbag_leather.rsi
+    sprite: _Funkystation/Clothing/Belt/waistbag_leather.rsi # Funky
   - type: Clothing
-    sprite: Clothing/Belt/waistbag_leather.rsi
+    sprite: _Funkystation/Clothing/Belt/waistbag_leather.rsi # Funky
   - type: Storage
     grid:
     - 0,0,3,1
