@@ -1,0 +1,42 @@
+﻿<pager:PagerCartridgeUiFragment xmlns:pager="clr-namespace:Content.Client._Funkystation.Pager"
+                                xmlns="https://spacestation14.io"
+                                xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                                Margin="1 0 2 0">
+    <PanelContainer HorizontalExpand="True" VerticalExpand="True">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#111115" />
+        </PanelContainer.PanelOverride>
+        <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False">
+            <BoxContainer Orientation="Vertical" Margin="6" SeparationOverride="6" HorizontalExpand="True">
+
+                <PanelContainer HorizontalExpand="True">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#120f0a" BorderColor="#382a17" BorderThickness="2" />
+                    </PanelContainer.PanelOverride>
+                    <BoxContainer Orientation="Vertical" Margin="8" HorizontalAlignment="Center" SeparationOverride="2">
+                        <Label Name="OwnNumberLabel" StyleClasses="LabelSubText" FontColorOverride="#55421a" HorizontalAlignment="Center" />
+                        <Label Name="ScreenLabel" StyleClasses="LabelBig" FontColorOverride="#d6a851" HorizontalAlignment="Center" />
+                    </BoxContainer>
+                </PanelContainer>
+
+                <BoxContainer Orientation="Horizontal" SeparationOverride="8" HorizontalAlignment="Center">
+                    <BoxContainer Orientation="Vertical" SeparationOverride="2">
+                        <Label Text="{Loc 'pager-window-number-label'}" StyleClasses="LabelSubText" FontColorOverride="#555555" HorizontalAlignment="Center" />
+                        <LineEdit Name="NumberEdit" PlaceHolder="{Loc 'pager-window-number-placeholder'}" MinWidth="50" />
+                    </BoxContainer>
+                    <BoxContainer Orientation="Vertical" SeparationOverride="2">
+                        <Label Text="{Loc 'pager-window-code-label'}" StyleClasses="LabelSubText" FontColorOverride="#555555" HorizontalAlignment="Center" />
+                        <LineEdit Name="CodeEdit" PlaceHolder="{Loc 'pager-window-code-placeholder'}" MinWidth="90" />
+                    </BoxContainer>
+                    <BoxContainer Orientation="Vertical" VerticalAlignment="Bottom">
+                        <Button Name="SendButton" Text="{Loc 'pager-window-send'}" MinHeight="24" />
+                    </BoxContainer>
+                </BoxContainer>
+
+                <Button Name="ModeButton" HorizontalAlignment="Center" MinWidth="120" />
+
+                <BoxContainer Name="DirectoryContainer" Orientation="Vertical" SeparationOverride="4" HorizontalExpand="True" />
+            </BoxContainer>
+        </ScrollContainer>
+    </PanelContainer>
+</pager:PagerCartridgeUiFragment>

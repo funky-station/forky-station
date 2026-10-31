@@ -28,7 +28,7 @@
     anchored: true
     noRot: true
   - type: Damageable
-    damageModifierSet: SteelMod
+    damageModifierSet: SteelStaticMod
   - type: RCDDeconstructable
     cost: 60 # Funkystation
     delay: 8

@@ -5,7 +5,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Map.Enumerators;
 using static Robust.Client.GameObjects.SpriteComponent;
 
-namespace Content.Client._FunkyStation.EdgeTrim
+namespace Content.Client._Funkystation.EdgeTrim
 {
     [UsedImplicitly]
     public sealed partial class EdgeTrimSystem : EntitySystem
