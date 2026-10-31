@@ -1,0 +1,12 @@
+tiles-dark-mono-textured = dark mono textured tile
+tiles-dark-tech-alt = dark tech tile
+tiles-dark-tech = dark tech tile
+tiles-grid = white grid tile
+tiles-kafel-full = kafel full tile
+tiles-plaque-alt = golden plaque
+tiles-plaque-smooth = smooth golden plaque
+tiles-plaque = golden plaque
+tiles-recharge = plating with signal lights
+tiles-riged = riged tile
+tiles-smooth = smooth tile
+tiles-seel-grid = steel grid tile
