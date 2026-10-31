@@ -1,0 +1,129 @@
+- type: entity
+  parent: BaseItem
+  id: Scrip
+  name: scrip
+  description: Money that can be used exclusively on NanoTrasen stations.
+  components:
+  - type: Item
+    shape:
+    - 0,0,1,0
+    storedOffset: 0,-2
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Scrip: 1
+  - type: StaticPrice
+    price: 0
+  - type: Stack
+    stackType: Scrip
+    count: 1
+    baseLayer: base
+    layerStates:
+    - scrip
+    - scrip_10
+    - scrip_100
+    - scrip_500
+    - scrip_1000
+    - scrip_5000
+    - scrip_10000
+    layerFunction: Threshold
+  - type: StackLayerThreshold
+    thresholds: [10, 100, 500, 1000, 5000, 10000]
+  - type: Sprite
+    sprite: _Impstation/Objects/Economy/scrip.rsi
+    state: scrip
+    layers:
+    - state: scrip
+      map: ["base"]
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        density: 30
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.2,0.25,0.1"
+        mask:
+        - ItemMask
+  - type: Appearance
+
+- type: material
+  id: Scrip
+  name: materials-scrip
+  unit: materials-unit-bill
+  stackEntity: Scrip
+  icon: { sprite: _Impstation/Objects/Economy/scrip.rsi, state: scrip }
+  price: 1
+
+- type: stack
+  id: Scrip
+  name: stack-scrip
+  icon: { sprite: _Impstation/Objects/Economy/scrip.rsi, state: scrip }
+  spawn: Scrip
+
+- type: entity
+  parent: Scrip
+  id: Scrip10
+  suffix: 10
+  components:
+  - type: Icon
+    sprite: _Impstation/Objects/Economy/scrip.rsi
+    state: scrip
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: Scrip
+  id: Scrip100
+  suffix: 100
+  components:
+  - type: Icon
+    sprite: _Impstation/Objects/Economy/scrip.rsi
+    state: scrip
+  - type: Stack
+    count: 100
+
+- type: entity
+  parent: Scrip
+  id: Scrip500
+  suffix: 500
+  components:
+  - type: Icon
+    sprite: _Impstation/Objects/Economy/scrip.rsi
+    state: scrip_500
+  - type: Stack
+    count: 500
+
+- type: entity
+  parent: Scrip
+  id: Scrip1000
+  suffix: 1000
+  components:
+  - type: Icon
+    sprite: _Impstation/Objects/Economy/scrip.rsi
+    state: scrip_1000
+  - type: Stack
+    count: 1000
+
+- type: entity
+  parent: Scrip
+  id: Scrip5000
+  suffix: 5000
+  components:
+  - type: Icon
+    sprite: _Impstation/Objects/Economy/scrip.rsi
+    state: scrip_5000
+  - type: Stack
+    count: 5000
+
+- type: entity
+  parent: Scrip
+  id: Scrip10000
+  suffix: 10000
+  components:
+  - type: Icon
+    sprite: _Impstation/Objects/Economy/scrip.rsi
+    state: scrip_10000
+  - type: Stack
+    count: 10000
