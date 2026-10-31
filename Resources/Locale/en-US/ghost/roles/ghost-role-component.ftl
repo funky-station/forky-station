@@ -329,6 +329,18 @@ ghost-role-information-pirate-description = Argh matey! Collect some cool loot, 
 ghost-role-information-pirate-captain-name = Space Pirate Captain
 ghost-role-information-pirate-captain-description = Argh matey! You are in charge here and need to devise a plan to get that juicy loot by hook or by crook. Just make sure to avoid security and salvage!
 
+ghost-role-information-mercenary-grunt-name = Mercenary Grunt
+ghost-role-information-mercenary-grunt-description = Look tough. Shoot people. Yell a cheesy line. Get shot.
+ghost-role-information-mercenary-grunt-rules = You are a low-ranked member of a mercenary team. Obey your commander's orders or, failing that, find someone to serve - for a price, of course. Members of Nanotrasen are likely not to be trusted.
+
+ghost-role-information-mercenary-guard-name = Mercenary Guard
+ghost-role-information-mercenary-guard-description = Look imposing. Shoot people. Check on your commander. Get shot.
+ghost-role-information-mercenary-guard-rules = You are a higher-ranked member of a mercenary team. Ensure your commander's safety or, failing that, find someone to serve - for a price, of course. Members of Nanotrasen are likely not to be trusted.
+
+ghost-role-information-mercenary-commander-name = Mercenary Commander
+ghost-role-information-mercenary-commander-description = Look jaded and calculating. Yell out orders. Get cornered. Shoot people. Get shot.
+ghost-role-information-mercenary-commander-rules = You are the leader of a mercenary team. Give your grunts orders and keep your guards close. Find contracts to fulfill and get rich. Members of Nanotrasen are likely not to be trusted.
+
 ghost-role-information-artifact-name = Sentient Artifact
 ghost-role-information-artifact-description = Enact your eldritch whims. Forcibly activate your nodes for good or for evil.
 
