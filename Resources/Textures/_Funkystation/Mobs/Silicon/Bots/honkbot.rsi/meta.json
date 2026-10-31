@@ -1,0 +1,19 @@
+{
+   "copyright" : "Resprite for Funkystation by not-macaw (github)",
+   "license" : "CC0-1.0",
+   "size" : {
+      "x" : 32,
+      "y" : 32
+   },
+   "states" : [
+      {
+         "directions" : 1,
+         "name" : "honkbot"
+      },
+      {
+         "directions" : 1,
+         "name" : "jonkbot"
+      }
+   ],
+   "version" : 1
+}
