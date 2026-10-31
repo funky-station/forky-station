@@ -1,5 +1,7 @@
 using System.Linq;
+using System.Threading;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -25,11 +27,28 @@ using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared.Body.Components;
+using Robust.Shared.Physics.Events;
+using Content.Shared.Clothing;
 
 namespace Content.Shared.Fluids;
 
 public abstract partial class SharedPuddleSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!;
+    [Dependency] protected readonly OpenableSystem Openable = default!;
+    [Dependency] protected readonly ReactiveSystem Reactive = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] protected readonly SharedAudioSystem Audio = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] protected readonly SharedPopupSystem Popups = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private readonly SpeedModifierContactsSystem _speedModContacts = default!;
+    [Dependency] private readonly StepTriggerSystem _stepTrigger = default!;
+    [Dependency] private readonly TileFrictionController _tile = default!;
+    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] protected ISharedAdminLogManager AdminLogger = default!;
     [Dependency] protected OpenableSystem Openable = default!;
@@ -74,6 +93,9 @@ public abstract partial class SharedPuddleSystem : EntitySystem
         SubscribeLocalEvent<PuddleComponent, GetFootstepSoundEvent>(OnGetFootstepSound);
         SubscribeLocalEvent<PuddleComponent, ExaminedEvent>(HandlePuddleExamined);
         SubscribeLocalEvent<PuddleComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
+        SubscribeLocalEvent<PuddleComponent, StartCollideEvent>(DrowningStart);
+        SubscribeLocalEvent<PuddleComponent, EndCollideEvent>(DrowningEnd);
+        SubscribeLocalEvent<PuddleComponent, ItemMaskToggledEvent>(DrowningInternalsCheck);
 
         SubscribeLocalEvent<EvaporationComponent, MapInitEvent>(OnEvaporationMapInit);
 
@@ -177,6 +199,49 @@ public abstract partial class SharedPuddleSystem : EntitySystem
             else
                 args.PushMarkup(Loc.GetString("puddle-component-examine-evaporating-no"));
         }
+    }
+
+    // Todo more water levels (if flooded and can drown people, hide stuff inside tile)
+
+    private void DrowningInternalsCheck(Entity<PuddleComponent> entity, ref ItemMaskToggledEvent arg)
+    {
+        var uid = entity;
+        var nearbyEntities = _entityLookup.GetEntitiesInRange<NotBreathingComponent>(Transform(uid).Coordinates, 1f);
+
+        foreach (var ent in nearbyEntities)
+        {
+            if (HasComp<BreathToolComponent>(ent))
+            {
+                RemComp<NotBreathingComponent>(ent);
+            }
+            else if (!HasComp<BreathToolComponent>(ent))
+            {
+                AddComp<NotBreathingComponent>(ent);
+            }
+        }
+    }
+
+    private void DrowningStart(Entity<PuddleComponent> entity, ref StartCollideEvent arg)
+    {
+        if (HasComp<BreathToolComponent>(arg.OtherEntity))
+        {
+            RemComp<NotBreathingComponent>(arg.OtherEntity);
+            return;
+        }
+
+        var (uid, puddle) = entity;
+        if (!_solutionContainerSystem.ResolveSolution(uid, puddle.SolutionName, ref puddle.Solution, out var solution))
+            return;
+
+        if (solution.Volume < puddle.DrownU)
+            return;
+
+        EnsureComp<NotBreathingComponent>(arg.OtherEntity);
+    }
+
+    private void DrowningEnd(Entity<PuddleComponent> entity, ref EndCollideEvent arg)
+    {
+        RemComp<NotBreathingComponent>(arg.OtherEntity);
     }
 
     private void OnAnchorChanged(Entity<PuddleComponent> entity, ref AnchorStateChangedEvent args)
