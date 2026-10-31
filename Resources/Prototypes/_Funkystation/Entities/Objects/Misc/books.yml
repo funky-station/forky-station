@@ -1,0 +1,55 @@
+- type: entity
+  id: BookStationRegulations
+  parent: BaseGuidebook
+  name: station regulations
+  description: A heavy tan book which contains information over station regulations, policies, and general misconduct. There's a red ribbon, serving as a bookmark for avid readers.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Books/NCLP.rsi
+    layers:
+    - state: article1
+  - type: GuideHelp
+    guides:
+    - Article_1
+
+- type: entity
+  id: BookSOP
+  parent: BaseGuidebook
+  name: standard operating procedures
+  description: A heavy teal book which contains information on the standard operating procedures of all departments. Colored tabs protrude from the top, categorizing each department by color.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Books/NCLP.rsi
+    layers:
+    - state: article3
+  - type: GuideHelp
+    guides:
+    - Article_3
+
+- type: entity
+  id: BookUnions
+  parent: BaseGuidebook
+  name: union regulations
+  description: A heavy purple book which contains information over proper union escalation, striking, and general behavior. The pages are barely held together by thick metal rings.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Books/NCLP.rsi
+    layers:
+    - state: article4
+  - type: GuideHelp
+    guides:
+    - Article_3 # change to article_4 when written
+
+- type: entity
+  id: BookSentencingGuidelines
+  parent: BaseGuidebook
+  name: sentencing guidelines
+  description: A heavy brown book which contains information over criminal sentencing, court guidelines, and legal definitions. There's a white fuzzy tassel hanging from the bottom.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/Books/NCLP.rsi
+    layers:
+    - state: article5
+  - type: GuideHelp
+    guides:
+    - Article_5
