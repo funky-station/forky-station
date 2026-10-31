@@ -58,12 +58,12 @@
       "Waa": {5: 100} # Defined in space-station-14.sf2
       "Wah": {6: 100} # Defined in space-station-14.sf2
   - type: Sprite
-    sprite: Objects/Fun/Instruments/microphone.rsi
+    sprite: _Funkystation/Objects/Fun/Instruments/microphone.rsi # Funky
   - type: Item
     size: Small
     storedSprite:
       state: storage
-      sprite: Objects/Fun/Instruments/microphone.rsi
+      sprite: _Funkystation/Objects/Fun/Instruments/microphone.rsi # Funky
 
 
 - type: entity

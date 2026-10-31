@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "copyright": "By AraiMaia for Funky Station",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "base"
+    },
+    {
+      "name": "mag-1"
+    },
+    {
+      "name": "mag-2"
+    },
+    {
+      "name": "mag-3"
+    },
+    {
+      "name": "incendiary"
+    },
+    {
+      "name": "practice"
+    },
+    {
+      "name": "uranium"
+    }
+  ]
+}
