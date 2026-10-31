@@ -1232,4 +1232,11 @@
   id: 145
   time: '2026-10-31T01:19:35Z'
   url: https://github.com/funky-station/forky-station/pull/588
+- author: pirakaplant
+  changes:
+  - message: Department heads can no longer start in their departments' unions.
+    type: Fix
+  id: 146
+  time: '2026-10-31T19:33:16Z'
+  url: https://github.com/funky-station/forky-station/pull/595
 Order: -1
