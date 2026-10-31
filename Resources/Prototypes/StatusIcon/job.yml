@@ -345,7 +345,7 @@
   parent: JobIcon
   id: JobIconTramDriver
   icon:
-    sprite: *icon-rsi
+    sprite: *funky-icon-rsi
     state: TramDriver
   jobName: job-name-tramdriver
 
