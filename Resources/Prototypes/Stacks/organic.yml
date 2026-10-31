@@ -11,14 +11,14 @@
   parent: BaseMediumStack
   id: WoodPlank
   name: stack-wood-plank
-  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: wood }
+  icon: { sprite: /Textures/_Funkystation/Objects/Materials/materials.rsi, state: wood } # Funky
   spawn: MaterialWoodPlank1
 
 - type: stack
   parent: BaseMediumStack
   id: Cardboard
   name: stack-cardboard
-  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: cardboard }
+  icon: { sprite: /Textures/_Funkystation/Objects/Materials/materials.rsi, state: cardboard } # Funky
   spawn: MaterialCardboard1
 
 # Stacks which come from or might come from a creature
@@ -34,7 +34,7 @@
   parent: BaseMediumStack
   id: Bones
   name: stack-bones
-  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: bones }
+  icon: { sprite: /Textures/_Funkystation/Objects/Materials/materials.rsi, state: bones } # Funky
   spawn: MaterialBones1
 
 - type: stack

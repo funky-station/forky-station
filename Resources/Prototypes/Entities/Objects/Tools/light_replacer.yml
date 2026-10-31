@@ -5,10 +5,10 @@
   description: An item which uses magnets to easily replace broken lights. Refill by adding more lights into the replacer.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Janitorial/light_replacer.rsi
+    sprite: _Funkystation/Objects/Specific/Janitorial/light_replacer.rsi # Funky
     state: icon
   - type: Item
-    sprite: Objects/Specific/Janitorial/light_replacer.rsi
+    sprite: _Funkystation/Objects/Specific/Janitorial/light_replacer.rsi # Funky
   - type: LightReplacer
   - type: EntityProvider
     whitelist:
@@ -43,7 +43,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: Objects/Specific/Janitorial/light_replacer.rsi
+    sprite: _Funkystation/Objects/Specific/Janitorial/light_replacer.rsi # Funky
     state: eject-tubes
 
 - type: entity
@@ -51,5 +51,5 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: Objects/Specific/Janitorial/light_replacer.rsi
+    sprite: _Funkystation/Objects/Specific/Janitorial/light_replacer.rsi # Funky
     state: eject-bulbs

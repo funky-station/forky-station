@@ -158,7 +158,7 @@
   description: bounty-description-diamond
   group: SalvageJobTier3
   sprite:
-    sprite: Objects/Materials/materials.rsi
+    sprite: _Funkystation/Objects/Materials/materials.rsi # Funky
     state: diamond
   entries:
   - name: bounty-item-diamond
