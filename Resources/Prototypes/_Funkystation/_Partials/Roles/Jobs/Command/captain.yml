@@ -1,0 +1,6 @@
+# TODO: Move other modifications we made to the protos here
+
+- type: startingGear
+  id: CaptainGear
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses

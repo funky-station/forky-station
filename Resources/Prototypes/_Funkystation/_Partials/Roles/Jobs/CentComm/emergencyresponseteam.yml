@@ -1,0 +1,16 @@
+# TODO: Move other modifications we made to the protos here
+
+- type: startingGear
+  id: ERTLeaderGearEVA
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+
+- type: startingGear
+  id: ERTSecurityGearEVA
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+
+- type: startingGear
+  id: ERTSecurityGearArmedRifle
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses

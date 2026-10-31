@@ -1,0 +1,6 @@
+# TODO: Move other modifications we made to the protos here
+
+- type: chameleonOutfit
+  id: ChiefMedicalOfficerChameleonOutfit
+  equipment:
+    eyes: ClothingEyesGlassesCheapSunglasses

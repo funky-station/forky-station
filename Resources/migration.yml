@@ -1190,6 +1190,7 @@ RCD: ConstructionChalkBox
 RCDEmpty: ConstructionChalkBox
 RCDRecharging: ConstructionChalkBox
 RCDAmmo: ConstructionChalk
+
 #2026-08-31
 DrinkWaterJug: JugWater
 
@@ -1198,3 +1199,15 @@ AsimovCircuitBoard: CrewsimovCircuitBoard
 
 # 2026-10-05 Funky - removed a painting
 PaintingSleepyGypsy: null
+
+# 2026-10-30 - removed almost all HUDs
+BoxSecglasses: null
+ClothingEyesEyepatchHudMedical: null
+ClothingEyesEyepatchHudSecurity: null
+ClothingEyesEyepatchHudDiag: null
+ClothingEyesGlassesSecurity: null
+ClothingEyesHudDiagnostic: null
+ClothingEyesHudMedical: null
+ClothingEyesHudSecurity: null
+ClothingEyesHudCommand: null
+ClothingEyesHudMedSec: null

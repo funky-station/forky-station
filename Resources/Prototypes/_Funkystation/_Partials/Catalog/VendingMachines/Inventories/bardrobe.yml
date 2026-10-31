@@ -1,0 +1,5 @@
+- type: vendingMachineInventory
+  id: BarDrobeInventory
+  startingInventory:
+    ClothingEyesHudBeer: !Remove
+    ClothingEyesEyepatchHudBeer: !Remove
