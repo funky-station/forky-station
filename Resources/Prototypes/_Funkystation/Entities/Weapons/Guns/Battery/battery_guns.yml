@@ -3,7 +3,7 @@
   parent: WeaponPulseRifle
   id: WeaponAdvancedPulseRifle
   suffix: "DO NOT MAP" # Deathsquad weapons should not be mapped
-  description: An advanced version of the infamous pulse rifle, beloved by NanoTrasen's most off the book troops for it's versatility and sheer killing power
+  description: An advanced version of the infamous pulse rifle, beloved by NanoTrasen's most off the book troops for its versatility and sheer killing power.
   components:
   - type: Gun
     fireRate: 3
