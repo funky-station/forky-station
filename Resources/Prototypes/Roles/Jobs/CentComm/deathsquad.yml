@@ -24,7 +24,7 @@
     jumpsuit: ClothingUniformJumpsuitDeathSquad
     back: ClothingBackpackDeathSquad
     mask: ClothingMaskGasDeathSquad
-    eyes: ClothingEyesHudSecurity
+    eyes: ClothingEyesHudMedSec # Funky: ClothingEyesHudSecurity > ClothingEyesHudMedSec (For seeing your victim's IDs and health status)
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitDeathsquad
@@ -46,7 +46,7 @@
     - DeathAcidifierImplanter # crew will try to steal their amazing hardsuits
     - FreedomImplanter
   inhand:
-  - WeaponPulseRifle
+  - WeaponAdvancedPulseRifle # Funky: WeaponPulseRifle > WeaponAdvancedPulseRifle
 
 - type: chameleonOutfit
   id: DeathSquadChameleonOutfit
