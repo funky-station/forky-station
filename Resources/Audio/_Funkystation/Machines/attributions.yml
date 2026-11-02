@@ -14,8 +14,8 @@
 
 - files: ["signal_lock.ogg"]
   license: "CC0-1.0"
-  copyright: "By Dragon20c (Freesound)"
-  source: "https://freesound.org/people/Dragon20C/sounds/806104/, edited by @pirakaplant (GitHub)"
+  copyright: "By Dragon20c (Freesound), edited by @pirakaplant (GitHub)"
+  source: "https://freesound.org/people/Dragon20C/sounds/806104/"
 
 - files: ["signal_lock_wrong_key.ogg"]
   license: "CC0-1.0"
