@@ -1,3 +1,7 @@
+- files: ["key_jingle_1.ogg", "key_jingle_2.ogg", "key_jingle_3.ogg", "key_jingle_4.ogg"]
+  license: "CC-BY-SA-4.0"
+  copyright: "By @Joaco545 (GitHub). Edited and converted to OGG by @pirakaplant (GitHub)."
+
 - files: ["pen_drop.ogg"]
   license: "CC0-1.0"
   copyright: "By @dslrguide (Freesound). Edited and converted to mono OGG by @pirakaplant (GitHub)."

@@ -1,0 +1,46 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-4.0",
+    "copyright": "Sprites created by dogman30602 on Discord",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "engdep"
+        },
+        {
+            "name": "engdep-equipped-NECK",
+            "directions": 4
+        },
+        {
+            "name": "logdep"
+        },
+        {
+            "name": "logdep-equipped-NECK",
+            "directions": 4
+        },
+        {
+            "name": "meddep"
+        },
+        {
+            "name": "meddep-equipped-NECK",
+            "directions": 4
+        },
+        {
+            "name": "scidep"
+        },
+        {
+            "name": "scidep-equipped-NECK",
+            "directions": 4
+        },
+        {
+            "name": "serdep"
+        },
+        {
+            "name": "serdep-equipped-NECK",
+            "directions": 4
+        }
+    ]
+}

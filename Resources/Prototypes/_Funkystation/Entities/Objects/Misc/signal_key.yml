@@ -1,0 +1,86 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: FuBaseSignalKey
+  name: key
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Funkystation/Objects/Misc/key.rsi
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/key_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Funkystation/Items/Handling/key_drop.ogg
+      params:
+        volume: -4
+  - type: UseDelay
+    delay: 3
+  - type: EmitSoundOnUse
+    sound:
+      collection: KeyJingle
+  - type: Whistle
+    distance: 3
+  - type: SignalKey
+
+- type: entity
+  parent: FuBaseSignalKey
+  id: FuKeyDqm
+  name: deputy quartermaster's key
+  suffix: dQM
+  description: A key that gives the Deputy Quartermaster access to the Quartermaster's office, as long as the secondary lock is open.
+  components:
+  - type: Sprite
+    state: logdep
+  - type: SignalKey
+    keyType: dQM
+
+- type: entity
+  parent: FuBaseSignalKey
+  id: FuKeyDce
+  name: engine foreman's key
+  suffix: dCE
+  description: A key that gives the Engine Foreman access to the Chief Engineer's office, as long as the secondary lock is open.
+  components:
+  - type: Sprite
+    state: engdep
+  - type: SignalKey
+    keyType: dCE
+
+- type: entity
+  parent: FuBaseSignalKey
+  id: FuKeyDcmo
+  name: charge nurse's key
+  suffix: dCMO
+  description: A key that gives the Charge Nurse access to the Chief Medical Officer's office, as long as the secondary lock is open.
+  components:
+  - type: Sprite
+    state: meddep
+  - type: SignalKey
+    keyType: dCMO
+
+- type: entity
+  parent: FuBaseSignalKey
+  id: FuKeyDrd
+  name: principal researcher's key
+  suffix: dRD
+  description: A key that gives the Principal Researcher access to the Research Director's office, as long as the secondary lock is open.
+  components:
+  - type: Sprite
+    state: scidep
+  - type: SignalKey
+    keyType: dRD
+
+- type: entity
+  parent: FuBaseSignalKey
+  id: FuKeyDhd
+  name: compère's key
+  suffix: dHD
+  description: A key that gives the Compère access to the Hospitality Director's office, as long as the secondary lock is open.
+  components:
+  - type: Sprite
+    state: serdep
+  - type: SignalKey
+    keyType: dHD

@@ -137,3 +137,84 @@
   components:
   - type: Pda
     id: DispatcherIDCard
+
+# Deputy PDAs
+
+# Descending from the senior PDAs because they're the fanciest ones
+# This can be changed later it's not a big deal
+
+- type: entity
+  parent: SeniorCourierPDA
+  id: FuDqmPDA
+  name: deputy quartermaster PDA
+  suffix: dQM
+  components:
+  - type: Pda
+    id: null
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+
+- type: entity
+  parent: SeniorEngineerPDA
+  id: FuDcePDA
+  name: engine foreman PDA
+  suffix: dCE
+  components:
+  - type: Pda
+    id: null
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+
+- type: entity
+  parent: SeniorPhysicianPDA
+  id: FuDcmoPDA
+  name: charge nurse PDA
+  suffix: dCMO
+  components:
+  - type: Pda
+    id: null
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+
+- type: entity
+  parent: SeniorResearcherPDA
+  id: FuDrdPDA
+  name: principal researcher PDA
+  suffix: dRD
+  components:
+  - type: Pda
+    id: null
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+
+- type: entity
+  parent: ServiceWorkerPDA # Fortunately no senior service jobs ever existed
+  id: FuDhdPDA
+  name: compère PDA
+  suffix: dHD
+  description: Smells like candles and good cooking. # Service Worker PDA description kinda sucks
+  components:
+  - type: Pda
+    id: null
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write

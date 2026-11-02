@@ -35,6 +35,7 @@
     - id: ClothingHeadsetHD
     - id: DoorRemoteService
     - id: BoxFolderCateringDigiboard
+    - id: FuBoxDhd
 
 - type: entity
   id: LockerHospitalityDirectorFilled

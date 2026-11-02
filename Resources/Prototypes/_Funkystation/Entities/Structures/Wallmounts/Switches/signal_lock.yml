@@ -1,0 +1,131 @@
+# Base prototypes
+
+- type: entity
+  abstract: true
+  parent: [ BaseWallmountMetallic, StructureHealthMachine ]
+  id: FuBaseSignalLock
+  name: signal lock
+  description: A keyhole mounted on the wall.
+  components:
+  - type: WallMount
+    arc: 175
+  - type: Sprite
+    offset: 0, -0.25
+    drawdepth: WallMountedItems
+    sprite: Structures/Wallmounts/switch.rsi
+    state: base # TODO: Get a custom sprite for this. Looks good enough for now though
+  - type: UseDelay
+    delay: 0.5
+  - type: SignalLock
+  - type: Rotatable
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+  - type: WirelessNetworkConnection
+    range: 5 # These should be mapped right next to the door, and generally not be linkable to random shit in the department
+  - type: DeviceLinkSource
+    ports:
+    - Trigger
+  - type: Transform
+    anchored: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -8
+
+- type: entity
+  abstract: true
+  parent: FuBaseSignalLock
+  id: FuBaseLockableSignalLock
+  name: lockable signal lock
+  components:
+  - type: Lock
+  - type: AccessReader
+  - type: Sprite
+    offset: 0, -0.25
+    drawdepth: WallMountedItems
+    sprite: Structures/Wallmounts/switch-lockable.rsi
+    layers:
+    - state: base
+    - map: [ "lock-shaded" ]
+      state: lock-locked
+    - map: [ "lock-unshaded" ]
+      state: lock-locked-unshaded
+      shader: unshaded
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.LockVisuals.Locked:
+        lock-shaded:
+          True: { state: lock-locked }
+          False: { state: lock-unlocked }
+        lock-unshaded:
+          True: { state: lock-locked-unshaded }
+          False: { state: lock-unlocked-unshaded }
+
+# Secondary locks, for certain department head offices
+
+# This is just for the name change.
+# All the secondary locks are going to have the same player-facing name so this is more efficient.
+# FuBaseSignalLock should keep a generic name in case this system is used for other stuff.
+- type: entity
+  abstract: true
+  parent: FuBaseLockableSignalLock
+  id: FuBaseSecondaryLock
+  name: secondary lock
+
+- type: entity
+  parent: FuBaseSecondaryLock
+  id: FuSecondaryLockDqm
+  suffix: dQM
+  components:
+  - type: AccessReader
+    access: [ [ "Quartermaster" ] ]
+  - type: SignalLock
+    keyType: dQM
+
+- type: entity
+  parent: FuBaseSecondaryLock
+  id: FuSecondaryLockDce
+  suffix: dCE
+  components:
+  - type: AccessReader
+    access: [ [ "ChiefEngineer" ] ]
+  - type: SignalLock
+    keyType: dCE
+
+- type: entity
+  parent: FuBaseSecondaryLock
+  id: FuSecondaryLockDcmo
+  suffix: dCMO
+  components:
+  - type: AccessReader
+    access: [ [ "ChiefMedicalOfficer" ] ]
+  - type: SignalLock
+    keyType: dCMO
+
+- type: entity
+  parent: FuBaseSecondaryLock
+  id: FuSecondaryLockDrd
+  suffix: dRD
+  components:
+  - type: AccessReader
+    access: [ [ "ResearchDirector" ] ]
+  - type: SignalLock
+    keyType: dRD
+
+- type: entity
+  parent: FuBaseSecondaryLock
+  id: FuSecondaryLockDhd
+  suffix: dHD
+  components:
+  - type: AccessReader
+    access: [ [ "HospitalityDirector" ] ]
+  - type: SignalLock
+    keyType: dHD

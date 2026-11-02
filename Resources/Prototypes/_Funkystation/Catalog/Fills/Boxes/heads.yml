@@ -1,0 +1,106 @@
+# Deputy head packages
+
+- type: entity
+  parent: BoxCardboard
+  id: FuBoxDqm
+  name: deputy quartermaster package
+  suffix: dQM
+  components:
+  - type: Sprite
+    layers:
+      - state: box
+      - state: dqm
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: FuClothingNeckBadgeDqm
+        - id: FuKeyDqm
+        - id: FuDqmPDA
+        - id: Whistle
+        - id: Magic9Ball
+        - id: FoodSnackChocolate # TODO: Make this some slightly nicer chocolates. Supermarket gourmet shit
+
+- type: entity
+  parent: BoxCardboard
+  id: FuBoxDce
+  name: engine foreman package
+  suffix: dCE
+  components:
+  - type: Sprite
+    layers:
+    - state: box
+    - state: dce
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: FuClothingNeckBadgeDce
+        - id: FuKeyDce
+        - id: FuDcePDA
+        - id: Whistle
+        - id: Magic9Ball
+        - id: FoodSnackChocolate # TODO: Make this some slightly nicer chocolates. Supermarket gourmet shit
+
+- type: entity
+  parent: BoxCardboard
+  id: FuBoxDcmo
+  name: charge nurse package
+  suffix: dCMO
+  components:
+  - type: Sprite
+    layers:
+    - state: box
+    - state: dcmo
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: FuClothingNeckBadgeDcmo
+        - id: FuKeyDcmo
+        - id: FuDcmoPDA
+        - id: Whistle
+        - id: Magic9Ball
+        - id: FoodSnackChocolate # TODO: Make this some slightly nicer chocolates. Supermarket gourmet shit
+
+- type: entity
+  parent: BoxCardboard
+  id: FuBoxDrd
+  name: principal researcher package
+  suffix: dRD
+  components:
+  - type: Sprite
+    layers:
+    - state: box
+    - state: drd
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: FuClothingNeckBadgeDrd
+        - id: FuKeyDrd
+        - id: FuDrdPDA
+        - id: Whistle
+        - id: Magic9Ball
+        - id: FoodSnackChocolate # TODO: Make this some slightly nicer chocolates. Supermarket gourmet shit
+
+- type: entity
+  parent: BoxCardboard
+  id: FuBoxDhd
+  name: compère package
+  suffix: dHD
+  components:
+  - type: Sprite
+    layers:
+    - state: box
+    - state: dhd
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: FuClothingNeckBadgeDhd
+        - id: FuKeyDhd
+        - id: FuDhdPDA
+        - id: Whistle
+        - id: Magic9Ball
+        - id: FoodSnackChocolate # TODO: Make this some slightly nicer chocolates. Supermarket gourmet shit
