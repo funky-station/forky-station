@@ -1,3 +1,87 @@
+# Deputy head badges
+
+- type: entity
+  parent: ClothingNeckBase
+  id: FuClothingNeckBadgeDqm
+  name: deputy quartermaster's badge
+  suffix: dQM
+  description: A badge that indicates that the wearer holds the position of Deputy Quartermaster.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Neck/Misc/deputy_badges.rsi
+    state: logdep
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Neck/Misc/deputy_badges.rsi
+    equippedPrefix: logdep
+
+- type: entity
+  parent: ClothingNeckBase
+  id: FuClothingNeckBadgeDce
+  name: engine foreman's badge
+  suffix: dCE
+  description: A badge that indicates that the wearer holds the position of Engine Foreman.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Neck/Misc/deputy_badges.rsi
+    state: engdep
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Neck/Misc/deputy_badges.rsi
+    equippedPrefix: engdep
+
+- type: entity
+  parent: ClothingNeckBase
+  id: FuClothingNeckBadgeDcmo
+  name: charge nurse's badge
+  suffix: dCMO
+  description: A badge that indicates that the wearer holds the position of Charge Nurse.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Neck/Misc/deputy_badges.rsi
+    state: meddep
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Neck/Misc/deputy_badges.rsi
+    equippedPrefix: meddep
+
+- type: entity
+  parent: ClothingNeckBase
+  id: FuClothingNeckBadgeDrd
+  name: principal researcher's badge
+  suffix: dRD
+  description: A badge that indicates that the wearer holds the position of Principal Researcher.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Neck/Misc/deputy_badges.rsi
+    state: scidep
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Neck/Misc/deputy_badges.rsi
+    equippedPrefix: scidep
+
+- type: entity
+  parent: ClothingNeckBase
+  id: FuClothingNeckBadgeDhd
+  name: compère's badge
+  suffix: dHD
+  description: A badge that indicates that the wearer holds the position of Compère.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Neck/Misc/deputy_badges.rsi
+    state: serdep
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Neck/Misc/deputy_badges.rsi
+    equippedPrefix: serdep
+
+# Lift belt
+
 - type: entity
   parent: ClothingNeckBase
   id: FuClothingNeckCargoLiftBelt

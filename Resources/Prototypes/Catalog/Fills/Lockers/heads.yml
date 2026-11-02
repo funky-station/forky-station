@@ -16,6 +16,7 @@
       prob: 0.02
     - id: RadioHandheldCargo #funkystation
     - id: RadioHandheldCommand #funkystation
+    - id: FuBoxDqm # Funky here until we can make partial entity tables
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -172,6 +173,7 @@
       prob: 0.02
     - id: RadioHandheldEngineering #funkystation
     - id: RadioHandheldCommand #funkystation
+    - id: FuBoxDce # Funky here until we can make partial entity tables
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -231,6 +233,7 @@
       prob: 0.02
     - id: RadioHandheldMedical #funkystation
     - id: RadioHandheldCommand #funkystation
+    - id: FuBoxDcmo # Funky here until we can make partial entity tables
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -285,6 +288,7 @@
       prob: 0.02
     - id: RadioHandheldScience #funkystation
     - id: RadioHandheldCommand #funkystation
+    - id: FuBoxDrd # Funky here until we can make partial entity tables
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

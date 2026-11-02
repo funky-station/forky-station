@@ -6,8 +6,18 @@
   license: "CC-BY-SA-3.0"
   copyright: "ParadiseSS13"
   source: "https://github.com/ParadiseSS13/Paradise/tree/275677675bf34c94e9dd2e5e4e257e76a960db94/sound/machines"
-  
+
 - files: ["clock_ticking.ogg"]
   license: "CC-BY-4.0"
   copyright: "By InspectorJ, taken from freesound.org. Mono'd by AraiMaia"
   source: "https://freesound.org/people/InspectorJ/sounds/343130/"
+
+- files: ["signal_lock.ogg"]
+  license: "CC0-1.0"
+  copyright: "By Dragon20c (Freesound), edited by @pirakaplant (GitHub)"
+  source: "https://freesound.org/people/Dragon20C/sounds/806104/"
+
+- files: ["signal_lock_wrong_key.ogg"]
+  license: "CC0-1.0"
+  copyright: "By jeneveev (Freesound), edited and converted to mono OGG by @pirakaplant (GitHub)"
+  source: "https://freesound.org/people/jeneveev/sounds/544644/"
