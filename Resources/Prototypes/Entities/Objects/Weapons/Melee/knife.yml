@@ -524,7 +524,7 @@
       types:
         Slash: 7
   - type: MeleeWeapon
-    wideAnimationRotation: -155 #might be fine?
+    wideAnimationRotation: -180
     attackRate: 2.5 #fast attacking lower damage
     damage:
       types:
