@@ -9,8 +9,6 @@ guide-entry-nclp-protestregs = Assembly Regulations
 guide-entry-nclp-revoltregs = Revolt Suppression Protocol
 
 guide-entry-nclp-article-2 = Article 2: Corporate Law
-guide-entry-nclp-article-3 = Article 3: SOP
-guide-entry-nclp-article-5 = Article 5: Sentencing Guidelines
 guide-entry-nclp-article-2-section-01 = Definitions
 guide-entry-nclp-article-2-section-02 = Searches
 guide-entry-nclp-article-2-section-03 = Detainment & Arrests

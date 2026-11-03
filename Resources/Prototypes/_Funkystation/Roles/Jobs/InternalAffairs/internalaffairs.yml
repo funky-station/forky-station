@@ -31,6 +31,7 @@
     eyes: ClothingEyesGlassesSunglasses
     ears: ClothingHeadsetInternalAffairs
     outerClothing: ClothingOuterCoatTrench
+    pocket2: PouchGeneric
 
 - type: chameleonOutfit
   id: IAAChameleonOutfit

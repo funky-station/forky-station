@@ -39,6 +39,7 @@
   equipment:
     id: RnDPDA
     ears: ClothingHeadsetRD
+    back: ClothingBackpackSatchelLeather # funky
   storage:
     back:
     - Flash

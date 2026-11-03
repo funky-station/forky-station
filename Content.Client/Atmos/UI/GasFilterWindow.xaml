@@ -14,15 +14,17 @@
             <Button Name="SetFilterRate" Text="{Loc comp-gas-filter-ui-filter-set-rate}" Disabled="True"/>
         </BoxContainer>
 
-        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-            <Label Name="CurrentGasLabel" />
+        <!-- Funky changes start -->
+        <BoxContainer Orientation="Vertical">
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 5">
+                <GridContainer HorizontalExpand="True" Columns="3" Margin="0 5 0 0">
+                    <Button Name="CSelectAll" HorizontalExpand="True" Text="{Loc 'air-alarm-ui-scrubber-select-all-gases-label'}" />
+                    <Button Name="CDeselectAll" HorizontalExpand="True" Text="{Loc 'air-alarm-ui-scrubber-deselect-all-gases-label'}" />
+                    <Control HorizontalExpand="True" />
+                </GridContainer>
+            </BoxContainer>
+            <GridContainer HorizontalExpand="True" Name="CGasContainer" Columns="3" Margin="0 5 0 0" />
         </BoxContainer>
-
-        <BoxContainer Orientation="Vertical" VerticalExpand="True">
-            <Label Text="{Loc comp-gas-filter-ui-filter-gas-select}" />
-            <ItemList Name="GasList" SelectMode="Single" VerticalExpand="True"
-                      SizeFlagsStretchRatio="0.9" />
-            <Button Name="SelectGasButton" Text="{Loc comp-gas-filter-ui-filter-gas-confirm}" HorizontalExpand="True" Disabled="True" />
-        </BoxContainer>
+        <!-- Funky changes end -->
     </BoxContainer>
 </DefaultWindow>

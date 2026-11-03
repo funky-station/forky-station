@@ -4,7 +4,6 @@
   - CaptainHead
   - CaptainNeck
   - CaptainJumpsuit
-  - CaptainBackpack
   - CaptainOuterClothing
   - Pager
   - AssistiveItems
@@ -49,7 +48,6 @@
   groups:
   - GroupTankHarness
   - PassengerJumpsuit
-  - CommonBackpack
   - PassengerNeck
   - PassengerFace
   - PassengerGloves
@@ -70,7 +68,6 @@
   - GroupTankHarness
   - BartenderHead
   - BartenderJumpsuit
-  - CommonBackpack
   - BartenderOuterClothing
   - Pager
   - Glasses
@@ -86,7 +83,6 @@
   groups:
   - GroupTankHarness
   - BartenderJumpsuit
-  - CommonBackpack
   - Pager
   - Glasses
   - AssistiveItems
@@ -103,7 +99,6 @@
   - ChefHead
   - ChefMask
   - ChefJumpsuit
-  - CommonBackpack
   - ChefOuterClothing
   - Pager
   - Glasses
@@ -119,7 +114,6 @@
   groups:
   - GroupTankHarness
   - LibrarianJumpsuit
-  - CommonBackpack
   - Pager
   - Glasses
   - AssistiveItems
@@ -135,7 +129,6 @@
   - GroupTankHarness
   - LawyerNeck
   - LawyerJumpsuit
-  - CommonBackpack
   - Pager
   - Glasses
   - AssistiveItems
@@ -154,7 +147,6 @@
   - ChaplainMask
   - ChaplainNeck
   - ChaplainJumpsuit
-  - CommonBackpack
   - ChaplainOuterClothing
   - ChaplainBible
   - Pager
@@ -173,7 +165,6 @@
   - JanitorHead
   - JanitorJumpsuit
   - JanitorGloves
-  - CommonBackpack
   - JanitorOuterClothing
   - Pager
   - Glasses
@@ -227,7 +218,7 @@
   - MimeHead
   - MimeMask
   - MimeJumpsuit
-  - MimeBackpack
+  # - MimeBackpack # funky. mime wrath
   - MimeOuterClothing
   - MimeBelt
   - Pager
@@ -244,7 +235,6 @@
   groups:
   - GroupTankHarness
   - MusicianJumpsuit
-  - CommonBackpack
   - MusicianOuterClothing
   - Instruments
   - Pager
@@ -265,7 +255,6 @@
   - QuartermasterNeck
   - FuQuartermasterOuterClothing # Funky - see previous outerclothing
   - QuartermasterJumpsuit
-  - CargoTechnicianBackpack
   # Funky - previously QuartermasterOuterClothing
   - QuartermasterShoes
   - Pager
@@ -321,7 +310,6 @@
   - GroupTankHarness
   - ChiefEngineerHead
   - ChiefEngineerJumpsuit
-  - StationEngineerBackpack
   - ChiefEngineerNeck
   - ChiefEngineerOuterClothing
   - ChiefEngineerShoes
@@ -390,7 +378,6 @@
   - ResearchDirectorHead
   - ResearchDirectorNeck
   - ResearchDirectorJumpsuit
-  - ScientistBackpack
   - ResearchDirectorOuterClothing
   - ScientistGloves
   - ResearchDirectorShoes
@@ -410,7 +397,6 @@
   - ScientistHead
   - ScientistNeck
   - ScientistJumpsuit
-  - ScientistBackpack
   - ScientistOuterClothing
   - ScientistGloves
   - ScientistShoes
@@ -429,7 +415,6 @@
   groups:
   - GroupTankHarness
   - ResearchAssistantJumpsuit
-  - ScientistBackpack
   - Pager
   - Glasses
   - AssistiveItems
@@ -502,7 +487,6 @@
   - DetectiveHead
   - DetectiveNeck
   - DetectiveJumpsuit
-  - SecurityBackpack
   - DetectiveOuterClothing
   - SecurityShoes
   - Pager
@@ -536,7 +520,6 @@
   - ReporterJumpsuit
   - ReporterHead
   - ReporterOuterClothing
-  - CommonBackpack
   - Glasses
   - AssistiveItems
   - Survival
@@ -550,7 +533,6 @@
   groups:
   - GroupTankHarness
   - PsychologistJumpsuit
-  - MedicalBackpack
   - Pager
   - Glasses
   - AssistiveItems
@@ -564,7 +546,6 @@
   id: JobTramDriver
   groups:
   - GroupTankHarness
-  - CommonBackpack
   - TramDriverJumpsuit
   - TramDriverOuterClothing #Vest and such
   - TramDriverHat

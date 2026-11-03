@@ -167,8 +167,11 @@ public sealed partial class LabelSystem : EntitySystem
             }
 
             args.PushMarkup(Loc.GetString("comp-paper-label-has-label"));
-            var text = paper.Content;
-            args.PushMarkup(text.TrimEnd());
+            // funky start - using permissive parser for paper labels so that invalid tags don't cause a crash
+            var message = new FormattedMessage();
+            message.AddMarkupPermissive(paper.Content.TrimEnd());
+            args.PushMessage(message);
+            // funky end
         }
     }
 

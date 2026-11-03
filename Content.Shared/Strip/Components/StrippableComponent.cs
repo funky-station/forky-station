@@ -24,6 +24,14 @@ namespace Content.Shared.Strip.Components
     [NetSerializable, Serializable]
     public sealed class StrippingSlotButtonPressed(string slot, bool isHand) : BoundUserInterfaceMessage
     {
+        public readonly string Slot = slot; // funky
+        public readonly bool IsHand = isHand; // funky
+    }
+
+    // funky, separate message for the open storage action
+    [NetSerializable, Serializable]
+    public sealed class StrippingOpenStorageButtonPressed(string slot, bool isHand) : BoundUserInterfaceMessage
+    {
         public readonly string Slot = slot;
         public readonly bool IsHand = isHand;
     }

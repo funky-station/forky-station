@@ -116,7 +116,7 @@ public sealed partial class UnionSelectorSystem : EntitySystem
     {
         args.Cancelled = !CanSeeUnionVision(uid, args.Player);
     }
-    
+
     // this works the same as legacy funkys revs gamemode.
     // a steward and leader can see eachother, but members cannot see eachother
     // this allows scabs and plants from NT to infiltrate the union
@@ -130,7 +130,7 @@ public sealed partial class UnionSelectorSystem : EntitySystem
 
         if (!TryGetUnionForMember(viewer, out var viewerUnion) || viewerUnion == null || viewerUnion != targetUnion)
             return false;
-        
+
         if (IsLeaderOrSteward(targetUnion, target))
             return true;
 
@@ -205,9 +205,9 @@ public sealed partial class UnionSelectorSystem : EntitySystem
     private void AssignToUnion(PlayerSpawnCompleteEvent ev, bool eligibleForUnionLeader)
     {
         var departmentId = GetDepartmentFromJob(ev.JobId!);
-        if (departmentId == null || !TryGetGroupingForDepartment(departmentId, out var grouping))
+        if (departmentId == null || !TryGetGroupingForDepartment(departmentId, out var grouping) || HasComp<DepartmentHeadComponent>(ev.Mob))
         {
-            // dept has no grouping proto, so just remove it (command for example)
+            // dept has no grouping proto or is a department head, so just remove it
             RemComp<UnionLeaderComponent>(ev.Mob);
             RemComp<UnionMemberComponent>(ev.Mob);
             return;
@@ -674,7 +674,7 @@ public sealed partial class UnionSelectorSystem : EntitySystem
     private void GiveUnionCard(EntityUid member, StationUnion union)
     {
         var card = SpawnUnionCard(member, union, Transform(member).Coordinates);
-        
+
         // driving myself mad
         if (_inventorySystem.TryGetSlotEntity(member, "id", out var wallet)
             && HasComp<StorageComponent>(wallet)

@@ -2,7 +2,8 @@ using Content.Shared._RMC14.Sound;
 using Content.Shared.Actions;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
-using Content.Shared.Timing;
+using Content.Shared.Timing.Systems;
+using Content.Shared.Timing.Components;
 using Content.Shared.Whistle;
 using Robust.Shared.Timing;
 

@@ -228,7 +228,7 @@
   parent: MobMouse
   id: MobMouseSnouse
   name: snouse
-  description: Developed by Interdyne as one of their many attempts to stifle the ever-present problem of pests on agri-worlds, the Snouse is a transgenic organism intended to interfere and mingle with existing rodent populations. Populations of these were released into farming communities alongside Snoths in hopes they would pass on the snail genes, making future generations of pests unable to escape from traps and other forms of pest control. Unfortunately, this attempt proved futile as the hardened shells of these organisms made them resistant to commonly available mousetraps. Interdyne then moved onto their next attempt at solving the pest problem, the meowl.
+  description: Developed by Interdyne as one of their many attempts to stifle the ever-present problem of pests on agri-worlds, the Snouse is a transgenic organism intended to interfere and mingle with existing rodent populations. Populations of these were released into farming communities alongside Snoths in hopes they would pass on the snail genes, making future generations of pests unable to escape from traps and other forms of pest control. Unfortunately, this attempt proved futile as the hardened shells of these organisms made them resistant to commonly available mousetraps.
   components:
   - type: Sprite
     sprite: _Funkystation/Mobs/Animals/snouse.rsi
@@ -525,106 +525,6 @@
   - type: TimedDespawn
     lifetime: 2
 
-- type: entity
-  id: MobMeowl
-  name: meowl
-  description: The peak of evolution, the most efficient pest hunter any side of the galaxy. Considered highly invasive on every planet.
-  parent: [SimpleMobBase, FlyingMobBase]
-  components:
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      sprite: _Funkystation/Mobs/Animals/meowl.rsi
-      state: meowl
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.25
-        density: 10
-        mask:
-        - FlyingMobMask
-        layer:
-        - FlyingMobLayer
-  - type: DamageStateVisuals
-    states:
-     Alive:
-       Base: meowl
-     Critical:
-       Base: dead
-     Dead:
-       Base: dead
-  - type: Butcherable
-    spawned:
-    - id: FoodMeat
-      amount: 1
-  - type: Speech
-    speechSounds: Cat
-    speechVerb: SmallMob
-#    allowedEmotes: ['Purr','Mew','Meow','Hiss']
-    allowedEmotes: ['Hiss']
-  - type: ReplacementAccent
-    accent: cat
-  - type: InteractionPopup
-    successChance: 0.6
-    interactSuccessString: petting-success-cat
-    interactFailureString: petting-failure-generic
-    interactSuccessSpawn: EffectHearts
-    interactSuccessSound:
-      path: /Audio/Animals/cat_meow.ogg
-  - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 75
-  - type: MeleeWeapon
-    altDisarm: false
-    angle: 0
-    animation: WeaponArcClaw
-    soundHit:
-      path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
-    damage:
-      types:
-        Slash: 5
-        Piercing: 5
-  - type: StaminaDamageOnHit
-    damage: 8 #as strong as boxing gloves. HOLY SHIT THERES A BIRDCAT IN MY FACE AAHGAH GET IT OFF GET IT OFF
-  - type: Grammar
-    attributes:
-      gender: epicene
-  - type: MobPrice
-    price: 1000
-  - type: Tag
-    tags:
-    - CannotSuicide
-    - VimPilot
-    # Goob/EE Thermal Vision is AGPL. Commenting out for now incase Goob/EE thermal vision gets ported. Though more likely that it has to be rebuilt from the ground up.
-#  - type: ThermalVision
-#    color: "#b8b8b8"
-#    activateSound: null
-#    deactivateSound: null
-#    lightRadius: 2
-  - type: NpcFactionMember
-    factions:
-    - PetsNT #makes them hunt mice
-  - type: HTN
-    rootTask:
-      task: SimpleHostileCompound
-  - type: NPCRetaliation #bird talon with cat fangs plus wings equals don't fuck with them
-  - type: GhostRole
-    prob: 0.25
-    makeSentient: true
-    allowSpeech: true
-    allowMovement: true
-    name: ghost-role-information-meowl-name
-    description: ghost-role-information-meowl-description
-    rules: ghost-role-information-freeagent-rules
-    mindRoles:
-    - MindRoleGhostRoleFreeAgentHarmless
-  - type: GhostTakeoverAvailable
-
 # ported from funkystation to forky
 - type: entity
   name: roingus
@@ -672,3 +572,88 @@
       Burger: RoingusBurger
       Taco: RoingusTaco
       Skewer: RoingusSkewer
+
+# M,eowl,,, :3
+- type: entity
+  name: meowl
+  parent: [ SimpleMobBase, FlyingMobBase, BaseSlicingRefinable ]
+  id: MobMeowl
+  description: The peak of evolution, the most efficient pest hunter any side of the galaxy. Considered highly invasive on every planet.
+  components:
+  - type: InteractionPopup
+    successChance: 0.9
+    interactSuccessString: petting-success-meowl
+    interactFailureString: petting-failure-meowl
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/cat_meow.ogg
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: epicene
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodMeat
+      amount: 1
+  - type: CombatMode
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 5
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 7
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: meowl
+      sprite: _Funkystation/Mobs/Animals/meowl.rsi
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.47
+        density: 30
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: meowl
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: MobPrice
+    price: 100
+  - type: NPCRetaliation
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+    - PetsNT
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: ZombieImmune
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 100
+      behaviors:
+      - !type:GibBehavior
+        recursive: false

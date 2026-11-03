@@ -1,0 +1,35 @@
+- type: job
+  id: Librarian
+  name: job-name-librarian
+  description: job-description-librarian
+  playTimeTracker: JobLibrarian
+  startingGear: LibrarianGear
+  icon: "JobIconLibrarian"
+  supervisors: job-supervisors-hd # funky
+  access:
+  - Service
+  - Maintenance
+  - Library # funky
+
+- type: startingGear
+  id: LibrarianGear
+  equipment:
+    shoes: ClothingShoesBootsLaceup
+    id: LibrarianWallet # Funky: the wallet-ening
+    ears: ClothingHeadsetService
+    pocket2: HandLabeler # for making named bestsellers
+    pocket1: PouchGeneric # funky
+  storage:
+    back:
+    - BookRandom
+
+- type: chameleonOutfit
+  id: LibrarianChameleonOutfit
+  job: Librarian
+  equipment:
+    head: ClothingHeadHatCanadaBeanie
+    eyes: ClothingEyesGlassesJamjar
+    mask: ClothingMaskGas
+    neck: ClothingNeckScarfStripedGreen
+    outerClothing: ClothingOuterWinterColorGreen
+    gloves: ClothingHandsGlovesColorBlack

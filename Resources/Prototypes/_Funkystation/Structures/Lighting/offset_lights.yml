@@ -1,0 +1,319 @@
+#small lights
+- type: entity
+  parent: SmallLight
+  id: SmallLightLeft
+  suffix: Left Always Powered
+  description: "An always powered light."
+  components:
+  - type: Sprite
+    offset: -0.25, 1
+    sprite: Structures/Wallmounts/Lighting/light-small.rsi
+    state: base
+  - type: PointLight
+    color: "#FFD1A3"
+    energy: 1.0
+    radius: 6
+    softness: 1.1
+    enabled: true
+  - type: Construction
+    graph: LightFixtureOffset
+    node: bulbLight_left
+
+- type: entity
+  parent: SmallLightLeft
+  id: PoweredSmallLightLeftEmpty
+  name: small light
+  suffix: Left, Empty
+  description: "A light fixture. Draws power and produces light when equipped with a light bulb."
+  components:
+  - type: Sprite
+    sprite: Structures/Wallmounts/Lighting/light-small.rsi
+    state: empty
+  - type: AmbientSound
+    enabled: false
+  - type: PointLight
+    enabled: false
+  #    offset: "0, 0.25"
+  - type: ContainerContainer
+    containers:
+      light_bulb: !type:ContainerSlot
+  - type: PoweredLight
+    bulb: Bulb
+  - type: ApcPowerReceiver
+  - type: ExtensionCableReceiver
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SmartLight
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: Appearance
+  - type: PoweredLightVisuals
+    spriteStateMap:
+      empty: empty
+      off: base
+      on: base
+      broken: broken
+      burned: burned
+  - type: DeviceLinkSink
+    ports:
+    - On
+    - Off
+    - Toggle
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 1
+    popupText: powered-light-component-burn-hand
+
+- type: entity
+  parent: PoweredSmallLightLeftEmpty
+  id: PoweredLEDSmallLightLeft
+  suffix: Left, LED
+  components:
+  - type: Sprite
+    state: base
+  - type: PointLight
+    enabled: true
+    radius: 8
+    energy: 1
+    softness: 1
+    color: "#EEEEFF"
+  - type: PoweredLight
+    hasLampOnSpawn: LedLightBulb
+
+- type: entity
+  parent: PoweredSmallLightLeftEmpty
+  id: PoweredDimSmallLightLeft
+  suffix: Left, Dim
+  components:
+  - type: Sprite
+    state: base
+  - type: PointLight
+    enabled: true
+    radius: 5
+    energy: 0.5
+    softness: 3
+    color: "#ba473f"
+  - type: PoweredLight
+    hasLampOnSpawn: DimLightBulb
+
+- type: entity
+  parent: PoweredSmallLightLeftEmpty
+  id: PoweredWarmSmallLightLeft
+  suffix: Left, Warm
+  components:
+  - type: Sprite
+    state: base
+  - type: PointLight
+    enabled: true
+    radius: 6
+    energy: 1
+    softness: 3
+    color: "#FF9833"
+  - type: PoweredLight
+    hasLampOnSpawn: WarmLightBulb
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 2
+    popupText: powered-light-component-burn-hand
+
+- type: entity
+  parent: PoweredSmallLightLeftEmpty
+  id: PoweredSmallLightLeft
+  suffix: Left
+  components:
+  - type: Sprite
+    state: base
+  - type: PointLight
+    enabled: true
+  - type: PoweredLight
+    hasLampOnSpawn: LightBulb
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 2
+    popupText: powered-light-component-burn-hand
+
+- type: entity
+  parent: SmallLight
+  id: SmallLightRight
+  suffix: Right Always Powered
+  description: "An always powered light."
+  components:
+  - type: Sprite
+    offset: 0.25, 1
+    sprite: Structures/Wallmounts/Lighting/light-small.rsi
+    state: base
+  - type: PointLight
+    color: "#FFD1A3"
+    energy: 1.0
+    radius: 6
+    softness: 1.1
+    enabled: true
+  - type: Construction
+    graph: LightFixtureOffset
+    node: bulbLight_right
+
+- type: entity
+  parent: SmallLightRight
+  id: PoweredSmallLightRightEmpty
+  name: small light
+  suffix: Right, Empty
+  description: "A light fixture. Draws power and produces light when equipped with a light bulb."
+  components:
+  - type: Sprite
+    sprite: Structures/Wallmounts/Lighting/light-small.rsi
+    state: empty
+  - type: AmbientSound
+    enabled: false
+  - type: PointLight
+    enabled: false
+  #    offset: "0, 0.25"
+  - type: ContainerContainer
+    containers:
+      light_bulb: !type:ContainerSlot
+  - type: PoweredLight
+    bulb: Bulb
+  - type: ApcPowerReceiver
+  - type: ExtensionCableReceiver
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SmartLight
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: Appearance
+  - type: PoweredLightVisuals
+    spriteStateMap:
+      empty: empty
+      off: base
+      on: base
+      broken: broken
+      burned: burned
+  - type: DeviceLinkSink
+    ports:
+    - On
+    - Off
+    - Toggle
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 1
+    popupText: powered-light-component-burn-hand
+
+- type: entity
+  parent: PoweredSmallLightRightEmpty
+  id: PoweredLEDSmallLightRight
+  suffix: Right, LED
+  components:
+  - type: Sprite
+    state: base
+  - type: PointLight
+    enabled: true
+    radius: 8
+    energy: 1
+    softness: 1
+    color: "#EEEEFF"
+  - type: PoweredLight
+    hasLampOnSpawn: LedLightBulb
+
+- type: entity
+  parent: PoweredSmallLightRightEmpty
+  id: PoweredDimSmallLightRight
+  suffix: Right, Dim
+  components:
+  - type: Sprite
+    state: base
+  - type: PointLight
+    enabled: true
+    radius: 5
+    energy: 0.5
+    softness: 3
+    color: "#ba473f"
+  - type: PoweredLight
+    hasLampOnSpawn: DimLightBulb
+
+- type: entity
+  parent: PoweredSmallLightRightEmpty
+  id: PoweredWarmSmallLightRight
+  suffix: Right, Warm
+  components:
+  - type: Sprite
+    state: base
+  - type: PointLight
+    enabled: true
+    radius: 6
+    energy: 1
+    softness: 3
+    color: "#FF9833"
+  - type: PoweredLight
+    hasLampOnSpawn: WarmLightBulb
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 2
+    popupText: powered-light-component-burn-hand
+
+- type: entity
+  parent: PoweredSmallLightRightEmpty
+  id: PoweredSmallLightRight
+  suffix: Right
+  components:
+  - type: Sprite
+    state: base
+  - type: PointLight
+    enabled: true
+  - type: PoweredLight
+    hasLampOnSpawn: LightBulb
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 2
+    popupText: powered-light-component-burn-hand
+
+#emergency lights
+- type: entity
+  parent: EmergencyLight
+  id: EmergencyLightLeft
+  suffix: Left
+  components:
+  - type: Sprite
+    sprite: Structures/Wallmounts/Lighting/emergency-light.rsi
+    offset: -0.25, 1.25
+    layers:
+    - state: base
+      map: [ "enum.EmergencyLightVisualLayers.Base" ]
+    - state: emergency_light_off
+      map: [ "enum.EmergencyLightVisualLayers.LightOff" ]
+      color: "#7CFC00"
+    - state: emergency_light_on
+      map: [ "enum.EmergencyLightVisualLayers.LightOn" ]
+      color: "#7CFC00"
+      shader: "unshaded"
+      visible: false
+  - type: Construction
+    graph: LightFixtureOffset
+    node: emergencyLight_left
+
+- type: entity
+  parent: EmergencyLight
+  id: EmergencyLightRight
+  suffix: Right
+  components:
+  - type: Sprite
+    sprite: Structures/Wallmounts/Lighting/emergency-light.rsi
+    offset: 0.25, 1.25
+    layers:
+    - state: base
+      map: [ "enum.EmergencyLightVisualLayers.Base" ]
+    - state: emergency_light_off
+      map: [ "enum.EmergencyLightVisualLayers.LightOff" ]
+      color: "#7CFC00"
+    - state: emergency_light_on
+      map: [ "enum.EmergencyLightVisualLayers.LightOn" ]
+      color: "#7CFC00"
+      shader: "unshaded"
+      visible: false
+  - type: Construction
+    graph: LightFixtureOffset
+    node: emergencyLight_right

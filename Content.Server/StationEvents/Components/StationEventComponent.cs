@@ -26,10 +26,18 @@ public sealed partial class StationEventComponent : Component
     public string? EndAnnouncement;
 
     [DataField]
-    public Color StartAnnouncementColor = Color.Gold;
+    public Color StartAnnouncementColor = Color.FromHex("#f9a524"); // funky, SIS/TR's announcement color
 
     [DataField]
-    public Color EndAnnouncementColor = Color.Gold;
+    public Color EndAnnouncementColor = Color.FromHex("#f9a524"); // funky, SIS/TR's announcement color
+
+    // funky. loc id for who's speaking. override per-event in yaml if some event shouldn't be sis/tr
+    [DataField]
+    public string StartAnnouncementSender = "chat-manager-sender-sistr";
+
+    // funky
+    [DataField]
+    public string EndAnnouncementSender = "chat-manager-sender-sistr";
 
     [DataField]
     public ProtoId<AnnouncementSoundPrototype>? StartAudio; // Macrocosm edit - announcement sound prototypes

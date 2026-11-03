@@ -216,7 +216,7 @@ public sealed partial class EncryptionKeySystem : EntitySystem
                 : $"{SharedChatSystem.RadioChannelPrefix}{proto.KeyCode}";
 
             examineEvent.PushMarkup(Loc.GetString(channelFTLPattern,
-                ("color", proto.Color),
+                ("protoID", proto.ID), // funky - add radio channel tags to allow color customization by the player
                 ("key", key),
                 ("id", proto.LocalizedName),
                 ("freq", proto.Frequency)));
@@ -229,14 +229,14 @@ public sealed partial class EncryptionKeySystem : EntitySystem
                 var msg = Loc.GetString("examine-headset-default-channel",
                 ("prefix", SharedChatSystem.DefaultChannelPrefix),
                 ("channel", proto.LocalizedName),
-                ("color", proto.Color));
+                ("protoID", proto.ID)); // funky - add radio channel tags to allow color customization by the player
                 examineEvent.PushMarkup(msg);
             }
             if (HasComp<EncryptionKeyComponent>(examineEvent.Examined))
             {
                 var msg = Loc.GetString("examine-encryption-default-channel",
                 ("channel", proto.LocalizedName),
-                ("color", proto.Color));
+                ("protoID", proto.ID)); // funky - add radio channel tags to allow color customization by the player
                 examineEvent.PushMarkup(msg);
             }
         }

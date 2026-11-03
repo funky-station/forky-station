@@ -1,0 +1,62 @@
+- type: entity
+  parent: PoweredlightEmpty
+  id: BaseServiceLight
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/Wallmounts/service_light.rsi
+    drawdepth: WallMountedItems
+    offset: 0, 0.75
+    layers:
+    - map: ["enum.PoweredLightLayers.Base"]
+      state: base
+    - map: ["enum.PoweredLightLayers.Glow"]
+      state: glow
+      shader: unshaded
+  - type: PointLight
+    radius: 1.5
+    energy: 0.45
+    softness: 3
+    offset: "0, 0.75"
+    enabled: false
+  - type: DamageOnInteract
+    damage:
+      types:
+        Heat: 5
+    popupText: powered-light-component-burn-hand
+
+- type: entity
+  parent: BaseServiceLight
+  id: JanitorServiceLightEmpty
+  name: janitorial service light
+  description: A janitorial indicator light. If its lit the floor is slick.
+  suffix: "Empty"
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Structures/Wallmounts/service_light.rsi
+    drawdepth: WallMountedItems
+    offset: 0, 0.75
+    layers:
+    - map: ["enum.PoweredLightLayers.Base"]
+      state: base
+    - map: ["enum.PoweredLightLayers.Glow"]
+      state: glow
+      shader: unshaded
+  - type: PoweredLight
+    bulb: Bulb
+    on: false
+  - type: Construction
+    graph: WarningLightsGraph
+    node: JaniLight
+
+- type: entity
+  parent: JanitorServiceLightEmpty
+  id: JanitorServiceLight
+  name: janitorial service light
+  description: A janitorial indicator light. If its lit the floor is slick.
+  suffix: ""
+  components:
+  - type: PoweredLight
+    bulb: Bulb
+    on: false
+    hasLampOnSpawn: ServiceLightBulb

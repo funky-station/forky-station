@@ -1,0 +1,42 @@
+- type: job
+  id: Bartender
+  name: job-name-bartender
+  description: job-description-bartender
+  playTimeTracker: JobBartender
+  #requirements:
+  #  - !type:DepartmentTimeRequirement
+  #    department: Service # Funky - Service is now a separate department
+  #    time: 0.5h # Funky - Removing role timer for parity
+  startingGear: BartenderGear
+  icon: "JobIconBartender"
+  supervisors: job-supervisors-hd # funky
+  access:
+  - Service
+  - Maintenance
+  - Bar
+  extendedAccess:
+  - Kitchen
+  #- Hydroponics # Funky - Botanist is now in Logistics
+
+- type: startingGear
+  id: BartenderGear
+  equipment:
+    shoes: ClothingShoesColorBlack
+    id: BartenderWallet # Funky: the wallet-ening
+    ears: ClothingHeadsetService
+    pocket2: PouchGeneric # funky
+  #storage:
+    #back:
+    #- Stuff
+
+- type: chameleonOutfit
+  id: BartenderChameleonOutfit
+  job: Bartender
+  equipment:
+    head: ClothingHeadHatTophat
+    eyes: ClothingEyesGlassesSunglasses
+    mask: ClothingMaskBreath
+    neck: ClothingNeckScarfStripedBlack
+    outerClothing: ClothingOuterArmorBasicSlim
+    gloves: ClothingHandsGlovesColorBlack
+

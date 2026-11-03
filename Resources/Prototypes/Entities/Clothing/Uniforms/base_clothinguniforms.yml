@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: [SolutionFood, SolutionToolNormal, Clothing, BaseSlicingRefinable]
+  parent: [SolutionFood, SolutionToolNormal, Clothing, BaseSlicingRefinable, BaseStorageItem] # funky
   id: UnsensoredClothingUniformBase
   components:
   - type: Sprite
@@ -47,6 +47,21 @@
   - type: SolutionManager
     solutions:
     - SolutionStain
+  - type: Storage # Funky
+    grid:
+    - 0,0,1,1
+  - type: ContainerContainer # funky start
+    containers:
+      hidden_slot: !type:ContainerSlot
+      storagebase: !type:Container
+        ents: [ ]
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices # funky end
 
 - type: entity
   abstract: true
@@ -85,16 +100,6 @@
   - type: WirelessNetworkConnection
     range: 1200
   - type: StationLimitedNetwork
-  - type: ContainerContainer # funky start
-    containers:
-      hidden_slot: !type:ContainerSlot
-  - type: ItemSlots
-    slots:
-      hidden_slot:
-        name: hidden_slot
-        whitelist:
-          tags:
-          - SurveillanceDevices # funky end
 
 - type: entity
   abstract: true

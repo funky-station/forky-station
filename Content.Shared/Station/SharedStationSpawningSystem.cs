@@ -25,6 +25,11 @@ public abstract partial class SharedStationSpawningSystem : EntitySystem
     [Dependency] private EntityQuery<StorageComponent> _storageQuery = default!;
     [Dependency] private EntityQuery<TransformComponent> _xformQuery = default!;
 
+    // funky start
+    private readonly Dictionary<EntityUid, List<(string Slot, List<EntProtoId> Protos)>> _pendingStorage = new();
+    protected virtual bool DeferMissingSlotStorage => false;
+    // funky end
+
     /// <summary>
     ///     Equips the data from a `RoleLoadout` onto an entity.
     /// </summary>
@@ -157,6 +162,15 @@ public abstract partial class SharedStationSpawningSystem : EntitySystem
                         _storage.Insert(slotEnt.Value, spawnedEntity, out _, storageComp: storage, playSound: false);
                     }
                 }
+                // funky start
+                else if (DeferMissingSlotStorage && inventoryComp != null && !InventorySystem.TryGetSlotEntity(entity, slotName, out _, inventoryComponent: inventoryComp))
+                {
+                    if (!_pendingStorage.TryGetValue(entity, out var pending))
+                        _pendingStorage[entity] = pending = new();
+
+                    pending.Add((slotName, entProtos));
+                }
+                // funky end
             }
         }
 
@@ -166,6 +180,33 @@ public abstract partial class SharedStationSpawningSystem : EntitySystem
             RaiseLocalEvent(entity, ref ev);
         }
     }
+
+    // funky start
+    // inserts loadout storage that was waiting on a slot (the stupid chud ass wallet and pager)
+    protected void FlushPendingStorage(EntityUid entity)
+    {
+        if (!_pendingStorage.Remove(entity, out var pending))
+            return;
+
+        var coords = _xformSystem.GetMapCoordinates(entity);
+        _inventoryQuery.TryComp(entity, out var inventoryComp);
+        if (inventoryComp == null)
+            return;
+
+        foreach (var (slotName, entProtos) in pending)
+        {
+            if (!InventorySystem.TryGetSlotEntity(entity, slotName, out var slotEnt, inventoryComponent: inventoryComp) ||
+                !_storageQuery.TryComp(slotEnt, out var storage))
+                continue;
+
+            foreach (var entProto in entProtos)
+            {
+                var spawnedEntity = Spawn(entProto, coords);
+                _storage.Insert(slotEnt.Value, spawnedEntity, out _, storageComp: storage, playSound: false);
+            }
+        }
+    }
+    // funky end
 
     /// <summary>
     ///     Gets all the gear for a given slot when passed a loadout.
