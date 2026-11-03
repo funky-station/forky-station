@@ -27,12 +27,21 @@
     containers:
       machine_board: !type:Container
       machine_parts: !type:Container
+      hidden_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices
   - type: CrewMonitoringServer
   - type: SingletonDeviceNetServer
   - type: DeviceNetwork
     deviceNetId: Wireless
     transmitFrequencyId: CrewMonitor
     receiveFrequencyId: SuitSensor
+    prefix: device-address-prefix-crew-monitoring-server
     autoConnect: false
   - type: WirelessNetworkConnection
     range: 500

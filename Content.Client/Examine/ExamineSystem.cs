@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using System.Threading;
+using Content.Client.UserInterface.RichText;
 using Content.Client.Verbs;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
@@ -279,7 +280,8 @@ namespace Content.Client.Examine
                     continue;
 
                 var richLabel = new RichTextLabel() { Margin = new Thickness(4, 4, 0, 4)};
-                richLabel.SetMessage(message);
+                richLabel.SetMessage(message,
+                    tagsAllowed: RichTextTags.DefaultWithRadioChannelColorTag); // funky - add radio channel color tags to allow color customization by the player
                 vBox.AddChild(richLabel);
                 break;
             }

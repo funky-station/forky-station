@@ -73,8 +73,8 @@
 
 - type: entity
   parent: BaseUplinkRadio
-  id: BaseUplinkRadio20TC
-  suffix: 20 TC
+  id: BaseUplinkRadio100TC
+  suffix: 100 TC
   components:
   - type: Store
     balance:
@@ -82,8 +82,8 @@
 
 - type: entity
   parent: BaseUplinkRadio
-  id: BaseUplinkRadio25TC
-  suffix: 25 TC
+  id: BaseUplinkRadio125TC
+  suffix: 125 TC
   components:
   - type: Store
     balance:
@@ -92,8 +92,8 @@
 #this uplink MUST be used for nukeops, as it has the tag for filtering the listing.
 - type: entity
   parent: BaseUplinkRadio
-  id: BaseUplinkRadio40TC
-  suffix: 40 TC, NukeOps
+  id: BaseUplinkRadio200TC
+  suffix: 200 TC, NukeOps
   components:
   - type: Store
     balance:
@@ -104,8 +104,8 @@
 
 - type: entity
   parent: BaseUplinkRadio
-  id: BaseUplinkRadio60TC
-  suffix: 60 TC, LoneOps
+  id: BaseUplinkRadio300TC
+  suffix: 300 TC, LoneOps
   components:
   - type: Store
     balance:

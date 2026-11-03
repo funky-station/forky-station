@@ -1,0 +1,9 @@
+- type: deviceFrequency
+  id: SurveillanceCameraHidden
+  name: device-frequency-prototype-name-surveillance-camera-hidden
+  frequency: 1999
+
+- type: deviceFrequency
+  id: SurveillanceCameraHiddenRouted
+  name: device-frequency-prototype-name-surveillance-camera-hidden-routed
+  frequency: 1999

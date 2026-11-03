@@ -27,3 +27,14 @@
   license: "CC0-1.0"
   copyright: "By mf_gloom, taken via freesound.org"
   source: "https://freesound.org/people/mf_gloom/sounds/517850/"
+
+# Ported from Starfall, made by TrixxedHeart
+- files: ["migraine.ogg"]
+  license: CC0-1.0
+  copyright: "Made by Mora using heartbeat-150bpm.wav by loudernoises on freesound.org"
+  source: "https://freesound.org/people/loudernoises/sounds/332810/"
+
+- files: ["migraine.ogg"]
+  license: CC0-1.0
+  copyright: "Made by Mora using Emptiness 1.0_VL.mp3 by xinthus on freesound.org"
+  source: "https://freesound.org/people/xinthus/sounds/706988/"

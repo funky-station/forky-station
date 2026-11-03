@@ -52,6 +52,10 @@ namespace Content.Client.Input
             // Not in engine so that the RCD can rotate objects
             common.AddFunction(EngineKeyFunctions.EditorRotateObject);
 
+            // ES START
+            common.AddFunction(ContentKeyFunctions.ESHoldToFace);
+            // ES END
+          
             // funky. lets you activate a held item without cancelling placement first.
             var editor = contexts.GetContext("editor");
             editor.AddFunction(ContentKeyFunctions.UseItemInHand);

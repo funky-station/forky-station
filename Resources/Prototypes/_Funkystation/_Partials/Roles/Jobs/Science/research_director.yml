@@ -1,0 +1,6 @@
+- type: job
+  id: ResearchDirector
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: DepartmentHead

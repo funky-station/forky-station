@@ -26,6 +26,9 @@ public abstract class XOnTriggerSystem<T> : EntitySystem where T : BaseXOnTrigge
 
     private void OnTrigger(Entity<T> ent, ref TriggerEvent args)
     {
+        if (MetaData(ent).EntityLifeStage >= EntityLifeStage.Terminating) // funky - don't let terminating entities be triggered
+            return;
+
         if (args.Key != null && !ent.Comp.KeysIn.Contains(args.Key))
             return;
 

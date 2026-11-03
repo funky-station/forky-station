@@ -1,9 +1,9 @@
 - type: vendingMachineInventory
   id: SecDrobeInventory
   startingInventory:
-    ClothingBackpackSecurity: 3
-    ClothingBackpackSatchelSecurity: 3
-    ClothingBackpackDuffelSecurity: 3
+    # ClothingBackpackSecurity: 3 # Funky
+    ClothingBackpackSatchelSecurity: 1 # Funnky
+    ClothingBackpackDuffelSecurity: 2 # Funky
     FuClothingUniformSecService: 3
     FuClothingUniformSecDressPants: 3
     FuClothingUniformSecDressSkirt: 3

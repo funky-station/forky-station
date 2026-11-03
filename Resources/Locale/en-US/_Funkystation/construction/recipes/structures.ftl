@@ -33,3 +33,15 @@ structures-mail-y-junction = mail y-junction
 structures-mail-bend = mail bend
 structures-mail-signal-router = mail signal router
 structures-mail-signal-signal-router-flipped = mail signal router flipped
+
+construction-recipe-small-light-offset-name = offset small light
+construction-recipe-small-light-left-desc = a small light offset a little to the left
+construction-recipe-small-light-right-desc = a small light offset a little to the right
+
+construction-recipe-emergency-light-offset-name = offset emergency light
+construction-recipe-emergency-light-left-desc = a emergency light offset a little to the left
+construction-recipe-emergency-light-right-desc = a emergency light offset a little to the right
+
+construction-recipe-defib-cabinet-offset-name = offset defibrillator cabinet
+construction-recipe-defib-cabinet-left-desc = a defibrillator cabinet offset a little to the left
+construction-recipe-defib-cabinet-right-desc = a defibrillator cabinet offset a little to the left

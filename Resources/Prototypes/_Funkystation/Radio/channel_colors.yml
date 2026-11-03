@@ -1,0 +1,45 @@
+- type: radioChannelColors
+  id: DefaultChannelColors
+  name: ui-options-radio-colors-default
+  order: 0
+  colors:
+    Common: "#2cdb2c"
+    CentCom: "#2681a5"
+    Command: "#fcdf03"
+    Engineering: "#ff733c"
+    Medical: "#57b8f0"
+    Science: "#cd7ccd"
+    Security: "#ff4242"
+    Service: "#539c00"
+    Supply: "#b48b57"
+    Syndicate: "#8f4a4b"
+    Handheld: "#967101"
+    Binary: "#5ed7aa"
+    Freelance: "#f6ce64"
+    Xenoborg: "#2288ff"
+    Mothership: "#ff2222"
+
+- type: radioChannelColors
+  id: FunkyChannelColors
+  name: ui-options-radio-colors-funky
+  order: 1
+  colors:
+    Common: "#c4f129"
+    CentCom: "#42a45d"
+    Command: "#f7b01b"
+    Engineering: "#d97c57"
+    Medical: "#4adea5"
+    Science: "#da7cae"
+    Security: "#c52d55"
+    Service: "#90ae51"
+    Supply: "#c18f7e"
+    Syndicate: "#ad1b76"
+    Handheld: "#bda499"
+    Binary: "#78d6d4"
+    Freelance: "#e27285"
+    Xenoborg: "#7864c6"
+    Mothership: "#fad6ff"
+    Emergency: "#db4373" # funky original channels start here - they technically don't need to be specified, itll fall back to whatever is set on the radio channel prototype
+    InternalAffairs: "#bda499"
+    Prisoner: "#dddbc5"
+    Hailing: "#f6ce64"

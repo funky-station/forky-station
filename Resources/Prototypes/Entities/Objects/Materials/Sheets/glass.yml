@@ -22,7 +22,7 @@
         Blunt: 5 #funky end
 
 - type: entity
-  parent: SheetGlassBase
+  parent: [SheetGlassBase, BaseQuickConstructionMaterial] # DEN add quick construction parent
   id: SheetGlass
   suffix: Full
   components:
@@ -72,6 +72,8 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: QuickConstructable # DEN quick construction
+    category: Glass
 
 - type: entity
   parent: SheetGlass
@@ -96,7 +98,7 @@
     count: 1
 
 - type: entity
-  parent: SheetGlassBase
+  parent: [SheetGlassBase, BaseQuickConstructionMaterial] # DEN add quick construction parent
   id: SheetRGlass
   name: reinforced glass
   description: A reinforced sheet of glass.
@@ -141,6 +143,8 @@
           ShardGlassReinforced:
             min: 1
             max: 1
+  - type: QuickConstructable # DEN quick construction
+    category: ReinforcedGlass
   - type: Solution
     solution:
       maxVol: 15
@@ -165,7 +169,7 @@
     count: 1
 
 - type: entity
-  parent: SheetGlassBase
+  parent: [SheetGlassBase, BaseQuickConstructionMaterial] # DEN add quick construction parent
   id: SheetPGlass
   name: plasma glass
   description: A sheet of translucent plasma.
@@ -207,6 +211,8 @@
           ShardGlassPlasma:
             min: 1
             max: 1
+  - type: QuickConstructable # DEN quick construction
+    category: PlasmaGlass
   - type: Solution
     solution:
       maxVol: 20
@@ -229,7 +235,7 @@
     count: 1
 
 - type: entity
-  parent: SheetPGlass
+  parent: [SheetPGlass, BaseQuickConstructionMaterial] # DEN add quick construction parent
   id: SheetRPGlass
   name: reinforced plasma glass
   description: A reinforced sheet of translucent plasma.
@@ -255,6 +261,8 @@
   - type: Construction
     graph: Glass
     node: SheetRPGlass
+  - type: QuickConstructable # DEN quick construction
+    category: ReinforcedPlasmaGlass
   - type: Solution
     solution:
       maxVol: 25
@@ -281,7 +289,7 @@
     count: 1
 
 - type: entity
-  parent: SheetGlassBase
+  parent: [SheetGlassBase, BaseQuickConstructionMaterial] # DEN add quick construction parent
   id: SheetUGlass
   name: uranium glass
   description: A sheet of uranium glass.
@@ -323,6 +331,8 @@
           ShardGlassUranium:
             min: 1
             max: 1
+  - type: QuickConstructable # DEN quick construction
+    category: UraniumGlass
   - type: Solution
     solution:
       maxVol: 20
@@ -345,7 +355,7 @@
     count: 1
 
 - type: entity
-  parent: SheetUGlass
+  parent: [SheetUGlass, BaseQuickConstructionMaterial] # DEN add quick construction parent
   id: SheetRUGlass
   name: reinforced uranium glass
   description: A reinforced sheet of uranium.
@@ -370,6 +380,8 @@
   - type: Construction
     graph: Glass
     node: SheetRUGlass
+  - type: QuickConstructable # DEN quick construction
+    category: ReinforcedUraniumGlass
   - type: Solution
     solution:
       maxVol: 25
@@ -396,7 +408,7 @@
     count: 1
 
 - type: entity
-  parent: SheetGlassBase
+  parent: [SheetGlassBase, BaseQuickConstructionMaterial] # DEN add quick construction parent
   id: SheetClockworkGlass
   name: clockwork glass
   description: A sheet of brass-hardened glass, primarily used by clockwork enthusiasts and remnants of Ratvarian cults.

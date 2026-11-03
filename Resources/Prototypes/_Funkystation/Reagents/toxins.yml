@@ -18,3 +18,83 @@
   #         reagent: BZMetabolites
   #         min: 0.2
   #       amount: -8
+
+# Funky smoking port/tweak
+- type: reagent
+  id: Carcinotoxin
+  name: reagent-name-carcinotoxin
+  group: Toxins
+  desc: reagent-desc-carcinotoxin
+  flavor: bitter
+  color: "#3d1009"
+  physicalDesc: reagent-physical-desc-strong-smelling
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.01 # very slow acting, overall a long term thing
+      effects:
+      # Warning Stage: Coughing
+      - !type:Emote
+        conditions:
+        - !type:ReagentCondition
+          reagent: Carcinotoxin
+          min: 25 #should take like a bit of time smoking after hitting the 20u part to hit here, first warning state
+        emote: Cough
+        probability: 0.05
+      # Stage 1: Poison and Asphyxiation damage
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Carcinotoxin
+          min: 50   #if you hit this naturally while smoking, good for you.
+        damage:
+          types:
+            Poison: 0.01  #miniscule amounts of poison from the stuff NT puts in, also gives med some work
+            Asphyxiation: 0.1  #lungs are in smoker mode
+      # Stage 2: Gasping for air, added cellular damage
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Carcinotoxin
+          min: 100   #if you hit this naturally while smoking, what the fuck.
+        damage:
+          types:
+            Cellular: 0.01 #real spess cancer, straight to the source
+            Asphyxiation: 0.2 #lungs are struggling, mega smoker mode
+      - !type:Emote
+        conditions:
+        - !type:ReagentCondition
+          reagent: Carcinotoxin
+          min: 100
+        emote: Gasp
+        probability: 0.05
+      # Stage 3: Chest pain, reduced movement speed, more damage
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentCondition
+          reagent: Carcinotoxin
+          min: 200
+        visualType: Medium
+        type: Local
+        messages:
+        - carcinotoxin-effect-dull-ache
+        - carcinotoxin-effect-sharp-pain
+        probability: 0.05
+      # Stage 3 Damage
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Carcinotoxin
+          min: 200   #if you hit this naturally while smoking, uh. How even. Are you literally just staying in med at this point.
+        damage:
+          types:
+            Cellular: 0.01
+            Poison: 0.01 #the three nicotine horsemen
+            Asphyxiation: 0.3
+      - !type:MovementSpeedModifier
+        conditions:
+        - !type:ReagentCondition
+          reagent: Carcinotoxin
+          min: 200
+        walkSpeedModifier: 0.8  #lungs don't do good, can't move good.
+        sprintSpeedModifier: 0.8
+

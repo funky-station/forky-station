@@ -9,6 +9,7 @@
   - type: Speech
     speechVerb: Robotic
     speechBubbleOffset: 0.5
+  - type: ChatRepeatIgnoreSender
   - type: WiresPanel
   - type: WiresVisuals
   - type: Wires

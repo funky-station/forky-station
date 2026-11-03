@@ -36,12 +36,16 @@
   - !type:AddComponentSpecial
     components:
     - type: CommandStaff
+  - !type:AddComponentSpecial
+    components:
+    - type: DepartmentHead
 
 - type: startingGear
   id: HDGear
   equipment:
     id: HDPDA
     ears: ClothingHeadsetHD
+    back: ClothingBackpackSatchelLeather
   storage:
     back:
     - Flash

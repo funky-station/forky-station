@@ -46,8 +46,8 @@
         - None
         layer:
         - TabletopMachineLayer
-  - type: PlacementReplacement
-    key: lights
+#  - type: PlacementReplacement
+#    key: lights Funky extra wall items
 
 - type: entity
   abstract: true
@@ -436,7 +436,7 @@
     speed: 40
   - type: Sprite
     sprite: Structures/Wallmounts/Lighting/emergency-light.rsi
-    offset: 0, 1
+    offset: 0, 1.25 #funky, the light was on the floor lamo
     layers:
     - state: base
       map: [ "enum.EmergencyLightVisualLayers.Base" ]

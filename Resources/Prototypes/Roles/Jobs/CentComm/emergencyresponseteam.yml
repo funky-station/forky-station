@@ -1,3 +1,4 @@
+# Leader
 - type: job
   id: ERTLeader
   name: job-name-ertleader
@@ -30,7 +31,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTLeader
     back: ClothingBackpackERTLeader
-    shoes: ClothingShoesBootsMagERT
+    shoes: ClothingShoesBootsMagERTAdvancedFilled # Funky
     mask: ClothingMaskGasERT
     eyes: ClothingEyesHudMedSec
     neck: Whistle
@@ -51,8 +52,8 @@
     - MedkitCombatFilled # End of first line
     - MedkitCombatFilled
     - TelescopicShield
-    belt:
     - Truncheon # Funky
+    belt:
     - Handcuffs
     - Handcuffs
     - CrowbarRed
@@ -77,8 +78,8 @@
     - MedkitCombatFilled # End of first line
     - GrenadeShrapnel
     - EmpGrenade
-    belt:
     - Truncheon # Funky
+    belt:
     - Handcuffs
     - Handcuffs
     - CrowbarRed
@@ -131,7 +132,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTChaplain
     back: ClothingBackpackERTChaplain
-    shoes: ClothingShoesBootsMagERT
+    shoes: ClothingShoesBootsMagERTAdvancedFilled # Funky
     mask: ClothingMaskGasERT
     eyes: ClothingEyesHudMedical
     gloves: ClothingHandsGlovesCombat
@@ -169,7 +170,7 @@
     head: ClothingHeadHelmetHardsuitERTChaplain
     mask: ClothingMaskGasERT
     outerClothing: ClothingOuterHardsuitERTChaplain
-    shoes: ClothingShoesBootsMagAdv
+    shoes: ClothingShoesBootsMagERTAdvancedFilled # Funky
 
 # Engineer
 - type: job
@@ -204,7 +205,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTEngineer
     back: ClothingBackpackERTEngineer
-    shoes: ClothingShoesBootsMagERT
+    shoes: ClothingShoesBootsMagERTAdvancedFilled # Funky
     mask: ClothingMaskGasERT
     eyes: ClothingEyesHudDiagnostic
     gloves: ClothingHandsGlovesCombat
@@ -298,7 +299,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTSecurity
     back: ClothingBackpackERTSecurity
-    shoes: ClothingShoesBootsMagERT
+    shoes: ClothingShoesBootsMagERTAdvancedFilled # Funky
     mask: ClothingMaskGasERT
     eyes: ClothingEyesHudSecurity
     gloves: ClothingHandsGlovesCombat
@@ -319,8 +320,8 @@
     - TelescopicShield
     - HoloprojectorSecurity
     - PowerCellHigh
-    belt:
     - Truncheon # Funky
+    belt:
     - Handcuffs
     - Handcuffs
     - CrowbarRed
@@ -332,7 +333,7 @@
   id: ERTSecurityGearArmedRifle
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTSecurity
-    shoes: ClothingShoesBootsMagERT
+    shoes: ClothingShoesBootsMagERTAdvancedFilled # Funky
     mask: ClothingMaskGasERT
     eyes: ClothingEyesHudSecurity
     gloves: ClothingHandsGlovesCombat
@@ -369,23 +370,22 @@
     - GrenadeBlast
     - GrenadeBlast
     - GrenadeBlast
+    - GrenadeFlash
+    - GrenadeFlash # End of first line
+    - GrenadeEMP
+    - GrenadeEMP
+    - GrenadeEMP
     - MagazinePistol
-    - MedkitCombatFilled # End of first line
-    - GrenadeEMP
-    - GrenadeEMP
-    - GrenadeEMP
-    - GrenadeFlash
-    - GrenadeFlash
-    - GrenadeFlash
-    - MagazinePistol
-    belt:
     - Truncheon # Funky
+    belt:
     - Handcuffs
     - Handcuffs
     - CrowbarRed
+    - EmergencyMedipen
     - WeaponPistolMk58
     - MagazinePistol
-    - EmergencyMedipen
+    - MagazinePistol
+    - MedkitCombatFilled
 
 - type: startingGear
   parent: ERTSecurityGearEVA
@@ -397,23 +397,22 @@
     - ExGrenade
     - SmokeGrenade
     - EmpGrenade
-    - HoloprojectorSecurity
     - TelescopicShield
-    - TelescopicShield
-    - TelescopicShield
-    - MedkitCombatFilled # End of first line
+    - TelescopicShield # End of first line
+    - MedkitCombatFilled
     - MagazinePistolSubMachineGunTopMounted
     - MagazinePistolSubMachineGunTopMounted
     - MagazinePistolSubMachineGunTopMounted
     - MagazinePistolSubMachineGunTopMounted
-    belt:
     - Truncheon # Funky
+    belt:
     - Handcuffs
     - Handcuffs
     - CrowbarRed
     - WeaponPistolMk58
     - MagazinePistol
     - EmergencyMedipen
+    - HoloprojectorSecurity
 
 - type: startingGear
   parent: ERTSecurityGearEVA
@@ -427,12 +426,11 @@
     - BoxShotgunSlug
     - BoxShotgunIncendiary
     - MedkitCombatFilled # End of first line
-    - SmokeGrenade
     - ExGrenade
     - CableDetStack
     - BoxDetonator
-    belt:
     - Truncheon # Funky
+    belt:
     - Handcuffs
     - Handcuffs
     - CrowbarRed
@@ -481,7 +479,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTMedic
     back: ClothingBackpackERTMedical
-    shoes: ClothingShoesBootsMagERT
+    shoes: ClothingShoesBootsMagERTAdvancedFilled # Funky
     mask: ClothingMaskGasERT
     eyes: ClothingEyesHudMedical
     gloves: ClothingHandsGlovesCombat
@@ -529,8 +527,8 @@
     - MedkitCombatFilled
     - ClothingEyesGlassesChemical
     - ChemistryBottleOmnizine
-    belt:
     - Truncheon # Funky
+    belt:
     - Zipties
     - CrowbarRed
     - MagazineRifle
@@ -582,7 +580,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTJanitor
     back: ClothingBackpackERTJanitor
-    shoes: ClothingShoesBootsMagERT
+    shoes: ClothingShoesBootsMagERTAdvancedFilled # Funky
     mask: ClothingMaskGasERT
     eyes: ClothingEyesGlassesChemical
     gloves: ClothingHandsGlovesCombat

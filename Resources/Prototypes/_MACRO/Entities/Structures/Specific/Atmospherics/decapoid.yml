@@ -21,12 +21,38 @@
   id: AirSensorDecapoid
 
 - type: entity
-  parent: [AirSensorDecapoidBase, GasVentPump]
-  id: GasVentPumpDecapoid
+  parent: !type:CreateVariants
+    sequences:
+    - [AirSensorDecapoidBase, GasVentPump]
+    - [AirSensorDecapoidBase, GasVentPumpAlt1]
+    - [AirSensorDecapoidBase, GasVentPumpAlt2]
+  id: !type:CreateVariants
+    values:
+    - GasVentPumpDecapoid,
+    - GasVentPumpDecapoidAlt1,
+    - GasVentPumpDecapoidAlt2
+  categories: !type:CreateVariants
+    sequences:
+    - [ ]
+    - [ HideSpawnMenu ]
+    - [ HideSpawnMenu ]
 
 - type: entity
-  parent: [AirSensorDecapoidBase, GasVentScrubber]
-  id: GasVentScrubberDecapoid
+  parent: !type:CreateVariants
+    sequences:
+    - [AirSensorDecapoidBase, GasVentScrubber]
+    - [AirSensorDecapoidBase, GasVentScrubberAlt1]
+    - [AirSensorDecapoidBase, GasVentScrubberAlt2]
+  id: !type:CreateVariants
+    values:
+    - GasVentScrubberDecapoid,
+    - GasVentScrubberDecapoidAlt1
+    - GasVentScrubberDecapoidAlt2
+  categories: !type:CreateVariants
+    sequences:
+    - [ ]
+    - [ HideSpawnMenu ]
+    - [ HideSpawnMenu ]
   components:
   - type: GasVentScrubber
     wideNet: true # Air alarm with auto mode overrides filters with hardcoded defaults so default to widenet

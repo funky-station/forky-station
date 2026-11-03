@@ -1,0 +1,8 @@
+# Ported from Starfall, made by TrixxedHeart
+- type: shader
+  id: MigraineAura
+  kind: source
+  path: "/Textures/_Funkystation/Shaders/migraine_aura.swsl"
+  params:
+    Strength: 0.0
+    ReducedMotion: 0.0

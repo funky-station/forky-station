@@ -1,0 +1,73 @@
+<Document>
+    # Contraband Classifications
+
+    ## Contraband Confiscation Procedures
+    
+        Contraband Classifications follow broad categorizations based on object purpose, rather than a strict, specific list. Higher ranking personnel can override or specify contraband with the following chain of authority:
+            - Central Command.
+            - Captain.
+            - Executive Officer.
+            - Magistrate.
+
+        Security personnel are to avoid unreasonable confiscation of items in order to maintain positive public relations between Security, privileged individuals, and the rest of the station's crew.
+
+    ## Contraband Classifications
+
+        A single item may have more than one contraband classification, but only the highest charge is applied per item.
+
+        ### Weapon
+
+            Objects with a heightened effectiveness for violence or killing.
+
+            Minor: Improvised item used as a weapon.
+
+            Moderate: Items that are purpose-made to be a weapon.
+
+            Major: Highly lethal weapon.
+
+        ### Unsanctioned Equipment
+
+            Equipment that is restricted to a certain department or job.
+
+            Minor: Common, departmental equipment.
+
+            Moderate: Equipment that is critical to the department’s function.
+
+            Major: Command-exclusive, unique equipment.
+        
+        ### Operational Hazards
+
+            Objects that pose a heightened threat to the operational safety of the station, that are not explicitly issued by a department to do one’s job.
+
+            Minor: Common, mostly harmless equipment.
+
+            Moderate: Local scale threat to operational safety.
+
+            Major: Large scale threat to operational safety.
+
+        ### Chemical
+
+            Substances capable of influencing the mind or harming the body when metabolized or used in a reaction.
+
+            Minor: Restricted recreational drugs & medicines with low-risk ODs.
+
+            Moderate: Exploitable stimulants, medicines with high-risk ODs, & minorly dangerous reactive substances.
+
+            Major: Lethal poisons, highly inhibiting chemicals, & highly dangerous reactive substances.
+
+        ### Propaganda
+
+            Objects that support non-NT-approved entities, or paints NT, its subsidiaries, or it's partners in a false light.
+
+            Minor: Items that carry branding from Non-NT organizations, with low-risk of exposure to other crew.
+
+            Moderate: Items that carry branding from enemies of NT, paint NT as an organization in a false light, or lesser items with wide exposure to other crew.
+
+            Major: Items that carry branding from terrorist organizations, paint NT Command in a false light, or lesser items with station-wide exposure to other crew.
+
+        ### Classified Media
+
+            Media containing information from above the carrier’s clearance level.
+
+            Any classified media is Major Contraband.
+</Document>

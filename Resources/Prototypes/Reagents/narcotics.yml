@@ -260,6 +260,12 @@
   plantMetabolism:
   - !type:PlantAdjustHealth
     amount: -5
+  # BEGIN FUNKY STATION
+  # Changes to make nicotine build up in the bloodstream, for effective addiction
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.02 # very slow to metabolise, lets it build up
+  # END FUNKY STATION
 
 # TODO: Replace these nonstandardized effects with generic brain damage
 - type: reagent
@@ -654,3 +660,24 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
+
+- type: reagent
+  id: Nyctalon
+  name: reagent-name-nyctalon
+  group: Narcotics
+  desc: reagent-desc-nyctalon
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: bitter
+  color: "#1A0A2E"
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.2
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectNightVision
+        time: 2
+        type: Add
+      - !type:HealthChange
+        damage:
+          types:
+           Radiation: 0.5

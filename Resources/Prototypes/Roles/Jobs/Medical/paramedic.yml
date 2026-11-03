@@ -25,6 +25,7 @@
   equipment:
     id: ParamedicWallet # Funky: the wallet-ening
     ears: ClothingHeadsetParamedic #funkystation
+    back: ClothingBackpackDuffelMedical # funky
 
 - type: chameleonOutfit
   id: ParamedicChameleonOutfit

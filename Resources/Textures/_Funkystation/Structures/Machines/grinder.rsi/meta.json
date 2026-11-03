@@ -9,11 +9,11 @@
     "states":[
         {
             "name":"grinder_empty",
-	    "directions": 4
+	        "directions": 4
         },
         {
             "name":"grinder_beaker_attached",
-	    "directions": 4
+	        "directions": 4
         }
     ]
 }

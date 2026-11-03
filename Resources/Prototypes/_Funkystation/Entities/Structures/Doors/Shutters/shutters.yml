@@ -1,0 +1,24 @@
+- type: entity
+  parent: ShuttersWindow
+  id: ShuttersSecurityLocked
+  suffix: Security, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSecurity ]
+  - type: AccessReader
+    containerAccessProvider: board
+
+- type: entity
+  parent: ShuttersSecurityLocked
+  id: ShuttersSecurityOpen
+  suffix: Security, open
+  components:
+  - type: Door
+    state: Open
+  - type: Physics
+    canCollide: false
+  - type: Airtight
+    airBlocked: false
+  - type: RadiationBlocker
+    enabled: false

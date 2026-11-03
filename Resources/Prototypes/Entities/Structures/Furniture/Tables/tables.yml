@@ -28,7 +28,7 @@
     key: state
     base: state_
   - type: Damageable
-    damageModifierSet: SteelMod
+    damageModifierSet: RodMetalMod
   - type: Destructible
     thresholds:
     - trigger: &DamageFurnitureWeak
@@ -94,6 +94,16 @@
   - type: Construction
     graph: Table
     node: CounterWoodFrame
+  - type: ItemSlots # funky start
+    slots:
+      hidden_slot:
+        name: hidden_slot
+        whitelist:
+          tags:
+          - SurveillanceDevices
+  - type: ContainerContainer
+    containers:
+      hidden_slot: !type:ContainerSlot # funky end
 
 - type: entity
   parent: [ BaseStructure, StructureHealthFurnitureWeak ]
@@ -119,7 +129,7 @@
         layer:
         - TableLayer
   - type: Damageable
-    damageModifierSet: SteelMod
+    damageModifierSet: RodMetalMod
   - type: IconSmooth
     key: state
     base: state_

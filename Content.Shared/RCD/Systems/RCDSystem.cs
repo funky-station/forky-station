@@ -828,9 +828,10 @@ public sealed partial class RCDSystem : EntitySystem
                 {
                     if (ProtoMan.TryIndex<EntityPrototype>(proto, out var entityProto) &&
                         entityProto.TryGetComponent<AtmosPipeLayersComponent>(out var atmosPipeLayers, _entityManager.ComponentFactory) &&
-                        _pipeLayersSystem.TryGetAlternativePrototype(atmosPipeLayers, _currentLayer, out var newProtoId))
+                        ProtoMan.TryGetVariantCollection<EntityPrototype>(entityProto, out var altPrototypes))
                     {
-                        proto = newProtoId;
+                        if (altPrototypes.Count > (int)atmosPipeLayers.CurrentPipeLayer)
+                            proto = altPrototypes[(int)atmosPipeLayers.CurrentPipeLayer];
                     }
                 }
 

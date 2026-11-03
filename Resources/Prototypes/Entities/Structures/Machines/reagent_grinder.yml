@@ -4,6 +4,8 @@
   name: reagent grinder
   description: From BlenderTech. Will It Blend? Let's find out!
   components:
+  - type: Transform
+    noRot: false
   - type: ReagentGrinder
     grindSound:
       params:
@@ -59,6 +61,7 @@
   - type: PowerState
     idlePowerDraw: 5
     workingPowerDraw: 750 # medium power blender
+  - type: Rotatable
   - type: ItemSlots
     slots:
       beakerSlot:

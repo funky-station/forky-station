@@ -1,9 +1,9 @@
 - type: vendingMachineInventory
   id: HyDrobeInventory
   startingInventory:
-    ClothingBackpackHydroponics: 2
-    ClothingBackpackSatchelHydroponics: 2
-    ClothingBackpackDuffelHydroponics: 2
+    ClothingBackpackHydroponics: 1 # Funky
+    ClothingBackpackSatchelHydroponics: 1 # Funky
+    # ClothingBackpackDuffelHydroponics: 2 # Funky
     ClothingOuterApronBotanist: 2
 #Funky uniforms
     FuClothingUniformShirtPantstHydroponics: 3
