@@ -34,8 +34,11 @@
   - GroupTankHarness
   - LawyerNeck
   - LawyerJumpsuit
+  - IAAOuterClothing
+  - IAAHead
+  - IAAGlasses
+  - IAAGloves
   - Pager
-  - Glasses
   - Survival
   - Trinkets
   #- LawyerJobTrinkets
