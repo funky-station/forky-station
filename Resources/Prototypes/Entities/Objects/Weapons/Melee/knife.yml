@@ -534,5 +534,6 @@
     - Knife
     - CombatKnife
     - ToyKnife #so it can be put into clown shoes
+    - CostumeItem
   - type: UseDelay
     delay: 0.2
