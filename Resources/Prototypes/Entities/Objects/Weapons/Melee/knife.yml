@@ -481,7 +481,7 @@
   - type: ComponentToggler
     components:
     - type: Execution
-      doAfterDuration: 2.5 # faster than other knives
+      doAfterDuration: 3.5 # slightly faster than other knives
     - type: Utensil
       types:
       - Knife
@@ -522,10 +522,10 @@
       path: /Audio/Weapons/bladeslice.ogg
     activatedDamage:
       types:
-        Slash: 7
+        Slash: 9
   - type: MeleeWeapon
-    wideAnimationRotation: -180
-    attackRate: 2.5 #fast attacking lower damage
+    wideAnimationRotation: -135
+    attackRate: 2 # supposed to be faster attacking but lower damage
     damage:
       types:
         Blunt: 1.5
