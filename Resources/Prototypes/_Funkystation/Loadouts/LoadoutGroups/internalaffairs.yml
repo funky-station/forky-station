@@ -1,0 +1,42 @@
+- type: loadoutGroup
+  id: IAAOuterClothing
+  name: loadout-group-IAAouter
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ClothingOuterFlannelRed
+  - ClothingOuterFlannelBlue
+  - ClothingOuterFlannelGreen
+  - ClothingOuterCoatTrench
+
+- type: loadoutGroup
+  id: IAAHead
+  name: loadout-group-IAAhead
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ClothingHeadHatFedoraBrown
+
+- type: loadoutGroup
+  id: IAAGlasses
+  name: loadout-group-IAAglasses
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ClothingEyesGlassesSunglasses
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
+
+- type: loadoutGroup
+  id: IAAGloves
+  name: loadout-group-IAAgloves
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - WhiteGloves
+  - RedGloves
+  - BlackGloves
+  - BlueGloves
+  - GreyGloves
+

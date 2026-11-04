@@ -1,0 +1,29 @@
+- type: loadout
+  id: ClothingOuterFlannelRed
+  equipment:
+    outerClothing: ClothingOuterFlannelRed
+
+- type: loadout
+  id: ClothingOuterFlannelBlue
+  equipment:
+    outerClothing: ClothingOuterFlannelBlue
+
+- type: loadout
+  id: ClothingOuterFlannelGreen
+  equipment:
+    outerClothing: ClothingOuterFlannelGreen
+
+- type: loadout
+  id: ClothingOuterCoatTrench
+  equipment:
+    outerClothing: ClothingOuterCoatTrench
+
+- type: loadout
+  id: ClothingHeadHatFedoraBrown
+  equipment:
+    head: ClothingHeadHatFedoraBrown
+
+- type: loadout
+  id: ClothingEyesGlassesSunglasses
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
