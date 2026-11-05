@@ -1207,4 +1207,36 @@
   id: 142
   time: '2026-10-26T12:46:40Z'
   url: https://github.com/funky-station/forky-station/pull/572
+- author: Mycobiota, ReconPangolin
+  changes:
+  - message: Upstream merge
+    type: Add
+  - message: Adjusted artifact trigger weights
+    type: Tweak
+  id: 143
+  time: '2026-10-30T02:55:06Z'
+  url: https://github.com/funky-station/forky-station/pull/592
+- author: mkanke
+  changes:
+  - message: Emotional Support Crowbar added to maints loot pool
+    type: Add
+  id: 144
+  time: '2026-10-30T19:51:03Z'
+  url: https://github.com/funky-station/forky-station/pull/274
+- author: pirakaplant, Catazeus
+  changes:
+  - message: The Warden, Prisoner, and Tram Driver job icons have been updated.
+    type: Tweak
+  - message: The Executive Officer now has the correct job icon.
+    type: Fix
+  id: 145
+  time: '2026-10-31T01:19:35Z'
+  url: https://github.com/funky-station/forky-station/pull/588
+- author: pirakaplant
+  changes:
+  - message: Department heads can no longer start in their departments' unions.
+    type: Fix
+  id: 146
+  time: '2026-10-31T19:33:16Z'
+  url: https://github.com/funky-station/forky-station/pull/595
 Order: -1

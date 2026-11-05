@@ -45,13 +45,16 @@ Also, include instructions on how to enable/disable the content for the benefit 
 ## Changelog
 <!-- Add a Changelog entry to make players aware of new features or changes that could affect gameplay.
 Make sure to read the guidelines and take this Changelog template out of the comment block in order for it to show up.
+
 Changelog must have a :cl: symbol, so the bot recognizes the changes and adds them to the game's changelog.
+Maps, admin and rule changes should include a category header above the :cl: as per the guidelines.
 The name that appears on the changelog will be your GitHub username by default. If you wish for a different name to appear, format the symbol like so:
-:cl: My Name -->
+:cl: My Name-->
+
 <!--
 :cl:
-- add: Added fun!
-- remove: Removed fun!
-- tweak: Changed fun!
-- fix: Fixed fun!
+- add: Crowbars now randomly spawn in maintenance lockers.
+- remove: Crowbars no longer spawn in maintenance crates.
+- tweak: Crowbar spawn rates have been increased for tool lockers.
+- fix: Crowbars no longer accidentally spawn in microwaves.
 -->

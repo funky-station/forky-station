@@ -1,7 +1,8 @@
 ﻿using System.Linq;
-using Content.Shared.Medical.SuitSensor;
+using Content.Shared.Medical.SuitSensors;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+
 
 namespace Content.Client.Medical.CrewMonitoring;
 

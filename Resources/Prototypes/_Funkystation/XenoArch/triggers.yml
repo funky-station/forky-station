@@ -1,16 +1,18 @@
 #Fluids
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerVodka
-  tip: artifact-trigger-hint-vodka
+  name: Reaction with potato based alcohol
   components:
   - type: XATReactive
     reagents:
     - Vodka
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerMilk
-  tip: artifact-trigger-hint-milk
+  name: Reaction with dairy
   components:
   - type: XATReactive
     reagents:
@@ -20,92 +22,103 @@
     - MilkStrawberry
     - MilkBanana
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerBleach
-  tip: artifact-trigger-hint-bleach
+  name: Reaction with disinfectant
   components:
   - type: XATReactive
     reagents:
     - Bleach
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerCleaner
-  tip: artifact-trigger-hint-surfactant
+  name: Reaction with surfactant fluid
   components:
   - type: XATReactive
     reagents:
     - SpaceCleaner
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerMutagen
-  tip: artifact-trigger-hint-unstable-mutagen
+  name: Reaction with unstable biological liquids
   components:
   - type: XATReactive
     reagents:
     - UnstableMutagen
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerCoffee
-  tip: artifact-trigger-hint-coffee
+  name: Reaction to liquid energy
   components:
   - type: XATReactive
     reagents:
     - Coffee
     - CafeLatte
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerLube
-  tip: artifact-trigger-hint-lube
+  name: Reaction to lubricant
   components:
   - type: XATReactive
     reagents:
     - SpaceLube
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerLSD
-  tip: artifact-trigger-hint-lsd
+  name: Reaction to psychedelics
   components:
   - type: XATReactive
     reagents:
     - MindbreakerToxin
     - SpaceDrugs
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerCopper
-  tip: artifact-trigger-copper
+  name: Reaction to cupric liquid
   components:
   - type: XATReactive
     reagents:
     - Copper
     - CopperBlood
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerEgg
-  tip: artifact-trigger-hint-egg
+  name: Reaction to liquid, unborn life from a hard shell
   components:
   - type: XATReactive
     reagents:
     - Egg
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerWine
-  tip: artifact-trigger-hint-wine
+  name: Reaction to fermented grapes
   components:
   - type: XATReactive
     reagents:
     - Wine
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerBeer
-  tip: artifact-trigger-hint-beer
+  name: Reaction to fermented hops
   components:
   - type: XATReactive
     reagents:
     - Beer
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerCitrus
-  tip: artifact-trigger-hint-citrus
+  name: Reaction to citrus
   components:
   - type: XATReactive
     reagents:
@@ -116,9 +129,10 @@
     - JuiceLime
     - OrangeLimeSoda
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerSilicon
-  tip: artifact-trigger-hint-silicon
+  name: Reaction with silicone
   components:
   - type: XATCompNearby
     requireComponentWithName: BorgChassis
@@ -127,9 +141,10 @@
     reagents:
     - Silicon
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerMatch
-  tip: artifact-trigger-hint-match
+  name: Reaction to phosphorus
   components:
   - type: XATCompNearby
     requireComponentWithName: Matchstick
@@ -140,81 +155,91 @@
 
 #Components
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerGeiger
-  tip: artifact-trigger-hint-geiger
+  name: Reaction to radiologically sensitive materials
   components:
   - type: XATCompNearby
     requireComponentWithName: Geiger
     radius: 2
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerRadio
-  tip: artifact-trigger-hint-radio
+  name: Reaction to radio transmissions
   components:
   - type: XATCompNearby
     requireComponentWithName: RadioSpeaker
     radius: 2
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerFlashImmunity
-  tip: artifact-trigger-hint-flash-immunity
+  name: Reaction to reflective materials
   components:
   - type: XATCompNearby
     requireComponentWithName: FlashImmunity
     radius: 2
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerTechnologyDisk
-  tip: artifact-trigger-hint-tech-disc
+  name: Reaction to magnetic storage
   components:
   - type: XATCompNearby
     requireComponentWithName: TechnologyDisk
     radius: 2
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerPaper
-  tip: artifact-trigger-hint-paper
+  name: Reaction to pulped fibers
   components:
   - type: XATCompNearby
     requireComponentWithName: Paper
     radius: 2
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerBattery
-  tip: artifact-trigger-hint-battery
+  name: Reaction to power storage medium
   components:
   - type: XATCompNearby
     requireComponentWithName: Battery
     radius: 2
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerAnomScanner
-  tip: artifact-trigger-hint-anom-scanner
+  name: Reaction to anomalous research equipment
   components:
   - type: XATCompNearby
     requireComponentWithName: AnomalyScanner
     radius: 2
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerLightbulb
-  tip: artifact-trigger-hint-light-bulb
+  name: Reaction to florescent materials
   components:
   - type: XATCompNearby
     requireComponentWithName: LightBulb
     radius: 2
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerPAI
-  tip: artifact-trigger-hint-pai
+  name: Reaction to compact artificial life
   components:
   - type: XATCompNearby
     requireComponentWithName: PAI
     radius: 2
 
-- type: xenoArchTrigger
+- type: entity
+  parent: BaseXenoArtifactTrigger
   id: TriggerDice
-  tip: artifact-trigger-hint-dice
+  name: Reaction to random chance
   components:
   - type: XATCompNearby
     requireComponentWithName: Dice
