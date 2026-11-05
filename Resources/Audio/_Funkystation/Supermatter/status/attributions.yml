@@ -1,0 +1,9 @@
+
+- files: ["bloblarm.ogg, 
+           empty.ogg, 
+           engine_alert1.ogg, 
+           engine_alert2.ogg, 
+           terminal_alert.ogg"]
+  copyright: "Taken from /tg/station"
+  license: "CC BY-SA 3.0"
+  source: "https://github.com/tgstation/tgstation/pull/87191"
