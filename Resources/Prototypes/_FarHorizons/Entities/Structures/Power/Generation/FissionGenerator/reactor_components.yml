@@ -89,6 +89,7 @@
     rules: ghost-role-information-plutonium-rod-rules
     mindRoles:
     - MindRoleGhostRoleFreeAgentHarmless
+    prob: 0.01 # funky - we don't want every plutonium fuel rod to be a ghost role
   - type: GhostTakeoverAvailable
   - type: SentienceTarget
     weight: 2
