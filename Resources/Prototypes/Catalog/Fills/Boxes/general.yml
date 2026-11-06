@@ -41,8 +41,8 @@
 - type: entity
   parent: BoxBaseHug
   id: BoxHug
-  name: box of hugs
-  description: A special box for sensitive people.
+  name: buddy box #funky
+  description: A remnant of a failed "Buddy" toy collection. Frequently reused as containers for emergency kits. #funky
   components:
   - type: PhysicalComposition # Half of the "regular" cardboard box
     materialComposition:
