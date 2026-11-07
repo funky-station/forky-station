@@ -1,0 +1,12 @@
+- type: entity
+  name: BaseWeaponLightMachineGun
+  parent: BaseItem
+  id: BaseWeaponLightMachineGun
+  description: A rooty tooty point and shooty.
+  abstract: true
+  components:
+  - type: ChamberMagazineAmmoProvider
+    showExamineText: false
+  - type: Gun
+    showExamineText: false
+  - type: !Remove AmmoCounter

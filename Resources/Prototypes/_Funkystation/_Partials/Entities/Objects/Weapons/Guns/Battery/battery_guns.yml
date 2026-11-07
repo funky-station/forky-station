@@ -1,0 +1,37 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseWeaponBatteryNoAmmoCounter
+  components:
+  - type: Gun
+    showExamineText: false
+  - type: Battery
+    showItemStatus: false
+  - type: BatteryAmmoProvider
+    showExamineText: false
+
+- type: entity
+  abstract: true
+  parent: BaseWeaponBatteryNoAmmoCounter
+  id: BaseWeaponBattery
+  components:
+  - type: !Remove AmmoCounter
+
+- type: entity
+  abstract: true
+  parent: BaseWeaponBatteryNoAmmoCounter
+  id: BaseWeaponBatterySmallNoAmmoCounter
+  components:
+  - type: Gun
+    showExamineText: false
+  - type: Battery
+    showItemStatus: false
+  - type: BatteryAmmoProvider
+    showExamineText: false
+
+- type: entity
+  abstract: true
+  parent: BaseWeaponBatterySmallNoAmmoCounter
+  id: BaseWeaponBatterySmall
+  components:
+  - type: !Remove AmmoCounter

@@ -1,0 +1,7 @@
+- type: entity
+  id: BaseGunWieldable
+  abstract: true
+  components:
+  - type: Gun
+    showExamineText: false
+

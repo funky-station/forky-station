@@ -1,0 +1,12 @@
+- type: entity
+  abstract: true
+  parent: [ BaseItem, BaseGunWieldable ]
+  id: BaseWeaponLauncher
+  name: BaseWeaponLauncher
+  description: A rooty tooty point and shooty.
+  components:
+  - type: Gun
+    showExamineText: false
+  - type: BallisticAmmoProvider
+    showExamineText: false
+  - type: !Remove AmmoCounter
