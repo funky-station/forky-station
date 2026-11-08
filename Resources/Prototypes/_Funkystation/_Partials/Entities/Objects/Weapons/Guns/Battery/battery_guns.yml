@@ -7,14 +7,14 @@
     showExamineText: false
   - type: Battery
     showItemStatus: false
-  - type: BatteryAmmoProvider
-    showExamineText: false
 
 - type: entity
   abstract: true
   parent: BaseWeaponBatteryNoAmmoCounter
   id: BaseWeaponBattery
   components:
+  - type: BatteryAmmoProvider
+    showExamineText: false
   - type: !Remove AmmoCounter
 
 - type: entity
@@ -26,12 +26,47 @@
     showExamineText: false
   - type: Battery
     showItemStatus: false
-  - type: BatteryAmmoProvider
-    showExamineText: false
 
 - type: entity
   abstract: true
   parent: BaseWeaponBatterySmallNoAmmoCounter
   id: BaseWeaponBatterySmall
   components:
+  - type: BatteryAmmoProvider
+    showExamineText: false
+  - type: !Remove AmmoCounter
+
+- type: entity
+  id: BaseWeaponPowerCell
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Gun
+    showExamineText: false
+  - type: Battery
+    showItemStatus: false
+  - type: BatteryAmmoProvider
+    showExamineText: false
+  - type: !Remove AmmoCounter
+
+- type: entity
+  abstract: true
+  parent: [ BaseWeaponBatterySmallNoAmmoCounter ]
+  id: WeaponEnergyCrossbowBase
+  components:
+  - type: BallisticAmmoProvider
+    showExamineText: false
+
+- type: entity
+  name: svalinn laser pistol
+  parent: [BaseWeaponPowerCellSmall, BaseSecurityContraband]
+  id: WeaponLaserSvalinn
+  description: A cheap and widely used laser pistol.
+  components:
+  - type: Gun
+    showExamineText: false
+  - type: Battery
+    showItemStatus: false
+  - type: BatteryAmmoProvider
+    showExamineText: false
   - type: !Remove AmmoCounter

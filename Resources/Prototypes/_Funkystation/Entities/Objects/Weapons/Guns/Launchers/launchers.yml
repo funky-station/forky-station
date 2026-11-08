@@ -18,9 +18,9 @@
     size: Huge
     shape:
     - 0,0,4,2
-  - type: AmmoCounter
   - type: PumpAction
   - type: BallisticAmmoProvider
+    showExamineText: false
     whitelist:
       tags:
         - Grenade

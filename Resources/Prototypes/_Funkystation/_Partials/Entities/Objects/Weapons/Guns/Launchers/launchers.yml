@@ -10,3 +10,13 @@
   - type: BallisticAmmoProvider
     showExamineText: false
   - type: !Remove AmmoCounter
+
+- type: entity
+  parent: [ BaseWeaponLauncher, BaseMajorContraband ]
+  id: WeaponLauncherHydra
+  name: hydra
+  description: PLOOP... FSSSSSS...
+  components:
+#  - type: RevolverAmmoProvider
+#    showExamineText: false
+  - type: !Remove AmmoCounter

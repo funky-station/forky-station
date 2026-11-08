@@ -19,4 +19,10 @@ public partial class MagazineAmmoProviderComponent : AmmoProviderComponent
     /// </summary>
     [DataField]
     public bool AutoEject = false;
+
+    /// <summary>
+    /// Whether or not ammo count will be shown on examine.
+    /// </summary>
+    [DataField]
+    public bool ShowExamineText = true;
 }

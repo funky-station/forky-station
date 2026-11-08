@@ -1,0 +1,9 @@
+- type: entity
+  parent: [ BaseItem, BaseToyGun ]
+  id: RevolverCapGun
+  name: cap gun
+  description: Looks almost like the real thing! Ages 8 and up.
+  components:
+  - type: Gun
+    showExamineText: false
+  - type: !Remove AmmoCounter

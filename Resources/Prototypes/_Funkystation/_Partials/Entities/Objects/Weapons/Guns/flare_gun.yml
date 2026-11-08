@@ -1,0 +1,10 @@
+- type: entity
+  name: flare gun
+  parent: BaseItem
+  id: WeaponFlareGun
+  description: A compact, single-shot pistol that fires shotgun shells. Comes with a safety feature that prevents the user from fitting lethal shells inside.
+  components:
+  - type: Gun
+    showExamineText: false
+  - type: ChamberMagazineAmmoProvider
+    showExamineText: false

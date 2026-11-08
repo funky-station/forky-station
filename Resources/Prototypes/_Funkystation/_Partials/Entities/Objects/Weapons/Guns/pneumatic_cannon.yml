@@ -1,0 +1,8 @@
+- type: entity
+  name: improvised pneumatic cannon
+  parent: [BaseStorageItem, BaseMinorContraband]
+  id: WeaponImprovisedPneumaticCannon
+  description: Improvised using nothing but a pipe, some zipties, and a pneumatic cannon. Doesn't accept tanks without enough gas.
+  components:
+  - type: Gun
+    showExamineText: false

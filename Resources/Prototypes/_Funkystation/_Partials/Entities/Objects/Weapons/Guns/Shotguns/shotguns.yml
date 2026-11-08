@@ -20,6 +20,6 @@
   components:
   - type: Gun
     showExamineText: false
-  - type: BallisticAmmoProvider
+  - type: MagazineAmmoProvider
     showExamineText: false
   - type: !Remove AmmoCounter
