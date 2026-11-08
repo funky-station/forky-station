@@ -7,3 +7,4 @@
   contentFileName: test.txt # TODO: Change this
   access:
     - Command
+    - InternalAffairs

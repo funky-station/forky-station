@@ -49,6 +49,8 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
     [Dependency] private MindSystem _mindSystem = default!;
     [Dependency] private ServerBankingSystem _banking = default!;
 
+    protected override bool DeferMissingSlotStorage => true; // funky, see SharedStationSpawningSystem
+
     /// <summary>
     /// Attempts to spawn a player character onto the given station.
     /// </summary>
@@ -159,6 +161,9 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
             var startingGear = ProtoMan.Index<StartingGearPrototype>(prototype.StartingGear);
             EquipStartingGear(entity.Value, startingGear, raiseEvent: false);
         }
+
+        // funky, insert it RIGHT NOW!!!!!!
+        FlushPendingStorage(entity.Value);
 
         var gearEquippedEv = new StartingGearEquippedEvent(entity.Value);
         RaiseLocalEvent(entity.Value, ref gearEquippedEv);

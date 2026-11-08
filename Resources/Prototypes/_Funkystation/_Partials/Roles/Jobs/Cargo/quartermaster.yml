@@ -1,0 +1,6 @@
+- type: job
+  id: Quartermaster
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: DepartmentHead

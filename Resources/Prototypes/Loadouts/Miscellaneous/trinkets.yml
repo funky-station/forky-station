@@ -85,6 +85,13 @@
     - CigPackBlack
   groupBy: "smokeables"
 
+- type: loadout #funky start
+  id: CigPackMixed
+  storage:
+    jumpsuit:
+    - CigPackMixed
+  groupBy: "smokeables" #funky end
+
 - type: loadout
   id: CigarCase
   effects:

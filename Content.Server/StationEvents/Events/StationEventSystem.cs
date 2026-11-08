@@ -56,20 +56,8 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
         // we don't want to send to players who aren't in game (i.e. in the lobby)
         Filter allPlayersInGame = Filter.Empty().AddWhere(GameTicker.UserHasJoinedGame);
 
-        // funky start, check if SISTR should announce and is alive
-        var isSistr = stationEvent.StartAnnouncementSender == "chat-manager-sender-sistr";
-        var sistrUp = false;
-        var query = EntityQueryEnumerator<StationEventEligibleComponent>();
-        while (query.MoveNext(out var stationUid, out _))
-        {
-            if (SistrCore.StationHasFunctionalCore(stationUid))
-            {
-                sistrUp = true;
-                break;
-            }
-        }
-        var canAnnounce = !isSistr || sistrUp;
-        // funky end
+        // funky, check if SISTR should announce and is alive
+        var canAnnounce = SistrCore.ShouldStationEventBeAnnounced(uid);
 
         // Macrocosm edit start - announcer variation
         SoundSpecifier? soundSpecifier = null; // funky
@@ -125,20 +113,8 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
         // we don't want to send to players who aren't in game (i.e. in the lobby)
         Filter allPlayersInGame = Filter.Empty().AddWhere(GameTicker.UserHasJoinedGame);
 
-        // funky start, check if SISTR should announce and is alive
-        var isSistr = stationEvent.EndAnnouncementSender == "chat-manager-sender-sistr";
-        var sistrUp = false;
-        var query = EntityQueryEnumerator<StationEventEligibleComponent>();
-        while (query.MoveNext(out var stationUid, out _))
-        {
-            if (SistrCore.StationHasFunctionalCore(stationUid))
-            {
-                sistrUp = true;
-                break;
-            }
-        }
-        var canAnnounce = !isSistr || sistrUp;
-        // funky end
+        // funky, check if SISTR should announce and is alive
+        var canAnnounce = SistrCore.ShouldStationEventBeAnnounced(uid, true);
 
         // Macrocosm edit start - announcer variation
         SoundSpecifier? soundSpecifier = null; // funky

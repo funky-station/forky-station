@@ -116,7 +116,7 @@
   name: tiles-plastic-floor
   sprite: /Textures/_Funkystation/Tiles/plastic.png # Funky
   variants: 4
-  itemDrop: FloorTileItemSteel
+  itemDrop: FloorTileItemPlastic
 
 - type: tile
   id: FloorSteelDamaged
@@ -214,7 +214,7 @@
   variants: 4
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemWhite
+  itemDrop: FloorTileItemWhitePlastic
 
 #Funky start - More white floors
 - type: tile
@@ -331,7 +331,7 @@
   variants: 4
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemDark
+  itemDrop: FloorTileItemDarkPlastic
 
 - type: tile
   id: FloorTechMaintDark

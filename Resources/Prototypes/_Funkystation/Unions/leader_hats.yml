@@ -1,15 +1,11 @@
 - type: entity
-  parent: ClothingHeadBase
+  parent: ClothingHeadHatHardhatBase
   id: UnionLeaderHardhat
   name: union hardhat
   description: A red hardhat that typically belongs to a union leader.
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Head/Hardhats/union_hardhat.rsi
-    state: icon
-  - type: Clothing
-    sprite: _Funkystation/Clothing/Head/Hardhats/union_hardhat.rsi
-    equippedPrefix: off
 
 - type: entity
   parent: ClothingHeadBase

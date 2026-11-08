@@ -28,7 +28,9 @@ public sealed partial class GeneralRecord : Control
             ("dna", record.DNA ?? Loc.GetString("generic-not-available-shorthand")));
         // Funky start
         Pager.Text = Loc.GetString("general-station-record-console-record-pager",
-            ("pager", record.PagerNumber?.ToString() ?? Loc.GetString("generic-not-available-shorthand")));
+            ("pager", record.PagerNumber is { } pagerNumber
+                ? Shared._Funkystation.Pager.SharedPagerSystem.FormatNumber(pagerNumber)
+                : Loc.GetString("generic-not-available-shorthand")));
         // Funky end
 
         if (canDelete && id != null)

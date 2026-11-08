@@ -56,20 +56,6 @@ namespace Content.Shared.Chat
             AudioVolume = audioVolume;
             RepeatCheckSender = repeatCheckSender; // Persistence: Chat stacking from RMC14 - pull/7587
         }
-
-        public ChatMessage(ChatMessage copyFrom)
-        {
-            Channel = copyFrom.Channel;
-            Message = copyFrom.Message;
-            WrappedMessage = copyFrom.WrappedMessage;
-            SenderEntity = copyFrom.SenderEntity;
-            SenderKey = copyFrom.SenderKey;
-            HideChat = copyFrom.HideChat;
-            MessageColorOverride = copyFrom.MessageColorOverride;
-            AudioPath = copyFrom.AudioPath;
-            AudioVolume = copyFrom.AudioVolume;
-            Read = copyFrom.Read;
-        }
     }
 
     /// <summary>
