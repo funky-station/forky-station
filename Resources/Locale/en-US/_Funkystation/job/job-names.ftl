@@ -1,4 +1,5 @@
 job-name-assistant = Assistant
+funky-job-name-automa = Automa
 job-name-cci = Central Command Intern
 job-name-cco = Central Command Official
 job-name-cl = Corporate Liaison

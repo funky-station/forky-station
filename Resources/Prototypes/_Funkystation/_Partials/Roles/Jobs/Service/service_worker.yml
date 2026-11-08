@@ -1,0 +1,11 @@
+- type: job
+  id: ServiceWorker
+  requirements: !Clear
+  supervisors: job-supervisors-hd
+  extendedAccess: !Clear
+
+- type: startingGear
+  id: ServiceWorkerGear
+  equipment:
+    id: ServiceWorkerWallet
+    pocket2: PouchGeneric

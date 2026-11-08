@@ -1,0 +1,17 @@
+- type: job
+  id: SecurityCadet
+  requiresNda: Security
+  requirements: !Clear
+  - !type:OverallPlaytimeRequirement
+    time: 10h
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 40h
+    inverted: true
+  supervisors: job-supervisors-lieutenant
+  special: !Clear
+
+- type: startingGear
+  id: SecurityCadetGear
+  equipment:
+    id: SecurityCadetWallet

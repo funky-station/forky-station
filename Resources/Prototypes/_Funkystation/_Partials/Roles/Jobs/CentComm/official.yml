@@ -1,0 +1,5 @@
+- type: job
+  id: CentralCommandOfficial
+  special: !Clear
+  - !type:AddImplantSpecial
+    implants: [ DeathRattleImplantCentcomm ]

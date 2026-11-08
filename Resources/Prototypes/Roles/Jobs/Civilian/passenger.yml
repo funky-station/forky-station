@@ -1,7 +1,7 @@
 - type: job
   id: Passenger
-  name: job-name-assistant
-  description: job-description-assistant
+  name: job-name-passenger
+  description: job-description-passenger
   playTimeTracker: JobPassenger
   startingGear: PassengerGear
   icon: "JobIconPassenger"
@@ -12,9 +12,8 @@
 - type: startingGear
   id: PassengerGear
   equipment:
-    id: PassengerWallet # Funky: the wallet-ening
+    id: PassengerPDA
     ears: ClothingHeadsetGrey
-    pocket2: PouchGeneric # funky
   #storage:
     #back:
     #- Stuff
@@ -28,4 +27,4 @@
     mask: ClothingMaskGas
     neck: ClothingNeckMantle
     outerClothing: ClothingOuterWinterCoat
-    gloves: FuClothingHandsGlovesInsulsBudget #Funky
+    gloves: ClothingHandsGlovesColorYellowBudget

@@ -1,0 +1,68 @@
+- type: department
+  id: Cargo
+  name: department-Logistics
+  description: department-Logistics-description
+  roles:
+  - !Remove SalvageSpecialist
+  - Botanist
+  - FuCourier
+
+- type: department
+  id: Civilian
+  roles:
+  - Lawyer
+  - Prisoner
+  - Reporter
+  - TramDriver
+
+- type: department
+  id: Command
+  roles:
+  - !Remove HeadOfPersonnel
+  - !Remove HeadOfSecurity
+  - CorporateLiaison
+  - HospitalityDirector
+  - ExecutiveOfficer
+  primary: false
+  weight: 100
+
+- type: department
+  id: Engineering
+  roles:
+  - !Remove AtmosphericTechnician
+
+- type: department
+  id: Security
+  roles:
+  - !Remove HeadOfSecurity
+  - Commandant
+  - Dispatcher
+  - Lieutenant
+
+- type: department
+  id: Service
+  roles:
+  - !Remove Botanist
+  - !Remove HeadOfPersonnel
+  - !Remove Lawyer
+  - !Remove Reporter
+  - !Remove TramDriver
+  - HospitalityDirector
+
+- type: department
+  id: Silicon
+  roles:
+  - !Remove StationAi
+
+- type: department
+  id: Specific
+  name: department-Specific
+  description: department-Specific-description
+  color: "#9FED58"
+  weight: 10
+  ignoreForDepartmentFallback: true
+  roles:
+  - !Remove Reporter
+  - !Remove Psychologist
+  - Dispatcher
+  primary: false

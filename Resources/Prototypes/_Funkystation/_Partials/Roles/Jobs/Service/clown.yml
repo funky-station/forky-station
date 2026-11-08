@@ -1,0 +1,13 @@
+- type: job
+  id: Clown
+  supervisors: job-supervisors-hd
+
+- type: startingGear
+  id: ClownGear
+  equipment:
+    id: ClownWallet
+
+- type: chameleonOutfit
+  id: ClownChameleonOutfit
+  equipment:
+    gloves: FuClothingHandsGlovesInsulsBudget

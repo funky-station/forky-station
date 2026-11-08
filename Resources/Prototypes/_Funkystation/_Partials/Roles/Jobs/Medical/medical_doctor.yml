@@ -1,0 +1,12 @@
+- type: job
+  id: MedicalDoctor
+  requirements: !Clear
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 4h
+
+- type: startingGear
+  id: DoctorGear
+  equipment:
+    id: MedicalWallet
+    pocket2: PouchMedical

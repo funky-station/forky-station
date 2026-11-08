@@ -1,0 +1,8 @@
+- type: job
+  id: Mime
+  supervisors: job-supervisors-hd
+
+- type: startingGear
+  id: MimeGear
+  equipment:
+    id: MimeWallet

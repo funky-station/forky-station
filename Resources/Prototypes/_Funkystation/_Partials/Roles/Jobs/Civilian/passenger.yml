@@ -1,0 +1,15 @@
+- type: job
+  id: Passenger
+  name: job-name-assistant
+  description: job-description-assistant
+
+- type: startingGear
+  id: PassengerGear
+  equipment:
+    id: PassengerWallet
+    pocket2: PouchGeneric
+
+- type: chameleonOutfit
+  id: PassengerChameleonOutfit
+  equipment:
+    gloves: FuClothingHandsGlovesInsulsBudget

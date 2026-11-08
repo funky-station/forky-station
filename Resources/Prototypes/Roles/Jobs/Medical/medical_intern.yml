@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: MedicalIntern
   name: job-name-intern
   description: job-description-intern
@@ -6,8 +6,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
-      #time: 10h
-      time: 35h # Funky
+      time: 10h
       inverted: true # stop playing intern if you're good at med!
   startingGear: MedicalInternGear
   icon: "JobIconMedicalIntern"
@@ -20,16 +19,15 @@
   id: MedicalInternGear
   equipment:
     shoes: ClothingShoesColorWhite
-    id: MedicalInternWallet # Funky: the wallet-ening
+    id: MedicalInternPDA
     ears: ClothingHeadsetMedical
-    pocket1: BookMedicalReferenceBook # funky, pocket1
-    pocket2: PouchMedical # funky
+    pocket2: BookMedicalReferenceBook
 
 - type: chameleonOutfit
   id: MedicalInternChameleonOutfit
   job: MedicalIntern
   equipment:
-    head: FuClothingHeadHatInternMedical # ClothingHeadHatBeretMedic  funky - fuck department berets
+    head: ClothingHeadHatBeretMedic
     eyes: ClothingEyesHudMedical
     mask: ClothingMaskSterile
     neck: ClothingNeckStethoscope

@@ -1,0 +1,14 @@
+- type: job
+  id: ResearchAssistant
+  requirements: !Clear
+  - !type:DepartmentTimeRequirement
+    department: Science
+    time: 35h
+    inverted: true
+
+- type: startingGear
+  id: ResearchAssistantGear
+  equipment:
+    id: ResearchAssistantWallet
+    pocket1: BookScientistsGuidebook
+    pocket2: PouchResearch

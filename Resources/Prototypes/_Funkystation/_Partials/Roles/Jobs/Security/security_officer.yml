@@ -1,0 +1,14 @@
+- type: job
+  id: SecurityOfficer
+  requiresNda: Security
+  requirements: !Clear
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 5h
+  supervisors: job-supervisors-lieutenant
+  special: !Clear
+
+- type: startingGear
+  id: SecurityOfficerGear
+  equipment:
+    id: SecurityWallet

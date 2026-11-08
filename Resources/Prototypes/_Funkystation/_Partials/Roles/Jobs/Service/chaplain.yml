@@ -1,0 +1,9 @@
+- type: job
+  id: Chaplain
+  supervisors: job-supervisors-hd
+
+- type: startingGear
+  id: ChaplainGear
+  equipment:
+    id: ChaplainWallet
+    pocket2: PouchGeneric

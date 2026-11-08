@@ -1,0 +1,12 @@
+- type: job
+  id: Scientist
+  requirements: !Clear
+  - !type:DepartmentTimeRequirement
+    department: Science
+    time: 4h
+
+- type: startingGear
+  id: ScientistGear
+  equipment:
+    id: ScienceWallet
+    pocket2: PouchResearch

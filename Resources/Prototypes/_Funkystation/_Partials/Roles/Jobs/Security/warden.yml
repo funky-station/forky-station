@@ -1,0 +1,11 @@
+- type: job
+  id: Warden
+  requiresNda: Security
+  supervisors: job-supervisors-commandant
+  special: !Clear
+
+- type: startingGear
+  id: WardenGear
+  equipment:
+    id: WardenWallet
+    ears: ClothingHeadsetWarden

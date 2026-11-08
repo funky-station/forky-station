@@ -1,0 +1,10 @@
+- type: job
+  id: Librarian
+  supervisors: job-supervisors-hd
+
+- type: startingGear
+  id: LibrarianGear
+  equipment:
+    id: LibrarianWallet
+    pocket2: HandLabeler
+    pocket1: PouchGeneric
