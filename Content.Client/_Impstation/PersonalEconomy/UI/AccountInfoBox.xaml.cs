@@ -10,50 +10,50 @@ namespace Content.Client._Impstation.PersonalEconomy.UI;
 [GenerateTypedNameReferences]
 public sealed partial class AccountInfoBox : BoxContainer
 {
+    [Dependency] private IGameTiming _timing = null!;
+
     public Action? OnTransactionButtonPressed;
     public Action? OnEjectPressed;
     public Action? OnDepositPressed;
-    // passes amount since we want the pin to be a separate window
     public Action<int>? OnWithdrawPressed;
 
-    private Entity<BankAccountComponent> _account;
+    public Entity<BankAccountComponent> Account { get; }
+
+    private StationPayrollComponent? _payroll;
 
     public AccountInfoBox()
     {
         RobustXamlLoader.Load(this);
+        IoCManager.InjectDependencies(this);
     }
 
-    public AccountInfoBox(Entity<BankAccountComponent> account)
+    public AccountInfoBox(Entity<BankAccountComponent> account) : this()
     {
-        RobustXamlLoader.Load(this);
-
-        _account = account;
+        Account = account;
 
         TransferFundsButton.OnPressed += _ => OnTransactionButtonPressed?.Invoke();
         EjectCardButton.OnPressed += _ => OnEjectPressed?.Invoke();
         DepositButton.OnPressed += _ => OnDepositPressed?.Invoke();
         WithdrawButton.OnPressed += _ =>
         {
-            if (int.TryParse(WithdrawAmountBox.Text, out var amount) && amount > 0)
-            {
-                OnWithdrawPressed?.Invoke(amount);
-                WithdrawAmountBox.Clear();
-            }
+            if (!int.TryParse(WithdrawAmountBox.Text, out var amount) || amount <= 0) return;
+            OnWithdrawPressed?.Invoke(amount);
+            WithdrawAmountBox.Clear();
         };
 
         WelcomeLabel.Text = Loc.GetString("nanobank-welcome", ("name", account.Comp.Name));
     }
 
-    protected override void FrameUpdate(FrameEventArgs args)
+    public void UpdateState(StationPayrollComponent? payroll)
     {
-        BalanceLabel.Text = Loc.GetString("nanobank-balance-amount", ("balance", $"{_account.Comp.Balance:n0}"));
+        _payroll = payroll;
 
-        if (!NeedsInfoboxRebuild())
-            return;
+        BalanceLabel.Text = Loc.GetString("nanobank-balance-amount", ("balance", $"{Account.Comp.Balance:n0}"));
+        UpdatePayday();
 
         TransactionInfoContainer.RemoveAllChildren();
 
-        if (_account.Comp.Transactions.Count == 0)
+        if (Account.Comp.Transactions.Count == 0)
         {
             TransactionInfoContainer.AddChild(new Label
             {
@@ -63,44 +63,40 @@ public sealed partial class AccountInfoBox : BoxContainer
             return;
         }
 
-        foreach (var transaction in _account.Comp.Transactions)
+        foreach (var transaction in Account.Comp.Transactions)
         {
             var infobox = new TransactionInfoBox(transaction.OtherAccount, transaction.Name, transaction.Amount, transaction.Timestamp, transaction.Reason);
             TransactionInfoContainer.AddChild(infobox);
         }
     }
 
-    private bool NeedsInfoboxRebuild()
+    protected override void FrameUpdate(FrameEventArgs args)
     {
-        //for every transaction in the list, look for a matching infobox already in the container
-        foreach (var transaction in _account.Comp.Transactions)
-        {
-            var found = false;
-            foreach (var child in TransactionInfoContainer.Children)
-            {
-                if (child is not TransactionInfoBox infoBox)
-                    continue;
+        base.FrameUpdate(args);
 
-                if (CompTransactionToInfobox(transaction, infoBox))
-                {
-                    found = true;
-                    break;
-                }
-            }
-
-            if (!found)
-                return true;
-        }
-
-        return false;
+        UpdatePayday();
     }
 
-    private bool CompTransactionToInfobox(BankTransaction transaction, TransactionInfoBox infoBox)
+    private void UpdatePayday()
     {
-        return transaction.OtherAccount == infoBox.Other &&
-               transaction.Amount == infoBox.Amount &&
-               // ReSharper disable once CompareOfFloatsByEqualityOperator - we only care if the timestamps are literally identical
-               transaction.Timestamp == infoBox.Timestamp &&
-               transaction.Reason == infoBox.Reason;
+        if (Account.Comp.Status == PaymentStatus.Suspended)
+        {
+            NextPaydayLabel.Text = Loc.GetString("nanobank-next-payday-suspended");
+            return;
+        }
+
+        if (_payroll == null || Account.Comp.Salary <= 0)
+        {
+            NextPaydayLabel.Text = Loc.GetString("nanobank-placeholder");
+            return;
+        }
+
+        var remaining = _payroll.NextPayout - _timing.CurTime;
+        if (remaining < TimeSpan.Zero)
+            remaining = TimeSpan.Zero;
+
+        NextPaydayLabel.Text = Loc.GetString("nanobank-next-payday",
+            ("amount", $"{Account.Comp.Salary:n0}"),
+            ("time", $"{remaining:mm\\:ss}"));
     }
 }

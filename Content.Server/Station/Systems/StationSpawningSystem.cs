@@ -20,6 +20,7 @@ using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
 using Content.Shared.Station;
+using Content.Shared.Storage;
 using JetBrains.Annotations;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
@@ -226,12 +227,20 @@ public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
         //card prototypes let me do cute dept-branded cards, which is fun
         //still not entirely sure how things will get the right name for visitors etc etc, but maybe it'll just work out? hopefully? probably?
         //something something 1-2 TC disposable agent card for nukies, etc etc
-        if (idUid is { } real && //is the id slot item real?
-            TryComp<PdaComponent>(real, out var pdaComp) && //is it a PDA?
-            pdaComp.BankCardSlot.ContainerSlot!.ContainedEntity is { } containedCard && //does it have something in the bank card slot?
-            TryComp<BankCardComponent>(containedCard, out var bankCardComp)) //is it a bank card?
+        Entity<BankCardComponent>? bankCard = null;
+        if (pdaComponent?.BankCardSlot?.ContainerSlot?.ContainedEntity is { } containedCard
+            && TryComp<BankCardComponent>(containedCard, out var containedComp))
         {
-            var realCardRealTrue = (containedCard, bankCardComp);
+            bankCard = (containedCard, containedComp);
+        }
+        else if (HasComp<StorageComponent>(idUid))
+        {
+            bankCard = _banking.GiveBankCard(entity);
+        }
+
+        if (bankCard is { } realCardRealTrue)
+        {
+            var bankCardComp = realCardRealTrue.Comp;
             _banking.SetAccountName(bankCardComp.AccountNumber, characterName);
             _banking.UpdateCardDetails(realCardRealTrue, bankCardComp.AccountNumber);
 

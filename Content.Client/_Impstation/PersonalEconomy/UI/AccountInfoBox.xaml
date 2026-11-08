@@ -18,8 +18,16 @@
     <Control MinHeight="8"/>
 
     <!-- balance block -->
-    <Label Text="{Loc nanobank-balance-label}" StyleClasses="LabelHeading"/>
-    <Label Name="BalanceLabel" StyleClasses="LabelHeadingBigger"/>
+    <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+            <Label Text="{Loc nanobank-balance-label}" StyleClasses="LabelHeading"/>
+            <Label Name="BalanceLabel" StyleClasses="LabelHeadingBigger"/>
+        </BoxContainer>
+        <BoxContainer Orientation="Vertical" HorizontalAlignment="Right">
+            <Label Text="{Loc nanobank-next-payday-label}" StyleClasses="LabelHeading" HorizontalAlignment="Right"/>
+            <Label Name="NextPaydayLabel" HorizontalAlignment="Right"/>
+        </BoxContainer>
+    </BoxContainer>
 
     <Control MinHeight="8"/>
 

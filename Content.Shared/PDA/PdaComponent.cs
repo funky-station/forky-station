@@ -43,7 +43,7 @@ namespace Content.Shared.PDA
         //imp edit below for bank cards
         public const string PdaBankCardSlotId = "PDA-bank-card";
         [DataField]
-        public ItemSlot BankCardSlot = new();
+        public ItemSlot? BankCardSlot;
 
         //see above for the ID card stuff
         [DataField]

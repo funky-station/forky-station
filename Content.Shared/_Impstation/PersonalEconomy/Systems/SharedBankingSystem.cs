@@ -7,8 +7,11 @@ using Content.Shared.Access.Systems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Inventory;
+using Content.Shared.PDA;
 using Content.Shared.Popups;
 using Content.Shared.Station;
+using Content.Shared.Storage;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 
@@ -27,6 +30,7 @@ public abstract class SharedBankingSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = null!;
     [Dependency] private readonly SharedStationSystem _station = null!;
     [Dependency] private readonly IConfigurationManager _cfg = null!;
+    [Dependency] private InventorySystem _inventory = null!;
 
     // we dont want command being targetted in this stuff
     private const string CommandDepartment = "Command";
@@ -158,7 +162,7 @@ public abstract class SharedBankingSystem : EntitySystem
         if (!TryGetHeldCard(args.Actor, out var card))
             return;
 
-        _itemSlots.TryInsert(ent.Owner, ent.Comp.CardSlotId, card.Owner, args.Actor);
+        _itemSlots.TryInsert(ent.Owner, ent.Comp.CardSlotId, card.Owner, args.Actor, excludeUserAudio: true);
     }
 
     private void OnEjectCardRequested(Entity<ATMComponent> ent, ref EjectCardMessage args)
@@ -167,7 +171,7 @@ public abstract class SharedBankingSystem : EntitySystem
         if (!_itemSlots.TryGetSlot(ent.Owner, ent.Comp.CardSlotId, out var slot))
             return;
 
-        _itemSlots.TryEjectToHands(ent, slot, args.Actor);
+        _itemSlots.TryEjectToHands(ent, slot, args.Actor, excludeUserAudio: true);
     }
 
     // the console only honors management actions for crew with command access, like the comms console
@@ -209,7 +213,7 @@ public abstract class SharedBankingSystem : EntitySystem
         if (!ConsoleAllowed(ent, args.Actor) || !TryGetHeldCard(args.Actor, out var card))
             return;
 
-        _itemSlots.TryInsert(ent.Owner, ent.Comp.CardSlotId, card.Owner, args.Actor);
+        _itemSlots.TryInsert(ent.Owner, ent.Comp.CardSlotId, card.Owner, args.Actor, excludeUserAudio: true);
     }
 
     private void OnConsoleEjectCard(Entity<AccountManagementConsoleComponent> ent, ref EjectCardMessage args)
@@ -217,7 +221,7 @@ public abstract class SharedBankingSystem : EntitySystem
         if (!ConsoleAllowed(ent, args.Actor) || !_itemSlots.TryGetSlot(ent.Owner, ent.Comp.CardSlotId, out var slot))
             return;
 
-        _itemSlots.TryEjectToHands(ent, slot, args.Actor);
+        _itemSlots.TryEjectToHands(ent, slot, args.Actor, excludeUserAudio: true);
     }
 
     private void OnWriteCard(Entity<AccountManagementConsoleComponent> ent, ref WriteCardMessage args)
@@ -277,6 +281,35 @@ public abstract class SharedBankingSystem : EntitySystem
                 return true;
             }
         }
+        return false;
+    }
+
+    public bool TryGetIdBankCard(EntityUid player, out Entity<BankCardComponent> card)
+    {
+        card = default;
+        if (!_inventory.TryGetSlotEntity(player, "id", out var idUid))
+            return false;
+
+        if (TryComp<PdaComponent>(idUid, out var pda)
+            && pda.BankCardSlot?.ContainerSlot?.ContainedEntity is { } slotted
+            && TryComp<BankCardComponent>(slotted, out var slottedComp))
+        {
+            card = (slotted, slottedComp);
+            return true;
+        }
+
+        if (!TryComp<StorageComponent>(idUid, out var storage))
+            return false;
+
+        foreach (var stored in storage.Container.ContainedEntities)
+        {
+            if (!TryComp<BankCardComponent>(stored, out var storedComp))
+                continue;
+
+            card = (stored, storedComp);
+            return true;
+        }
+
         return false;
     }
 
@@ -349,14 +382,7 @@ public abstract class SharedBankingSystem : EntitySystem
             return;
 
         //account number is the public address others send money to. the PIN is secret and never shown
-        args.PushMarkup(Loc.GetString("bank-card-examine-account-number", ("number", $"{ent.Comp.AccountNumber.Number:000000}")),4);
-
-        if (!TryGetAccount(ent.Comp.AccountNumber, out var account))
-            return;
-
-        args.PushMarkup("The two below are for testing!", 3);
-        args.PushMarkup(Loc.GetString("bank-card-examine-balance", ("balance", account.Value.Comp.Balance)), 2); //todo remove this
-        args.PushMarkup(Loc.GetString("bank-card-examine-salary", ("salary", account.Value.Comp.Salary)), 1); //todo remove this
+        args.PushMarkup(Loc.GetString("bank-card-examine-account-number", ("number", $"{ent.Comp.AccountNumber.Number:000000}")));
     }
 
     public bool TryGetAccount(AccountNumber accountNumber, [NotNullWhen(true)] out Entity<BankAccountComponent>? account)

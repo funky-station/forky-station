@@ -3,6 +3,7 @@ using Content.Client._Impstation.PersonalEconomy.UI;
 using Content.Shared._Impstation.PersonalEconomy.Components;
 using Content.Shared._Impstation.PersonalEconomy.Events;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Station;
 using Robust.Client.UserInterface;
 
 namespace Content.Client._Impstation.PersonalEconomy.BUI;
@@ -12,6 +13,7 @@ public sealed class ATMBoundUserInterface : BoundUserInterface
 
     private readonly ClientBankingSystem _banking;
     private readonly ItemSlotsSystem _itemSlots;
+    private readonly SharedStationSystem _station;
 
     private ATMMenu? _atmMenu;
     private TransactionMenu? _transactionMenu;
@@ -23,6 +25,7 @@ public sealed class ATMBoundUserInterface : BoundUserInterface
     {
         _banking = EntMan.System<ClientBankingSystem>();
         _itemSlots = EntMan.System<ItemSlotsSystem>();
+        _station = EntMan.System<SharedStationSystem>();
     }
 
     protected override void Open()
@@ -31,8 +34,6 @@ public sealed class ATMBoundUserInterface : BoundUserInterface
 
         _atmMenu = this.CreateWindow<ATMMenu>();
         _atmMenu.OnClose += ClearMenu;
-        _atmMenu.GetInsertedAccount = GetInsertedAccount;
-        _atmMenu.IsCardInserted = IsCardInserted;
 
         _atmMenu.OnInsertCardPressed += () => SendPredictedMessage(new InsertCardMessage());
         _atmMenu.OnEjectCardPressed += () => SendPredictedMessage(new EjectCardMessage());
@@ -105,6 +106,31 @@ public sealed class ATMBoundUserInterface : BoundUserInterface
             //finally, close the menu after a theoretically successful transaction
             _transactionMenu.Close();
         };
+
+        Update();
+    }
+
+    public override void Update()
+    {
+        if (_atmMenu == null || !EntMan.TryGetComponent<ATMComponent>(Owner, out var atm))
+            return;
+
+        var cardUid = _itemSlots.GetItemOrNull(Owner, atm.CardSlotId);
+        _account = null;
+        if (cardUid != null
+            && EntMan.TryGetComponent<BankCardComponent>(cardUid, out var card)
+            && _banking.TryGetAccount(card.AccountNumber, out var account))
+        {
+            _account = account.Value;
+        }
+
+        _atmMenu.UpdateState(_account, cardUid != null, GetPayroll());
+    }
+
+    private StationPayrollComponent? GetPayroll()
+    {
+        var station = _station.GetOwningStation(Owner);
+        return EntMan.TryGetComponent<StationPayrollComponent>(station, out var payroll) ? payroll : null;
     }
 
     protected override void Dispose(bool disposing)
@@ -117,30 +143,6 @@ public sealed class ATMBoundUserInterface : BoundUserInterface
         _atmMenu?.Dispose();
         _transactionMenu?.Dispose();
         _pinMenu?.Dispose();
-    }
-
-    // is any card in the slot, account or not
-    private bool IsCardInserted()
-    {
-        return EntMan.TryGetComponent<ATMComponent>(Owner, out var atm)
-            && _itemSlots.GetItemOrNull(Owner, atm.CardSlotId) != null;
-    }
-
-    // reads the ATM's card slot and gets the acc
-    private Entity<BankAccountComponent>? GetInsertedAccount()
-    {
-        if (!EntMan.TryGetComponent<ATMComponent>(Owner, out var atm))
-            return null;
-
-        var cardUid = _itemSlots.GetItemOrNull(Owner, atm.CardSlotId);
-        if (cardUid == null || !EntMan.TryGetComponent<BankCardComponent>(cardUid, out var card))
-            return null;
-
-        if (!_banking.TryGetAccount(card.AccountNumber, out var account))
-            return null;
-
-        _account = account.Value;
-        return account.Value;
     }
 
     private void ClearMenu()

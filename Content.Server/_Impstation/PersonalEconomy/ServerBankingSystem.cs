@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Server.Cargo.Systems;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.Stack;
+using Content.Server.Storage.EntitySystems;
 using Content.Shared._Impstation.PersonalEconomy;
 using Content.Shared._Impstation.PersonalEconomy.Components;
 using Content.Shared._Impstation.PersonalEconomy.Events;
@@ -11,10 +12,10 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
-using Content.Shared.PDA;
 using Content.Shared.Popups;
 using Content.Shared.Roles;
 using Content.Shared.Stacks;
+using Content.Shared.Storage;
 using Content.Shared.CCVar;
 using Content.Shared.Station;
 using Content.Shared.StationRecords;
@@ -47,9 +48,11 @@ public sealed class ServerBankingSystem : SharedBankingSystem
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private CargoSystem _cargo = default!;
+    [Dependency] private StorageSystem _storage = default!;
     [Dependency] private SharedUserInterfaceSystem _ui = default!;
 
     private readonly EntProtoId _bankAccountProto = "BankAccount";
+    private readonly EntProtoId _bankCardProto = "BankCard";
     private readonly ProtoId<StackPrototype> _scripStack = "Scrip";
 
     // job, stacked salary
@@ -225,13 +228,6 @@ public sealed class ServerBankingSystem : SharedBankingSystem
         // bind the account to this player so only they can be told the PIN later
         account.Value.Comp.OwnerUserId = ev.Player.UserId;
 
-        // tell the owner their PIN once; it's never printed on the card, so this is how they learn it
-        _popup.PopupEntity(
-            Loc.GetString("bank-pin-notify",
-                ("account", $"{account.Value.Comp.AccountNumber.Number:000000}"),
-                ("pin", $"{account.Value.Comp.Pin.Number:0000}")),
-            ev.Mob, ev.Mob, PopupType.Medium);
-
         // is tjere a better way to do this
         RaiseNetworkEvent(
             new BankPinResponseEvent(account.Value.Comp.AccountNumber.Number, account.Value.Comp.Pin.Number),
@@ -267,15 +263,29 @@ public sealed class ServerBankingSystem : SharedBankingSystem
     private bool TryGetOwnedAccount(EntityUid player, [NotNullWhen(true)] out Entity<BankAccountComponent>? account)
     {
         account = null;
+        return TryGetIdBankCard(player, out var card) && TryGetAccount(card.Comp.AccountNumber, out account);
+    }
 
-        if (!_inventory.TryGetSlotEntity(player, "id", out var idUid))
-            return false;
-        if (!TryComp<PdaComponent>(idUid, out var pda)
-            || pda.BankCardSlot.ContainerSlot?.ContainedEntity is not { } card
-            || !TryComp<BankCardComponent>(card, out var bankCard))
-            return false;
+    public Entity<BankCardComponent> GiveBankCard(EntityUid mob)
+    {
+        var uid = Spawn(_bankCardProto, Transform(mob).Coordinates);
+        Entity<BankCardComponent> card = (uid, Comp<BankCardComponent>(uid));
 
-        return TryGetAccount(bankCard.AccountNumber, out account);
+        if (_inventory.TryGetSlotEntity(mob, "id", out var wallet)
+            && HasComp<StorageComponent>(wallet)
+            && _storage.Insert(wallet.Value, uid, out _))
+        {
+            return card;
+        }
+
+        if (_inventory.TryGetSlotEntity(mob, "back", out var backpack)
+            && _storage.Insert(backpack.Value, uid, out _))
+        {
+            return card;
+        }
+
+        _hands.PickupOrDrop(mob, uid);
+        return card;
     }
 
     // sums every PaymentSalaryPrototype a job appears in (e.g. base wage + hazard pay)

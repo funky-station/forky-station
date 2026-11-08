@@ -5,7 +5,7 @@ namespace Content.Shared._Impstation.PersonalEconomy.Components;
 /// <summary>
 /// Controls things for automatic payroll.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class StationPayrollComponent : Component
 {
     /// <summary>

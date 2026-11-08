@@ -7,7 +7,7 @@ namespace Content.Shared._Impstation.PersonalEconomy.Components;
 /// <summary>
 /// This is used for keeping track of the data of one bank account
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class BankAccountComponent : Component
 {
     [DataField, AutoNetworkedField]

@@ -1,18 +1,18 @@
 using Content.Client.CharacterInfo;
+using Content.Shared._Impstation.PersonalEconomy;
 using Content.Shared._Impstation.PersonalEconomy.Components;
 using Content.Shared._Impstation.PersonalEconomy.Events;
 using Content.Shared._Impstation.PersonalEconomy.Systems;
-using Content.Shared.Inventory;
-using Content.Shared.PDA;
 using Robust.Client.Player;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Containers;
 
 namespace Content.Client._Impstation.PersonalEconomy;
 
 public sealed class ClientBankingSystem : SharedBankingSystem
 {
-    [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
 
     private int? _playerPin;
     private Label? _pinLabel;
@@ -33,6 +33,46 @@ public sealed class ClientBankingSystem : SharedBankingSystem
 
         SubscribeLocalEvent<CharacterInfoSystem.GetCharacterInfoControlsEvent>(OnGetCharacterInfoControls);
         SubscribeNetworkEvent<BankPinResponseEvent>(OnPinResponse);
+
+        SubscribeLocalEvent<ATMComponent, EntInsertedIntoContainerMessage>(OnAtmCardInserted);
+        SubscribeLocalEvent<ATMComponent, EntRemovedFromContainerMessage>(OnAtmCardRemoved);
+        SubscribeLocalEvent<BankAccountComponent, AfterAutoHandleStateEvent>(OnAccountState);
+        SubscribeLocalEvent<StationPayrollComponent, AfterAutoHandleStateEvent>(OnPayrollState);
+    }
+
+    private void OnAtmCardInserted(Entity<ATMComponent> ent, ref EntInsertedIntoContainerMessage args)
+    {
+        UpdateAtmUi(ent);
+    }
+
+    private void OnAtmCardRemoved(Entity<ATMComponent> ent, ref EntRemovedFromContainerMessage args)
+    {
+        UpdateAtmUi(ent);
+    }
+
+    private void OnAccountState(Entity<BankAccountComponent> ent, ref AfterAutoHandleStateEvent args)
+    {
+        UpdateAllAtmUis();
+    }
+
+    private void OnPayrollState(Entity<StationPayrollComponent> ent, ref AfterAutoHandleStateEvent args)
+    {
+        UpdateAllAtmUis();
+    }
+
+    private void UpdateAllAtmUis()
+    {
+        var query = EntityQueryEnumerator<ATMComponent>();
+        while (query.MoveNext(out var uid, out _))
+        {
+            UpdateAtmUi(uid);
+        }
+    }
+
+    private void UpdateAtmUi(EntityUid uid)
+    {
+        if (_ui.TryGetOpenUi(uid, ATMUIKey.Key, out var bui))
+            bui.Update();
     }
 
     private void OnPinResponse(BankPinResponseEvent ev)
@@ -78,13 +118,9 @@ public sealed class ClientBankingSystem : SharedBankingSystem
 
     private Entity<BankAccountComponent>? GetOwnedAccount(EntityUid player)
     {
-        if (!_inventory.TryGetSlotEntity(player, "id", out var idUid))
-            return null;
-        if (!TryComp<PdaComponent>(idUid, out var pda)
-            || pda.BankCardSlot.ContainerSlot?.ContainedEntity is not { } card
-            || !TryComp<BankCardComponent>(card, out var bankCard))
+        if (!TryGetIdBankCard(player, out var card))
             return null;
 
-        return TryGetAccount(bankCard.AccountNumber, out var account) ? account : null;
+        return TryGetAccount(card.Comp.AccountNumber, out var account) ? account : null;
     }
 }
