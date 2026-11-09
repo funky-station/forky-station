@@ -1,0 +1,24 @@
+<BoxContainer
+    xmlns="https://spacestation14.io"
+    Orientation="Vertical"
+    VerticalExpand="true"
+    HorizontalExpand="true"
+    Margin="16 12">
+
+    <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+        <Control HorizontalExpand="True"/>
+        <BoxContainer Orientation="Vertical" HorizontalAlignment="Right">
+            <Label Text="{Loc nanobank-title}" StyleClasses="LabelHeading" HorizontalAlignment="Right"/>
+            <Label Text="{Loc nanobank-tagline}" StyleClasses="LabelSubText" HorizontalAlignment="Right"/>
+        </BoxContainer>
+    </BoxContainer>
+
+    <Control VerticalExpand="True"/>
+
+    <Label Name="MessageLabel" Text="{Loc atm-invalid-account-number}" HorizontalAlignment="Center" Align="Center"/>
+    <Control MinHeight="8"/>
+    <Button Name="InsertCardButton" Text="{Loc atm-insert-card-button}" HorizontalAlignment="Center"/>
+    <Button Name="EjectCardButton" Text="{Loc atm-eject-card-button}" HorizontalAlignment="Center" Visible="False"/>
+
+    <Control VerticalExpand="True"/>
+</BoxContainer>

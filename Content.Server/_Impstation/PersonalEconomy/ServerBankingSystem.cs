@@ -1,0 +1,449 @@
+using System.Diagnostics.CodeAnalysis;
+using Content.Server.Cargo.Systems;
+using Content.Server.DeviceLinking.Systems;
+using Content.Server.Stack;
+using Content.Server.Storage.EntitySystems;
+using Content.Shared._Impstation.PersonalEconomy;
+using Content.Shared._Impstation.PersonalEconomy.Components;
+using Content.Shared._Impstation.PersonalEconomy.Events;
+using Content.Shared._Impstation.PersonalEconomy.Systems;
+using Content.Shared.Access.Systems;
+using Content.Shared.Cargo.Components;
+using Content.Shared.Containers.ItemSlots;
+using Content.Shared.GameTicking;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Interaction;
+using Content.Shared.Inventory;
+using Content.Shared.Popups;
+using Content.Shared.Roles;
+using Content.Shared.Stacks;
+using Content.Shared.Storage;
+using Content.Shared.CCVar;
+using Content.Shared.Station;
+using Content.Shared.StationRecords;
+using Content.Shared.StationRecords.Components;
+using Content.Shared.StationRecords.Systems;
+using Robust.Server.GameStates;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+
+namespace Content.Server._Impstation.PersonalEconomy;
+
+/// <summary>
+/// This handles...
+/// </summary>
+public sealed partial class ServerBankingSystem : SharedBankingSystem
+{
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private PvsOverrideSystem _pvsOverride = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedStationSystem _station = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private StackSystem _stack = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private DeviceLinkSystem _deviceLink = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private CargoSystem _cargo = default!;
+    [Dependency] private StorageSystem _storage = default!;
+    [Dependency] private AccessReaderSystem _accessReader = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
+
+    private readonly EntProtoId _bankAccountProto = "BankAccount";
+    private readonly EntProtoId _bankCardProto = "BankCard";
+    private readonly ProtoId<StackPrototype> _scripStack = "Scrip";
+
+    // job, stacked salary
+    private readonly Dictionary<string, int> _salaryByJob = new();
+
+    /// <inheritdoc/>
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<BankCardComponent, ComponentInit>(OnComponentInit);
+        // after StationRecordsSystem so the record key is already stamped onto the PDA
+        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete, after: [typeof(StationRecordsSystem)]);
+
+        SubscribeLocalEvent<ATMComponent, WithdrawMessage>(OnWithdraw);
+        SubscribeLocalEvent<ATMComponent, DepositMessage>(OnDeposit);
+        SubscribeLocalEvent<ATMComponent, RequestTransactionMessage>(OnTransferRequested);
+        SubscribeLocalEvent<AccountManagementConsoleComponent, ConvertStationScripMessage>(OnConvertStationScrip);
+        SubscribeLocalEvent<AccountManagementConsoleComponent, CreateBusinessAccountMessage>(OnCreateBusinessAccount);
+        SubscribeLocalEvent<PosSystemComponent, UnlockPosMessage>(OnUnlockPos);
+        SubscribeLocalEvent<PosSystemComponent, UpdatePoSSettingsMessage>(OnPoSSettingsUpdate);
+        SubscribeLocalEvent<PosSystemComponent, BoundUIClosedEvent>(OnPosUiClosed);
+        SubscribeLocalEvent<PosSystemComponent, InteractUsingEvent>(OnPosInteractUsing);
+        SubscribeLocalEvent<PoSWiredMessage>(OnSignal);
+
+        SubscribeNetworkEvent<RequestBankPinEvent>(OnRequestPin);
+
+        PopulateSalaries();
+    }
+
+    // command can cash the stations scrip reserves into spesos cargos bank acc
+    private void OnConvertStationScrip(Entity<AccountManagementConsoleComponent> ent, ref ConvertStationScripMessage args)
+    {
+        if (!_cfg.GetCVar(CCVars.ScripStationCashout))
+            return;
+
+        if (!ConsoleAllowed(ent, args.Actor) || args.Amount <= 0)
+            return;
+
+        var station = _station.GetOwningStation(ent);
+        if (station == null
+            || !TryComp<StationPayrollComponent>(station, out var payroll)
+            || !TryGetAccount(payroll.StationAccount, out var account)
+            || !TryComp<StationBankAccountComponent>(station, out var cargoBank))
+            return;
+
+        // only convert whole spesos worth, and only debit the scrip actually used
+        var spesos = args.Amount / AccountManagementConsoleComponent.CashoutRate;
+        if (spesos <= 0)
+            return;
+
+        var scripUsed = spesos * AccountManagementConsoleComponent.CashoutRate;
+        if (account.Value.Comp.Balance < scripUsed)
+            return;
+
+        // pull scrip from the payroll pool, drop the spesos into cargos account
+        AdjustBalanceWithLog(payroll.StationAccount, -scripUsed, Loc.GetString("nanobank-cash"), Loc.GetString("nanobank-scrip-cashout-reason"));
+        _cargo.UpdateBankAccount((station.Value, cargoBank), spesos, cargoBank.PrimaryAccount);
+    }
+
+    // creates an account for a business so players can register stuff separate from their personal acc
+    private void OnCreateBusinessAccount(Entity<AccountManagementConsoleComponent> ent, ref CreateBusinessAccountMessage args)
+    {
+        if (!ConsoleAllowed(ent, args.Actor))
+            return;
+
+        var name = args.Name.Trim();
+        if (name.Length == 0)
+            return;
+
+        // card needs to be slotted so it can mint it there
+        var cardUid = _itemSlots.GetItemOrNull(ent.Owner, ent.Comp.CardSlotId);
+        if (cardUid == null || !TryComp<BankCardComponent>(cardUid, out var cardComp))
+            return;
+
+        var account = CreateNewAccount(name, ResolveAccountParent(ent));
+        WriteAccountToCard((cardUid.Value, cardComp), account.Comp.AccountNumber);
+    }
+
+    // first valid unlock claims the pos system for that account
+    private void OnUnlockPos(Entity<PosSystemComponent> ent, ref UnlockPosMessage args)
+    {
+        AccountNumber ownerToCheck;
+        if (ent.Comp.OwnerAccount.Number == 0)
+        {
+            if (!TryGetHeldCard(args.Actor, out var card))
+                return;
+            if (!TryGetAccount(card.Comp.AccountNumber, out var claimer))
+                return;
+            if (args.Pin != claimer.Value.Comp.Pin.Number)
+                return;
+
+            ent.Comp.OwnerAccount = claimer.Value.Comp.AccountNumber;
+            Dirty(ent);
+            ownerToCheck = claimer.Value.Comp.AccountNumber;
+        }
+        else
+        {
+            ownerToCheck = ent.Comp.OwnerAccount;
+        }
+
+        if (!TryGetAccount(ownerToCheck, out var owner) || args.Pin != owner.Value.Comp.Pin.Number)
+            return;
+
+        ent.Comp.UnlockedBy = args.Actor;
+
+        // tell just this client to open the merchant view
+        _ui.ServerSendUiMessage(ent.Owner, POSUIKey.Key, new PosUnlockedMessage(), args.Actor);
+    }
+
+    private void OnPoSSettingsUpdate(Entity<PosSystemComponent> ent, ref UpdatePoSSettingsMessage args)
+    {
+        if (ent.Comp.UnlockedBy != args.Actor || args.Amount < 0)
+            return;
+
+        var recipient = args.Recipient;
+        if (ent.Comp.StationLinked && !TryGetStationScripAccount(ent, out recipient))
+            return;
+
+        if (recipient.Number != 0 && !TryGetAccount(recipient, out _))
+            return;
+
+        ent.Comp.RecipientAccount = recipient;
+        ent.Comp.Amount = args.Amount;
+        ent.Comp.Reason = args.Reason;
+        ent.Comp.MerchantName = args.MerchantName;
+
+        Dirty(ent);
+    }
+
+    private void OnPosUiClosed(Entity<PosSystemComponent> ent, ref BoundUIClosedEvent args)
+    {
+        if (ent.Comp.UnlockedBy == args.Actor)
+            ent.Comp.UnlockedBy = null;
+    }
+
+    private void OnPosInteractUsing(Entity<PosSystemComponent> ent, ref InteractUsingEvent args)
+    {
+        if (args.Handled || ent.Comp.OwnerAccount.Number != 0)
+            return;
+
+        if (!_accessReader.FindAccessTags(args.Used).Contains(ent.Comp.StationLinkAccess))
+            return;
+
+        args.Handled = true;
+
+        var hasCard = TryGetIdBankCard(args.User, out var card) || TryGetHeldCard(args.User, out card);
+        if (!hasCard
+            || !TryGetAccount(card.Comp.AccountNumber, out _)
+            || !TryGetStationScripAccount(ent, out var stationAccount))
+        {
+            _popup.PopupEntity(Loc.GetString("pos-station-link-failed"), ent, args.User);
+            return;
+        }
+
+        ent.Comp.OwnerAccount = card.Comp.AccountNumber;
+        ent.Comp.RecipientAccount = stationAccount;
+        ent.Comp.StationLinked = true;
+        Dirty(ent);
+
+        _popup.PopupEntity(Loc.GetString("pos-station-linked"), ent, args.User);
+    }
+
+    private void OnSignal(PoSWiredMessage msg)
+    {
+        _deviceLink.InvokePort(msg.Ent.Owner, msg.Success ? msg.Ent.Comp.SuccessPort : msg.Ent.Comp.FailPort);
+
+        // KACHING BABY!!!!!!!!!!!!
+        _audio.PlayPvs(msg.Success ? msg.Ent.Comp.PurchaseSound : msg.Ent.Comp.DeclineSound, msg.Ent.Owner);
+    }
+
+    private void OnWithdraw(Entity<ATMComponent> ent, ref WithdrawMessage args)
+    {
+        if (args.Amount <= 0)
+            return;
+
+        if (!TryGetSlotAccount(ent, out var account))
+            return;
+
+        // withdrawing requires the account PIN
+        if (args.Pin != account.Value.Comp.Pin.Number)
+            return;
+
+        if (account.Value.Comp.Balance < args.Amount)
+            return;
+
+        // take from account, log it, then hand over physical scrip
+        AdjustBalanceWithLog(account.Value.Comp.AccountNumber, -args.Amount, Loc.GetString("nanobank-cash"), Loc.GetString("nanobank-withdrawal-reason"));
+        var stack = _stack.SpawnNextToOrDrop(args.Amount, _scripStack, ent.Owner);
+        _hands.PickupOrDrop(args.Actor, stack);
+    }
+
+    private void OnDeposit(Entity<ATMComponent> ent, ref DepositMessage args)
+    {
+        if (!TryGetSlotAccount(ent, out var account))
+            return;
+
+        var total = 0;
+        foreach (var held in _hands.EnumerateHeld(args.Actor))
+        {
+            if (!TryComp<StackComponent>(held, out var stack) || stack.StackTypeId != _scripStack)
+                continue;
+
+            total += stack.Count;
+            QueueDel(held);
+        }
+
+        if (total <= 0)
+            return;
+
+        AdjustBalanceWithLog(account.Value.Comp.AccountNumber, total, Loc.GetString("nanobank-cash"), Loc.GetString("nanobank-deposit-reason"));
+    }
+
+    private void OnTransferRequested(Entity<ATMComponent> ent, ref RequestTransactionMessage args)
+    {
+        if (!TryGetSlotAccount(ent, out var account) || args.Pin != account.Value.Comp.Pin.Number)
+            return;
+
+        TryMakeTransaction(account.Value.Comp.AccountNumber, args.RecipientAccount, args.Amount, args.Reason);
+    }
+
+    private bool TryGetSlotAccount(Entity<ATMComponent> ent, [NotNullWhen(true)] out Entity<BankAccountComponent>? account)
+    {
+        account = null;
+
+        var cardUid = _itemSlots.GetItemOrNull(ent.Owner, ent.Comp.CardSlotId);
+        if (cardUid == null || !TryComp<BankCardComponent>(cardUid, out var card))
+            return false;
+
+        return TryGetAccount(card.AccountNumber, out account);
+    }
+
+    // link the account to its owner's station record so payroll can read criminal status.
+    // the record key lives on the PDA in the id slot, which is also where the bank card is
+    private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent ev)
+    {
+        if (!TryGetOwnedAccount(ev.Mob, out var account))
+            return;
+
+        // bind the account to this player so only they can be told the PIN later
+        account.Value.Comp.OwnerUserId = ev.Player.UserId;
+
+        // is tjere a better way to do this
+        RaiseNetworkEvent(
+            new BankPinResponseEvent(account.Value.Comp.AccountNumber.Number, account.Value.Comp.Pin.Number),
+            ev.Player);
+
+        // link the station record (for criminal-status pay withholding) if one exists
+        if (_inventory.TryGetSlotEntity(ev.Mob, "id", out var idUid)
+            && TryComp<StationRecordKeyStorageComponent>(idUid, out var keyStorage)
+            && keyStorage.Key is { } key)
+        {
+            account.Value.Comp.StationRecordId = key.Id;
+        }
+    }
+
+    // the pin needs to be kept secret so thats why we request it this way
+    private void OnRequestPin(RequestBankPinEvent ev, EntitySessionEventArgs args)
+    {
+        if (args.SenderSession.AttachedEntity is not { } player)
+            return;
+
+        if (!TryGetOwnedAccount(player, out var account))
+            return;
+
+        if (account.Value.Comp.OwnerUserId != args.SenderSession.UserId)
+            return;
+
+        RaiseNetworkEvent(
+            new BankPinResponseEvent(account.Value.Comp.AccountNumber.Number, account.Value.Comp.Pin.Number),
+            args.SenderSession);
+    }
+
+    // resolves the account belonging to a player via the bank card in their PDA
+    private bool TryGetOwnedAccount(EntityUid player, [NotNullWhen(true)] out Entity<BankAccountComponent>? account)
+    {
+        account = null;
+        return TryGetIdBankCard(player, out var card) && TryGetAccount(card.Comp.AccountNumber, out account);
+    }
+
+    public Entity<BankCardComponent> GiveBankCard(EntityUid mob)
+    {
+        var uid = Spawn(_bankCardProto, Transform(mob).Coordinates);
+        Entity<BankCardComponent> card = (uid, Comp<BankCardComponent>(uid));
+
+        if (_inventory.TryGetSlotEntity(mob, "id", out var wallet)
+            && HasComp<StorageComponent>(wallet)
+            && _storage.Insert(wallet.Value, uid, out _))
+        {
+            return card;
+        }
+
+        if (_inventory.TryGetSlotEntity(mob, "back", out var backpack)
+            && _storage.Insert(backpack.Value, uid, out _))
+        {
+            return card;
+        }
+
+        _hands.PickupOrDrop(mob, uid);
+        return card;
+    }
+
+    // sums every PaymentSalaryPrototype a job appears in (e.g. base wage + hazard pay)
+    private void PopulateSalaries()
+    {
+        _salaryByJob.Clear();
+        foreach (var proto in _proto.EnumeratePrototypes<PaymentSalaryPrototype>())
+        {
+            foreach (var role in proto.Roles)
+            {
+                _salaryByJob[role] = _salaryByJob.GetValueOrDefault(role.Id) + proto.Salary;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Stacked salary for a job, or 0 if no salary prototype covers it.
+    /// </summary>
+    public int GetSalaryForJob(string jobId)
+    {
+        return _salaryByJob.GetValueOrDefault(jobId);
+    }
+
+    //todo should this be a different event?
+    private void OnComponentInit(Entity<BankCardComponent> ent, ref ComponentInit args)
+    {
+        // blank cards stay account-less until written at a console
+        if (!ent.Comp.AutoCreateAccount)
+            return;
+
+        SetupID(ent);
+    }
+
+    private void SetupID(Entity<BankCardComponent> ent)
+    {
+        var account = CreateNewAccount("Unknown", ResolveAccountParent(ent));
+        ent.Comp.AccountNumber = account.Comp.AccountNumber;
+        SetAccountSalary(account.Comp.AccountNumber, ent.Comp.Salary);
+        SetAccountBalance(account.Comp.AccountNumber, ent.Comp.StartingBalance);
+        Dirty(ent);
+    }
+
+    // accounts get parented to the station so they're cleaned up with it
+    // i didnt like the _cheeseWorld sorry
+    private EntityUid? ResolveAccountParent(EntityUid source)
+    {
+        var owning = _station.GetOwningStation(source);
+        if (owning != null)
+            return owning;
+
+        //fallback: any station. if there isn't one, leave it on the source's current parent
+        var stations = _station.GetStations();
+        return stations.Count > 0 ? stations[0] : null;
+    }
+
+    public Entity<BankAccountComponent> CreateNewAccount(string name, EntityUid? parent)
+    {
+        //generate a unique account number (the public address)
+        var accountNo = _random.Next(1, 1000000);
+        while (TryGetAccount(accountNo, out _))
+        {
+            accountNo = _random.Next(1, 1000000);
+        }
+
+        //the PIN is a 4-digit secret; it doesn't need to be unique since it's never used for lookup
+        var pin = _random.Next(1000, 10000);
+
+        var newAccount = Spawn(_bankAccountProto);
+        if (parent != null)
+            _xform.SetParent(newAccount, parent.Value);
+
+        // TAYDEO NOTE:
+        // maybe they dont? original funky bank code just relied on a manual look up at an ATM, since clients didnt
+        // really need to know anything? maybe go back to this architecture? We'll See.
+        // LATE NIGHT EDIT: WE ENDED UP KINDA DOING THIS HAHA
+        _pvsOverride.AddForceSend(newAccount);
+
+        //create new account
+        var bankComp = Comp<BankAccountComponent>(newAccount);
+
+        var oldNumber = bankComp.AccountNumber;
+        bankComp.AccountNumber = accountNo;
+        bankComp.Pin = pin;
+        bankComp.Name = name;
+        ReindexAccount((newAccount, bankComp), oldNumber);
+
+        //and send the comp back off to the client
+        Dirty<BankAccountComponent>((newAccount, bankComp));
+        return (newAccount, bankComp);
+    }
+}
