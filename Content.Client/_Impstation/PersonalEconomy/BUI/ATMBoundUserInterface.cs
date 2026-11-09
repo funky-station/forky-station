@@ -19,7 +19,7 @@ public sealed class ATMBoundUserInterface : BoundUserInterface
     private TransactionMenu? _transactionMenu;
     private PinEntryMenu? _pinMenu;
     private Entity<BankAccountComponent>? _account;
-    private int _pendingWithdrawAmount;
+    private Action<int>? _pendingPinAction;
 
     public ATMBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -41,10 +41,10 @@ public sealed class ATMBoundUserInterface : BoundUserInterface
 
         //withdrawing pops a keypad window for the PIN, then sends the request
         _pinMenu = new PinEntryMenu();
-        _pinMenu.OnPinEntered += pin => SendPredictedMessage(new WithdrawMessage(_pendingWithdrawAmount, pin));
+        _pinMenu.OnPinEntered += pin => _pendingPinAction?.Invoke(pin);
         _atmMenu.OnWithdrawPressed += amount =>
         {
-            _pendingWithdrawAmount = amount;
+            _pendingPinAction = pin => SendPredictedMessage(new WithdrawMessage(amount, pin));
             _pinMenu.Reset();
             _pinMenu.Open();
         };
@@ -96,12 +96,12 @@ public sealed class ATMBoundUserInterface : BoundUserInterface
             _transactionMenu.ReallyConfirmButton.Disabled = false;
 
             // sender comes from the inserted card on the server
-            SendPredictedMessage(
-                new RequestTransactionMessage(
-                    int.Parse(_transactionMenu.TransferNumberBox.Text),
-                    _transactionMenu.TransferAmount,
-                    _transactionMenu.TransferReasonBox.Text)
-                );
+            var recipient = int.Parse(_transactionMenu.TransferNumberBox.Text);
+            var amount = _transactionMenu.TransferAmount;
+            var reason = _transactionMenu.TransferReasonBox.Text;
+            _pendingPinAction = pin => SendPredictedMessage(new RequestTransactionMessage(recipient, amount, reason, pin));
+            _pinMenu.Reset();
+            _pinMenu.Open();
 
             //finally, close the menu after a theoretically successful transaction
             _transactionMenu.Close();

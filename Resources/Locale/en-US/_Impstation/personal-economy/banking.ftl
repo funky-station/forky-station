@@ -20,7 +20,7 @@ atm-deposit-button = Deposit
 atm-withdraw-button = Withdraw
 atm-withdraw-amount-placeholder = Amount
 atm-pin-entry-title = Enter PIN
-atm-pin-entry-prompt = Enter your 4-digit PIN to withdraw.
+atm-pin-entry-prompt = Enter your 4-digit PIN to continue.
 
 #NanoBank branded stuff
 nanobank-title = NanoBank
@@ -90,6 +90,8 @@ pos-payment-reason = for "{$reason}"
 pos-payment-confirm-button-label = Confirm Transaction
 pos-payment-cancel-button-label = Cancel
 pos-tax-reason = Sales Tax
+pos-station-linked = This payment square is now controlled by NanoTrasen.
+pos-station-link-failed = Link failed! No bank account to link this Square with found.
 pos-tip-reason = Tip
 
 #tip menu

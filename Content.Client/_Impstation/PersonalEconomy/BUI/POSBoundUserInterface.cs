@@ -29,14 +29,14 @@ public sealed class POSBoundUserInterface : BoundUserInterface
         _menu = this.CreateWindow<PoSMenu>();
 
         // owner of the pos opens up the locked pin view
-        if (IsOwner(comp) || comp.RecipientAccount == 0)
+        if (IsOwner(comp) || !IsSetUp(comp))
             ShowLockBox();
         else
             ShowCustomerBox();
 
         _menu.OnClearButtonPressed += () =>
         {
-            if (EntMan.GetComponent<PosSystemComponent>(Owner).RecipientAccount != 0)
+            if (IsSetUp(EntMan.GetComponent<PosSystemComponent>(Owner)))
                 ShowCustomerBox();
         };
     }
@@ -52,6 +52,11 @@ public sealed class POSBoundUserInterface : BoundUserInterface
         base.Dispose(disposing);
         if (disposing)
             _tipMenu?.Close();
+    }
+
+    private static bool IsSetUp(PosSystemComponent comp)
+    {
+        return comp.RecipientAccount != 0 && comp.Amount > 0;
     }
 
     private bool IsOwner(PosSystemComponent comp)
@@ -85,7 +90,7 @@ public sealed class POSBoundUserInterface : BoundUserInterface
     private void OnCustomerAccountEntered(string s)
     {
         var comp = EntMan.GetComponent<PosSystemComponent>(Owner);
-        if (comp.RecipientAccount == 0)
+        if (!IsSetUp(comp))
             return;
 
         if (!int.TryParse(s, out var customerAccount) || !_banking.TryGetAccount(customerAccount, out var account))
@@ -108,22 +113,21 @@ public sealed class POSBoundUserInterface : BoundUserInterface
         //todo make this whole UI account for the fact that these accounts could all get deleted at some point
         _banking.TryGetAccount(comp.RecipientAccount, out var recipient);
         var merchantName = string.IsNullOrWhiteSpace(comp.MerchantName) ? recipient!.Value.Comp.Name : comp.MerchantName;
-        var tax = _banking.PosTaxFor(comp.Amount);
-        box.FillOutDetails(merchantName, recipient!.Value.Comp.AccountNumber, comp.Amount, tax, _cfg.GetCVar(CCVars.PosTax), comp.Reason);
+        var tax = _banking.PosTaxFor(comp);
+        var taxPercent = comp.StationLinked ? 0f : _cfg.GetCVar(CCVars.PosTax);
+        box.FillOutDetails(merchantName, recipient!.Value.Comp.AccountNumber, comp.Amount, tax, taxPercent, comp.Reason);
         box.TransactionCancelled += Close;
 
         box.TransactionConfirmed += () =>
         {
             // the customer needs to cover the subtotal plus tax
-            if (!VerifyTransaction(comp.RecipientAccount, customerAccount, comp.Amount + tax))
-            {
-                box.NoFundsLabel.Visible = true;
-                SendPredictedMessage(new PoSTransactionFailedMessage());
-                return;
-            }
-
-            box.NoFundsLabel.Visible = false;
+            var canPay = VerifyTransaction(comp.RecipientAccount, customerAccount, comp.Amount + tax);
+            box.NoFundsLabel.Visible = !canPay;
             SendPredictedMessage(new PoSTransactionSuccededMessage());
+
+            if (!canPay)
+                return;
+
             //the sales done, let them tip!!
             _menu!.Visible = false;
             OpenTipMenu(comp.Amount);
@@ -141,6 +145,8 @@ public sealed class POSBoundUserInterface : BoundUserInterface
             box.FillOutDetails(comp.RecipientAccount, comp.Amount, comp.Reason, comp.MerchantName);
         else if (comp.OwnerAccount != 0)
             box.TransferNoEntryBox.Text = $"{comp.OwnerAccount.Number:000000}";
+
+        box.TransferNoEntryBox.Editable = !comp.StationLinked;
 
         box.OnSetupCleared += () =>
         {

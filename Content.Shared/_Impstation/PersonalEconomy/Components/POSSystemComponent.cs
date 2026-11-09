@@ -1,4 +1,5 @@
-﻿using Content.Shared.DeviceLinking;
+﻿using Content.Shared.Access;
+using Content.Shared.DeviceLinking;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -26,6 +27,15 @@ public sealed partial class PosSystemComponent : Component
     // merchant name, so it just doesnt show an account number
     [AutoNetworkedField]
     public string MerchantName = "";
+
+    [ViewVariables]
+    public EntityUid? UnlockedBy;
+
+    [AutoNetworkedField]
+    public bool StationLinked;
+
+    [DataField]
+    public ProtoId<AccessLevelPrototype> StationLinkAccess = "Command";
 
     // device-link ports pulsed on a sale, so the POS can be wired to stuff (imagine a bomb lol)
     [DataField]

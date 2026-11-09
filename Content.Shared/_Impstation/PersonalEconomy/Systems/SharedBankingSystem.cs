@@ -20,17 +20,17 @@ namespace Content.Shared._Impstation.PersonalEconomy.Systems;
 /// <summary>
 /// The main banking system; handles all funds transfers and keeps track of bank accounts etc etc
 /// </summary>
-public abstract class SharedBankingSystem : EntitySystem
+public abstract partial class SharedBankingSystem : EntitySystem
 {
-    [Dependency] private readonly MetaDataSystem _metaData = null!;
-    [Dependency] private readonly IGameTiming _timing = null!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = null!;
-    [Dependency] private readonly SharedHandsSystem _hands = null!;
-    [Dependency] private readonly AccessReaderSystem _accessReader = null!;
-    [Dependency] private readonly SharedPopupSystem _popup = null!;
-    [Dependency] private readonly SharedStationSystem _station = null!;
-    [Dependency] private readonly IConfigurationManager _cfg = null!;
-    [Dependency] private InventorySystem _inventory = null!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private AccessReaderSystem _accessReader = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedStationSystem _station = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private InventorySystem _inventory = default!;
 
     // we dont want command being targetted in this stuff
     private const string CommandDepartment = "Command";
@@ -42,12 +42,9 @@ public abstract class SharedBankingSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<BankCardComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<ATMComponent, RequestTransactionMessage>(OnTransactionRequested);
         SubscribeLocalEvent<ATMComponent, InsertCardMessage>(OnInsertCardRequested);
         SubscribeLocalEvent<ATMComponent, EjectCardMessage>(OnEjectCardRequested);
-        SubscribeLocalEvent<PosSystemComponent, UpdatePoSSettingsMessage>(OnPoSSettingsUpdate);
         SubscribeLocalEvent<PosSystemComponent, PoSTransactionSuccededMessage>(OnTransactionSucceded);
-        SubscribeLocalEvent<PosSystemComponent, PoSTransactionFailedMessage>(OnTransactionFailed);
         SubscribeLocalEvent<PosSystemComponent, PoSTipMessage>(OnTip);
 
         SubscribeLocalEvent<AccountManagementConsoleComponent, SetAccountStatusMessage>(OnSetAccountStatus);
@@ -85,15 +82,10 @@ public abstract class SharedBankingSystem : EntitySystem
         _accountsByNumber[ent.Comp.AccountNumber] = ent;
     }
 
-    private void OnTransactionFailed(Entity<PosSystemComponent> ent, ref PoSTransactionFailedMessage args)
-    {
-        SignalPosTransaction(ent, false);
-    }
-
     private void OnTransactionSucceded(Entity<PosSystemComponent> ent, ref PoSTransactionSuccededMessage args)
     {
         //customer pays with the card in their hand. they must cover the subtotal plus tax
-        var tax = PosTaxFor(ent.Comp.Amount);
+        var tax = PosTaxFor(ent.Comp);
         var total = ent.Comp.Amount + tax;
         var success = TryGetHeldCard(args.Actor, out var card)
             && TryGetAccount(card.Comp.AccountNumber, out var customer)
@@ -122,7 +114,12 @@ public abstract class SharedBankingSystem : EntitySystem
         return (int) MathF.Round(subtotal * _cfg.GetCVar(CCVars.PosTax) / 100f);
     }
 
-    private bool TryGetStationScripAccount(EntityUid pos, out AccountNumber account)
+    public int PosTaxFor(PosSystemComponent pos)
+    {
+        return pos.StationLinked ? 0 : PosTaxFor(pos.Amount);
+    }
+
+    protected bool TryGetStationScripAccount(EntityUid pos, out AccountNumber account)
     {
         account = default;
         var station = _station.GetOwningStation(pos);
@@ -136,25 +133,6 @@ public abstract class SharedBankingSystem : EntitySystem
     private void SignalPosTransaction(Entity<PosSystemComponent> ent, bool success)
     {
         RaiseLocalEvent(new PoSWiredMessage(ent, success));
-    }
-
-    private void OnPoSSettingsUpdate(Entity<PosSystemComponent> ent, ref UpdatePoSSettingsMessage args)
-    {
-        ent.Comp.RecipientAccount = args.Recipient;
-        ent.Comp.Amount = args.Amount;
-        ent.Comp.Reason = args.Reason;
-        ent.Comp.MerchantName = args.MerchantName;
-
-        Dirty(ent);
-    }
-
-    private void OnTransactionRequested(Entity<ATMComponent> ent, ref RequestTransactionMessage args)
-    {
-        var cardUid = _itemSlots.GetItemOrNull(ent.Owner, ent.Comp.CardSlotId);
-        if (cardUid == null || !TryComp<BankCardComponent>(cardUid, out var card))
-            return;
-
-        TryMakeTransaction(card.AccountNumber, args.RecipientAccount, args.Amount, args.Reason);
     }
 
     private void OnInsertCardRequested(Entity<ATMComponent> ent, ref InsertCardMessage args)

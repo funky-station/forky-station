@@ -7,10 +7,12 @@ using Content.Shared._Impstation.PersonalEconomy;
 using Content.Shared._Impstation.PersonalEconomy.Components;
 using Content.Shared._Impstation.PersonalEconomy.Events;
 using Content.Shared._Impstation.PersonalEconomy.Systems;
+using Content.Shared.Access.Systems;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Roles;
@@ -32,23 +34,24 @@ namespace Content.Server._Impstation.PersonalEconomy;
 /// <summary>
 /// This handles...
 /// </summary>
-public sealed class ServerBankingSystem : SharedBankingSystem
+public sealed partial class ServerBankingSystem : SharedBankingSystem
 {
-    [Dependency] private SharedTransformSystem _xform = null!;
-    [Dependency] private PvsOverrideSystem _pvsOverride = null!;
-    [Dependency] private IRobustRandom _random = null!;
-    [Dependency] private SharedStationSystem _station = null!;
-    [Dependency] private IPrototypeManager _proto = null!;
-    [Dependency] private InventorySystem _inventory = null!;
-    [Dependency] private StackSystem _stack = null!;
-    [Dependency] private ItemSlotsSystem _itemSlots = null!;
-    [Dependency] private SharedHandsSystem _hands = null!;
-    [Dependency] private SharedPopupSystem _popup = null!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private PvsOverrideSystem _pvsOverride = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedStationSystem _station = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private StackSystem _stack = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private DeviceLinkSystem _deviceLink = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private CargoSystem _cargo = default!;
     [Dependency] private StorageSystem _storage = default!;
+    [Dependency] private AccessReaderSystem _accessReader = default!;
     [Dependency] private SharedUserInterfaceSystem _ui = default!;
 
     private readonly EntProtoId _bankAccountProto = "BankAccount";
@@ -69,9 +72,13 @@ public sealed class ServerBankingSystem : SharedBankingSystem
 
         SubscribeLocalEvent<ATMComponent, WithdrawMessage>(OnWithdraw);
         SubscribeLocalEvent<ATMComponent, DepositMessage>(OnDeposit);
+        SubscribeLocalEvent<ATMComponent, RequestTransactionMessage>(OnTransferRequested);
         SubscribeLocalEvent<AccountManagementConsoleComponent, ConvertStationScripMessage>(OnConvertStationScrip);
         SubscribeLocalEvent<AccountManagementConsoleComponent, CreateBusinessAccountMessage>(OnCreateBusinessAccount);
         SubscribeLocalEvent<PosSystemComponent, UnlockPosMessage>(OnUnlockPos);
+        SubscribeLocalEvent<PosSystemComponent, UpdatePoSSettingsMessage>(OnPoSSettingsUpdate);
+        SubscribeLocalEvent<PosSystemComponent, BoundUIClosedEvent>(OnPosUiClosed);
+        SubscribeLocalEvent<PosSystemComponent, InteractUsingEvent>(OnPosInteractUsing);
         SubscribeLocalEvent<PoSWiredMessage>(OnSignal);
 
         SubscribeNetworkEvent<RequestBankPinEvent>(OnRequestPin);
@@ -153,8 +160,63 @@ public sealed class ServerBankingSystem : SharedBankingSystem
         if (!TryGetAccount(ownerToCheck, out var owner) || args.Pin != owner.Value.Comp.Pin.Number)
             return;
 
+        ent.Comp.UnlockedBy = args.Actor;
+
         // tell just this client to open the merchant view
         _ui.ServerSendUiMessage(ent.Owner, POSUIKey.Key, new PosUnlockedMessage(), args.Actor);
+    }
+
+    private void OnPoSSettingsUpdate(Entity<PosSystemComponent> ent, ref UpdatePoSSettingsMessage args)
+    {
+        if (ent.Comp.UnlockedBy != args.Actor || args.Amount < 0)
+            return;
+
+        var recipient = args.Recipient;
+        if (ent.Comp.StationLinked && !TryGetStationScripAccount(ent, out recipient))
+            return;
+
+        if (recipient.Number != 0 && !TryGetAccount(recipient, out _))
+            return;
+
+        ent.Comp.RecipientAccount = recipient;
+        ent.Comp.Amount = args.Amount;
+        ent.Comp.Reason = args.Reason;
+        ent.Comp.MerchantName = args.MerchantName;
+
+        Dirty(ent);
+    }
+
+    private void OnPosUiClosed(Entity<PosSystemComponent> ent, ref BoundUIClosedEvent args)
+    {
+        if (ent.Comp.UnlockedBy == args.Actor)
+            ent.Comp.UnlockedBy = null;
+    }
+
+    private void OnPosInteractUsing(Entity<PosSystemComponent> ent, ref InteractUsingEvent args)
+    {
+        if (args.Handled || ent.Comp.OwnerAccount.Number != 0)
+            return;
+
+        if (!_accessReader.FindAccessTags(args.Used).Contains(ent.Comp.StationLinkAccess))
+            return;
+
+        args.Handled = true;
+
+        var hasCard = TryGetIdBankCard(args.User, out var card) || TryGetHeldCard(args.User, out card);
+        if (!hasCard
+            || !TryGetAccount(card.Comp.AccountNumber, out _)
+            || !TryGetStationScripAccount(ent, out var stationAccount))
+        {
+            _popup.PopupEntity(Loc.GetString("pos-station-link-failed"), ent, args.User);
+            return;
+        }
+
+        ent.Comp.OwnerAccount = card.Comp.AccountNumber;
+        ent.Comp.RecipientAccount = stationAccount;
+        ent.Comp.StationLinked = true;
+        Dirty(ent);
+
+        _popup.PopupEntity(Loc.GetString("pos-station-linked"), ent, args.User);
     }
 
     private void OnSignal(PoSWiredMessage msg)
@@ -205,6 +267,14 @@ public sealed class ServerBankingSystem : SharedBankingSystem
             return;
 
         AdjustBalanceWithLog(account.Value.Comp.AccountNumber, total, Loc.GetString("nanobank-cash"), Loc.GetString("nanobank-deposit-reason"));
+    }
+
+    private void OnTransferRequested(Entity<ATMComponent> ent, ref RequestTransactionMessage args)
+    {
+        if (!TryGetSlotAccount(ent, out var account) || args.Pin != account.Value.Comp.Pin.Number)
+            return;
+
+        TryMakeTransaction(account.Value.Comp.AccountNumber, args.RecipientAccount, args.Amount, args.Reason);
     }
 
     private bool TryGetSlotAccount(Entity<ATMComponent> ent, [NotNullWhen(true)] out Entity<BankAccountComponent>? account)

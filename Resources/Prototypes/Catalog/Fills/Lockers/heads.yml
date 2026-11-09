@@ -125,6 +125,7 @@
     - id: BoxHoPStamps
     - id: BoxID
     - id: BoxBankCard
+    - id: BoxPaymentSquare # funky
     - id: BoxPDA
     - id: CigarGoldCase
       prob: 0.25
