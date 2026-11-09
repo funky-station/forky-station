@@ -44,6 +44,9 @@ public abstract partial class SharedGunSystem
 
     private void OnBasicEntityAmmoCount(Entity<BasicEntityAmmoProviderComponent> ent, ref GetAmmoCountEvent args)
     {
+        if (!ent.Comp.ShowExamineText)
+            return;
+
         args.Capacity = ent.Comp.Capacity ?? int.MaxValue;
         args.Count = ent.Comp.Count ?? int.MaxValue;
     }

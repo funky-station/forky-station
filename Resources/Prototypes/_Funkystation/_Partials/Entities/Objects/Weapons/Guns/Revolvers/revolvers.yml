@@ -1,9 +1,5 @@
 - type: entity
-  name: BaseWeaponRevolver
-  parent: BaseItem
   id: BaseWeaponRevolver
-  description: A rooty tooty point and shooty.
-  abstract: true
   components:
   - type: Gun
     showExamineText: false

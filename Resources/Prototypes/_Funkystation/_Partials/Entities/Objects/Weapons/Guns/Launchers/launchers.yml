@@ -1,9 +1,5 @@
 - type: entity
-  abstract: true
-  parent: [ BaseItem, BaseGunWieldable ]
   id: BaseWeaponLauncher
-  name: BaseWeaponLauncher
-  description: A rooty tooty point and shooty.
   components:
   - type: Gun
     showExamineText: false
@@ -12,11 +8,7 @@
   - type: !Remove AmmoCounter
 
 - type: entity
-  parent: [ BaseWeaponLauncher, BaseMajorContraband ]
+  parent: [ FunkyBaseWeaponLauncher, BaseMajorContraband ]
   id: WeaponLauncherHydra
-  name: hydra
-  description: PLOOP... FSSSSSS...
   components:
-#  - type: RevolverAmmoProvider
-#    showExamineText: false
   - type: !Remove AmmoCounter

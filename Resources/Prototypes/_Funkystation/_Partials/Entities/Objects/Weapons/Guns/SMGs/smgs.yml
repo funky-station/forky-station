@@ -1,9 +1,5 @@
 - type: entity
-  name: BaseSMG
-  parent: BaseItem
   id: BaseWeaponSubMachineGun
-  description: A rooty tooty point and shooty.
-  abstract: true
   components:
   - type: ChamberMagazineAmmoProvider
     showExamineText: false

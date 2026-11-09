@@ -1,9 +1,5 @@
 - type: entity
-  name: BaseWeaponSniper
-  parent: BaseItem
   id: BaseWeaponSniper
-  description: A rooty tooty point and shooty.
-  abstract: true
   components:
   - type: Gun
     showExamineText: false
