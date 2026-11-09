@@ -162,14 +162,16 @@ public sealed partial class SharedSupermatterComponent : Component
     public int CountVacuumTiles;
 
     // --- Lightning ---
+    [DataField]
+    public List<LightningTier> LightningTiers = new();
     [DataField("lightningTimer")]
-    public float LightningTimer;
+    public float LightningTimer = 0.5f;
     [DataField("lightningRange")]
-    public float LightningRange;
+    public float LightningRange = 10;
     [DataField("powerPerBolt")]
     public float PowerPerBolt;
     [DataField("maxBolts")]
-    public float MaxBolts;
+    public float MaxBolts = 1;
 
 
     // --- Cached Values for Visuals ---

@@ -43,11 +43,38 @@
     vacuumDamagePerTile: 1.1
     vacuumThreshold: 10
     ratioPerTile: 0.05
+    lightningTiers:
+      - minPower: 0
+        boltCount: 1
+        boltEnergyMJ: 2
+        extraBounces: 0
+        proto: BaseLightning
+      - minPower: 3000
+        boltCount: 2
+        boltEnergyMJ: 4
+        extraBounces: 1
+        proto: ChargedLightning
+      - minPower: 6000
+        boltCount: 3
+        boltEnergyMJ: 6
+        extraBounces: 2
+        proto: SuperchargedLightning
+      - minPower: 9000
+        boltCount: 4
+        boltEnergyMJ: 8
+        extraBounces: 3
+        proto: HyperchargedLightning
     RadiationDamageTypes:
     - Radiation
     AbsorbedGas: {}
     anomalyMinPower: 5000
     anomalyMinConductivity: 0
+
+  - type: InteractionPopup # for the brave
+    successChance: 0.2
+    interactSuccessString: petting-success-supermatter
+    interactFailureString: petting-failure-supermatter
+    interactSuccessSpawn: EffectHearts
 
   - type: AtmosDevice
     requireAnchored: false

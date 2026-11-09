@@ -43,34 +43,45 @@ public sealed partial class SupermatterLightningSystem : SharedSupermatterLightn
         return Math.Clamp(interval, 0.5f, 10f);
     }
 
+    private LightningTier GetLightningTier(SharedSupermatterComponent sm)
+    {
+        LightningTier? result = null;
+
+        foreach (var tier in sm.LightningTiers)
+        {
+            if (sm.Power < tier.MinPower)
+                continue;
+
+            result = tier;
+        }
+
+        return result ?? sm.LightningTiers[0];
+    }
+
     private void FireLightning(EntityUid uid, SharedSupermatterComponent sm)
     {
 
+        var tier = GetLightningTier(sm);
+
+
 
         // Bolt count scales with power
-        var bolts = (int)Math.Clamp((int)(sm.Power / sm.PowerPerBolt), 1, sm.MaxBolts);
+        var bolts = tier.BoltCount;
 
         // Bolt energy
-        var energy = ComputeBoltEnergy(sm);
+        var energy = tier.BoltEnergyMJ;
 
         // Lightning prototype (normal or black)
-        var proto = sm.Conductivity >= 0 ? "Lightning" : "BlackLightning";
+        var proto = sm.Conductivity >= 0 ? tier.Proto : "BlackLightning";
 
-        // Arc depth scales with conductivity
-        var arcDepth = (int)MathF.Max(1, MathF.Abs(sm.Conductivity));
+        // Arc depth scales with power
+        var arcDepth = tier.ExtraBounces;
 
         if (sm.Conductivity > 0f)
             FirePositiveBolt(uid, sm.LightningRange, proto, energy, arcDepth, bolts);
         else
             FireNegativeBolt(uid, sm.LightningRange, proto, energy, bolts);
 
-    }
-
-
-    private float ComputeBoltEnergy(SharedSupermatterComponent sm)
-    {
-        // Simple example: sqrt scaling feels good
-        return MathF.Sqrt(sm.Power) * MathF.Abs(sm.Conductivity);
     }
 
     private void FirePositiveBolt(EntityUid sm, float range, string proto, float boltEnergy, int arcDepth, int boltCount)

@@ -3,6 +3,7 @@ using Content.Shared._Funkystation.Mobs;
 using Content.Shared._Funkystation.SM.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chat.Prototypes;
+using Content.Shared.Clothing.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
@@ -66,6 +67,26 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
         SubscribeLocalEvent<SharedSupermatterComponent, InteractUsingEvent>(OnInteractUsing);
 
     }
+    private bool IsWearingSupermatterProtection(EntityUid user)
+    {
+        if (!_inventory.TryGetSlotEntity(user, "outerClothing", out var suit))
+            return false;
+
+        if (!TryComp<ToggleableClothingComponent>(suit, out var toggle))
+            return false;
+
+        if (toggle.ClothingUid is not { } helmetUid)
+            return false;
+
+        if (!_inventory.TryGetSlotEntity(user, "head", out var helmet))
+            return false;
+
+        if (helmet != helmetUid)
+            return false;
+
+        return TryComp<SupermatterImmuneComponent>(suit, out _) &&
+               TryComp<SupermatterImmuneComponent>(helmet, out _);
+    }
 
     private void OnInteractHand(EntityUid uid, SharedSupermatterComponent sm, InteractHandEvent args)
     {
@@ -75,17 +96,9 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
         if (HasComp<SupermatterImmuneComponent>(args.User))
             return;
 
-        if (_inventory.TryGetSlotEntity(args.User, "outerClothing", out var suitUid))
-        {
-            if (HasComp<SupermatterImmuneComponent>(suitUid))
-                return;
-        }
-
-        if (_inventory.TryGetSlotEntity(args.User, "head", out var helmetUid))
-        {
-            if (HasComp<SupermatterImmuneComponent>(helmetUid))
-                return;
-        }
+        // Check if entity is wearing something with immunity in outerclothing slot
+        if (IsWearingSupermatterProtection(args.User))
+            return;
 
         if (!AttemptAshEntity(uid, args.User, sm))
             return;
@@ -96,6 +109,13 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
     private void OnInteractUsing(EntityUid uid, SharedSupermatterComponent sm, InteractUsingEvent args)
     {
         if (args.Handled)
+            return;
+
+        if (HasComp<SupermatterImmuneComponent>(args.User))
+            return;
+
+        // Check if entity is wearing something with immunity in outerclothing slot
+        if (IsWearingSupermatterProtection(args.User))
             return;
 
         if (!AttemptAshEntity(uid, args.Used, sm))
@@ -145,17 +165,9 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
                 return false;
         }
 
-        if (_inventory.TryGetSlotEntity(morsel, "outerClothing", out var suitUid))
-        {
-            if (HasComp<SupermatterImmuneComponent>(suitUid))
-                return false;
-        }
-
-        if (_inventory.TryGetSlotEntity(morsel, "head", out var helmetUid))
-        {
-            if (HasComp<SupermatterImmuneComponent>(helmetUid))
-                return false;
-        }
+        // Check if entity is wearing something with immunity in outerclothing slot
+        if (IsWearingSupermatterProtection(morsel))
+            return false;
 
         if (HasComp<AshedBySupermatterComponent>(morsel))
             return false;
@@ -495,6 +507,8 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
 
             foreach (var entity in container.ContainedEntities)
             {
+                if (HasComp<SupermatterImmuneComponent>(entity))
+                    continue;
                 CollectAllContainers(entity, results);
             }
         }
