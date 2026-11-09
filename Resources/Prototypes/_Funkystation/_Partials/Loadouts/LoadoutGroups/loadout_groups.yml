@@ -1,0 +1,178 @@
+- type: loadoutGroup
+  id: Trinkets
+  loadouts:
+  - CigPackMixed
+
+# Command
+# Unused job trinket loadoutGroups go here on the off chance that upstream uncomments and uses them
+# If that happens, partial prototypes will automagically combine them!
+# Otherwise, since they aren't !partialOnly, they will be read as normal prototypes, hence them still having names
+- type: loadoutGroup
+  id: CaptainJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - FunkyCommandWhistle
+
+# Civilian
+- type: loadoutGroup
+  id: BotanistHead
+  loadouts: !Clear
+  - BotanistHead
+  - FunkyBandanaBlack
+  - FunkyBandanaBlue
+  - FunkyBandanaGold
+  - FunkyBandanaGreen
+  - FunkyBandanaRed
+  - SkullBandana
+  - FunkyBandanaBrown
+
+- type: loadoutGroup
+  id: BotanistJumpsuit
+  loadouts: !Clear
+  - FunkyBotanistShirtPants
+  - FunkyBotanistShirtPantsOveralls
+  - FunkyBotanistShirtPantsOverallsTurtle
+  - FunkyBotanistJumpsuit
+  - FunkyBotanistJumpsuitDirty
+  - FunkyBotanistJumperSkirt
+  - FunkyBotanistJumperSkirtTurtle
+
+- type: loadoutGroup
+  id: BotanistBackpack
+  loadouts:
+  - !Remove BotanistDuffel
+
+- type: loadoutGroup
+  id: ClownBackpack
+  loadouts:
+  - !Remove ClownDuffel
+
+# Cargo
+- type: loadoutGroup
+  id: QuartermasterOuterClothing
+  minLimit: 0
+  loadouts: !Clear
+  - FunkyQMWindbreaker
+
+- type: loadoutGroup
+  id: QuartermasterJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - FunkyCommandWhistle
+
+- type: loadoutGroup
+  id: CargoTechnicianJumpsuit
+  loadouts: !Clear
+  - FunkyCargoTechnicianJumpsuit
+  - FunkyCargoTechnicianTwoPiecePants
+  - FunkyCargoTechnicianTwoPieceSkirt
+
+- type: loadoutGroup
+  id: CargoTechnicianBackpack
+  loadouts:
+  - !Remove CargoTechnicianBackpack
+
+- type: loadoutGroup
+  id: CargoTechnicianOuterClothing
+  minLimit: 0
+  loadouts: !Clear
+  - FunkyCargoTechnicianWindbreaker
+
+# Engineering
+- type: loadoutGroup
+  id: ChiefEngineerJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - FunkyCommandWhistle
+
+- type: loadoutGroup
+  id: StationEngineerHead
+  name: loadout-group-station-engineer-head
+  minLimit: 0
+  loadouts: !Clear
+  - FunkyBandanaBlack
+  - FunkyBandanaBrown
+  - FunkyBandanaGold
+  - FunkyBandanaGrey
+  - SkullBandana
+  - StationEngineerHardhatOrange
+  - StationEngineerHardhatYellow
+  - FunkyHardhatOffwhite
+  - FunkyHardhatBlack
+
+- type: loadoutGroup
+  id: StationEngineerJumpsuit
+  name: funky-loadout-group-station-engineer-uniform
+  loadouts: !Clear
+  - FunkyStationEngineerCoveralls
+  - FunkyStationEngineerCoverallsRipley
+  - FunkyStationEngineerOveralls
+  - FunkyStationEngineerOverallsGrease
+  - FunkyStationEngineerShirtPants
+  - FunkyStationEngineerShirtPantsGrease
+
+- type: loadoutGroup
+  id: StationEngineerBackpack
+  loadouts:
+  - !Remove StationEngineerBackpack
+
+- type: loadoutGroup
+  id: TechnicalAssistantJumpsuit
+  name: funky-loadout-group-technical-assistant-uniform
+  loadouts: !Clear
+  - FunkyTechnicalAssistantCoveralls
+
+# Science
+- type: loadoutGroup
+  id: ResearchDirectorJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - FunkyCommandWhistle
+
+- type: loadoutGroup
+  id: ScientistHead
+  loadouts: !Clear
+  - FunkyHardhatWhite
+
+# Security
+- type: loadoutGroup
+  id: WardenJumpsuit
+  loadouts: !Clear
+  - FunkySecurityService
+  - FunkySecurityDressPants
+  - FunkySecurityDressSkirt
+  - FunkySecurityDressSkirtStockings
+  - FunkySecurityMessPants
+  - FunkySecurityMessSkirt
+  - FunkySecurityMessSkirtStockings
+
+- type: loadoutGroup
+  id: SecurityJumpsuit
+  loadouts: !Clear
+  - FunkySecurityService
+  - FunkySecurityDressPants
+  - FunkySecurityDressSkirt
+  - FunkySecurityDressSkirtStockings
+  - FunkySecurityMessPants
+  - FunkySecurityMessSkirt
+  - FunkySecurityMessSkirtStockings
+
+- type: loadoutGroup
+  id: SecurityBackpack
+  loadouts:
+  - !Remove SecurityDuffel
+
+- type: loadoutGroup
+  id: SecurityOuterClothing
+  loadouts:
+  - !Remove ArmorVestSlim
+
+- type: loadoutGroup
+  id: SecurityCadetJumpsuit
+  loadouts: !Clear
+  - FunkySecurityCadetPants
+  - FunkySecurityCadetSkirt

@@ -1,5 +1,5 @@
 - type: loadout
-  id: FuEngiIntern
+  id: FunkyTechnicalAssistantCoveralls
   equipment:
     jumpsuit: FuClothingUniformCoverallsEngineeringIntern
   groupBy: "coveralls"

@@ -1,0 +1,48 @@
+# Neck
+- type: loadout
+  id: FunkyMessTie
+  equipment:
+    neck: ClothingNeckSecurityBowtie
+
+# Uniforms
+- type: loadout
+  id: FunkySecurityService
+  equipment:
+    jumpsuit: FuClothingUniformSecService
+  groupBy: "service"
+
+- type: loadout
+  id: FunkySecurityDressPants
+  equipment:
+    jumpsuit: FuClothingUniformSecDressPants
+  groupBy: "dresspants"
+
+- type: loadout
+  id: FunkySecurityDressSkirt
+  equipment:
+    jumpsuit: FuClothingUniformSecDressSkirt
+  groupBy: "dressskirt"
+
+- type: loadout
+  id: FunkySecurityDressSkirtStockings
+  equipment:
+    jumpsuit: FuClothingUniformSecDressSkirtStockings
+  groupBy: "dressskirt"
+
+- type: loadout
+  id: FunkySecurityMessPants
+  equipment:
+    jumpsuit: FuClothingUniformSecMessPants
+  groupBy: "messpants"
+
+- type: loadout
+  id: FunkySecurityMessSkirt
+  equipment:
+    jumpsuit: FuClothingUniformSecMessSkirt
+  groupBy: "messskirt"
+
+- type: loadout
+  id: FunkySecurityMessSkirtStockings
+  equipment:
+    jumpsuit: FuClothingUniformSecMessSkirtStockings
+  groupBy: "messskirt"

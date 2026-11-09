@@ -2,45 +2,45 @@
 
 ## dresses
 - type: loadout
-  id: FuChemistDress
+  id: FunkyChemistDress
   equipment:
     jumpsuit: FuClothingUniformChemDress
   groupBy: "dress"
 
 - type: loadout
-  id: FuChemistStockings
+  id: FunkyChemistStockings
   equipment:
     jumpsuit: FuClothingUniformChemDressStockings
   groupBy: "dress"
 
 ## jumpsuits
 - type: loadout
-  id: FuChemistJumpsuit
+  id: FunkyChemistJumpsuit
   equipment:
     jumpsuit: FuClothingUniformChemJumpsuit
   groupBy: "jumpsuit"
 
 # outer clothing
 - type: loadout
-  id: FuChemistLabcoat
+  id: FunkyChemistLabcoat
   equipment:
     outerClothing: FuClothingOuterCoatLabChem
 
 - type: loadout
-  id: FuChemistWinterLabcoat
+  id: FunkyChemistWinterLabcoat
   equipment:
     outerClothing: FuClothingOuterWinterChem
 
 # gloves
 
 - type: loadout
-  id: FuChemrubberGloves
+  id: FunkyChemistRubberGloves
   equipment:
     gloves: FuClothingHandsGlovesChemist
 
 # shoes
 
 - type: loadout
-  id: FuChemistRubberBoots
+  id: FunkyChemistRubberBoots
   equipment:
     shoes: FuClothingShoesChemistryBoots

@@ -2,26 +2,26 @@
 
 ## scrub caps
 - type: loadout
-  id: FuMedScrubcapBlack
+  id: FunkyMedicalScrubcapBlack
   equipment:
     head: FuClothingHeadHatScrubcapBlack
   groupBy: "scrubcap"
 
 - type: loadout
-  id: FuMedScrubcapBlue
+  id: FunkyMedicalScrubcapBlue
   equipment:
     head: FuClothingHeadHatScrubcapBlue
   groupBy: "scrubcap"
 
 - type: loadout
-  id: FuMedScrubcapTeal
+  id: FunkyMedicalScrubcapTeal
   equipment:
     head: FuClothingHeadHatScrubcapTeal
   groupBy: "scrubcap"
 
 ## faceshield
 - type: loadout
-  id: FuMedFaceshield
+  id: FunkyMedicalFaceshield
   equipment:
     head: FuClothingHeadFaceshield
   groupBy: "misc"
@@ -30,37 +30,37 @@
 
 ## scrubs
 - type: loadout
-  id: FuMedScrubsBlack
+  id: FunkyMedicalScrubsBlack
   equipment:
     jumpsuit: FuClothingUniformScrubsBlack
   groupBy: "scrubs"
 
 - type: loadout
-  id: FuMedScrubsBlackSleeveless
+  id: FunkyMedicalScrubsBlackSleeveless
   equipment:
     jumpsuit: FuClothingUniformScrubsBlackSleeveless
   groupBy: "scrubs"
 
 - type: loadout
-  id: FuMedScrubsBlue
+  id: FunkyMedicalScrubsBlue
   equipment:
     jumpsuit: FuClothingUniformScrubsBlue
   groupBy: "scrubs"
 
 - type: loadout
-  id: FuMedScrubsBlueSleeveless
+  id: FunkyMedicalScrubsBlueSleeveless
   equipment:
     jumpsuit: FuClothingUniformScrubsBlueSleeveless
   groupBy: "scrubs"
 
 - type: loadout
-  id: FuMedScrubsTeal
+  id: FunkyMedicalScrubsTeal
   equipment:
     jumpsuit: FuClothingUniformScrubsTeal
   groupBy: "scrubs"
 
 - type: loadout
-  id: FuMedScrubsTealSleeveless
+  id: FunkyMedicalScrubsTealSleeveless
   equipment:
     jumpsuit: FuClothingUniformScrubsTealSleeveless
   groupBy: "scrubs"

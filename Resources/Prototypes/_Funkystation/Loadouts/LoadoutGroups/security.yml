@@ -1,0 +1,71 @@
+# Still currently called "head of security" whatever to avoid player facing changes
+# Will be updated later
+- type: loadoutGroup
+  id: FunkyCommandantHead
+  name: loadout-group-head-of-security-head
+  minLimit: 0
+  loadouts:
+  - FunkyCommandantHat
+  - FunkyCommandantBeret
+
+- type: loadoutGroup
+  id: FunkyCommandantUniform
+  name: loadout-group-head-of-security-jumpsuit
+  loadouts:
+  - FunkyCommandantService
+  - FunkyCommandantDressPants
+  - FunkyCommandantDressSkirt
+  - FunkyCommandantDressSkirtStockings
+  - FunkyCommandantMessSkirt
+  - FunkyCommandantMessSkirtStockings
+
+- type: loadoutGroup
+  id: FunkyCommandantNeck
+  name: loadout-group-head-of-security-neck
+  minLimit: 0
+  loadouts:
+  - FunkyCommandantCloak
+  - FunkyCommandantMantle
+
+- type: loadoutGroup
+  id: FunkyCommandantOuterClothing
+  name: loadout-group-head-of-security-outerclothing
+  loadouts:
+  - FunkyCommandantCoat
+  - FunkyCommandantWinterCoat
+  - ArmorVest
+
+- type: loadoutGroup
+  id: FunkyCommandantJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - SecStar
+  - FunkySecurityWhistle
+
+- type: loadoutGroup
+  id: FunkyWardenNeck
+  name: funky-loadout-group-warden-neck
+  minLimit: 0
+  loadouts:
+  - FunkyMessTie
+
+- type: loadoutGroup
+  id: FunkySecurityGloves
+  name: funky-loadout-group-security-gloves
+  loadouts:
+  - BlackGloves
+  - WhiteGloves
+
+- type: loadoutGroup
+  id: FunkySecurityNeck
+  name: funky-loadout-group-security-neck
+  minLimit: 0
+  loadouts:
+  - FunkyMessTie
+
+- type: loadoutGroup
+  id: FunkySecurityCadetHat
+  name: funky-loadout-group-security-cadet-hat
+  loadouts:
+  - FunkySecurityCadetHat

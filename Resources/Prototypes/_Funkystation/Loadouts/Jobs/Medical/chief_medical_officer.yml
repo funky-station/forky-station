@@ -1,12 +1,12 @@
 # outer clothing
 
 - type: loadout
-  id: FuCmoLabcoat
+  id: FunkyCMOLabcoat
   equipment:
     outerClothing: FuClothingOuterCoatLabCmo
 
 - type: loadout
-  id: FuCmoWinterLabcoat
+  id: FunkyCMOWinterLabcoat
   equipment:
     outerClothing: FuClothingOuterWinterCmo
 
@@ -14,13 +14,13 @@
 
 ## dresses
 - type: loadout
-  id: FuCmoDress
+  id: FunkyCMODress
   equipment:
     jumpsuit: FuClothingUniformCmoDress
   groupBy: "dress"
 
 - type: loadout
-  id: FuCmoDressStockings
+  id: FunkyCMODressStockings
   equipment:
     jumpsuit: FuClothingUniformCmoDressStockings
   groupBy: "dress"
@@ -28,7 +28,7 @@
 ## jumpsuits
 
 - type: loadout
-  id: FuCmoJumpsuit
+  id: FunkyCMOJumpsuit
   equipment:
     jumpsuit: FuClothingUniformCmoJumpsuit
   groupBy: "jumpsuit"

@@ -1,0 +1,52 @@
+- type: roleLoadout
+  id: JobCommandant
+  groups:
+  - FunkyCommandantHead
+  - FunkyCommandantNeck
+  - FunkyCommandantUniform
+  - SecurityBackpack
+  - SecurityBelt
+  - FunkyCommandantOuterClothing
+  - SecurityShoes
+  - FunkyPager
+  - SurvivalSecurity
+  - Trinkets
+  - FunkyCommandantJobTrinkets
+  - GroupSpeciesBreathToolSecurity
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobDispatcher
+  groups:
+  - SecurityHead
+  - FunkySecurityNeck
+  - SecurityJumpsuit
+  - FunkySecurityGloves
+  - SecurityBackpack
+  - SecurityOuterClothing
+  - SecurityShoes
+  - SecurityBelt
+  - FunkyPager
+  - SurvivalSecurity
+  - Trinkets
+  - SecurityJobTrinkets
+  - GroupSpeciesBreathToolSecurity
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobLieutenant
+  groups:
+  - SecurityHead
+  - FunkySecurityNeck
+  - SecurityJumpsuit
+  - FunkySecurityGloves
+  - SecurityBackpack
+  - SecurityOuterClothing
+  - SecurityShoes
+  - SecurityBelt
+  - FunkyPager
+  - SurvivalSecurity
+  - Trinkets
+  - SecurityJobTrinkets
+  - GroupSpeciesBreathToolSecurity
+  - GroupBreathToolDecapoid # MACRO: Decapoid

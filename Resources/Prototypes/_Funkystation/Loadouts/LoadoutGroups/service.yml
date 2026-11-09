@@ -1,37 +1,37 @@
 - type: loadoutGroup
-  id: FuHdHead
-  name: fu-loadout-group-hd-head
+  id: FunkyHDHead
+  name: funky-loadout-group-hd-head
   minLimit: 0
   loadouts:
-  - FuHdPillboxHat
-  - FuHdTopHat
+  - FunkyHDPillboxHat
+  - FunkyHDTopHat
 
 - type: loadoutGroup
-  id: FuHdOuterclothing
-  name: fu-loadout-group-hd-outerclothing
+  id: FunkyHDOuterClothing
+  name: funky-loadout-group-hd-outerclothing
   minLimit: 0
   loadouts:
-  - FuHdCoat
-  - FuHdVest
-  - FuHdWinterCoat
+  - FunkyHDCoat
+  - FunkyHDVest
+  - FunkyHDWinterCoat
 
 - type: loadoutGroup
-  id: FuHdUniform
-  name: fu-loadout-group-hd-uniform
+  id: FunkyHDUniform
+  name: funky-loadout-group-hd-uniform
   loadouts:
-  - FuHdShirtPants
-  - FuHdShirtSkirt
+  - FunkyHDShirtPants
+  - FunkyHDShirtSkirt
 
 - type: loadoutGroup
-  id: FuHdGloves
-  name: fu-loadout-group-hd-gloves
+  id: FunkyHDGloves
+  name: funky-loadout-group-hd-gloves
   minLimit: 0
   loadouts:
   - WhiteGloves # They don't get any other color options because that would be a COMPLETE stylistic faux pas. Gotta Mickey Mousemaxx.
 
 - type: loadoutGroup
-  id: FuHdShoes
-  name: fu-loadout-group-hd-shoes
+  id: FunkyHDShoes
+  name: funky-loadout-group-hd-shoes
   loadouts:
-  - FuHdLaceupBoots # putting this first so it's the default
-  - FuHdHighHeelBoots
+  - FunkyHDLaceupBoots # putting this first so it's the default
+  - FunkyHDHighHeelBoots

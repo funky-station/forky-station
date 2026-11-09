@@ -1,0 +1,12 @@
+- type: roleLoadout
+  id: JobCorporateLiaison
+  groups:
+  - GroupTankHarness
+  - LawyerJumpsuit
+  - Glasses
+  - FunkyPager
+  - Survival
+  - Trinkets
+  #- LawyerJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid

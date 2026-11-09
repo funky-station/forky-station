@@ -1,0 +1,14 @@
+- type: loadout
+  id: FunkySecurityCadetHat
+  equipment:
+    head: ClothingHeadHatCadetSecurity
+
+- type: loadout
+  id: FunkySecurityCadetPants
+  equipment:
+    jumpsuit: FuClothingUniformCadetPants
+
+- type: loadout
+  id: FunkySecurityCadetSkirt
+  equipment:
+    jumpsuit: FuClothingUniformCadetSkirt

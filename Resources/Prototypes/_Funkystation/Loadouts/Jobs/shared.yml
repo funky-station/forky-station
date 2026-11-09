@@ -1,4 +1,71 @@
-﻿- type: loadout
-  id: LeatherSatchel
+﻿# Hats
+## Bandanas
+
+- type: loadout
+  id: FunkyBandanaBlack
+  equipment:
+    head: ClothingHeadBandBlack
+  groupBy: "bandanas"
+
+- type: loadout
+  id: FunkyBandanaBlue
+  equipment:
+    head: ClothingHeadBandBlue
+  groupBy: "bandanas"
+
+- type: loadout
+  id: FunkyBandanaBrown
+  equipment:
+    head: ClothingHeadBandBrown
+  groupBy: "bandanas"
+
+- type: loadout
+  id: FunkyBandanaGold
+  equipment:
+    head: ClothingHeadBandGold
+  groupBy: "bandanas"
+
+- type: loadout
+  id: FunkyBandanaGreen
+  equipment:
+    head: ClothingHeadBandGreen
+  groupBy: "bandanas"
+
+- type: loadout
+  id: FunkyBandanaGrey
+  equipment:
+    head: ClothingHeadBandGrey
+  groupBy: "bandanas"
+
+- type: loadout
+  id: FunkyBandanaRed
+  equipment:
+    head: ClothingHeadBandRed
+  groupBy: "bandanas"
+
+## Hardhats
+- type: loadout
+  id: FunkyHardhatBlack
+  equipment:
+    head: FuClothingHeadHatHardhatBlack
+  groupBy: "hardhats"
+
+- type: loadout
+  id: FunkyHardhatOffwhite
+  equipment:
+    head: FuClothingHeadHatHardhatOffwhite
+  groupBy: "hardhats"
+
+# Technically identical to ChiefEngineerHead but that's a godawful name for a loadout so we're making our own version
+- type: loadout
+  id: FunkyHardhatWhite
+  equipment:
+    head: ClothingHeadHatHardhatWhite
+  groupBy: "hardhats"
+
+# Backpacks
+## Satchels
+- type: loadout
+  id: FunkyLeatherSatchel
   equipment:
     back: ClothingBackpackSatchelLeather

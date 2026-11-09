@@ -1,0 +1,3 @@
+- type: loadout
+  id: SkullBandana
+  groupBy: "bandanas" # We can reuse this prototype but it has to play nicely with other bandanas

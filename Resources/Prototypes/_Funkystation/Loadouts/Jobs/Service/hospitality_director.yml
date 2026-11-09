@@ -1,41 +1,41 @@
 # hats
 
 - type: loadout
-  id: FuHdPillboxHat
+  id: FunkyHDPillboxHat
   equipment:
     head: FuClothingHeadHatHd
 
 - type: loadout
-  id: FuHdTopHat
+  id: FunkyHDTopHat
   equipment:
     head: ClothingHeadHatTophat
 
 # uniforms
 
 - type: loadout
-  id: FuHdShirtPants
+  id: FunkyHDShirtPants
   equipment:
     jumpsuit: FuClothingUniformShirtPantsHd
 
 - type: loadout
-  id: FuHdShirtSkirt
+  id: FunkyHDShirtSkirt
   equipment:
     jumpsuit: FuClothingUniformShirtSkirtHd
 
 # outer clothing
 
 - type: loadout
-  id: FuHdCoat
+  id: FunkyHDCoat
   equipment:
     outerClothing: FuClothingOuterCoatHd
 
 - type: loadout
-  id: FuHdVest
+  id: FunkyHDVest
   equipment:
     outerClothing: FuClothingOuterVestHd
 
 - type: loadout
-  id: FuHdWinterCoat
+  id: FunkyHDWinterCoat
   equipment:
     outerClothing: FuClothingOuterWinterHd
 
@@ -44,11 +44,11 @@
 # These can fit a knife/sidearm in them but this doesn't have the knife in it plus it's on a command role
 # So it's probably okay
 - type: loadout
-  id: FuHdHighHeelBoots
+  id: FunkyHDHighHeelBoots
   equipment:
     shoes: ClothingShoesHighheelBoots
 
 - type: loadout
-  id: FuHdLaceupBoots
+  id: FunkyHDLaceupBoots
   equipment:
     shoes: ClothingShoesBootsLaceup

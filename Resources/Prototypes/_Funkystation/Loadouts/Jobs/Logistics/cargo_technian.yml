@@ -1,7 +1,7 @@
 # outer clothing
 
 - type: loadout
-  id: FuCtWindbreaker
+  id: FunkyCargoTechnicianWindbreaker
   equipment:
     outerClothing: FuClothingOuterCoatWindbreakerCt
 
@@ -9,21 +9,21 @@
 
 ## jumpsuits
 - type: loadout
-  id: FuCtJumpsuit
+  id: FunkyCargoTechnicianJumpsuit
   equipment:
     jumpsuit: FuClothingUniformJumpsuitLogiCt
   groupBy: "jumpsuit"
 
 ## two piece pants
 - type: loadout
-  id: FuCtTwoPiecePants
+  id: FunkyCargoTechnicianTwoPiecePants
   equipment:
     jumpsuit: FuClothingUniformTwopiecePantsLogiCt
   groupBy: "twopiecepants"
 
 ## two piece skirts
 - type: loadout
-  id: FuCtTwoPieceSkirt
+  id: FunkyCargoTechnicianTwoPieceSkirt
   equipment:
     jumpsuit: FuClothingUniformTwopieceSkirtLogiCt
   groupBy: "twopieceskirt"

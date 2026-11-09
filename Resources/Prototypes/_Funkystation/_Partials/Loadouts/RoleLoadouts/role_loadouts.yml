@@ -1,0 +1,446 @@
+# Clearing and rewriting every single one of these for two reasons
+# 1. Doing it the other way is horrible and tedious
+# 2. These should be reorganized later down the line anyway, which would necessitate redoing them all anyway
+# The only downside is that changes upstream will not be reflected and will have to be added manually here
+# Make sure to comment those changes if they come from Macrocosm, with "# MACRO"
+
+- type: roleLoadout
+  id: JobCaptain
+  groups: !Clear
+  - CaptainHead
+  - CaptainNeck
+  - CaptainJumpsuit
+  - CaptainOuterClothing
+  - FunkyPager
+  - AssistiveItems
+  - Survival
+  - Trinkets
+  - CaptainJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+# Civilian
+- type: roleLoadout
+  id: JobPassenger
+  groups: !Clear
+  - GroupTankHarness
+  - PassengerJumpsuit
+  - PassengerNeck
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - PassengerShoes
+  - FunkyPager
+  - Glasses
+  - AssistiveItems
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobBartender
+  groups: !Clear
+  - GroupTankHarness
+  - BartenderHead
+  - BartenderJumpsuit
+  - BartenderOuterClothing
+  - FunkyPager
+  - Glasses
+  - AssistiveItems
+  - Survival
+  - Trinkets
+  - BartenderJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobServiceWorker
+  groups: !Clear
+  - GroupTankHarness
+  - BartenderJumpsuit
+  - FunkyPager
+  - Glasses
+  - AssistiveItems
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobChef
+  groups: !Clear
+  - GroupTankHarness
+  - ChefHead
+  - ChefMask
+  - ChefJumpsuit
+  - ChefOuterClothing
+  - FunkyPager
+  - Glasses
+  - AssistiveItems
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobLibrarian
+  groups: !Clear
+  - GroupTankHarness
+  - LibrarianJumpsuit
+  - FunkyPager
+  - Glasses
+  - AssistiveItems
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobLawyer
+  groups: !Clear
+  - GroupTankHarness
+  - LawyerNeck
+  - LawyerJumpsuit
+  - FunkyPager
+  - Glasses
+  - AssistiveItems
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobChaplain
+  groups: !Clear
+  - GroupTankHarness
+  - ChaplainHead
+  - ChaplainMask
+  - ChaplainNeck
+  - ChaplainJumpsuit
+  - ChaplainOuterClothing
+  - ChaplainBible
+  - FunkyPager
+  - Glasses
+  - AssistiveItems
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobJanitor
+  groups: !Clear
+  - GroupTankHarness
+  - JanitorHead
+  - JanitorJumpsuit
+  - JanitorGloves
+  - JanitorOuterClothing
+  - FunkyPager
+  - Glasses
+  - AssistiveItems
+  - Survival
+  - Trinkets
+  - JanitorJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobBotanist
+  groups: !Clear
+  - GroupTankHarness
+  - BotanistHead
+  - BotanistJumpsuit
+  - BotanistBackpack
+  - BotanistOuterClothing
+  - FunkyPager
+  - Glasses
+  - AssistiveItems
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+
+- type: roleLoadout
+  id: JobClown
+  groups: !Clear
+  - GroupTankHarness
+  - ClownHead
+  - ClownJumpsuit
+  - ClownBackpack
+  - ClownOuterClothing
+  - ClownShoes
+  - FunkyPager
+  - Glasses
+  - AssistiveItems
+  - SurvivalClown
+  - Trinkets
+  - ClownJobTrinkets
+  - GroupBreathToolDecapoidInventoryClown # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobMime
+  groups: !Clear
+  - GroupTankHarness
+  - MimeHead
+  - MimeMask
+  - MimeJumpsuit
+  - MimeOuterClothing
+  - MimeBelt
+  - FunkyPager
+  - Glasses
+  - AssistiveItems
+  - Survival
+  - Trinkets
+  - GroupBreathToolDecapoidInventoryMime # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobMusician
+  canCustomizeName: true
+  groups: !Clear
+  - GroupTankHarness
+  - MusicianJumpsuit
+  - MusicianOuterClothing
+  - Instruments
+  - FunkyPager
+  - Glasses
+  - AssistiveItems
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+# Cargo
+- type: roleLoadout
+  id: JobQuartermaster
+  groups: !Clear
+  - GroupTankHarness
+  - QuartermasterHead
+  - QuartermasterNeck
+  - QuartermasterOuterClothing
+  - QuartermasterJumpsuit
+  - QuartermasterShoes
+  - FunkyPager
+  - Glasses
+  - AssistiveItems
+  - Survival
+  - Trinkets
+  - QuartermasterJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobCargoTechnician
+  groups: !Clear
+  - GroupTankHarness
+  - CargoTechnicianHead
+  - FunkyLogisticsNeck
+  - CargoTechnicianOuterClothing
+  - CargoTechnicianJumpsuit
+  - CargoTechnicianBackpack
+  - CargoTechnicianShoes
+  - FunkyPager
+  - Glasses
+  - AssistiveItems
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+# Engineering
+- type: roleLoadout
+  id: JobChiefEngineer
+  groups: !Clear
+  - GroupTankHarness
+  - ChiefEngineerHead
+  - ChiefEngineerJumpsuit
+  - ChiefEngineerNeck
+  - ChiefEngineerOuterClothing
+  - ChiefEngineerShoes
+  - FunkyPager
+  - AssistiveItems
+  - SurvivalExtended
+  - Trinkets
+  - ChiefEngineerJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobTechnicalAssistant
+  groups: !Clear
+  - GroupTankHarness
+  - FunkyTechnicalAssistantHead # TODO: Make this a part of the base job YAML
+  - TechnicalAssistantJumpsuit # TODO: Make this a part of the base job YAML
+  - StationEngineerBackpack
+  - FunkyPager
+  - AssistiveItems
+  - SurvivalExtended
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobStationEngineer
+  groups: !Clear
+  - GroupTankHarness
+  - StationEngineerHead
+  - StationEngineerJumpsuit
+  - StationEngineerBackpack
+  - StationEngineerOuterClothing
+  - StationEngineerShoes
+  - FunkyPager
+  - AssistiveItems
+  - SurvivalExtended
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+# Science
+- type: roleLoadout
+  id: JobResearchDirector
+  groups: !Clear
+  - GroupTankHarness
+  - ResearchDirectorHead
+  - ResearchDirectorNeck
+  - ResearchDirectorJumpsuit
+  - ResearchDirectorOuterClothing
+  - ScientistGloves
+  - ResearchDirectorShoes
+  - FunkyPager
+  - Glasses
+  - AssistiveItems
+  - Survival
+  - Trinkets
+  - ResearchDirectorJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobScientist
+  groups: !Clear
+  - GroupTankHarness
+  - ScientistHead
+  - ScientistNeck
+  - ScientistJumpsuit
+  - ScientistOuterClothing
+  - ScientistGloves
+  - ScientistShoes
+  - FunkyPager
+  - Glasses
+  - AssistiveItems
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobResearchAssistant
+  groups: !Clear
+  - GroupTankHarness
+  - ResearchAssistantJumpsuit
+  - FunkyPager
+  - Glasses
+  - AssistiveItems
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+# Security
+- type: roleLoadout
+  id: JobWarden
+  groups: !Clear
+  - WardenHead
+  - FunkyWardenNeck
+  - WardenJumpsuit
+  - SecurityBackpack
+  - SecurityBelt
+  - WardenOuterClothing
+  - SecurityShoes
+  - FunkyPager
+  - AssistiveItems
+  - SurvivalSecurity
+  - Trinkets
+  - WardenJobTrinkets
+  - GroupSpeciesBreathToolSecurity
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobSecurityOfficer
+  groups: !Clear
+  - SecurityHead
+  - FunkySecurityNeck
+  - SecurityJumpsuit
+  - FunkySecurityGloves
+  - SecurityBackpack
+  - SecurityOuterClothing
+  - SecurityShoes
+  - SecurityBelt
+  - AssistiveItems
+  - FunkyPager
+  - SurvivalSecurity
+  - Trinkets
+  - SecurityJobTrinkets
+  - GroupSpeciesBreathToolSecurity
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobDetective
+  groups: !Clear
+  - DetectiveHead
+  - DetectiveNeck
+  - DetectiveJumpsuit
+  - DetectiveOuterClothing
+  - SecurityShoes
+  - FunkyPager
+  - AssistiveItems
+  - SurvivalSecurity
+  - Trinkets
+  - DetectiveJobTrinkets
+  - GroupSpeciesBreathToolSecurity
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobSecurityCadet
+  groups: !Clear
+  - FunkySecurityCadetHat
+  - SecurityCadetJumpsuit
+  - SecurityBackpack
+  - AssistiveItems
+  - FunkyPager
+  - SurvivalSecurity
+  - Trinkets
+  - GroupSpeciesBreathToolSecurity
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+# Wildcards
+- type: roleLoadout
+  id: JobReporter
+  groups: !Clear
+  - FunkyPager
+  - GroupTankHarness
+  - ReporterJumpsuit
+  - ReporterHead
+  - ReporterOuterClothing
+  - Glasses
+  - AssistiveItems
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobPsychologist
+  groups: !Clear
+  - GroupTankHarness
+  - PsychologistJumpsuit
+  - FunkyPager
+  - Glasses
+  - AssistiveItems
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+# TODO: Give tram driver a pager

@@ -1,6 +1,6 @@
 # head
 - type: loadout
-  id: FuMedInternHat
+  id: FunkyMedicalInternHat
   equipment:
     head: FuClothingHeadHatInternMedical
 
@@ -9,13 +9,15 @@
 ## dress
 
 - type: loadout
-  id: FuMedInternDress
+  id: FunkyMedicalInternDress
   equipment:
     jumpsuit: FuClothingUniformInternDress
   groupBy: "dress"
 
+## jumpsuit
+
 - type: loadout
-  id: FuMedInternJumpsuit
+  id: FunkyMedicalInternJumpsuit
   equipment:
     jumpsuit: FuClothingUniformInternJumpsuit
   groupBy: "jumpsuit"

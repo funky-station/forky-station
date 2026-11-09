@@ -1,0 +1,17 @@
+- type: roleLoadout
+  id: JobFuCourier
+  groups:
+  - GroupTankHarness
+  - FunkyCourierHead
+  - FunkyLogisticsNeck
+  - FunkyCourierOuterClothing
+  - FunkyCourierUniform
+  - CargoTechnicianBackpack
+  - FunkyCourierShoes
+  - FunkyPager
+  - Glasses
+  - Survival
+  - Trinkets
+  #- FunkyCourierJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid

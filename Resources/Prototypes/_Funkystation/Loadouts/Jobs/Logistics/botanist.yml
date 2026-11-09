@@ -1,0 +1,44 @@
+# Uniforms
+
+- type: loadout
+  id: FunkyBotanistJumpsuit
+  equipment:
+    jumpsuit: FuClothingUniformJumpsuitHydroponics
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: FunkyBotanistJumpsuitDirty
+  equipment:
+    jumpsuit: FuClothingUniformJumpsuitHydroponicsDirty
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: FunkyBotanistShirtPants
+  equipment:
+    jumpsuit: FuClothingUniformShirtPantstHydroponics
+  groupBy: "pants"
+
+- type: loadout
+  id: FunkyBotanistShirtPantsOveralls
+  equipment:
+    jumpsuit: FuClothingUniformShirtPantstHydroponicsOveralls
+  groupBy: "pants"
+
+- type: loadout
+  id: FunkyBotanistShirtPantsOverallsTurtle
+  equipment:
+    jumpsuit: FuClothingUniformShirtPantstHydroponicsOverallsTurtle
+  groupBy: "pants"
+
+- type: loadout
+  id: FunkyBotanistJumperSkirt
+  equipment:
+    jumpsuit: FuClothingUniformJumperskirtHydroponics
+  groupBy: "skirt"
+
+- type: loadout
+  id: FunkyBotanistJumperSkirtTurtle
+  equipment:
+    jumpsuit: FuClothingUniformJumperskirtHydroponicsTurtle
+  groupBy: "skirt"
+

@@ -1,0 +1,9 @@
+- type: roleLoadout
+  id: JobPrisoner
+  groups:
+  - Glasses
+  - Trinkets
+  - Survival
+  - GroupTankHarness
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid

@@ -1,0 +1,6 @@
+﻿- type: loadoutGroup
+  id: FunkyXOBackpack
+  name: funky-loadout-group-xo-backpack
+  loadouts:
+  - FunkyLeatherSatchel
+  - HoPBackpackIan

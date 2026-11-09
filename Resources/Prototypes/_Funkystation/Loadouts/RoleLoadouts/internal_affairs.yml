@@ -1,0 +1,43 @@
+- type: roleLoadout
+  id: JobExecutiveOfficer
+  groups:
+  - GroupTankHarness
+  - HoPHead
+  - HoPNeck
+  - HoPJumpsuit
+  - FunkyXOBackpack
+  - HoPOuterClothing
+  - FunkyPager
+  - Glasses
+  - Survival
+  - Trinkets
+  #- HoPJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobMagistrate
+  groups:
+  - GroupTankHarness
+  - LawyerJumpsuit
+  - Glasses
+  - FunkyPager
+  - Survival
+  - Trinkets
+  #- LawyerJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobInternalAffairsAgent
+  groups:
+  - GroupTankHarness
+  - LawyerNeck
+  - LawyerJumpsuit
+  - FunkyPager
+  - Glasses
+  - Survival
+  - Trinkets
+  #- LawyerJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
