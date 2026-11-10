@@ -4,6 +4,7 @@ using Content.Shared._Funkystation.SM.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Clothing.Components;
+using Content.Shared.Construction.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
@@ -34,7 +35,6 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
 {
 
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
-    //[Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private MetaDataSystem _metaDataSystem = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
@@ -154,14 +154,14 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
     /// <param name="fromTree"></param>
     /// <param name="isMob"></param>
     /// <returns></returns>
-    private bool AttemptAshEntity(EntityUid hungry, EntityUid morsel, SharedSupermatterComponent sm, BaseContainer? outerContainer = null, bool fromTree = false, bool isMob = false)
+    private bool AttemptAshEntity(EntityUid hungry, EntityUid morsel, SharedSupermatterComponent sm, BaseContainer? outerContainer = null, bool fromTree = false, bool isMob = false, bool recurseContainers = true)
     {
         if (!CanAshEntity(hungry, morsel, sm))
             return false;
 
         if (TryComp<PhysicsComponent>(morsel, out var phys))
         {
-            if (phys.Mass == 0)
+            if (phys.FixturesMass == 0)
                 return false;
         }
 
@@ -175,7 +175,29 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
         if (Name(morsel) == "ash")
             return false;
 
-        AshEntity(hungry, morsel, sm, outerContainer, fromTree);
+        AshEntity(hungry, morsel, sm, outerContainer, fromTree, recurseContainers);
+        return true;
+    }
+
+    /// <summary>
+    /// Makes a supermatter attempt to ash a given anchored entity/structure.
+    /// </summary>
+    /// <param name="hungry"></param>
+    /// <param name="morsel"></param>
+    /// <param name="sm"></param>
+    /// <param name="outerContainer"></param>
+    /// <param name="fromTree"></param>
+    /// <param name="isMob"></param>
+    /// <returns></returns>
+    public bool AttemptAshForbiddenStructure(EntityUid hungry, EntityUid morsel, SharedSupermatterComponent sm, BaseContainer? outerContainer = null, bool fromTree = false, bool isMob = false, bool recurseContainers = true)
+    {
+        if (!CanAshEntity(hungry, morsel, sm))
+            return false;
+
+        if (HasComp<AshedBySupermatterComponent>(morsel))
+            return false;
+
+        AshEntity(hungry, morsel, sm, outerContainer, fromTree, recurseContainers);
         return true;
     }
 
@@ -253,10 +275,10 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
             : new SupermatterAshScreamInfo(SupermatterAshScreamKind.NonHumanoid, proto, scream, coords);
     }
 
-    private void DeleteAndRaise(EntityUid hungry, EntityUid morsel, SharedSupermatterComponent sm, BaseContainer? outerContainer, bool fromTree)
+    private void DeleteAndRaise(EntityUid hungry, EntityUid morsel, SharedSupermatterComponent sm, BaseContainer? outerContainer, bool fromTree, bool recurseContainers)
     {
-        var evSelf = new EntityAshedBySupermatterEvent(morsel, hungry, sm, outerContainer, fromTree);
-        var evEaten = new SupermatterAshedEntityEvent(morsel, hungry, sm, outerContainer, fromTree);
+        var evSelf = new EntityAshedBySupermatterEvent(morsel, hungry, sm, outerContainer, fromTree, recurseContainers);
+        var evEaten = new SupermatterAshedEntityEvent(morsel, hungry, sm, outerContainer, fromTree, recurseContainers);
 
         RaiseLocalEvent(hungry, ref evSelf);
         RaiseLocalEvent(morsel, ref evEaten);
@@ -272,7 +294,7 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
     /// <param name="sm"></param>
     /// <param name="outerContainer"></param>
     /// <param name="fromTree"></param>
-    private void AshEntity(EntityUid hungry, EntityUid morsel, SharedSupermatterComponent sm, BaseContainer? outerContainer = null, bool fromTree = false)
+    private void AshEntity(EntityUid hungry, EntityUid morsel, SharedSupermatterComponent sm, BaseContainer? outerContainer = null, bool fromTree = false, bool recurseContainers = true)
     {
         if (EntityManager.IsQueuedForDeletion(morsel)) // already handled, and we're substepping
             return;
@@ -297,12 +319,12 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
             {
                 if (sm.MobAudioProcess != null)
                     _audio.Stop(sm.MobAudioProcess);
-                DeleteAndRaise(hungry, morsel, sm, outerContainer, fromTree);
+                DeleteAndRaise(hungry, morsel, sm, outerContainer, fromTree, recurseContainers);
             });
             return;
         }
 
-        DeleteAndRaise(hungry, morsel, sm, outerContainer, fromTree);
+        DeleteAndRaise(hungry, morsel, sm, outerContainer, fromTree, recurseContainers);
 
     }
 
@@ -388,15 +410,15 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
 
             if (!TryComp<PhysicsComponent>(args.Entity, out var phys))
                 return;
-
-            if (phys.Mass == 0)
+            
+            if (phys.FixturesMass == 0)
                 return;
 
-            sm.PowerPool += phys.Mass * count;
-            sm.AbsorptionHealingPool += phys.Mass * count;
+            sm.PowerPool += phys.FixturesMass * count;
+            sm.AbsorptionHealingPool += phys.FixturesMass * count;
         }
 
-        if (args.FromContainerTree || HasComp<ContainerManagerComponent>(args.Entity) )
+        if (args.FromContainerTree)
             return;
         AshingEffect(uid, args.Entity, sm, count, args.FromContainerTree);
 
@@ -457,6 +479,9 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
     /// <param name="args"></param>
     private void OnContainerAshed(EntityUid uid, ContainerManagerComponent comp, ref SupermatterAshedEntityEvent args)
     {
+        if (!args.RecurseContainers)
+            return;
+
         if (args.Container != null)
             return;
 

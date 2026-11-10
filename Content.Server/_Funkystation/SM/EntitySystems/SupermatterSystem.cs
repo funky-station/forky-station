@@ -1,16 +1,20 @@
 using Content.Shared._Funkystation.SM.Components;
 using Content.Server._Funkystation.SM.Events;
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Construction.Components;
 using Content.Server.Singularity.Components;
 using Content.Shared._Funkystation.SM;
 using Content.Shared._Funkystation.SM.Prototypes;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.CCVar;
+using Content.Shared.Conveyor;
 using Content.Shared.Radiation.Components;
+using Content.Shared.SubFloor;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
+using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 namespace Content.Server._Funkystation.SM.EntitySystems;
 
@@ -32,6 +36,8 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
         SubscribeLocalEvent<SharedSupermatterComponent, AtmosDeviceUpdateEvent>(OnProcessSupermatter);
         SubscribeLocalEvent<SharedSupermatterComponent, MapInitEvent>(OnSupermatterMapInit);
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
+        SubscribeLocalEvent<TransformComponent, AnchorStateChangedEvent>(OnAnchorChanged);
+        SubscribeLocalEvent<FixturesComponent, MapInitEvent>(OnMapInit);
 
         LoadGasCharacteristics();
     }
@@ -62,6 +68,109 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
             TickDelaminationCountdown(uid, sm, frameTime);
         }
     }
+    /// <summary>
+    /// Helper function that is a list of offsets
+    /// </summary>
+    private static readonly Vector2i[] AbsorptionOffsets =
+    [
+        new(-1, -1), new(0, -1), new(1, -1),
+        new(-1,  0), new(0,  0), new(1,  0),
+        new(-1,  1), new(0,  1), new(1,  1),
+    ];
+    /// <summary>
+    /// Helper function to determin what is allowed to be close to the supermatter
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <returns></returns>
+    private bool IsAllowedNearSupermatter(EntityUid uid)
+    {
+        return HasComp<SubFloorHideComponent>(uid) ||
+               HasComp<ConveyorComponent>(uid);
+    }
+    /// <summary>
+    /// Helper function to determin if an entity is close to the supermatter
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="supermatterUid"></param>
+    /// <param name="supermatter"></param>
+    /// <returns></returns>
+    private bool IsAdjacentToSupermatter(EntityUid uid, out EntityUid supermatterUid,
+        out SharedSupermatterComponent supermatter)
+    {
+        supermatterUid = EntityUid.Invalid;
+        supermatter = default!;
+        var xform = Transform(uid);
+
+        if (xform.GridUid is not { } grid)
+            return false;
+
+        var tile = _transformSystem.GetGridOrMapTilePosition(uid);
+
+        var query = EntityQueryEnumerator<SharedSupermatterComponent>();
+        while (query.MoveNext(out var smUid, out var sm))
+        {
+            var smTile = _transformSystem.GetGridOrMapTilePosition(smUid);
+
+            foreach (var offset in AbsorptionOffsets)
+            {
+                if (tile != smTile + offset)
+                    continue;
+                supermatterUid = smUid;
+                supermatter = sm;
+                return true;
+            }
+        }
+
+        return false;
+    }
+    /// <summary>
+    /// Checks if a forbidden structure or anchored entity is near the SM
+    /// </summary>
+    /// <param name="uid"></param>
+    private void CheckForbiddenStructure(EntityUid uid)
+    {
+
+        if (IsAllowedNearSupermatter(uid))
+            return;
+
+        if (!IsAdjacentToSupermatter(uid, out var smUid, out var sm))
+            return;
+        var recurse = !(TryComp<MachineComponent>(uid, out _) || TryComp<ComputerComponent>(uid, out var _) ||
+                        TryComp<MachineFrameComponent>(uid, out var _));
+        AttemptAshForbiddenStructure(smUid, uid, sm,recurseContainers: recurse);
+    }
+
+    /// <summary>
+    /// Event handle for when an entity anchored, used to handle entites anchored near the SM
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="comp"></param>
+    /// <param name="args"></param>
+    private void OnAnchorChanged(EntityUid uid, TransformComponent comp, ref AnchorStateChangedEvent args)
+    {
+        if (!args.Anchored)
+            return;
+
+        if (!HasComp<FixturesComponent>(uid))
+            return;
+
+        CheckForbiddenStructure(uid);
+    }
+
+    /// <summary>
+    /// Event handle for when an entity is spawned, used to handle anchored entities spawned near the SM
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="comp"></param>
+    /// <param name="args"></param>
+    private void OnMapInit(EntityUid uid, FixturesComponent comp, MapInitEvent args)
+    {
+        if (!Transform(uid).Anchored)
+            return;
+
+        CheckForbiddenStructure(uid);
+    }
+
 
     /// <summary>
     /// checks if the GasCharacteristicsPrototype was modified
@@ -171,15 +280,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
         grav.BaseRadialAcceleration = sm.GravAcceleration;
     }
 
-    /// <summary>
-    /// Helper function that is a list of offsets
-    /// </summary>
-    private static readonly Vector2i[] AbsorptionOffsets =
-    {
-        new(-1, -1), new(0, -1), new(1, -1),
-        new(-1,  0), new(0,  0), new(1,  0),
-        new(-1,  1), new(0,  1), new(1,  1)
-    };
+
 
     /// <summary>
     /// Absorbs gas in a 3 x 3 area with the Supermatter at the center
