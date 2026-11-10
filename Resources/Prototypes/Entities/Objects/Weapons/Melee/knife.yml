@@ -492,7 +492,7 @@
         path: /Audio/Items/Culinary/chop.ogg
   - type: Item
     size: Tiny
-    sprite: Objects/Weapons/Melee/switchblade.rsi #TODO: have someone good with sprites redo this because it is ass
+    sprite: Objects/Weapons/Melee/switchblade.rsi  # TODO: Fix the sprite
   - type: ItemToggleSize
     activatedSize: Small
   - type: Sprite
@@ -537,3 +537,31 @@
     - CostumeItem
   - type: UseDelay
     delay: 0.2
+
+- type: entity
+  name: InterDyne switchblade
+  parent: SwitchBlade
+  id: SyndieSwitchblade
+  description: A switchblade made by InterDyne to inject Hemoase on those in cuts, slightly weaker for cutting however.
+  components: #TODO: Add it's own dedicated sprite
+  - type: SolutionManager
+    solutions:
+    - SolutionHemoase #supposed to inject Hemoase, but it doesn't work for some reason
+  - type: MeleeChemicalInjector
+    solution: melee
+    transferAmount: 1
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types: #injected reagent does 2 bloodloss / unit
+        Slash: 5
+
+- type: entity
+  parent: [SolutionWeapon, SolutionTiny]
+  id: SolutionHemoase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+        - ReagentId: Hemoase
+          Quantity: 5

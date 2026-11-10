@@ -325,3 +325,20 @@
     Telecrystal: 75
   categories:
   - UplinkWeaponry
+
+ # intended to be a low-cost variant to the knuckle dusters
+ # focusing on debilitating the target instead of raw damage
+- type: listing
+  id: UplinkSyndicateSwitchblade
+  name: #
+  description: #
+  icon: { sprite: /Textures/Objects/Weapons/Melee/switchblade.rsi, state: icon}
+  #TODO: replace with dedicated syndicate switchblade sprite when it is added
+  productEntity: SyndieSwitchblade
+  discountCategory: RareDiscounts #mass production means easier to get
+  discountDownTo:
+    Telecrystal: 5
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkWeaponry

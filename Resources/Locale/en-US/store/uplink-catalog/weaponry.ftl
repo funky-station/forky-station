@@ -62,3 +62,6 @@ uplink-grenade-launcher-bundle-desc = An old China Lake grenade launcher bundled
 
 uplink-l6-saw-bundle-name = L6 Saw Bundle
 uplink-l6-saw-bundle-desc = More dakka: The iconic L6 light machine gun, bundled with 2 box magazines.
+
+uplink-interdyne-switchblade-name = InterDyne Switchblade
+uplink-interdyne-switchblade-desc = A specially designed switchblade made by InterDyne pharmaceuticals. Made to inject a special poison into whoever it hits, slowing them and causing them to quickly bleed out.
