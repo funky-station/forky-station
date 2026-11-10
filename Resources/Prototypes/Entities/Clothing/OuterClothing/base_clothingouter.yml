@@ -206,11 +206,13 @@
     slots:
     - Tail
     - Tenta # macro: for kodes
-  - type: Clothing #Funky - Doafter for Hard/Softsuits
+    #Funky Start - Doafter for Hard/Softsuits
+  - type: Clothing 
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
     equipDelay: 2
     unequipDelay: 2
+    #Funky End - Doafterfo Hard/Softsuits
   - type: StainBlocker #Funky - Staining
     slots: [INNERCLOTHING, FEET, GLOVES]
 
