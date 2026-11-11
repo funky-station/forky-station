@@ -27,7 +27,7 @@
     id: LieutenantWallet
     eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetSecurity
-    pocket2: WeaponPistolMk58
+    pocket2: WeaponEnergyPistol # WeaponPistolMk58 > WeaponEnergyPistol
   storage:
     back:
     - Flash
