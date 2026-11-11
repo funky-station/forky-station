@@ -8,7 +8,7 @@
     - id: GiftsMedical
     - id: GiftsPizzaPartyLarge
     - id: GiftsPizzaPartySmall
-#    - id: GiftsSecurityGuns # Funky: Commented Giftssecurityguns as cargo can no longer order armory longarms
+    - id: GiftsSecurityArmor # Funky: Turned this into Armor
     - id: GiftsSecurityRiot
     - id: GiftsSpacingSupplies
     - id: GiftsVendingRestock
@@ -173,26 +173,24 @@
       EmergencyBurnKit: 1
       EmergencyBruteKit: 1
 
-# Funky commenting starts here
-#- type: entity
-#  id: GiftsSecurityGuns
-#  parent: CargoGiftsBase
-#  components:
-#  - type: StationEvent
-#    weight: 3
-#    duration: 120
-#    earliestStart: 20
-#    minimumPlayers: 50
-#  - type: CargoGiftsRule
-#    description: cargo-gift-security-guns
-#    dest: cargo-gift-dest-sec
-#    gifts:
-#      SecurityArmor: 3
-#      ArmorySmg: 1
-#      ArmoryShotgun: 1
-#      ArmoryLaser: 1
-#      ArmoryRifle: 1
-# Funky commenting ends here
+- type: entity
+  id: GiftsSecurityArmor # Funky: Turned this from GiftsSecurityGuns > GiftsSecurityArmor
+  parent: CargoGiftsBase
+  components:
+  - type: StationEvent
+    weight: 3
+    duration: 120
+    earliestStart: 20
+    minimumPlayers: 50
+  - type: CargoGiftsRule
+    description: cargo-gift-security-armor # Funky: Turned this from cargo-gift-security-guns > cargo-gift-security-armor
+    dest: cargo-gift-dest-sec
+    gifts:
+      SecurityArmor: 3
+      # ArmorySmg: 1 # Funky: Commented as corrosponding order was also commented out
+      # ArmoryShotgun: 1 # Funky: Commented as corrosponding order was also commented out
+      # ArmoryLaser: 1 # Funky: Commented as corrosponding order was also commented out
+      # ArmoryRifle: 1 # Funky: Commented as corrosponding order was also commented out
 
 - type: entity
   id: GiftsSecurityRiot
