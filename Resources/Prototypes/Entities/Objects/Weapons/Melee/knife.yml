@@ -492,7 +492,7 @@
         path: /Audio/Items/Culinary/chop.ogg
   - type: Item
     size: Tiny
-    sprite: Objects/Weapons/Melee/switchblade.rsi  # TODO: Fix the sprite
+    sprite: Objects/Weapons/Melee/switchblade.rsi
   - type: ItemToggleSize
     activatedSize: Small
   - type: Sprite
@@ -522,10 +522,10 @@
       path: /Audio/Weapons/bladeslice.ogg
     activatedDamage:
       types:
-        Slash: 9
+        Slash: 8
   - type: MeleeWeapon
-    wideAnimationRotation: -135
-    attackRate: 2 # supposed to be faster attacking but lower damage
+    wideAnimationRotation: -90
+    attackRate: 2.5 # supposed to be faster attacking but lower damage
     damage:
       types:
         Blunt: 1.5
@@ -543,17 +543,29 @@
   parent: SwitchBlade
   id: SyndieSwitchblade
   description: A switchblade made by InterDyne to inject Hemoase on those in cuts, slightly weaker for cutting however.
-  components: #TODO: Add it's own dedicated sprite
+  # intended to be a low-cost variant to the knuckle dusters
+  # focusing on debilitating the target instead of raw damage
+  components: #TODO: add it's own in hand sprites
   - type: SolutionManager
     solutions:
-    - SolutionHemoase #supposed to inject Hemoase, but it doesn't work for some reason
+    - SolutionHemoase
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 1
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types: #injected reagent does 2 bloodloss / unit
-        Slash: 5
+        Slash: 7
+  - type: Item
+    sprite: Objects/Weapons/Melee/switchblade_syndicate.rsi
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/switchblade_syndicate.rsi
+    layers:
+    - state: switchblade_handle #handle
+    - state: switchblade_blade #blade
+      visible: false
+      map: [ "blade" ]
+
 
 - type: entity
   parent: [SolutionWeapon, SolutionTiny]
