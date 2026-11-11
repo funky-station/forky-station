@@ -34,7 +34,7 @@
     eyes: ClothingEyesGlassesSecurity
     id: WardenWallet # Funky: the wallet-ening
     ears: ClothingHeadsetWarden # funkystation
-    pocket1: WeaponPistolMk58
+    pocket1: WeaponEnergyPistol # Funky: WeaponPistolMk58 > WeaponEnergyPistol
   storage:
     back:
     - Flash

@@ -28,7 +28,7 @@
     eyes: ClothingEyesGlassesSecurity
     id: SecurityWallet # Funky: the wallet-ening, also removing the loadout choice for senior stuff
     ears: ClothingHeadsetSecurity
-    pocket1: WeaponPistolMk58
+    pocket1: WeaponEnergyPistol # Funky: WeaponPistolMk58 > WeaponEnergyPistol
   storage:
     back:
     - Flash
