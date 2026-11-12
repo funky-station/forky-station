@@ -33,7 +33,7 @@
   id: ClothingOuterArmorBasic
   components:
   - type: SerialNumber #funky start
-    prefix: "Property of NanoTrasen Model Number: 22569"
+    prefix: serial-number-basic-armor
     noNumber: True
   - type: Tag
     tags:
