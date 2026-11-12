@@ -25,5 +25,5 @@ cargo-gift-cleaning = custodial and sanitation equipment
 cargo-gift-medical-supply = emergency medical supplies
 cargo-gift-space-protection = extravehicular hazard protection units
 cargo-gift-fire-protection = high-temperature thermal protection units
-cargo-gift-security-armor = balistic hazard protection units
+cargo-gift-security-armor = ballistic hazard protection units
 cargo-gift-security-riot = riot control equipment
