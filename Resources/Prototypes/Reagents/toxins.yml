@@ -915,7 +915,7 @@
   physicalDesc: reagent-physical-desc-thin
   flavor: sharp
   group: Toxins
-  evaporationSpeed: 100 #might change to clean tile reaction
+  evaporationSpeed: 100
   color: "#000080" #supposed to be opposite of blood-red
   metabolisms:
     Bloodstream:
@@ -936,10 +936,12 @@
       - !type:MovementSpeedModifier
         effectProto: ReagentSpeedStatusEffect
         time: 4
-        delay: 1.5
-        walkSpeedModifier: 0.75
-        sprintSpeedModifier: 0.8
+        delay: 0.5
+        walkSpeedModifier: 0.85
+        sprintSpeedModifier: 0.85
       - !type:HealthChange
         damage:
           types:
             Bloodloss: 2
+      - !type:StaminaDamage
+        damage: 5

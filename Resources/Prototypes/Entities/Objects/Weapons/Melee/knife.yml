@@ -522,10 +522,10 @@
       path: /Audio/Weapons/bladeslice.ogg
     activatedDamage:
       types:
-        Slash: 8
+        Slash: 10
   - type: MeleeWeapon
     wideAnimationRotation: -90
-    attackRate: 2.5 # supposed to be faster attacking but lower damage
+    attackRate: 2 # supposed to be faster attacking but lower damage
     damage:
       types:
         Blunt: 1.5
@@ -539,19 +539,16 @@
     delay: 0.2
 
 - type: entity
-  name: InterDyne switchblade
+  name: Interdyne switchblade
   parent: SwitchBlade
   id: SyndieSwitchblade
   description: A switchblade made by InterDyne to inject Hemoase on those in cuts, slightly weaker for cutting however.
   # intended to be a low-cost variant to the knuckle dusters
   # focusing on debilitating the target instead of raw damage
-  components: #TODO: add it's own in hand sprites
+  components:
   - type: SolutionManager
     solutions:
     - SolutionHemoase
-  - type: MeleeChemicalInjector
-    solution: melee
-    transferAmount: 1
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types: #injected reagent does 2 bloodloss / unit
@@ -565,6 +562,23 @@
     - state: switchblade_blade #blade
       visible: false
       map: [ "blade" ]
+  - type: ComponentToggler # needs to be here to prevent it from injecting while closed
+    components:
+    - type: Execution
+      doAfterDuration: 3.5 # slightly faster than other knives
+    - type: Utensil
+      types:
+      - Knife
+    - type: Tool
+      qualities:
+      - Slicing
+      useSound:
+        path: /Audio/Items/Culinary/chop.ogg
+    - type: MeleeChemicalInjector
+      solution: melee
+      transferAmount: 1
+      PierceArmor: true #hardsuits will not prevent the injection
+
 
 
 - type: entity
