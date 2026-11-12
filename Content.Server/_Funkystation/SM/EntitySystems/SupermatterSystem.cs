@@ -491,7 +491,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
             sm.ReproductionProgress -= sm.ReproductionThreshold;
 
             var coords = Transform(uid).Coordinates;
-            Spawn("SupermatterShard", coords);
+            Spawn("MaterialSupermatterShard1", coords);
         }
     }
 

@@ -255,6 +255,11 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
         SoundSpecifier? ScreamSound,
         EntityCoordinates Coords);
 
+    /// <summary>
+    /// Helper to get the type of entity and if it can scream
+    /// </summary>
+    /// <param name="morsel"></param>
+    /// <returns></returns>
     private SupermatterAshScreamInfo GetAshScreamInfo(EntityUid morsel)
     {
         var coords = Transform(morsel).Coordinates;
@@ -396,6 +401,14 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
             sm.Power += power;
             sm.Integrity -= power / sm.IntegrityDivisor;
         }
+        else if (TryComp<SupermatterShardComponent>(args.Entity, out var shard))
+        {
+            if (TryComp<StackComponent>(args.Entity, out var stack))
+                count = stack.Count;
+
+            sm.Power += shard.ShardPower * count;
+            sm.Integrity -= (shard.ShardPower * count) / sm.IntegrityDivisor;
+        }
         else
         {
 
@@ -410,7 +423,7 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
 
             if (!TryComp<PhysicsComponent>(args.Entity, out var phys))
                 return;
-            
+
             if (phys.FixturesMass == 0)
                 return;
 

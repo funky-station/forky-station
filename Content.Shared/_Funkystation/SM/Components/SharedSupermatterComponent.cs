@@ -162,7 +162,7 @@ public sealed partial class SharedSupermatterComponent : Component
     public int CountVacuumTiles;
 
     // --- Lightning ---
-    [DataField]
+    [DataField("lightningTiers")]
     public List<LightningTier> LightningTiers = new();
     [DataField("lightningTimer")]
     public float LightningTimer = 0.5f;
