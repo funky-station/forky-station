@@ -15,13 +15,13 @@ public sealed partial class SerialNumberComponent : Component
     ///  Prefix before the random serial number
     /// </summary>
     [DataField("prefix")]
-    public LocId Prefix = "serial-number-prefix";
+    public LocId? Prefix = "serial-number-prefix";
 
     /// <summary>
     ///  Suffix after the random serial number, just in case someone needs this in the future
     /// </summary>
     [DataField("suffix")]
-    public LocId Suffix = "";
+    public LocId? Suffix;
 
     /// <summary>
     ///  Skip adding a random number between the prefix and suffix
@@ -69,7 +69,7 @@ public sealed partial class SerialNumberComponent : Component
     ///  Examine text if serial number is removed
     /// </summary>
     [DataField("removedText")]
-    public LocId RemovedText = "serial-number-removed";
+    public LocId? RemovedText = "serial-number-removed";
 
     /// <summary>
     /// The tool quality needed to remove serial number

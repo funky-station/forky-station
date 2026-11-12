@@ -97,18 +97,29 @@ public sealed partial class SerialNumberSystem : EntitySystem
 
         if (comp.Removed)
         {
-            formattedmessage.AddText($"{Loc.GetString(comp.RemovedText)}\n");
-            args.AddMessage(formattedmessage, -1);
+            // check if the string is intentionally blank / null before trying to get it
+            if (!string.IsNullOrWhiteSpace(comp.RemovedText))
+            {
+                formattedmessage.AddText($"{Loc.GetString(comp.RemovedText)}\n");
+                args.AddMessage(formattedmessage, -1);
+            }
             return;
         }
+        // get the prefix and the suffix now, since we'll need it regardless of if there's a serial number
+        // check if the LocId is blank, if it isn't, use Loc.GetString, otherwise make the prefix / suffix blank
+        // ILocalizationManager (the Loc in Loc.GetString) also has a TryGetString method you could use which won't throw an error if the LocId is blank
+        // however, i'm opting to use nullable LocIds instead because you can specify them in the component without the yaml linter throwing a fit about blank LocIds,
+        // and we do still want to throw an error if a LocId is specified but its invalid.
+        var prefix = !string.IsNullOrWhiteSpace(comp.Prefix) ? Loc.GetString(comp.Prefix) : string.Empty;
+        var suffix = !string.IsNullOrWhiteSpace(comp.Suffix) ? Loc.GetString(comp.Suffix) : string.Empty;
         if (comp.NoNumber)
         {
-            var message = Loc.GetString(comp.Prefix) + Loc.GetString(comp.Suffix);
+            var message = prefix + suffix;
             formattedmessage.AddText($"{Loc.GetString(message)}\n");
             args.AddMessage(formattedmessage, -1);
             return;
         }
-        var fullMessage = Loc.GetString(comp.Prefix) + comp.SerialNumber + Loc.GetString(comp.Suffix);
+        var fullMessage = prefix + comp.SerialNumber + suffix;
         formattedmessage.AddText($"{Loc.GetString(fullMessage)}\n");
         args.AddMessage(formattedmessage, -1);
     }
