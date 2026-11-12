@@ -11,65 +11,65 @@ namespace Content.Shared._Funkystation.SerialNumber;
 public sealed partial class SerialNumberComponent : Component
 {
 
-    // <summary>
-    //  Prefix before the random serial number
-    // </summary>
+    /// <summary>
+    ///  Prefix before the random serial number
+    /// </summary>
     [DataField("prefix")]
     public string Prefix = "Property of NanoTrasen SN: NT-";
 
-    // <summary>
-    //  Suffix after the random serial number, just in case someone needs this in the future
-    // </summary>
+    /// <summary>
+    ///  Suffix after the random serial number, just in case someone needs this in the future
+    /// </summary>
     [DataField("suffix")]
     public string Suffix = "";
 
-    // <summary>
-    //  Skip adding a random number between the prefix and suffix
-    // </summary>
+    /// <summary>
+    ///  Skip adding a random number between the prefix and suffix
+    /// </summary>
     [DataField("noNumber")]
     public bool NoNumber = false;
 
-    // <summary>
-    //  The actual serial number
-    // </summary>
+    /// <summary>
+    ///  The actual serial number
+    /// </summary>
     [DataField("serialNumber"), AutoNetworkedField]
     public string SerialNumber = "123456";
 
-    // <summary>
-    //  The smallest the serial number can be.
-    // </summary>
+    /// <summary>
+    ///  The smallest the serial number can be.
+    /// </summary>
     [DataField("startNumber")]
     public int StartNumber = 250000;
 
-    // <summary>
-    //  The largest the serial number can be.
-    // </summary>
+    /// <summary>
+    ///  The largest the serial number can be.
+    /// </summary>
     [DataField("endNumber")]
     public int EndNumber = 350000;
 
-    // <summary>
-    //  If the serial number can be removed
-    // </summary>
+    /// <summary>
+    ///  If the serial number can be removed
+    /// </summary>
     [DataField("canBeRemoved")]
     public bool CanBeRemoved = true;
 
-    // <summary>
-    //  If the serial number is scratched off or not
-    // </summary>
+    /// <summary>
+    ///  If the serial number is scratched off or not
+    /// </summary>
     [DataField("removed"), AutoNetworkedField]
     public bool Removed = false;
 
-    // <summary>
-    //  Percent chance the serial number is randomly scratched off on spawn
-    // </summary>
+    /// <summary>
+    ///  Percent chance the serial number is randomly scratched off on spawn
+    /// </summary>
     [DataField("randomRemovedChance"), AutoNetworkedField]
     public int RandomRemovedChance = 0;
 
-    // <summary>
-    //  Examine text if serial number is removed
-    // </summary>
+    /// <summary>
+    ///  Examine text if serial number is removed
+    /// </summary>
     [DataField("removedText")]
-    public string RemovedText = "The serial number is removed";
+    public LocId RemovedText = "The serial number is removed";
 
     /// <summary>
     /// The tool quality needed to remove serial number
