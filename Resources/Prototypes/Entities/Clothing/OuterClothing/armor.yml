@@ -32,6 +32,9 @@
   parent: [ BaseSecurityContraband, ClothingOuterArmorBase ]
   id: ClothingOuterArmorBasic
   components:
+  - type: SerialNumber #funky start
+    prefix: serial-number-basic-armor
+    noNumber: True
   - type: Tag
     tags:
     - WhitelistChameleon

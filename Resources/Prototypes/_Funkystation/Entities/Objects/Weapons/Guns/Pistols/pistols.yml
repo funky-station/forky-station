@@ -1,0 +1,32 @@
+#black market version with the serial number removed
+- type: entity
+  name: mk 58
+  parent: WeaponPistolMk58
+  id: WeaponPistolMk58Illegal
+  description: Designed by Nanotrasen’s Small Arms Division, the Mk58 is a conventional semi-automatic pistol with a simple recoil-operated action and excellent reliability. The standard sidearm of Nanotrasen’s station security and emergency response teams. Feeds from .35 pistol magazines.
+  suffix: ILLEGAL
+  components:
+  - type: SerialNumber
+    removed: True
+
+#bro put a switch on their mk58
+- type: entity
+  name: mk 60
+  parent: WeaponPistolMk58Illegal
+  id: WeaponPistolMk58SUPERIllegal
+  description: Designed by Nanotrasen’s Small Arms Division with a black market modification for full auto use.
+  suffix: "ADMEME SUPER ILLEGAL"
+  components:
+  - type: Gun
+    minAngle: 24
+    maxAngle: 45
+    angleIncrease: 4
+    angleDecay: 16
+    fireRate: 12
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    - SemiAuto
+
+
+

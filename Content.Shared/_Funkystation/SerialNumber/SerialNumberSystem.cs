@@ -1,0 +1,127 @@
+using Content.Shared.DoAfter;
+using Content.Shared.Examine;
+using Content.Shared.Interaction;
+using Content.Shared.Tools.Systems;
+using Robust.Shared.Utility;
+using Robust.Shared.Random;
+using Robust.Shared.Audio.Systems;
+
+
+namespace Content.Shared._Funkystation.SerialNumber;
+
+/// <summary>
+/// This component exists to add a potentially, semi-random identification number or label to
+/// an entity such as guns or devices that will appear in the examine window
+/// </summary>
+public sealed partial class SerialNumberSystem : EntitySystem
+
+{
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedToolSystem _tool = null!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<SerialNumberComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<SerialNumberComponent, MapInitEvent>(OnInit);
+        SubscribeLocalEvent<SerialNumberComponent, InteractUsingEvent>(OnRemoval);
+        SubscribeLocalEvent<SerialNumberComponent, SerialNumberDoAfterEvent>(OnRemoveDoAfter);
+    }
+
+    private void OnInit(EntityUid uid, SerialNumberComponent comp, MapInitEvent args)
+    {
+        var random = _random.Next(comp.StartNumber, comp.EndNumber);
+        comp.SerialNumber = random.ToString();
+
+        var randomRemoved = _random.Next(1, 100);
+        if (randomRemoved <= comp.RandomRemovedChance)
+        {
+            comp.Removed = true;
+        }
+
+        Dirty(uid, comp);
+    }
+
+    private void StartDoAfter(SerialNumberComponent comp, EntityUid user, TimeSpan delay)
+    {
+        var doAfterArgs = new DoAfterArgs(EntityManager,
+            user,
+            delay,
+            new SerialNumberDoAfterEvent(),
+            comp.Owner,
+            target: null,
+            used: null)
+        {
+            BreakOnMove = true,
+            NeedHand = true,
+            BreakOnDamage = true,
+            DistanceThreshold = 1.0f,
+        };
+
+        _doAfter.TryStartDoAfter(doAfterArgs);
+        _audio.PlayPredicted(comp.RemoveSound, user, doAfterArgs.User);
+    }
+
+    private void OnRemoval(EntityUid uid, SerialNumberComponent comp, InteractUsingEvent args)
+    {
+        if (!comp.CanBeRemoved)
+        {
+            return;
+        }
+        if (comp.Removed)
+        {
+            return;
+        }
+        if (!_tool.HasQuality(args.Used, comp.ToolRequired))
+        {
+            return;
+        }
+
+        StartDoAfter(comp, args.User, comp.RemovalTime);
+        args.Handled = true;
+    }
+    private void OnRemoveDoAfter(Entity<SerialNumberComponent> ent, ref SerialNumberDoAfterEvent args)
+    {
+        if (args.Cancelled || args.Handled)
+            return;
+
+        args.Handled = true;
+        ent.Comp.Removed = true;
+    }
+    private void OnExamined(EntityUid uid, SerialNumberComponent comp, ExaminedEvent args)
+    {
+        var formattedmessage = new FormattedMessage();
+
+        if (comp.Removed)
+        {
+            // check if the string is intentionally blank / null before trying to get it
+            if (!string.IsNullOrWhiteSpace(comp.RemovedText))
+            {
+                formattedmessage.AddText($"{Loc.GetString(comp.RemovedText)}\n");
+                args.AddMessage(formattedmessage, -1);
+            }
+            return;
+        }
+        // get the prefix and the suffix now, since we'll need it regardless of if there's a serial number
+        // check if the LocId is blank, if it isn't, use Loc.GetString, otherwise make the prefix / suffix blank
+        // ILocalizationManager (the Loc in Loc.GetString) also has a TryGetString method you could use which won't throw an error if the LocId is blank
+        // however, i'm opting to use nullable LocIds instead because you can specify them in the component without the yaml linter throwing a fit about blank LocIds,
+        // and we do still want to throw an error if a LocId is specified but its invalid.
+        var prefix = !string.IsNullOrWhiteSpace(comp.Prefix) ? Loc.GetString(comp.Prefix) : string.Empty;
+        var suffix = !string.IsNullOrWhiteSpace(comp.Suffix) ? Loc.GetString(comp.Suffix) : string.Empty;
+        if (comp.NoNumber)
+        {
+            var message = prefix + suffix;
+            formattedmessage.AddText($"{Loc.GetString(message)}\n");
+            args.AddMessage(formattedmessage, -1);
+            return;
+        }
+        var fullMessage = prefix + comp.SerialNumber + suffix;
+        formattedmessage.AddText($"{Loc.GetString(fullMessage)}\n");
+        args.AddMessage(formattedmessage, -1);
+    }
+}
+
