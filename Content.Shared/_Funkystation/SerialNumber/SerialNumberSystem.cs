@@ -103,13 +103,13 @@ public sealed partial class SerialNumberSystem : EntitySystem
         }
         if (comp.NoNumber)
         {
-            var message = comp.Prefix + comp.Suffix;
-            formattedmessage.AddText($"{message}\n");
+            var message = Loc.GetString(comp.Prefix) + Loc.GetString(comp.Suffix);
+            formattedmessage.AddText($"{Loc.GetString(message)}\n");
             args.AddMessage(formattedmessage, -1);
             return;
         }
-        var fullMessage = comp.Prefix + comp.SerialNumber + comp.Suffix;
-        formattedmessage.AddText($"{fullMessage}\n");
+        var fullMessage = Loc.GetString(comp.Prefix) + comp.SerialNumber + Loc.GetString(comp.Suffix);
+        formattedmessage.AddText($"{Loc.GetString(fullMessage)}\n");
         args.AddMessage(formattedmessage, -1);
     }
 }
