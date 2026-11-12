@@ -329,11 +329,11 @@
 
 - type: listing
   id: UplinkSyndicateSwitchblade
-  name: #
-  description: #
+  name: uplink-interdyne-switchblade-name
+  description: uplink-interdyne-switchblade-desc
   icon: { sprite: /Textures/Objects/Weapons/Melee/switchblade_syndicate.rsi, state: icon}
   productEntity: SyndieSwitchblade
-  discountCategory: RareDiscounts #mass production means easier to get
+  discountCategory: veryRareDiscounts
   discountDownTo:
     Telecrystal: 5
   cost:
