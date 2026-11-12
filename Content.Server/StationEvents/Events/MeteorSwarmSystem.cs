@@ -40,20 +40,8 @@ public sealed partial class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmCompon
         // we don't want to send to players who aren't in game (i.e. in the lobby)
         Filter allPlayersInGame = Filter.Empty().AddWhere(GameTicker.UserHasJoinedGame);
 
-        // funky start, check if SISTR should announce and is alive
-        var isSistr = Comp<StationEventComponent>(uid).StartAnnouncementSender == "chat-manager-sender-sistr";
-        var sistrUp = false;
-        var query = EntityQueryEnumerator<StationEventEligibleComponent>();
-        while (query.MoveNext(out var stationUid, out _))
-        {
-            if (_sistrCore.StationHasFunctionalCore(stationUid))
-            {
-                sistrUp = true;
-                break;
-            }
-        }
-        var canAnnounce = !isSistr || sistrUp;
-        // funky end
+        // funky, check if SISTR should announce and is alive
+        var canAnnounce = _sistrCore.ShouldStationEventBeAnnounced(uid);
 
         // Macrocosm edit start - announcer variation
         SoundSpecifier? sound = null; // funky
