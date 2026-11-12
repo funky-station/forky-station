@@ -1,0 +1,14 @@
+- type: entity
+  id: BaseWeaponLauncher
+  components:
+  - type: Gun
+    showExamineText: false
+  - type: BallisticAmmoProvider
+    showExamineText: false
+  - type: !Remove AmmoCounter
+
+- type: entity
+  parent: [ FunkyBaseWeaponLauncher, BaseMajorContraband ]
+  id: WeaponLauncherHydra
+  components:
+  - type: !Remove AmmoCounter

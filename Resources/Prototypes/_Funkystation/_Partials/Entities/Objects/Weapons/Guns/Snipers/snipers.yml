@@ -1,0 +1,8 @@
+- type: entity
+  id: BaseWeaponSniper
+  components:
+  - type: Gun
+    showExamineText: false
+  - type: BallisticAmmoProvider
+    showExamineText: false
+  - type: !Remove AmmoCounter

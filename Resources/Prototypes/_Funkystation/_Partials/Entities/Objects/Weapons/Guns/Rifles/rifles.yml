@@ -1,0 +1,8 @@
+- type: entity
+  id: BaseWeaponRifle
+  components:
+  - type: ChamberMagazineAmmoProvider
+    showExamineText: false
+  - type: Gun
+    showExamineText: false
+  - type: !Remove AmmoCounter

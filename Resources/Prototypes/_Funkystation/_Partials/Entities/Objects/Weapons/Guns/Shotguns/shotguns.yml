@@ -1,0 +1,17 @@
+- type: entity
+  id: BaseWeaponShotgun
+  components:
+  - type: Gun
+    showExamineText: false
+  - type: BallisticAmmoProvider
+    showExamineText: false
+  - type: !Remove AmmoCounter
+
+- type: entity
+  id: WeaponShotgunBulldog
+  components:
+  - type: Gun
+    showExamineText: false
+  - type: MagazineAmmoProvider
+    showExamineText: false
+  - type: !Remove AmmoCounter

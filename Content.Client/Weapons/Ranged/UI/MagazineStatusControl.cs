@@ -27,12 +27,16 @@ public sealed partial class MagazineStatusControl : PollingItemStatusControl<Mag
         var ammoProvider = _parent.Comp;
         var currentRounds = ammoProvider.Count;
         var maxRounds = ammoProvider.Capacity;
+        var showExamineText = ammoProvider.ShowExamineText;
 
-        return new Data(currentRounds, maxRounds);
+        return new Data(currentRounds, maxRounds, showExamineText);
     }
 
     protected override void Update(in Data data)
     {
+        if (!data.ShowExamineText)
+            return;
+
         var markup = Loc.GetString("magazine-status-rounds",
             ("current", data.CurrentRounds),
             ("max", data.MaxRounds));
@@ -40,5 +44,5 @@ public sealed partial class MagazineStatusControl : PollingItemStatusControl<Mag
         _label.SetMarkup(markup);
     }
 
-    public readonly record struct Data(int CurrentRounds, int MaxRounds);
+    public readonly record struct Data(int CurrentRounds, int MaxRounds, bool ShowExamineText);
 }

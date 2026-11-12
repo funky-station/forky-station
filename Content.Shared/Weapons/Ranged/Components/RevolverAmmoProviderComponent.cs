@@ -48,4 +48,10 @@ public sealed partial class RevolverAmmoProviderComponent : AmmoProviderComponen
 
     [DataField]
     public SoundSpecifier? SoundSpin = new SoundPathSpecifier("/Audio/Weapons/Guns/Misc/revolver_spin.ogg");
+
+    /// <summary>
+    /// Whether or not ammo count will be shown on examine.
+    /// </summary>
+    [DataField]
+    public bool ShowExamineText = true;
 }

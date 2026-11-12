@@ -1,0 +1,7 @@
+- type: entity
+  id: WeaponFlareGun
+  components:
+  - type: Gun
+    showExamineText: false
+  - type: ChamberMagazineAmmoProvider
+    showExamineText: false

@@ -1,0 +1,6 @@
+- type: entity
+  id: RevolverCapGun
+  components:
+  - type: Gun
+    showExamineText: false
+  - type: !Remove AmmoCounter

@@ -1,0 +1,5 @@
+- type: entity
+  id: WeaponImprovisedPneumaticCannon
+  components:
+  - type: Gun
+    showExamineText: false

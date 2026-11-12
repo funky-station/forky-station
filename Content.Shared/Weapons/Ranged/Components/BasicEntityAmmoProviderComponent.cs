@@ -24,4 +24,10 @@ public sealed partial class BasicEntityAmmoProviderComponent : AmmoProviderCompo
     /// </summary>
     [DataField, AutoNetworkedField]
     public int? Count = null;
+
+    /// <summary>
+    /// Whether or not ammo count will be shown.
+    /// </summary>
+    [DataField]
+    public bool ShowExamineText = true;
 }

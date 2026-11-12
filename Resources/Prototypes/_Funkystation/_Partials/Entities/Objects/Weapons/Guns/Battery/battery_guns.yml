@@ -1,0 +1,68 @@
+- type: entity
+  id: BaseWeaponBatteryNoAmmoCounter
+  components:
+  - type: Gun
+    showExamineText: false
+  - type: Battery
+    showItemStatus: false
+
+- type: entity
+  id: BaseWeaponBattery
+  components:
+  - type: BatteryAmmoProvider
+    showExamineText: false
+  - type: !Remove AmmoCounter
+
+- type: entity
+  id: BaseWeaponBatterySmallNoAmmoCounter
+  components:
+  - type: Gun
+    showExamineText: false
+  - type: Battery
+    showItemStatus: false
+
+- type: entity
+  id: BaseWeaponBatterySmall
+  components:
+  - type: BatteryAmmoProvider
+    showExamineText: false
+  - type: !Remove AmmoCounter
+
+- type: entity
+  id: BaseWeaponPowerCell
+  components:
+  - type: Gun
+    showExamineText: false
+  - type: Battery
+    showItemStatus: false
+  - type: BatteryAmmoProvider
+    showExamineText: false
+  - type: !Remove AmmoCounter
+
+- type: entity
+  id: WeaponEnergyCrossbowBase
+  components:
+  - type: BallisticAmmoProvider
+    showExamineText: false
+
+- type: entity
+  id: BaseWeaponPowerCellSmall
+  components:
+  - type: Gun
+    showExamineText: false
+  - type: Battery
+    showItemStatus: false
+  - type: BatteryAmmoProvider
+    showExamineText: false
+  - type: !Remove AmmoCounter
+
+- type: entity
+  id: WeaponLaserSvalinn
+  components:
+  - type: Gun
+    showExamineText: false
+  - type: Battery
+    showItemStatus: false
+  - type: BatteryAmmoProvider
+    showExamineText: false
+  - type: !Remove AmmoCounter

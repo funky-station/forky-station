@@ -31,6 +31,9 @@ public abstract partial class SharedGunSystem
 
     private void OnBatteryExamine(Entity<BatteryAmmoProviderComponent> ent, ref ExaminedEvent args)
     {
+        if (!args.IsInDetailsRange || !ent.Comp.ShowExamineText)
+            return;
+
         args.PushMarkup(Loc.GetString("gun-battery-examine", ("color", AmmoExamineColor), ("count", ent.Comp.Shots)));
     }
 
