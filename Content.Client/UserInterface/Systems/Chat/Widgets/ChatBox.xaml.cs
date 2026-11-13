@@ -1,7 +1,5 @@
-using System.Linq;
 using Content.Client._RMC14.Chat; // Persistence: Chat stacking from RMC14 - pull/7587
 using Content.Client.UserInterface.ControlExtensions;
-using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.RichText;
 using Content.Client.UserInterface.Systems.Chat.Controls;
 using Content.Shared.Chat;
@@ -128,20 +126,9 @@ public partial class ChatBox : UIWidget, IEntityLinkClickHandler
 
         // Persistence: Chat stacking from RMC14 - pull/7587
         if (_cmChatSystem.TryRepetition(this, Contents, formatted, sender, unwrapped, channel, repeatCheckSender))
-        {
-            // funky
-            // we can get away with getting the last TextLinkLabel in the OutputPanel's contents because i'm pretty sure
-            // whenever a message with tags that get parsed into controls gets added or modified, those new controls are always
-            // sent to the bottom of the tree
-            // also, we can only do this after the message has been parsed which is partly why it happens separately from TryRepetition
-            _cmChatSystem.UpdateTextLinkLabel(this, Contents.GetControlOfType<TextLinkLabel>().LastOrDefault(), sender, unwrapped, channel, repeatCheckSender);
             return;
-        }
 
         Contents.AddMessage(formatted, tagsAllowed: null);
-        // funky - if there's a new text link label, attach it to the new message in the repeat message queue
-        // we can only do this after the message has been parsed which is why it happens separately from TryRepetition
-        _cmChatSystem.AddTextLinkLabel(this, Contents.GetControlOfType<TextLinkLabel>().LastOrDefault());
     }
 
     public void Focus(ChatSelectChannel? channel = null)
