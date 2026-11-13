@@ -309,6 +309,7 @@
     - id: HydroponicsToolHatchet
     - id: ClothingHandsKnuckleDusters
     - id: WeaponFlareGun
+    - id: SwitchBlade
 
 - type: entityTable
   id: ToiletCisternSyndicateTable

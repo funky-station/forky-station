@@ -907,3 +907,41 @@
         delay: 2.5
         walkSpeedModifier: 0.5
         sprintSpeedModifier: 0.5
+
+- type: reagent
+  id: Hemoase #literally blood-enzyme TODO: come up with a better name that includes other debilitating effects
+  name: reagent-name-hemoase
+  desc: reagent-desc-hemoase
+  physicalDesc: reagent-physical-desc-thin
+  flavor: sharp
+  group: Toxins
+  evaporationSpeed: 100
+  color: "#000080" #supposed to be opposite of blood-red
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 1
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectHemorrhage
+        time: 30 # 10 bleed ticks
+        type: Update
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectAnticoagulant
+        time: 30 # 10 bleed ticks
+        type: Update
+      - !type:ModifyBleed
+        amount: 1
+      - !type:ModifyBloodLevel # might change this so it reacts with all types of blood to give something, maybe vomit or something gross like that?
+        amount: -30 #5% of blood level
+      - !type:MovementSpeedModifier
+        effectProto: ReagentSpeedStatusEffect
+        time: 4
+        delay: 0.5
+        walkSpeedModifier: 0.85
+        sprintSpeedModifier: 0.85
+      - !type:HealthChange
+        damage:
+          types:
+            Bloodloss: 2
+      - !type:StaminaDamage
+        damage: 5

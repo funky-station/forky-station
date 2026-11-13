@@ -470,3 +470,129 @@
       - state: inhand-right-blade
   - type: UseDelay
     delay: 0.2
+
+- type: entity
+  name: switchblade
+  parent: BaseItem
+  id: SwitchBlade
+  description: a knife with a retracting blade, don't cut yourself.
+  components:
+  - type: Appearance
+  - type: ComponentToggler
+    components:
+    - type: Execution
+      doAfterDuration: 3.5 # slightly faster than other knives
+    - type: Utensil
+      types:
+      - Knife
+    - type: Tool
+      qualities:
+      - Slicing
+      useSound:
+        path: /Audio/Items/Culinary/chop.ogg
+  - type: Item
+    size: Tiny
+    sprite: Objects/Weapons/Melee/switchblade.rsi
+  - type: ItemToggleSize
+    activatedSize: Small
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/switchblade.rsi
+    layers:
+    - state: switchblade_handle #handle
+    - state: switchblade_blade #blade
+      visible: false
+      map: [ "blade" ]
+  - type: ToggleableVisuals
+    spriteLayer: blade
+    inhandVisuals:
+      left:
+      - state: inhand-left-blade
+      right:
+      - state: inhand-right-blade
+  - type: ItemToggleExaminableStatus
+    onText: item-toggle-examined-active
+    offText: item-toggle-examined-not-active
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Weapons/utilityknifeopen.ogg # close enough sound wise, should be fine
+    soundDeactivate:
+      path: /Audio/Weapons/utilityknifeclose.ogg
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    activatedDamage:
+      types:
+        Slash: 10
+  - type: MeleeWeapon
+    wideAnimationRotation: -90
+    attackRate: 2 # supposed to be faster attacking but lower damage
+    damage:
+      types:
+        Blunt: 1.5
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 6 # doesn't embed
+  - type: LandAtCursor
+  - type: Tag
+    tags:
+    - Knife
+    - CombatKnife
+    - ToyKnife #so it can be put into clown shoes
+    - CostumeItem
+  - type: UseDelay
+    delay: 0.2
+
+- type: entity
+  name: Interdyne switchblade
+  parent: SwitchBlade
+  id: SyndieSwitchblade
+  description: A switchblade made by InterDyne to inject Hemoase on those in cuts, slightly weaker for cutting however.
+  # intended to be a low-cost variant to the knuckle dusters
+  # focusing on debilitating the target instead of raw damage
+  components:
+  - type: SolutionManager
+    solutions:
+    - SolutionHemoase
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types: #injected reagent does 2 bloodloss / unit
+        Slash: 7
+  - type: Item
+    sprite: Objects/Weapons/Melee/switchblade_syndicate.rsi
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/switchblade_syndicate.rsi
+    layers:
+    - state: switchblade_handle #handle
+    - state: switchblade_blade #blade
+      visible: false
+      map: [ "blade" ]
+  - type: ComponentToggler # needs to be here to prevent it from injecting while closed
+    components:
+    - type: Execution
+      doAfterDuration: 3.5 # slightly faster than other knives
+    - type: Utensil
+      types:
+      - Knife
+    - type: Tool
+      qualities:
+      - Slicing
+      useSound:
+        path: /Audio/Items/Culinary/chop.ogg
+    - type: MeleeChemicalInjector
+      solution: melee
+      transferAmount: 1
+      PierceArmor: true #hardsuits will not prevent the injection
+
+
+
+- type: entity
+  parent: [SolutionWeapon, SolutionTiny]
+  id: SolutionHemoase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionRegeneration
+    generated:
+      reagents:
+        - ReagentId: Hemoase
+          Quantity: 5

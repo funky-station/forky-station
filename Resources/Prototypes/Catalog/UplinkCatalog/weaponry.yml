@@ -325,3 +325,18 @@
     Telecrystal: 75
   categories:
   - UplinkWeaponry
+
+
+- type: listing
+  id: UplinkSyndicateSwitchblade
+  name: uplink-interdyne-switchblade-name
+  description: uplink-interdyne-switchblade-desc
+  icon: { sprite: /Textures/Objects/Weapons/Melee/switchblade_syndicate.rsi, state: icon}
+  productEntity: SyndieSwitchblade
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 5
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkWeaponry
