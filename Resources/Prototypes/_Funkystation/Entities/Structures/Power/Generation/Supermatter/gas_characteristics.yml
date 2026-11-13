@@ -2,8 +2,8 @@
   id: Oxygen
   stability: -1
   growth: -0.6
-  conductivity: -1
-  enthalpy: 0
+  conductivity: 0
+  enthalpy: 1
 
 - type: gasCharacteristics
   id: Nitrogen
@@ -23,8 +23,8 @@
   id: Plasma
   stability: -1
   growth: -0.3
-  conductivity: 0
-  enthalpy: 1
+  conductivity: -1
+  enthalpy: 0
 
 - type: gasCharacteristics
   id: Tritium
