@@ -514,7 +514,7 @@
     offText: item-toggle-examined-not-active
   - type: ItemToggle
     soundActivate:
-      path: /Audio/Weapons/utilityknifeopen.ogg #close enough sound wise, should be fine
+      path: /Audio/Weapons/utilityknifeopen.ogg # close enough sound wise, should be fine
     soundDeactivate:
       path: /Audio/Weapons/utilityknifeclose.ogg
   - type: ItemToggleMeleeWeapon
@@ -529,6 +529,11 @@
     damage:
       types:
         Blunt: 1.5
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 6 # doesn't embed
+  - type: LandAtCursor
   - type: Tag
     tags:
     - Knife
