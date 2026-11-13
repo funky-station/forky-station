@@ -23,8 +23,8 @@ public sealed partial class LightningSystem : SharedLightningSystem
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private EntityLookupSystem _lookup = default!;
     [Dependency] private TransformSystem _transform = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly IComponentFactory _factory = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private IComponentFactory _factory = default!;
 
     public override void Initialize()
     {

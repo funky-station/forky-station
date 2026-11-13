@@ -1,7 +1,7 @@
 ﻿using Content.Shared._Funkystation.SM.Components;
 using Robust.Shared.Containers;
 
-namespace Content.Server._Funkystation.SM.Events;
+namespace Content.Shared._Funkystation.SM.Events;
 
 /// <summary>
 /// An event queued when a supermatter is contained (put into a container).

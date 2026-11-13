@@ -8,9 +8,9 @@ namespace Content.Server._Funkystation.SM.EntitySystems;
 /// <summary>
 /// Supermatter monitoring console: picks an active crystal on the same grid and pushes read-only BUI state.
 /// </summary>
-public sealed class SupermatterConsoleSystem : EntitySystem
+public sealed partial class SupermatterConsoleSystem : EntitySystem
 {
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
 
     private float _updateAccumulator;
 
@@ -86,7 +86,8 @@ public sealed class SupermatterConsoleSystem : EntitySystem
         var smUid = FindActiveSupermatterOnGrid(consoleUid, xform);
         if (smUid is not { } crystal || !TryComp<SharedSupermatterComponent>(crystal, out var sm))
         {
-            _ui.SetUiState(consoleUid, SupermatterConsoleUiKey.Key,
+            _ui.SetUiState(consoleUid,
+                SupermatterConsoleUiKey.Key,
                 new SupermatterConsoleBoundUserInterfaceState(false, default, 0, 0, 0, 0, false, 0, 0, 0));
             return;
         }
@@ -95,7 +96,8 @@ public sealed class SupermatterConsoleSystem : EntitySystem
         var net = GetNetEntity(crystal);
         var smSys = EntityManager.System<SupermatterSystem>();
         var predicted = smSys.ChooseDelamType(crystal, sm);
-        _ui.SetUiState(consoleUid, SupermatterConsoleUiKey.Key,
+        _ui.SetUiState(consoleUid,
+            SupermatterConsoleUiKey.Key,
             new SupermatterConsoleBoundUserInterfaceState(
                 true,
                 net,

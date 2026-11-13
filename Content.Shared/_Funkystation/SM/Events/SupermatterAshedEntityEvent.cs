@@ -1,7 +1,7 @@
 ﻿using Content.Shared._Funkystation.SM.Components;
 using Robust.Shared.Containers;
 
-namespace Content.Server._Funkystation.SM.Events;
+namespace Content.Shared._Funkystation.SM.Events;
 
 /// <summary>
 /// Event raised on the entity being consumed whenever a supermatter consumes an entity.

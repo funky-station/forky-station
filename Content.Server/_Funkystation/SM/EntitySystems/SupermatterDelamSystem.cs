@@ -1,15 +1,15 @@
 using Content.Shared._Funkystation.SM.Components;
-using Content.Server._Funkystation.SM.Events;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared._Funkystation.SM;
+using Content.Shared._Funkystation.SM.Events;
 using Robust.Shared.Map;
 
 namespace Content.Server._Funkystation.SM.EntitySystems;
 
-public sealed class SupermatterDelamSystem : EntitySystem
+public sealed partial class SupermatterDelamSystem : EntitySystem
 {
-    [Dependency] private readonly ExplosionSystem _explosion = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private ExplosionSystem _explosion = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {

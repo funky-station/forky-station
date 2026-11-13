@@ -1,7 +1,6 @@
 ﻿using Content.Shared._Funkystation.SM.Components;
-using Robust.Shared.Containers;
 
-namespace Content.Server._Funkystation.SM.Events;
+namespace Content.Shared._Funkystation.SM.Events;
 
 [ByRefEvent]
 public record struct SupermatterAttemptConsumeEntityEvent(EntityUid entity, EntityUid supermatterUid, SharedSupermatterComponent supermatter)

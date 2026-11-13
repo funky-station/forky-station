@@ -1,6 +1,4 @@
-﻿
-
-using Content.Server._Funkystation.SM.Events;
+﻿using Content.Shared._Funkystation.SM.Events;
 using Content.Shared.Atmos;
 using Content.Shared.Explosion;
 using Robust.Shared.Audio;
@@ -166,6 +164,12 @@ public sealed partial class SharedSupermatterComponent : Component
     public List<LightningTier> LightningTiers = new();
     [DataField("lightningTimer")]
     public float LightningTimer = 0.5f;
+    [DataField("lightningMaxInterval")]
+    public float LightningMaxInterval = 10f;
+    [DataField("lightningMinInterval")]
+    public float LightningMinInterval = 0.5f;
+    [DataField("conductivityScalar")]
+    public float ConductivityScalar = 2f;
     [DataField("lightningRange")]
     public float LightningRange = 10;
     [DataField("powerPerBolt")]

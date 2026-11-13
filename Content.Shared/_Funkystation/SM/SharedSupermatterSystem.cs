@@ -1,12 +1,13 @@
-using Content.Server._Funkystation.SM.Events;
 using Content.Shared._Funkystation.Mobs;
 using Content.Shared._Funkystation.SM.Components;
+using Content.Shared._Funkystation.SM.Events;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Construction.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
@@ -51,6 +52,7 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<MapGridComponent, SupermatterAttemptConsumeEntityEvent>(PreventAshing);
+        SubscribeLocalEvent<GhostComponent, SupermatterAttemptConsumeEntityEvent>(PreventAshing);
         SubscribeLocalEvent<SupermatterImmuneComponent, SupermatterAttemptConsumeEntityEvent>(PreventAshing);
         SubscribeLocalEvent<StationDataComponent, SupermatterAttemptConsumeEntityEvent>(PreventAshing);
         SubscribeLocalEvent<ProjectileComponent, SupermatterAttemptConsumeEntityEvent>(PreventAshingProjectile);

@@ -1,9 +1,9 @@
 using Content.Shared._Funkystation.SM.Components;
-using Content.Server._Funkystation.SM.Events;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Construction.Components;
 using Content.Server.Singularity.Components;
 using Content.Shared._Funkystation.SM;
+using Content.Shared._Funkystation.SM.Events;
 using Content.Shared._Funkystation.SM.Prototypes;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
@@ -20,12 +20,12 @@ namespace Content.Server._Funkystation.SM.EntitySystems;
 
 public sealed partial class SupermatterSystem : SharedSupermatterSystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SupermatterLightningSystem _lightning = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private TransformSystem _transformSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SupermatterLightningSystem _lightning = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
 
     private static readonly ISawmill Sawmill = Logger.GetSawmill("supermatterServer");

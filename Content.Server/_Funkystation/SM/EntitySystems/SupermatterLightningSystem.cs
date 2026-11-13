@@ -11,11 +11,11 @@ namespace Content.Server._Funkystation.SM.EntitySystems;
 [Access( typeof(SharedSupermatterSystem))]
 public sealed partial class SupermatterLightningSystem : SharedSupermatterLightningSystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-    [Dependency] private readonly LightningSystem _lightning = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedBatterySystem _battery = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedTransformSystem _xform = default!;
+    [Dependency] private LightningSystem _lightning = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private SharedBatterySystem _battery = default!;
 
 
     public void ProcessLightning(EntityUid uid, SharedSupermatterComponent sm, float atmosDeltaTime)
@@ -38,9 +38,9 @@ public sealed partial class SupermatterLightningSystem : SharedSupermatterLightn
     {
         var c = MathF.Abs(sm.Conductivity);
 
-        var interval = 10f - c * 2f;
+        var interval = sm.LightningMaxInterval - c * sm.ConductivityScalar;
 
-        return Math.Clamp(interval, 0.5f, 10f);
+        return Math.Clamp(interval, sm.LightningMinInterval, sm.LightningMaxInterval);
     }
 
     private LightningTier GetLightningTier(SharedSupermatterComponent sm)
@@ -100,8 +100,8 @@ public sealed partial class SupermatterLightningSystem : SharedSupermatterLightn
         _random.Shuffle(targets);
         targets.Sort((x, y) => x.Comp.Priority.CompareTo(y.Comp.Priority));
 
-        int shootedCount = 0;
-        int count = -1;
+        var shootedCount = 0;
+        var count = -1;
         while(shootedCount < boltCount)
         {
             count++;
@@ -134,7 +134,7 @@ public sealed partial class SupermatterLightningSystem : SharedSupermatterLightn
             return 0f;
 
         var ent = (target, battery);
-        var available = _battery.GetCharge(ent);
+        var (available, maxCharge) = _battery.GetCharge(target);
         if (available <= 0f)
             return 0f;
 
