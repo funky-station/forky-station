@@ -1,0 +1,51 @@
+- type: entity
+  id: MaterialSupermatterShard
+  parent: BaseItem
+  name: supermatter shard
+  description: A sliver of crystallized energy. Extremely dangerous.
+  suffix: 100
+  components:
+  - type: SupermatterShard
+  - type: Sprite
+    sprite: Objects/Consumable/Food/Baked/cake.rsi
+    layers:
+    - state: suppermatter
+      map: ["base"]
+  - type: Item
+    sprite: Objects/Consumable/Food/Baked/cake.rsi
+    storedRotation: 0
+    size: Small
+  - type: Stack
+    stackType: SupermatterShard
+    count: 100
+    baseLayer: base
+    layerStates:
+    - suppermatter-shard
+    - suppermatter
+    - suppermatter
+  - type: Physics
+  - type: PhysicalComposition
+    materialComposition:
+      Supermatter_Shard: 100
+  - type: RadiationSource
+    intensity: 0.05
+
+- type: entity
+  parent: MaterialSupermatterShard
+  id: MaterialSupermatterShard1
+  suffix: 1
+  components:
+  - type: Sprite
+    state: suppermatter-shard
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: MaterialSupermatterShard
+  id: MaterialSupermatterShard50
+  suffix: 50
+  components:
+  - type: Sprite
+    state: suppermatter
+  - type: Stack
+    count: 50
