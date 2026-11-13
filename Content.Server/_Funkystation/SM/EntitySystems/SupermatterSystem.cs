@@ -14,8 +14,11 @@ using Content.Shared.SubFloor;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+
 namespace Content.Server._Funkystation.SM.EntitySystems;
 
 public sealed partial class SupermatterSystem : SharedSupermatterSystem
@@ -26,6 +29,8 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SupermatterLightningSystem _lightning = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private MapSystem _mapSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
 
     private static readonly ISawmill Sawmill = Logger.GetSawmill("supermatterServer");
@@ -473,6 +478,53 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
     }
 
     /// <summary>
+    /// Helper array with the offsets for around the SM
+    /// </summary>
+    private static readonly Vector2i[] ShardSpawnOffsets =
+    [
+        new(-1, -1), new(0, -1), new(1, -1),
+        new(-1,  0),             new(1,  0),
+        new(-1,  1), new(0,  1), new(1,  1),
+    ];
+
+    /// <summary>
+    /// Helper function to spawn a shard on a random tile around the supermatter
+    /// </summary>
+    /// <param name="uid"></param>
+    private void SpawnShard(EntityUid uid)
+    {
+        var xform = Transform(uid);
+
+        if (xform.GridUid is not { } gridUid)
+            return;
+
+        if (!TryComp<MapGridComponent>(gridUid, out var gridComp))
+            return;
+
+        var centerTile = _transformSystem.GetGridOrMapTilePosition(uid);
+
+        var possibleTiles = new List<Vector2i>();
+
+        foreach (var offset in ShardSpawnOffsets)
+        {
+            var tile = centerTile + offset;
+
+            if (_mapSystem.TryGetTileRef(gridUid, gridComp, tile, out _))
+                possibleTiles.Add(tile);
+
+        }
+
+        if (possibleTiles.Count == 0)
+            return;
+
+        var chosenTile = _random.Pick(possibleTiles);
+
+        var coords = _mapSystem.GridTileToLocal(gridUid, gridComp, chosenTile);
+
+        Spawn("MaterialSupermatterShard1", coords);
+    }
+
+    /// <summary>
     /// Updates the reproduction and creates a shard when reaching the threshold
     /// </summary>
     /// <param name="uid"></param>
@@ -490,8 +542,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
         {
             sm.ReproductionProgress -= sm.ReproductionThreshold;
 
-            var coords = Transform(uid).Coordinates;
-            Spawn("MaterialSupermatterShard1", coords);
+            SpawnShard(uid);
         }
     }
 
@@ -711,10 +762,30 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
             return;
         var centerTile = _transformSystem.GetGridTilePositionOrDefault(uid);
 
-        var mixture = _atmosphereSystem.GetTileMixture(grid, args.Map, centerTile, excite: true);
-        if (mixture == null)
+        var validTiles = new List<GasMixture>();
+
+        foreach (var offset in AbsorptionOffsets)
+        {
+            var tile = centerTile + offset;
+
+            var mixture = _atmosphereSystem.GetTileMixture(
+                grid,
+                args.Map,
+                tile,
+                excite: true);
+
+            if (mixture != null)
+                validTiles.Add(mixture);
+        }
+
+        if (validTiles.Count == 0)
             return;
 
-        _atmosphereSystem.Merge(mixture, sm.AbsorbedGas);
+        var split = sm.AbsorbedGas.RemoveRatio(1f / validTiles.Count);
+
+        foreach (var mixture in validTiles)
+        {
+            _atmosphereSystem.Merge(mixture, split.Clone());
+        }
     }
 }
