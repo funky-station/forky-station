@@ -1,0 +1,72 @@
+- type: entity
+  abstract: true
+  parent: [ BaseItem ] # no Solution Dart because that isn't for every bolt
+  id: BaseBolt
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi #TEMPORARY
+  - type: Item
+    size: Small
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 5
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+      projectile:
+        shape:
+          !type:PhysShapeAabb # no idea what this is for but it's in the arrow so I'm putting it here so I don't crash the game
+          bounds: "-0.1,-0.3,0.2,-0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    embedOnThrow: false
+  - type: ThrowingAngle
+    angle: 0
+  - type: Ammo
+    muzzleFlash: null
+  - type: Tag
+    tags:
+    - Bolt
+    - Arrow # FOR TESTING ONLY, TODO: REMOVE ONCE IT IS DONE
+  - type: Projectile
+    deleteOnCollide: false
+    onlyCollideWhenShot: true
+    damage:
+      types:
+        Piercing: 35
+
+- type: entity
+  parent: BaseBolt
+  id: BoltImprovised
+  name: improvised bolt
+  description: The sophisticated greyshirt's preferred projectile # I had a typo of "greyshit" and am tempted to keep it in
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 25
+
+- type: entity
+  parent: BaseBolt
+  id: BoltLessLethal
+  name: less lethal bolt
+  description: A bolt with a rubber tip. It still hurts though.
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 25 # Still lethal
+  - type: StunOnCollide
+    slowdownAmount: 2
+    walkSpeedModifier: 0.75
+    sprintSpeedModifier: 0.75
+  - type: StaminaDamageOnCollide
+    damage: 50

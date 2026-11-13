@@ -1,0 +1,62 @@
+- type: entity
+  name: crossbow
+  id: BaseCrossbow
+  description: The second rooty tooty point and shooty.
+  # reference to the bow description, mostly a placeholder until
+  # I can think of something better
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Bow/bow.rsi # TEMPORARY
+  - type: Item
+    size: Large
+  - type: Wieldable
+  - type: UseDelay
+    delay: 0.5
+  - type: GunRequiresWield
+  - type: Gun
+    minAngle: 0
+    maxAngle: 2
+    fireRate: 1
+    projectileSpeed: 35 # base for now, here for reference as a reminder
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      collection: BulletMiss
+    soundEmpty: null
+  - type: ItemSlots
+    slots:
+      projectiles:
+        name: Projectiles
+        startingItem: null
+        insertSound: /Audio/Weapons/Guns/Misc/arrow_nock.ogg #close enough for now
+        whitelist:
+          tags:
+          - Bolt
+          - Arrow #for testing
+  - type: ContainerContainer
+    containers:
+      projectiles: !type:ContainerSlot
+  - type: ContainerAmmoProvider
+    container: projectiles
+
+- type: entity
+  parent: BaseCrossbow
+  id: CrossbowImprovised
+  name: improvised crossbow
+  components:
+  - type: Gun
+    projectileSpeed: 20 # not as strong
+  # TODO: Add construction
+#  - type: Construction
+ #   graph:
+ #   node:
+
+
+- type: entity
+  parent: BaseCrossbow
+  id: CrossbowSecurity
+  name: AGIES security crossbow
+  description: "With the all new AGIES Security crossbow you don't have to worry about silly things like trigger discipline, because crossbows are obviously less dangerous then a gun! (Disclaimer: AGIES Security is not responsible for any injuries this causes)"
+  #components: # TODO: add it's own sprite
