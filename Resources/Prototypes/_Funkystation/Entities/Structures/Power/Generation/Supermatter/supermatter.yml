@@ -17,6 +17,8 @@
   - type: Supermatter
     activated: true
     power: 0
+    minPower: 0
+    maxPower: 12000
     integrity: 1000
     maxIntegrity: 1000
     delamTimer: 30

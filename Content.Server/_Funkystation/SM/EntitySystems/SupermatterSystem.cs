@@ -335,6 +335,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
         var gained = sm.PowerPool * 0.10f; // 10%
         sm.Power += gained;
         sm.PowerPool -= gained;
+        sm.Power = Math.Clamp(sm.Power, sm.MinPower, sm.MaxPower);
     }
 
     /// <summary>
@@ -395,6 +396,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
         sm.Power += sm.Power * -sm.StabilityPowerDrainScale * sm.Stability;
         if (sm.Power <= 0f)
             sm.Power = 0f;
+        sm.Power = Math.Clamp(sm.Power, sm.MinPower, sm.MaxPower);
     }
 
     /// <summary>
@@ -407,6 +409,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
         sm.Power += sm.Enthalpy * (sm.AbsorbedGas.Temperature - sm.NeutralEnthalpyTemperature); // temperature - room temperature in Kelvin
         if (sm.Power <= 0f)
             sm.Power = 0f;
+        sm.Power = Math.Clamp(sm.Power, sm.MinPower, sm.MaxPower);
         _atmosphereSystem.AddHeat(sm.AbsorbedGas, deltaEnergy);
     }
 
@@ -430,8 +433,8 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
                 var characteristics = new List<(float value, Gas gas)>
                 {
                     (sm.Growth,        Gas.Ammonia),
-                    (sm.Enthalpy >= 0 ? sm.Enthalpy : -sm.Enthalpy, sm.Enthalpy >= 0 ? Gas.Plasma     : Gas.Frezon),
-                    (sm.Conductivity >= 0 ? sm.Conductivity : -sm.Conductivity, sm.Conductivity >= 0 ? Gas.WaterVapor : Gas.Oxygen),
+                    (sm.Enthalpy >= 0 ? sm.Enthalpy : -sm.Enthalpy, sm.Enthalpy >= 0 ? Gas.Plasma     : Gas.WaterVapor),
+                    (sm.Conductivity >= 0 ? sm.Conductivity : -sm.Conductivity, sm.Conductivity >= 0 ? Gas.Frezon : Gas.Oxygen),
                     (stabilityScale >= 0 ? stabilityScale : -stabilityScale, stabilityScale >= 0 ? Gas.Nitrogen   : Gas.Tritium),
                 };
                 characteristics.Sort((a, b) => MathF.Abs(b.value).CompareTo(MathF.Abs(a.value)));
@@ -444,6 +447,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
                 sm.Power -= amount * count;
                 if (sm.Power <= 0f)
                     sm.Power = 0f;
+                sm.Power = Math.Clamp(sm.Power, sm.MinPower, sm.MaxPower);
                 return;
             }
             //Positive growth
@@ -465,6 +469,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
                     break;
 
                 sm.Power += Math.Abs(absorbedMoles);
+                sm.Power = Math.Clamp(sm.Power, sm.MinPower, sm.MaxPower);
                 sm.Reproduction += absorbedMoles;
                 break;
             }

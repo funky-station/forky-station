@@ -25,6 +25,10 @@ public sealed partial class SharedSupermatterComponent : Component
     /// </summary>
     [DataField("power")]
     public float Power;
+    [DataField("minPower")]
+    public float MinPower;
+    [DataField("maxPower")]
+    public float MaxPower;
     [DataField("integrity")]
     public float Integrity = 1000f;
     [DataField("integrityStabilityScalar")]
