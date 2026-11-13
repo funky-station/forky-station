@@ -16,10 +16,10 @@ namespace Content.Server._Funkystation.SM.EntitySystems;
 /// </summary>
 public sealed partial class SupermatterAnomalySystem : SharedSupermatterAnomalySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedMapSystem _map = default!;
+    [Dependency] private AtmosphereSystem _atmosphere = default!;
 
     public override void Update(float frameTime)
     {
