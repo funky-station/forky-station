@@ -33,7 +33,7 @@
     id: SecurityCadetWallet # Funky: the wallet-ening
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled
-    pocket1: WeaponPistolMk58
+    pocket1: WeaponEnergyPistol # Funky: WeaponPistolMk58 > WeaponEnergyPistol
     pocket2: BookSecurity
   storage:
     back:
