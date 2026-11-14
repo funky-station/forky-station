@@ -14,7 +14,7 @@
       Glass: 25
   - type: SpaceGarbage
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/bottle.rsi
+    sprite: _Funkystation/Objects/Specific/Chemistry/bottle.rsi # Funky
     layers:
     - state: bottle-1
     - state: bottle-1-1
