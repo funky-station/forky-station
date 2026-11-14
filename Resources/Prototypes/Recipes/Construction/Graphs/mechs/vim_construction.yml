@@ -11,8 +11,8 @@
       - tag: VoiceTrigger
         name: construction-graph-tag-voice-trigger
         icon:
-          sprite: "Objects/Devices/voice.rsi"
-          state: "voice"
+          sprite: _Funkystation/Objects/Devices/voice.rsi # Funky
+          state: voice
         completed:
         - !type:VisualizerDataInt
           key: "enum.MechAssemblyVisuals.State"

@@ -108,7 +108,7 @@
   - type: Item
     size: Tiny
   - type: Sprite
-    sprite: Objects/Materials/materials.rsi
+    sprite: _Funkystation/Objects/Materials/materials.rsi # Funky
     state: ash
   - type: Tag
     tags:

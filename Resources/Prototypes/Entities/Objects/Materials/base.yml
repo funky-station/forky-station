@@ -6,9 +6,9 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: Objects/Materials/materials.rsi
+    sprite: _Funkystation/Objects/Materials/materials.rsi # Funky
   - type: Item
-    sprite: Objects/Materials/materials.rsi
+    sprite: _Funkystation/Objects/Materials/materials.rsi # Funky
     size: Normal
   - type: Material
   - type: Tag

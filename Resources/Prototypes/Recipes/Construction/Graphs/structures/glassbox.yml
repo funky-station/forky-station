@@ -44,7 +44,7 @@
             - tag: SignalTrigger
               name: construction-graph-tag-signal-trigger
               icon:
-                sprite: Objects/Devices/signaltrigger.rsi
+                sprite: _Funkystation/Objects/Devices/signaltrigger.rsi # Funky
                 state: signaltrigger
               doAfter: 0.5
 

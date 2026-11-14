@@ -31,7 +31,7 @@
   name: tool-quality-welding-name
   toolName: tool-quality-welding-tool-name
   spawn: Welder
-  icon: { sprite: Objects/Tools/welder.rsi, state: icon }
+  icon: { sprite: _Funkystation/Objects/Tools/welder.rsi, state: icon } # Funky
 
 - type: tool
   id: Pulsing
@@ -73,7 +73,7 @@
   name: tool-quality-brushing-name
   toolName: tool-quality-brushing-tool-name
   spawn: WireBrush
-  icon: { sprite: Objects/Specific/Janitorial/wirebrush.rsi, state: icon }
+  icon: { sprite: _Funkystation/Objects/Specific/Janitorial/wirebrush.rsi, state: icon } # Funky
 
 - type: tool
   id: Shearing
