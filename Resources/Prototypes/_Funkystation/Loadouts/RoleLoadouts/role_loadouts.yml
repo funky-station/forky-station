@@ -10,6 +10,7 @@
   - Glasses
   - Pager
   - Survival
+  - AssistiveItems
   - Trinkets
   #- HDJobTrinkets
   - GroupSpeciesBreathTool
@@ -23,6 +24,7 @@
   - Glasses
   - Pager
   - Survival
+  - AssistiveItems
   - Trinkets
   #- LawyerJobTrinkets
   - GroupSpeciesBreathTool
@@ -50,6 +52,7 @@
   - Glasses
   - Pager
   - Survival
+  - AssistiveItems
   - Trinkets
   #- LawyerJobTrinkets
   - GroupSpeciesBreathTool
@@ -67,6 +70,7 @@
   - Pager
   - Glasses
   - Survival
+  - AssistiveItems
   - Trinkets
   #- HoPJobTrinkets
   - GroupSpeciesBreathTool
@@ -84,6 +88,7 @@
   - SecurityShoes
   - Pager
   - SurvivalSecurity
+  - AssistiveItems
   - Trinkets
   - HeadofSecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
@@ -102,6 +107,7 @@
   - SecurityBelt
   - Pager
   - SurvivalSecurity
+  - AssistiveItems
   - Trinkets
   - SecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
@@ -120,6 +126,7 @@
   - SecurityBelt
   - Pager
   - SurvivalSecurity
+  - AssistiveItems
   - Trinkets
   - SecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
@@ -138,6 +145,7 @@
   - Pager
   - Glasses
   - Survival
+  - AssistiveItems
   - Trinkets
   #- CargoTechnicianJobTrinkets
   - GroupSpeciesBreathTool
@@ -149,6 +157,7 @@
   - Glasses
   - Trinkets
   - Survival
+  - AssistiveItems # Prisoners should still have the option for a cane for optimal rock mining
   - GroupTankHarness
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # MACRO: Decapoid

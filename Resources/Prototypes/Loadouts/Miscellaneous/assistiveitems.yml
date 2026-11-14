@@ -16,12 +16,12 @@
 
 - type: loadout
   id: OffsetCaneClown
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobClown
-      time: 1h
+#  effects: # Funky: Removed playtime rewards that aren't directly for jobs
+#  - !type:JobRequirementLoadoutEffect
+#    requirement:
+#      !type:RoleTimeRequirement
+#      role: JobClown
+#      time: 1h
   storage:
     back:
     - OffsetCaneClown
@@ -29,12 +29,12 @@
 
 - type: loadout
   id: OffsetCaneMime
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobMime
-      time: 1h
+#  effects: # Funky: Removed playtime rewards that aren't directly for jobs
+#  - !type:JobRequirementLoadoutEffect
+#    requirement:
+#      !type:RoleTimeRequirement
+#      role: JobMime
+#      time: 1h
   storage:
     back:
     - OffsetCaneMime
@@ -42,12 +42,12 @@
 
 - type: loadout
   id: OffsetCaneNT
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
-      department: Command
-      time: 5h
+#  effects: # Funky: Removed playtime rewards that aren't directly for jobs
+#  - !type:JobRequirementLoadoutEffect
+#    requirement:
+#      !type:DepartmentTimeRequirement
+#      department: Command
+#      time: 5h
   storage:
     back:
     - OffsetCaneNT
@@ -55,12 +55,12 @@
 
 - type: loadout
   id: Cane
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobLibrarian
-      time: 1h # same as Jamjar.
+#  effects:
+#  - !type:JobRequirementLoadoutEffect
+#    requirement:
+#      !type:RoleTimeRequirement
+#      role: JobLibrarian
+#      time: 1h # same as Jamjar.
   storage:
     back:
     - Cane
