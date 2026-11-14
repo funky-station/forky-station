@@ -54,3 +54,21 @@
         whitelist:
           tags:
           - SurveillanceDevices # funky end
+
+# For taking pictures of things for PRs, chameleon so it can blend in.
+- type: entity
+  parent: ClothingHeadHatChameleon
+  id: 360DegreeHat
+  name: 360 degree hat
+  suffix: Admeme
+  description: This strange hat lets you see all around you.
+  components:
+  - type: ESViewconeModifier
+    angleModifier: 360
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
