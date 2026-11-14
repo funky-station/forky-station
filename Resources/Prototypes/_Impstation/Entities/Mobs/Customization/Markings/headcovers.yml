@@ -1,0 +1,133 @@
+#regrettably due to technical limitations spiders cannot materially dress for religious purposes
+#TO DO - why is kippah white not works?
+
+#human,dwarf,slime
+- type: marking
+  id: BurqaSolid
+  bodyPart: Hair
+  groupWhitelist: [Human, Slime, Oni, Goblin, Felinid] # Frontier: add Oni, Goblin, Felinid
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
+    state: burqasolid
+
+- type: marking
+  id: HijabFashionable
+  bodyPart: Hair
+  groupWhitelist: [Human, Slime, Oni, Goblin, Felinid, Vulpkanin] # Frontier: add Oni, Goblin, Felinid, Vulpkanin
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
+    state: hijabchic
+
+- type: marking
+  id: HijabSimple
+  bodyPart: Hair
+  groupWhitelist: [Human, Slime, Oni, Goblin, Felinid, Vulpkanin] # Frontier: add Oni, Goblin, Felinid, Vulpkanin
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
+    state: hijabsimple
+
+- type: marking
+  id: Niqab
+  bodyPart: Hair
+  groupWhitelist: [Human, Slime, Oni, Goblin, Felinid] # Frontier: add Oni, Goblin, Felinid
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
+    state: niqab
+
+- type: marking
+  id: TichelFashionable
+  bodyPart: Hair
+  groupWhitelist: [Human, Slime, Oni, Goblin, Felinid, Vulpkanin] # Frontier: add Oni, Goblin, Felinid, Vulpkanin
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
+    state: tichelfashionable
+
+- type: marking
+  id: TichelSimple
+  bodyPart: Hair
+  groupWhitelist: [Human, Slime, Oni, Goblin, Felinid, Vulpkanin] # Frontier: add Oni, Goblin, Felinid, Vulpkanin
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
+    state: tichelsimple
+
+#lizard
+- type: marking
+  id: BurqaSolidLizard
+  bodyPart: HeadSide
+  groupWhitelist: [Reptilian]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
+    state: burqalizard
+
+- type: marking
+  id: HijabFashionableLizard
+  bodyPart: HeadSide
+  groupWhitelist: [Reptilian]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
+    state: hijabchic
+
+- type: marking
+  id: HijabSimpleLizard
+  bodyPart: HeadSide
+  groupWhitelist: [Reptilian]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
+    state: hijabsimple
+
+- type: marking
+  id: NiqabLizard
+  bodyPart: HeadSide
+  groupWhitelist: [Reptilian]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
+    state: niqablizard
+
+- type: marking
+  id: TichelSimpleLizard
+  bodyPart: HeadSide
+  groupWhitelist: [Reptilian]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
+    state: tichelsimple
+
+- type: marking
+  id: TichelFashionableLizard
+  bodyPart: HeadSide
+  groupWhitelist: [Reptilian]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/headcovers.rsi
+    state: tichelfashionable
+
+#vox
+- type: marking
+  id: HijabSimpleVox
+  bodyPart: Hair
+  groupWhitelist: [Vox]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/hair.rsi
+    state: hijabsimple
+
+- type: marking
+  id: HijabFashionableVox
+  bodyPart: Hair
+  groupWhitelist: [Vox]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/hair.rsi
+    state: hijabchic
+
+- type: marking
+  id: TichelSimpleVox
+  bodyPart: Hair
+  groupWhitelist: [Vox]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/hair.rsi
+    state: tichelsimple
+
+- type: marking
+  id: TichelFashionableVox
+  bodyPart: Hair
+  groupWhitelist: [Vox]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Vox/hair.rsi
+    state: tichelfashionable
