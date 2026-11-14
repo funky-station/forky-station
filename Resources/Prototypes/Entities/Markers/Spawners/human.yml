@@ -33,3 +33,44 @@
   - type: ConditionalSpawner
     prototypes:
     - MobSyndicateFootsoldierPilot
+
+#funky start
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobMercenaryGrunt
+  name: Mercenary Grunt Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobMercenaryGrunt
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobMercenaryGuard
+  name: Mercenary Guard Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobMercenaryGuard
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobMercenaryCommander
+  name: Mercenary Commander Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobMercenaryCommander
+#funky end
