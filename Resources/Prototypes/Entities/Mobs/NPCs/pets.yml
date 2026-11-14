@@ -180,6 +180,7 @@
   components:
   - type: NpcFactionMember
     factions:
+      - Neutral
       - PetsNT
   - type: HTN
     rootTask:
