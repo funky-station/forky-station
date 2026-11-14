@@ -4,9 +4,9 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Objects/Misc/utensils.rsi
+    sprite: _Funkystation/Objects/Misc/utensils.rsi # Funky
   - type: Item # TODO add inhand sprites for all utensils
-    sprite: Objects/Misc/utensils.rsi
+    sprite: _Funkystation/Objects/Misc/utensils.rsi # Funky
   - type: SpaceGarbage
 
 - type: entity
