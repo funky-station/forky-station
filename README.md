@@ -1,4 +1,4 @@
-<p align="center"> <img alt="Space Station 14" width="880" height="200" src="https://github.com/funky-station/funky-station/blob/master/Resources/Textures/Logo/logo.png" /></p>
+<p align="center"> <img alt="Space Station 14" width="880" height="200" src="https://github.com/funky-station/forky-station/blob/master/Resources/_Funkystation/Textures/Logo/logo.png" /></p>
 
 This is a Macrocosm powered Space Station 14 server. To prevent people forking RobustToolbox, a "content" pack is loaded by the client and server. This content pack contains everything needed to play the game on one specific server.
 
