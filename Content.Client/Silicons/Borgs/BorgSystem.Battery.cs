@@ -42,9 +42,10 @@ public sealed partial class BorgSystem
             _alerts.ShowAlert(ent.Owner, ent.Comp1.NoBatteryAlert);
             return;
         }
-
+        
+        float chargePercent = _battery.GetChargeLevel(battery.Value.AsNullable());
         // Alert levels from 0 to 10.
-        var chargeLevel = (short)MathF.Round(_battery.GetChargeLevel(battery.Value.AsNullable()) * 10f);
+        var chargeLevel = (short)MathF.Round(chargePercent * 10f);
 
         // we make sure 0 only shows if they have absolutely no battery.
         // also account for floating point imprecision
@@ -53,7 +54,9 @@ public sealed partial class BorgSystem
             chargeLevel = 1;
         }
 
-        _alerts.ShowAlert(ent.Owner, ent.Comp1.BatteryAlert, chargeLevel);
+        string? chargeMessage = Loc.GetString("borg-ui-charge-label", ("charge", (int)MathF.Round(chargePercent * 100f)));
+
+        _alerts.ShowAlert(ent.Owner, ent.Comp1.BatteryAlert, chargeLevel, dynamicMessage: chargeMessage);
     }
 
     // Periodically update the charge indicator.
