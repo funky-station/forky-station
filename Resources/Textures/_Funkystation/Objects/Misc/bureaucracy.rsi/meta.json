@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "By AraiMaia for Funky Station. Envelope inhands by TiniestShark (Github)",
+  "copyright": "acquisition forms - paper/paper bins/paper_plane/paper matrices/paper receipts/paper_stamp-cap through paper_stamp-wizard/paper words - syndicate card by AraiMaia for Funky Station , paper_stamp-cci by TheHolyAegis, Envelope inhands by TiniestShark (Github), paper_stamp-borg by empty0set for funkystation, paper_stamp-iaa through paper_stamp-cl by Tomlolo for funkystation, paper_stamp-hospitalitydirector and paper_stamp-iaa by Tea for funkystation",
   "size": {
     "x": 32,
     "y": 32
@@ -30,6 +30,12 @@
     },
     {
       "name": "envelope_torn_overlay"
+    },
+    {
+       "name": "envelope-inhand-left"
+    },
+    {
+       "name": "envelope-inhand-right"
     },
     {
       "name": "paper"
@@ -143,12 +149,40 @@
       "name": "paper-inhand-right"
     },
     {
-      "name": "envelope-inhand-right",
-      "directions": 4
+      "name": "paper_stamp-borg"
     },
     {
-      "name": "envelope-inhand-left",
-      "directions": 4
+      "name": "paper_stamp-cci"
+    },
+    {
+      "name": "paper_stamp-iaa"
+    },
+    {
+       "name": "paper_stamp-magi"
+    },
+    {
+        "name": "paper_stamp-topsecret"
+    },
+    {
+        "name": "paper_stamp-classified"
+    },
+    {
+       "name": "paper_stamp-hospitalitydirector"
+    },
+    {
+       "name": "paper_stamp-executiveofficer"
+    },
+    {
+        "name": "paper_stamp-discharged"
+    },
+    {
+        "name": "paper_stamp-commandant"
+    },
+    {
+        "name": "paper_stamp-lieutenant"
+    },
+    {
+        "name": "paper_stamp-corporateliaison"
     }
   ]
 }
