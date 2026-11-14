@@ -290,10 +290,10 @@
     tags:
     - Powerdrill
   - type: Sprite
-    sprite: Objects/Tools/drill.rsi
+    sprite: _Funkystation/Objects/Tools/drill.rsi # Funky
     state: drill_screw
   - type: Item
-    sprite: Objects/Tools/drill.rsi
+    sprite: _Funkystation/Objects/Tools/drill.rsi # Funky
     size: Small
   - type: Tool
     qualities:
@@ -308,7 +308,7 @@
     entries:
       - behavior: [ Screwing ]
         sprite:
-          sprite: Objects/Tools/drill.rsi
+          sprite: _Funkystation/Objects/Tools/drill.rsi # Funky
           state: drill_screw
         useSound: !type:SoundPathSpecifier
           path: /Audio/Items/drill_use.ogg
@@ -320,7 +320,7 @@
             volume: -5
       - behavior: [ Anchoring ]
         sprite:
-          sprite: Objects/Tools/drill.rsi
+          sprite: _Funkystation/Objects/Tools/drill.rsi # Funky
           state: drill_bolt
         useSound: !type:SoundPathSpecifier
           path: /Audio/Items/drill_use.ogg
@@ -565,7 +565,7 @@
   description: A large tool for digging and moving dirt.
   components:
   - type: Sprite
-    sprite: Objects/Tools/shovel.rsi
+    sprite: _Funkystation/Objects/Tools/shovel.rsi # Funky
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: 45
@@ -576,7 +576,7 @@
       collection: MetalThud
   - type: Item
     size: Normal
-    sprite: Objects/Tools/shovel.rsi
+    sprite: _Funkystation/Objects/Tools/shovel.rsi # Funky
   - type: PhysicalComposition
     materialComposition:
       Steel: 100

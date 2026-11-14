@@ -230,7 +230,7 @@
   id: FireAxe
   name: steal-target-groups-fire-axe
   sprite:
-    sprite: Objects/Weapons/Melee/fireaxe.rsi
+    sprite: _Funkystation/Objects/Weapons/Melee/fireaxe.rsi # Funky
     state: icon
 
 - type: stealTargetGroup
@@ -244,7 +244,7 @@
   id: ChiefEngineerToolBelt
   name: steal-target-groups-belt-ce
   sprite:
-    sprite: Clothing/Belt/ce.rsi
+    sprite: _Funkystation/Clothing/Belt/ce.rsi # Funky
     state: icon
 
 - type: stealTargetGroup
