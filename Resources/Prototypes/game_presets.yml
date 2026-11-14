@@ -265,3 +265,21 @@
   - KesslerSyndromeScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+
+# Funky additions start here
+- type: gamePreset
+  id: ForkyGreener
+  alias:
+  - Forky
+  - Fucky
+  - ForkyGreener
+  - FunkyGreener
+  name: forkygreener-title
+  showInVote: false # meant for playtests not voting
+  description: forkygreener-description
+  rules:
+  - BasicRoundstartVariation
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - ForkyGreenerEventScheduler
+# Funky additions end here
