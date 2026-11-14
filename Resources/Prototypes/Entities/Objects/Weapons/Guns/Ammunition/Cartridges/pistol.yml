@@ -10,7 +10,7 @@
   - type: CartridgeAmmo
     proto: BulletPistol
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    sprite: _Funkystation/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi # Funky
     layers:
       - state: base
         map: [ "enum.AmmoVisualLayers.Base" ]
@@ -81,7 +81,7 @@
   suffix: spent
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    sprite: _Funkystation/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi # Funky
     layers:
     - state: base-spent
       map: [ "enum.AmmoVisualLayers.Base" ]
