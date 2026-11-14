@@ -42,7 +42,7 @@
 - type: entity
   parent: BoxSurvivalAquatic
   id: BoxHugAquatic
-  name: box of hugs
+  name: buddy box #funky
   suffix: Emergency H2O
   components:
   - type: Sprite
