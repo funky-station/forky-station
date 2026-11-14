@@ -547,11 +547,13 @@
   groups:
   - GroupTankHarness
   - TramDriverJumpsuit
+  - Pager # Funky Pagers
   - TramDriverOuterClothing #Vest and such
   - TramDriverHat
   - TramDriverGloves
   - Glasses
   - Survival
+  - AssistiveItems
   - Trinkets
   #- TramDriverJobTrinkets
   - GroupSpeciesBreathTool
