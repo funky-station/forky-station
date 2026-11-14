@@ -28,6 +28,13 @@ public sealed partial class ChamberMagazineAmmoProviderComponent : MagazineAmmoP
     [DataField, AutoNetworkedField]
     public bool CanRack = true;
 
+    /// <summary>
+    /// Whether or not bolt status and
+    /// ammo count will be shown on examine.
+    /// </summary>
+    [DataField]
+    public bool ShowExamineText = true;
+
     [DataField("soundBoltClosed"), AutoNetworkedField]
     public SoundSpecifier? BoltClosedSound = new SoundPathSpecifier("/Audio/Weapons/Guns/Bolt/rifle_bolt_closed.ogg");
 

@@ -27,7 +27,7 @@ public abstract partial class SharedGunSystem
 
     private void OnMagazineExamine(EntityUid uid, MagazineAmmoProviderComponent component, ExaminedEvent args)
     {
-        if (!args.IsInDetailsRange)
+        if (!args.IsInDetailsRange || !component.ShowExamineText)
             return;
 
         var (count, _) = GetMagazineCountCapacity(uid, component);
