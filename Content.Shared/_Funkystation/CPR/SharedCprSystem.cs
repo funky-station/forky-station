@@ -86,6 +86,7 @@ public abstract partial class SharedCprSystem : EntitySystem
 
         ent.Comp.HasCrackedRibsThisCrit = false;
         ent.Comp.PumpsThisCrit = 0;
+        ent.Comp.LastCaretaker = null;
     }
 
     private void OnGetInteractingEntities(Entity<CprComponent> ent, ref GetInteractingEntitiesEvent args)
@@ -249,12 +250,7 @@ public abstract partial class SharedCprSystem : EntitySystem
             return;
         }
 
-        var interactingEntities = new HashSet<EntityUid>();
-        _interactionSystem.GetEntitiesInteractingWithTarget(recipient, interactingEntities);
-
-        interactingEntities.Remove(giver);
-
-        if (interactingEntities.Count > 0)
+        if (cpr.LastCaretaker is not null && cpr.LastCaretaker != giver)
         {
             _popup.PopupClient(Loc.GetString("cpr-already-in-progress"), recipient, giver);
             return;
