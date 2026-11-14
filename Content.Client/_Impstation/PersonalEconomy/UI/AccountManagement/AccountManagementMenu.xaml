@@ -1,0 +1,159 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    MinSize="760 512"
+    SetSize="760 512"
+    Title="{Loc account-management-window-title}">
+    <BoxContainer Orientation="Vertical" Margin="8">
+        <BoxContainer Name="MainView" Orientation="Vertical" VerticalExpand="True">
+            <!-- station header -->
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                <BoxContainer Orientation="Vertical">
+                    <BoxContainer Orientation="Horizontal">
+                        <Label Text="{Loc nanobank-station-balance}" StyleClasses="LabelSubText"/>
+                        <Label Name="StationBalanceLabel" StyleClasses="LabelSubText" Margin="6 0 0 0"/>
+                    </BoxContainer>
+                    <BoxContainer Orientation="Horizontal">
+                        <Label Text="{Loc nanobank-next-cycle}" StyleClasses="LabelSubText"/>
+                        <Label Name="NextCycleLabel" StyleClasses="LabelSubText" Margin="6 0 0 0"/>
+                    </BoxContainer>
+                </BoxContainer>
+                <Control HorizontalExpand="True"/>
+                <Button Name="CashOutButton" Text="{Loc nanobank-cash-out-button}" VerticalAlignment="Center"/>
+                <Control MinWidth="4"/>
+                <Button Name="ProgramCardButton" Text="{Loc nanobank-program-card-button}" VerticalAlignment="Center"/>
+            </BoxContainer>
+
+            <cc:HSeparator Margin="0 6"/>
+
+            <!-- three columns -->
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
+
+                <!-- tabs and list (accounts or departments) -->
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" MinWidth="260">
+                    <BoxContainer Orientation="Horizontal">
+                        <Button Name="AccountsTabButton" Text="{Loc nanobank-tab-accounts}" StyleClasses="OpenRight" ToggleMode="True"/>
+                        <Button Name="DepartmentsTabButton" Text="{Loc nanobank-tab-departments}" StyleClasses="OpenLeft" ToggleMode="True"/>
+                    </BoxContainer>
+
+                    <!-- accounts view -->
+                    <BoxContainer Name="AccountsView" Orientation="Vertical" VerticalExpand="True">
+                        <LineEdit Name="SearchBar" PlaceHolder="{Loc nanobank-search-placeholder}" HorizontalExpand="True"/>
+                        <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                            <BoxContainer Name="CrewListContainer" Orientation="Vertical" HorizontalExpand="True"/>
+                        </ScrollContainer>
+                    </BoxContainer>
+
+                    <!-- departments view -->
+                    <BoxContainer Name="DepartmentsView" Orientation="Vertical" VerticalExpand="True" Visible="False">
+                        <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                            <BoxContainer Name="DeptListContainer" Orientation="Vertical" HorizontalExpand="True"/>
+                        </ScrollContainer>
+                    </BoxContainer>
+                </BoxContainer>
+
+                <cc:VSeparator Name="MidSeparator" Margin="6 0"/>
+
+                <!-- middle, payment info for the selected account (smallest column) -->
+                <BoxContainer Name="DetailContainer" Orientation="Vertical" MinWidth="150">
+                    <Label Text="{Loc nanobank-status-label}" StyleClasses="LabelHeading"/>
+                    <Label Name="DetailStatusLabel"/>
+                    <Button Name="ToggleStatusButton"/>
+                    <LineEdit Name="StatusReasonEdit" PlaceHolder="{Loc nanobank-reason-placeholder}"/>
+
+                    <Control MinHeight="10"/>
+
+                    <Label Text="{Loc nanobank-current-pay-label}" StyleClasses="LabelHeading"/>
+                    <Label Name="DetailPayLabel"/>
+                    <LineEdit Name="SalaryEdit" PlaceHolder="{Loc nanobank-input-placeholder}"/>
+                    <Button Name="SetPayButton" Text="{Loc nanobank-set-pay-button}"/>
+
+                    <Control MinHeight="10"/>
+
+                    <Label Text="{Loc nanobank-grant-bonus-label}" StyleClasses="LabelHeading"/>
+                    <LineEdit Name="BonusEdit" PlaceHolder="{Loc nanobank-input-placeholder}"/>
+                    <Button Name="GrantBonusButton" Text="{Loc nanobank-grant-bonus-button}"/>
+                </BoxContainer>
+
+                <cc:VSeparator Name="RightSeparator" Margin="6 0"/>
+
+                <!-- right, account records -->
+                <BoxContainer Name="RecordsColumn" Orientation="Vertical" MinWidth="220" HorizontalExpand="True" VerticalExpand="True">
+                    <Label Text="{Loc nanobank-account-records}" StyleClasses="LabelHeading"/>
+                    <ScrollContainer VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
+                        <BoxContainer Name="RecordsContainer" Orientation="Vertical" HorizontalExpand="True"/>
+                    </ScrollContainer>
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+
+        <!-- card programming screen -->
+        <BoxContainer Name="CardView" Orientation="Vertical" VerticalExpand="True" Visible="False">
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                <Label Text="{Loc nanobank-program-card-title}" StyleClasses="LabelHeading" VerticalAlignment="Center"/>
+                <Control HorizontalExpand="True"/>
+                <Button Name="CardBackButton" Text="{Loc nanobank-back-button}"/>
+            </BoxContainer>
+
+            <cc:HSeparator Margin="0 6"/>
+
+            <BoxContainer Orientation="Vertical" VerticalExpand="True">
+                <Label Name="CardTargetLabel"/>
+                <Label Name="CardSlotLabel" StyleClasses="LabelSubText"/>
+
+                <Control MinHeight="12"/>
+
+                <BoxContainer Orientation="Horizontal">
+                    <Button Name="CardInsertButton" Text="{Loc atm-insert-card-button}"/>
+                    <Control MinWidth="4"/>
+                    <Button Name="CardEjectButton" Text="{Loc atm-eject-card-button}"/>
+                </BoxContainer>
+
+                <Control MinHeight="12"/>
+
+                <Button Name="WriteCardButton" Text="{Loc nanobank-write-card-button}"/>
+
+                <cc:HSeparator Margin="0 12"/>
+
+                <Label Text="{Loc nanobank-new-account-title}" StyleClasses="LabelHeading"/>
+                <Label Text="{Loc nanobank-new-account-subtext}" StyleClasses="LabelSubText"/>
+                <Control MinHeight="6"/>
+                <BoxContainer Orientation="Horizontal">
+                    <LineEdit Name="NewAccountNameEdit" PlaceHolder="{Loc nanobank-new-account-placeholder}" HorizontalExpand="True"/>
+                    <Control MinWidth="4"/>
+                    <Button Name="CreateAccountButton" Text="{Loc nanobank-new-account-button}"/>
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+
+        <!-- scrip station cashout view -->
+        <!-- toggled via cvar!!!!! -->
+        <BoxContainer Name="CashOutView" Orientation="Vertical" VerticalExpand="True" Visible="False">
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                <Label Text="{Loc nanobank-cash-out-title}" StyleClasses="LabelHeading" VerticalAlignment="Center"/>
+                <Control HorizontalExpand="True"/>
+                <Button Name="CashOutBackButton" Text="{Loc nanobank-back-button}"/>
+            </BoxContainer>
+
+            <cc:HSeparator Margin="0 6"/>
+
+            <BoxContainer Orientation="Vertical" VerticalExpand="True">
+                <Label Name="CashOutBalanceLabel"/>
+                <Label Name="CashOutRateLabel" StyleClasses="LabelSubText"/>
+
+                <Control MinHeight="12"/>
+
+                <BoxContainer Orientation="Horizontal">
+                    <LineEdit Name="CashOutAmountBox" PlaceHolder="{Loc nanobank-input-placeholder}" HorizontalExpand="True"/>
+                    <Control MinWidth="4"/>
+                    <Button Name="CashOutConfirmButton" Text="{Loc nanobank-cash-out-confirm}"/>
+                </BoxContainer>
+                <Label Name="CashOutPreviewLabel" StyleClasses="LabelSubText"/>
+            </BoxContainer>
+        </BoxContainer>
+
+        <cc:HSeparator Margin="0 6"/>
+        <Label Name="FooterLabel" StyleClasses="LabelSubText"/>
+    </BoxContainer>
+</controls:FancyWindow>

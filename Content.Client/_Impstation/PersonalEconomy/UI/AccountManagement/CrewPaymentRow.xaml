@@ -1,0 +1,11 @@
+<controls:CrewPaymentRow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._Impstation.PersonalEconomy.UI.AccountManagement"
+    HorizontalExpand="True">
+    <Button Name="SelectButton" StyleClasses="ButtonSquare" HorizontalExpand="True">
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="8 6">
+            <Label Name="NameLabel" HorizontalExpand="True"/>
+            <Label Name="StatusLabel" VerticalAlignment="Center"/>
+        </BoxContainer>
+    </Button>
+</controls:CrewPaymentRow>
