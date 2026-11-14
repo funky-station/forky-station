@@ -163,7 +163,7 @@
       params:
         variation: 0.125
   - type: Sprite
-    sprite: Mobs/Silicon/Bots/honkbot.rsi
+    sprite: _Funkystation/Mobs/Silicon/Bots/honkbot.rsi
     state: honkbot
   - type: HTN
     rootTask:
