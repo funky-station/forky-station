@@ -12,6 +12,7 @@
     - id: ClothingNeckGoldmedal
     - id: XOIDCard
     - id: ClothingEyesHudCommand
+    - id: BookInternalAffairsSecrets
 
 - type: entity
   id: LockerExecutiveOfficerFilled
@@ -35,6 +36,7 @@
     - id: ClothingHeadsetHD
     - id: DoorRemoteService
     - id: BoxFolderCateringDigiboard
+    - id: BookServiceSecrets
 
 - type: entity
   id: LockerHospitalityDirectorFilled
