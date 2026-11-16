@@ -576,10 +576,15 @@
 # M,eowl,,, :3
 - type: entity
   name: meowl
-  parent: [ SimpleMobBase, FlyingMobBase, BaseSlicingRefinable ]
+  parent: [ SimpleMobBase, FlyingMobBase, BaseSlicingRefinable, MobCombat, StripableInventoryBase ]
   id: MobMeowl
   description: The peak of evolution, the most efficient pest hunter any side of the galaxy. Considered highly invasive on every planet.
   components:
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: Inventory
+    speciesId: meowl
+    templateId: pet
   - type: InteractionPopup
     successChance: 0.9
     interactSuccessString: petting-success-meowl
@@ -639,7 +644,6 @@
         Base: dead
   - type: MobPrice
     price: 100
-  - type: NPCRetaliation
   - type: FactionException
   - type: NpcFactionMember
     factions:

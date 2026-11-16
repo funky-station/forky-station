@@ -1239,4 +1239,13 @@
   id: 146
   time: '2026-10-31T19:33:16Z'
   url: https://github.com/funky-station/forky-station/pull/595
+- author: PopUpPUP
+  changes:
+  - message: Meowls are no longer wrinkly
+    type: Fix
+  - message: Meowls can now wear o2 masks and cans
+    type: Tweak
+  id: 147
+  time: '2026-11-14T22:50:11Z'
+  url: https://github.com/funky-station/forky-station/pull/612
 Order: -1
