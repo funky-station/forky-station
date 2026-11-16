@@ -60,7 +60,7 @@
   parent: ClothingHeadHatChameleon
   id: 360DegreeHat
   name: 360 degree hat
-  suffix: Admeme
+  suffix: Admeme, Debug
   description: This strange hat lets you see all around you.
   components:
   - type: ESViewconeModifier
