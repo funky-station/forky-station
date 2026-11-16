@@ -1,17 +1,17 @@
 # Anomaly report
 - type: document
-  id: DocRND01
-  name: doc-rnd-01-name
-  description: doc-rnd-01-desc
+  id: FunkyDocRND01
+  name: funky-doc-rnd-01-name
+  description: funky-doc-rnd-01-desc
   category: DocCatResearch
   paperPrototype: Paper
   contentFileName: rnd-01.txt
 
 # Artifact log
 - type: document
-  id: DocRND02
-  name: doc-rnd-02-name
-  description: doc-rnd-02-desc
+  id: FunkyDocRND02
+  name: funky-doc-rnd-02-name
+  description: funky-doc-rnd-02-desc
   category: DocCatResearch
   paperPrototype: Paper
   contentFileName: rnd-02.txt

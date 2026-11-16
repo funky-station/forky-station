@@ -1,8 +1,8 @@
 # Major SOP violation form
 - type: document
-  id: DocIAB01
-  name: doc-iab-01-name
-  description: doc-iab-01-desc
+  id: FunkyDocIAB01
+  name: funky-doc-iab-01-name
+  description: funky-doc-iab-01-desc
   category: DocCatInternalAffairs
   paperPrototype: Paper
   contentFileName: iab-01.txt
@@ -12,9 +12,9 @@
 
 # Department review form
 - type: document
-  id: DocIAB02
-  name: doc-iab-02-name
-  description: doc-iab-02-desc
+  id: FunkyDocIAB02
+  name: funky-doc-iab-02-name
+  description: funky-doc-iab-02-desc
   category: DocCatInternalAffairs
   paperPrototype: Paper
   contentFileName: iab-02.txt

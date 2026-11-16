@@ -1,8 +1,8 @@
 # Arrest record
 - type: document
-  id: DocSEC01
-  name: doc-sec-01-name
-  description: doc-sec-01-desc
+  id: FunkyDocSEC01
+  name: funky-doc-sec-01-name
+  description: funky-doc-sec-01-desc
   category: DocCatLegal
   paperPrototype: Paper
   contentFileName: sec-01.txt
@@ -13,9 +13,9 @@
 
 # Search warrant
 - type: document
-  id: DocSEC02
-  name: doc-sec-02-name
-  description: doc-sec-02-desc
+  id: FunkyDocSEC02
+  name: funky-doc-sec-02-name
+  description: funky-doc-sec-02-desc
   category: DocCatLegal
   paperPrototype: Paper
   contentFileName: sec-02.txt

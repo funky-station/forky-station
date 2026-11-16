@@ -121,9 +121,9 @@
     board: DocumentPrinterXOCircuitboard
   - type: DocumentPrinter
     availableDocuments:
-    - DocCMD01
-    - DocCMD02
-    - DocCMD03
+    - FunkyDocCMD01
+    - FunkyDocCMD02
+    - FunkyDocCMD03
     #emagDocuments: # Not yet implemented
     #- DocSyndicateRecruitment
     #managerDocuments:
@@ -138,43 +138,9 @@
   components:
   - type: DocumentPrinter
     availableDocuments:
-    - DocENG01
-    - DocRND01
-    - DocRND02
-    #emagDocuments: # Not yet implemented
-    #- DocSyndicateRecruitment
-    #managerDocuments:
-    #- DocClownAAForm
-    #- DocXOMurder
-
-# For Security (just sec documents)
-- type: entity
-  parent: BaseDocumentPrinter
-  id: DocumentPrinterSecurity
-  suffix: Security
-  components:
-  - type: DocumentPrinter
-    availableDocuments:
-    - DocSEC01
-    - DocSEC02
-    #emagDocuments: # Not yet implemented
-    #- DocSyndicateRecruitment
-    #managerDocuments:
-    #- DocClownAAForm
-    #- DocXOMurder
-
-# For Internal Affairs (sec and IA documents)
-- type: entity
-  parent: BaseDocumentPrinter
-  id: DocumentPrinterIA
-  suffix: Internal Affairs
-  components:
-  - type: DocumentPrinter
-    availableDocuments:
-    - DocIAB01
-    - DocIAB02
-    - DocSEC01
-    - DocSEC02
+    - FunkyDocENG01
+    - FunkyDocRND01
+    - FunkyDocRND02
     #emagDocuments: # Not yet implemented
     #- DocSyndicateRecruitment
     #managerDocuments:
@@ -191,17 +157,17 @@
     board: DocumentPrinterBridgeCircuitboard
   - type: DocumentPrinter
     availableDocuments:
-    - DocCMD01
-    - DocCMD02
-    - DocCMD03
-    - DocCMD04
-    - DocENG01
-    - DocIAB01
-    - DocIAB02
-    - DocSEC01
-    - DocSEC02
-    - DocRND01
-    - DocRND02
+    - FunkyDocCMD01
+    - FunkyDocCMD02
+    - FunkyDocCMD03
+    - FunkyDocCMD04
+    - FunkyDocENG01
+    - FunkyDocIAB01
+    - FunkyDocIAB02
+    - FunkyDocSEC01
+    - FunkyDocSEC02
+    - FunkyDocRND01
+    - FunkyDocRND02
     #emagDocuments: # Not yet implemented
     #- DocSyndicateRecruitment
     #managerDocuments:
@@ -217,3 +183,41 @@
   - type: DocumentPrinter
     availableDocuments:
     - DocGeneralComplaint
+
+# For Internal Affairs (sec and IA documents)
+- type: entity
+  parent: BaseDocumentPrinter
+  id: FunkyDocumentPrinterIA
+  suffix: Internal Affairs
+  components:
+  - type: Machine
+    board: FunkyDocumentPrinterIACircuitboard
+  - type: DocumentPrinter
+    availableDocuments:
+    - FunkyDocIAB01
+    - FunkyDocIAB02
+    - FunkyDocSEC01
+    - FunkyDocSEC02
+    #emagDocuments: # Not yet implemented
+    #- DocSyndicateRecruitment
+    #managerDocuments:
+    #- DocClownAAForm
+    #- DocXOMurder
+
+# For Security (just sec documents)
+- type: entity
+  parent: BaseDocumentPrinter
+  id: FunkyDocumentPrinterSecurity
+  suffix: Security
+  components:
+  - type: Machine
+    board: FunkyDocumentPrinterSecurityCircuitboard
+  - type: DocumentPrinter
+    availableDocuments:
+    - FunkyDocSEC01
+    - FunkyDocSEC02
+    #emagDocuments: # Not yet implemented
+    #- DocSyndicateRecruitment
+    #managerDocuments:
+    #- DocClownAAForm
+    #- DocXOMurder

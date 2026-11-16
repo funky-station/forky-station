@@ -1,8 +1,8 @@
 # Promotion form
 - type: document
-  id: DocCMD01
-  name: doc-cmd-01-name
-  description: doc-cmd-01-desc
+  id: FunkyDocCMD01
+  name: funky-doc-cmd-01-name
+  description: funky-doc-cmd-01-desc
   category: DocCatAdministrative
   paperPrototype: Paper
   contentFileName: cmd-01.txt
@@ -11,9 +11,9 @@
 
 # Demotion form
 - type: document
-  id: DocCMD02
-  name: doc-cmd-02-name
-  description: doc-cmd-01-desc
+  id: FunkyDocCMD02
+  name: funky-doc-cmd-02-name
+  description: funky-doc-cmd-01-desc
   category: DocCatAdministrative
   paperPrototype: Paper
   contentFileName: cmd-02.txt
@@ -22,9 +22,9 @@
 
 # Termination form
 - type: document
-  id: DocCMD03
-  name: doc-cmd-03-name
-  description: doc-cmd-03-desc
+  id: FunkyDocCMD03
+  name: funky-doc-cmd-03-name
+  description: funky-doc-cmd-03-desc
   category: DocCatAdministrative
   paperPrototype: Paper
   contentFileName: cmd-03.txt
@@ -33,9 +33,9 @@
 
 # Command performance review
 - type: document
-  id: DocCMD04
-  name: doc-cmd-04-name
-  description: doc-cmd-04-desc
+  id: FunkyDocCMD04
+  name: funky-doc-cmd-04-name
+  description: funky-doc-cmd-04-desc
   category: DocCatAdministrative
   paperPrototype: Paper
   contentFileName: cmd-04.txt

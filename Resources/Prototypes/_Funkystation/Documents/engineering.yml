@@ -1,8 +1,8 @@
 # Engine status report
 - type: document
-  id: DocENG01
-  name: doc-eng-01-name
-  description: doc-eng-01-desc
+  id: FunkyDocENG01
+  name: funky-doc-eng-01-name
+  description: funky-doc-eng-01-desc
   category: DocCatEngineering
   paperPrototype: Paper
   contentFileName: eng-01.txt
