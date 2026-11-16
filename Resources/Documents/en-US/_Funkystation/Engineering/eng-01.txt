@@ -1,0 +1,26 @@
+# ENG-01 Engine Status Report
+[color=#1b67a5]╔══════════════════════════════════════
+║ [color=#0000]░░[/color][color=#e4a258]▄▀[/color][color=#0000]░░[/color]   [head=2]NANOTRASEN[/head]
+║ [color=#0000]░[/color][color=#e4a258]▄█▄▄▀[/color]   [color=#e4a258][head=3]ENGINEERING DEPARTMENT[/head][/color]
+║ [color=#e4a258]██▀[/color][color=#0000]░░░[/color]   [head=3]ENG-01 Engine Status Report[/head]
+╚══════════════════════════════════════[/color]
+
+[bold]Current Shift Time:[/bold] [form]
+  [bullet] [check] [mono]>00:30 SST[/mono]
+  [bullet] [check] [mono]>01:00 SST[/mono]
+  [bullet] [check] [mono]>01:30 SST[/mono]
+
+[bold]Engine:[/bold] [form]
+[bullet] [italic]Configuration:[/italic] [form]
+[bullet] [italic]Upkeep:[/italic] [form]
+[bullet] [italic]Complications:[/italic] [check] [form]
+
+[bold]Engine:[/bold] [form]
+[bullet] [italic]Configuration:[/italic] [form]
+[bullet] [italic]Upkeep:[/italic] [form]
+[bullet] [italic]Complications:[/italic] [check] [form]
+
+[bold]Engine:[/bold] [form]
+[bullet] [italic]Configuration:[/italic] [form]
+[bullet] [italic]Upkeep:[/italic] [form]
+[bullet] [italic]Complications:[/italic] [check] [form]

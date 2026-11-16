@@ -1,0 +1,21 @@
+# IAB-01 Major SOP Violation Form
+[color=#1b67a5]╔══════════════════════════════════════
+║[color=#ffffff]░░[/color][color=#cfb095]▄█▀█[/color]   [head=2]NANOTRASEN[/head]
+║[color=#ffffff]░[/color][color=#cfb095]▄▀▄█▀   [head=3]INTERNAL AFFAIRS DEPARTMENT[/head][/color]
+║[color=#cfb095]▄▀▀[/color][color=#ffffff]░░░[/color]   [head=3]IAB-01 Major SOP Violation Form[/head]
+╚══════════════════════════════════════[/color]
+
+[bold]Offender:[/bold]
+  [bullet] [italic]Individual(s):[/italic] [form]
+  [bullet] [italic]Department:[/italic] [form]
+
+[bold]Violated Procedure:[/bold]
+  [bullet] [form]
+
+[bold]Violation Details:[/bold]
+  [bullet] [form]
+
+[bold]Additional Notes:[/bold]
+  [bullet] [form]
+
+[bold]Witness:[/bold] [signature]

@@ -1,29 +1,43 @@
+# Promotion form
 - type: document
-  id: DocCommandPromotion
-  name: doc-command-promotion-name
-  description: doc-command-promotion-desc
+  id: DocCMD01
+  name: doc-cmd-01-name
+  description: doc-cmd-01-desc
   category: DocCatAdministrative
   paperPrototype: Paper
-  contentFileName: test.txt # TODO: Change this
+  contentFileName: cmd-01.txt
   access:
     - Command
 
+# Demotion form
 - type: document
-  id: DocJobTransfer
-  name: doc-job-transfer-name
-  description: doc-job-transfer-desc
+  id: DocCMD02
+  name: doc-cmd-02-name
+  description: doc-cmd-01-desc
   category: DocCatAdministrative
   paperPrototype: Paper
-  contentFileName: test.txt # TODO: Change this
+  contentFileName: cmd-02.txt
   access:
-  - Command
+    - Command
 
+# Termination form
 - type: document
-  id: DocDemotionNotice
-  name: doc-demotion-notice-name
-  description: doc-demotion-notice-desc
+  id: DocCMD03
+  name: doc-cmd-03-name
+  description: doc-cmd-03-desc
   category: DocCatAdministrative
   paperPrototype: Paper
-  contentFileName: test.txt # TODO: Change this
+  contentFileName: cmd-03.txt
   access:
-  - Command
+    - Command
+
+# Command performance review
+- type: document
+  id: DocCMD04
+  name: doc-cmd-04-name
+  description: doc-cmd-04-desc
+  category: DocCatAdministrative
+  paperPrototype: Paper
+  contentFileName: cmd-04.txt
+  access:
+    - Corporate # This is specifically for the CL

@@ -121,17 +121,17 @@
     board: DocumentPrinterXOCircuitboard
   - type: DocumentPrinter
     availableDocuments:
-    - DocCommandPromotion
-    - DocJobTransfer
-    - DocDemotionNotice
-    - DocGeneralComplaint
-    emagDocuments:
-    - DocSyndicateRecruitment
-    managerDocuments:
-    - DocClownAAForm
-    - DocXOMurder
+    - DocCMD01
+    - DocCMD02
+    - DocCMD03
+    - DocCMD04
+    #emagDocuments: # Not yet implemented
+    #- DocSyndicateRecruitment
+    #managerDocuments:
+    #- DocClownAAForm
+    #- DocXOMurder
 
-# For public use (no command or otherwise "classified" documents)
+# For public use (no command, sec, or IA documents)
 - type: entity
   parent: BaseDocumentPrinter
   id: DocumentPrinterPublic
@@ -139,16 +139,32 @@
   components:
   - type: DocumentPrinter
     availableDocuments:
-    - DocGeneralComplaint
-    - DocAnomalyLog
-    - DocAutopsy
-    - DocMaterialRequest
-    - DocBuildingPermit
-    emagDocuments:
-    - DocSyndicateRecruitment
-    managerDocuments:
-    - DocClownAAForm
-    - DocXOMurder
+    - DocENG01
+    - DocRND01
+    - DocRND02
+    #emagDocuments: # Not yet implemented
+    #- DocSyndicateRecruitment
+    #managerDocuments:
+    #- DocClownAAForm
+    #- DocXOMurder
+
+# For Internal Affairs (sec and IA documents)
+- type: entity
+  parent: BaseDocumentPrinter
+  id: DocumentPrinterIA
+  suffix: Internal Affairs
+  components:
+  - type: DocumentPrinter
+    availableDocuments:
+    - DocIAB01
+    - DocIAB02
+    - DocSEC01
+    - DocSEC02
+    #emagDocuments: # Not yet implemented
+    #- DocSyndicateRecruitment
+    #managerDocuments:
+    #- DocClownAAForm
+    #- DocXOMurder
 
 # For Command (should have all documents except CC specific ones)
 - type: entity
@@ -160,21 +176,22 @@
     board: DocumentPrinterBridgeCircuitboard
   - type: DocumentPrinter
     availableDocuments:
-    - DocGeneralComplaint
-    - DocCommandPromotion
-    - DocJobTransfer
-    - DocDemotionNotice
-    - DocNda
-    - DocAnomalyLog
-    - DocAutopsy
-    - DocMaterialRequest
-    - DocDepartmentAudit
-    - DocBuildingPermit
-    emagDocuments:
-    - DocSyndicateRecruitment
-    managerDocuments:
-    - DocClownAAForm
-    - DocXOMurder
+    - DocCMD01
+    - DocCMD02
+    - DocCMD03
+    - DocCMD04
+    - DocENG01
+    - DocIAB01
+    - DocIAB02
+    - DocSEC01
+    - DocSEC02
+    - DocRND01
+    - DocRND02
+    #emagDocuments: # Not yet implemented
+    #- DocSyndicateRecruitment
+    #managerDocuments:
+    #- DocClownAAForm
+    #- DocXOMurder
 
 # for CentComm, should only have CC documents (To be mapped in CC, used by admins and CCIs)
 - type: entity

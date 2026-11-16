@@ -1,0 +1,31 @@
+# RND-02 Artifact Log
+[color=#1b67a5]╔══════════════════════════════════════
+║ [color=#0000]░[/color][color=#6e5bb6]▄▄██[/color][color=#0000]░[/color]   [head=2]NANOTRASEN[/head]
+║ [color=#6e5bb6]▄█▀██[/color][color=#0000]░[/color]   [color=#6e5bb6][head=3]SCIENCE DEPARTMENT[/head][/color]
+║ [color=#6e5bb6]██▄▄▄[/color][color=#0000]░[/color]   [head=3]RND-02 Artifact Log[/head]
+╚══════════════════════════════════════[/color]
+
+[bold]Artifact Type:[/bold]
+  [bullet] [check] ○ [italic]Large[/italic]
+  [bullet] [check]  ◦  [italic]Handheld[/italic]
+
+[bold]Noteworthy Reactions:[/bold]
+  [bullet] [italic]Node[/italic]: [form]
+  [bullet] [italic]Trigger[/italic]: [form]
+  [bullet] [italic]Reaction[/italic]: [form]
+
+  [bullet] [italic]Node[/italic]: [form]
+  [bullet] [italic]Trigger[/italic]: [form]
+  [bullet] [italic]Reaction[/italic]: [form]
+
+  [bullet] [italic]Node[/italic]: [form]
+  [bullet] [italic]Trigger[/italic]: [form]
+  [bullet] [italic]Reaction[/italic]: [form]
+
+  [bullet] [italic]Node[/italic]: [form]
+  [bullet] [italic]Trigger[/italic]: [form]
+  [bullet] [italic]Reaction[/italic]: [form]
+
+  [bullet] [italic]Node[/italic]: [form]
+  [bullet] [italic]Trigger[/italic]: [form]
+  [bullet] [italic]Reaction[/italic]: [form]
