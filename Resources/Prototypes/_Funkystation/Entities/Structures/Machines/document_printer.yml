@@ -124,7 +124,6 @@
     - DocCMD01
     - DocCMD02
     - DocCMD03
-    - DocCMD04
     #emagDocuments: # Not yet implemented
     #- DocSyndicateRecruitment
     #managerDocuments:
@@ -142,6 +141,22 @@
     - DocENG01
     - DocRND01
     - DocRND02
+    #emagDocuments: # Not yet implemented
+    #- DocSyndicateRecruitment
+    #managerDocuments:
+    #- DocClownAAForm
+    #- DocXOMurder
+
+# For Security (just sec documents)
+- type: entity
+  parent: BaseDocumentPrinter
+  id: DocumentPrinterSecurity
+  suffix: Security
+  components:
+  - type: DocumentPrinter
+    availableDocuments:
+    - DocSEC01
+    - DocSEC02
     #emagDocuments: # Not yet implemented
     #- DocSyndicateRecruitment
     #managerDocuments:
