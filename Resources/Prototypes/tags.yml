@@ -91,10 +91,10 @@
   id: Bolt #Storage Whitelist: Quiver, used as ammo for crossbows
 
 - type: Tag
-  id: BoltHeavy # For higher power crossbows
+  id: BoltHeavy # Same as the normal bolt, For higher power crossbows
 
 - type: Tag
-  id: BoltVeryHeavy # for VERY high power crossbows, closer to sniper rifles
+  id: BoltVeryHeavy # Used for Ballistas
 
 - type: Tag
   id: Book # Storage whitelist: BorgModuleService, BooksBag, Bookshelf. Blacklisting on various entities whitelisting PaperComponent

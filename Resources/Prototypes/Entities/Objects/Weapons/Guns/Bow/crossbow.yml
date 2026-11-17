@@ -1,18 +1,19 @@
 - type: entity
+  parent: BaseItem
   name: crossbow
   id: BaseCrossbow
   description: The second rooty tooty point and shooty.
   # reference to the bow description, mostly a placeholder until
   # I can think of something better
   abstract: true
-  components:
+  components: #TODO: add a system for drawing the crossbow before being able to fire it
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Bow/bow.rsi # TEMPORARY
+    sprite: Objects/Weapons/Guns/Bow/crossbow.rsi # TEMPORARY
   - type: Item
     size: Large
   - type: Wieldable
   - type: UseDelay
-    delay: 0.5
+    delay: 2.5 # until a drawing system can be implemented
   - type: GunRequiresWield
   - type: Gun
     minAngle: 0
@@ -34,7 +35,7 @@
         whitelist:
           tags:
           - Bolt
-          - Arrow #for testing
+          - Arrow #for testing TODO: remove once it is done
   - type: ContainerContainer
     containers:
       projectiles: !type:ContainerSlot
@@ -43,20 +44,182 @@
 
 - type: entity
   parent: BaseCrossbow
+  abstract: true
+  id: BaseCrossbowCompound
+  name: compound crossbow
+  components:
+  - type: Sprite #currently colours are just the regions of the crossbow
+    sprite: Objects/Weapons/Guns/Bow/compound-crossbow.rsi # ignore the 64x one
+    layers:
+    - state: undrawn
+      map: [ base ]
+    - state: drawn-bolt
+      map: [ bolt ]
+      visible: false
+    - type: Appearance
+    - type: ItemMapper
+      spriteLayers:
+      - bolt
+      mapLayers:
+        bolt:
+          whitelist:
+            tags:
+            - Arrow
+            - Bolt
+    - type: GenericVisualizer
+      visuals:
+        enum.WieldableVisuals.Wielded:
+          bolt:
+            True: { state: drawn-bolt }
+            False: { state: drawn-bolt }
+          base:
+            True: { state: drawn }
+            False: { state: undrawn }
+
+- type: entity
+  parent: BaseCrossbow
   id: CrossbowImprovised
   name: improvised crossbow
   components:
   - type: Gun
     projectileSpeed: 20 # not as strong
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Bow/crossbow.rsi # TEMPORARY
+    layers:
+    - state: undrawn
+      map: [ base ]
+    - state: drawn-bolt
+      map: [ bolt ]
+      visible: false
+  - type: Appearance
+  - type: ItemMapper
+    spriteLayers:
+    - bolt
+    mapLayers:
+      bolt:
+        whitelist:
+          tags:
+          - Arrow
+          - Bolt
+  - type: GenericVisualizer
+    visuals:
+      enum.WieldableVisuals.Wielded:
+        bolt:
+          True: { state: drawn-bolt }
+          False: { state: drawn-bolt }
+        base:
+          True: { state: drawn }
+          False: { state: undrawn }
   # TODO: Add construction
 #  - type: Construction
  #   graph:
  #   node:
 
-
 - type: entity
-  parent: BaseCrossbow
+  parent: [ BaseCrossbowCompound, BaseSecurityContraband]
   id: CrossbowSecurity
   name: AGIES security crossbow
   description: "With the all new AGIES Security crossbow you don't have to worry about silly things like trigger discipline, because crossbows are obviously less dangerous then a gun! (Disclaimer: AGIES Security is not responsible for any injuries this causes)"
-  #components: # TODO: add it's own sprite
+  #components: # TODO: finish it's own sprite
+
+- type: entity
+  parent: [ BaseCrossbowCompound, BaseSyndicateContraband ]
+  id: SyndicateCrossbow
+  name: syndicate crossbow
+  description: A crossbow manufactured by the Syndicate.
+
+- type: entity
+  parent: [ BaseCrossbow, BaseSyndicateContraband ]
+  id: SyndicateCrossbowHeavy
+  name: syndicate heavy crossbow
+  description: a crossbow manufactured by the Syndicate to shoot very powerful bolts.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Bow/crossbow.rsi # TODO: Give it it's own sprite
+    layers:
+    - state: undrawn
+      map: [ base ]
+    - state: drawn-bolt
+      map: [ bolt ]
+      visible: false
+  - type: Appearance
+  - type: ItemMapper
+    spriteLayers:
+    - bolt
+    mapLayers:
+      bolt:
+        whitelist:
+          tags:
+          - BoltHeavy
+  - type: GenericVisualizer
+    visuals:
+      enum.WieldableVisuals.Wielded:
+        bolt:
+          True: { state: drawn-bolt }
+          False: { state: drawn-bolt }
+        base:
+          True: { state: drawn }
+          False: { state: undrawn }
+  - type: Gun
+    projectileSpeed: 40
+  - type: UseDelay
+    delay: 4
+  - type: ItemSlots
+    slots:
+      projectiles:
+        name: Projectiles
+        startingItem: null
+        insertSound: /Audio/Weapons/Guns/Misc/arrow_nock.ogg #close enough
+        whitelist:
+          tags:
+          - BoltHeavy
+
+- type: entity
+  parent: [ BaseCrossbow, BaseSyndicateContraband ]
+  id: SyndicateHandheldBallista
+  name: syndicate handheld ballista
+  description: A handheld ballista developed by the syndicate. There is no way this ends well.
+  components:
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Bow/crossbow.rsi # TODO: Give it it's own sprite
+    layers:
+    - state: undrawn
+      map: [ base ]
+    - state: drawn-bolt
+      map: [ bolt ]
+      visible: false
+  - type: Appearance
+  - type: ItemMapper
+    spriteLayers:
+    - bolt
+    mapLayers:
+      bolt:
+        whitelist:
+          tags:
+          - BoltVeryHeavy
+  - type: GenericVisualizer
+    visuals:
+      enum.WieldableVisuals.Wielded:
+        bolt:
+          True: { state: drawn-bolt }
+          False: { state: drawn-bolt }
+        base:
+          True: { state: drawn }
+          False: { state: undrawn }
+  - type: Gun
+    projectileSpeed: 60
+  - type: UseDelay
+    delay: 8 # you NEED to commit to it
+  - type: ItemSlots
+    slots:
+      projectiles:
+        name: Projectiles
+        startingItem: null
+        insertSound: /Audio/Weapons/Guns/Misc/arrow_nock.ogg # TODO: Give it it's own sound
+        whitelist:
+          tags:
+          - BoltVeryHeavy
