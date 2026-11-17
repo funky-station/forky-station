@@ -70,6 +70,34 @@
       Manipulator: 2
       Cable: 2
 
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: FunkyDocumentPrinterIACircuitboard
+  suffix: IA
+  name: Model XF-880 document printer machine board
+  description: A machine printed circuit board for a heavy-duty document printer. This one is tagged "IA".
+  components:
+  - type: MachineBoard
+    prototype: FunkyDocumentPrinterIA
+    stackRequirements:
+      Steel: 1
+      Manipulator: 2
+      Cable: 2
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: FunkyDocumentPrinterSecurityCircuitboard
+  suffix: Security
+  name: Model XF-880 document printer machine board
+  description: A machine printed circuit board for a heavy-duty document printer. This one is tagged "AEGIS".
+  components:
+  - type: MachineBoard
+    prototype: FunkyDocumentPrinterSecurity
+    stackRequirements:
+      Steel: 1
+      Manipulator: 2
+      Cable: 2
+
 # Funky Paper Shredder
 - type: entity
   parent: BaseMachineCircuitboard
@@ -83,7 +111,7 @@
       Steel: 1
       Manipulator: 1
       Cable: 1
-      
+
 # Funky, Pager Server Board
 - type: entity
   id: PagerServerCircuitboard

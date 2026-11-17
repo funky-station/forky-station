@@ -1,7 +1,17 @@
+# Anomaly report
 - type: document
-  id: DocAnomalyLog
-  name: doc-anomaly-log-name
-  description: doc-anomaly-log-desc
+  id: FunkyDocRND01
+  name: funky-doc-rnd-01-name
+  description: funky-doc-rnd-01-desc
   category: DocCatResearch
   paperPrototype: Paper
-  contentFileName: test.txt # TODO: Change this
+  contentFileName: rnd-01.txt
+
+# Artifact log
+- type: document
+  id: FunkyDocRND02
+  name: funky-doc-rnd-02-name
+  description: funky-doc-rnd-02-desc
+  category: DocCatResearch
+  paperPrototype: Paper
+  contentFileName: rnd-02.txt

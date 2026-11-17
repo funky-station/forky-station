@@ -1,9 +1,25 @@
+# Arrest record
 - type: document
-  id: DocNda
-  name: doc-nda-name
-  description: doc-nda-desc
+  id: FunkyDocSEC01
+  name: funky-doc-sec-01-name
+  description: funky-doc-sec-01-desc
   category: DocCatLegal
   paperPrototype: Paper
-  contentFileName: test.txt # TODO: Change this
+  contentFileName: sec-01.txt
   access:
-    - Command
+  - Command
+  - InternalAffairs
+  - Security
+
+# Search warrant
+- type: document
+  id: FunkyDocSEC02
+  name: funky-doc-sec-02-name
+  description: funky-doc-sec-02-desc
+  category: DocCatLegal
+  paperPrototype: Paper
+  contentFileName: sec-02.txt
+  access:
+  - Command
+  - InternalAffairs
+  - Security
