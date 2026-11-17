@@ -2,7 +2,7 @@
 
 - type: entity
   parent: ClothingNeckBase
-  id: FuClothingNeckBadgeDqm
+  id: FunkyClothingNeckBadgeDQM
   name: deputy quartermaster's badge
   suffix: dQM
   description: A badge that indicates that the wearer holds the position of Deputy Quartermaster.
@@ -18,7 +18,7 @@
 
 - type: entity
   parent: ClothingNeckBase
-  id: FuClothingNeckBadgeDce
+  id: FunkyClothingNeckBadgeDCE
   name: engine foreman's badge
   suffix: dCE
   description: A badge that indicates that the wearer holds the position of Engine Foreman.
@@ -34,7 +34,7 @@
 
 - type: entity
   parent: ClothingNeckBase
-  id: FuClothingNeckBadgeDcmo
+  id: FunkyClothingNeckBadgeDCMO
   name: charge nurse's badge
   suffix: dCMO
   description: A badge that indicates that the wearer holds the position of Charge Nurse.
@@ -50,7 +50,7 @@
 
 - type: entity
   parent: ClothingNeckBase
-  id: FuClothingNeckBadgeDrd
+  id: FunkyClothingNeckBadgeDRD
   name: principal researcher's badge
   suffix: dRD
   description: A badge that indicates that the wearer holds the position of Principal Researcher.
@@ -66,7 +66,7 @@
 
 - type: entity
   parent: ClothingNeckBase
-  id: FuClothingNeckBadgeDhd
+  id: FunkyClothingNeckBadgeDHD
   name: compère's badge
   suffix: dHD
   description: A badge that indicates that the wearer holds the position of Compère.

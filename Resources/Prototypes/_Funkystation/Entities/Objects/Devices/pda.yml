@@ -145,7 +145,7 @@
 
 - type: entity
   parent: SeniorCourierPDA
-  id: FuDqmPDA
+  id: FunkyDQMPDA
   name: deputy quartermaster PDA
   suffix: dQM
   components:
@@ -160,7 +160,7 @@
 
 - type: entity
   parent: SeniorEngineerPDA
-  id: FuDcePDA
+  id: FunkyDCEPDA
   name: engine foreman PDA
   suffix: dCE
   components:
@@ -175,7 +175,7 @@
 
 - type: entity
   parent: SeniorPhysicianPDA
-  id: FuDcmoPDA
+  id: FunkyDCMOPDA
   name: charge nurse PDA
   suffix: dCMO
   components:
@@ -190,7 +190,7 @@
 
 - type: entity
   parent: SeniorResearcherPDA
-  id: FuDrdPDA
+  id: FunkyDRDPDA
   name: principal researcher PDA
   suffix: dRD
   components:
@@ -205,7 +205,7 @@
 
 - type: entity
   parent: ServiceWorkerPDA # Fortunately no senior service jobs ever existed
-  id: FuDhdPDA
+  id: FunkyDHDPDA
   name: compère PDA
   suffix: dHD
   description: Smells like candles and good cooking. # Service Worker PDA description kinda sucks

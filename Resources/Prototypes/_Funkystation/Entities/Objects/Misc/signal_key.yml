@@ -1,11 +1,11 @@
 - type: entity
   abstract: true
   parent: BaseItem
-  id: FuBaseSignalKey
+  id: FunkyBaseSignalKey
   name: key
   components:
   - type: Item
-    size: Small
+    size: Tiny
   - type: Sprite
     sprite: _Funkystation/Objects/Misc/key.rsi
   - type: EmitSoundOnPickup
@@ -26,8 +26,8 @@
   - type: SignalKey
 
 - type: entity
-  parent: FuBaseSignalKey
-  id: FuKeyDqm
+  parent: FunkyBaseSignalKey
+  id: FunkyKeyDQM
   name: deputy quartermaster's key
   suffix: dQM
   description: A key that gives the Deputy Quartermaster access to the Quartermaster's office, as long as the secondary lock is open.
@@ -38,8 +38,8 @@
     keyType: dQM
 
 - type: entity
-  parent: FuBaseSignalKey
-  id: FuKeyDce
+  parent: FunkyBaseSignalKey
+  id: FunkyKeyDCE
   name: engine foreman's key
   suffix: dCE
   description: A key that gives the Engine Foreman access to the Chief Engineer's office, as long as the secondary lock is open.
@@ -50,8 +50,8 @@
     keyType: dCE
 
 - type: entity
-  parent: FuBaseSignalKey
-  id: FuKeyDcmo
+  parent: FunkyBaseSignalKey
+  id: FunkyKeyDCMO
   name: charge nurse's key
   suffix: dCMO
   description: A key that gives the Charge Nurse access to the Chief Medical Officer's office, as long as the secondary lock is open.
@@ -62,8 +62,8 @@
     keyType: dCMO
 
 - type: entity
-  parent: FuBaseSignalKey
-  id: FuKeyDrd
+  parent: FunkyBaseSignalKey
+  id: FunkyKeyDRD
   name: principal researcher's key
   suffix: dRD
   description: A key that gives the Principal Researcher access to the Research Director's office, as long as the secondary lock is open.
@@ -74,8 +74,8 @@
     keyType: dRD
 
 - type: entity
-  parent: FuBaseSignalKey
-  id: FuKeyDhd
+  parent: FunkyBaseSignalKey
+  id: FunkyKeyDHD
   name: compère's key
   suffix: dHD
   description: A key that gives the Compère access to the Hospitality Director's office, as long as the secondary lock is open.

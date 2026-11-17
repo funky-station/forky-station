@@ -3,7 +3,7 @@
 - type: entity
   abstract: true
   parent: [ BaseWallmountMetallic, StructureHealthMachine ]
-  id: FuBaseSignalLock
+  id: FunkyBaseSignalLock
   name: signal lock
   description: A keyhole mounted on the wall.
   components:
@@ -41,8 +41,8 @@
 
 - type: entity
   abstract: true
-  parent: FuBaseSignalLock
-  id: FuBaseLockableSignalLock
+  parent: FunkyBaseSignalLock
+  id: FunkyBaseLockableSignalLock
   name: lockable signal lock
   components:
   - type: Lock
@@ -73,16 +73,16 @@
 
 # This is just for the name change.
 # All the secondary locks are going to have the same player-facing name so this is more efficient.
-# FuBaseSignalLock should keep a generic name in case this system is used for other stuff.
+# FunkyBaseSignalLock should keep a generic name in case this system is used for other stuff.
 - type: entity
   abstract: true
-  parent: FuBaseLockableSignalLock
-  id: FuBaseSecondaryLock
+  parent: FunkyBaseLockableSignalLock
+  id: FunkyBaseSecondaryLock
   name: secondary lock
 
 - type: entity
-  parent: FuBaseSecondaryLock
-  id: FuSecondaryLockDqm
+  parent: FunkyBaseSecondaryLock
+  id: FunkySecondaryLockDQM
   suffix: dQM
   components:
   - type: AccessReader
@@ -91,8 +91,8 @@
     keyType: dQM
 
 - type: entity
-  parent: FuBaseSecondaryLock
-  id: FuSecondaryLockDce
+  parent: FunkyBaseSecondaryLock
+  id: FunkySecondaryLockDCE
   suffix: dCE
   components:
   - type: AccessReader
@@ -101,8 +101,8 @@
     keyType: dCE
 
 - type: entity
-  parent: FuBaseSecondaryLock
-  id: FuSecondaryLockDcmo
+  parent: FunkyBaseSecondaryLock
+  id: FunkySecondaryLockDCMO
   suffix: dCMO
   components:
   - type: AccessReader
@@ -111,8 +111,8 @@
     keyType: dCMO
 
 - type: entity
-  parent: FuBaseSecondaryLock
-  id: FuSecondaryLockDrd
+  parent: FunkyBaseSecondaryLock
+  id: FunkySecondaryLockDRD
   suffix: dRD
   components:
   - type: AccessReader
@@ -121,8 +121,8 @@
     keyType: dRD
 
 - type: entity
-  parent: FuBaseSecondaryLock
-  id: FuSecondaryLockDhd
+  parent: FunkyBaseSecondaryLock
+  id: FunkySecondaryLockDHD
   suffix: dHD
   components:
   - type: AccessReader
