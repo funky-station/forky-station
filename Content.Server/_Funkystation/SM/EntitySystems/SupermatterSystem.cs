@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared._Funkystation.SM.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Construction.Components;
@@ -601,6 +602,29 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
         }
     }
 
+    private bool HasCharacteristicTie(SharedSupermatterComponent sm)
+    {
+        var growth = MathF.Abs(sm.Growth);
+        var conductivity = MathF.Abs(sm.Conductivity);
+        var enthalpy = MathF.Abs(sm.Enthalpy);
+        var stability = MathF.Abs(sm.Stability - sm.NeutralStability);
+
+        var values = new[]
+        {
+            growth,
+            conductivity,
+            enthalpy,
+            stability,
+        };
+
+        var max = values.Max();
+
+        var ties = values.Count(v =>
+            MathF.Abs(v - max) <= sm.TieTolerance);
+
+        return ties > 1;
+    }
+
     /// <summary>
     /// Checks if the supermatters intregrity has hit 0
     /// and raises an event if it has which trigger the delamination
@@ -611,6 +635,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
     {
         sm.PreferredDelamType = ChooseDelamType(uid, sm);
         sm.Delamming = true;
+        sm.DelamLocked = false;
         sm.DelamBeganThisAtmos = true;
         sm.DelamCountdown = sm.DelamTimerDuration;
         if (sm.DelamCountdown <= 0)
@@ -620,6 +645,14 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
     private void TickDelaminationCountdown(EntityUid uid, SharedSupermatterComponent sm, float dt)
     {
         sm.DelamCountdown -= dt;
+
+        if (!sm.DelamLocked &&
+            sm.DelamCountdown <= sm.DelamLockTime)
+        {
+            sm.PreferredDelamType = ChooseDelamType(uid, sm);
+            sm.DelamLocked = true;
+        }
+
         if (sm.DelamCountdown <= 0)
             ResolveDelamination(uid, sm);
     }
@@ -631,6 +664,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
         RaiseLocalEvent(uid, ref ev);
         sm.Delaminated = true;
         sm.Delamming = false;
+        sm.DelamLocked = false;
         sm.DelamCountdown = 0;
         _audio.PlayPvs(sm.AmbientSoundDelamming, uid);
     }
@@ -648,41 +682,46 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
             return DelamType.Explosion;
         }
 
-        var minNob = _cfg.GetCVar(CCVars.SupermatterCascadeNobMinFraction);
-        var cascadeMoles = _cfg.GetCVar(CCVars.SupermatterCascadeMinAbsorbedMoles);
-        if (_cfg.GetCVar(CCVars.SupermatterDoCascadeDelam) &&
-            AbsorbedMixQualifiesForResonanceCascade(sm.AbsorbedGas, cascadeMoles, minNob))
-            return DelamType.Cascade;
+        if (HasCharacteristicTie(sm))
+        {
+            return _cfg.GetCVar(CCVars.SupermatterDoCascadeDelam)
+                ? DelamType.Cascade
+                : DelamType.Explosion;
+        }
 
-        var singuloNeed = _cfg.GetCVar(CCVars.SupermatterSinguloAbsorbedMolesThreshold) *
-                          _cfg.GetCVar(CCVars.SupermatterSingulooseMolesModifier);
-        if (_cfg.GetCVar(CCVars.SupermatterDoSingulooseDelam) && sm.AbsorbedGas.TotalMoles > singuloNeed)
-            return DelamType.Singulo;
+        switch (GetDominantCharacteristic(sm))
+        {
+            case GasCharacteristicsType.Growth:
+                return _cfg.GetCVar(CCVars.SupermatterDoSingulooseDelam)
+                    ? DelamType.Singulo
+                    : DelamType.Explosion;
 
-        var powerNeed = _cfg.GetCVar(CCVars.SupermatterPowerPenaltyThreshold) *
-                        _cfg.GetCVar(CCVars.SupermatterTesloosePowerModifier);
-        if (_cfg.GetCVar(CCVars.SupermatterDoTeslooseDelam) && sm.Power > powerNeed)
-            return DelamType.Tesla;
+            case GasCharacteristicsType.Conductivity:
+                return _cfg.GetCVar(CCVars.SupermatterDoTeslooseDelam)
+                    ? DelamType.Tesla
+                    : DelamType.Explosion;
 
-        return DelamType.Explosion;
+            case GasCharacteristicsType.Enthalpy:
+                if (sm.Enthalpy > 0)
+                    return DelamType.Explosion;
+
+                return _cfg.GetCVar(CCVars.SupermatterDoCascadeDelam)
+                    ? DelamType.Cascade
+                    : DelamType.Explosion;
+
+            case GasCharacteristicsType.Stability:
+                if (sm.Stability < sm.NeutralStability)
+                    return DelamType.Explosion;
+
+                return _cfg.GetCVar(CCVars.SupermatterDoCascadeDelam)
+                    ? DelamType.Cascade
+                    : DelamType.Explosion;
+
+            default:
+                return DelamType.Explosion;
+        }
     }
 
-    /// <summary>
-    /// Resonance cascade: both nob gases above fraction threshold in the absorbed mix, total absorbed moles above minimum.
-    /// </summary>
-    public static bool AbsorbedMixQualifiesForResonanceCascade(GasMixture mix, float minTotalMoles, float minNobFraction)
-    {
-        var total = mix.TotalMoles;
-        if (total < minTotalMoles)
-            return false;
-
-        var anti = mix.GetMoles(Gas.AntiNoblium);
-        var hyper = mix.GetMoles(Gas.HyperNoblium);
-        if (anti <= 0f || hyper <= 0f)
-            return false;
-
-        return anti / total > minNobFraction && hyper / total > minNobFraction;
-    }
 
     /// <summary>
     /// Percent crystal remaining (0–100), for portable test parity with historical damage-based display.
@@ -722,7 +761,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
             dominant = GasCharacteristicsType.Enthalpy;
         }
 
-        var stability = MathF.Abs(sm.Stability / sm.NeutralStability);
+        var stability = MathF.Abs(sm.Stability - sm.NeutralStability);
         if (stability > max)
         {
             dominant = GasCharacteristicsType.Stability;

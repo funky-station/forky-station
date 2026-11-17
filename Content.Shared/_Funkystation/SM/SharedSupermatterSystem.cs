@@ -405,6 +405,12 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
         }
         else if (TryComp<SupermatterShardComponent>(args.Entity, out var shard))
         {
+            if(args is { FromContainerTree: false})
+                _audio.PlayPvs(sm.SoundAsh, uid, sm.SoundAsh.Params.WithVolume(sm.SoundAshVolume));
+
+            else if(!_audio.IsPlaying(sm.AudioProcess))
+                sm.AudioProcess = _audio.PlayPvs(sm.SoundAsh, uid, sm.SoundAsh.Params.WithVolume(sm.SoundAshVolume))?.Entity;
+
             if (TryComp<StackComponent>(args.Entity, out var stack))
                 count = stack.Count;
 

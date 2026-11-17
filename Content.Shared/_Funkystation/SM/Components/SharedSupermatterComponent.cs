@@ -23,7 +23,7 @@ public sealed partial class SharedSupermatterComponent : Component
     /// <summary>
     /// Internal energy drive for lightning, tesla delam branch (wiki-style MeV thresholds from server CVars), radiation, and console telemetry. Runtime still uses the gas characteristic pipeline; this field is the authoritative scalar for wiki energy predicates.
     /// </summary>
-    [DataField("power")]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float Power;
     [DataField("minPower")]
     public float MinPower;
@@ -54,6 +54,15 @@ public sealed partial class SharedSupermatterComponent : Component
     public float CurrentRadiation;
     [ViewVariables(VVAccess.ReadOnly)]
     public bool Delaminated = false;
+
+    [DataField("tieTolerance")]
+    public float TieTolerance = 0.001f;
+
+    [DataField("delamLockTime")]
+    public float DelamLockTime = 5f;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool DelamLocked;
 
     /// <summary>
     /// Crystal is counting down to final delamination outcome.
@@ -154,11 +163,11 @@ public sealed partial class SharedSupermatterComponent : Component
     public GasMixture AbsorbedGas = new();
     [DataField("absorptionHealingPool")]
     public float AbsorptionHealingPool;
-    [DataField("powerPool")]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float PowerPool;
-    [DataField("reproduction")]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float Reproduction;
-    [DataField("reproductionProgress")]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float ReproductionProgress;
     [DataField("countVacuumTiles")]
     public int CountVacuumTiles;

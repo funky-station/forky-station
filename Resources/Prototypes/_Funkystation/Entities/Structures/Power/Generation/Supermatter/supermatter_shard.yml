@@ -6,11 +6,6 @@
   suffix: 100
   components:
   - type: SupermatterShard
-  - type: Sprite
-    sprite: Objects/Consumable/Food/Baked/cake.rsi
-    layers:
-    - state: suppermatter
-      map: ["base"]
   - type: Item
     sprite: Objects/Consumable/Food/Baked/cake.rsi
     storedRotation: 0
@@ -23,6 +18,11 @@
     - suppermatter-shard
     - suppermatter
     - suppermatter
+  - type: Sprite
+    sprite: Objects/Consumable/Food/Baked/cake.rsi
+    layers:
+    - state: suppermatter
+      map: [ "base" ]
   - type: Physics
   - type: PhysicalComposition
     materialComposition:
