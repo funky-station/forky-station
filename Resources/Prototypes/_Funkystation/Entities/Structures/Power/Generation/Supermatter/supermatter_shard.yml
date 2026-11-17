@@ -10,6 +10,7 @@
     sprite: Objects/Consumable/Food/Baked/cake.rsi
     storedRotation: 0
     size: Small
+  - type: Appearance
   - type: Stack
     stackType: SupermatterShard
     count: 100
