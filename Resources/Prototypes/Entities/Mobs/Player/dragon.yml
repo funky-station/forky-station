@@ -6,6 +6,8 @@
   description: A flying leviathan, loosely related to space carps.
   abstract: true
   components:
+  - type: MobSize
+    size: LargeMob
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:

@@ -1,0 +1,9 @@
+- type: sourcePort
+  id: SupermatterInactive
+  name: signal-port-name-supermatter-inactive
+  description: signal-port-description-supermatter-inactive
+
+- type: sourcePort
+  id: SupermatterNormal
+  name: signal-port-name-supermatter-normal
+  description: signal-port-description-supermatter-normal

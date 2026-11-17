@@ -283,6 +283,7 @@
   components:
   - type: Sprite
     sprite: _Funkystation/Clothing/Head/Hardsuits/engineering-white.rsi # Funky
+  - type: SupermatterImmune
   - type: HandheldLight
     addPrefix: false
   - type: PointLight
