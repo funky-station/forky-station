@@ -90,6 +90,7 @@ public sealed partial class SerialNumberSystem : EntitySystem
 
         args.Handled = true;
         ent.Comp.Removed = true;
+        Dirty(ent);
     }
     private void OnExamined(EntityUid uid, SerialNumberComponent comp, ExaminedEvent args)
     {
