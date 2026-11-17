@@ -9,7 +9,7 @@
 
 [bold]Arresting Officer:[/bold] [signature]
 
-[bold]Sentence:[/bold] [form]
+[bold]Duration:[/bold] [form]
 
-[bold]Reason for Arrest: 
+[bold]Reason for Arrest:
   [bullet] [/form]
