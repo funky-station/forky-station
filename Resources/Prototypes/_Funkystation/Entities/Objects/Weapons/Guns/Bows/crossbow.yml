@@ -76,6 +76,10 @@
         enum.BreechVisuals.Open:
           True: { state: drawn }
           False: { state: undrawn }
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Back
 
 
 - type: entity
