@@ -50,7 +50,7 @@ public sealed partial class SignalLockSystem : EntitySystem
         else
         {
             _audio.PlayPvs(comp.WrongKeySound, uid, audioParams);
-            _popup.PopupEntity(Loc.GetString("fu-signal-lock-wrong-key"), uid);
+            _popup.PopupEntity(Loc.GetString("funky-signal-lock-wrong-key"), uid);
         }
 
         args.Handled = true;
