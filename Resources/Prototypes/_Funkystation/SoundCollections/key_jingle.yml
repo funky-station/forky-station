@@ -1,0 +1,7 @@
+- type: soundCollection
+  id: KeyJingle
+  files:
+  - /Audio/_Funkystation/Items/key_jingle_1.ogg
+  - /Audio/_Funkystation/Items/key_jingle_2.ogg
+  - /Audio/_Funkystation/Items/key_jingle_3.ogg
+  - /Audio/_Funkystation/Items/key_jingle_4.ogg
