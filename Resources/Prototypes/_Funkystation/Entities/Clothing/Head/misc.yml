@@ -11,3 +11,21 @@
   - type: Clothing
     sprite: _Funkystation/Clothing/Head/Misc/faceshield.rsi
   - type: IngestionBlocker
+
+# For taking pictures of things for PRs, chameleon so it can blend in.
+- type: entity
+  parent: ClothingHeadHatChameleon
+  id: FunkyClothingHeadHat360
+  name: 360 degree hat
+  suffix: Debug
+  description: This chameleon hat lets you see 360 degrees around you.
+  components:
+  - type: ESViewconeModifier
+    angleModifier: 360
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
