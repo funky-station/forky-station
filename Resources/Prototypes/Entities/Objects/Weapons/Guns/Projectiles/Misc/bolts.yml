@@ -32,7 +32,6 @@
   - type: Tag
     tags:
     - Bolt
-    - Arrow # FOR TESTING ONLY, TODO: REMOVE ONCE IT IS DONE
   - type: Projectile
     deleteOnCollide: false
     onlyCollideWhenShot: true
@@ -70,12 +69,9 @@
     - state: tip-rounded
       color: black
   - type: Projectile # tried to make it so it doesn't embed into people and either pierces or just bounces and drops onto the ground, failed
-    PenetrationThreshold: 100
-    PenetrationDamageTypeRequirement:
-    - Blunt
     damage:
       types:
-        Blunt: 25 # Still lethal
+        Blunt: 27 # Still lethal
   - type: StunOnCollide
     slowdownAmount: 2
     walkSpeedModifier: 0.75
@@ -98,107 +94,6 @@
     - state: tip-pointed
       color: gray
 
-- type: entity
-  parent: [ BaseBolt, BaseSyndicateContraband ]
-  id: HeavyBolt
-  name: reinforced bolt
-  description: A crossbow bolt reinforced with plastinium to be shot with much more power.
-  components:
-  - type: Sprite # Should probably give it a different sprite but this is fine for now
-    layers:
-    - state: tail
-      color: black
-    - state: rod
-      color: darkgray
-    - state: tip-pointed
-      color: gray
-  - type: Tag
-    tags:
-    - BoltHeavy
-  - type: Projectile
-    PenetrationThreshold: 200
-    PenetrationDamageTypeRequirement:
-    - Piercing
-    PenetrationAmount: 0
-    damage:
-      types:
-        Piercing: 45
-
-- type: entity
-  parent: [ BaseBolt, BaseSyndicateContraband ]
-  id: VeryHeavyBolt
-  name: ballista bolt
-  description: A ballista bolt bearing the syndicate logo
-  components:
-  - type: Tag
-    tags:
-      - BoltVeryHeavy
-      - Spear
-      - ScurretWearable
-  - type: Projectile
-    damage:
-      types:
-        Piercing: 50
-        Blunt: 25
-  # rest is it working as a spear as well
-  - type: Tool
-    qualities:
-    - Slicing
-  - type: EmbeddableProjectile
-    offset: -0.15,0.0
-  - type: ThrowingAngle
-    angle: 225
-  - type: LandAtCursor
-  - type: Tag
-    tags:
-    - Spear
-    - ScurretWearable
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape: !type:PolygonShape
-          vertices:
-          - -0.40,-0.30
-          - -0.30,-0.40
-          - 0.40,0.30
-          - 0.30,0.40
-        density: 20
-        mask:
-        - ItemMask
-        restitution: 0.3
-        friction: 0.2
-  - type: Sprite
-    sprite: Objects/Weapons/Melee/spear.rsi
-    layers:
-    - state: spear
-  - type: MeleeWeapon
-    wideAnimationRotation: -135
-    damage:
-      types:
-        Piercing: 12
-    angle: 0
-    animation: WeaponArcThrust
-    soundHit:
-      path: /Audio/Weapons/bladeslice.ogg
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Piercing: 15
-  - type: Item
-    size: Ginormous
-    shape:
-    - 0,0,0,6
-    storedRotation: -45
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - back
-    - suitStorage
-  - type: Wieldable
-  - type: IncreaseDamageOnWield
-    damage:
-      types:
-        Piercing: 4
 
 
   # Misc bolts
@@ -215,7 +110,7 @@
   - type: Sprite
     layers: #TEMPORARY, same as the improvised arrow
     - state: tail
-      color: white
+      color: black
     - state: rod
       color: darkgray
     - state: tip-pointed
