@@ -1,14 +1,14 @@
 - type: entity
   parent: BaseItem
   name: crossbow
-  id: BaseCrossbow
+  id: FunkyBaseCrossbow
   description: The second rooty tooty point and shooty.
   # reference to the bow description, mostly a placeholder until
   # I can think of something better
   abstract: true
   components: #TODO: add a system for drawing the crossbow before being able to fire it
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Bow/crossbow.rsi # TEMPORARY
+    sprite: _Funkystation/Objects/Weapons/Guns/Bows/crossbow.rsi # TEMPORARY
   - type: Item
     size: Large
   - type: Wieldable
@@ -42,13 +42,13 @@
     container: projectiles
 
 - type: entity
-  parent: BaseCrossbow
+  parent: FunkyBaseCrossbow
   abstract: true
-  id: BaseCrossbowCompound
+  id: FunkyBaseCrossbowCompound
   name: compound crossbow
   components:
   - type: Sprite #currently colours are just the regions of the crossbow
-    sprite: Objects/Weapons/Guns/Bow/compound-crossbow.rsi # ignore the 64x one
+    sprite: _Funkystation/Objects/Weapons/Guns/Bows/compound-crossbow.rsi # ignore the 64x one
     layers:
     - state: undrawn
       map: [ base ]
@@ -64,42 +64,36 @@
           whitelist:
             tags:
             - Bolt
-    - type: BreechLoaded
-      ToggleDelay: 3
-      openSound: # temporary sound
-        path: "/Audio/_RMC14/Weapons/Guns/Breech/pkd_open_chamber.ogg"
-      closeSound:
-        path: "/Audio/_RMC14/Weapons/Guns/Breech/pkd_close_chamber.ogg"
-    - type: GenericVisualizer
-      visuals:
+  - type: BreechLoaded
+    ToggleDelay: 3
+    openSound: # temporary sound
+      path: "/Audio/Items/bow_pull.ogg"
+    closeSound:
+      path: "/Audio/Weapons/Guns/Misc/arrow_nock.ogg"
+  - type: GenericVisualizer
+    visuals:
+      enum.BreechVisuals.Open:
         enum.BreechVisuals.Open:
-          enum.BreechVisuals.Open:
-            True: { state: undrawn}
-            False: { state: drawn }
+          True: { state: drawn }
+          False: { state: undrawn }
 
 
 - type: entity
-  parent: [ BaseCrossbowCompound, BaseSecurityContraband]
-  id: CrossbowSecurity
+  parent: [ FunkyBaseCrossbowCompound, BaseSecurityContraband]
+  id: FunkyCrossbowSecurity
   name: AGIES security crossbow
   description: "With the all new AGIES Security crossbow you don't have to worry about silly things like trigger discipline, because crossbows are obviously less dangerous then a gun! (Disclaimer: AGIES Security is not responsible for any injuries this causes)"
   #components: # TODO: finish it's own sprite
 
 - type: entity
-  parent: [ BaseCrossbowCompound, BaseSyndicateContraband ]
-  id: SyndicateCrossbow
-  name: syndicate crossbow
-  description: A crossbow manufactured by the Syndicate.
-
-- type: entity
-  parent: BaseCrossbow
-  id: CrossbowImprovised
+  parent: FunkyBaseCrossbow
+  id: FunkyCrossbowImprovised
   name: improvised crossbow
   components:
   - type: Gun
     projectileSpeed: 20 # not as strong
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Bow/crossbow.rsi # TEMPORARY
+    sprite: _Funkystation/Objects/Weapons/Guns/Bows/crossbow.rsi # TEMPORARY
     layers:
     - state: undrawn
       map: [ base ]
@@ -114,7 +108,6 @@
       bolt:
         whitelist:
           tags:
-          - Arrow
           - Bolt
   - type: BreechLoaded
     ToggleDelay: 3
@@ -126,8 +119,8 @@
     visuals:
       enum.BreechVisuals.Open:
         enum.BreechVisuals.Open:
-          True: { state: undrawn}
-          False: { state: drawn }
+          True: { state: drawn }
+          False: { state: undrawn }
   # TODO: Add construction
 #  - type: Construction
 #   graph:

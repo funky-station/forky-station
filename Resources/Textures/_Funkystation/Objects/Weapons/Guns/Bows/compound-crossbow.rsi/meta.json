@@ -16,15 +16,6 @@
     {
         "name": "drawn-bolt"
     },
-	{
-      "name": "unwielded-plunger"
-    },
-    {
-      "name": "wielded-arrow"
-    },
-	{
-      "name": "wielded-plunger"
-    },
     {
       "name": "equipped-BACKPACK",
       "directions": 4

@@ -4,7 +4,7 @@
   id: BaseBolt
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/bolts.rsi #Sprites are not done and are pretty much just the arrow sprites
+    sprite: _Funkystation/Objects/Weapons/Guns/Projectiles/bolts.rsi #Sprites are not done and are pretty much just the arrow sprites
   - type: Item
     size: Small
   - type: Fixtures
