@@ -1403,7 +1403,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: goose
-      sprite: Mobs/Animals/goose.rsi
+      sprite: _Funkystation/Mobs/Animals/goose.rsi # Funky change
   - type: Fixtures
     fixtures:
       fix1:
