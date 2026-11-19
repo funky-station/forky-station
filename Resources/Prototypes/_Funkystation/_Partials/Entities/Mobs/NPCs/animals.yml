@@ -1,0 +1,6 @@
+- type: entity
+  id: MobGoose
+  components:
+  - type: Sprite
+    layers:
+      sprite: _Funkystation/Mobs/Animals/goose.rsi
