@@ -1,0 +1,8 @@
+- type: entity
+  id: MobGoose
+  components:
+  - type: Sprite
+    layers: !Clear
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: goose
+      sprite: _Funkystation/Mobs/Animals/goose.rsi
