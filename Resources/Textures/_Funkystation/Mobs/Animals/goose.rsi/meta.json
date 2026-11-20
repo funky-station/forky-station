@@ -1,11 +1,11 @@
 {
   "version": 1,
+  "copyright": "Goose sprites by Dogman20801 (discord) for Funkystation",
+  "license": "CC-BY-NC-SA-4.0",
   "size": {
     "x": 32,
     "y": 32
   },
-  "license": "CC-BY-NC-SA-4.0",
-  "copyright": "Goose sprites by Dogman20801 (discord) for Funkystation",
   "states": [
     {
       "name": "goose",
