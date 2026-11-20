@@ -1,5 +1,5 @@
 - type: roleLoadout
-  id: JobFuCourier
+  id: JobFunkyCourier # Should be FunkyJobCourier but the way the game gets roleLoadouts from jobs is hardcoded
   groups:
   - GroupTankHarness
   - FunkyCourierHead

@@ -1,5 +1,5 @@
 - type: roleLoadout
-  id: JobCorporateLiaison
+  id: JobFunkyCorporateLiaison # Should be FunkyJobCorporateLiaison but the way the game gets roleLoadouts from jobs is hardcoded
   groups:
   - GroupTankHarness
   - LawyerJumpsuit

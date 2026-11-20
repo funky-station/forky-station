@@ -1,5 +1,5 @@
 - type: roleLoadout
-  id: JobPrisoner
+  id: JobFunkyPrisoner # Should be FunkyJobPrisoner but the way the game gets roleLoadouts from jobs is hardcoded
   groups:
   - Glasses
   - Trinkets

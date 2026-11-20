@@ -8,7 +8,7 @@
     department: Security
     time: 40h
     inverted: true
-  supervisors: job-supervisors-lieutenant
+  supervisors: funky-job-supervisors-lieutenant
   special: !Clear
 
 - type: startingGear

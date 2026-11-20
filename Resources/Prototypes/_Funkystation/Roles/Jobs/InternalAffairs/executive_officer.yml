@@ -1,9 +1,9 @@
 - type: job
-  id: ExecutiveOfficer
-  name: job-name-xo # funkystation
-  description: job-description-xo # funkystation
-  playTimeTracker: JobExecutiveOfficer
-  requiresNda: Command # Funky
+  id: FunkyExecutiveOfficer
+  name: funky-job-name-xo
+  description: funky-job-description-xo
+  playTimeTracker: FunkyJobExecutiveOfficer
+  requiresNda: Command
   requirements:
   - !type:DepartmentTimeRequirement
     department: Engineering
@@ -21,13 +21,12 @@
     department: Command
     time: 2.5h
   - !type:DepartmentTimeRequirement
-    department: InternalAffairs
+    department: FunkyInternalAffairs
     time: 10h
   - !type:RoleTimeRequirement
-    role: JobMagistrate
+    role: FunkyJobMagistrate
     time: 2.5h
-  #weight: 20 # Funky - Weighting all jobs equally now
-  startingGear: XOGear
+  startingGear: FunkyXOGear
   icon: "JobIconExecutiveOfficer"
   joinNotifyCrew: true
   supervisors: job-supervisors-captain
@@ -62,8 +61,6 @@
   - Newsroom
   - Library
   special:
-  #- !type:AddImplantSpecial
-  #  implants: [ MindShieldImplant ] # Removed mindshields
   - !type:AddComponentSpecial
     components:
     - type: CommandStaff
@@ -72,7 +69,7 @@
     - type: DepartmentHead
 
 - type: startingGear
-  id: XOGear
+  id: FunkyXOGear
   equipment:
     shoes: ClothingShoesColorBrown
     id: XOPDA
@@ -85,8 +82,8 @@
     - Flash
 
 - type: chameleonOutfit
-  id: XOChameleonOutfit
-  job: ExecutiveOfficer
+  id: FunkyExecutiveOfficerChameleonOutfit
+  job: FunkyExecutiveOfficer
   hasMindShield: true
   equipment:
     head: ClothingHeadHatHopcap

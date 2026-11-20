@@ -1,7 +1,7 @@
 - type: job
   id: Passenger
-  name: job-name-assistant
-  description: job-description-assistant
+  name: funky-job-name-assistant
+  description: funky-job-description-assistant
 
 - type: startingGear
   id: PassengerGear

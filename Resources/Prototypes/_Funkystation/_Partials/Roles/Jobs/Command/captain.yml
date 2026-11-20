@@ -15,7 +15,7 @@
       department: Security
       time: 5h
     - !type:DepartmentTimeRequirement
-      department: InternalAffairs
+      department: FunkyInternalAffairs
       time: 10h
     - !type:DepartmentTimeRequirement
       department: Cargo

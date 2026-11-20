@@ -1,6 +1,6 @@
 - type: job
   id: Reporter
-  supervisors: job-supervisors-audience
+  supervisors: funky-job-supervisors-audience
   access:
   - !Remove Service
   - Newsroom

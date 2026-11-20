@@ -1,9 +1,9 @@
 - type: job
-  id: HospitalityDirector
-  name: job-name-hd
-  description: job-description-hd
-  playTimeTracker: JobHospitalityDirector
-  requiresNda: Command # Funky
+  id: FunkyHospitalityDirector
+  name: funky-job-name-hd
+  description: funky-job-description-hd
+  playTimeTracker: FunkyJobHospitalityDirector
+  requiresNda: Command
   requirements:
   - !type:DepartmentTimeRequirement
     department: Service
@@ -14,8 +14,7 @@
   - !type:RoleTimeRequirement
     role: JobChef
     time: 5h
-  #weight: 20 # Funky - Weighting all jobs equally now
-  startingGear: HDGear
+  startingGear: FunkyHDGear
   icon: "JobIconHospitalityDirector"
   joinNotifyCrew: true
   supervisors: job-supervisors-captain
@@ -31,8 +30,6 @@
   - Chapel
   - Library
   special:
-  #- !type:AddImplantSpecial
-  #  implants: [ MindShieldImplant ] # Removed mindshields
   - !type:AddComponentSpecial
     components:
     - type: CommandStaff
@@ -41,7 +38,7 @@
     - type: DepartmentHead
 
 - type: startingGear
-  id: HDGear
+  id: FunkyHDGear
   equipment:
     id: HDPDA
     ears: ClothingHeadsetHD
@@ -51,9 +48,8 @@
     - Flash
 
 - type: chameleonOutfit
-  id: HDChameleonOutfit
-  job: HospitalityDirector
-  #hasMindShield: true # Removed mindshields
+  id: FunkyHospitalityDirectorChameleonOutfit
+  job: FunkyHospitalityDirector
   equipment:
     head: FuClothingHeadHatHd
     eyes: ClothingEyesGlasses

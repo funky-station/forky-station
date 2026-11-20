@@ -1,15 +1,15 @@
 - type: job
-  id: Lieutenant
-  name: job-name-lieutenant
-  description: job-description-lieutenant
+  id: FunkyLieutenant
+  name: funky-job-name-lieutenant
+  description: funky-job-description-lieutenant
   playTimeTracker: JobLieutenant
-  requiresNda: Security # Funky
+  requiresNda: Security
   requirements:
   - !type:RoleTimeRequirement
     role: JobSecurityOfficer
     time: 5h
-  startingGear: LieutenantGear
-  icon: "JobIconDeputy"
+  startingGear: FunkyLieutenantGear
+  icon: "JobIconLieutenant"
   supervisors: job-supervisors-commandant
   access:
   - Security
@@ -17,12 +17,9 @@
   - Maintenance
   - External
   - Cryogenics
-  #special:
-  #- !type:AddImplantSpecial
-  #  implants: [ MindShieldImplant ] # Removed mindshields
 
 - type: startingGear
-  id: LieutenantGear
+  id: FunkyLieutenantGear
   equipment:
     id: LieutenantWallet
     eyes: ClothingEyesGlassesSecurity
@@ -34,8 +31,8 @@
     - MagazinePistol
 
 - type: chameleonOutfit
-  id: LieutenantChameleonOutfit
-  job: Lieutenant
+  id: FunkyLieutenantChameleonOutfit
+  job: FunkyLieutenant
   hasMindShield: true
   equipment:
     head: ClothingHeadHatBeretSecurity

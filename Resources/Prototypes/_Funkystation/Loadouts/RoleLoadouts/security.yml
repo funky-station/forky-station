@@ -1,5 +1,5 @@
 - type: roleLoadout
-  id: JobCommandant
+  id: JobFunkyCommandant # Should be FunkyJobCommandant but the way the game gets roleLoadouts from jobs is hardcoded
   groups:
   - FunkyCommandantHead
   - FunkyCommandantNeck
@@ -16,7 +16,7 @@
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
-  id: JobDispatcher
+  id: JobFunkyDispatcher # Should be FunkyJobDispatcher but the way the game gets roleLoadouts from jobs is hardcoded
   groups:
   - SecurityHead
   - FunkySecurityNeck
@@ -34,7 +34,7 @@
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
-  id: JobLieutenant
+  id: JobFunkyLieutenant # Should be FunkyJobLieutenant but the way the game gets roleLoadouts from jobs is hardcoded
   groups:
   - SecurityHead
   - FunkySecurityNeck

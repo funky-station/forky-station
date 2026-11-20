@@ -1,29 +1,33 @@
+# Not for an actual job, just here for the mhelp system
 - type: playTimeTracker
-  id: JobMagistrate
+  id: FunkyJobMentor
 
 - type: playTimeTracker
-  id: JobIAA
+  id: FunkyJobMagistrate
 
 - type: playTimeTracker
-  id: JobHospitalityDirector
+  id: FunkyJobIAA
 
 - type: playTimeTracker
-  id: JobCorporateLiaison
+  id: FunkyJobHospitalityDirector
 
 - type: playTimeTracker
-  id: JobExecutiveOfficer
+  id: FunkyJobCorporateLiaison
 
 - type: playTimeTracker
-  id: JobCommandant
+  id: FunkyJobExecutiveOfficer
 
 - type: playTimeTracker
-  id: JobLieutenant
+  id: FunkyJobCommandant
 
 - type: playTimeTracker
-  id: JobDispatcher
+  id: FunkyJobLieutenant
 
 - type: playTimeTracker
-  id: FuJobCourier
+  id: FunkyJobDispatcher
 
 - type: playTimeTracker
-  id: JobPrisoner
+  id: FunkyJobCourier
+
+- type: playTimeTracker
+  id: FunkyJobPrisoner

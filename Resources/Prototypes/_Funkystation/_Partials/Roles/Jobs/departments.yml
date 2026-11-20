@@ -1,17 +1,17 @@
 - type: department
   id: Cargo
-  name: department-Logistics
-  description: department-Logistics-description
+  name: funky-department-Logistics
+  description: funky-department-Logistics-description
   roles:
   - !Remove SalvageSpecialist
   - Botanist
-  - FuCourier
+  - FunkyCourier
 
 - type: department
   id: Civilian
   roles:
   - Lawyer
-  - Prisoner
+  - FunkyPrisoner
   - Reporter
   - TramDriver
 
@@ -20,9 +20,9 @@
   roles:
   - !Remove HeadOfPersonnel
   - !Remove HeadOfSecurity
-  - CorporateLiaison
-  - HospitalityDirector
-  - ExecutiveOfficer
+  - FunkyCorporateLiaison
+  - FunkyHospitalityDirector
+  - FunkyExecutiveOfficer
   primary: false
   weight: 100
 
@@ -35,19 +35,20 @@
   id: Security
   roles:
   - !Remove HeadOfSecurity
-  - Commandant
-  - Dispatcher
-  - Lieutenant
+  - FunkyCommandant
+  - FunkyDispatcher
+  - FunkyLieutenant
 
 - type: department
   id: Service
+  description: funky-department-Service-description
   roles:
   - !Remove Botanist
   - !Remove HeadOfPersonnel
   - !Remove Lawyer
   - !Remove Reporter
   - !Remove TramDriver
-  - HospitalityDirector
+  - FunkyHospitalityDirector
 
 - type: department
   id: Silicon
@@ -64,5 +65,5 @@
   roles:
   - !Remove Reporter
   - !Remove Psychologist
-  - Dispatcher
+  - FunkyDispatcher
   primary: false

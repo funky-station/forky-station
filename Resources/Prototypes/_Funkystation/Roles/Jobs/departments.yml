@@ -1,10 +1,10 @@
 - type: department
-  id: InternalAffairs
-  name: department-InternalAffairs
-  description: department-InternalAffairs-description
+  id: FunkyInternalAffairs
+  name: funky-department-InternalAffairs
+  description: funky-department-InternalAffairs-description
   color: "#BDA499"
   weight: 10 # important, but not as much as security
   roles:
-  - ExecutiveOfficer
-  - Magistrate
-  - InternalAffairsAgent
+  - FunkyExecutiveOfficer
+  - FunkyMagistrate
+  - FunkyInternalAffairsAgent

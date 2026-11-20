@@ -5,7 +5,7 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 5h
-  supervisors: job-supervisors-lieutenant
+  supervisors: funky-job-supervisors-lieutenant
   special: !Clear
 
 - type: startingGear

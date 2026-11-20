@@ -1,26 +1,26 @@
 - type: job
-  id: CorporateLiaison
-  name: job-name-cl
-  description: job-description-cl
-  playTimeTracker: JobCorporateLiaison
-  requiresNda: Command # Funky
+  id: FunkyCorporateLiaison
+  name: funky-job-name-cl
+  description: funky-job-description-cl
+  playTimeTracker: FunkyJobCorporateLiaison
+  requiresNda: Command
   requirements:
   - !type:DepartmentTimeRequirement
     department: Command
     time: 10h
   - !type:DepartmentTimeRequirement
-    department: InternalAffairs
+    department: FunkyInternalAffairs
     time: 10h
-  startingGear: CLGear
+  startingGear: FunkyCLGear
   icon: "JobIconCorporateLiaison"
-  supervisors: job-supervisors-centcomm-advisor
+  supervisors: funky-job-supervisors-centcomm-advisor
   access:
   - Corporate
   - Command
   - Maintenance
 
 - type: startingGear
-  id: CLGear
+  id: FunkyCLGear
   equipment:
     head: ClothingHeadHatBeretCommand
     eyes: ClothingEyesGlassesSunglasses
@@ -30,8 +30,8 @@
     back: ClothingBackpackSatchelLeather
 
 - type: chameleonOutfit
-  id: CLChameleonOutfit
-  job: CorporateLiaison
+  id: FunkyCorporateLiaisonChameleonOutfit
+  job: FunkyCorporateLiaison
   hasMindShield: true
   equipment:
     mask: ClothingMaskNeckGaiter

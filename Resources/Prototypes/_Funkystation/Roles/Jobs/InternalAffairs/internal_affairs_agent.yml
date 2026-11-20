@@ -1,15 +1,15 @@
 - type: job
-  id: InternalAffairsAgent
-  name: job-name-iaa
-  description: job-description-iaa
-  playTimeTracker: JobIAA
+  id: FunkyInternalAffairsAgent
+  name: funky-job-name-iaa
+  description: funky-job-description-iaa
+  playTimeTracker: FunkyJobInternalAffairsAgent
   requirements:
    - !type:RoleTimeRequirement
      role: JobLawyer
      time: 5h
-  startingGear: IAAGear
+  startingGear: FunkyIAAGear
   icon: "JobIconInternalAffairsAgent"
-  supervisors: job-supervisors-xo
+  supervisors: funky-job-supervisors-xo
   access:
   - InternalAffairs
   - Brig
@@ -23,7 +23,7 @@
   - Maintenance
 
 - type: startingGear
-  id: IAAGear
+  id: FunkyIAAGear
   equipment:
     head: ClothingHeadHatFedoraBrown
     shoes: ClothingShoesBootsLaceup
@@ -34,8 +34,8 @@
     pocket2: PouchGeneric
 
 - type: chameleonOutfit
-  id: IAAChameleonOutfit
-  job: InternalAffairsAgent
+  id: FunkyInternalAffairsAgentChameleonOutfit
+  job: FunkyInternalAffairsAgent
   hasMindShield: true
   equipment:
     mask: ClothingMaskNeckGaiterRed

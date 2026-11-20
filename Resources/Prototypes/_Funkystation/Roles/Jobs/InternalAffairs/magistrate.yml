@@ -1,19 +1,18 @@
 - type: job
-  id: Magistrate
-  name: job-name-magistrate
-  description: job-description-magistrate
-  playTimeTracker: JobMagistrate
+  id: FunkyMagistrate
+  name: funky-job-name-magistrate
+  description: funky-job-description-magistrate
+  playTimeTracker: FunkyJobMagistrate
   requirements:
   - !type:RoleTimeRequirement
-    role: JobIAA
+    role: FunkyJobInternalAffairsAgent
     time: 5h
   - !type:DepartmentTimeRequirement
     department: Security
     time: 5h
-
-  startingGear: MagistrateGear
+  startingGear: FunkyMagistrateGear
   icon: "JobIconMagistrate"
-  supervisors: job-supervisors-xo
+  supervisors: funky-job-supervisors-xo
   access:
   - Magistrate
   - Brig
@@ -21,7 +20,7 @@
   - Maintenance
 
 - type: startingGear
-  id: MagistrateGear
+  id: FunkyMagistrateGear
   equipment:
     head: ClothingHeadHatPwig
     shoes: ClothingShoesBootsLaceup
@@ -34,8 +33,8 @@
     - BookSentencingGuidelines
 
 - type: chameleonOutfit
-  id: MagistrateChameleonOutfit
-  job: Magistrate
+  id: FunkyMagistrateChameleonOutfit
+  job: FunkyMagistrate
   equipment:
     mask: ClothingMaskNeckGaiter
     neck: ClothingNeckScarfStripedPurple

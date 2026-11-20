@@ -1,8 +1,8 @@
 ﻿- type: job
-  id: Prisoner
+  id: FunkyPrisoner
   name: job-name-prisoner
-  description: job-description-prisoner
-  playTimeTracker: JobPrisoner
+  description: funky-job-description-prisoner
+  playTimeTracker: FunkyJobPrisoner
   startingGear: PrisonerGear
   icon: "JobIconPrisoner"
   supervisors: job-supervisors-nobody
