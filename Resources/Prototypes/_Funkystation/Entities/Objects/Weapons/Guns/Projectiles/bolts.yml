@@ -61,8 +61,12 @@
     embedOnThrow: false
   # TODO: make DamageOnRemove component: to deal damage when an embedded projectile is removed
 
+#- type: entity
+#  abstract: true
+# maybe move the projectiles and ammo to different YMLs if it is done that way
+
 - type: entity
-  parent: [ FuBaseBolt, BaseSecurityContraband ]
+  parent: [ FuBaseBoltEmbed, BaseSecurityContraband ]
   id: FuBoltLessLethal
   name: rubber bolt
   description: A bolt with a rounder rubber tip. It still hurts though.
@@ -85,6 +89,14 @@
     sprintSpeedModifier: 0.75
   - type: StaminaDamageOnCollide # TODO: add bluntStaminaDamageFactor to projectile so it can be used here
     damage: 35
+  - type: TriggerOnEmbed
+    fixtureID: projectile
+    maxTriggers: 1
+  - type: SpawnOnTrigger
+    proto: FuBoltLessLethal
+  - type: DeleteOnTrigger
+
+
 
 - type: entity
   parent: [ FuBaseBoltEmbed, BaseSecurityContraband ]
@@ -102,40 +114,7 @@
       color: gray
 
 
-- type: entity
-  parent: [ FuBaseBoltEmbed, BaseSecurityContraband ]
-  id: FuBoltUranium
-  name: uranium bolt
-  description: a crossbow bolt with a uranium tip, you should pull it out as soon as you can if you get shot.
-  components:
-  - type: Sprite
-    layers:
-  - state: tail
-    color: black
-  - state: rod
-    color: darkgray
-  - state: tip-pointed
-    color: green
-  - type: Solution # until a DOT can be applied while something is embedded this is the second best option
-    id: melee
-    solution:
-      maxVol: 1
-  - type: SolutionInjectWhileEmbedded
-    transferAmount: 1
-    solution: melee
-  - type: SolutionInjectOnEmbed
-    transferAmount: 1
-    solution: melee
-  - type: SolutionRegeneration
-    duration: 2 # 1 dps until removed
-    generated:
-      reagents:
-        - ReagentId: Uranium
-          Quantity: 1
-  - type: Projectile
-    damage:
-      types:
-        Piercing: 20
+
 
   # Misc bolts
   # might remove the improvised bolt(s)
