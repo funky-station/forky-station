@@ -908,8 +908,10 @@
         walkSpeedModifier: 0.5
         sprintSpeedModifier: 0.5
 
+  # begin Funky
+  # here because I don't want to fuck stuff up with the guidebook
 - type: reagent
-  id: Hemoase #literally blood-enzyme TODO: come up with a better name that includes other debilitating effects
+  id: FuHemoase #literally blood-enzyme TODO: come up with a better name that includes other debilitating effects
   name: reagent-name-hemoase
   desc: reagent-desc-hemoase
   physicalDesc: reagent-physical-desc-thin
@@ -931,17 +933,16 @@
         type: Update
       - !type:ModifyBleed
         amount: 1
-      - !type:ModifyBloodLevel # might change this so it reacts with all types of blood to give something, maybe vomit or something gross like that?
-        amount: -30 #5% of blood level
+      - !type:ModifyBloodLevel
+        amount: -30 # 5% of standard blood level
       - !type:MovementSpeedModifier
         effectProto: ReagentSpeedStatusEffect
         time: 4
         delay: 0.5
-        walkSpeedModifier: 0.85
-        sprintSpeedModifier: 0.85
+        walkSpeedModifier: 0.8
+        sprintSpeedModifier: 0.8
       - !type:HealthChange
         damage:
           types:
             Bloodloss: 2
-      - !type:StaminaDamage
-        damage: 5
+ # end Funky

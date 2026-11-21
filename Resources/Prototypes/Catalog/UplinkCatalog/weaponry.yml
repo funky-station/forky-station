@@ -326,13 +326,14 @@
   categories:
   - UplinkWeaponry
 
-
+# begin Funky
+# here because I'm scared to put it somewhere else
 - type: listing
-  id: UplinkSyndicateSwitchblade
-  name: uplink-interdyne-switchblade-name
-  description: uplink-interdyne-switchblade-desc
+  id: FuUplinkSyndicateSwitchblade
+  name: funky-uplink-interdyne-switchblade-name
+  description: funky-uplink-interdyne-switchblade-desc
   icon: { sprite: /Textures/Objects/Weapons/Melee/switchblade_syndicate.rsi, state: icon}
-  productEntity: SyndieSwitchblade
+  productEntity: FuSyndieSwitchblade
   discountCategory: veryRareDiscounts
   discountDownTo:
     Telecrystal: 5
@@ -340,3 +341,4 @@
     Telecrystal: 15
   categories:
   - UplinkWeaponry
+# end Funky
