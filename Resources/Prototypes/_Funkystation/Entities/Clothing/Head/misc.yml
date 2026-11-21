@@ -14,10 +14,10 @@
 
 # For taking pictures of things for PRs, chameleon so it can blend in.
 - type: entity
-  parent: ClothingHeadHatChameleon
+  parent: [ClothingHeadBase, BaseChameleon]
   id: FunkyClothingHeadHat360
   name: 360 degree hat
-  suffix: Debug
+  suffix: DEBUG
   description: This chameleon hat lets you see 360 degrees around you.
   components:
   - type: ESViewconeModifier
@@ -29,20 +29,21 @@
   - type: ChameleonClothing
     slot: [ HEAD ]
     default: FunkyClothingHeadMirrorHelm
-
-# here as the default sprite for the 360 hat
-- type: entity
-  parent: ClothingHeadBase
-  id: FunkyClothingHeadMirrorHelm
-  name: mirror helm
-  components:
-  - type: Sprite
-    sprite: _Funkystation/Clothing/Head/Misc/mirrorhelm.rsi
-  - type: Clothing
-    sprite: _Funkystation/Clothing/Head/Misc/mirrorhelm.rsi
   - type: Tag
     tags:
     - PetWearable
     - CorgiWearable
     - ClothMade
     - HamsterWearable
+
+# here as the default sprite for the 360 hat
+- type: entity
+  parent: ClothingHeadBase
+  id: FunkyClothingHeadMirrorHelm
+  name: mirror helm
+  description: A hat made of mirrors
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Misc/mirrorhelm.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Misc/mirrorhelm.rsi
