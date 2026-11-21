@@ -351,6 +351,7 @@
       - id: ModularReceiver
       - id: HydroponicsToolScythe
       - id: Brick
+      - id: SwitchBlade
     # Rare Group
     - !type:GroupSelector
       weight: 5
