@@ -22,10 +22,27 @@
   components:
   - type: ESViewconeModifier
     angleModifier: 360
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Misc/mirrorhelm.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Misc/mirrorhelm.rsi
+  - type: ChameleonClothing
+    slot: [ HEAD ]
+    default: FunkyClothingHeadMirrorHelm
+
+# here as the default sprite for the 360 hat
+- type: entity
+  parent: ClothingHeadBase
+  id: FunkyClothingHeadMirrorHelm
+  name: mirror helm
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Clothing/Head/Misc/mirrorhelm.rsi
+  - type: Clothing
+    sprite: _Funkystation/Clothing/Head/Misc/mirrorhelm.rsi
   - type: Tag
     tags:
     - PetWearable
     - CorgiWearable
     - ClothMade
-    - Recyclable
     - HamsterWearable
