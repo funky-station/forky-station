@@ -1,7 +1,7 @@
 - type: entity
   abstract: true
   parent: [ BaseItem ] # no Solution Dart because that isn't for every bolt
-  id: BaseBolt
+  id: FuBaseBolt
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Weapons/Guns/Projectiles/bolts.rsi #Sprites are not done and are pretty much just the arrow sprites
@@ -50,13 +50,20 @@
           collection: MetalBreak
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+
+- type: entity
+  parent: FuBaseBolt
+  abstract: true
+  id: FuBaseBoltEmbed
+  components:
   - type: EmbeddableProjectile
     sound: /Audio/Weapons/star_hit.ogg
     embedOnThrow: false
+  # TODO: make DamageOnRemove component: to deal damage when an embedded projectile is removed
 
 - type: entity
-  parent: [ BaseBolt, BaseSecurityContraband ]
-  id: BoltLessLethal
+  parent: [ FuBaseBolt, BaseSecurityContraband ]
+  id: FuBoltLessLethal
   name: rubber bolt
   description: A bolt with a rounder rubber tip. It still hurts though.
   components:
@@ -76,12 +83,12 @@
     slowdownAmount: 2
     walkSpeedModifier: 0.75
     sprintSpeedModifier: 0.75
-  - type: StaminaDamageOnCollide
+  - type: StaminaDamageOnCollide # TODO: add bluntStaminaDamageFactor to projectile so it can be used here
     damage: 35
 
 - type: entity
-  parent: [ BaseBolt, BaseSecurityContraband ]
-  id: BoltLethal
+  parent: [ FuBaseBoltEmbed, BaseSecurityContraband ]
+  id: FuBoltLethal
   name: crossbow bolt
   description: A crossbow bolt with a sharp tip.
   components:
@@ -95,11 +102,46 @@
       color: gray
 
 
+- type: entity
+  parent: [ FuBaseBoltEmbed, BaseSecurityContraband ]
+  id: FuBoltUranium
+  name: uranium bolt
+  description: a crossbow bolt with a uranium tip, you should pull it out as soon as you can if you get shot.
+  components:
+  - type: Sprite
+    layers:
+  - state: tail
+    color: black
+  - state: rod
+    color: darkgray
+  - state: tip-pointed
+    color: green
+  - type: Solution # until a DOT can be applied while something is embedded this is the second best option
+    id: melee
+    solution:
+      maxVol: 1
+  - type: SolutionInjectWhileEmbedded
+    transferAmount: 1
+    solution: melee
+  - type: SolutionInjectOnEmbed
+    transferAmount: 1
+    solution: melee
+  - type: SolutionRegeneration
+    duration: 2 # 1 dps until removed
+    generated:
+      reagents:
+        - ReagentId: Uranium
+          Quantity: 1
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
 
   # Misc bolts
+  # might remove the improvised bolt(s)
 - type: entity
-  parent: BaseBolt
-  id: BoltImprovised
+  parent: FuBaseBoltEmbed
+  id: FuBoltImprovised
   name: improvised bolt
   description: The sophisticated greyshirt's preferred projectile # I had a typo of "greyshit" and am tempted to keep it in
   components:
@@ -120,10 +162,50 @@
       types:
         Blunt: 10 # should be 3 uses before breaking if this works right
 
+- type: entity
+  parent: [ FuBaseBoltEmbed, BaseSyndicateContraband]
+  id: FuBoltHypo
+  name: hypo bolt
+  description: A bolt made to quickly inject chemicals into someone, doesn't hurt as much compared to a normal bolt but is still lethal.
+  components:
+  - type: Sprite # will give a different sprite
+    layers:
+    - state: tail
+      color: black
+    - state: rod
+      color: darkgray
+    - state: tip-pointed
+      color: white
+    - state: solution1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 25
+  - type: Solution
+    id: hypo
+    solution:
+      maxVol: 10
+  - type: SolutionInjectOnEmbed
+    transferAmount: 10
+    solution: hypo
+  - type: RefillableSolution
+    solution: hypo
+  - type: InjectableSolution
+    solution: hypo
+  - type: SolutionTransfer
+    maxTransferAmount: 5
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    fillBaseName: solution
+
+
 # Bolts that don't work right :(
 - type: entity
-  parent: [BaseBolt, BaseSecurityContraband]
-  id: BoltBola # currently does not work as ensnaring only works when thrown
+  parent: [FuBaseBolt, BaseSecurityContraband]
+  abstract: true # here because it doesn't work
+  id: FuBoltBola # currently does not work as ensnaring only works when thrown
   # TODO: make ensnaring work when shot as well
   name: bola bolt
   description: With the all new BolaBolt (TM) you can be sure they cannot escape!
