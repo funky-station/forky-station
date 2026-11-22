@@ -5,6 +5,7 @@
   equipment:
     head: FuClothingHeadHatHd
 
+# Identical to BartenderHead. Maybe we should merge those into a new prototype and deprecate the upstream one?
 - type: loadout
   id: FunkyHDTopHat
   equipment:

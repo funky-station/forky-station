@@ -82,7 +82,7 @@
   name: funky-loadout-group-chemist-uniform
   loadouts: !Clear
   - FunkyChemistDress
-  - FunkyChemistStockings
+  - FunkyChemistDressStockings
   - FunkyChemistJumpsuit
 
 - type: loadoutGroup

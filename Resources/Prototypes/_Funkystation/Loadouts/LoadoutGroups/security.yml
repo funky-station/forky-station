@@ -48,7 +48,7 @@
   name: funky-loadout-group-warden-neck
   minLimit: 0
   loadouts:
-  - FunkyMessTie
+  - FunkySecurityMessTie
 
 - type: loadoutGroup
   id: FunkySecurityGloves
@@ -62,7 +62,7 @@
   name: funky-loadout-group-security-neck
   minLimit: 0
   loadouts:
-  - FunkyMessTie
+  - FunkySecurityMessTie
 
 - type: loadoutGroup
   id: FunkySecurityCadetHat

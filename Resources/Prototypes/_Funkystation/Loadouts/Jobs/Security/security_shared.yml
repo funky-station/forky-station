@@ -1,6 +1,6 @@
 # Neck
 - type: loadout
-  id: FunkyMessTie
+  id: FunkySecurityMessTie
   equipment:
     neck: ClothingNeckSecurityBowtie
 

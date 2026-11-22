@@ -8,7 +8,7 @@
   groupBy: "dress"
 
 - type: loadout
-  id: FunkyChemistStockings
+  id: FunkyChemistDressStockings
   equipment:
     jumpsuit: FuClothingUniformChemDressStockings
   groupBy: "dress"
