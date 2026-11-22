@@ -15,7 +15,7 @@
     role: JobChef
     time: 5h
   startingGear: FunkyHDGear
-  icon: "JobIconHospitalityDirector"
+  icon: "FunkyJobIconHospitalityDirector"
   joinNotifyCrew: true
   supervisors: job-supervisors-captain
   access:

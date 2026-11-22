@@ -4,7 +4,7 @@
   description: funky-job-description-courier
   playTimeTracker: FunkyJobCourier
   startingGear: FunkyCourierGear
-  icon: "JobIconCourier"
+  icon: "FunkyJobIconCourier"
   supervisors: job-supervisors-qm
   access:
   - Cargo

@@ -18,7 +18,7 @@
     department: Security
     time: 30h
   startingGear: FunkyCommandantGear
-  icon: "JobIconCommandant"
+  icon: "FunkyJobIconCommandant"
   joinNotifyCrew: true
   supervisors: funky-job-supervisors-captain-contractor
   access:

@@ -12,7 +12,7 @@
     department: FunkyInternalAffairs
     time: 10h
   startingGear: FunkyCLGear
-  icon: "JobIconCorporateLiaison"
+  icon: "FunkyJobIconCorporateLiaison"
   supervisors: funky-job-supervisors-centcomm-advisor
   access:
   - Corporate

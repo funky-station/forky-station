@@ -2,7 +2,7 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconCentralCommandIntern
+  id: FunkyJobIconCentralCommandIntern
   icon:
     sprite: &icon-rsi /Textures/_Funkystation/Interface/Misc/job_icons.rsi
     state: CentralCommandIntern
@@ -10,15 +10,15 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconCentralCommandOfficial
+  id: FunkyJobIconCentralCommandOfficial
   icon:
     sprite: *icon-rsi
     state: CentralCommandOfficial
-  jobName: funky-funky-job-name-cco
+  jobName: funky-job-name-cco
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconNanotrasenCareerTrainer
+  id: FunkyJobIconNanoTrasenCareerTrainer
   icon:
     sprite: *icon-rsi
     state: NanotrasenCareerTrainer
@@ -28,7 +28,7 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconCorporateLiaison
+  id: FunkyJobIconCorporateLiaison
   icon:
     sprite: *icon-rsi
     state: CorporateLiaison
@@ -36,7 +36,7 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconExecutiveOfficer
+  id: FunkyJobIconExecutiveOfficer
   icon:
     sprite: *icon-rsi
     state: ExecutiveOfficer
@@ -44,7 +44,7 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconHospitalityDirector
+  id: FunkyJobIconHospitalityDirector
   icon:
     sprite: *icon-rsi
     state: HospitalityDirector
@@ -54,7 +54,7 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconCourier
+  id: FunkyJobIconCourier
   icon:
     sprite: *icon-rsi
     state: Courier
@@ -64,7 +64,7 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconInternalAffairsAgent
+  id: FunkyJobIconInternalAffairsAgent
   icon:
     sprite: *icon-rsi
     state: InternalAffairsAgent
@@ -72,7 +72,7 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconMagistrate
+  id: FunkyJobIconMagistrate
   icon:
     sprite: *icon-rsi
     state: Magistrate
@@ -83,7 +83,7 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconCommandant
+  id: FunkyJobIconCommandant
   icon:
     sprite: *icon-rsi
     state: HeadOfSecurity # TODO: Rename this
@@ -91,7 +91,7 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconLieutenant
+  id: FunkyJobIconLieutenant
   icon:
     sprite: *icon-rsi
     state: Deputy # TODO: Rename this
@@ -101,7 +101,7 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconFitnessInstructor
+  id: FunkyJobIconFitnessInstructor
   icon:
     sprite: *icon-rsi
     state: FitnessInstructor
@@ -111,7 +111,7 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconCommandMaid
+  id: FunkyJobIconCommandMaid
   icon:
     sprite: *icon-rsi
     state: CommandMaid
@@ -119,7 +119,7 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconCowboy
+  id: FunkyJobIconCowboy
   icon:
     sprite: *icon-rsi
     state: Cowboy
@@ -127,7 +127,7 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconPartyMaker
+  id: FunkyJobIconPartyMaker
   icon:
     sprite: *icon-rsi
     state: PartyMaker
@@ -135,7 +135,7 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconSecurityClown
+  id: FunkyJobIconSecurityClown
   icon:
     sprite: *icon-rsi
     state: SecurityClown

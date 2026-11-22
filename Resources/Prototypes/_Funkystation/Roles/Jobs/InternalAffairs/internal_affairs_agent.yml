@@ -8,7 +8,7 @@
      role: JobLawyer
      time: 5h
   startingGear: FunkyIAAGear
-  icon: "JobIconInternalAffairsAgent"
+  icon: "FunkyJobIconInternalAffairsAgent"
   supervisors: funky-job-supervisors-xo
   access:
   - InternalAffairs

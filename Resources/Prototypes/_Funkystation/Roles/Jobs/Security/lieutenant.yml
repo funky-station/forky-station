@@ -9,7 +9,7 @@
     role: JobSecurityOfficer
     time: 5h
   startingGear: FunkyLieutenantGear
-  icon: "JobIconLieutenant"
+  icon: "FunkyJobIconLieutenant"
   supervisors: job-supervisors-commandant
   access:
   - Security

@@ -27,7 +27,7 @@
     role: FunkyJobMagistrate
     time: 2.5h
   startingGear: FunkyXOGear
-  icon: "JobIconExecutiveOfficer"
+  icon: "FunkyJobIconExecutiveOfficer"
   joinNotifyCrew: true
   supervisors: job-supervisors-captain
   access:

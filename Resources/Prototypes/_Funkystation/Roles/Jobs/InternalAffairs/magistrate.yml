@@ -11,7 +11,7 @@
     department: Security
     time: 5h
   startingGear: FunkyMagistrateGear
-  icon: "JobIconMagistrate"
+  icon: "FunkyJobIconMagistrate"
   supervisors: funky-job-supervisors-xo
   access:
   - Magistrate
