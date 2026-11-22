@@ -161,6 +161,8 @@ public sealed partial class SharedSupermatterComponent : Component
     // --- Internal Buffers ---
     [DataField("absorbedGas")]
     public GasMixture AbsorbedGas = new();
+    [ViewVariables(VVAccess.ReadOnly)]
+    public GasMixture LastAbsorbedGas = new();
     [DataField("absorptionHealingPool")]
     public float AbsorptionHealingPool;
     [ViewVariables(VVAccess.ReadWrite)]

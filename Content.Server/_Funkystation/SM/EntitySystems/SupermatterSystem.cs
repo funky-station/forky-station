@@ -224,6 +224,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
     {
         sm.AbsorbedGas.Clear();
         AbsorbGas(uid, sm, args);
+        sm.LastAbsorbedGas.CopyFrom(sm.AbsorbedGas);
         if (sm.Activated)
             ApplyPowerPool(sm);
         ComputeGasCharacteristics(sm);
