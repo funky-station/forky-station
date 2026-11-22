@@ -321,11 +321,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
                 continue;
 
             var absorbed = mixture.RemoveRatio(sm.RatioPerTile);
-            foreach (var (gas, moles) in absorbed)
-            {
-                sm.AbsorbedGas.AdjustMoles(gas, moles);
-            }
-            sm.AbsorbedGas.Temperature = absorbed.Temperature;
+            _atmosphereSystem.Merge(sm.AbsorbedGas, absorbed);
         }
     }
 
@@ -824,12 +820,17 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
 
         if (validTiles.Count == 0)
             return;
-
-        var split = sm.AbsorbedGas.RemoveRatio(1f / validTiles.Count);
-
+        //clears Absorbed gas
+        var gasToRelease = sm.AbsorbedGas.RemoveRatio(1f);
+        //Gets the ratio of tiles to release gas on
+        var ratio = 1f / validTiles.Count;
+        //splits the gas so each tile gets the same ratio
+        var perTile = gasToRelease.Clone();
+        perTile.Multiply(ratio);
+        //releases the gas
         foreach (var mixture in validTiles)
         {
-            _atmosphereSystem.Merge(mixture, split.Clone());
+            _atmosphereSystem.Merge(mixture, perTile.Clone());
         }
     }
 }
