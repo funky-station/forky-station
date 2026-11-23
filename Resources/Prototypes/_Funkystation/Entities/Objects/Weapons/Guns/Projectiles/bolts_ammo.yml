@@ -68,7 +68,6 @@
     - state: rod
       color: darkgray
     - state: tip-teargas
-      color: red
   - type: CartridgeAmmo
     proto: FuBoltTeargasProjectile
     deleteOnSpawn: true
