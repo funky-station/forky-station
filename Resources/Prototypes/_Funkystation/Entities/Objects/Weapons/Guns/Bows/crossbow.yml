@@ -1,14 +1,22 @@
 - type: entity
   parent: BaseItem
-  name: crossbow
-  id: FunkyBaseCrossbow
-  description: The second rooty tooty point and shooty.
-  # reference to the bow description, mostly a placeholder until
-  # I can think of something better
-  abstract: true
+  id: FunkyCrossbowSecurity
+  name: AEGIS security crossbow
+  description: "With the all new AEGIS Security crossbow you don't have to worry about silly things like trigger discipline, because crossbows are obviously less dangerous then a gun! (Disclaimer: AEGIS Security is not responsible for any injuries this causes)"
   components: #TODO: add a system for drawing the crossbow before being able to fire it
-  - type: Sprite
-    sprite: _Funkystation/Objects/Weapons/Guns/Bows/crossbow.rsi # TEMPORARY
+  - type: Appearance
+  - type: Sprite #currently colours are just the regions of the crossbow
+    sprite: _Funkystation/Objects/Weapons/Guns/Bows/compound-crossbow.rsi # ignore the 64x one
+    layers:
+    - state: drawn
+      map: [ base ]
+    - state: drawn-bolt
+      map: [ bolt ]
+      visible: false
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Back
   - type: Item
     size: Large
   - type: Wieldable
@@ -19,56 +27,19 @@
     minAngle: 0
     maxAngle: 2
     fireRate: 1
-    projectileSpeed: 35 # base for now, here for reference as a reminder
+    projectileSpeed: 35
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
     soundGunshot:
       collection: BulletMiss
     soundEmpty: null
-  - type: ItemSlots
-    slots:
-      gun_chamber:
-        name: Chamber
-        startingItem: null
-        priority: 1
-        whitelist:
-          tags:
-          - BoltAmmo
-  - type: ContainerContainer
-    containers:
-      gun_chamber: !type:ContainerSlot
-  - type: ChamberMagazineAmmoProvider
-    autoCycle: false
-    boltClosed: false
-    canRack: false
-    soundBoltClosed: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
-    soundBoltOpened: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
-    soundRack: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
-
-- type: entity
-  parent: FunkyBaseCrossbow
-  abstract: true
-  id: FunkyBaseCrossbowCompound
-  name: compound crossbow
-  components:
-  - type: Sprite #currently colours are just the regions of the crossbow
-    sprite: _Funkystation/Objects/Weapons/Guns/Bows/compound-crossbow.rsi # ignore the 64x one
-    layers:
-    - state: undrawn
-      map: [ base ]
-    - state: drawn-bolt
-      map: [ bolt ]
-      visible: false
-    - type: Appearance
-    - type: ItemMapper
-      spriteLayers:
-      - bolt
-      mapLayers:
-        bolt:
-          whitelist:
-            tags:
-            - Bolt
+  - type: BallisticAmmoProvider # todo: change the sound when a bolt is added
+    capacity: 1
+    proto: null
+    whitelist:
+      tags:
+      - CrossbowBolt
   - type: BreechLoaded
     ToggleDelay: 3
     openSound: # temporary sound
@@ -81,15 +52,5 @@
         enum.BreechVisuals.Open:
           True: { state: drawn }
           False: { state: undrawn }
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - Back
 
 
-- type: entity
-  parent: [ FunkyBaseCrossbowCompound, BaseSecurityContraband]
-  id: FunkyCrossbowSecurity
-  name: AGIES security crossbow
-  description: "With the all new AGIES Security crossbow you don't have to worry about silly things like trigger discipline, because crossbows are obviously less dangerous then a gun! (Disclaimer: AGIES Security is not responsible for any injuries this causes)"
-  #components: # TODO: finish it's own sprite

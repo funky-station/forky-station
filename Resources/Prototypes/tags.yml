@@ -88,12 +88,6 @@
   id: Boll # MaterialStorage whitelist: Sheetifier
 
 - type: Tag
-  id: Bolt #Storage Whitelist: Quiver, used as ammo for crossbows
-
-- type: Tag
-  id: BoltAmmo # Used as the ammo
-
-- type: Tag
   id: Book # Storage whitelist: BorgModuleService, BooksBag, Bookshelf. Blacklisting on various entities whitelisting PaperComponent
 
 - type: Tag
@@ -414,6 +408,11 @@
 
 - type: Tag
   id: Creamsicle # Blacklist on BountyFruit
+
+# begin Funky
+- type: Tag
+  id: CrossbowBolt #Storage Whitelist: Quiver, used as ammo for crossbows
+# end Funky
 
 - type: Tag
   id: Crowbar # Storage whitelist: BaseClothingBeltEngineering, ClothingBeltChiefEngineer. ItemMapper: BaseClothingBeltEngineering, ClothingBeltChiefEngineer

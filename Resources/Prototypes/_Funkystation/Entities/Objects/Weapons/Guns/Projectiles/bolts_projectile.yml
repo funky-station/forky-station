@@ -1,7 +1,7 @@
 - type: entity
   abstract: true
   parent: [ BaseItem ] # no Solution Dart because that isn't for every bolt
-  id: FuBaseBoltProjectile
+  id: FunkyBaseCrossbowBoltProjectile
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -20,9 +20,6 @@
         - BulletImpassable
   - type: Ammo
     muzzleFlash: null
-  - type: Tag
-    tags:
-    - Bolt
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -30,8 +27,8 @@
         Piercing: 35
 
 - type: entity
-  parent: [ FuBaseBoltProjectile, BaseSecurityContraband ]
-  id: FuBoltLessLethalProjectile
+  parent: [ FunkyBaseCrossbowBoltProjectile, BaseSecurityContraband ]
+  id: FunkyCrossbowBoltLessLethalProjectile
   name: rubber bolt
   description: A bolt with a rounder rubber tip. It still hurts though.
   categories: [ HideSpawnMenu ]
@@ -63,17 +60,16 @@
   - type: ScatteringGrenade # TODO: offset the spawn so it doesn't spawn in walls
     triggerKey: trigger
     randomAngle: true
-    fillPrototype: FuBoltLessLethalAmmo
+    fillPrototype: FunkyBoltLessLethalAmmo
     capacity: 1
     randomDistance: true
     randomThrowDistanceMin: 0.5
     randomThrowDistanceMax: 2
-
 # once condition med is added a chance to break the person who was hit's ribs or something like that can be added if the damage doesn't do it
 
 - type: entity
-  parent: [ FuBaseBoltProjectile, BaseSecurityContraband ]
-  id: FuBoltTeargasProjectile
+  parent: [ FunkyCrossbowBaseBoltProjectile, BaseSecurityContraband ]
+  id: FunkyCrossbowBoltTeargasProjectile
   name: teargas bolt
   description: A single use bolt that releases a small amount of teargas on contact.
   categories: [ HideSpawnMenu ]

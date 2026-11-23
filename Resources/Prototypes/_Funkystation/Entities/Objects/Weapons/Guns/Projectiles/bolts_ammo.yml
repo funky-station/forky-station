@@ -1,8 +1,7 @@
-# this is for bolts that need to be a gun. Don't ask.
 - type: entity
   abstract: true
   parent: [ BaseItem ] # no Solution Dart because that isn't for every bolt
-  id: FuBaseBoltAmmo
+  id: FunkyBaseCrossbowBoltAmmo
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Weapons/Guns/Projectiles/bolts.rsi #Sprites are not done and are pretty much just the arrow sprites
@@ -23,7 +22,7 @@
     muzzleFlash: null
   - type: Tag
     tags:
-    - BoltAmmo
+    - CrossbowBolt
   - type: Damageable
   - type: Destructible
     thresholds:
@@ -38,8 +37,8 @@
         acts: [ "Destruction" ]
 
 - type: entity
-  parent: [ FuBaseBoltAmmo, BaseSecurityContraband ]
-  id: FuBoltLessLethalAmmo
+  parent: [ FunkyBaseCrossbowBoltAmmo, BaseSecurityContraband ]
+  id: FunkyCrossbowBoltLessLethalAmmo
   name: rubber bolt
   description: A bolt with a rounder rubber tip. It still hurts though.
   components:
@@ -52,12 +51,12 @@
     - state: tip-rounded
       color: black
   - type: CartridgeAmmo
-    proto: FuBoltLessLethalProjectile
+    proto: FunkyCrossbowBoltLessLethalProjectile
     deleteOnSpawn: true
 
 - type: entity
-  parent: [ FuBaseBoltAmmo, BaseSecurityContraband ]
-  id: FuBoltTeargasAmmo
+  parent: [ FunkyBaseCrossbowBoltAmmo, BaseSecurityContraband ]
+  id: FunkyCrossbowBoltTeargasAmmo
   name: teargas bolt
   description: #
   components:
@@ -69,6 +68,6 @@
       color: darkgray
     - state: tip-teargas
   - type: CartridgeAmmo
-    proto: FuBoltTeargasProjectile
+    proto: FunkyCrossbowBoltTeargasProjectile
     deleteOnSpawn: true
 
