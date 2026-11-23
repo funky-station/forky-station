@@ -2,7 +2,7 @@
   id: FunkyLieutenant
   name: funky-job-name-lieutenant
   description: funky-job-description-lieutenant
-  playTimeTracker: JobLieutenant
+  playTimeTracker: FunkyJobLieutenant
   requiresNda: Security
   requirements:
   - !type:RoleTimeRequirement
@@ -10,7 +10,7 @@
     time: 5h
   startingGear: FunkyLieutenantGear
   icon: "FunkyJobIconLieutenant"
-  supervisors: job-supervisors-commandant
+  supervisors: funky-job-supervisors-commandant
   access:
   - Security
   - Brig

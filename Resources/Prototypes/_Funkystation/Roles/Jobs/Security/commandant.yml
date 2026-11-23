@@ -12,7 +12,7 @@
     role: JobDetective
     time: 5h
   - !type:RoleTimeRequirement
-    role: JobLieutenant
+    role: FunkyJobLieutenant
     time: 5h
   - !type:DepartmentTimeRequirement
     department: Security

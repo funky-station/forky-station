@@ -1,6 +1,6 @@
 - type: job
   id: Chaplain
-  supervisors: job-supervisors-hd
+  supervisors: funky-job-supervisors-hd
 
 - type: startingGear
   id: ChaplainGear

@@ -20,3 +20,9 @@
   equipment:
     id: BotanistWallet
     ears: ClothingHeadsetCargo
+
+- type: chameleonOutfit
+  id: BotanistChameleonOutfit
+  job: Botanist
+  equipment:
+    head: ClothingHeadBandGreen

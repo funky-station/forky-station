@@ -1,7 +1,7 @@
 - type: job
   id: Detective
   requiresNda: Security
-  supervisors: job-supervisors-commandant
+  supervisors: funky-job-supervisors-commandant
   special: !Clear
 
 - type: startingGear

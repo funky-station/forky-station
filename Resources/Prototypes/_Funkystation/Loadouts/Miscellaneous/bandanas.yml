@@ -1,6 +1,3 @@
-﻿# Hats
-## Bandanas
-
 - type: loadout
   id: FunkyBandanaBlack
   equipment:
@@ -42,30 +39,3 @@
   equipment:
     head: ClothingHeadBandRed
   groupBy: "bandanas"
-
-## Hardhats
-- type: loadout
-  id: FunkyHardhatBlack
-  equipment:
-    head: FuClothingHeadHatHardhatBlack
-  groupBy: "hardhats"
-
-- type: loadout
-  id: FunkyHardhatOffwhite
-  equipment:
-    head: FuClothingHeadHatHardhatOffwhite
-  groupBy: "hardhats"
-
-# Technically identical to ChiefEngineerHead but that's a godawful name for a loadout so we're making our own version
-- type: loadout
-  id: FunkyHardhatWhite
-  equipment:
-    head: ClothingHeadHatHardhatWhite
-  groupBy: "hardhats"
-
-# Backpacks
-## Satchels
-- type: loadout
-  id: FunkyLeatherSatchel
-  equipment:
-    back: ClothingBackpackSatchelLeather

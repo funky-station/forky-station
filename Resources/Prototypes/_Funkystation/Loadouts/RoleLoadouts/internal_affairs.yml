@@ -29,7 +29,7 @@
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
-  id: JobInternalAffairsAgent # Should be FunkyJobInternalAffairsAgent but the way the game gets roleLoadouts from jobs is hardcoded
+  id: JobFunkyInternalAffairsAgent # Should be FunkyJobInternalAffairsAgent but the way the game gets roleLoadouts from jobs is hardcoded
   groups:
   - GroupTankHarness
   - LawyerNeck

@@ -1,7 +1,7 @@
 - type: loadoutGroup
   id: Trinkets
   loadouts:
-  - CigPackMixed
+  - FunkyCigPackMixed
 
 # Command
 # Unused job trinket loadoutGroups go here on the off chance that upstream uncomments and uses them

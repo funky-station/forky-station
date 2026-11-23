@@ -1,7 +1,7 @@
 - type: job
   id: Bartender
   requirements: !Clear
-  supervisors: job-supervisors-hd
+  supervisors: funky-job-supervisors-hd
   extendedAccess:
   - !Remove Hydroponics
 

@@ -54,8 +54,8 @@
   id: FunkySecurityGloves
   name: funky-loadout-group-security-gloves
   loadouts:
-  - BlackGloves
-  - WhiteGloves
+  - FunkyBlackGloves
+  - FunkyWhiteGloves
 
 - type: loadoutGroup
   id: FunkySecurityNeck

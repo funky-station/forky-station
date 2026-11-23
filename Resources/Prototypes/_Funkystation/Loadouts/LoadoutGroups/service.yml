@@ -27,7 +27,7 @@
   name: funky-loadout-group-hd-gloves
   minLimit: 0
   loadouts:
-  - WhiteGloves # They don't get any other color options because that would be a COMPLETE stylistic faux pas. Gotta Mickey Mousemaxx.
+  - FunkyWhiteGloves # They don't get any other color options because that would be a COMPLETE stylistic faux pas. Gotta Mickey Mousemaxx.
 
 - type: loadoutGroup
   id: FunkyHDShoes

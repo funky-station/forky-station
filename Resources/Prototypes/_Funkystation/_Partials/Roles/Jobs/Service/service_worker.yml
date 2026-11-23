@@ -1,7 +1,7 @@
 - type: job
   id: ServiceWorker
   requirements: !Clear
-  supervisors: job-supervisors-hd
+  supervisors: funky-job-supervisors-hd
   extendedAccess: !Clear
 
 - type: startingGear

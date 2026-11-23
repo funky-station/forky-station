@@ -6,7 +6,7 @@
   id: FunkyJobMagistrate
 
 - type: playTimeTracker
-  id: FunkyJobIAA
+  id: FunkyJobInternalAffairsAgent
 
 - type: playTimeTracker
   id: FunkyJobHospitalityDirector
