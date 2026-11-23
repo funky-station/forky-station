@@ -102,6 +102,7 @@
   - type: SmokeOnTrigger
     duration: 3
     spreadAmount: 4
+    smokePrototype: TearGasSmokeWhite
     solution:
       reagents:
       - ReagentId: TearGas
