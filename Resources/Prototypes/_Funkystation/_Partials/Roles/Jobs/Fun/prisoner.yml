@@ -1,0 +1,4 @@
+# The chameleon outfit needs to be associated with the job
+- type: chameleonOutfit
+  id: PrisonerChameleonOutfit
+  job: FunkyPrisoner
