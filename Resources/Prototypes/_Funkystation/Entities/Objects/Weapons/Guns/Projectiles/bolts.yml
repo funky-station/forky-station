@@ -2,6 +2,7 @@
   abstract: true
   parent: [ BaseItem ] # no Solution Dart because that isn't for every bolt
   id: FuBaseBolt
+  suffix: Deprecated
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Weapons/Guns/Projectiles/bolts.rsi #Sprites are not done and are pretty much just the arrow sprites
@@ -59,11 +60,7 @@
   - type: EmbeddableProjectile
     sound: /Audio/Weapons/star_hit.ogg
     embedOnThrow: false
-  # TODO: make DamageOnRemove component: to deal damage when an embedded projectile is removed
-
-#- type: entity
-#  abstract: true
-# maybe move the projectiles and ammo to different YMLs if it is done that way
+  # TODO: use trigger on unembed to maybe have damage when removed?
 
 - type: entity
   parent: [ FuBaseBoltEmbed, BaseSecurityContraband ]
@@ -89,12 +86,8 @@
     sprintSpeedModifier: 0.75
   - type: StaminaDamageOnCollide # TODO: add bluntStaminaDamageFactor to projectile so it can be used here
     damage: 35
-  - type: TriggerOnEmbed
-    fixtureID: projectile
-    maxTriggers: 1
-  - type: SpawnOnTrigger
-    proto: FuBoltLessLethal
-  - type: DeleteOnTrigger
+
+
 
 
 
@@ -117,29 +110,6 @@
 
 
   # Misc bolts
-  # might remove the improvised bolt(s)
-- type: entity
-  parent: FuBaseBoltEmbed
-  id: FuBoltImprovised
-  name: improvised bolt
-  description: The sophisticated greyshirt's preferred projectile # I had a typo of "greyshit" and am tempted to keep it in
-  components:
-  - type: Projectile
-    damage:
-      types:
-        Piercing: 25
-  - type: Sprite
-    layers: #TEMPORARY, same as the improvised arrow
-    - state: tail
-      color: black
-    - state: rod
-      color: darkgray
-    - state: tip-pointed
-      color: lightblue
-  - type: DamageOnLand
-    damage:
-      types:
-        Blunt: 10 # should be 3 uses before breaking if this works right
 
 - type: entity
   parent: [ FuBaseBoltEmbed, BaseSyndicateContraband]

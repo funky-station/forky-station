@@ -1,0 +1,129 @@
+- type: entity
+  abstract: true
+  parent: [ BaseItem ] # no Solution Dart because that isn't for every bolt
+  id: FuBaseBoltProjectile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Guns/Projectiles/bolts.rsi #Sprites are not done and are pretty much just the arrow sprites
+  - type: Item
+    size: Small
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb # no idea what this is for but it's in the arrow so I'm putting it here so I don't crash the game
+          bounds: "-0.1,-0.3,0.2,-0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: Ammo
+    muzzleFlash: null
+  - type: Tag
+    tags:
+    - Bolt
+  - type: Projectile # load bearing component despite doing nothing (I'm not joking)
+    damage:
+      types:
+        Piercing: 35
+
+- type: entity
+  parent: [ FuBaseBoltProjectile, BaseSecurityContraband ]
+  id: FuBoltLessLethalProjectile
+  name: rubber bolt
+  description: A bolt with a rounder rubber tip. It still hurts though.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: tail
+      color: black
+    - state: rod
+      color: darkgray
+    - state: tip-rounded
+      color: black
+  - type: Projectile # load bearing component despite doing nothing (I'm not joking)
+    damage:
+      types:
+        Blunt: 27 # Still lethal
+  - type: StunOnCollide
+    slowdownAmount: 2
+    walkSpeedModifier: 0.75
+    sprintSpeedModifier: 0.75
+  - type: StaminaDamageOnCollide # TODO: add bluntStaminaDamageFactor to projectile so it can be used here
+    damage: 35
+  - type: TriggerOnCollide
+    fixtureID: fix1
+    maxTriggers: 1
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  - type: ScatteringGrenade # TODO: offset the spawn so it doesn't spawn in walls
+    triggerKey: trigger
+    RandomAngle: 90
+    fillPrototype: FuBoltLessLethalAmmo
+    capacity: 1
+    randomDistance: true
+    randomThrowDistanceMin: 0.5
+    randomThrowDistanceMax: 2
+  - type: DamageOnTrigger # this is required because for some reason I cannot get it to both spawn a new ammo thing and deal projectile damage.
+    # I tried changing the fixture name but it doesn't work
+    targetUser: true
+    damage:
+      types:
+        Blunt: 27
+  - type: StaminaDamageOnTrigger
+    targetUser: true
+    stamina: 35
+
+- type: entity
+  parent: [ FuBaseBoltProjectile, BaseSecurityContraband ]
+  id: FuBoltTeargasProjectile
+  name: teargas bolt
+  description: A single use bolt that releases a small amount of teargas on contact.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: tail
+      color: black
+    - state: rod
+      color: darkgray
+    - state: tip-teargas
+      color: red # temp
+  - type: Projectile # load bearing component despite doing nothing (I'm not joking)
+    damage:
+      types:
+        Blunt: 17
+  - type: TriggerOnCollide
+    fixtureID: fix1
+    maxTriggers: 1
+  - type: SmokeOnTrigger
+    duration: 3
+    spreadAmount: 4
+    solution:
+      reagents:
+      - ReagentId: TearGas
+        Quantity: 25
+  - type: DeleteOnTrigger # TODO: add an used-up entity that is spawned on hit w/ scattering grenade
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: GlassBreak
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 1
+    intensitySlope: 1
+    totalIntensity: 1
+    canCreateVacuum: false
+  - type: DamageOnTrigger # extra damage to the person hit because it is supposed to be exploding while touching them
+    targetUser: true
+    damage:
+      types:
+        Blunt: 7
+        Heat: 7
+        Piercing: 7
+
+
+# DO NOT ADD A FLASHBANG BOLT UNLESS YOU WANT THE RETURN OF THE STUN META

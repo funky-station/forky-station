@@ -28,18 +28,23 @@
     soundEmpty: null
   - type: ItemSlots
     slots:
-      projectiles:
-        name: Projectiles
+      gun_chamber:
+        name: Chamber
         startingItem: null
-        insertSound: /Audio/Weapons/Guns/Misc/arrow_nock.ogg #close enough for now
+        priority: 1
         whitelist:
           tags:
-          - Bolt
+          - BoltAmmo
   - type: ContainerContainer
     containers:
-      projectiles: !type:ContainerSlot
-  - type: ContainerAmmoProvider
-    container: projectiles
+      gun_chamber: !type:ContainerSlot
+  - type: ChamberMagazineAmmoProvider
+    autoCycle: false
+    boltClosed: false
+    canRack: false
+    soundBoltClosed: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
+    soundBoltOpened: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
+    soundRack: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
 
 - type: entity
   parent: FunkyBaseCrossbow
@@ -88,44 +93,3 @@
   name: AGIES security crossbow
   description: "With the all new AGIES Security crossbow you don't have to worry about silly things like trigger discipline, because crossbows are obviously less dangerous then a gun! (Disclaimer: AGIES Security is not responsible for any injuries this causes)"
   #components: # TODO: finish it's own sprite
-
-- type: entity
-  parent: FunkyBaseCrossbow
-  id: FunkyCrossbowImprovised
-  name: improvised crossbow
-  components:
-  - type: Gun
-    projectileSpeed: 20 # not as strong
-  - type: Sprite
-    sprite: _Funkystation/Objects/Weapons/Guns/Bows/crossbow.rsi # TEMPORARY
-    layers:
-    - state: undrawn
-      map: [ base ]
-    - state: drawn-bolt
-      map: [ bolt ]
-      visible: false
-  - type: Appearance
-  - type: ItemMapper
-    spriteLayers:
-    - bolt
-    mapLayers:
-      bolt:
-        whitelist:
-          tags:
-          - Bolt
-  - type: BreechLoaded
-    ToggleDelay: 3
-    openSound: # temporary sound
-      path: "/Audio/_RMC14/Weapons/Guns/Breech/pkd_open_chamber.ogg"
-    closeSound:
-      path: "/Audio/_RMC14/Weapons/Guns/Breech/pkd_close_chamber.ogg"
-  - type: GenericVisualizer
-    visuals:
-      enum.BreechVisuals.Open:
-        enum.BreechVisuals.Open:
-          True: { state: drawn }
-          False: { state: undrawn }
-  # TODO: Add construction
-#  - type: Construction
-#   graph:
-#   node:

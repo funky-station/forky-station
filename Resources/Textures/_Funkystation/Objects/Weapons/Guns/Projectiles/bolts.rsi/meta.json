@@ -32,7 +32,9 @@
     {
       "name": "inhand-right",
       "directions": 4
-    }
-
+    },
+      {
+          "name": "tip-teargas"
+      }
   ]
 }

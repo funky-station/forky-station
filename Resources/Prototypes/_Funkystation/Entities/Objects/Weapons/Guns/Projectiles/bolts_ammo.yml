@@ -1,0 +1,75 @@
+# this is for bolts that need to be a gun. Don't ask.
+- type: entity
+  abstract: true
+  parent: [ BaseItem ] # no Solution Dart because that isn't for every bolt
+  id: FuBaseBoltAmmo
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Guns/Projectiles/bolts.rsi #Sprites are not done and are pretty much just the arrow sprites
+    drawdepth: Items
+  - type: Item
+    size: Small
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 5
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: Ammo
+    muzzleFlash: null
+  - type: Tag
+    tags:
+    - BoltAmmo
+  - type: Damageable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: [ FuBaseBoltAmmo, BaseSecurityContraband ]
+  id: FuBoltLessLethalAmmo
+  name: rubber bolt
+  description: A bolt with a rounder rubber tip. It still hurts though.
+  components:
+  - type: Sprite
+    layers:
+    - state: tail
+      color: black
+    - state: rod
+      color: darkgray
+    - state: tip-rounded
+      color: black
+  - type: CartridgeAmmo
+    proto: FuBoltLessLethalProjectile
+    deleteOnSpawn: true
+
+- type: entity
+  parent: [ FuBaseBoltAmmo, BaseSecurityContraband ]
+  id: FuBoltTeargasAmmo
+  name: teargas bolt
+  description: #
+  components:
+  - type: Sprite #temp
+    layers:
+    - state: tail
+      color: black
+    - state: rod
+      color: darkgray
+    - state: tip-teargas
+      color: red
+  - type: CartridgeAmmo
+    proto: FuBoltTeargasProjectile
+    deleteOnSpawn: true
+

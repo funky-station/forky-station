@@ -91,6 +91,9 @@
   id: Bolt #Storage Whitelist: Quiver, used as ammo for crossbows
 
 - type: Tag
+  id: BoltAmmo # Used as the ammo
+
+- type: Tag
   id: Book # Storage whitelist: BorgModuleService, BooksBag, Bookshelf. Blacklisting on various entities whitelisting PaperComponent
 
 - type: Tag
