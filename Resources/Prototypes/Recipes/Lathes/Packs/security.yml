@@ -59,6 +59,7 @@
   - MagazineRifle50Empty # Funky
   - SpeedLoaderMagnum
   - SpeedLoaderMagnumEmpty
+  - FunkyCrossbowBoltLessLethalAmmo # Funky
 
 - type: latheRecipePack
   id: SecurityWeaponsStatic
