@@ -40,7 +40,7 @@
   parent: [ FunkyBaseCrossbowBoltAmmo, BaseSecurityContraband ]
   id: FunkyCrossbowBoltLessLethalAmmo
   name: rubber bolt
-  description: A bolt with a rounder rubber tip. It still hurts though.
+  description: A crossbow bolt with a rounder rubber tip. It still hurts though.
   components:
   - type: Sprite
     layers:
@@ -58,7 +58,7 @@
   parent: [ FunkyBaseCrossbowBoltAmmo, BaseSecurityContraband ]
   id: FunkyCrossbowBoltTeargasAmmo
   name: teargas bolt
-  description: #
+  description: A single use bolt that releases a small amount of teargas on contact.
   components:
   - type: Sprite #temp
     layers:

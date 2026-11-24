@@ -50,7 +50,7 @@
     walkSpeedModifier: 0.75
     sprintSpeedModifier: 0.75
   - type: StaminaDamageOnCollide # TODO: add bluntStaminaDamageFactor to projectile so it can be used here
-    damage: 35
+    damage: 27
   - type: TriggerOnCollide
     fixtureID: projectile
     maxTriggers: 1
@@ -60,7 +60,7 @@
   - type: ScatteringGrenade # TODO: offset the spawn so it doesn't spawn in walls
     triggerKey: trigger
     randomAngle: true
-    fillPrototype: FunkyBoltLessLethalAmmo
+    fillPrototype: FunkyCrossbowBoltLessLethalAmmo
     capacity: 1
     randomDistance: true
     randomThrowDistanceMin: 0.5
@@ -68,7 +68,7 @@
 # once condition med is added a chance to break the person who was hit's ribs or something like that can be added if the damage doesn't do it
 
 - type: entity
-  parent: [ FunkyCrossbowBaseBoltProjectile, BaseSecurityContraband ]
+  parent: [ FunkyBaseCrossbowBoltProjectile, BaseSecurityContraband ]
   id: FunkyCrossbowBoltTeargasProjectile
   name: teargas bolt
   description: A single use bolt that releases a small amount of teargas on contact.
@@ -82,22 +82,22 @@
       color: darkgray
     - state: tip-teargas
   - type: Projectile # extra damage to the person hit because it is supposed to be exploding while touching them
-    damage:
+    damage: # about 27 total damage with the explosion, plus teargas
       types:
-        Blunt: 7
-        Heat: 7
-        Piercing: 7
+        Blunt: 6.5
+        Heat: 6.5
+        Piercing: 6.5
   - type: TriggerOnCollide
     fixtureID: projectile
     maxTriggers: 1
   - type: SmokeOnTrigger
-    duration: 3
-    spreadAmount: 4
+    duration: 2
+    spreadAmount: 1
     smokePrototype: TearGasSmokeWhite
     solution:
       reagents:
       - ReagentId: TearGas
-        Quantity: 25
+        Quantity: 30
   - type: DeleteOnTrigger # TODO: add an used-up entity that is spawned on hit w/ scattering grenade
   - type: EmitSoundOnTrigger
     sound:
@@ -105,9 +105,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    maxIntensity: 1
+    maxIntensity: 0.5
     intensitySlope: 1
-    totalIntensity: 1
+    totalIntensity: 0.5
     canCreateVacuum: false
 
 

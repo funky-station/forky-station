@@ -1,8 +1,9 @@
+# these are old and are just here for reference
 - type: entity
   abstract: true
   parent: [ BaseItem ] # no Solution Dart because that isn't for every bolt
   id: FuBaseBolt
-  suffix: Deprecated
+  suffix: old
   components:
   - type: Sprite
     sprite: _Funkystation/Objects/Weapons/Guns/Projectiles/bolts.rsi #Sprites are not done and are pretty much just the arrow sprites
@@ -30,9 +31,6 @@
     angle: 0
   - type: Ammo
     muzzleFlash: null
-  - type: Tag
-    tags:
-    - Bolt
   - type: Projectile
     deleteOnCollide: false
     onlyCollideWhenShot: true
