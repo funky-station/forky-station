@@ -1,0 +1,45 @@
+# hats
+
+- type: loadout
+  id: FunkyCourierHat
+  equipment:
+    head: FuClothingHeadHatCourier
+  groupBy: "hats"
+
+# outerclothing
+
+- type: loadout
+  id: FunkyCourierWindbreaker
+  equipment:
+    outerClothing: FuClothingOuterCoatWindbreakerCourier
+
+# uniforms
+
+## jumpsuits
+- type: loadout
+  id: FunkyCourierJumpsuit
+  equipment:
+    jumpsuit: FuClothingUniformJumpsuitLogiCourier
+  groupBy: "jumpsuit"
+
+## two piece pants
+- type: loadout
+  id: FunkyCourierTwoPiecePants
+  equipment:
+    jumpsuit: FuClothingUniformTwopiecePantsLogiCourier
+  groupBy: "twopiecepants"
+
+## two piece skirts
+- type: loadout
+  id: FunkyCourierTwoPieceSkirt
+  equipment:
+    jumpsuit: FuClothingUniformTwopieceSkirtLogiCourier
+  groupBy: "twopieceskirts"
+
+
+# shoes
+
+- type: loadout
+  id: FunkyCourierRollerskates
+  equipment:
+    shoes: ClothingShoesSkates

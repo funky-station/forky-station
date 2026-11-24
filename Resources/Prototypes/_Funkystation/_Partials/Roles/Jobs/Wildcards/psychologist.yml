@@ -1,0 +1,5 @@
+- type: startingGear
+  id: PsychologistGear
+  equipment:
+    id: PsychologistWallet
+    pocket2: PouchMedical

@@ -18,15 +18,14 @@
 - type: startingGear
   id: ChemistGear
   equipment:
-    id: ChemistryWallet # Funky: the wallet-ening
+    id: ChemistryPDA
     ears: ClothingHeadsetMedical
-    pocket2: PouchMedical # funky
 
 - type: chameleonOutfit
   id: ChemistChameleonOutfit
   job: Chemist
   equipment:
-    head: FuClothingHeadHatScrubcapBlack #ClothingHeadHatBeretMedic funky - fuck department berets
+    head: ClothingHeadHatBeretMedic
     eyes: ClothingEyesGlassesChemical
     mask: ClothingMaskSterile
     neck: ClothingNeckStethoscope

@@ -1,0 +1,16 @@
+- type: roleLoadout
+  id: JobFunkyHospitalityDirector # Should be FunkyJobHospitalityDirector but the way the game gets roleLoadouts from jobs is hardcoded
+  groups:
+  - GroupTankHarness
+  - FunkyHDHead
+  - FunkyHDUniform
+  - FunkyHDGloves
+  - FunkyHDOuterClothing
+  - FunkyHDShoes
+  - Glasses
+  - FunkyPager
+  - Survival
+  - Trinkets
+  #- HDJobTrinkets # TODO: Actually, why doesn't HD have the whistle? Should add later
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid

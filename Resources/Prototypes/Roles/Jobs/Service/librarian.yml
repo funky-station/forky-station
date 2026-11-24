@@ -5,20 +5,19 @@
   playTimeTracker: JobLibrarian
   startingGear: LibrarianGear
   icon: "JobIconLibrarian"
-  supervisors: job-supervisors-hd # funky
+  supervisors: job-supervisors-hop
   access:
   - Service
   - Maintenance
-  - Library # funky
 
 - type: startingGear
   id: LibrarianGear
   equipment:
     shoes: ClothingShoesBootsLaceup
-    id: LibrarianWallet # Funky: the wallet-ening
+    id: LibrarianPDA
     ears: ClothingHeadsetService
+    pocket1: d20Dice
     pocket2: HandLabeler # for making named bestsellers
-    pocket1: PouchGeneric # funky
   storage:
     back:
     - BookRandom

@@ -1,3 +1,4 @@
+#Wizard outfit startingGear definitions.
 - type: startingGear
   id: WizardBlueGear
   equipment:

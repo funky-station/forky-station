@@ -3,29 +3,28 @@
   name: job-name-chef
   description: job-description-chef
   playTimeTracker: JobChef
-  #requirements:
-  #  - !type:DepartmentTimeRequirement
-  #    department: Civilian # Funky - Service is now a separate department
-  #    time: 0.5h # Funky - Removing role timer for parity
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Service
+      time: 0.5h
   startingGear: ChefGear
   icon: "JobIconChef"
-  supervisors: job-supervisors-hd # funky
+  supervisors: job-supervisors-hop
   access:
   - Service
   - Maintenance
   - Kitchen
   extendedAccess:
-  #- Hydroponics # Funky - Botanist is now in Logistics
+  - Hydroponics
   - Bar
 
 - type: startingGear
   id: ChefGear
   equipment:
     shoes: ClothingShoesChef
-    id: ChefWallet # Funky: the wallet-ening
+    id: ChefPDA
     ears: ClothingHeadsetService
     belt: ClothingBeltChefFilled
-    pocket2: PouchGeneric # funky
   #storage:
     #back:
     #- Stuff

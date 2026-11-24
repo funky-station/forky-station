@@ -5,7 +5,7 @@
   playTimeTracker: JobJanitor
   startingGear: JanitorGear
   icon: "JobIconJanitor"
-  supervisors: job-supervisors-hd # funky
+  supervisors: job-supervisors-hop
   access:
   - Service
   - Janitor
@@ -19,16 +19,18 @@
   id: JanitorGear
   equipment:
     shoes: ClothingShoesGaloshes
-    id: JanitorWallet # Funky: the wallet-ening
+    id: JanitorPDA
     ears: ClothingHeadsetService
     belt: ClothingBeltJanitorFilled
-    pocket2: PouchGeneric # funky
+  #storage:
+    #back:
+    #- Stuff
 
 - type: startingGear
   id: JanitorMaidGear
   equipment:
     jumpsuit: ClothingUniformJumpskirtJanimaid
-    id: JanitorWallet # Funky: the wallet-ening
+    id: JanitorPDA
     gloves: ClothingHandsGlovesJanitor
     head: ClothingHeadHatCatEars
     ears: ClothingHeadsetService

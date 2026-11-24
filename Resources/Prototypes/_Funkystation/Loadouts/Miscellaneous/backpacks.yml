@@ -1,0 +1,4 @@
+- type: loadout
+  id: FunkyLeatherSatchel
+  equipment:
+    back: ClothingBackpackSatchelLeather

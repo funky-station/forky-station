@@ -1,0 +1,17 @@
+- type: job
+  id: Lawyer
+  requirements: !Clear
+  - !type:OverallPlaytimeRequirement
+    time: 2h
+  supervisors: job-supervisors-hire
+  access:
+  - !Remove Service
+
+- type: startingGear
+  id: LawyerGear
+  equipment:
+    id: LawyerWallet
+    ears: ClothingHeadsetGrey
+  storage:
+    back:
+    - BookSentencingGuidelines

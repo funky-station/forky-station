@@ -1,0 +1,28 @@
+- type: job
+  id: Botanist
+  name: job-name-botanist
+  description: job-description-botanist
+  playTimeTracker: JobBotanist
+  startingGear: BotanistGear
+  icon: "JobIconBotanist"
+  supervisors: job-supervisors-qm
+  access:
+  - !Remove Service
+  - Cargo
+  extendedAccess: !Clear
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: FourTwenty
+    prototype: CannabisSeeds
+
+- type: startingGear
+  id: BotanistGear
+  equipment:
+    id: BotanistWallet
+    ears: ClothingHeadsetCargo
+
+- type: chameleonOutfit
+  id: BotanistChameleonOutfit
+  job: Botanist
+  equipment:
+    head: ClothingHeadBandGreen

@@ -1,0 +1,259 @@
+# Moving the trinkets to the jumpsuit storage
+
+# Flowers
+- type: loadout
+  id: FlowerWreath
+  storage: !Clear
+    jumpsuit:
+    - ClothingHeadHatFlowerWreath
+
+- type: loadout
+  id: Hairflower
+  storage: !Clear
+    jumpsuit:
+    - ClothingHeadHatHairflower
+
+# Headphones
+- type: loadout
+  id: Headphones
+  storage: !Clear
+    jumpsuit:
+    - ClothingMultipleHeadphones
+
+# Toys
+- type: loadout
+  id: PlushieLizard
+  storage: !Clear
+    jumpsuit:
+    - PlushieLizard
+
+- type: loadout
+  id: PlushieSpaceLizard
+  storage: !Clear
+    jumpsuit:
+    - PlushieSpaceLizard
+
+- type: loadout
+  id: ThreeCandles
+  dummyEntity: LoadoutDummyCandles
+  storage: !Clear
+    jumpsuit:
+    - CandleRed
+    - CandleBlue
+    - CandleGreenSmall
+
+# Smokeables
+- type: loadout
+  id: Lighter
+  storage: !Clear
+    jumpsuit:
+    - Lighter
+  groupBy: "smokeables"
+
+- type: loadout
+  id: CigPackGreen
+  storage: !Clear
+    jumpsuit:
+    - CigPackGreen
+  groupBy: "smokeables"
+
+- type: loadout
+  id: CigPackRed
+  storage: !Clear
+    jumpsuit:
+    - CigPackRed
+  groupBy: "smokeables"
+
+- type: loadout
+  id: CigPackBlue
+  storage: !Clear
+    jumpsuit:
+    - CigPackBlue
+  groupBy: "smokeables"
+
+- type: loadout
+  id: CigPackBlack
+  storage: !Clear
+    jumpsuit:
+    - CigPackBlack
+  groupBy: "smokeables"
+
+- type: loadout
+  id: CigarCase
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Command
+  storage: !Clear
+    jumpsuit:
+    - CigarCase
+  groupBy: "smokeables"
+
+- type: loadout
+  id: CigarGold
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Command
+  storage: !Clear
+    jumpsuit:
+    - CigarGold
+  groupBy: "smokeables"
+
+# Folders
+- type: loadout
+  id: BoxFolderBaseThreePapers
+  storage: !Clear
+    jumpsuit:
+    - BoxFolderBaseThreePapers
+  groupBy: "folders"
+
+- type: loadout
+  id: BoxFolderPlasticClipboardThreePapers
+  storage: !Clear
+    jumpsuit:
+    - BoxFolderPlasticClipboardThreePapers
+  groupBy: "folders"
+
+- type: loadout
+  id: BoxFolderClipboardThreePapers
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Command
+  storage: !Clear
+    jumpsuit:
+    - BoxFolderClipboardThreePapers
+  groupBy: "folders"
+
+# Pins
+- type: loadout
+  id: ClothingNeckLGBTPin
+  storage: !Clear
+    jumpsuit:
+    - ClothingNeckLGBTPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckAllyPin
+  storage: !Clear
+    jumpsuit:
+    - ClothingNeckAllyPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckAromanticPin
+  storage: !Clear
+    jumpsuit:
+    - ClothingNeckAromanticPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckAsexualPin
+  storage: !Clear
+    jumpsuit:
+    - ClothingNeckAsexualPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckBisexualPin
+  storage: !Clear
+    jumpsuit:
+    - ClothingNeckBisexualPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckGayPin
+  storage: !Clear
+    jumpsuit:
+    - ClothingNeckGayPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckIntersexPin
+  storage: !Clear
+    jumpsuit:
+    - ClothingNeckIntersexPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckLesbianPin
+  storage: !Clear
+    jumpsuit:
+    - ClothingNeckLesbianPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckNonBinaryPin
+  storage: !Clear
+    jumpsuit:
+    - ClothingNeckNonBinaryPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckPansexualPin
+  storage: !Clear
+    jumpsuit:
+    - ClothingNeckPansexualPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckOmnisexualPin
+  storage: !Clear
+    jumpsuit:
+    - ClothingNeckOmnisexualPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckGenderqueerPin
+  storage: !Clear
+    jumpsuit:
+    - ClothingNeckGenderqueerPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckTransPin
+  storage: !Clear
+    jumpsuit:
+    - ClothingNeckTransPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckAutismPin
+  storage: !Clear
+    jumpsuit:
+    - ClothingNeckAutismPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckGoldAutismPin
+  storage: !Clear
+    jumpsuit:
+    - ClothingNeckGoldAutismPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckAroacePin
+  storage: !Clear
+    jumpsuit:
+    - ClothingNeckAroacePin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckPluralPin
+  storage: !Clear
+    jumpsuit:
+    - ClothingNeckPluralPin
+  groupBy: "pin"
+
+- type: loadout
+  id: ClothingNeckGenderfluidPin
+  storage: !Clear
+    jumpsuit:
+    - ClothingNeckGenderfluidPin
+  groupBy: "pin"
+
+# Towels
+- type: loadout
+  id: TowelColorWhite
+  storage: !Clear
+    jumpsuit:
+    - TowelColorWhite
+  groupBy: "towels"

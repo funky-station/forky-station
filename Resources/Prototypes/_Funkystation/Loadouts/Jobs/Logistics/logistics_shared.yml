@@ -1,0 +1,6 @@
+# neck
+
+- type: loadout
+  id: FunkyLogisticsLiftBelt
+  equipment:
+    neck: FuClothingNeckCargoLiftBelt

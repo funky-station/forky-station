@@ -1,0 +1,6 @@
+# outer clothing
+
+- type: loadout
+  id: FunkyQMWindbreaker
+  equipment:
+    outerClothing: FuClothingOuterCoatWindbreakerQm

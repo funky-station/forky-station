@@ -4,27 +4,26 @@
   description: job-description-serviceworker
   playTimeTracker: JobServiceWorker
   requirements:
-  #- !type:DepartmentTimeRequirement
-  #  department: Civilian # Funky - Service is now a separate department
-  #  time: 0.5h # Funky - Removed role timer for parity
+  - !type:DepartmentTimeRequirement
+    department: Service
+    time: 0.5h
   startingGear: ServiceWorkerGear
   icon: "JobIconServiceWorker"
-  supervisors: job-supervisors-hd # funky
+  supervisors: job-supervisors-service
   access:
   - Service
   - Maintenance
   - Bar
   - Kitchen
-  #extendedAccess: # Funky - Botanist is now in Logistics
-  #- Hydroponics
+  extendedAccess:
+  - Hydroponics
 
 - type: startingGear
   id: ServiceWorkerGear
   equipment:
     shoes: ClothingShoesColorBlack
-    id: ServiceWorkerWallet # Funky: the wallet-ening
+    id: ServiceWorkerPDA
     ears: ClothingHeadsetService
-    pocket2: PouchGeneric # funky
   #storage:
     #back:
     #- Stuff
