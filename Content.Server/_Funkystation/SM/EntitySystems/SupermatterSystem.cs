@@ -346,7 +346,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
     /// <param name="sm"></param>
     private void ComputeGasCharacteristics(SharedSupermatterComponent sm)
     {
-        float stability = sm.BaseStability + sm.Integrity / sm.IntegrityStabilityScalar;
+        float stability = -sm.Power/sm.PowerStabilityScalar + sm.BaseStability + (sm.Integrity - sm.MaxIntegrity) / sm.IntegrityStabilityScalar;
         float growth = sm.BaseGrowth;
         float conductivity = sm.BaseConductivity;
         float enthalpy = sm.BaseEnthalpy;
@@ -395,9 +395,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
         sm.Growth       *= stabilityEffectScale;
         sm.Conductivity *= stabilityEffectScale;
         sm.Enthalpy     *= stabilityEffectScale;
-        sm.Power += sm.Power * -sm.StabilityPowerDrainScale * sm.Stability;
-        if (sm.Power <= 0f)
-            sm.Power = 0f;
+        sm.Power += -sm.Power * sm.PowerStabilityDecayScalar * sm.Stability;
         sm.Power = Math.Clamp(sm.Power, sm.MinPower, sm.MaxPower);
     }
 
@@ -407,10 +405,8 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
     /// <param name="sm"></param>
     private void ApplyEnthalpy( SharedSupermatterComponent sm)
     {
-        var deltaEnergy = sm.Enthalpy * 1_000_000f; // MJ → joules
+        var deltaEnergy = sm.Enthalpy * sm.JoulesPerEnthalpy; // MJ → joules
         sm.Power += sm.Enthalpy * (sm.AbsorbedGas.Temperature - sm.NeutralEnthalpyTemperature); // temperature - room temperature in Kelvin
-        if (sm.Power <= 0f)
-            sm.Power = 0f;
         sm.Power = Math.Clamp(sm.Power, sm.MinPower, sm.MaxPower);
         _atmosphereSystem.AddHeat(sm.AbsorbedGas, deltaEnergy);
     }
@@ -447,8 +443,6 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
                 }
 
                 sm.Power -= amount * count;
-                if (sm.Power <= 0f)
-                    sm.Power = 0f;
                 sm.Power = Math.Clamp(sm.Power, sm.MinPower, sm.MaxPower);
                 return;
             }
@@ -571,14 +565,16 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
             }
 
             var gasTemp = sm.AbsorbedGas.Temperature;
-            float neutralTemp = Atmospherics.T20C;
-            neutralTemp += (sm.Stability - sm.NeutralStability) * sm.Enthalpy;
-            var tempDelta = ((neutralTemp - gasTemp) / sm.TemperatureDamageScale);
+            var safeTemp = sm.NeutralEnthalpyTemperature;
             if (sm.Enthalpy < 0)
             {
-                tempDelta = -1;
+                safeTemp += (sm.Enthalpy / sm.MaxCharacteristic) * (sm.MinSafeTemp - sm.NeutralEnthalpyTemperature);
             }
-            delta += tempDelta;
+            else
+            {
+                safeTemp += (sm.Enthalpy / sm.MaxCharacteristic) * (sm.MaxSafeTemp - sm.NeutralEnthalpyTemperature);
+            }
+            delta -= (gasTemp - safeTemp) / sm.TemperatureDamageScale;
         }
 
         if (sm.AbsorptionHealingPool > sm.AbsorptionHealingCost)
@@ -772,10 +768,9 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
     /// <param name="sm"></param>
     private void ComputeRadiation(SharedSupermatterComponent sm)
     {
-        var baseRadiation = sm.BaseRadiation + (sm.Power * sm.PowerPercentage);
-        var stabilityMultiplier = (sm.NeutralStability - sm.Stability) / sm.NeutralStability;
+        var baseRadiation = sm.BaseRadiation + (sm.Power * sm.PowerRadsPercentage);
+        var stabilityMultiplier = sm.MinimumRadsOutputPercentage + (sm.NeutralStability - sm.Stability)/sm.NeutralStability;
         // Floor so nominal stability still yields measurable output (radiation source + integration tests).
-        stabilityMultiplier = MathF.Max(0.05f, stabilityMultiplier);
         sm.CurrentRadiation = baseRadiation * stabilityMultiplier;
     }
 

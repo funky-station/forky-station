@@ -23,13 +23,21 @@
     maxIntegrity: 1000
     delamTimer: 30
     baseRadiation: 3
-    powerPercentage: 0.005
-    radiationDamageMultiplier: 10
+    powerRadsPercentage: 0.005
+    minimumRadsOutputPercentage: 0.5
+    vulnerableDamageMultiplier: 10
+    maxCharacteristic: 45
     neutralStability: 10
-    baseStability: 0
+    baseStability: 10
+    integrityStabilityScalar: 200
+    powerStabilityScalar: 3000
     baseGrowth: 0
     baseConductivity: 0
     baseEnthalpy: 0
+    joulesPerEnthalpy: 25000
+    maxSafeTemp: 1000
+    minSafeTemp: 25
+    neutralEnthalpyTemperature: 300
     reproductionThreshold: 1000
     reproductionDecay: 0.9
     powerDamageScale: 500
@@ -38,7 +46,7 @@
     absorptionHealingCost: 10
     growthAbsorptionScale: 45
     powerPerGasPacket: 3000
-    stabilityPowerDrainScale: 0.05
+    powerStabilityDecayScalar: .005
     integrityChangeCap: 2
     powerScalingFactor: 1000
     integrityDivisor: 10
@@ -66,7 +74,7 @@
         boltEnergyMJ: 8
         extraBounces: 3
         proto: HyperchargedLightning
-    RadiationDamageTypes:
+    VulnerableDamageTypes:
     - Radiation
     AbsorbedGas: {}
     anomalyMinPower: 5000

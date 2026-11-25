@@ -726,8 +726,8 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
             if (amount <= 0)
                 continue;
 
-            if (sm.RadiationDamageTypes.Contains(typeId))
-                totalDamage += (float) amount * sm.RadiationDamageMultiplier;
+            if (sm.VulnerableDamageTypes.Contains(typeId))
+                totalDamage += (float) amount * sm.VulnerableDamageMultiplier;
             else
                 totalDamage += (float) amount;
         }

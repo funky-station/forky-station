@@ -32,11 +32,15 @@ public sealed partial class SharedSupermatterComponent : Component
     [DataField("integrity")]
     public float Integrity = 1000f;
     [DataField("integrityStabilityScalar")]
-    public float IntegrityStabilityScalar = 100f;
-    [DataField("RadiationDamageTypes")]
-    public List<string> RadiationDamageTypes= [];
+    public float IntegrityStabilityScalar = 50f;
+    [DataField("powerStabilityScalar")]
+    public float PowerStabilityScalar = 3000f;
+    [DataField("VulnerableDamageTypes")]
+    public List<string> VulnerableDamageTypes= [];
     [DataField("maxIntegrity")]
     public float MaxIntegrity = 1000f;
+    [DataField("maxCharacteristic")]
+    public float MaxCharacteristic = 45f;
     [DataField("vacuumDamagePerTile")]
     public float VacuumDamagePerTile = 1.2f;
     /// <summary>
@@ -92,7 +96,7 @@ public sealed partial class SharedSupermatterComponent : Component
     /// </summary>
     [DataField("delamTimer")]
     public float DelamTimerDuration = 30f;
-    [DataField("roomTemp")]
+    [DataField("neutralEnthalpyTemperature")]
     public float NeutralEnthalpyTemperature = 293.15f;
     [DataField("maxGravRange")]
     public float MaxGravRange = 6f;
@@ -115,8 +119,8 @@ public sealed partial class SharedSupermatterComponent : Component
     public float BaseStability;
     [DataField("integrityDivisor")]
     public float IntegrityDivisor = 10f;
-    [DataField("radiationDamageMultiplier")]
-    public float RadiationDamageMultiplier = 10f; // For PA/emitters
+    [DataField("vulnerableDamageMultiplier")]
+    public float VulnerableDamageMultiplier = 10f; // For PA/emitters
     [DataField("reproductionThreshold")]
     public float ReproductionThreshold = 1000f;
     [DataField("reproductionDecay")]
@@ -129,22 +133,30 @@ public sealed partial class SharedSupermatterComponent : Component
     public float GrowthAbsorptionScale = 45f;
     [DataField("powerPerGasPacket")]
     public float PowerPerGasPacket = 3000f;
-    [DataField("stabilityPowerDrainScale")]
-    public float StabilityPowerDrainScale = 0.08f;
+    [DataField("powerStabilityDecayScalar")]
+    public float PowerStabilityDecayScalar = 0.01f;
     [DataField("neutralStability")]
     public float NeutralStability = 10f;
     [DataField("baseConductivity")]
     public float BaseConductivity;
     [DataField("baseEnthalpy")]
     public float BaseEnthalpy;
+    [DataField("joulesPerEnthalpy")]
+    public float JoulesPerEnthalpy;
+    [DataField("maxSafeTemp")]
+    public float MaxSafeTemp = 1000f;
+    [DataField("minSafeTemp")]
+    public float MinSafeTemp = 25f;
     [DataField("integrityChangeCap")]
     public float IntegrityChangeCap = 2f;
     [DataField("powerScalingFactor")]
     public float PowerScalingFactor = 1000f;
     [DataField("baseRadiation")]
     public float BaseRadiation = 3f;
-    [DataField("powerPercentage")]
-    public float PowerPercentage = 0.005f;
+    [DataField("powerRadsPercentage")]
+    public float PowerRadsPercentage = 0.005f;
+    [DataField("minimumRadsOutputPercentage")]
+    public float MinimumRadsOutputPercentage = 0.5f;
 
     // --- Gas Characteristics (calculated each tick) ---
     [DataField("stability")]
