@@ -30,4 +30,7 @@ public sealed partial class CCVars
     public static readonly CVarDef<bool> SupermatterDoCascadeDelam =
         CVarDef.Create("supermatter.do_cascade_delam", true, CVar.SERVERONLY);
 
+    public static readonly CVarDef<bool> SupermatterDoAlerts =
+        CVarDef.Create("supermatter.do_alerts", true, CVar.SERVERONLY);
+
 }

@@ -1,4 +1,5 @@
 ﻿using Content.Shared._Funkystation.SM.Events;
+using Content.Shared._Funkystation.SM.Prototypes;
 using Content.Shared.Atmos;
 using Content.Shared.Explosion;
 using Robust.Shared.Audio;
@@ -173,6 +174,8 @@ public sealed partial class SharedSupermatterComponent : Component
     // --- Internal Buffers ---
     [DataField("absorbedGas")]
     public GasMixture AbsorbedGas = new();
+    [ViewVariables(VVAccess.ReadOnly)]
+    public GasMixture LastAbsorbedGas = new();
     [DataField("absorptionHealingPool")]
     public float AbsorptionHealingPool;
     [ViewVariables(VVAccess.ReadWrite)]
@@ -291,6 +294,16 @@ public sealed partial class SharedSupermatterComponent : Component
     /// <summary>Count-up to next spawn attempt; starts high so maps do not spawn on first tick.</summary>
     [DataField("anomalyCooldown")]
     public float AnomalyCooldown = 120f;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public SupermatterAlertLevelPrototype CurrentAlertLevel;
+    [ViewVariables(VVAccess.ReadOnly)]
+    public float LastIntegrity;
+
+    [DataField("baseAlertState")]
+    public ProtoId<SupermatterAlertLevelPrototype> BaseAlertState = "Stable";
+
+
 }
 [Serializable, NetSerializable]
 public enum SupermatterState : byte
