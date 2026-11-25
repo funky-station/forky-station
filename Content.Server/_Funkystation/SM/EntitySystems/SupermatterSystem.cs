@@ -251,6 +251,25 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
 
         UpdateIntegrity(uid, sm);
 
+        var oldLevel = sm.CurrentAlertLevel;
+        var newLevel = GetAlertLevel(GetIntegrityPercent(sm.Integrity, sm.MaxIntegrity));
+
+        if (oldLevel != newLevel)
+        {
+            var increasing = sm.Integrity > sm.LastIntegrity;
+
+            var ev = new SupermatterAlertLevelChangedEvent(
+                oldLevel,
+                newLevel,
+                increasing);
+
+            RaiseLocalEvent(uid, ref ev);
+
+            sm.CurrentAlertLevel = newLevel;
+        }
+
+        sm.LastIntegrity = sm.Integrity;
+
         if (!sm.Delaminated && !sm.Delamming && sm.Integrity <= 0)
             BeginDelaminationCountdown(uid, sm);
 
@@ -268,6 +287,21 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
         ReleaseGas(uid, sm, args);
 
         sm.DelamBeganThisAtmos = false;
+    }
+
+    private SupermatterAlertLevelPrototype GetAlertLevel(float integrity)
+    {
+        SupermatterAlertLevelPrototype? result = null;
+
+        foreach (var alert in _proto.EnumeratePrototypes<SupermatterAlertLevelPrototype>().OrderByDescending(x => x.Threshold))
+        {
+            if (integrity > alert.Threshold)
+                continue;
+
+            result = alert;
+        }
+
+        return result!;
     }
 
     /// <summary>

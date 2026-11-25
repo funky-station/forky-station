@@ -2,6 +2,7 @@ using Content.Shared._Funkystation.Mobs;
 using Content.Shared._Funkystation.SM.Components;
 using Content.Shared._Funkystation.SM.Events;
 using Content.Shared.Administration.Logs;
+using Content.Shared.CCVar;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Construction.Components;
@@ -22,6 +23,7 @@ using Content.Shared.Tag;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -43,6 +45,7 @@ public abstract partial class SharedSupermatterSystem : EntitySystem
     [Dependency] private SharedTransformSystem _xformSystem = default!;
     [Dependency] private TagSystem _tagSystem = default!;
     [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
 
     private static readonly ProtoId<TagPrototype> HighRiskItemTag = "HighRiskItem";

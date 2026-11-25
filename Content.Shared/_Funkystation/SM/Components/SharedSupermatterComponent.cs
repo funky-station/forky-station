@@ -1,4 +1,5 @@
 ﻿using Content.Shared._Funkystation.SM.Events;
+using Content.Shared._Funkystation.SM.Prototypes;
 using Content.Shared.Atmos;
 using Content.Shared.Explosion;
 using Robust.Shared.Audio;
@@ -281,6 +282,22 @@ public sealed partial class SharedSupermatterComponent : Component
     /// <summary>Count-up to next spawn attempt; starts high so maps do not spawn on first tick.</summary>
     [DataField("anomalyCooldown")]
     public float AnomalyCooldown = 120f;
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public SupermatterAlertLevelPrototype CurrentAlertLevel;
+    [ViewVariables(VVAccess.ReadOnly)]
+    public float LastIntegrity;
+
+    [DataField("smAlertLevelNormal")]
+    public int SmAlertLevelNormal = 75;
+    [DataField("smAlertLevelAdvisory")]
+    public int SmAlertLevelAdvisory = 50;
+    [DataField("smAlertLevelWarning")]
+    public int SmAlertLevelWarning = 25;
+    [DataField("smAlertLevelDanger")]
+    public int SmAlertLevelDanger = 10;
+
+
 }
 [Serializable, NetSerializable]
 public enum SupermatterState : byte
