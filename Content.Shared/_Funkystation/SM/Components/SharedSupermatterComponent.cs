@@ -288,14 +288,8 @@ public sealed partial class SharedSupermatterComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public float LastIntegrity;
 
-    [DataField("smAlertLevelNormal")]
-    public int SmAlertLevelNormal = 75;
-    [DataField("smAlertLevelAdvisory")]
-    public int SmAlertLevelAdvisory = 50;
-    [DataField("smAlertLevelWarning")]
-    public int SmAlertLevelWarning = 25;
-    [DataField("smAlertLevelDanger")]
-    public int SmAlertLevelDanger = 10;
+    [DataField("baseAlertState")]
+    public ProtoId<SupermatterAlertLevelPrototype> BaseAlertState = "Stable";
 
 
 }

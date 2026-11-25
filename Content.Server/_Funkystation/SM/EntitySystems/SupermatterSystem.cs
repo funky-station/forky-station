@@ -56,6 +56,7 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
     {
         if (sm.Delaminated)
             return;
+        sm.CurrentAlertLevel = _proto.Index(sm.BaseAlertState);
         LoadGasCharacteristics();
         ComputeRadiation(sm);
         EmitRadiation(uid, sm);
@@ -251,30 +252,28 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
 
         UpdateIntegrity(uid, sm);
 
-        var oldLevel = sm.CurrentAlertLevel;
-        var newLevel = GetAlertLevel(GetIntegrityPercent(sm.Integrity, sm.MaxIntegrity));
+        var integrity = GetIntegrityPercent(sm.Integrity, sm.MaxIntegrity);
 
-        if (oldLevel != newLevel)
+        if (integrity < sm.CurrentAlertLevel.LowerThreshold)
         {
-            var increasing = sm.Integrity > sm.LastIntegrity;
+            TransitionTo(uid, sm, sm.CurrentAlertLevel.LowerState);
+        }
 
-            var ev = new SupermatterAlertLevelChangedEvent(
-                oldLevel,
-                newLevel,
-                increasing);
-
-            RaiseLocalEvent(uid, ref ev);
-
-            sm.CurrentAlertLevel = newLevel;
+        if (integrity > sm.CurrentAlertLevel.UpperThreshold)
+        {
+            TransitionTo(uid, sm, sm.CurrentAlertLevel.UpperState);
         }
 
         sm.LastIntegrity = sm.Integrity;
 
-        if (!sm.Delaminated && !sm.Delamming && sm.Integrity <= 0)
-            BeginDelaminationCountdown(uid, sm);
-
-        if (sm.Delaminated)
-            return;
+        switch (sm.Delaminated)
+        {
+            case false when sm is { Delamming: false, Integrity: <= 0 }:
+                BeginDelaminationCountdown(uid, sm);
+                break;
+            case true:
+                return;
+        }
 
         ComputeRadiation(sm);
         EmitRadiation(uid, sm);
@@ -289,19 +288,23 @@ public sealed partial class SupermatterSystem : SharedSupermatterSystem
         sm.DelamBeganThisAtmos = false;
     }
 
-    private SupermatterAlertLevelPrototype GetAlertLevel(float integrity)
+
+    private void TransitionTo(
+        EntityUid uid,
+        SharedSupermatterComponent sm,
+        ProtoId<SupermatterAlertLevelPrototype> next)
     {
-        SupermatterAlertLevelPrototype? result = null;
+        var oldLevel = sm.CurrentAlertLevel;
+        var newLevel = _proto.Index(next);
 
-        foreach (var alert in _proto.EnumeratePrototypes<SupermatterAlertLevelPrototype>().OrderByDescending(x => x.Threshold))
-        {
-            if (integrity > alert.Threshold)
-                continue;
+        sm.CurrentAlertLevel = newLevel;
 
-            result = alert;
-        }
+        var ev = new SupermatterAlertLevelChangedEvent(
+            oldLevel,
+            newLevel,
+            sm.Integrity > sm.LastIntegrity);
 
-        return result!;
+        RaiseLocalEvent(uid, ref ev);
     }
 
     /// <summary>

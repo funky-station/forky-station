@@ -1,24 +1,11 @@
 - type: supermatterAlertLevel
-  id: Normal
+  id: Stable
 
-  threshold: 100
+  lowerThreshold: 100
+  lowerState: Active
+  upperThreshold: 100
+  upperState: Stable
 
-  announceDecreaseToStation: false
-  announceIncreaseToStation: false
-
-  radioChannels:
-  - Engineering
-
-  increasingRadioMessage: supermatter-announcement-normal-recover-radio
-  decreasingRadioMessage: supermatter-announcement-normal-warning-radio
-
-  increasingAnnouncementMessage: supermatter-announcement-normal-recover-announcement
-  decreasingAnnouncementMessage: supermatter-announcement-normal-warning-announcement
-
-- type: supermatterAlertLevel
-  id: Advisory
-
-  threshold: 75
 
   announceDecreaseToStation: false
   announceIncreaseToStation: false
@@ -26,16 +13,41 @@
   radioChannels:
   - Engineering
 
-  increasingRadioMessage: supermatter-announcement-advisory-recover-radio
-  decreasingRadioMessage: supermatter-announcement-advisory-warning-radio
+  increasingRadioMessage: supermatter-announcement-stable-recover-radio
+  decreasingRadioMessage: supermatter-announcement-stable-warning-radio
 
-  increasingAnnouncementMessage: supermatter-announcement-advisory-recover-announcement
-  decreasingAnnouncementMessage: supermatter-announcement-advisory-warning-announcement
+  increasingAnnouncementMessage: supermatter-announcement-stable-recover-announcement
+  decreasingAnnouncementMessage: supermatter-announcement-stable-warning-announcement
 
 - type: supermatterAlertLevel
-  id: Warning
+  id: Active
 
-  threshold: 50
+  lowerThreshold: 75
+  lowerState: Unstable
+
+  upperThreshold: 100
+  upperState: Stable
+
+  announceDecreaseToStation: false
+  announceIncreaseToStation: false
+
+  radioChannels:
+  - Engineering
+
+  increasingRadioMessage: supermatter-announcement-active-recover-radio
+  decreasingRadioMessage: supermatter-announcement-active-warning-radio
+
+  increasingAnnouncementMessage: supermatter-announcement-active-recover-announcement
+  decreasingAnnouncementMessage: supermatter-announcement-active-warning-announcement
+
+- type: supermatterAlertLevel
+  id: Unstable
+
+  lowerThreshold: 50
+  lowerState: Danger
+
+  upperThreshold: 80
+  upperState: Active
 
   announceDecreaseToStation: false
   announceIncreaseToStation: false
@@ -44,16 +56,20 @@
   - Engineering
   - Command
 
-  increasingRadioMessage: supermatter-announcement-warning-recover-radio
-  decreasingRadioMessage: supermatter-announcement-warning-warning-radio
+  increasingRadioMessage: supermatter-announcement-unstable-recover-radio
+  decreasingRadioMessage: supermatter-announcement-unstable-warning-radio
 
-  increasingAnnouncementMessage: supermatter-announcement-warning-recover-announcement
-  decreasingAnnouncementMessage: supermatter-announcement-warning-warning-announcement
+  increasingAnnouncementMessage: supermatter-announcement-unstable-recover-announcement
+  decreasingAnnouncementMessage: supermatter-announcement-unstable-warning-announcement
 
 - type: supermatterAlertLevel
   id: Danger
 
-  threshold: 25
+  lowerThreshold: 25
+  lowerState: Critical
+
+  upperThreshold: 55
+  upperState: Unstable
 
   announceDecreaseToStation: true
   announceIncreaseToStation: false
@@ -71,7 +87,11 @@
 - type: supermatterAlertLevel
   id: Critical
 
-  threshold: 10
+  lowerThreshold: 0.1
+  lowerState: Delam
+
+  upperThreshold: 30
+  upperState: Danger
 
   announceDecreaseToStation: true
   announceIncreaseToStation: false
@@ -89,7 +109,11 @@
 - type: supermatterAlertLevel
   id: Delam
 
-  threshold: 0
+  lowerThreshold: -10
+  lowerState: Delam
+
+  upperThreshold: 30
+  upperState: Critical
 
   announceDecreaseToStation: true
   announceIncreaseToStation: false

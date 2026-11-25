@@ -9,8 +9,17 @@ public sealed partial class SupermatterAlertLevelPrototype : IPrototype
     [IdDataField]
     public string ID { get; private set; } = default!;
 
-    [DataField("threshold")]
-    public float Threshold;
+    [DataField("lowerThreshold")]
+    public float LowerThreshold;
+
+    [DataField("lowerState")]
+    public ProtoId<SupermatterAlertLevelPrototype> LowerState;
+
+    [DataField("upperThreshold")]
+    public float UpperThreshold;
+
+    [DataField("upperState")]
+    public ProtoId<SupermatterAlertLevelPrototype> UpperState;
 
     [DataField("announceDecreaseToStation")]
     public bool AnnounceDecreaseToStation;
