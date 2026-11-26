@@ -1,11 +1,11 @@
 ﻿- type: loadout
-  id: CommandWhistle
+  id: FunkyCommandWhistle
   storage:
     back:
     - Whistle
 
 - type: loadout
-  id: SecurityWhistle
+  id: FunkySecurityWhistle
   storage:
     back:
     - SecurityWhistle

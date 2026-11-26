@@ -1,4 +1,8 @@
-# TODO: Move other modifications we made to the protos here
+- type: job
+  id: CBURN
+  special: !Clear
+  - !type:AddImplantSpecial
+    implants: [ DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: CBURNGear

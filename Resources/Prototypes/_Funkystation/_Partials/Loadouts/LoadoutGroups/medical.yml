@@ -1,0 +1,93 @@
+# Chief Medical Officer
+
+- type: loadoutGroup
+  id: ChiefMedicalOfficerHead
+  minLimit: 0
+  loadouts: !Clear
+  - FunkyMedicalScrubcapTeal
+  - FunkyMedicalFaceshield
+
+- type: loadoutGroup
+  id: ChiefMedicalOfficerJumpsuit
+  name: funky-loadout-group-cmo-uniform
+  loadouts: !Clear
+  - FunkyMedicalScrubsTeal
+  - FunkyMedicalScrubsTealSleeveless
+  - FunkyCMODress
+  - FunkyCMODressStockings
+  - FunkyCMOJumpsuit
+
+- type: loadoutGroup
+  id: ChiefMedicalOfficerOuterClothing
+  minLimit: 0
+  loadouts: !Clear
+  - FunkyCMOLabcoat
+  - FunkyCMOWinterLabcoat
+
+# Unused job trinket loadoutGroups go here on the off chance that upstream uncomments and uses them
+# If that happens, partial prototypes will automagically combine them!
+# Otherwise, since they aren't !partialOnly, they will be read as normal prototypes, hence them still having names
+- type: loadoutGroup
+  id: ChiefMedicalOfficerJobTrinkets
+  name: loadout-group-jobtrinkets
+  minLimit: 0
+  loadouts:
+  - FunkyCommandWhistle
+
+# Medical Doctor
+
+- type: loadoutGroup
+  id: MedicalDoctorHead
+  minLimit: 0
+  loadouts: !Clear
+  - FunkyMedicalScrubcapBlack
+  - FunkyMedicalScrubcapBlue
+  - FunkyMedicalScrubcapTeal
+  - FunkyMedicalFaceshield
+
+- type: loadoutGroup
+  id: MedicalDoctorJumpsuit
+  loadouts: !Clear
+  - FunkyMedicalScrubsBlue
+  - FunkyMedicalScrubsBlueSleeveless
+  - FunkyMedicalScrubsTeal
+  - FunkyMedicalScrubsTealSleeveless
+  - FunkyMedicalScrubsBlack
+  - FunkyMedicalScrubsBlackSleeveless
+  - FunkyMedicalDoctorDress
+  - FunkyMedicalDoctorDressStockings
+  - FunkyMedicalDoctorJumpsuit
+
+- type: loadoutGroup
+  id: MedicalDoctorOuterClothing
+  name: funky-loadout-group-medical-doctor-outerclothing
+  minLimit: 0
+  loadouts: !Clear
+  - FunkyMedicalDoctorLabcoat
+  - FunkyMedicalDoctorWinterLabcoat
+
+# Medical Intern
+
+- type: loadoutGroup
+  id: MedicalInternJumpsuit
+  name: funky-loadout-group-medical-intern-uniform
+  loadouts: !Clear
+  - FunkyMedicalInternDress
+  - FunkyMedicalInternJumpsuit
+
+# Chemist
+
+- type: loadoutGroup
+  id: ChemistJumpsuit
+  name: funky-loadout-group-chemist-uniform
+  loadouts: !Clear
+  - FunkyChemistDress
+  - FunkyChemistDressStockings
+  - FunkyChemistJumpsuit
+
+- type: loadoutGroup
+  id: ChemistOuterClothing
+  minLimit: 0
+  loadouts: !Clear
+  - FunkyChemistLabcoat
+  - FunkyChemistWinterLabcoat

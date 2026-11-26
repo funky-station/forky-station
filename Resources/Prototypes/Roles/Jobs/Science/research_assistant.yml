@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: ResearchAssistant
   name: job-name-research-assistant
   description: job-description-research-assistant
@@ -6,8 +6,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science
-      #time: 10h
-      time: 35h
+      time: 10h
       inverted: true # stop playing intern if you're good at science!
   startingGear: ResearchAssistantGear
   icon: "JobIconResearchAssistant"
@@ -20,10 +19,9 @@
   id: ResearchAssistantGear
   equipment:
     shoes: ClothingShoesColorWhite
-    id: ResearchAssistantWallet # Funky: the wallet-ening
+    id: ResearchAssistantPDA
     ears: ClothingHeadsetScience
-    pocket1: BookScientistsGuidebook # funky, pocket1
-    pocket2: PouchResearch # funky
+    pocket2: BookScientistsGuidebook
   #storage:
     #back:
     #- Stuff

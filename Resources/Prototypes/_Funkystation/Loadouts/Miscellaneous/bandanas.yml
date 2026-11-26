@@ -1,0 +1,41 @@
+- type: loadout
+  id: FunkyBandanaBlack
+  equipment:
+    head: ClothingHeadBandBlack
+  groupBy: "bandanas"
+
+- type: loadout
+  id: FunkyBandanaBlue
+  equipment:
+    head: ClothingHeadBandBlue
+  groupBy: "bandanas"
+
+- type: loadout
+  id: FunkyBandanaBrown
+  equipment:
+    head: ClothingHeadBandBrown
+  groupBy: "bandanas"
+
+- type: loadout
+  id: FunkyBandanaGold
+  equipment:
+    head: ClothingHeadBandGold
+  groupBy: "bandanas"
+
+- type: loadout
+  id: FunkyBandanaGreen
+  equipment:
+    head: ClothingHeadBandGreen
+  groupBy: "bandanas"
+
+- type: loadout
+  id: FunkyBandanaGrey
+  equipment:
+    head: ClothingHeadBandGrey
+  groupBy: "bandanas"
+
+- type: loadout
+  id: FunkyBandanaRed
+  equipment:
+    head: ClothingHeadBandRed
+  groupBy: "bandanas"

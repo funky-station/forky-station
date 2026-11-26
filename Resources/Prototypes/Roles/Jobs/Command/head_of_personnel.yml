@@ -21,7 +21,6 @@
       time: 2.5h
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
-  joinNotifyCrew: true # Funky
   supervisors: job-supervisors-captain
   access:
   - Command

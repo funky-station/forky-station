@@ -8,7 +8,7 @@
       time: 4h
   startingGear: MimeGear
   icon: "JobIconMime"
-  supervisors: job-supervisors-hd # funky
+  supervisors: job-supervisors-hop
   access:
   - Theatre
   - Maintenance
@@ -24,7 +24,7 @@
   equipment:
     gloves: ClothingHandsGlovesColorWhite
     shoes: ClothingShoesColorWhite
-    id: MimeWallet # Funky: the wallet-ening
+    id: MimePDA
     pocket1: CrayonMime
     ears: ClothingHeadsetService
   storage:

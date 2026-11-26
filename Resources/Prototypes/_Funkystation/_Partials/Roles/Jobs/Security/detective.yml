@@ -1,6 +1,12 @@
-# TODO: Move other modifications we made to the protos here
+- type: job
+  id: Detective
+  requiresNda: Security
+  supervisors: funky-job-supervisors-commandant
+  special: !Clear
 
 - type: startingGear
   id: DetectiveGear
   equipment:
     eyes: ClothingEyesGlassesSunglasses
+    id: DetectiveWallet
+    back: ClothingBackpackSatchelLeather

@@ -41,7 +41,7 @@
   name: loadout-group-chief-medical-officer-head
   minLimit: 0
   loadouts:
-#  - ChiefMedicalOfficerBeret funky - fuck non-military berets
+  - ChiefMedicalOfficerBeret
   - CMOMedicalHeadMirror
 
 - type: loadoutGroup
@@ -76,13 +76,11 @@
   - BrownShoes
   - MedicalWinterBoots
 
-# Funky uncommented, added whistle
-- type: loadoutGroup
-  id: ChiefMedicalOfficerJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - CommandWhistle
+#- type: loadoutGroup
+#  id: ChiefMedicalOfficerJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 # Medical Doctor
 
@@ -118,7 +116,7 @@
   loadouts:
   - RegularLabCoat
   - MedicalDoctorWintercoat
-#  - SeniorPhysicianLabCoat Funky - no senior items
+  - SeniorPhysicianLabCoat
 
 - type: loadoutGroup
   id: MedicalDoctorPDA

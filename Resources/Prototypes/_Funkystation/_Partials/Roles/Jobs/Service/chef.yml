@@ -1,0 +1,12 @@
+- type: job
+  id: Chef
+  requirements: !Clear
+  supervisors: funky-job-supervisors-hd
+  extendedAccess:
+  - !Remove Hydroponics
+
+- type: startingGear
+  id: ChefGear
+  equipment:
+    id: ChefWallet
+    pocket2: PouchGeneric

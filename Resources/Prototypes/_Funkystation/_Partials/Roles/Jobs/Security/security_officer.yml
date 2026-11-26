@@ -1,6 +1,15 @@
-# TODO: Move other modifications we made to the protos here
+- type: job
+  id: SecurityOfficer
+  requiresNda: Security
+  requirements: !Clear
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 5h
+  supervisors: funky-job-supervisors-lieutenant
+  special: !Clear
 
 - type: startingGear
   id: SecurityOfficerGear
   equipment:
     eyes: ClothingEyesGlassesSunglasses
+    id: SecurityWallet

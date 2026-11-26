@@ -41,10 +41,10 @@
   id: ClothingHeadBandBlue
   name: blue bandana
 
-#- type: entity
-#  parent: [ClothingHeadBandBase, ClothingMaskBandBotany]
-#  id: ClothingHeadBandBotany
-#  name: botany bandana
+- type: entity
+  parent: [ClothingHeadBandBase, ClothingMaskBandBotany]
+  id: ClothingHeadBandBotany
+  name: botany bandana
 
 - type: entity
   parent: [ClothingHeadBandBase, ClothingMaskBandGold]

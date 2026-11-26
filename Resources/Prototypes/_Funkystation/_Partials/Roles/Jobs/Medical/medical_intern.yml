@@ -1,6 +1,20 @@
-# TODO: Move other modifications we made to the protos here
+- type: job
+  id: MedicalIntern
+  requirements: !Clear
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 35h
+    inverted: true
+
+- type: startingGear
+  id: MedicalInternGear
+  equipment:
+    id: MedicalInternWallet
+    pocket1: BookMedicalReferenceBook
+    pocket2: PouchMedical
 
 - type: chameleonOutfit
   id: MedicalInternChameleonOutfit
   equipment:
+    head: FuClothingHeadHatInternMedical
     eyes: ClothingEyesGlassesCheapSunglasses
