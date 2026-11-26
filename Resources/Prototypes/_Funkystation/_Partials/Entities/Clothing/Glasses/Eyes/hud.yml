@@ -23,8 +23,6 @@
   id: ClothingEyesHudMedSec
   suffix: DO NOT MAP
   categories: [ DoNotMap ]
-  components:
-  - !Remove Construction
 
 - type: entity
   id: ClothingEyesEyepatchHudMedical
