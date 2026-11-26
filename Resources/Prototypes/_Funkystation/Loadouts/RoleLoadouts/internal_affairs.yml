@@ -1,0 +1,43 @@
+- type: roleLoadout
+  id: JobFunkyExecutiveOfficer # Should be FunkyJobExecutiveOfficer but the way the game gets roleLoadouts from jobs is hardcoded
+  groups:
+  - GroupTankHarness
+  - HoPHead
+  - HoPNeck
+  - HoPJumpsuit
+  - FunkyXOBackpack
+  - HoPOuterClothing
+  - FunkyPager
+  - Glasses
+  - Survival
+  - Trinkets
+  #- HoPJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobFunkyMagistrate # Should be FunkyJobMagistrate but the way the game gets roleLoadouts from jobs is hardcoded
+  groups:
+  - GroupTankHarness
+  - LawyerJumpsuit
+  - Glasses
+  - FunkyPager
+  - Survival
+  - Trinkets
+  #- LawyerJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobFunkyInternalAffairsAgent # Should be FunkyJobInternalAffairsAgent but the way the game gets roleLoadouts from jobs is hardcoded
+  groups:
+  - GroupTankHarness
+  - LawyerNeck
+  - LawyerJumpsuit
+  - FunkyPager
+  - Glasses
+  - Survival
+  - Trinkets
+  #- LawyerJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid

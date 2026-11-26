@@ -1,27 +1,24 @@
 - type: job
-  id: Dispatcher
-  name: job-name-dispatcher
-  description: job-description-dispatcher
-  playTimeTracker: JobDispatcher
-  requiresNda: Security # Funky
+  id: FunkyDispatcher
+  name: funky-job-name-dispatcher
+  description: funky-job-description-dispatcher
+  playTimeTracker: FunkyJobDispatcher
+  requiresNda: Security
   requirements:
   - !type:DepartmentTimeRequirement
     department: Security
     time: 4h
-  startingGear: DispatcherGear
+  startingGear: FunkyDispatcherGear
   icon: "JobIconBrigmedic"
-  supervisors: job-supervisors-secmiddle
+  supervisors: funky-job-supervisors-security-middle
   access:
   - Security
   - Brig
   - Maintenance
   - External
-  #special:
-  #- !type:AddImplantSpecial
-  #  implants: [ MindShieldImplant ] # Removed mindshields
 
 - type: startingGear
-  id: DispatcherGear
+  id: FunkyDispatcherGear
   equipment:
     id: DispatcherWallet
     eyes: ClothingEyesGlassesSecurity
@@ -33,8 +30,8 @@
     - MagazinePistol
 
 - type: chameleonOutfit
-  id: DispatcherChameleonOutfit
-  job: Dispatcher
+  id: FunkyDispatcherChameleonOutfit
+  job: FunkyDispatcher
   hasMindShield: true
   equipment:
     head: ClothingHeadHatBeretSecurity

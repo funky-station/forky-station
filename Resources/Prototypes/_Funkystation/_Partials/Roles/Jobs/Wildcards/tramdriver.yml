@@ -1,0 +1,5 @@
+- type: startingGear
+  id: TramDriverGear
+  equipment:
+    id: TramDriverWallet
+    pocket2: PouchGeneric

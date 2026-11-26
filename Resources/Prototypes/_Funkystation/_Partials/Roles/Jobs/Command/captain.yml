@@ -1,0 +1,38 @@
+- type: job
+  id: Captain
+  requiresNda: Command
+  requirements: !Clear
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 5h
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 5h
+    - !type:DepartmentTimeRequirement
+      department: Science
+      time: 5h
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 5h
+    - !type:DepartmentTimeRequirement
+      department: FunkyInternalAffairs
+      time: 10h
+    - !type:DepartmentTimeRequirement
+      department: Cargo
+      time: 5h
+    - !type:DepartmentTimeRequirement
+      department: Service
+      time: 5h
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 20h
+  special: !Clear
+  - !type:AddComponentSpecial
+    components:
+    - type: CommandStaff
+
+- type: startingGear
+  id: CaptainGear
+  equipment:
+    back: ClothingBackpackSatchelCaptain
+  # TODO: Add station charter

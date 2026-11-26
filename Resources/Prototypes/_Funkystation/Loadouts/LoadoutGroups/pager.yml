@@ -1,12 +1,12 @@
 ﻿- type: loadoutGroup
-  id: Pager
+  id: FunkyPager
   name: loadout-group-pager
   minLimit: 1
   maxLimit: 1
   loadouts:
-  - PagerGray
-  - PagerBeige
-  - PagerBlue
-  - PagerTransCyan
-  - PagerTransPink
-  - PagerTransYellow
+  - FunkyPagerGray
+  - FunkyPagerBeige
+  - FunkyPagerBlue
+  - FunkyPagerTransCyan
+  - FunkyPagerTransPink
+  - FunkyPagerTransYellow

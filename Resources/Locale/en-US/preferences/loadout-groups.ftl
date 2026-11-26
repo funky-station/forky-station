@@ -6,7 +6,6 @@ loadout-group-trinkets = Trinkets
 loadout-group-jobtrinkets = Job trinkets
 loadout-group-assistive-items = Assistive items
 loadout-group-glasses = Glasses
-loadout-group-gloves = Gloves
 loadout-group-backpack = Backpack
 loadout-group-instruments = Instruments
 loadout-group-survival-basic = Survival box
@@ -158,24 +157,21 @@ loadout-group-head-of-security-outerclothing = Head of Security outer clothing
 
 loadout-group-warden-head = Warden head
 loadout-group-warden-jumpsuit = Warden jumpsuit
-loadout-group-warden-neck = Warden Neck
 loadout-group-warden-outerclothing = Warden outer clothing
 
 loadout-group-security-head = Security head
-loadout-group-security-neck = Security neck
 loadout-group-security-jumpsuit = Security jumpsuit
-loadout-group-security-gloves = Security gloves
 loadout-group-security-backpack = Security backpack
 loadout-group-security-belt = Security belt
 loadout-group-security-outerclothing = Security outer clothing
 loadout-group-security-shoes = Security shoes
 loadout-group-security-id = Security ID
+
 loadout-group-detective-head = Detective head
 loadout-group-detective-neck = Detective neck
 loadout-group-detective-jumpsuit = Detective jumpsuit
 loadout-group-detective-outerclothing = Detective outer clothing
 
-loadout-group-security-cadet-hat = Security cadet hat
 loadout-group-security-cadet-jumpsuit = Security cadet jumpsuit
 loadout-group-security-star = Security Star
 

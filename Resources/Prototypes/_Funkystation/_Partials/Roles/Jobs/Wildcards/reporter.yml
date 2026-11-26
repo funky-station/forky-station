@@ -1,0 +1,13 @@
+- type: job
+  id: Reporter
+  supervisors: funky-job-supervisors-audience
+  access:
+  - !Remove Service
+  - Newsroom
+
+- type: startingGear
+  id: ReporterGear
+  equipment:
+    id: ReporterWallet
+    ears: ClothingHeadsetGrey
+    pocket2: PouchGeneric

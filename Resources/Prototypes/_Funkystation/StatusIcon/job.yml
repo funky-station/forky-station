@@ -2,133 +2,141 @@
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconCentralCommandIntern
+  id: FunkyJobIconCentralCommandIntern
   icon:
     sprite: &icon-rsi /Textures/_Funkystation/Interface/Misc/job_icons.rsi
     state: CentralCommandIntern
-  jobName: job-name-cci
+  jobName: funky-job-name-cci
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconCentralCommandOfficial
+  id: FunkyJobIconCentralCommandOfficial
   icon:
     sprite: *icon-rsi
     state: CentralCommandOfficial
-  jobName: job-name-cco
+  jobName: funky-job-name-cco
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconNanotrasenCareerTrainer
+  id: FunkyJobIconNanoTrasenCareerTrainer
   icon:
     sprite: *icon-rsi
     state: NanotrasenCareerTrainer
-  jobName: job-name-nct
+  jobName: funky-job-name-nct
 
 # Command
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconCorporateLiaison
+  id: FunkyJobIconCorporateLiaison
   icon:
     sprite: *icon-rsi
     state: CorporateLiaison
-  jobName: job-name-cl
+  jobName: funky-job-name-cl
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconExecutiveOfficer
+  id: FunkyJobIconExecutiveOfficer
   icon:
     sprite: *icon-rsi
     state: ExecutiveOfficer
-  jobName: job-name-xo
+  jobName: funky-job-name-xo
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconHospitalityDirector
+  id: FunkyJobIconHospitalityDirector
   icon:
     sprite: *icon-rsi
     state: HospitalityDirector
-  jobName: job-name-hd
+  jobName: funky-job-name-hd
 
 # Logistics
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconCourier
+  id: FunkyJobIconCourier
   icon:
     sprite: *icon-rsi
     state: Courier
-  jobName: job-name-courier
+  jobName: funky-job-name-courier
 
 # Internal Affairs
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconInternalAffairsAgent
+  id: FunkyJobIconInternalAffairsAgent
   icon:
     sprite: *icon-rsi
     state: InternalAffairsAgent
-  jobName: job-name-iaa
+  jobName: funky-job-name-iaa
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconMagistrate
+  id: FunkyJobIconMagistrate
   icon:
     sprite: *icon-rsi
     state: Magistrate
-  jobName: job-name-magistrate
+  jobName: funky-job-name-magistrate
 
 
 # Security
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconDeputy
+  id: FunkyJobIconCommandant
   icon:
     sprite: *icon-rsi
-    state: Deputy
-  jobName: job-name-deputy
+    state: HeadOfSecurity # TODO: Rename this
+  jobName: funky-job-name-commandant
+
+- type: jobIcon
+  parent: JobIcon
+  id: FunkyJobIconLieutenant
+  icon:
+    sprite: *icon-rsi
+    state: Deputy # TODO: Rename this
+  jobName: funky-job-name-lieutenant
 
 # Service
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconFitnessInstructor
+  id: FunkyJobIconFitnessInstructor
   icon:
     sprite: *icon-rsi
     state: FitnessInstructor
-  jobName: job-name-fitness-instructor
+  jobName: funky-job-name-fitness-instructor
 
 # Visitors etc.
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconCommandMaid
+  id: FunkyJobIconCommandMaid
   icon:
     sprite: *icon-rsi
     state: CommandMaid
-  jobName: job-name-command-maid
+  jobName: funky-job-name-command-maid
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconCowboy
+  id: FunkyJobIconCowboy
   icon:
     sprite: *icon-rsi
     state: Cowboy
-  jobName: job-name-cowboy
+  jobName: funky-job-name-cowboy
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconPartyMaker
+  id: FunkyJobIconPartyMaker
   icon:
     sprite: *icon-rsi
     state: PartyMaker
-  jobName: job-name-party-maker
+  jobName: funky-job-name-party-maker
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconSecurityClown
+  id: FunkyJobIconSecurityClown
   icon:
     sprite: *icon-rsi
     state: SecurityClown
-  jobName: job-name-security-clown
+  jobName: funky-job-name-security-clown

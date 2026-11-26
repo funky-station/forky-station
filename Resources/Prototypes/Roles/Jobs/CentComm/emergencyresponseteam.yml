@@ -14,8 +14,7 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    #implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
-    implants: [ DeathRattleImplantCentcomm ] # Funky - Removed mindshields
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   parent: ERTLeaderGearEVA
@@ -31,7 +30,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTLeader
     back: ClothingBackpackERTLeader
-    shoes: ClothingShoesBootsMagERTAdvancedFilled # Funky
+    shoes: ClothingShoesBootsMagERT
     mask: ClothingMaskGasERT
     eyes: ClothingEyesHudMedSec
     neck: Whistle
@@ -41,6 +40,7 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltMilitaryWebbingERT
     pocket2: CombatKnife
+    suitstorage: WeaponDisablerSMG
   storage:
     back:
     - Binoculars
@@ -52,8 +52,8 @@
     - MedkitCombatFilled # End of first line
     - MedkitCombatFilled
     - TelescopicShield
-    - Truncheon # Funky
     belt:
+    - Stunbaton
     - Handcuffs
     - Handcuffs
     - CrowbarRed
@@ -65,6 +65,7 @@
   parent: ERTLeaderGearEVA
   id: ERTLeaderGearArmed
   equipment:
+    pocket2: WeaponDisabler
     suitstorage: WeaponRifleLecterXL8
   storage:
     back:
@@ -78,7 +79,7 @@
     - MedkitCombatFilled # End of first line
     - GrenadeShrapnel
     - EmpGrenade
-    - Truncheon # Funky
+    - Truncheon
     belt:
     - Handcuffs
     - Handcuffs
@@ -114,8 +115,7 @@
     components:
     - type: BibleUser #Lets them heal with bibles
   - !type:AddImplantSpecial
-    #implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
-    implants: [ DeathRattleImplantCentcomm ] # Funky - Removed mindshields
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   parent: ERTChaplainGearEVA
@@ -132,7 +132,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTChaplain
     back: ClothingBackpackERTChaplain
-    shoes: ClothingShoesBootsMagERTAdvancedFilled # Funky
+    shoes: ClothingShoesBootsMagERT
     mask: ClothingMaskGasERT
     eyes: ClothingEyesHudMedical
     gloves: ClothingHandsGlovesCombat
@@ -170,7 +170,7 @@
     head: ClothingHeadHelmetHardsuitERTChaplain
     mask: ClothingMaskGasERT
     outerClothing: ClothingOuterHardsuitERTChaplain
-    shoes: ClothingShoesBootsMagERTAdvancedFilled # Funky
+    shoes: ClothingShoesBootsMagAdv
 
 # Engineer
 - type: job
@@ -188,8 +188,7 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    #implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
-    implants: [ DeathRattleImplantCentcomm ] # Funky - Removed mindshields
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   parent: ERTEngineerGearEVA
@@ -205,7 +204,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTEngineer
     back: ClothingBackpackERTEngineer
-    shoes: ClothingShoesBootsMagERTAdvancedFilled # Funky
+    shoes: ClothingShoesBootsMagERT
     mask: ClothingMaskGasERT
     eyes: ClothingEyesHudDiagnostic
     gloves: ClothingHandsGlovesCombat
@@ -282,8 +281,7 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    #implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
-    implants: [ DeathRattleImplantCentcomm ] # Funky - Removed mindshields
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   parent: ERTSecurityGearEVA
@@ -299,7 +297,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTSecurity
     back: ClothingBackpackERTSecurity
-    shoes: ClothingShoesBootsMagERTAdvancedFilled # Funky
+    shoes: ClothingShoesBootsMagERT
     mask: ClothingMaskGasERT
     eyes: ClothingEyesHudSecurity
     gloves: ClothingHandsGlovesCombat
@@ -309,6 +307,7 @@
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltMilitaryWebbingERT
     pocket2: CombatKnife
+    suitstorage: WeaponDisablerSMG
   storage:
     back:
     - BoxZiptie
@@ -320,8 +319,8 @@
     - TelescopicShield
     - HoloprojectorSecurity
     - PowerCellHigh
-    - Truncheon # Funky
     belt:
+    - Stunbaton
     - Handcuffs
     - Handcuffs
     - CrowbarRed
@@ -333,7 +332,7 @@
   id: ERTSecurityGearArmedRifle
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTSecurity
-    shoes: ClothingShoesBootsMagERTAdvancedFilled # Funky
+    shoes: ClothingShoesBootsMagERT
     mask: ClothingMaskGasERT
     eyes: ClothingEyesHudSecurity
     gloves: ClothingHandsGlovesCombat
@@ -361,6 +360,7 @@
   parent: ERTSecurityGearEVA
   id: ERTSecurityGearArmedGrenade
   equipment:
+    pocket2: WeaponDisabler
     suitstorage: WeaponLauncherHydraLethal
   storage:
     back:
@@ -376,9 +376,8 @@
     - GrenadeEMP
     - GrenadeEMP
     - MagazinePistol
-    - Truncheon # Funky
+    - Truncheon
     belt:
-    - Handcuffs
     - Handcuffs
     - CrowbarRed
     - EmergencyMedipen
@@ -391,6 +390,7 @@
   parent: ERTSecurityGearEVA
   id: ERTSecurityGearArmedVanguard
   equipment:
+    pocket2: WeaponDisabler
     suitstorage: WeaponSubMachineGunWt550
   storage:
     back:
@@ -404,7 +404,7 @@
     - MagazinePistolSubMachineGunTopMounted
     - MagazinePistolSubMachineGunTopMounted
     - MagazinePistolSubMachineGunTopMounted
-    - Truncheon # Funky
+    - Truncheon
     belt:
     - Handcuffs
     - Handcuffs
@@ -418,6 +418,7 @@
   parent: ERTSecurityGearEVA
   id: ERTSecurityGearArmedShotgun
   equipment:
+    pocket2: WeaponDisabler
     suitstorage: WeaponShotgunEnforcer
   storage:
     back:
@@ -429,7 +430,7 @@
     - ExGrenade
     - CableDetStack
     - BoxDetonator
-    - Truncheon # Funky
+    - Truncheon
     belt:
     - Handcuffs
     - Handcuffs
@@ -462,8 +463,7 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    #implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
-    implants: [ DeathRattleImplantCentcomm ] # Funky - Removed mindshields
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   parent: ERTMedicalGearEVA
@@ -479,7 +479,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTMedic
     back: ClothingBackpackERTMedical
-    shoes: ClothingShoesBootsMagERTAdvancedFilled # Funky
+    shoes: ClothingShoesBootsMagERT
     mask: ClothingMaskGasERT
     eyes: ClothingEyesHudMedical
     gloves: ClothingHandsGlovesCombat
@@ -515,6 +515,7 @@
   id: ERTMedicalGearArmed
   equipment:
     suitstorage: WeaponRifleLecter
+    pocket2: WeaponDisabler
   storage:
     back:
     - Hypospray
@@ -527,7 +528,7 @@
     - MedkitCombatFilled
     - ClothingEyesGlassesChemical
     - ChemistryBottleOmnizine
-    - Truncheon # Funky
+    - Truncheon
     belt:
     - Zipties
     - CrowbarRed
@@ -559,12 +560,9 @@
   - AllAccess
   access:
   - CentralCommand
-  #special:
-  #- !type:AddImplantSpecial
-  #  implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
   special:
   - !type:AddImplantSpecial
-    implants: [ DeathRattleImplantCentcomm ] # Funky - Removed mindshields
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   parent: ERTJanitorGearEVA
@@ -580,7 +578,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTJanitor
     back: ClothingBackpackERTJanitor
-    shoes: ClothingShoesBootsMagERTAdvancedFilled # Funky
+    shoes: ClothingShoesBootsMagERT
     mask: ClothingMaskGasERT
     eyes: ClothingEyesGlassesChemical
     gloves: ClothingHandsGlovesCombat

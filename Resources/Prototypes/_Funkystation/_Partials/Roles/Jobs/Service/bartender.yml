@@ -1,0 +1,12 @@
+- type: job
+  id: Bartender
+  requirements: !Clear
+  supervisors: funky-job-supervisors-hd
+  extendedAccess:
+  - !Remove Hydroponics
+
+- type: startingGear
+  id: BartenderGear
+  equipment:
+    id: BartenderWallet
+    pocket2: PouchGeneric

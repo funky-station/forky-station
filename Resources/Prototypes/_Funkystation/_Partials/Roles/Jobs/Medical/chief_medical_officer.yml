@@ -1,6 +1,33 @@
 - type: job
   id: ChiefMedicalOfficer
-  special:
+  requiresNda: Command
+  requirements: !Clear
+  - !type:RoleTimeRequirement
+    role: JobChemist
+    time: 10h
+  - !type:RoleTimeRequirement
+    role: JobMedicalDoctor
+    time: 10h
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 20h
+  - !type:OverallPlaytimeRequirement
+    time: 25h
+  joinNotifyCrew: true
+  special: !Clear
+  - !type:AddComponentSpecial
+    components:
+    - type: CommandStaff
   - !type:AddComponentSpecial
     components:
     - type: DepartmentHead
+
+- type: startingGear
+  id: CMOGear
+  equipment:
+    back: ClothingBackpackSatchelLeather
+
+- type: chameleonOutfit
+  id: ChiefMedicalOfficerChameleonOutfit
+  equipment:
+    head: FuClothingHeadHatScrubcapTeal

@@ -19,9 +19,8 @@
   equipment:
     eyes: ClothingEyesGlassesSunglasses
     shoes: ClothingShoesBootsLaceup
-    id: MusicianWallet # Funky: the wallet-ening
+    id: MusicianPDA
     ears: ClothingHeadsetService
-    pocket2: PouchGeneric # funky
   #storage:
     #back:
     #- Stuff

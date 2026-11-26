@@ -1,0 +1,84 @@
+## Role Loadouts
+
+- type: roleLoadout
+  id: JobChiefMedicalOfficer
+  groups: !Clear
+  - GroupTankHarness
+  - ChiefMedicalOfficerHead
+  - MedicalMask
+  - ChiefMedicalOfficerJumpsuit
+  - ChiefMedicalOfficerOuterClothing
+  - ChiefMedicalOfficerShoes
+  - FunkyPager
+  - Glasses
+  - AssistiveItems
+  - SurvivalMedical
+  - Trinkets
+  - ChiefMedicalOfficerJobTrinkets
+  - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobMedicalDoctor
+  groups: !Clear
+  - GroupTankHarness
+  - MedicalDoctorHead
+  - MedicalMask
+  - MedicalDoctorJumpsuit
+  - MedicalDoctorOuterClothing
+  - MedicalShoes
+  - FunkyPager
+  - Glasses
+  - AssistiveItems
+  - SurvivalMedical
+  - Trinkets
+  - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobMedicalIntern
+  groups: !Clear
+  - GroupTankHarness
+  - FunkyMedicalInternHead # TODO: Make this a part of the base job YAML
+  - MedicalInternJumpsuit
+  - FunkyPager
+  - Glasses
+  - AssistiveItems
+  - SurvivalMedical
+  - Trinkets
+  - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid # MACRO: Decapoid
+
+- type: roleLoadout
+  id: JobChemist
+  groups: !Clear
+  - GroupTankHarness
+  - MedicalMask
+  - ChemistJumpsuit
+  - FunkyChemistGloves
+  - ChemistOuterClothing
+  - FunkyChemistBoots
+  - FunkyPager
+  - Glasses
+  - AssistiveItems
+  - SurvivalMedical
+  - Trinkets
+  - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid
+
+- type: roleLoadout
+  id: JobParamedic
+  groups: !Clear
+  - GroupTankHarness
+  - ParamedicHead
+  - MedicalMask
+  - ParamedicJumpsuit
+  - ParamedicOuterClothing
+  - ParamedicShoes
+  - FunkyPager
+  - Glasses
+  - AssistiveItems
+  - SurvivalMedical
+  - Trinkets
+  - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid # MACRO: Decapoid

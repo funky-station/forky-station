@@ -1,35 +1,35 @@
 ﻿- type: loadout
-  id: PagerGray
+  id: FunkyPagerGray
   storage:
     id:
     - PagerGray
 
 - type: loadout
-  id: PagerBeige
+  id: FunkyPagerBeige
   storage:
     id:
     - PagerBeige
 
 - type: loadout
-  id: PagerBlue
+  id: FunkyPagerBlue
   storage:
     id:
     - PagerBlue
 
 - type: loadout
-  id: PagerTransCyan
+  id: FunkyPagerTransCyan
   storage:
     id:
     - PagerTransCyan
 
 - type: loadout
-  id: PagerTransPink
+  id: FunkyPagerTransPink
   storage:
     id:
     - PagerTransPink
 
 - type: loadout
-  id: PagerTransYellow
+  id: FunkyPagerTransYellow
   storage:
     id:
     - PagerTransYellow

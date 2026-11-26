@@ -1,0 +1,114 @@
+# Leader
+- type: job
+  id: ERTLeader
+  special: !Clear
+  - !type:AddImplantSpecial
+    implants: [ DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: ERTLeaderGearEVA
+  equipment:
+    shoes: ClothingShoesBootsMagERTAdvancedFilled
+    suitstorage: !Remove
+  storage:
+    back:
+    - Truncheon
+    belt:
+    - !Remove Stunbaton
+
+- type: startingGear
+  id: ERTLeaderGearArmed
+  equipment:
+    shoes: ClothingShoesBootsMagERTAdvancedFilled
+    pocket2: !Remove
+
+# Chaplain
+- type: job
+  id: ERTChaplain
+  special: !Clear
+  - !type:AddImplantSpecial
+    implants: [ DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: ERTChaplainGearEVA
+  equipment:
+    shoes: ClothingShoesBootsMagERTAdvancedFilled
+
+# Engineer
+- type: job
+  id: ERTEngineer
+  special: !Clear
+  - !type:AddImplantSpecial
+    implants: [ DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: ERTEngineerGearEVA
+  equipment:
+    shoes: ClothingShoesBootsMagERTAdvancedFilled
+
+# Security
+- type: job
+  id: ERTSecurity
+  special: !Clear
+  - !type:AddImplantSpecial
+    implants: [ DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: ERTSecurityGearEVA
+  equipment:
+    shoes: ClothingShoesBootsMagERTAdvancedFilled
+    suitstorage: !Remove
+  storage:
+    back:
+    - Truncheon
+    belt:
+    - !Remove Stunbaton
+
+- type: startingGear
+  id: ERTSecurityGearArmedRifle
+  equipment:
+    shoes: ClothingShoesBootsMagERTAdvancedFilled
+
+- type: startingGear
+  id: ERTSecurityGearArmedGrenade
+  equipment:
+    pocket2: !Remove
+
+- type: startingGear
+  id: ERTSecurityGearArmedVanguard
+  equipment:
+    pocket2: !Remove
+
+- type: startingGear
+  id: ERTSecurityGearArmedShotgun
+  equipment:
+    pocket2: !Remove
+
+# Medical
+- type: job
+  id: ERTMedical
+  special: !Clear
+  - !type:AddImplantSpecial
+    implants: [ DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: ERTMedicalEVA
+  equipment:
+    shoes: ClothingShoesBootsMagERTAdvancedFilled
+
+- type: startingGear
+  id: ERTMedicalGearArmed
+  equipment:
+    pocket2: !Remove
+
+# Janitor
+- type: job
+  id: ERTJanitor
+  special: !Clear
+  - !type:AddImplantSpecial
+    implants: [ DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: ERTJanitorGearEVA
+  equipment:
+    shoes: ClothingShoesBootsMagERTAdvancedFilled

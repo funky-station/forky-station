@@ -5,7 +5,7 @@
   playTimeTracker: JobClown
   startingGear: ClownGear
   icon: "JobIconClown"
-  supervisors: job-supervisors-hd # funky
+  supervisors: job-supervisors-hop
   access:
   - Theatre
   - Maintenance
@@ -27,7 +27,7 @@
     mask: ClothingMaskClown
     pocket1: BikeHorn
     pocket2: ClownRecorder
-    id: ClownWallet # Funky: the wallet-ening
+    id: ClownPDA
     ears: ClothingHeadsetService
   inhand:
   - FoolboxFilled
@@ -44,4 +44,4 @@
     eyes: ClothingEyesGlassesCheapSunglasses
     neck: ClothingHeadHatFlowerWreath
     outerClothing: ClothingOuterClownPriest
-    gloves: FuClothingHandsGlovesInsulsBudget #Funky
+    gloves: ClothingHandsGlovesColorYellowBudget

@@ -3,7 +3,6 @@
   name: job-name-warden
   description: job-description-warden
   playTimeTracker: JobWarden
-  requiresNda: Security # Funky
   requirements:
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
@@ -13,7 +12,7 @@
       time: 10h
   startingGear: WardenGear
   icon: "JobIconWarden"
-  supervisors: job-supervisors-commandant #funky
+  supervisors: job-supervisors-hos
   access:
   - Security
   - Brig
@@ -24,16 +23,16 @@
   - Cryogenics
   - GenpopEnter
   - GenpopLeave
-  #special:
-  #- !type:AddImplantSpecial
-  #  implants: [ MindShieldImplant ] # Funky - Removed mindshields
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
 
 - type: startingGear
   id: WardenGear
   equipment:
     eyes: ClothingEyesGlassesSecurity
-    id: WardenWallet # Funky: the wallet-ening
-    ears: ClothingHeadsetWarden # funkystation
+    id: WardenPDA
+    ears: ClothingHeadsetSecurity
     pocket1: WeaponPistolMk58
   storage:
     back:

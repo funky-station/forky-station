@@ -1,0 +1,10 @@
+- type: startingGear
+  id: ChemistGear
+  equipment:
+    id: ChemistryWallet
+    pocket2: PouchMedical
+
+- type: chameleonOutfit
+  id: ChemistChameleonOutfit
+  equipment:
+    head: FuClothingHeadHatScrubcapBlack

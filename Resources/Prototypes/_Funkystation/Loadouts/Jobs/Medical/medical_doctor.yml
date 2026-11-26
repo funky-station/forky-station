@@ -1,12 +1,12 @@
 # outer clothing
 
 - type: loadout
-  id: FuMedicalDoctorLabcoat
+  id: FunkyMedicalDoctorLabcoat
   equipment:
     outerClothing: FuClothingOuterCoatLabMed
 
 - type: loadout
-  id: FuMedicalDoctorWinterLabcoat
+  id: FunkyMedicalDoctorWinterLabcoat
   equipment:
     outerClothing: FuClothingOuterWinterMed
 
@@ -14,20 +14,20 @@
 
 ## dresses
 - type: loadout
-  id: FuDoctorDress
+  id: FunkyMedicalDoctorDress
   equipment:
     jumpsuit: FuClothingUniformMedDress
   groupBy: "dress"
 
 - type: loadout
-  id: FuDoctorDressStockings
+  id: FunkyMedicalDoctorDressStockings
   equipment:
     jumpsuit: FuClothingUniformMedDressStockings
   groupBy: "dress"
 
 ## jumpsuits
 - type: loadout
-  id: FuDoctorJumpsuit
+  id: FunkyMedicalDoctorJumpsuit
   equipment:
     jumpsuit: FuClothingUniformMedJumpsuit
   groupBy: "jumpsuit"

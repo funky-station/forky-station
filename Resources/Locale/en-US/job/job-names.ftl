@@ -81,6 +81,7 @@ job-title-visitor = Visitor
 # Role timers - Make these alphabetical or I cut you
 JobAtmosphericTechnician = Atmospheric Technician
 JobBartender = Bartender
+# Not sure how to namespace this one. I'll come back to it later.
 JobBorg = Automa
 JobBotanist = Botanist
 JobCaptain = Captain
