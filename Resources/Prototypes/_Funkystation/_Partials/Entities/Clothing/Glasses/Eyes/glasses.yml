@@ -1,7 +1,6 @@
 - type: entity
   id: ClothingEyesGlassesSecurity
   suffix: DO NOT MAP
-  categories: [ DoNotMap ]
 
 # Reparenting the noir-tech glasses so they aren't sec contraband and don't have sec-HUD vision
 - type: entity
