@@ -15,7 +15,7 @@
                 - a. Command personnel are to report any breaches of confidentiality to the Captain and Corporate Liaison.
 
             4. Permitted to employ personnel to their department, promote and demote personnel within their department, and fire personnel from their department.
-                - a. Command personnel are to log such actions with the appropriate paperwork and submit a copy of it to the Executive Officer.
+                - a. Command personnel are to log such actions with the appropriate paperwork (CMD-01, CMD-02, CMD-03) and submit a copy of it to the Executive Officer.
 
         ## The Captain is to:
 
@@ -44,14 +44,14 @@
 
             4. Escalate major Standard Operating Procedure violations to the Captain in the event that it cannot be resolved by any other means.
 
-            5. Approve search warrants for Security personnel, unless they are invalid or frivolous.
+            5. Approve Search Warrants (SEC-02) for Security personnel, unless they are invalid or frivolous.
                 - a. The Executive Officer is to provide one (1) member of any group of Security personnel conducting the search of another department with the access types needed to enter any rooms to be searched. This access is to be revoked as soon as the search has been completed.
 
             6. Approve any orders for Security on the Station Defense Reserves (SEC) that align with NanoTrasen's business interests.
 
         ## The Research Director is to:
 
-            1. Archive a copy of all anomaly and artifact reports and ensure they comply with Scientist/Research Assistant SOP § 2b and 3a.
+            1. Archive a copy of all Anomaly Reports (RND-01) and Artifact Logs (RND-02) and ensure they comply with Scientist/Research Assistant SOP § 2a and 3.
 
             2. Ensure that any damage caused by anomalies and/or artifacts is minimized.
                 - a. The Research Director is to ensure that any artifacts not actively being studied are contained in an artifact container.
@@ -82,7 +82,7 @@
             2. Ensure that air distribution system circulates a mixture of gases compliant with Station Engineer/Technical Assistant SOP § 2a.
 
             3. Ensure that all active engines are adequately maintained by the Engineering department.
-                - a. A report is to be submitted to the Executive Officer every thirty (30) minutes concerning the configuration, upkeep, and any complications relating to all active engines.
+                - a. An Engine Status Report (ENG-01) is to be submitted to the Executive Officer every thirty (30) minutes.
 
             4. Ensure that the Engineering department works to both prevent and combat any atmospheric hazards, including but not limited to spacing, gas leaks, and fires.
 
@@ -128,7 +128,7 @@
 
             1. Represent the best interests of NanoTrasen's Central Command by both word and action.
 
-            2. File a detailed report of each other Command member in regard to their conduct, efficiency, and loyalty.
+            2. Complete a Command Perfomance Review (CMD-04) on each other member of Command.
                 - a. These reports are to be faxed to Central Command before the end of the shift.
 
             3. Represent Command in formal communication between them and unions.
