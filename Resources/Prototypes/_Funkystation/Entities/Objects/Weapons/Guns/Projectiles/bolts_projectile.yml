@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: [ BaseItem ] # no Solution Dart because that isn't for every bolt
+  parent: [ BaseItem ] # no Solution Dart because the bolts A. do not embed, and B. yeah no I'm not giving sec the ability to do that
   id: FunkyBaseCrossbowBoltProjectile
   categories: [ HideSpawnMenu ]
   components:
@@ -65,7 +65,7 @@
     randomDistance: true
     randomThrowDistanceMin: 0.5
     randomThrowDistanceMax: 2
-# once condition med is added a chance to break the person who was hit's ribs or something like that can be added if the damage doesn't do it
+# once condition med is added, add a chance to break the person who was hit's ribs or something like that if the damage isn't enough
 
 - type: entity
   parent: [ FunkyBaseCrossbowBoltProjectile, BaseSecurityContraband ]

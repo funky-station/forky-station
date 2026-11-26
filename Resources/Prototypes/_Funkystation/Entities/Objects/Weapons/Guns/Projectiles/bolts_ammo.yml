@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: [ BaseItem ] # no Solution Dart because that isn't for every bolt
+  parent: [ BaseItem ]
   id: FunkyBaseCrossbowBoltAmmo
   components:
   - type: Sprite
