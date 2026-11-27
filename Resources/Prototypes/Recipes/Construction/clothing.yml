@@ -64,6 +64,7 @@
 - type: construction
   parent: BaseClothing
   id: ClothingEyesHudMedSec
+  abstract: true # funky - ConstructionFormsValidGraph test uses GameDataScrounger, which doesn't really account for partials at all, so we have to edit here :(
   graph: HudMedSec
   targetNode: medsecHud
 
@@ -82,6 +83,7 @@
 - type: construction
   parent: BaseClothing
   id: ClothingEyesGlassesSecurity
+  abstract: true # funky - ConstructionFormsValidGraph test uses GameDataScrounger, which doesn't really account for partials at all, so we have to edit here :(
   graph: GlassesSecHUD
   targetNode: glassesSec
 

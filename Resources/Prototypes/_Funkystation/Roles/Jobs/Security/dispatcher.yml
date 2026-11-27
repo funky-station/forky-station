@@ -21,7 +21,7 @@
   id: FunkyDispatcherGear
   equipment:
     id: DispatcherWallet
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesGlassesSunglasses
     ears: ClothingHeadsetDispatcher
     pocket2: WeaponPistolMk58
   storage:

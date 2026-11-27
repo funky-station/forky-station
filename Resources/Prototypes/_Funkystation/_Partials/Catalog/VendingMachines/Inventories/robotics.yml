@@ -1,0 +1,5 @@
+- type: vendingMachineInventory
+  id: RoboticsInventory
+  startingInventory:
+    ClothingEyesHudDiagnostic: !Remove
+    ClothingEyesEyepatchHudDiag: !Remove

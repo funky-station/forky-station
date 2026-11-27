@@ -14,3 +14,8 @@
     id: ParamedicWallet
     ears: ClothingHeadsetParamedic
     back: ClothingBackpackDuffelMedical
+
+- type: chameleonOutfit
+  id: ParamedicChameleonOutfit
+  equipment:
+    eyes: ClothingEyesGlassesCheapSunglasses

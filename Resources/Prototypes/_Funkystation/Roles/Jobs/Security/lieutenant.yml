@@ -22,7 +22,7 @@
   id: FunkyLieutenantGear
   equipment:
     id: LieutenantWallet
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesGlassesSunglasses
     ears: ClothingHeadsetSecurity
     pocket2: WeaponPistolMk58
   storage:

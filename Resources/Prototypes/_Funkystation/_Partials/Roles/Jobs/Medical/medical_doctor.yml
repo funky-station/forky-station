@@ -10,3 +10,8 @@
   equipment:
     id: MedicalWallet
     pocket2: PouchMedical
+
+- type: chameleonOutfit
+  id: MedicalDoctorChameleonOutfit
+  equipment:
+    eyes: ClothingEyesGlassesCheapSunglasses

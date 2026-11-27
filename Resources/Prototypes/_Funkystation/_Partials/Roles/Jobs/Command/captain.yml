@@ -34,5 +34,6 @@
 - type: startingGear
   id: CaptainGear
   equipment:
+    eyes: ClothingEyesGlassesSunglasses
     back: ClothingBackpackSatchelCaptain
   # TODO: Add station charter

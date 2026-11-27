@@ -7,5 +7,6 @@
 - type: startingGear
   id: WardenGear
   equipment:
+    eyes: ClothingEyesGlassesSunglasses
     id: WardenWallet
     ears: ClothingHeadsetWarden

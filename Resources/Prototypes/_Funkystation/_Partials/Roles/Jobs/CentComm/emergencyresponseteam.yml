@@ -8,6 +8,7 @@
 - type: startingGear
   id: ERTLeaderGearEVA
   equipment:
+    eyes: ClothingEyesGlassesSunglasses
     shoes: ClothingShoesBootsMagERTAdvancedFilled
     suitstorage: !Remove
   storage:
@@ -56,6 +57,7 @@
 - type: startingGear
   id: ERTSecurityGearEVA
   equipment:
+    eyes: ClothingEyesGlassesSunglasses
     shoes: ClothingShoesBootsMagERTAdvancedFilled
     suitstorage: !Remove
   storage:
@@ -67,6 +69,7 @@
 - type: startingGear
   id: ERTSecurityGearArmedRifle
   equipment:
+    eyes: ClothingEyesGlassesSunglasses
     shoes: ClothingShoesBootsMagERTAdvancedFilled
 
 - type: startingGear

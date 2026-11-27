@@ -47,7 +47,7 @@
       prob: 0.1
     - id: RubberStampCaptain
     - id: SpaceCash1000
-    - id: ClothingEyesGlassesCommand
+    #- id: ClothingEyesGlassesCommand # Funky - Removing HUDs. TODO: Move this change to a partial when that's possible
     - id: OrganSkeletonPersonHead # A skull to accompany your skeleton crew
       conditions:
       - !type:PlayerCountCondition
@@ -324,7 +324,7 @@
 
 # No hardsuit table
 - type: entityTable
-  id: LockerFillHeadOfSecurityNoHardsuit
+  id: LockerFillHeadOfSecurityNoHardsuit # TODO: Make separate prototypes for the Commandant lockers, deprecate this, and revert all changes
   table: !type:AllSelector
     children:
     - id: WeaponEnergyMagnum
@@ -333,7 +333,7 @@
     - id: CigarGoldCase
       prob: 0.50
     - id: ClothingBeltSecurityFilled
-    - id: ClothingEyesGlassesSecurity
+    #- id: ClothingEyesGlassesSecurity # Funky - Removing HUDs
     - id: ClothingHeadsetAltSecurity
     - id: ClothingOuterCoatHoSTrench
     - id: ClothingShoesBootsJack
