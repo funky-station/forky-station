@@ -1258,4 +1258,11 @@
   id: 148
   time: '2026-11-27T07:54:41Z'
   url: https://github.com/funky-station/forky-station/pull/615
+- author: Miish, Mkanke
+  changes:
+  - message: Added a buildable wallmount disposal unit
+    type: Add
+  id: 149
+  time: '2026-11-27T09:11:30Z'
+  url: https://github.com/funky-station/forky-station/pull/535
 Order: -1
