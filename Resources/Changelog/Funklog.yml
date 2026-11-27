@@ -1248,4 +1248,14 @@
   id: 147
   time: '2026-11-14T22:50:11Z'
   url: https://github.com/funky-station/forky-station/pull/612
+- author: pirakaplant, Caketaco
+  changes:
+  - message: 11 new forms have been added to the document printers.
+    type: Add
+  - message: 'Two new variants of the document printer have been added: a Security
+      version and an IA version.'
+    type: Add
+  id: 148
+  time: '2026-11-27T07:54:41Z'
+  url: https://github.com/funky-station/forky-station/pull/615
 Order: -1
