@@ -1265,4 +1265,20 @@
   id: 149
   time: '2026-11-27T09:11:30Z'
   url: https://github.com/funky-station/forky-station/pull/535
+- author: pirakaplant, mycobiota
+  changes:
+  - message: All eyewear that provides administrative, beer, medical, or security
+      HUDs has been removed, except for noir-tech glasses.
+    type: Remove
+  - message: Noir-tech glasses no longer provide a security HUD and are no longer
+      Security contraband.
+    type: Tweak
+  - message: Jobs that started with administrative or security glasses now begin with
+      sun glasses instead.
+    type: Tweak
+  - message: SecTech vending machines now have five pairs of sun glasses.
+    type: Tweak
+  id: 150
+  time: '2026-11-27T09:20:30Z'
+  url: https://github.com/funky-station/forky-station/pull/565
 Order: -1
