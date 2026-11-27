@@ -1,4 +1,15 @@
 - type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesCheapSunglasses
+  description: A pair of black sunglasses. They aren't even that good against bright sunlight.
+
+- type: entity
+  id: ClothingEyesGlassesSunglasses
+  description: A pair of black sunglasses. Despite popular belief, these are designed to protect the eyes from bright sunlight, not military-grade dazzling equipment. # Giving a hint to the player that sunglasses work differently here
+  components:
+  - !Remove type: FlashImmunity
+
+- type: entity
   id: ClothingEyesGlassesSecurity
   suffix: DO NOT MAP
 
