@@ -4,19 +4,18 @@
   id: JobChiefMedicalOfficer
   groups:
   - GroupTankHarness
-  - FuCmoHead # funky- previously ChiefMedicalOfficerHead
+  - ChiefMedicalOfficerHead
   - MedicalMask
-  - FuCmoUniform # funky - ChiefMedicalOfficerJumpsuit
+  - ChiefMedicalOfficerJumpsuit
   - MedicalBackpack
-  - FuCmoOuterclothing # funky - previously ChiefMedicalOfficerOuterClothing
-#  - ChiefMedicalOfficerNeck funky - no more capes for non-militant command
+  - ChiefMedicalOfficerOuterClothing
+  - ChiefMedicalOfficerNeck
   - ChiefMedicalOfficerShoes
-  - Pager
   - Glasses
   - AssistiveItems
   - SurvivalMedical
   - Trinkets
-  - ChiefMedicalOfficerJobTrinkets # Funky uncommented
+#  - ChiefMedicalOfficerJobTrinkets
   - GroupSpeciesBreathToolMedical
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
@@ -24,14 +23,13 @@
   id: JobMedicalDoctor
   groups:
   - GroupTankHarness
-  - FuMedicalDoctorHead # funky - previously MedicalDoctorHead
+  - MedicalDoctorHead
   - MedicalMask
-  - FuMedicalDoctorUniform # funky - previously MedicalDoctorJumpsuit
+  - MedicalDoctorJumpsuit
   - MedicalBackpack
-  - FuMedicalDoctorOuterclothing # funky - previously MedicalDoctorOuterClothing
+  - MedicalDoctorOuterClothing
   - MedicalShoes
-  #- MedicalDoctorPDA # Funky: the wallet-ening, also removing the loadout choice for senior stuff
-  - Pager
+  - MedicalDoctorPDA
   - Glasses
   - AssistiveItems
   - SurvivalMedical
@@ -44,10 +42,8 @@
   id: JobMedicalIntern
   groups:
   - GroupTankHarness
-  - FuMedicalInternHead # funky - new
-  - FuMedInternUniform # funky - previously MedicalInternJumpsuit
+  - MedicalInternJumpsuit
   - MedicalBackpack
-  - Pager
   - Glasses
   - AssistiveItems
   - SurvivalMedical
@@ -61,12 +57,10 @@
   groups:
   - GroupTankHarness
   - MedicalMask
-  - FuChemistUniform # funky - previously ChemistJumpsuit
-  - FuChemistGloves # funky - new
+  - ChemistJumpsuit
   - ChemistBackpack
-  - FuChemistOuterclothing # funky - previously ChemistOuterClothing
-  - FuChemistBoots # funky - previously MedicalShoes
-  - Pager
+  - ChemistOuterClothing
+  - MedicalShoes
   - Glasses
   - AssistiveItems
   - SurvivalMedical
@@ -85,7 +79,6 @@
   - MedicalBackpack
   - ParamedicOuterClothing
   - ParamedicShoes
-  - Pager
   - Glasses
   - AssistiveItems
   - SurvivalMedical

@@ -1,0 +1,13 @@
+- type: reagent
+  id: FuGorillaCrunch
+  name: reagent-name-gorillacrunch
+  group: Foods
+  desc: reagent-desc-gorillacrunch
+  physicalDesc: reagent-physical-desc-chunky
+  flavor: protein
+  color: "#FFFFFF"
+  metabolisms:
+    Digestion:
+      metabolites: # Breaks down into protein + vitamin as its digested. This shit is almost entirely protein you will get some crazy gains
+        Protein: 0.8
+        Vitamin: 0.2

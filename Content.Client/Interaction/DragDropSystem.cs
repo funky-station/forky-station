@@ -3,6 +3,7 @@ using Content.Client.CombatMode;
 using Content.Client.Gameplay;
 using Content.Client.Graphics;
 using Content.Client.Outline;
+using Content.Client._Funkystation.Outline;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CCVar;
 using Content.Shared.DragDrop;
@@ -49,8 +50,7 @@ public sealed partial class DragDropSystem : SharedDragDropSystem
     [Dependency] private SharedTransformSystem _transformSystem = default!;
     [Dependency] private SpriteSystem _sprite = default!;
     [Dependency] private EntityQuery<SpriteComponent> _spriteQuery = default!;
-
-    private ISawmill? _dragDropSawmill; // funky
+    [Dependency] private InteractionOutlineColorManager _interactionOutlineColorManager = null!; // funky
 
     // how often to recheck possible targets (prevents calling expensive
     // check logic each update)
@@ -121,8 +121,6 @@ public sealed partial class DragDropSystem : SharedDragDropSystem
         CommandBinds.Builder
             .BindBefore(EngineKeyFunctions.Use, new PointerInputCmdHandler(OnUse, false, true), new[] { typeof(SharedInteractionSystem) })
             .Register<DragDropSystem>();
-
-        _dragDropSawmill = LogManager.GetSawmill("drag_drop"); // funky
     }
 
     private void SetDeadZone(float deadZone)
@@ -460,16 +458,14 @@ public sealed partial class DragDropSystem : SharedDragDropSystem
                         && _interactionSystem.InRangeUnobstructed(user.Value, entity);
             }
 
-            // funky start
-            if (OutlineColor.TryGetOutlineColor(true, out var validColor, _cfgMan, _dragDropSawmill))
-                _dropTargetInRangeShader?.SetParameter("outline_color", validColor);
+            // funky start - with changes cherrypicked from https://github.com/metalgearsloth/space-station-14/commit/e29bbb8c6d8e6743c64fc0d403de492684a047d1
+            var shader = valid.Value ? _dropTargetInRangeShader! : _dropTargetOutOfRangeShader!;
 
-            if (OutlineColor.TryGetOutlineColor(false, out var invalidColor, _cfgMan, _dragDropSawmill))
-                _dropTargetOutOfRangeShader?.SetParameter("outline_color", invalidColor);
-            // funky end
+            shader.SetParameter("outline_color", _interactionOutlineColorManager.GetOutlineColor(valid.Value)); // funky - custom outline color
 
             // highlight depending on whether its in or out of range
-            SetDragDropPostShader((entity, inRangeSprite), valid.Value ? _dropTargetInRangeShader! : _dropTargetOutOfRangeShader!);
+            SetDragDropPostShader((entity, inRangeSprite), shader);
+            // funky end
             inRangeSprite.RenderOrder = EntityManager.CurrentTick.Value;
             _nextHighlightedSprites.Add(inRangeSprite);
         }

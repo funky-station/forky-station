@@ -15228,7 +15228,6 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 6325
 - proto: BookSlothClownPranks
@@ -15241,7 +15240,6 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 6325
 - proto: BookSlothClownSSS
@@ -15254,7 +15252,6 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 6325
 - proto: BookSpaceLaw
@@ -107735,7 +107732,6 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 6325
 - proto: ClothingBackpackDuffelMedical
@@ -107926,7 +107922,6 @@ entities:
       angularDamping: 0
     - type: InsideEntityStorage
       storage: 2697
-    - type: ViewconeStorageBlind
 - proto: ClothingEyesGlassesMeson
   entities:
   - uid: 7859
@@ -108394,7 +108389,6 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 19114
 - proto: ClothingHeadHatTophat
@@ -108878,7 +108872,6 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 19114
 - proto: ClothingNeckStethoscope
@@ -108967,7 +108960,6 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 6325
 - proto: ClothingOuterCoatGentle
@@ -108992,7 +108984,6 @@ entities:
       angularDamping: 0
     - type: InsideEntityStorage
       storage: 2697
-    - type: ViewconeStorageBlind
 - proto: ClothingOuterGhostSheet
   entities:
   - uid: 19289
@@ -109135,7 +109126,6 @@ entities:
       parent: 19114
     - type: Physics
       canCollide: False
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 19114
 - proto: ClothingShoesBootsJackFilled
@@ -109190,7 +109180,6 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 19114
 - proto: ClothingShoesBootsWork
@@ -109653,7 +109642,6 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 6325
 - proto: CMBloodPack
@@ -125021,7 +125009,6 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 27408
   - uid: 4939
@@ -125032,7 +125019,6 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 27408
   - uid: 14468
@@ -138891,7 +138877,6 @@ entities:
       parent: 6325
     - type: Physics
       canCollide: False
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 6325
 - proto: FoamedAluminiumMetal
@@ -139602,7 +139587,6 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 11642
 - proto: FoodFrozenSnowconeClown
@@ -139685,7 +139669,6 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 11642
 - proto: FoodMeatClown
@@ -139708,7 +139691,6 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 11642
 - proto: FoodMeatRotten
@@ -139754,7 +139736,6 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 11642
 - proto: FoodOnion
@@ -139815,7 +139796,6 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 6325
   - uid: 6330
@@ -139826,7 +139806,6 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 6325
   - uid: 6334
@@ -139837,7 +139816,6 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 6325
   - uid: 10639
@@ -140643,7 +140621,6 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 27408
   - uid: 4916
@@ -140654,7 +140631,6 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 27408
 - proto: FoodTinBeansTrash
@@ -140681,7 +140657,6 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 27408
 - proto: FoodWatermelonSlice
@@ -197066,7 +197041,7 @@ entities:
       pos: -2.1252992,39.65665
     - type: Paper
       content: >2-
-           
+
            Dearest Jaivie
 
            I am writing you out of the utmost concern. You used to send me letters and manuscripts regularly, sometimes twice quarterly, and yet you have not sent anything back in months.
@@ -197074,7 +197049,7 @@ entities:
            I know you have been hit with a writer's block and things have been difficult for you lately, but this happens to the best of us!
         I for one cannot do without you, and I hope I am more to you than a mere pen pal.
 
-            I am of the opinion that dreams are a boon for one's inspiration, but to become obsessed with them is unhealthy. 
+            I am of the opinion that dreams are a boon for one's inspiration, but to become obsessed with them is unhealthy.
         I would like to rekindle your passion for writing, but doing so over letters seems quite silly. That is why I would like to ask you to come visit me here in barb for a few days. I can arrange for the shuttle fare, you need only reply with a short letter.
 
            Hoping to hear back from you soon,
@@ -197149,15 +197124,15 @@ entities:
 
         Fight 3 - FixoTron VS Energior :
 
-        - Theo: 
+        - Theo:
 
         500 on FixoTron
 
-        - Solders-the-iron: 
+        - Solders-the-iron:
 
         500 on Energior
 
-        - Raspy-tongue Annie: 
+        - Raspy-tongue Annie:
 
         16 on FixoTron
 
@@ -197175,7 +197150,7 @@ entities:
 
         on PlutArch
 
-        - Raspy-tongue Annie: 
+        - Raspy-tongue Annie:
 
         16 on FixoTron
 
@@ -197238,7 +197213,7 @@ entities:
 
         Date of check in (shift time):
 
-        Actual borrowing duration (if exceeding 60 minutes, may result in a fine): 
+        Actual borrowing duration (if exceeding 60 minutes, may result in a fine):
 
         Book damages (if any):
 
@@ -197273,7 +197248,7 @@ entities:
     - type: Paper
       content: >2
             [color=#1b67a5]█▄ █ ▀█▀    [head=3]Memo[/head]
-            █ ▀█    █      
+            █ ▀█    █
               From: Central Command vibe services
               To: \[FUTURE CAPTAIN NAME]
               Subject: Safety notice [/color]
@@ -197303,7 +197278,7 @@ entities:
                             THIS IS A RESTRICTED ACCESS DOCUMENT
                                 BLUE-LEVEL CLEARANCE EYES ONLY
                                                       -----------------
-                        COGNIZANCE OF CONTENTS IS GROUNDS FOR  
+                        COGNIZANCE OF CONTENTS IS GROUNDS FOR
                                       TERMINATION OF CONTRACT
         ==============================================
 
@@ -197312,23 +197287,23 @@ entities:
         [color=blue]
 
         __________________________________________________________________________
-         Sender:      [color=black]Research Director Parke Limtep [/color] 
+         Sender:      [color=black]Research Director Parke Limtep [/color]
          Station:      [color=black]NTSS Bramble Midway[/color]
-         To:              [color=black]Equi project leader Quoptu Ecxtly[/color]                         
+         To:              [color=black]Equi project leader Quoptu Ecxtly[/color]
          Priority:      [color=black]High[/color]                                                                             __________________________________________________________________________
         [/color]
 
-           Esteemed sophont Ecxtly, 
+           Esteemed sophont Ecxtly,
            I must report a major incident with subject 036 that took place on station earlier in the shift.
 
            At approximately one hour shift time, subject 036 was suddenly reported missing by the team working in the xenobiology room. I am there now writing you and can confirm subject 036 is currently in its cell; however the three scientists then working at the scene can still not recognize the presence of subject 036.
 
-           According to station logs, the anomaly occured a few minutes after an NT freighter was cleared to dock for refueling (I have since asked the captain to expedite the process and the freighter should be on its way in ten minutes). 
-        Of note is the presence of code yellow materials on board the freighter. 
+           According to station logs, the anomaly occured a few minutes after an NT freighter was cleared to dock for refueling (I have since asked the captain to expedite the process and the freighter should be on its way in ten minutes).
+        Of note is the presence of code yellow materials on board the freighter.
 
         I believe the implications as to the potential relationship between said materials and subject 036 are pivotal for the project.
 
-           Further testing is required which is why I am requesting 
+           Further testing is required which is why I am requesting
         the transfer of subject 036 to a higher-security location.
 
         Additionally, calling an emergency response team might be warranted as I assess the potential for security breach to be currently much higher than acceptable considering the meager means this station can provide relating to bl
@@ -197452,7 +197427,7 @@ entities:
       content: >-
         [mono][color=#7864C6]█▄ █▀█▀[/mono]   [head=3]Artifact precautions[/head]
 
-        [mono]█ ▀█ █ [/mono] 
+        [mono]█ ▀█ █ [/mono]
 
         ──────────────────────────────────────────
 
@@ -197610,7 +197585,7 @@ entities:
 
         Date of check out (shift time):
 
-        Expected borrowing duration (must not exceed 60 minutes): 
+        Expected borrowing duration (must not exceed 60 minutes):
 
 
         All checked out books must be checked back in before end of shift. Any and all books that have not been checked back in by shift end will result in a fine to the responsible party.
@@ -197772,11 +197747,11 @@ entities:
         Since we are barely doing any real work and most of it requires little attention, I've decided to write my thoughts down on paper, lest I lose my sanity to the utter boredom.
 
 
-        Our ship docked to the station yesterday but the Research Director here wasted no time at all. We were ushered through some maintenance hall into a tiny closet and then through a secret door. 
+        Our ship docked to the station yesterday but the Research Director here wasted no time at all. We were ushered through some maintenance hall into a tiny closet and then through a secret door.
 
         I almost giggled at the absurdity.
 
-        We were each given files on the subject of study and made to sign a non-disclosure agreement on the research. Seems all very clandestine, but I need the money so I signed. 
+        We were each given files on the subject of study and made to sign a non-disclosure agreement on the research. Seems all very clandestine, but I need the money so I signed.
 
         Now I'm starting to regret it a little, after all my contract is for a whole two weeks and it seems we are supposed to stay in this tiny room the whole time.
 
@@ -197784,7 +197759,7 @@ entities:
         _________________________
 
 
-        Four days. 
+        Four days.
 
         Four days of endless staring at some red star on a screen.
 
@@ -197815,7 +197790,7 @@ entities:
 
         Sara and Maxwell have been acting weird.
 
-        I think they stayed up all night looking at the thing while whispering together; that was way too long according to the guidelines... I never took those very seriously but I don't doubt they exist for a reason. Now I'm going to have nightmares... 
+        I think they stayed up all night looking at the thing while whispering together; that was way too long according to the guidelines... I never took those very seriously but I don't doubt they exist for a reason. Now I'm going to have nightmares...
 
 
         _________________________
@@ -197828,9 +197803,9 @@ entities:
 
         We were told there was an important fluctuation due tomorrow, and we have to callibrate the instruments in preparation for it, then record the results, after which we can go.
 
-        I think Sara was smiling the whole time. What's so funny about having to spend another day in this wretched place? 
+        I think Sara was smiling the whole time. What's so funny about having to spend another day in this wretched place?
 
-        Maxwell didn't like it though, he was so startled by the news that he dropped his plate. 
+        Maxwell didn't like it though, he was so startled by the news that he dropped his plate.
 
         I wish the RD had at least given us some new trash bags for the extra day.
 
@@ -197889,7 +197864,7 @@ entities:
         The other players are the blasters, they must wait for the arsonist to throw the paper and try to extinguish it with their water guns from the far table, before it burns to ashes.
 
 
-        The blasters share a score and must try to beat the arsonist. 
+        The blasters share a score and must try to beat the arsonist.
 
         One burnt paper is two points for the arsonist, and one extinguished paper is one point for the blasters.
 
@@ -197966,7 +197941,7 @@ entities:
         Rule 3: No sabotage before fights
 
 
-        Rule 4: No bets above 500 
+        Rule 4: No bets above 500
 
 
         Rule 5: No giving med borgs EMP chemicals (sorry Theo)
@@ -199353,7 +199328,6 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 6325
 - proto: PlasticFlapsAirtightClear
@@ -235905,7 +235879,6 @@ entities:
       linearDamping: 0
       canCollide: False
       angularDamping: 0
-    - type: ViewconeStorageBlind
     - type: InsideEntityStorage
       storage: 19114
 - proto: TowelColorWhite

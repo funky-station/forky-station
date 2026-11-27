@@ -1,3 +1,4 @@
+# Playtime requirement for NanoTrasen Bible, Codex NanoTrasimus
 - type: loadoutEffectGroup
   id: NanoTrasenBibleRequirement
   effects:

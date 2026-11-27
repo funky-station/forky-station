@@ -26,7 +26,8 @@ using Content.Shared.Popups;
 using Content.Shared.Storage;
 using Content.Shared.Strip;
 using Content.Shared.Tag;
-using Content.Shared.Timing;
+using Content.Shared.Timing.Components;
+using Content.Shared.Timing.Systems;
 using Content.Shared.UserInterface;
 using Content.Shared.Verbs;
 using Content.Shared.Wall;
@@ -172,6 +173,10 @@ namespace Content.Shared.Interaction
         /// </summary>
         private void OnBoundInterfaceInteractAttempt(Entity<UserInterfaceComponent> ent, ref BoundUserInterfaceMessageAttempt ev)
         {
+            // funky. doing this to bypass BUI interaction checks for strip menu searching thing
+            if (HasComp<BypassInteractionChecksComponent>(ev.Actor))
+                return;
+
             _uiQuery.TryComp(ev.Target, out var aUiComp);
 
             if (!_actionBlockerSystem.CanInteract(ev.Actor, ev.Target))
@@ -225,6 +230,17 @@ namespace Content.Shared.Interaction
             // Fast check: if the user is the parent of the entity (e.g., holding it), we always assume that it is in range
             if (target.Comp.ParentUid == user.Owner)
                 return true;
+
+            // funky start. allow UI interaction if the target is someone else's worn storage
+            if (HasComp<StorageComponent>(target) && (HasComp<InventoryComponent>(target.Comp.ParentUid) || HasComp<HandsComponent>(target.Comp.ParentUid)))
+            {
+                if (!TryComp(target.Comp.ParentUid, out TransformComponent? parentXform))
+                    return InRangeAndAccessible(user, target, range) || _ignoreUiRangeQuery.HasComp(user);
+
+                if (InRangeAndAccessible(user, (target.Comp.ParentUid, parentXform), range))
+                    return true;
+            }
+            // funky end
 
             return InRangeAndAccessible(user, target, range) || _ignoreUiRangeQuery.HasComp(user);
         }
@@ -1203,7 +1219,7 @@ namespace Content.Shared.Interaction
                     _adminLogger.Add(LogType.InteractActivate, LogImpact.Low, $"{ToPrettyString(user):user} activated {ToPrettyString(used):used}");
 
                 if (delayComponent != null)
-                    _useDelay.TryResetDelay(used, component: delayComponent);
+                    _useDelay.TryResetDelay((used, delayComponent));
                 return true;
             }
 
@@ -1216,7 +1232,7 @@ namespace Content.Shared.Interaction
             DoContactInteraction(user, used, null, true); // Interaction particles
             // Still need to call this even without checkUseDelay in case this gets relayed from Activate.
             if (delayComponent != null)
-                _useDelay.TryResetDelay(used, component: delayComponent);
+                _useDelay.TryResetDelay((used, delayComponent));
 
             _adminLogger.Add(LogType.InteractActivate, LogImpact.Low, $"{ToPrettyString(user):user} activated {ToPrettyString(used):used}");
             return true;

@@ -1,1 +1,5 @@
-﻿station-event-breaker-flip-announcement = Based on { $data }, we have opted to disable specific APCs to avoid damage to equipment. Please contact the engineering department to re-enable them.
+﻿# rewritten for funky
+station-event-breaker-flip-announcement = Power telemetry alert.
+                                          In accordance with { $data }, protective load-shedding protocol executed.
+                                          Sub-grid APC breakers forced offline to prevent equipment damage.
+                                          Engineering reset required.

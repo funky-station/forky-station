@@ -31,3 +31,13 @@ loadout-group-pager = Pager
 
 signal-port-name-pager-sender = On page received
 signal-port-description-pager-sender = Transmits a signal whenever the pager receives a page.
+
+pager-page-sent = Page sent.
+pager-mass-no-access = Your ID doesn't have the clearance to page that department.
+
+pager-cartridge-program-name = Pager
+pager-cartridge-notification-header = Pager
+pager-cartridge-mode = Mode: { $mode }
+pager-cartridge-page-all = PAGE ALL
+pager-cartridge-directory-title = { $department } ({ $prefix }xx)
+pager-cartridge-directory-empty = No listed employees.

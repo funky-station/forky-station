@@ -1,0 +1,19 @@
+- type: job
+  id: TechnicalAssistant
+  requirements: !Clear
+  - !type:DepartmentTimeRequirement
+    department: Engineering
+    time: 35h
+    inverted: true
+
+- type: startingGear
+  id: TechnicalAssistantGear
+  equipment:
+    id: TechnicalAssistantWallet
+    pocket1: BookEngineersHandbook
+    pocket2: !Remove
+
+- type: chameleonOutfit
+  id: TechnicalAssistantChameleonOutfit
+  equipment:
+    gloves: FuClothingHandsGlovesInsuls

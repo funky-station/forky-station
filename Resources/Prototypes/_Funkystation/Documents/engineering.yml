@@ -1,7 +1,9 @@
+# Engine status report
 - type: document
-  id: DocBuildingPermit
-  name: doc-building-permit-name
-  description: doc-building-permit-desc
+  id: FunkyDocENG01
+  name: funky-doc-eng-01-name
+  description: funky-doc-eng-01-desc
   category: DocCatEngineering
   paperPrototype: Paper
-  contentFileName: test.txt # TODO: Change this
+  contentFileName: eng-01.txt
+  # This could be made CE access only, but honestly it doesn't really need to be.

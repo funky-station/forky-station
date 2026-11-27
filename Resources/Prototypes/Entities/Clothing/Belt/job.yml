@@ -424,9 +424,9 @@
       - MagazinePistol
       - MagazineMagnum
       - CombatKnife
-      - Truncheon
       - HandGrenade
       - Stunbaton
+      - Nightstick # Funky
       components:
       - FlashOnTrigger
       - SmokeOnTrigger

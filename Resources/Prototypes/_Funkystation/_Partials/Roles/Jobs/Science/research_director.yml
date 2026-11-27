@@ -1,0 +1,24 @@
+- type: job
+  id: ResearchDirector
+  requiresNda: Command
+  requirements: !Clear
+  - !type:RoleTimeRequirement
+    role: JobScientist
+    time: 10h
+  - !type:DepartmentTimeRequirement
+    department: Science
+    time: 20h
+  - !type:OverallPlaytimeRequirement
+    time: 25h
+  special: !Clear
+  - !type:AddComponentSpecial
+    components:
+    - type: CommandStaff
+  - !type:AddComponentSpecial
+    components:
+    - type: DepartmentHead
+
+- type: startingGear
+  id: ResearchDirectorGear
+  equipment:
+    back: ClothingBackpackSatchelLeather

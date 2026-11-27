@@ -1,6 +1,6 @@
 ﻿- type: job
-  id: Mentor
+  id: Mentor # This should be namespaced but this would require me untangling the entire Mentor system to find out which instance of the word "Mentor" is relevant to the job. So maybe later.
   name: Mentor
   description: A player dedicated to helping newer players learn the game.
-  playTimeTracker: JobMentor
+  playTimeTracker: FunkyJobMentor
   icon: "JobIconPassenger"

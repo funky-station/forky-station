@@ -47,23 +47,41 @@ public sealed partial class GasFilterSystem : SharedGasFilterSystem
 
         var removed = inletNode.Air.RemoveVolume(transferVol);
 
-        if (ent.Comp.FilteredGas.HasValue)
+        // Funky - Start
+        var filteredGases = ent.Comp.FilteredGases;
+        var numberOfFilteredGases = filteredGases.Count;
+
+        var blockedGasMixture = new GasMixture { Temperature = removed.Temperature };
+
+        if (numberOfFilteredGases > 0)
         {
             // Make sure we don't pump over the pressure limit.
             var limitMolesFilter =
                 AtmosphereSystem.MolesToMaxPressure(removed, filterNode.Air, Atmospherics.MaxOutputPressure);
 
-            var availableMoles = removed.GetMoles(ent.Comp.FilteredGas.Value);
-            var filteredMoles = Math.Max(Math.Min(limitMolesFilter, availableMoles), 0);
             var filteredGasMixture = new GasMixture { Temperature = removed.Temperature };
+            var totalFilteredMoles = 0f;
+            foreach (var gas in filteredGases)
+            {
+                var availableMoles = removed.GetMoles(gas);
+                var filteredMoles = Math.Max(Math.Min(limitMolesFilter / numberOfFilteredGases, availableMoles), 0);
 
-            filteredGasMixture.SetMoles(ent.Comp.FilteredGas.Value, filteredMoles);
-            removed.AdjustMoles(ent.Comp.FilteredGas.Value, -filteredMoles);
+
+                totalFilteredMoles += filteredMoles;
+
+                filteredGasMixture.SetMoles(gas, filteredMoles);
+
+                blockedGasMixture.SetMoles(gas, availableMoles - filteredMoles);
+
+                removed.AdjustMoles(gas, -availableMoles);
+
+            }
 
             _atmosphereSystem.Merge(filterNode.Air, filteredGasMixture);
 
-            _ambientSoundSystem.SetAmbience(ent.Owner, filteredMoles > 0f);
+            _ambientSoundSystem.SetAmbience(ent.Owner, totalFilteredMoles > 0f);
         }
+        // Funky - End
 
         // Fraction of `removed` that can be sent to outlet without exceeding max pressure.
         var limitRatioOutlet =
@@ -73,7 +91,12 @@ public sealed partial class GasFilterSystem : SharedGasFilterSystem
         var passthrough = removed.RemoveRatio(limitRatioOutlet);
 
         _atmosphereSystem.Merge(outletNode.Air, passthrough);
-        _atmosphereSystem.Merge(inletNode.Air, removed);
+
+        // I could not figure out how this worked, filtered gasses kept going past the output when overpressure.
+        // Replaced it with the simplest solution i could think of, no idea if it has issues.    
+        //_atmosphereSystem.Merge(inletNode.Air, removed);
+
+        _atmosphereSystem.Merge(inletNode.Air, blockedGasMixture); // Funky
     }
 
     [SubscribeLocalEvent]

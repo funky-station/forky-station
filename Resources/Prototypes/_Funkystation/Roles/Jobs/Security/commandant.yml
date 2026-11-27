@@ -1,9 +1,9 @@
 - type: job
-  id: Commandant
-  name: job-name-commandant
-  description: job-description-commandant
-  playTimeTracker: JobCommandant
-  requiresNda: Command # Funky
+  id: FunkyCommandant
+  name: funky-job-name-commandant
+  description: funky-job-description-commandant
+  playTimeTracker: FunkyJobCommandant
+  requiresNda: Command
   requirements:
   - !type:RoleTimeRequirement
     role: JobWarden
@@ -12,16 +12,15 @@
     role: JobDetective
     time: 5h
   - !type:RoleTimeRequirement
-    role: JobLieutenant
+    role: FunkyJobLieutenant
     time: 5h
   - !type:DepartmentTimeRequirement
     department: Security
     time: 30h
-  #weight: 10 # Funky - Weighting all jobs equally now
-  startingGear: CommandantGear
-  icon: "JobIconHeadOfSecurity"
-  joinNotifyCrew: true # Funky
-  supervisors: job-supervisors-cap-commandant
+  startingGear: FunkyCommandantGear
+  icon: "FunkyJobIconCommandant"
+  joinNotifyCrew: true
+  supervisors: funky-job-supervisors-captain-contractor
   access:
   - HeadOfSecurity
   - Brig
@@ -34,14 +33,15 @@
   - GenpopEnter
   - GenpopLeave
   special:
-  #- !type:AddImplantSpecial
-  #  implants: [ MindShieldImplant ] # Funky - Removed mindshields
   - !type:AddComponentSpecial
     components:
     - type: CommandStaff
+  - !type:AddComponentSpecial
+    components:
+    - type: DepartmentHead
 
 - type: startingGear
-  id: CommandantGear
+  id: FunkyCommandantGear
   equipment:
     eyes: ClothingEyesGlassesSecurity
     id: CommandantPDA
@@ -54,8 +54,8 @@
     - MagazinePistol
 
 - type: chameleonOutfit
-  id: CommandantChameleonOutfit
-  job: Commandant
+  id: FunkyCommandantChameleonOutfit
+  job: FunkyCommandant
   hasMindShield: true
   equipment:
     head: ClothingHeadHatBeretHoS

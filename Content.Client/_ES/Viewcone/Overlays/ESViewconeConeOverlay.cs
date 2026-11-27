@@ -80,7 +80,7 @@ public sealed partial class ESViewconeConeOverlay : Overlay
             // and i really dont want to make it stateful
             _coneAngle = _angle.GetModifiedViewconeAngle((uid, viewcone));
             _coneFeather = _coneAngle <= 0f ? 0.01f : viewcone.ConeFeather; // semi-hack to make 0-angle viewcone look correct
-            _coneIgnoreRadius = (viewcone.ConeIgnoreRadius - viewcone.ConeIgnoreFeather) * 50f;
+            _coneIgnoreRadius = (_angle.GetModifiedConeIgnoreRadius((uid, viewcone)) - viewcone.ConeIgnoreFeather) * 50f; // funky
             _coneIgnoreFeather = Math.Max(viewcone.ConeIgnoreFeather * 200f, 8f);
             _eyeEntity = (uid, eye, viewcone, xform);
             break;

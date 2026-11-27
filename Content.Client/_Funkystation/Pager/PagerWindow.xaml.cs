@@ -38,7 +38,7 @@ public sealed partial class PagerWindow : FancyWindow
 
     public void UpdateState(PagerBoundUserInterfaceState state)
     {
-        OwnNumberLabel.Text = Loc.GetString("pager-window-own-number", ("number", state.OwnNumber));
+        OwnNumberLabel.Text = Loc.GetString("pager-window-own-number", ("number", SharedPagerSystem.FormatNumber(state.OwnNumber)));
 
         if (state.CurrentPage == null)
         {
@@ -48,8 +48,8 @@ public sealed partial class PagerWindow : FancyWindow
 
         var entry = state.CurrentPage;
         ScreenLabel.Text = !string.IsNullOrWhiteSpace(entry.Code)
-            ? Loc.GetString("pager-window-log-line-coded", ("sender", entry.SenderNumber), ("code", entry.Code))
-            : Loc.GetString("pager-window-log-line", ("sender", entry.SenderNumber));
+            ? Loc.GetString("pager-window-log-line-coded", ("sender", SharedPagerSystem.FormatNumber(entry.SenderNumber)), ("code", entry.Code))
+            : Loc.GetString("pager-window-log-line", ("sender", SharedPagerSystem.FormatNumber(entry.SenderNumber)));
     }
 
     private void TrySend()

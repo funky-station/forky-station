@@ -1,3 +1,5 @@
+# Tier 1
+
 - type: technology
   id: SalvageWeapons
   name: research-technology-salvage-weapons
@@ -88,20 +90,6 @@
   - BoxShotgunUranium
 
 - type: technology
-  id: AdvancedRiotControl
-  name: research-technology-advanced-riot-control
-  icon:
-    sprite: Objects/Weapons/Melee/truncheon.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 1
-  cost: 8000
-  recipeUnlocks:
-  - Truncheon
-  - TelescopicShield
-  - HoloprojectorSecurity
-
-- type: technology
   id: ExplosiveTechnology
   name: research-technology-explosive-technology
   icon:
@@ -134,6 +122,20 @@
   - ClothingBackpackElectropack
 
 # Tier 2
+
+- type: technology
+  id: AdvancedRiotControl
+  name: research-technology-advanced-riot-control
+  icon:
+    sprite: Objects/Weapons/Melee/truncheon.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 8000
+  recipeUnlocks:
+  - Truncheon
+  - TelescopicShield
+  - HoloprojectorSecurity
 
 - type: technology
   id: ConcentratedLaserWeaponry

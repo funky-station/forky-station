@@ -1,3 +1,2 @@
-department-Logistics = Logistics
-department-Service = Service
-department-InternalAffairs = Internal Affairs
+funky-department-Logistics = Logistics
+funky-department-InternalAffairs = Internal Affairs

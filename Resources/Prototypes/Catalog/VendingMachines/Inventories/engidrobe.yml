@@ -1,9 +1,9 @@
 - type: vendingMachineInventory
   id: EngiDrobeInventory
   startingInventory:
-    ClothingBackpackDuffelEngineering: 3
-    ClothingBackpackSatchelEngineering: 3
-    ClothingBackpackEngineering: 3
+    ClothingBackpackDuffelEngineering: 1 # Funky
+    ClothingBackpackSatchelEngineering: 1 # Funky
+    # ClothingBackpackEngineering: 3 # Funky
 # Funky uniforms
     FuClothingUniformCoverallsEngineering: 3
     FuClothingUniformOverallsEngineering: 3

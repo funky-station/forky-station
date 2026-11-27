@@ -11,12 +11,9 @@
   - AllAccess
   access:
   - CentralCommand
-  #special:
-  #- !type:AddImplantSpecial
-  #  implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
   special:
   - !type:AddImplantSpecial
-    implants: [ DeathRattleImplantCentcomm ] # Funky - Removed mindshields
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: DeathSquadGear
@@ -28,7 +25,7 @@
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitDeathsquad
-    shoes: ClothingShoesBootsMagERTAdvancedFilled # Funky
+    shoes: ClothingShoesBootsMagAdv
     id: DeathsquadPDA
     pocket1: EnergySword
     pocket2: EnergyShield

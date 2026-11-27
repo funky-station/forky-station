@@ -1,3 +1,5 @@
+# No idea why it's in sci but we ball.
+# Why is this one file?
 - type: job
   id: StationAi
   name: job-name-station-ai
@@ -19,9 +21,8 @@
   description: job-description-borg
   playTimeTracker: JobBorg
   requirements:
-  - !type:OverallPlaytimeRequirement
-    #time: 10h
-    time: 20h
+    - !type:OverallPlaytimeRequirement
+      time: 10h
   icon: JobIconBorg
   supervisors: job-supervisors-rd
   jobEntity: PlayerBorgBattery

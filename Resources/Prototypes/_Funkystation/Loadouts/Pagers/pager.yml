@@ -1,29 +1,35 @@
 ﻿- type: loadout
-  id: PagerGray
-  equipment:
-    pocket1: PagerGray
+  id: FunkyPagerGray
+  storage:
+    id:
+    - PagerGray
 
 - type: loadout
-  id: PagerBeige
-  equipment:
-    pocket1: PagerBeige
+  id: FunkyPagerBeige
+  storage:
+    id:
+    - PagerBeige
 
 - type: loadout
-  id: PagerBlue
-  equipment:
-    pocket1: PagerBlue
+  id: FunkyPagerBlue
+  storage:
+    id:
+    - PagerBlue
 
 - type: loadout
-  id: PagerTransCyan
-  equipment:
-    pocket1: PagerTransCyan
+  id: FunkyPagerTransCyan
+  storage:
+    id:
+    - PagerTransCyan
 
 - type: loadout
-  id: PagerTransPink
-  equipment:
-    pocket1: PagerTransPink
+  id: FunkyPagerTransPink
+  storage:
+    id:
+    - PagerTransPink
 
 - type: loadout
-  id: PagerTransYellow
-  equipment:
-    pocket1: PagerTransYellow
+  id: FunkyPagerTransYellow
+  storage:
+    id:
+    - PagerTransYellow

@@ -6,11 +6,7 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Medical
-    #time: 2.5h
-    time: 4h # Funky
-  - !type:RoleTimeRequirement
-    role: JobMedicalDoctor
-    time: 2h # Funky
+    time: 2.5h
   startingGear: ParamedicGear
   icon: "JobIconParamedic"
   supervisors: job-supervisors-cmo
@@ -23,8 +19,8 @@
 - type: startingGear
   id: ParamedicGear
   equipment:
-    id: ParamedicWallet # Funky: the wallet-ening
-    ears: ClothingHeadsetParamedic #funkystation
+    id: ParamedicPDA
+    ears: ClothingHeadsetMedical
 
 - type: chameleonOutfit
   id: ParamedicChameleonOutfit

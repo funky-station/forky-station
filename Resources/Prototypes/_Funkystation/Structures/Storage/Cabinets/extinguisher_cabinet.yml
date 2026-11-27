@@ -1,0 +1,77 @@
+- type: entity
+  parent: ExtinguisherCabinet
+  id: ExtinguisherCabinetLeft
+  suffix: Left
+  components:
+  - type: Sprite
+    sprite: Structures/Wallmounts/extinguisher-cabinet.rsi
+    offset: -0.25, -0.25
+    layers:
+    - state: frame
+    - state: extinguisher
+      map: ["enum.ItemCabinetVisuals.Layer"]
+      visible: true
+    - state: closed
+      map: ["enum.OpenableVisuals.Layer"]
+
+- type: entity
+  parent: ExtinguisherCabinetLeft
+  id: ExtinguisherCabinetLeftOpen
+  suffix: Left Open
+  components:
+  - type: Openable
+    opened: true
+
+- type: entity
+  parent: ExtinguisherCabinetLeft
+  id: ExtinguisherCabinetLeftFilled
+  suffix: Left Filled
+  components:
+  - type: ContainerFill
+    containers:
+      ItemCabinet:
+      - FireExtinguisher
+
+- type: entity
+  parent: [ExtinguisherCabinetLeftFilled, ExtinguisherCabinetLeftOpen]
+  id: ExtinguisherCabinetLeftFilledOpen
+  suffix: Left, Filled, Open
+
+- type: entity
+  parent: ExtinguisherCabinet
+  id: ExtinguisherCabinetRight
+  suffix: Right
+  components:
+  - type: Sprite
+    sprite: Structures/Wallmounts/extinguisher-cabinet.rsi
+    offset: 0.25, -0.25
+    layers:
+    - state: frame
+    - state: extinguisher
+      map: ["enum.ItemCabinetVisuals.Layer"]
+      visible: true
+    - state: closed
+      map: ["enum.OpenableVisuals.Layer"]
+
+- type: entity
+  parent: ExtinguisherCabinetRight
+  id: ExtinguisherCabinetRightOpen
+  suffix: Right Open
+  components:
+  - type: Openable
+    opened: true
+
+- type: entity
+  parent: ExtinguisherCabinetRight
+  id: ExtinguisherCabinetRightFilled
+  suffix: Right Filled
+  components:
+  - type: ContainerFill
+    containers:
+      ItemCabinet:
+      - FireExtinguisher
+
+- type: entity
+  parent: [ExtinguisherCabinetRightFilled, ExtinguisherCabinetRightOpen]
+  id: ExtinguisherCabinetRightFilledOpen
+  suffix: Right, Filled, Open

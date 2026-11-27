@@ -1,0 +1,5 @@
+- type: startingGear
+  id: MusicianGear
+  equipment:
+    id: MusicianWallet
+    pocket2: PouchGeneric

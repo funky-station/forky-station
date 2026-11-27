@@ -1,0 +1,3 @@
+- type: loadout
+  id: OrangeGloves
+  groupBy: "gloves" # We can reuse this prototype but it has to play nicely with other gloves

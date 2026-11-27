@@ -3,38 +3,22 @@
   name: job-name-captain
   description: job-description-captain
   playTimeTracker: JobCaptain
-  requiresNda: Command # Funky
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      #time: 4h
-      time: 5h # Funky
+      time: 4h
     - !type:DepartmentTimeRequirement
       department: Medical
-      #time: 4h
-      time: 5h # Funky
+      time: 4h
     - !type:DepartmentTimeRequirement
       department: Science
-      #time: 4h
-      time: 5h # Funky
+      time: 4h
     - !type:DepartmentTimeRequirement
       department: Security
-      #time: 4h
-      time: 5h # Funky
-    - !type:DepartmentTimeRequirement
-      department: InternalAffairs # Funky
-      time: 10h
-    - !type:DepartmentTimeRequirement
-      department: Cargo # Funky
-      time: 5h
-    - !type:DepartmentTimeRequirement
-      department: Service # Funky
-      time: 5h
+      time: 4h
     - !type:DepartmentTimeRequirement
       department: Command
-      #time: 4h
-      time: 20h # Funky
-  #weight: 20 # Funky - Weighting all jobs equally now
+      time: 4h
   startingGear: CaptainGear
   icon: "JobIconCaptain"
   joinNotifyCrew: true
@@ -42,8 +26,8 @@
   accessGroups:
   - AllAccess
   special:
-  #- !type:AddImplantSpecial
-  #  implants: [ MindShieldImplant ] # Funky - Removed mindshields
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff

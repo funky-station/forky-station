@@ -1,0 +1,37 @@
+# Uniforms
+
+- type: loadout
+  id: FunkyStationEngineerCoveralls
+  equipment:
+    jumpsuit: FuClothingUniformCoverallsEngineering
+  groupBy: "coveralls"
+
+- type: loadout
+  id: FunkyStationEngineerCoverallsRipley
+  equipment:
+    jumpsuit: FuClothingUniformCoverallsEngineeringRipley
+  groupBy: "coveralls"
+
+- type: loadout
+  id: FunkyStationEngineerOveralls
+  equipment:
+    jumpsuit: FuClothingUniformOverallsEngineering
+  groupBy: "overalls"
+
+- type: loadout
+  id: FunkyStationEngineerOverallsGrease
+  equipment:
+    jumpsuit: FuClothingUniformOverallsEngineeringGrease
+  groupBy: "overalls"
+
+- type: loadout
+  id: FunkyStationEngineerShirtPants
+  equipment:
+    jumpsuit: FuClothingUniformShirtPantsEngineering
+  groupBy: "shirtpants"
+
+- type: loadout
+  id: FunkyStationEngineerShirtPantsGrease
+  equipment:
+    jumpsuit: FuClothingUniformShirtPantsEngineeringGrease
+  groupBy: "shirtpants"

@@ -312,9 +312,9 @@
         type: HolopadBoundUserInterface
       enum.StationAiCustomizationUiKey.Key:
         type: StationAiCustomizationBoundUserInterface
-  - type: Construction
-    graph: StationAiCore
-    node: stationAiCore
+#  - type: Construction # funky - remove station AI core construction methods
+#    graph: StationAiCore
+#    node: stationAiCore
   - type: ContainerContainer
     containers:
       board: !type:Container
@@ -407,9 +407,9 @@
         - board
       - !type:DoActsBehavior
         acts: ["Destruction"]
-  - type: Construction
-    graph: StationAiCore
-    node: frame
+#  - type: Construction # funky - remove station AI core construction methods
+#    graph: StationAiCore
+#    node: frame
   - type: ContainerContainer
     containers:
       board: !type:Container

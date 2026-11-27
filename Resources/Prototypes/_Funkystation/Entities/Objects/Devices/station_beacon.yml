@@ -7,6 +7,14 @@
   - type: NavMapBeacon
     defaultText: station-beacon-cl
 
+- type: entity
+  parent: DefaultStationBeaconCommand
+  id: DefaultStationBeaconHD
+  suffix: Hospitality Director's Office
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-hd
+
 # security
 
 - type: entity
@@ -163,4 +171,47 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-sm
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconShuttles
+  suffix: Shuttle Workshop
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-shuttles
+
+- type: entity
+  parent: DefaultStationBeaconEngineering
+  id: DefaultStationBeaconSistr
+  suffix: SISTR core
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-sistr
+
+# common
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconLaundromat
+  suffix: Laundromat
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-laundromat
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconPark
+  suffix: Park
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-park
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconRestaurant
+  suffix: Restaurant
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-restaurant
+
 

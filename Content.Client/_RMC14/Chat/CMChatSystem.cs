@@ -1,7 +1,7 @@
 ﻿// Persistence: Chat stacking from RMC14 - pull/7587
 
 using System.Linq;
-using Content.Client._Funkystation.UserInterface.Controls;
+using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Chat.Widgets;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared.Chat;
@@ -68,7 +68,7 @@ public sealed partial class CMChatSystem : EntitySystem // Persistence: SharedCM
     }
 
     /// <summary>
-    /// Funky - orphan any ghost follow links attached to repeated messages and attach the new link instead
+    /// Funky - orphan any textlinklabels attached to repeated messages and attach the new link instead
     /// </summary>
     /// <param name="chat"></param>
     /// <param name="control"></param>
@@ -76,7 +76,7 @@ public sealed partial class CMChatSystem : EntitySystem // Persistence: SharedCM
     /// <param name="unwrapped"></param>
     /// <param name="channel"></param>
     /// <param name="repeatCheckSender"></param>
-    public void UpdateGhostFollowLink(ChatBox chat, GhostFollowLabel? control, NetEntity sender, string unwrapped, ChatChannel channel, bool repeatCheckSender)
+    public void UpdateTextLinkLabel(ChatBox chat, TextLinkLabel? control, NetEntity sender, string unwrapped, ChatChannel channel, bool repeatCheckSender)
     {
         foreach (var old in chat.RepeatQueue)
         {
@@ -92,15 +92,15 @@ public sealed partial class CMChatSystem : EntitySystem // Persistence: SharedCM
                 continue;
             }
 
-            old.GhostFollowLink?.Orphan();
-            old.GhostFollowLink = control;
+            old.TextLinkLabel?.Orphan();
+            old.TextLinkLabel = control;
             break;
         }
     }
 
     // funky
-    public void AddGhostFollowLink(ChatBox chat, GhostFollowLabel? control)
+    public void AddTextLinkLabel(ChatBox chat, TextLinkLabel? control)
     {
-        chat.RepeatQueue.LastOrDefault()?.GhostFollowLink = control;
+        chat.RepeatQueue.LastOrDefault()?.TextLinkLabel = control;
     }
 }

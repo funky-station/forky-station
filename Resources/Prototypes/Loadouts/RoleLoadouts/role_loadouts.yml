@@ -1,3 +1,4 @@
+# Command
 - type: roleLoadout
   id: JobCaptain
   groups:
@@ -6,11 +7,10 @@
   - CaptainJumpsuit
   - CaptainBackpack
   - CaptainOuterClothing
-  - Pager
   - AssistiveItems
   - Survival
   - Trinkets
-  - CaptainJobTrinkets # Funky uncommented
+  #- CaptainJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
@@ -23,12 +23,11 @@
   - HoPJumpsuit
   - HoPBackpack
   - HoPOuterClothing
-  - Pager
   - Glasses
   - AssistiveItems
   - Survival
   - Trinkets
-  - HoPJobTrinkets # Funky uncommented
+  #- HoPJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
@@ -55,7 +54,6 @@
   - PassengerGloves
   - PassengerOuterClothing
   - PassengerShoes
-  - Pager
   - Glasses
   - AssistiveItems
   - Survival
@@ -72,7 +70,6 @@
   - BartenderJumpsuit
   - CommonBackpack
   - BartenderOuterClothing
-  - Pager
   - Glasses
   - AssistiveItems
   - Survival
@@ -87,7 +84,6 @@
   - GroupTankHarness
   - BartenderJumpsuit
   - CommonBackpack
-  - Pager
   - Glasses
   - AssistiveItems
   - Survival
@@ -105,7 +101,6 @@
   - ChefJumpsuit
   - CommonBackpack
   - ChefOuterClothing
-  - Pager
   - Glasses
   - AssistiveItems
   - Survival
@@ -120,7 +115,6 @@
   - GroupTankHarness
   - LibrarianJumpsuit
   - CommonBackpack
-  - Pager
   - Glasses
   - AssistiveItems
   - Survival
@@ -136,7 +130,6 @@
   - LawyerNeck
   - LawyerJumpsuit
   - CommonBackpack
-  - Pager
   - Glasses
   - AssistiveItems
   - Survival
@@ -157,7 +150,6 @@
   - CommonBackpack
   - ChaplainOuterClothing
   - ChaplainBible
-  - Pager
   - Glasses
   - AssistiveItems
   - Survival
@@ -175,7 +167,6 @@
   - JanitorGloves
   - CommonBackpack
   - JanitorOuterClothing
-  - Pager
   - Glasses
   - AssistiveItems
   - Survival
@@ -192,7 +183,6 @@
   - BotanistJumpsuit
   - BotanistBackpack
   - BotanistOuterClothing
-  - Pager
   - Glasses
   - AssistiveItems
   - Survival
@@ -211,7 +201,6 @@
   - ClownBackpack
   - ClownOuterClothing
   - ClownShoes
-  - Pager
   - Glasses
   - AssistiveItems
   - SurvivalClown
@@ -230,7 +219,6 @@
   - MimeBackpack
   - MimeOuterClothing
   - MimeBelt
-  - Pager
   - Glasses
   - AssistiveItems
   - Survival
@@ -247,7 +235,6 @@
   - CommonBackpack
   - MusicianOuterClothing
   - Instruments
-  - Pager
   - Glasses
   - AssistiveItems
   - Survival
@@ -263,17 +250,15 @@
   - GroupTankHarness
   - QuartermasterHead
   - QuartermasterNeck
-  - FuQuartermasterOuterClothing # Funky - see previous outerclothing
   - QuartermasterJumpsuit
   - CargoTechnicianBackpack
-  # Funky - previously QuartermasterOuterClothing
+  - QuartermasterOuterClothing
   - QuartermasterShoes
-  - Pager
   - Glasses
   - AssistiveItems
   - Survival
   - Trinkets
-  - QuartermasterJobTrinkets # Funky uncommented
+  #- QuartermasterJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
@@ -282,14 +267,11 @@
   groups:
   - GroupTankHarness
   - CargoTechnicianHead
-  - FuCargoNeck # Funky - new
-  - FuCargoTechnicianOuterClothing # Funky - see previous outerclothing
-  - FuCargoTechnicianUniform # Funky - previously CargoTechnicianJumpsuit
+  - CargoTechnicianJumpsuit
   - CargoTechnicianBackpack
-   # Funky - previously CargoTechnicianOuterClothing
+  - CargoTechnicianOuterClothing
   - CargoTechnicianShoes
-  #- CargoTechnicianID # Funky: the wallet-ening, also removing the loadout choice for senior stuff
-  - Pager
+  - CargoTechnicianID
   - Glasses
   - AssistiveItems
   - Survival
@@ -305,7 +287,6 @@
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistShoes
-  - Pager
   - Glasses
   - AssistiveItems
   - Survival
@@ -325,11 +306,10 @@
   - ChiefEngineerNeck
   - ChiefEngineerOuterClothing
   - ChiefEngineerShoes
-  - Pager
   - AssistiveItems
   - SurvivalExtended
   - Trinkets
-  - ChiefEngineerJobTrinkets
+  #- ChiefEngineerJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
@@ -337,10 +317,8 @@
   id: JobTechnicalAssistant
   groups:
   - GroupTankHarness
-  - FuTechnicalAssistantHead
-  - FuTechnicalAssistantUniform
+  - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
-  - Pager
   - AssistiveItems
   - SurvivalExtended
   - Trinkets
@@ -352,13 +330,12 @@
   id: JobStationEngineer
   groups:
   - GroupTankHarness
-  - FuStationEngineerHead # funky
-  - FuStationEngineerUniform # funky
+  - StationEngineerHead
+  - StationEngineerJumpsuit
   - StationEngineerBackpack
   - StationEngineerOuterClothing
   - StationEngineerShoes
-  #- StationEngineerID # Funky: the wallet-ening, also removing the loadout choice for senior stuff
-  - Pager
+  - StationEngineerID
   - AssistiveItems
   - SurvivalExtended
   - Trinkets
@@ -374,7 +351,6 @@
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
   - AtmosphericTechnicianShoes
-  - Pager
   - AssistiveItems
   - SurvivalExtended
   - Trinkets
@@ -394,12 +370,11 @@
   - ResearchDirectorOuterClothing
   - ScientistGloves
   - ResearchDirectorShoes
-  - Pager
   - Glasses
   - AssistiveItems
   - Survival
   - Trinkets
-  - ResearchDirectorJobTrinkets # Funky uncommented
+  #- ResearchDirectorJobTrinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # MACRO: Decapoid
 
@@ -414,8 +389,7 @@
   - ScientistOuterClothing
   - ScientistGloves
   - ScientistShoes
-  #- ScientistPDA # Funky: the wallet-ening, also removing the loadout choice for senior stuff
-  - Pager
+  - ScientistPDA
   - Glasses
   - AssistiveItems
   - Survival
@@ -430,7 +404,6 @@
   - GroupTankHarness
   - ResearchAssistantJumpsuit
   - ScientistBackpack
-  - Pager
   - Glasses
   - AssistiveItems
   - Survival
@@ -451,7 +424,6 @@
   - HeadofSecurityOuterClothing
   - SecurityShoes
   - AssistiveItems
-  - Pager
   - SurvivalSecurity
   - Trinkets
   - HeadofSecurityJobTrinkets
@@ -462,13 +434,11 @@
   id: JobWarden
   groups:
   - WardenHead
-  - WardenNeck
   - WardenJumpsuit
   - SecurityBackpack
   - SecurityBelt
   - WardenOuterClothing
   - SecurityShoes
-  - Pager
   - AssistiveItems
   - SurvivalSecurity
   - Trinkets
@@ -480,16 +450,13 @@
   id: JobSecurityOfficer
   groups:
   - SecurityHead
-  - SecurityNeck
   - SecurityJumpsuit
-  - SecurityGloves
   - SecurityBackpack
   - SecurityOuterClothing
   - SecurityShoes
-  #- SecurityPDA # Funky: the wallet-ening, also removing the loadout choice for senior stuff
+  - SecurityPDA
   - SecurityBelt
   - AssistiveItems
-  - Pager
   - SurvivalSecurity
   - Trinkets
   - SecurityJobTrinkets
@@ -505,7 +472,6 @@
   - SecurityBackpack
   - DetectiveOuterClothing
   - SecurityShoes
-  - Pager
   - AssistiveItems
   - SurvivalSecurity
   - Trinkets
@@ -516,11 +482,9 @@
 - type: roleLoadout
   id: JobSecurityCadet
   groups:
-  - SecurityCadetHat
   - SecurityCadetJumpsuit
   - SecurityBackpack
   - AssistiveItems
-  - Pager
   - SurvivalSecurity
   - Trinkets
   #- SecurityCadetJobTrinkets
@@ -531,7 +495,6 @@
 - type: roleLoadout
   id: JobReporter
   groups:
-  - Pager
   - GroupTankHarness
   - ReporterJumpsuit
   - ReporterHead
@@ -551,7 +514,6 @@
   - GroupTankHarness
   - PsychologistJumpsuit
   - MedicalBackpack
-  - Pager
   - Glasses
   - AssistiveItems
   - Survival

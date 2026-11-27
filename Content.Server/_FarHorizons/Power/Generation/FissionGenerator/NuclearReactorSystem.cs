@@ -94,7 +94,6 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
         SubscribeLocalEvent<NuclearReactorComponent, ReactorControlRodModifyMessage>(OnControlRodMessage);
 
         // Signal events
-        SubscribeLocalEvent<NuclearReactorComponent, SignalReceivedEvent>(OnSignalReceived);
         SubscribeLocalEvent<NuclearReactorComponent, PortDisconnectedEvent>(OnPortDisconnected);
 
         // Anchor events
@@ -839,10 +838,10 @@ public sealed partial class NuclearReactorSystem : SharedNuclearReactorSystem
     }
     #endregion
 
-    private void OnSignalReceived(EntityUid uid, NuclearReactorComponent comp, ref SignalReceivedEvent args)
+    [SubscribeLocalEvent]
+    private void OnSignalReceived(EntityUid uid, NuclearReactorComponent comp,  ref SignalReceivedEvent<LogicStatePayload> args)
     {
-        var state = SignalState.Momentary;
-        args.Data?.TryGetValue(DeviceNetworkConstants.LogicState, out state);
+        var state = args.Data.State;
 
         if (args.Port == comp.ControlRodInsertPort)
             comp.InsertPortState = state;

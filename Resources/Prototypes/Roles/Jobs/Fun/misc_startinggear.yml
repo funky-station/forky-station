@@ -1,3 +1,6 @@
+#Misc outfit startingGear definitions.
+
+#Skeleton Biker - Just a skeleton now
 - type: startingGear
   id: SkeletonBiker
   equipment:
@@ -65,7 +68,7 @@
     head: ClothingHeadHatOutlawHat
     outerClothing: ClothingOuterArmorBasicSlim
     back: ClothingBackpackSatchel
-    pocket1: BaseUplinkRadio125TC
+    pocket1: BaseUplinkRadio25TC
     pocket2: EnergySword
 
 # Nanotrasen Paramilitary Unit Gear

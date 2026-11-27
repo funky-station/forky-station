@@ -1,0 +1,54 @@
+﻿- type: entity
+  parent: BaseStorageItem
+  id: BasePouch
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+  - type: Storage
+    grid:
+    - 0,0,0,1
+    - 2,0,3,1
+    maxItemSize: Small
+  - type: Tag
+    tags:
+    - Pouch
+
+- type: entity
+  parent: BasePouch
+  id: PouchGeneric
+  name: utility pouch
+  description: A small, cheaply made pouch, designed to fit into your pocket for extra storage.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Storage/pouch.rsi
+    state: generic
+  - type: Icon
+    sprite: _Funkystation/Objects/Storage/pouch.rsi
+    state: generic
+
+- type: entity
+  parent: BasePouch
+  id: PouchMedical
+  name: medical pouch
+  description: A small pouch favoured by medical professionals. Designed to fit into your pocket for extra storage.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Storage/pouch.rsi
+    state: medical
+  - type: Icon
+    sprite: _Funkystation/Objects/Storage/pouch.rsi
+    state: medical
+
+- type: entity
+  parent: BasePouch
+  id: PouchResearch
+  name: research pouch
+  description: A small, purple-trimmed pouch commonly worn by researchers. The bundled emergency transceiver was permanently disabled to cut operating costs. Designed to fit into your pocket for extra storage.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Storage/pouch.rsi
+    state: research
+  - type: Icon
+    sprite: _Funkystation/Objects/Storage/pouch.rsi
+    state: research

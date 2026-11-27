@@ -1,0 +1,6 @@
+- type: job
+  id: Borg
+  name: funky-job-name-automa
+  requirements: !Clear
+  - !type:OverallPlaytimeRequirement
+    time: 20h

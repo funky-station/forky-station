@@ -1,0 +1,33 @@
+- type: construction
+  parent: BaseSwitch
+  id: SignalSwitchRecipeAlt1
+  name: construction-recipe-switch-offset-name
+  description: construction-recipe-switch-left-desc
+  graph: SignalSwitchGraphAlt1
+  targetNode: SignalSwitchNode
+  category: construction-category-machines
+
+- type: construction
+  parent: BaseSwitch
+  id: SignalSwitchRecipeAlt2
+  name: construction-recipe-switch-offset-name
+  description: construction-recipe-switch-right-desc
+  graph: SignalSwitchGraphAlt2
+  targetNode: SignalSwitchNode
+  category: construction-category-machines
+
+- type: construction
+  parent: BaseSwitch
+  id: SignalButtonRecipeAlt1
+  name: construction-recipe-button-offset-name
+  description: construction-recipe-button-left-desc
+  graph: SignalButtonGraphAlt1
+  targetNode: SignalButtonNode
+
+- type: construction
+  parent: BaseSwitch
+  id: SignalButtonRecipeAlt2
+  name: construction-recipe-button-offset-name
+  description: construction-recipe-button-right-desc
+  graph: SignalButtonGraphAlt2
+  targetNode: SignalButtonNode

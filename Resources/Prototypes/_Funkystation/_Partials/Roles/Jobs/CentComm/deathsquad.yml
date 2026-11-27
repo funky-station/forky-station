@@ -1,0 +1,10 @@
+- type: job
+  id: DeathSquad
+  special: !Clear
+  - !type:AddImplantSpecial
+    implants: [ DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: DeathSquadGear
+  equipment:
+    shoes: ClothingShoesBootsMagERTAdvancedFilled

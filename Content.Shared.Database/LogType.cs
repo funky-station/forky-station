@@ -488,4 +488,11 @@ public enum LogType
     /// Silicon law changes.
     /// </summary>
     SiliconLaw = 105,
+    
+    #region Auroras Song
+    /// <summary>
+    /// Player changed a canvas design.
+    /// </summary>
+    CanvasDesign = 14106,
+    #endregion
 }

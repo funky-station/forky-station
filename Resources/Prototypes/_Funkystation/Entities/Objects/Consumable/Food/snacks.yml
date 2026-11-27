@@ -1,0 +1,60 @@
+- type: entity
+  parent: [ BaseStorageItem, ReagentPacket ]
+  id: FuFoodCerealGorillaCrunch # Cereal doesnt strictly fit into the existing categories but its close enough to being a snack.
+  name: gorilla crunch
+  description: Tap into your primal side!
+  components:
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: gorilla-crunch-open} # box after opening
+          False: {state: gorilla-crunch-box} # closed, default
+  - type: Sprite
+    sprite: _Funkystation/Objects/Consumable/Food/snacks.rsi
+    layers:
+    - state: gorilla-crunch-box
+      map: [enum.OpenableVisuals.Layer]
+  - type: Storage # Lets you store a 2x2 inside the cereal box. I just think its funny. You cant eat out of it while theres something stored.
+    maxItemSize: Small # Originally had it set to normal but it got a little silly.
+    grid:
+    - 0,0,1,1
+    clickInsert: false # Forces players to insert things into storage manually, which allows for poisoning the cereal.
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+    heldPrefix: gorilla crunch box
+  - type: FlavorProfile
+    flavors:
+      - meaty
+      - jungle
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: FuGorillaCrunch
+        Quantity: 120 # Lets you get 3 bowls if you dont eat any
+
+- type: entity
+  parent: FoodBowlBase
+  id: FuFoodBowlGorillaCrunch
+  name: gorilla crunch bowl
+  description: For when you REALLY need to make some gains. Made with 100% organic gorilla!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - meaty
+      - jungle
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: FuGorillaCrunch
+        Quantity: 40
+      - ReagentId: Milk
+        Quantity: 10
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bowl.rsi
+    layers:
+    - state: bowl
+    - state: gorilla-crunch

@@ -1,0 +1,15 @@
+# DOC-ARR SEC-01 Arrest Record
+[color=#9b013a]▄▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+█   [color=#0000]░[/color][color=#b5294e]█▄▄█[/color][color=#0000]░[/color]   [head=2][bolditalic]AEGIS Security Consolidated[/bolditalic][/head]
+█   [color=#b5294e]██▄▄██[/color]   [color=#b5294e][head=3]SECURITY DEPARTMENT[/head][/color]
+█   [color=#b5294e]▀█▄▄█▀[/color]   [head=3]DOC-ARR SEC-01 Arrest Record[/head]
+▀▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄[/color]
+
+[bold]Arrestee:[/bold] [form]
+
+[bold]Arresting Officer:[/bold] [signature]
+
+[bold]Duration:[/bold] [form]
+
+[bold]Reason for Arrest:
+  [bullet] [/form]

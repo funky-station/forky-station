@@ -1,0 +1,50 @@
+- type: constructionGraph
+  id: DefibrillatorCabinetOffset
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: defib_left
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 5
+    - to: defib_right
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 5
+
+  - node: defib_left
+    entity: DefibrillatorCabinetLeft
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 5
+      conditions:
+      - !type:ContainerEmpty
+        container: "ItemCabinet"
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:EmptyAllContainers
+      - !type:DeleteEntity
+
+  - node: defib_right
+    entity: DefibrillatorCabinetRight
+    edges:
+    - to: start
+      steps:
+      - tool: Screwing
+        doAfter: 5
+      conditions:
+      - !type:ContainerEmpty
+        container: "ItemCabinet"
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:EmptyAllContainers
+      - !type:DeleteEntity

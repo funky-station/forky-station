@@ -24,11 +24,8 @@
     cost: 40 # Funkystation
     delay: 6
     fx: EffectRCDDeconstruct6
-  - type: Tag
-    tags:
-    - ForceFixRotations # Allow fixrotations to target these
   - type: Damageable
-    damageModifierSet: PlasteelMod
+    damageModifierSet: PlasteelStaticMod
   - type: Destructible
     thresholds:
     - trigger:
@@ -160,6 +157,7 @@
   - type: SyncSprite
   - type: PlacementReplacement
     key: firelocks
+  - type: StationAiWhitelist
   - type: StructureAligner
     alignerType:
     - Firelock
@@ -171,7 +169,6 @@
   id: Firelock
   parent: BaseFirelock
   components:
-  - type: StationAiWhitelist
   - type: ContainerContainer
     containers:
       board: !type:Container
@@ -189,7 +186,6 @@
   parent: Firelock
   name: glass firelock
   components:
-    - type: StationAiWhitelist
     - type: Sprite
       sprite: Structures/Doors/Airlocks/Glass/firelock-base.rsi
     - type: Occluder
@@ -215,7 +211,6 @@
   parent: Firelock
   name: firelock
   components:
-    - type: StationAiWhitelist
     - type: Sprite
       sprite: Structures/Doors/Misc/edge_door_hazard.rsi
       snapCardinals: false
@@ -266,9 +261,6 @@
           - GlassAirlockLayer
     - type: Occluder
       enabled: false
-    - type: Tag
-      tags:
-      - ForceNoFixRotations # Prevent fixrotations from targeting these, since the base Firelock is targeted
     - type: Door
       occludes: false
     - type: Physics

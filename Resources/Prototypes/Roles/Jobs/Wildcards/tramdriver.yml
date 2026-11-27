@@ -18,7 +18,7 @@
   id: TramDriverGear
   equipment:
     shoes: ClothingShoesBootsLaceup
-    id: TramDriverWallet # Funky: the wallet-ening
+    id: TramDriverPDA
     ears: ClothingHeadsetService
     neck: ClothingNeckTieSerious
 

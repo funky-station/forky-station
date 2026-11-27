@@ -1,45 +1,46 @@
+# Internal affairs
+funky-loadout-group-xo-backpack = Executive Officer backpack
+
 # Engineering
-fu-loadout-group-station-engineer-head = Station Engineer head
-fu-loadout-group-station-engineer-uniform = Station Engineer uniform
+funky-loadout-group-station-engineer-uniform = Station Engineer uniform
 
-fu-loadout-group-technical-assistant-head = Technical Assistant head
-fu-loadout-group-technical-assistant-uniform = Technical Assistant uniform
-
-#Medical
-fu-loadout-group-medical-doctor-head = Medical doctor head
-fu-loadout-group-medical-doctor-outerclothing = Medical Doctor outer clothing
-fu-loadout-group-medical-doctor-uniform = Medical Doctor uniform
-
-
-fu-loadout-group-chemist-outerclothing = Chemist outer clothing
-fu-loadout-group-chemist-uniform = Chemist uniform
-fu-loadout-group-chemist-gloves = Chemist gloves
-fu-loadout-group-chemist-boots = Chemist boots
-
-
-fu-loadout-group-cmo-head = Chief Medical Officer's head
-fu-loadout-group-cmo-outerclothing = Chief Medical Officer's outer clothing
-fu-loadout-group-cmo-uniform = Chief Medical Officer's uniform
-
-fu-loadout-group-medical-intern-head = Medical Intern head
-fu-loadout-group-medical-intern-uniform = Medical Intern uniform
-
-# Service
-fu-loadout-group-hd-head = Hospitality Director's head
-fu-loadout-group-hd-outerclothing = Hospitality Director's outer clothing
-fu-loadout-group-hd-uniform = Hospitality Director's uniform
-fu-loadout-group-hd-gloves = Hospitality Director's gloves
-fu-loadout-group-hd-shoes = Hospitality Director's shoes
+funky-loadout-group-technical-assistant-head = Technical Assistant head
+funky-loadout-group-technical-assistant-uniform = Technical Assistant uniform
 
 #Logistics
-fu-loadout-group-cargo-neck = Cargo neck
+funky-loadout-group-cargo-neck = Cargo neck
 
-fu-loadout-group-cargo-technician-outer-clothing = Cargo Technician outer clothing
-fu-loadout-group-cargo-technician-uniform = Cargo Technician uniform
+funky-loadout-group-cargo-technician-uniform = Cargo Technician uniform
 
-fu-loadout-group-courier-head = Courier head
-fu-loadout-group-courier-outer-clothing = Courier outer clothing
-fu-loadout-group-courier-uniform = Courier uniform
-fu-loadout-group-courier-shoes = Courier shoes
+funky-loadout-group-courier-head = Courier head
+funky-loadout-group-courier-outer-clothing = Courier outer clothing
+funky-loadout-group-courier-uniform = Courier uniform
+funky-loadout-group-courier-shoes = Courier shoes
 
-fu-loadout-group-quartermaster-outer-clothing = Quartermaster's outer clothing
+#Medical
+funky-loadout-group-medical-doctor-outerclothing = Medical Doctor outer clothing
+funky-loadout-group-medical-doctor-uniform = Medical Doctor uniform
+
+funky-loadout-group-chemist-uniform = Chemist uniform
+funky-loadout-group-chemist-gloves = Chemist gloves
+funky-loadout-group-chemist-boots = Chemist boots
+
+funky-loadout-group-cmo-uniform = Chief Medical Officer's uniform
+
+funky-loadout-group-medical-intern-head = Medical Intern head
+funky-loadout-group-medical-intern-uniform = Medical Intern uniform
+
+# Security
+funky-loadout-group-warden-neck = Warden Neck
+
+funky-loadout-group-security-neck = Security neck
+funky-loadout-group-security-gloves = Security gloves
+
+funky-loadout-group-security-cadet-hat = Security cadet hat
+
+# Service
+funky-loadout-group-hd-head = Hospitality Director's head
+funky-loadout-group-hd-outerclothing = Hospitality Director's outer clothing
+funky-loadout-group-hd-uniform = Hospitality Director's uniform
+funky-loadout-group-hd-gloves = Hospitality Director's gloves
+funky-loadout-group-hd-shoes = Hospitality Director's shoes

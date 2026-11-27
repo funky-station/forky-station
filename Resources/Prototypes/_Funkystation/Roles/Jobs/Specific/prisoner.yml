@@ -1,22 +1,11 @@
 ﻿- type: job
-  id: Prisoner
+  id: FunkyPrisoner
   name: job-name-prisoner
-  description: job-description-prisoner
-  playTimeTracker: JobPrisoner
+  description: funky-job-description-prisoner
+  playTimeTracker: FunkyJobPrisoner
   startingGear: PrisonerGear
   icon: "JobIconPrisoner"
   supervisors: job-supervisors-nobody
 
-- type: startingGear
-  id: PrisonerGear
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitPrisoner
-    shoes: ClothingShoesColorBlack
-    id: PrisonerIDCard
-
-- type: chameleonOutfit
-  id: PrisonerChameleonOutfit
-  job: Prisoner
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitPrisoner
-    shoes: ClothingShoesColorBlack
+# Prisoner outfits are already defined in Prototypes/Roles/Jobs/Fun/prisoner.yml so we can just use those
+# If you want to make edits further down the line, do so in the appropriate partial prototypes file

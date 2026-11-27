@@ -274,6 +274,17 @@ namespace Content.Client.Inventory
                 return;
             }
 
+            // funky, e opens the slot's storage
+            if (ev.Function == ContentKeyFunctions.ActivateItemInWorld)
+            {
+                if (slot.Entity == null)
+                    return;
+
+                SendPredictedMessage(new StrippingOpenStorageButtonPressed(slot.SlotName, slot is HandButton));
+                ev.Handle();
+                return;
+            }
+
             if (slot.Entity == null)
                 return;
 

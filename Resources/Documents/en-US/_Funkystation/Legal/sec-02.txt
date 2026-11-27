@@ -1,0 +1,18 @@
+# DOC-SRW SEC-02 Search Warrant
+[color=#9b013a]▄▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+█   [color=#0000]░[/color][color=#b5294e]█▄▄█[/color][color=#0000]░[/color]   [head=2][bolditalic]AEGIS Security Consolidated[/bolditalic][/head]
+█   [color=#b5294e]██▄▄██[/color]   [color=#b5294e][head=3]SECURITY DEPARTMENT[/head][/color]
+█   [color=#b5294e]▀█▄▄█▀[/color]   [head=3]DOC-SRW SEC-02 Search Warrant[/head]
+▀▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄[/color]
+
+[bold]Warrant Target:[/bold] [form]
+[bold]Requesting Officer:[/bold] [signature]
+[bold]Warrant Reason:[/bold]
+  [bullet] [form]
+
+[bold]Access Needed:[/bold]
+  [bullet] [form]
+  [bullet] [form]
+  [bullet] [form]
+
+[bold]Approved by:[/bold] [signature]

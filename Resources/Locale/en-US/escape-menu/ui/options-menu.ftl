@@ -63,7 +63,6 @@ ui-options-show-ooc-patron-color = Show OOC Patreon color
 ui-options-show-looc-on-head = Show LOOC chat above characters head
 ui-options-fancy-speech = Show names in speech bubbles
 ui-options-fancy-name-background = Add background to speech bubble names
-ui-options-chat-follow-button = As ghost, show a follow button next to chat messages
 ui-options-vsync = VSync
 ui-options-max-fps = Maximum FPS:
 ui-options-max-fps-display-rate = Display Rate
@@ -114,6 +113,11 @@ ui-options-fps-counter = Show FPS counter
 ui-options-vp-width = Viewport width:
 ui-options-hud-layout = HUD layout:
 ui-options-sharpness = Sharpness:
+
+# funky - radio color preset options
+ui-options-radio-colors-title = Radio channel theme:
+ui-options-radio-colors-default = Default (Wizard's Den)
+ui-options-radio-colors-funky = Funky
 
 ## Controls menu
 
@@ -410,9 +414,13 @@ ui-options-disable-viewcone-grain = Disable the grain effect on the viewcone occ
 ui-options-viewcone-occlusion-opacity = Viewcone occlusion strength
 
 # funky custom interaction outlines
-ui-options-interaction-outline-valid = Outline color for objects inside of interaction range
-ui-options-interaction-outline-invalid = Outline color for objects outside of interaction range
-ui-options-interaction-color-example = This is the outline color.
+ui-options-interaction-outline-header = Interaction outline settings
+ui-options-use-custom-interaction-outline-color = Use custom interaction outline colors
+ui-options-interaction-outline-color-expand = Expand interaction outline color settings
+ui-options-interaction-outline-color-valid = Outline color for objects inside of interaction range
+ui-options-interaction-outline-color-invalid = Outline color for objects outside of interaction range
+ui-options-interaction-outline-color-example = This is the outline color.
+
 ui-options-color-slider-default-button = Reset to default
 
 ui-options-chat-window-opacity = Chat window opacity

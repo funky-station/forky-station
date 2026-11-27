@@ -1,0 +1,91 @@
+# TODO: Make the hat, neckwear, and outer clothing entities separate prototypes when we organize clothing
+# TODO: Rename the clothing entities when we organise clothing
+
+# Head
+
+- type: loadout
+  id: FunkyCommandantHat
+  equipment:
+    head: ClothingHeadHatHoshat
+
+- type: loadout
+  id: FunkyCommandantBeret
+  equipment:
+    head: ClothingHeadHatBeretHoS
+
+# Neck
+
+- type: loadout
+  id: FunkyCommandantCloak
+  equipment:
+    neck: ClothingNeckCloakHos
+
+# TODO: Get rid of this
+- type: loadout
+  id: FunkyCommandantMantle
+  equipment:
+    neck: ClothingNeckMantleHOS
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterHoS
+
+- type: startingGear
+  id: FunkyCommandantMantle
+  equipment:
+    neck: ClothingNeckMantleHOS
+
+# Uniform
+
+- type: loadout
+  id: FunkyCommandantService
+  equipment:
+    jumpsuit: FuClothingUniformHosService
+  groupBy: "service"
+
+- type: loadout
+  id: FunkyCommandantDressPants
+  equipment:
+    jumpsuit: FuClothingUniformHosDressPants
+  groupBy: "dresspants"
+
+- type: loadout
+  id: FunkyCommandantDressSkirt
+  equipment:
+    jumpsuit: FuClothingUniformHosDressSkirt
+  groupBy: "dressskirt"
+
+- type: loadout
+  id: FunkyCommandantDressSkirtStockings
+  equipment:
+    jumpsuit: FuClothingUniformHosDressSkirtStockings
+  groupBy: "dressskirt"
+
+- type: loadout
+  id: FunkyCommandantMessPants
+  equipment:
+    jumpsuit: FuClothingUniformHosMessPants
+  groupBy: "messpants"
+
+- type: loadout
+  id: FunkyCommandantMessSkirt
+  equipment:
+    jumpsuit: FuClothingUniformHosMessSkirt
+  groupBy: "messskirt"
+
+- type: loadout
+  id: FunkyCommandantMessSkirtStockings
+  equipment:
+    jumpsuit: FuClothingUniformHosMessSkirtStockings
+  groupBy: "messskirt"
+
+# Outer clothing
+
+- type: loadout
+  id: FunkyCommandantCoat
+  equipment:
+    outerClothing: ClothingOuterCoatHoSTrench
+
+- type: loadout
+  id: FunkyCommandantWinterCoat
+  equipment:
+    outerClothing: ClothingOuterWinterHoS

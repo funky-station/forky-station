@@ -1,0 +1,25 @@
+# IAB-02 Department Review Form
+[color=#1b67a5]╔══════════════════════════════════════
+║[color=#ffffff]░░[/color][color=#cfb095]▄█▀█[/color]   [head=2]NANOTRASEN[/head]
+║[color=#ffffff]░[/color][color=#cfb095]▄▀▄█▀   [head=3]INTERNAL AFFAIRS DEPARTMENT[/head][/color]
+║[color=#cfb095]▄▀▀[/color][color=#ffffff]░░░[/color]   [head=3]IAB-02 Department Review Form[/head]
+╚══════════════════════════════════════[/color]
+
+[bold]Department:[/bold] [form]
+
+[bold]Conduct:[/bold]
+  [bullet] [italic]Rating:[/italic] [check][check][check][check][check]
+  [bullet] [italic]Notes:[/italic] [form]
+
+[bold]Efficiency:[/bold]
+  [bullet] [italic]Rating:[/italic] [check][check][check][check][check]
+  [bullet] [italic]Notes:[/italic] [form]
+
+[bold]Adherence to SOP:[/bold]
+  [bullet] [italic]Rating:[/italic] [check][check][check][check][check]
+  [bullet] [italic]Notes:[/italic] [form]
+
+[bold]Additional Notes:[/bold]
+  [bullet] [form]
+
+[bold]Reviewer:[/bold] [signature]

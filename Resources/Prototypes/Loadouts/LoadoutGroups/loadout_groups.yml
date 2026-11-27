@@ -1,3 +1,4 @@
+# Miscellaneous
 - type: loadoutGroup
   id: Glasses
   name: loadout-group-glasses
@@ -149,13 +150,11 @@
   - CaptainOuterClothing
   - CaptainWintercoat
 
-# Funky uncommented, added whistle
-- type: loadoutGroup
-  id: CaptainJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - CommandWhistle
+#- type: loadoutGroup
+#  id: CaptainJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts: []
 
 - type: loadoutGroup
   id: HoPHead
@@ -195,13 +194,11 @@
   loadouts:
   - HoPWintercoat
 
-# Funky uncommented, added whistle
-- type: loadoutGroup
-  id: HoPJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - CommandWhistle
+#- type: loadoutGroup
+#  id: HoPJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts: []
 
 # Civilian
 - type: loadoutGroup
@@ -485,29 +482,15 @@
   minLimit: 0
   loadouts:
   - BotanistHead
-  - BotanistBandanaBlack
-  - BotanistBandanaBlue
-  - BotanistBandanaGold
-  - BotanistBandanaGreen
-  - BotanistBandanaRed
-  - BotanistBandanaSkull
-  - BotanistBandanaBrown
-#  - BotanistBandana
+  - BotanistBandana
 
 - type: loadoutGroup
   id: BotanistJumpsuit
   name: loadout-group-botanist-jumpsuit
   loadouts:
-  - FuBotanistShirtPants
-  - FuBotanistShirtPantsOveralls
-  - FuBotanistShirtPantsOverallsTurtle
-  - FuBotanistJumpsuit
-  - FuBotanistJumpsuitDirty
-  - FuBotanistJumperSkirt
-  - FuBotanistJumperSkirtTurtle
-#  - BotanistJumpsuit
-#  - BotanistJumpskirt
-#  - BotanistOveralls
+  - BotanistJumpsuit
+  - BotanistJumpskirt
+  - BotanistOveralls
 
 - type: loadoutGroup
   id: BotanistBackpack
@@ -739,13 +722,11 @@
   - BrownShoes
   - CargoWinterBoots
 
-# Funky uncommented, added whistle
-- type: loadoutGroup
-  id: QuartermasterJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - CommandWhistle
+#- type: loadoutGroup
+#  id: QuartermasterJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 - type: loadoutGroup
   id: CargoTechnicianHead
@@ -864,13 +845,11 @@
   - BrownShoes
   - EngineeringWinterBoots
 
-# Funky uncommented, added whistle
-- type: loadoutGroup
-  id: ChiefEngineerJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - CommandWhistle
+#- type: loadoutGroup
+#  id: ChiefEngineerJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 - type: loadoutGroup
   id: TechnicalAssistantJumpsuit
@@ -1027,13 +1006,11 @@
   - BrownShoes
   - ScienceWinterBoots
 
-# Funky uncommented, added whistle
-- type: loadoutGroup
-  id: ResearchDirectorJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - CommandWhistle
+#- type: loadoutGroup
+#  id: ResearchDirectorJobTrinkets
+#  name: loadout-group-jobtrinkets
+#  minLimit: 0
+#  loadouts:
 
 - type: loadoutGroup
   id: ScientistHead
@@ -1042,7 +1019,6 @@
   loadouts:
   - RoboticistCap
   - SkullBandana
-  - ScientistHardhatWhite # Funky
   - ScientificBeret
 
 - type: loadoutGroup
@@ -1139,18 +1115,12 @@
   id: HeadofSecurityJumpsuit
   name: loadout-group-head-of-security-jumpsuit
   loadouts:
-  - FuHosService
-  - FuHosDressPants
-  - FuHosDressSkirt
-  - FuHosDressSkirtStockings
-  - FuHosMessSkirt
-  - FuHosMessSkirtStockings
-#  - HeadofSecurityJumpsuit
-#  - HeadofSecurityJumpskirt
-#  - HeadofSecurityTurtleneck
-#  - HeadofSecurityTurtleneckSkirt
-#  - HeadofSecurityFormalSuit
-#  - HeadofSecurityFormalSkirt
+  - HeadofSecurityJumpsuit
+  - HeadofSecurityJumpskirt
+  - HeadofSecurityTurtleneck
+  - HeadofSecurityTurtleneckSkirt
+  - HeadofSecurityFormalSuit
+  - HeadofSecurityFormalSkirt
 
 - type: loadoutGroup
   id: HeadofSecurityNeck
@@ -1166,7 +1136,6 @@
   loadouts:
   - HeadofSecurityCoat
   - HeadofSecurityWinterCoat
-  - ArmorVest
 
 - type: loadoutGroup
   id: HeadofSecurityJobTrinkets
@@ -1174,7 +1143,6 @@
   minLimit: 0
   loadouts:
   - SecStar
-  - SecurityWhistle # Funky
 
 - type: loadoutGroup
   id: WardenHead
@@ -1188,25 +1156,8 @@
   id: WardenJumpsuit
   name: loadout-group-warden-jumpsuit
   loadouts:
-  - FuSecurityService
-  - FuSecurityDressPants
- # - FuSecurityDressPantsSenior No senior gear
-  - FuSecurityDressSkirt
-  - FuSecurityDressSkirtStockings
- # - FuSecurityDressSkirtSenior No senior gear
- # - FuSecurityDressSkirtSeniorStockings No senior gear
-  - FuSecurityMessPants
-  - FuSecurityMessSkirt
-  - FuSecurityMessSkirtStockings
-#  - WardenJumpsuit
-#  - WardenJumpskirt
-
-- type: loadoutGroup
-  id: WardenNeck
-  name: loadout-group-warden-neck
-  minLimit: 0
-  loadouts:
-  - MessTie
+  - WardenJumpsuit
+  - WardenJumpskirt
 
 - type: loadoutGroup
   id: WardenOuterClothing
@@ -1236,23 +1187,13 @@
   id: SecurityJumpsuit
   name: loadout-group-security-jumpsuit
   loadouts:
-  - FuSecurityService
-  - FuSecurityDressPants
- # - FuSecurityDressPantsSenior
-  - FuSecurityDressSkirt
-  - FuSecurityDressSkirtStockings
- # - FuSecurityDressSkirtSenior
- # - FuSecurityDressSkirtSeniorStockings
-  - FuSecurityMessPants
-  - FuSecurityMessSkirt
-  - FuSecurityMessSkirtStockings
-#  - SecurityJumpsuit
-#  - SecurityJumpskirt
-#  - SecurityJumpsuitGrey
-#  - SecurityJumpskirtGrey
-#  - SeniorOfficerJumpsuit
-#  - SeniorOfficerJumpskirt
-#  - TrooperUniform
+  - SecurityJumpsuit
+  - SecurityJumpskirt
+  - SecurityJumpsuitGrey
+  - SecurityJumpskirtGrey
+  - SeniorOfficerJumpsuit
+  - SeniorOfficerJumpskirt
+  - TrooperUniform
 
 - type: loadoutGroup
   id: SecurityBackpack
@@ -1270,25 +1211,11 @@
   - SecurityWebbing
 
 - type: loadoutGroup
-  id: SecurityGloves
-  name: loadout-group-security-gloves
-  loadouts:
-  - BlackGloves
-  - WhiteGloves
-
-- type: loadoutGroup
-  id: SecurityNeck
-  name: loadout-group-security-neck
-  minLimit: 0
-  loadouts:
-  - MessTie
-
-- type: loadoutGroup
   id: SecurityOuterClothing
   name: loadout-group-security-outerclothing
   loadouts:
   - ArmorVest
-#  - ArmorVestSlim
+  - ArmorVestSlim
   - SecurityOfficerWintercoat
 
 - type: loadoutGroup
@@ -1353,19 +1280,11 @@
   - SecStar
 
 - type: loadoutGroup
-  id: SecurityCadetHat
-  name: loadout-group-security-cadet-hat
-  loadouts:
-  - CadetHat
-
-- type: loadoutGroup
   id: SecurityCadetJumpsuit
   name: loadout-group-security-cadet-jumpsuit
   loadouts:
-  - FuSecurityCadetPants
-  - FuSecurityCadetSkirt
-#  - RedJumpsuit
-#  - RedJumpskirt
+  - RedJumpsuit
+  - RedJumpskirt
 
 #- type: loadoutGroup
 #  id: SecurityCadetJobTrinkets

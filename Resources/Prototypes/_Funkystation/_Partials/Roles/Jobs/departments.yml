@@ -1,0 +1,69 @@
+- type: department
+  id: Cargo
+  name: funky-department-Logistics
+  description: funky-department-Logistics-description
+  roles:
+  - !Remove SalvageSpecialist
+  - Botanist
+  - FunkyCourier
+
+- type: department
+  id: Civilian
+  roles:
+  - Lawyer
+  - FunkyPrisoner
+  - Reporter
+  - TramDriver
+
+- type: department
+  id: Command
+  roles:
+  - !Remove HeadOfPersonnel
+  - !Remove HeadOfSecurity
+  - FunkyCorporateLiaison
+  - FunkyHospitalityDirector
+  - FunkyExecutiveOfficer
+  primary: false
+  weight: 100
+
+- type: department
+  id: Engineering
+  roles:
+  - !Remove AtmosphericTechnician
+
+- type: department
+  id: Security
+  roles:
+  - !Remove HeadOfSecurity
+  - FunkyCommandant
+  - FunkyDispatcher
+  - FunkyLieutenant
+
+- type: department
+  id: Service
+  description: funky-department-Service-description
+  roles:
+  - !Remove Botanist
+  - !Remove HeadOfPersonnel
+  - !Remove Lawyer
+  - !Remove Reporter
+  - !Remove TramDriver
+  - FunkyHospitalityDirector
+
+- type: department
+  id: Silicon
+  roles:
+  - !Remove StationAi
+
+- type: department
+  id: Specific
+  name: department-Specific
+  description: department-Specific-description
+  color: "#9FED58"
+  weight: 10
+  ignoreForDepartmentFallback: true
+  roles:
+  - !Remove Reporter
+  - !Remove Psychologist
+  - FunkyDispatcher
+  primary: false

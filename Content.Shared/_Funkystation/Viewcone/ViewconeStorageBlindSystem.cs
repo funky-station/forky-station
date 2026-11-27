@@ -5,6 +5,9 @@ using Robust.Shared.Network;
 
 namespace Content.Shared._Funkystation.Viewcone;
 
+/// <summary>
+/// Handles client-side predictions
+/// </summary>
 public sealed partial class ViewconeStorageBlindSystem : EntitySystem
 {
     [Dependency] private INetManager _net = null!;
@@ -14,64 +17,84 @@ public sealed partial class ViewconeStorageBlindSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<EntityStorageComponent, StorageAfterCloseEvent>(OnStorageClosed);
-        SubscribeLocalEvent<EntityStorageComponent, StorageAfterOpenEvent>(OnStorageOpened);
+        SubscribeLocalEvent<EntityStorageComponent, StorageBeforeOpenEvent>(OnStorageOpened);
         SubscribeLocalEvent<EntityStorageComponent, EntInsertedIntoContainerMessage>(OnInserted);
         SubscribeLocalEvent<EntityStorageComponent, EntRemovedFromContainerMessage>(OnRemoved);
     }
 
     // mark as blind when closed
-    private void OnStorageClosed(Entity<EntityStorageComponent> ent, ref StorageAfterCloseEvent args)
+    private void OnStorageClosed(Entity<EntityStorageComponent> ent, ref StorageAfterCloseEvent _)
     {
-        if (_net.IsClient)
-            return;
-
-        if (ent.Comp.Contents is not { } contents)
-            return;
-
-        foreach (var contained in contents.ContainedEntities)
-        {
-            if (HasComp<ESViewconeComponent>(contained)) // so it doesn't keep trying to apply this component to every item LOL
-                EnsureComp<ViewconeStorageBlindComponent>(contained);
-        }
+        MarkBlindByContainer(ent);
     }
 
     // unmark
-    private void OnStorageOpened(Entity<EntityStorageComponent> ent, ref StorageAfterOpenEvent args)
+    private void OnStorageOpened(Entity<EntityStorageComponent> ent, ref StorageBeforeOpenEvent _)
     {
-        if (_net.IsClient)
-            return;
+        UnmarkBlindByContainer(ent);
+    }
 
+    // in case something is somehow inserted while still closed
+    private void OnInserted(Entity<EntityStorageComponent> ent, ref EntInsertedIntoContainerMessage _)
+    {
+        MarkBlindByContainer(ent);
+    }
+
+    // and removes marker when something leaves storage
+    private void OnRemoved(Entity<EntityStorageComponent> ent, ref EntRemovedFromContainerMessage _)
+    {
+        UnmarkBlindByContainer(ent);
+    }
+
+    /// <summary>
+    /// Marks all entities inside the container `ent`
+    /// as blinded by a storage
+    /// </summary>
+    private void MarkBlindByContainer(Entity<EntityStorageComponent> ent)
+    {
         if (ent.Comp.Contents is not { } contents)
             return;
 
         foreach (var contained in contents.ContainedEntities)
         {
-            RemComp<ViewconeStorageBlindComponent>(contained);
+            // Ignore all entities that do not posses a ViewconeBlindnessComponent
+            if (!TryComp<ViewconeBlindnessComponent>(contained, out var comp))
+                continue;
+
+            // Client side prediction
+            RaiseLocalEvent(contained, new ViewconeStorageClosedEvent());
+
+            comp.IsBlind = true;
+            comp.Reason &= ViewconeBlindnessReason.Storage;
+
+            // Dirty the component so AfterAutoHandleStateEvent is raised
+            // when its state is applied on the client.
+            // See ViewconeBlindSystem
+            Dirty(contained, comp);
         }
     }
 
-    // in case something is somehow inserted while still closed
-    private void OnInserted(Entity<EntityStorageComponent> ent, ref EntInsertedIntoContainerMessage args)
+    /// <summary>
+    /// Unmark all entities inside the container `ent`
+    /// as blinded by a storage
+    /// </summary>
+    private void UnmarkBlindByContainer(Entity<EntityStorageComponent> ent)
     {
-        if (_net.IsClient)
+        if (ent.Comp.Contents is not { } contents)
             return;
 
-        if (ent.Comp.Contents is not { } contents || args.Container.ID != contents.ID)
-            return;
+        foreach (var contained in contents.ContainedEntities)
+        {
+            if (!TryComp<ViewconeBlindnessComponent>(contained, out var comp))
+                continue;
 
-        if (!ent.Comp.Open && HasComp<ESViewconeComponent>(args.Entity))
-            EnsureComp<ViewconeStorageBlindComponent>(args.Entity);
-    }
+            // Client side prediction see above
+            RaiseLocalEvent(contained, new ViewconeStorageOpenedEvent());
 
-    // and removes marker when something leaves storage
-    private void OnRemoved(Entity<EntityStorageComponent> ent, ref EntRemovedFromContainerMessage args)
-    {
-        if (_net.IsClient)
-            return;
+            comp.IsBlind = false;
+            comp.Reason &= ViewconeBlindnessReason.Storage;
 
-        if (ent.Comp.Contents is not { } contents || args.Container.ID != contents.ID)
-            return;
-
-        RemComp<ViewconeStorageBlindComponent>(args.Entity);
+            Dirty(contained, comp);
+        }
     }
 }

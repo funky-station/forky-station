@@ -5,6 +5,8 @@ using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Station.Systems;
 using Content.Server.StationEvents.Components;
+using Content.Server._Funkystation.SistrCore; // funky
+using Content.Server.Station.Components; // funky
 using Content.Shared._Funkystation.CCVar;
 using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
@@ -27,6 +29,8 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
     [Dependency] private IConfigurationManager _cfg = null!; // funky - pa announcement cvar
 
     [Dependency] protected AnnouncerManager Announcer = default!; // Macrocosm
+
+    [Dependency] protected SistrCoreSystem SistrCore = default!; // funky
 
     protected ISawmill Sawmill = default!;
 
@@ -52,18 +56,22 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
         // we don't want to send to players who aren't in game (i.e. in the lobby)
         Filter allPlayersInGame = Filter.Empty().AddWhere(GameTicker.UserHasJoinedGame);
 
+        // funky, check if SISTR should announce and is alive
+        var canAnnounce = SistrCore.ShouldStationEventBeAnnounced(uid);
+
         // Macrocosm edit start - announcer variation
         SoundSpecifier? soundSpecifier = null; // funky
 
-        if (stationEvent.StartAudio is { } startAudio && Announcer.TryGetAnnouncerSound(startAudio, out soundSpecifier))
+        if (canAnnounce && stationEvent.StartAudio is { } startAudio && Announcer.TryGetAnnouncerSound(startAudio, out soundSpecifier)) // funky
         {
             if (!paExclusive) // funky
                 Audio.PlayGlobal(soundSpecifier, allPlayersInGame, true);
         }
         // Macrocosm edit end
 
-        if (stationEvent.StartAnnouncement != null)
+        if (canAnnounce && stationEvent.StartAnnouncement != null) // funky
             ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.StartAnnouncement),
+                sender: Loc.GetString(stationEvent.StartAnnouncementSender), // funky
                 playSound: paExclusive, announcementSound: paExclusive ? soundSpecifier : null, // funky
                 colorOverride: stationEvent.StartAnnouncementColor);
 
@@ -105,17 +113,21 @@ public abstract partial class StationEventSystem<T> : GameRuleSystem<T> where T 
         // we don't want to send to players who aren't in game (i.e. in the lobby)
         Filter allPlayersInGame = Filter.Empty().AddWhere(GameTicker.UserHasJoinedGame);
 
+        // funky, check if SISTR should announce and is alive
+        var canAnnounce = SistrCore.ShouldStationEventBeAnnounced(uid, true);
+
         // Macrocosm edit start - announcer variation
         SoundSpecifier? soundSpecifier = null; // funky
 
-        if (stationEvent.EndAudio is { } endAudio && Announcer.TryGetAnnouncerSound(stationEvent.EndAudio.Value, out soundSpecifier))
+        if (canAnnounce && stationEvent.EndAudio is { } endAudio && Announcer.TryGetAnnouncerSound(stationEvent.EndAudio.Value, out soundSpecifier)) // funky
         {
             if (!paExclusive) // funky
                 Audio.PlayGlobal(soundSpecifier, allPlayersInGame, true);
         }
         // Macrocosm edit end
-        if (stationEvent.EndAnnouncement != null)
+        if (canAnnounce && stationEvent.EndAnnouncement != null) // funky
             ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.EndAnnouncement),
+                sender: Loc.GetString(stationEvent.EndAnnouncementSender), // funky
                 playSound: paExclusive, announcementSound: paExclusive ? soundSpecifier : null, // funky
                 colorOverride: stationEvent.EndAnnouncementColor);
 

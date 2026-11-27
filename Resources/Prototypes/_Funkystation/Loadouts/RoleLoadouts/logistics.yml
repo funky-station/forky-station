@@ -1,0 +1,17 @@
+- type: roleLoadout
+  id: JobFunkyCourier # Should be FunkyJobCourier but the way the game gets roleLoadouts from jobs is hardcoded
+  groups:
+  - GroupTankHarness
+  - FunkyCourierHead
+  - FunkyLogisticsNeck
+  - FunkyCourierOuterClothing
+  - FunkyCourierUniform
+  - CargoTechnicianBackpack
+  - FunkyCourierShoes
+  - FunkyPager
+  - Glasses
+  - Survival
+  - Trinkets
+  #- FunkyCourierJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # MACRO: Decapoid
