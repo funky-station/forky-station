@@ -1281,4 +1281,11 @@
   id: 150
   time: '2026-11-27T09:20:30Z'
   url: https://github.com/funky-station/forky-station/pull/565
+- author: pirakaplant
+  changes:
+  - message: Sun glasses no longer provide flash protection.
+    type: Tweak
+  id: 151
+  time: '2026-11-27T23:48:39Z'
+  url: https://github.com/funky-station/forky-station/pull/620
 Order: -1
