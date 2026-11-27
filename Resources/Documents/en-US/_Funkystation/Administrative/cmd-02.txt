@@ -1,0 +1,25 @@
+# CMD-02 Demotion Form
+[color=#1b67a5]╔══════════════════════════════════════
+║▄▄[color=#ffffff]░░[/color]▄[color=#ffffff]░[/color]   [head=2]NANOTRASEN[/head]
+║[color=#ffffff]░[/color]█▀▄█[color=#ffffff]░[/color]   [color=#185e98][head=3]COMMAND DEPARTMENT[/head][/color]
+║[color=#ffffff]░[/color]▀[color=#ffffff]░░[/color]▀▀   [head=3]CMD-02 Demotion Form[/head]
+╚══════════════════════════════════════[/color]
+
+[bold]Employee:[/bold] [form]
+[bold]Previous Position:[/bold] [form]
+
+[bold]Reason for Demotion:[/bold]
+[bullet] [check] [italic]Gross Incompetence[/italic]
+[bullet] [check] [italic]Major SOP Violations[/italic]
+[bullet] [check] [italic]Security Risk[/italic]
+[bullet] [check] [italic]Poor Performance[/italic]
+[bullet] [check] [italic]Resource Mismanagement[/italic]
+[bullet] [check] [italic]Other:[/italic]
+        [bullet] [form]
+
+[bold]New Position:[/bold] [form]
+[bold]Department:[/bold] [form]
+
+[bold]Department Head (Sign to Approve):[/bold] [signature]
+
+[bold]Additional Notes:[/bold] [form]

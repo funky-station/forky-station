@@ -1,10 +1,23 @@
+# Major SOP violation form
 - type: document
-  id: DocDepartmentAudit
-  name: doc-department-audit-name
-  description: doc-department-audit-desc
+  id: FunkyDocIAB01
+  name: funky-doc-iab-01-name
+  description: funky-doc-iab-01-desc
   category: DocCatInternalAffairs
   paperPrototype: Paper
-  contentFileName: test.txt # TODO: Change this
+  contentFileName: iab-01.txt
   access:
     - Command
     - InternalAffairs
+
+# Department review form
+- type: document
+  id: FunkyDocIAB02
+  name: funky-doc-iab-02-name
+  description: funky-doc-iab-02-desc
+  category: DocCatInternalAffairs
+  paperPrototype: Paper
+  contentFileName: iab-02.txt
+  access:
+  - Command
+  - InternalAffairs

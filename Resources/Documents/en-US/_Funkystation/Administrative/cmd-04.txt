@@ -1,0 +1,25 @@
+# CMD-04 Command Performance Review Form
+[color=#1b67a5]╔══════════════════════════════════════
+║▄▄[color=#ffffff]░░[/color]▄[color=#ffffff]░[/color]   [head=2]NANOTRASEN[/head]
+║[color=#ffffff]░[/color]█▀▄█[color=#ffffff]░[/color]   [color=#185e98][head=3]COMMAND DEPARTMENT[/head][/color]
+║[color=#ffffff]░[/color]▀[color=#ffffff]░░[/color]▀▀   [head=3]CMD-04 Command Performance Review[/head]
+╚══════════════════════════════════════[/color]
+
+[bold]Command Member:[/bold] [form]
+
+[bold]Conduct:[/bold]
+  [bullet] [italic]Rating:[/italic] [check][check][check][check][check]
+  [bullet] [italic]Notes:[/italic] [form]
+
+[bold]Efficiency:[/bold]
+  [bullet] [italic]Rating:[/italic] [check][check][check][check][check]
+  [bullet] [italic]Notes:[/italic] [form]
+
+[bold]Loyalty to NanoTrasen:[/bold]
+  [bullet] [italic]Rating:[/italic] [check][check][check][check][check]
+  [bullet] [italic]Notes:[/italic] [form]
+
+[bold]Additional Notes:[/bold]
+  [bullet] [form]
+
+[bold]Reviewer:[/bold] [signature]
