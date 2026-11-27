@@ -1,5 +1,5 @@
 - type: constructionGraph
-  id: DisposalMachineWallmount
+  id: FunkyDisposalMachineWallmount
   start: start
   graph:
   - node: start
@@ -10,7 +10,7 @@
         amount: 1
         doAfter: 1
   - node: frame
-    entity: DisposalMachineFrameWallmount
+    entity: FunkyDisposalMachineFrameWallmount
     edges:
     - to: start
       completed:
@@ -27,7 +27,7 @@
         amount: 2
         doAfter: 1
   - node: frame_cable
-    entity: DisposalMachineFrameWallmount
+    entity: FunkyDisposalMachineFrameWallmount
     actions:
     - !type:AppearanceChange
     edges:
@@ -45,7 +45,7 @@
         amount: 2
         doAfter: 1
   - node: frame_electronics
-    entity: DisposalMachineFrameWallmount
+    entity: FunkyDisposalMachineFrameWallmount
     actions:
     - !type:AppearanceChange
     edges:
@@ -62,7 +62,7 @@
       - tool: Screwing
         doAfter: 0.25
   - node: frame_unit
-    entity: DisposalMachineFrameWallmount
+    entity: FunkyDisposalMachineFrameWallmount
     actions:
     - !type:AppearanceChange
     edges:
@@ -76,7 +76,7 @@
       - tool: Screwing
         doAfter: 0.25
   - node: disposal_unit
-    entity: DisposalUnitWallmount
+    entity: FunkyDisposalUnitWallmount
     edges:
     - to: frame_unit
       completed:

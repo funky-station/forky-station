@@ -1,6 +1,6 @@
 - type: entity
   parent: StructureHealthMachineWeak
-  id: DisposalMachineFrameWallmount
+  id: FunkyDisposalMachineFrameWallmount
   name: high pressure machine frame
   description: A machine frame made to withstand the amount of pressure used in the station's disposal system.
   placement:
@@ -17,7 +17,7 @@
     - type: Anchorable
     - type: Pullable
     - type: Construction
-      graph: DisposalMachineWallmount
+      graph: FunkyDisposalMachineWallmount
       node: frame
     - type: Damageable
       damageModifierSet: SteelMod
@@ -49,7 +49,7 @@
 
 - type: entity
   parent: [ BaseWallmountMachine, StructureHealthMachineWeak ]
-  id: DisposalUnitWallmount
+  id: FunkyDisposalUnitWallmount
   name: disposal unit
   description: A pneumatic waste disposal unit.
   components:
@@ -168,5 +168,5 @@
       tableId: RatKingLoot
   - type: RequireProjectileTarget
   - type: Construction
-    graph: DisposalMachineWallmount
+    graph: FunkyDisposalMachineWallmount
     node: disposal_unit
