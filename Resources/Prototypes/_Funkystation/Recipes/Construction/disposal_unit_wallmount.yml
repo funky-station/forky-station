@@ -1,0 +1,9 @@
+- type: construction
+  parent: BaseUtility
+  id: FunkyDisposalUnitWallmount
+  name: funky-construction-recipe-wallmount-disposal-name
+  description: funky-construction-recipe-wallmount-disposal-desc
+  graph: FunkyDisposalMachineWallmount
+  targetNode: disposal_unit
+  conditions:
+  - !type:AgainstWall

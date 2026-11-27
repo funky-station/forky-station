@@ -47,7 +47,7 @@
 
 - type: pagerPrefix
   id: PagerPrefixInternalAffairs
-  department: InternalAffairs
+  department: FunkyInternalAffairs
   prefix: 5
   massPageAccess:
   - ExecutiveOfficer

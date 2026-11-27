@@ -1,0 +1,17 @@
+- type: job
+  id: StationEngineer
+  requirements: !Clear
+  - !type:DepartmentTimeRequirement
+    department: Engineering
+    time: 4h
+
+
+- type: startingGear
+  id: StationEngineerGear
+  equipment:
+    id: EngineerWallet
+
+- type: chameleonOutfit
+  id: StationEngineerChameleonOutfit
+  equipment:
+    gloves: FuClothingHandsGlovesInsuls

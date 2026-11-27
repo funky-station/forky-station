@@ -1,0 +1,35 @@
+# outer clothing
+
+- type: loadout
+  id: FunkyCMOLabcoat
+  equipment:
+    outerClothing: FuClothingOuterCoatLabCmo
+
+- type: loadout
+  id: FunkyCMOWinterLabcoat
+  equipment:
+    outerClothing: FuClothingOuterWinterCmo
+
+# uniforms
+
+## dresses
+- type: loadout
+  id: FunkyCMODress
+  equipment:
+    jumpsuit: FuClothingUniformCmoDress
+  groupBy: "dress"
+
+- type: loadout
+  id: FunkyCMODressStockings
+  equipment:
+    jumpsuit: FuClothingUniformCmoDressStockings
+  groupBy: "dress"
+
+## jumpsuits
+
+- type: loadout
+  id: FunkyCMOJumpsuit
+  equipment:
+    jumpsuit: FuClothingUniformCmoJumpsuit
+  groupBy: "jumpsuit"
+

@@ -1,0 +1,10 @@
+- type: job
+  id: CBURN
+  special: !Clear
+  - !type:AddImplantSpecial
+    implants: [ DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: CBURNGear
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses

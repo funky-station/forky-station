@@ -187,9 +187,9 @@
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
-  - type: Construction
-    graph: GlassesSecHUD
-    node: glassesSec
+#  - type: Construction # funky - some construction tests use GameDataScrounger, which doesn't really account for partials at all, so we have to edit here to prevent fails :(
+#    graph: GlassesSecHUD
+#    node: glassesSec
   - type: Tag
     tags:
     - HamsterWearable

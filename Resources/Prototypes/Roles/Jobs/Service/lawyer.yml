@@ -5,13 +5,12 @@
   playTimeTracker: JobLawyer
   requirements:
     - !type:OverallPlaytimeRequirement
-      #time: 2.5h
-      time: 2h # Funky
+      time: 2.5h
   startingGear: LawyerGear
   icon: "JobIconLawyer"
-  supervisors: job-supervisors-hire # Funky - Now a contracted Civilian job
+  supervisors: job-supervisors-hop
   access:
-  #- Service # Funky - No longer part of Service
+  - Service
   - Lawyer
   - Brig
   - Maintenance
@@ -20,16 +19,14 @@
   id: LawyerGear
   equipment:
     shoes: ClothingShoesBootsLaceup
-    id: LawyerWallet # Funky: the wallet-ening
-    #ears: ClothingHeadsetSecurity # Funky
-    ears: ClothingHeadsetGrey # Funky
+    id: LawyerPDA
+    ears: ClothingHeadsetSecurity
   inhand:
     - BriefcaseBrownFilled
   storage:
     back:
     - RubberStampLawyer
     - BookSpaceLaw
-    - BookSentencingGuidelines # Funky
 
 - type: chameleonOutfit
   id: LawyerChameleonOutfit

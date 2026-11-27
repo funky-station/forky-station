@@ -5,20 +5,17 @@
   playTimeTracker: JobReporter
   startingGear: ReporterGear
   icon: "JobIconReporter"
-  supervisors: job-supervisors-audience # Funky - Now a contracted Civilian job
+  supervisors: job-supervisors-hop
   access:
-  #- Service # Funky - No longer a part of Service
+  - Service
   - Maintenance
-  - Newsroom # Funky
 
 - type: startingGear
   id: ReporterGear
   equipment:
     shoes: ClothingShoesColorWhite
-    id: ReporterWallet # Funky: the wallet-ening
-    #ears: ClothingHeadsetService
-    ears: ClothingHeadsetGrey # Funky - No longer a part of Service
-    pocket2: PouchGeneric # funky
+    id: ReporterPDA
+    ears: ClothingHeadsetService
   #storage:
     #back:
     #- Stuff

@@ -3,14 +3,13 @@
   name: job-name-detective
   description: job-description-detective
   playTimeTracker: JobDetective
-  requiresNda: Security # Funky
   requirements:
   - !type:RoleTimeRequirement
     role: JobSecurityOfficer
     time: 5h
   startingGear: DetectiveGear
   icon: "JobIconDetective"
-  supervisors: job-supervisors-commandant #funky
+  supervisors: job-supervisors-hos
   access:
   - Security
   - Brig
@@ -18,18 +17,17 @@
   - Detective
   - Cryogenics
   - External
-  #special:
-  #- !type:AddImplantSpecial
-  #  implants: [ MindShieldImplant ] # Funky - Removed mindshields
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
 
 - type: startingGear
   id: DetectiveGear
   equipment:
     eyes: ClothingEyesGlassesSecurity
-    id: DetectiveWallet # Funky: the wallet-ening
+    id: DetectivePDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltHolsterFilled
-    back: ClothingBackpackSatchelLeather # funky
   storage:
     back:
     - Flash

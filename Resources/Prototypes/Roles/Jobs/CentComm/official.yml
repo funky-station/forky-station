@@ -13,8 +13,7 @@
   - CentralCommand
   special:
   - !type:AddImplantSpecial
-    #implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
-    implants: [ DeathRattleImplantCentcomm ] # Funky - Removed mindshields
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: CentcommGear

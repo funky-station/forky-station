@@ -4,7 +4,7 @@
   name: internalaffairs
   components:
   - type: SpawnPoint
-    job_id: InternalAffairsAgent
+    job_id: FunkyInternalAffairsAgent
   - type: Sprite
     layers:
     - state: green
@@ -16,7 +16,7 @@
   name: magistrate
   components:
   - type: SpawnPoint
-    job_id: Magistrate
+    job_id: FunkyMagistrate
   - type: Sprite
     layers:
     - state: green
@@ -28,7 +28,7 @@
   name: corporateliaison
   components:
   - type: SpawnPoint
-    job_id: CorporateLiaison
+    job_id: FunkyCorporateLiaison
   - type: Sprite
     layers:
     - state: green
@@ -40,7 +40,7 @@
   name: hospitalitydirector
   components:
   - type: SpawnPoint
-    job_id: HospitalityDirector
+    job_id: FunkyHospitalityDirector
   - type: Sprite
     sprite: _Funkystation/Markers/jobs.rsi
     layers:
@@ -53,7 +53,7 @@
   name: executiveofficer
   components:
   - type: SpawnPoint
-    job_id: ExecutiveOfficer
+    job_id: FunkyExecutiveOfficer
   - type: Sprite
     layers:
     - state: green
@@ -65,7 +65,7 @@
   name: commandant
   components:
   - type: SpawnPoint
-    job_id: Commandant
+    job_id: FunkyCommandant
   - type: Sprite
     layers:
     - state: green
@@ -77,7 +77,7 @@
   name: lieutenant
   components:
   - type: SpawnPoint
-    job_id: Lieutenant
+    job_id: FunkyLieutenant
   - type: Sprite
     layers:
     - state: green
@@ -89,7 +89,7 @@
   name: dispatcher
   components:
   - type: SpawnPoint
-    job_id: Dispatcher
+    job_id: FunkyDispatcher
   - type: Sprite
     layers:
     - state: green
@@ -101,7 +101,7 @@
   name: courier
   components:
   - type: SpawnPoint
-    job_id: FuCourier
+    job_id: FunkyCourier
   - type: Sprite
     sprite: _Funkystation/Markers/jobs.rsi
     layers:
@@ -114,7 +114,7 @@
   name: prisoner
   components:
   - type: SpawnPoint
-    job_id: Prisoner
+    job_id: FunkyPrisoner
   - type: Sprite
     layers:
     - state: green

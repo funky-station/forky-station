@@ -1239,4 +1239,46 @@
   id: 146
   time: '2026-10-31T19:33:16Z'
   url: https://github.com/funky-station/forky-station/pull/595
+- author: PopUpPUP
+  changes:
+  - message: Meowls are no longer wrinkly
+    type: Fix
+  - message: Meowls can now wear o2 masks and cans
+    type: Tweak
+  id: 147
+  time: '2026-11-14T22:50:11Z'
+  url: https://github.com/funky-station/forky-station/pull/612
+- author: pirakaplant, Caketaco
+  changes:
+  - message: 11 new forms have been added to the document printers.
+    type: Add
+  - message: 'Two new variants of the document printer have been added: a Security
+      version and an IA version.'
+    type: Add
+  id: 148
+  time: '2026-11-27T07:54:41Z'
+  url: https://github.com/funky-station/forky-station/pull/615
+- author: Miish, Mkanke
+  changes:
+  - message: Added a buildable wallmount disposal unit
+    type: Add
+  id: 149
+  time: '2026-11-27T09:11:30Z'
+  url: https://github.com/funky-station/forky-station/pull/535
+- author: pirakaplant, mycobiota
+  changes:
+  - message: All eyewear that provides administrative, beer, medical, or security
+      HUDs has been removed, except for noir-tech glasses.
+    type: Remove
+  - message: Noir-tech glasses no longer provide a security HUD and are no longer
+      Security contraband.
+    type: Tweak
+  - message: Jobs that started with administrative or security glasses now begin with
+      sun glasses instead.
+    type: Tweak
+  - message: SecTech vending machines now have five pairs of sun glasses.
+    type: Tweak
+  id: 150
+  time: '2026-11-27T09:20:30Z'
+  url: https://github.com/funky-station/forky-station/pull/565
 Order: -1

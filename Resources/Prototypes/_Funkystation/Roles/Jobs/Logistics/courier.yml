@@ -1,10 +1,10 @@
 - type: job
-  id: FuCourier
-  name: job-name-courier
-  description: job-description-courier
-  playTimeTracker: JobFuCourier
-  startingGear: FuCourierGear
-  icon: "JobIconCourier"
+  id: FunkyCourier
+  name: funky-job-name-courier
+  description: funky-job-description-courier
+  playTimeTracker: FunkyJobCourier
+  startingGear: FunkyCourierGear
+  icon: "FunkyJobIconCourier"
   supervisors: job-supervisors-qm
   access:
   - Cargo
@@ -18,7 +18,7 @@
     prototype: BoxCardboard
 
 - type: startingGear
-  id: FuCourierGear
+  id: FunkyCourierGear
   equipment:
     id: CourierWallet
     ears: ClothingHeadsetCargo
@@ -28,8 +28,8 @@
     #- Stuff
 
 - type: chameleonOutfit
-  id: CourierChameleonOutfit
-  job: FuCourier
+  id: FunkyCourierChameleonOutfit
+  job: FunkyCourier
   equipment:
     head: FuClothingHeadHatCourier
     eyes: ClothingEyesGlassesCheapSunglasses

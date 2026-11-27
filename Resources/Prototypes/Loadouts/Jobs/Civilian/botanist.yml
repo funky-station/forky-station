@@ -1,12 +1,13 @@
+# Head
 - type: loadout
   id: BotanistHead
   equipment:
     head: ClothingHeadHatTrucker
 
-#- type: loadout
-#  id: BotanistBandana
-#  equipment:
-#    head: ClothingHeadBandBotany
+- type: loadout
+  id: BotanistBandana
+  equipment:
+    head: ClothingHeadBandBotany
 
 # Jumpsuit
 - type: loadout

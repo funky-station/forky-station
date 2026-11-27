@@ -4,7 +4,7 @@
   name: internal affairs ID card
   components:
   - type: PresetIdCard
-    job: InternalAffairsAgent
+    job: FunkyInternalAffairsAgent
 
 - type: entity
   parent: LawyerIDCard
@@ -12,7 +12,7 @@
   name: magistrate ID card
   components:
   - type: PresetIdCard
-    job: Magistrate
+    job: FunkyMagistrate
 
 - type: entity
   parent: HoPIDCard
@@ -20,7 +20,7 @@
   name: executive officer ID card
   components:
   - type: PresetIdCard
-    job: ExecutiveOfficer
+    job: FunkyExecutiveOfficer
 
 - type: entity
   parent: HoPIDCard
@@ -28,7 +28,7 @@
   name: hospitality director ID card
   components:
   - type: PresetIdCard
-    job: HospitalityDirector
+    job: FunkyHospitalityDirector
 
 - type: entity
   parent: LawyerIDCard
@@ -36,7 +36,7 @@
   name: corporate liaison ID card
   components:
   - type: PresetIdCard
-    job: CorporateLiaison
+    job: FunkyCorporateLiaison
 
 - type: entity
   parent: HoSIDCard
@@ -44,7 +44,7 @@
   name: commandant ID card
   components:
   - type: PresetIdCard
-    job: Commandant
+    job: FunkyCommandant
 
 - type: entity
   parent: SecurityIDCard
@@ -52,7 +52,7 @@
   name: lieutenant ID card
   components:
   - type: PresetIdCard
-    job: Lieutenant
+    job: FunkyLieutenant
 
 - type: entity
   parent: SecurityIDCard
@@ -60,7 +60,7 @@
   name: dispatcher ID card
   components:
   - type: PresetIdCard
-    job: Dispatcher
+    job: FunkyDispatcher
 
 - type: entity
   parent: CargoIDCard
@@ -68,4 +68,4 @@
   name: courier ID card
   components:
   - type: PresetIdCard
-    job: FuCourier
+    job: FunkyCourier

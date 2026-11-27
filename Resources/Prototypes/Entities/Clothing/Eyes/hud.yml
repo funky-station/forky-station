@@ -186,9 +186,9 @@
     sprite: Clothing/Eyes/Hud/medsec.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/medsec.rsi
-  - type: Construction
-    graph: HudMedSec
-    node: medsecHud
+#  - type: Construction # funky - some construction tests use GameDataScrounger, which doesn't really account for partials at all, so we have to edit here to prevent fails :(
+#    graph: HudMedSec
+#    node: medsecHud
 
 - type: entity
   parent: [ClothingEyesHudBase, ShowSecurityIcons, ShowMedicalIcons]

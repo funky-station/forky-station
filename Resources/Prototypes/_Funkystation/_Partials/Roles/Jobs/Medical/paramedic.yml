@@ -1,0 +1,21 @@
+- type: job
+  id: Paramedic
+  requirements: !Clear
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 4h
+  - !type:RoleTimeRequirement
+    role: JobMedicalDoctor
+    time: 2h
+
+- type: startingGear
+  id: ParamedicGear
+  equipment:
+    id: ParamedicWallet
+    ears: ClothingHeadsetParamedic
+    back: ClothingBackpackDuffelMedical
+
+- type: chameleonOutfit
+  id: ParamedicChameleonOutfit
+  equipment:
+    eyes: ClothingEyesGlassesCheapSunglasses

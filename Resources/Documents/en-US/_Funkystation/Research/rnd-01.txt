@@ -1,0 +1,21 @@
+# RND-01 Anomaly Report
+[color=#1b67a5]╔══════════════════════════════════════
+║ [color=#0000]░[/color][color=#6e5bb6]▄▄██[/color][color=#0000]░[/color]   [head=2]NANOTRASEN[/head]
+║ [color=#6e5bb6]▄█▀██[/color][color=#0000]░[/color]   [color=#6e5bb6][head=3]SCIENCE DEPARTMENT[/head][/color]
+║ [color=#6e5bb6]██▄▄▄[/color][color=#0000]░[/color]   [head=3]RND-01 Anomaly Report[/head]
+╚══════════════════════════════════════[/color]
+
+[bold]Anomaly Type:[/bold] [form]
+[bold]Location:[/bold] [form]
+
+[bold]Particle Responses:[/bold]
+[bullet][italic]Delta [/italic]    Δ: [form]
+[bullet][italic]Epsilon [/italic] ε: [form]
+[bullet][italic]Sigma [/italic]   Σ: [form]
+[bullet][italic]Zeta [/italic]      ζ: [form]
+
+[bold]Current Anomaly Status:[/bold] [form]
+
+[bold]Behavior Deviations:[/bold] [check] [form]
+
+[bold]Additional Information:[/bold] [form]

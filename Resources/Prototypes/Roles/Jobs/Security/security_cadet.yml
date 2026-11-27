@@ -3,34 +3,32 @@
   name: job-name-cadet
   description: job-description-cadet
   playTimeTracker: JobSecurityCadet
-  requiresNda: Security # Funky
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 10h
     - !type:DepartmentTimeRequirement
       department: Security
-      #time: 10h
-      time: 40h # Funky
+      time: 10h
       inverted: true # stop playing intern if you're good at security!
   startingGear: SecurityCadetGear
   icon: "JobIconSecurityCadet"
-  supervisors: job-supervisors-lieutenant #funky
+  supervisors: job-supervisors-security
   access:
   - Security
   - Brig
   - Maintenance
   - External
   - Cryogenics
-  #special:
-  #- !type:AddImplantSpecial
-  #  implants: [ MindShieldImplant ] # Funky - Removed mindshields
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
 
 - type: startingGear
   id: SecurityCadetGear
   equipment:
     shoes: ClothingShoesBootsJackFilled
     outerClothing: ClothingOuterArmorBasic
-    id: SecurityCadetWallet # Funky: the wallet-ening
+    id: SecurityCadetPDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled
     pocket1: WeaponEnergyPistol # Funky: WeaponPistolMk58 > WeaponEnergyPistol

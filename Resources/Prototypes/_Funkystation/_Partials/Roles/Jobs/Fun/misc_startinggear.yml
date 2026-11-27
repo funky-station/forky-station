@@ -1,0 +1,7 @@
+# The uplink needs to be replaced because PR #268 introduced a bunch of unannounced breaking changes to upstream code
+# Ghh.
+# TODO: Fix that later, and maybe just get rid of this file. I don't think this prototype is going to be seen by anyone other than the linter
+- type: startingGear
+  id: SyndicateFootsoldierTeamLeaderGear
+  equipment:
+    pocket1: BaseUplinkRadio125TC

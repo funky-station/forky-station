@@ -1,0 +1,14 @@
+- type: job
+  id: Janitor
+  supervisors: funky-job-supervisors-hd
+
+- type: startingGear
+  id: JanitorGear
+  equipment:
+    id: JanitorWallet
+    pocket2: PouchGeneric
+
+- type: startingGear
+  id: JanitorMaidGear
+  equipment:
+    id: JanitorWallet

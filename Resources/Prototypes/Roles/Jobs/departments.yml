@@ -1,41 +1,25 @@
 - type: department
   id: Cargo
-  name: department-Logistics
-  description: department-Logistics-description
+  name: department-Cargo
+  description: department-Cargo-description
   color: "#A46106"
   roles:
-  - Botanist # Funky - Moved from Civilian
   - CargoTechnician
   - Quartermaster
-  - FuCourier # Funky
-  # - SalvageSpecialist - funky
+  - SalvageSpecialist
 
 - type: department
   id: Civilian
   name: department-Civilian
   description: department-Civilian-description
-  color: "#808080" # Funky - Changed color to gray, like the icons. Service is now green
+  color: "#7F7F7F"
   weight: -10
   ignoreForDepartmentFallback: true
   roles:
-  #- Bartender # Funky - All the commented out jobs are moving to Service
-  #- Botanist # Except Botanist which is moving to Logistics
-  #- Chaplain
-  #- Chef
-  #- Clown
-  #- HeadOfPersonnel
-  #- Janitor
-  - Lawyer
-  #- Librarian
-  #- Mime
-  #- Musician
   - Passenger
-  - Reporter
   - Visitor
-  - Prisoner # funky
-  #- ServiceWorker
-  - TramDriver
 
+# Please kill this
 - type: department
   id: CentralCommand
   name: department-CentralCommand
@@ -63,13 +47,11 @@
   - Captain
   - ChiefEngineer
   - ChiefMedicalOfficer
-#  - HeadOfPersonnel - funky
-#  - HeadOfSecurity - funky
+  - HeadOfPersonnel
+  - HeadOfSecurity
   - ResearchDirector
   - Quartermaster
-  - HospitalityDirector # funky
-  - CorporateLiaison # funky
-  - ExecutiveOfficer # funky
+  # Please kill these
   - CentralCommandOfficial
   - CBURN
   - ERTLeader
@@ -88,7 +70,7 @@
   description: department-Engineering-description
   color: "#EFB341"
   roles:
-  #- AtmosphericTechnician - funky
+  - AtmosphericTechnician
   - ChiefEngineer
   - StationEngineer
   - TechnicalAssistant
@@ -107,22 +89,6 @@
   - Paramedic
 
 - type: department
-  id: Security
-  name: department-Security
-  description: department-Security-description
-  color: "#DE3A3A"
-  weight: 20
-  roles:
-#  - HeadOfSecurity - funky
-  - Commandant # funky
-  - Lieutenant # funky
-  - SecurityCadet
-  - SecurityOfficer
-  - Detective
-  - Warden
-  - Dispatcher # funky
-
-- type: department
   id: Science
   name: department-Science
   description: department-Science-description
@@ -133,13 +99,47 @@
   - ResearchAssistant
 
 - type: department
+  id: Security
+  name: department-Security
+  description: department-Security-description
+  color: "#DE3A3A"
+  weight: 20
+  roles:
+  - HeadOfSecurity
+  - SecurityCadet
+  - SecurityOfficer
+  - Detective
+  - Warden
+
+- type: department
+  id: Service
+  name: department-Service
+  description: department-Service-description
+  color: "#9FED58"
+  roles:
+  - Bartender
+  - Botanist
+  - Chaplain
+  - Chef
+  - Clown
+  - HeadOfPersonnel
+  - Janitor
+  - Lawyer
+  - Librarian
+  - Mime
+  - Musician
+  - Reporter
+  - ServiceWorker
+  - TramDriver
+
+- type: department
   id: Silicon
   name: department-Silicon
   description: department-Silicon-description
   color: "#D381C9"
   roles:
   - Borg
-  #- StationAi - funky
+  - StationAi
 
 - type: department
   id: Specific
@@ -149,8 +149,7 @@
   weight: 10
   ignoreForDepartmentFallback: true
   roles:
-#  - Reporter - funky
-#  - Psychologist - funky
-  - Dispatcher # funky
+  - Reporter
+  - Psychologist
   - TramDriver
   primary: false

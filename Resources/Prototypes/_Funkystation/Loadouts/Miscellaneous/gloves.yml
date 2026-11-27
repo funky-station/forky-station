@@ -1,0 +1,49 @@
+- type: loadout
+  id: FunkyGreyGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorGray
+  groupBy: "gloves"
+
+# Technically identical to TramDriverGlovesWhite but this should NOT be specific to tram drivers
+- type: loadout
+  id: FunkyWhiteGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorWhite
+  groupBy: "gloves"
+
+# Technically identical to TramDriverGlovesBlack but this should NOT be specific to tram drivers
+- type: loadout
+  id: FunkyBlackGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorBlack
+  groupBy: "gloves"
+
+- type: loadout
+  id: FunkyBrownGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorBrown
+  groupBy: "gloves"
+
+- type: loadout
+  id: FunkyRedGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorRed
+  groupBy: "gloves"
+
+- type: loadout
+  id: FunkyGreenGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorGreen
+  groupBy: "gloves"
+
+- type: loadout
+  id: FunkyTealGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorTeal
+  groupBy: "gloves"
+
+- type: loadout
+  id: FunkyBlueGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorBlue
+  groupBy: "gloves"

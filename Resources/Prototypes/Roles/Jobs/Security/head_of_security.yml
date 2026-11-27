@@ -18,7 +18,6 @@
       time: 10h
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
-  joinNotifyCrew: true # Funky
   supervisors: job-supervisors-captain
   access:
   - HeadOfSecurity

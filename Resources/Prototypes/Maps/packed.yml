@@ -19,17 +19,17 @@
         availableJobs: # 58 jobs total w/o latejoins & interns, 73 jobs total w/ latejoins & interns
           #command (7)
           Captain: [ 1, 1 ]
-          Commandant: [ 1, 1 ]
+          FunkyCommandant: [ 1, 1 ]
           ChiefMedicalOfficer: [ 1, 1 ]
           ChiefEngineer: [ 1, 1 ]
           ResearchDirector: [ 1, 1 ]
           Quartermaster: [ 1, 1 ]
-          CorporateLiaison: [ 1, 1 ]
-          HospitalityDirector: [ 1, 1 ]
+          FunkyCorporateLiaison: [ 1, 1 ]
+          FunkyHospitalityDirector: [ 1, 1 ]
           #internal affairs (3 - 4)
-          ExecutiveOfficer: [ 1, 1 ]
-          Magistrate: [ 1, 1 ]
-          InternalAffairsAgent: [ 2, 2 ]
+          FunkyExecutiveOfficer: [ 1, 1 ]
+          FunkyMagistrate: [ 1, 1 ]
+          FunkyInternalAffairsAgent: [ 2, 2 ]
           #service (8 - 10)
           Bartender: [ 1, 1 ]
           Botanist: [ 1, 2 ]
@@ -52,7 +52,7 @@
           ResearchAssistant: [ 3, 3 ] #intern, not counted
           #security (6)
           Warden: [ 1, 1 ]
-          Lieutenant: [ 2, 2 ]
+          FunkyLieutenant: [ 2, 2 ]
           SecurityOfficer: [ 4, 4 ]
           Detective: [ 1, 1 ]
           SecurityCadet: [ 3, 3 ] #intern, not counted
@@ -68,4 +68,4 @@
           #silicon (3)
           Borg: [ 2, 2 ]
           #prisoner (2)
-          Prisoner: [ 2, 2 ]
+          FunkyPrisoner: [ 2, 2 ]

@@ -1,0 +1,9 @@
+- type: job
+  id: CargoTechnician
+  extendedAccess:
+  - Hydroponics
+
+- type: startingGear
+  id: CargoTechGear
+  equipment:
+    id: CargoWallet

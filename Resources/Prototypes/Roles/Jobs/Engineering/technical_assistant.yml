@@ -1,15 +1,14 @@
-- type: job
+﻿- type: job
   id: TechnicalAssistant
   name: job-name-technical-assistant
   description: job-description-technical-assistant
   playTimeTracker: JobTechnicalAssistant
   requirements:
-    #- !type:OverallPlaytimeRequirement
-    #  time: 1h # Funky
+    - !type:OverallPlaytimeRequirement
+      time: 1h
     - !type:DepartmentTimeRequirement
       department: Engineering
-      #time: 10h
-      time: 35h # Funky
+      time: 10h
       inverted: true # stop playing intern if you're good at engineering!
   startingGear: TechnicalAssistantGear
   icon: "JobIconTechnicalAssistant"
@@ -23,10 +22,10 @@
   id: TechnicalAssistantGear
   equipment:
     shoes: ClothingShoesBootsWork
-    id: TechnicalAssistantWallet # Funky: the wallet-ening
+    id: TechnicalAssistantPDA
     belt: ClothingBeltUtilityEngineering
     ears: ClothingHeadsetEngineering
-    pocket1: BookEngineersHandbook # funky, pocket1
+    pocket2: BookEngineersHandbook
   #storage:
     #back:
     #- Stuff
@@ -40,4 +39,4 @@
     mask: ClothingMaskBreath
     neck: ClothingNeckScarfStripedOrange
     outerClothing: ClothingOuterVestHazard
-    gloves: FuClothingHandsGlovesInsuls #Funky
+    gloves: ClothingHandsGlovesColorYellow
