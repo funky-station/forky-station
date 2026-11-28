@@ -1,0 +1,136 @@
+#Steel
+- type: constructionGraph
+  id: TripwireGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: lv_tripwire
+      steps:
+      - material: Cable
+        amount: 3
+        doAfter: 5
+      - material: MetalRod
+        amount: 1
+        doAfter: 1
+    - to: mv_tripwire
+      steps:
+      - material: CableMV
+        amount: 3
+        doAfter: 5
+      - material: MetalRod
+        amount: 1
+        doAfter: 1
+    - to: hv_tripwire
+      steps:
+      - material: CableHV
+        amount: 3
+        doAfter: 5
+      - material: MetalRod
+        amount: 1
+        doAfter: 1
+
+#lv tripwire
+  - node: lv_tripwire
+    entity: TripwireLV
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: CableApcStack1
+        amount: 2
+      - !type:DeleteEntity
+      steps:
+      - tool: Cutting
+        doAfter: 1
+    - to: lv_signal
+      steps:
+      - component: PowerCell
+        name: construction-graph-component-power-cell
+        store: battery-container
+        icon:
+          sprite: Objects/Power/power_cells.rsi
+          state: small
+        doAfter: 1
+
+  - node: lv_signal
+    entity: TripwireSignalLV
+    edges:
+    - to: lv_tripwire
+      completed:
+      - !type:EmptyAllContainers
+        pickup: true
+        emptyAtUser: true
+      steps:
+      - tool: Screwing
+        doAfter: 2
+
+#mv tripwire
+  - node: mv_tripwire
+    entity: TripwireMV
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: CableMVStack1
+        amount: 2
+      - !type:DeleteEntity
+      steps:
+      - tool: Cutting
+        doAfter: 1
+    - to: mv_signal
+      steps:
+      - component: PowerCell
+        name: construction-graph-component-power-cell
+        store: battery-container
+        icon:
+          sprite: Objects/Power/power_cells.rsi
+          state: small
+        doAfter: 1
+
+  - node: mv_signal
+    entity: TripwireSignalMV
+    edges:
+    - to: mv_tripwire
+      completed:
+      - !type:EmptyAllContainers
+        pickup: true
+        emptyAtUser: true
+      steps:
+      - tool: Screwing
+        doAfter: 2
+
+#hv tripwire
+  - node: hv_tripwire
+    entity: TripwireHV
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: CableHVStack1
+        amount: 2
+      - !type:DeleteEntity
+      steps:
+      - tool: Cutting
+        doAfter: 1
+    - to: hv_signal
+      steps:
+      - component: PowerCell
+        name: construction-graph-component-power-cell
+        store: battery-container
+        icon:
+          sprite: Objects/Power/power_cells.rsi
+          state: small
+        doAfter: 1
+
+  - node: hv_signal
+    entity: TripwireSignalHV
+    edges:
+    - to: hv_tripwire
+      completed:
+      - !type:EmptyAllContainers
+        pickup: true
+        emptyAtUser: true
+      steps:
+      - tool: Screwing
+        doAfter: 2
