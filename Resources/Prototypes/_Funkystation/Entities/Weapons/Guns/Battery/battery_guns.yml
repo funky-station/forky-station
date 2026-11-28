@@ -1,0 +1,38 @@
+- type: entity
+  name: advanced pulse rifle
+  parent: WeaponPulseRifle
+  id: WeaponAdvancedPulseRifle
+  suffix: "DO NOT MAP" # Deathsquad weapons should not be mapped
+  description: An advanced version of the infamous pulse rifle, beloved by NanoTrasen's most off the book troops for its versatility and sheer killing power.
+  components:
+  - type: Gun
+    fireRate: 3
+    minAngle: 10
+    maxAngle: 45
+    angleIncrease: 5
+    angleDecay: 15
+    selectedMode: FullAuto
+    shotsPerBurst: 5
+    burstCooldown: 1.5
+    burstFireRate: 14 # 15 breaks the sound so 14 it is
+    availableModes:
+    - FullAuto
+    - Burst # Honestly this is more so shotgun-ish mode
+  - type: GunRequiresWield # Professionals have standards, wield your gun!
+  - type: Battery
+    maxCharge: 20000 # Halved from the pulse rifle to account for the changes in firecost depending on firemode
+    startingCharge: 20000
+  - type: BatterySelfRecharger
+    autoRechargeRate: 200 # Recharges 4 lowpower pulses or 2 breaching pulses or 0.5 high power pulses
+    autoRechargePauseTime: 4
+  - type: BatteryAmmoProvider
+    proto: LowPowerPulse
+    fireCost: 50
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: LowPowerPulse # Does 15 heat, the default type of pulse, very good to limit energy consuption
+      fireCost: 50
+    - proto: BreachPowerPulse # Does 45 struct + 5 heat, go on and break through a wall and shoot through the lattice
+      fireCost: 100
+    - proto: HighPowerPulse # Does 20 heat and 10 pierce to make up for the fact that it costs 8 times more energy than the low power pulse
+      fireCost: 400

@@ -1,0 +1,34 @@
+- type: entity
+  parent: Pulse
+  id: LowPowerPulse
+  name: Low-energy Pulse
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 15
+
+- type: entity
+  parent: Pulse
+  id: BreachPowerPulse
+  name: Breaching Pulse
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Structural: 45
+        Heat: 5
+
+- type: entity
+  parent: Pulse
+  id: HighPowerPulse
+  name: High-energy Pulse
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types: # So high powered it does pierce damage
+        Heat: 20
+        Piercing: 10
