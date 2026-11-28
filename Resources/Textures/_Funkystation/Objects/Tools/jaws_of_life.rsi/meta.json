@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "copyright": "By AraiMaia for Funky Station",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "jaws_cutter"
+    },
+    {
+      "name": "jaws_pry"
+    },
+    {
+      "name": "syn_jaws_cutter"
+    },
+    {
+      "name": "syn_jaws_pry"
+    },
+    {
+      "name": "xorg_jaws_cutter"
+    },
+    {
+      "name": "xorg_jaws_pry"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "syn_inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "syn_inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "xorg_inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "xorg_inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-BELT",
+      "directions": 4
+    }
+  ]
+}
