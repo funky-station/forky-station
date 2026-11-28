@@ -5,9 +5,9 @@
   description: A hand-held mass scanner.
   components:
   - type: Item
-    sprite: Objects/Tools/handheld_mass_scanner.rsi
+    sprite: _Funkystation/Objects/Tools/handheld_mass_scanner.rsi # Funky
   - type: Sprite
-    sprite: Objects/Tools/handheld_mass_scanner.rsi
+    sprite: _Funkystation/Objects/Tools/handheld_mass_scanner.rsi # Funky
     state: icon
     layers:
       - state: icon
