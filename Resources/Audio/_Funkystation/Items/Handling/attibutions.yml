@@ -1,0 +1,9 @@
+- files: ["key_drop.ogg"]
+  license: "CC0-1.0"
+  copyright: "By @FOSSarts (Freesound). Edited and converted to mono OGG by @pirakaplant (GitHub)."
+  source: "https://freesound.org/people/FOSSarts/sounds/740407/"
+
+- files: ["key_pickup.ogg"]
+  license: "CC0-1.0"
+  copyright: "By @KINITØ.dev (Freesound). Edited and converted to mono OGG by @pirakaplant (GitHub)."
+  source: "https://freesound.org/people/KINIT%C3%98.dev/sounds/868088/"

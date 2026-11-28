@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC0-1.0",
-  "copyright": "By AraiMaia for Funky Station.",
+  "copyright": "DCE, DCMO, DHD, DQM, and DRD labels by @pirakaplant (GitHub). All other sprites by AraiMaia for Funky Station.",
   "size": {
     "x": 32,
     "y": 32
@@ -15,6 +15,21 @@
         },
         {
             "name": "clown"
+        },
+        {
+            "name": "dce"
+        },
+        {
+            "name": "dcmo"
+        },
+        {
+            "name": "dhd"
+        },
+        {
+            "name": "dqm"
+        },
+        {
+            "name": "drd"
         },
         {
             "name": "internals"
