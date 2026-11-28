@@ -73,6 +73,7 @@
         whitelist:
           tags:
             - ShellShotgun
+  - type: SerialNumber #funky
   - type: Tag
     tags:
     - Sidearm
