@@ -17,7 +17,7 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi
+    sprite: _Funkystation/Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi # Funky
   - type: MagazineVisuals
     magState: mag
     steps: 4

@@ -17,7 +17,7 @@
   id: AmmoProviderShotgunShell
   components:
     - type: Sprite
-      sprite: Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi
+      sprite: _Funkystation/Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi # Funky
     - type: BallisticAmmoProvider
       mayTransfer: true
       whitelist:
