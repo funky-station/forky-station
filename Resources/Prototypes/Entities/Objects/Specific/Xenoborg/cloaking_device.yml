@@ -5,7 +5,7 @@
   description: A device that allows Xenoborgs to go invisible.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Research/anomalyscanner.rsi
+    sprite: _Funkystation/Objects/Specific/Research/anomalyscanner.rsi # Funky
     state: icon
   - type: ItemToggle
   - type: ComponentToggler
