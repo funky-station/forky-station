@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "BeeStation at f5029797ec3c6d58f9a806b68427ca44de310008",
+  "size": {
+    "x": 32,
+    "y": 32
+    },
+  "states": [
+    {
+      "name": "dark_stairs_1"
+    },
+    {
+      "name": "dark_stairs_2"
+    },
+    {
+      "name": "gray_stairs_1"
+    },
+    {
+      "name": "gray_stairs_2"
+    },
+    {
+      "name": "white_stairs_1"
+    },
+    {
+      "name": "white_stairs_2"
+    },
+    {
+      "name": "warning_stairs_1"
+    },
+    {
+      "name": "warning_stairs_2"
+    },
+    {
+      "name": "wood_stairs_1"
+    },
+    {
+      "name": "wood_stairs_2"
+    }
+  ]
+}
