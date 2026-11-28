@@ -8,7 +8,7 @@
     - id: GiftsMedical
     - id: GiftsPizzaPartyLarge
     - id: GiftsPizzaPartySmall
-    - id: GiftsSecurityGuns
+    - id: GiftsSecurityArmor # Funky: Turned this into Armor
     - id: GiftsSecurityRiot
     - id: GiftsSpacingSupplies
     - id: GiftsVendingRestock
@@ -174,7 +174,7 @@
       EmergencyBruteKit: 1
 
 - type: entity
-  id: GiftsSecurityGuns
+  id: GiftsSecurityArmor # Funky: Turned this from GiftsSecurityGuns > GiftsSecurityArmor
   parent: CargoGiftsBase
   components:
   - type: StationEvent
@@ -183,14 +183,14 @@
     earliestStart: 20
     minimumPlayers: 50
   - type: CargoGiftsRule
-    description: cargo-gift-security-guns
+    description: cargo-gift-security-armor # Funky: Turned this from cargo-gift-security-guns > cargo-gift-security-armor
     dest: cargo-gift-dest-sec
     gifts:
       SecurityArmor: 3
-      ArmorySmg: 1
-      ArmoryShotgun: 1
-      ArmoryLaser: 1
-      ArmoryRifle: 1
+      # ArmorySmg: 1 # Funky: Commented as corrosponding order was also commented out
+      # ArmoryShotgun: 1 # Funky: Commented as corrosponding order was also commented out
+      # ArmoryLaser: 1 # Funky: Commented as corrosponding order was also commented out
+      # ArmoryRifle: 1 # Funky: Commented as corrosponding order was also commented out
 
 - type: entity
   id: GiftsSecurityRiot
