@@ -227,7 +227,7 @@
     ears: ClothingHeadsetSecurity
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterArmorBasic
-    pocket1: WeaponPistolMk58
+    pocket1: WeaponEnergyPistol # Funky: WeaponPistolMk58 > WeaponEnergyPistol
     pocket2: MagazinePistol
   inhand:
   - FlashlightSeclite
@@ -245,7 +245,7 @@
     ears: ClothingHeadsetSecurity
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterArmorBasicSlim
-    pocket1: WeaponPistolMk58
+    pocket1: WeaponEnergyPistol # Funky: WeaponPistolMk58 > WeaponEnergyPistol
     pocket2: MagazinePistol
   inhand:
   - FlashlightSeclite
@@ -262,7 +262,7 @@
     ears: ClothingHeadsetSecurity
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterArmorBasic
-    pocket1: WeaponPistolMk58
+    pocket1: WeaponEnergyPistol # Funky: WeaponPistolMk58 > WeaponEnergyPistol
     pocket2: MagazinePistol
   inhand:
   - FlashlightSeclite
@@ -280,7 +280,7 @@
     ears: ClothingHeadsetSecurity
     eyes: ClothingEyesGlassesSecurity
     outerClothing: ClothingOuterArmorBasicSlim
-    pocket1: WeaponPistolMk58
+    pocket1: WeaponEnergyPistol # Funky: WeaponPistolMk58 > WeaponEnergyPistol
     pocket2: MagazinePistol
   inhand:
   - FlashlightSeclite

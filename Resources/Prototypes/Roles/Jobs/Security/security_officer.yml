@@ -25,7 +25,7 @@
   equipment:
     eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetSecurity
-    pocket1: WeaponPistolMk58
+    pocket1: WeaponEnergyPistol # Funky: WeaponPistolMk58 > WeaponEnergyPistol
   storage:
     back:
     - Flash
