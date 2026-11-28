@@ -1,5 +1,5 @@
-defaultWindowTitle: Space Station 14
-windowIconSet: /Textures/Logo/icon
-splashLogo: /Textures/Logo/logo.png
-
-# PJB PLEASE
+# FUNKY CHANGES START
+defaultWindowTitle: Funky Station
+windowIconSet: /Textures/_Funkystation/Logo/icon
+splashLogo: /Textures/_Funkystation/Logo/logo.png
+# FUNKY CHANGES END
