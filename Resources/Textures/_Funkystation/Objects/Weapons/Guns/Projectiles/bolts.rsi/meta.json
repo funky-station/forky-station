@@ -35,6 +35,9 @@
     },
       {
           "name": "tip-teargas"
+      },
+      {
+          "name": "tip-teargas-used"
       }
   ]
 }

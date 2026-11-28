@@ -45,9 +45,7 @@
   - type: Sprite
     layers:
     - state: tail
-      color: black
     - state: rod
-      color: darkgray
     - state: tip-rounded
       color: black
   - type: CartridgeAmmo
@@ -56,18 +54,32 @@
 
 - type: entity
   parent: [ FunkyBaseCrossbowBoltAmmo, BaseSecurityContraband ]
-  id: FunkyCrossbowBoltTeargasAmmo
+  id: FunkyCrossbowBoltTeargasAmmo # todo: add a lathe recipe
   name: teargas bolt
   description: A single use bolt that releases a small amount of teargas on contact.
   components:
   - type: Sprite #temp
     layers:
     - state: tail
-      color: black
     - state: rod
-      color: darkgray
     - state: tip-teargas
   - type: CartridgeAmmo
     proto: FunkyCrossbowBoltTeargasProjectile
     deleteOnSpawn: true
 
+- type: entity
+  parent: [ BaseItem, BaseSecurityContraband ]
+  id: FunkyCrossbowBoltTeargasSpent
+  name: spent teargas bolt
+  description: A used up teargas bolt, its just trash now.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Guns/Projectiles/bolts.rsi #Sprites are not done and are pretty much just the arrow sprites
+    drawdepth: Items
+    layers:
+    - state: tail
+    - state: rod
+    - state: tip-teargas-used
+  - type: Tag
+    tags:
+    - Trash

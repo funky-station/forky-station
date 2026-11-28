@@ -26,6 +26,9 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
     [Dependency] private DestructibleSystem _destructibleSystem = default!;
     [Dependency] private GunSystem _guns = default!;
     [Dependency] private SharedCameraRecoilSystem _sharedCameraRecoil = default!;
+    // Funky Start
+    [Dependency] private SharedStaminaSystem _stamina = default!;
+    // Funky End
 
     public override void Initialize()
     {
@@ -78,7 +81,13 @@ public sealed partial class ProjectileSystem : SharedProjectileSystem
                 LogImpact.Medium,
                 $"Projectile {ToPrettyString(uid):projectile} shot by {shotByString} hit {otherName:target} and dealt {damage:damage} damage");
 
-
+            // Funky Start
+            // should try to deal damage if
+            if (damage.DamageDict.TryGetValue("Blunt", out var bluntDamage))
+            {
+                _stamina.TakeStaminaDamage(target, (bluntDamage * component.BluntStaminaDamageFactor).Float());
+            }
+            // Funky End
             component.ProjectileSpent = !TryPenetrate((uid, component), damage, damageRequired);
         }
         else
