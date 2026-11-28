@@ -1,0 +1,19 @@
+# Format is locker, then the table it uses
+- type: entity
+  parent: [GunSafeBaseSecure, BaseSecurityContraband]
+  id: FunkyGunSafeCrossbow
+  name: crossbow safe
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FunkyFillGunSafeCrossbow
+
+- type: entityTable
+  id: FunkyFillGunSafeCrossbow
+  table: !type:AllSelector
+    children:
+    - id: FunkyCrossbowSecurity
+      amount: 3
+    - id: FunkyCrossbowBoltLessLethalAmmo
+      amount: 12 # four for each crossbow

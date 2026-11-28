@@ -427,6 +427,7 @@
       - HandGrenade
       - Stunbaton
       - Nightstick # Funky
+      - Bolt
       components:
       - FlashOnTrigger
       - SmokeOnTrigger

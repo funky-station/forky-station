@@ -5,3 +5,11 @@
   completetime: 4
   materials:
     Plastic: 25
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: FunkyCrossbowBoltLessLethalAmmo
+  result: FunkyCrossbowBoltLessLethalAmmo
+  materials:
+    Plastic: 100
+    Steel: 200

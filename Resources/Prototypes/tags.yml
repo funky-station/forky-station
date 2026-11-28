@@ -409,6 +409,11 @@
 - type: Tag
   id: Creamsicle # Blacklist on BountyFruit
 
+# begin Funky
+- type: Tag
+  id: CrossbowBolt #Storage Whitelist: Quiver, used as ammo for crossbows
+# end Funky
+
 - type: Tag
   id: Crowbar # Storage whitelist: BaseClothingBeltEngineering, ClothingBeltChiefEngineer. ItemMapper: BaseClothingBeltEngineering, ClothingBeltChiefEngineer
 

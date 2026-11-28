@@ -1,0 +1,85 @@
+- type: entity
+  abstract: true
+  parent: [ BaseItem ]
+  id: FunkyBaseCrossbowBoltAmmo
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Guns/Projectiles/bolts.rsi #Sprites are not done and are pretty much just the arrow sprites
+    drawdepth: Items
+  - type: Item
+    size: Small
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 5
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: Ammo
+    muzzleFlash: null
+  - type: Tag
+    tags:
+    - CrossbowBolt
+  - type: Damageable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: [ FunkyBaseCrossbowBoltAmmo, BaseSecurityContraband ]
+  id: FunkyCrossbowBoltLessLethalAmmo
+  name: rubber bolt
+  description: A crossbow bolt with a rounder rubber tip. It still hurts though.
+  components:
+  - type: Sprite
+    layers:
+    - state: tail
+    - state: rod
+    - state: tip-rounded
+      color: black
+  - type: CartridgeAmmo
+    proto: FunkyCrossbowBoltLessLethalProjectile
+    deleteOnSpawn: true
+
+- type: entity
+  parent: [ FunkyBaseCrossbowBoltAmmo, BaseSecurityContraband ]
+  id: FunkyCrossbowBoltTeargasAmmo # todo: add a lathe recipe
+  name: teargas bolt
+  description: A single use bolt that releases a small amount of teargas on contact.
+  components:
+  - type: Sprite #temp
+    layers:
+    - state: tail
+    - state: rod
+    - state: tip-teargas
+  - type: CartridgeAmmo
+    proto: FunkyCrossbowBoltTeargasProjectile
+    deleteOnSpawn: true
+
+- type: entity
+  parent: [ BaseItem, BaseSecurityContraband ]
+  id: FunkyCrossbowBoltTeargasSpent
+  name: spent teargas bolt
+  description: A used up teargas bolt, its just trash now.
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Guns/Projectiles/bolts.rsi #Sprites are not done and are pretty much just the arrow sprites
+    drawdepth: Items
+    layers:
+    - state: tail
+    - state: rod
+    - state: tip-teargas-used
+  - type: Tag
+    tags:
+    - Trash

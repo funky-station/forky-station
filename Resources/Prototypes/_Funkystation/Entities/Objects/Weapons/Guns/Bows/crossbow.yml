@@ -1,0 +1,56 @@
+- type: entity
+  parent: BaseItem
+  id: FunkyCrossbowSecurity
+  name: AEGIS security crossbow
+  description: "With the all new AEGIS Security crossbow you don't have to worry about silly things like trigger discipline, because crossbows are obviously less dangerous then a gun! (Disclaimer: AEGIS Security is not responsible for any injuries this causes)"
+  components: #TODO: add a system for drawing the crossbow before being able to fire it
+  - type: Appearance
+  - type: Sprite #currently colours are just the regions of the crossbow
+    sprite: _Funkystation/Objects/Weapons/Guns/Bows/compound-crossbow.rsi # ignore the 64x one, it's old and there for reference when making sprites
+    layers:
+    - state: drawn
+      map: [ base ]
+    - state: drawn-bolt # TODO: make the bolt show up when loaded
+      map: [ bolt ]
+      visible: false
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Back
+  - type: Item
+    size: Large
+  - type: Wieldable
+  - type: UseDelay
+    delay: 2.5 # until a drawing system can be implemented
+  - type: GunRequiresWield
+  - type: Gun
+    minAngle: 0
+    maxAngle: 2
+    fireRate: 1
+    projectileSpeed: 35
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      collection: BulletMiss
+    soundEmpty: null
+  - type: BallisticAmmoProvider # todo: change the sound when a bolt is added
+    capacity: 1
+    proto: null
+    whitelist:
+      tags:
+      - CrossbowBolt
+  - type: BreechLoaded
+    ToggleDelay: 3
+    openSound: # temporary sound
+      path: "/Audio/Items/bow_pull.ogg"
+    closeSound:
+      path: "/Audio/Weapons/Guns/Misc/arrow_nock.ogg"
+  - type: GenericVisualizer
+    visuals:
+      enum.BreechVisuals.Open:
+        enum.BreechVisuals.Open:
+          True: { state: drawn }
+          False: { state: undrawn }
+
+

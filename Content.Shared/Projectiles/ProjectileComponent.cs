@@ -110,4 +110,12 @@ public sealed partial class ProjectileComponent : Component
     /// </summary>
     [DataField]
     public FixedPoint2 PenetrationAmount = FixedPoint2.Zero;
+
+    // Funky Start
+    /// <summary>
+    /// How much stamina damage to deal based on blunt damage dealt, default is zero
+    /// </summary>
+    [DataField]
+    public FixedPoint2 BluntStaminaDamageFactor = FixedPoint2.Zero;
+    // Funky End
 }

@@ -1,0 +1,111 @@
+- type: entity
+  abstract: true
+  parent: [ BaseItem ] # no Solution Dart because the bolts A. do not embed, and B. yeah no I'm not giving sec the ability to do that
+  id: FunkyBaseCrossbowBoltProjectile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Funkystation/Objects/Weapons/Guns/Projectiles/bolts.rsi #Sprites are not done and are pretty much just the arrow sprites
+  - type: Item
+    size: Small
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb # no idea what this is for but it's in the arrow so I'm putting it here so I don't crash the game
+          bounds: "-0.1,-0.3,0.2,-0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: Ammo
+    muzzleFlash: null
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Piercing: 35
+
+- type: entity
+  parent: [ FunkyBaseCrossbowBoltProjectile, BaseSecurityContraband ]
+  id: FunkyCrossbowBoltLessLethalProjectile
+  name: rubber bolt
+  description: A bolt with a rounder rubber tip. It still hurts though.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: tail
+    - state: rod
+    - state: tip-rounded
+      color: black
+  - type: Projectile
+    bluntStaminaDamageFactor: 1.0 # deals the same amount of stamina damage as blunt damage dealt
+    damage:
+      types:
+        Blunt: 27 # Still lethal
+  - type: StunOnCollide
+    slowdownAmount: 2
+    walkSpeedModifier: 0.75
+    sprintSpeedModifier: 0.75
+  - type: TriggerOnCollide
+    fixtureID: projectile
+    maxTriggers: 1
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  - type: ScatteringGrenade # TODO: offset the spawn so it doesn't spawn in walls
+    triggerKey: trigger
+    randomAngle: true
+    fillPrototype: FunkyCrossbowBoltLessLethalAmmo
+    capacity: 1
+    randomDistance: true
+    randomThrowDistanceMin: 0.5
+    randomThrowDistanceMax: 2
+# once condition med is added, add a chance to break the person who was hit's ribs or something like that if the damage isn't enough
+
+- type: entity
+  parent: [ FunkyBaseCrossbowBoltProjectile, BaseSecurityContraband ]
+  id: FunkyCrossbowBoltTeargasProjectile
+  name: teargas bolt
+  description: A single use bolt that releases a small amount of teargas on contact.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: tail
+    - state: rod
+    - state: tip-teargas
+  - type: Projectile # extra damage to the person hit because it is supposed to be exploding while touching them
+    damage: # about 27 total damage with the explosion, plus teargas
+      types:
+        Blunt: 6.5
+        Heat: 6.5
+        Piercing: 6.5
+  - type: TriggerOnCollide
+    fixtureID: projectile
+    maxTriggers: 1
+  - type: SmokeOnTrigger
+    duration: 2
+    spreadAmount: 1
+    smokePrototype: TearGasSmokeWhite
+    solution:
+      reagents:
+      - ReagentId: TearGas
+        Quantity: 30
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: GlassBreak
+  - type: SpawnOnTrigger # Doesn't need to be a scattering grenade because the explosion will knock it around
+    proto: FunkyCrossbowBoltTeargasSpent
+    predicted: true
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 0.5
+    intensitySlope: 1
+    totalIntensity: 0.5
+    canCreateVacuum: false
+
+
+# DO NOT ADD A FLASHBANG BOLT UNLESS YOU WANT THE RETURN OF THE STUN META
