@@ -5,7 +5,7 @@
   description: A hardcover book.
   components:
   - type: Sprite
-    sprite: Objects/Misc/books.rsi
+    sprite: _Funkystation/Objects/Misc/Books/generic.rsi # Funky change.
     layers:
     - state: paper
     - state: cover_base
@@ -52,7 +52,7 @@
   suffix: guidebook
   components:
   - type: Sprite
-    sprite: Objects/Misc/books.rsi
+    sprite: _Funkystation/Objects/Misc/Books/generic.rsi # Funky change.
   - type: Tag
     tags:
     - Book
