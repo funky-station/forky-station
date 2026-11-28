@@ -29,6 +29,7 @@
     back:
     - Flash
     - MagazinePistol
+    - BreachingCharge
 
 - type: chameleonOutfit
   id: FunkyLieutenantChameleonOutfit
