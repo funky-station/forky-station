@@ -1,0 +1,8 @@
+- type: stack
+  parent: BaseVeryLargeStack
+  id: SupermatterShard
+  name: stack-supermatter-shard
+  icon: 
+    sprite: "/Textures/Objects/Consumable/Food/Baked/cake.rsi"
+    state: suppermatter
+  spawn: MaterialSupermatterShard1

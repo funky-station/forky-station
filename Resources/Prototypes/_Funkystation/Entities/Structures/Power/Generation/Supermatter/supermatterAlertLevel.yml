@@ -1,0 +1,129 @@
+- type: supermatterAlertLevel
+  id: Stable
+
+  lowerThreshold: 100
+  lowerState: Active
+  upperThreshold: 100
+  upperState: Stable
+
+
+  announceDecreaseToStation: false
+  announceIncreaseToStation: false
+
+  radioChannels:
+  - Engineering
+
+  increasingRadioMessage: supermatter-announcement-stable-recover-radio
+  decreasingRadioMessage: supermatter-announcement-stable-warning-radio
+
+  increasingAnnouncementMessage: supermatter-announcement-stable-recover-announcement
+  decreasingAnnouncementMessage: supermatter-announcement-stable-warning-announcement
+
+- type: supermatterAlertLevel
+  id: Active
+
+  lowerThreshold: 75
+  lowerState: Unstable
+
+  upperThreshold: 100
+  upperState: Stable
+
+  announceDecreaseToStation: false
+  announceIncreaseToStation: false
+
+  radioChannels:
+  - Engineering
+
+  increasingRadioMessage: supermatter-announcement-active-recover-radio
+  decreasingRadioMessage: supermatter-announcement-active-warning-radio
+
+  increasingAnnouncementMessage: supermatter-announcement-active-recover-announcement
+  decreasingAnnouncementMessage: supermatter-announcement-active-warning-announcement
+
+- type: supermatterAlertLevel
+  id: Unstable
+
+  lowerThreshold: 50
+  lowerState: Danger
+
+  upperThreshold: 80
+  upperState: Active
+
+  announceDecreaseToStation: false
+  announceIncreaseToStation: false
+
+  radioChannels:
+  - Engineering
+  - Command
+
+  increasingRadioMessage: supermatter-announcement-unstable-recover-radio
+  decreasingRadioMessage: supermatter-announcement-unstable-warning-radio
+
+  increasingAnnouncementMessage: supermatter-announcement-unstable-recover-announcement
+  decreasingAnnouncementMessage: supermatter-announcement-unstable-warning-announcement
+
+- type: supermatterAlertLevel
+  id: Danger
+
+  lowerThreshold: 25
+  lowerState: Critical
+
+  upperThreshold: 55
+  upperState: Unstable
+
+  announceDecreaseToStation: true
+  announceIncreaseToStation: false
+
+  radioChannels:
+  - Engineering
+  - Command
+
+  increasingRadioMessage: supermatter-announcement-danger-recover-radio
+  decreasingRadioMessage: supermatter-announcement-danger-warning-radio
+
+  increasingAnnouncementMessage: supermatter-announcement-danger-recover-announcement
+  decreasingAnnouncementMessage: supermatter-announcement-danger-warning-announcement
+
+- type: supermatterAlertLevel
+  id: Critical
+
+  lowerThreshold: 0.1
+  lowerState: Delam
+
+  upperThreshold: 30
+  upperState: Danger
+
+  announceDecreaseToStation: true
+  announceIncreaseToStation: false
+
+  radioChannels:
+  - Engineering
+  - Command
+
+  increasingRadioMessage: supermatter-announcement-critical-recover-radio
+  decreasingRadioMessage: supermatter-announcement-critical-warning-radio
+
+  increasingAnnouncementMessage: supermatter-announcement-critical-recover-announcement
+  decreasingAnnouncementMessage: supermatter-announcement-critical-warning-announcement
+
+- type: supermatterAlertLevel
+  id: Delam
+
+  lowerThreshold: -10
+  lowerState: Delam
+
+  upperThreshold: 30
+  upperState: Critical
+
+  announceDecreaseToStation: true
+  announceIncreaseToStation: false
+
+  radioChannels:
+  - Engineering
+  - Command
+
+  increasingRadioMessage: supermatter-announcement-delam-recover-radio
+  decreasingRadioMessage: supermatter-announcement-delam-warning-radio
+
+  increasingAnnouncementMessage: supermatter-announcement-delam-recover-announcement
+  decreasingAnnouncementMessage: supermatter-announcement-delam-warning-announcement

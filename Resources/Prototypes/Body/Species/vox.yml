@@ -163,6 +163,8 @@
   id: MobVox
   name: Urist McVox
   components:
+  - type: MobSize
+    size: Medium
   - type: Damageable
     damageModifierSet: Vox
   - type: Speech
