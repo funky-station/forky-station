@@ -1,0 +1,8 @@
+- type: entity
+  id: BaseWeaponSubMachineGun
+  components:
+  - type: ChamberMagazineAmmoProvider
+    showExamineText: false
+  - type: Gun
+    showExamineText: false
+  - type: !Remove AmmoCounter

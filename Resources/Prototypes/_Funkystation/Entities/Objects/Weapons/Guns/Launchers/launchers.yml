@@ -1,6 +1,43 @@
+#This is all to fix inheritance bullshit
+
+- type: entity
+  abstract: true
+  parent: [ BaseItem, BaseGunWieldable ]
+  id: FunkyBaseWeaponLauncher
+  name: FunkyBaseWeaponLauncher
+  description: A rooty tooty point and shooty.
+  components:
+  - type: Sprite
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
+    quickEquip: false
+    slots:
+    - Back
+  - type: Item
+    size: Ginormous
+    shape:
+    - 0,0,6,3
+  - type: StaticPrice
+    price: 500
+  - type: Gun
+    showExamineText: false
+    fireRate: 1
+    projectileSpeed: 25 # Slower than a bullet, same speed as our old projectile limit.
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+
+#end inheritance bullshit
+
 - type: entity
   name: china lake
-  parent: [BaseWeaponLauncher, BaseSyndicateContraband]
+  parent: [FunkyBaseWeaponLauncher, BaseSyndicateContraband]
   id: FuWeaponLauncherChinaLake
   description: PLOOP.
   components:
@@ -18,9 +55,9 @@
     size: Huge
     shape:
     - 0,0,4,2
-  - type: AmmoCounter
   - type: PumpAction
   - type: BallisticAmmoProvider
+    showExamineText: false
     whitelist:
       tags:
         - Grenade

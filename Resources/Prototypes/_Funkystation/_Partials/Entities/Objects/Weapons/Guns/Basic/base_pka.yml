@@ -1,0 +1,7 @@
+- type: entity
+  id: WeaponProtoKineticAcceleratorBase
+  components:
+  - type: Gun
+    showExamineText: false
+  - type: RechargeBasicEntityAmmo
+    showExamineText: false

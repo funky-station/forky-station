@@ -1,0 +1,5 @@
+- type: entity
+  id: WeaponWaterGunBase
+  components:
+  - type: Gun
+    showExamineText: false

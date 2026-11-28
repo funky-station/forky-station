@@ -57,4 +57,10 @@ public sealed partial class BallisticAmmoProviderComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan FillDelay = TimeSpan.FromSeconds(0.5);
+
+    /// <summary>
+    /// Whether or not ammo count will be shown on examine.
+    /// </summary>
+    [DataField]
+    public bool ShowExamineText = true;
 }
