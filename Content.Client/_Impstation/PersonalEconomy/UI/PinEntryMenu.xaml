@@ -1,0 +1,12 @@
+<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:ui="clr-namespace:Content.Client._Impstation.PersonalEconomy.UI"
+    Title="{Loc atm-pin-entry-title}"
+    Resizable="False">
+    <BoxContainer Orientation="Vertical" Margin="8" HorizontalAlignment="Center">
+        <Label Text="{Loc atm-pin-entry-prompt}" HorizontalAlignment="Center"/>
+        <Control MinHeight="6"/>
+        <ui:Keypad Name="PinKeypad" NumberLength="4"/>
+    </BoxContainer>
+</controls:FancyWindow>

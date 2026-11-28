@@ -177,3 +177,14 @@
   cost: 500
   category: cargoproduct-category-name-service
   group: market
+
+# Funky
+- type: cargoProduct
+  id: ServicePaymentSquares
+  icon:
+    sprite: Objects/Tools/hand_labeler.rsi
+    state: hand_labeler
+  product: CrateServicePaymentSquares
+  cost: 1000
+  category: cargoproduct-category-name-service
+  group: market
