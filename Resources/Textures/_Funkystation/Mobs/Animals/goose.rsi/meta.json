@@ -1,60 +1,131 @@
 {
   "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "From Paradise Station at https://github.com/ParadiseSS13/Paradise/commit/bd91a1b962fe9bd38e346e9fafd4ebb10784fcb3, animated by mkanke (discord) for Funkystation",
+  "copyright": "Goose sprites by Dogman20801 (discord) for Funkystation",
+  "license": "CC-BY-NC-SA-4.0",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "goosenarsie",
+      "name": "goose",
       "directions": 4,
-        "delays": [
-            [
-                0.20,
-                0.20,
-                0.20,
-                0.20,
-                0.20,
-                0.20
-            ],
-            [
-                0.20,
-                0.20,
-                0.20,
-                0.20,
-                0.20,
-                0.20
-            ],
-            [
-                0.20,
-                0.20,
-                0.20,
-                0.20,
-                0.20,
-                0.20
-            ],
-            [
-                0.20,
-                0.20,
-                0.20,
-                0.20,
-                0.20,
-                0.20
-            ]
+      "delays": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
         ]
+      ]
     },
     {
-      "name": "GooseNarsieSummon",
-        "delays": [
-            [
-                0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1
-            ]
+      "name": "dead",
+      "delays": [
+        [
+          1
         ]
+      ]
     },
     {
-      "name": "dead"
+      "name": "vomit",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "vomit_end",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "vomit_start",
+      "directions": 4,
+      "delays": [
+        [
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.2,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.2,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.2,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.2,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
     }
   ]
 }
